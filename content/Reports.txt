@@ -1,0 +1,4 @@
+====== Reports Lens ======
+Created Tuesday 05/12/2006 19:17
+
+A collection of reports that can be run of the selected record, i.e. they use the record type as in input parameter, and where possible, the record identifier.

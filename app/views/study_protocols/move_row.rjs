@@ -1,0 +1,9 @@
+##
+# Script to replace current parameter_context row with updated version with changed list of parameters
+# 
+if @successful
+  page.replace_html @process_instance.dom_id('editor'), :partial => 'parameter_layout'
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+else
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+end

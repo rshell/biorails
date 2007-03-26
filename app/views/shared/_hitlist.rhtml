@@ -1,0 +1,17 @@
+<ul class="hitlist">
+  <% if @hits && @hits.class==Array && @hits.size>0%>
+    <% old= nil.class %>
+    <% for hit in @hits %>
+       <% if old != hit.class %>
+</ul> 
+<strong>
+ <%= link_to old=hit.class,:controller=> hit.class.to_s.pluralize.downcase, :action=>'list' %>
+</strong>
+<ul class="histlist">
+       <% end %>
+    <li class="item"><%= link_to hit.name ,:controller=> hit.class.to_s.pluralize.downcase, :action=>'show',:id => hit.id %></li>
+    <% end %>
+  <% else %>
+    <li> No matches</li> 
+  <% end %>   
+</ul>

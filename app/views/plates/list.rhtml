@@ -1,0 +1,20 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%=subject_icon('plate')%> Plates
+    </div>
+    <div class='dialog'>    
+      <fieldset>
+          <div class="row">
+            <div class="form-element">
+              <label for="matching_name">Matching:</label>
+                 <%=text_field_tag :search %>
+                 <%= observe_field(:search, :frequency => 0.1,
+                        :update => params[:scaffold_id],
+                         :url => { :action => :search }) %>
+               <label class="example">Filter down names to values begining with this prefix</label>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    <%= render_component :controller => '/plates', :action => 'component', :params => params %>
+</div>

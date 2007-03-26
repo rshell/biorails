@@ -1,0 +1,17 @@
+/* Will need to login to mysql as root to initial run this script eg.
+ * mysql -u root -p 
+ */
+create user biorails identified by 'moose';
+create user 'biorails'@'localhost' identified by 'moose';
+
+create database biorails_development;
+grant all on biorails_development.* to 'root'@'localhost';
+grant all on biorails_development.* to 'biorails'@'localhost';
+
+create database biorails_test;
+grant all on biorails_development.* to 'root'@'localhost';
+grant all on biorails_development.* to 'biorails'@'localhost';
+
+create database biorails_production;
+grant all on biorails_test.* to 'root'@'localhost';
+grant all on biorails_test.* to 'biorails'@'localhost';

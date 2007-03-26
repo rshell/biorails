@@ -1,0 +1,46 @@
+<%= error_messages_for 'request_service' %>
+
+<!--[form:request_service]-->
+<p><label for="request_service_status">Status</label><br/>
+<%= text_field 'request_service', 'status'  %></p>
+
+<p><label for="request_service_priority">Priority</label><br/>
+<%= text_field 'request_service', 'priority'  %></p>
+
+<p><label for="request_service_name">Name</label><br/>
+<%= text_field 'request_service', 'name'  %></p>
+
+<p><label for="request_service_description">Description</label><br/>
+<%= text_area 'request_service', 'description'  %></p>
+
+<p><label for="request_service_requested_by">Requested by</label><br/>
+<%= text_field 'request_service', 'requested_by'  %></p>
+
+<p><label for="request_service_requested_for">Requested for</label><br/>
+<%= datetime_select 'request_service', 'requested_for'  %></p>
+
+<p><label for="request_service_assigned_to">Assigned to</label><br/>
+<%= text_field 'request_service', 'assigned_to'  %></p>
+
+<p><label for="request_service_accepted_at">Accepted at</label><br/>
+<%= datetime_select 'request_service', 'accepted_at'  %></p>
+
+<p><label for="request_service_completed_at">Completed at</label><br/>
+<%= datetime_select 'request_service', 'completed_at'  %></p>
+
+<p><label for="request_service_lock_version">Lock version</label><br/>
+<%= text_field 'request_service', 'lock_version'  %></p>
+
+<p><label for="request_service_created_by">Created by</label><br/>
+<%= text_field 'request_service', 'created_by'  %></p>
+
+<p><label for="request_service_created_at">Created at</label><br/>
+<%= datetime_select 'request_service', 'created_at'  %></p>
+
+<p><label for="request_service_updated_by">Updated by</label><br/>
+<%= text_field 'request_service', 'updated_by'  %></p>
+
+<p><label for="request_service_updated_at">Updated at</label><br/>
+<%= datetime_select 'request_service', 'updated_at'  %></p>
+<!--[eoform:request_service]-->
+

@@ -1,0 +1,1405 @@
+--- 
+study_parameters_039: 
+  name: Plasma Conc
+  display_unit: ng/mL
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  id: "41"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_095: 
+  name: Reading
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "97"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_067: 
+  name: Activity
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "69"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_096: 
+  name: Weight
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "98"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_068: 
+  name: Measure
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "70"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_097: 
+  name: Score
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  id: "99"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "77"
+study_parameters_010: 
+  name: Gene
+  display_unit: ""
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "10"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_069: 
+  name: Score
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  id: "71"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "77"
+study_parameters_098: 
+  name: p
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "100"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_011: 
+  name: Molecular Mass
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "11"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_040: 
+  name: Brain Conc
+  display_unit: ng/g
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  id: "42"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_099: 
+  name: Statistic
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "101"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_012: 
+  name: Min Weight
+  display_unit: g
+  default_value: "200"
+  data_format_id: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "12"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_041: 
+  name: B/P
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "43"
+  description: "Brain concentration (ng/g) : Plasma Concentration (ng/mL)"
+  study_id: "2"
+  data_element_id: 
+study_parameters_013: 
+  name: Min Age
+  display_unit: d
+  default_value: "40"
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "13"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_042: 
+  name: Route of Administration
+  display_unit: ""
+  default_value: sc
+  data_format_id: 
+  parameter_role_id: "6"
+  parameter_type_id: "16"
+  data_type_id: "5"
+  id: "44"
+  description: ""
+  study_id: "2"
+  data_element_id: "56"
+study_parameters_014: 
+  name: Molecula Formula
+  display_unit: ""
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "14"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_070: 
+  name: Statistic
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "72"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_015: 
+  name: Compound
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "15"
+  description: ""
+  study_id: "1"
+  data_element_id: "1"
+study_parameters_071: 
+  name: Calculation
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "14"
+  data_type_id: "2"
+  id: "73"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_043: 
+  name: Activity
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "45"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_016: 
+  name: Age
+  display_unit: d
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "18"
+  description: Animal age in days
+  study_id: "1"
+  data_element_id: 
+study_parameters_072: 
+  name: Flag
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "74"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "83"
+study_parameters_044: 
+  name: Measure
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "46"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_017: 
+  name: Species
+  display_unit: ""
+  default_value: rat
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  id: "19"
+  description: ""
+  study_id: "1"
+  data_element_id: "63"
+study_parameters_073: 
+  name: Label
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "75"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_045: 
+  name: Score
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  id: "47"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: "77"
+study_parameters_100: 
+  name: Calculation
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "14"
+  data_type_id: "2"
+  id: "102"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_018: 
+  name: Day
+  display_unit: ""
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "20"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_074: 
+  name: Index
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "76"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_046: 
+  name: Statistic
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "48"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_101: 
+  name: sig
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "103"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "83"
+study_parameters_019: 
+  name: ID
+  display_unit: ""
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "21"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_075: 
+  name: Species
+  display_unit: 
+  default_value: rat
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  id: "77"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "63"
+study_parameters_047: 
+  name: Calculation
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "14"
+  data_type_id: "2"
+  id: "49"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_102: 
+  name: Histology
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "104"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "84"
+study_parameters_076: 
+  name: Treatment Role
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "78"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "76"
+study_parameters_048: 
+  name: Flag
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "50"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: "83"
+study_parameters_103: 
+  name: Treatment Group
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "105"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_077: 
+  name: Compound
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "79"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "1"
+study_parameters_049: 
+  name: Label
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "51"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_104: 
+  name: Gene
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "106"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_078: 
+  name: Sample Size
+  display_unit: 
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "80"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_105: 
+  name: ID
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "107"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_020: 
+  name: Strain
+  display_unit: ""
+  default_value: ADH
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "22"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_079: 
+  name: Reading
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "81"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_106: 
+  name: Strain
+  display_unit: 
+  default_value: ADH
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "108"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_021: 
+  name: Calculation
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "14"
+  data_type_id: "2"
+  id: "23"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_107: 
+  name: Index
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "109"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_108: 
+  name: Min Weight
+  display_unit: 
+  default_value: "200"
+  data_format_id: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "110"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_050: 
+  name: Index
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "52"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_022: 
+  name: Statistic
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "24"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_109: 
+  name: Min Age
+  display_unit: 
+  default_value: "40"
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "111"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_051: 
+  name: Species
+  display_unit: 
+  default_value: rat
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  id: "53"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: "63"
+study_parameters_023: 
+  name: Histology
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "25"
+  description: Progression flags
+  study_id: "1"
+  data_element_id: "84"
+study_parameters_080: 
+  name: Weight
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "82"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_052: 
+  name: Treatment Role
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "54"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: "76"
+study_parameters_024: 
+  name: Index
+  display_unit: ""
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "26"
+  description: Animal number, index for tables etc
+  study_id: "2"
+  data_element_id: 
+study_parameters_081: 
+  name: p
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "83"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_053: 
+  name: Compound
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "55"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: "1"
+study_parameters_025: 
+  name: Time
+  display_unit: ""
+  default_value: ""
+  data_format_id: "20"
+  parameter_role_id: "6"
+  parameter_type_id: "22"
+  data_type_id: "4"
+  id: "27"
+  description: Start time etc
+  study_id: "2"
+  data_element_id: 
+study_parameters_082: 
+  name: sig
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "84"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "83"
+study_parameters_054: 
+  name: Sample Size
+  display_unit: 
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "56"
+  description: 4 based on 1 with role 3
+  study_id: "3"
+  data_element_id: 
+study_parameters_026: 
+  name: ActivityCount
+  display_unit: ""
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  id: "28"
+  description: Used for activity counts
+  study_id: "2"
+  data_element_id: 
+study_parameters_083: 
+  name: Histology
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "85"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: "84"
+study_parameters_055: 
+  name: Activity
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "57"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_110: 
+  name: Species
+  display_unit: 
+  default_value: rat
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  id: "112"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "63"
+study_parameters_027: 
+  name: Compound
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "29"
+  description: Compound Under Investigation
+  study_id: "2"
+  data_element_id: "1"
+study_parameters_084: 
+  name: Treatment Group
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "86"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_056: 
+  name: Measure
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "58"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_111: 
+  name: Treatment Role
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "113"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "76"
+study_parameters_028: 
+  name: Label
+  display_unit: ""
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "30"
+  description: Used for names to identify groups etc
+  study_id: "2"
+  data_element_id: 
+study_parameters_057: 
+  name: Score
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  id: "59"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: "77"
+study_parameters_112: 
+  name: Compound
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "114"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: "1"
+study_parameters_029: 
+  name: Treatment Role
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "6"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "31"
+  description: Simplifies the identification of the different treatment groups
+  study_id: "2"
+  data_element_id: "76"
+study_parameters_085: 
+  name: Gene
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "87"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_058: 
+  name: Statistic
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "60"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_113: 
+  name: Molecula Formula
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "115"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_086: 
+  name: ID
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "88"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_059: 
+  name: Calculation
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "14"
+  data_type_id: "2"
+  id: "61"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_114: 
+  name: Molecular Mass
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "116"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_087: 
+  name: Strain
+  display_unit: 
+  default_value: ADH
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "89"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_115: 
+  name: Age
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "117"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_088: 
+  name: Min Weight
+  display_unit: 
+  default_value: "200"
+  data_format_id: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "90"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_001: 
+  name: Score
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  id: "1"
+  description: Manual scoring of samples between 0 &amp; 10
+  study_id: "1"
+  data_element_id: "77"
+study_parameters_116: 
+  name: Day
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "118"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_030: 
+  name: Concentration
+  display_unit: mg
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  id: "32"
+  description: Concentration of compound under investigation
+  study_id: "2"
+  data_element_id: 
+study_parameters_089: 
+  name: Min Age
+  display_unit: 
+  default_value: "40"
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "91"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_002: 
+  name: Weight
+  display_unit: g
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "2"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_117: 
+  name: Group Size
+  display_unit: 
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "119"
+  description: 4 based on 1 with role 3
+  study_id: "6"
+  data_element_id: 
+study_parameters_031: 
+  name: Group Size
+  display_unit: ""
+  default_value: "8"
+  data_format_id: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "33"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_003: 
+  name: Reading
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "3"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_060: 
+  name: Flag
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "62"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: "83"
+study_parameters_032: 
+  name: Inhibition
+  display_unit: "%"
+  default_value: ""
+  data_format_id: "12"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  id: "34"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_004: 
+  name: p
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "4"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_061: 
+  name: Label
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "63"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_033: 
+  name: ED50
+  display_unit: mg
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "8"
+  data_type_id: "2"
+  id: "35"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_005: 
+  name: sig
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  id: "5"
+  description: ""
+  study_id: "1"
+  data_element_id: "83"
+study_parameters_062: 
+  name: Index
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "64"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 
+study_parameters_034: 
+  name: Fit Report
+  display_unit: ""
+  default_value: ""
+  data_format_id: "24"
+  parameter_role_id: "2"
+  parameter_type_id: "13"
+  data_type_id: "6"
+  id: "36"
+  description: A full statistical report of fits
+  study_id: "2"
+  data_element_id: 
+study_parameters_006: 
+  name: Treatment Role
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "6"
+  description: ""
+  study_id: "1"
+  data_element_id: "76"
+study_parameters_090: 
+  name: Molecula Formula
+  display_unit: 
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "92"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_063: 
+  name: Species
+  display_unit: 
+  default_value: rat
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  id: "65"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: "63"
+study_parameters_035: 
+  name: Mean Activity Count
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  id: "37"
+  description: ""
+  study_id: "2"
+  data_element_id: 
+study_parameters_007: 
+  name: Index
+  display_unit: ""
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  id: "7"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_091: 
+  name: Molecular Mass
+  display_unit: 
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "93"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_036: 
+  name: Gender
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "6"
+  parameter_type_id: "15"
+  data_type_id: "5"
+  id: "38"
+  description: sex of rat
+  study_id: "2"
+  data_element_id: "57"
+study_parameters_008: 
+  name: Treatment Group
+  display_unit: ""
+  default_value: ""
+  data_format_id: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  id: "8"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_092: 
+  name: Age
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "94"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_064: 
+  name: Treatment Role
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  id: "66"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: "76"
+study_parameters_037: 
+  name: Dose
+  display_unit: mg/kg
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "10"
+  data_type_id: "2"
+  id: "39"
+  description: Dosage
+  study_id: "2"
+  data_element_id: 
+study_parameters_009: 
+  name: Group Size
+  display_unit: ""
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "9"
+  description: ""
+  study_id: "1"
+  data_element_id: 
+study_parameters_093: 
+  name: Day
+  display_unit: 
+  default_value: ""
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "95"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_065: 
+  name: Compound
+  display_unit: 
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  id: "67"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: "1"
+study_parameters_038: 
+  name: TimeAfterDosing
+  display_unit: h
+  default_value: "1.5"
+  data_format_id: "4"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  id: "40"
+  description: IF actual time i considerably different from the nominal time please enter the actuak time after dosing
+  study_id: "2"
+  data_element_id: 
+study_parameters_094: 
+  name: Group Size
+  display_unit: 
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "96"
+  description: 4 based on 1 with role 3
+  study_id: "5"
+  data_element_id: 
+study_parameters_066: 
+  name: Sample Size
+  display_unit: 
+  default_value: "10"
+  data_format_id: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  id: "68"
+  description: 4 based on 1 with role 3
+  study_id: "4"
+  data_element_id: 

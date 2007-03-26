@@ -1,0 +1,23 @@
+--- 
+treatment_groups_001: 
+  experiment_id: 
+  name: GroupA
+  updated_at: 2006-12-18 22:44:04
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "1"
+  study_id: 
+  description: Grtopu
+  created_at: 2006-12-18 22:44:04
+treatment_groups_002: 
+  experiment_id: 
+  name: GroupB
+  updated_at: 2006-12-18 22:44:22
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "2"
+  study_id: 
+  description: B
+  created_at: 2006-12-18 22:44:22

@@ -1,0 +1,47 @@
+<style type="text/css">
+#debug-container {
+clear:both;
+margin-top: 15px;
+}
+#debug {
+background: #ffd;
+border: solid 1px #999;
+padding: 5px;
+margin-top: 15px;
+overflow:auto;
+}
+#debug p {
+margin: 0;
+}
+</style>
+<div id="debug-container">
+<% if params[:debug] == "true" %>
+  <p><strong><%= link_to (subject_icon('bugon')) + " Debug ON", :debug => false %></strong></p>
+	<div id='debug'></div>
+	<script type="text/javascript">
+	 Ajax.Responders.register({
+	 onCreate: function(request, transport) {
+	   $('debug').innerHTML = '<p><strong>' + request.url + '</strong></p>';
+	 },
+	 onComplete: function(request, transport) {
+	   if (transport.responseText.match(/<html>/) != null) {
+	     $('debug').innerHTML = transport.responseText;
+	   } else {
+	     $('debug').innerHTML = '<p><strong>' + request.url 
+	       + '</strong></p><pre>' + transport.responseText.escapeHTML() 
+	       + '</pre>';
+	   }
+	 }
+	 });
+	</script> 
+	<p/>
+	<div id='debug_values'>
+	<b>Session:</b> <%=debug(session) %>
+	<p/>
+	<b>Params:</b> <%=debug(params) %>
+	<p/>
+	</div>
+<% else %>
+  <p><strong><%= link_to (subject_icon('bugoff')) + "Debug OFF", :debug => true %></strong></p>
+<% end %>
+</div>

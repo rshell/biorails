@@ -1,0 +1,2 @@
+module StudyQueuesHelper
+end

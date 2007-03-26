@@ -1,0 +1,55 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%= subject_icon('systems')%> Data System [<strong><%=@data_system.name%></strong>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
+                        :confirm => 'Are you sure?',:method => "post" %></li>
+                <li><%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %></li>
+                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>
+        <%= render :partial => 'shared/named',:locals =>{:item => @data_system} %>
+        
+        <p>
+         This is the list of current data lookups defined using this data system:- 
+        </p>
+        <table class="report">
+         <thead class="tableHeader">  
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Concept</th>
+            <th>Style</th>
+            <th>Content</th>
+            <th>Parameters</th>
+            <th>Processes</th>
+            <th>Results</th>
+            <th>Actions </th>
+          </tr>
+        </thead>  
+           
+        <tbody>
+        <% for item in @data_system.data_elements %>
+          <tr>
+            <td><%= link_to item.name, :controller=>'data_elements',:action=>'show',:id=>item.id %></td>
+            <td> <%=item.description %>   </td>
+            <td> <%=item.concept.path %>   </td>
+            <td><%= item.style %></td>
+            <td> <%=item.content %>   </td>
+            <td> <%=item.study_parameters.size  %>  </td>
+            <td> <%=item.parameters.size %>   </td>
+            <td> <%=item.task_references.size%>    </td>
+            <td><%= link_to (subject_icon('destroy.png'))+' delete',:controller=>'data_elements', :action => 'destroy', :id => item if item.study_parameters.size==0%></td>
+          </tr>
+        <% end %>
+        </tbody>
+        </table>
+    </div>
+    <div class="panel">
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @data_system} %>
+    </div>
+
+</div>

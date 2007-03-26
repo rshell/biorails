@@ -1,0 +1,12 @@
+:BioRails => :BioRails
+:Catalogue => :19:39 :BioRails :ClinicalResearch :CompoundScreening :DataFormats :DataTypes :DiscoveryResearc :ParameterRoles :ParameterTypes :StudyStages
+:DataLens => :DataEntry :ExperimentRecords :Notes :Overview :Reports :Setup :StudyRecords :Timeline
+:Home => :17:23 :AdminRole :BioRails :Catalogue :CenterContents :ContextPanel :CurrentRecord :DataLens :DomainTabs :FinderPanel :Home :Inventory :MyHome :SearchBox :Study
+:Inventory => :DataLens
+:Notes => :StudyRecord :StudyWiki :SystemWiki
+:NotesLens => :StudyRecord :StudyWiki :SystemWiki
+:Overview => 
+:Reports => 
+:ReportsLens => 
+:Study => :Notes :Overview :Reports :TimeLine :ToDo
+:ToDo => 

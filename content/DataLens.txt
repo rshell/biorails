@@ -1,0 +1,11 @@
+====== DataLens ======
+Created Tuesday 05/12/2006 19:21
+
+A specific view of a record.
+==== Data Lenses ====
+1 [[Overview]] - automatically generated overview report, including metrics, progress etc
+2 [[Timeline]] - automatically generated log of the major work flow events that have occurred to that record
+3 [[Setup]] - where records such as [[StudyRecords]] and [[ExperimentRecords]] are registered (worried that we are mixing ontologies) Experiment->Executed Protocol
+4 [[DataEntry]] - DataEntrySheets automatically generated from executed tasks.  
+5 [[Reports]] - Any report that uses the record type matching the selected record can be run from here
+6 [[Notes]] The wiki pages linked to the selected record.

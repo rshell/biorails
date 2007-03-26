@@ -1,0 +1,7 @@
+<% if @study_parameter.data_type_id == 5 %>
+      <label for="parameter_type_data_element">Lookup From</label>
+      <%= select_data_element( :study_parameter, :data_element_id, @study_parameter.type.data_concept) %>
+<% else %>
+      <label for="study_default_value">Entry Format </label>
+      <%= select_data_format( :study_parameter, :data_format_id ,@study_parameter.data_type)%>
+<% end %>

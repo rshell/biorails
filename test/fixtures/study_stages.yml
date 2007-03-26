@@ -1,0 +1,28 @@
+--- 
+study_stages_001: 
+  name: Preparation
+  updated_at: 2006-12-11 18:32:33
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "5"
+  description: Preparation steps
+  created_at: 2006-12-11 18:32:33
+study_stages_002: 
+  name: Data Capture
+  updated_at: 2006-12-11 18:32:56
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "6"
+  description: Capturing raw data
+  created_at: 2006-12-11 18:32:56
+study_stages_003: 
+  name: Analysis
+  updated_at: 2006-12-11 18:33:23
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "8"
+  description: Data analysis
+  created_at: 2006-12-11 18:33:23

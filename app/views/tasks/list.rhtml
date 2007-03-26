@@ -1,0 +1,47 @@
+<div class='Main'>
+    <div class="title" id="task">
+        <%=subject_icon('task.png')%> List Tasks for Experiment [<%= link_to @experiment.name, :controller => 'experiments', 
+            :action => 'show', :id => @experiment.id  %>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('new.png'))+'New task', :action => 'new' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>
+        <table class="report">
+          <tr>
+            <th>Experiment</th>
+            <th>Task</th>
+            <th>Protocol</th>
+            <th>Process</th>
+            <th>Assigned</th>
+            <th>Starts</th>
+            <th>End</th>
+            <th>Rows</th>
+            <th>Done%</th>
+            <th></th>
+          </tr>
+          
+        <% for task in @tasks %>
+          <tr>
+            <td><%= link_to task.experiment.name , :controller => 'experiments', :action => 'show', :id => task.experiment.id %></td>
+            <td><%= link_to task.name, :action => 'show', :id => task.id %></td>
+            <td><%= link_to task.protocol.name, :controller => 'study_protocols', :action => 'show', :id => task.protocol.id %></td>
+            <td><%=h task.process.name %></td>
+            <td><%=h task.assigned_to %></td>
+            <td><%= short_date( task.start_date) %></td>
+            <td><%= short_date( task.end_date ) %></td>
+            <td><%=h task.contexts.size %></td>
+            <td><%=h task.done*100 %></td>
+            <td><%= link_to (subject_icon('destroy.png'))+'Destroy', { :action => 'destroy', :id => task }, :confirm => 'Are you sure?',:method => "post" %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+    <div class='panel'>
+        <%= link_to (subject_icon('arrow_left')) +'Previous page', { :page => @task_pages.current.previous } if @task_pages.current.previous %>
+        <%= link_to (subject_icon('arrow_right')) +'Next page', { :page => @task_pages.current.next } if @task_pages.current.next %> 
+    </div>
+
+</div>

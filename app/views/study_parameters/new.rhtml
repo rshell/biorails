@@ -1,0 +1,30 @@
+<div class='main' id='maintitle'>
+    <div class="title" id="study">
+        <%=subject_icon('parameter.png')%> New Parameter in Study [<strong><%=link_to "#{@study.name}", :controller=>'studies', 
+            :action =>'show',:id =>@study.id %></strong>]
+        <div class="actions">
+            <ul>
+                <li><%=link_to (subject_icon('list.png')) + 'List', :action => 'list', :id=>@study.id %></li>
+            </ul>
+        </div>
+    </div>          
+        <%= error_messages_for 'study_parameter' %>
+    <div class='dialog'>
+        <fieldset>
+          <% form_tag :action => 'create', :id => @study_parameter.study.id do %>
+            <%= render :partial => 'form' %>
+          <% end %>
+        </fieldset>
+    </div>
+
+<div class="panel">
+<h3> 
+Guidance
+</h3>
+<p>
+It is important to maintain consistency in data type between 
+parameter types and study parameters.  If the types are mixed it
+will be difficult to build comprehensive reports ovaer all 
+parameter types.
+</p>
+</div>

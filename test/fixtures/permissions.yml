@@ -1,0 +1,16 @@
+--- 
+permissions_001: 
+  name: Administer site
+  id: "1"
+permissions_002: 
+  name: Public pages - edit
+  id: "2"
+permissions_003: 
+  name: Public pages - view
+  id: "3"
+permissions_004: 
+  name: Public actions - execute
+  id: "4"
+permissions_005: 
+  name: Members only page -- view
+  id: "5"

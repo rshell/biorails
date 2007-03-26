@@ -1,0 +1,4 @@
+====== Notes Lens ======
+Created Tuesday 05/12/2006 19:16
+
+There are two levels of wiki, the [[SystemWiki]] (this wiki) and a [[StudyWiki]] created for each [[StudyRecord]].

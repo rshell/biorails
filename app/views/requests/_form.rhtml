@@ -1,0 +1,48 @@
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce if using_tiny_mce? %>
+
+  <div class="row">
+   <div class="form-element">
+       <label for="request_name">Name</label>
+       <%= text_field :request, 'name' , {:class=>"text-input"} %>
+   </div>
+
+   <div class="form-element">
+     <label for="request_for">Item Type</label>
+       <%= select( :request, :data_element_id, @request.allowed_elements.collect{|c|[c.path,c.id]})  %>
+   </div>
+
+
+ </div>
+   
+  <div class="row">
+     <div class="form-element">
+       <label for="request_description">Description</label>
+       <%= text_area('request', 'description',{:rows=>5, :cols=>100} )  %>
+     </div>
+  </div>
+  
+  <div class="row">
+
+   <div class="form-element">
+     <label for="request_by">By User</label>
+     <%= text_field :request, 'requested_by' , {:class=>"text-input"} %>
+   </div>
+
+   <div class="form-element">
+     <label for="request_for">By Date</label>
+     <%= date_field 'request', 'requested_for'  %>
+   </div>
+
+   <div class="form-element">
+     <label for="request_for">Status</label>
+       <%= select( :request, :current_state_id, @request.allowed_status_list)  %>
+   </div>
+
+   <div class="form-element">
+     <label for="request_for">Priority</label>
+       <%= select( :request, :priority_id, @request.allowed_priority_list)  %>
+   </div>
+
+  </div>
+  

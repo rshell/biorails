@@ -1,0 +1,254 @@
+--- 
+reports_017: 
+  custom_sql: 
+  name: TaskStatistics
+  updated_at: 2007-01-28 22:51:46
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  base_model: TaskStatistics
+  id: "33"
+  description: Standard Task Statistics Report
+  created_at: 2007-01-28 22:49:44
+reports_006: 
+  custom_sql: 
+  name: My Experiments
+  updated_at: 2007-01-17 10:33:42
+  created_by: ""
+  lock_version: "2"
+  updated_by: ""
+  base_model: Experiment
+  id: "17"
+  description: Simple report of what I have done
+  created_at: 2007-01-17 10:30:40
+reports_018: 
+  custom_sql: 
+  name: ExperimentStatistics
+  updated_at: 2007-01-29 16:12:46
+  created_by: ""
+  lock_version: "4"
+  updated_by: ""
+  base_model: ExperimentStatistics
+  id: "34"
+  description: Default reports for display as /ExperimentStatistics/list
+  created_at: 2007-01-28 23:35:54
+reports_007: 
+  custom_sql: 
+  name: My Results
+  updated_at: 2007-01-18 20:11:36
+  created_by: ""
+  lock_version: "7"
+  updated_by: ""
+  base_model: TaskValue
+  id: "18"
+  description: This is a simple report for extraction of Activity Values from a task
+  created_at: 2007-01-17 10:38:42
+reports_019: 
+  custom_sql: 
+  name: ParameterResults
+  updated_at: 2007-01-29 14:18:34
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: TaskResult
+  id: "35"
+  description: Default reports for display as /TaskResult/list
+  created_at: 2007-01-29 14:18:34
+reports_008: 
+  custom_sql: 
+  name: My Services
+  updated_at: 2007-01-17 12:57:20
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: StudyQueue
+  id: "19"
+  description: ""
+  created_at: 2007-01-17 12:57:20
+reports_020: 
+  custom_sql: 
+  name: Compound Results
+  updated_at: 2007-01-29 19:52:26
+  created_by: ""
+  lock_version: "4"
+  updated_by: ""
+  base_model: CompoundResult
+  id: "37"
+  description: test
+  created_at: 2007-01-29 16:30:43
+reports_009: 
+  custom_sql: 
+  name: new QueueItem
+  updated_at: 2007-01-19 10:13:08
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: QueueItem
+  id: "20"
+  description: new QueueItem report
+  created_at: 2007-01-19 10:13:08
+reports_021: 
+  custom_sql: 
+  name: Results for Compound
+  updated_at: 2007-01-29 22:41:44
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  base_model: CompoundResult
+  id: "38"
+  description: Compound Results
+  created_at: 2007-01-29 22:37:44
+reports_010: 
+  custom_sql: 
+  name: new Report
+  updated_at: 2007-01-19 13:07:09
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: Report
+  id: "23"
+  description: new Report report
+  created_at: 2007-01-19 13:07:09
+reports_022: 
+  custom_sql: 
+  name: TaskResult2
+  updated_at: 2007-02-03 16:12:38
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: TaskResult
+  id: "39"
+  description: Default reports for display as /TaskResult/list
+  created_at: 2007-02-03 16:12:38
+reports_011: 
+  custom_sql: 
+  name: ReportList
+  updated_at: 2007-01-30 15:39:54
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  base_model: Report
+  id: "25"
+  description: Default reports for display as /Report/list
+  created_at: 2007-01-19 15:01:12
+reports_023: 
+  custom_sql: 
+  name: RequestList
+  updated_at: 2007-03-01 07:07:52
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: Request
+  id: "40"
+  description: Default reports for display as /Request/list
+  created_at: 2007-03-01 07:07:52
+reports_012: 
+  custom_sql: 
+  name: StudyList
+  updated_at: 2007-01-19 15:05:30
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: Study
+  id: "26"
+  description: Default reports for display as /Study/list
+  created_at: 2007-01-19 15:05:30
+reports_001: 
+  custom_sql: 
+  name: Expt1
+  updated_at: 2007-01-18 22:36:17
+  created_by: ""
+  lock_version: "21"
+  updated_by: ""
+  base_model: Experiment
+  id: "12"
+  description: Test is a simple report on the experiment level
+  created_at: 2007-01-16 17:57:31
+reports_013: 
+  custom_sql: 
+  name: DataContextList
+  updated_at: 2007-01-19 15:25:08
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: DataContext
+  id: "27"
+  description: Default reports for display as /DataContext/list
+  created_at: 2007-01-19 15:25:08
+reports_002: 
+  custom_sql: 
+  name: All Studies
+  updated_at: 2007-01-16 23:51:37
+  created_by: ""
+  lock_version: "2"
+  updated_by: ""
+  base_model: Study
+  id: "13"
+  description: List of all studies
+  created_at: 2007-01-16 23:17:06
+reports_014: 
+  custom_sql: 
+  name: ParameterList
+  updated_at: 2007-01-28 19:21:32
+  created_by: ""
+  lock_version: "4"
+  updated_by: ""
+  base_model: Parameter
+  id: "30"
+  description: Default reports for display as /Parameter/list
+  created_at: 2007-01-28 19:16:35
+reports_003: 
+  custom_sql: 
+  name: All Experiments
+  updated_at: 2007-01-16 23:52:33
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  base_model: Experiment
+  id: "14"
+  description: ""
+  created_at: 2007-01-16 23:52:33
+reports_015: 
+  custom_sql: 
+  name: ParameterProtocols
+  updated_at: 2007-01-28 19:40:39
+  created_by: ""
+  lock_version: "3"
+  updated_by: ""
+  base_model: Parameter
+  id: "31"
+  description: List of Parameter Protocols
+  created_at: 2007-01-28 19:33:22
+reports_004: 
+  custom_sql: 
+  name: Study Stats
+  updated_at: 2007-01-16 23:53:37
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  base_model: StudyStatistics
+  id: "15"
+  description: ""
+  created_at: 2007-01-16 23:52:53
+reports_016: 
+  custom_sql: 
+  name: ParameterStatistics
+  updated_at: 2007-01-28 20:06:51
+  created_by: ""
+  lock_version: "3"
+  updated_by: ""
+  base_model: ProcessStatistics
+  id: "32"
+  description: Internal report on parameter statistics
+  created_at: 2007-01-28 20:04:07
+reports_005: 
+  custom_sql: 
+  name: Protocol Versions
+  updated_at: 2007-01-17 00:10:03
+  created_by: ""
+  lock_version: "7"
+  updated_by: ""
+  base_model: ProcessInstance
+  id: "16"
+  description: ""
+  created_at: 2007-01-16 23:54:57

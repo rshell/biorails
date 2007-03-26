@@ -1,0 +1,43 @@
+<script SRC="/javascripts/marvin/marvin.js"></script>
+			<%= error_messages_for 'compound' %>
+
+<fieldset class="dialog">
+<table cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td valign="top"><label for="compound_name">CompoundId</label>
+            <div class="row"><%= text_field 'compound', 'name'  %></p></div></td>
+            <td valign="top"><label for="compound_registration_date">Registration Date</label>
+            <div class="row"><%= date_field 'compound', 'registration_date'  %></div></td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="top"><label for="compound_description">Description</label>
+            <div class="row">
+            <span width=100%>
+            <%= text_area 'compound', 'description' %>
+            </span>
+            </div>
+            </td>
+        </tr>
+        <tr>
+             <td valign="top">
+                     <b><label for="compound_smiles">Edit Structure</label></b>
+                     <div class="row"><%= smiles_edit_field( 'compound', 'smiles')  %></div>
+                     <div class="row"><lable>iupac</label><%= text_field('compound','iupacname') %></div>
+            </td>
+            <td valign="top">
+                <b><label>Molecular Properties</label></b>
+                <div class="row">
+                <label for="compound_formula">Formula</label>
+                <div class="row">
+                     <%= formula_field 'compound', 'formula'  %>
+                </div>
+                    <label for="compound_mass">Mass</label>
+                <div class="row">
+                     <%= mass_field 'compound', 'mass'  %>
+                </div>
+             </td>
+		</tr>
+</table>
+
+<!--[eoform:compound]-->
+</fieldset>

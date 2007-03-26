@@ -1,0 +1,40 @@
+
+<table cellpadding=0 cellspacing=0 width='100%' >
+   <tr> 
+     <th colspan='4'> Column </th>
+     <th colspan='2'> Filter </th>
+     <th colspan='3'> Sort </th>
+     <th colspan='1'>  </th>
+   </tr>
+   <tr>
+   <th> Name  </th>
+   <th> Label  </th>
+   <th> Order  </th>
+   <th> Visible  </th>
+   <th> Allow  </th>
+   <th> Filter  </th>
+   <th> Allow  </th>
+   <th> Order  </th>
+   <th> Dir.  </th>
+   <th> Action  </th>
+   </tr>
+  <%for column in @report.columns %>  
+   <tr>
+   <td><%=column.name%></td>
+   <td><%=text_field_tag "columns[#{column.name}][label]",column.label,:size=>20 %></td>
+   <td><%=text_field_tag "columns[#{column.name}][order_num]",column.order_num,:size=>2 %></td>
+   <td><%=check_box_tag  "columns[#{column.name}][is_visible]",1,column.is_visible %> </td>
+   <%if column.has_many %>
+   <td colspan='5'>sub-table of one or more details elements</td>
+   <%else%>
+   <td><%=check_box_tag  "columns[#{column.name}][is_filterible]",1,column.is_filterible %> </td>
+   <td><%=text_field_tag "columns[#{column.name}][filter]",column.filter,:size=>20 %> </td>
+   <td><%=check_box_tag  "columns[#{column.name}][is_sortable]",1,column.is_sortable %> </td>
+   <td><%=text_field_tag "columns[#{column.name}][sort_num]",column.sort_num,:size=>2 %></td>
+   <td><%=text_field_tag "columns[#{column.name}][sort_direction]",column.sort_direction,:size=>4 %> </td>
+   <%end%>
+   <td><%=link_to_remote "remove",:url=>{:action=>'remove_column',:context=>@report.id, :id=>column.id} %></td>
+   </tr>
+  <%end%>
+ </table>
+ 

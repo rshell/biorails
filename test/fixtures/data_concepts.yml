@@ -1,0 +1,316 @@
+--- 
+data_concepts_023: 
+  name: Users
+  updated_at: 2007-02-28 17:55:48
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "0"
+  updated_by: sys
+  id: "48"
+  description: Allowed Username for people in the system
+  parent_id: "1"
+  created_at: 2007-02-28 17:55:48
+data_concepts_012: 
+  name: Experiment
+  updated_at: 2006-12-05 18:15:43
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "24"
+  description: Experiment main element in the execution of a workflow
+  parent_id: "1"
+  created_at: 2006-11-22 12:49:19
+data_concepts_001: 
+  name: BioRails
+  updated_at: 2007-01-23 20:54:17
+  access_control_id: 
+  created_by: sys
+  type: DataContext
+  lock_version: "3"
+  data_context_id: "1"
+  updated_by: sys
+  id: "1"
+  description: |-
+    This is the main <strong>context </strong>or<strong> conceptual name space </strong>for all key <strong>concepts </strong>in the core BioRails application. The context is divided into a logical tree of concepts.&nbsp; These concepts can be extended with child concepts providing&nbsp; the possibility of <strong>value lookup lists</strong> defined against each concept. In-use concepts<strong> </strong>are linked to <strong>parameter types </strong>at the global catalogue level. Parameter types are then implemented as <strong>study parameters</strong> and a linked lookup <strong>element </strong>may be used.<br />
+    <br />
+    This structure provides a solid division of control between global warehousing need and local terminology, put more simply, the scientists can maintain their own (often unique) terminologies which can be mapped into the corporate dictionaries.
+  parent_id: 
+  created_at: 2007-01-22 15:23:29
+data_concepts_024: 
+  name: Flags
+  updated_at: 2007-03-20 15:53:10
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "0"
+  updated_by: sys
+  id: "49"
+  description: Flags used for compound progression, quality control etc
+  parent_id: "39"
+  created_at: 2007-03-20 15:53:10
+data_concepts_013: 
+  name: Protocol
+  updated_at: 2006-11-22 12:52:00
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "25"
+  description: Protocol
+  parent_id: "1"
+  created_at: 2006-11-22 12:52:00
+data_concepts_002: 
+  name: Subject
+  updated_at: 2006-09-06 19:33:33
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "2"
+  description: Subject
+  parent_id: "1"
+  created_at: 2006-09-06 19:33:33
+data_concepts_014: 
+  name: Unit
+  updated_at: 2006-11-22 12:52:30
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "26"
+  description: Unit
+  parent_id: "1"
+  created_at: 2006-11-22 12:52:30
+data_concepts_003: 
+  name: Study
+  updated_at: 2006-09-06 19:35:22
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "3"
+  description: Study
+  parent_id: "1"
+  created_at: 2006-09-06 19:35:22
+data_concepts_015: 
+  name: Task
+  updated_at: 2006-11-22 12:53:17
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "27"
+  description: Task
+  parent_id: "1"
+  created_at: 2006-11-22 12:53:17
+data_concepts_004: 
+  name: Compound
+  updated_at: 2006-10-09 16:01:50
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "5"
+  data_context_id: "1"
+  updated_by: sys
+  id: "4"
+  description: Compound Inventory
+  parent_id: "2"
+  created_at: 2006-09-06 19:35:33
+data_concepts_016: 
+  name: DataType
+  updated_at: 2007-01-22 23:32:32
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "3"
+  data_context_id: "1"
+  updated_by: sys
+  id: "28"
+  description: Various type of data the system is expected to handle like numeric ,text
+  parent_id: "1"
+  created_at: 2006-11-22 12:53:47
+data_concepts_005: 
+  name: Batch
+  updated_at: 2006-09-06 19:35:43
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "5"
+  description: Batch
+  parent_id: "2"
+  created_at: 2006-09-06 19:35:43
+data_concepts_017: 
+  name: DataFormat
+  updated_at: 2007-01-12 13:58:05
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "29"
+  description: Data Formats are skill
+  parent_id: "1"
+  created_at: 2006-11-22 12:56:05
+data_concepts_006: 
+  name: Sample
+  updated_at: 2006-09-06 19:35:51
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "6"
+  description: Sample
+  parent_id: "2"
+  created_at: 2006-09-06 19:35:50
+data_concepts_018: 
+  name: ParameterType
+  updated_at: 2006-11-22 12:56:57
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "30"
+  description: ParameterType
+  parent_id: "1"
+  created_at: 2006-11-22 12:56:57
+data_concepts_007: 
+  name: Container
+  updated_at: 2007-01-19 15:37:11
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "2"
+  data_context_id: "1"
+  updated_by: sys
+  id: "7"
+  description: Container
+  parent_id: "2"
+  created_at: 2006-09-06 19:36:00
+data_concepts_019: 
+  name: ParameterRole
+  updated_at: 2006-11-22 12:57:18
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "31"
+  description: Parameter Role
+  parent_id: "1"
+  created_at: 2006-11-22 12:57:18
+data_concepts_008: 
+  name: Plate
+  updated_at: 2006-09-06 19:36:07
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "8"
+  description: Plate
+  parent_id: "7"
+  created_at: 2006-09-06 19:36:07
+data_concepts_020: 
+  name: Times
+  updated_at: 2006-12-12 13:53:02
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "33"
+  description: Timed Measurements
+  parent_id: "1"
+  created_at: 2006-12-12 13:53:02
+data_concepts_009: 
+  name: Rack
+  updated_at: 2006-09-06 19:36:13
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "9"
+  description: Rack
+  parent_id: "7"
+  created_at: 2006-09-06 19:36:13
+data_concepts_021: 
+  name: Lookup
+  updated_at: 2007-01-19 16:04:03
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "0"
+  data_context_id: "1"
+  updated_by: sys
+  id: "39"
+  description: Lookup
+  parent_id: "1"
+  created_at: 2007-01-19 16:04:03
+data_concepts_010: 
+  name: Tube
+  updated_at: 2006-09-06 19:36:24
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "1"
+  updated_by: sys
+  id: "10"
+  description: Tube
+  parent_id: "7"
+  created_at: 2006-09-06 19:36:24
+data_concepts_022: 
+  name: Species
+  updated_at: 2007-03-20 15:57:04
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "3"
+  data_context_id: "0"
+  updated_by: sys
+  id: "47"
+  description: Mammals licensed by company for pre-clinical safety studies
+  parent_id: "39"
+  created_at: 2007-01-31 13:51:33
+data_concepts_011: 
+  name: Tray
+  updated_at: 2006-09-06 19:39:47
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "2"
+  data_context_id: "1"
+  updated_by: sys
+  id: "11"
+  description: Tray
+  parent_id: "7"
+  created_at: 2006-09-06 19:36:32

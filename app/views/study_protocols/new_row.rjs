@@ -1,0 +1,10 @@
+##
+# Script to replace current parameter_context row with updated version with changed list of parameters
+# 
+if @successful
+  page.insert_html :before, id="footer_#{@protocol_version.dom_id}", :partial => 'new_context', :locals => {:parameter_context => @parameter_context, :hidden => false }
+  page.visual_effect :highlight, @parameter_context.dom_id
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+else
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+end

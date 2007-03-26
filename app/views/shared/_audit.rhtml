@@ -1,0 +1,11 @@
+<p class="audit">
+  <b>Audit:</b>
+  <% if item %>
+   <%= ' created on '+item.created_at.strftime("%d-%m-%Y %H:%M") if item.created_at %>
+   <%= ' by '+ item.created_by if item.created_by  %>
+   <%= ' updated on '+item.updated_at.strftime("%d-%m-%Y %H:%M") if item.updated_at %>
+   <%= ' by '+item.updated_by if item.updated_by %>
+  <% else %>
+    not yet saved
+  <% end %>  
+</p>

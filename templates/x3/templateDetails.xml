@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="1.0.x">
+	<name>x3</name>
+	<creationDate>04/10/2006</creationDate>
+	<author>joomladesigns</author>
+	<copyright>http://www.joomladesigns.co.uk</copyright>
+	<authorEmail>team@joomladesigns.co.uk</authorEmail>
+	<authorUrl>http://www.joomladesigns.co.uk</authorUrl>
+	<version>2.0</version>
+	<description>x3 template for joomla by joomladesigns</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+                <filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/arrow.png</filename>
+		<filename>images/dot.gif</filename>
+		<filename>images/header_bg.gif</filename>
+		<filename>images/read_more.gif</filename>
+		<filename>images/date.png</filename>
+		<filename>images/left.gif</filename>
+		<filename>images/right.gif</filename>
+	</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

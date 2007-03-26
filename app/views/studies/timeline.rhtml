@@ -1,0 +1,42 @@
+<div class='main' id='maintitle'>
+    <div class="title" id="study">
+      <%=subject_icon('study.png')%> Study Timeline
+    </div>
+    <div class='panel'>
+        <table class="report">
+            <% if @logs%>
+            <% old_day = @logs[0].created_at.at_beginning_of_day + 24.hours %>
+            <% for log in @logs%>
+            <% classAttr = cycle("", "class=\"even\"") %>
+            <tr <%=classAttr%>  > 
+                <% day = log.created_at.at_beginning_of_day %>
+                <% unless day == old_day %>
+            </tr>
+            <tr>
+              <th colspan='4'> <%=day %> </td>
+            </tr>
+            <tr>
+                <th>  Study </th>
+                <th>  Model </th>
+                <th>  Action  </th>
+                <th>  Show </th>
+                <th>  Comment</th>
+                <th>  Created At</th>
+                <th>  Created By </th>
+            </tr>
+                <% old_day = day %>
+            <tr <%=classAttr%>  > 
+            <%end%>
+                <td>  <%= link_to( log.study.name , :action=>'show', :id => log.study_id) if log.study %></td>
+                <td>  <%= log.auditable_type%></td>
+                <td>  <%= log.action %>  </td>
+                <td>  <%= link_to log.name , :controller => log.auditable_type.tableize.downcase,  :action=>'show', :id => log.auditable_id %></td>
+                <td>  <%= log.comment %></td>
+                <td>  <%= short_time(log.created_at)%></td>
+                <td>  <%= log.created_by %></td>
+            </tr>
+            <% end %>
+            <% end %>
+        </table>
+    </div>
+</div>

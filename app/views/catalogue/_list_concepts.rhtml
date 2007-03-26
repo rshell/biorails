@@ -1,0 +1,41 @@
+<h3>Specializations of concept <%=@data_concept.name%> in catalogue </h3>
+<p>
+Current specializations of the the concept <%=@data_concept.name%> in the system. This forms the basic volcabary of the systems in this area.
+</p>
+ <table class="report" width='100%'>
+   <thead>  
+     <tr>
+      <% for column in @data_concept.class.content_columns %>
+        <th><%= column.human_name %></th>
+      <% end %>
+      <th>Impl</th>
+      <th>Uses</th>
+      <th>Actions </th>
+     </tr>
+   </thead>  
+    
+   <tbody>
+    <% for row in @data_concept.children %>
+    <tr>
+      <% for column in @data_concept.class.content_columns %>
+       <td>
+          <%if column.name=='name'%>
+            <%= link_to_remote ((subject_icon('show.png')) + row.send(column.name),:url=>{ :action => 'show' ,:id=> row.id }) %>  
+          <%else%>
+          <%=h row.send(column.name) %>
+          <%end%>
+       </td>
+       <% end %>
+       <td> <%=row.elements.size %></td>
+       <td>   <%=row.parameter_types.size %> </td>
+       <td>
+      <%= link_to ((subject_icon('delete')) + 'Delete', {:action => 'destroy' ,:id=> row.id},
+                     :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
+       </td>
+    </tr>    
+    <% end %>
+   </tbody>
+   
+ </table>
+ <%= link_to_remote (subject_icon('new.png')) + 'Add', :url=> {:action => 'new' ,:id=> @data_concept.id} %> 
+

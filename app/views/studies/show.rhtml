@@ -1,0 +1,40 @@
+   <% tab_ids = ['tab-experiments','tab-protocols','tab-services','tab-parameters']%>   
+   <% tab_names = ['Experiments','Protocols','Queues','Metrics']%>   
+   <%=tab_setup(tab_ids,tab_names) %>
+
+  <div class='main' id='maintitle'>
+    <div class="title" id="study">
+        <%=subject_icon('study.png')%> Study [<strong><%=@study.name %></strong>]
+        <div class="actions">
+            <ul>
+              <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
+              <li><%= link_to (subject_icon('xml'))+'Export',    :action =>'export',:id => @study%></li>
+              <li><%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @study %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class='panel'>
+        <%= render :partial => 'study', :locals => { :study => @study } %>  
+        
+        <div class='tab_stuff'>
+           <%= tab_divide(tab_ids,tab_names,0) %>                                          
+                <%= render :partial => 'experiments', :locals => { :study => @study } %>  
+            </div>  
+        
+           <%= tab_divide(tab_ids,tab_names,1) %>   
+                <%= render :partial => 'protocols', :locals => { :study => @study } %>
+            </div>  
+        
+            <%= tab_divide(tab_ids,tab_names,2) %>                                
+                <%= render :partial => 'queues', :locals => { :study => @study } %>  
+            </div>  
+        
+            <%= tab_divide(tab_ids,tab_names,3) %>                    
+                <%= render :partial => 'parameters', :locals => {  :study => @study } %>  
+            </div>
+        </div>
+
+    </div>
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
+</div>

@@ -1,0 +1,25 @@
+<table class="report">
+  <tr>
+      <th class="label"><%=subject_icon('name.png')%> Name</th>
+      <td> <%= request_service.name %></td>
+  </tr>
+  <tr>
+      <th class="label"><%=subject_icon('description.png')%> Description</th>
+      <td> <%= request_service.description %></td>
+  </tr>
+  <tr>
+    <th class="label">Request</th>
+    <td> <%= link_to request_service.request.name,:controller =>'requests', :action => 'show', :id=> request_service.request %></td>
+    <th class="label">Study</th>
+    <td><%=link_to request_service.queue.study.name, :controller => 'studies',:action => 'show', :id => request_service.queue.study %></td>
+    <th class="label">Queue</th>
+    <td><%=link_to request_service.queue.name, :controller => 'study_queues', :action => 'show', :id => request_service.queue %>  </td>
+  </tr>
+  <tr>
+      <th class="label"> Status </th>
+      <td> <%= request_service.status %>  <%= request_service.status_summary %></td>
+      <th class="label"> Priority</th>
+      <td> <%= request_service.priority %></td>
+  </tr>
+</table>
+

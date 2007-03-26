@@ -1,0 +1,5 @@
+<% for column in QueueItem.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @queue_item.send(column.name) %>
+</p>
+<% end %>

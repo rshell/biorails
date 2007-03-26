@@ -1,0 +1,28 @@
+<% controller ||=report.model.to_s.tableize %>
+<% action ||='show'%>
+
+<% for row in data %>
+   <% values =   report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
+   <% max = values.collect{ |item| item.size}.max %>       
+   <% classAttr = cycle("", "class=\"even\"") %>
+   <% for item  in (0..max-1) %>
+       <tr <%=classAttr%>  > 
+                <% for col  in (0..values.size-1) %>
+                <% value = values[col][item] %>
+                <td >
+                  <%= if value.kind_of? Numeric
+                        number_with_precision(value,report.decimal_places)
+                      else 
+                        value
+                      end
+                   %>
+                
+                </td>
+         <%end%>
+        <td>       
+        <%=link_to( report.params[:action], :controller=>report.params[:controller] ,:action=>report.params[:action], :id=> row) if report.params[:action] %>
+        </td>
+      </tr>
+      <%end%>
+<% end %>
+

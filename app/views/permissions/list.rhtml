@@ -1,0 +1,14 @@
+<h2>Permissions</h2>
+
+<table>
+<% for permission in @permissions -%>
+  <tr>
+    <td><%= link_to permission.name, :action => 'show',
+            :id => permission.id %></td>
+  </tr>
+<% end -%>
+</table>
+
+<hr/>
+<p><%= link_to 'New permission', :action => 'new' %></p>
+

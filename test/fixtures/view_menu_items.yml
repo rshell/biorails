@@ -1,0 +1,676 @@
+--- 
+view_menu_items_040: 
+  menu_item_id: "51"
+  controller_action_id: "134"
+  menu_item_seq: "7"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: experiments
+  permission_name: Members only page -- view
+  menu_item_name: experimentr/timeline
+  content_page_title: 
+  menu_item_parent_id: "18"
+  menu_item_label: Timeline
+  content_page_id: 
+  controller_action_name: timeline
+  site_controller_id: "31"
+view_menu_items_029: 
+  menu_item_id: "40"
+  controller_action_id: "128"
+  menu_item_seq: "6"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: studies
+  permission_name: Members only page -- view
+  menu_item_name: org/time
+  content_page_title: 
+  menu_item_parent_id: "17"
+  menu_item_label: Timeline
+  content_page_id: 
+  controller_action_name: timeline
+  site_controller_id: "26"
+view_menu_items_018: 
+  menu_item_id: "21"
+  controller_action_id: "44"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: data_systems
+  permission_name: Members only page -- view
+  menu_item_name: catalog/systems
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Data Systems
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "17"
+view_menu_items_007: 
+  menu_item_id: "9"
+  controller_action_id: 
+  menu_item_seq: "6"
+  content_page_name: site_admin
+  permission_id: "1"
+  site_controller_name: 
+  permission_name: Administer site
+  menu_item_name: setup
+  content_page_title: Site Administration
+  menu_item_parent_id: 
+  menu_item_label: Setup
+  content_page_id: "8"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_041: 
+  menu_item_id: "58"
+  controller_action_id: "143"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: requests
+  permission_name: Members only page -- view
+  menu_item_name: Home/Requests
+  content_page_title: 
+  menu_item_parent_id: "1"
+  menu_item_label: Requests
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "47"
+view_menu_items_030: 
+  menu_item_id: "41"
+  controller_action_id: "148"
+  menu_item_seq: "5"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: studies
+  permission_name: Members only page -- view
+  menu_item_name: org/reports
+  content_page_title: 
+  menu_item_parent_id: "17"
+  menu_item_label: Reports
+  content_page_id: 
+  controller_action_name: reports
+  site_controller_id: "26"
+view_menu_items_019: 
+  menu_item_id: "22"
+  controller_action_id: "114"
+  menu_item_seq: "5"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: data_types
+  permission_name: Members only page -- view
+  menu_item_name: catalog/datatype
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Data Types
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "33"
+view_menu_items_008: 
+  menu_item_id: "11"
+  controller_action_id: "11"
+  menu_item_seq: "4"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: menu_items
+  permission_name: Administer site
+  menu_item_name: setup/menus
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Menu Editor
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "5"
+view_menu_items_042: 
+  menu_item_id: "59"
+  controller_action_id: 
+  menu_item_seq: "1"
+  content_page_name: Requesting
+  permission_id: "5"
+  site_controller_name: 
+  permission_name: Members only page -- view
+  menu_item_name: home/Requirements
+  content_page_title: Requesting
+  menu_item_parent_id: "1"
+  menu_item_label: Requirements
+  content_page_id: "20"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_031: 
+  menu_item_id: "42"
+  controller_action_id: 
+  menu_item_seq: "4"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: org/notes
+  content_page_title: To Be Defined
+  menu_item_parent_id: "17"
+  menu_item_label: Notes
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_020: 
+  menu_item_id: "26"
+  controller_action_id: "118"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: studies
+  permission_name: Members only page -- view
+  menu_item_name: org/params
+  content_page_title: 
+  menu_item_parent_id: "17"
+  menu_item_label: Parameters
+  content_page_id: 
+  controller_action_name: parameters
+  site_controller_id: "26"
+view_menu_items_009: 
+  menu_item_id: "12"
+  controller_action_id: "12"
+  menu_item_seq: "7"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: system_settings
+  permission_name: Administer site
+  menu_item_name: setup/system_settings
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: System Settings
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "9"
+view_menu_items_043: 
+  menu_item_id: "61"
+  controller_action_id: "156"
+  menu_item_seq: "6"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: experiments
+  permission_name: Members only page -- view
+  menu_item_name: exp/reports
+  content_page_title: 
+  menu_item_parent_id: "18"
+  menu_item_label: Reports
+  content_page_id: 
+  controller_action_name: reports
+  site_controller_id: "31"
+view_menu_items_032: 
+  menu_item_id: "43"
+  controller_action_id: "119"
+  menu_item_seq: "3"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: experiments
+  permission_name: Members only page -- view
+  menu_item_name: exe/setup
+  content_page_title: 
+  menu_item_parent_id: "18"
+  menu_item_label: Schedule
+  content_page_id: 
+  controller_action_name: show
+  site_controller_id: "31"
+view_menu_items_021: 
+  menu_item_id: "27"
+  controller_action_id: "69"
+  menu_item_seq: "3"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: parameter_types
+  permission_name: Members only page -- view
+  menu_item_name: catalog/parameter_types
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Parameter Types
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "21"
+view_menu_items_010: 
+  menu_item_id: "13"
+  controller_action_id: "15"
+  menu_item_seq: "1"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: users
+  permission_name: Administer site
+  menu_item_name: setup/users
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Users
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "10"
+view_menu_items_044: 
+  menu_item_id: "62"
+  controller_action_id: 
+  menu_item_seq: "5"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: exp/notes
+  content_page_title: To Be Defined
+  menu_item_parent_id: "18"
+  menu_item_label: Notes
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_033: 
+  menu_item_id: "44"
+  controller_action_id: "106"
+  menu_item_seq: "4"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: tasks
+  permission_name: Members only page -- view
+  menu_item_name: exe/data
+  content_page_title: 
+  menu_item_parent_id: "18"
+  menu_item_label: Data Entry
+  content_page_id: 
+  controller_action_name: edit
+  site_controller_id: "32"
+view_menu_items_022: 
+  menu_item_id: "28"
+  controller_action_id: "117"
+  menu_item_seq: "3"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: studies
+  permission_name: Members only page -- view
+  menu_item_name: org/protocol
+  content_page_title: 
+  menu_item_parent_id: "17"
+  menu_item_label: Protocols
+  content_page_id: 
+  controller_action_name: protocols
+  site_controller_id: "26"
+view_menu_items_011: 
+  menu_item_id: "14"
+  controller_action_id: 
+  menu_item_seq: "9"
+  content_page_name: credits
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: credits
+  content_page_title: Credits and Licence
+  menu_item_parent_id: "9"
+  menu_item_label: Credits
+  content_page_id: "10"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_045: 
+  menu_item_id: "63"
+  controller_action_id: "146"
+  menu_item_seq: "8"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: reports
+  permission_name: Members only page -- view
+  menu_item_name: catalog/reports
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Report Builder
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "48"
+view_menu_items_034: 
+  menu_item_id: "45"
+  controller_action_id: "123"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: compounds
+  permission_name: Members only page -- view
+  menu_item_name: inv/compound
+  content_page_title: 
+  menu_item_parent_id: "16"
+  menu_item_label: Compounds
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "35"
+view_menu_items_023: 
+  menu_item_id: "30"
+  controller_action_id: "85"
+  menu_item_seq: "1"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: studies
+  permission_name: Members only page -- view
+  menu_item_name: org/study
+  content_page_title: 
+  menu_item_parent_id: "17"
+  menu_item_label: Overview
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "26"
+view_menu_items_012: 
+  menu_item_id: "15"
+  controller_action_id: 
+  menu_item_seq: "5"
+  content_page_name: Catalogue
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: Catalogue
+  content_page_title: Catalogue
+  menu_item_parent_id: 
+  menu_item_label: Catalogue
+  content_page_id: "11"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_001: 
+  menu_item_id: "1"
+  controller_action_id: 
+  menu_item_seq: "1"
+  content_page_name: home
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: home
+  content_page_title: Home Page
+  menu_item_parent_id: 
+  menu_item_label: Home
+  content_page_id: "1"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_035: 
+  menu_item_id: "46"
+  controller_action_id: "127"
+  menu_item_seq: "4"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: batches
+  permission_name: Members only page -- view
+  menu_item_name: inv/batches
+  content_page_title: 
+  menu_item_parent_id: "16"
+  menu_item_label: Batches
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "36"
+view_menu_items_024: 
+  menu_item_id: "31"
+  controller_action_id: "92"
+  menu_item_seq: "7"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: study_stages
+  permission_name: Members only page -- view
+  menu_item_name: catalog/stages
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Study Stages
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "27"
+view_menu_items_013: 
+  menu_item_id: "16"
+  controller_action_id: 
+  menu_item_seq: "4"
+  content_page_name: Inventory
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: Inventory
+  content_page_title: Inventory
+  menu_item_parent_id: 
+  menu_item_label: Inventory
+  content_page_id: "12"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_002: 
+  menu_item_id: "2"
+  controller_action_id: 
+  menu_item_seq: "8"
+  content_page_name: contact_us
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: contact_us
+  content_page_title: Contact Us
+  menu_item_parent_id: "9"
+  menu_item_label: Contact Us
+  content_page_id: "6"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_036: 
+  menu_item_id: "47"
+  controller_action_id: 
+  menu_item_seq: "3"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: libraries
+  content_page_title: To Be Defined
+  menu_item_parent_id: "16"
+  menu_item_label: Libraries
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_025: 
+  menu_item_id: "35"
+  controller_action_id: "102"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: experiments
+  permission_name: Members only page -- view
+  menu_item_name: exec/experiment
+  content_page_title: 
+  menu_item_parent_id: "18"
+  menu_item_label: Overview
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "31"
+view_menu_items_014: 
+  menu_item_id: "17"
+  controller_action_id: 
+  menu_item_seq: "2"
+  content_page_name: Organisation
+  permission_id: "1"
+  site_controller_name: 
+  permission_name: Administer site
+  menu_item_name: Organisation
+  content_page_title: Study
+  menu_item_parent_id: 
+  menu_item_label: Study
+  content_page_id: "14"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_003: 
+  menu_item_id: "5"
+  controller_action_id: "4"
+  menu_item_seq: "3"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: permissions
+  permission_name: Administer site
+  menu_item_name: setup/permissions
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Permissions
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "6"
+view_menu_items_037: 
+  menu_item_id: "48"
+  controller_action_id: "61"
+  menu_item_seq: "5"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: plates
+  permission_name: Members only page -- view
+  menu_item_name: containers
+  content_page_title: 
+  menu_item_parent_id: "16"
+  menu_item_label: Plates & Samples
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "20"
+view_menu_items_026: 
+  menu_item_id: "36"
+  controller_action_id: 
+  menu_item_seq: "1"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: inv/show
+  content_page_title: To Be Defined
+  menu_item_parent_id: "16"
+  menu_item_label: Overview
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_015: 
+  menu_item_id: "18"
+  controller_action_id: 
+  menu_item_seq: "3"
+  content_page_name: Execution
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: Execution
+  content_page_title: Experiment
+  menu_item_parent_id: 
+  menu_item_label: Experiment
+  content_page_id: "16"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_004: 
+  menu_item_id: "6"
+  controller_action_id: "3"
+  menu_item_seq: "2"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: roles
+  permission_name: Administer site
+  menu_item_name: setup/roles
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Roles
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "7"
+view_menu_items_038: 
+  menu_item_id: "49"
+  controller_action_id: 
+  menu_item_seq: "8"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: inv/time
+  content_page_title: To Be Defined
+  menu_item_parent_id: "16"
+  menu_item_label: Timeline
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_027: 
+  menu_item_id: "38"
+  controller_action_id: 
+  menu_item_seq: "6"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: inv/notes
+  content_page_title: To Be Defined
+  menu_item_parent_id: "16"
+  menu_item_label: Notes
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_016: 
+  menu_item_id: "19"
+  controller_action_id: "150"
+  menu_item_seq: "1"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: catalogue
+  permission_name: Members only page -- view
+  menu_item_name: catalog/list
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Data Dictionary
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "49"
+view_menu_items_005: 
+  menu_item_id: "7"
+  controller_action_id: "8"
+  menu_item_seq: "6"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: content_pages
+  permission_name: Administer site
+  menu_item_name: setup/pages
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Content Pages
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "1"
+view_menu_items_039: 
+  menu_item_id: "50"
+  controller_action_id: 
+  menu_item_seq: "7"
+  content_page_name: TBD
+  permission_id: "3"
+  site_controller_name: 
+  permission_name: Public pages - view
+  menu_item_name: reports
+  content_page_title: To Be Defined
+  menu_item_parent_id: "16"
+  menu_item_label: Reports
+  content_page_id: "19"
+  controller_action_name: 
+  site_controller_id: 
+view_menu_items_028: 
+  menu_item_id: "39"
+  controller_action_id: "65"
+  menu_item_seq: "4"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: parameter_roles
+  permission_name: Members only page -- view
+  menu_item_name: catalog/role
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Parameter Roles
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "22"
+view_menu_items_017: 
+  menu_item_id: "20"
+  controller_action_id: "120"
+  menu_item_seq: "6"
+  content_page_name: 
+  permission_id: "5"
+  site_controller_name: data_formats
+  permission_name: Members only page -- view
+  menu_item_name: catalog/formats
+  content_page_title: 
+  menu_item_parent_id: "15"
+  menu_item_label: Data Formats
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "34"
+view_menu_items_006: 
+  menu_item_id: "8"
+  controller_action_id: "9"
+  menu_item_seq: "5"
+  content_page_name: 
+  permission_id: "1"
+  site_controller_name: site_controllers
+  permission_name: Administer site
+  menu_item_name: setup/controllers
+  content_page_title: 
+  menu_item_parent_id: "9"
+  menu_item_label: Controllers
+  content_page_id: 
+  controller_action_name: list
+  site_controller_id: "8"

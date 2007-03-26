@@ -1,0 +1,1613 @@
+/*
+-----------------------------------------------------------------
+Author: Ted Hawkins & Robert Shell Alces Ltd
+------------------------------
+*/
+
+/*
+MAIN STYLESHEET
+------------------------
+*/
+
+/*
+---------------------
+BASIC STYLINGS
+---------------------
+*/
+
+html, body, form {
+    margin: 0;
+    padding:  0;
+}
+
+body {
+    background: #FFF;
+    font-family: Arial, sans-serif;
+    font-size: 75%;
+    color: #000;
+    line-height: 1.8em;
+    text-align: left;
+    border-top: 1.8em;
+    border-top-style:  solid;
+    border-top-color: #468404;
+    width:100%;
+}
+
+
+#nav, #info, #subactions, #footer {
+    font-size: 1.1em;
+	  z-index: 999 ;
+
+}
+
+#main_content {
+    font-size: 1.2em;
+}
+
+/*
+---------------------
+SPECIFIC TAGS
+---------------------
+*/
+
+img, a img, :link img, :visited img {
+    border: none;
+    background-color:   Transparent;
+}
+
+a, a:link, a:visited {
+    color: #468404;
+    text-decoration: none;
+    background: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:#7cb30f;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#5A5A80;
+	padding:0.2em 0 0 0;
+}
+
+h3 {
+    font-family: Arial, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color:#5A5A80;
+    margin-bottom: 0.8em;
+    padding-bottom: 4px;
+}
+
+
+p {
+    font-family: serif;
+    color: #000;
+    line-height: 1.6em;
+    font-size:120%;
+}
+
+span {
+    font-weight: bold;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dt.sub {
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+dd {
+    margin-left: 2em;
+}
+
+/*
+---------------------
+MAIN LAYOUT ELEMENTS
+---------------------
+
+---------------------
+HEADER & NAVIGATION
+---------------------
+*/
+
+#header {
+    height: 2.7em;
+	width:auto;
+    position: relative;
+    background-color: #468404;
+    background-image: url(/images/bg_header.png);
+    background-repeat:repeat-x;
+    background-position:top;
+    border-top: 1px solid #022644;
+    border-bottom: 1px solid #5A9A07; 
+    z-index: 100;
+}
+
+#header h1 {
+    margin: 0 0 0 0em;
+	width:10em;
+    border: none;
+    padding:0.2em 0em 0em 2em ;
+    font-size:2em;
+    font-family:Arial;
+    z-index:50;
+    color:white;
+}
+
+#header h1 a {
+    height: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+.navbar {
+  height: 2em ;
+  background-color: #468404;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  z-index:50;
+}
+
+.topmenu {
+padding-left:30px;
+z-index:50;
+}
+
+
+#suckerfish * {
+  margin: 0 ;
+  padding: 0 ;
+}
+
+#suckerfish, #suckerfish ul {
+  padding: 0 0 0 0px ;
+  margin: 0 ;
+  width: 100% ;
+  list-style: none ;
+  line-height: 2em ;
+  z-index: 999 ;
+}
+
+#suckerfish a {
+  color: white ;
+  display: block ;
+}
+
+#suckerfish a:hover {
+  color: #f4ec7d ;
+  text-decoration: none ;
+}
+
+#suckerfish li {
+  padding: 0 .75em 0 .75em ;
+  float: left ;
+}
+
+#suckerfish li ul li a {
+  margin-left: .25em ;
+  width: 10.75em ;
+}
+
+#suckerfish li ul li a.daddy {
+  background-image: url("/images/daddy_rightarrow.gif") ;
+  background-position: right center ;
+  background-repeat: no-repeat ;
+}
+
+#suckerfish li ul li {
+  padding: 0 ;
+  width: 11em ;
+  border-bottom: .075em solid white ;
+  border-right: .075em solid white ;
+}
+
+#suckerfish li ul {
+  position: absolute ;
+  background: #6d7a73 ;
+  width: 11em ;
+  left: -999em ;
+}
+
+#suckerfish li ul ul {
+  margin: -2em 0 0 11.075em ;
+}
+
+#suckerfish li:hover ul ul, #suckerfish li.sfhover ul ul {
+  left: -999em ;
+}
+
+#suckerfish li:hover ul, #suckerfish li li:hover ul, #suckerfish li.sfhover ul, #suckerfish li li.sfhover ul {
+  left: auto ;
+}
+
+/*
+---------------------
+INFOBAR
+SITS BEHIND SUB MENU
+---------------------
+*/
+
+#info {
+    height: 44px;
+    position: relative;
+    background: #468404;
+    font-size: 1.1em;
+    color: #fff;
+
+}
+
+/*
+BREADCRUMBS
+*/
+
+#breadcrumbs {
+    text-align: right;
+    position:relative;
+    top: 0px;
+    color:              white;    
+    font-size:          12px;
+    font-weight: bolder;
+    z-index:1000;
+    padding-left: 30px;
+    padding-right:15px;
+}
+
+#breadcrumbs a
+{
+    color:white;
+}
+
+#breadcrumbs a:hover
+{
+    text-decoration:underline;
+    color:white;
+}
+
+/*
+LOGGED ON INFORMATION
+*/
+
+#user_info img {
+    vertical-align: top;
+}
+
+#logoff{
+    color: white;
+    font-size:1em;
+    position:relative;
+    float:right;
+padding-top:0.7em;
+padding-right:1em;
+}
+
+#logoff a {color:white;}
+
+#login-dialog{
+  text-align: left;
+  background-color:transparent;
+  min-width:50em;
+  color: white;
+  font-size:1em;
+  font-weight: bold;
+  padding: 1em 0 1em 0;
+  float:right;
+  border:none;
+  margin-top:-3.8em;
+}
+
+#login-dialog a{
+    color: white;
+}
+
+
+/*#user_info
+{
+    float:right;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: white;
+    width: 500px; 
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
+}*/
+/*
+#user_info a {
+    color: white;
+    text-decoration: underline;
+    background: transparent;
+}
+*/
+/* 
+MESSAGE OF THE DAY
+*/
+
+
+/*TODO*/
+#mod {
+    position:absolute;
+    float:left;
+    padding-top:10px;
+    z-index:1;
+    padding-left:35px;
+    color:white;
+    font-size:12px;
+    font-weight: bold;
+}
+
+
+
+#left_panel {
+    float: 				left;
+    padding-right: 		16px;
+    padding-top:		30px;
+
+}
+
+
+#left_content {
+    background-color: 	#FFF;
+    width: 				20em;
+    padding-left: 		0px;
+    text-indent:		8px;
+}
+
+#left_ctrl {
+    text-align: 		right;
+    color: 				white;
+    padding-bottom:		0px;
+    background-color:   #7CB30F;
+    
+}
+
+
+#left_ctrl h2 {   
+    color:				#fff;
+    margin-top: 		0px;
+}
+
+
+#left_close {
+    width: 				20px;
+}
+
+
+/* 
+Central main working area 
+*/
+
+#centre_panel {
+    padding-top: 1em;
+    border: none;
+}
+
+#centre_content {
+    text-align: left;
+    background-color: white;
+    border: none;
+    min-width:80%;
+}
+
+#centre_content h1 {
+    font-size: 3.5em;
+    float: right;
+    padding: 1em 1em 1em 1em;
+    color: #7CB30F;
+}
+
+#centre_content p {
+    padding-left: 1.5em;
+    text-align:justify;
+}
+
+
+#centre_content h6 {
+    padding-left: 1.5em;
+}
+
+
+#centre_content h6:hover {
+    padding-left: 0;
+}
+
+
+
+/* 
+Right in context tools 
+*/
+
+#right_panel {
+    float: right;
+    position: relative;
+    margin: 0;
+    padding-top: 30px;
+}
+
+#right_content {
+    text-align: left;
+    text-indent:8px;
+    background-color: #FFF;
+    width: 25em;
+    padding-left: 0px;
+}
+
+#right_ctrl {
+    text-align: left;
+    background-color:#468404;
+    color: white;
+    padding-bottom:0px;
+    background-image: url(/images/ctrl_top.png);
+    background-repeat:repeat-x;
+    background-position:top;
+}
+
+#right_ctrl h2 {   
+    color:#fff;
+    margin-top: 0px;
+}
+
+#right_close {
+    text-align: right;
+    /*width: 16px;*/
+    margin: 0;
+}
+
+#right_content input  {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-size: 0.9em;
+    font-weight: bold; 
+    background-color : #7CB30F;
+    color: white;
+    border: 1px solid #757575;
+}
+
+/*
+Search input box
+*/
+
+#query_text {
+    padding-left: 0px;
+    margin-left: 10px
+}
+
+/*
+Footer
+*/
+
+#footer
+{
+    padding-top:        5em;
+    padding-right:      5em;
+    text-align:         center;
+    position:           static;
+}
+
+/*
+-----------------------------------------------
+CONTENT
+-----------------------------------------------
+*/
+
+#messages {
+    
+    
+}
+
+#messages h2 {
+    color:red;
+}
+
+
+/*
+Form messages are shown at the top of the 
+form enclosed within the form
+*/
+
+#form_messages {
+     background-color: #FFC0CB; /*Pink*/
+     border: solid thin red;
+     padding: 5px 5px 5px 5px;
+}
+
+#form_messages h2 {
+    color:red;
+}
+
+
+.content panel_header{
+    font-size: 1.8em;
+    color: #468404;
+    font-weight: bold;
+}
+    
+/*
+-----------------------------------------------
+Default Base Table Style
+-----------------------------------------------
+*/
+
+table {
+    border-width:0px;
+    border-style:solid;
+}
+
+tr {
+    border-width:0px;
+    border-style:solid;
+}
+
+th {
+    border-width:0px;
+    border-style:solid;
+}
+
+td {
+    border-width:0px;
+    border-style:solid;
+}
+
+/*
+-----------------------------------------------
+Sheet Table Style
+-----------------------------------------------
+*/
+.sheet {
+    background-color:#eee;
+    border: solid thin #aaa;
+    background-color: #ddd;
+    color:black;
+    position: relative;
+    background-color:   #eee;
+}
+.sheet table {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+/* 
+Cell titles 
+*/
+.sheet th {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    height: auto;
+    background-color: #eee;
+    border-width:1px;
+    border-color:#aaa;
+    padding-left: 1px;
+    overflow: hidden;
+}
+
+.sheet tr {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: #eee;
+    height: auto;
+}
+
+.sheet td {
+    background-color: #fff;
+    text-align:right;
+    }
+/* 
+Cells 
+*/
+.sheet .cell {
+    margin: 0 0 0 0;
+    background-color: #fff;
+    color: rgb(0,0,0);
+    font-weight:normal;
+    font-style: normal;
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 1.0em;
+    text-align: center;
+    padding: 0 0 0 0;    
+}
+/* Cell is currently active for user input */
+
+.sheet .active {
+    margin: 0 0 0 0;
+    background-color: rgb(255,255,140);
+    color: rgb(0,0,0);
+    font-weight:bold;
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 1.0em;
+    text-align: center;
+    padding: 0 0 0 0;    
+}
+
+.sheet input {
+    width: 96%;
+    padding: 0px 0px 0px 0px;
+    height:             auto;
+    text-align: left;
+    margin: 0px 0px 0px 0px;
+    border: none;
+}
+
+.sheet input .numeric {
+    width: 96%;
+    padding: 0px 0px 0px 0px;
+    height:             auto;
+    text-align: right;
+    margin: 0px 0px 0px 0px;
+}
+
+/*
+-----------------------------------------------
+Report Table Style
+-----------------------------------------------
+*/
+.report {
+   width: 100%;
+}
+
+.report td {
+    padding: 0px 2px 0px 2px;
+    color: #333;
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+}
+ 
+.report  td.actions {
+    border-right: solid 1px #ccc;
+}
+ 
+.report tr.even td {
+    background-color: #E1EEC6;
+    border-left: solid 1px #ddd;
+}
+ 
+.report  tr td.sorted {
+    background-color: #ddd;
+    border-bottom: solid 1px #E1EEc6;
+}
+ 
+.report tr.even td.sorted {
+    background-color: blue;
+    border-bottom: solid 1px #E1eec6;
+}
+ 
+.report  td.empty {
+    color: black;
+    text-align: center;
+}
+ 
+/*
+-----------------------------------------------
+Report Table Style
+-----------------------------------------------
+*/
+
+.report th.label {
+    width: 15%;
+}
+
+.report th a,
+    .report th p {
+    font: bold 11px arial, sans-serif;
+    display: block;
+    background: #7CB30F;
+    color:              white;
+    /*background-image: url('/images/arrow_sort.gif');*/
+    background-position:right;
+    background-repeat:no-repeat;
+}
+ 
+.report  th {
+    color:#fff;
+    background: #7CB30F;
+    font: bold 0.8em arial, sans-serif;
+    padding: 0.1em 0.2em 0.1em 0.2em;
+}
+ 
+.report  th p {
+    color: #eee;
+    padding: 0.1em 0px;
+}
+ 
+.report  th a:hover {
+    color: #fff;
+}
+ 
+.report  th.sorted {
+    background-color: #468404;
+}
+ 
+.report  th.asc a,
+.report  th.asc a:hover {
+    background-color: #e1eec6;
+    background-image: url('/images/arrow_up.gif');
+    background-position:right;
+    background-repeat:no-repeat;
+}
+ 
+.report th.desc a,
+.report  th.desc a:hover { 
+    background-color:#e1eec6;
+    background-image: url(/images/arrow_down.gif);
+    background-position:right ;
+    background-repeat: no-repeat;
+}
+ 
+.report  th.loading a,
+.report  th.loading a:hover {
+    background: #333 url(/images/indicator-small.gif) right;
+}
+   
+ 
+/*
+-----------------------------------------------
+TABLE ACTIONS: 
+Edit, Delete
+-----------------------------------------------
+*/
+ 
+.report   td.actions {
+    padding: 0;
+    width: 1%;
+}
+ 
+.report   td.actions table {
+    float: right;
+    width: auto;
+    margin-right: 5px;
+}
+ 
+.report   td.actions table td {
+    border: none;
+    text-align: right;
+    padding: 0 2px;
+}
+ 
+.report   td.actions a {
+    font: bold 11px arial, sans-serif;
+    letter-spacing: -1px;
+    padding: 1px;
+    line-height: 16px;
+}
+/* 
+ *--------------------------------------------
+ * Schedule Gantt chart 
+ *---------------------------------------------
+*/
+
+.schedule td {
+    padding: 0px 0px;
+    background: #fafaea;
+}
+
+.schedule th {
+    color:#fff;
+    background: #7CB30F;
+    font-size: 0.7em;
+    padding: 0 0 0 0 ;
+}
+
+.schedule .event-box {
+    font-size:0.7em;
+    padding: 0 0 0 0 ;
+    color:#fff;
+}
+
+.schedule .event-bar {
+    font-size:0.7em;
+    color:#ff0;
+}
+
+/*
+-----------------------------------------------
+Forms: 
+Edit, Delete
+-----------------------------------------------
+*/
+
+/* None-Data entry forms should look like web pages
+or documents ratrher than forms. This means white
+bcground dark grey text and simple tables */
+/* Used to identify a form or form component */
+
+DocumentMain {
+    background-color:white;
+    border:none;
+}
+
+div.panel  {
+
+    border: thin solid #7CB30F;
+    background-color: white;
+}
+
+
+#study { border-bottom: solid thick #FFff00;}
+#experiment {border-bottom: solid thick #FF8000;}
+#task {border-bottom: solid thick #FF3030;}
+
+.main {
+    background-color: white;
+    border:none;
+
+}
+
+
+.main div.title {
+
+    font-family:        Arial, Helvetica, sans-serif;
+    font-size: 1.6em;
+    font-weight:normal;
+    padding:     5px 10px 20px 10px;
+    color:   #fff;
+    width:   auto;
+    background:         #7CB30F url(/images/title_left.png) no-repeat;
+    background-position: top left;
+
+}
+
+.main div.title a {
+
+    text-decoration:   none;
+color:             white;
+
+}
+
+.main div.title a:hover {
+    color:              #fff;
+    text-decoration:    underline;
+}
+
+/* Actions are used for button like links to other bits of functionality */
+
+div.actions  {
+
+    right: 5px;
+    text-align: right;
+    background-color:   transparent;
+    border: none;
+    margin-top:-35px;
+}
+
+div.actions a {
+    font:               bold 14px arial, sans-serif;
+    letter-spacing: -1px;
+    text-decoration: none;
+    padding: 1px 2px 1px 4px;
+    color:#fff;
+    list-style:    none;
+    display:    block;
+    
+}
+
+div.actions a:hover {
+ color:                 white;
+ text-decoration:       underline;
+}
+
+div.actions li {
+    float:right;
+    list-style: none;
+    display:block;
+    padding: 0px 1px 2px 1px;
+    text-align:center;
+    height:16px;
+
+}
+
+div actions li a:hover {
+    color:              white;
+}
+
+div.actions img {
+    margin-bottom: -3px;
+}
+
+
+
+div.actions a:hover {
+ color:                 white;
+}
+
+div.actions a {
+ color:                 white;
+}
+
+/* SUB Actions are used for button like links to other bits of functionality in tab */
+
+div.subactions  {
+    right: 5px;
+    text-align:right;
+    background-color:transparent;
+    border: none;
+    margin-top:-10px;
+}
+
+div.subactions a {
+    font: bold 14px arial, sans-serif;
+    letter-spacing:-1px;
+    text-decoration:underline ;
+    padding: 1px 2px 1px 4px;
+    color: #7CB30F;
+    list-style: none;
+    display:block;
+    
+}
+div.subactions li {
+    float:right;
+    list-style:none;
+    display:block;
+    padding:0px 1px 2px 1px;
+    text-align:center;
+    height:16px;
+}
+
+div.subactions img {
+  margin-bottom: -3px;
+}
+
+div.tab_stuff {
+  border:thin solid #ddd;
+}
+
+
+.main .dialog {
+    background-color: #E1EEC6;
+    border: solid thick #E1EEC6;
+}
+
+.main .panel {
+    border: solid 3px #7CB30F;
+}
+
+fieldset {
+  background-color: transparent;
+}
+
+
+/** Long complex data panel for reporting */
+
+
+/*-------------------------------------------------------------
+Table Headers: Used on forms and table for title + actions bar
+-----------------------------------------------------------------*/
+
+/** Row on a panel */
+
+div.row {
+    clear: both;
+    float: none;
+    padding: 1px;
+    margin-left: 5px;
+}
+
+/** Basic form control with label, field and tooltip */
+
+div.form-element {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.form-element label {
+    display: block;
+    font-family: Verdana, sans-serif;
+    color: #555;
+    font-size: 11px;
+    padding-bottom: 1px;
+}
+
+form {
+    margin: 5px 0;
+}
+
+form .submit {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 5px;
+}
+
+form label.required{
+    font-weight: bold;
+}
+
+form label.example {
+    font-size: 11px;
+    font-family: arial;
+    color: #888;
+}
+
+form h4 {
+    padding: 2px;
+    margin: 0;
+    text-transform: none;
+    color: #1F7F00;
+    letter-spacing: -1px;
+    font: bold 16px arial;
+}
+
+form input.text-input,
+    form select {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    letter-spacing: -1px;
+    border: solid 1px #1F7F00;
+}
+
+form textarea {
+    height: 125px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 1px;
+    border: solid 1px #1F7F00;
+}
+
+
+/* --------------------------------------------
+ * SpreadSheet
+ *--------------------------------------------*/
+/**
+ * Dynamic form elements for linked buttons
+ */
+.title-bar {
+    color: black;
+    background: #468404;
+    font: bold 15px arial, sans-serif;
+    padding: 0px 5px 7px 2px;
+    height:20px;
+    border: thin outset;
+}
+.title-bar th {
+    border: solid thin white;
+    background-color:white;
+    color: black;
+}
+   
+
+.buttons {
+      margin: 2px 2px 2px 0px;
+    text-align:left;
+    font-size:smaller;
+    height:             auto;
+    padding: 3px 1px 3px 0px;
+    font-size:1.2em;
+border-bottom: groove thin;
+}
+
+.buttons a {
+    color:#333;
+}
+
+
+.data_sheet_buttons {
+      margin: 2px 2px 2px 0px;
+    text-align:left;
+    background-color: #eee;
+    height:             auto;
+    padding: 0px 0px 0px 0px;
+    color:#333;
+    font-size:1.2em;
+    
+}
+
+.data_sheet_buttons a a:hover {
+    color: #333;
+    border: outset;
+    background-color: #eee;
+    padding: 2px 2px 2px 2px;
+    
+}
+
+.data_sheet_buttons .selected a {
+    border-style: inset;
+    border-width:thin;
+    background-color: #eee;
+    color:              #333;
+    padding: 2px 2px 2px 2px;
+    background-repeat: no-repeat;
+    background-position:right;
+    font-family:Arial;
+}
+
+/* 
+Linked Panel is displayed
+*/
+
+.buttons .selected a {
+    border-style: inset;
+    border-width:thin;
+    background-color: #eee;
+    padding: 2px 2px 2px 2px;
+    background-repeat: no-repeat;
+    background-position:right;
+    font-family:Arial;
+}
+
+/* 
+Linked Panel is hidden
+*/
+
+
+
+.buttons .unselected a {
+    border-style: outset;
+    border-width:thin;
+    background-color:#eee;
+    padding: 2px 2px 2px 2px;
+    background-repeat: no-repeat;
+    background-position:right;
+    color:#333;
+}
+
+/* -----------------------------
+ * Right Side current contents display
+ * --------------------------------------*/
+
+#current_context {
+    margin:0;              
+    padding:0;              
+}
+
+#current_context ul {              
+    width:100%;              
+    list-style-type:none;            
+    margin:0;              
+    padding:0;              
+}            
+ 
+#current_context ul li {                   
+    margin:0;              
+    padding:0;              
+}            
+
+/* --------------------------------------------
+* Auto Complete popup Panel style
+--------------------------------------------*/
+
+div.auto_complete {              
+    width: 350px;              
+    background: #fff;            
+}            
+
+div.auto_complete ul {              
+    border:1px solid #888;              
+    margin:0;              
+    padding:0;              
+    width:100%;              
+    list-style-type:none;            
+}            
+ 
+div.auto_complete ul li {              
+    margin:0;              
+    padding:3px;            
+}            
+div.auto_complete ul li.selected {
+    background-color: #ffb;             
+}            
+div.auto_complete ul strong.highlight {               
+    color: #800;               
+    margin:0;              
+    padding:0;            
+}
+
+
+/* 
+goldberg.css
+Goldberg-specific stylesheet.
+*/
+
+/**
+*Tab styles for protocol parameter selector
+*/
+
+#allowed_types {
+    background-color:#fff;
+}
+
+.tab-panel {
+    border-style: inset;
+    border-width:thin;
+    border-color: #468404;
+    background: #E3FFA2;
+    padding: 10px 0;
+    margin-top: 5px;
+    background-image: url('/images/destroy.png');
+    background-repeat: no-repeat;
+    background-position:top right;
+}
+
+.tabs  {
+    position: relative;
+    width: 100%;
+    height: 2em;
+    width: 90%;
+}
+
+.tabs  ul.tabs {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 0px;
+    width: 90%; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+.tabs  ul.tabs li  {
+    display: block;
+    list-style: none;
+}
+
+.tabs  a {
+    float:left;
+    display:block;
+    background:url(/images/menuleft.gif) no-repeat left top;
+    margin:0 0 0 0;
+    text-decoration:none;
+    padding: 4px 10px 0px 10px;
+    border-bottom: solid;
+    border-color: #666666;
+    border-width: 1px;
+}
+
+.tabs span {
+    float:left;
+    display:block;
+    background:url(/images/menuright.gif) no-repeat right top;
+}
+
+/**
+* Styles for drag and drop items on the protocol edit form
+*/
+
+span.study_parameter {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#E3FFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+span.study_queue {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#FFFFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+span.parameter {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#E3FFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+.parameter_context {
+  background-color: #FFF4D8;
+  border:1px solid #E8A400;
+}
+
+.drop-active  th {
+    background: #FFF4D8;
+    border:1px solid #E8A400;
+}
+
+/*
+Flash Notices and Errors 
+*/
+
+div.flash_note {
+    background-color:#ddffd1;
+    border:2px solid #32b704;
+    color:#185702;
+    padding:5px 20px 5px 0px;
+    margin-bottom: 15px ;
+}
+
+div.flash_info {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    background-color:#ddffd1;
+    border:2px solid #32b704;
+    color:#185702;
+    padding:5px 20px 5px 0px;
+    margin-bottom: 15px ;
+}
+
+div.flash_error, div.flash_warning , div.errorExplanation {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    background-color:#ffddd1;
+    border:2px solid #b73204;
+    color:#571802;
+    padding:5px 20px 5px 0px;
+    margin-bottom: 15px ;
+}
+
+div.flash_warning  {
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    background-color:#FFC45D;
+    border:2px solid #b73204;
+    color:#571802;
+    padding:5px 20px 5px 0px;
+    margin-bottom: 15px ;
+}
+
+
+div.fieldWithErrors input {  
+    background-color:#ffddd1;
+}
+
+#content div.flash_error h1 { 
+    color:#571802;
+}
+
+#content div.errorExplanation h2 { 
+    color:#571802;
+}
+
+
+/*
+Hierarchical list in a table 
+*/
+ 
+table.table_as_list {
+}
+
+table.table_as_list tr.depth0 { 
+    background: #e8e9ea;
+}
+
+table.table_as_list tr.depth0 td div.menu_title {
+    margin-left: 0px;
+}
+
+table.table_as_list tr.depth1 { 
+    background: #c8e9ea;
+}
+table.table_as_list tr.depth1 td div.menu_title {
+    margin-left: 20px;
+}
+
+table.table_as_list tr.depth2 { 
+    background: #e8c9ea;
+}
+table.table_as_list tr.depth2 td div.menu_title {
+    margin-left: 40px;
+}
+
+/*
+HTML panel within page 
+*/
+
+div.html_panel {
+    background-color:#fafcff;
+    border:1px solid #909090;
+    color:#2a2a2a;
+    padding:15px 20px 5px;
+}
+
+/*
+Custom List Formatting 
+*/
+ul.roles_list {  
+    list-style-image: url("/images/role.png");
+}
+
+ul.permissions_list {  
+    list-style-image: url("/images/permission.png");
+}
+
+/*
+System Settings 
+*/
+
+table.system_settings tr.settings_row { 
+    background-color:#ecdbbe ;
+}
+
+div.guidance_text { 
+    font-style: italic ;
+    margin-left: 20px ;
+}
+
+/*** Tabbed Panels ***/
+/*
+Adapted from Kalsey CSS tabs:
+http://css.maxdesign.com.au/listamatic/horizontal08.htm
+*/
+
+.tablist {
+    border-bottom: 1px solid #7CB30F;
+    margin: 0;
+    padding-bottom: 1.60em;
+    padding-left: 1em;
+}
+
+.tablist ul, .tablist li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tablist a:link, .tablist a:visited {
+    background: #E8EBF0;
+    border: 1px solid #7CB30F;
+    color: #666;
+    float: left;
+    font-size: small;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin-right: 0.5em;
+    padding: 0em 1em 0.1em 1em;
+    text-decoration:none;
+}
+
+.tablist a:link.current, .tablist a:visited.current {
+    background: #fff;
+    border-bottom: thin solid #fff;
+    color: #000;
+}
+
+.tablist a:hover { 
+    color: #f00; 
+}
+
+.tablist ul a:hover { 
+    color: #f00 !important; 
+}
+
+
+ul.tree {
+    list-style: none;
+    height: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    border-bottom-style:inset;
+    border-bottom-width:1px;
+    border-bottom-color:#7CB30F;
+    margin: 0;
+    padding: 0;
+}
+
+ul.tree .reversed {
+    background: #7cb30f;
+    color: #fff;
+    font-size: larger;
+    font-weight: bold;
+}
+
+ul.tree a {
+  padding-top: 1px;
+  padding-right: 3px;
+}
+
+li.tree {
+  padding-left: 0px;
+}
+
+li.tree_leaf {
+  padding-left: 23px;
+}
+
+
+
+/*
+ * Simple layout for tree display for reports
+ */
+.tree ul{ /*CSS for Simple Tree Menu*/
+margin: 0;
+padding: 0;
+}
+
+
+
+.tree li{ /*Style for LI elements in general (excludes an LI that contains sub lists)*/
+list-style-type: none;
+padding-left: 15px;
+margin-bottom: 3px;
+}
+
+.tree li.submenu{ /* Style for LI that contains sub lists (other ULs). */
+}
+
+
+.tree li.submenu ul{ /*Style for ULs that are children of LIs (submenu) */
+display: none; /*Hide them by default. Don't delete. */
+}
+
+.tree .submenu ul li{ /*Style for LIs of ULs that are children of LIs (submenu) */
+cursor: default;
+}
+
+
+
+.mceEditorContainer {
+	
+	max-width:90%;
+	
+}
+
+/* Reports /*
+
+
+/* Taken from "How to Make Firefox Forms Suck Less" at 
+ * http://particletree.com/notebook/how-to-make-firefox-forms-suck-less/
+ */
+ 
+input[type=text], input[type=password], textarea, select{
+    font-size:      1.1em;
+    line-height:    1.3em;
+/*   border-top:     1px solid #7c7c7c;*/
+/*    border-left:    1px solid #c3c3c3;*/
+/*    border-right:   1px solid #c3c3c3;*/
+/*    border-bottom:  1px solid #ddd;*/
+    background:     #fff url(/images/fieldbg.gif) repeat-x top;
+    padding:      0.1em;
+    font-family:   Arial, sans-serif;
+}
+
+/* Status coloured backgounrs */
+
+.state-new
+{
+    background-color:   #AEF8FF;
+}
+.state-accepted
+{
+    background-color:   #F2FFA7;
+}
+.state-waiting
+{
+    background-color:   #FFDA8B;
+}
+.state-processing
+{
+    background-color:   #F9FF8B;
+}
+.state-validation
+{
+    background-color:   #DAFF90;
+}
+.state-completed
+{
+    background-color:   #A3FF97;
+}
+.state-rejected
+{
+    background-color:   #D0AEAE;
+}
+.state-aborted
+{
+    background-color:   #FFB4B4;
+}

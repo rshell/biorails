@@ -1,0 +1,31 @@
+<div id="left_content" class='panel' <%='style="display: none;"' unless session[:left_panel] %> >
+    <div id="left_ctrl">
+        <h2>Finder <%=link_to_remote subject_icon("application_side_contract.png"),
+            :url => { :action => "left_hide", :controller => 'finder'}  %></h2>
+    </div>
+      <p style='font-size:1.2em;color:#5A5A80;'>Search<%=subject_icon('find.png')%></p>
+<% form_tag :action => 'finder' do %>
+      <%= text_field :query, :text ,:size =>15 %>
+<% end %>
+   <div id="query_hitlist" class="hitlist">     
+        <%= hitlist %> 
+    </div>
+   <%= observe_field( :query_text, :frequency => 1.0, 
+          :update => "query_hitlist", :url => {:controller=> 'finder', :action => :query }) %>
+	<h3>My Worklist</h3>
+	<ul>
+	   <% for task in Task.find(:all,:limit=>5,:order=>'updated_at desc')%>
+        <li> 
+         Expt[<%= link_to task.experiment.name, :controller =>'experiments', :action=>'show', :id => task.experiment.id %>]
+         Task[<%= link_to task.name, :controller =>'tasks', :action=>'show', :id => task.id %>]
+        </li>
+      <% end %>
+    </ul>
+</div>
+
+<div id="left_closed"  <%='style="display: none;"' if session[:left_panel] %> >
+   <%=link_to_remote subject_icon("/images/tab_finder.png"),
+   :url => { :action => "left_show", :controller => 'finder' } %>
+</div>
+
+

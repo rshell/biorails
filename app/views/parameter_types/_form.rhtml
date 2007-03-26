@@ -1,0 +1,32 @@
+<fieldset>
+  <div class="row">
+    <!--[form:parameter_type]-->
+<div class="form-element">
+  <label for="parameter_type_name">Name</label>
+  <%= text_field 'parameter_type', 'name'  ,"size" => 10,:class=>"text-input" %>
+</div>
+
+<div class="form-element">
+  <label for="parameter_type_description">Description</label>
+  <%= text_field 'parameter_type', 'description' , {:class=>"text-input"} %>
+</div>
+
+<div class="form-element">
+  <label for="parameter_type_weighing">Weighing</label>
+  <%= text_field 'parameter_type', 'weighing' ,"size" => 8,:class=>"text-input"  %>
+</div>
+
+<div class="form-element">
+  <label for="parameter_type_data_type_id">Data_Type</label>
+  <%= select_named( :parameter_type, :data_type_id ,DataType) %>
+</div>
+
+<div class="form-element">
+  <label for="parameter_type_data_concept">Concept</label>
+  <%= select_data_concept( :parameter_type, :data_concept_id ) %>
+</div>
+
+<!--[eoform:parameter_type]-->
+
+  </div>
+</fieldset>

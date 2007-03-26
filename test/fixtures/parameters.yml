@@ -1,0 +1,2351 @@
+--- 
+parameters_087: 
+  name: Treatment Role
+  default_value: 
+  updated_at: 2007-03-21 14:32:32
+  display_unit: 
+  parameter_context_id: "9"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "5"
+  data_format_id: 
+  mandatory: N
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "159"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "6"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-03-21 14:32:32
+parameters_003: 
+  name: Molecular Mass
+  default_value: ""
+  updated_at: 2007-03-21 14:27:54
+  display_unit: 
+  parameter_context_id: "1"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "1"
+  data_format_id: "4"
+  mandatory: Y
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "5"
+  updated_by: ""
+  id: "6"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "11"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:02:44
+parameters_024: 
+  name: Gene
+  default_value: ""
+  updated_at: 2007-03-20 21:18:00
+  display_unit: 
+  parameter_context_id: "11"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "6"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "59"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "10"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:16:39
+parameters_045: 
+  name: DoseGroupID
+  default_value: ""
+  updated_at: 2007-03-21 10:08:28
+  display_unit: 
+  parameter_context_id: "17"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "95"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:07:41
+parameters_066: 
+  name: Mean Activity Count
+  default_value: ""
+  updated_at: 2007-03-21 11:19:16
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "9"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "131"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "37"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:16:48
+parameters_088: 
+  name: DoseGroupID
+  default_value: ""
+  updated_at: 2007-03-23 12:41:18
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "160"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:06
+parameters_067: 
+  name: Mean Inhibition
+  default_value: ""
+  updated_at: 2007-03-21 11:19:17
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "12"
+  mandatory: 
+  created_by: ""
+  column_no: "10"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "132"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "34"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:16:52
+parameters_004: 
+  name: Species
+  default_value: ""
+  updated_at: 2007-03-20 20:06:56
+  display_unit: 
+  parameter_context_id: "2"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "17"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "7"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "19"
+  data_element_id: "63"
+  sequence_num: "0"
+  created_at: 2007-03-20 20:05:44
+parameters_025: 
+  name: Treatment Group
+  default_value: ""
+  updated_at: 2007-03-20 21:26:59
+  display_unit: 
+  parameter_context_id: "13"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "7"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "64"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "8"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:23:00
+parameters_046: 
+  name: DRUG
+  default_value: ""
+  updated_at: 2007-03-21 10:08:28
+  display_unit: 
+  parameter_context_id: "17"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "1"
+  mandatory: Y
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "96"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "30"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:07:49
+parameters_090: 
+  name: Treatment Role
+  default_value: ""
+  updated_at: 2007-03-23 12:41:18
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "6"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "162"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "31"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:23
+parameters_089: 
+  name: DRUG
+  default_value: ""
+  updated_at: 2007-03-23 12:41:18
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "6"
+  updated_by: ""
+  id: "161"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "30"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:18
+parameters_068: 
+  name: SD Inhibition
+  default_value: ""
+  updated_at: 2007-03-21 11:19:17
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "12"
+  mandatory: 
+  created_by: ""
+  column_no: "11"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "133"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "34"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 11:16:58
+parameters_026: 
+  name: p
+  default_value: ""
+  updated_at: 2007-03-20 21:26:59
+  display_unit: 
+  parameter_context_id: "13"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "7"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "2"
+  parameter_type_id: "4"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "65"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "4"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:23:03
+parameters_047: 
+  name: Box
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "97"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:09:27
+parameters_091: 
+  name: Compound
+  default_value: ""
+  updated_at: 2007-03-23 12:41:18
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: "18"
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "163"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:35
+parameters_070: 
+  name: Forbehandling ICV
+  default_value: 00749 0,8ug
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "9"
+  updated_by: ""
+  id: "140"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "30"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:36:22
+parameters_069: 
+  name: Compound
+  default_value: ""
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: "18"
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "9"
+  updated_by: ""
+  id: "136"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-21 11:35:17
+parameters_048: 
+  name: AnimalNo
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "98"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 10:09:30
+parameters_005: 
+  name: Strain
+  default_value: ""
+  updated_at: 2007-03-20 20:06:56
+  display_unit: 
+  parameter_context_id: "2"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "8"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "22"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:05:49
+parameters_092: 
+  name: Concentration
+  default_value: ""
+  updated_at: 2007-03-23 12:41:19
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "164"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "32"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:40
+parameters_071: 
+  name: Gender
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "6"
+  parameter_type_id: "15"
+  data_type_id: "5"
+  lock_version: "8"
+  updated_by: ""
+  id: "143"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "38"
+  data_element_id: "46"
+  sequence_num: "0"
+  created_at: 2007-03-21 11:39:27
+parameters_006: 
+  name: Min Age
+  default_value: ""
+  updated_at: 2007-03-20 20:06:56
+  display_unit: 
+  parameter_context_id: "2"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "9"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "13"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:05:56
+parameters_027: 
+  name: sig
+  default_value: ""
+  updated_at: 2007-03-20 21:26:59
+  display_unit: 
+  parameter_context_id: "13"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "7"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "66"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "5"
+  data_element_id: "80"
+  sequence_num: "0"
+  created_at: 2007-03-20 21:23:07
+parameters_050: 
+  name: Total
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "100"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:09:52
+parameters_093: 
+  name: Vehicle
+  default_value: ""
+  updated_at: 2007-03-23 12:41:19
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "165"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "1"
+  created_at: 2007-03-21 09:54:48
+parameters_072: 
+  name: Dose
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "10"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "144"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "39"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:39:34
+parameters_007: 
+  name: Min Weight
+  default_value: ""
+  updated_at: 2007-03-20 20:06:56
+  display_unit: 
+  parameter_context_id: "2"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "3"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "10"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "12"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:05:58
+parameters_030: 
+  name: Reading
+  default_value: 
+  updated_at: 2007-03-20 21:29:04
+  display_unit: 
+  parameter_context_id: "12"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "6"
+  data_format_id: "4"
+  mandatory: N
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  lock_version: "2"
+  updated_by: ""
+  id: "69"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "3"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:29:04
+parameters_028: 
+  name: Histology
+  default_value: ""
+  updated_at: 2007-03-20 21:26:59
+  display_unit: 
+  parameter_context_id: "13"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "7"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "67"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "25"
+  data_element_id: "80"
+  sequence_num: "0"
+  created_at: 2007-03-20 21:26:38
+parameters_051: 
+  name: 5 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "101"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 10:10:05
+parameters_049: 
+  name: StartTime
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "20"
+  mandatory: Y
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "6"
+  parameter_type_id: "22"
+  data_type_id: "4"
+  lock_version: "7"
+  updated_by: ""
+  id: "99"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "27"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:09:41
+parameters_094: 
+  name: Group Size
+  default_value: "20"
+  updated_at: 2007-03-23 12:41:19
+  display_unit: 
+  parameter_context_id: "24"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "13"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "3"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "166"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "33"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:55:07
+parameters_073: 
+  name: mean Plasma Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "9"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "145"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "41"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:39:58
+parameters_010: 
+  name: Age
+  default_value: ""
+  updated_at: 2007-03-20 20:07:56
+  display_unit: 
+  parameter_context_id: "3"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "13"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "18"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:06:24
+parameters_008: 
+  name: Index
+  default_value: ""
+  updated_at: 2007-03-20 20:07:56
+  display_unit: 
+  parameter_context_id: "3"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "11"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "7"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:06:17
+parameters_031: 
+  name: Reading_1
+  default_value: 
+  updated_at: 2007-03-20 21:29:06
+  display_unit: 
+  parameter_context_id: "12"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "6"
+  data_format_id: "4"
+  mandatory: N
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  lock_version: "2"
+  updated_by: ""
+  id: "70"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "3"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-20 21:29:06
+parameters_029: 
+  name: ID
+  default_value: 
+  updated_at: 2007-03-20 21:29:00
+  display_unit: 
+  parameter_context_id: "12"
+  study_queue_id: "16"
+  access_control_id: "0"
+  protocol_version_id: "6"
+  data_format_id: "1"
+  mandatory: N
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "5"
+  updated_by: ""
+  id: "68"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "21"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:28:47
+parameters_052: 
+  name: 10 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "8"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "102"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "2"
+  created_at: 2007-03-21 10:10:08
+parameters_074: 
+  name: sd Plasma Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "10"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "146"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "41"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 11:40:02
+parameters_011: 
+  name: Initial Weight
+  default_value: ""
+  updated_at: 2007-03-20 20:07:56
+  display_unit: 
+  parameter_context_id: "3"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "4"
+  mandatory: Y
+  created_by: ""
+  column_no: "8"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "14"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:06:31
+parameters_009: 
+  name: ID
+  default_value: ""
+  updated_at: 2007-03-20 20:07:56
+  display_unit: 
+  parameter_context_id: "3"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "1"
+  mandatory: Y
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "12"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "21"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:06:21
+parameters_032: 
+  name: Treatment Group
+  default_value: ""
+  updated_at: 2007-03-20 21:35:16
+  display_unit: 
+  parameter_context_id: "14"
+  study_queue_id: "17"
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "76"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "8"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:34:44
+parameters_053: 
+  name: 15 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "9"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "103"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "3"
+  created_at: 2007-03-21 10:10:13
+parameters_075: 
+  name: mean Brain Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "11"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "147"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "42"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:41:50
+parameters_012: 
+  name: Treatment Group
+  default_value: ""
+  updated_at: 2007-03-20 20:07:56
+  display_unit: 
+  parameter_context_id: "3"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "2"
+  data_format_id: "1"
+  mandatory: Y
+  created_by: ""
+  column_no: "9"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "15"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "8"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:06:41
+parameters_033: 
+  name: Animal ID
+  default_value: ""
+  updated_at: 2007-03-20 21:38:29
+  display_unit: 
+  parameter_context_id: "15"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "4"
+  updated_by: ""
+  id: "77"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "21"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:35:23
+parameters_054: 
+  name: 20 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "10"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "104"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "4"
+  created_at: 2007-03-21 10:10:18
+parameters_076: 
+  name: sd Brain Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "22"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "12"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "148"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "42"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 11:41:54
+parameters_013: 
+  name: Index
+  default_value: ""
+  updated_at: 2007-03-20 20:11:06
+  display_unit: 
+  parameter_context_id: "5"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "3"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "16"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "7"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:09:36
+parameters_034: 
+  name: Cellular Infiltration
+  default_value: ""
+  updated_at: 2007-03-20 21:38:29
+  display_unit: 
+  parameter_context_id: "15"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "78"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "1"
+  data_element_id: "77"
+  sequence_num: "0"
+  created_at: 2007-03-20 21:35:26
+parameters_055: 
+  name: 25 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "11"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "105"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "5"
+  created_at: 2007-03-21 10:10:20
+parameters_077: 
+  name: Animal No.
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "23"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "13"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "149"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 11:42:13
+parameters_014: 
+  name: ID
+  default_value: ""
+  updated_at: 2007-03-20 20:11:06
+  display_unit: 
+  parameter_context_id: "5"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "3"
+  data_format_id: "1"
+  mandatory: Y
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "17"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "21"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:09:40
+parameters_035: 
+  name: Edema
+  default_value: ""
+  updated_at: 2007-03-20 21:38:29
+  display_unit: 
+  parameter_context_id: "15"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "79"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "1"
+  data_element_id: "77"
+  sequence_num: "1"
+  created_at: 2007-03-20 21:35:29
+parameters_056: 
+  name: 30 min
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "12"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "7"
+  updated_by: ""
+  id: "106"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "6"
+  created_at: 2007-03-21 10:10:26
+parameters_078: 
+  name: TimeAfterDosing
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "23"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "14"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "150"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "40"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:42:27
+parameters_015: 
+  name: Group Size
+  default_value: ""
+  updated_at: 2007-03-20 20:11:06
+  display_unit: 
+  parameter_context_id: "5"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "3"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "6"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "18"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "9"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:09:46
+parameters_036: 
+  name: Hyperplasia
+  default_value: ""
+  updated_at: 2007-03-20 21:38:29
+  display_unit: 
+  parameter_context_id: "15"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "80"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "1"
+  data_element_id: "77"
+  sequence_num: "2"
+  created_at: 2007-03-20 21:35:32
+parameters_057: 
+  name: 15 min recording
+  default_value: ""
+  updated_at: 2007-03-21 11:11:40
+  display_unit: 
+  parameter_context_id: "18"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "10"
+  data_format_id: "8"
+  mandatory: Y
+  created_by: ""
+  column_no: "13"
+  parameter_role_id: "1"
+  parameter_type_id: "6"
+  data_type_id: "2"
+  lock_version: "5"
+  updated_by: ""
+  id: "108"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "28"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 10:12:59
+parameters_080: 
+  name: Brain Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "23"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "16"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "152"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "42"
+  data_element_id: 
+  sequence_num: "2"
+  created_at: 2007-03-21 11:42:44
+parameters_079: 
+  name: Plasma Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "23"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "15"
+  parameter_role_id: "2"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "151"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "41"
+  data_element_id: 
+  sequence_num: "2"
+  created_at: 2007-03-21 11:42:40
+parameters_037: 
+  name: Macrophage
+  default_value: ""
+  updated_at: 2007-03-20 21:38:29
+  display_unit: 
+  parameter_context_id: "15"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "8"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "1"
+  parameter_type_id: "20"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "81"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "1"
+  data_element_id: "77"
+  sequence_num: "3"
+  created_at: 2007-03-20 21:35:35
+parameters_058: 
+  name: Compound
+  default_value: ""
+  updated_at: 2007-03-21 11:13:50
+  display_unit: 
+  parameter_context_id: "19"
+  study_queue_id: "18"
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "114"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-21 11:00:46
+parameters_081: 
+  name: B/P
+  default_value: ""
+  updated_at: 2007-03-21 11:46:59
+  display_unit: 
+  parameter_context_id: "23"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "17"
+  parameter_role_id: "2"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "8"
+  updated_by: ""
+  id: "153"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "43"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:42:47
+parameters_060: 
+  name: Fit Report
+  default_value: ""
+  updated_at: 2007-03-21 11:13:50
+  display_unit: 
+  parameter_context_id: "19"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "24"
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "2"
+  parameter_type_id: "13"
+  data_type_id: "6"
+  lock_version: "4"
+  updated_by: ""
+  id: "116"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "36"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:09:34
+parameters_059: 
+  name: ED50
+  default_value: ""
+  updated_at: 2007-03-21 11:13:50
+  display_unit: 
+  parameter_context_id: "19"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "2"
+  parameter_type_id: "8"
+  data_type_id: "2"
+  lock_version: "4"
+  updated_by: ""
+  id: "115"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "35"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:09:31
+parameters_016: 
+  name: Mean Weight
+  default_value: ""
+  updated_at: 2007-03-20 20:11:06
+  display_unit: 
+  parameter_context_id: "5"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "3"
+  data_format_id: "4"
+  mandatory: Y
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "19"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:09:51
+parameters_082: 
+  name: mean B/P
+  default_value: ""
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "2"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "154"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "43"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-21 11:43:13
+parameters_017: 
+  name: Treatment Role
+  default_value: ""
+  updated_at: 2007-03-20 20:11:14
+  display_unit: 
+  parameter_context_id: "6"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "3"
+  data_format_id: 
+  mandatory: Y
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "3"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "20"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "6"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-03-20 20:10:02
+parameters_040: 
+  name: Treatment Role
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "6"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "90"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "31"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:23
+parameters_038: 
+  name: DoseGroupID
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "88"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:06
+parameters_061: 
+  name: Max Inhibition
+  default_value: ""
+  updated_at: 2007-03-21 11:13:50
+  display_unit: 
+  parameter_context_id: "19"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "12"
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  data_type_id: "2"
+  lock_version: "4"
+  updated_by: ""
+  id: "117"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "34"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:09:37
+parameters_083: 
+  name: sd B/P
+  default_value: ""
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "2"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "155"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "43"
+  data_element_id: 
+  sequence_num: "2"
+  created_at: 2007-03-21 11:43:16
+parameters_020: 
+  name: Weight
+  default_value: ""
+  updated_at: 2007-03-20 20:57:11
+  display_unit: 
+  parameter_context_id: "8"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "4"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "3"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "25"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:56:52
+parameters_018: 
+  name: Day
+  default_value: ""
+  updated_at: 2007-03-20 20:57:24
+  display_unit: 
+  parameter_context_id: "7"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "4"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "6"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "23"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "20"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:56:25
+parameters_041: 
+  name: Compound
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: "18"
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "91"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:35
+parameters_039: 
+  name: DRUG
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "6"
+  updated_by: ""
+  id: "89"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "30"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:18
+parameters_062: 
+  name: Max Inhibition Conc
+  default_value: ""
+  updated_at: 2007-03-21 11:13:50
+  display_unit: 
+  parameter_context_id: "19"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "4"
+  updated_by: ""
+  id: "118"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "32"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:09:41
+parameters_084: 
+  name: Group No.
+  default_value: ""
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "5"
+  updated_by: ""
+  id: "156"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "2"
+  created_at: 2007-03-21 11:44:30
+parameters_021: 
+  name: Treatment Group
+  default_value: ""
+  updated_at: 2007-03-20 21:11:35
+  display_unit: 
+  parameter_context_id: "9"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "5"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "26"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "8"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:01:34
+parameters_019: 
+  name: ID
+  default_value: ""
+  updated_at: 2007-03-20 20:57:11
+  display_unit: 
+  parameter_context_id: "8"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "4"
+  data_format_id: "1"
+  mandatory: 
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "3"
+  updated_by: ""
+  id: "24"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "21"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:56:38
+parameters_042: 
+  name: Concentration
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "92"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "32"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:54:40
+parameters_063: 
+  name: DoseGroupID
+  default_value: ""
+  updated_at: 2007-03-21 11:19:16
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "8"
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  data_type_id: "2"
+  lock_version: "4"
+  updated_by: ""
+  id: "119"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "26"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:10:45
+parameters_085: 
+  name: Ass Doc.
+  default_value: ""
+  updated_at: 2007-03-21 11:47:15
+  display_unit: 
+  parameter_context_id: "21"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "12"
+  data_format_id: "24"
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "2"
+  parameter_type_id: "13"
+  data_type_id: "6"
+  lock_version: "4"
+  updated_by: ""
+  id: "157"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "36"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:46:59
+parameters_001: 
+  name: Compounds
+  default_value: ""
+  updated_at: 2007-03-21 14:27:55
+  display_unit: 
+  parameter_context_id: "1"
+  study_queue_id: "15"
+  access_control_id: "0"
+  protocol_version_id: "1"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "1"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "4"
+  updated_by: ""
+  id: "1"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "15"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-20 20:02:01
+parameters_022: 
+  name: Mean Weight
+  default_value: ""
+  updated_at: 2007-03-21 14:32:32
+  display_unit: 
+  parameter_context_id: "10"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "5"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "5"
+  updated_by: ""
+  id: "57"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 21:12:12
+parameters_043: 
+  name: Vehicle
+  default_value: ""
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "6"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "6"
+  updated_by: ""
+  id: "93"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "29"
+  data_element_id: "1"
+  sequence_num: "1"
+  created_at: 2007-03-21 09:54:48
+parameters_064: 
+  name: Treatment Role
+  default_value: ""
+  updated_at: 2007-03-21 11:19:17
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: 
+  mandatory: 
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "6"
+  parameter_type_id: "19"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "124"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "31"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-03-21 11:13:07
+parameters_086: 
+  name: Compound
+  default_value: 
+  updated_at: 2007-03-21 14:32:21
+  display_unit: 
+  parameter_context_id: "9"
+  study_queue_id: "15"
+  access_control_id: "0"
+  protocol_version_id: "5"
+  data_format_id: 
+  mandatory: N
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  data_type_id: "5"
+  lock_version: "3"
+  updated_by: ""
+  id: "158"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "15"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-03-21 14:32:21
+parameters_002: 
+  name: Molecula Formula
+  default_value: ""
+  updated_at: 2007-03-21 14:27:55
+  display_unit: 
+  parameter_context_id: "1"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "1"
+  data_format_id: "1"
+  mandatory: Y
+  created_by: ""
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "1"
+  data_type_id: "1"
+  lock_version: "5"
+  updated_by: ""
+  id: "5"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "14"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-20 20:02:40
+parameters_023: 
+  name: SD Weight
+  default_value: ""
+  updated_at: 2007-03-21 14:32:32
+  display_unit: 
+  parameter_context_id: "10"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "5"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "5"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  data_type_id: "2"
+  lock_version: "5"
+  updated_by: ""
+  id: "58"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "2"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-03-20 21:12:16
+parameters_044: 
+  name: Group Size
+  default_value: "20"
+  updated_at: 2007-03-21 14:47:35
+  display_unit: 
+  parameter_context_id: "16"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "9"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "7"
+  parameter_role_id: "3"
+  parameter_type_id: "12"
+  data_type_id: "2"
+  lock_version: "6"
+  updated_by: ""
+  id: "94"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "33"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 09:55:07
+parameters_065: 
+  name: Concentration
+  default_value: ""
+  updated_at: 2007-03-21 11:19:17
+  display_unit: 
+  parameter_context_id: "20"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "11"
+  data_format_id: "4"
+  mandatory: 
+  created_by: ""
+  column_no: "8"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  data_type_id: "2"
+  lock_version: "3"
+  updated_by: ""
+  id: "125"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "32"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-03-21 11:13:15

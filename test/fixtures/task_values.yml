@@ -1,0 +1,2276 @@
+--- 
+task_values_064: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "64"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1655"
+task_values_036: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "36"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "3"
+task_values_008: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:31:41
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "4"
+  id: "8"
+  parameter_id: "88"
+  created_at: 2007-03-23 16:31:41
+  data_value: "444"
+task_values_092: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "92"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "170"
+task_values_120: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "120"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "405"
+task_values_065: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "65"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "10"
+task_values_037: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "37"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1703"
+task_values_009: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:47:38
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "7"
+  id: "9"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "20"
+task_values_093: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "93"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "22"
+task_values_121: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "121"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "637"
+task_values_066: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "66"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "10"
+task_values_038: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "38"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "136"
+task_values_094: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "94"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1592"
+task_values_150: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "150"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "459"
+task_values_122: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "122"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "180"
+task_values_067: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "67"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1815"
+task_values_039: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "39"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "405"
+task_values_095: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "375"
+  id: "95"
+  parameter_id: "95"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1"
+task_values_151: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "151"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "216"
+task_values_123: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "123"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "114"
+task_values_096: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "96"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1"
+task_values_068: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "68"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "745"
+task_values_152: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "152"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "196"
+task_values_124: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "124"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "231"
+task_values_097: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "97"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1"
+task_values_010: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:47:38
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "8"
+  id: "10"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "20"
+task_values_069: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "69"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "459"
+task_values_153: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "153"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "147"
+task_values_125: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "125"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1178"
+task_values_098: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "98"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "3047"
+task_values_011: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:50:16
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "9"
+  id: "11"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "30"
+task_values_154: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "154"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "52"
+task_values_126: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "126"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "4"
+task_values_040: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "40"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "637"
+task_values_099: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "99"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "672"
+task_values_012: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:50:18
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "10"
+  id: "12"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "18"
+task_values_155: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "155"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1420"
+task_values_127: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "127"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "4"
+task_values_041: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "41"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "180"
+task_values_013: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:50:22
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "11"
+  id: "13"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "18"
+task_values_156: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "156"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "11"
+task_values_128: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "128"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1638"
+task_values_042: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "42"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "114"
+task_values_014: 
+  storage_unit: 
+  updated_at: 2007-03-23 16:47:38
+  display_unit: 
+  task_id: "7"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "12"
+  id: "14"
+  parameter_id: "94"
+  created_at: 2007-03-23 16:47:38
+  data_value: "20"
+task_values_070: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "70"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "216"
+task_values_157: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "157"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "11"
+task_values_129: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "129"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "762"
+task_values_043: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "43"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "231"
+task_values_015: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "15"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1"
+task_values_071: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "71"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "196"
+task_values_158: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "158"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1857"
+task_values_044: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "44"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1178"
+task_values_016: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "16"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1"
+task_values_072: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "72"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "147"
+task_values_159: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "159"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "506"
+task_values_045: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "45"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "4"
+task_values_100: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "100"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "969"
+task_values_017: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "17"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "3047"
+task_values_073: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "73"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "52"
+task_values_046: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "46"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "4"
+task_values_101: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "101"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "837"
+task_values_018: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "18"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "672"
+task_values_074: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "19"
+  id: "74"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1420"
+task_values_130: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "130"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "410"
+task_values_102: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "102"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "244"
+task_values_019: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "19"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "969"
+task_values_075: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "75"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "11"
+task_values_047: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "47"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1638"
+task_values_131: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "131"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "160"
+task_values_103: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "103"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "17"
+task_values_076: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "76"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "11"
+task_values_048: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "48"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "762"
+task_values_160: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "160"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "464"
+task_values_132: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "132"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "52"
+task_values_077: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "77"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1857"
+task_values_049: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "49"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "410"
+task_values_104: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "104"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "308"
+task_values_161: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "161"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "405"
+task_values_133: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "133"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "237"
+task_values_078: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "78"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "506"
+task_values_105: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "376"
+  id: "105"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "2478"
+task_values_162: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "162"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "297"
+task_values_134: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "134"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "17"
+task_values_020: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "20"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "837"
+task_values_079: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "79"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "464"
+task_values_106: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "106"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "2"
+task_values_163: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "163"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "154"
+task_values_135: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "379"
+  id: "135"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1332"
+task_values_021: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "21"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "244"
+task_values_107: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "107"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "2"
+task_values_164: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "164"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "31"
+task_values_136: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "136"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "9"
+task_values_022: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "22"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "17"
+task_values_108: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "108"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1987"
+task_values_050: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "50"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "160"
+task_values_165: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "382"
+  id: "165"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1375"
+task_values_137: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "137"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "9"
+task_values_023: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "23"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "308"
+task_values_109: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "109"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "213"
+task_values_051: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "51"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "52"
+task_values_166: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "166"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "12"
+task_values_138: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "138"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "2050"
+task_values_024: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "14"
+  id: "24"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "2478"
+task_values_080: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "80"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "405"
+task_values_052: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "52"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "237"
+task_values_167: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "167"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "12"
+task_values_139: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "139"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "930"
+task_values_025: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "25"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "2"
+task_values_081: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "81"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "297"
+task_values_053: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "53"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "17"
+task_values_168: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "168"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:59
+  data_value: "1947"
+task_values_082: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "82"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "154"
+task_values_054: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "17"
+  id: "54"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1332"
+task_values_026: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "26"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "2"
+task_values_169: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "169"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:59
+  data_value: "624"
+task_values_083: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "83"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "31"
+task_values_055: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "55"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "9"
+task_values_110: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "110"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "371"
+task_values_027: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "27"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1987"
+task_values_084: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "20"
+  id: "84"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1375"
+task_values_056: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "56"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "9"
+task_values_111: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "111"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "383"
+task_values_028: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "28"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "213"
+task_values_140: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "140"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:58
+  data_value: "470"
+task_values_085: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "85"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "12"
+task_values_057: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "57"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "2050"
+task_values_112: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "112"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "413"
+task_values_029: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "29"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "371"
+task_values_141: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "141"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:58
+  data_value: "255"
+task_values_086: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "86"
+  parameter_id: "98"
+  created_at: 2007-03-23 19:10:27
+  data_value: "12"
+task_values_058: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "58"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "930"
+task_values_113: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "113"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "116"
+task_values_170: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "170"
+  parameter_id: "102"
+  created_at: 2007-03-24 14:33:59
+  data_value: "760"
+task_values_142: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "142"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:58
+  data_value: "161"
+task_values_087: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "87"
+  parameter_id: "100"
+  created_at: 2007-03-23 19:10:27
+  data_value: "1947"
+task_values_059: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "59"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "470"
+task_values_114: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "114"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "491"
+task_values_171: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "171"
+  parameter_id: "103"
+  created_at: 2007-03-24 14:33:59
+  data_value: "208"
+task_values_143: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "143"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:58
+  data_value: "11"
+task_values_115: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "377"
+  id: "115"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "967"
+task_values_088: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "88"
+  parameter_id: "101"
+  created_at: 2007-03-23 19:10:27
+  data_value: "624"
+task_values_001: 
+  storage_unit: 
+  updated_at: 2007-03-23 15:02:42
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "1"
+  id: "1"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "30"
+task_values_172: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "172"
+  parameter_id: "104"
+  created_at: 2007-03-24 14:33:59
+  data_value: "163"
+task_values_144: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "144"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:58
+  data_value: "223"
+task_values_116: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "116"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "3"
+task_values_002: 
+  storage_unit: 
+  updated_at: 2007-03-23 13:25:55
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "2"
+  id: "2"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "20"
+task_values_030: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "30"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "383"
+task_values_089: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "89"
+  parameter_id: "102"
+  created_at: 2007-03-23 19:10:27
+  data_value: "760"
+task_values_173: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "173"
+  parameter_id: "105"
+  created_at: 2007-03-24 14:33:59
+  data_value: "170"
+task_values_145: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "380"
+  id: "145"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1655"
+task_values_117: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "117"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "3"
+task_values_003: 
+  storage_unit: 
+  updated_at: 2007-03-23 13:25:55
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "3"
+  id: "3"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "20"
+task_values_031: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "31"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "413"
+task_values_174: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "174"
+  parameter_id: "106"
+  created_at: 2007-03-24 14:33:59
+  data_value: "22"
+task_values_146: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "146"
+  parameter_id: "97"
+  created_at: 2007-03-24 14:33:58
+  data_value: "10"
+task_values_118: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "118"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1703"
+task_values_004: 
+  storage_unit: 
+  updated_at: 2007-03-23 13:25:55
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "4"
+  id: "4"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "20"
+task_values_060: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "60"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "255"
+task_values_032: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "32"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "116"
+task_values_175: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:59
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "383"
+  id: "175"
+  parameter_id: "108"
+  created_at: 2007-03-24 14:33:59
+  data_value: "1592"
+task_values_147: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "147"
+  parameter_id: "98"
+  created_at: 2007-03-24 14:33:58
+  data_value: "10"
+task_values_119: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "378"
+  id: "119"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "136"
+task_values_061: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "61"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "161"
+task_values_033: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "33"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "491"
+task_values_005: 
+  storage_unit: 
+  updated_at: 2007-03-23 13:25:55
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "5"
+  id: "5"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "20"
+task_values_148: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "148"
+  parameter_id: "100"
+  created_at: 2007-03-24 14:33:58
+  data_value: "1815"
+task_values_062: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "62"
+  parameter_id: "105"
+  created_at: 2007-03-23 19:10:27
+  data_value: "11"
+task_values_034: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "15"
+  id: "34"
+  parameter_id: "108"
+  created_at: 2007-03-23 19:10:27
+  data_value: "967"
+task_values_006: 
+  storage_unit: 
+  updated_at: 2007-03-23 13:25:55
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "6"
+  id: "6"
+  parameter_id: "94"
+  created_at: 2007-03-23 13:25:55
+  data_value: "20"
+task_values_090: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "90"
+  parameter_id: "103"
+  created_at: 2007-03-23 19:10:27
+  data_value: "208"
+task_values_149: 
+  storage_unit: 
+  updated_at: 2007-03-24 14:33:58
+  display_unit: 
+  task_id: "9"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "381"
+  id: "149"
+  parameter_id: "101"
+  created_at: 2007-03-24 14:33:58
+  data_value: "745"
+task_values_063: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "18"
+  id: "63"
+  parameter_id: "106"
+  created_at: 2007-03-23 19:10:27
+  data_value: "223"
+task_values_035: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "16"
+  id: "35"
+  parameter_id: "97"
+  created_at: 2007-03-23 19:10:27
+  data_value: "3"
+task_values_007: 
+  storage_unit: 
+  updated_at: 2007-03-23 15:02:47
+  display_unit: 
+  task_id: "6"
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  task_context_id: "2"
+  id: "7"
+  parameter_id: "88"
+  created_at: 2007-03-23 15:02:47
+  data_value: "2"
+task_values_091: 
+  storage_unit: 
+  updated_at: 2007-03-23 19:10:50
+  display_unit: 
+  task_id: "2"
+  created_by: ""
+  lock_version: "1"
+  updated_by: ""
+  task_context_id: "21"
+  id: "91"
+  parameter_id: "104"
+  created_at: 2007-03-23 19:10:27
+  data_value: "163"

@@ -1,0 +1,25 @@
+<table class="report">
+  <tr>
+      <th class="label"><%=subject_icon('name.png')%> Name</th>
+      <td colspan='5'> <%= study_queue.name %></td>
+  </tr>
+  <tr>
+      <th class="label"><%=subject_icon('description.png')%> Description</th>
+      <td colspan='5'> <%= study_queue.description %></td>
+  </tr>
+  <tr>
+    <th class="label">Stage</th>
+   <td> <%= study_queue.stage.name if study_queue.stage %> </td>
+    <th class="label">Protocol</th>
+    <td> <%= link_to(study_queue.protocol.name,:controller =>'study_protocols', :action => 'show', :id=> study_queue.protocol) if study_queue.protocol %></td>
+    <th class="label">Study</th>
+    <td><%=link_to( study_queue.study.name, :controller => 'studies',:action => 'show', :id => study_queue.study) %></td>
+  </tr>
+  <tr>
+      <th class="label"> Default Status </th>
+      <td> <%= study_queue.status %> </td>
+      <th class="label"> Default Priority</th>
+      <td> </td>
+  </tr>
+</table>
+

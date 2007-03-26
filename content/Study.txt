@@ -1,0 +1,13 @@
+====== Study ======
+Created Thursday 07/12/2006 08:59
+
+The organization of studies is carried out her.  Within the study there are
+
+[[Overview]]
+Parameters
+Protocols
+[[TimeLine]]
+[[Reports]]
+[[Notes]]
+
+[[ToDo]]

@@ -1,0 +1,36 @@
+<div class="subactions">
+    <ul>
+            <li><%= link_to (subject_icon('condition'))+'Queues',:controller=>'study_queues', 
+                :action => 'list', :id=>@study %></li>
+    </ul>
+</div>
+<br />
+
+<table class="report">
+  <thead>
+    <tr>
+      <th colspan='<%=study.stages.size%>'>
+         Queue [all/new/active/complete]
+      </th>
+    </tr>
+    <tr>
+     <% for stage in study.stages %>
+      <th><%=stage.name%>  
+      </th>
+     <% end %>  
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <% for stage in study.stages %>        
+    <td valign='top'>
+    <% for queue in study.queues_in_stage(stage) %>
+       <%= link_to queue.name , :controller=>'study_queues', :action => 'show', :id=>queue %> 
+       [<%= queue.status_summary %>]
+       <br/>
+    <%end%>
+      </td>
+    <% end %>  
+   </tr>
+  </tbody>
+</table>

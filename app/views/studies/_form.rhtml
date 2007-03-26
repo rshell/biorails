@@ -1,0 +1,31 @@
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce if using_tiny_mce? %>
+
+  <div class="row">
+    <!--[form:study]-->
+    <div class="form-element">
+       <label for="study_name">Name</label>
+       <%= text_field 'study', 'name' , {:class=>"text-input"} %>
+    </div>
+   </div>
+   
+  <div class="row">
+   <div class="form-element">
+     <label for="study_description">Description</label>
+     <%= text_area('study', 'description', {:rows=>5,:cols=>100})  %>
+   </div>
+  </div>
+  
+  <div class="row">
+   <div class="form-element">
+     <label for="study_research_area">Research area</label>
+     <%= text_field 'study', 'research_area' , {:class=>"text-input"} %>
+   </div>
+
+   <div class="form-element">
+     <label for="study_purpose">Purpose</label>
+     <%= text_field 'study', 'purpose' , {:class=>"text-input"} %>
+   </div>
+  </div>
+
+<!--[eoform:study]-->

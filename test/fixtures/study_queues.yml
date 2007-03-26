@@ -1,0 +1,209 @@
+--- 
+study_queues_013: 
+  status: new
+  study_stage_id: "6"
+  name: RES Exposure Service
+  updated_at: 2007-03-21 09:49:14
+  assigned_to: "4"
+  created_by: ""
+  lock_version: "1"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "18"
+  study_id: "2"
+  description: Please submit one or more compounds to this service.&nbsp; Turn around time is c. 1 week.
+  study_parameter_id: "29"
+  created_at: 2007-03-21 09:49:14
+study_queues_002: 
+  status: New
+  study_stage_id: "6"
+  name: Screening
+  updated_at: 2007-02-08 14:08:59
+  assigned_to: alemon
+  created_by: ""
+  lock_version: "2"
+  priority: Low
+  updated_by: ""
+  study_protocol_id: "52"
+  id: "7"
+  study_id: "15"
+  description: Full screen against the compound library.  Please define the Target.  The service will include the development of the assay, full screen at single point, a confirmation assay of the initial hits and an EX50 determination of any hits.
+  study_parameter_id: "175"
+  created_at: 2007-01-31 16:39:19
+study_queues_003: 
+  status: New
+  study_stage_id: "8"
+  name: Dose Response
+  updated_at: 2007-01-31 16:40:25
+  assigned_to: alemon
+  created_by: ""
+  lock_version: "1"
+  priority: High
+  updated_by: ""
+  study_protocol_id: 
+  id: "8"
+  study_id: "15"
+  description: Run a dose response experiment against a defined assay for a list of compound ids (hits)
+  study_parameter_id: "175"
+  created_at: 2007-01-31 16:40:25
+study_queues_004: 
+  status: New
+  study_stage_id: "8"
+  name: Structure Elucidation
+  updated_at: 2007-01-31 16:44:07
+  assigned_to: rshell
+  created_by: ""
+  lock_version: "1"
+  priority: High
+  updated_by: ""
+  study_protocol_id: 
+  id: "9"
+  study_id: "18"
+  description: Determine the structure of a sample
+  study_parameter_id: "177"
+  created_at: 2007-01-31 16:44:07
+study_queues_005: 
+  status: New
+  study_stage_id: "5"
+  name: Structure Confirmation
+  updated_at: 2007-01-31 16:44:44
+  assigned_to: rshell
+  created_by: ""
+  lock_version: "1"
+  priority: Low
+  updated_by: ""
+  study_protocol_id: 
+  id: "10"
+  study_id: "18"
+  description: Confirm suggested structure
+  study_parameter_id: "177"
+  created_at: 2007-01-31 16:44:44
+study_queues_006: 
+  status: New
+  study_stage_id: "5"
+  name: Purity
+  updated_at: 2007-01-31 16:45:15
+  assigned_to: alemon
+  created_by: ""
+  lock_version: "1"
+  priority: Normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "11"
+  study_id: "18"
+  description: Determination of sample purity
+  study_parameter_id: "177"
+  created_at: 2007-01-31 16:45:15
+study_queues_007: 
+  status: new
+  study_stage_id: "5"
+  name: B&H Study
+  updated_at: 2007-03-08 07:22:23
+  assigned_to: "2"
+  created_by: ""
+  lock_version: "3"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "12"
+  study_id: "17"
+  description: A full run of the BioMarker and histology study
+  study_parameter_id: "212"
+  created_at: 2007-03-08 07:14:00
+study_queues_008: 
+  status: new
+  study_stage_id: "6"
+  name: Taqman Analysis
+  updated_at: 2007-03-08 07:17:46
+  assigned_to: "2"
+  created_by: ""
+  lock_version: "1"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "13"
+  study_id: "17"
+  description: Taqman readings of surviving animals
+  study_parameter_id: "217"
+  created_at: 2007-03-08 07:17:46
+study_queues_009: 
+  status: new
+  study_stage_id: "6"
+  name: Histological Analysis
+  updated_at: 2007-03-08 07:19:50
+  assigned_to: "2"
+  created_by: ""
+  lock_version: "1"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "14"
+  study_id: "17"
+  description: Good look at the internal organs
+  study_parameter_id: "229"
+  created_at: 2007-03-08 07:19:50
+study_queues_010: 
+  status: new
+  study_stage_id: "5"
+  name: Submit Compound
+  updated_at: 2007-03-20 18:59:39
+  assigned_to: "4"
+  created_by: ""
+  lock_version: "1"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "15"
+  study_id: "1"
+  description: Submit a compound for testing
+  study_parameter_id: "15"
+  created_at: 2007-03-20 18:59:39
+study_queues_011: 
+  status: new
+  study_stage_id: "6"
+  name: Animal for Taqman
+  updated_at: 2007-03-21 13:11:36
+  assigned_to: "2"
+  created_by: ""
+  lock_version: "4"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "16"
+  study_id: "1"
+  description: Submit animal ID for Taqman gene expression analysis
+  study_parameter_id: "21"
+  created_at: 2007-03-20 19:00:57
+study_queues_012: 
+  status: new
+  study_stage_id: "6"
+  name: Group for Histology
+  updated_at: 2007-03-20 21:34:02
+  assigned_to: "6"
+  created_by: ""
+  lock_version: "2"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "17"
+  study_id: "1"
+  description: Provide animal identifier for histological analysis
+  study_parameter_id: "8"
+  created_at: 2007-03-20 20:00:33
+study_queues_001: 
+  status: New
+  study_stage_id: "5"
+  name: Weight_Impact
+  updated_at: 2007-01-31 16:33:14
+  assigned_to: thawkins
+  created_by: ""
+  lock_version: "1"
+  priority: Low
+  updated_by: ""
+  study_protocol_id: "41"
+  id: "6"
+  study_id: "14"
+  description: Assessment of the impact of compound on the change of weight of animals.&nbsp; Can vary route of administration, sex and species.
+  study_parameter_id: "166"
+  created_at: 2007-01-31 16:33:14

@@ -1,0 +1,39 @@
+<% tab_ids = ['tab-overview','tab-layout','tab-preview']%>   
+<% tab_names = ['Overview','Layout','Preview']%>   
+<%=tab_setup(tab_ids,tab_names) %>
+
+<div class='main' id="maintitle">
+   <div class="title" id="study">
+        <%=subject_icon('process.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
+        in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to subject_icon('xls.png') + 'Preview', :action =>'template',
+                    :id => @study_protocol.id, :version=>@protocol_version.id %></li>
+                <li><%= link_to subject_icon('xml') + 'Export', :action =>'export',:id => @study_protocol.id%></li>
+              <li><%= link_to subject_icon('cancel') + 'Close', :action => 'list',:id => @study.id %></li>
+              <li><%= link_to 'Refresh', :action => 'edit',:id => @study_protocol.id ,:version =>@protocol_version.id %></li>
+            </ul>
+        </div>
+    </div> 
+        
+    <div class='dialog'>
+        <%= tab_divide(tab_ids,tab_names,0) %>   
+            <div id='process_overview'>      
+                <%= render :partial => 'process_overview' %>
+            </div>
+        </div>
+    
+        <%= tab_divide(tab_ids,tab_names,1) %>   
+            <div id='process_layout'>
+                <%= render :partial => 'process_layout' %>
+            </div>
+        </div>
+    
+        <%= tab_divide(tab_ids,tab_names,2) %>   
+            <div id='process_preview'>
+                <%= render :partial => 'process_preview' %>
+            </div>
+        </div>
+    </div>    
+</div>    

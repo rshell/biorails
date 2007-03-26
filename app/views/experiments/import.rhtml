@@ -1,0 +1,47 @@
+<div class='main' id='maintitle'>
+    <div class="title" id="experiment">    
+        <%= subject_icon('experiment.png')%> Import Data into Experiment [<strong><%=@experiment.name%></strong>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => @experiment %></li>
+                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+ 
+     <div class='panel'>
+        <p>
+            This is a simple cvs file importer for getting larger blocks of data into the system. 
+            For a template to fill in click on following links to get a CVS sheet fill in. These can be build by hand but 
+            life should not be made any more difficult then needed.
+        </p>
+        <ul>
+         <%for protocol in @experiment.study.protocols %>
+          <li>
+            <%= link_to (subject_icon('xls.png'))+' Template for [' + protocol.name + ']',
+                :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
+            <%= protocol.definition.description %>    
+          </li>
+         <%end%>
+         </ul>
+    </div> 
+
+
+     <div class='dialog'>
+        <%= render :partial => '/shared/messages',  :locals => { :objects => ['experiment','task']} %>
+        Once is is filled it can be re-imported via the following file selector:-
+        <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
+        <%= error_messages_for("import") %>
+          <%=file_field_tag(:file) %>  
+        <br />
+        There is also some options on how to handle problems as they occur.   
+        <ul>
+        <li>  <%= check_box_tag 'invalid', 'create',checked =false %>Accept rows with invalid data value </li>
+        <li>  <%= check_box_tag 'modify', 'create', checked =false %>Modify process to match import file (add extra parameters) </li>
+        </ul>
+        <br />
+        <%= submit_tag("Import")%>
+        <% end %>
+        
+    </div> 
+</div>

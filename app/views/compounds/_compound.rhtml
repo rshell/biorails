@@ -1,0 +1,34 @@
+<table cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td><b><label>CompoundId</label></b>
+		astest	<div class="rows"><label><%= @compound.name %></label></div></td>
+	        <td colspan="1" halign="left"><label><%=short_date @compound.registration_date %></label></td>		
+		</tr>
+		<tr>
+			<td halign="left"><b><label>Mass</label></b>
+            <div class="rows"><label><%= @compound.send("mass") %></label></td>
+	        <td><b><label>Formula</label></b>
+			<div class="rows"><label><%= @compound.send("formula") %></label></td>		
+		</tr>
+		<tr>
+		    <td><b><label>Compound Structure</label></b>
+		    <div>
+		    <!-- <img src="<%= url_for :action => "marvin_image_for", :smiles => @compound.smiles %>"></img>-->
+            <%=smiles_view_field 'compound','smiles' %>
+            </div>
+            <div>
+            <label><%= @compound.send("smiles") %>
+            </div>
+            <div>
+            <label><%= @compound.send("iupacname") %>
+            </div>
+            </td>
+            <td colspan="1" valign="top">
+            <b><label>Description</label></b>
+            <div>
+            <%= @compound.send("description") %>
+            </div>
+            </td>
+		</tr>
+</table>
+

@@ -1,0 +1,23 @@
+--- 
+specimens_001: 
+  taxon_species: ""
+  name: Mooose
+  updated_at: 2006-12-18 22:46:00
+  weight: 
+  created_by: ""
+  taxon_genus: ""
+  taxon_domain: ""
+  lock_version: "0"
+  taxon_kingdom: ""
+  updated_by: ""
+  id: "1"
+  taxon_subspecies: ""
+  taxon_phylum: ""
+  sex: ""
+  description: Large mammal
+  taxon_order: ""
+  taxon_family: ""
+  taxon_class: ""
+  age: 2006-12-18 22:44:52
+  birth: 2006-12-18 22:44:52
+  created_at: 2006-12-18 22:46:00

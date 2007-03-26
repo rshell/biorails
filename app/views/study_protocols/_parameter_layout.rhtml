@@ -1,0 +1,50 @@
+<table width="100%" id="protocol_<%=@protocol_version.id%>" class="sheet">
+  <thead id="header_<%=@protocol_version.dom_id%>" >
+       <tr>
+         <th>label x count </th>
+         <th colspan='<%=ParameterContext.default_columns+2%>' >
+              Drag values down to end of rows in the grid to add more columns.      
+         </th>
+       </tr>
+  </thead>
+
+    <% for parameter_context in @protocol_version.contexts %>
+    <tbody class="parameter_context"  id="<%=parameter_context.dom_id%>" >
+            <%= render :partial => 'current_context', :locals => {:parameter_context => parameter_context } %>
+    </tbody>
+
+    <% end %>
+
+  <thead id="footer_<%=@protocol_version.dom_id%>" class="footer" >
+    <tr class="Context">
+      <th>
+          <div>
+            <%= link_to_remote "New Context", :url => { :action => 'new_context', :id=>@protocol_version.id} %>
+          </div>
+      </th>
+      <th colspan='<%=ParameterContext.default_columns+2%>' >  </th>
+    </tr>
+   </thead>
+</table>
+
+<% for parameter_context in @protocol_version.contexts %>
+ <%= drop_receiving_element  parameter_context.dom_id, 
+  :url => { :action => "add_parameter" ,:context=>parameter_context},
+  :hoverclass => "drop-active",
+  :accept => "study_parameter",
+  :droponempy => true %>
+
+ <%= drop_receiving_element  parameter_context.dom_id, 
+  :url => { :action => "add_parameter" ,:context=>parameter_context},
+  :hoverclass => "drop-active",
+  :accept => "study_queue",
+  :droponempy => true %>
+  
+ <%= drop_receiving_element parameter_context.dom_id,  
+  :url => { :action => "move_parameter" ,:context=>parameter_context },
+  :hoverclass => "drop-active",
+  :accept => "parameter",
+  :droponempy => true  %>    
+
+<% end %>
+

@@ -1,0 +1,71 @@
+--- 
+data_types_001: 
+  name: text
+  updated_at: 2006-12-13 16:44:12
+  created_by: ""
+  value_class: String
+  lock_version: "1"
+  updated_by: ""
+  id: "1"
+  description: Text
+  created_at: 0000-00-00 00:00:00
+data_types_002: 
+  name: numeric
+  updated_at: 2006-12-13 16:44:21
+  created_by: ""
+  value_class: Numeric
+  lock_version: "1"
+  updated_by: ""
+  id: "2"
+  description: Numeric
+  created_at: 0000-00-00 00:00:00
+data_types_003: 
+  name: date
+  updated_at: 2006-12-13 16:44:28
+  created_by: ""
+  value_class: Date
+  lock_version: "1"
+  updated_by: ""
+  id: "3"
+  description: Date
+  created_at: 0000-00-00 00:00:00
+data_types_004: 
+  name: time
+  updated_at: 2006-12-13 16:44:35
+  created_by: ""
+  value_class: DateTime
+  lock_version: "1"
+  updated_by: ""
+  id: "4"
+  description: Time
+  created_at: 0000-00-00 00:00:00
+data_types_005: 
+  name: dictionary
+  updated_at: 2006-12-13 16:44:41
+  created_by: ""
+  value_class: DataConcept
+  lock_version: "1"
+  updated_by: ""
+  id: "5"
+  description: Look up on catalogue
+  created_at: 0000-00-00 00:00:00
+data_types_006: 
+  name: url
+  updated_at: 2006-12-13 16:44:50
+  created_by: ""
+  value_class: String
+  lock_version: "1"
+  updated_by: ""
+  id: "6"
+  description: Reference
+  created_at: 0000-00-00 00:00:00
+data_types_007: 
+  name: file
+  updated_at: 2006-12-13 16:45:26
+  created_by: ""
+  value_class: File
+  lock_version: "1"
+  updated_by: ""
+  id: "7"
+  description: File
+  created_at: 0000-00-00 00:00:00

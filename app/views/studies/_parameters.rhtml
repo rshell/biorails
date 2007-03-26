@@ -1,0 +1,52 @@
+<div class="subactions">
+    <ul>
+        <li><%= link_to (subject_icon('setting')) +' Setup', 
+            :controller => '/study_parameters', :action => 'list', :id=> study.id %></li>
+    </ul>
+</div>
+<br />
+
+<% roles = study.parameter_roles%>
+<% grid = study.parameter_grid %>
+
+<table class="report">
+  <thead>
+    <tr>
+    <th></th>
+    <th colspan='<%=roles.size%>' >
+       Usage of parameters by role as count (avg +/-2*stddev) [min..max] <%=subject_icon('parameter_role.png')%>
+    </th>
+    </tr>
+    <tr>
+     <th><%=subject_icon('parameter_type.png')%> Parameter type</th>
+     <% for role in roles %>
+      <th><%=subject_icon(role.name)+role.name%></th>
+     <% end %>  
+    </tr>
+  </thead>
+  <tbody>
+    <% for type in study.parameter_types %>        
+      <% classAttr = cycle("", "class=\"even\"") %>
+      <tr <%=classAttr%>> 
+
+        <td> <%=type.name%> 
+        </td>
+        <% for role in roles%>
+          <td>
+          <%if grid[type.id] && grid[type.id][role.id]%>
+             <%=grid[type.id][role.id].num_values %>
+             <% if grid[type.id][role.id].avg_values %>
+             (<%=number_round grid[type.id][role.id].avg_values %>+/-  
+              <%=number_round 2*grid[type.id][role.id].stddev_values %>)
+             <%else%>
+              [<%=grid[type.id][role.id].min_values %> .. <%=grid[type.id][role.id].max_values%>]
+             <% end %>
+          <%end%>
+          </td>
+        <%end%>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+
+<div>

@@ -1,0 +1,53 @@
+<div class="subactions">
+    <ul>
+        <li><%= link_to (subject_icon('new.png'))+ 'New Experiment', :controller => 'experiments', :action => 'new', :id=>study.id %></li>
+        <li><%= link_to (subject_icon('show.png')) +' Show', :controller => 'experiments', :action => 'list', :id=>study.id %></li>
+    </ul>
+</div>
+
+<br />
+
+<table class="report">
+  <thead>
+    <tr>
+      <th colspan='3'><%=subject_icon('experiment.png')%> Experiment</th>
+      <th colspan='2'><%=subject_icon('protocol.png')%> Protocol Defaults</th>
+      <th colspan='2'><%=subject_icon('task.png')%> Task</th>
+      <th colspan='1'></th>
+    </tr>
+    <tr>
+      <th><%=subject_icon('name.png')%> Name</th>
+      <th><%=subject_icon('lab_worker')%> User</th>
+      <th><%=subject_icon('date')%> Updated</th>
+      <th><%=subject_icon('name.png')%> Name</th>
+      <th>Version</th>
+      <th><%=subject_icon('metric.png')%> Count</th>
+      <th>Lastest</th>
+      <th><%=subject_icon('action.png')%>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for experiment in study.experiments %>
+    <% classAttr = cycle("", "class=\"even\"") %>
+    <tr <%=classAttr%>> 
+      <td><%= link_to experiment.name, :controller=>'experiments', :action => 'show', :id=>experiment.id %> </td>
+      <td><%=experiment.updated_by %></td>
+      <td><%=short_date experiment.updated_at %></td>
+      <td><%= link_to experiment.protocol.name, :controller=>'study_protocols', :action => 'show', :id=>experiment.protocol.id %> </td>
+      <td><%=experiment.process.name %></td>
+      <td><%=experiment.tasks.size %></td>
+      <td>
+      <% task = experiment.last_task %>
+      <%if task%>
+      <%= link_to task.name, :controller=>'tasks', :action => 'show', :id=>task.id %> 
+      <%end %>
+      </td>
+      <td>
+      <%= link_to (subject_icon('import.png'))+ "Import ", :controller=>'experiments', :action => 'import', :id=>experiment.id %> 
+      |
+      <%= link_to (subject_icon('new.png'))+ "New", :controller=>'tasks', :action => 'new', :id=>experiment.id %> 
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>

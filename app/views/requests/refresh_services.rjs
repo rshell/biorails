@@ -1,0 +1,3 @@
+page.replace_html 'current_services',  :partial => 'list_services', :locals => { :request => @request } 
+page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['request','list'] }
+  

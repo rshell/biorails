@@ -1,0 +1,9 @@
+ <%= form_remote_tag  :url =>{:action => 'update', :id => @study_protocol.id, :version => @protocol_version.id} %>
+  <div class='dialog'>
+    <%= render :partial => 'form' %>
+
+    <div class='row'>
+      <%= submit_tag 'Save' %>
+    </div>
+ </div>
+<%= end_form_tag %>

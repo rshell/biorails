@@ -1,0 +1,41 @@
+--- 
+users_004: 
+  name: ANother
+  fullname: 
+  password_salt: 
+  role_id: "2"
+  id: "5"
+  password: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  email: 
+users_005: 
+  name: alemon
+  fullname: 
+  password_salt: 
+  role_id: "3"
+  id: "6"
+  password: 773418797bbc217fa520ba98f090227cd0b74b18
+  email: 
+users_001: 
+  name: admin
+  fullname: 
+  password_salt: 
+  role_id: "3"
+  id: "2"
+  password: d033e22ae348aeb5660fc2140aec35850c4da997
+  email: 
+users_002: 
+  name: rshell
+  fullname: 
+  password_salt: 
+  role_id: "3"
+  id: "3"
+  password: 66549d85d66747b93596bd7b05409f544ef97310
+  email: 
+users_003: 
+  name: thawkins
+  fullname: 
+  password_salt: 
+  role_id: "3"
+  id: "4"
+  password: d84e5ddda8a7eef03dd5e4934ede87d1a1758a96
+  email: 

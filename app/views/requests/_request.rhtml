@@ -1,0 +1,26 @@
+<table class="report">
+  <tr>
+      <th class="label"><%=subject_icon('name.png')%> Name</th>
+      <td> <%= request.name %></td>
+  </tr>
+  <tr>
+      <th class="label"><%=subject_icon('description.png')%> Description</th>
+      <td> <%= request.description %></td>
+  </tr>
+  <tr>
+      <th class="label"> Status </th>
+      <td> <%= request.status %></td>
+  </tr>
+  <tr>
+      <th class="label"> Priority </th>
+      <td> <%= request.priority %></td>
+  </tr>
+  <tr>
+      <th class="label"><%=subject_icon('purpose.png')%> Requested For</th>
+      <td> <%= request.requested_for %></td>
+  </tr>
+  <tr>
+      <th class="label"><%=subject_icon('purpose.png')%> Requested By</th>
+      <td> <%= request.requested_by %></td>
+  </tr>
+</table>

@@ -1,0 +1,73 @@
+--- 
+studies_001: 
+  name: Biomarker And Histology
+  updated_at: 2007-03-20 16:05:00
+  purpose: RF
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "1"
+  category_id: 
+  description: "A synchronous study covering multiple groups using different techniques and employing request fulfillment to progress the animals under investigation through the three tiers of testing: weight monitoring, taqman analysis and histological analysis."
+  created_at: 2007-03-20 16:05:00
+  research_area: in-vivo
+studies_002: 
+  name: RES Exposure
+  updated_at: 2007-03-21 10:44:45
+  purpose: Case Study
+  created_by: ""
+  lock_version: "2"
+  updated_by: ""
+  id: "2"
+  category_id: 
+  description: An example behavioural study
+  created_at: 2007-03-21 09:34:46
+  research_area: Behavioural
+studies_003: 
+  name: Screen
+  updated_at: 2007-03-21 12:49:02
+  purpose: demo
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "3"
+  category_id: 
+  description: <h3>Purpose&nbsp;</h3><p>This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report&nbsp;</p>
+  created_at: 2007-03-21 12:49:02
+  research_area: screening
+studies_004: 
+  name: Testing
+  updated_at: 2007-03-24 18:51:39
+  purpose: test
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "4"
+  category_id: 
+  description: "Tesit "
+  created_at: 2007-03-24 18:51:39
+  research_area: test
+studies_005: 
+  name: Test2
+  updated_at: 2007-03-24 18:53:30
+  purpose: ""
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "5"
+  category_id: 
+  description: text2
+  created_at: 2007-03-24 18:53:30
+  research_area: ""
+studies_006: 
+  name: test3
+  updated_at: 2007-03-24 18:56:54
+  purpose: ""
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "6"
+  category_id: 
+  description: test3
+  created_at: 2007-03-24 18:56:54
+  research_area: ""

@@ -1,0 +1,34 @@
+<%= error_messages_for 'data_element' %>
+
+<!--[form:data_element]-->
+
+ <%= hidden_field(:data_element, :parent_id) %>
+ <%= hidden_field(:data_element, :data_concept_id) %>
+
+<div class="row">
+<% if @data_element.parent.nil?%>
+<div class="form-element">
+  <label for="data_element_data_system_id">System</label>
+  <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
+</div>
+<%end %>
+
+<div class="form-element">
+  <label for="data_element_name">Name</label>
+  <%= text_field 'data_element', 'name'  %>
+</div>
+
+<div class="form-element">
+  <label for="data_element_estimated_count">Estimated No. Values</label>
+  <%= text_field(:data_element, :estimated_count) %>
+</div>
+
+</div>
+<div class="row">
+    <div class="form-element">
+      <label for="data_element_description">Description</label>
+      <%= text_area( :data_element, :description ,{:rows=>5, :cols=>100}	)%>
+    </div>
+</div>
+
+<!--[eoform:data_element]-->

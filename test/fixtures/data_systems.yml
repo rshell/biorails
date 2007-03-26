@@ -1,0 +1,18 @@
+--- 
+data_systems_001: 
+  name: Internal
+  updated_at: 2007-01-13 21:46:14
+  access_control_id: 
+  created_by: sys
+  username: biorails
+  adapter: mysql
+  lock_version: "5"
+  data_context_id: "1"
+  test_object: tmp_data
+  updated_by: sys
+  id: "1"
+  description: Internal link to reference data element from with this BioRails schema
+  host: localhost
+  database: beagle_development
+  password: moose
+  created_at: 2006-10-09 12:11:25

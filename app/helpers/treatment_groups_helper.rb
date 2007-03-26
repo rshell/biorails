@@ -1,0 +1,2 @@
+module TreatmentGroupsHelper
+end

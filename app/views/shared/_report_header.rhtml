@@ -1,0 +1,30 @@
+  <tr>
+    <%for column in report.displayed_columns %>
+    <th>
+       <% if column.is_sortable %>
+         <%= link_to_remote(column.label,
+          :url => {:controller=>'reports', :action => 'refresh',:id =>report.id, 
+          :sort => "#{column.name}" , :page => nil },
+          :update => "#{report.dom_id('body')}" ) %>
+       <%else %>
+         <%=column.label %>
+       <%end%>
+    </th>
+    <%end%>
+    <th>Actions</th>
+  </tr>
+  <tr>
+    <%for column in  report.displayed_columns %>
+    <th class='filter'>
+      <%if column.is_filterible %>
+        <input id="filter_<%=column.name%>" name="filter[<%=column.name%>]"
+               size="8" value="<%=column.filter%>" type="text" />
+      <%end%>
+    </th>
+    <%end%>
+    <th>
+        <input name="commit" value="Filter" type="submit"/>
+    </th>
+  </tr>
+
+  

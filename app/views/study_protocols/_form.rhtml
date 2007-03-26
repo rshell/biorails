@@ -1,0 +1,45 @@
+  <!--[form:study_protocol]-->
+  
+<%= hidden_field 'study_protocol', 'id'  %>
+<%= hidden_field('study_protocol','study_id')%>
+<%= hidden_field('study_protocol','current_process_id')%>
+<%= hidden_field 'protocol_version', 'study_protocol_id' %>
+<%= hidden_field 'protocol_version', 'version'  %>
+
+<div class="row">
+    <div class="form-element">
+    <label for="study_protocol_stage_id">Stage of <%=@study_protocol.study.name%></label>
+     <%= collection_select('study_protocol', 'study_stage_id', @study_protocol.study.stages, :id, :name) %>
+    </div>
+   
+    <div class="form-element">
+      <label for="process_definition_name">Protocol Name</label>
+      <%= text_field 'study_protocol', 'name' , {:class=>"text-input"} %>
+    </div>
+
+</div>
+    
+<div class="row">
+    <div class="form-element" >
+      <label for="process_definition_description">Description</label>
+            <%= text_area( 'study_protocol', 'description',{:rows=>5, :cols=>100}	)
+            %>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="form-element">
+      <label for="process_definition_protocol_catagory">Protocol catagory</label>
+      <%= text_field 'study_protocol', 'protocol_catagory' , {:class=>"text-input"} %>
+    </div>
+
+    <div class="form-element">
+      <label for="process_definition_protocol_status">Protocol status</label>
+      <%= text_field 'study_protocol', 'protocol_status' , {:class=>"text-input"} %>
+    </div>
+
+    <div class="form-element">
+      <label for="process_definition_literature_ref">Literature ref</label>
+      <%= text_field 'study_protocol', 'literature_ref' , {:class=>"text-input"} %>
+    </div>
+</div>

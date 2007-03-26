@@ -1,0 +1,20 @@
+<div class='main' id='maintitle'>
+    <div class="title" id="experiment">
+        <%=subject_icon('study.png')%> Experiment related report [<strong><%=@report.name%></strong>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('show.png')) + 'Reset', :action => 'reports' %></li>
+                <li><%= link_to (subject_icon('new.png')) + 'New', :controller=>'reports',  :action => 'new' %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class='panel'>
+         <p>
+         <%=@report.description%>
+         </p>
+        <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @report.run} %>
+        </div>
+    </div>
+</div>
+
