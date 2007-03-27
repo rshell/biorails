@@ -1,0 +1,2 @@
+module Project::CommentsHelper
+end

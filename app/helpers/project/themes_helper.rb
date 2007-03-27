@@ -1,0 +1,2 @@
+module Project::ThemesHelper
+end
