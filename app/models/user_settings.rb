@@ -1,11 +1,7 @@
-##
-# This class manages system wide settings. Defaults are read from /config directory and can 
-# be over ridden via records in the system_settings table.
-#
-class SystemSettings < ActiveRecord::Base
+class UserSettings < ActiveRecord::Base
 
   cattr_accessor :defaults
-  @@defaults = YAML::load(File.open("#{RAILS_ROOT}/config/system_settings.yml"))
+  @@defaults = YAML::load(File.open("#{RAILS_ROOT}/config/user_settings.yml"))
 
   validates_uniqueness_of :name
   validates_inclusion_of :name, :in => @@defaults.keys
