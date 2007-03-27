@@ -1,0 +1,22 @@
+app_title:
+  default: Biorails
+app_subtitle:
+  default: Project organization and data management
+welcome_text:
+  default: Welcome to Biorails
+login_required:
+  default: 0
+self_registration:
+  default: 1
+lost_password:
+  default: 1
+attachment_max_size:
+  default: 5120
+mail_from:
+  default: info@biorails.org
+text_formatting:
+  default: textile
+default_language:
+  default: en
+host_name:
+  default: localhost:3000

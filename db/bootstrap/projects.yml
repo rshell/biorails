@@ -1,0 +1,14 @@
+default:
+  id: 1
+  host: localhost
+  name: public
+  title: BioRails
+  subtitle: Biorails Default Project
+  email: info@biorails.com
+  approve_comments: true
+  comment_age: 30
+  timezone: UTC
+  permalink_style: ":year/:month/:day/:permalink"
+  tag_path: tags
+  search_path: search
+  current_theme_path: simpla
