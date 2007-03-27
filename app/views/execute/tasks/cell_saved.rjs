@@ -1,0 +1,8 @@
+if  @successful 
+  page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task','task_context','task_item'] }
+else
+  page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task','task_context','task_item'] }
+
+end

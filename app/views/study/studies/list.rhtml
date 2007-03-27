@@ -1,0 +1,16 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar' %>
+<% end -%>
+
+<h2> Studies </h2>
+<div class='panel'>
+    <%= error_messages_for 'study' %>
+</div>
+
+<div class="panel">                              
+    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
+    <%= link_to 'Previous page', { :page => @data_pages.current.previous } if @data_pages.current.previous %>
+    <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
+</div>
+
+<%=link_to (subject_icon('new.png'))+'New', :action=>'new' %>

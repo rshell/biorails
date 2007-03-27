@@ -1,0 +1,9 @@
+
+  <h3><%=subject_icon('concept')%> Editing Concept <%= @data_concept.path %>]</h3>
+  <% form_tag :action => 'update', :id => @data_concept do %>
+  <fieldset class='form'>                              
+      <%= render :partial => 'form_concept' %>
+  </fieldset>   
+  <%= submit_tag 'Save' %>
+  <% end %>
+

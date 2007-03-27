@@ -6,12 +6,12 @@
       <p style='font-size:1.2em;color:#5A5A80;'>Search<%=subject_icon('find.png')%></p>
 <% form_tag :action => 'finder' do %>
       <%= text_field :query, :text ,:size =>15 %>
+      <%= observe_field( :query_text, :frequency => 1.0, 
+           :update => "query_hitlist", :url => {:controller=> 'finder', :action => :query }) %>
 <% end %>
-   <div id="query_hitlist" class="hitlist">     
+     <div id="query_hitlist" class="hitlist">     
         <%= hitlist %> 
-    </div>
-   <%= observe_field( :query_text, :frequency => 1.0, 
-          :update => "query_hitlist", :url => {:controller=> 'finder', :action => :query }) %>
+      </div>
 	<h3>My Worklist</h3>
 	<ul>
 	   <% for task in Task.find(:all,:limit=>5,:order=>'updated_at desc')%>

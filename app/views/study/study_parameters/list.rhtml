@@ -1,0 +1,71 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar'  %>
+    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+   <h2>Parameters</h2>
+    <ul class="menublock">
+        <li><%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+        <li><%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+        <li><%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+    </ul>
+<% end -%>
+
+
+    <h2>
+        <%=subject_icon('parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
+                :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
+    </h2>
+   <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
+    
+    <div class='panel'>
+       <table class="report">
+          <thead>
+              <tr>
+                <th><%=subject_icon('parameter.png')%> Parameter</th>
+                <th><%=subject_icon('parameter_role.png')%> Role</th>
+                <th><%=subject_icon('parameter_type.png')%> Parameter Type</th>
+                <th><%=subject_icon('data_type.png')%> Data Type</th>
+                <th><%=subject_icon('data_format.png')%> Format/Lookup</th>
+                <th>Default</th>
+                <th>Example (For testing) </th>
+                <th><%=subject_icon('action.png')%> Actions</th>
+              </tr>
+          </thead>
+          
+          <tbody>
+          <% for usage in @study.parameters %>
+          <% classAttr = cycle("", "class=\"even\"") %>
+          <tr <%=classAttr%>> 
+             <td><%=link_to subject_icon(usage.role.name) + usage.name,:controller =>'study_parameters', :action => 'show', :id => usage %></td>
+             <td><%=usage.role.name if usage.role%></td>
+             <td><%=usage.type.name if usage.type %></td>
+             <td><%=subject_icon(usage.data_type.name) + usage.data_type.name if usage.data_type%></td>
+             <td>
+              <%if usage.data_type_id==5 %>
+                <%=usage.data_element.name if usage.data_element %>
+              <%else%>
+                <%=usage.data_format.name if usage.data_format %>
+              <%end%>
+             </td>
+             <td><%=usage.default_value%></td>
+             <td>
+             <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=>"/study_parameters/test_save/#{usage.id}"}) %>
+             <span id='<%="cell_#{usage.id}_3"%>'></span>
+             </td>
+             <td>
+                <%= link_to (subject_icon('destroy.png'))+" Delete", {:controller =>'study_parameters', :action => 'destroy', :id => usage }, 
+                 :confirm => 'Are you sure?',:method => "post" %>
+              </td>
+          </tr>
+          <% end %>
+          </tbody>
+       </table>
+   </div>
+   <div class='panel'>
+        <h3>Guidance</h3>
+        <p>
+            This forms shows all the parameters which have been setup for use in protocol and reporting 
+            in the study <%=@study.name%>. The roles are used as a general catalogization for reporting. The types 
+            link back to the type of data saved against the parameter.    
+        </p>
+    </div>
+</div>

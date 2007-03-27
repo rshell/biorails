@@ -1,0 +1,39 @@
+<% ## Setup roles and tabs names 
+    roles = @study.parameter_roles  
+%>
+<ul class="menublock">
+<% for role in roles %>
+  <li class="reversed"><span><%= subject_icon(role.name) %><%=role.name%></span></li>
+  <li>
+    <ul>
+    <% for study_parameter in @study.parameters_for_role( role ) %> 
+      <li>   
+      <span id ='sp_<%=study_parameter.id%>' class ='study_parameter'>
+         <%= study_parameter.name%> <%= subject_icon('drag') %>
+      </span> 
+      </li>
+    <% end %>
+    </ul>
+  </li> 
+<%   end %>
+   <li class="reversed"> Queues   </li>
+   <li> 
+    <ul>
+    <% for study_queue in @study.queues %> 
+      <li>   
+      <span id='sq_<%=study_queue.id%>' class='study_queue'>
+         <%= study_queue.name%> <%= subject_icon('drag') %>
+      </span> 
+      </li>
+    <% end %>
+    </ul>
+   </li>
+</ul>
+                        
+<% for study_parameter in @study.parameters %> 
+       <%= draggable_element( "sp_#{study_parameter.id}" , :revert=> true) %>
+<% end %> 
+<% for study_queue in @study.queues %> 
+       <%= draggable_element( "sq_#{study_queue.id}" , :revert=> true) %>
+<% end %> 
+                       

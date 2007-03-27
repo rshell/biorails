@@ -1,0 +1,5 @@
+<%= render :partial => 'messages' %>
+
+<% unless @study_stage.nil? %>
+<%= error_messages_for 'study_stage' %>
+<% end %>

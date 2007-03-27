@@ -1,0 +1,75 @@
+<%= error_messages_for 'system_settings' %>
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce if using_tiny_mce? %>
+
+<!--[form:system_settings]-->
+
+<div class="row">
+ <div class="form-element">
+  <label for="system_settings_site_name">Site name</label>
+     <%= text_field 'system_settings', 'site_name',:cols=>80  %>
+  </div>
+</div>
+
+<div class="row">
+ <div class="form-element">
+   <label for="system_settings_site_logo">Site subtitle</label>
+    <%= text_area 'system_settings', 'site_subtitle'  %>
+  </div>
+</div>
+
+<div class="row">
+ <div class="form-element">
+   <label for="system_settings_footer_messasge">Footer Message</label>
+     <%= text_area 'system_settings', 'footer_message'  %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="system_settings_public_role_id">Public   Role</label>
+      <%= collection_select :system_settings, :public_role_id, @roles, :id, :name %> 
+  </div>
+
+  <div class="form-element">
+   <label for="system_settings_session_timeout">Session timeout</label>
+       <%= text_field 'system_settings', 'session_timeout'  %>
+  </div>
+
+ <div class="form-element">
+   <label for="system_settings_menu_depth">Menu Depth</label>
+     <%= text_field 'system_settings', 'menu_depth'  %>
+  </div>
+
+ <div class="form-element">
+    <label for="system_settings_default_markup_style_id"> Default Markup Style</label>
+      <%= collection_select :system_settings, :default_markup_style_id,   @markup_styles, :id, :name %></p>
+  </div>
+</div>
+
+<div class="row">
+ <div class="form-element">
+    <label for="system_settings_site_default_page_id"> Default Page </label>
+    <%= collection_select :system_settings, :site_default_page_id,   @pages, :id, :name %> </p>
+  </div>
+
+ <div class="form-element">
+    <label for="system_settings_not_found_page_id"> Not Found Page</label>
+    <%= collection_select :system_settings, :not_found_page_id,   @pages, :id, :name %> </p>
+  </div>
+
+ <div class="form-element">
+        <label for="system_settings_permission_denied_page_id"> Permission Denied Page </label>
+        <%= collection_select :system_settings, :permission_denied_page_id,   @pages, :id, :name %> 
+   </div>
+   
+
+ <div class="form-element">
+        <label for="system_settings_session_expired_page_id"> Session Expired Page</label>
+        <%= collection_select :system_settings, :session_expired_page_id,   @pages, :id, :name %> 
+  </div>
+
+
+</div>
+<!--[eoform:system_settings]-->
+

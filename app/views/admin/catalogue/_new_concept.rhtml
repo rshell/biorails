@@ -1,0 +1,11 @@
+<p>  
+Enter the details for the new concept under [<%=@data_concept.parent.path%>] below:-
+</p>
+<%= form_remote_tag :url => {:action => 'create', :id => @data_concept.parent} %>
+  <fieldset class='form'>                              
+      <%= render :partial => 'form_concept' %>
+  </fieldset>   
+  <%= submit_tag 'Save' %>
+  <%=link_to_remote "Cancel", :url =>{:action=>'show',:id => @data_concept.parent.id} %>
+<%= end_form_tag %>
+

@@ -1,0 +1,5 @@
+<%= render :partial => 'messages' %>
+
+<% unless @parameter_type.nil? %>
+<%= error_messages_for 'parameter_type' %>
+<% end %>

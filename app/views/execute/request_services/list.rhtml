@@ -1,0 +1,27 @@
+<h2>Listing request_services</h2>
+
+<table>
+  <tr>
+  <% for column in RequestService.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for request_service in @request_services %>
+  <tr>
+  <% for column in RequestService.content_columns %>
+    <td><%=h request_service.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => request_service %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => request_service %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => request_service }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @request_service_pages.current.previous } if @request_service_pages.current.previous %>
+<%= link_to 'Next page', { :page => @request_service_pages.current.next } if @request_service_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New request_service', :action => 'new' %>

@@ -1,0 +1,88 @@
+<div class="row">
+<%if  @data_element.new_record? %>
+
+    <div class="form-element">
+      <label for="data_element_style">Style</label>
+      <%= select(:data_element, :style, @data_element.types {|p| p})%>
+    </div>
+     <%= observe_field 'data_element_style',:function => "showTab('contents-tabs',value+'-panel');" %>
+
+     <%= hidden_field( 'data_element', 'content')  %>    
+</div>
+<% end %>
+
+<div class="row" id="contents-tabs">
+<fieldset class='form'>    
+    <div class="TabPanel" id="list-panel" >
+        <div class="form-element">
+          <label for="data_element_content">comma separated values:-</label>
+          <%= text_area( 'content', 'list')  %>
+        </div>
+        <p> This is basically a Comma separated list of values with string is speach marks like 
+          'Male','Female' or numbers like 1,2,3,4,5,6 or mixed 1,2,3,3,4,'NA'. 
+        </p>
+    </div>
+    
+    <div class="TabPanel" id="range-panel" <%=display(@data_element.style=='range')%> >
+        <div class="form-element">
+          <label for="data_element_content">Min</label>
+          <%= text_field 'content', 'min' , {:class=>"text-input"} %>
+        </div>
+        
+        <div class="form-element">
+          <label for="data_element_content">Max</label>
+          <%= text_field 'content', 'max' , {:class=>"text-input"} %>
+        </div>
+        <p> This is range of values like 'A'..'Z' or 1..100 </p>
+    </div>
+    
+    <div class="TabPanel" id="model-panel" <%=display(@data_element.style=='model')%>>
+        <div class="form-element">
+          <label for="data_element_content">Model</label>
+          <%= select_model 'content', 'model' %>
+        </div>
+        <p> 
+        This is the name of a model class to use as a source of a list of values. Most commonly this 
+        is used for internal inventory and links between items, Like if a reference study or experiment name
+        should be entered.
+        </p>
+    </div>
+    <div class="TabPanel" id="view-panel" <%=display(@data_element.style=='view')%>>
+        <div class="form-element">
+          <label for="data_element_content">Table/View:</label>
+          <%= text_area 'content', 'view' , :class=>"text-input" %>
+        </div>
+        <p>
+        This is used to dynamically link to a table or view in another systems. Most commonly this 
+        is used for external inventory and links to predefined lookup tables from other systems. The source
+        view must have a single unique column called 'id' and column called 'name' for use in lookups. If
+        names are duplicate the first found will be used. For many systems will mean that views will have to be 
+        defined. This system will hit these with lookup by id=nnn and name like 'xxx%' searches.
+        </p>
+    </div>
+    <div class="TabPanel" id="sql-panel"<%=display(@data_element.style=='sql')%>>
+        <div class="form-element">
+          <label for="data_element_content">Sql Select:</label>
+          <%= text_area 'content', 'sql' , :class=>"text-input" %>
+        </div>
+        <p>
+        This is a simple SQL select statement returning at minimum a 'id' and 'name' columns for use. The 
+        statement should not involve orders or groups (Use views for theses). As in use a "and id=nnn" or 
+        " and name like'xxx%'" may be appended. 
+        </p>
+    </div>
+    
+    <div class="TabPanel" id="child-panel" <%=display(@data_element.style=='child')%> >
+        <p> Management of complext tree's of  child elements needs a separate interface.
+         Mark as a Todo item for under <b>/data_element/show/xxx</b> in separate controller.
+        </p>
+        
+        
+    </div>
+    
+</fieldset>
+</div>
+
+
+
+

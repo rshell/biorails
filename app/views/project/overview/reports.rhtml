@@ -1,0 +1,32 @@
+
+<h2><%=l(:reports)%></h2>
+
+<table class="list">
+  <thead>
+    <tr>
+    <%= sort_header_tag('name', :caption => l(:report)) %>
+	<th><%=l(:description)%></th>
+	<%= sort_header_tag('created_at', :caption => l(:created)) %>
+	<%= sort_header_tag('created_by', :caption => l(:updated)) %>
+    <th></tr>
+    </thead>
+  <tbody>
+  
+<% for item in @items %>
+  <tr class="<%= cycle('odd', 'even') %>">
+	<td><%= link_to item.name, :controller => '/setup/reports', :action => 'show', :id => item %>
+	<td><%=h item.description %>
+	<td align="center"><%= short_date(item.created_at) %>
+	<td align="center"><%= short_date(item.updated_at) %>
+  <td align="center">
+    <%= button_to l(:button_delete), { :controller => '/setup/reports', :action => 'destroy', :id => item }, :class => "button-small" %>
+  </td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+<p>
+<%= pagination_links_full @item_pages %>
+[ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Report.count %> ]
+<%= link_to 'New',:controller=>'reports', :action => 'new' %> 
+</p>

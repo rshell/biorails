@@ -1,0 +1,23 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%= subject_icon('systems')%> Editing System [<strong><%=@data_system.name%></strong>]
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => @data_system %></li>
+                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class='dialog'>
+            <% form_tag :action => 'update', :id => @data_system do %>
+              <%= render :partial => 'form' %>
+            <div class="row">
+                <%= submit_tag 'Save' %>
+            <div>
+            <% end %>
+        </div>
+            <%= render :partial => 'shared/audit', :locals=> { :item => @dataconcept }%>
+    </div>
+</div>

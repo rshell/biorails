@@ -1,0 +1,16 @@
+<h2><%=subject_icon('study.png')%> New Study </h2>
+
+Create a new study for orgranization of protocols and accepting services.
+
+<%= error_messages_for 'study' %>
+
+<% content_for :form do -%>
+    <% form_tag :action => 'create' do %>
+    <%= render :partial => 'form' %>
+    <div class="row">
+        <%= submit_tag "Save" %>
+        <%= link_to 'Cancel', :action => 'list' %>
+    </div>
+    <% end %>
+<% end %>
+

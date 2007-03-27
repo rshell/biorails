@@ -1,0 +1,13 @@
+<!--[sform:process_contexts]-->
+
+    <div id="<%=@protocol_version.dom_id('editor') %>" class="dialog">
+      <%= render :partial => 'parameter_layout' %>
+   </div>
+
+<%= drop_receiving_element "allowed_types", 
+      :url => { :action => "remove_parameter" , :instance=>@protocol_version  },
+      :accept => "parameter",
+      :droponempy => true %>         
+
+
+<!--[eoform:process_contexts]-->

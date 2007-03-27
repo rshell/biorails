@@ -1,0 +1,11 @@
+<fieldset>
+
+<% for column in Container.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @container.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @container %> |
+<%= link_to 'Back', :action => 'list' %>
+</fieldset>

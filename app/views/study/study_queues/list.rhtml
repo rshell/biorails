@@ -1,0 +1,65 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar'  %>
+    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+   <h2>Queues</h2>
+    <ul class="menublock">
+                <li><%= link_to subject_icon('services')+'New', 
+                    :action => 'new', :id=>@study.id %></li>
+    </ul>
+<% end -%>
+
+
+
+<h2>
+          <%=subject_icon('services')%> Services for Study <%=subject_icon('study.png')%> 
+          <%= link_to @study.name, :controller => 'studies', 
+                :action => 'show', :id => @study.id  %>
+
+    </h2>
+    <div class='panel'>
+        <table class="report">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Assigned</th>
+            <th colspan=2>Request Status</th>
+            <th colspan=2>Request Priority</th>
+            <th>Actions</th>
+          </tr>
+          <tr>
+            <th colspan=2>For <%=@study.name%> </th>
+            <th>To User</th>
+            <th>Default</th>
+            <th>Counts</th>
+            <th>Default</th>
+            <th>Usages</th>
+            <th></th>
+          </tr>
+          
+        <% for study_queue in @study_queues %>
+          <tr>
+            <td><%= link_to study_queue.name, :action => 'manage', :id => study_queue %></td>
+            <td><%=h study_queue.description %></td>
+            <td><%=h study_queue.assigned_to %></td>
+            <td><%=h study_queue.status %></td>
+            <td>
+                <%for row in study_queue.status_counts %>
+                  <%=row.num %> <%=row.status %> <br />
+                <%end%>
+            </td>
+            <td>
+                <%for row in study_queue.priority_counts %>
+                  <%=row.num %> <%=row.priority %> <br />
+                <%end%>
+            </td>
+            
+            <td><%= link_to 'Edit', :action => 'edit', :id => study_queue %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+    <div class='panel'
+    <%= link_to 'Previous page', { :page => @study_queue_pages.current.previous } if @study_queue_pages.current.previous %>
+    <%= link_to 'Next page', { :page => @study_queue_pages.current.next } if @study_queue_pages.current.next %> 
+    </div>
+</div>

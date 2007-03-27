@@ -1,0 +1,17 @@
+<fieldset>
+    <div class="title">
+        <%=subject_icon('samples')%> Edit Samples
+    </div>
+    <div class="table-header">
+      <div class="actions">
+        <%= link_to subject_icon('show.png')+'Show', :action => 'show', :id => @sample %> |
+        <%= link_to subject_icon('list.png')+'list', :action => 'list' %>
+      </div>
+    </div>
+    <fieldset class='form'>            
+        <% form_tag :action => 'update', :id => @sample do %>
+          <%= render :partial => 'form' %>
+          <%= submit_tag 'Edit' %>
+       <% end %>
+    </fieldset>
+</fieldset>

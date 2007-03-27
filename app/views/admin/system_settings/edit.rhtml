@@ -1,0 +1,28 @@
+<div class='main' >
+    <div class="title">
+         Editing System Settings
+        <div class="actions">
+            <ul>
+              <li>
+                   <%= link_to 'Show', :action => 'show', :id => @system_settings %>
+              </li>
+            </ul>
+        </div>
+    </div>
+
+        <%= error_messages_for 'study' %>
+
+    <div class="dialog">                              
+     <% form_tag :action => 'update', :id => @system_settings do %>
+       <%= render :partial => 'form' %>
+        <div class='row'>
+        <%= submit_tag 'Edit' %>
+        </div>
+     <% end %>
+    </div>
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
+</div>    
+
+
+
+<hr/>

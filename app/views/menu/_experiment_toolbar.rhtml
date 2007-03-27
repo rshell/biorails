@@ -1,0 +1,9 @@
+<h2>Experiment <%= link_to experiment.name,: experiment_url(:action => 'show', :id => experiment) %></h2>
+<div class="menublock">
+ <ul>
+  <li><%= link_to 'New task', experiment_url( :action => 'new' , :id => experiment) %></li>
+  <li><%= link_to 'Edit', experiment_url(, :action => 'edit', :id => experiment) %></li>
+  <li><%= link_to 'Copy',: experiment_url( :action => 'copy',:id => experiment.study) %> </li>
+  <li><%= link_to 'Import', experiment_url( :action =>'import',:id => experiment) %></li>          
+ </ul>
+</div>

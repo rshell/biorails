@@ -1,0 +1,32 @@
+    <td><%=link_to(queue_item.service.name,  :controller => 'request_services',  :action => 'show', :id => queue_item.service) if queue_item.service %></td>
+    <td><%=queue_item.name %></td>
+    <td>
+           <%= select_tag 'status_id', 
+                          options_for_select(queue_item.allowed_status_list,queue_item.status_id),
+                          {:id=>queue_item.dom_id('status_id')}  %>
+      
+          <%= observe_field queue_item.dom_id('status_id'),
+                             :url=>{:action=>'update_item',:id=>queue_item},
+                             :with =>'status_id',
+                             :update => queue_item.dom_id(:updated_at)  %>
+
+    </td>
+    <td>
+           <%= select_tag 'priority_id', 
+                          options_for_select(queue_item.allowed_priority_list,queue_item.priority_id),
+                          {:id=>queue_item.dom_id('priority_id')}  %>
+       
+           <%= observe_field  queue_item.dom_id('priority_id'),
+                             :url=>{:action=>'update_item',:id=>queue_item},
+                             :with =>'priority_id',
+                             :update => queue_item.dom_id(:updated_at)  %> 
+
+    </td>
+    <td><%=h queue_item.assigned_to  %></td>
+    <td> <%=queue_item.comments  %></td>
+    <td><%=short_date queue_item.updated_at%></td>
+    <td><%=short_date queue_item.accepted_at  %></td>
+    <td><%=short_date queue_item.completed_at  %></td>
+    <td><%= link_to 'Remove', :action => 'destroy', :id => queue_item %></td>
+
+

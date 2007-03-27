@@ -1,0 +1,37 @@
+<div class='main' id="maintitle">
+    <div class="title">
+        <%=subject_icon('batches')%> Batches
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('new.png')) + 'New batch', :action => 'new' %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class='panel'>
+        <table class="report">
+          <tr>
+          <% for column in Batch.content_columns %>
+            <th><%= column.human_name %></th>
+          <% end %>
+          <th colspan=3>Actions</th>
+          </tr>
+          
+        <% for batch in @batches %>
+          <tr>
+          <% for column in Batch.content_columns %>
+            <td><%=h batch.send(column.name) %></td>
+          <% end %>
+            <td><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => batch %></td>
+            <td><%= link_to (subject_icon('edit.png'))+"Edit", :action => 'edit', :id => batch %></td>
+            <td><%= link_to (subject_icon('destroy.png'))+"Delete", { :action => 'destroy', :id => batch }, :confirm => 'Are you sure?',:method => "post" %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+
+    <div class="panel>
+        <%= pagination_links(@batch_pages) %>
+    </div>
+
+</div>

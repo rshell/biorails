@@ -1,0 +1,37 @@
+<table class="report">
+  <tr>
+    <th colspan='13'>
+  </tr>
+  <tr>
+    <th colspan='4'><%=subject_icon('parameter.png')%> Parameter</th>
+    <th colspan='5'><%=subject_icon('experiment.png')%> Current (Protocol)</th>
+  </tr>
+  <tr>
+    <th rowspan=1 scope="col">Name</th>
+    <th rowspan=1 scope="col">Type</th>
+    <th rowspan=1 scope="col">Style</th>
+    <th rowspan=1 scope="col">Role </th>
+    <th rowspan=1 scope="col">Total</th>
+    <th rowspan=1 scope="col">Ave</th>
+    <th rowspan=1 scope="col">Std.Dev.</th>
+    <th rowspan=1 scope="col">Min</th>
+    <th rowspan=1 scope="col">Max</th>
+  </tr>
+<%for row in @process.stats%>
+   <% classAttr = cycle("", "class=\"even\"") %>
+   <tr <%=classAttr%>  > 
+    <td> <%=link_to( row.parameter.name, :controller=>'parameters',:action=>'show',:id=>row.id ) if row %>  </td>
+    <td> <%=row.type.name if row.type %>   </td>
+    <td> <%=row.parameter.style if row.parameter %>  </td>
+    <td> <%=row.role.name if row.role %>  </td>
+    <td> <%=number_round row.num_values %>  </td>
+    <td> <%=number_round row.avg_values %>   </td>
+    <td> <%=number_round row.stddev_values %>   </td>
+    <td> <%=row.min_values %>   </td>
+    <td> <%=row.max_values %>   </td>
+  </tr>
+<%end%>
+  <tr>
+    <th colspan="13" scope="col"></th>
+  </tr>    
+</table>

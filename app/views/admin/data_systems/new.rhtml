@@ -1,0 +1,22 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%= subject_icon('systems')%> New Data System
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class='panel'>
+        <div class='dialog'>
+            <% form_tag :action => 'create' do %>
+              <%= render :partial => 'form' %>
+            <div class="row"><br />
+              <%= submit_tag "Create" %>
+            </div>
+           <% end %>
+        </div>
+    </div>
+
+</div>

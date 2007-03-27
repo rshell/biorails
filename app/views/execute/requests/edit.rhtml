@@ -1,0 +1,56 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%=subject_icon('services')%> Edit Request  [<strong><%=h @request.name%></strong>]
+         <div class="actions">
+            <ul>
+                <li><%= link_to subject_icon('destroy.png')+'Delete', { :action => 'destroy', 
+                    :id => @request }, :confirm => 'Are you sure?',:method => "post" %></li>
+                <li><%= link_to subject_icon('new.png')+ 'New', :action => 'new' %></li>
+                <li><%= link_to subject_icon('show.png')+ 'Show', :action => 'show' %></li>
+                <li><%= link_to subject_icon('list.png')+'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class='dialog'>
+        <% form_tag :action => 'update',:id=> @request.id do %>
+        <%= render :partial => 'form' %>
+        <div class="row">
+            <%= submit_tag "Submit" %>
+        </div>      
+       <% end %>
+    </div>    
+     
+    <div class='report panel'>
+    <table width='100%'>
+        <tr>
+          <th> Services </th>
+          <th> Items </th>
+        </tr>
+        <tr>
+          <td valign="top">   
+            <% form_tag :action => 'add_service',:id =>@request.id do %>
+             <%= select( :service, :id, @request.allowed_services.collect{|c|[c.path,c.id]})  %>
+             <%= submit_tag "add" %>
+           <% end %>        
+            <div id="current_services">  
+            <%= render :partial => 'list_services', :locals => { :request => @request } %>  
+            </div>
+          </td>
+          <td valign="top">   
+            <% form_tag :action => 'add_item',:id =>@request.id do %>
+             <%=my_lookup_tag("item","name", @request.data_element,{ :save=>"/requests/add_item/#{@request.id}"} ) %>     
+             <%= submit_tag "add" %>
+           <% end %>          
+            <div id="current_items">  
+            <%= render :partial => 'list_items', :locals => { :request => @request } %>  
+            </div>
+          </td>
+        </tr>
+    </table>
+    </div>
+    
+    <div class='panel'>
+        <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
+    </div>
+</div>

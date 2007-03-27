@@ -1,0 +1,64 @@
+<% new_items = @study_queue.items.state(CurrentStatus::NEW) %>
+<% accepted_items = @study_queue.items.state(CurrentStatus::ACCEPTED) %>
+<% waiting_items = @study_queue.items.state(CurrentStatus::WAITING) %>
+<% processing_items = @study_queue.items.state(CurrentStatus::PROCESSING) %>
+<% validation_items = @study_queue.items.state(CurrentStatus::VALIDATION) %>
+
+<% tab_ids = ['tab-req','tab-new','tab-accept','tab-wait','tab-proc','tab-val']%>   
+<% tab_names = ["Requests [#{@study_queue.requests.size}]",
+                "New [#{new_items.size}]",
+                "Accepted [#{accepted_items.size}]",
+                "Waiting [#{waiting_items.size}]",
+                "Processing [#{processing_items.size}]",
+                "Validation [#{validation_items.size}]"]%>   
+<%=tab_setup(tab_ids,tab_names) %>
+
+<div class='main'>
+    <div class="title">
+         Service Queue <%=subject_icon('services')%> <%= @study_queue.path %>
+         <div class="actions">
+            <ul>
+                <li><%= link_to subject_icon('study.png') +'Study',:controller=>'studies', :action => 'show', :id=> @study_queue.study %></li>
+                <li><%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id=> @study_queue %></li>
+                <li><%= link_to subject_icon('list.png') +'CheckOut', :action => 'queue', :id=> @study_queue %></li>
+                <li><%= link_to subject_icon('list.png') +'List', :action => 'list', :id=> @study_queue.study %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>
+        <%= render :partial => 'study_queue', :locals => { :study_queue => @study_queue } %>  
+        
+        <div class='tab_stuff'>
+
+           <%= tab_divide(tab_ids,tab_names,0) %>                                    
+                <%= render :partial => 'request_services', :locals => { :request_services => @study_queue.requests } %>  
+            </div>  
+        
+           <%= tab_divide(tab_ids,tab_names,1) %>   
+                <%= render :partial => 'queue_items', :locals => { :queue_items => @study_queue.items.state(0) } %>
+            </div>  
+
+           <%= tab_divide(tab_ids,tab_names,2) %>   
+                <%= render :partial => 'queue_items', :locals => { :queue_items =>@study_queue.items.state(1) } %>
+            </div>  
+
+           <%= tab_divide(tab_ids,tab_names,3) %>   
+                <%= render :partial => 'queue_items', :locals => { :queue_items =>@study_queue.items.state(2) } %>
+            </div>  
+
+           <%= tab_divide(tab_ids,tab_names,4) %>   
+                <%= render :partial => 'queue_items', :locals => { :queue_items => @study_queue.items.state(3)} %>
+            </div>  
+
+           <%= tab_divide(tab_ids,tab_names,5) %>   
+                <%= render :partial => 'queue_items', :locals => {:queue_items => @study_queue.items.state(4) } %>
+            </div>  
+
+        </div>
+    </div>
+
+    <div class='panel'>
+        <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
+    </div>
+</div>
+    

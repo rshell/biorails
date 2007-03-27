@@ -1,0 +1,43 @@
+
+<tr class="titles" >  
+  <th rowspan='2'>
+ 
+    <%= link_to_function((parameter_context.label+subject_icon('down')),    "new Effect.toggle('detail_"+ parameter_context.dom_id+"','slide')") %> 
+    <br/>
+    <%= parameter_context.count_string %> rows
+     
+  </th>
+  
+  <% for parameter in parameter_context.parameters %>
+  <th>
+   <span id="<%=parameter.dom_id%>" class='parameter'>
+      <%=subject_icon(parameter.role.name)%><%=parameter.name%>
+   </span>
+   <%= draggable_element parameter.dom_id , :revert=> true %>
+  </th>
+  <% end %>
+
+  <th style='height: 40px;' colspan='<%=parameter_context.fill_columns+2 %>' >
+     .............
+  </th>
+</tr>
+
+<!-- Setup for context row -->
+
+<tr class="setup" > 
+  <td colspan='<%=ParameterContext.default_columns+4 %>' >  
+   <div id="detail_<%= parameter_context.dom_id %>" class="row_detail" style="display: none;" > 
+   <%= render :partial => 'context_form', :locals => {:parameter_context => parameter_context } %>
+  </div>
+  </td>
+</tr>
+<tr>
+  <td colspan='<%=ParameterContext.default_columns+3%>' >
+      <%= link_to_remote "New Child", :url => { :action => 'new_context',:parent_id =>parameter_context.id, :id=>parameter_context.process.id} %> 
+      of <%= parameter_context.path %>            
+  </td>
+</tr>
+
+
+
+  

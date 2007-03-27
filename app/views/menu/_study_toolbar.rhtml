@@ -1,0 +1,12 @@
+<h2>Study <%= link_to study.name,study_url( :action => 'show', :id=>study.id )%></h2>
+<div class="menublock">
+    <ul>
+      <li><%= link_to 'Edit', study_url(:action => 'edit', :id => study) %></li>
+      <li><%= link_to 'New', study_url(:action => 'new' )%></li>
+      <li><%= link_to 'Export',   study_url( :action =>'export',:id => study) %></li>
+      <li><%= link_to 'Parameters', :controller => 'study_parameters', :action => 'list', :id=> study.id %></li>
+      <li><%= link_to 'Services',  :controller=>'study_queues', :action => 'list', :id=>study %></li>
+      <li><%= link_to 'Protocols' ,:controller=>'study_protocols', :action => 'list', :id=>study %></li> 
+          
+      </ul>
+</div>

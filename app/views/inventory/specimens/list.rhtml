@@ -1,0 +1,33 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        Listing Specimens
+        <div class="actions">
+            <ul>
+                <li><%= link_to subject_icon('new.png') + 'New', :action => 'new' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>
+        <table class="report">
+          <tr>
+          <% for column in Specimen.content_columns %>
+            <th><%= column.human_name %></th>
+          <% end %>
+          </tr>
+        <% for specimen in @specimens %>
+          <tr>
+          <% for column in Specimen.content_columns %>
+            <td><%=h specimen.send(column.name) %></td>
+          <% end %>
+            <td><%= link_to 'Show', :action => 'show', :id => specimen %></td>
+            <td><%= link_to 'Edit', :action => 'edit', :id => specimen %></td>
+            <td><%= link_to 'Destroy', { :action => 'destroy', :id => specimen }, :confirm => 'Are you sure?',:method => "post" %></td>
+          </tr>
+        <% end %>
+        </table>
+    </div>
+    <div class='panel'>
+        <%= link_to 'Previous page', { :page => @specimen_pages.current.previous } if @specimen_pages.current.previous %>
+        <%= link_to 'Next page', { :page => @specimen_pages.current.next } if @specimen_pages.current.next %> 
+    </div>
+</div>

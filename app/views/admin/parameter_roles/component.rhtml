@@ -1,0 +1,62 @@
+<% if @show_wrapper %>
+<div class='main' id='maintitle'>
+<div id="<%= params[:scaffold_id] %>" class="ajax-scaffold">
+  <div id="<%= scaffold_content_id(params) %>">
+<% end %>
+    <div class="title">
+          <%=subject_icon('parameter_role.png')%> Parameter Roles
+        <div class="actions">
+            <ul>
+            <% new_params = params.merge(:controller => '/parameter_roles', :action => 'new') %>
+            <%= loading_indicator_tag(new_params) %>
+            <li><%= link_to_remote (subject_icon('new.png'))+"New Role",
+              { :url => new_params,
+                :loading => "Element.show('#{loading_indicator_id(new_params)}');" },
+              { :href => url_for(new_params),
+                :class => "create" } %></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class='panel'>
+        <table class="report">
+            <thead>
+                <tr>
+                    <%= render :partial => 'column_headings' %>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="<%= num_columns %>" class="messages-container">
+                            <div id="<%= scaffold_messages_id(params) %>">
+                                <%= render :partial => 'messages' %>
+                            </div>
+                            <p id="<%= empty_message_id(params) %>" class="empty-message" <%= " style=\"display:none;\" " if !@parameter_roles.empty? %>>
+                                No Entries
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody id="<%= scaffold_tbody_id(params) %>">
+                    <% if !@parameter_roles.empty? %>
+                      <%= render :partial => 'parameter_role', :collection => @parameter_roles, :locals => { :hidden => false } %>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel">
+          <%= render :partial => 'pagination_links', :locals => { :paginator => @paginator } %>
+        </div>
+        <% if @show_wrapper %>
+        </div>
+        </div>
+        <div class="panel">
+            <h3>Instructions</h3>
+            <p>
+                These are used in classifying parameter type usage in a process. For example it may be a raw input value or a output
+                of the process. 
+            </p>
+        </div>
+    </div>
+</div>
+<% end %>

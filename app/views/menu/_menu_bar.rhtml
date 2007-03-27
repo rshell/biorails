@@ -1,0 +1,48 @@
+<div id="navigation">
+	<ul>
+    	<li><%= link_to l(:home),       { :controller => '/account' }, :class => "icon icon-home" %></li>
+
+        <% unless current_project.nil? %>
+            <li class="submenu"><%= link_to current_project.name, { :controller => '/project/overview', :action => 'show', :id =>current_project }, :class => "icon icon-projects", :onmouseover => "buttonMouseover(event, 'menuProject');"  %></li>
+            <div id="menuProject" class="menu" onmouseover="menuMouseover(event)">
+             <% for item in ['overview','calendar','gantt','studies','experiments']%>
+                <a class="menuItem" class="menu" href="<%="/project/#{current_project.id}/#{item}"%>" >   <span class="menuItemText"><%=l(item)%></span></a>
+             <% end %>   
+            </div>
+        <% end %>
+
+   		    <li class="submenu">
+   		      <%= link_to l(:label_administration), { :controller => 'admin' }, 
+   		                        :class => "icon icon-admin", :onmouseover => "buttonMouseover(event, 'menuAdmin');" %></li>
+
+            <div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
+             <% for item in ['catalogue','data_systems','data_types','data_formats','parameter_roles','parameter_types','roles','users']%>
+                <a class="menuItem" href="<%="/admin/#{item}"%>" >   <span class="menuItemText"><%=l(item)%></span></a>
+             <% end %>   
+            </div>
+
+   		    <li class="submenu"><%= link_to l(:inventory), { :controller => 'inventory' }, 
+   		                                    :class => "icon icon-admin", 
+   		                                    :onmouseover => "buttonMouseover(event, 'menuInventory');" %></li>
+
+            <div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
+             <% for item in ['compounds','batches','containers','plates','samples','plate_formats','specimens','treatment_groups']%>
+                <a class="menuItem" href="<%="/inventory/#{item}"%>" >   <span class="menuItemText"><%=l(item)%></span></a>
+             <% end %>   
+            </div>
+
+   		    <li class="submenu"><%= link_to l(:execute), { :controller => 'execute' }, 
+   		                                    :class => "icon icon-admin", 
+   		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %></li>
+
+            <div id="menuExecute" class="menu" onmouseover="menuMouseover(event)">
+             <% for item in ['experiments','requests']%>
+                <a class="menuItem" href="<%="/execute/#{item}"%>" >   <span class="menuItemText"><%=l(item)%></span></a>
+             <% end %>   
+            </div>
+
+
+        <li class="right"><%= link_to l(:logout), { :controller => 'account', :action => (logged_in? ? 'logout':'login')}, :class => "icon icon-user" %></li>	
+    	<li class="right"><%= link_to l(:help), { :controller => 'help', :ctrl => params[:controller], :page => params[:action] }, :onclick => "window.open(this.href); return false;", :class => "icon icon-help" %></li>
+	</ul>		
+</div>

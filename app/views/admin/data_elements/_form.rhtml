@@ -1,0 +1,38 @@
+<%= error_messages_for 'data_element' %>
+
+
+<!--[form:data_element]-->
+<%= hidden_field 'data_element', 'parent_id' %>
+
+<fieldset class="row">
+    <fieldset class="field">
+          <label for="data_element_data_system_id">System</label>
+          <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
+    </fieldset>
+
+    <fieldset class="field">
+          <label for="data_element_data_concept_id">Concept</label>
+          <%= collection_select(:data_element, :data_concept_id, @data_element.allowed_concepts, :id, :name) %>
+    </fieldset>
+
+
+    <fieldset class="field">
+          <label for="data_element_name">Name</label>
+          <%= text_field 'data_element', 'name'  %>
+    </fieldset>
+
+    <fieldset class="field">
+          <label for="data_element_estimated_count">Estimated No. Values</label>
+          <%= text_field(:data_element, :estimated_count) %>
+    </fieldset>
+</fieldset>
+
+<fieldset class="row">
+    <fieldset class="field">
+      <label for="data_element_description">Description</label>
+      <%= text_area( 'data_element', 'description'  	)%>
+    </fieldset>
+</fieldset>
+
+<!--[eoform:data_element]-->
+

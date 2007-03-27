@@ -1,0 +1,81 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar'  %>
+    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+   <h2>Protocols</h2>
+    <ul class="menublock">
+       <li><%= link_to (subject_icon('new.png'))+'New',  :action => 'new', :id=>@study.id %></li>
+    </ul>
+<% end -%>
+
+
+<h2>
+   <%=subject_icon('protocols')%>Protocols in [<%=link_to "#{@study.name}", :controller=>'studies', 
+            :action =>'show',:id =>@study.id %>]
+</h2>
+    <div class='panel'>
+        <table class="report">
+          <tr>
+            <th colspan='2'><%=subject_icon('study.png')%> Study</th>
+            <th colspan='2'><%=subject_icon('process.png')%> Process</th>
+            <th colspan='3'><%=subject_icon('metric.png')%> Version Usage</th>
+            <th colspan='3'></th>
+          </tr>  
+          <tr>
+            <th>Name</th>
+            <th>Stage</th>
+            
+            <th>Catagory</th>
+            <th>Version</th>
+          
+            <th>Any </th>
+            <th>Current </th>
+            <th>[Lastest] Released </th>
+            <th colspan='3'>Actions</th>
+          </tr>
+          
+          <% for study_protocol in @study_protocols %>
+          <% classAttr = cycle("class=\"odd\"", "class=\"even\"") %>
+          <tr  <%= classAttr %> >
+            <td><%=h study_protocol.name %></td>
+            <td><%=h study_protocol.stage.name if study_protocol.stage %></td>
+            
+            <td><%=h study_protocol.protocol_catagory %></td>
+            <td><%= link_to study_protocol.process.name, :action => 'show', :id => study_protocol %></td>
+        
+            <td><%=h study_protocol.usage_count %></td>   
+            <td> <%=study_protocol.process.tasks.size.to_s %> </td>
+            <td> 
+            <%if study_protocol.lastest != study_protocol.process %>
+              [<%=link_to study_protocol.lastest.path , :action => 'edit',:id => study_protocol, :version => study_protocol.lastest %>] 
+               <%=study_protocol.lastest.tasks.count.to_s%>
+            <%else%>
+              Current
+            <%end%>   
+            </td>
+        
+            <td><%= link_to (subject_icon('edit.png'))+" Edit", :action => 'edit', :id => study_protocol %></td>
+            <td>
+            <%if study_protocol.lastest != study_protocol.process %>
+              <%= link_to (subject_icon('release'))+" Release", :action => 'release', :id => study_protocol %>
+            <%end%>   
+            </td>
+            
+            <td>
+            <%if study_protocol.usage_count==0%>
+              <%= link_to (subject_icon('destroy.png'))+" Delete", { :action => 'destroy', :id => study_protocol }, :confirm => 'Are you sure?',:method => "post" %></td>
+           <%end%>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+    <div class='panel'>
+
+    <h3>Guidance</h3>
+      <p>
+         This forms shows all the protocols linked into the <%=@study.name%> study. This manages the complex 
+         rules for entry of data. Protocols can be created visually, imported from file or other studies.
+         All changes to protocol are versioned and new un-used versions of the protocol are available for editing.
+         There is a single <strong>released</strong> version for the study.  
+      </p>    
+  </div>
+</div>

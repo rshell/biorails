@@ -1,0 +1,49 @@
+<fieldset>
+  <div class="row">
+    <!--[form:data_format]-->
+<div class="row">
+    <div class="form-element">
+      <label for="data_format_data_type">Data type</label>
+      <%= select_named( :data_format, :data_type_id ,DataType) %>
+    </div>
+    
+    <div class="form-element">
+      <label for="data_format_name">Name</label>
+      <%= text_field 'data_format', 'name' , {:class=>"text-input"} %>
+    </div>
+    
+    <div class="form-element">
+      <label for="data_format_default_value">Default value</label>
+      <%= text_field 'data_format', 'default_value' , {:class=>"text-input"} %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-element">
+      <label for="data_format_description">Description</label>
+      <%= text_area 'data_format', 'description',{:rows=>5, :cols=>100}   %>
+    </div>
+</div>
+  
+<div class="row">
+    <div class="form-element">
+      <label for="data_format_format_regex">Format regex</label>
+      <%= text_field 'data_format', 'format_regex' , {:size=>30 ,:class=>"text-input",:onkeyup=> 'onKeyMatchClick()'} %>
+    </div>
+
+    <div class="form-element">
+      <label for="data_format_test">Test String
+            <%= link_to_function('[test match]', "demoMatchClick();") %>       
+      </label>
+      <%= text_field_tag 'test_match','',{:size=>30,:class=>"text-input",:onkeyup=> 'onKeyMatchClick()'}  %>
+      <br />
+      <span id="test_result">Untested</span>
+    </div>
+
+</div>
+
+
+<!--[eoform:data_format]-->
+
+  </div>
+</fieldset>

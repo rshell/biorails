@@ -1,0 +1,28 @@
+<fieldset>
+<div class="form-title"><%=subject_icon('container')%> Containers</div>
+<table class="report">
+  <tr>
+  <% for column in Container.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for container in @containers %>
+  <tr>
+  <% for column in Container.content_columns %>
+    <td><%=h container.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => container %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => container %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => container }, :confirm => 'Are you sure?',:method => "post" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @container_pages.current.previous } if @container_pages.current.previous %>
+<%= link_to 'Next page', { :page => @container_pages.current.next } if @container_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New container', :action => 'new' %>
+</fieldset>

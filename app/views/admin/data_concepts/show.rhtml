@@ -1,0 +1,29 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%=subject_icon('concept')%> Concept [<strong><%= @data_concept.path %></strong>]
+        <div class="actions">
+            <ul>
+                <li>
+                    <%= link_to (subject_icon('destroy.png'))+"Delete ", { :action => 'destroy', :id => @data_concept },
+                        :confirm => 'Are you sure?',:method => "post" %></li>
+                <li><%= link_to (subject_icon('new.png')) +'Add Child', :action => 'new', :id => @data_concept %></li>
+                <li><%= link_to (subject_icon('edit.png')) +'Edit ', :action => 'edit', :id => @data_concept %> </li>
+                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'show',
+                    :controller => 'data_contexts', :id => @data_concept.data_context %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>
+        <%= render :partial => 'shared/named',:locals =>{:item => @data_concept} %>
+        <table width='100%'>
+        <%= render :partial => 'shared/table_of_named',:locals =>
+           {:items => @data_concept.children, 
+            :controller => 'data_concepts',
+            :edit => 'edit', 
+            :show => 'show' } %>
+        </table>
+    </div>
+ 
+</div>
+
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @data_concept} %>

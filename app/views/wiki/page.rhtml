@@ -1,0 +1,54 @@
+<h2><%= l(:label_home) %></h2>
+
+<div class="splitcontentleft">
+  <div class="box">
+	<h3><%=l(:label_news_latest)%></h3>
+		<%= render :partial => 'news/news', :collection => @news if @news %>
+	</div>
+</div>
+
+<div class="splitcontentright">
+	<div class="box">
+	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_projects)%></h3>
+		<ul>
+		<% for project in current_user.lastest(Project,5) %>
+			<li>
+			<%= link_to project.name, :controller => 'projects', :action => 'show', :id => project %> (<%= format_time(project.updated_at) %>)<br />
+			<%=h project.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<div class="splitcontentleft">
+	<div class="box">
+	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_tasks)%></h3>
+		<ul>
+		<% for project in current_user.lastest(Task,5) %>
+			<li>
+			<%= link_to project.name, :controller => 'projects', :action => 'show', :id => project %> (<%= format_time(project.updated_at) %>)<br />
+			<%=h project.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<div class="splitcontentright">
+	<div class="box">
+	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_requests)%></h3>
+		<ul>
+		<% for project in current_user.lastest(Request,5) %>
+			<li>
+			<%= link_to project.name, :controller => 'projects', :action => 'show', :id => project %> (<%= format_time(project.updated_at) %>)<br />
+			<%=h project.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<% content_for :header_tags do %>
+<%= auto_discovery_link_tag(:rss, {:controller => 'feeds' , :action => 'news' }) %>
+<% end %>

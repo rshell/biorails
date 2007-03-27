@@ -1,0 +1,37 @@
+<fieldset>
+  <div class="row">
+    <!--[form:plate]-->
+<div class="form-element">
+  <label for="plate_name">Name</label>
+  <%= text_field 'plate', 'name' , {:class=>"text-input"} %>
+</div>
+<p/>
+<div class="form-element">
+  <label for="plate_description">Description</label>
+  <%= text_area 'plate', 'description' %>
+</div>
+<p/>
+<div class="form-element">
+  <label for="plate_external_ref">External ref</label>
+  <%= text_field 'plate', 'external_ref' , {:class=>"text-input"} %>
+</div>
+
+<div class="form-element">
+  <label for="plate_url">Url</label>
+  <%= text_field 'plate', 'url' , {:class=>"text-input"} %>
+</div>
+
+<div class="form-element">
+  <label for="plate_quantity_value">Quantity value</label>
+  <%= text_field 'plate', 'quantity_value' , {:class=>"text-input"} %>
+</div>
+
+<div class="form-element">
+  <label for="plate_quantity_unit">Quantity unit</label>
+  <!--%=  select_concept('plate', 'quantity_unit','unit') %-->
+</div>
+
+<!--[eoform:plate]-->
+
+  </div>
+</fieldset>

@@ -1,0 +1,34 @@
+
+<h2><%=l(:experiments)%></h2>
+
+<table class="list">
+  <thead>
+    <tr>
+    <%= sort_header_tag('name', :caption => l(:experiment)) %>
+    <%= sort_header_tag('study_id', :caption => l(:study)) %>
+	<th><%=l(:field_description)%></th>
+	<%= sort_header_tag('created_at', :caption => l(:created_at)) %>
+	<%= sort_header_tag('created_by', :caption => l(:updated_at)) %>
+    <th></tr>
+    </thead>
+  <tbody>
+  
+<% for item in @items %>
+  <tr class="<%= cycle("odd", "even") %>">
+	<td><%= link_to item.name, :controller => '/execute/experiments', :action => 'show', :id => item %>
+	<td><%= link_to item.study.name, :controller => '/setup/studies', :action => 'show', :id => item.study %>
+	<td><%=h item.description %>
+	<td align="center"><%= short_date(item.created_at) %>
+	<td align="center"><%= short_date(item.updated_at) %>
+  <td align="center">
+    <%= button_to l(:button_delete), { :controller => '/setup/studies', :action => 'destroy', :id => item }, :class => "button-small" %>
+  </td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+<p>
+<%= pagination_links_full @item_pages %>
+[ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Experiment.count %> ]
+<%= link_to 'New',:controller=>'/execute/experiments', :action => 'new' %> 
+</p>

@@ -1,0 +1,33 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        <%= subject_icon('systems')%> Data Systems
+        <div class="actions">
+            <ul>
+                <li><%= link_to (subject_icon('new.png'))+'New', :action => 'new' %></li>
+                <li><%= link_to (subject_icon('xls.png'))+'Export', :action => 'export' %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class='panel'>
+        <table class="report" >
+        <%= render :partial => 'shared/table_of_named',:locals =>
+           {:items => @data_systems, 
+            :controller => 'data_systems',
+            :edit => 'edit', 
+            :show => 'show' } %>    
+        </table>
+        <%= render :partial => 'shared/paginate',
+                   :locals => {:pages => @data_system_pages} %>    
+        </div>
+        <div class='panel'>
+            <h3>Guidance</h3>           
+            <p>
+                These describe all the data systems linked into this instance of biorails. For each systems a number 
+                number of Data Element can be defined to link in lookup list of values for display and use in data entry.
+                For example there could be a link to the internal compounds model and separate external enterprise level 
+                compound registration systems. 
+            </p>
+        </div>
+    </div>
+</div>

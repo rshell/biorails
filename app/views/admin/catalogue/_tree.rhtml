@@ -1,0 +1,13 @@
+<%
+  # Expected a locals :roots=>Array and url=>Hash
+%>
+<%if roots and roots.class == Array and roots.size>0 %>
+<ul class="tree">
+   <% for item in roots %>
+   <li>
+    <span><%=link_to_remote item.name, :url => url.merge(:id => item.id)  %> </span>        
+    <%= render :partial => 'tree', :locals => {:roots => item.children, :url => url } %>  
+   </li>
+   <%end%>  
+</ul>
+<%end%>  

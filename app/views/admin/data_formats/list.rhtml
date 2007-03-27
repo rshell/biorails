@@ -1,0 +1,36 @@
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function demoMatchClick() {
+    try {
+      var re = new RegExp( $('data_format_format_regex').value );
+      if ($('test_match').value.match(re)) {
+        alert("Successful match");
+      } else {
+        alert("No match");
+      }
+    }
+    catch (e) {
+        alert("RegExp error: "+e.message);
+    }
+}
+function onKeyMatchClick() {
+    try {
+      var re = new RegExp( $('data_format_format_regex').value );
+      if ($('test_match').value.match(re)) {
+        $('test_result').innerHTML="Successful match";
+        new Effect.Highlight('test_result',{endcolor:'#15FF00', restorecolor:'#15FF00'} );
+      } else {
+        $('test_result').innerHTML="No match";
+        new Effect.Highlight('test_result',{endcolor:'#FFD20C', restorecolor:'#FFD20C'} );
+      }
+    }
+    catch (e) {
+        $('test_result').innerHTML="RegExp error: "+e.message;
+        new Effect.Highlight('test_result',{endcolor:'#FFAAAA', restorecolor:'#FFAAAA'} );
+        
+    }
+}
+// -->
+</SCRIPT>
+ 
+<%= render_component :controller => '/data_formats', :action => 'component', :params => params %>

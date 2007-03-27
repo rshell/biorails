@@ -1,0 +1,10 @@
+<%= error_messages_for 'data_context' %>
+<!--[form:data_context]-->
+<p><label for="data_context_name">Name</label><br/>
+<%= text_field 'data_context', 'name', :size=> 50 , :class=>"text-input"  %></p>
+
+<p><label for="data_context_description">Description</label><br/>
+        <%= text_area( 'data_context', 'description') %>
+</p>
+<!--[eoform:data_context]-->
+
