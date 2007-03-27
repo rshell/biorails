@@ -1,3 +1,0 @@
- page.replace_html @queue_item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => @queue_item } 
- page.visual_effect :highlight, @queue_item.dom_id(:updated_at),:duration => 1.5
-  

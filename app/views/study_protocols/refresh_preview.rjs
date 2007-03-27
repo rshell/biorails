@@ -1,9 +1,0 @@
-##
-# Script to replace current process-preview with updated version with changed values
-# 
-if @successful
-  page.replace_html "process_preview", :partial => 'process_preview'
-  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['study_protocol','process_version'] }
-else
-  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['study_protocol','process_version'] }
-end

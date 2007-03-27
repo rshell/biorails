@@ -1,8 +1,0 @@
-Example of first 10 rows of current report :-
-<fieldset>
-     <%if @data.nil?%>
-           No Data Returned by definition
-     <%else %>
-           <%= render :partial => 'shared/report', :locals => {:table => @report, :data =>@data } %> 
-     <%end%> 
-</fieldset>  

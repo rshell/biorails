@@ -1,1 +1,0 @@
-page.replace_html 'current-elements', :partial => 'elements', :locals => { :concept => @concept, :url => {:id => 'concept'} }

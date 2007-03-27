@@ -1,6 +1,0 @@
-
-page.replace_html 'current-concept',  :partial => 'show'  
-page.replace_html 'current-children', :partial => 'list_concepts'
-page.replace_html 'current-elements', :partial => 'list_elements'
-page.replace_html 'current-usage',    :partial => 'list_usages'
-
