@@ -5,7 +5,7 @@
 #
  require 'csv'
  
-class StudyParametersController < ApplicationController
+class Study::StudyParametersController < ApplicationController
   def index
     list
     render :action => 'list'

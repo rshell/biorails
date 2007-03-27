@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class PlatesController < ApplicationController
+class Inventory::PlatesController < ApplicationController
   include AjaxScaffold::Controller
   
   after_filter :clear_flashes

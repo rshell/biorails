@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class StudyQueuesController < ApplicationController
+class Study::StudyQueuesController < ApplicationController
   def index
     list
     render :action => 'list'

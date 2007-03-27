@@ -8,7 +8,7 @@
 # be either a collection of web service methods or a database schema. 
 #
 #
-class DataSystemsController < ApplicationController
+class Admin::DataSystemsController < ApplicationController
 
   def index
     list

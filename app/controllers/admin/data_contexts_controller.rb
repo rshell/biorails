@@ -19,7 +19,7 @@
 # * destroy      destroy context and all its concepts+systems+elements
 # * export       export all context/concept tree as CVS
 # 
-class DataContextsController < ApplicationController
+class Admin::DataContextsController < ApplicationController
   
   def index
     list

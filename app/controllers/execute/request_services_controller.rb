@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class RequestServicesController < ApplicationController
+class Execute::RequestServicesController < ApplicationController
   def index
     list
     render :action => 'list'

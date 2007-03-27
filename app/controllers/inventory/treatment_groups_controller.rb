@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class TreatmentGroupsController < ApplicationController
+class Inventory::TreatmentGroupsController < ApplicationController
   def index
     list
     render :action => 'list'

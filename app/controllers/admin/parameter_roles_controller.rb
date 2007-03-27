@@ -13,7 +13,7 @@
 # * edit/update  edit a exiting item
 # * destroy      destroy item and all its dependent objects
 # 
-class ParameterRolesController < ApplicationController
+class Admin::ParameterRolesController < ApplicationController
   include AjaxScaffold::Controller
   
   after_filter :clear_flashes

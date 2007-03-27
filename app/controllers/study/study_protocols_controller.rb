@@ -3,7 +3,10 @@
 # See license agreement for additional rights
 ##
 #
-class StudyProtocolsController < ApplicationController
+class Study::StudyProtocolsController < ApplicationController
+
+  helper SheetHelper
+  
   def index
     list
     render :action => 'list'

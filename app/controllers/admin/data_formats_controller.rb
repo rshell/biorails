@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class DataFormatsController < ApplicationController
+class Admin::DataFormatsController < ApplicationController
   include AjaxScaffold::Controller
   
   after_filter :clear_flashes

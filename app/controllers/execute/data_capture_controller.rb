@@ -1,7 +1,7 @@
 ##
 # This is the Data Capture External API for import and export of task to other systems
 # 
-class DataCaptureController < ApplicationController
+class Execute::DataCaptureController < ApplicationController
   wsdl_service_name 'DataCapture'
   web_service_api DataCaptureApi
   web_service_scaffold :invoke

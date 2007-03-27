@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class ContainersController < ApplicationController
+class Inventory::ContainersController < ApplicationController
   def index
     list
     render :action => 'list'

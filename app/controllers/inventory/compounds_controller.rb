@@ -4,7 +4,7 @@
 # needs gem install rcdk
 # 
 
-class CompoundsController < ApplicationController
+class Inventory::CompoundsController < ApplicationController
 
   def index
     list

@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class RequestsController < ApplicationController
+class Execute::RequestsController < ApplicationController
 ##
 # Catch for queue model needed to include helper model for it to work in queue.action
 # 

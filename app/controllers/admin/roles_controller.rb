@@ -1,4 +1,8 @@
-class RolesController < ApplicationController
+# This manages the creation of Roles
+#
+# @TODO needs to be be rewritten now goldberg is removed
+
+class Admin::RolesController < ApplicationController
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],

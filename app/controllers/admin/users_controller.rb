@@ -1,91 +1,63 @@
-class UsersController < ApplicationController
-
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
+class Admin::UsersController < Project::BaseController
+  member_actions << 'show' << 'update'
+  before_filter :find_all_users, :only => [:index, :show, :new]
+  before_filter :find_user,      :only => [:show, :update, :enable, :admin, :destroy]
 
   def index
-    list
-    render :action => 'list'
+    @enabled, @disabled = @users.partition { |u| u.deleted_at.nil? }
+    @users = @enabled + @disabled
   end
-
-  def list
-    @user_pages, @users = paginate :users, :order => 'name', :per_page => 50
-  end
-
-  def show
-    @user = User.find(params[:id])
-    if @user.role_id
-      @role = Role.find(@user.role_id)
-    else
-      @role = Role.new(:id => nil, :name => '(none)')
-    end
-  end
-
+  
   def new
-    @user = User.new
-    foreign
+    @user  = User.new
   end
 
   def create
-    @user = User.new(params[:user])
-
-    if params[:user][:clear_password].length == 0 or
-        params[:user][:confirm_password] != params[:user][:clear_password]
-      flash[:error] = 'Password invalid!'
-      foreign
-      render :action => 'new'
-    else
-      if @user.save
-        flash[:notice] = 'User was successfully created.'
-        redirect_to :action => 'list'
-      else
-        foreign
-        render :action => 'new'
-      end
-    end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-    if @user.role_id
-      @role = Role.find(@user.role_id)
-    end
-    foreign
+    @user = User.new params[:user]
+    @user.save!
+    flash[:notice] = "User created."
+    redirect_to :action => 'index'
+  rescue ActiveRecord::RecordInvalid
+    flash[:error] = "Save failed."
+    render :action => 'new'
   end
 
   def update
-    @user = User.find(params[:id])
-    if params[:user]['clear_password'] == ''
-      params[:user].delete('clear_password')
-    end
-
-    if params[:user][:clear_password] and
-        params[:user][:clear_password].length > 0 and
-        params[:user][:confirm_password] != params[:user][:clear_password]
-      flash[:error] = 'Password invalid!'
-      foreign
-      render :action => 'edit'
-    else
+    render :update do |page|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
-        redirect_to :action => 'show', :id => @user
+        page.call 'Flash.notice', 'Profile updated.'
       else
-        foreign
-        render :action => 'edit'
+        page.call 'Flash.errors', "Save failed: #{@user.errors.full_messages.to_sentence}"
       end
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    @user.deleted_at = Time.now.utc
+    @user.save!
   end
 
+  def enable
+    @user.deleted_at = nil
+    @user.save!
+  end
+  
+  def admin
+    @membership = Membership.find_or_initialize_by_site_id_and_user_id(site.id, @user.id)
+    @membership.admin = !@membership.admin?
+    @membership.save!
+  end
+  
   protected
-
-  def foreign
-    @all_roles = Role.find(:all, :order => 'name')
-  end
-
+    def find_all_users
+      @users = site.users_with_deleted
+    end
+    
+    def find_user
+      @user = site.user_with_deleted(params[:id])
+    end
+    
+    def authorized?
+      logged_in? && (admin? || (current_user.id.to_s == params[:id] && member_actions.include?(action_name)))
+    end
 end

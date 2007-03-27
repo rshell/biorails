@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class PlateFormatsController < ApplicationController
+class Inventory::PlateFormatsController < ApplicationController
   def index
     list
     render :action => 'list'

@@ -20,7 +20,7 @@
 # * destroy      destroy concept and all its concepts+elements
 # * export       export all concept tree as CVS
 # 
-class CatalogueController < ApplicationController
+class Admin::CatalogueController < ApplicationController
 
   def index
     list

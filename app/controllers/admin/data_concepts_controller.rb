@@ -19,7 +19,7 @@
 # * destroy      destroy concept and all its concepts+elements
 # * export       export all concept tree as CVS
 # 
-class DataConceptsController < ApplicationController
+class Admin::DataConceptsController < ApplicationController
   def index
     list
     render :action => 'list'

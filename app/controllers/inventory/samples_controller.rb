@@ -1,8 +1,8 @@
 ##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# Copyright ï¿½ 2006 Andrew Lemon, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 # 
-class SamplesController < ApplicationController
+class Inventory::SamplesController < ApplicationController
   def index
     list
     render :action => 'list'

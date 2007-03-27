@@ -1,4 +1,4 @@
-class QueueItemsController < ApplicationController
+class Study::QueueItemsController < ApplicationController
   def index
     list
     render :action => 'list'

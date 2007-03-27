@@ -1,4 +1,4 @@
-class SystemSettingsController < ApplicationController
+class Admin::SystemSettingsController < ApplicationController
   def index
     list
     render :action => 'list'

@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class StudyStagesController < ApplicationController
+class Study::StudyStagesController < ApplicationController
   include AjaxScaffold::Controller
   
   after_filter :clear_flashes

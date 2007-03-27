@@ -3,10 +3,10 @@
 # See license agreement for additional rights
 ##
 #
-class StudiesController < ApplicationController
+class Study::StudiesController < ApplicationController
   
   def index
-    redirect_to :action => 'list'
+    redirect_to study_url(:action => 'list')
   end
   
 ##
@@ -37,7 +37,7 @@ class StudiesController < ApplicationController
   def show
     @study = current( Study, params[:id] )
     if !@study
-      redirect_to :controller =>'studies',:action => 'list'
+      redirect_to study_url(:action => 'list')
     end
   end 
   
