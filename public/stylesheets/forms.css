@@ -1,0 +1,127 @@
+/*-------------------------------------------------------------
+This CSS handles Form presentation generally all styles should
+only effect items within the <form> </form> block
+-----------------------------------------------------------------*/
+
+/** Row on a panel */
+
+form div.row {
+    clear: both;
+    float: none;
+    padding: 1px;
+    margin-left: 5px;
+}
+
+/** Basic form control with label, field and tooltip */
+
+form div.form-element {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+form .form-element label {
+    display: block;
+    font-family: Verdana, sans-serif;
+    color: #555;
+    font-size: 11px;
+    padding-bottom: 1px;
+}
+
+form {
+    margin: 5px 0;
+}
+
+form .submit {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0;
+    margin: 0;
+    margin-top: 5px;
+}
+
+form label.required{
+    font-weight: bold;
+}
+
+form label.example {
+    font-size: 11px;
+    font-family: arial;
+    color: #888;
+}
+
+form h4 {
+    padding: 2px;
+    margin: 0;
+    text-transform: none;
+    color: #1F7F00;
+    letter-spacing: -1px;
+    font: bold 16px arial;
+}
+
+form dl {
+  margin: 0 10px;
+}
+
+form dt label, .sform label {
+  font-weight: bold;
+  text-shadow: #fff 2px 2px;
+  margin: 0;
+  padding: 0;
+}
+
+form dt {
+  margin-top: 15px;
+}
+
+form dd {
+  line-height: normal;
+  padding: 1px;
+}
+
+input[type='text'], input[type='password'], 
+input[type='checkbox'], select, textarea {
+  border: 1px solid #ddd;
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  font-family: "Lucida Grande", Lucida, Helvetica, sans-serif;
+  font-size: 100%;
+  padding: 2px;
+}
+
+input[type='text']:focus, textarea:focus {
+  background: #fff;
+  color: #000;  
+}
+
+form textarea {
+    height: 125px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 1px;
+    border: solid 1px #1F7F00;
+}
+
+form .btn-asset {
+  border-top: 1px solid #FFEB9E;
+  margin-top: 5px;
+  padding: 3px;
+  text-align: right;
+  background: #7CB30F;
+}
+
+form .btns {
+  padding: 10px !important;
+  margin: 20px 0;
+  background: #dee;
+  border-top: 1px solid #99D3D5;
+}
+
+form .big { font-size: 180% !important; }
+form .lil { font-size: 80%; }
+form .fat { width: 100%;}
+form .tiny { width: 30px; }
+
+

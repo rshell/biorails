@@ -1,0 +1,40 @@
+
+/********** Table used to display lists of things ***********/
+
+table.list {
+    width:100%;
+    border-collapse: collapse;
+    border: 1px dotted #d0d0d0;
+    margin-bottom: 6px;
+}
+
+table.with-cells td {
+    border: 1px solid #d7d7d7;
+}
+
+table.list td {
+    padding:2px;
+}
+
+table.list thead th {
+    text-align: center;
+    background: #eee;
+    border: 1px solid #d7d7d7;
+    color: #777;
+}
+
+table.list tbody th {
+	font-weight: normal;
+    background: #eed;
+    border: 1px solid #d7d7d7;
+}
+
+table p {margin:0; padding:0;}
+
+table .odd { 
+    background-color: #E1EEC6;
+    }
+    
+table .even {
+    background-color: #fff;
+    }

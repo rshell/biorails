@@ -1,0 +1,55 @@
+/**
+* Styles for drag and drop items on the protocol edit form
+*/
+#allowed_types {
+    background-color:#fff;
+}
+
+span.study_parameter {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#E3FFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+span.study_queue {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#FFFFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+span.parameter {
+    font-family: Arial,Verdana, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0em;
+    z-index:            666;
+    color:black;
+    background-color:#E3FFA2;
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+    border-style:outset;
+    border-width: thin;
+}
+
+.parameter_context {
+  background-color: #FFF4D8;
+  border:1px solid #E8A400;
+}
+
+.drop-active  th {
+    background: #FFF4D8;
+    border:1px solid #E8A400;
+}

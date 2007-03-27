@@ -1,0 +1,133 @@
+/*
+-----------------------------------------------
+Report Table Style
+-----------------------------------------------
+*/
+.report {
+   width: 100%;
+}
+
+.report td {
+    padding: 0px 2px 0px 2px;
+    color: #333;
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+}
+ 
+.report  td.actions {
+    border-right: solid 1px #ccc;
+}
+ 
+.report tr.even td {
+    background-color: #E1EEC6;
+    border-left: solid 1px #ddd;
+}
+ 
+.report  tr td.sorted {
+    background-color: #ddd;
+    border-bottom: solid 1px #E1EEc6;
+}
+ 
+.report tr.even td.sorted {
+    background-color: blue;
+    border-bottom: solid 1px #E1eec6;
+}
+ 
+.report  td.empty {
+    color: black;
+    text-align: center;
+}
+ 
+/*
+-----------------------------------------------
+Report Table Style
+-----------------------------------------------
+*/
+
+.report th.label {
+    width: 15%;
+}
+
+.report th a,
+    .report th p {
+    font: bold 11px arial, sans-serif;
+    display: block;
+    background: #7CB30F;
+    color:              White;
+    /*background-image: url('/images/arrow_sort.gif');*/
+    background-position:right;
+    background-repeat:no-repeat;
+}
+ 
+.report  th {
+    color:#fff;
+    background: #7CB30F;
+    font: bold 11px arial, sans-serif;
+    padding: 2px 5px 2px 5px;
+}
+ 
+.report  th p {
+    color: #eee;
+    padding: 2px 5px;
+}
+ 
+.report  th a:hover {
+    color: #fff;
+}
+ 
+.report  th.sorted {
+    background-color: #468404;
+}
+ 
+.report  th.asc a,
+.report  th.asc a:hover {
+    background-color: #e1eec6;
+    background-image: url('/images/arrow_up.gif');
+    background-position:right;
+    background-repeat:no-repeat;
+}
+ 
+.report th.desc a,
+.report  th.desc a:hover { 
+    background-color:#e1eec6;
+    background-image: url(/images/arrow_down.gif);
+    background-position:right ;
+    background-repeat: no-repeat;
+}
+ 
+.report  th.loading a,
+.report  th.loading a:hover {
+    background: #333 url(/images/indicator-small.gif) right;
+}
+   
+ 
+/*
+-----------------------------------------------
+TABLE ACTIONS: 
+Edit, Delete
+-----------------------------------------------
+*/
+ 
+.report   td.actions {
+    padding: 0;
+    width: 1%;
+}
+ 
+.report   td.actions table {
+    float: right;
+    width: auto;
+    margin-right: 5px;
+}
+ 
+.report   td.actions table td {
+    border: none;
+    text-align: right;
+    padding: 0 2px;
+}
+ 
+.report   td.actions a {
+    font: bold 11px arial, sans-serif;
+    letter-spacing: -1px;
+    padding: 1px;
+    line-height: 16px;
+}

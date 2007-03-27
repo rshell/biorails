@@ -1,0 +1,55 @@
+
+/*** Tabbed Panels ***/
+/*
+Adapted from Kalsey CSS tabs:
+http://css.maxdesign.com.au/listamatic/horizontal08.htm
+*/
+
+/* Actions are used for button like links to other bits of functionality */
+
+
+div.tab_stuff {
+  border:thin solid #ddd;
+}
+
+
+.tablist {
+    border-bottom: 1px solid #7CB30F;
+    margin: 0;
+    padding-bottom: 19px;
+    padding-left: 10px;
+}
+
+.tablist ul, .tablist li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tablist a:link, .tablist a:visited {
+    background: #E8EBF0;
+    border: 1px solid #7CB30F;
+    color: #666;
+    float: left;
+    font-size: small;
+    font-weight: normal;
+    line-height: 14px;
+    margin-right: 8px;
+    padding: 2px 10px 2px 10px;
+    text-decoration:none;
+}
+
+.tablist a:link.current, .tablist a:visited.current {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    color: #000;
+}
+
+.tablist a:hover { 
+    color: #f00; 
+}
+
+.tablist ul a:hover { 
+    color: #f00 !important; 
+}

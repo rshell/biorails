@@ -1,0 +1,39 @@
+/*
+ *=ERRORS AND NOTICES
+ */
+
+#flash-errors, #errorExplanation {
+  margin: 0 auto;
+  background: #F69A91;
+  padding: 10px;
+  color: #510;
+  text-align: center;
+}
+
+#flash-notice {
+  background: #cfc;
+  padding: 10px;
+  color: #051;
+  text-align: center;
+}
+
+#errorExplanation ul, 
+#flash-notice ul, 
+#flash-errors ul,
+#flash-notice li,
+#flash-errors li {
+  list-style: none;
+}
+
+#errorExplanation {
+  text-align: left;
+  border: 1px solid #F99;
+  background: #fdd;
+}
+
+#errorExplanation h2 {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
