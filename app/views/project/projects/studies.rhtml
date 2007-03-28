@@ -15,12 +15,12 @@
   
 <% for item in @items %>
   <tr class="<%= cycle('odd', 'even') %>">
-	<td><%= link_to item.name, :controller => '/setup/studies', :action => 'show', :id => item %>
+	<td><%= link_to item.name, study_url( :action => 'show', :id => item) %>
 	<td><%=h item.description %>
 	<td align="center"><%= short_date(item.created_at) %>
 	<td align="center"><%= short_date(item.updated_at) %>
   <td align="center">
-    <%= button_to l(:button_delete), { :controller => '/setup/studies', :action => 'destroy', :id => item }, :class => "button-small" %>
+    <%= button_to l(:button_delete), study_url( :action => 'destroy', :id => item ), :class => "button-small" %>
   </td>
   </tr>
 <% end %>
@@ -29,6 +29,6 @@
 <p>
 <%= pagination_links_full @item_pages %>
 [ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Study.count %> ]
-<%= link_to 'New',:controller=>'/setup/studies', :action => 'new' %> 
+<%= link_to 'New',study_url( :action => 'new') %> 
 </p>
 <%end %>

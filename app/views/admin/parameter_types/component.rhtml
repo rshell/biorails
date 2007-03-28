@@ -1,4 +1,6 @@
+
 <% if @show_wrapper %>
+
 <div class='main' id='maintitle'>
     <div class="title">
       <%=subject_icon('parameter_type.png')%> Parameter Types
@@ -15,10 +17,13 @@
         </div>
         
     </div>
+   
+ 
     <div class='panel'>
     <div id="<%= params[:scaffold_id] %>" class="ajax-scaffold">
         <div id="<%= scaffold_content_id(params) %>">
     <% end %>
+
           <table class="report">
           <thead>
             <tr>

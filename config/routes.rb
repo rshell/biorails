@@ -18,8 +18,11 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
-  map.catalogue 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
-  map.catalogue 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
+  map.admin 'admin/format/:action/:id', :controller => 'admin/data_formats'
+  map.admin 'admin/system/:action/:id', :controller => 'admin/data_systems'
+  map.admin 'admin/data/:action/:id', :controller => 'admin/data_type'
+  map.admin 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
+  map.admin 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
 
   map.user 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'

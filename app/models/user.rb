@@ -5,13 +5,7 @@ require 'digest/sha1'
 # 
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
-  @@admin_scope = {:find => { :conditions => ['admin = ?', true] } }
 
-  @@membership_options = {
-     :select => 'distinct users.*, memberships.admin as project_admin',
-     :order => 'users.name',
-     :joins => 'left outer join memberships on users.id = memberships.user_id'}
-    
   # Account status
   STATUS_NEW      = 0
   STATUS_VALID    = 1
@@ -49,8 +43,8 @@ class User < ActiveRecord::Base
 ##
 # User a linked into projects
 #   
-  has_many   :projects, :through=>:memberships,:order => 'name' 
-  has_many   :memberships, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
+  has_many   :projects, :through=>:membership,:order => 'name' 
+  has_many   :members, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
 
   acts_as_paranoid
 ##
@@ -72,15 +66,6 @@ class User < ActiveRecord::Base
        return user
     end
   end
-	
-  # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
-  # 
-  def self.authenticate_for(project, name, password)
-    user = find(:first, @@membership_options.merge(
-      :conditions => ['users.name = ? and (memberships.project_id = ? or users.admin = ?)', name, project.id, true]))
-    user && user.authenticated?(password) ? user : nil
-  end
-
 
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
@@ -141,7 +126,7 @@ class User < ActiveRecord::Base
 # get the role for the user in a role
 #  
   def members_role(project)
-    memberships.detect{|member|member.project==project} 
+    members.detect{|member|member.project==project} 
   end	
  
 ##
@@ -158,7 +143,6 @@ class User < ActiveRecord::Base
     membership.allows?(subject,action) # what you allowed to do
   end 	
 
-memberships
 ##
 # Test the account is authenticated. This will use a defined authentication system. no drop through to
 # simple password hash it none is defined
