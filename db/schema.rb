@@ -2,7 +2,33 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 127) do
+ActiveRecord::Schema.define(:version => 222) do
+
+  create_table "assets", :force => true do |t|
+    t.column "project_id",       :integer
+    t.column "parent_id",        :integer
+    t.column "user_id",          :integer
+    t.column "name",             :string
+    t.column "content_type",     :string
+    t.column "filename",         :string
+    t.column "size",             :integer
+    t.column "thumbnail",        :string
+    t.column "width",            :integer
+    t.column "height",           :integer
+    t.column "thumbnails_count", :integer,                :default => 0
+    t.column "lock_version",     :integer,                :default => 0,     :null => false
+    t.column "created_by",       :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",       :datetime,                                  :null => false
+    t.column "updated_by",       :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",       :datetime,                                  :null => false
+    t.column "desciption",       :text
+  end
+
+  create_table "assigned_sections", :force => true do |t|
+    t.column "article_id", :integer
+    t.column "section_id", :integer
+    t.column "position",   :integer, :default => 1
+  end
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -29,6 +55,26 @@ ActiveRecord::Schema.define(:version => 127) do
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
   add_index "audits", ["created_at"], :name => "audits_created_at_index"
 
+  create_table "authentication_systems", :force => true do |t|
+    t.column "name",             :string,   :limit => 50, :default => "",            :null => false
+    t.column "description",      :text
+    t.column "type",             :string,                 :default => "DataConcept", :null => false
+    t.column "host",             :string,   :limit => 60
+    t.column "port",             :integer
+    t.column "account",          :string,   :limit => 60
+    t.column "account_password", :string,   :limit => 60
+    t.column "base_dn",          :string
+    t.column "attr_login",       :string,   :limit => 30
+    t.column "attr_firstname",   :string,   :limit => 30
+    t.column "attr_lastname",    :string,   :limit => 30
+    t.column "attr_mail",        :string,   :limit => 30
+    t.column "lock_version",     :integer,                :default => 0,             :null => false
+    t.column "created_by",       :string,   :limit => 32, :default => "sys",         :null => false
+    t.column "created_at",       :datetime,                                          :null => false
+    t.column "updated_by",       :string,   :limit => 32, :default => "sys",         :null => false
+    t.column "updated_at",       :datetime,                                          :null => false
+  end
+
   create_table "batches", :force => true do |t|
     t.column "compound_id",    :integer,                :default => 0,     :null => false
     t.column "name",           :string
@@ -45,6 +91,14 @@ ActiveRecord::Schema.define(:version => 127) do
   end
 
   add_index "batches", ["compound_id"], :name => "batches_compound_fk"
+
+  create_table "cached_pages", :force => true do |t|
+    t.column "url",        :string
+    t.column "references", :text
+    t.column "updated_at", :datetime
+    t.column "project_id", :integer
+    t.column "cleared_at", :datetime
+  end
 
   create_table "catalog_logs", :force => true do |t|
     t.column "user_id",        :integer
@@ -130,15 +184,66 @@ ActiveRecord::Schema.define(:version => 127) do
   add_index "content_pages", ["permission_id"], :name => "fk_content_page_permission_id"
   add_index "content_pages", ["markup_style_id"], :name => "fk_content_page_markup_style_id"
 
-  create_table "controller_actions", :force => true do |t|
-    t.column "site_controller_id", :integer,                 :null => false
-    t.column "name",               :string,  :default => "", :null => false
-    t.column "permission_id",      :integer
-    t.column "url_to_use",         :string
+  create_table "content_versions", :force => true do |t|
+    t.column "content_id",     :integer
+    t.column "version",        :integer
+    t.column "article_id",     :integer
+    t.column "user_id",        :integer
+    t.column "title",          :string
+    t.column "permalink",      :string
+    t.column "excerpt",        :text
+    t.column "body",           :text
+    t.column "excerpt_html",   :text
+    t.column "body_html",      :text
+    t.column "created_at",     :datetime
+    t.column "updated_at",     :datetime
+    t.column "published_at",   :datetime
+    t.column "author",         :string,   :limit => 100
+    t.column "author_url",     :string
+    t.column "author_email",   :string
+    t.column "author_ip",      :string,   :limit => 100
+    t.column "comments_count", :integer,                 :default => 0
+    t.column "updater_id",     :integer
+    t.column "versioned_type", :string,   :limit => 20
+    t.column "project_id",     :integer
+    t.column "approved",       :boolean,                 :default => false
+    t.column "comment_age",    :integer,                 :default => 0
+    t.column "filter",         :string
+    t.column "user_agent",     :string
+    t.column "referrer",       :string
   end
 
-  add_index "controller_actions", ["permission_id"], :name => "fk_controller_action_permission_id"
-  add_index "controller_actions", ["site_controller_id"], :name => "fk_controller_action_site_controller_id"
+  create_table "contents", :force => true do |t|
+    t.column "article_id",     :integer
+    t.column "user_id",        :integer
+    t.column "title",          :string
+    t.column "permalink",      :string
+    t.column "excerpt",        :text
+    t.column "body",           :text
+    t.column "excerpt_html",   :text
+    t.column "body_html",      :text
+    t.column "type",           :string,   :limit => 20
+    t.column "author",         :string,   :limit => 100
+    t.column "author_url",     :string
+    t.column "author_email",   :string
+    t.column "author_ip",      :string,   :limit => 100
+    t.column "comments_count", :integer,                 :default => 0
+    t.column "updater_id",     :integer
+    t.column "version",        :integer
+    t.column "project_id",     :integer
+    t.column "approved",       :boolean,                 :default => false
+    t.column "comment_age",    :integer,                 :default => 0
+    t.column "filter",         :string
+    t.column "user_agent",     :string
+    t.column "referrer",       :string
+    t.column "lock_version",   :integer,                 :default => 0,     :null => false
+    t.column "created_by",     :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "created_at",     :datetime,                                   :null => false
+    t.column "updated_by",     :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "updated_at",     :datetime,                                   :null => false
+    t.column "published_at",   :datetime
+    t.column "published_by",   :string
+  end
 
   create_table "data_concepts", :force => true do |t|
     t.column "parent_id",         :integer
@@ -268,13 +373,13 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "test_object",       :string,   :limit => 45, :default => "",          :null => false
   end
 
-  add_index "data_systems", ["updated_by"], :name => "data_systems_idx1"
-  add_index "data_systems", ["updated_at"], :name => "data_systems_idx2"
-  add_index "data_systems", ["created_by"], :name => "data_systems_idx3"
-  add_index "data_systems", ["created_at"], :name => "data_systems_idx4"
-  add_index "data_systems", ["name"], :name => "ddata_systems_name_idx"
-  add_index "data_systems", ["access_control_id"], :name => "data_systems_acl_idx"
-  add_index "data_systems", ["data_context_id"], :name => "data_systems_fk1"
+  add_index "data_systems", ["updated_by"], :name => "data_environments_idx1"
+  add_index "data_systems", ["updated_at"], :name => "data_environments_idx2"
+  add_index "data_systems", ["created_by"], :name => "data_environments_idx3"
+  add_index "data_systems", ["created_at"], :name => "data_environments_idx4"
+  add_index "data_systems", ["name"], :name => "data_environments_name_idx"
+  add_index "data_systems", ["access_control_id"], :name => "data_environments_acl_idx"
+  add_index "data_systems", ["data_context_id"], :name => "data_environments_fk1"
 
   create_table "data_types", :force => true do |t|
     t.column "name",         :string
@@ -287,9 +392,46 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "updated_at",   :datetime,                               :null => false
   end
 
-  create_table "engine_schema_info", :id => false, :force => true do |t|
-    t.column "engine_name", :string
-    t.column "version",     :integer
+  create_table "dead_controller_actions", :force => true do |t|
+    t.column "site_controller_id", :integer,                 :null => false
+    t.column "name",               :string,  :default => "", :null => false
+    t.column "permission_id",      :integer
+    t.column "url_to_use",         :string
+  end
+
+  add_index "dead_controller_actions", ["permission_id"], :name => "fk_controller_action_permission_id"
+  add_index "dead_controller_actions", ["site_controller_id"], :name => "fk_controller_action_site_controller_id"
+
+  create_table "dead_markup_styles", :force => true do |t|
+    t.column "name", :string, :default => "", :null => false
+  end
+
+  create_table "dead_site_controllers", :force => true do |t|
+    t.column "name",          :string,                :default => "", :null => false
+    t.column "permission_id", :integer,                               :null => false
+    t.column "builtin",       :integer, :limit => 10, :default => 0
+  end
+
+  add_index "dead_site_controllers", ["permission_id"], :name => "fk_site_controller_permission_id"
+
+  create_table "dead_site_permissions", :force => true do |t|
+    t.column "name", :string, :default => "", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.column "project_id",   :integer
+    t.column "user_id",      :integer
+    t.column "article_id",   :integer
+    t.column "mode",         :string
+    t.column "title",        :text
+    t.column "body",         :text
+    t.column "author",       :string,   :limit => 100
+    t.column "comment_id",   :integer
+    t.column "lock_version", :integer,                 :default => 0,     :null => false
+    t.column "created_by",   :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "created_at",   :datetime,                                   :null => false
+    t.column "updated_by",   :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "updated_at",   :datetime,                                   :null => false
   end
 
   create_table "experiment_logs", :force => true do |t|
@@ -370,8 +512,15 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "data",        :text
   end
 
-  create_table "markup_styles", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
+  create_table "memberships", :force => true do |t|
+    t.column "user_id",    :integer,                :default => 0,     :null => false
+    t.column "project_id", :integer,                :default => 0,     :null => false
+    t.column "role_id",    :integer,                :default => 0,     :null => false
+    t.column "owner",      :boolean,                :default => false
+    t.column "created_by", :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at", :datetime,                                  :null => false
+    t.column "updated_by", :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at", :datetime,                                  :null => false
   end
 
   create_table "menu_items", :force => true do |t|
@@ -458,10 +607,6 @@ ActiveRecord::Schema.define(:version => 127) do
   add_index "parameters", ["updated_by"], :name => "parameters_updated_by_index"
   add_index "parameters", ["updated_at"], :name => "parameters_updated_at_index"
 
-  create_table "permissions", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
-  end
-
   create_table "plate_formats", :force => true do |t|
     t.column "name",         :string,   :limit => 128, :default => "", :null => false
     t.column "description",  :text
@@ -525,6 +670,22 @@ ActiveRecord::Schema.define(:version => 127) do
   add_index "process_definitions", ["updated_by"], :name => "process_definitions_updated_by_index"
   add_index "process_definitions", ["updated_at"], :name => "process_definitions_updated_at_index"
 
+  create_table "process_instances", :force => true do |t|
+    t.column "process_definition_id", :integer,                              :null => false
+    t.column "name",                  :string,  :limit => 77
+    t.column "version",               :integer, :limit => 6,                 :null => false
+    t.column "lock_version",          :integer,               :default => 0, :null => false
+    t.column "created_by",            :string,  :limit => 32
+    t.column "created_at",            :time
+    t.column "updated_by",            :string,  :limit => 32
+    t.column "updated_at",            :time
+    t.column "how_to",                :text
+  end
+
+  add_index "process_instances", ["name"], :name => "process_instances_name_index"
+  add_index "process_instances", ["process_definition_id"], :name => "process_instances_process_definition_id_index"
+  add_index "process_instances", ["updated_by"], :name => "process_instances_updated_by_index"
+  add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
 
   create_table "process_statistics", :force => true do |t|
     t.column "study_parameter_id",  :integer
@@ -540,6 +701,34 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "min_values",          :float
   end
 
+  create_table "projects", :force => true do |t|
+    t.column "name",               :string,   :limit => 30,  :default => "",    :null => false
+    t.column "summary",            :text,                    :default => "",    :null => false
+    t.column "status_id",          :integer,                 :default => 0,     :null => false
+    t.column "title",              :string
+    t.column "subtitle",           :string
+    t.column "email",              :string
+    t.column "ping_urls",          :text
+    t.column "articles_per_page",  :integer,                 :default => 15
+    t.column "host",               :string
+    t.column "akismet_key",        :string,   :limit => 100
+    t.column "akismet_url",        :string
+    t.column "approve_comments",   :boolean
+    t.column "comment_age",        :integer
+    t.column "timezone",           :string
+    t.column "filter",             :string
+    t.column "permalink_style",    :string
+    t.column "search_path",        :string
+    t.column "tag_path",           :string
+    t.column "search_layout",      :string
+    t.column "tag_layout",         :string
+    t.column "current_theme_path", :string
+    t.column "created_by",         :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "created_at",         :datetime,                                   :null => false
+    t.column "updated_by",         :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "updated_at",         :datetime,                                   :null => false
+  end
+
   create_table "protocol_versions", :force => true do |t|
     t.column "study_protocol_id", :integer
     t.column "name",              :string,  :limit => 77
@@ -552,10 +741,10 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "how_to",            :text
   end
 
-  add_index "protocol_versions", ["name"], :name => "protocol_versions_name_index"
-  add_index "protocol_versions", ["study_protocol_id"], :name => "protocol_versions_study_id_index"
-  add_index "protocol_versions", ["updated_by"], :name => "protocol_versions_updated_by_index"
-  add_index "protocol_versions", ["updated_at"], :name => "protocol_versions_updated_at_index"
+  add_index "protocol_versions", ["name"], :name => "process_instances_name_index"
+  add_index "protocol_versions", ["study_protocol_id"], :name => "process_instances_process_definition_id_index"
+  add_index "protocol_versions", ["updated_by"], :name => "process_instances_updated_by_index"
+  add_index "protocol_versions", ["updated_at"], :name => "process_instances_updated_at_index"
 
   create_table "queue_items", :force => true do |t|
     t.column "name",               :string
@@ -619,7 +808,15 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "updated_at",   :datetime,                                :null => false
   end
 
-  create_table "request_lists", :force => true do |t|
+  create_table "repositories", :force => true do |t|
+    t.column "name",        :string,   :limit => 30, :default => "",    :null => false
+    t.column "description", :string,                 :default => "",    :null => false
+    t.column "url",         :string,                 :default => "",    :null => false
+    t.column "type",        :string,                 :default => "",    :null => false
+    t.column "created_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",  :datetime,                                  :null => false
+    t.column "updated_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",  :datetime,                                  :null => false
   end
 
   create_table "request_services", :force => true do |t|
@@ -671,8 +868,10 @@ ActiveRecord::Schema.define(:version => 127) do
   add_index "roles", ["default_page_id"], :name => "fk_role_default_page_id"
 
   create_table "roles_permissions", :force => true do |t|
-    t.column "role_id",       :integer, :null => false
-    t.column "permission_id", :integer, :null => false
+    t.column "role_id",       :integer,               :null => false
+    t.column "permission_id", :integer,               :null => false
+    t.column "subject",       :string,  :limit => 40
+    t.column "action",        :string,  :limit => 40
   end
 
   add_index "roles_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
@@ -681,20 +880,33 @@ ActiveRecord::Schema.define(:version => 127) do
   create_table "samples", :force => true do |t|
   end
 
+  create_table "sections", :force => true do |t|
+    t.column "name",                :string
+    t.column "show_paged_articles", :boolean,                :default => false
+    t.column "articles_per_page",   :integer,                :default => 15
+    t.column "layout",              :string
+    t.column "template",            :string
+    t.column "project_id",          :integer
+    t.column "path",                :string
+    t.column "articles_count",      :integer,                :default => 0
+    t.column "archive_path",        :string
+    t.column "archive_template",    :string
+    t.column "position",            :integer,                :default => 1
+    t.column "parent_id",           :integer
+    t.column "desciption",          :text
+    t.column "lock_version",        :integer,                :default => 0,     :null => false
+    t.column "created_by",          :string,   :limit => 32, :default => "",    :null => false
+    t.column "created_at",          :datetime,                                  :null => false
+    t.column "updated_by",          :string,   :limit => 32, :default => "",    :null => false
+    t.column "updated_at",          :datetime,                                  :null => false
+  end
+
   create_table "sessions", :force => true do |t|
     t.column "session_id", :string,    :default => "", :null => false
     t.column "data",       :text
     t.column "created_at", :timestamp
     t.column "updated_at", :timestamp
   end
-
-  create_table "site_controllers", :force => true do |t|
-    t.column "name",          :string,                :default => "", :null => false
-    t.column "permission_id", :integer,                               :null => false
-    t.column "builtin",       :integer, :limit => 10, :default => 0
-  end
-
-  add_index "site_controllers", ["permission_id"], :name => "fk_site_controller_permission_id"
 
   create_table "specimens", :force => true do |t|
     t.column "name",             :string,   :limit => 128, :default => "", :null => false
@@ -834,25 +1046,30 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "min_values",        :float
   end
 
-  create_table "system_settings", :force => true do |t|
-    t.column "site_name",                 :string,  :default => "", :null => false
-    t.column "site_subtitle",             :string
-    t.column "footer_message",            :string,  :default => ""
-    t.column "public_role_id",            :integer, :default => 0,  :null => false
-    t.column "session_timeout",           :integer, :default => 0,  :null => false
-    t.column "default_markup_style_id",   :integer, :default => 0
-    t.column "site_default_page_id",      :integer, :default => 0,  :null => false
-    t.column "not_found_page_id",         :integer, :default => 0,  :null => false
-    t.column "permission_denied_page_id", :integer, :default => 0,  :null => false
-    t.column "session_expired_page_id",   :integer, :default => 0,  :null => false
-    t.column "menu_depth",                :integer, :default => 0,  :null => false
+  create_table "subscribers", :force => true do |t|
+    t.column "user_id",    :integer, :default => 0, :null => false
+    t.column "project_id", :integer, :default => 0, :null => false
   end
 
-  add_index "system_settings", ["public_role_id"], :name => "fk_system_settings_public_role_id"
-  add_index "system_settings", ["site_default_page_id"], :name => "fk_system_settings_site_default_page_id"
-  add_index "system_settings", ["not_found_page_id"], :name => "fk_system_settings_not_found_page_id"
-  add_index "system_settings", ["permission_denied_page_id"], :name => "fk_system_settings_permission_denied_page_id"
-  add_index "system_settings", ["session_expired_page_id"], :name => "fk_system_settings_session_expired_page_id"
+  create_table "system_settings", :force => true do |t|
+    t.column "name",        :string,   :limit => 30, :default => "",    :null => false
+    t.column "description", :string,                 :default => "",    :null => false
+    t.column "text",        :string,                 :default => "0",   :null => false
+    t.column "created_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",  :datetime,                                  :null => false
+    t.column "updated_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",  :datetime,                                  :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.column "tag_id",        :integer
+    t.column "taggable_id",   :integer
+    t.column "taggable_type", :string
+  end
+
+  create_table "tags", :force => true do |t|
+    t.column "name", :string
+  end
 
   create_table "task_contexts", :force => true do |t|
     t.column "task_id",              :integer
@@ -1108,40 +1325,37 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "sequence_order",     :integer,                 :null => false
   end
 
+  create_table "user_settings", :force => true do |t|
+    t.column "name",        :string,   :limit => 30, :default => "",    :null => false
+    t.column "description", :string,                 :default => "",    :null => false
+    t.column "value",       :string,                 :default => "0",   :null => false
+    t.column "created_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",  :datetime,                                  :null => false
+    t.column "updated_by",  :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",  :datetime,                                  :null => false
+  end
+
   create_table "users", :force => true do |t|
-    t.column "name",          :string,                :default => "", :null => false
-    t.column "password",      :string,  :limit => 40, :default => "", :null => false
-    t.column "role_id",       :integer,                               :null => false
-    t.column "password_salt", :string
-    t.column "fullname",      :string
-    t.column "email",         :string
+    t.column "name",             :string,                 :default => "",    :null => false
+    t.column "password_hash",    :string,   :limit => 40
+    t.column "role_id",          :integer
+    t.column "password_salt",    :string
+    t.column "fullname",         :string
+    t.column "email",            :string
+    t.column "login",            :string,   :limit => 40
+    t.column "activation_code",  :string,   :limit => 40
+    t.column "state_id",         :integer
+    t.column "activated_at",     :datetime
+    t.column "token",            :string
+    t.column "token_expires_at", :datetime
+    t.column "filter",           :string
+    t.column "admin",            :boolean,                :default => false
+    t.column "created_at",       :datetime
+    t.column "updated_at",       :datetime
+    t.column "deleted_at",       :datetime
   end
 
   add_index "users", ["role_id"], :name => "fk_user_role_id"
-
-  create_table "view_controller_actions", :force => true do |t|
-    t.column "site_controller_id",   :integer, :default => 0,  :null => false
-    t.column "site_controller_name", :string,  :default => "", :null => false
-    t.column "name",                 :string,  :default => "", :null => false
-    t.column "permission_id",        :integer
-  end
-
-  create_table "view_menu_items", :id => false, :force => true do |t|
-    t.column "menu_item_id",           :integer, :default => 0,  :null => false
-    t.column "menu_item_name",         :string,  :default => "", :null => false
-    t.column "menu_item_label",        :string,  :default => "", :null => false
-    t.column "menu_item_seq",          :integer
-    t.column "menu_item_parent_id",    :integer
-    t.column "site_controller_id",     :integer
-    t.column "site_controller_name",   :string
-    t.column "controller_action_id",   :integer
-    t.column "controller_action_name", :string
-    t.column "content_page_id",        :integer
-    t.column "content_page_name",      :string
-    t.column "content_page_title",     :string
-    t.column "permission_id",          :integer, :default => 0,  :null => false
-    t.column "permission_name",        :string,  :default => "", :null => false
-  end
 
   create_table "work_status", :force => true do |t|
     t.column "name",         :string
@@ -1152,5 +1366,35 @@ ActiveRecord::Schema.define(:version => 127) do
     t.column "updated_by",   :string,   :limit => 32, :default => "", :null => false
     t.column "updated_at",   :datetime,                               :null => false
   end
+
+  add_foreign_key_constraint "batches", "compound_id", "compounds", "id", :name => "batches_compound_fk", :on_update => nil, :on_delete => :cascade
+
+  add_foreign_key_constraint "content_pages", "markup_style_id", "dead_markup_styles", "id", :name => "fk_content_page_markup_style_id", :on_update => :cascade, :on_delete => :set_null
+  add_foreign_key_constraint "content_pages", "permission_id", "dead_site_permissions", "id", :name => "fk_content_page_permission_id", :on_update => :cascade, :on_delete => nil
+
+  add_foreign_key_constraint "data_elements", "data_concept_id", "data_concepts", "id", :name => "data_element_fk2", :on_update => nil, :on_delete => :cascade
+
+  add_foreign_key_constraint "data_environments", "data_context_id", "data_contexts", "id", :name => "data_environments_fk1", :on_update => nil, :on_delete => :cascade
+
+  add_foreign_key_constraint "data_relations", "from_concept_id", "data_concepts", "id", :name => "data_relations_from_fk", :on_update => nil, :on_delete => :cascade
+  add_foreign_key_constraint "data_relations", "role_concept_id", "data_concepts", "id", :name => "data_relations_role_fk", :on_update => nil, :on_delete => :cascade
+  add_foreign_key_constraint "data_relations", "to_concept_id", "data_concepts", "id", :name => "data_relations_to_fk", :on_update => nil, :on_delete => :cascade
+
+  add_foreign_key_constraint "dead_controller_actions", "permission_id", "dead_site_permissions", "id", :name => "fk_controller_action_permission_id", :on_update => :cascade, :on_delete => nil
+  add_foreign_key_constraint "dead_controller_actions", "site_controller_id", "dead_site_controllers", "id", :name => "fk_controller_action_site_controller_id", :on_update => :cascade, :on_delete => :cascade
+
+  add_foreign_key_constraint "dead_site_controllers", "permission_id", "dead_site_permissions", "id", :name => "fk_site_controller_permission_id", :on_update => :cascade, :on_delete => nil
+
+  add_foreign_key_constraint "menu_items", "content_page_id", "content_pages", "id", :name => "fk_menu_item_content_page_id", :on_update => :cascade, :on_delete => nil
+  add_foreign_key_constraint "menu_items", "controller_action_id", "dead_controller_actions", "id", :name => "fk_menu_item_controller_action_id", :on_update => :cascade, :on_delete => nil
+  add_foreign_key_constraint "menu_items", "parent_id", "menu_items", "id", :name => "fk_menu_item_parent_id", :on_update => :cascade, :on_delete => :set_null
+
+  add_foreign_key_constraint "roles", "default_page_id", "content_pages", "id", :name => "fk_role_default_page_id", :on_update => :cascade, :on_delete => :set_null
+  add_foreign_key_constraint "roles", "parent_id", "roles", "id", :name => "fk_role_parent_id", :on_update => :cascade, :on_delete => :set_null
+
+  add_foreign_key_constraint "roles_permissions", "permission_id", "dead_site_permissions", "id", :name => "fk_roles_permission_permission_id", :on_update => :cascade, :on_delete => :cascade
+  add_foreign_key_constraint "roles_permissions", "role_id", "roles", "id", :name => "fk_roles_permission_role_id", :on_update => :cascade, :on_delete => :cascade
+
+  add_foreign_key_constraint "users", "role_id", "roles", "id", :name => "fk_user_role_id", :on_update => :cascade, :on_delete => nil
 
 end

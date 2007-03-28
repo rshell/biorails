@@ -8,7 +8,13 @@ module SessionHelper
       logged_in? && current_user.admin?
   end
 
- 
+##
+# Output username or You for own records
+# 
+  def who(name)
+    return current_user.login == name ? "You" : name
+  end
+   
   # check if login is globally required to access the application
   def authorized
     login unless loggged_in?
@@ -25,7 +31,7 @@ module SessionHelper
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     else
-      @current_user ||= User.find(1) # Guest 
+      @current_user ||= User.find(:first) # Guest 
     end
   end
 

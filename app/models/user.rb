@@ -1,5 +1,9 @@
 require 'digest/sha1'
 
+##
+# User record
+# 
+# The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
   @@admin_scope = {:find => { :conditions => ['admin = ?', true] } }
 
@@ -13,16 +17,11 @@ class User < ActiveRecord::Base
   STATUS_VALID    = 1
   STATUS_EXPIRED  = -1 
 
-
-  belongs_to :authentication, :class_name =>'AuthenticationSystem', :foreign_key => 'authentication_id'
-  belongs_to :role, :class_name=>'Role'
-
-  has_many   :projects, :through=>:memberships,:order => 'name' 
-  has_many   :memberships, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
-
   attr_accessor :password
   attr_accessor :confirm_password
-
+##
+# Business Rules for a user
+# 
   validates_presence_of :name
   validates_length_of   :name,    :within => 3..40
   validates_format_of   :name, :with => /^[a-z0-9_\-@\.]+$/i
@@ -32,13 +31,28 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :allow_nil => true
 
   before_save :encrypt_password
-
-  has_many :articles
-  acts_as_paranoid
-
+##
+# User May have be validated by a number of Authentication systems (LDAP,Password, Open-Id etc)
+# 
+  belongs_to :authentication, :class_name =>'AuthenticationSystem', :foreign_key => 'authentication_id'
+##
+# Users have a default role
+#   
+  belongs_to :role, :class_name=>'Role'
+##
+# Users are linked into the system as a the owner of a number of record types
+# 
   has_many :tasks
   has_many :requests
+  has_many :articles
+  has_many :files  
+##
+# User a linked into projects
+#   
+  has_many   :projects, :through=>:memberships,:order => 'name' 
+  has_many   :memberships, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
 
+  acts_as_paranoid
 ##
 # Class level methods
 # 
@@ -59,44 +73,14 @@ class User < ActiveRecord::Base
     end
   end
 	
-  def self.find_admins(*args)
-    with_scope(@@admin_scope) { find *args }
-  end
-
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
+  # 
   def self.authenticate_for(project, name, password)
     user = find(:first, @@membership_options.merge(
       :conditions => ['users.name = ? and (memberships.project_id = ? or users.admin = ?)', name, project.id, true]))
     user && user.authenticated?(password) ? user : nil
   end
 
-  def self.find_by_project(project, id)
-    with_deleted_scope { find_by_project_with_deleted(proejct, id) }
-  end
-
-  def self.find_by_project_with_deleted(project, id)
-    find_with_deleted(:first, @@membership_options.merge(
-      :conditions => ['users.id = ? and (memberships.project_id = ? or users.admin = ?)', id, project.id, true]))
-  end
-
-  def self.find_all_by_project(project, options = {})
-    with_deleted_scope { find_all_by_project_with_deleted(project, options) }
-  end
-
-  def self.find_all_by_project_with_deleted(project, options = {})login
-    find_with_deleted(:all, @@membership_options.merge(options.reverse_merge(:conditions => ['memberships.project_id = ? or users.admin = ?', project.id, true]))).uniq
-  end
-
-  def self.find_by_token(project, token)
-    find(:first, @@membership_options.merge(:conditions => ['token = ? and token_expires_at > ? and (memberships.project_id = ? or users.admin = ?)', token, Time.now.utc, project.id, true]))
-  end
-
-###
-# Find a   
-  def self.find_by_email(project, email)
-    find(:first, @@membership_options.merge(
-    :conditions => ['email = ? and (memberships.project_id = ? or users :controller => /routing_navigator|account|(admin\/\w+)/.admin = ?)', email, project.id, true]))
-  end
 
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
@@ -128,10 +112,12 @@ class User < ActiveRecord::Base
       self.password_hash = Digest::SHA1.hexdigest(self.password_salt + self.password.to_s).to_s
    end
 
+
    def test_password(value)
       return self.password_hash == Digest::SHA1.hexdigest(self.password_salt.to_s + value.to_s).to_s
    end
-   
+  
+  
 ###
 # Get the lastest n record of a type linked to this user   
 # 
@@ -151,10 +137,16 @@ class User < ActiveRecord::Base
     end
   end
  
+##
+# get the role for the user in a role
+#  
   def members_role(project)
     memberships.detect{|member|member.project==project} 
   end	
- 	
+ 
+##
+# Test in the user is authorized for a subject and action in a project
+#  	
   def authorized(project,subject,action)
       if project.owner_id == self.id
       return true # Your project so free to do anything
@@ -166,7 +158,7 @@ class User < ActiveRecord::Base
     membership.allows?(subject,action) # what you allowed to do
   end 	
 
-
+memberships
 ##
 # Test the account is authenticated. This will use a defined authentication system. no drop through to
 # simple password hash it none is defined

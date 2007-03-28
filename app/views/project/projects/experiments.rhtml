@@ -1,3 +1,4 @@
+<% content_for :centre do -%>
 
 <h2><%=l(:experiments)%></h2>
 
@@ -32,3 +33,21 @@
 [ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Experiment.count %> ]
 <%= link_to 'New',:controller=>'/execute/experiments', :action => 'new' %> 
 </p>
+<%end%>
+
+<% content_for :right do %>
+Tasks
+<ul>
+<% for task in current_user.lastest(Task,5) %>
+<li>	<%= link_to task.name, task_url(:id=>task.id) %></li>
+<% end %>
+</ul>
+Files
+<ul>
+<% for task in current_user.lastest(Asset,5) %>
+<li>	<%= link_to task.name, task_url(:id=>task.id) %></li>
+<% end %>
+</ul>
+
+
+<%end %>

@@ -9,17 +9,4 @@
     <%= hitlist %> 
 </div>
 
-<% unless current_project.nil?  %>
-<h2>Project <%= link_to current_project.name, :controller => 'project/overview', :action => 'show', :id => current_project %></h2>
-	<ul class="menublock">
-		<li></li>
-		<li><%= link_to l(:calendar), project_url(:action => 'calendar', :id => current_project) %></li>
-		<li><%= link_to l(:timeline), project_url( :action => 'gantt', :id => current_project) %></li>
-		<li><%= link_to l(:studies), project_url( :action => 'studies', :id => current_project) %></li>
-		<li><%= link_to l(:experiments), project_url( :action => 'experiments', :id => current_project) %></li>
-		<li><%= link_to l(:reports), project_url( :action => 'reports', :id => current_project) %></li>
-		<li><%= link_to l(:folders), project_url( :action => 'folders', :id => current_project) %></li>
-		<li><%= link_to l(:files), project_url(:action => 'files', :id => current_project) %></li>
-	</ul>
-<% end %>
-
+<%= render :partial =>"/menu/project_toolbar", :locals =>{:project => current_project} %>

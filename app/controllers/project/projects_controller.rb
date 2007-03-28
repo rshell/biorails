@@ -1,15 +1,19 @@
-class Project::OverviewController < Project::BaseController
+class Project::ProjectsController < Project::BaseController
   member_actions << 'index' << 'feed'
   session :off, :only => :feed
   before_filter :basic_auth_required, :only => :feed
   caches_page :feed
   helper :sort
-  include SortHelper	
+  include SortHelper
+
+  helper PaginationHelper
+  	
   
   helper Project::ArticlesHelper
   
   def index
-    @users = current_project.members
+    @users = User.find(:all)
+    @project = Project.find(params[:id])
     @events, @todays_events, @yesterdays_events = [], [], []
     today, yesterday = Time.now.utc.to_date, 1.day.ago.utc.to_date
     @articles = @project.unapproved_comments.count :all, :group => :article, :order => '1 desc'
@@ -29,17 +33,44 @@ class Project::OverviewController < Project::BaseController
     @project = Project.find(params[:id])
   end
 
+##
+# Standard list of folders in a project
+# 
+  def files
+     @project = current(Project,params[:id])
+     sort_init 'name'
+     sort_update
+     @item_pages, @items = paginate :assets, :conditions=>['project_id',@project.id], :order_by => sort_clause, :per_page => 20
+     render :action => "files", :layout => false if request.xhr?
+  end
 
+##
+# Standard list of folders in a project
+# 
+  def folders
+     @project = current(Project,params[:id])
+     sort_init 'name'
+     sort_update
+     @item_pages, @items = paginate :sections,:conditions=>['project_id',@project.id], :order_by => sort_clause, :per_page => 20
+     render :action => "folders", :layout => false if request.xhr?
+  end
+
+##
+# List of most recent studies
+# 
   def studies
-     @project = current_project
+     @project = current(Project,params[:id])
      sort_init 'name'
      sort_update
      @item_pages, @items = paginate :studies, :order_by => sort_clause, :per_page => 20
      render :action => "studies", :layout => false if request.xhr?
   end
 
+##
+# List of most recent experiments
+# 
   def experiments
-     @project = current_project
+     @project = current(Project,params[:id])
      sort_init 'name'
      sort_update
      @item_pages, @items = paginate :experiments,  :order_by => sort_clause, :per_page => 20
@@ -47,7 +78,7 @@ class Project::OverviewController < Project::BaseController
   end
 
   def reports
-     @project = current_project
+     @project = current(Project,params[:id])
      sort_init 'name'
      sort_update
      @item_pages, @items = paginate :reports, :order_by => sort_clause, :per_page => 20
@@ -57,7 +88,7 @@ class Project::OverviewController < Project::BaseController
 ##
 # Show a 
   def calendar
-     @project = current_project
+     @project = current(Project,params[:id])
     if params[:year] and params[:year].to_i > 1900
       @year = params[:year].to_i
       if params[:month] and params[:month].to_i > 0 and params[:month].to_i < 13
@@ -85,7 +116,7 @@ class Project::OverviewController < Project::BaseController
 # This will need to show studies,experiments and tasks in order
 #   
   def gantt
-     @project = current_project
+     @project = current(Project,params[:id])
     if params[:year] and params[:year].to_i >0
       @year_from = params[:year].to_i
       if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12

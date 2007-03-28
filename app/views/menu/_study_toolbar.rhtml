@@ -1,3 +1,4 @@
+<% unless study.nil?  %>
 <h2>Study <%= link_to study.name,study_url( :action => 'show', :id=>study.id )%></h2>
 <div class="menublock">
     <ul>
@@ -10,3 +11,4 @@
           
       </ul>
 </div>
+<%end%>

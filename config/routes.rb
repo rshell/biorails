@@ -24,11 +24,11 @@ ActionController::Routing::Routes.draw do |map|
   map.user 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
 
-  map.project 'app/project/:action/:id', :controller => 'project/overview'
-  map.project 'app/folder/:action/:id', :controller => 'project/sections'
-  map.project 'app/doc/:action/:id', :controller => 'project/articles'
-  map.project 'app/file/:action/:id', :controller => 'project/assets'
-  map.project 'app/comment/:action/:id', :controller => 'project/comments'
+  map.project 'app/project/:action/:id', :controller => 'project/projects'
+  map.section 'app/folder/:action/:id', :controller => 'project/sections'
+  map.article 'app/doc/:action/:id', :controller => 'project/articles'
+  map.asset 'app/file/:action/:id', :controller => 'project/assets'
+  map.comment 'app/comment/:action/:id', :controller => 'project/comments'
   
   map.study     'app/study/:action/:id', :controller => 'study/studies'
   map.protocol  'app/protocol/:action/:id', :controller => 'study/study_protocols'

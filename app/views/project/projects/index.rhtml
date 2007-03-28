@@ -17,9 +17,10 @@
 <% end %>
 
 
+<% content_for :centre do %>
 <!-- begin overview -->
 <div id="overview">
-  <%= link_to 'Subscribe', project_url, :class => 'feed right' %>
+  <%= link_to 'Subscribe', project_url( :class => 'feed right') %>
   
   <h4>Today <%= todays_short_date %></h4>
   <%= render_events @todays_events %>
@@ -32,6 +33,7 @@
   
 </div>
 <!-- /end overview -->
+<% end %>
 
 <% content_for :sidebar do %>
   <% if @articles.any? -%>
@@ -39,7 +41,7 @@
     <h3>Comments awaiting your approval</h3>
     <ul class="slist">
     <% @articles.each do |article, count| -%>
-      <li><%= link_to "<strong>(#{count})</strong> #{h(article.title)}", :controller => 'articles', :action => 'comments', :id => article.id, :filter => :unapproved %></li>
+      <li><%= link_to "<strong>(#{count})</strong> #{h(article.title)}", article_url(:action => 'comments', :id => article.id, :filter => :unapproved) %></li>
     <% end -%>
     </ul>
   </div>
@@ -49,7 +51,7 @@
     <h3>Recent activity</h3>
     <ul class="slist" id="activity">
       <% @users.each do |user| -%>
-        <li style="clear:right;"><%= avatar_for user %><%= link_to who(user.login), :controller => 'users', :action => 'show', :id => user %><br /> showed up <%= distance_of_time_in_words_to_now(user.updated_at) %> ago</li>
+        <li style="clear:right;"><%= link_to who(user.login), user_url( :action => 'show', :id => user) %><br /> showed up <%= user.updated_at %> ago</li>
       <% end -%>
     </ul>
   </div>

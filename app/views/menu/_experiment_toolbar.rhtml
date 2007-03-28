@@ -1,3 +1,4 @@
+<% unless experiment.nil? %>
 <h2>Experiment <%= link_to experiment.name,: experiment_url(:action => 'show', :id => experiment) %></h2>
 <div class="menublock">
  <ul>
@@ -7,3 +8,4 @@
   <li><%= link_to 'Import', experiment_url( :action =>'import',:id => experiment) %></li>          
  </ul>
 </div>
+<%end%>
