@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
   include SessionHelper # Various session/parameter cache and lookup function
+
  
   include Biorails::CachingMethods
 

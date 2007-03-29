@@ -33,11 +33,13 @@ ActionController::Routing::Routes.draw do |map|
   map.asset 'app/file/:action/:id', :controller => 'project/assets'
   map.comment 'app/comment/:action/:id', :controller => 'project/comments'
   
-  map.study     'app/study/:action/:id', :controller => 'study/studies'
+  map.study     'app/study/:id/:action', :controller => 'study/studies'
   map.protocol  'app/protocol/:action/:id', :controller => 'study/study_protocols'
   map.parameter 'app/parameters/:action/:id', :controller => 'study/study_parameters'  
   map.queue     'app/queue/:action/:id', :controller => 'study/study_queues'
   map.queue_item 'app/queue_item/:action/:id', :controller => 'study/queue_items'
+  
+  map.inventory 'app/inventory/:action', :controller => 'inventory/compounds'
 
   map.experiment 'app/experiment/:action/:id', :controller => 'execute/experiments'
   map.task 'app/task/:action/:id', :controller => 'execute/tasks'

@@ -41,29 +41,36 @@ class Study::StudiesController < ApplicationController
     end
   end 
   
+  
+  def experiments
+    show
+  end
+
+  def metrics
+    show
+  end
+
+  def queues
+    show
+  end
+
+  def notes
+    show
+  end
+  
 ##
 # Configuration of a Study. This manages the setup of parameter list and 
 # list of users associated with a study
 #   
   def parameters
-    @study = current( Study, params[:id] )
-    if !@study
-      redirect_to :controller =>'studies',:action => 'list'
-    else       
-      redirect_to :controller =>'study_parameters',:action => 'list', :id => @study.id
-    end 
+    show       
   end
   
 ##
 # Standard entry point for data entry mode for studies. This will display a list of   
 # 
   def protocols
-    @study = current( Study, params[:id] )
-    if !@study
-      redirect_to :controller =>'studies',:action => 'list'
-    else       
-      redirect_to :controller =>'study_protocols',:action => 'list', :id => @study.id
-    end
+    show       
   end
 
 ##

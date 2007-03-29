@@ -1,12 +1,20 @@
-<h2>Search</h2>
-<% form_tag :action => 'finder' do %>
-      <%= text_field :query, :text ,:size =>15 %>
-      <%= observe_field( :query_text, :frequency => 1.0, 
-           :update => "query_hitlist", :url => {:controller=> '/finder', :action => :query }) %>
-<% end %>
 
-<div id="query_hitlist" class="hitlist">     
-    <%= hitlist %> 
+<script type="text/javascript">
+	// <![CDATA[
+	var leftMenu;
+	window.onload = function() {
+		leftMenu = new SideMenu("left_menu");
+		leftMenu.speed=5;
+		leftMenu.markCurrent= true;
+		leftMenu.init();
+	};
+	// ]]>
+</script>
+
+<div id="left_menu" class='sidemenu'>
+    <%= render :partial =>'/menu/project_toolbar' ,    :locals=>{ :project => current_project} %>
+    <%= render :partial =>'/menu/study_toolbar' ,      :locals=>{ :study => @study}  if @study %>
+    <%= render :partial =>'/menu/experiment_toolbar' , :locals=>{ :experiment => @experiment}  if @experiment %>
+    <%= render :partial =>'/menu/task_toolbar' ,       :locals=>{ :task => @task}  if @task %>
 </div>
 
-<%= render :partial =>"/menu/project_toolbar", :locals =>{:project => current_project} %>

@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 222) do
+ActiveRecord::Schema.define(:version => 225) do
 
   create_table "assets", :force => true do |t|
     t.column "project_id",       :integer
@@ -739,6 +739,8 @@ ActiveRecord::Schema.define(:version => 222) do
     t.column "updated_by",        :string,  :limit => 32
     t.column "updated_at",        :time
     t.column "how_to",            :text
+    t.column "report_id",         :integer
+    t.column "analysis_id",       :integer
   end
 
   add_index "protocol_versions", ["name"], :name => "process_instances_name_index"
@@ -794,18 +796,20 @@ ActiveRecord::Schema.define(:version => 222) do
     t.column "created_at",       :datetime,                                  :null => false
     t.column "updated_by",       :string,   :limit => 32,  :default => "",   :null => false
     t.column "updated_at",       :datetime,                                  :null => false
+    t.column "join_name",        :string
   end
 
   create_table "reports", :force => true do |t|
-    t.column "name",         :string,   :limit => 128, :default => "", :null => false
+    t.column "name",         :string,   :limit => 128, :default => "",       :null => false
     t.column "description",  :text
     t.column "base_model",   :string
     t.column "custom_sql",   :string
-    t.column "lock_version", :integer,                 :default => 0,  :null => false
-    t.column "created_by",   :string,   :limit => 32,  :default => "", :null => false
-    t.column "created_at",   :datetime,                                :null => false
-    t.column "updated_by",   :string,   :limit => 32,  :default => "", :null => false
-    t.column "updated_at",   :datetime,                                :null => false
+    t.column "lock_version", :integer,                 :default => 0,        :null => false
+    t.column "created_by",   :string,   :limit => 32,  :default => "",       :null => false
+    t.column "created_at",   :datetime,                                      :null => false
+    t.column "updated_by",   :string,   :limit => 32,  :default => "",       :null => false
+    t.column "updated_at",   :datetime,                                      :null => false
+    t.column "type",         :string,                  :default => "Report"
   end
 
   create_table "repositories", :force => true do |t|

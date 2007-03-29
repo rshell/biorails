@@ -1,5 +1,7 @@
-<form action="/reports/refresh/<%=report.id%>" method="post" 
-        onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '/reports/refresh/<%=report.id%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
+<p> <%= report.name %>
+</p>
+<form action="/reports/refresh/<%= report.id %>" method="post" 
+        onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '/app/report/refresh/<%=report.id%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
 <table class="report" width='100%'>
   <thead class='<%=report.dom_id("header")%>'>
     <%= render :partial => 'shared/report_header', :locals => {:report => report, :data =>data } %> 

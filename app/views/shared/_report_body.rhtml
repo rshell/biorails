@@ -15,12 +15,11 @@
                       else 
                         value
                       end
-                   %>
-                
+                   %>                
                 </td>
          <%end%>
         <td>       
-        <%=link_to( report.params[:action], :controller=>report.params[:controller] ,:action=>report.params[:action], :id=> row) if report.params[:action] %>
+        <%= link_to( report.params[:action], :controller=>report.params[:controller] ,:action=>report.params[:action], :id=> row) if report.params[:action] %>
         </td>
       </tr>
       <%end%>

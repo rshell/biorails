@@ -31,3 +31,12 @@
 <%= link_to 'New',asset_url( :action => 'new') %> 
 </p>
 <%end%>
+
+<% content_for :right do -%>
+<h2><%=l(:files)%></h2>
+<div class="panel">
+<p>
+This is how files, images and other external data files are linked into the system. 
+</p>
+</div>
+<% end %>

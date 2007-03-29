@@ -1,0 +1,18 @@
+<h1>New sections</h1>
+<% content_for :centre do -%>
+
+    <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag "Create" %>
+    <% end %>
+
+<% end %>
+
+<% content_for :right do -%>
+<h3>Sections for <%= @project.name%></h3>
+<ul>
+<% for section in @project.sections%>
+<li> <%= section.name %> </li>
+<% end %>
+</ul>
+<%end%>

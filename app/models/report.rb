@@ -27,7 +27,7 @@ class Report < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   
-  validates_uniqueness_of :name
+  #validates_uniqueness_of :name
   has_many :columns, :class_name=>'ReportColumn'
   attr_accessor :default_action
   attr_accessor :params
@@ -45,6 +45,10 @@ class Report < ActiveRecord::Base
    @params ||= {}
  end
  
+ def refresh(defaults)
+   set_filter(defaults[:filter])if  defaults[:filter] 
+   add_sort(defaults[:sort]) if defaults[:sort]
+ end
 ##
 # get the action associated with the row
 # 
@@ -57,17 +61,31 @@ class Report < ActiveRecord::Base
  end
 
 ##
+# List all reporting containing this model name. This will search for by base_model 
+# and report_columns join_model to find matches.
+# 
+ def self.contains_column(column)
+    sql ="select r.* from reports r where exists (select 1 from report_columns c where c.report_id = r.id and c.name=?)"
+    list = Report.find_by_sql([sql,"#{column}"])
+    logger.debug("Reports.containing#{column})==> list of #{list.size}")
+    return list
+ end
+##
 # Get the number of elements for each column in the table as a array
 # 
   def sizes(row)
      columns.reject{|c|c.join_model.nil?}.collect{|column|column.size(row)}
   end
 
+ def has_column?(name)
+    column = columns.detect{|col|col.name == name}
+ end
+
 ##
 #get a named column
 #
  def column(name)
-    column = columns.detect{|col|col.name == name}
+    column = has_column?(name)
     column ||= add_column(name)
     return column
  end
@@ -225,6 +243,7 @@ end
       logger.error ex.backtrace.join("\n")    
  end
  
+ 
 ##
 #Execute the Query Applying all the filter and sort rules for the columns 
 #
@@ -279,3 +298,4 @@ end
  end
 
 end
+

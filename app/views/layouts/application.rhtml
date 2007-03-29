@@ -19,15 +19,20 @@
 <%= stylesheet_link_tag "report" %>
 <%= stylesheet_link_tag "sheet" %>
 <%= stylesheet_link_tag "tabs" %>
+<%= stylesheet_link_tag "menu" %>
 <%= stylesheet_link_tag "print", :media => "print" %>
 <%= stylesheet_link_tag 'jstoolbar' %>
 
 
 <%= javascript_include_tag :defaults %>
 <%= javascript_include_tag 'menu' %>
+<%= javascript_include_tag 'sidemenu' %>
 
 <!-- page specific tags -->
+<%= yield :includes %>
+
 <%= yield :header_tags %>
+
 </head>
 
 <body>
@@ -36,6 +41,13 @@
     <div class='left'>
         <h1><%= SystemSettings.app_title %></h1>
         <h2><%= SystemSettings.app_subtitle %></h2>
+    </div>
+    <div class='right'>
+        <% form_tag :action => 'finder' do %>
+          Search:       <%= text_field :query, :text ,:size =>15 %>
+          <%= observe_field( :query_text, :frequency => 1.0, 
+               :update => "query_hitlist", :url => {:controller=> '/finder', :action => :query }) %>
+        <% end %>
     </div>
   </div> 
   <%= render :partial =>'menu/menu_bar' %>      

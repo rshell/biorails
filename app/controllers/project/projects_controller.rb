@@ -59,11 +59,11 @@ class Project::ProjectsController < Project::BaseController
 # List of most recent studies
 # 
   def studies
-     @project = current(Project,params[:id])
-     sort_init 'name'
-     sort_update
-     @item_pages, @items = paginate :studies, :order_by => sort_clause, :per_page => 20
-     render :action => "studies", :layout => false if request.xhr?
+   @project = current(Project,params[:id])
+   @report = SystemReport.list_for_model(Study)
+   @report.refresh(params)
+   puts "report id = #{@report.id}"
+   @data = @report.run()
   end
 
 ##

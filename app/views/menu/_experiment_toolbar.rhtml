@@ -1,11 +1,15 @@
 <% unless experiment.nil? %>
-<h2>Experiment <%= link_to experiment.name,: experiment_url(:action => 'show', :id => experiment) %></h2>
-<div class="menublock">
- <ul>
-  <li><%= link_to 'New task', experiment_url( :action => 'new' , :id => experiment) %></li>
-  <li><%= link_to 'Edit', experiment_url(, :action => 'edit', :id => experiment) %></li>
-  <li><%= link_to 'Copy',: experiment_url( :action => 'copy',:id => experiment.study) %> </li>
-  <li><%= link_to 'Import', experiment_url( :action =>'import',:id => experiment) %></li>          
- </ul>
-</div>
+    <div>
+      <span> <%=subject_icon('experiment')%>Experiment <%=experiment.name%> </span>
+       <%= link_to 'Overview',     experiment_url( :action => 'show', :id => experiment) %>
+       <%= link_to 'Calendar', experiment_url( :action => 'calender', :id => experiment) %>
+       <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
+       <%= link_to 'Edit',     experiment_url( :action => 'edit', :id => experiment) %>
+       <%= link_to 'Delete', experiment_url( :action => 'destroy', :id => experiment ), 
+                    :confirm => 'Are you sure?',:method => "post" %>
+       <%= link_to 'Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>
+       <%= link_to 'Import',   experiment_url( :action =>'import',:id => experiment) %>         
+       <%= link_to 'New Task', task_url( :action => 'new' , :id => experiment) %>
+    </div>
 <%end%>
+

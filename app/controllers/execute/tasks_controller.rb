@@ -28,7 +28,45 @@ class Execute::TasksController < ApplicationController
 # 
   def show
     @task = current( Task, params[:id] )
+    redirect_to task_url(:action => 'list') if @task.nil?
     set_context(@task)
+  end
+
+##
+# show statics on task
+  def metrics
+    show
+  end
+
+##
+# show data entry sheet readonly
+  def view
+    show
+  end
+
+##
+# show data entry sheet 
+  def sheet
+    show
+  end
+
+##
+# show data task analysis options
+# 
+  def analysis
+    show
+  end
+
+##
+# show task notces,comments etc
+  def notes
+    show
+  end
+##
+# show reporting options
+# 
+  def report
+    show
   end
 
 ###
@@ -118,20 +156,6 @@ class Execute::TasksController < ApplicationController
   def transform
     @task = Task.find(params[:id])
     render :partial => 'stats'
-  end
-
-  def analysis
-    @task = Task.find(params[:id])
-     @report = Report.find_by_name("TaskResult2") 
-     unless @report
-        @report = report_list_for("TaskResult2",TaskResult)
-        @report.save
-     end  
-     @report.column('task.id').is_visible=false 
-     @report.column('task.name').filter = @task.name
-     @report.column('task.id').filter = @task.id 
-     @data = @report.run
-    render :partial => 'shared/report', :locals => {:report => @report,:data => @data }    
   end
   
 ##

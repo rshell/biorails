@@ -1,0 +1,10 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar'  %>
+    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+<% end -%>
+
+<h2>
+<%=subject_icon('study.png')%> Statistical Metrics for Study [<strong><%=@study.name %></strong>]
+</h2>
+
+<%= render :partial => 'parameters', :locals => {  :study => @study } %> 

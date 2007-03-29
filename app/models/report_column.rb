@@ -75,17 +75,6 @@ class ReportColumn < ActiveRecord::Base
     end
   end
 
-##
-# Get the join information for the route link   
-# 
-  def join
-    if self.join_model
-       @model = self.report.model
-       @model.reflections.find{|key,value| key.to_s == self.join_model}
-    else
-       nil
-    end
-  end
 
 ##
 # if is a has many operation return rthe join otherwize nil
@@ -109,14 +98,24 @@ class ReportColumn < ActiveRecord::Base
   end
 
 ##
+# Get the join information for the route link   
+# 
+  def join
+    if self.join_name
+       @model = self.report.model
+       @model.reflections.find{|key,value| key.to_s == self.join_name}
+    else
+       nil
+    end
+  end
+##
 # model for the attribute 
 #    
   def model
-    if join_model
-       route[0] 
-    else
-       self.report.model
+    if  self.join_model and route and route.size>0
+       @model ||= eval( route[0].class_name )
     end
+    @model ||= self.report.model
   end  
 
   
@@ -125,18 +124,23 @@ class ReportColumn < ActiveRecord::Base
 # as a array of models on the link eg. [Study,StudyParameter,Parameter]
 #  
   def route
-    elements = self.name.split(".").reverse
-    model = report.model
-    out = []
-    while elements.size>1 and model do
-      relation = model.reflections[elements.pop.to_sym] 
-      model = eval(relation.class_name)       
-      out << model
-     end  
-     return out
+      return @route if @route 
+      @route = []  
+      elements = self.name.split(".")
+      elements.delete_at(elements.size-1)    
+      temp_model = self.report.model        
+      for item in elements
+           relation = temp_model.reflections[item.to_sym]
+           if relation
+              temp_model = eval( relation.class_name ) 
+              @route << relation
+           end
+      end 
+    return @route
   rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+      puts ex.message
+      puts ex.backtrace.join("\n")       
+      @route
   end
 
 ##

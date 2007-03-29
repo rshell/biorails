@@ -8,31 +8,19 @@
 <% end -%>
 
 
-  <div class='main' id='maintitle'>
-    <div class="title" id="study">
-        <%=subject_icon('study.png')%> Study [<strong><%=@study.name %></strong>]
-    </div>
+  <h2><%=subject_icon('study.png')%> Study [<strong><%=@study.name %></strong>] </h2>
 
     <div class='panel'>
         <%= render :partial => 'study', :locals => { :study => @study } %>  
+    </div>
         
-        <div class='tab_stuff'>
-           <%= tab_divide(tab_ids,tab_names,0) %>                                          
-                <%= render :partial => 'experiments', :locals => { :study => @study } %>  
-            </div>  
-        
-           <%= tab_divide(tab_ids,tab_names,1) %>   
-                <%= render :partial => 'protocols', :locals => { :study => @study } %>
-            </div>  
-        
-            <%= tab_divide(tab_ids,tab_names,2) %>                                
-                <%= render :partial => 'queues', :locals => { :study => @study } %>  
-            </div>  
-        
-            <%= tab_divide(tab_ids,tab_names,3) %>                    
-                <%= render :partial => 'parameters', :locals => {  :study => @study } %>  
-            </div>
-        </div>
+    <div class='panel'>
+        <%= render :partial => 'protocols', :locals => { :study => @study } %>
+    </div>
+
+    <div class='panel'>
+        <%= render :partial => 'queues', :locals => { :study => @study } %>  
+    </div>
 
     </div>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>

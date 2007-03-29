@@ -28,7 +28,17 @@
 </table>
 <p>
 <%= pagination_links_full @item_pages %>
-[ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Study.count %> ]
-<%= link_to 'New',:controller=>'/setup/studies', :action => 'new' %> 
+[ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %>  ]
+<%= link_to 'New', section_url( :action => 'new',:project_id=>@project.id ) %> 
 </p>
+<% end %>
+
+<% content_for :right do -%>
+<h2><%=l(:sections)%></h2>
+<div class="panel">
+<p>
+Unstructured data in the project is divided up into a number of section. Each section may work as a folder, blog or a component
+document. 
+</p>
+</div>
 <% end %>

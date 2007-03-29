@@ -26,7 +26,7 @@ img.left{float:left; margin:0 12px 5px 0;}
 img.center{display:block; margin:0 auto 5px auto;}
 img.right{float:right; margin:0 0 5px 12px;}
 
-/**************** Header and navigation styles ****************/
+/**************** Header  styles ****************/
 
 #container{
 width:100%;
@@ -76,49 +76,6 @@ font-weight:normal;
 font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
-#navigation{
-height:2.2em;
-line-height:2.2em;
-margin:0;
-background:#7CB30F;
-color:#ffffff;
-}
-
-#navigation li{
-float:left;
-list-style-type:none;
-border-right:1px solid #ffffff;
-white-space:nowrap;
-}
-
-#navigation li.right {
- float:right;
-list-style-type:none;
-border-right:0;
-border-left:1px solid #ffffff;
-white-space:nowrap;
-}
-
-#navigation li a{
-display:block;
-padding:0px 10px 0px 22px;
-font-size:0.8em;
-font-weight:normal;
-text-decoration:none;
-background-color:inherit;
-color: #ffffff;
-}
-
-#navigation li.submenu {background:url(../images/arrow_down.png) 96% 80% no-repeat;}
-#navigation li.submenu a {padding:0px 16px 0px 22px;}
-* html #navigation a {width:1%;}
-
-#navigation .selected,#navigation a:hover{
-color:#ffffff;
-text-decoration:none;
-background-color: #80b0da;
-}
-
 
 /**************** Content styles ****************/
 
@@ -139,7 +96,7 @@ border-left: 1px dashed #c0c0c0;
 #left {
   position: absolute;
   left: 5px;
-  width: 140px;
+  width: 150px;
   background-color: #F0F0F0;
   border: 1px solid #c0c0c0;
 }
@@ -152,7 +109,7 @@ border-left: 1px dashed #c0c0c0;
 
 #right {
   float: right;
-  width: 30%;
+  width: 20%;
   background-color: #E0E0E0;
   border: 1px solid #c0c0c0;
 }
@@ -160,7 +117,7 @@ border-left: 1px dashed #c0c0c0;
 #centre {
   position: relative;
   float: left;
-  width: 68%;
+  width: 78%;
   background-color: #FFFFF0;
   border: 1px solid #c0c0c0;
 }
@@ -289,45 +246,6 @@ margin-left: -37px;
   margin-left: -16px;
 }
 
-/*==========  Drop down menu  ==============*/
-div.menu {
-  background-color: #FFFFFF;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #7F9DB9;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  padding: 0;
-  visibility: hidden;
-  z-index: 101;
-}
-
-div.menu a.menuItem {
-  font-size: 10px;
-  font-weight: normal;
-  line-height: 2em;
-  color: #000000;
-  background-color: #FFFFFF;
-  cursor: default;
-  display: block;
-  padding: 0 1em;
-  margin: 0;
-  border: 0;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-div.menu a.menuItem:hover, div.menu a.menuItemHighlight {
-  background-color: #80b0da;
-  color: #ffffff;
-}
-
-div.menu a.menuItem span.menuItemText {}
-
-div.menu a.menuItem span.menuItemArrow {
-  margin-right: -.75em;
-}
 
 /**************** Sidebar styles ****************/
 
@@ -345,15 +263,6 @@ font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 
 #left p{margin:0 0 2px 0; font-size:0.9em;}
 
-/**************** Menublock styles ****************/
-
-.menublock{margin:0 0 0 0 ; font-size:0.8em;}
-.menublock li{list-style:none; display:block; padding:0px; margin-bottom:0px;}
-.menublock li a{font-weight:bold; text-decoration:none;}
-.menublock li a:hover{text-decoration:none;}
-.menublock li ul{margin:0; font-size:1em; font-weight:normal;}
-.menublock li ul li{margin-bottom:0;}
-.menublock li ul a{font-weight:normal;}
 
 /**************** Footer styles ****************/
 

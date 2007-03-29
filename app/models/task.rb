@@ -46,7 +46,7 @@ class Task < ActiveRecord::Base
 ##
 # Link to view for summary stats for study
 # 
-  has_many :stats, :class_name => "TaskStatistics"   
+  has_many :stats, :class_name => "TaskStatistics" ,:include=>[:parameter,:role,:type]  
 ##
 #  link to the experiment the task is created in
 #   
@@ -123,6 +123,22 @@ class Task < ActiveRecord::Base
 SQL
    TaskStatistics.find_by_sql([sql,self.id])
  end
+
+##
+#List of reports setup to run against this task
+#
+ def reports
+    unless @reports
+         @reports= []
+         @reports.concat(Report.contains_column('task.id').each{|report|
+         report.column('task.id').filter = self.id})
+         @reports.concat(Report.contains_column('task_id').each{|report|
+         report.column('task_id').filter = self.id } )
+    end
+    return @reports
+ end
+ 
+
  
 ##
 # Clear current date and work done and setup for 1 day from  now

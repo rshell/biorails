@@ -1,3 +1,4 @@
+<div class='panel'>
 <table class="report">
   <thead>
     <tr>
@@ -21,25 +22,26 @@
     <% for experiment in study.experiments %>
     <% classAttr = cycle("", "class=\"even\"") %>
     <tr <%=classAttr%>> 
-      <td><%= link_to experiment.name, :controller=>'experiments', :action => 'show', :id=>experiment.id %> </td>
+      <td><%= link_to experiment.name, experiment_url( :action => 'show', :id=>experiment.id) %> </td>
       <td><%=experiment.updated_by %></td>
       <td><%=short_date experiment.updated_at %></td>
-      <td><%= link_to experiment.protocol.name, :controller=>'study_protocols', :action => 'show', :id=>experiment.protocol.id %> </td>
+      <td><%= link_to experiment.protocol.name, protocol_url( :action => 'show', :id=>experiment.protocol.id) %> </td>
       <td><%=experiment.process.name %></td>
       <td><%=experiment.tasks.size %></td>
       <td>
       <% task = experiment.last_task %>
       <%if task%>
-      <%= link_to task.name, :controller=>'tasks', :action => 'show', :id=>task.id %> 
+      <%= link_to task.name, task_url( :action => 'show', :id=>task.id) %> 
       <%end %>
       </td>
       <td>
-      <%= link_to (subject_icon('import.png'))+ "Import ", :controller=>'experiments', :action => 'import', :id=>experiment.id %> 
+      <%= link_to (subject_icon('import.png'))+ "Import ", experiment_url( :action => 'import', :id=>experiment.id) %> 
       |
-      <%= link_to (subject_icon('new.png'))+ "New", :controller=>'tasks', :action => 'new', :id=>experiment.id %> 
+      <%= link_to (subject_icon('new.png'))+ "New", task_url( :action => 'new', :id=>experiment.id) %> 
       </td>
     </tr>
     <%end%>
   </tbody>
 </table>
-<%= link_to (subject_icon('new.png'))+ 'New Experiment', :controller => 'experiments', :action => 'new', :id=>study.id %>
+</div>
+<%= link_to (subject_icon('new.png'))+ 'New Experiment', experiment_url( :action => 'new', :id=>study.id) %>

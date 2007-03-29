@@ -1,14 +1,14 @@
 <% unless study.nil?  %>
-<h2>Study <%= link_to study.name,study_url( :action => 'show', :id=>study.id )%></h2>
-<div class="menublock">
-    <ul>
-      <li><%= link_to 'Edit', study_url(:action => 'edit', :id => study) %></li>
-      <li><%= link_to 'New', study_url(:action => 'new' )%></li>
-      <li><%= link_to 'Export',   study_url( :action =>'export',:id => study) %></li>
-      <li><%= link_to 'Parameters', :controller => 'study_parameters', :action => 'list', :id=> study.id %></li>
-      <li><%= link_to 'Services',  :controller=>'study_queues', :action => 'list', :id=>study %></li>
-      <li><%= link_to 'Protocols' ,:controller=>'study_protocols', :action => 'list', :id=>study %></li> 
-          
-      </ul>
-</div>
+    <div>
+      <span> <%=subject_icon('study')%>Study <%= study.name %> </span>
+      <%= link_to 'New',         study_url(:action => 'new' )%>
+      <%= link_to 'Edit',        study_url(:action => 'edit', :id => study) %>
+      <%= link_to 'Notes',       study_url(:action => 'notes', :id => study )%>
+      <%= link_to 'Parameters',  study_url(:action => 'parameters' , :id => study)%>
+      <%= link_to 'Services',    study_url(:action => 'queues', :id => study )%>
+      <%= link_to 'Protocols',   study_url(:action => 'protocols' , :id => study)%>
+      <%= link_to 'Experiments', study_url(:action => 'experiments', :id => study )%>
+      <%= link_to 'Metrics',     study_url(:action => 'metrics', :id => study )%>
+      <%= link_to 'Export',      study_url( :action =>'export',:id => study) %>
+  </div>
 <%end%>

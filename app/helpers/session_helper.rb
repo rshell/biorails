@@ -57,8 +57,11 @@ module SessionHelper
   def current_project
    id ||= params[:project_id] 
    id ||= session[:project_id]
-   return @current_project if @current_project and @current_project.id == id
-   return @current_project = current(Project,id)
+   unless  @current_project and @current_project.id == id
+       @current_project = current(Project,id)
+       session[:project_id] = @current_project.id
+   end
+   return @current_project
   end
   
 
@@ -77,8 +80,9 @@ module SessionHelper
 #
   def current(model,id=nil)
     key = "#{model.to_s}_id"
+    logger.debug "current(#{model},#{id})"
     if !id.nil? and !id.empty?
-        instance = model.find(default_id)
+        instance = model.find(id)
     elsif instance.nil? && session[key]
         instance = model.find(session[key])
     else

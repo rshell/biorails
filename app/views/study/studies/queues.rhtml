@@ -1,0 +1,47 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/left_toolbar'  %>
+    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+<% end -%>
+
+<h2>
+   <%=subject_icon('services')%> Service Queues for Study <%=subject_icon('study.png')%> 
+   <%= link_to @study.name, :controller => 'studies',  :action => 'show', :id => @study.id  %>
+</h2>
+
+<% content_for :centre do -%>
+<div class='panel'>
+    <table class="report">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Parameter</th>
+        <th>Assigned</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+
+      
+    <% for queue in @study.queues %>
+      <tr>
+        <td><%= link_to queue.name, queue_url( :action => 'show', :id => queue) %></td>
+        <td><%= queue.description %></td>
+        <td><%=h queue.parameter.name %></td>
+        <td><%=h queue.assigned_to %></td>
+        <td><%=h queue.status_summary %></td>
+        <td><%= link_to 'Edit', queue_url(:action => 'edit', :id => queue) %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+<%end%>
+
+<% content_for :right do -%>
+   <h3>Guidance</h3>
+   <div class='panel'>
+   This forms show all the external service queues provided by the <%=@study.name%> study. Each queue 
+   accepts a single type of lookup parameter for identification of stuff to process in the study. Then
+   This queue is used in a number of protocols which will then consume items in the queue.    
+  </div>
+  <%= link_to subject_icon('services')+'New', queue_url( :action => 'new', :id=>@study.id) %>
+<%end%>
+  

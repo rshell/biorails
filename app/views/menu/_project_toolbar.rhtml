@@ -1,13 +1,13 @@
 <% unless project.nil?  %>
-<h2>Project <%= link_to project.name, project_url( :action => 'show', :id => project) %></h2>
-	<ul class="menublock">
-		<li></li>
-		<li><%= link_to l(:calendar), project_url(:action => 'calendar', :id => project) %></li>
-		<li><%= link_to l(:timeline), project_url( :action => 'gantt', :id => project) %></li>
-		<li><%= link_to l(:studies), project_url( :action => 'studies', :id => project) %></li>
-		<li><%= link_to l(:experiments), project_url( :action => 'experiments', :id => project) %></li>
-		<li><%= link_to l(:reports), project_url( :action => 'reports', :id => project) %></li>
-		<li><%= link_to l(:folders), project_url( :action => 'folders', :id => project) %></li>
-		<li><%= link_to l(:files), project_url(:action => 'files', :id => project) %></li>
-	</ul>
+<div>
+  <span> <%=subject_icon('folder')%>Project <%=  current_project.name %></span>
+    <%= link_to l(:overview), project_url(:action => 'show', :id => current_project) %>
+	<%= link_to l(:calendar), project_url(:action => 'calendar', :id => current_project) %>
+	<%= link_to l(:timeline), project_url( :action => 'gantt', :id => current_project) %>
+	<%= link_to l(:studies),  project_url( :action => 'studies', :id => current_project) %>
+	<%= link_to l(:experiments), project_url( :action => 'experiments', :id => current_project) %>
+	<%= link_to l(:reports), project_url( :action => 'reports', :id => current_project) %>
+	<%= link_to l(:folders), project_url( :action => 'folders', :id => current_project) %>
+	<%= link_to l(:files),   project_url(:action => 'files', :id => current_project) %>
+</div>
 <% end %>
