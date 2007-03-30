@@ -19,10 +19,14 @@
          :class => "icon icon-admin", :onmouseover => "buttonMouseover(event, 'menuAdmin');" %>
  </li>
     <div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
-     <% for item in ['catalogue','data_systems','data_types','data_formats',
-                     'parameter_roles','parameter_types','roles','users']%>
-         <%= link_to l(item),  url_for(:action => item, :id =>current_project) %>         
-     <% end %>   
+         <%= link_to l(:catalogue),        catalogue_url(:action=>'list') %>  
+         <%= link_to l(:data_systems),     data_system_url(:action=>'list') %>  
+         <%= link_to l(:data_types),       data_type_url(:action=>'list') %>  
+         <%= link_to l(:data_formats),     data_format_url(:action=>'list') %>  
+         <%= link_to l(:parameter_roles),  parameter_role_url(:action=>'list') %>  
+         <%= link_to l(:parameter_types),  parameter_type_url(:action=>'list') %>  
+         <%= link_to l(:roles),            role_url(:action=>'list') %>  
+         <%= link_to l(:users),             user_url(:action=>'index') %>  
    </div>
 
  <li class="submenu">
@@ -32,10 +36,14 @@
  </li>
 
    <div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
-     <% for item in ['compounds','batches','containers','plates','samples',
-                     'plate_formats','specimens','treatment_groups']%>
-         <%= link_to l(item),  inventory_url(:action => item) %>         
-     <% end %>   
+         <%= link_to l(:compounds), inventory_url(:controller=>'inventory/compounds', :action=>'list') %>  
+         <%= link_to l(:batches), inventory_url(:controller=>'inventory/batches', :action=>'list') %>  
+         <%= link_to l(:samples), inventory_url(:controller=>'inventory/samples', :action=>'list') %>  
+         <%= link_to l(:plates), inventory_url(:controller=>'inventory/plates', :action=>'list') %>  
+         <%= link_to l(:containers), inventory_url(:controller=>'inventory/containers', :action=>'list') %>  
+         <%= link_to l(:specimens), inventory_url(:controller=>'inventory/specimens', :action=>'list') %>  
+         <%= link_to l(:plate_formats), inventory_url(:controller=>'inventory/plate_formats', :action=>'list') %>  
+         <%= link_to l(:treatment_groups), inventory_url(:controller=>'inventory/treatment_groups', :action=>'list') %>  
    </div>
 
  <li class="submenu"><%= link_to l(:execute), { :controller => 'execute' }, 
@@ -44,9 +52,10 @@
  </li>
 
    <div id="menuExecute" class="menu" onmouseover="menuMouseover(event)">
-     <% for item in ['experiments','requests']%>
-        <%= link_to l(item),  experiment_url(:action => item) %>         
-     <% end %>   
+         <%= link_to l(:experiment), experiment_url( :action=>'list') %>  
+         <%= link_to l(:request),    request_url( :action=>'list') %>  
+         <%= link_to l(:reports),    report_url( :action=>'list') %>  
+         <%= link_to l(:uml),      report_url( :action=>'uml') %>  
    </div>
 
  <li class="right">

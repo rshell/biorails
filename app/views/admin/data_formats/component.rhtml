@@ -1,22 +1,10 @@
 <% if @show_wrapper %>
 
+
 <div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('data_format.png')%> Data Formats
-        <div class="actions">
-            <ul>
-                <% new_params = params.merge(:controller => '/data_formats', :action => 'new') %>
-                <%= loading_indicator_tag(new_params) %>
-                <li><%= link_to_remote (subject_icon('new.png'))+"New",
-                  { :url => new_params,
-                    :loading => "Element.show('#{loading_indicator_id(new_params)}');" },
-                  { :href => url_for(new_params),
-                    :class => "create" } %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
-        
-    </div>
+    <h2>
+        <%=subject_icon('data_format.png')%> Data Formats       
+    </h2>
 
     <div id="<%= params[:scaffold_id] %>" class="ajax-scaffold">
         <div id="<%= scaffold_content_id(params) %>">

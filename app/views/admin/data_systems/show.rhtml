@@ -1,15 +1,17 @@
-<div class='main' id='maintitle'>
-    <div class="title">
+<% content_for :left do%>
+ <div>
+ <span class='menu'>Data Source</span>
+ <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
+                        :confirm => 'Are you sure?',:method => "post" %>
+ <%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %>
+ <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+ </div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+    <h2>
         <%= subject_icon('systems')%> Data System [<strong><%=@data_system.name%></strong>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
-                        :confirm => 'Are you sure?',:method => "post" %></li>
-                <li><%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
+   </h2>
     <div class='panel'>
         <%= render :partial => 'shared/named',:locals =>{:item => @data_system} %>
         

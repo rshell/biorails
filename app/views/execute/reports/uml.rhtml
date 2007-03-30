@@ -3,7 +3,7 @@
     <%= @options[:model] %> with <%= @options[:levels] %> level of references and <%=@options[:many] %> levels of collections 
 </div>
 <div class='panel'>
-    <% form_tag :action => 'uml' do %>
+    <% form_tag report_url(:action => 'uml') do %>
     <fieldset> 
     <div class="row">
       <div class="form-element">
@@ -35,7 +35,7 @@
    <% end %>
     
     <fieldset>
-    <img  title="Map" src="/reports/diagram/<%=@options[:model]%>?levels=<%=@options[:levels]%>?many=<%=@options[:many]%>&style=<%=@options[:style]%>">
+    <img  title="Map" src="/app/report/diagram/<%=@options[:model]%>?levels=<%=@options[:levels]%>?many=<%=@options[:many]%>&style=<%=@options[:style]%>">
     </fieldset>
 </div>
               

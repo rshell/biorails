@@ -1,13 +1,17 @@
 class Section < ActiveRecord::Base
   ARTICLES_COUNT_SQL = 'INNER JOIN assigned_sections ON contents.id = assigned_sections.article_id INNER JOIN sections ON sections.id = assigned_sections.section_id'.freeze unless defined?(ARTICLES_COUNT)
+
   before_validation :set_archive_path
   before_validation_on_create :create_path
   validates_presence_of   :name, :project_id, :archive_path
   validates_format_of     :archive_path, :with => Format::STRING
   validates_exclusion_of  :path, :in => [nil]
   validates_uniqueness_of :path, :case_sensitive => false, :scope => :project_id
+
   belongs_to :project
+
   has_many :assigned_sections, :dependent => :delete_all
+
   has_many :articles, :order => 'position', :through => :assigned_sections do
     def find_by_position(options = {})
       find(:first, { :conditions => ['contents.published_at <= ? AND contents.published_at IS NOT NULL', Time.now.utc] } \

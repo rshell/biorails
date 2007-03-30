@@ -1,15 +1,21 @@
 <% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+<div>
+  <span class='menu'>Parameters</span>
+  <%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+  <%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+  <%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+</div>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
+
+
 <h2>
  <%=subject_icon('parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
             :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
 </h2>
 <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
 
-<% content_for :centre do -%>
-    
     <div class='panel'>
        <table class="report">
           <thead>
@@ -55,16 +61,28 @@
        </table>
    </div>
  
-<%end%>
-
-<% content_for :right do -%>
+<% content_for :centre do -%>
   <h3>Guidance</h3>
    <div class='panel'>
         This forms shows all the parameters which have been setup for use in protocol and reporting 
         in the study <%=@study.name%>. The roles are used as a general catalogization for reporting. The types 
         link back to the type of data saved against the parameter.    
+        
+         Import expects a CVS file with following column titles :-
+            type_id,	type_name,	role_id,	role_name,	Alias,	Default.
    </div>
-  <%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %>
-  <%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %>
-  <%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %>
 <%end%>
+
+<% content_for :right do -%>
+<div class='panel'>
+<%form_tag( parameter_url( :action =>'import_file', :id=> @study.id ), :multipart => true) do %>
+<%= error_messages_for("import") %>
+
+  <%=file_field_tag(:file) %>  
+  <%= check_box_tag 'types', 'create',checked =false %>Create types
+  <%= check_box_tag 'roles', 'create',checked =false %>Create roles
+<%= submit_tag("Import")%>
+<% end %>
+</div>
+<%end%>
+

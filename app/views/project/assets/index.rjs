@@ -1,2 +1,0 @@
-page[:filelist].replace_html :partial => 'assets'
-page[:spinner].hide

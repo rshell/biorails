@@ -33,6 +33,17 @@
 
 <%= yield :header_tags %>
 
+<script type="text/javascript">
+	// <![CDATA[
+	var leftMenu;
+	window.onload = function() {
+		leftMenu = new SideMenu("left");
+		leftMenu.speed=5;
+		leftMenu.markCurrent= true;
+		leftMenu.init();
+	};
+	// ]]>
+</script>
 </head>
 
 <body>
@@ -50,16 +61,16 @@
         <% end %>
     </div>
   </div> 
-  <%= render :partial =>'menu/menu_bar' %>      
+  <%= render :partial =>'menu/top_menu_bar' %>      
 
 <!--Main Contents -->  
   <div id="content">        
 
-    <div id="left">
+    <div id="left" class='sidemenu'>
        <%= if @content_for_left 
             yield :left  
         else       
-	       render :partial =>'menu/left_toolbar' 
+	       render :partial =>'menu/default_left_menu' 
 	    end %> 
     </div>
 

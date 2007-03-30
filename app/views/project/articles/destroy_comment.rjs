@@ -1,3 +1,0 @@
-@comments.each do |comment|
-  page["comment-#{comment.id}"].add_class_name 'disabled'
-end

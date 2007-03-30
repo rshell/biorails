@@ -1,11 +1,6 @@
-<% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-<% end -%>
 
 <h2>
-   <%=subject_icon('protocols')%>Protocols in study [<%=link_to "#{@study.name}", :controller=>'studies', 
-            :action =>'show',:id =>@study.id %>]
+   <%=subject_icon('protocols')%>Protocols in study [<%=@study.name %>]
 </h2>
 <% content_for :centre do -%>
 <div class='panel'>

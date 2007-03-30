@@ -1,6 +1,6 @@
 <% # The following is used when the browser doesn't have javascript enabled %>
 <% classAttr = cycle("", "class=\"even\"") %>
-<% @options = params.merge(:controller => '/parameter_roles', :action => "view", :id => parameter_role.send("#{ParameterRole.primary_key}")) %>
+<% @options = params.merge(:controller => 'admin/parameter_roles', :action => "view", :id => parameter_role.send("#{ParameterRole.primary_key}")) %>
 
 <tr <%= classAttr %> id="<%= element_row_id(@options) %>" <%= "style=\"display: none;\"" if hidden %>>
   <% for scaffold_column in scaffold_columns %>

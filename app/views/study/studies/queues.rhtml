@@ -1,8 +1,3 @@
-<% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-<% end -%>
-
 <h2>
    <%=subject_icon('services')%> Service Queues for Study <%=subject_icon('study.png')%> 
    <%= link_to @study.name, :controller => 'studies',  :action => 'show', :id => @study.id  %>

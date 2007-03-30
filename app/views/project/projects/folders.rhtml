@@ -15,12 +15,12 @@
   
 <% for item in @items %>
   <tr class="<%= cycle('odd', 'even') %>">
-	<td><%= link_to item.name, :controller => '/setup/studies', :action => 'show', :id => item %>
+	<td><%= link_to item.name, section_url( :action => 'show', :id => item) %>
 	<td><%=h item.path %>
 	<td align="center"><%= short_date(item.created_at) %>
 	<td align="center"><%= short_date(item.updated_at) %>
   <td align="center">
-    <%= button_to l(:button_delete), { :controller => '/setup/studies', :action => 'destroy', :id => item }, :class => "button-small" %>
+    <%= button_to l(:button_delete),  section_url( :action => 'destroy', :id => item ), :class => "button-small" %>
   </td>
   </tr>
 <% end %>
@@ -29,7 +29,6 @@
 <p>
 <%= pagination_links_full @item_pages %>
 [ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %>  ]
-<%= link_to 'New', section_url( :action => 'new',:project_id=>@project.id ) %> 
 </p>
 <% end %>
 
@@ -41,4 +40,7 @@ Unstructured data in the project is divided up into a number of section. Each se
 document. 
 </p>
 </div>
+<ul>
+  <li> <%= link_to 'New', section_url( :action => 'new',:project_id=>@project.id ) %> </li>
+</ul>
 <% end %>

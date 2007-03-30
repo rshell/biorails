@@ -131,9 +131,6 @@ class Project < ActiveRecord::Base
     Biorails::Dispatcher.build_permalink_with(permalink_style, article)
   end
 
-  def search_url(query, page = nil)
-    "/#{search_path}?q=#{CGI::escapeHTML(query)}#{%(&page=#{CGI::escapeHTML(page.to_s)}) unless page.blank?}"
-  end
 
   def tag_url(*tags)
     ['', tag_path, *tags] * '/'
@@ -153,43 +150,8 @@ class Project < ActiveRecord::Base
     SiteDrop.new self, current_section
   end
 
-  composed_of :timezone, :class_name => 'TZInfo::Timezone', :mapping => %w(timezone name)
-  
-  alias original_timezone_writer timezone=
-  
-  def timezone=(name)
-    name = TZInfo::Timezone.new(name) unless name.is_a?(TZInfo::Timezone)
-    original_timezone_writer(name)
-  end
-
-  def page_cache_directory
-    multi_projects_enabled ? 
-      (RAILS_PATH + (RAILS_ENV == 'test' ? 'tmp' : 'public') + 'cache' + host) :
-      (RAILS_PATH + (RAILS_ENV == 'test' ? 'tmp/cache' : 'public'))
-  end
-
-  def expire_cached_pages(controller, log_message, pages = nil)
-    controller = controller.class unless controller.is_a?(Class)
-    pages ||= cached_pages.find_current(:all)
-    returning cached_log_message_for(log_message, pages) do |msg|
-      controller.logger.warn msg if cache_sweeper_tracing
-      pages.each { |p| controller.expire_page(p.url) }
-      CachedPage.expire_pages(self, pages)
-    end
-  end
 
   protected
-    def cached_log_message_for(log_message, pages)
-      pages.inject([log_message, "Expiring #{pages.size} page(s)"]) { |msg, p| msg << " - #{p.url}" }.join("\n")
-    end
-  
-    def permalink_variable_format?(var)
-      Biorails::Dispatcher.variable_format?(var)
-    end
-
-    def permalink_variable?(var)
-      Biorails::Dispatcher.variable?(var)
-    end
 
     def check_permalink_style
       permalink_style.sub! /^\//, ''
@@ -207,9 +169,6 @@ class Project < ActiveRecord::Base
       end
     end
 
-    def downcase_host
-      self.host = host.to_s.downcase
-    end
 
     def set_default_attributes
       self.permalink_style = ':year/:month/:day/:permalink' if permalink_style.blank?

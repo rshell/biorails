@@ -1,1 +1,0 @@
-page["comment-#{@comment.id}"].add_class_name 'disabled'

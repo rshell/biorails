@@ -1,3 +1,6 @@
+##
+# Article 
+# 
 class Article < Content
   class CommentNotAllowed < StandardError; end
   

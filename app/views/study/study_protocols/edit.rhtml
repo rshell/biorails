@@ -3,13 +3,16 @@
 <%=tab_setup(tab_ids,tab_names) %>
 
 <% content_for :left do -%>
-    <ul class="menublock">
-        <li><%= link_to subject_icon('xls.png') + 'Preview', :action =>'template',
-            :id => @study_protocol.id, :version=>@protocol_version.id %></li>
-        <li><%= link_to subject_icon('xml') + 'Export', :action =>'export',:id => @study_protocol.id%></li>
-        <li><%= link_to subject_icon('cancel') + 'Close', :action => 'list',:id => @study.id %></li>
-        <li><%= link_to 'Refresh', :action => 'edit',:id => @study_protocol.id ,:version =>@protocol_version.id %></li>
-    </ul>
+<div>
+  <span class='menu'>Protocol <%=@protocol_version.name %></span>
+  <%= link_to 'Preview'+subject_icon('xls.png'), 
+        protocol_url(:action =>'template',:id => @study_protocol.id, :version=>@protocol_version.id) %>
+  <%= link_to 'Export'+subject_icon('xml'), 
+        protocol_url(:action =>'export',:id => @study_protocol.id, :version=>@protocol_version.id) %>
+  <%= link_to 'Refresh', 
+        protocol_url(:action =>'edit',:id => @study_protocol.id, :version=>@protocol_version.id) %>
+  <%= link_to 'Close',study_url(:action => 'show',:id => @study.id) %>
+</div>
    <div class="panel" id="allowed_types">
     <%= render :partial => 'parameter_tree' %>
    </div>

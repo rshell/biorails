@@ -1,15 +1,15 @@
 <% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-   <h2>Protocols</h2>
-    <ul class="menublock">
-                <li><%= link_to (subject_icon('xml'))+'Export', 
-                    :action =>'export',:id => @study_protocol.id%></li>
-                <li><%= link_to (subject_icon('edit.png'))+'Edit', 
-                    :action => 'edit', :id => @study_protocol %></li>
-                <li><%= link_to (subject_icon('list.png'))+'List', 
-                    :action => 'list', :id => @study_protocol.study.id  %></li>
-    </ul>
+   <div>
+   <span>Protocols</span>
+   <%= link_to (subject_icon('xml'))+'Export', 
+                    :action =>'export',:id => @study_protocol.id%>
+   <%= link_to (subject_icon('edit.png'))+'Edit', 
+                    :action => 'edit', :id => @study_protocol %>
+   <%= link_to (subject_icon('list.png'))+'List', 
+                   :action => 'list', :id => @study_protocol.study.id  %>
+   </div>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
 
 
@@ -17,7 +17,7 @@
 <h2>
     <div class="title" id="study">
         <%=subject_icon('protocols')%>Protocol [<strong><%=@process.path%></strong>] in Study 
-        [<%=link_to " #{@study.name} ", :controller=>'studies', :action =>'show',:id =>@study.id %>]
+        [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
     </h2>
         <%= error_messages_for 'study_protocol' %>
         <%= error_messages_for 'protocol_version' %>

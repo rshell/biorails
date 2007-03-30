@@ -1,11 +1,10 @@
 <% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-   <h2>Queues</h2>
-    <ul class="menublock">
-                <li><%= link_to subject_icon('services')+'New', 
-                    :action => 'new', :id=>@study.id %></li>
-    </ul>
+    <div>
+   <span>Queues</span>
+       <%= link_to subject_icon('services')+'New',:action => 'new', :id=>@study.id %>
+    </div>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %  %>
 <% end -%>
 
 

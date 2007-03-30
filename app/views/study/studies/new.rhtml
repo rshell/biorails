@@ -1,3 +1,7 @@
+<% content_for :left do -%>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+
 <h2><%=subject_icon('study.png')%> New Study </h2>
 
 Create a new study for orgranization of protocols and accepting services.

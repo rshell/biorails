@@ -1,7 +1,20 @@
+   <% new_params = params.merge(:controller => 'admin/data_formats', :action => 'new') %>
+   <%= loading_indicator_tag(new_params) %>
+
 <% content_for :left do%>
-  <h1>Admin</h1>
-  <%= render :partial => '/menu/admin_toolbar'%>
+ <div>
+ <span class='menu'> Data Format </span>
+   <%= link_to_remote (subject_icon('new.png'))+"New",
+                  { :url => new_params,
+                    :loading => "Element.show('#{loading_indicator_id(new_params)}');" },
+                  { :href => url_for(new_params),
+                    :class => "create" } %>
+   <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+ </div>
+  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
+
+
 <SCRIPT LANGUAGE="JavaScript">
 <!--
 function demoMatchClick() {

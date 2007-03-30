@@ -1,6 +1,6 @@
       <% for scaffold_column in scaffold_columns %>
         <% column_sort_direction = column_sort_direction(scaffold_column.name, params) %>  
-        <% sort_params = params.merge(:controller => '/parameter_roles', :action => 'component_update', :sort => scaffold_column.name, :sort_direction => column_sort_direction, :page => 1) %>
+        <% sort_params = params.merge(:controller => 'admin/parameter_roles', :action => 'component_update', :sort => scaffold_column.name, :sort_direction => column_sort_direction, :page => 1) %>
         <% column_header_id = scaffold_column_header_id(sort_params.merge(:column_name => scaffold_column.name)) %>
         <th id="<%= column_header_id %>" <%= "class=\"sorted #{current_sort_direction(params)}\"" if scaffold_column.name == current_sort(params) %>>
           <% if scaffold_column.sortable? %>

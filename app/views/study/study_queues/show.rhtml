@@ -1,7 +1,3 @@
-<% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study_queue.study} %>
-<% end -%>
 
 <% new_items = @study_queue.items.state(CurrentStatus::NEW) %>
 <% accepted_items = @study_queue.items.state(CurrentStatus::ACCEPTED) %>

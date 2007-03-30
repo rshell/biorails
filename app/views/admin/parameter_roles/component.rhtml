@@ -7,7 +7,7 @@
           <%=subject_icon('parameter_role.png')%> Parameter Roles
         <div class="actions">
             <ul>
-            <% new_params = params.merge(:controller => '/parameter_roles', :action => 'new') %>
+            <% new_params = params.merge(:controller => 'admin/parameter_roles', :action => 'new') %>
             <%= loading_indicator_tag(new_params) %>
             <li><%= link_to_remote (subject_icon('new.png'))+"New Role",
               { :url => new_params,

@@ -1,12 +1,12 @@
 <% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-   <h2>Parameters</h2>
-    <ul class="menublock">
-        <li><%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
-        <li><%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-        <li><%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
-    </ul>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+<div>
+  <span>Parameters</span>
+  <%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+  <%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+  <%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+<div>
 <% end -%>
 
 

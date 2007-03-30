@@ -1,5 +1,4 @@
 <% content_for :left do%>
-  <h1>Admin</h1>
-  <%= render :partial => '/menu/admin_toolbar'%>
+  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
 <%= render_component :controller => 'admin/parameter_roles', :action => 'component', :params => params %>

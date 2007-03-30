@@ -1,18 +1,22 @@
-<% content_for :action_nav do %>
-<!-- begin action nav -->
-<div id="page-nav">
-  <ul id="act-nav" class="clear">
-    <li><%= link_to "Add new user", :action => "new" %></li>
-  </ul>
-</div>
-<!-- /end action nav -->
+<% content_for :left do%>
+  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
 
-<ul id="users">
-<%= render :partial => "user", :collection => @enabled %>
-</ul>
+<h2>Users</h2>
 
-<h3><a href="#" id="disabled_users_trigger">Disabled Users</a></h3>
-<ul id="disabled_users" style="display:none">
-<%= render :partial => "user", :collection => @disabled %>
-</ul>
+<table>
+  <tr><th>Name</th><th>Full Name</th><th>Email Address</th><th>Role</th>
+<% for user in @users %>
+  <tr>
+    <td><%= link_to user.name, :action => 'show', :id => user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.fullname %></td>
+    <td><%= user.created_at %></td>
+    <td><%= user.updated_at %></td>
+    <td><%= user.email %></td>
+  </tr>
+<% end -%>
+</table>
+
+<hr/>
+<p><%= link_to 'New User', :action => 'new' %></p>

@@ -1,0 +1,6 @@
+<%= render :partial =>'/menu/task_menu' ,       :locals=>{ :task => @task}  if @task %>
+<%= render :partial =>'/menu/experiment_menu' , :locals=>{ :experiment => @experiment}  if @experiment %>
+<%= render :partial =>'/menu/study_menu' ,      :locals=>{ :study => @study}  if @study %>
+<%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
+
+

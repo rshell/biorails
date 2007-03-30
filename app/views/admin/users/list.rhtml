@@ -1,7 +1,7 @@
 <% content_for :left do%>
-  <h1>Admin</h1>
-  <%= render :partial => '/menu/admin_toolbar'%>
+  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
+
 <h2>Users</h2>
 
 <table>
@@ -12,8 +12,7 @@
 	    :id => user.id %></td>
     <td><%= user.fullname %></td>
     <td><%= user.email %></td>
-    <td><%= link_to user.role.name, :controller => 'roles',
-            :action => 'show', :id => user.role.id %></td>
+    <td><%= link_to user.role.name, :controller => 'roles', :action => 'show', :id => user.role_id %></td>
   </tr>
 <% end -%>
 </table>

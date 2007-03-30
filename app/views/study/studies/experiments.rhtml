@@ -1,6 +1,6 @@
 <% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
 
 <h2>

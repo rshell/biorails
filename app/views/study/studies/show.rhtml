@@ -1,12 +1,3 @@
-   <% tab_ids = ['tab-experiments','tab-protocols','tab-services','tab-parameters']%>   
-   <% tab_names = ['Experiments','Protocols','Queues','Metrics']%>   
-   <%=tab_setup(tab_ids,tab_names) %>
-
-<% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-<% end -%>
-
 
   <h2><%=subject_icon('study.png')%> Study [<strong><%=@study.name %></strong>] </h2>
 

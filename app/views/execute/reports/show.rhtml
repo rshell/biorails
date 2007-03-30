@@ -1,20 +1,24 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('reports')%> Report [<strong><%=@report.name%></strong>]
-         <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('show.png')) + 'Rerun', :action => 'show', :id => @report %></li>
-                <li><%= link_to (subject_icon('xls.png')) + 'Export', :action => 'export', :id => @report  %></li>
-                <li><%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @report %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
+<% content_for :left do%>
+<div>
+  <span class='menu'>Report <%=@report.name%> </span>
+  <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+  <%= link_to (subject_icon('show.png')) + 'Run', :action => 'show', :id => @report %>
+  <%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @report %>
+  <%= link_to (subject_icon('new.png'))  + 'New', :action => 'new' %>
+  <%= link_to (subject_icon('xls.png')) + 'Export', :action => 'export', :id => @report  %> </li>
+  <%= link_to (subject_icon('destroy.png')) + 'Delete',{ :action => 'destroy', :id => @report }, 
+                    :confirm => 'Are you sure?',:method => "post" %></li>
+  <%= link_to (subject_icon('new.png'))  + 'Uml', :action => 'uml' %>
+</div>
+ <%= render :partial => '/menu/default_left_menu'%>
+<% end %>
+
+
+<h2>  <%=subject_icon('reports')%> Report [<strong><%=@report.name%></strong>]</h2>
     <div class='panel'>
-         <h3>
+         <p>
             <%=@report.description%>
-         </h3>
+         </p>
         <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
     </div>
-</div>
 

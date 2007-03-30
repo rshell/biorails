@@ -1,0 +1,9 @@
+<% unless protocol.nil?  %>
+<div>
+  <span class='menu'><%=subject_icon('protocol')%>Protocol <%=  protocol.name %></span>
+<%= link_to (subject_icon('new'))+'New',      protocol_url( :action =>'export',:id => protocol) %></li>
+<%= link_to (subject_icon('show'))+'Show',    protocol_url( :action =>'export',:id => protocol) %></li>
+<%= link_to (subject_icon('edit.png'))+'Edit',protocol_url( :action => 'edit', :id => protocol) %></li>
+<%= link_to (subject_icon('xml'))+'Export',   protocol_url( :action =>'export',:id => protocol) %></li>
+</div>
+<% end %>

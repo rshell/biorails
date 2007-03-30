@@ -18,13 +18,13 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
-  map.admin 'admin/format/:action/:id', :controller => 'admin/data_formats'
-  map.admin 'admin/system/:action/:id', :controller => 'admin/data_systems'
-  map.admin 'admin/data/:action/:id', :controller => 'admin/data_type'
-  map.admin 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
-  map.admin 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
+  map.data_format 'admin/format/:action/:id', :controller => 'admin/data_formats'
+  map.data_system 'admin/system/:action/:id', :controller => 'admin/data_systems'
+  map.data_type  'admin/data/:action/:id', :controller => 'admin/data_types'
+  map.parameter_type 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
+  map.parameter_role 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
 
-  map.user 'admin/role/:action/:id', :controller => 'admin/roles'
+  map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
 
   map.project 'app/project/:action/:id', :controller => 'project/projects'
@@ -39,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.queue     'app/queue/:action/:id', :controller => 'study/study_queues'
   map.queue_item 'app/queue_item/:action/:id', :controller => 'study/queue_items'
   
-  map.inventory 'app/inventory/:action', :controller => 'inventory/compounds'
+  map.inventory 'app/inventory/:controller/:action/:id'
 
   map.experiment 'app/experiment/:action/:id', :controller => 'execute/experiments'
   map.task 'app/task/:action/:id', :controller => 'execute/tasks'

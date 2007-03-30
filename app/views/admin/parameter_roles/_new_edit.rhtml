@@ -7,7 +7,7 @@
 
     <%= form_remote_tag :url => @options.merge(:controller => '/parameter_roles'),
           :loading => "Element.show('#{loading_indicator_id(@options)}'); Form.disable('#{element_form_id(@options)}');",
-          :html => { :href => url_for(@options.merge(:controller => '/parameter_roles')),
+          :html => { :href => url_for(@options.merge(:controller => 'admin/parameter_roles')),
           :id => element_form_id(@options) } %>
 
       <%= hidden_field_tag "scaffold_id", @options[:scaffold_id] %>
@@ -24,7 +24,7 @@
 
       <p class="form-footer">
         <%= submit_tag Inflector.titleize(@options[:action]), :class => "submit" %>
-        <% cancel_params = @options.merge(:controller => '/parameter_roles', :action => 'cancel', :referring_action => @options[:action]) %>
+        <% cancel_params = @options.merge(:controller => 'admin/parameter_roles', :action => 'cancel', :referring_action => @options[:action]) %>
         <%= link_to_remote "Cancel",
           { :url => cancel_params,
             :loading => "Element.show('#{loading_indicator_id(@options)}');" },

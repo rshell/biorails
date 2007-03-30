@@ -1,0 +1,22 @@
+<div>
+  <span class='menu'>System</span>
+    <%= link_to 'Sources', url_for(:controller=>'admin/data_systems',:action => 'list') %>
+    <%= link_to 'Formats', url_for(:controller=>'admin/data_formats',:action => 'list' )%>
+    <%= link_to 'Paramert Usage',  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
+    <%= link_to 'Parameter Types',url_for(:controller=>'admin/parameter_types',:action => 'list' )%>
+    <%= link_to 'User',  :controller=>'users', :action => 'index' %>
+    <%= link_to 'Access Roles' ,:controller=>'roles', :action => 'list' %>               
+    <%= link_to 'Reports' ,report_url( :action => 'list') %>               
+    <%= link_to 'Uml' ,report_url( :action => 'uml') %>               
+</div>
+
+<% unless @context.nil?%>
+<div class="tree">
+    <span class='menu'>Catalogue</span>
+    <strong> 
+    <%=link_to_remote @context.name , :url => {:action =>'show', :id => @context.id} %> 
+    </strong>
+    <%= render :partial => 'tree', :locals => {:roots => @context.children, :url => {:action =>'show'} } %>  
+</div>
+
+<%end %>

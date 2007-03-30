@@ -1,11 +1,12 @@
 class Admin::UsersController < Project::BaseController
   member_actions << 'show' << 'update'
-  before_filter :find_all_users, :only => [:index, :show, :new]
-  before_filter :find_user,      :only => [:show, :update, :enable, :admin, :destroy]
 
   def index
-    @enabled, @disabled = @users.partition { |u| u.deleted_at.nil? }
-    @users = @enabled + @disabled
+    @users = User.find(:all)
+  end
+  
+  def list 
+    index
   end
   
   def new
@@ -49,13 +50,7 @@ class Admin::UsersController < Project::BaseController
   end
   
   protected
-    def find_all_users
-      @users = site.users_with_deleted
-    end
-    
-    def find_user
-      @user = site.user_with_deleted(params[:id])
-    end
+
     
     def authorized?
       logged_in? && (admin? || (current_user.id.to_s == params[:id] && member_actions.include?(action_name)))

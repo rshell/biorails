@@ -1,6 +1,6 @@
 <% unless task.nil? %>
 <div>
-  <span><%=subject_icon('task')%>Task <%= task.name %></span>
+  <span class='menu'><%=subject_icon('task')%>Task <%= task.name %></span>
   <%= link_to 'Overview', task_url( :action => 'show', :id => task) %>
   <%= link_to 'Edit', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Sheet View', task_url( :action => 'view', :id => task) %>

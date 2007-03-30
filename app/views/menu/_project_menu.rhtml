@@ -1,6 +1,6 @@
 <% unless project.nil?  %>
 <div>
-  <span> <%=subject_icon('folder')%>Project <%=  current_project.name %></span>
+  <span class='menu'> <%=subject_icon('folder')%>Project <%=  current_project.name %></span>
     <%= link_to l(:overview), project_url(:action => 'show', :id => current_project) %>
 	<%= link_to l(:calendar), project_url(:action => 'calendar', :id => current_project) %>
 	<%= link_to l(:timeline), project_url( :action => 'gantt', :id => current_project) %>
@@ -9,5 +9,6 @@
 	<%= link_to l(:reports), project_url( :action => 'reports', :id => current_project) %>
 	<%= link_to l(:folders), project_url( :action => 'folders', :id => current_project) %>
 	<%= link_to l(:files),   project_url(:action => 'files', :id => current_project) %>
+	<%= link_to l(:members),   project_url(:action => 'members', :id => current_project) %>
 </div>
 <% end %>

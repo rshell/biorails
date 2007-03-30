@@ -1,5 +1,3 @@
-<p> <%= report.name %>
-</p>
 <form action="/reports/refresh/<%= report.id %>" method="post" 
         onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '/app/report/refresh/<%=report.id%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
 <table class="report" width='100%'>

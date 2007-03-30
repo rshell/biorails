@@ -1,16 +1,19 @@
 require 'uri'
 
 class Comment < Content
-  validates_presence_of :author, :author_ip, :article_id, :body
-  validates_format_of :author_email, :with => Format::EMAIL
+
   before_validation :clean_up_author_email
   before_validation :clean_up_author_url
   after_validation_on_create  :snag_article_attributes
   before_create  :check_comment_expiration
   before_save    :update_counter_cache
   before_destroy :decrement_counter_cache
+
+  validates_presence_of :author, :author_ip, :article_id, :body
+  validates_format_of :author_email, :with => Format::EMAIL
   belongs_to :article
   has_one :event, :dependent => :destroy
+
   attr_protected :approved
 
   def self.find_all_by_section(section, options = {})
