@@ -27,12 +27,20 @@
 # See license agreement for additional rights
 ##
 #
-class DataElement < Treed
+class DataElement < ActiveRecord::Base
   
-  validates_uniqueness_of :name, :scope => 'parent_id'
+#
+# Generic rules for a name and description to be present
+  validates_uniqueness_of :name, :scope =>"parent_id"
+  validates_presence_of :name
+  validates_presence_of :description
 
   belongs_to :system,  :class_name=>'DataSystem',  :foreign_key=>'data_system_id'
   belongs_to :concept, :class_name=>'DataConcept', :foreign_key=>'data_concept_id'
+
+
+#  belongs_to :access, :class_name => "AccessControl", :foreign_key => "access_control_id"
+
 
 ##
 # @todo rethink this as a bit of a hack
@@ -71,6 +79,30 @@ class DataElement < Treed
      return  self.children.collect{|v|v.name}
   end
 
+#
+# path to name
+#
+  def path
+     if parent == nil 
+        return "/"+name 
+     else 
+        return parent.path+"/"+name
+     end 
+  end 
+
+#
+# Find all the children of this the concept
+#
+  def decendents
+     [self]+children.inject([]){|decendents,child|decendents+child.decendents}
+  end
+   
+#
+# Overide context_columns to remove all the internal system columns.
+# 
+  def self.content_columns
+        @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }        
+  end
 #
 #  List values for this element   
 #    

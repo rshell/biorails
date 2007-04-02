@@ -109,7 +109,7 @@ module SortHelper
     caption = titleize(Inflector::humanize(column)) unless caption
     params = {:params => {:sort_key => column, :sort_order => order}}
     link_to_remote(caption,
-                  {:update => "content", :url => { :sort_key => column, :sort_order => order}},
+                  {:update => "main", :url => { :sort_key => column, :sort_order => order}},
                   {:href => url_for(:params => { :sort_key => column, :sort_order => order})}) +
     (icon ? nbsp(2) + image_tag(icon) : '')
   end

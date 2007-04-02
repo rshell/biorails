@@ -17,7 +17,7 @@
 #
 class TreatmentItem < ActiveRecord::Base
 
- belongs_to :group, :class_name => "TreatmentGroup"
+ belongs_to :group, :class_name => "TreatmentGroup", :foreign_key =>'treatment_group_id'
 
  belongs_to :subject, :polymorphic => true
 

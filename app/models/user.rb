@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 ##
 # Users have a default role
 #   
-  belongs_to :role, :class_name=>'Role'
+  belongs_to :role, :class_name=>'Role',:foreign_key=>'role_id'
 ##
 # Users are linked into the system as a the owner of a number of record types
 # 
@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   has_many   :projects, :through=>:membership,:order => 'name' 
   has_many   :members, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
 
-  acts_as_paranoid
+#  acts_as_paranoid
 ##
 # Class level methods
 # 

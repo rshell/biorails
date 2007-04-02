@@ -47,15 +47,15 @@ class TaskResultValue < ActiveRecord::Base
 ##
 # Direct link back to protocol version
 # 
- belongs_to :process, :class_name=>'ProtocolVersion'
+ belongs_to :process, :class_name=>'ProtocolVersion',:foreign_key=>'protocol_version_id'
 ##
 # Direct link to parameter context
 #
- belongs_to :definition, :class_name=>'ParameterContext'  
+ belongs_to :definition, :class_name=>'ParameterContext',:foreign_key=>'parameter_context_id' 
 ##
 # context is provides a logical grouping of TaskItems which need to be seen as a whole to get the true
 # meaning of the data (eg. Inhib+Dose+Sample is useful result!)
- belongs_to :context, :class_name=>'TaskContext'
+ belongs_to :context, :class_name=>'TaskContext',:foreign_key=>'task_context_id'
 ##
 # The parameter definition the Item is linked back to from the Process Instance
 # Added IC50(Output) etc to the basic value and defines the validation rules like must be numeric!

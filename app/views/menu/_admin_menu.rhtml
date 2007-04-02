@@ -1,5 +1,6 @@
 <div>
   <span class='menu'>System</span>
+    <%= link_to 'Catalogue',  :controller=>'catalogue', :action => 'index' %>
     <%= link_to 'Sources', url_for(:controller=>'admin/data_systems',:action => 'list') %>
     <%= link_to 'Formats', url_for(:controller=>'admin/data_formats',:action => 'list' )%>
     <%= link_to 'Paramert Usage',  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>

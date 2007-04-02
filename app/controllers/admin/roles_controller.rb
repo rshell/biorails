@@ -14,8 +14,7 @@ class Admin::RolesController < ApplicationController
   end
 
   def list
-    @roles = Role.find(:all,
-                       :order => 'name')
+    @roles = Role.find(:all,:order => 'name')
   end
 
   def show

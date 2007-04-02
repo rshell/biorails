@@ -48,7 +48,7 @@ class Parameter < ActiveRecord::Base
 # 
  belongs_to :queue, :class_name=>'StudyQueue', :foreign_key =>'study_queue_id'
 
- belongs_to :study_parameter, :class_name=>'StudyParameter'
+ belongs_to :study_parameter, :class_name=>'StudyParameter', :foreign_key =>'study_parameter_id'
  belongs_to :data_type
  belongs_to :data_format
  belongs_to :data_element

@@ -4,10 +4,7 @@
 #  * Comment
 #  * Event
 # 
-# 
-class Content < ActiveRecord::Base
-  filtered_column :body, :excerpt
-  belongs_to :user, :with_deleted => true
-  belongs_to :project
-  [:year, :month, :day].each { |m| delegate m, :to => :published_at }
+class Content < ActiveRecord::Base   
+  belongs_to :user
+  belongs_to :project    
 end

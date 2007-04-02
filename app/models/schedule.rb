@@ -28,18 +28,29 @@ class Schedule
   attr_accessor :last
   attr_accessor :delta
 
+  attr_accessor :model
+
+  attr_accessor :year
+  attr_accessor :month
+  attr_accessor :months
+  attr_accessor :zoom
+  attr_accessor :date_from
+  attr_accessor :date_to
+ 
+
 ##
 #  Default initialize with a empty week,
 #  
-def initialize
+def initialize(model = Task)
    @boxes = []
    @items = []
    @first = DateTime.now
    @last  = DateTime.now + 7.days
    @delta = 1.day
+   @model = model
 end
 
-##
+
 # Calculate the period of the schedule 
 #
 def period
@@ -60,6 +71,78 @@ end
    boxes.size
  end
 
+##
+# Fetch matching items from the database 
+# return items or null if not configured
+def find_by_user(user)
+    if (@model and @date_form and @date_to)
+         @items = @model.find(:all, 
+         :order => "start_date, end_date", 
+         :conditions => ["(created_by=?) and (((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)",
+         user, @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
+    end    
+end
+
+## 
+# Featch all matching items from the database
+def find_by_project(user)
+    if (@model and @date_form and @date_to)
+         @items = @model.find(:all, 
+                              :order => "start_date, end_date", 
+                              :conditions => ["(((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)",
+                                          @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
+    end    
+end
+
+
+##
+# Fill scedule as a calendar of items 
+# 
+def Schedule.calendar(model,params)
+    schedule = Schedule.new(model)
+    if params[:year] and params[:year].to_i > 1900
+      @year = params[:year].to_i
+      if params[:month] and params[:month].to_i > 0 and params[:month].to_i < 13
+        @month = params[:month].to_i
+      end    
+    end
+    schedule.year ||= Date.today.year
+    schedule.month ||= Date.today.month
+    schedule.months = 1
+    schedule.date_from = Date.civil(@year, @month, 1)
+    schedule.date_to = (@date_from >> 1)-1
+    # start on monday
+    schedule.date_from = @date_from - (@date_from.cwday-1)
+    # finish on sunday
+    schedule.date_to = @date_to + (7-@date_to.cwday)  
+    return schedule    
+end
+
+##
+# Create a schedule for a timeline
+#
+def Schedule.gantt(model,params)
+    schedule = Schedule.new(model)
+    schedule.project = current(Project,params[:id])
+    if params[:year] and params[:year].to_i >0
+      schedule.year_from = params[:year].to_i
+      if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12
+        schedule.month_from = params[:month].to_i
+      else
+        schedule.month_from = 1
+      end
+    else
+      schedule.month_from ||= (Date.today << 1).month
+      schedule.year_from ||= (Date.today << 1).year
+    end
+    
+    schedule.zoom = (params[:zoom].to_i > 0 and params[:zoom].to_i < 5) ? params[:zoom].to_i : 2
+    schedule.months = (params[:months].to_i > 0 and params[:months].to_i < 25) ? params[:months].to_i : 6
+    
+    schedule.date_from = Date.civil(schedule.year_from, schedule.month_from, 1)
+    schedule.date_to = (schedule.date_from >> schedule.months) - 1
+    return schedule    
+end
 ##
 #Build a schedule of tasks in the passed in experiment (the scientists views)  
 #  

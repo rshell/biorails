@@ -3,7 +3,7 @@
 #
 # Table name: roles
 #
-#  id              :integer(11)   not null, primary key
+#  id              :integer(11)   not null, primary keyreflection
 #  name            :string(255)   default(), not null
 #  parent_id       :integer(11)   
 #  description     :string(1024)  default(), not null
@@ -14,40 +14,84 @@
 #
 
 ##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 # 
 
-require "credentials"
-require "menu"
-
 class Role < ActiveRecord::Base
+
   serialize :cache
-  validates_presence_of :name
+
   validates_uniqueness_of :name
+  validates_presence_of :name
+  validates_presence_of :description
+
+  has_many :items, :class_name=>'Permission'
 
  
 ##
-# Get the action rights for a user in this role
+# Subjects
 # 
-  def credentials
-     self.cache[:credentials] ||= rebuild_credentials
-  end
+ def subjects
+   rebuild unless cache
+   cache.keys 
+ end
 
-  def rebuild_credentials
-    self.cache[:credentials] = Credentials.new(self.id)
-  end
-###
-# Get the menus structure for a user with this role
+##
+#Actions for a given subject
+# 
+ def actions(subject)
+   rebuild unless cache
+   cache[subject].keys   
+ end
+  
+##
+# List of possible actions for over all controller
+#  
+ def possible_actions
+   all = []
+   for subject in subjects
+     all << cache[subject].keys
+     all = all.uniq
+   end
+   return all
+ end
+
+
+##
+# Get a permission for a subject and actions
 #   
-  def menu
-   self.cache[:menu] ||= rebuild_menu
-  end 
+ def allow?(subject,action)
+   if cache
+      puts "using cache"
+      return (cache[subject] and cache[subject][action])
+   else
+      puts "allows(#{subject},#{action}) "
+      return permissions.detect{ |item| item.subject ==subject.to_s and item.action==action.to_s}
+   end
+ end
+  
+#Grant access 
+# 
+ def grant(subject,action)
+    unless allow?(subject,action)
+       self.permissions.create(:subject=>subject.to_s,:action=>action.to_d)
+       rebuild
+    end
+ end
 
-  def rebuild_menu
-     self.cache[:menu] = Menu.new(self)     
-  end
+##
+# Deny access
+#  
+ def deny(subject,action)
+    item = Permission.find(:first,:conditions=>['role_id=? and subject=? and action=?',id,subject,action])
+    if item
+       item.destroy 
+       rebuild
+    end
+ end
 
+  
 ##
 # Build the cache of all the menus and rights for roles
 # 
@@ -61,33 +105,75 @@ class Role < ActiveRecord::Base
      self.cache = nil ; 
      self.save # we have to do this to clear it
      self.cache = Hash.new
-     self.rebuild_credentials
-     self.rebuild_menu
+     for item in permissions
+        cache[item.subject] ||= Hash.new
+        cache[item.subject][item.action] = true
+     end          
      self.save
   end
 
-  def get_parents
-    parents = Array.new
-    seen = Hash.new
-
-    current = self.id
-    
-    while current
-      role = Role.find(current)
-      if role 
-        if not seen.has_key?(role.id)
-          parents << role
-          seen[role.id] = true
-          current = role.parent_id
-        else
-          current = nil
+##
+# Get a List of all the Models
+#   
+  def models
+    unless @models
+      for file in Dir.glob("#{RAILS_ROOT}/app/models/*.rb") do
+        begin
+          load file
+        rescue
+          logger.info "Couldn't load file '#{file}' (already loaded?)"
         end
-      else
-        current = nil
+      end  
+    end
+    @models = []
+
+    ObjectSpace.each_object(Class) do |klass|
+      if klass.ancestors.any?{|item|item==ActiveRecord::Base} and !klass.abstract_class
+        @models << klass unless @models.any?{|item|item.to_s == klass.to_s}
       end
     end
 
-    return parents
+    @models -= [ActiveRecord::Base, CGI::Session::ActiveRecordStore::Session]
+    return @models.sort{|a,b| a.to_s <=> b.to_s }
+  end
+  
+##
+#List all the controllers 
+#  
+ def controllers
+    unless @controllers      
+      for file in Dir.glob("#{RAILS_ROOT}/app/controllers/*.rb") do
+        begin
+          load file
+        rescue
+          logger.info "Couldn't load file '#{file}' (already loaded?)"
+        end
+      end
+    end    
+    @controllers = Hash.new    
+    ObjectSpace.each_object(Class) do |klass|
+      if klass.respond_to? :controller_name
+          if klass.superclass.to_s == ApplicationController.to_s
+            @controllers[klass.controller_name] = klass
+          end
+      end
+    end
+ end
+    
+##
+# get the list of possible actions for this controller
+# 
+  def possible_actions(item)
+    actions = Array.new
+    controller = item
+    if item.class = String
+        controller = eval("#{controller}_controller".camelcase)
+    end
+    methods = controller.public_instance_methods - ApplicationController.public_instance_methods
+    for method in methods.sort do
+      action_collection << ControllerAction.new(:name => method)
+    end
+    return actions
   end
 
 end
