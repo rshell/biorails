@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 225) do
+ActiveRecord::Schema.define(:version => 227) do
 
   create_table "assets", :force => true do |t|
     t.column "project_id",       :integer
@@ -170,47 +170,10 @@ ActiveRecord::Schema.define(:version => 225) do
     t.column "updated_at",      :datetime,                                :null => false
   end
 
-  create_table "content_pages", :force => true do |t|
-    t.column "title",           :string
-    t.column "name",            :string,    :default => "", :null => false
-    t.column "markup_style_id", :integer
-    t.column "content",         :text
-    t.column "permission_id",   :integer,                   :null => false
-    t.column "created_at",      :timestamp
-    t.column "updated_at",      :timestamp
-    t.column "content_cache",   :text
-  end
-
-  add_index "content_pages", ["permission_id"], :name => "fk_content_page_permission_id"
-  add_index "content_pages", ["markup_style_id"], :name => "fk_content_page_markup_style_id"
-
-  create_table "content_versions", :force => true do |t|
-    t.column "content_id",     :integer
-    t.column "version",        :integer
-    t.column "article_id",     :integer
-    t.column "user_id",        :integer
-    t.column "title",          :string
-    t.column "permalink",      :string
-    t.column "excerpt",        :text
-    t.column "body",           :text
-    t.column "excerpt_html",   :text
-    t.column "body_html",      :text
-    t.column "created_at",     :datetime
-    t.column "updated_at",     :datetime
-    t.column "published_at",   :datetime
-    t.column "author",         :string,   :limit => 100
-    t.column "author_url",     :string
-    t.column "author_email",   :string
-    t.column "author_ip",      :string,   :limit => 100
-    t.column "comments_count", :integer,                 :default => 0
-    t.column "updater_id",     :integer
-    t.column "versioned_type", :string,   :limit => 20
-    t.column "project_id",     :integer
-    t.column "approved",       :boolean,                 :default => false
-    t.column "comment_age",    :integer,                 :default => 0
-    t.column "filter",         :string
-    t.column "user_agent",     :string
-    t.column "referrer",       :string
+  create_table "content_subjects", :force => true do |t|
+    t.column "content_id",   :integer
+    t.column "subject_type", :string
+    t.column "subject_id",   :integer
   end
 
   create_table "contents", :force => true do |t|
@@ -248,7 +211,7 @@ ActiveRecord::Schema.define(:version => 225) do
   create_table "data_concepts", :force => true do |t|
     t.column "parent_id",         :integer
     t.column "name",              :string,   :limit => 50, :default => "",            :null => false
-    t.column "data_context_id",   :integer,                :default => 0,             :null => false
+    t.column "data_context_id",   :integer,                :default => 1,             :null => false
     t.column "description",       :text
     t.column "access_control_id", :integer
     t.column "lock_version",      :integer,                :default => 0,             :null => false
@@ -390,32 +353,6 @@ ActiveRecord::Schema.define(:version => 225) do
     t.column "created_at",   :datetime,                               :null => false
     t.column "updated_by",   :string,   :limit => 32, :default => "", :null => false
     t.column "updated_at",   :datetime,                               :null => false
-  end
-
-  create_table "dead_controller_actions", :force => true do |t|
-    t.column "site_controller_id", :integer,                 :null => false
-    t.column "name",               :string,  :default => "", :null => false
-    t.column "permission_id",      :integer
-    t.column "url_to_use",         :string
-  end
-
-  add_index "dead_controller_actions", ["permission_id"], :name => "fk_controller_action_permission_id"
-  add_index "dead_controller_actions", ["site_controller_id"], :name => "fk_controller_action_site_controller_id"
-
-  create_table "dead_markup_styles", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
-  end
-
-  create_table "dead_site_controllers", :force => true do |t|
-    t.column "name",          :string,                :default => "", :null => false
-    t.column "permission_id", :integer,                               :null => false
-    t.column "builtin",       :integer, :limit => 10, :default => 0
-  end
-
-  add_index "dead_site_controllers", ["permission_id"], :name => "fk_site_controller_permission_id"
-
-  create_table "dead_site_permissions", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -1370,35 +1307,5 @@ ActiveRecord::Schema.define(:version => 225) do
     t.column "updated_by",   :string,   :limit => 32, :default => "", :null => false
     t.column "updated_at",   :datetime,                               :null => false
   end
-
-  add_foreign_key_constraint "batches", "compound_id", "compounds", "id", :name => "batches_compound_fk", :on_update => nil, :on_delete => :cascade
-
-  add_foreign_key_constraint "content_pages", "markup_style_id", "dead_markup_styles", "id", :name => "fk_content_page_markup_style_id", :on_update => :cascade, :on_delete => :set_null
-  add_foreign_key_constraint "content_pages", "permission_id", "dead_site_permissions", "id", :name => "fk_content_page_permission_id", :on_update => :cascade, :on_delete => nil
-
-  add_foreign_key_constraint "data_elements", "data_concept_id", "data_concepts", "id", :name => "data_element_fk2", :on_update => nil, :on_delete => :cascade
-
-  add_foreign_key_constraint "data_environments", "data_context_id", "data_contexts", "id", :name => "data_environments_fk1", :on_update => nil, :on_delete => :cascade
-
-  add_foreign_key_constraint "data_relations", "from_concept_id", "data_concepts", "id", :name => "data_relations_from_fk", :on_update => nil, :on_delete => :cascade
-  add_foreign_key_constraint "data_relations", "role_concept_id", "data_concepts", "id", :name => "data_relations_role_fk", :on_update => nil, :on_delete => :cascade
-  add_foreign_key_constraint "data_relations", "to_concept_id", "data_concepts", "id", :name => "data_relations_to_fk", :on_update => nil, :on_delete => :cascade
-
-  add_foreign_key_constraint "dead_controller_actions", "permission_id", "dead_site_permissions", "id", :name => "fk_controller_action_permission_id", :on_update => :cascade, :on_delete => nil
-  add_foreign_key_constraint "dead_controller_actions", "site_controller_id", "dead_site_controllers", "id", :name => "fk_controller_action_site_controller_id", :on_update => :cascade, :on_delete => :cascade
-
-  add_foreign_key_constraint "dead_site_controllers", "permission_id", "dead_site_permissions", "id", :name => "fk_site_controller_permission_id", :on_update => :cascade, :on_delete => nil
-
-  add_foreign_key_constraint "menu_items", "content_page_id", "content_pages", "id", :name => "fk_menu_item_content_page_id", :on_update => :cascade, :on_delete => nil
-  add_foreign_key_constraint "menu_items", "controller_action_id", "dead_controller_actions", "id", :name => "fk_menu_item_controller_action_id", :on_update => :cascade, :on_delete => nil
-  add_foreign_key_constraint "menu_items", "parent_id", "menu_items", "id", :name => "fk_menu_item_parent_id", :on_update => :cascade, :on_delete => :set_null
-
-  add_foreign_key_constraint "roles", "default_page_id", "content_pages", "id", :name => "fk_role_default_page_id", :on_update => :cascade, :on_delete => :set_null
-  add_foreign_key_constraint "roles", "parent_id", "roles", "id", :name => "fk_role_parent_id", :on_update => :cascade, :on_delete => :set_null
-
-  add_foreign_key_constraint "roles_permissions", "permission_id", "dead_site_permissions", "id", :name => "fk_roles_permission_permission_id", :on_update => :cascade, :on_delete => :cascade
-  add_foreign_key_constraint "roles_permissions", "role_id", "roles", "id", :name => "fk_roles_permission_role_id", :on_update => :cascade, :on_delete => :cascade
-
-  add_foreign_key_constraint "users", "role_id", "roles", "id", :name => "fk_user_role_id", :on_update => :cascade, :on_delete => nil
 
 end

@@ -1,16 +1,17 @@
 --- 
 permissions_001: 
-  name: Administer site
+  role_id: "1"
   id: "1"
+  subject: "role"
+  action: "show"
 permissions_002: 
-  name: Public pages - edit
+  role_id: "1"
   id: "2"
+  subject: "role"
+  action: "list"
 permissions_003: 
-  name: Public pages - view
+  role_id: "1"
   id: "3"
-permissions_004: 
-  name: Public actions - execute
-  id: "4"
-permissions_005: 
-  name: Members only page -- view
-  id: "5"
+  subject: "role"
+  action: "edit"
+  
