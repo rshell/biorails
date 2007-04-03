@@ -5,6 +5,7 @@
 #
 
 class Execute::ChartsController < ApplicationController
+
 require 'scruffy'
 
 ##

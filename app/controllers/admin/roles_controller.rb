@@ -3,6 +3,7 @@
 # @TODO needs to be be rewritten now goldberg is removed
 
 class Admin::RolesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
@@ -19,9 +20,6 @@ class Admin::RolesController < ApplicationController
 
   def show
     @role = Role.find(params[:id])
-    @rps = RolesPermission.find_for_role(@role.id)
-    @roles = @role.get_parents
-    foreign
   end
 
   def new
@@ -36,25 +34,24 @@ class Admin::RolesController < ApplicationController
       flash[:notice] = 'Role was successfully created.'
       redirect_to :action => 'list'
     else
-      foreign
       render :action => 'new'
     end
   end
 
   def edit
     @role = Role.find(params[:id])
-    foreign
+
   end
 
   def update
     @role = Role.find(params[:id])
+    logger.info params[:allowed].to_yaml
     if @role.update_attributes(params[:role])
-      Role.rebuild_cache
+      @role.reset_rights(params[:allowed])
       @role = Role.find(params[:id])
       flash[:notice] = 'Role was successfully updated.'
       redirect_to :action => 'show', :id => @role.id
     else
-      foreign
       render :action => 'edit'
     end
   end
@@ -64,22 +61,6 @@ class Admin::RolesController < ApplicationController
     redirect_to :action => 'list'
   end
 
-  protected
 
-  def foreign
-    if @role.id
-      @other_roles = Role.find(:all,
-                             :conditions => ['id not in (?)', @role.id],
-                             :order => 'name')
-    else
-      @other_roles = Role.find(:all,
-                               :order => 'name')
-    end
-    @other_roles ||= Array.new
-    @other_roles.unshift Role.new(:id => nil, :name => '(none)')
-    @users = User.find(:all,
-                       :conditions => ['role_id = ?', @role.id],
-                       :order => 'name')
-  end
     
 end

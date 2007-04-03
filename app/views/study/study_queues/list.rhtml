@@ -1,13 +1,12 @@
 <% content_for :left do -%>
-    <div>
-   <span>Queues</span>
-       <%= link_to subject_icon('services')+'New',:action => 'new', :id=>@study.id %>
-    </div>
-    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %  %>
+<div>
+  <span class='menu'>Services </span>
+  <%= link_to subject_icon('new.png') +'New',  :controller=> 'requests', :action => 'new' %>
+  <%= link_to subject_icon('list.png') +'List', :action => 'list', :id => @study  %>
+</div>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
-
-
 
 <h2>
           <%=subject_icon('services')%> Services for Study <%=subject_icon('study.png')%> 

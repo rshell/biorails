@@ -1,16 +1,5 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('services')%> Edit Request  [<strong><%=h @request.name%></strong>]
-         <div class="actions">
-            <ul>
-                <li><%= link_to subject_icon('destroy.png')+'Delete', { :action => 'destroy', 
-                    :id => @request }, :confirm => 'Are you sure?',:method => "post" %></li>
-                <li><%= link_to subject_icon('new.png')+ 'New', :action => 'new' %></li>
-                <li><%= link_to subject_icon('show.png')+ 'Show', :action => 'show' %></li>
-                <li><%= link_to subject_icon('list.png')+'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
+<% content_for :centre do -%>
+<h2>        <%=subject_icon('services')%> Edit Request  [<strong><%=h @request.name%></strong>]  </h2>
     
     <div class='dialog'>
         <% form_tag :action => 'update',:id=> @request.id do %>
@@ -54,3 +43,26 @@
         <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
     </div>
 </div>
+<%end %>
+
+<% content_for :right do %>
+<h2><%=l(:guide)%></h2>
+<div class="panel">
+<p>
+A user request, is built of a list of materaisl to be submitted to for processing with a list of services.
+In the request the user may add new materials and services over time if the initial request cascades to 
+produce further work. 
+</p>
+</div> 
+<div class="actions">
+    <ul>
+        <li><%= link_to subject_icon('destroy.png')+'Delete', { :action => 'destroy', 
+            :id => @request }, :confirm => 'Are you sure?',:method => "post" %></li>
+        <li><%= link_to subject_icon('new.png')+ 'New', :action => 'new' %></li>
+        <li><%= link_to subject_icon('show.png')+ 'Show', :action => 'show' %></li>
+        <li><%= link_to subject_icon('list.png')+'List', :action => 'list' %></li>
+    </ul>
+</div>
+
+<%end %>    
+

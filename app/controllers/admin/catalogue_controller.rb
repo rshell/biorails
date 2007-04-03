@@ -21,6 +21,7 @@
 # * export       export all concept tree as CVS
 # 
 class Admin::CatalogueController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   def index
     list

@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 227) do
+ActiveRecord::Schema.define(:version => 229) do
 
   create_table "assets", :force => true do |t|
     t.column "project_id",       :integer
@@ -544,6 +544,12 @@ ActiveRecord::Schema.define(:version => 227) do
   add_index "parameters", ["updated_by"], :name => "parameters_updated_by_index"
   add_index "parameters", ["updated_at"], :name => "parameters_updated_at_index"
 
+  create_table "permissions", :force => true do |t|
+    t.column "checked", :boolean, :default => false, :null => false
+    t.column "subject", :string,  :default => "",    :null => false
+    t.column "action",  :string,  :default => "",    :null => false
+  end
+
   create_table "plate_formats", :force => true do |t|
     t.column "name",         :string,   :limit => 128, :default => "", :null => false
     t.column "description",  :text
@@ -795,6 +801,15 @@ ActiveRecord::Schema.define(:version => 227) do
     t.column "priority_id",     :integer
   end
 
+  create_table "role_permissions", :force => true do |t|
+    t.column "role_id",       :integer,               :null => false
+    t.column "subject",       :string,  :limit => 40
+    t.column "action",        :string,  :limit => 40
+    t.column "permission_id", :integer
+  end
+
+  add_index "role_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
+
   create_table "roles", :force => true do |t|
     t.column "name",            :string,                    :default => "", :null => false
     t.column "parent_id",       :integer
@@ -807,16 +822,6 @@ ActiveRecord::Schema.define(:version => 227) do
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
   add_index "roles", ["default_page_id"], :name => "fk_role_default_page_id"
-
-  create_table "roles_permissions", :force => true do |t|
-    t.column "role_id",       :integer,               :null => false
-    t.column "permission_id", :integer,               :null => false
-    t.column "subject",       :string,  :limit => 40
-    t.column "action",        :string,  :limit => 40
-  end
-
-  add_index "roles_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
-  add_index "roles_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
 
   create_table "samples", :force => true do |t|
   end

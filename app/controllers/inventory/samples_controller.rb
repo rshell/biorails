@@ -3,6 +3,8 @@
 # See license agreement for additional rights
 # 
 class Inventory::SamplesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   def index
     list
     render :action => 'list'

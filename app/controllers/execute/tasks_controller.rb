@@ -4,6 +4,7 @@
 ##
 #
 class Execute::TasksController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   helper SheetHelper
 

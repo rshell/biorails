@@ -54,7 +54,12 @@ class ApplicationController < ActionController::Base
               :only => [:new, :edit, :show, :index])  
 
 
-##
+
+  class_inheritable_reader :check_permissions
+  write_inheritable_attribute :check_permissions, []
+
+
+ ##
 # Test whether the user is logged_in
 #   
 
@@ -96,6 +101,13 @@ class ApplicationController < ActionController::Base
   end
    
 protected   
+##
+# standard authorization method.  allow logged in users that are admins, or members in certain actions
+#
+  def authorized?
+      return true if !check_permissions.include?(session[:action]) # not checked
+      logged_in? && (admin? || member_actions.include?(action_name) || allow_member?)
+  end
 
 ##
 # Default report to build if none found in library
@@ -124,68 +136,29 @@ protected
    column.is_filterible = false
    return report
   end
-  
-    
-  
-    # so not the best place for this...
-   def asset_image_args_for(asset, thumbnail = :tiny, options = {})
-      options = options.reverse_merge(:title => "#{asset.title} \n #{asset.tags.join(', ')}")
-      if asset.movie?
-        ['/images/mephisto/icons/video.png', options]
-      elsif asset.audio?
-        ['/images/mephisto/icons/audio.png', options]
-      elsif asset.pdf?
-        ['/images/mephisto/icons/pdf.png', options]
-      elsif asset.other?
-        ['/images/mephisto/icons/doc.png', options]
-      elsif asset.thumbnails_count.zero?
-        [asset.public_filename, options.update(:size => Array.new(2).fill(Asset.attachment_options[:thumbnails][thumbnail].to_i).join('x'))]
-      else
-        [asset.public_filename(thumbnail), options]
-      end
-    end
-    helper_method :asset_image_args_for
-
-    [:utc_to_local, :local_to_utc].each do |meth|
-      define_method meth do |time|
-        current_project.timezone.send(meth, time)
-      end
-      helper_method meth
-   end
-
-    def render_liquid_template_for(template_type, assigns = {})
-      headers["Content-Type"] ||= 'text/html; charset=utf-8'
-      if assigns['articles'] && assigns['article'].nil?
-        # use collect so it doesn't modify @articles
-        assigns['articles'] = assigns['articles'].collect &:to_liquid 
-      end
-      status          = (assigns.delete(:status) || '200 OK')
-      @liquid_assigns = assigns
-      render :text => SystemSetting.render_liquid_for(@section, template_type, assigns, self), :status => status
-    end
-
-    def show_error(message = 'An error occurred.', status = '500 Error')
+ 
+  def show_error(message = 'An error occurred.', status = '500 Error')
       render_liquid_template_for(:error, 'message' => message, :status => status)
-    end
+  end
 
-    def show_404
+  def show_404
       show_error 'Page Not Found', '404 NotFound'
-    end
+  end
 
-    def set_cache_root
+  def set_cache_root
       host = request.domain(request.subdomains.size + (request.subdomains.first == 'www' ? 0 : 1))
       @project ||= Project.find_by_host(host) || Project.find(:first, :order => 'id')
       self.class.page_cache_directory = @project.page_cache_directory.to_s
-    end
+  end
 
-    def with_project_timezone
+  def with_project_timezone
       old_tz = ENV['TZ']
       ENV['TZ'] = project.timezone.name
       yield
       ENV['TZ'] = old_tz
-    end
+  end
     
-    def rescue_action_in_public(exception)
+  def rescue_action_in_public(exception)
       logger.debug "#{exception.class.name}: #{exception.to_s}"
       exception.backtrace.each { |t| logger.debug " > #{t}" }
       case exception
@@ -194,6 +167,7 @@ protected
         else
           render :file => File.join(RAILS_ROOT, 'public/500.html'), :status => '500 Error'
       end
-    end
-      
+  end
+
+
 end  # class ApplicationController

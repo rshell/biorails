@@ -1,9 +1,9 @@
 <% content_for :left do -%>
 <div>
   <span class='menu'>Parameters</span>
-  <%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
-  <%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-  <%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+  <%= link_to subject_icon('xls.png')+'Export ',parameter_url( :action => 'export', :id=>@study.id  )%> </li>
+  <%= link_to (subject_icon('import.png'))+'Import ',parameter_url( :action => 'import', :id=>@study.id ) %> </li>
+  <%= link_to (subject_icon('new.png'))+'New ',parameter_url( :action => 'new', :id=>@study.id  ) %> </li>
 </div>
   <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
@@ -12,7 +12,7 @@
 
 <h2>
  <%=subject_icon('parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
-            :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
+            study_url( :action =>'show',:id =>@study.id )%></strong>]
 </h2>
 <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
 
@@ -35,7 +35,7 @@
           <% for usage in @study.parameters %>
           <% classAttr = cycle("", "class=\"even\"") %>
           <tr <%=classAttr%>> 
-             <td><%=link_to subject_icon(usage.role.name) + usage.name,:controller =>'study_parameters', :action => 'show', :id => usage %></td>
+             <td><%=link_to subject_icon(usage.role.name) + usage.name,parameter_url( :action => 'show', :id => usage) %></td>
              <td><%=usage.role.name if usage.role%></td>
              <td><%=usage.type.name if usage.type %></td>
              <td><%=subject_icon(usage.data_type.name) + usage.data_type.name if usage.data_type%></td>
@@ -48,11 +48,11 @@
              </td>
              <td><%=usage.default_value%></td>
              <td>
-             <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=>"/study_parameters/test_save/#{usage.id}"}) %>
+             <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=>"/app/parameters//test_save/#{usage.id}"}) %>
              <span id='<%="cell_#{usage.id}_3"%>'></span>
              </td>
              <td>
-                <%= link_to (subject_icon('destroy.png'))+" Delete", {:controller =>'study_parameters', :action => 'destroy', :id => usage }, 
+                <%= link_to (subject_icon('destroy.png'))+" Delete", parameter_url( :action => 'destroy', :id => usage), 
                  :confirm => 'Are you sure?',:method => "post" %>
               </td>
           </tr>

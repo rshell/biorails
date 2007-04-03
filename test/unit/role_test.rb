@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class RoleTest < Test::Unit::TestCase
   fixtures :roles
-  fixtures :permissions
+  fixtures :role_permissions
   
   # Replace this with your real tests.
   def test_truth
@@ -10,32 +10,54 @@ class RoleTest < Test::Unit::TestCase
   end
   
   def test_permission
-    item = Permission.find(:first)
+    item = RolePermission.find(:first)
     assert !item.nil?
   end
   
   def test_permissions
      role =  Role.find(1)
-     item = role.items
+     item = role.permissions
      assert item.size>1
   end
   
   def test_get_models
-     role =  Role.find(1)
-     item = role.models
+     item = Role.models
      assert item.size>1
   end
 
   def test_get_controllers
-     role =  Role.find(1)
-     item = role.controllers
+     item = Role.controllers
      assert item.size>1
   end
 
   def test_get_models
-     role =  Role.find(1)
-     item = role.models
+     item = Role.models
      assert item.size>1
+  end
+  
+  def test_all_actions
+     item = Role.all_methods
+     assert item.size>1
+  end
+  
+  def test_actions
+     item = Role.methods(FinderController)
+     assert item.size>0
+  end
+  
+  def test_controller
+    assert_not_nil Role.controller('studies')   # study
+    assert_not_nil Role.controller('tasks')     # execute
+    assert_not_nil Role.controller('projects')  # projects
+    assert_not_nil Role.controller('users')     # admin
+    assert_not_nil Role.controller('compounds') # inventory
+  end
+
+
+  def test_possible
+     assert_not_nil Role.possible('studies',:show)
+     assert_not_nil Role.possible('studies','show')
+     assert_nil Role.possible('studies',:moose)
   end
 
   def test_invalid
@@ -96,7 +118,7 @@ class RoleTest < Test::Unit::TestCase
     assert role.id==1
 
     assert role.deny('role','show')
-    assert !role.allows?("test","show")    
+    assert !role.allow?("test","show")    
     assert !role.permissions.detect{ |item| item.subject =='test' and item.action=='show'}
   end
 

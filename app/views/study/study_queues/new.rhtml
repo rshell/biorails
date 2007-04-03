@@ -1,12 +1,15 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="study">
-        <%=subject_icon('services')%> New Service for Study [<%=@study.name%>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to subject_icon('list.png')+'List', :action => 'list',:id => @study_queue.study %></li>
-            </ul>
-        </div>
-    </div>
+<% content_for :left do -%>
+<div>
+  <span class='menu'>Services </span>
+  <%= link_to subject_icon('new.png') +'New',  request_url( :action => 'new') %>
+  <%= link_to subject_icon('list.png') +'List',request_url(  :action => 'list', :id => @study)  %>
+</div>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+
+<h2>
+        <%=subject_icon('services')%> New Service for Study [<%=@study.name%>]  </h2>
     <div class='dialog'>
         <fieldset>
         <% form_tag :action => 'create' do %>
@@ -19,4 +22,4 @@
          <% end %>
         </feildset>
     </div>
-</div>
+<

@@ -1,3 +1,19 @@
+<% content_for :left do -%>
+<div>
+  <span class='menu'>Service <%= @study_queue.name %> </span>
+  <%= link_to subject_icon('new.png') +'New',  :controller=> 'requests', :action => 'new' %>
+  <%= link_to subject_icon('show.png') +'Show', :action => 'show', :id => @study_queue %>
+  <%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @study_queue %>
+  <%= link_to subject_icon('list.png') +'List', :action => 'list', :id => @study_queue.study  %>
+  <%= link_to subject_icon('list.png')+'Report ',queue_url( :action => 'manage', :id=>@study_queue.id  )%> 
+</div>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study_queue.study} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+
+
+
+
 <div class='main' id='maintitle'>
     <div class="title" id="study">
         <%=subject_icon('services')%> Service [<strong><%= @study_queue.name %></strong>] Requests

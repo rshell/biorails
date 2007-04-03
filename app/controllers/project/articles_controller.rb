@@ -1,4 +1,6 @@
-class Project::ArticlesController < Project::BaseController
+class Project::ArticlesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   with_options :only => [:create, :update, :destroy, :upload] do |c|
     c.before_filter :set_default_section_ids
     c.cache_sweeper :article_sweeper, :assigned_section_sweeper

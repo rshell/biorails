@@ -6,6 +6,8 @@
  require 'csv'
  
 class Study::StudyParametersController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   def index
     list
     render :action => 'list'

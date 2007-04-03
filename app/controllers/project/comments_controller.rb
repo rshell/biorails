@@ -1,4 +1,6 @@
-class Project::CommentsController < Project::BaseController
+class Project::CommentsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   def index
     @comments = site.unapproved_comments.find(:all, :include => :article)
   end

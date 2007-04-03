@@ -1,17 +1,9 @@
-<% content_for :left do -%>
-   <div>
-   <span>Protocols</span>
-   <%= link_to (subject_icon('xml'))+'Export', 
-                    :action =>'export',:id => @study_protocol.id%>
-   <%= link_to (subject_icon('edit.png'))+'Edit', 
-                    :action => 'edit', :id => @study_protocol %>
-   <%= link_to (subject_icon('list.png'))+'List', 
-                   :action => 'list', :id => @study_protocol.study.id  %>
-   </div>
-    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-<% end -%>
 
+<% content_for :left do -%>
+  <%= render :partial =>'/menu/process_menu' ,    :locals=>{ :process => @protocol_version||@study_protocol.process} %>
+  <%= render :partial =>'/menu/study_menu' ,      :locals=>{ :study => @study_protocol.study}   %>
+  <%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
+<% end -%>
 
 
 <h2>
@@ -53,7 +45,7 @@
        <% tab_names = ['Parameters','Versions','Metrics']%>   
        
        <%= render :partial => 'layouts/tabpanel_js', :locals => {:div_ids => tab_ids } -%>
-    
+      
        <div class='tab_stuff'
             <div id="tab-parameters" >
                 <%= render :partial => 'layouts/tabpanel_list',

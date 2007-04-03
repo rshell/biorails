@@ -4,6 +4,8 @@
 ##
 #
 class Execute::RequestsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
 ##
 # Catch for queue model needed to include helper model for it to work in queue.action
 # 

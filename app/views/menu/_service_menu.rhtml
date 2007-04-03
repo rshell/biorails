@@ -1,0 +1,9 @@
+<% unless request_service.nil?  %>
+<div>
+  <span class='menu'>Service <%= request_service.name %> </span>
+  <%= link_to subject_icon('list.png') +'Request', request_url(:action => 'show', :id => request_service.request)  %>
+  <%= link_to subject_icon('show.png') +'Show', service_url(:action => 'show', :id => request_service) %>
+</div>
+<% end %>
+
+

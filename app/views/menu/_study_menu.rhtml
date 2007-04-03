@@ -9,6 +9,6 @@
       <%= link_to 'Protocols',   study_url(:action => 'protocols' , :id => study)%>
       <%= link_to 'Experiments', study_url(:action => 'experiments', :id => study )%>
       <%= link_to 'Metrics',     study_url(:action => 'metrics', :id => study )%>
-      <%= link_to 'Export',      study_url( :action =>'export',:id => study) %>
+      <%= link_to 'Export'+subject_icon('xml'),      study_url( :action =>'export',:id => study) %>
   </div>
 <%end%>

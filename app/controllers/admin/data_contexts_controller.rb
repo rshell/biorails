@@ -20,6 +20,7 @@
 # * export       export all context/concept tree as CVS
 # 
 class Admin::DataContextsController < ApplicationController
+   check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
   
   def index
     list

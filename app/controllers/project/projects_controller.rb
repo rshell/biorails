@@ -1,5 +1,6 @@
-class Project::ProjectsController < Project::BaseController
-  member_actions << 'index' << 'feed'
+class Project::ProjectsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   session :off, :only => :feed
   before_filter :basic_auth_required, :only => :feed
   caches_page :feed
@@ -85,6 +86,10 @@ class Project::ProjectsController < Project::BaseController
      render :action => "reports", :layout => false if request.xhr?
   end
 
+  def members
+     @project = current(Project,params[:id])
+  end
+  
 ##
 # Show a 
   def calendar

@@ -4,13 +4,36 @@
 <p><label for="role_name">Name</label><br/>
 <%= text_field 'role', 'name'  %></p>
 
-<p><label for="role_parent_id">Based on the role</label><br/>
-<%= collection_select :role, :parent_id, @other_roles, :id, :name %>
-</p>
-
 <p><label for="role_description">Description</label><br/>
 <%= text_area 'role', 'description', :rows => 3 %> </p>
 
+<h2> Permissions for <%= @role.name %></h2>
+<table>
+
+<thead>
+<tr>
+<th>Subject</th>
+<th colspan=10>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+<% for subject in Role.controllers.keys.sort do %>
+<tr>
+<% actions = Role.methods(subject) %>
+<td></td>
+<% for action in actions %>
+<th> <%=action%> </th>
+<% end -%>
+</tr><tr>
+<td><%=subject%></td>
+<% for action in actions %>
+<td> <%= check_box_tag "allowed[#{subject}][#{action}]",@role.allow?(subject,action),false %></td>
+<% end -%>
+</tr>
+<% end -%>
+</tbody>
+</table>
 
 <!--[eoform:role]-->
 

@@ -11,7 +11,7 @@
     <% for stage in study.stages %>        
      <td>
        <% for protocol in study.protocols_in_stage(stage) %>
-        <%= link_to protocol.name , :controller=>'/study_protocols', :action => 'show', :id=>protocol.id %> 
+        <%= link_to protocol.name , protocol_url( :action => 'show', :id=>protocol.id) %> 
            [<%= protocol.usage_count %>] <br/>
        <%end%>
       </td>

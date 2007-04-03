@@ -1,4 +1,5 @@
 class Project::SectionsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   def index
     redirect_to :action => 'new'

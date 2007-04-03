@@ -2,41 +2,49 @@
    <% tab_names = ['Services','Materials','Results']%>   
    <%=tab_setup(tab_ids,tab_names) %>
 
+<% content_for :centre do -%>
 
-<div class='main' id='maintitle'>
-    <div class="title">
-         Request <%=subject_icon('services')%> <%= @request.name %>
-         <div class="actions">
-            <ul>
-                <li><%= link_to subject_icon('new.png') +'New', :action => 'new' %></li>
-                <li><%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @request %></li>
-                <li><%= link_to subject_icon('list.png') +'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
+<h2>  Request <%=subject_icon('services')%> <%= @request.name %>    </h2>
    
-
     <div class='panel'>
-        <%= render :partial => 'request', :locals => { :request => @request } %>  
-        
-        <div class='tab_stuff'>
-           <%= tab_divide(tab_ids,tab_names,0) %>                                          
-                <%= render :partial => 'services', :locals => { :request => @request } %>  
-            </div>  
-        
-           <%= tab_divide(tab_ids,tab_names,1) %>   
-                <%= render :partial => 'items', :locals => { :request => @request } %>
-            </div>  
-        
-            <%= tab_divide(tab_ids,tab_names,2) %>                                
-                <%= render :partial => 'results', :locals => { :request => @request } %>  
-            </div>  
-        </div>
-
-    </div>
-
-    <div class='panel'>
-        <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
+    <%= render :partial => 'request', :locals => { :request => @request } %>  
+    
+    <div class='tab_stuff'>
+       <%= tab_divide(tab_ids,tab_names,0) %>                                          
+            <%= render :partial => 'services', :locals => { :request => @request } %>  
+        </div>  
+    
+       <%= tab_divide(tab_ids,tab_names,1) %>   
+            <%= render :partial => 'items', :locals => { :request => @request } %>
+        </div>  
+    
+        <%= tab_divide(tab_ids,tab_names,2) %>                                
+            <%= render :partial => 'results', :locals => { :request => @request } %>  
+        </div>  
     </div>
 </div>
+
+<div class='panel'>
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
+</div>
+
+<%end%>
     
+<% content_for :right do %>
+<h2><%=l(:guide)%></h2>
+<div class="panel">
+<p>
+A user request, is built of a list of materaisl to be submitted to for processing with a list of services.
+In the request the user may add new materials and services over time if the initial request cascades to 
+produce further work. 
+</p>
+</div> 
+
+<div class="actions">
+    <ul>
+        <li><%= link_to subject_icon('new.png') +'New', :action => 'new' %></li>
+        <li><%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @request %></li>
+        <li><%= link_to subject_icon('list.png') +'List', :action => 'list' %></li>
+    </ul>
+</div>
+<%end %>    

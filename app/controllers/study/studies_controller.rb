@@ -4,6 +4,7 @@
 ##
 #
 class Study::StudiesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
   
   def index
     redirect_to study_url(:action => 'list')

@@ -6,10 +6,6 @@ require 'digest/sha1'
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
 
-  # Account status
-  STATUS_NEW      = 0
-  STATUS_VALID    = 1
-  STATUS_EXPIRED  = -1 
 
   attr_accessor :password
   attr_accessor :confirm_password

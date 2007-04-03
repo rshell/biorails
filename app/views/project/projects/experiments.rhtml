@@ -16,8 +16,8 @@
   
 <% for item in @items %>
   <tr class="<%= cycle("odd", "even") %>">
-	<td><%= link_to item.name, :controller => '/execute/experiments', :action => 'show', :id => item %>
-	<td><%= link_to item.study.name, :controller => '/setup/studies', :action => 'show', :id => item.study %>
+	<td><%= link_to item.name, experiment_url( :action => 'show', :id => item) %>
+	<td><%= link_to item.study.name, study_url( :action => 'show', :id => item.study) %>
 	<td><%=h item.description %>
 	<td align="center"><%= short_date(item.created_at) %>
 	<td align="center"><%= short_date(item.updated_at) %>
@@ -31,7 +31,7 @@
 <p>
 <%= pagination_links_full @item_pages %>
 [ <%= @item_pages.current.first_item %> - <%= @item_pages.current.last_item %> / <%= Experiment.count %> ]
-<%= link_to 'New',:controller=>'/execute/experiments', :action => 'new' %> 
+<%= link_to 'New',experiment_url( :action => 'new') %> 
 </p>
 <%end%>
 

@@ -1,4 +1,6 @@
 class Study::ParametersController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   def index
     list
     render :action => 'list'

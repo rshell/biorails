@@ -1,5 +1,5 @@
-class Project::AssetsController < Project::BaseController
-  member_actions.push(*%w(index new create latest search add_bucket clear_bucket edit update))
+class Project::AssetsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
 #  before_filter :find_asset, :except => [:index, :new, :create, :latest, :search, :upload, :clear_bucket]
 

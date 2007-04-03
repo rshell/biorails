@@ -1,5 +1,5 @@
-class Admin::UsersController < Project::BaseController
-  member_actions << 'show' << 'update'
+class Admin::UsersController < ApplicationController
+  check_permissions << 'show' << 'update' << 'new' << 'destroy' << 'list'
 
   def index
     @users = User.find(:all)

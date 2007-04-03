@@ -1,4 +1,5 @@
-class Project::SettingsController < Project::BaseController
+class Project::SettingsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   def update
     if site.update_attributes params[:site]

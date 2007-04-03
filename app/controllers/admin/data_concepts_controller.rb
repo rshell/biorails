@@ -20,6 +20,8 @@
 # * export       export all concept tree as CVS
 # 
 class Admin::DataConceptsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   def index
     list
     render :action => 'list'

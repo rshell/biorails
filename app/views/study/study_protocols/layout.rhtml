@@ -5,14 +5,19 @@
   <%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
 <% end -%>
 
+<% content_for :right do -%>
+   <div class="panel" id="allowed_types">
+    <%= render :partial => 'parameter_tree' %>
+   </div>
+<% end -%>
 
+<% content_for :centre do -%>
    <h2>
         <%=subject_icon('process.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
         in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
     </h2> 
-        
-<div class='panel'>
-    <div id='process_overview'>      
-        <%= render :partial => 'process_overview' %>
-    </div>
+ 
+<div class="sheet">
+        <%= render :partial => 'process_layout' %>
 </div>    
+<% end -%>

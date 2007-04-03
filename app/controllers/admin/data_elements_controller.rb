@@ -3,6 +3,7 @@
 # See license agreement for additional rights
 ##
 class Admin::DataElementsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
 #
 # default action is list

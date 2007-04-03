@@ -14,6 +14,8 @@
 # * destroy      destroy item and all its dependent objects
 # 
 class Admin::ParameterRolesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+ 
   include AjaxScaffold::Controller
   
   after_filter :clear_flashes

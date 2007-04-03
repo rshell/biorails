@@ -1,4 +1,6 @@
-class Project::ResourcesController < Project::DesignController
+class Project::ResourcesController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
   verify :params => :filename, :only => [:edit, :update],
          :add_flash   => { :error => 'Resource required' },
          :redirect_to => { :controller => 'design', :action => 'index' }

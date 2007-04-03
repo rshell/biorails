@@ -3,9 +3,9 @@
     <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
 <div>
   <span>Parameters</span>
-  <%= link_to (subject_icon('xls.png'))+'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
-  <%= link_to (subject_icon('import.png'))+'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-  <%= link_to (subject_icon('new.png'))+'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+  <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+  <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
 <div>
 <% end -%>
 

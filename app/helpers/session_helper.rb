@@ -21,9 +21,6 @@ module SessionHelper
   end 
 
 
-  def current_role
-    Role.find(:first)
-  end
 ##
 # Reference to the current User
 #       
@@ -34,6 +31,7 @@ module SessionHelper
       @current_user ||= User.find(:first) # Guest 
     end
   end
+  
 
 ##
 # Set the Current user
@@ -44,8 +42,7 @@ module SessionHelper
         session[:user_id] = user.id    
       else
          session[:user_id] = nil
-      end
-      
+      end      
   end
 
 ##

@@ -4,6 +4,7 @@
 ##
 #
 class Study::StudyProtocolsController < ApplicationController
+  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
   helper SheetHelper
   
@@ -40,10 +41,11 @@ class Study::StudyProtocolsController < ApplicationController
   def show
     @study_protocol = StudyProtocol.find(params[:id])
     @study = @study_protocol.study
-    @process = @study_protocol.process
     @process = ProtocolVersion.find(params[:version]) if params[:version]
-    logger.info @context_for_layout
+    @process ||= @study_protocol.process
+    logger.info @process.to_xml
   end
+
 
 ##
 # Puts up the form for a new protocol, this created new Protocol, ProtocolVersion objects
@@ -92,10 +94,23 @@ class Study::StudyProtocolsController < ApplicationController
     else 
       @protocol_version = @study_protocol.editable
     end
+  end
+  
+##
+# Edit the Process layout
+# 
+  def layout
+    edit
+  end
+
+##
+# Show a preview
+# 
+  def preview
+    edit
     @data_sheet = TreeGrid.from_process(@protocol_version)
   end
   
-
 ###
 # Update Study to use new protocol. This saves the used defined label for the process instance
 # and the allocated stage of the protocol.

@@ -5,14 +5,10 @@
   <%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
 <% end -%>
 
-
-   <h2>
-        <%=subject_icon('process.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
+<h2>
+  <%=subject_icon('process.png')%> Preview Process [<strong><%=@protocol_version.path%></strong>] 
         in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
-    </h2> 
-        
-<div class='panel'>
-    <div id='process_overview'>      
-        <%= render :partial => 'process_overview' %>
-    </div>
-</div>    
+</h2> 
+<div class="panel">
+    <%= render :partial => 'process_preview' %>
+</div>

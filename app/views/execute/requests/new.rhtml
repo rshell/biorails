@@ -1,13 +1,6 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('study.png')%> New Request
-        <div class="actions">
-            <ul>
-              <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
-
+<% content_for :centre do -%>
+<h2>        <%=subject_icon('services')%> New Request  [<strong><%=h @request.name%></strong>]  </h2>
+ 
     <%= error_messages_for 'request' %>
 
     <div class="dialog">                              
@@ -18,4 +11,16 @@
         </div>
       <% end %>
     </div>
+<%end%>
+    
+<% content_for :right do %>
+<h2><%=l(:guide)%></h2>
+<div class="panel">
+<p>
+A user request, is built of a list of materaisl to be submitted to for processing with a list of services.
+In the request the user may add new materials and services over time if the initial request cascades to 
+produce further work. 
+</p>
 </div>
+
+<%end %>    
