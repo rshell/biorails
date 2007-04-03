@@ -17,7 +17,7 @@
     <th rowspan=1 scope="col">Min</th>
     <th rowspan=1 scope="col">Max</th>
   </tr>
-<%for row in @process.stats%>
+<%for row in @protocol_version.stats%>
    <% classAttr = cycle("", "class=\"even\"") %>
    <tr <%=classAttr%>  > 
     <td> <%=link_to( row.parameter.name, :controller=>'parameters',:action=>'show',:id=>row.id ) if row %>  </td>

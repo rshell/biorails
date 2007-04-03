@@ -1,7 +1,7 @@
 <% unless project.nil?  %>
 <div>
-  <span class='menu'> <%=subject_icon('folder')%>Project <%=  current_project.name %></span>
-    <%= link_to l(:overview), project_url(:action => 'show', :id => current_project) %>
+  <span class='menu'> <%=subject_icon('folder')%> <%=  current_project.name %></span>
+    <%= link_to l(:Project), project_url(:action => 'show', :id => current_project) %>
 	<%= link_to l(:calendar), project_url(:action => 'calendar', :id => current_project) %>
 	<%= link_to l(:timeline), project_url( :action => 'gantt', :id => current_project) %>
 	<%= link_to l(:studies),  project_url( :action => 'studies', :id => current_project) %>

@@ -8,7 +8,7 @@
 
 <h2>
     <div class="title" id="study">
-        <%=subject_icon('protocols')%>Protocol [<strong><%=@process.path%></strong>] in Study 
+        <%=subject_icon('protocols')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
         [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
     </h2>
         <%= error_messages_for 'study_protocol' %>
@@ -35,9 +35,9 @@
           </tr>
           <tr>
               <th class="label"><%=subject_icon('label')%> Label</th>
-              <td> <%= @process.name %> <%=" [release]" if @process == @study_protocol.process%></td>
+              <td> <%= @protocol_version.name %> <%=" [release]" if @protocol_version == @study_protocol.process%></td>
               <th class="label"><%=subject_icon('version')%> Version</th>
-              <td> <%= @process.version %></td>
+              <td> <%= @protocol_version.version %></td>
           </tr>
         </table>
     
@@ -54,16 +54,16 @@
                 <table class="report">
                     <thead>  
                         <tr haligh="left">
-                        <% for role in @process.allowed_roles %>
+                        <% for role in @protocol_version.allowed_roles %>
                           <th><%=subject_icon(role.name)+role.name%></th>
                         <% end %>  
                         </tr>
                     </thead>
                     <tbody>
                       <tr id="params" valign="top">
-                        <% for role in @process.allowed_roles %>
+                        <% for role in @protocol_version.allowed_roles %>
                          <TD id="parameter_<%=role.id %>">  
-                            <% @list = @process.role_parameters(role) %>
+                            <% @list = @protocol_version.role_parameters(role) %>
                              <%= "..." unless @list.size>0 %>
                              <dl>
                                <% for param in @list %>                 

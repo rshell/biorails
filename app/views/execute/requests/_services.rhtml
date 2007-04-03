@@ -12,7 +12,7 @@
     </tr>
     <%for item in request.services %>
     <tr>
-         <td><%=link_to item.name, :controller => 'request_services', :action => 'show', :id => item %>  </td>
+         <td><%=link_to item.name, service_url( :action => 'show', :id => item) %>  </td>
          <td><%=item.queue.path%> </td>
          <td><%=item.status %>  <%=item.status_summary %>  </td>
          <td><%=item.priority%>         </td>

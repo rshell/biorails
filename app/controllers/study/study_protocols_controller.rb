@@ -39,11 +39,7 @@ class Study::StudyProtocolsController < ApplicationController
 # Show details for a protocol
 # 
   def show
-    @study_protocol = StudyProtocol.find(params[:id])
-    @study = @study_protocol.study
-    @process = ProtocolVersion.find(params[:version]) if params[:version]
-    @process ||= @study_protocol.process
-    logger.info @process.to_xml
+    find_process
   end
 
 
@@ -87,30 +83,42 @@ class Study::StudyProtocolsController < ApplicationController
 # ProtocolVersion is created so not to advisely effect a running task. 
 # 
   def edit
-    @study_protocol = StudyProtocol.find(params[:id])
-    @study = @study_protocol.study
-    if params[:version]
-      @protocol_version = ProtocolVersion.find(params[:version])
-    else 
-      @protocol_version = @study_protocol.editable
-    end
+    find_process
+    @protocol_version = @study_protocol.editable
   end
   
 ##
 # Edit the Process layout
 # 
   def layout
-    edit
+    find_process
+    @protocol_version = @study_protocol.editable
   end
 
 ##
 # Show a preview
 # 
   def preview
-    edit
+    find_process
     @data_sheet = TreeGrid.from_process(@protocol_version)
   end
   
+##
+# Create a DataEntry template based on the current definition
+#
+  def template
+    find_process
+    grid =TreeGrid.from_process(@protocol_version)
+    send_data(grid.to_csv,:type => 'text/csv; charset=iso-8859-1; header=present',
+                          :filename => "#{@study_protocol.name}-v#{@protocol_version.version}.csv")
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")
+      flash[:error] = ex.message
+      flash[:trace] = ex.backtrace.join("<br \>")
+      render :action => 'list',:id =>@study   
+  end
+    
 ###
 # Update Study to use new protocol. This saves the used defined label for the process instance
 # and the allocated stage of the protocol.
@@ -318,39 +326,22 @@ end
  end
 
 
-##
-# Create a DataEntry template based on the current definition
-#
-  def template
-    @study_protocol = StudyProtocol.find(params[:id])
-    @study =@study_protocol.study
-    if params[:version]
-       @process = ProtocolVersion.find(params[:version])
-    else
-       @procsss = @study_protocol.process
-    end 
-    grid =TreeGrid.from_process(@process)
-    expt = Experiment.new(:name=>'Preview',:study => @study_protocol.study,:protocol=>@study_protocol,:process=>@process)
-    grid.task = Task.new(:name=>'<Process>',:experiment => expt,:protocol=>@study_protocol,:process=>@process)
-
-    report = grid.export
-    send_data(report.read,:type => 'text/csv; charset=iso-8859-1; header=present',
-                          :filename => "#{@study_protocol.name}-v#{@process.version}.csv")
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
-      flash[:error] = ex.message
-      flash[:trace] = ex.backtrace.join("<br \>")
-      render :action => 'list',:id =>@study   
-  end
-  
   
 ##
 #Import a protocol into the systems. This reads the xml generated above.
 #  
 #  @todo Items need to work on protocol transfer between systems
 #  
- def import
- end
+  def import
+  end
+
+protected  
+
+  def find_process
+    @study_protocol = StudyProtocol.find(params[:id])
+    @study =@study_protocol.study
+    @protocol_version = ProtocolVersion.find(params[:version]) if params[:version]
+    @protocol_version ||= @study_protocol.process
+  end 
   
 end

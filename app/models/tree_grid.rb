@@ -182,11 +182,17 @@ end
 # 
  def to_csv
     return FasterCSV.generate do |csv|
-      csv << ['url', @task.experiment.id ,'/experiments/import_file/'+@task.experiment.id.to_s]
-      csv << %w(start id name status experiment protocol study version)
-      csv << ['task',@task.id, @task.name,  @task.status, 
-                     @task.experiment.name, @task.protocol.name,
-                     @task.experiment.study.name,  @task.process.version]
+      if @task
+        csv << ['url', @task.experiment.id ,'/experiments/import_file/'+@task.experiment.id.to_s] 
+        csv << %w(start id name status experiment protocol study version)
+        csv << ['task',@task.id, @task.name,  @task.status, 
+                       @task.experiment.name, @task.protocol.name,
+                       @task.experiment.study.name,  @task.process.version]
+      else 
+        csv << ['url', '<experiment>' ,'/experiments/import_file/<id>'] 
+        csv << %w(start id name status experiment protocol study version)
+        csv << %w(task  id name status experiment protocol study version)                      
+      end
       definition = nil
       for row in self.rows
         unless row.definition == definition
@@ -196,7 +202,7 @@ end
         end
         csv << ['values', row.label, row.id].concat( row.values)
       end
-      csv << ['end',@task.description]      
+      csv << ['end']      
     end
   rescue Exception => ex
       logger.error ex.message

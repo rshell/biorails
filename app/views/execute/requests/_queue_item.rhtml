@@ -1,12 +1,12 @@
   <tr>
-    <td><%=link_to queue_item.queue.study.name, :controller => 'study_queues',:action => 'list', :id => queue_item.queue.study %></td>
-    <td><%=link_to queue_item.queue.name, :controller => 'study_queues',:action => 'show', :id => queue_item.queue %>  </td>
-    <td><%=link_to queue_item.data_name, :action => 'show', :id => queue_item %></td>
+    <td><%=link_to queue_item.queue.study.name, queue_url(:action => 'list', :id => queue_item.queue.study) %></td>
+    <td><%=link_to queue_item.queue.name, queue_url(:action => 'show', :id => queue_item.queue) %>  </td>
+    <td><%=h queue_item.data_name %></td>
     <td><%=h queue_item.request_by  %></td>
     <td><%=h queue_item.assigned_to  %></td>
     <td><%=h queue_item.status  %></td>
     <td><%=h queue_item.priority  %></td>
     <td><%=short_date queue_item.created_at  %></td>
     <td><%=short_date queue_item.requested_at  %></td>
-    <td><%= link_to 'Remove', :action => 'destroy', :id => queue_item %></td>
+    <td><%= link_to 'Remove', queue_item_url(:action => 'destroy', :id => queue_item) %></td>
   </tr>

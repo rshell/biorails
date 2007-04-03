@@ -13,7 +13,7 @@
     <tr>
          <td><%=item.data_type %> </td>
          <td><%=item.data_name %> </td>
-         <td><%=link_to item.task_name, :controller=>'tasks',:action=>'show',:id=>item.task_id %> </td>
+         <td><%=link_to item.task_name, task_url(:action=>'show',:id=>item.task_id ) %> </td>
          <td><%=item.parameter_name%> </td>
          <td><%=item.data_value%> </td>
          <td><%=item.row_label%> </td>

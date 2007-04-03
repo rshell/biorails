@@ -1,6 +1,8 @@
 
 <ul>
   <% for item in request.items %>
-    <li><%=item.data_type %>: <%=item.data_name %> <%= link_to subject_icon('destroy.png'), :action => 'remove_item',:request_id=>request.id, :id => item.id %></li>
+    <li><%=item.data_type %>: <%=item.data_name %> 
+    <%= link_to subject_icon('destroy.png'),request_url( :action => 'remove_item',:request_id=>request.id, :id => item.id) %>
+    </li>
   <% end %>  
 </ul>     

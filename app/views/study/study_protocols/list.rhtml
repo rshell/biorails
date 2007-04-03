@@ -1,13 +1,3 @@
-<% content_for :left do -%>
-    <%= render :partial =>'/menu/left_toolbar'  %>
-    <%= render :partial =>'/menu/study_toolbar' , :locals=>{ :study => @study} %>
-   <h2>Protocols</h2>
-    <ul class="menublock">
-       <li><%= link_to (subject_icon('new.png'))+'New',  :action => 'new', :id=>@study.id %></li>
-    </ul>
-<% end -%>
-
-
 <h2>
    <%=subject_icon('protocols')%>Protocols in [<%=link_to "#{@study.name}", :controller=>'studies', 
             :action =>'show',:id =>@study.id %>]
@@ -33,7 +23,7 @@
             <th colspan='3'>Actions</th>
           </tr>
           
-          <% for study_protocol in @study_protocols %>
+          <% for study_protocol in @study.protocols %>
           <% classAttr = cycle("class=\"odd\"", "class=\"even\"") %>
           <tr  <%= classAttr %> >
             <td><%=h study_protocol.name %></td>

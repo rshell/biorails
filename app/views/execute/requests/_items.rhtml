@@ -2,7 +2,7 @@
     <tr>
          <th>name</th>         
          <%for item in request.services %>
-         <th><%=link_to item.name+": "+item.queue.name , :controller => 'request_services', :action => 'show', :id => item %> </th>
+         <th><%=link_to item.name+": "+item.queue.name , service_url( :action => 'show', :id => item) %> </th>
          <% end %>
          <th>action</th>                   
     </tr>
@@ -17,7 +17,7 @@
              <td><not submitted </td>
              <% end %>
          <% end %>
-         <td><%= link_to 'Remove', :action => 'remove_item',:id=> request, :list_item_id => item.id %> </td>
+         <td><%= link_to 'Remove', request_url(:action => 'remove_item',:id=> request, :list_item_id => item.id ) %> </td>
     </tr>
      <% end %>
 </table>

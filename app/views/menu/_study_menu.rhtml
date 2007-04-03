@@ -1,7 +1,7 @@
 <% unless study.nil?  %>
     <div>
-      <span class='menu'> <%=subject_icon('study')%>Study <%= study.name %> </span>
-      <%= link_to 'Overview',    study_url(:action => 'show',  :id => study)%>
+      <span class='menu'> <%=subject_icon('study')%><%= study.name %> </span>
+      <%= link_to 'Study',    study_url(:action => 'show',  :id => study)%>
       <%= link_to 'Edit',        study_url(:action => 'edit', :id => study) %>
       <%= link_to 'Notes',       study_url(:action => 'notes', :id => study )%>
       <%= link_to 'Parameters',  study_url(:action => 'parameters' , :id => study)%>

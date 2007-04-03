@@ -1,7 +1,7 @@
 <% unless process.nil?  %>
 <div>
-  <span class='menu'>Process <%=process.name %></span>
-  <%= link_to 'Show',   protocol_url(:action =>'show',:id => process.protocol, :version=>process.id) %>
+  <span class='menu'> <%=subject_icon('protocol')%> <%=process.name %></span>
+  <%= link_to 'Protocol',   protocol_url(:action =>'show',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Edit',   protocol_url(:action =>'edit',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Layout',  protocol_url(:action =>'layout',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Preview', protocol_url(:action =>'preview',:id => process.protocol, :version=>process.id) %>
