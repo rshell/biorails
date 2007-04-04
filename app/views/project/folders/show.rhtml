@@ -1,0 +1,8 @@
+<% for column in ProjectFolder.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @project_folder.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @project_folder %> |
+<%= link_to 'Back', :action => 'list' %>
