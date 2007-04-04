@@ -56,6 +56,7 @@ end
 #Generate a Tree Grid from a Task 
 # 
  def TreeGrid.from_task(task)
+   return nil if task.nil?
    task = Task.find(task) if task.class == Fixnum
    task = Task.find_by_name(task) if task.class == String
    grid = TreeGrid.from_process(task.process)
@@ -84,6 +85,7 @@ end
 #Generate a Tree Grid from a process going through all contexts
 #
  def TreeGrid.from_process(process)
+   return nil if process.nil?
    grid = TreeGrid.new
    begin
      grid.process = process

@@ -1,3 +1,36 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: projects
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(30)    default(), not null
+#  summary            :text          default(), not null
+#  status_id          :integer(11)   default(0), not null
+#  title              :string(255)   
+#  subtitle           :string(255)   
+#  email              :string(255)   
+#  ping_urls          :text          
+#  articles_per_page  :integer(11)   default(15)
+#  host               :string(255)   
+#  akismet_key        :string(100)   
+#  akismet_url        :string(255)   
+#  approve_comments   :boolean(1)    
+#  comment_age        :integer(11)   
+#  timezone           :string(255)   
+#  filter             :string(255)   
+#  permalink_style    :string(255)   
+#  search_path        :string(255)   
+#  tag_path           :string(255)   
+#  search_layout      :string(255)   
+#  tag_layout         :string(255)   
+#  current_theme_path :string(255)   
+#  created_by         :string(32)    default(sys), not null
+#  created_at         :datetime      not null
+#  updated_by         :string(32)    default(sys), not null
+#  updated_at         :datetime      not null
+#
+
 ##
 # This is the only web root path and investigation log for project.
 # The Projects is build of organizational elements (Studies/Protocols/Services)
@@ -13,25 +46,67 @@ class Project < ActiveRecord::Base
   cattr_accessor :multi_projects_enabled
   cattr_accessor :cache_sweeper_tracing
 
+  validates_uniqueness_of :name
+  validates_presence_of :name
+  validates_presence_of :summary
+  validates_presence_of :status_id 
+
   ##
   # Link to Document Management repository (subversion,documentum etc)
-  belongs_to :repository, :class_name => 'Repository', :foreign_key=>'repository_id'
+  # belongs_to :repository, :class_name => 'Repository', :foreign_key=>'repository_id'
 
-  has_many :studies,     :through => :project_studies,      :source => :study
-  has_many :experiments, :through => :project_experiments,  :source => :experiment
-
-  has_many  :comments, :order => 'comments.created_at desc'
-  has_many  :events
-  has_many  :cached_pages
-  has_many  :assets, :order => 'created_at desc', :conditions => 'parent_id is null'
+##
+# Link through to users for members, and owners via memberships
+# 
   has_many :memberships, :dependent => :destroy
   has_many :members, :through => :memberships, :source => :user
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
 
+##
+# Unstructurted data is mapped into a set of folders for the project. For anotement of  models 
+# a folder is referenced to a model. A number of short cuts are provided to help 
+# 
+#  * project.folders.notes(object) => folder for unstructed information linked to the object
+#  * project.folders.linked_to(model) => array of folders linked to a model type
+#  * project.folders.studies
+#  * project.folders.experiments
+#  * project.folders.tasks
+#  
+#
+  has_many  :folders, :class_name=>'ProjectFolder', :order => "position", :conditions => 'parent_id is null' do
 
-  has_many  :sections, :order => "position" do
     def home
-      find_by_path ''
+      ProjectFolder.find(:first,
+           :conditions=>["project_id= ? and refererence_id=? and project_folders.reference_type='Project'",proxy_owner.id,proxy_owner.id])
+    end
+##
+# Get folder for notes associated with a object
+    def notes(object)
+      ProjectFolder.find(:first,
+           :conditions=>["project_id= ? and reference_id=? and reference_type=?",
+                          proxy_owner.id,object.id,  object.class.to_s] )
+    end
+##
+# Get a list of a folders linked to a model
+    def linked_to(model)
+      ProjectFolder.find(:all,
+           :conditions=>["project_id= ? and reference_type=?",proxy_owner.id, model.to_s] )
+    end
+
+    def studies
+       linked_to('Study')
+    end
+
+    def experiments
+       linked_to('Experiement')
+    end
+
+    def tasks
+       linked_to('Task')
+    end
+
+    def requests
+       linked_to('Request')
     end
 
     # orders sections in a project
@@ -44,7 +119,39 @@ class Project < ActiveRecord::Base
     end
   end
 
-  has_many  :articles do
+##
+# Create a project root folder after create of project
+# 
+  after_create do  |project| 
+     folder = project.folder(project) # Create a / root folder for the project
+  end
+
+##
+# List of assets associated with the the project in reverse order
+# thumbnails etc are children of the root Assets
+# 
+  has_many  :assets, :class_name=>'ProjectAsset', :order => 'created_at desc', :conditions => 'parent_id is null' do
+
+    def images
+      find(:first,
+           :conditions=>["project_id=? and content_type like 'image%'",proxy_owner.id])
+    end
+
+    def content(type)
+      if type.class==Array
+           find(:all,
+                :conditions=>["project_id=? and content_type in ? ",proxy_owner.id,type])
+      else
+           find(:all,
+                :conditions=>["project_id=? and content_type like ? ",proxy_owner.id,type])
+      end
+    end
+
+  end
+##
+# List of all articles associated with a the project in reverse order
+# 
+  has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc' do
     def find_by_permalink(options)
       conditions = 
         returning ["(contents.published_at IS NOT NULL AND contents.published_at <= ?)", Time.now.utc] do |cond|
@@ -66,37 +173,31 @@ class Project < ActiveRecord::Base
     end
   end
   
-
-#  before_validation :downcase_host
-#  before_validation :set_default_attributes
-
-  validates_presence_of :name
-  validates_presence_of :owner
-  validates_presence_of :permalink_style
-  validates_presence_of :search_path
-  validates_presence_of :tag_path
-
-  validates_format_of     :search_path, :tag_path, :with => Format::STRING
-
-
-  validate :check_permalink_style
-
-  after_create { |s| s.sections.create(:name => 'Home') }
-
-  with_options :order => 'contents.created_at DESC', :class_name => 'Comment' do |comment|
-    comment.has_many :comments,            :conditions => ['contents.approved = ?', true]
-    comment.has_many :unapproved_comments, :conditions => ['contents.approved = ? or contents.approved is null', false]
-    comment.has_many :all_comments
+###
+# Set a user as a owner of the project
+#  
+  def owner=(user)
+    membership = Membership.new
+    membership.user =user
+    membership.role =user.role
+    membership.project = self
+    membership.owner = true
+    membership.save    
   end
-  
-  
+##
+# Get the member details
+#  
+  def member(user)
+    Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
+  end
+
  ###
- # Get the lastest n record of a type linked to this project   
+ # Get the lastest n record of a type linked to this project. This allows simple discovery 
+ # of changes to linked records   
  # 
-  def lastest(model = Task, count=5)
+  def lastest(model = ProjectContent, count=5)    
     if model.columns.any?{|c|c.name=='project_id'} and model.columns.any?{|c|c.name=='updated_at'}
-       model.find(:all,:conditions => ['project_id=?',self.id] ,
-                  :order=>'updated_at desc',:limit => count)
+       model.find(:all,:conditions => ['project_id=?',self.id] ,:order=>'updated_at desc',:limit => count)  
     elsif model.columns.any?{|c|c.name=='updated_at'}
        model.find(:all, :order=>'updated_at desc',:limit => count)
     else
@@ -116,21 +217,57 @@ class Project < ActiveRecord::Base
                    :order       => 'tags.name')
   end
 
+##
+# Get a root folder my name 
+# 
+  def folder?(item)
+    if item.is_a?  ActiveRecord::Base
+       ProjectFolder.find(:first,:conditions=>['project_id=? and name=?',self.id,item.name.to_s])
+    else
+       ProjectFolder.find(:first,:conditions=>['project_id=? and name=?',self.id,item.to_s])
+    end
+  end
+##
+#Get a folder by path
+#
+  def path?(path)
+    ProjectFolder.find(:first,:conditions=>['project_id=? and path=?',self.id,path.to_s])
+  end
+
+##
+# add/find a folder to the project. This  
+# 
+  def folder(item)
+    folder = folder?(item)
+    if folder.nil? 
+      folder = ProjectFolder.new(:project_id=>self.id)
+      if item == self
+         folder.name = '/'
+         folder.reference =  item
+         folder.path = self.name
+      
+      elsif item.is_a?  ActiveRecord::Base
+         folder.name = item.name
+         folder.reference =  item
+         folder.path = self.name+"/"+folder.name
+         
+      else
+         folder.name = item.to_s
+         folder.path = self.name+"/"+folder.name
+      end
+      folder.position = folders.size
+      folders << folder
+    end
+    return folder
+  end
+
+ 
 
 ##
 # path for attachmented to be saved under
   def attachment_path
     SystemSetting.get('attachment_path') 
   end
-
-
-  [:attachments, :templates, :resources].each { |m| delegate m, :to => :theme }
-
-
-  def permalink_for(article)
-    Biorails::Dispatcher.build_permalink_with(permalink_style, article)
-  end
-
 
   def tag_url(*tags)
     ['', tag_path, *tags] * '/'
@@ -140,48 +277,18 @@ class Project < ActiveRecord::Base
     comment_age.to_i > -1
   end
 
-  def render_liquid_for(section, template_type, assigns = {}, controller = nil)
-    assigns.update('project' => to_liquid(section), 'mode' => template_type)
-    parse_inner_template(set_content_template(section, template_type), assigns, controller)
-    parse_template(set_layout_template(section, template_type), assigns, controller)
+  def owner=(user)
   end
-
-  def to_liquid(current_section = nil)
-    SiteDrop.new self, current_section
+  
+  def owner?(user)
   end
-
-
+  
+  def member?(user)
+  end
+  
+  
   protected
 
-    def check_permalink_style
-      permalink_style.sub! /^\//, ''
-      permalink_style.sub! /\/$/, ''
-      pieces = permalink_style.split('/')
-      errors.add :permalink_style, 'cannot have blank paths' if pieces.any?(&:blank?)
-      pieces.each do |p|
-        errors.add :permalink_style, "cannot contain '#{p}' variable" unless p.blank? || permalink_variable_format?(p).nil? || permalink_variable?(p)
-      end
-      unless pieces.include?(':id') || pieces.include?(':permalink')
-        errors.add :permalink_style, "must contain either :permalink or :id"
-      end
-      if !pieces.include?(':year') && (pieces.include?(':month') || pieces.include?(':day'))
-        errors.add :permalink_style, "must contain :year for any date-based permalinks"
-      end
-    end
 
-
-    def set_default_attributes
-      self.permalink_style = ':year/:month/:day/:permalink' if permalink_style.blank?
-      self.search_path     = 'search' if search_path.blank?
-      self.tag_path        = 'tags'   if tag_path.blank?
-      [:permalink_style, :search_path, :tag_path].each { |a| send(a).downcase! }
-      self.timezone = 'UTC' if read_attribute(:timezone).blank?
-      if new_record?
-        self.approve_comments = false unless approve_comments?
-        self.comment_age      = 30    unless comment_age
-      end
-      true
-    end
-    
   
 end

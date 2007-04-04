@@ -1,4 +1,23 @@
 # == Schema Information
+# Schema version: 233
+#
+# Table name: protocol_versions
+#
+#  id                :integer(11)   not null, primary key
+#  study_protocol_id :integer(11)   
+#  name              :string(77)    
+#  version           :integer(6)    not null
+#  lock_version      :integer(11)   default(0), not null
+#  created_by        :string(32)    
+#  created_at        :time          
+#  updated_by        :string(32)    
+#  updated_at        :time          
+#  how_to            :text          
+#  report_id         :integer(11)   
+#  analysis_id       :integer(11)   
+#
+
+# == Schema Information
 # Schema version: 123
 #
 # Table name: protocol_versions

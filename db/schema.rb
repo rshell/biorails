@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 229) do
+ActiveRecord::Schema.define(:version => 233) do
 
   create_table "assets", :force => true do |t|
     t.column "project_id",       :integer
@@ -642,6 +642,77 @@ ActiveRecord::Schema.define(:version => 229) do
     t.column "num_unique",          :integer, :limit => 20, :default => 0, :null => false
     t.column "max_values",          :float
     t.column "min_values",          :float
+  end
+
+  create_table "project_assets", :force => true do |t|
+    t.column "project_id",       :integer
+    t.column "parent_id",        :integer
+    t.column "title",            :string
+    t.column "content_type",     :string
+    t.column "filename",         :string
+    t.column "size",             :integer
+    t.column "thumbnail",        :string
+    t.column "width",            :integer
+    t.column "height",           :integer
+    t.column "thumbnails_count", :integer,                :default => 0
+    t.column "lock_version",     :integer,                :default => 0,     :null => false
+    t.column "created_by",       :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",       :datetime,                                  :null => false
+    t.column "updated_by",       :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",       :datetime,                                  :null => false
+  end
+
+  create_table "project_contents", :force => true do |t|
+    t.column "project_id",     :integer
+    t.column "name",           :string
+    t.column "title",          :string
+    t.column "excerpt",        :text
+    t.column "body",           :text
+    t.column "excerpt_html",   :text
+    t.column "body_html",      :text
+    t.column "type",           :string,   :limit => 20
+    t.column "author_ip",      :string,   :limit => 100
+    t.column "comments_count", :integer,                 :default => 0
+    t.column "comment_age",    :integer,                 :default => 0
+    t.column "approved",       :boolean,                 :default => false
+    t.column "lock_version",   :integer,                 :default => 0,     :null => false
+    t.column "created_by",     :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "created_at",     :datetime,                                   :null => false
+    t.column "updated_by",     :string,   :limit => 32,  :default => "sys", :null => false
+    t.column "updated_at",     :datetime,                                   :null => false
+    t.column "published_by",   :string
+    t.column "published_at",   :datetime
+  end
+
+  create_table "project_elements", :force => true do |t|
+    t.column "type",              :string,  :limit => 20
+    t.column "project_id",        :integer,                              :null => false
+    t.column "project_folder_id", :integer,                              :null => false
+    t.column "position",          :integer,               :default => 1
+    t.column "reference_id",      :integer,                              :null => false
+    t.column "reference_type",    :string,  :limit => 20
+  end
+
+  create_table "project_folders", :force => true do |t|
+    t.column "project_id",     :integer,                                   :null => false
+    t.column "parent_id",      :integer
+    t.column "folder_type",    :string,   :limit => 20
+    t.column "position",       :integer,                :default => 1
+    t.column "name",           :string,                 :default => "",    :null => false
+    t.column "description",    :string
+    t.column "reference_id",   :integer
+    t.column "reference_type", :string,   :limit => 20
+    t.column "path",           :string,                 :default => "",    :null => false
+    t.column "layout",         :string
+    t.column "template",       :string
+    t.column "element_count",  :integer,                :default => 0
+    t.column "lock_version",   :integer,                :default => 0,     :null => false
+    t.column "created_by",     :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",     :datetime,                                  :null => false
+    t.column "updated_by",     :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",     :datetime,                                  :null => false
+    t.column "published_at",   :datetime
+    t.column "published_by",   :string
   end
 
   create_table "projects", :force => true do |t|

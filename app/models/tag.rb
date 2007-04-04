@@ -1,3 +1,12 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: tags
+#
+#  id   :integer(11)   not null, primary key
+#  name :string(255)   
+#
+
 class Tag < ActiveRecord::Base
   @@tag_parse_regex = /((?: |)['"]{0,1})['"]?\s*(.*?)\s*(?:[,'"]|$)(?:\1(?: |$))/
   has_many :taggings

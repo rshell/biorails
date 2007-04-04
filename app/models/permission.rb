@@ -1,3 +1,14 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: permissions
+#
+#  id      :integer(11)   not null, primary key
+#  checked :boolean(1)    not null
+#  subject :string(255)   default(), not null
+#  action  :string(255)   default(), not null
+#
+
 class Permission < ActiveRecord::Base
 
   def Permission.rebuild

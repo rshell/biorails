@@ -1,3 +1,27 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: users
+#
+#  id               :integer(11)   not null, primary key
+#  name             :string(255)   default(), not null
+#  password_hash    :string(40)    
+#  password_salt    :string(255)   
+#  role_id          :integer(11)   
+#  fullname         :string(255)   
+#  email            :string(255)   
+#  activation_code  :string(40)    
+#  state_id         :integer(11)   
+#  activated_at     :datetime      
+#  token            :string(255)   
+#  token_expires_at :datetime      
+#  filter           :string(255)   
+#  admin            :boolean(1)    
+#  created_at       :datetime      
+#  updated_at       :datetime      
+#  deleted_at       :datetime      
+#
+
 require 'digest/sha1'
 
 ##
@@ -8,17 +32,16 @@ class User < ActiveRecord::Base
 
 
   attr_accessor :password
-  attr_accessor :confirm_password
 ##
 # Business Rules for a user
 # 
   validates_presence_of :name
   validates_length_of   :name,    :within => 3..40
   validates_format_of   :name, :with => /^[a-z0-9_\-@\.]+$/i
-  validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-  validates_uniqueness_of :name, :email, :case_sensitve => false
+#  validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  validates_uniqueness_of :name, :case_sensitve => false
   validates_length_of   :password, :in => 4..12, :allow_nil => true
-  validates_confirmation_of :password, :allow_nil => true
+
 
   before_save :encrypt_password
 ##
@@ -32,15 +55,15 @@ class User < ActiveRecord::Base
 ##
 # Users are linked into the system as a the owner of a number of record types
 # 
-  has_many :tasks
-  has_many :requests
-  has_many :articles
-  has_many :files  
+  has_many :tasks ,   :class_name=>'Task',           :foreign_key=> 'assigned_to'
+  has_many :requests ,:class_name=>'Request',        :foreign_key=> 'requested_by'
+  has_many :articles, :class_name=>'ProjectContent', :foreign_key=> 'created_by'
+  has_many :files,    :class_name=>'ProjectAsset',   :foreign_key=> 'created_by'  
 ##
 # User a linked into projects
 #   
-  has_many   :projects, :through=>:membership,:order => 'name' 
-  has_many   :members, :class_name => 'Membership', :include => [ :project, :role ], :dependent => :delete_all
+  has_many   :projects, :through=>:memberships, :order => 'name' 
+  has_many   :memberships, :include => [ :project, :role ], :dependent => :delete_all
 
 #  acts_as_paranoid
 ##
@@ -63,17 +86,25 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Encrypts some data with the salt.
-  def self.encrypt(password, salt)
-    Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+##
+# Create a new Project owned by this user
+# 
+  def create_project(name)
+     Project.transaction do 
+       project = Project.new(:name=>name)
+       project.summary = "New Project #{name} created by user #{self.name}"
+       project.save     
+       project.owner = self
+       return project
+     end
   end
-
 ##
 # reset the username for this user
 #  
    def username=(new_user)
      if (new_user!=self.name)
         self.name = new_user
+        self.login = new_user
         self.password_salt = self.username + rand.to_s
         self.password_hash = Digest::SHA1.hexdigest(self.password_salt.to_s +  self.password.to_s).to_s
     end     
@@ -86,19 +117,14 @@ class User < ActiveRecord::Base
    end
 
 ##
-#
-   def set_password(value)
-      self.password = value.to_s
-      self.password_salt = self.name.to_s + rand.to_s
-      self.password_hash = Digest::SHA1.hexdigest(self.password_salt + self.password.to_s).to_s
-   end
-
-
-   def test_password(value)
-      return self.password_hash == Digest::SHA1.hexdigest(self.password_salt.to_s + value.to_s).to_s
-   end
-  
-  
+# reset the password for the user
+   def reset_password( old_value, new_value )
+      if authenticated?(old_value)
+        password         = new_value
+        confirm_password = new_value
+        encrypt_password
+      end
+   end  
 ###
 # Get the lastest n record of a type linked to this user   
 # 
@@ -121,75 +147,40 @@ class User < ActiveRecord::Base
 ##
 # get the role for the user in a role
 #  
-  def members_role(project)
-    members.detect{|member|member.project==project} 
+  def membership(project)
+    Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
   end	
  
 ##
 # Test in the user is authorized for a subject and action in a project
 #  	
-  def authorized(project,subject,action)
-      if project.owner_id == self.id
-      return true # Your project so free to do anything
-    end
-    membership = User.member_role(project)
+  def authorized?(project,subject,action)
+    membership = membership(project)
     if membership.nil?
-      return false # Not a member
-    end    
-    membership.allows?(subject,action) # what you allowed to do
+       return self.admin  # Your not a member
+    else
+       return membership.allow?(subject,action)
+    end
   end 	
 
 ##
-# Test the account is authenticated. This will use a defined authentication system. no drop through to
-# simple password hash it none is defined
-   def valid?
-     if authentication 
-       return authentication.validate(user)
-     else
-       return test_password(self.password)
-     end
-   end
-   
-
-  # Encrypts the password with the user salt
-  def encrypt(password)
-    self.class.encrypt(password, password_salt)
-  end
-
+# Test if the password is correct
+# 
   def authenticated?(password)
-    crypted_password == encrypt(password)
+     password_hash == encrypt(password)
   end
 
-  def token?
-    token_expires_at && Time.now.utc < token_expires_at 
-  end
-
-  # The project admin property is brought in from memberships.admin, when joined with the project table.
-  def project_admin?
-    ActiveRecord::ConnectionAdapters::Column.value_to_boolean read_attribute(:project_admin)
-  end
-
-  def reset_token!
-    returning self.token = rand_key do |t|
-      self.token_expires_at = 2.weeks.from_now.utc
-      save!
-    end
-  end
-
-  def to_liquid
-    UserDrop.new self
-  end
 
   protected
 
+    # Encrypts the password with the user salt
+    def encrypt(password)
+      Digest::SHA1.hexdigest("--#{self.password_salt}--#{password}--")
+    end
+
     def encrypt_password
-      return if password.blank?
       self.password_salt = rand_key if new_record?
       self.password_hash = encrypt(password)
-    end
-    
-    def password_required?
-      crypted_password.nil? || !password.blank?
     end
     
     def rand_key

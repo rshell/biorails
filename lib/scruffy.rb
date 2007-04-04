@@ -32,7 +32,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
   
 require 'rubygems'
-require_gem 'builder', '>= 2.0'
+require 'builder', '>= 2.0'
 
 require 'scruffy/helpers'
 require 'scruffy/graph'

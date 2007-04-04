@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: data_concepts
+#
+#  id                :integer(11)   not null, primary key
+#  parent_id         :integer(11)   
+#  name              :string(50)    default(), not null
+#  data_context_id   :integer(11)   default(1), not null
+#  description       :text          
+#  access_control_id :integer(11)   
+#  lock_version      :integer(11)   default(0), not null
+#  created_by        :string(32)    default(sys), not null
+#  created_at        :datetime      not null
+#  updated_by        :string(32)    default(sys), not null
+#  updated_at        :datetime      not null
+#  type              :string(255)   default(DataConcept), not null
+#
+
 
 ##
 # Specific type for root of a conceptual space a Context.

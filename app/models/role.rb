@@ -1,9 +1,9 @@
 # == Schema Information
-# Schema version: 123
+# Schema version: 233
 #
 # Table name: roles
 #
-#  id              :integer(11)   not null, primary keyreflection
+#  id              :integer(11)   not null, primary key
 #  name            :string(255)   default(), not null
 #  parent_id       :integer(11)   
 #  description     :string(1024)  default(), not null

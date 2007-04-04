@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 123
+# Schema version: 233
 #
 # Table name: queue_items
 #
@@ -7,7 +7,6 @@
 #  name               :string(255)   
 #  comments           :text          
 #  study_queue_id     :integer(11)   
-#  study_protocol_id  :integer(11)   
 #  experiment_id      :integer(11)   
 #  task_id            :integer(11)   
 #  study_parameter_id :integer(11)   

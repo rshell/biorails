@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 123
+# Schema version: 233
 #
 # Table name: reports
 #
@@ -13,6 +13,7 @@
 #  created_at   :datetime      not null
 #  updated_by   :string(32)    default(), not null
 #  updated_at   :datetime      not null
+#  type         :string(255)   default(Report)
 #
 
 ##

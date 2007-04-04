@@ -28,9 +28,10 @@ ActionController::Routing::Routes.draw do |map|
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
 
   map.project 'app/project/:action/:id', :controller => 'project/projects'
-  map.section 'app/folder/:action/:id', :controller => 'project/sections'
+  map.section 'app/folder/:action/:id', :controller => 'project/folders'
+  map.folder  'app/folder/:action/:id', :controller => 'project/folders'
   map.article 'app/doc/:action/:id', :controller => 'project/articles'
-  map.asset 'app/file/:action/:id', :controller => 'project/assets'
+  map.asset   'app/file/:action/:id', :controller => 'project/assets'
   map.comment 'app/comment/:action/:id', :controller => 'project/comments'
   
   map.study     'app/study/:id/:action', :controller => 'study/studies'

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 123
+# Schema version: 233
 #
 # Table name: report_columns
 #
@@ -26,6 +26,7 @@
 #  created_at       :datetime      not null
 #  updated_by       :string(32)    default(), not null
 #  updated_at       :datetime      not null
+#  join_name        :string(255)   
 #
 
 ##

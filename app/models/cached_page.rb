@@ -1,3 +1,16 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: cached_pages
+#
+#  id         :integer(11)   not null, primary key
+#  url        :string(255)   
+#  references :text          
+#  updated_at :datetime      
+#  project_id :integer(11)   
+#  cleared_at :datetime      
+#
+
 # Represents a cached page in the database.  Has one or more references that expire it.
 # Sample schema:
 # 

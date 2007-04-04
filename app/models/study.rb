@@ -1,4 +1,22 @@
 # == Schema Information
+# Schema version: 233
+#
+# Table name: studies
+#
+#  id            :integer(11)   not null, primary key
+#  name          :string(128)   default(), not null
+#  description   :text          
+#  category_id   :integer(11)   
+#  research_area :string(255)   
+#  purpose       :string(255)   
+#  lock_version  :integer(11)   default(0), not null
+#  created_by    :string(32)    default(), not null
+#  created_at    :datetime      not null
+#  updated_by    :string(32)    default(), not null
+#  updated_at    :datetime      not null
+#
+
+# == Schema Information
 # Schema version: 123
 #
 # Table name: studies

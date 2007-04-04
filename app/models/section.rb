@@ -1,3 +1,29 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: sections
+#
+#  id                  :integer(11)   not null, primary key
+#  name                :string(255)   
+#  show_paged_articles :boolean(1)    
+#  articles_per_page   :integer(11)   default(15)
+#  layout              :string(255)   
+#  template            :string(255)   
+#  project_id          :integer(11)   
+#  path                :string(255)   
+#  articles_count      :integer(11)   default(0)
+#  archive_path        :string(255)   
+#  archive_template    :string(255)   
+#  position            :integer(11)   default(1)
+#  parent_id           :integer(11)   
+#  desciption          :text          
+#  lock_version        :integer(11)   default(0), not null
+#  created_by          :string(32)    default(), not null
+#  created_at          :datetime      not null
+#  updated_by          :string(32)    default(), not null
+#  updated_at          :datetime      not null
+#
+
 class Section < ActiveRecord::Base
   ARTICLES_COUNT_SQL = 'INNER JOIN assigned_sections ON contents.id = assigned_sections.article_id INNER JOIN sections ON sections.id = assigned_sections.section_id'.freeze unless defined?(ARTICLES_COUNT)
 

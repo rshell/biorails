@@ -1,3 +1,18 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: user_settings
+#
+#  id          :integer(11)   not null, primary key
+#  name        :string(30)    default(), not null
+#  description :string(255)   default(), not null
+#  value       :string(255)   default(0), not null
+#  created_by  :string(32)    default(sys), not null
+#  created_at  :datetime      not null
+#  updated_by  :string(32)    default(sys), not null
+#  updated_at  :datetime      not null
+#
+
 class UserSettings < ActiveRecord::Base
 
   cattr_accessor :defaults

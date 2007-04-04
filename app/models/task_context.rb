@@ -1,4 +1,19 @@
 # == Schema Information
+# Schema version: 233
+#
+# Table name: task_contexts
+#
+#  id                   :integer(11)   not null, primary key
+#  task_id              :integer(11)   
+#  parameter_context_id :integer(11)   
+#  label                :string(255)   
+#  is_valid             :boolean(1)    
+#  row_no               :integer(11)   not null
+#  parent_id            :integer(11)   
+#  sequence_no          :integer(11)   not null
+#
+
+# == Schema Information
 # Schema version: 123
 #
 # Table name: task_contexts

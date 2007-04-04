@@ -1,12 +1,12 @@
 # == Schema Information
-# Schema version: 123
+# Schema version: 233
 #
 # Table name: data_concepts
 #
 #  id                :integer(11)   not null, primary key
 #  parent_id         :integer(11)   
 #  name              :string(50)    default(), not null
-#  data_context_id   :integer(11)   default(0), not null
+#  data_context_id   :integer(11)   default(1), not null
 #  description       :text          
 #  access_control_id :integer(11)   
 #  lock_version      :integer(11)   default(0), not null
