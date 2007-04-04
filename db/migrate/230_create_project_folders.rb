@@ -1,25 +1,25 @@
 class CreateProjectFolders < ActiveRecord::Migration
   def self.up
     create_table :project_folders do |t|
-      t.column "project_id",          :integer, :null => false
       t.column "parent_id",           :integer
-      t.column "folder_type",         :string,  :limit => 20
+      t.column "project_id",          :integer, :null => false
+      t.column "type",                :string,  :default=>'ProjectElement',  :limit => 32
       t.column "position",            :integer, :default => 1
       t.column "name",                :string,  :null => false
-      t.column "description",         :string
+      t.column "path",                :string,  :null => false
       t.column "reference_id",        :integer, :null => false
       t.column "reference_type",      :string,  :limit => 20
-      t.column "path",                :string,  :null => false
-      t.column "layout",              :string
-      t.column "template",            :string
-      t.column "element_count",       :integer, :default => 0
-      t.column "lock_version",        :integer,                :default => 0,             :null => false
-      t.column "created_by",          :string,   :limit => 32, :default => "sys",         :null => false
-      t.column "created_at",          :datetime,                                          :null => false
-      t.column "updated_by",          :string,   :limit => 32, :default => "sys",         :null => false
-      t.column "updated_at",          :datetime,                                          :null => false
+      t.column "published",           :boolean, :default => false
+      t.column "content_hash",        :string
+      t.column "lock_timeout",        :datetime
+      t.column "lock_user_id",        :integer 
+      t.column "lock_version",        :integer,   :default => 0,         :null => false
+      t.column "created_by",          :integer,   :default => 1,         :null => false
+      t.column "created_at",          :datetime,                         :null => false
+      t.column "updated_by",          :integer,   :default => 1,         :null => false
+      t.column "updated_at",          :datetime,                         :null => false
       t.column "published_at",        :datetime
-      t.column "published_by",        :string
+      t.column "published_by",        :integer
     end
   end
 

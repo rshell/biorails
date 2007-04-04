@@ -77,7 +77,7 @@ class Project < ActiveRecord::Base
 
     def home
       ProjectFolder.find(:first,
-           :conditions=>["project_id= ? and refererence_id=? and project_folders.reference_type='Project'",proxy_owner.id,proxy_owner.id])
+           :conditions=>["project_id= ? and reference_id=? and reference_type='Project'",proxy_owner.id,proxy_owner.id])
     end
 ##
 # Get folder for notes associated with a object

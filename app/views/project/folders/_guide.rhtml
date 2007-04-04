@@ -1,0 +1,17 @@
+<h2><%=l(:Folder)%></h2>
+<div class="panel">
+    <p>Unstructured data in the project is divided up into a number of section. Each section may work as a folder, 
+    blog or a component document. </p>
+</div>
+<ul>
+ <li> <%= link_to_remote 'New Folder',:url =>folder_url( :action => 'new',           :id => folder.id ), :updates => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Upload',    :url =>folder_url( :action => 'upload',        :id => folder.id ), :updates => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Reference', :url =>folder_url( :action => 'rec_selector',  :id => folder.id ), :updates => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Images',    :url =>folder_url( :action => 'image_selector',:id => folder.id ), :updates => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Clipboard', :url =>folder_url( :action => 'clipboard',     :id => folder.id ), :updates => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Article',   :url =>folder_url( :action => 'new_article',   :id => folder.id ), :updates => "folder_actions" %> </li>
+</ul>
+
+<div class='panel' id='folder_actions'>
+    <%= render :partial => 'upload',:locals=>{:folder=>folder} %>   
+</div>

@@ -1,0 +1,25 @@
+<table class="list">
+  <thead>
+    <tr>
+        <th><%=l(:section) %></th>
+    	<th><%=l(:type)%></th>
+    	<th><%=l(:published)%></th>
+    	<th><%=l(:created) %></th>
+    	<th><%=l(:updated) %></th>
+    </tr>
+    </thead>
+  <tbody>  
+    <% for item in folder.elements %>
+      <tr class="<%= cycle('odd', 'even') %>">
+    	<td><%= link_to item.name, folder_url( :action => 'show', :id => item) %></td>
+    	<td><%=h item['reference_type'] %></td>
+    	<td><%=(item.published ? 'Y' : 'N') %>
+    	<td align="center"><%= short_date(item.created_at) %></td>
+    	<td align="center"><%= short_date(item.updated_at) %></td>
+        <td align="center"><%= link_to l(:delete),  folder_url( :action => 'destroy', :id => item ), :class => "button" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

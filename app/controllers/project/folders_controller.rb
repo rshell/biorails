@@ -1,4 +1,4 @@
-class ProjectFoldersController < ApplicationController
+class Project::FoldersController < ApplicationController
   def index
     list
     render :action => 'list'
@@ -8,8 +8,12 @@ class ProjectFoldersController < ApplicationController
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
+##
+# List of elements in the route home folder
+# 
   def list
     @project = current_project
+    @project_folder = @project.folders.home
   end
 
   def show
