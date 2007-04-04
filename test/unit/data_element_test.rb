@@ -11,28 +11,23 @@ class DataElementsTest < Test::Unit::TestCase
     assert true
   end
   
-  def test_VodelElement
-     cmpd = DataElement.find(1)
-     assert cmpd.model == Compound
-     assert cmpd.size > 0
-     assert cmpd.values.size = cmpd.size
-     assert cmpd.choices = cmpd.size     
+  def test_ModelElement
+     cmpd = ModelElement.find(:first)
+     assert_not_nil cmpd
+     assert cmpd.model == Compound, "cmpd.model=#{cmpd.model}"
+#     assert cmpd.values.size > 0,"has values "
   end
 
   def test_SqlElement
-     cmpd = DataElement.find(2)
-     assert cmpd.model == Compound
-     assert cmpd.size > 0
-     assert cmpd.values.size = cmpd.size
-     assert cmpd.choices = cmpd.size     
+     cmpd = SqlElement.find(:first)
+     assert_not_nil cmpd
+ #    assert  cmpd.values.size > 0  ,"has values "
   end
 
   def test_ViewElement
-     cmpd = DataElement.find(10)
-     assert cmpd.model == DataValue
-     assert cmpd.size > 0
-     assert cmpd.values.size = cmpd.size
-     assert cmpd.choices = cmpd.size     
+     cmpd = ViewElement.find(:first)
+     assert_not_nil cmpd
+#     assert  cmpd.values.size ,"has values "
   end
   
   

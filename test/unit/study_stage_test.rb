@@ -3,9 +3,9 @@ require File.dirname(__FILE__) + '/../test_helper'
 class StudyStageTest < Test::Unit::TestCase
   fixtures :study_stages
 
-	NEW_STUDY_STAGE = {}	# e.g. {:name => 'Test StudyStage', :description => 'Dummy'}
-	REQ_ATTR_NAMES 			 = %w( ) # name of fields that must be present, e.g. %(name description)
-	DUPLICATE_ATTR_NAMES = %w( ) # name of fields that cannot be a duplicate, e.g. %(name description)
+	NEW_STUDY_STAGE =  {:name => 'Test StudyStage', :description => 'Dummy'}
+	REQ_ATTR_NAMES 			 = %w(name) # name of fields that must be present, e.g. %(name description)
+	DUPLICATE_ATTR_NAMES = %w(name) # name of fields that cannot be a duplicate, e.g. %(name description)
 
   def setup
     # Retrieve fixtures via their name
@@ -42,7 +42,7 @@ class StudyStageTest < Test::Unit::TestCase
  	end
 
 	def test_duplicate
-    current_study_stage = StudyStage.find_first
+    current_study_stage = StudyStage.find(:first)
    	DUPLICATE_ATTR_NAMES.each do |attr_name|
    		study_stage = StudyStage.new(NEW_STUDY_STAGE.merge(attr_name.to_sym => current_study_stage[attr_name]))
 			assert !study_stage.valid?, "StudyStage should be invalid, as @#{attr_name} is a duplicate"

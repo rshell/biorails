@@ -1,3 +1,26 @@
+# == Schema Information
+# Schema version: 233
+#
+# Table name: data_elements
+#
+#  id                :integer(11)   not null, primary key
+#  name              :string(50)    default(), not null
+#  description       :text          
+#  data_system_id    :integer(11)   not null
+#  data_concept_id   :integer(11)   not null
+#  access_control_id :integer(11)   
+#  lock_version      :integer(11)   default(0), not null
+#  created_by        :string(32)    default(sys), not null
+#  created_at        :datetime      not null
+#  updated_by        :string(32)    default(sys), not null
+#  updated_at        :datetime      not null
+#  parent_id         :integer(10)   
+#  style             :string(10)    default(), not null
+#  content           :text          default(), not null
+#  estimated_count   :integer(11)   
+#  type              :string(255)   
+#
+
 --- 
 data_elements_025: 
   name: Progresssion

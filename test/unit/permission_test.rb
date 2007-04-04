@@ -8,14 +8,5 @@ class PermissionTest < Test::Unit::TestCase
     assert true
   end
   
-  def test_rebuild
-     assert_not_nil Permission.locate('studies','show')
-  end
-  
-  def test_rebuild
-     Permission.rebuild
-     assert_not_nil Permission.locate('studies','show')
-  end
-
 
 end

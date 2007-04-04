@@ -15,7 +15,7 @@ class DataSystemsTest < Test::Unit::TestCase
 
   # Replace this with your real tests.
   def test_new
-    assert truth
+    assert true
 #    data_system = DataSystem.new(NEW_DATA_SYSTEM)
 #    assert_kind_of DataSystem, data_system
 #    assert data_system.valid?, "DataSystem should be valid"

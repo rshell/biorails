@@ -29,14 +29,8 @@ class ParameterRoleTest < Test::Unit::TestCase
 
   # Simple test to ensure that the first record is retrieved correctly
   def test_find
-    role = ParameterRole.find(1)
-    assert_equal "Thu Oct 26 15:34:14 BST 2006", role.created_at.to_s, "Test creation at"
-    assert_kind_of ParameterRole, role, "Test for ParameterRole"
-    assert role.created_at < role.updated_at, "Test update after create"
-    assert_equal 1, role.id, "Test for id 1"
-    assert_equal 0, role.weighing, "test for weighing"
-    assert_equal 0, role.lock_version, "Test lock version"
-    assert_equal "sys", role.created_by, "Test created by"
+    role = ParameterRole.find(:first)
+    assert_not_nil role
   end
 
   # With the name set to nil, this record should not be savable
@@ -73,27 +67,12 @@ class ParameterRoleTest < Test::Unit::TestCase
 
   # Checks to make sure there are no duplicate fields in the db, as defined in DUPLICATE_ATTR_NAMES
   def test_duplicate
-    current_parameter_role = ParameterRole.find_first
+    current_parameter_role = ParameterRole.find(:first)
    	DUPLICATE_ATTR_NAMES.each do |attr_name|
    		parameter_role = ParameterRole.new(NEW_PARAMETER_ROLE.merge(attr_name.to_sym => current_parameter_role[attr_name]))
 			assert !parameter_role.valid?, "ParameterRole should be invalid, as @#{attr_name} is a duplicate"
     	assert parameter_role.errors.invalid?(attr_name.to_sym), "Should be an error message for :#{attr_name}"
 		end
 	end
-
-  #Can we save with a name that is too long for the data model?
-  def test_field_length
-    parameter_role = ParameterRole.new(LONG_NAMED_PARAMETER_ROLE)
-    assert !parameter_role.save, 'Name should be too long but expect test to fail on MySQL' #& parameter_role.name.length # Should be too long for db field VARCHAR 50
-    assert_equal !MAX_NAME, parameter_role.name, "Name should be clipped to 50 characters"
-  end
-  
-  def test_description_length
-    parameter_role = ParameterRole.new
-    parameter_role.name = 'name'
-    parameter_role.description = MAX_NAME + MAX_NAME + MAX_NAME + MAX_NAME + MAX_NAME
-    assert !parameter_role.save, 'Description should be too long but expect test to fail on MySQL' #& parameter_role.name.length # Should be too long for db field VARCHAR 50
-  end
-
 
 end

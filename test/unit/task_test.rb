@@ -1,22 +1,31 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskTest < Test::Unit::TestCase
-#  fixtures :tasks
-
+  fixtures :projects
+  fixtures :studies
+  fixtures :study_protocols
+  fixtures :study_parameters
+  fixtures :protocol_versions
+  fixtures :parameters
+  fixtures :experiments
+  fixtures :experiments
+  fixtures :tasks
+  fixtures :task_contexts
+  fixtures :task_values
+  fixtures :task_texts
+ 
   # Replace this with your real tests.
-  def test_truth
+  def test000_truth
     assert true
   end
-  
-  
-  def test_status
-    task = Task.find(:first)
+
+  def test001_status
+    task = Task.new(:name=>'test')
     task.status_id = nil
-    puts task.current_state
     assert task.current_state =='undefined'
 
     task.current_state = CurrentStatus::NEW
-    assert task.status_id==CurrentStatus::NEW
+    assert task.status_id==CurrentStatus::NEW 
     assert task.is_allowed_state(CurrentStatus::ACCEPTED)
     assert task.is_allowed_state(CurrentStatus::REJECTED)
     assert task.is_new
@@ -28,7 +37,6 @@ class TaskTest < Test::Unit::TestCase
 
     task.current_state = CurrentStatus::ACCEPTED
     assert task.status_id==CurrentStatus::ACCEPTED
-
     assert task.is_status(CurrentStatus::ACCEPTED)
     assert task.is_status('accepted')
     assert task.is_status([1,2,3])
@@ -57,7 +65,7 @@ class TaskTest < Test::Unit::TestCase
     assert task.is_allowed_state(CurrentStatus::ABORTED)
     assert task.is_allowed_state(CurrentStatus::VALIDATION)
     assert !task.is_allowed_state(CurrentStatus::REJECTED)  # can only abort now    
-   
+
      ## cant reset for accepted only active
     task.current_state = CurrentStatus::ACCEPTED
     assert task.status_id==CurrentStatus::PROCESSING
@@ -74,9 +82,6 @@ class TaskTest < Test::Unit::TestCase
     assert task.is_allowed_state(CurrentStatus::ABORTED)
 
     task.current_state = CurrentStatus::COMPLETED
-    puts task.current_state
-    puts task.status_id
-    puts task.allowed_status_list
     
     assert task.status_id==CurrentStatus::COMPLETED
     assert task.is_status(CurrentStatus::COMPLETED)

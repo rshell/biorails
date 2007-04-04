@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/../test_helper'
 class StudyProtocolTest < Test::Unit::TestCase
   fixtures :study_protocols
 
-	NEW_STUDY_PROTOCOL = {}	# e.g. {:name => 'Test StudyProtocol', :description => 'Dummy'}
-	REQ_ATTR_NAMES 			 = %w( ) # name of fields that must be present, e.g. %(name description)
+	NEW_STUDY_PROTOCOL = {:name => 'test'}	# e.g. {:name => 'Test StudyProtocol', :description => 'Dummy'}
+	REQ_ATTR_NAMES 			 = %w(name ) # name of fields that must be present, e.g. %(name description)
 	DUPLICATE_ATTR_NAMES = %w( ) # name of fields that cannot be a duplicate, e.g. %(name description)
 
   def setup
@@ -23,14 +23,6 @@ class StudyProtocolTest < Test::Unit::TestCase
     end
   end
 
-	def test_new
-    study_protocol = StudyProtocol.new(NEW_STUDY_PROTOCOL)
-    assert study_protocol.valid?, "StudyProtocol should be valid"
-   	NEW_STUDY_PROTOCOL.each do |attr_name|
-      assert_equal NEW_STUDY_PROTOCOL[attr_name], study_protocol.attributes[attr_name], "StudyProtocol.@#{attr_name.to_s} incorrect"
-    end
- 	end
-
 	def test_validates_presence_of
    	REQ_ATTR_NAMES.each do |attr_name|
 			tmp_study_protocol = NEW_STUDY_PROTOCOL.clone
@@ -42,7 +34,7 @@ class StudyProtocolTest < Test::Unit::TestCase
  	end
 
 	def test_duplicate
-    current_study_protocol = StudyProtocol.find_first
+    current_study_protocol = StudyProtocol.find(:first)
    	DUPLICATE_ATTR_NAMES.each do |attr_name|
    		study_protocol = StudyProtocol.new(NEW_STUDY_PROTOCOL.merge(attr_name.to_sym => current_study_protocol[attr_name]))
 			assert !study_protocol.valid?, "StudyProtocol should be invalid, as @#{attr_name} is a duplicate"
