@@ -1,0 +1,17 @@
+<%= image_tag(asset.public_filename(:large) ) if asset.image? %>
+<%= image_tag(asset.public_filename(:normal) ) if asset.image? %>
+<%= image_tag(asset.public_filename(:small)  ) if asset.image? %>
+<%= image_tag(asset.public_filename(:icon)   ) if asset.image? %>
+<ul>
+<li>title:<%=asset.title%> </li>
+<li>download: <%= link_to asset.public_filename, asset.public_filename%></li>
+<li>type:<%=asset.content_type%> </li>
+<li>bytes: <%=asset.size %>
+<% if asset.width %>
+(W x H) <%=asset.width%> x <%=asset.height%> 
+<%end %>
+</li>
+<li>signature:<%=asset.signature%> </li>
+<li>created:<%=asset.created_at%> <%=asset.created_by%> </li>
+<li>updated:<%=asset.updated_at%> <%=asset.updated_by%> </li>
+</ul>

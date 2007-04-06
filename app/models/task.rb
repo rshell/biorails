@@ -52,10 +52,6 @@ class Task < ActiveRecord::Base
 #   
   belongs_to :experiment
 ##
-# Status Values for a task
-# 
-  belongs_to :status 
-##
 # Current process
 #   
   belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
@@ -89,8 +85,7 @@ class Task < ActiveRecord::Base
  
  def accepted_at=(value)
   self.start_date = value
- end
- 
+ end 
 ##
 # Get summary stats to compare task with all runs in the process.
 # This is basically a set of TaskStatistics with added details on
@@ -123,7 +118,6 @@ class Task < ActiveRecord::Base
 SQL
    TaskStatistics.find_by_sql([sql,self.id])
  end
-
 ##
 #List of reports setup to run against this task
 #
@@ -137,9 +131,12 @@ SQL
     end
     return @reports
  end
- 
-
- 
+##
+# get the status if the request
+# 
+  def status
+    self.current_state
+  end   
 ##
 # Clear current date and work done and setup for 1 day from  now
 #  
@@ -184,7 +181,6 @@ SQL
    task.initial
    return task
  end
- 
 ##
 #  This created as hashed data structure of [task_context][parameter_id]
 #
@@ -201,7 +197,6 @@ SQL
       1.day
    end
  end
-
 ##
 # Fraction of work done  
 # 
@@ -212,7 +207,6 @@ SQL
      0
    end
  end
- 
 ##
 # Create a new Context
 # 
@@ -256,8 +250,6 @@ SQL
  def cell(row_no,column_no)
    return self.row(row_no).column(column_no)
  end
-
-
 ##
 # Export a data grid to cvs report
 # 
@@ -283,10 +275,8 @@ SQL
       logger.error ex.backtrace.join("\n")
       return ex.message
  end
-
 ##
 # Update all queue_items with where current task status value if they are acvtive
-# 
 # 
  def update_queued_items
    sql= <<SQL

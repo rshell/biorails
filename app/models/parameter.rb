@@ -29,36 +29,6 @@
 #  study_queue_id       :integer(11)   
 #
 
-# == Schema Information
-# Schema version: 123
-#
-# Table name: parameters
-#
-#  id                   :integer(11)   not null, primary key
-#  protocol_version_id  :integer(11)   
-#  parameter_type_id    :integer(11)   
-#  parameter_role_id    :integer(11)   
-#  parameter_context_id :integer(11)   
-#  column_no            :integer(11)   
-#  sequence_num         :integer(11)   
-#  name                 :string(62)    
-#  description          :string(62)    
-#  display_unit         :string(20)    
-#  data_element_id      :integer(11)   
-#  qualifier_style      :string(1)     
-#  access_control_id    :integer(11)   default(0), not null
-#  lock_version         :integer(11)   default(0), not null
-#  created_by           :string(32)    default(), not null
-#  created_at           :datetime      not null
-#  updated_by           :string(32)    default(), not null
-#  updated_at           :datetime      not null
-#  mandatory            :string(255)   default(N)
-#  default_value        :string(255)   
-#  data_type_id         :integer(11)   
-#  data_format_id       :integer(11)   
-#  study_parameter_id   :integer(11)   
-#
-
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights

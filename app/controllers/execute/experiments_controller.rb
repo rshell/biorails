@@ -23,7 +23,7 @@ class Execute::ExperimentsController < ApplicationController
 # list all the experiments 
 # 
   def list
-    @study = current( Study, params[:id] )
+    @study = current( Study, params[:id]  )
     @experiment_pages, @experiments = paginate :experiments, :per_page => 10
   end
 

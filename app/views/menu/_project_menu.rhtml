@@ -7,8 +7,7 @@
 	<%= link_to l(:studies),  project_url( :action => 'studies', :id => current_project) %>
 	<%= link_to l(:experiments), project_url( :action => 'experiments', :id => current_project) %>
 	<%= link_to l(:reports), project_url( :action => 'reports', :id => current_project) %>
-	<%= link_to l(:folders), project_url( :action => 'folders', :id => current_project) %>
-	<%= link_to l(:files),   project_url(:action => 'files', :id => current_project) %>
+	<%= link_to l(:folders), folder_url( :action => 'list', :project_id => current_project) %>
 	<%= link_to l(:members),   project_url(:action => 'members', :id => current_project) %>
 </div>
 <% end %>

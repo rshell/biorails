@@ -54,5 +54,16 @@ class ProjectContent < ActiveRecord::Base
       
   end
   
-       
+##
+# calculate the signature of a record and return the result.
+# This is a MD5 checksum of the current fields in the record
+# 
+  def signature(fields =  nil )
+     fields ||= attributes.keys
+     keys = attributes.keys - ['content_hash']
+     data = keys.collect{|key| "#{key}:#{attributes[key]}"}.join(',')
+     Digest::MD5.hexdigest(data )
+  end
+  
+         
 end

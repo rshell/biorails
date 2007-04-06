@@ -1,6 +1,9 @@
 class Admin::UsersController < ApplicationController
   check_permissions << 'show' << 'update' << 'new' << 'destroy' << 'list'
 
+ ##
+ # List all the users on the systems. Currently not paginated 
+ #
   def index
     @users = User.find(:all)
   end
@@ -8,11 +11,17 @@ class Admin::UsersController < ApplicationController
   def list 
     index
   end
-  
+ 
+ ##
+ # put up a new default user account form 
+ #
   def new
     @user  = User.new
   end
 
+  ##
+  # create a  user based on a set of hash of attibutes in param[:user]
+  #
   def create
     @user = User.new params[:user]
     @user.save!
@@ -42,13 +51,7 @@ class Admin::UsersController < ApplicationController
     @user.deleted_at = nil
     @user.save!
   end
-  
-  def admin
-    @membership = Membership.find_or_initialize_by_site_id_and_user_id(site.id, @user.id)
-    @membership.admin = !@membership.admin?
-    @membership.save!
-  end
-  
+    
   protected
 
     

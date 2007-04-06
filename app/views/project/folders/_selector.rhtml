@@ -1,0 +1,18 @@
+<h2><%=l(:Select)%></h2>
+<div class="panel">
+  <p> Selector for other folder elements </p>
+  <% form_tag :action => 'finder' do %>
+      <%= text_field :query, :text ,:size =>20 %>
+      <%= observe_field( :query_text, :frequency => 1.0, 
+           :update => "query_hitlist", :url => folder_url( :action => 'select' ) ) %>
+  <% end %>
+ <ul>
+  <li>Project</li>
+  <li>Studies</li>
+  <li>Experiments</li>
+  <li>Tasks</li>
+  <li>Reports</li>
+  <li>Articles</li>
+  <li>Assets</li>
+ </ul>
+</div>

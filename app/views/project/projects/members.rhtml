@@ -15,12 +15,12 @@
   
 <% for item in @projects.members %>
   <tr class="<%= cycle('odd', 'even') %>">
-	<td><%= link_to item.name, section_url( :action => 'show', :id => item) %>
+	<td><%= link_to item.name, folder_url( :action => 'show', :id => item) %>
 	<td><%=h item.path %>
 	<td align="center"><%= short_date(item.created_at) %>
 	<td align="center"><%= short_date(item.updated_at) %>
   <td align="center">
-    <%= button_to l(:button_delete),  section_url( :action => 'destroy', :id => item ), :class => "button-small" %>
+    <%= button_to l(:button_delete),  folder_url( :action => 'destroy', :id => item ), :class => "button-small" %>
   </td>
   </tr>
 <% end %>
@@ -41,6 +41,6 @@ document.
 </p>
 </div>
 <ul>
-  <li> <%= link_to 'New', section_url( :action => 'new',:project_id=>@project.id ) %> </li>
+  <li> <%= link_to 'New', folder_url( :action => 'new',:project_id=>@project.id ) %> </li>
 </ul>
 <% end %>

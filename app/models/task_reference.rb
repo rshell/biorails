@@ -17,27 +17,6 @@
 #  updated_at      :datetime      not null
 #  task_id         :integer(11)   
 #
-
-# == Schema Information
-# Schema version: 123
-#
-# Table name: task_references
-#
-#  id              :integer(11)   not null, primary key
-#  task_context_id :integer(11)   
-#  parameter_id    :integer(11)   
-#  data_element_id :integer(11)   
-#  data_type       :string(255)   
-#  data_id         :integer(11)   
-#  data_name       :string(255)   
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  task_id         :integer(11)   
-#
-
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights

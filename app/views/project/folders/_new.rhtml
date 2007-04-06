@@ -1,0 +1,12 @@
+<h2>New Folder</h2>
+<!--[form:project_folder]-->
+
+<% form_remote_tag :url => folder_url(:parent_id=>@parent, :action => 'create'), :update=>:centre do %>
+    <%= render :partial => 'form' %>   
+    <%= submit_tag "Create" %>
+<% end %>
+
+<%= error_messages_for 'project_folder' %>
+
+<!--[eoform:project_folder]-->
+

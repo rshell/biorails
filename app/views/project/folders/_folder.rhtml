@@ -1,19 +1,36 @@
+ <%= error_messages_for :project_folder %>
+<br/>
+<h2>
+Folder Path: 
+<%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
+<%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
+</h2>
 <table class="list">
   <thead>
     <tr>
         <th><%=l(:section) %></th>
-    	<th><%=l(:type)%></th>
-    	<th><%=l(:published)%></th>
+    	<th><%=l(:defaults)%></th>
     	<th><%=l(:created) %></th>
     	<th><%=l(:updated) %></th>
+    	<th><%=l(:action) %></th>
     </tr>
     </thead>
   <tbody>  
-    <% for item in folder.elements %>
+    <% for item in folder.children %>
       <tr class="<%= cycle('odd', 'even') %>">
-    	<td><%= link_to item.name, folder_url( :action => 'show', :id => item) %></td>
-    	<td><%=h item['reference_type'] %></td>
-    	<td><%=(item.published ? 'Y' : 'N') %>
+    	<td><%=subject_icon(item.style) %><%= link_to item.name, element_to_url(item) %></td>
+          
+    	<td>
+    	<% if item.asset? %>
+    	  <%= image_tag(item.asset.public_filename(:icon)) if item.asset.image?%>
+    	  <%= item.asset.size %> <%=item.asset.content_type %> 
+    	  <% if item.asset.width %>
+            (W x H) <%=item.asset.width%> x <%=item.asset.height%> 
+          <%end %>
+    	<% else %>
+    	  <%=item.path%>  
+    	<% end %>
+    	</td>
     	<td align="center"><%= short_date(item.created_at) %></td>
     	<td align="center"><%= short_date(item.updated_at) %></td>
         <td align="center"><%= link_to l(:delete),  folder_url( :action => 'destroy', :id => item ), :class => "button" %></td>

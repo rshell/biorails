@@ -25,7 +25,11 @@ class DataType < ActiveRecord::Base
 # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
-  
+##
+#  In usage a DataType has a collection of DataFormat models which are used
+#  to govern data entry. This is basically a managment library of regex masks
+#  to in other forms.
+#  
   has_many :data_formats, :dependent => :destroy
    
 end

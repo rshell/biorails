@@ -11,50 +11,154 @@ class Project::FoldersController < ApplicationController
 ##
 # List of elements in the route home folder
 # 
+#  * @project based on current context params[:project_id] || params[:id] || session[:project_id]
+#  * @project_folder based on home folder for project
+# 
   def list
     @project = current_project
     @project_folder = @project.folders.home
+    render :action => 'show'
   end
 
+##
+# List of elements in for a folder
+# 
+#  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id]
+#  * @project based on folder
+# 
   def show
-    @project = current_project
-    @project_folder = ProjectFolder.find(params[:id])
+    @project_folder =current_folder
+    render :partial => 'folder' ,:locals=>{:folder=>@project_folder}, :layout => false if request.xhr?
   end
 
+##
+# List of elements in the route home folder
+# 
+#  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id]
+#  * @project based on folder
+# 
   def new
-    @project = current_project
-    @project_folder = ProjectFolder.new
+    @parent = current_folder
+    @project_folder = ProjectFolder.new(:parent_id=>@parent.id,:project_id=>@parent.project_id)
+    render :partial => 'new' ,:layout => false if request.xhr?
   end
 
+##
+# Create a new child folder
+# 
+#  * @parent based on params[:folder_id] || params[:id] || session[:folder_id]
+#  * @project_folder created from module forparams[:project_folder]
+# 
   def create
-    @project = current_project
-    @project_folder = ProjectFolder.new(params[:project_folder])
+    @parent = current_folder
+    @project_folder = @parent.folder(params[:project_folder][:name])
     if @project_folder.save
       flash[:notice] = 'ProjectFolder was successfully created.'
-      redirect_to :action => 'list'
+      if request.xhr?
+         render :partial => 'folder' ,:locals=>{:folder=> @parent} 
+      else
+         redirect_to :action => 'show',:id => @parent
+      end 
     else
-      render :action => 'new'
+      render :partial => 'new' ,:locals=>{:folder=> @parent}
     end
   end
-
-  def edit
-    @project = current_project
-    @project_folder = ProjectFolder.find(params[:id])
+##
+# Display the file upload file selector
+#
+  def upload
+    @project_folder =current_folder
+    @project_asset = ProjectAsset.new
+    render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?
+  end
+##
+# Display the selector
+#     
+  def selector
+    @project_folder =current_folder
+    render :partial => 'selector',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end
+##
+# Display the current clipboard 
+# 
+  def clipboard
+    @project_folder =current_folder
+    render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
   end
 
+##
+# File update handler to create a ProjectAsset and link it into the current folder.
+#  
+  def file
+    @project_folder =current_folder
+    @project_asset = ProjectAsset.new(params[:project_asset])
+    logger.debug @project_asset.to_yaml
+    if @project_asset.save
+        asset =  @project_folder.add(@project_asset)
+        redirect_to :action => 'upload',:id => @project_folder
+    else
+        render :action => 'upload',:id => @project_folder
+    end
+  end 
+  
+  
+  def asset
+    @project_asset   = current(ProjectAsset,   params[:asset_id] )   
+    @project_element = current(ProjectElement, params[:element_id] )  
+    @project_folder =@project_element.parent
+  end
+##
+# Edit the current folder details
+#
+#  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] 
+# 
+  def edit
+    @project_folder =current_folder
+    render :action => 'edit' ,:layout => false if request.xhr?
+  end
+##
+# Update the current folder details
+#
+#  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] then updated from params[:project_folder]
+#
   def update
-    @project = current_project
-    @project_folder = ProjectFolder.find(params[:id])
+    @project_folder =current_folder
     if @project_folder.update_attributes(params[:project_folder])
       flash[:notice] = 'ProjectFolder was successfully updated.'
       redirect_to :action => 'show', :id => @project_folder
     else
-      render :action => 'edit'
+      render :action => 'edit',:layout => false if request.xhr?
     end
   end
-
+##
+# Destroy the the  folder
+#
   def destroy
-    ProjectFolder.find(params[:id]).destroy
+    project_folder =current_folder
+    project_folder.destroy
     redirect_to :action => 'list'
   end
+
+protected
+
+##
+# Simple helpers to get the current folder from the session or params 
+#  
+  def current_folder
+     folder = current(ProjectFolder,params[:folder_id] || params[:id]) 
+     @project =folder.project
+     return folder
+  end  
+ 
+ def current_element
+     element = current(ProjectElement, params[:element_id] || params[:id]) 
+     @project =element.project
+     return element
+  end   
+
+ def current_asset
+     asset = current(ProjectAsset,params[:asset_id] || params[:id]) 
+     return asset
+  end   
+
 end

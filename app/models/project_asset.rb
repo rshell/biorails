@@ -20,32 +20,65 @@
 #  updated_by       :string(32)    default(sys), not null
 #  updated_at       :datetime      not null
 #
+#
+##
+# ProjectAsset is the gatekeeping between internally kept data and external files. In initial version the application
+# server file system is used for storage but it is expected that the following may be added as neededd:-
+# 
+#  * Subversion 
+#  * In Database blobs
+#  * Web Service to document/file management systems
+#  * Link to 3rd part applications like ELN's
+# 
+# 
+# 
+require 'digest/md5'
+require 'digest/sha1'
 
 class ProjectAsset < ActiveRecord::Base
 
-  validates_uniqueness_of :name, :scope =>"parent_id"
-  validates_presence_of   :name
-  validates_presence_of   :description
+  validates_uniqueness_of :filename, :scope => 'project_id'
+  validates_presence_of   :filename
 
-
-  acts_as_tree :order => "name"    
-  
-  has_attachment :content_type => ['application/pdf', 'application/msword', 'text/plain','image'], 
-                 :max_size => 5000.kilobytes,
-                 :storage => :file_system, 
-                 :path_prefix => 'public/files',
-                 :thumbnails => { :thumb => '100x100>' }
-                   
-  belongs_to :project  
-  
-  has_many :elements,  :class_name  =>'ProjectElement',
-                       :foreign_key =>'reference_id'
 ##
-# The textual information is linked into a number of folders
+# To allow for existing of previews, images and multiple derived versions of a asset child records are
+#  created. The two main use cases are thumbnail preview images and windows clipboard multiple formats ( for client application use)
 #   
-  has_many :folders,:through    => :elements, 
-                    :source     => :asset,
-                    :conditions => "elements.reference_type = 'ProjectAsset'"
-                    
+  acts_as_tree :order => "name"    
+##
+# The main purpose of a Project asset is is to act as a link to external raw/process data block.
+# This could be a image file, csv raw data, office document or many other thinks.
+# 
+  has_attachment :storage => :file_system, 
+                 :max_size => 5000.kilobytes,
+                 :resize_to => '3000x2000>',
+                 :thumbnails => { :large=>'800x600', :normal=>'320x200', :small => '100x100>', :icon => '48x48' }
 
+  validates_as_attachment
+
+##
+# All assets belong to a project with owns them and governs there access rights. In the system
+# a attempt to partition data by project has been used.
+#                    
+  belongs_to :project  
+
+##
+# A assert may be referenced as a element in a number of folders to allow its inclusion into 
+# reports and analysis.
+#   
+#  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id'
+
+
+##
+# calculate the signature of a record and return the result.
+# This is a MD5 checksum of the current fields in the record
+# 
+  def signature(fields =  nil )
+     fields ||= attributes.keys
+     keys = attributes.keys - ['content_hash']
+     data = keys.collect{|key| "#{key}:#{attributes[key]}"}.join(',')
+     data << 'file:' << Digest::MD5.hexdigest(File.read(self.full_filename))
+     Digest::MD5.hexdigest(data )
+  end
+  
 end

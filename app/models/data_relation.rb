@@ -15,6 +15,10 @@
 # See license agreement for additional rights
 ##
 
+###
+# May be a little not UML like but allow the capture of complex relationships between
+# concepts. 
+#
 class DataRelation < ActiveRecord::Base
 
   belongs_to :to,   :class_name =>'DataConcept', :foreign_key=>'to_concept_id', :dependent => :destroy

@@ -38,31 +38,23 @@ class Experiment < ActiveRecord::Base
 # Stats view of whats happened in the experiment 
 #   
   has_many :stats, :class_name => "ExperimentStatistics"
-    
 ##
 # Logs on the Study Timeline 
 #   
   has_many :logs, :class_name => "ExperimentLog", 
           :as => :auditable, :dependent => :destroy
- 
-  belongs_to :study
-
 ##
-# Status Values for a task [initial,entry,analysis,done,aborted]
-# 
-  belongs_to :status 
-  
+# Experiments is carried out in the scope of a  study
+#
+  belongs_to :study
 ##
 # Current default process
 #   
   belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
-  
-
 ##
 # Protocol this is linked to
 #
-  belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id'
-  
+  belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 ##
 # In the Process sets of parameters are grouped into a context of usages
 # 
@@ -81,28 +73,27 @@ class Experiment < ActiveRecord::Base
        self.tasks.min{|i,j|i.start_date <=> j.start_date}
     end
  end
- 
-##
-# start of first task 
- def start_date
-    if tasks.size > 0 
-       return first_task.start_date
-   else
-       return nil  
-    end
- end
-
 ##
 # last task to end in the experiment
 # 
  def last_task
     if tasks.size>0 
-     self.tasks.max{|i,j|i.start_date <=> j.start_date}
+        self.tasks.max{|i,j|i.start_date <=> j.start_date}
     end 
+ end 
+##
+# start of first task 
+#
+ def start_date
+    if tasks.size > 0 
+       return first_task.start_date
+   else
+       return created_at  
+    end
  end
-
 ##
 # end of last task
+#
  def end_date
    if tasks.size >0 
        return last_task.end_date
@@ -110,7 +101,6 @@ class Experiment < ActiveRecord::Base
        return nil  
    end  
  end
-
 ##
 # Get the named experiment from the list attrached to the study
 # 

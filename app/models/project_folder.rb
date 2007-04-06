@@ -48,42 +48,13 @@
 #  * Folder directory style view
 #  * Page of all items in the folder in order 
 # 
-class ProjectFolder < ActiveRecord::Base
- 
-  acts_as_tree :order => "name"  
-##
-# Base reference to ownering project.
-# project membership is used to goven access rights
-#   
-  belongs_to :project
-##
-#All references 
-  belongs_to :reference, :polymorphic => true
+class ProjectFolder < ProjectElement
 ##
 # Details of the order
 #   
-  has_many :elements,  :class_name  =>'ProjectElement',
-                       :foreign_key =>'project_folder_id',
-                       :order       => 'position'
-##
-#Link through to asset
-#
-  has_many :files, :through    => :elements, 
-                   :source     => :assert,
-                   :conditions => "elements.reference_type = 'ProjectAsset'"
-##
-#Link through to pages
-#
-  has_many :pages, :through    => :elements, 
-                   :source     => :content,
-                   :conditions => "elements.reference_type = 'ProjectContent'"
-  
-   
-# Generic rules for a name and description to be present
-  validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
-  validates_uniqueness_of :path
-  validates_presence_of   :name
-
+  has_many :elements,  :class_name  => 'ProjectElement',
+                       :foreign_key => 'parent_id',
+                       :order       => 'position'  
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -96,43 +67,54 @@ class ProjectFolder < ActiveRecord::Base
 #  * ProjectAsset
 # 
   def add(item)
-     ProjectFolder.transaction do 
-       element = self.elements.build(:project_folder_id=>self,
-                                     :position => elements.size, 
-                                     :project_id => self.project )                                      
+     ProjectElement.transaction do          
        case item
-       when String
-           asset = ProjectAsset.new(:project_id => self.project_id, 
-                                    :name => filename, 
-                                    :title => filename  )
-           asset.save       
-           element.reference = asset
+       when ProjectAsset
+           add_reference( item.filename, item )        
+       when String 
+           name = "comment-#{children.size}"
+           content = ProjectContent.new(:project_id=> self.project_id, :name=>name, :title=>"comments",:body=>item )
+           content.save
+           add_reference( name, content )
        else    
-           element.reference = item
+           name = (item.respond_to?(:name) ? item.name : item.to_s )
+           add_reference( name, item ) 
        end       
-       element.save
-       element
-     end
+     end       
   end
-
 ##
-# Add some textual content to the system 
-#  
-  def add_text(title,excerpt,body)
+# Add a reference to the another database model
+#   
+  def add_reference(name,item)
      ProjectFolder.transaction do 
-       content = ProjectContent.new(:project_id=> self.project_id, 
-                                    :name=>title, 
-                                    :title=>title, 
-                                    :excerpt=>excerpt, 
-                                    :body=>body )
-       content.save
-       element = ProjectElement.create(:project_folder_id=>self,
-                                    :position => elements.size,
-                                    :reference_id => content.id,
-                                    :reference_type => content.class.to_s, 
-                                    :project_id => self.project ) 
-       element
+         element = ProjectElement.new(:name=> name, :position => children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id )                                       
+         element.path = self.path + "/" + name
+         element.reference = item
+         element.save
+         return element
      end
   end
-
+##
+# Get a root folder my name 
+# 
+  def folder?(item)
+     return self if item == self
+     item = item.name if item.is_a?  ActiveRecord::Base
+     ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
+  end  
+  
+##
+# add/find a folder to the project. This  
+# 
+  def folder(name)
+    folder = folder?(name)
+    if folder.nil? 
+       logger.info "Creating folder #{name}"
+       folder = ProjectFolder.new(:name=> name, :position => children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id ) 
+       folder.path = self.path + "/" + name
+       children << folder    
+    end
+    return folder
+  end
+ 
 end

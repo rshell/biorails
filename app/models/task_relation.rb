@@ -9,17 +9,6 @@
 #  relation_id  :integer(11)   
 #
 
-# == Schema Information
-# Schema version: 123
-#
-# Table name: task_relations
-#
-#  id           :integer(11)   not null, primary key
-#  to_task_id   :integer(11)   
-#  from_task_id :integer(11)   
-#  relation_id  :integer(11)   
-#
-
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights

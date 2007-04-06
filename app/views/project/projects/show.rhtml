@@ -10,9 +10,38 @@
 
 <div class="splitcontentright">
 	<div class="box">
+	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_requests)%></h3>
+		<ul>
+		<% for item in @project.lastest(Request,5) %>
+			<li>
+			<%= link_to item.name, request_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<div class="splitcontentleft">
+	<div class="box">
+	<h3 class="icon22 icon22-projects"><%=l(:experiment)%></h3>
+		<ul>
+		<% for item in @project.lastest(Experiment,5) %>
+			<li>
+			<%= link_to item.name, experiment_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+
+<div class="splitcontentright">
+	<div class="box">
 	<h3 class="icon22 icon22-projects"><%=l(:lastest_studies)%></h3>
 		<ul>
-		<% for item in @project.lastest(Study,5) %>
+		<% for item in @project.lastest(Study,3) %>
 			<li>
 			<%= link_to item.name, study_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%=h item.description %>
@@ -38,17 +67,18 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_requests)%></h3>
+	<h3 class="icon22 icon22-projects"><%=l(:protocol)%></h3>
 		<ul>
-		<% for item in @project.lastest(Request,5) %>
+		<% for item in @project.lastest(StudyProtocol,5) %>
 			<li>
-			<%= link_to item.name, request_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%=h item.description %>
 			</li>
 		<% end %>
 		</ul>
 	</div>  
 </div>	
+
 
 <div class="splitcontentleft">
 	<div class="box">
@@ -64,17 +94,6 @@
 	</div>  
 </div>	
 
-<div class="splitcontentright">
-	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:protocol)%></h3>
-		<ul>
-		<% for item in @project.lastest(StudyProtocol,5) %>
-			<li>
-			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%=h item.description %>
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-</div>	
+
+
 

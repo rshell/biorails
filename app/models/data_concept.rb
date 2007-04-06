@@ -22,32 +22,48 @@
 # See license agreement for additional rights
 ##
 
-class DataConcept < ActiveRecord::Base
-
+###
+#  Catalogue management in the system is divided into two part a tree of concepts which
+#  represents the logical namespace structure. This is held in this DataConcept model. 
+#  This is linked to a number of physical implemenations in DataElement model. 
 #
+#   In the system the root DataConcept's are managed to a special subclass called a 
+#   DataContext. 
+#
+class DataConcept < ActiveRecord::Base
+##
 # Generic rules for a name and description to be present
+#
   validates_uniqueness_of :name, :scope =>"parent_id"
   validates_presence_of :name
   validates_presence_of :description
-  
+##
+# This concept belongs to this route DataContext which defines the overall namespace.
+# By default concepts are in the BioRails context
+#  
   belongs_to :context, :class_name => 'DataContext', :foreign_key=>'data_context_id'
-  
+##
+# This logical concept is implemented via a number of DataElement  which link to a external 
+# DataSystem to retreive a list of DataValues to use a  lookup
+#  
   has_many :elements,  :class_name => 'DataElement',:conditions => "parent_id is null",  :dependent => :destroy
-
+##
+# The concept is used in the system in a number o parameter_types.
+# these define one of a key data dimensions for values
+#
   has_many :parameter_types,  :dependent => :destroy
-  
+##
+# The concepte appears in a treee
+#  
   acts_as_tree :order => "name"  
-
 ##
 # See if the parameter is used
 # 
   def not_used
     return (parameter_types.size==0 and elements.size==0)
-  end
-  
-
-#
-# path to name
+  end  
+##
+# unique path name for the concept 
 #
   def path
      if parent == nil 
@@ -56,14 +72,12 @@ class DataConcept < ActiveRecord::Base
         return parent.path+"/"+name
      end 
   end 
-
 #
 # Find all the children of this the concept
 #
   def decendents
      [self]+children.inject([]){|decendents,child|decendents+child.decendents}
-  end
-   
+  end   
 #
 # Overide context_columns to remove all the internal system columns.
 # 

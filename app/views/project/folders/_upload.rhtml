@@ -1,13 +1,8 @@
-<h2><%=l(:Upload)%></h2>
-
+<h2>Upload</h2>
 <div class='dialog'>
-<%= start_form_tag :url=>folder_url(:action=>'upload',:id=>folder.id), :html => { :multipart => true } %>
-  <%= error_messages_for :asset %>
-  <div class='dialog'>
-      <%= file_field_tag 'asset_data[]', :id => 'asset_data_1' %>
-  </div>
-  <p class="btns">
-      <%= submit_tag 'Upload' %> 
-  </p>
-<%= end_form_tag %>
+<% form_for(:project_asset, :url=>folder_url(:action=>'file',:id=>folder.id), :html => { :multipart => true }) do |f| -%>
+  <%= f.file_field :uploaded_data %>
+  <br />
+  <%= submit_tag 'Upload' %>
+<% end -%>
 </div>

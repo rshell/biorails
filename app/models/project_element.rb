@@ -19,26 +19,71 @@
 # 
 # 
 class ProjectElement < ActiveRecord::Base
-## Owner
-  belongs_to :folder , :class_name =>'ProjectFolder', 
-                       :foreign_key => 'project_folder_id'
+
+  attr_accessor :tags
+  
+# Generic rules for a name and description to be present
+  validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
+  validates_uniqueness_of :path
+  validates_presence_of   :name
+ 
+  acts_as_tree :order => "position"  
+##
+# Base reference to ownering project.
+# project membership is used to goven access rights
+#   
+  belongs_to :project
 ##
 #All references 
   belongs_to :reference, :polymorphic => true
 ##
 # Textual content  
-  belongs_to :content, :class_name =>'ProjectContent', 
-                       :foreign_key => 'reference_id'
+  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'reference_id'
 ##
 # File assets  
-  belongs_to :asset,   :class_name =>'ProjectAsset', 
-                       :foreign_key => 'reference_id'
+  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'reference_id'
+##
+# Parent of a record is a   
+  def folder
+    parent
+  end
 
-###
-# reference back to the owning project
+  def asset?
+    attributes['reference_type'] == 'ProjectAsset'
+  end
+##
+# This has a textual? entries
+#  
+  def textual?
+    attributes['reference_type'] == 'ProjectContent'
+  end
+##
+# This has a reference entries 
+#   
+  def reference?
+    !(attributes['reference_type'].nil? or textual? or asset?)
+  end
+  
+##
+# Show the style of the project element
 # 
-  def project
-    self.folder.project if self.folder
-  end   
-
+  def style
+    case attributes['reference_type']
+    when 'ProjectContent'
+      "note"
+    when 'ProjectAsset'
+      "file"
+    when 'Study'
+      "study"
+    when 'Experiment'
+      "experiment"
+    when 'Task'
+      "task"
+    when 'StudyProtocol'
+      "protocol"
+    else
+      "folder"
+    end
+  end
+  
 end

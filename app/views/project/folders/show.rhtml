@@ -1,8 +1,12 @@
-<% for column in ProjectFolder.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @project_folder.send(column.name) %>
-</p>
+<% content_for :centre do -%>
+  <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
 <% end %>
 
-<%= link_to 'Edit', :action => 'edit', :id => @project_folder %> |
-<%= link_to 'Back', :action => 'list' %>
+<% content_for :right do -%>
+ <div>
+  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
+  <div class='panel' id='folder_actions'>
+    <%= render :partial => 'upload',:locals=>{:folder=> @project_folder} %>   
+  </div>
+</div>
+<% end %>

@@ -6,12 +6,12 @@ class Project::ProjectsController < ApplicationController
   caches_page :feed
   helper :sort
   include SortHelper
-
   helper PaginationHelper
-  	
-  
   helper Project::ArticlesHelper
-  
+
+##
+# Generate a index dashboard for the project 
+#   
   def index
     @users = User.find(:all)
     @project = Project.find(params[:id])
@@ -30,30 +30,11 @@ class Project::ProjectsController < ApplicationController
     end
   end
 
+##
+# Generate a index dashboard for the project 
+#  
   def show
     @project = Project.find(params[:id])
-  end
-
-##
-# Standard list of folders in a project
-# 
-  def files
-     @project = current(Project,params[:id])
-     sort_init 'name'
-     sort_update
-     @item_pages, @items = paginate :assets, :conditions=>['project_id',@project.id], :order_by => sort_clause, :per_page => 20
-     render :action => "files", :layout => false if request.xhr?
-  end
-
-##
-# Standard list of folders in a project
-# 
-  def folders
-     @project = current(Project,params[:id])
-     sort_init 'name'
-     sort_update
-     @item_pages, @items = paginate :sections,:conditions=>['project_id',@project.id], :order_by => sort_clause, :per_page => 20
-     render :action => "folders", :layout => false if request.xhr?
   end
 
 ##
@@ -77,7 +58,9 @@ class Project::ProjectsController < ApplicationController
      @item_pages, @items = paginate :experiments,  :order_by => sort_clause, :per_page => 20
      render :action => "experiments", :layout => false if request.xhr?
   end
-
+##
+# List of the Reports Defined for use with the project
+# 
   def reports
      @project = current(Project,params[:id])
      sort_init 'name'
@@ -85,13 +68,16 @@ class Project::ProjectsController < ApplicationController
      @item_pages, @items = paginate :reports, :order_by => sort_clause, :per_page => 20
      render :action => "reports", :layout => false if request.xhr?
   end
-
+##
+# List of the membership of the project
+# 
   def members
      @project = current(Project,params[:id])
   end
   
 ##
-# Show a 
+# Show a overview calendar for the project this should list the experiments, documents etc linked into the project
+# 
   def calendar
      @project = current(Project,params[:id])
     if params[:year] and params[:year].to_i > 1900
@@ -151,12 +137,9 @@ class Project::ProjectsController < ApplicationController
       render :action => "gantt.rhtml"
     end
   end
-
-  def feed
-    @events = @project.events.find(:all, :order => 'events.created_at DESC', :include => [:article, :user], :limit => 25)
-    render :layout => false
-  end
-  
+##
+# Delete a whole project
+# 
   def delete
     @project.events.find(params[:id]).destroy
     render :update do |page|
