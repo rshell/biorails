@@ -35,7 +35,21 @@ class ProjectFolderTest < Test::Unit::TestCase
     assert folder.name ==study.name
     assert folder.reference.id == study.id
   end
+
+  def test_child_create_folder
+    project = Project.find(1)
+    folder  = project.folder('level1')
+    assert_ok folder
+
+    folder2 = folder.folder('level2')
+    assert_ok folder2
+
+    folder3 = folder2.folder('level3')
+    assert_ok folder3
+
+  end
   
+    
   def test_add_model
     project = Project.find(1)
     folder  = project.folder('xxx2')
