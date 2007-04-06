@@ -1,6 +1,6 @@
 <h2>Upload</h2>
 <div class='dialog'>
-<% form_for(:project_asset, :url=>folder_url(:action=>'file',:id=>folder.id), :html => { :multipart => true }) do |f| -%>
+<% form_for(:project_asset, :url=>folder_url(:action=>'upload_asset',:id=>folder.id), :html => { :multipart => true }) do |f| -%>
   <%= f.file_field :uploaded_data %>
   <br />
   <%= submit_tag 'Upload' %>

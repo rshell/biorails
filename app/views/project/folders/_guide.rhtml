@@ -5,10 +5,11 @@
     blog or a component document. </p>
 </div>
 <ul>
- <li> <%= link_to_remote 'New Folder',:url =>folder_url( :action => 'new',           :folder_id => folder.id ), :update => "folder_actions" %> </li>
- <li> <%= link_to_remote 'Upload',    :url =>folder_url( :action => 'upload',        :folder_id => folder.id ), :update => "folder_actions" %> </li>
- <li> <%= link_to_remote 'Reference', :url =>folder_url( :action => 'selector',      :folder_id => folder.id ), :update => "folder_actions" %> </li>
- <li> <%= link_to_remote 'Clipboard', :url =>folder_url( :action => 'clipboard',     :folder_id => folder.id ), :update => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'New Folder',  :url =>folder_url( :action => 'new',         :folder_id => folder.id ), :update => "folder_actions" %> </li>
+ <li> <%= link_to 'New Contents',folder_url( :action => 'new_article', :folder_id => folder.id )%> </li>
+ <li> <%= link_to_remote 'Upload',      :url =>folder_url( :action => 'new_asset',   :folder_id => folder.id ), :update => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Reference',   :url =>folder_url( :action => 'selector',    :folder_id => folder.id ), :update => "folder_actions" %> </li>
+ <li> <%= link_to_remote 'Clipboard',   :url =>folder_url( :action => 'clipboard',   :folder_id => folder.id ), :update => "folder_actions" %> </li>
 </ul>
 </div>
 

@@ -23,10 +23,12 @@ Folder Path:
     	<td>
     	<% if item.asset? %>
     	  <%= image_tag(item.asset.public_filename(:icon)) if item.asset.image?%>
-    	  <%= item.asset.size %> <%=item.asset.content_type %> 
+    	  <%= number_to_human_size( item.asset.size) %> <%=item.asset.content_type %> 
     	  <% if item.asset.width %>
             (W x H) <%=item.asset.width%> x <%=item.asset.height%> 
           <%end %>
+    	<% elsif item.textual? %>
+    	  <%= item.content.title %>  
     	<% else %>
     	  <%=item.path%>  
     	<% end %>

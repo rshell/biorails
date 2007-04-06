@@ -3,7 +3,7 @@ module Project::FoldersHelper
   def element_to_url(element)
     case element.attributes['reference_type']
     when 'ProjectContent'
-       folder_url(:action=>'article', :folder_id=>element.parent.id, :element_id=>element.id, :asset_id=> element.reference_id )
+       folder_url(:action=>'article', :folder_id=>element.parent.id, :element_id=>element.id, :content_id=> element.reference_id )
 
     when 'ProjectAsset'
        folder_url(:action=>'asset',   :folder_id=>element.parent.id, :element_id=>element.id, :asset_id=> element.reference_id )

@@ -28,6 +28,8 @@
 ##
 # This represents a piece of textual content associated with a project
 class ProjectContent < ActiveRecord::Base
+  attr_accessor :tags
+
   belongs_to :project
 
   has_many :elements,  :class_name  =>'ProjectElement',
@@ -53,6 +55,7 @@ class ProjectContent < ActiveRecord::Base
   def to_html
       
   end
+  
   
 ##
 # calculate the signature of a record and return the result.

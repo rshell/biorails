@@ -1,4 +1,5 @@
 class Project::FoldersController < ApplicationController
+
   def index
     list
     render :action => 'list'
@@ -19,7 +20,6 @@ class Project::FoldersController < ApplicationController
     @project_folder = @project.folders.home
     render :action => 'show'
   end
-
 ##
 # List of elements in for a folder
 # 
@@ -30,7 +30,6 @@ class Project::FoldersController < ApplicationController
     @project_folder =current_folder
     render :partial => 'folder' ,:locals=>{:folder=>@project_folder}, :layout => false if request.xhr?
   end
-
 ##
 # List of elements in the route home folder
 # 
@@ -42,7 +41,6 @@ class Project::FoldersController < ApplicationController
     @project_folder = ProjectFolder.new(:parent_id=>@parent.id,:project_id=>@parent.project_id)
     render :partial => 'new' ,:layout => false if request.xhr?
   end
-
 ##
 # Create a new child folder
 # 
@@ -62,50 +60,6 @@ class Project::FoldersController < ApplicationController
     else
       render :partial => 'new' ,:locals=>{:folder=> @parent}
     end
-  end
-##
-# Display the file upload file selector
-#
-  def upload
-    @project_folder =current_folder
-    @project_asset = ProjectAsset.new
-    render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?
-  end
-##
-# Display the selector
-#     
-  def selector
-    @project_folder =current_folder
-    render :partial => 'selector',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end
-##
-# Display the current clipboard 
-# 
-  def clipboard
-    @project_folder =current_folder
-    render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end
-
-##
-# File update handler to create a ProjectAsset and link it into the current folder.
-#  
-  def file
-    @project_folder =current_folder
-    @project_asset = ProjectAsset.new(params[:project_asset])
-    logger.debug @project_asset.to_yaml
-    if @project_asset.save
-        asset =  @project_folder.add(@project_asset)
-        redirect_to :action => 'upload',:id => @project_folder
-    else
-        render :action => 'upload',:id => @project_folder
-    end
-  end 
-  
-  
-  def asset
-    @project_asset   = current(ProjectAsset,   params[:asset_id] )   
-    @project_element = current(ProjectElement, params[:element_id] )  
-    @project_folder =@project_element.parent
   end
 ##
 # Edit the current folder details
@@ -138,6 +92,99 @@ class Project::FoldersController < ApplicationController
     project_folder.destroy
     redirect_to :action => 'list'
   end
+##
+# Display the file upload file selector
+#
+  def new_asset
+    @project_folder =current_folder
+    @project_asset = ProjectAsset.new
+    render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?
+  end
+##
+# File update handler to create a ProjectAsset and link it into the current folder.
+#  
+  def upload_asset
+    @project_folder =current_folder
+    @project_asset = ProjectAsset.new(params[:project_asset])
+    if @project_asset.save
+        asset =  @project_folder.add(@project_asset)
+        redirect_to :action => 'upload',:id => @project_folder
+    else
+        render :action => 'upload',:id => @project_folder
+    end
+  end 
+##
+# Display the selector
+#     
+  def selector
+    @project_folder =current_folder
+    render :partial => 'selector',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end
+##
+# Display the current clipboard 
+# 
+  def clipboard
+    @project_folder =current_folder
+    render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end  
+##
+# Display a file asset
+#   
+  def asset
+    @project_asset   = current(ProjectAsset,   params[:asset_id] )   
+    @project_element = current(ProjectElement, params[:element_id] )  
+    @project_folder =@project_element.parent
+  end
+
+## 
+# Display a article for editing
+# 
+  def article
+    @project_content   = current(ProjectContent,   params[:content_id] )   
+    @project_element = current(ProjectElement, params[:element_id] )  
+    @project_folder =@project_element.parent
+  end
+##
+# Display the current clipboard 
+# 
+  def new_article
+    @project_folder =current_folder
+    @project_content = ProjectContent.new(:project_id => @project_folder.project_id)
+    if request.xhr?
+       render :partial => 'article', :locals=>{:content=> @project_content} ,:layout => false 
+    else
+       render :action => 'article',:locals=>{:folder=> @project_folder}
+    end
+  end
+##
+# Save a article
+# 
+  def save_article
+    @project_folder  =current_folder
+    @project_content = ProjectContent.new(params[:project_content])
+    if @project_content.save
+        @project_element = @project_folder.add(@project_content)
+        redirect_to :action => 'show',:id => @project_folder
+    else
+        logger.warning @project_content.to_yaml
+        render :action => 'article', :id => @project_folder
+    end
+  end
+
+##
+# Save a article
+# 
+  def update_article
+    @project_content = current(ProjectContent,   params[:content_id] )   
+    @project_element = current(ProjectElement, params[:element_id] )     
+    if  @project_content.update_attributes(params[:project_content])
+        redirect_to :action => 'show',:id => @project_folder
+    else
+        logger.warning @project_content.to_yaml
+        render :action => 'article', :id => @project_folder
+    end
+  end
+
 
 protected
 

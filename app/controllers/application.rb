@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
   include SessionHelper # Various session/parameter cache and lookup function
-
+  include TinyMCE
  
   include Biorails::CachingMethods
 
@@ -39,25 +39,25 @@ class ApplicationController < ActionController::Base
 #set norfello style layout
 # layout 'norfello'
 
-   uses_tiny_mce(:options => {:theme => 'advanced',
+  uses_tiny_mce(:options => {:theme => 'advanced',
                            :browsers => %w{msie gecko},
                            :theme_advanced_toolbar_location => "top",
                            :theme_advanced_toolbar_align => "left",
                            :auto_resize => true,
                            :theme_advanced_resizing => true,
-                           :theme_advanced_statusbar_location => "bottom",
+                           :theme_advanced_statusbar_location => "top",
                            :paste_auto_cleanup_on_paste => true,
                            :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent separator bullist numlist forecolor backcolor separator link unlink image undo redo},
                            :theme_advanced_buttons2 => [],
                            :theme_advanced_buttons3 => [],
                            :plugins => %w{contextmenu paste}},
-              :only => [:new, :edit, :show, :index])  
+              :only => [:new, :edit, :show,:article, :new_article, :index])  
 
 
 
   class_inheritable_reader :check_permissions
   write_inheritable_attribute :check_permissions, []
-
+uses_tiny_mce
 
  ##
 # Test whether the user is logged_in

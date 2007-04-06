@@ -1,0 +1,15 @@
+<%= error_messages_for 'project_folder' %>
+
+<!--[form:project_folder]-->
+    <%= hidden_field 'project_folder', 'parent_id'  %>
+    <%= hidden_field 'project_folder', 'project_id'  %>
+    <p>
+       <label for="project_folder_name">Name</label>
+       <%= text_field 'project_folder', 'name'  %>
+    </p>    
+    <p>
+       <label for="project_folder_description">Tags</label>
+       <%= text_field 'project_folder', 'tags'  %>
+    </p>
+<!--[eoform:project_folder]-->
+

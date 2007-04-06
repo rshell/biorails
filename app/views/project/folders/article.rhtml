@@ -1,15 +1,13 @@
 <%= javascript_include_tiny_mce_if_used %>
-<%= tiny_mce if using_tiny_mce? %>
+<%= tiny_mce %>
 
 <% content_for :centre do -%>
-  <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
+  <%= render :partial => 'article',:locals=>{:content=>@project_content} %>
 <% end %>
 
 <% content_for :right do -%>
- <div>
   <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
   <div class='panel' id='folder_actions'>
-    <%= render :partial => 'upload',:locals=>{:folder=> @project_folder} %>   
+       <%= render :partial => 'clipboard',:locals=>{:folder=> @project_folder} %>   
   </div>
-</div>
 <% end %>

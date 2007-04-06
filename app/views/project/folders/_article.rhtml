@@ -1,0 +1,49 @@
+<%= error_messages_for :project_folder %>
+<%= error_messages_for :project_element %>
+<%= error_messages_for :project_asset %>
+<br/>
+<h2>
+Content Path: 
+<%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+<%= "/"+ ( @project_element ? @project_element.name : 'new article') %>
+
+</h2>
+
+<% form_tag folder_url(:parent_id=>@project_folder, :action => ( @project_element ? 'update_article' :  'save_article' ) ) do %>
+ 
+   <%= hidden_field 'project_content', 'project_id'  %>
+ 
+  <div class="row">
+    <!--[form:study]-->
+    <div class="form-element">
+       <label for="study_name">Ref</label>
+       <%= text_field 'project_content', 'name' , {:size=>20, :class=>"text-input"} %>
+    </div>
+
+    <div class="form-element">
+       <label for="study_name">Title</label>
+       <%= text_field 'project_content', 'title' , {:size=>80, :class=>"text-input"} %>
+    </div>
+   </div>
+   
+  <div class="row">
+   <div class="form-element">
+     <label for="study_description">Article</label>
+     <%= text_area('project_content', 'body_html', {:rows=>40,:cols=>100})  %>
+   </div>
+  </div>
+  
+  <div class="row">
+   <div class="form-element">
+     <label for="study_research_area">tags</label>
+     <%= text_field 'project_content', 'tags' , {:size=>100,:class=>"text-input"} %>
+   </div>
+  </div>
+  <div class="row">
+  <%= submit_tag "Save" %>
+  </div>
+
+<% end %>
+
+
+<!--[eoform:study]-->
