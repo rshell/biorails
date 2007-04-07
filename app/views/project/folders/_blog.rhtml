@@ -1,0 +1,26 @@
+ <%= error_messages_for :project_folder %>
+<br/>
+<h1>
+Folder Path: 
+<%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
+<%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
+</h1>
+<% for item in folder.lastest %>    
+	<% if item.asset? and item.asset.image? %>
+	
+	<h2>Figure: <%= link_to item.name, element_to_url(item)  %> (<%= format_time(item.updated_at) %>)</h2>
+	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
+	    	  
+	<% elsif item.textual? %>
+	
+	<h2> Article:  <%= link_to item.content.title, element_to_url(item)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
+	<p>       <%= item.content.body_html %>	</p>
+	
+	<% else %>
+	
+	<% end %>
+<% end %>
+
+	
+
+

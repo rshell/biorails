@@ -1,12 +1,10 @@
 <% content_for :centre do -%>
-  <%= render :partial => 'asset',:locals=>{:asset=>@project_asset} %>
+  <%= render :partial => 'blog',:locals=>{:folder=>@project_folder} %>
 <% end %>
 
 <% content_for :right do -%>
- <div>
   <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
   <div class='panel' id='folder_actions'>
-    <%= render :partial => 'toc',:locals=>{:folder=> @project_folder} %>   
+    <%= render :partial => 'clipboard',:locals=>{:folder=> @project_folder} %>   
   </div>
-</div>
 <% end %>

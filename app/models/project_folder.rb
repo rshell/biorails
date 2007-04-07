@@ -116,5 +116,12 @@ class ProjectFolder < ProjectElement
     end
     return folder
   end
- 
+##
+# Get the lastest entries in the folder
+#  
+  def lastest( option={})
+      query_options = { :conditions=>['parent_id=?',self.id],:order=>"updated_at desc",:limit=>10}      
+      ProjectElement.find(:all,query_options.merge(option))
+  end
+
 end

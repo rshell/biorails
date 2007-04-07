@@ -42,12 +42,7 @@ Tasks
 <li>	<%= link_to task.name, task_url(:id=>task.id) %></li>
 <% end %>
 </ul>
-Files
-<ul>
-<% for task in current_user.lastest(Asset,5) %>
-<li>	<%= link_to task.name, task_url(:id=>task.id) %></li>
-<% end %>
-</ul>
+
 
 
 <%end %>

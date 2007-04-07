@@ -39,25 +39,25 @@ class ApplicationController < ActionController::Base
 #set norfello style layout
 # layout 'norfello'
 
-  uses_tiny_mce(:options => {:theme => 'advanced',
-                           :browsers => %w{msie gecko},
-                           :theme_advanced_toolbar_location => "top",
-                           :theme_advanced_toolbar_align => "left",
-                           :auto_resize => true,
-                           :theme_advanced_resizing => true,
-                           :theme_advanced_statusbar_location => "top",
-                           :paste_auto_cleanup_on_paste => true,
-                           :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent separator bullist numlist forecolor backcolor separator link unlink image undo redo},
-                           :theme_advanced_buttons2 => [],
-                           :theme_advanced_buttons3 => [],
-                           :plugins => %w{contextmenu paste}},
-              :only => [:new, :edit, :show,:article, :new_article, :index])  
+  uses_tiny_mce(:options => {
+     :theme => 'advanced',
+     :browsers => %w{msie,gecko,opera,safari},
+     :theme_advanced_toolbar_location => "top",
+     :theme_advanced_toolbar_align => "left",
+     :auto_resize => false,
+     :theme_advanced_resizing => true,
+     :theme_advanced_statusbar_location => "bottom",
+     :paste_auto_cleanup_on_paste => true,
+     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator fullscreen help},
+     :theme_advanced_buttons3 => [],
+     :plugins => %w{contextmenu paste table fullscreen fullpage}
+     },
+      :only => [:new, :edit, :show,:article, :new_article, :index])  
 
 
 
   class_inheritable_reader :check_permissions
   write_inheritable_attribute :check_permissions, []
-uses_tiny_mce
 
  ##
 # Test whether the user is logged_in

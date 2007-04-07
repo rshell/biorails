@@ -8,6 +8,6 @@
 <% content_for :right do -%>
   <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
   <div class='panel' id='folder_actions'>
-       <%= render :partial => 'clipboard',:locals=>{:folder=> @project_folder} %>   
+       <%= render :partial => 'toc',:locals=>{:folder=> @project_folder} %>   
   </div>
 <% end %>

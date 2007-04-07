@@ -1,0 +1,6 @@
+<%=folder.name%>
+<ol>
+    <% for item in folder.children %>
+      <li> <%= link_to item.name, element_to_url(item) %></li>
+    <% end %>
+</ol>
