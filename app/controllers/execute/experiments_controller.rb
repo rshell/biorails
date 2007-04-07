@@ -39,9 +39,7 @@ class Execute::ExperimentsController < ApplicationController
 # create a new experiment
   def new
     @study = current( Study, params[:id] )
-    @experiment = Experiment.new
-    @experiment.study = @study
-    @experiment.name =  @study.name+"-"+@study.experiments.size.to_s 
+    @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_id(Experiment))
     @experiment.description = " Task in study #{@study.name} "  
   end
 

@@ -50,7 +50,7 @@ class Study::StudyProtocolsController < ApplicationController
   def new
     @study = Study.find(params[:id])
     @study_protocol = StudyProtocol.new(:study=>@study)
-    @study_protocol.name = @study.name+"_"+(@study.protocols.size+1).to_s
+    @study_protocol.name = Identifier.next_id(StudyProtocol)
     @study_protocol.protocol_catagory = 'Protocol'
     @study_protocol.description = "new protocol created for study "+@study.name   
   end

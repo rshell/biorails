@@ -1,8 +1,35 @@
 <h2>Upload</h2>
 <div class='dialog'>
 <% form_for(:project_asset, :url=>folder_url(:action=>'upload_asset',:id=>folder.id), :html => { :multipart => true }) do |f| -%>
-  <%= f.file_field :uploaded_data %>
-  <br />
-  <%= submit_tag 'Upload' %>
+  <div class="row">
+    <!--[form:study]-->
+    <div class="form-element">
+       <label for="study_name">Ref</label>
+       <%= text_field 'title' , {:size=>20, :class=>"text-input"} %>
+    </div>
+
+    <div class="form-element">
+       <label for="study_name">Title</label>
+       <%= f.text_field  'title' , {:size=>80, :class=>"text-input"} %>
+    </div>
+   </div>
+   
+  <div class="row">
+   <div class="form-element">
+     <label for="study_description">Filename</label>
+     <%= f.file_field :uploaded_data %>
+    </div>
+  </div>
+  
+  <div class="row">
+   <div class="form-element">
+     <label for="study_research_area">tags</label>
+     <%= f.text_field 'tags' , {:size=>100,:class=>"text-input"} %>
+   </div>
+  </div>
+  <div class="row">
+  <%= submit_tag "Save" %>
+  </div>
+
 <% end -%>
 </div>

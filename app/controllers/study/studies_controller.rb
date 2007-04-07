@@ -105,7 +105,7 @@ class Study::StudiesController < ApplicationController
 # Generate a New Study and put up dialog for creation of study
 # 
   def new
-    @study = Study.new
+    @study = Study.new(:name=> Identifier.next_id(Study))
   end
   
 ##

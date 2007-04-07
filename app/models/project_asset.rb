@@ -37,6 +37,8 @@ require 'digest/sha1'
 
 class ProjectAsset < ActiveRecord::Base
 
+  attr_accessor :tags
+
   validates_uniqueness_of :filename, :scope => 'project_id'
   validates_presence_of   :filename
 

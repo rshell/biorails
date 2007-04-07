@@ -48,11 +48,11 @@ class ApplicationController < ActionController::Base
      :theme_advanced_resizing => true,
      :theme_advanced_statusbar_location => "bottom",
      :paste_auto_cleanup_on_paste => true,
-     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator fullscreen help},
+     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator help},
      :theme_advanced_buttons3 => [],
-     :plugins => %w{contextmenu paste table fullscreen fullpage}
+     :plugins => %w{contextmenu paste }
      },
-      :only => [:new, :edit, :show,:article, :new_article, :index])  
+      :only => [:new, :edit, :show, :index])  
 
 
 

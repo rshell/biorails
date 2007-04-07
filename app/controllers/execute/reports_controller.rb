@@ -55,7 +55,7 @@ class Execute::ReportsController < ApplicationController
 #  
  def new
    @allowed_models =  SiteController.models
-   @report = Report.new
+   @report = Report.new(:name=> Identifier.next_id(Report))
    if params[:id]    
       @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
    end

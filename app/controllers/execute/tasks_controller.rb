@@ -92,7 +92,7 @@ class Execute::TasksController < ApplicationController
 #
   def new
     @experiment = current( Experiment, params[:id] )
-    @task = Task.new
+    @task = Task.new(:name=> Identifier.next_id(Task))
     @task.reset
     @task.experiment = @experiment
     @task.protocol = @experiment.protocol

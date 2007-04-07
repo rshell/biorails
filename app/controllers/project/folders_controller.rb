@@ -54,7 +54,7 @@ class Project::FoldersController < ApplicationController
 # 
   def new
     @parent = current_folder
-    @project_folder = ProjectFolder.new(:parent_id=>@parent.id,:project_id=>@parent.project_id)
+    @project_folder = ProjectFolder.new(:name=> Identifier.next_id(ProjectFolder), :parent_id=>@parent.id,:project_id=>@parent.project_id)
     render :partial => 'new' ,:layout => false if request.xhr?
   end
 ##
@@ -113,7 +113,8 @@ class Project::FoldersController < ApplicationController
 #
   def new_asset
     @project_folder =current_folder
-    @project_asset = ProjectAsset.new
+    @project_asset = ProjectAsset.new(:title=> Identifier.next_id(ProjectAsset),
+                                      :project_id => @project_folder.project_id)
     render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?
   end
 ##
@@ -179,7 +180,8 @@ class Project::FoldersController < ApplicationController
 # 
   def new_article
     @project_folder =current_folder
-    @project_content = ProjectContent.new(:project_id => @project_folder.project_id)
+    @project_content = ProjectContent.new(:name => Identifier.next_id(ProjectContent),      
+                                          :project_id => @project_folder.project_id)
     if request.xhr?
        render :partial => 'article', :locals=>{:content=> @project_content} ,:layout => false 
     else

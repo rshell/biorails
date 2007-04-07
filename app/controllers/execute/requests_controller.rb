@@ -65,7 +65,7 @@ class Execute::RequestsController < ApplicationController
 ##
 # Display form for a new request item
   def new
-    @request = Request.new
+    @request = Request.new(:name=> Identifier.next_id(Request))
     @request.status_id = 0
   end
 
