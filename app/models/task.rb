@@ -30,9 +30,16 @@ require "faster_csv"
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 ##
-# This is a Task recording data from running of a process instance
+# This is a Task recording data from running of a process instance.  The task  is 
+# the basic unit of work for data capture in a experiment/study/project. All tasks
+# have a start , end date and status values.
+#
+# Most of timeline and calender use tasks a the basic useds.
 # 
 class Task < ActiveRecord::Base
+##
+# Moved Priority and Status enumeriation code to /lib modules
+#
   include CurrentStatus
   include  CurrentPriority
   
@@ -52,18 +59,20 @@ class Task < ActiveRecord::Base
 #   
   belongs_to :experiment
 ##
-# Current process
+# Current process this task in running for data entry
 #   
   belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
 ##
-# Protocol this is linked to
+# Protocol this is linked to which describes the process
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 ##
 # In the Process sets of parameters are grouped into a context of usages
 # 
  has_many :contexts, :class_name =>'TaskContext', :dependent => :destroy, :order => 'row_no',:include => ['definition'] 
-
+##
+# As contexts may be in a tree is a good idea to start at the roots some times
+#
  has_many :roots, :class_name =>'TaskContext', :order => 'row_no', :conditions=>'parent_id is null'
 
 ##
@@ -71,8 +80,6 @@ class Task < ActiveRecord::Base
 # Generally for working with data a complete task is loaded into server
 # memory for processing. 
  has_many :values, :class_name=>'TaskValue', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
-
- has_many :files, :class_name=>'TaskFile', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
 
  has_many :texts, :class_name=>'TaskText', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
 
@@ -165,7 +172,6 @@ SQL
     return @items if @items
     @items = Array.new
     @items.concat(values)
-    @items.concat(files)
     @items.concat(texts)
     @items.concat(references)
  end

@@ -23,7 +23,8 @@
 ##
 ###
 # Summary Stats for a Tasks Parameters
-# 
+#  currently using a view as the base data
+ 
 class TaskStatistics < ActiveRecord::Base
 
  belongs_to :task,            :class_name =>'Task',           :foreign_key => 'task_id'

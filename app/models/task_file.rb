@@ -33,6 +33,9 @@
 # 
 # Main expect this to be used for raw data file and processing components like excel sheets!
 # 
+# WARNING: This is going away with V2.0 release moving to ProjectAsset for storage
+# and TaskReference to link into model most like chaning to subtype of TaskReference
+# 
 class TaskFile < ActiveRecord::Base
   include TaskItem 
   validates_presence_of :task
@@ -41,7 +44,7 @@ class TaskFile < ActiveRecord::Base
 
   has_attachment :content_type => ['application/pdf', 'application/msword', 'text/plain','image'], 
                  :max_size => 5000.kilobytes,
-                 :storage => :file_system, 
+				:storage => :file_system, 
                  :path_prefix => 'public/files',
                  :thumbnails => { :thumb => '100x100>' }
 

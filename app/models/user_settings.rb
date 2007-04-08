@@ -13,6 +13,13 @@
 #  updated_at  :datetime      not null
 #
 
+## 
+# This Provides  access to user specific settings for  the application 
+# The current user of default  user.find(1) account is used  as the user 
+#
+# There is a set of defaults read from the application config directory which forms the 
+# the initial set of parameters. There are 
+# 
 class UserSettings < ActiveRecord::Base
 
   cattr_accessor :defaults
