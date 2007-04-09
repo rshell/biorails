@@ -33,7 +33,7 @@ class Project::FoldersController < ApplicationController
 # 
   def list
     @project = current_project
-    @project_folder = @project.folders.home
+    @project_folder = @project.home
     render :action => 'show'
   end
 ##

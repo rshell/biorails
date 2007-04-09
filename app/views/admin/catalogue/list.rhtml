@@ -1,7 +1,23 @@
-<% content_for :left do%>
+<% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
 <% end %>
 
+<% content_for :right do%>
+<div class="panel">
+<h2><%=l(:Catalogue)%></h2>
+    <p>TThis manages lookup list in in the system 
+        <ul>
+          <li><b>Concept:</b> The name for comething used in the context of this application </li>
+          <li><b>Implemented:</b> The Actual lookup  values </li>
+          <li><b>Usage:</b> Parameter linked to this concept </li>
+        </ul>
+     </p>
+</div>
+  <%= tree_for_catalog(@context)%>
+<% end %>
+
+
+<% content_for :centre do%>
 <% tab_ids = ['tab-children','tab-elements','tab-usage']%>   
 <% tab_names = ['Child Concepts','Implementions','Usage in parameter types']%>   
 <% @current_tab = @current_tab || 0 %>
@@ -43,3 +59,4 @@
 
         
 </div>
+<% end %>

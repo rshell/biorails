@@ -61,64 +61,14 @@ class Project < ActiveRecord::Base
   has_many :memberships, :dependent => :destroy
   has_many :members, :through => :memberships, :source => :user
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
-
 ##
-# Unstructurted data is mapped into a set of folders for the project. For anotement of  models 
-# a folder is referenced to a model. A number of short cuts are provided to help 
+# home folders
 # 
-#  * project.folders.notes(object) => folder for unstructed information linked to the object
-#  * project.folders.linked_to(model) => array of folders linked to a model type
-#  * project.folders.studies
-#  * project.folders.experiments
-#  * project.folders.tasks
-#  
-#
-  has_many  :folders, :class_name=>'ProjectFolder', :order => "position", :conditions => 'parent_id is null' do
-
-    def home
-      ProjectFolder.find(:first,
-           :conditions=>["project_id= ? and reference_id=? and reference_type='Project'",proxy_owner.id,proxy_owner.id])
-    end
+  has_one :home, :class_name=>'ProjectFolder', :conditions => 'parent_id is null'
 ##
-# Get folder for notes associated with a object
-    def notes(object)
-      ProjectFolder.find(:first,
-           :conditions=>["project_id= ? and reference_id=? and reference_type=?",
-                          proxy_owner.id,object.id,  object.class.to_s] )
-    end
-##
-# Get a list of a folders linked to a model
-    def linked_to(model)
-      ProjectFolder.find(:all,
-           :conditions=>["project_id= ? and reference_type=?",proxy_owner.id, model.to_s] )
-    end
-
-    def studies
-       linked_to('Study')
-    end
-
-    def experiments
-       linked_to('Experiement')
-    end
-
-    def tasks
-       linked_to('Task')
-    end
-
-    def requests
-       linked_to('Request')
-    end
-
-    # orders sections in a project
-    def order!(*sorted_ids)
-      transaction do
-        sorted_ids.flatten.each_with_index do |section_id, pos|
-          Section.update_all ['position = ?', pos], ['id = ? and project_id = ?', section_id, proxy_owner.id]
-        end
-      end
-    end
-  end
-
+# list of all folders in the project 
+# 
+  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id'
 ##
 # Create a project root folder after create of project
 # 
@@ -133,45 +83,74 @@ class Project < ActiveRecord::Base
   has_many  :assets, :class_name=>'ProjectAsset', :order => 'created_at desc', :conditions => 'parent_id is null' do
 
     def images
-      find(:first,
-           :conditions=>["project_id=? and content_type like 'image%'",proxy_owner.id])
+      find(:first, :conditions=>["project_id=? and content_type like 'image%'",proxy_owner.id])
     end
 
     def content(type)
       if type.class==Array
-           find(:all,
-                :conditions=>["project_id=? and content_type in ? ",proxy_owner.id,type])
+           find(:all, :conditions=>["project_id=? and content_type in ? ",proxy_owner.id,type])
       else
-           find(:all,
-                :conditions=>["project_id=? and content_type like ? ",proxy_owner.id,type])
+           find(:all,:conditions=>["project_id=? and content_type like ? ",proxy_owner.id,type])
       end
     end
-
   end
 ##
 # List of all articles associated with a the project in reverse order
 # 
-  has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc' do
-    def find_by_permalink(options)
-      conditions = 
-        returning ["(contents.published_at IS NOT NULL AND contents.published_at <= ?)", Time.now.utc] do |cond|
-          if options[:year]
-            from, to = Time.delta(options[:year], options[:month], options[:day])
-            cond.first << ' AND (contents.published_at BETWEEN ? AND ?)'
-            cond << from << to
-          end
-          
-          [:id, :permalink].each do |attr|
-            if options[attr]
-              cond.first << " AND (contents.#{attr} = ?)"
-              cond << options[attr]
-            end
-          end
-        end
-      
-      find :first, :conditions => conditions, :order => 'published_at desc'
-    end
+  has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc'
+
+##
+# Unstructurted data is mapped into a set of folders for the project. For anotement of  models 
+# a folder is referenced to a model. A number of short cuts are provided to help 
+# 
+#  * project.folders.notes(object) => folder for unstructed information linked to the object
+#  * project.folders.linked_to(model) => array of folders linked to a model type
+#  * project.folders.studies
+#  * project.folders.experiments
+#  * project.folders.tasks
+#  
+#
+
+##
+# Get folder of unstructured information linked to a object
+# 
+  def folder(object)
+      ProjectFolder.find(:first,
+           :conditions=>["project_id= ? and reference_id=? and reference_type=?",
+                          self.id,object.id,  object.class.to_s] )
   end
+
+##
+# Get a list of a folders linked to a model
+# 
+    def folders_for(model)
+      ProjectFolder.find(:all,
+           :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
+    end
+##
+# All the study folders linked to this project
+#
+    def studies
+       folders_for('Study')
+    end
+##
+# All the experiment folders linked to this project
+#
+    def experiments
+       folders_for('Experiement')
+    end
+##
+# All the task folders linked to this project
+#
+    def tasks
+       folders_for('Task')
+    end
+##
+# All the request folder linked to a project
+# 
+    def requests
+       folders_for('Request')
+    end
   
 ###
 # Set a user as a owner of the project
@@ -204,8 +183,6 @@ class Project < ActiveRecord::Base
       model.find(:all,:order=>'id desc',:limit => count)
     end
   end
-
- 
   ##
   # Get all Tags used in the project
   # 

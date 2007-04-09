@@ -10,14 +10,3 @@
     <%= link_to 'Reports' ,report_url( :action => 'list') %>               
     <%= link_to 'Uml' ,report_url( :action => 'uml') %>               
 </div>
-
-<% unless @context.nil?%>
-<div class="tree">
-    <span class='menu'>Catalogue</span>
-    <strong> 
-    <%=link_to_remote @context.name , :url => {:action =>'show', :id => @context.id} %> 
-    </strong>
-    <%= render :partial => 'tree', :locals => {:roots => @context.children, :url => {:action =>'show'} } %>  
-</div>
-
-<%end %>

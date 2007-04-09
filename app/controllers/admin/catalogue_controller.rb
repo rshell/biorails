@@ -36,12 +36,18 @@ class Admin::CatalogueController < ApplicationController
 # List the Concepts in the the current context
 # 
 def list
-  @context = DataContext.find(1)
+  @context = DataContext.find(:first)
   if params[:id]
     @data_concept = DataConcept.find(params[:id])
   else
     @data_concept = @context
   end
+end
+
+
+def tree
+  @context = DataContext.find(:first)
+  render :action=>'tree',:layout=>false
 end
 
 ##

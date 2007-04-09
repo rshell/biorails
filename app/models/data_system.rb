@@ -47,6 +47,10 @@ class DataSystem < ActiveRecord::Base
         name
      end 
   end
+  
+  def elements
+    self.data_elements
+  end 
 
 #
 # List of allowed adapters

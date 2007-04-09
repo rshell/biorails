@@ -1,7 +1,7 @@
    <% new_params = params.merge(:controller => 'admin/data_formats', :action => 'new') %>
    <%= loading_indicator_tag(new_params) %>
 
-<% content_for :left do%>
+<% content_for :sidemenu do%>
  <div>
  <span class='menu'> Data Format </span>
    <%= link_to_remote (subject_icon('new.png'))+"New",
