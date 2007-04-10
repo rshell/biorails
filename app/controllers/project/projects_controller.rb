@@ -34,7 +34,8 @@ class Project::ProjectsController < ApplicationController
 # Generate a index dashboard for the project 
 #  
   def show
-    @project = Project.find(params[:id])
+    @project = current(Project,params[:id])
+    session[:project_id] = @project.id
   end
 
 ##

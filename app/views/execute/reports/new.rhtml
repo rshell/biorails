@@ -16,7 +16,7 @@
           <div class="row">
              <div class="form-element">
                   <label for="base_model">Based on </label>
-                  <%= select_tag('report[base_model]', options_for_select( SiteController.models.collect{|obj|[obj.to_s,obj.to_s]} )  ) %>
+                  <%= select_tag('report[base_model]', options_for_select( @models.collect{|obj|[obj.to_s,obj.to_s]} )  ) %>
              </div>
         
              <div class="form-element">

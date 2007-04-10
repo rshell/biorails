@@ -52,13 +52,14 @@ module SessionHelper
 # 3rd find the object
 #   
   def current_project
+   logger.debug("current_project #{params[:project_id]} #{session[:project_id]} ")
    id ||= params[:project_id] 
    id ||= session[:project_id]
-   unless  @current_project and @current_project.id == id
-       @current_project = current(Project,id)
-       session[:project_id] = @current_project.id
+   unless  @project and @project.id == id
+       @project = current(Project,id)
+       session[:project_id] = @project.id
    end
-   return @current_project
+   return @project
   end
   
 

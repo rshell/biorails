@@ -10,7 +10,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_requests)%></h3>
+	<h3 class="icon icon-request"><%=l(:label_lastest_requests)%></h3>
 		<ul>
 		<% for item in @project.lastest(Request,5) %>
 			<li>
@@ -24,7 +24,7 @@
 
 <div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:experiment)%></h3>
+	<h3 class="icon icon-experiment"><%=l(:experiment)%></h3>
 		<ul>
 		<% for item in @project.lastest(Experiment,5) %>
 			<li>
@@ -39,7 +39,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:lastest_studies)%></h3>
+	<h3 class="icon icon-study"><%=l(:lastest_studies)%></h3>
 		<ul>
 		<% for item in @project.lastest(Study,3) %>
 			<li>
@@ -53,7 +53,7 @@
 
 <div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_tasks)%></h3>
+	<h3 class="icon icon-task"><%=l(:label_lastest_tasks)%></h3>
 		<ul>
 		<% for item in @project.lastest(Task,5) %>
 			<li>
@@ -67,7 +67,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:protocol)%></h3>
+	<h3 class="icon icon-protocol"><%=l(:protocol)%></h3>
 		<ul>
 		<% for item in @project.lastest(StudyProtocol,5) %>
 			<li>
@@ -82,7 +82,7 @@
 
 <div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:compounds)%></h3>
+	<h3 class="icon icon-compound"><%=l(:compounds)%></h3>
 		<ul>
 		<% for item in @project.lastest(Compound,5) %>
 			<li>

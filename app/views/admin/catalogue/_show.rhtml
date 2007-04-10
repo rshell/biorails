@@ -1,9 +1,13 @@
 <div>  
 <h3>
     <% if @data_concept.class==DataContext%>
-      <b>Root Context [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : </b><%= @data_concept.name %>       
+      <b>Root Context [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : 
+      </b><%= @data_concept.name %>       
     <%else%>
-      <b>Concept [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : </b><%= @data_concept.name %>       
+      <b>Concept [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : 
+      </b>
+      <%=link_to_remote @data_concept.parent.path+'/', :url => {:action=>'show',:id => @data_concept.parent.id}  if  @data_concept.parent %>
+      <%= @data_concept.name %>       
     <%end%>
 </h3>
 <p> 

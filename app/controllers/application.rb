@@ -146,12 +146,6 @@ protected
       show_error 'Page Not Found', '404 NotFound'
   end
 
-  def set_cache_root
-      host = request.domain(request.subdomains.size + (request.subdomains.first == 'www' ? 0 : 1))
-      @project ||= Project.find_by_host(host) || Project.find(:first, :order => 'id')
-      self.class.page_cache_directory = @project.page_cache_directory.to_s
-  end
-
   def with_project_timezone
       old_tz = ENV['TZ']
       ENV['TZ'] = project.timezone.name

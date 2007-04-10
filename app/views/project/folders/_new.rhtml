@@ -1,12 +1,34 @@
-<h2>New Folder</h2>
+<%= error_messages_for 'project_folder' %>
+
+<h2>New Folder under <%=@parent.path%></h2>
 <!--[form:project_folder]-->
 
 <% form_remote_tag :url => folder_url(:parent_id=>@parent, :action => 'create'), :update=>:centre do %>
-    <%= render :partial => 'form' %>   
-    <%= submit_tag "Create" %>
-<% end %>
 
-<%= error_messages_for 'project_folder' %>
+<!--[form:project_folder]-->
+    <%= hidden_field 'project_folder', 'parent_id'  %>
+    <%= hidden_field 'project_folder', 'project_id'  %>
+
+  <div class="row">
+    <!--[form:study]-->
+    <div class="form-element">
+       <label for="study_name">Name</label>
+       <%= text_field 'project_folder', 'name' , {:size=>40, :class=>"text-input"} %>
+    </div>
+  </div>
+
+
+  <div class="row">
+   <div class="form-element">
+     <label for="study_research_area">tags</label>
+     <%= text_field 'project_folder', 'tags' , {:size=>100,:class=>"text-input"} %>
+   </div>
+  </div>
+
+  <div class="row">
+    <%= submit_tag "Create" %>
+  </div>
+<% end %>
 
 <!--[eoform:project_folder]-->
 

@@ -9,7 +9,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_projects)%></h3>
+	<h3 class="icon22 icon-projects"><%=l(:label_lastest_projects)%></h3>
 		<ul>
 		<% for project in current_user.lastest(Project,5) %>
 			<li>
@@ -23,7 +23,7 @@
 
 <div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_tasks)%></h3>
+	<h3 class="icon22 icon-projects"><%=l(:label_lastest_tasks)%></h3>
 		<ul>
 		<% for project in current_user.lastest(Task,5) %>
 			<li>
@@ -37,7 +37,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon22 icon22-projects"><%=l(:label_lastest_requests)%></h3>
+	<h3 class="icon22 icon-projects"><%=l(:label_lastest_requests)%></h3>
 		<ul>
 		<% for project in current_user.lastest(Request,5) %>
 			<li>

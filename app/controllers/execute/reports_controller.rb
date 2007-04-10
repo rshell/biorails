@@ -54,6 +54,7 @@ class Execute::ReportsController < ApplicationController
 #  * params[:id] optional name of the model to use as basis of report
 #  
  def new
+   @models = Biorails::UmlModel.models
    @allowed_models =  SiteController.models
    @report = Report.new(:name=> Identifier.next_id(Report))
    if params[:id]    
@@ -176,11 +177,12 @@ class Execute::ReportsController < ApplicationController
     options[:disposition]= params[:disposition]||'inline'
     options[:type] = 'image/png'
     options[:filename] = "model_#{@report.model.to_s.tableize}.png"
-    @image_file = create_model_diagram(File.join(RAILS_ROOT, "public/images"),@report.model,params)
+    @image_file = Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),@report.model,params)
     send_file(@image_file.to_s,options)   
   end 
   
   def uml
+    @models = Biorails::UmlModel.models
     @options= {}
     @options[:model]= params[:model]||'Task'
     @options[:levels]= params[:levels]||2
@@ -195,7 +197,8 @@ class Execute::ReportsController < ApplicationController
 # 
   def diagram
     model = eval(params[:id])
-    @image_file = create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
+    @models = Biorails::UmlModel.models
+    @image_file =  Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
     puts @image_file
     send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png')
   end 
@@ -312,132 +315,5 @@ def export
    render :action=> 'edit', :id=>@report
  end
 
-
-protected
-
-###
-# Output model for node definition for a model for use in graphviz 
-# This task the model and generates a record node with all key attributes
-# listed
-# 
-  def dot_model(model,label,color)
-    node =""
-    if model and !model.abstract_class and model < ActiveRecord::Base  
-      logger.info "dot_model(#{model})"
-      attrs =""
-      begin
-        for col in model.content_columns
-           col_type = col.type.to_s
-           col_type << "(#{col.limit})" if col.limit
-           attrs << "#{col.name} : #{col_type}"
-           attrs << ", default: \\\"#{col.default}\\\"" if col.default
-           attrs << "\\n"
-        end
-        for relation in model.reflections.values
-           col_type = col.type.to_s
-           attrs << "#{relation.name} "
-           if relation.options[:polymorphic] 
-            attrs << "[ #{relation.macro}  *polymorphic* ]" 
-           else
-             attrs << "[#{relation.macro} #{relation.class_name}]"
-           end
-           attrs << "\\n"      
-        end
-      rescue Exception => ex
-          logger.info "problem with #{model} #{ex.message}"
-         attrs << "!!! Changing !!!"
-         attrs << "\\n"
-      end
-      node << "\t\"#{model.to_s}\""
-      node << " [label=\"{#{model.to_s} [#{label}]|#{attrs}}\" "
-      node << " ,style=\"filled\",fillcolor=\"#{color}\" shape=\"record\"];\n"
-    else
-      ""  
-    end
-    return node
-  end
-   
-##
-# Generate a dot and image filea for a model showing all its relationships
-# If this works you get a file name back to point to the png for the model
-# 
-  def create_model_diagram(target_dir,root, options ={})
-    return nil unless root && root < ActiveRecord::Base && !root.abstract_class
-    max_levels = (options[:levels] || 2).to_i
-    max_many = (options[:many] || 1).to_i
-    cmd = GRAPHIZ_STYLES.detect{|cmd|cmd==options[:style]} ||GRAPHIZ_STYLES[0]
-
-    logger.info "create_model_diagram model #{root} levels #{max_levels} manys #{max_many} draw with #{cmd}"
-
-    img_file = File.join(target_dir,"model_#{root}_#{max_levels}_#{max_many}_#{cmd}.png")
-    dot_file = File.join(target_dir, "model_#{root}_#{max_levels}_#{max_many}_#{cmd}.dot")      
-    nodes = {} 
-    relations =[]  
-    queue = []
-    nodes[root]=dot_model(root,"root",COLOURS[0])
-    queue << {:model=>root,:level=>1}
-
-    while queue.size>0
-       node = queue.pop
-       for relation in node[:model].reflections.values.reject {|r|r.options[:polymorphic] ||  (r.macro==:has_many and node[:level]> max_many ) }
-
-         model = eval(relation.class_name)
-         relations << "\t\"#{node[:model].to_s}\" -> \"#{model.to_s}\" "
-         case relation.macro
-         when :has_many
-         relations << " [label=\" has many #{relation.name}\",color=\"blue\", arrowtail=\"odiamond\", arrowhead=\"crow\"] \n"        
-         when :belongs_to
-         relations << " [label=\" reference #{relation.name}\", arrowhead=\"normal\",  arrowtail=\"none\"] \n"        
-         when :has_one
-         relations << " [label=\" has one #{relation.name}]\", arrowhead=\"diamond\"] \n"        
-         else
-         relations << " [label=\" #{relation.macro} #{relation.name}\" ] \n"        
-         end
-         
-         unless nodes[model] or node[:level]>=max_levels
-           nodes[model] = dot_model(model,"level #{node[:level]}",COLOURS[node[:level]]) 
-           queue << {:model=>model,:level=>( node[:level]+1 ) }
-        end
-      end
-    end   
-
-    f = File.open(dot_file, "w")    
-    # Define a graph and some global settings
-    f.write "digraph G {\n"
-    f.write "\toverlap=false;\n \tsplines=true;\n"
-    f.write "\tnode [fontname=\"Helvetica\",fontsize=7];\n"
-    f.write "\tedge [fontname=\"Helvetica\",fontsize=7];\n"
-    f.write "\tranksep=0.1;\n \tnodesep=0.1;\n"
-    #f.write "\tedge [decorate=\"true\"];\n"
-
-    # Write header info
-    f.write "\t_schema_info [shape=\"plaintext\", label=\"\", fontname=\"Helvetica\",fontsize=8];\n"
-    
-    assocs = []
-    # Draw the tables as boxes
-    for node in nodes.values
-      f.write node
-    end
-    # Draw the relations
-    for relation in relations
-      f.write relation
-    end    
-    # Close the graph
-    f.write "}\n"
-    f.close
-
-    # neato or dot
-    if system "#{cmd} -Tpng -o\"#{img_file}\" \"#{dot_file}\""
-      puts "Generated #{img_file}"
-      return img_file
-    else
-      puts "Failed to execute the '#{cmd}' command! Need grapviz (www.graphviz.org) installed and on path "
-      logger.error "Failed to execute the '#{cmd}' command! Is grapviz (www.graphviz.org) installed? "
-      return nil
-    end
-  rescue Exception => ex
-      logger.error "cant generate grapviz: #{ex.message}"
-      return nil    
-  end
 
 end

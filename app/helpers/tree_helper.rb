@@ -74,7 +74,6 @@ class Node
 #   
    def Node.create(rec,label=:name, children=:children, &block)
      if rec
-       puts "node.create(#{rec.name} #{rec['description']})"
        node = Node.new(rec.send(label))
        if rec.respond_to?(children)            
          for item in rec.send(children)

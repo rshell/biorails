@@ -44,12 +44,6 @@ def list
   end
 end
 
-
-def tree
-  @context = DataContext.find(:first)
-  render :action=>'tree',:layout=>false
-end
-
 ##
 # Show details of the the current concept. This is now a usages ajax to update the 
 # current-% panels on the client with correct information for the current concept
