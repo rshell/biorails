@@ -1,18 +1,24 @@
+<% content_for :sidemenu do -%>
+<div>
+  <span  class='menu'> <%=subject_icon('parameter')%>Parameters</span>
+  <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+  <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+  <%= link_to 'Edit ',:controller =>'study_parameters', :action => 'edit', :id=>@study_parameter %></li>
+  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+</div>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+
     <% tab_ids = ['tab-qa','tab-usage','tab-metrics','tab-results']%>   
     <% tab_names = ['Rules','Protocols','Parameter Metrics','Experiment Metrics']%>   
     <%=tab_setup(tab_ids,tab_names) %>
 
 <div class="main">
-    <div class="title" id="study">
+    <h2>
         [<%=@study_parameter.study.name%>] <%=subject_icon('parameter.png')%> Study Parameter [<strong><%=@study_parameter.name%></strong>]
 
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('edit.png'))+" Edit", :action => 'edit', :id => @study_parameter %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list',:id => @study_parameter.study %></li>          
-            </ul>
-        </div>
-    </div>
+    </h2>
 
 
     <div class='panel'>

@@ -1,10 +1,10 @@
+<%= render :partial =>'/menu/folder_menu' ,    :locals=>{ :folder => @project_folder}  if @project_folder %>
 <%= render :partial =>'/menu/task_menu' ,       :locals=>{ :task => @task}  if @task %>
 <%= render :partial =>'/menu/experiment_menu' , :locals=>{ :experiment => @experiment}  if @experiment %>
 <%= render :partial =>'/menu/service_menu' ,    :locals=>{ :request_service => @request_service}  if @request_service %>
 <%= render :partial =>'/menu/queue_menu' ,      :locals=>{ :study_queue => @study_queue}  if @study_queue %>
 <!--%= render :partial =>'/menu/request_menu' ,    :locals=>{ :request => @request}  if @request %-->
 <%= render :partial =>'/menu/study_menu' ,      :locals=>{ :study => @study}  if @study %>
-<%= render :partial =>'/menu/folder_menu' ,    :locals=>{ :folder => @project_folder}  if @project_folder %>
-<%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
+<%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => @project} %>
 
 

@@ -98,21 +98,37 @@ class ProjectFolder < ProjectElement
 # Get a root folder my name 
 # 
   def folder?(item)
-     return self if item == self
-     item = item.name if item.is_a?  ActiveRecord::Base
-     ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
+    return self if item == self
+    if item.is_a?  ActiveRecord::Base
+       ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
+    else
+       ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
+    end
+ 
   end  
   
 ##
 # add/find a folder to the project. This  
 # 
-  def folder(name)
-    folder = folder?(name)
+  def folder(item)
+    folder = self.folder?(item)
     if folder.nil? 
        logger.info "Creating folder #{name}"
-       folder = ProjectFolder.new(:name=> name, :position => children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id ) 
-       folder.path = self.path + "/" + name
-       children << folder    
+       if item.is_a?  ActiveRecord::Base
+          folder = ProjectFolder.new(:name=> item.name, 
+                                     :position => children.size, 
+                                     :parent_id=>self.id, 
+                                     :project_id => self.project.id ) 
+          folder.reference =  item         
+          folder.path = self.path + "/" + item.name
+       else
+          folder = ProjectFolder.new(:name=> item, 
+                                     :position => children.size, 
+                                     :parent_id=>self.id, 
+                                     :project_id => self.project.id ) 
+          folder.path = self.path + "/" + item
+       end
+       self.children << folder    
     end
     return folder
   end

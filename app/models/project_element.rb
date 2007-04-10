@@ -81,8 +81,10 @@ class ProjectElement < ActiveRecord::Base
       "task"
     when 'StudyProtocol'
       "protocol"
+    when nil 
+      "folder"  
     else
-      "folder"
+      attributes['reference_type']
     end
   end
   

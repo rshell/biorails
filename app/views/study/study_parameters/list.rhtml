@@ -1,65 +1,67 @@
 <% content_for :sidemenu do -%>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
 <div>
-  <span>Parameters</span>
+  <span  class='menu'> <%=subject_icon('parameter')%>Parameters</span>
   <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
   <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
   <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
-<div>
+</div>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
 
-
-    <h2>
-        <%=subject_icon('parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
-                :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
-    </h2>
+<% content_for :centre do -%>
+<h2>
+    <%=subject_icon('parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
+            :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
+</h2>
    <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
-    
-    <div class='panel'>
-       <table class="report">
-          <thead>
-              <tr>
-                <th><%=subject_icon('parameter.png')%> Parameter</th>
-                <th><%=subject_icon('parameter_role.png')%> Role</th>
-                <th><%=subject_icon('parameter_type.png')%> Parameter Type</th>
-                <th><%=subject_icon('data_type.png')%> Data Type</th>
-                <th><%=subject_icon('data_format.png')%> Format/Lookup</th>
-                <th>Default</th>
-                <th>Example (For testing) </th>
-                <th><%=subject_icon('action.png')%> Actions</th>
-              </tr>
-          </thead>
-          
-          <tbody>
-          <% for usage in @study.parameters %>
-          <% classAttr = cycle("", "class=\"even\"") %>
-          <tr <%=classAttr%>> 
-             <td><%=link_to subject_icon(usage.role.name) + usage.name,:controller =>'study_parameters', :action => 'show', :id => usage %></td>
-             <td><%=usage.role.name if usage.role%></td>
-             <td><%=usage.type.name if usage.type %></td>
-             <td><%=subject_icon(usage.data_type.name) + usage.data_type.name if usage.data_type%></td>
-             <td>
-              <%if usage.data_type_id==5 %>
-                <%=usage.data_element.name if usage.data_element %>
-              <%else%>
-                <%=usage.data_format.name if usage.data_format %>
-              <%end%>
-             </td>
-             <td><%=usage.default_value%></td>
-             <td>
-             <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=>"/study_parameters/test_save/#{usage.id}"}) %>
-             <span id='<%="cell_#{usage.id}_3"%>'></span>
-             </td>
-             <td>
-                <%= link_to (subject_icon('destroy.png'))+" Delete", {:controller =>'study_parameters', :action => 'destroy', :id => usage }, 
-                 :confirm => 'Are you sure?',:method => "post" %>
-              </td>
+
+   <table class="report">
+      <thead>
+          <tr>
+            <th><%=subject_icon('parameter.png')%> Parameter</th>
+            <th><%=subject_icon('parameter_role.png')%> Role</th>
+            <th><%=subject_icon('parameter_type.png')%> Parameter Type</th>
+            <th><%=subject_icon('data_type.png')%> Data Type</th>
+            <th><%=subject_icon('data_format.png')%> Format/Lookup</th>
+            <th>Default</th>
+            <th>Example (For testing) </th>
+            <th><%=subject_icon('action.png')%> Actions</th>
           </tr>
-          <% end %>
-          </tbody>
-       </table>
+      </thead>
+      
+      <tbody>
+      <% for usage in @study.parameters %>
+      <% classAttr = cycle("", "class=\"even\"") %>
+      <tr <%=classAttr%>> 
+         <td><%=link_to subject_icon(usage.role.name) + usage.name,:controller =>'study_parameters', :action => 'show', :id => usage %></td>
+         <td><%=usage.role.name if usage.role%></td>
+         <td><%=usage.type.name if usage.type %></td>
+         <td><%=subject_icon(usage.data_type.name) + usage.data_type.name if usage.data_type%></td>
+         <td>
+          <%if usage.data_type_id==5 %>
+            <%=usage.data_element.name if usage.data_element %>
+          <%else%>
+            <%=usage.data_format.name if usage.data_format %>
+          <%end%>
+         </td>
+         <td><%=usage.default_value%></td>
+         <td>
+         <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=>"/study_parameters/test_save/#{usage.id}"}) %>
+         <span id='<%="cell_#{usage.id}_3"%>'></span>
+         </td>
+         <td>
+            <%= link_to (subject_icon('destroy.png'))+" Delete", {:controller =>'study_parameters', :action => 'destroy', :id => usage }, 
+             :confirm => 'Are you sure?',:method => "post" %>
+          </td>
+      </tr>
+      <% end %>
+      </tbody>
+   </table>
    </div>
+<% end %>
+
+<% content_for :right do -%>
    <div class='panel'>
         <h3>Guidance</h3>
         <p>
@@ -68,4 +70,4 @@
             link back to the type of data saved against the parameter.    
         </p>
     </div>
-</div>
+<% end %>

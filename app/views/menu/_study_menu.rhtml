@@ -4,8 +4,8 @@
       <%= link_to 'Study',    study_url(:action => 'show',  :id => study)%>
       <%= link_to 'Edit',        study_url(:action => 'edit', :id => study) %>
       <%= link_to 'Notes',       study_url(:action => 'notes', :id => study )%>
-      <%= link_to 'Parameters',  study_url(:action => 'parameters' , :id => study)%>
-      <%= link_to 'Services',    study_url(:action => 'queues', :id => study )%>
+      <%= link_to 'Parameters',  parameter_url(:action => 'list' , :id => study)%>
+      <%= link_to 'Services',    queue_url(:action => 'list', :id => study )%>
       <%= link_to 'Protocols',   study_url(:action => 'protocols' , :id => study)%>
       <%= link_to 'Experiments', study_url(:action => 'experiments', :id => study )%>
       <%= link_to 'Metrics',     study_url(:action => 'metrics', :id => study )%>

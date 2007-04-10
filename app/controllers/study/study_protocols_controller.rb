@@ -42,6 +42,9 @@ class Study::StudyProtocolsController < ApplicationController
     find_process
   end
 
+  def metrics
+    find_process
+  end
 
 ##
 # Puts up the form for a new protocol, this created new Protocol, ProtocolVersion objects
@@ -340,6 +343,7 @@ protected
   def find_process
     @study_protocol = StudyProtocol.find(params[:id])
     @study =@study_protocol.study
+    @project_folder = current_project.home.folder(@study).folder(@study_protocol) 
     @protocol_version = ProtocolVersion.find(params[:version]) if params[:version]
     @protocol_version ||= @study_protocol.process
   end 

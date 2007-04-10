@@ -29,8 +29,7 @@ class Execute::TasksController < ApplicationController
 # 
   def show
     @task = current( Task, params[:id] )
-    redirect_to task_url(:action => 'list') if @task.nil?
-    set_context(@task)
+    redirect_to project_url(:action => 'show') if @task.nil?
   end
 
 ##
@@ -62,6 +61,7 @@ class Execute::TasksController < ApplicationController
 # show task notces,comments etc
   def notes
     show
+    @project_folder = current_project.folder(@task.experiment).folder(@task)    
   end
 ##
 # show reporting options
@@ -101,8 +101,7 @@ class Execute::TasksController < ApplicationController
     @task.expected_hours =1
     @task.done_hours = 0
     @task.name =  @experiment.name+"-"+@experiment.tasks.size.to_s 
-    @task.description = " Task in experiment #{@experiment.name} "  
-    
+    @task.description = " Task in experiment #{@experiment.name} "      
   end
 
   def refresh_instances
@@ -118,7 +117,7 @@ class Execute::TasksController < ApplicationController
     @task = Task.new(params[:task])
     @experiment = @task.experiment
     if @task.save
-      set_context(@task)
+      session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
       redirect_to :action => 'show'
     else
@@ -133,10 +132,7 @@ class Execute::TasksController < ApplicationController
 # 
   def edit
     @task = current( Task, params[:id] )
-    @data_sheet = @task.grid
-    @data_sheet.save
     session[:data_sheet] = @data_sheet
-    set_context(@task)
   end
 
 ##
@@ -167,7 +163,6 @@ class Execute::TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
       @task.update_queued_items
-      set_context(@task)
       flash[:notice] = 'Task was successfully updated.'
       redirect_to :action => 'show', :id => @task
     else
@@ -246,14 +241,5 @@ class Execute::TasksController < ApplicationController
     return render(:action => 'cell_saved.rjs') if request.xhr?
   end
 
-###
-# save the current context of the user
-  def set_context(task)  
-    session[:controller]='tasks'
-    if task
-      session[:study_id]= task.experiment.study.id 
-      session[:experiment_id]= task.experiment.id 
-      session[:task_id]= task.id 
-    end 
-  end  
+
 end

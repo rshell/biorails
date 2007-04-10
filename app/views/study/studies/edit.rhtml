@@ -8,8 +8,9 @@
         <%= render :partial => 'form' %>
         <div class='row'>
             <%= submit_tag "Save" %>
-           <% end %>
         </div>
+
+        <% end %>
     </div>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
 <% end -%>

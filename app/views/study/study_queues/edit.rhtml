@@ -1,17 +1,21 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="study">
+<% content_for :sidemenu do -%>
+<div>
+  <span class='menu'>Services </span>
+  <%= link_to subject_icon('new.png') +'New',  queue_url( :action => 'new', :id=>@study  ) %>
+  <%= link_to subject_icon('show.png') +'Show',queue_url( :action => 'show', :id=>@study_queue  ) %>
+  <%= link_to subject_icon('edit.png') +'Edit', queue_url( :action => 'edit', :id=>@study_queue  ) %>
+  <%= link_to subject_icon('list.png') +'List', queue_url( :action => 'list', :id=>@study  ) %>
+  <%= link_to subject_icon('list.png')+'Report ',queue_url( :action => 'manage', :id=>@study_queue  )%> 
+</div>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+    <h2>
         <%=subject_icon('services')%> Editing Services for Study [
         <%= link_to @study.name, :controller => 'studies', 
                 :action => 'show', :id => @study.id  %>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to subject_icon('destroy.png') + 'Delete', { 
-                    :action => 'destroy', :id => @study_queue }, :confirm => 'Are you sure?',:method => "post" %></li>
-                <li><%= link_to subject_icon('show.png') + 'Show', :action => 'show', :id => @study_queue %></li>
-                <li><%= link_to subject_icon('list.png') + 'List', :action => 'list',:id => @study_queue.study %></li>
-            </ul>
-        </div>
-    </div>
+
+    </h2>
     <div class='dialog'>
         <% form_tag :action => 'update', :id => @study_queue do %>
         <%= render :partial => 'form' %>
@@ -24,4 +28,3 @@
         <br />
     </div>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study_queue} %>
-</div>

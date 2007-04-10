@@ -69,37 +69,7 @@ class ApplicationController < ActionController::Base
       return false
   end
 
-##
-# Get the lastest object of this type in the system
-  def lastest(clazz)
-      return clazz.find(:first, :order => 'updated_at desc')
-  rescue Exception => ex
-      logger.error "lastest(#{clazz}) error: #{ex.message}"
-      return clazz.new
-  end 
-
   
-  
-##
-# Get current version of this model passed on param[:id] and
-# if not found the current session
-#
-  def current(model,id=nil)
-    key = "#{model.to_s}_id"
-    if !id.nil? and !id.empty?
-        instance = model.find(id)
-    elsif instance.nil? && session[key]
-        instance = model.find(session[key])
-    else
-        instance = lastest(model)
-    end
-    session[:controller]=key.downcase.tableize
-    session[key]= instance.id
-    return instance
-  rescue Exception => ex
-      logger.error "current error: #{ex.message}"
-      return lastest(model)
-  end
    
 protected   
 ##

@@ -3,11 +3,11 @@
  <%=subject_icon('task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2> 
-<% if @task.contexts.size < 1000 %>
+<% if @task.contexts.size < 2000 %>
    <%= task_dataview(@task) %>
 <% else%>
    <p> 
-    <%=subject_icon('information')%> This display is currently optimized for ~100 rows of data and this task has too much data to display at present.
+    <%=subject_icon('information')%> This display is currently optimized for ~2000 rows of data and this task has too much data to display at present.
     Currently developing a more advanced AJAX based version with improved pagnation.
     </p> 
 <% end %>

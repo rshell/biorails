@@ -1,8 +1,9 @@
-<% content_for :left do -%>
+<% content_for :sidemenu do -%>
 <div>
   <span class='menu'>Services </span>
-  <%= link_to subject_icon('new.png') +'New',  :controller=> 'requests', :action => 'new' %>
-  <%= link_to subject_icon('list.png') +'List', :action => 'list', :id => @study  %>
+  <%= link_to subject_icon('new.png') +'New',  queue_url( :action => 'new', :id=>@study  ) %>
+  <%= link_to subject_icon('list.png') +'List', queue_url( :action => 'list', :id=>@study  ) %>
+  <%= link_to subject_icon('new.png')+'New Request ',request_url( :action => 'new' )%> 
 </div>
   <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>

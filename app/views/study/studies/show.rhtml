@@ -1,4 +1,4 @@
-
+<% content_for :centre do -%>
   <h2><%=subject_icon('study.png')%> Study [<strong><%=@study.name %></strong>] </h2>
 
     <div class='panel'>
@@ -13,6 +13,13 @@
         <%= render :partial => 'queues', :locals => { :study => @study } %>  
     </div>
 
-    </div>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
+<% end %>
+
+<% content_for :right do -%>
+ <div>
+  <div class='panel' id='folder_actions'>
+    <%= render :partial => '/project/folders/selector',:locals=>{:folder=> @project_folder} %>   
+  </div>
 </div>
+<% end %>

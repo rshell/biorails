@@ -1,19 +1,38 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="study">
+<% content_for :sidemenu do -%>
+<div>
+  <span  class='menu'> <%=subject_icon('parameter')%>Parameters</span>
+  <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
+  <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
+  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+</div>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<% end -%>
+
+<% content_for :centre do -%>
+    <h2>
         <%=subject_icon('parameter.png')%> Update Parameter in Study [<strong><%=link_to "#{@study_parameter.study.name}", 
         :controller=>'studies', :action =>'show',:id =>@study_parameter.study.id %></strong>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('show.png'))+"show", :action => 'show', :id => @study_parameter %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'list', :action => 'list',:id => @study_parameter.study %></li>          
-            </ul>
-        </div>
-    </div>
+    </h2>
         <%= error_messages_for 'study_parameter' %>
     <div class='dialog'>
         <% form_tag :action => 'update', :id => @study_parameter do %>
-        <%= render :partial => 'form' %>
+           <%= render :partial => 'form' %>
         <% end %>
     </div>
-</div>
+<%end%>
            
+
+<% content_for :right do -%>
+<div class="panel">
+<h3> 
+Guidance
+</h3>
+<p>
+It is important to maintain consistency in data type between 
+parameter types and study parameters.  If the types are mixed it
+will be difficult to build comprehensive reports ovaer all 
+parameter types.
+</p>
+</div>
+<% end -%>

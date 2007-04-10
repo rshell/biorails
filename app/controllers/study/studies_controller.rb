@@ -37,6 +37,7 @@ class Study::StudiesController < ApplicationController
 # 
   def show
     @study = current( Study, params[:id] )
+    @project_folder = current_project.folder(@study)    
     if !@study
       redirect_to study_url(:action => 'list')
     end
@@ -57,6 +58,7 @@ class Study::StudiesController < ApplicationController
 
   def notes
     show
+    @project_folder = current_project.folder(@study)
   end
   
 ##
@@ -114,6 +116,7 @@ class Study::StudiesController < ApplicationController
   def create
     @study = Study.new(params[:study])
     if @study.save
+      @project_folder = current_project.folder(@study)    
       flash[:notice] = 'Study was successfully created.'
       redirect_to :action => 'show', :id => @study.id
     else

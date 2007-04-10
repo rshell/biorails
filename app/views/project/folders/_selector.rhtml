@@ -1,11 +1,4 @@
-<h2><%=l(:Select)%></h2>
-<div class="panel">
-  <p> Selector for other folder elements </p>
-  <% form_tag :action => 'finder' do %>
-      <%= text_field :query, :text ,:size =>20 %>
-      <%= observe_field( :query_text, :frequency => 1.0, 
-           :update => "query_hitlist", :url => folder_url( :action => 'select' ) ) %>
-  <% end %>
-  <br/>
+<h2><%=l('Project Tree')%></h2>
+<div>
  <%= tree_for_project(@project)%>
 </div>

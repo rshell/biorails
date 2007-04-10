@@ -52,10 +52,11 @@ module SessionHelper
 # 3rd find the object
 #   
   def current_project
-   logger.debug("current_project #{params[:project_id]} #{session[:project_id]} ")
+   logger.info("current_project params:#{params[:project_id]} session:#{session[:project_id]} ")
    id ||= params[:project_id] 
    id ||= session[:project_id]
    unless  @project and @project.id == id
+       logger.info("Changing Project #{id} ")
        @project = current(Project,id)
        session[:project_id] = @project.id
    end
@@ -79,7 +80,7 @@ module SessionHelper
   def current(model,id=nil)
     key = "#{model.to_s}_id"
     logger.debug "current(#{model},#{id})"
-    if !id.nil? and !id.empty?
+    if !id.nil?
         instance = model.find(id)
     elsif instance.nil? && session[key]
         instance = model.find(session[key])

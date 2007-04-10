@@ -23,6 +23,7 @@ class Study::StudyParametersController < ApplicationController
 
   def show
     @study_parameter = StudyParameter.find(params[:id])
+    @study =@study_parameter.study
     protocol_list
     protocol_metrics
     experiment_metrics
@@ -50,11 +51,13 @@ class Study::StudyParametersController < ApplicationController
 
   def edit
     @study_parameter = StudyParameter.find(params[:id])
+    @study =@study_parameter.study
     @type = @study_parameter.data_type
   end
 
   def update
     @study_parameter = StudyParameter.find(params[:id])
+    @study =@study_parameter.study
     if @study_parameter.update_attributes(params[:study_parameter])
       flash[:notice] = 'StudyParameter was successfully updated.'
       redirect_to :action => 'list', :id => @study_parameter.study.id

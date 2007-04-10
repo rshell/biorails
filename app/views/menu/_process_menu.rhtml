@@ -5,6 +5,7 @@
   <%= link_to 'Edit',   protocol_url(:action =>'edit',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Layout',  protocol_url(:action =>'layout',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Preview', protocol_url(:action =>'preview',:id => process.protocol, :version=>process.id) %>
+  <%= link_to 'Metrics', protocol_url(:action =>'metrics',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Template'+subject_icon('xls.png'), 
         protocol_url(:action =>'template',:id => process.protocol, :version=>process.id) %>
   <%= link_to 'Export'+subject_icon('xml'), 

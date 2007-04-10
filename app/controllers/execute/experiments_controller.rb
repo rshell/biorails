@@ -32,9 +32,15 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current(Experiment,params[:id])
+    @project_folder = current_project.folder(@experiment)    
     @schedule = Schedule.tasks_in(@experiment)    
   end
 
+  def notes
+    show
+    @project_folder = current_project.folder(@experiment)
+  end
+  
 ##
 # create a new experiment
   def new
@@ -58,6 +64,7 @@ class Execute::ExperimentsController < ApplicationController
         @experiment.process = @experiment.protocol.process 
     end
     if @experiment.save
+      @project_folder = current_project.folder(@experiment)    
       flash[:notice] = 'Experiment was successfully created.'
       redirect_to :action => 'show', :id => @experiment.id
     else

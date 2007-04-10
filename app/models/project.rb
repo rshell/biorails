@@ -73,7 +73,11 @@ class Project < ActiveRecord::Base
 # Create a project root folder after create of project
 # 
   after_create do  |project| 
-     folder = project.folder(project) # Create a / root folder for the project
+     folder = ProjectFolder.new(:project_id=>project.id)
+     folder.name = '/'
+     folder.reference =  project
+     folder.path = project.name
+     folder.save
   end
 
 ##
@@ -110,47 +114,6 @@ class Project < ActiveRecord::Base
 #  * project.folders.tasks
 #  
 #
-
-##
-# Get folder of unstructured information linked to a object
-# 
-  def folder(object)
-      ProjectFolder.find(:first,
-           :conditions=>["project_id= ? and reference_id=? and reference_type=?",
-                          self.id,object.id,  object.class.to_s] )
-  end
-
-##
-# Get a list of a folders linked to a model
-# 
-    def folders_for(model)
-      ProjectFolder.find(:all,
-           :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
-    end
-##
-# All the study folders linked to this project
-#
-    def studies
-       folders_for('Study')
-    end
-##
-# All the experiment folders linked to this project
-#
-    def experiments
-       folders_for('Experiement')
-    end
-##
-# All the task folders linked to this project
-#
-    def tasks
-       folders_for('Task')
-    end
-##
-# All the request folder linked to a project
-# 
-    def requests
-       folders_for('Request')
-    end
   
 ###
 # Set a user as a owner of the project
@@ -183,6 +146,7 @@ class Project < ActiveRecord::Base
       model.find(:all,:order=>'id desc',:limit => count)
     end
   end
+
   ##
   # Get all Tags used in the project
   # 
@@ -203,52 +167,50 @@ class Project < ActiveRecord::Base
     else
        ProjectFolder.find(:first,:conditions=>['project_id=? and name=?',self.id,item.to_s])
     end
-  end
-##
-#Get a folder by path
-#
-  def path?(path)
-    ProjectFolder.find(:first,:conditions=>['project_id=? and path=?',self.id,path.to_s])
-  end
-
+  end    
 ##
 # add/find a folder to the project. This  
 # 
   def folder(item)
-    folder = folder?(item)
-    if folder.nil? 
-      folder = ProjectFolder.new(:project_id=>self.id)
-      if item == self
-         folder.name = '/'
-         folder.reference =  item
-         folder.path = self.name
-      
-      elsif item.is_a?  ActiveRecord::Base
-         folder.name = item.name
-         folder.reference =  item
-         folder.path = self.name+"/"+folder.name
-         
-      else
-         folder.name = item.to_s
-         folder.path = self.name+"/"+folder.name
-      end
-      folder.position = folders.size
-      folders << folder
-    end
-    return folder
+    return home.folder(item)    
   end
-
- 
-
+  
 ##
-# path for attachmented to be saved under
-  def attachment_path
-    SystemSetting.get('attachment_path') 
+#Get a folder by path
+#
+  def path?(path)
+    ProjectElement.find(:first,:conditions=>['project_id=? and path=?',self.id,path.to_s])
   end
-
-  def tag_url(*tags)
-    ['', tag_path, *tags] * '/'
-  end
+##
+# Get a list of a folders linked to a model
+# 
+    def folders_for(model)
+      ProjectFolder.find(:all, :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
+    end
+##
+# All the study folders linked to this project
+#
+    def studies
+       folders_for('Study')
+    end
+##
+# All the experiment folders linked to this project
+#
+    def experiments
+       folders_for('Experiment')
+    end
+##
+# All the task folders linked to this project
+#
+    def tasks
+       folders_for('Task')
+    end
+##
+# All the request folder linked to a project
+# 
+    def requests
+       folders_for('Request')
+    end
 
   def accept_comments?
     comment_age.to_i > -1
@@ -262,10 +224,6 @@ class Project < ActiveRecord::Base
   
   def member?(user)
   end
-  
-  
-  protected
-
 
   
 end

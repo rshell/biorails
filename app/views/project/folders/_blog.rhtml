@@ -1,10 +1,14 @@
  <%= error_messages_for :project_folder %>
 <br/>
-<h1>
-Folder Path: 
+<h2>
+<% if  @project_folder.reference? %>
+<%= link_to  @project_folder.style, element_to_url(@project_folder) %>
+<% else %>
+<%=  @project_folder.style%>
+<% end %>
 <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
 <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
-</h1>
+</h2>
 <% for item in folder.lastest %>    
 	<% if item.asset? and item.asset.image? %>
 	

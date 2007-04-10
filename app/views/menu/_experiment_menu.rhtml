@@ -1,15 +1,16 @@
 <% unless experiment.nil? %>
     <div>
       <span class='menu'> <%=subject_icon('experiment')%>Experiment <%=experiment.name%> </span>
-       <%= link_to 'Overview',     experiment_url( :action => 'show', :id => experiment) %>
+       <%= link_to subject_icon('experiment')+' Overview',     experiment_url( :action => 'show', :id => experiment) %>
        <%= link_to 'Calendar', experiment_url( :action => 'calender', :id => experiment) %>
        <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
-       <%= link_to 'Edit',     experiment_url( :action => 'edit', :id => experiment) %>
-       <%= link_to 'Delete', experiment_url( :action => 'destroy', :id => experiment ), 
+       <%= link_to subject_icon('edit')+' Edit',     experiment_url( :action => 'edit', :id => experiment) %>
+       <%= link_to subject_icon('notes')+' Notes',    experiment_url(:action => 'notes', :id => experiment )%>
+       <%= link_to subject_icon('delete')+' Delete', experiment_url( :action => 'destroy', :id => experiment ), 
                     :confirm => 'Are you sure?',:method => "post" %>
-       <%= link_to 'Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>
-       <%= link_to 'Import',   experiment_url( :action =>'import',:id => experiment) %>         
-       <%= link_to 'New Task', task_url( :action => 'new' , :id => experiment) %>
+       <%= link_to subject_icon('copy')+' Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>
+       <%= link_to subject_icon('import')+' Import',   experiment_url( :action =>'import',:id => experiment) %>         
+       <%= link_to subject_icon('new')+' Task', task_url( :action => 'new' , :id => experiment) %>
     </div>
 <%end%>
 
