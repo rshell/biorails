@@ -37,8 +37,12 @@ class Execute::ExperimentsController < ApplicationController
   end
 
   def notes
-    show
-    @project_folder = current_project.folder(@experiment)
+    @experiment = current(Experiment,params[:id])
+    @project_folder = current_project.folder(@experiment)    
+  end
+
+  def metrics
+    @experiment = current(Experiment,params[:id]) 
   end
   
 ##

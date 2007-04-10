@@ -1,13 +1,9 @@
-<%= javascript_include_tiny_mce_if_used %>
-<%= tiny_mce if using_tiny_mce? %>
-
 <% content_for :centre do -%>
   <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
 <% end %>
 
 <% content_for :right do -%>
  <div>
-  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
   <div class='panel' id='folder_actions'>
     <%= render :partial => 'selector',:locals=>{:folder=> @project_folder} %>   
   </div>

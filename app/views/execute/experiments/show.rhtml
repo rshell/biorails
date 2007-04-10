@@ -1,3 +1,5 @@
+<% content_for :centre do -%>
+
 <h2>
    <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
         [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
@@ -11,10 +13,18 @@
       <tr><th class="label"><%=subject_icon('process.png')%> Process [Default]</th><td> <%= @experiment.process.path %></td></tr>
     </table>
     <div id="tab-parameters">                                       
-            <%= render :partial => 'stats' %>  
+            <%= render :partial => 'schedule' %>  
     </div>  
 </div>
 
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+<%end%>
 
+<% content_for :right do -%>
+ <div>
+  <div class='panel' id='folder_actions'>
+    <%= render :partial => '/project/folders/selector',:locals=>{:folder=> @project_folder} %>   
+  </div>
+</div>
+<% end %>
  

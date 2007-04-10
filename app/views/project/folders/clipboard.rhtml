@@ -1,3 +1,6 @@
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce %>
+
 <% content_for :centre do -%>
   <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
 <% end %>

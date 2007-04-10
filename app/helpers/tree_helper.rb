@@ -265,20 +265,9 @@ end
       tree.use_cookies = true
       folders = tree.add_node(project.home,:name) do |node,rec|
           node.html_link = element_to_url(rec)
-          node.icon = "/images/model/#{rec.style}.png"
+          node.icon = "/images/model/#{rec.style.downcase}.png"
       end    
-      tree.add_collection('Studies',project.studies,:name) do |node,rec|
-          node.url = element_to_url(rec) 
-          node.icon = "/images/model/#{rec.style}.png"
-      end
-      tree.add_collection('Experiments',project.experiments,:name) do |node,rec|
-          node.url =element_to_url(rec)  
-          node.icon = "/images/model/#{rec.style}.png"
-      end
-      tree.add_collection('Requests',project.requests,:name) do |node,rec|
-          node.url = element_to_url(rec) 
-          node.icon = "/images/model/#{rec.style}.png"
-      end
+      folders.open = true
       return tree.to_html
   rescue Exception => ex
       logger.error "error: #{ex.message}"

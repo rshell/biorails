@@ -1,3 +1,110 @@
+// widget that integrates TinyMCE for the purpose of in place editing:
+// see http://dev.rubyonrails.org/ticket/5263
+//
+
+Ajax.InPlaceRichEditor = Class.create();
+Object.extend(Ajax.InPlaceRichEditor.prototype, Ajax.InPlaceEditor.prototype);
+Object.extend(Ajax.InPlaceRichEditor.prototype,
+{
+	enterEditMode: function(evt)
+	{
+		if (this.saving) return;
+		if (this.editing) return;
+
+		this.editing = true;
+		this.onEnterEditMode();
+
+		if (this.options.externalControl)
+		{
+			Element.hide(this.options.externalControl);
+		}
+
+		Element.hide(this.element);
+		this.createForm();
+		this.element.parentNode.insertBefore(this.form, this.element);
+		Field.scrollFreeActivate(this.editField);
+
+		if (this.options.textarea)
+		{
+			tinyMCE.addMCEControl(this.editField, 'value');
+		}
+
+		// stop the event to avoid a page refresh in Safari
+		if (evt)
+		{
+			Event.stop(evt);
+		}
+		return false;
+	},
+	onclickCancel: function()
+	{
+		if (this.options.textarea)
+		{
+			tinyMCE.removeMCEControl('value');
+		}
+
+		this.onComplete();
+		this.leaveEditMode();
+		return false;
+	},
+	onSubmit: function()
+	{
+		// onLoading resets these so we need to save them away for the Ajax call
+		var form = this.form;
+
+		if (this.options.textarea)
+		{
+			var tinyVal = tinyMCE.getContent('value');
+
+			if (tinyVal)
+				this.editField.value = tinyVal;
+
+			tinyMCE.removeMCEControl('value');
+		}
+
+		var value = this.editField.value;
+
+		// do this first, sometimes the ajax call returns before we get a chance to switch on Saving...
+		// which means this will actually switch on Saving... *after* we've left edit mode causing Saving...
+		// to be displayed indefinitely
+		this.onLoading();
+
+		if (this.options.evalScripts)
+		{
+			new Ajax.Request(
+				this.url, Object.extend(
+				{
+					parameters: this.options.callback(form, value),
+					onComplete: this.onComplete.bind(this),
+					onFailure: this.onFailure.bind(this),
+					asynchronous:true, 
+					evalScripts:true
+				}, this.options.ajaxOptions));
+		}
+		else
+		{
+			new Ajax.Updater(
+				{
+					success: this.element,
+					// don't update on failure (this could be an option)
+					failure: null
+				}, 
+				this.url, Object.extend(
+				{
+					parameters: this.options.callback(form, value),
+					onComplete: this.onComplete.bind(this),
+					onFailure: this.onFailure.bind(this)
+				}, this.options.ajaxOptions));
+		}
+		// stop the event to avoid a page refresh in Safari
+		if (arguments.length > 1)
+		{
+			Event.stop(arguments[0]);
+		}
+		return false;
+	}
+});
+
 function checkAll (id, checked) {
 	var el = document.getElementById(id);
 	for (var i = 0; i < el.elements.length; i++) {

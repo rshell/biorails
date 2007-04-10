@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   helper SessionHelper # Various session/parameter cache and lookup function
   helper TreeHelper # Tree display helpers
   include SessionHelper # Various session/parameter cache and lookup function
-  include TinyMCE
  
   include Biorails::CachingMethods
 
@@ -42,6 +41,7 @@ class ApplicationController < ActionController::Base
 
   uses_tiny_mce(:options => {
      :theme => 'advanced',
+     :mode => "textareas",
      :browsers => %w{msie,gecko,opera,safari},
      :theme_advanced_toolbar_location => "top",
      :theme_advanced_toolbar_align => "left",
@@ -49,14 +49,12 @@ class ApplicationController < ActionController::Base
      :theme_advanced_resizing => true,
      :theme_advanced_statusbar_location => "bottom",
      :paste_auto_cleanup_on_paste => true,
-     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator help},
+     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator fullscreen help},
+     :theme_advanced_buttons2 => %w{cut copy paste pastetext pasteword undo redo link unlink image separator visualaid tablecontrols separator fullpage code cleanup},
      :theme_advanced_buttons3 => [],
-     :plugins => %w{contextmenu paste }
-     },
-      :only => [:new, :edit, :show, :index])  
-
-
-
+     :plugins => %w{contextmenu paste table fullscreen fullpage}
+     })  
+ 
   class_inheritable_reader :check_permissions
   write_inheritable_attribute :check_permissions, []
 

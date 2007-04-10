@@ -1,11 +1,24 @@
 <% unless folder.nil?  %>
 <div>
   <span class='menu'> <%=subject_icon('folder')%> <%= ( folder.parent ? folder.name : '/') %></span>
-  <%= link_to_remote 'Folder View',  :url =>folder_url( :action => 'show',    :folder_id => folder.id ), :update => "centre" %> 
-  <%= link_to_remote 'Document View',:url =>folder_url( :action => 'document',:folder_id => folder.id ), :update => "centre" %> 
-  <%= link_to_remote 'Blog View',    :url =>folder_url( :action => 'blog',    :folder_id => folder.id ), :update => "centre" %> 
-  <%= link_to_remote subject_icon('new')+'Folder',      :url =>folder_url( :action => 'new',     :folder_id => folder.id ), :update => "centre" %> 
-  <%= link_to        subject_icon('new')+'Article',    folder_url( :action => 'new_article',    :folder_id => folder.id )%> 
-  <%= link_to_remote subject_icon('new')+'Upload',          :url =>folder_url( :action => 'new_asset',:folder_id => folder.id ), :update => "centre" %> 
+  <%= link_to_remote 'Folder View',  
+            :url =>folder_url( :action => 'show',    :folder_id => folder.id ), 
+            :update => "centre" %> 
+  <%= link_to_remote 'Document View',
+            :url =>folder_url( :action => 'document',:folder_id => folder.id ), 
+            :update => "centre" %> 
+  <%= link_to_remote 'Blog View',    
+            :url =>folder_url( :action => 'blog',    :folder_id => folder.id ), 
+            :update => "centre" %> 
+  <%= link_to_remote subject_icon('new')+'Folder',      
+            :url =>folder_url( :action => 'new',     :folder_id => folder.id ), 
+            :update => "centre" %> 
+  <%= link_to_remote subject_icon('new')+'Article',    
+            :url =>folder_url( :action => 'new_article',:folder_id => folder.id ),   
+            :update => "centre" ,
+            :complete => " tinyMCE.execCommand('mceAddControl',true,'project_content_body_html' ); "%> 
+  <%= link_to_remote subject_icon('new')+'Upload',          
+            :url =>folder_url( :action => 'new_asset',:folder_id => folder.id ), 
+            :update => "centre" %> 
 </div>
 <% end %>

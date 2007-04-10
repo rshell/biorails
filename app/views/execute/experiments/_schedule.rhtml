@@ -1,11 +1,4 @@
-<div class="subactions">
-    <ul>        <li><%= link_to (subject_icon('new.png')) + ' New Task', :controller => 'tasks', :action => 'new', :id => @experiment.id  %></li>
-        <li><%= link_to (subject_icon('xls.png')) + ' Import Task',  :action => 'import', :id => @experiment.id  %></li>
-    <ul>
-</div>
-<br />
-
-<div class="schedule">
+<div class="report">
 <table width="100%" border="0" cellpadding="2" cellspacing="2">
   <tr>
     <th width="5%" align="center" rowspan="3" scope="col"><%=subject_icon('task.png')%> Tasks</th>
