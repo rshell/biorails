@@ -36,7 +36,7 @@ class Execute::ExperimentsController < ApplicationController
     @schedule = Schedule.tasks_in(@experiment)    
   end
 
-  def notes
+  def folder
     @experiment = current(Experiment,params[:id])
     @project_folder = current_project.folder(@experiment)    
   end

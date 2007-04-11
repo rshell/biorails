@@ -129,7 +129,7 @@ module SheetHelper
 # Handlers for specific data types
 # 
   def data_grid_cell(cell)
-     options = {:save => "/tasks/cell_change/#{cell.row.grid.id}", 
+     options = { :save => task_url(:action=>:cell_change, :id=>cell.row.grid.id), 
                 :default =>"#{cell.value}", 
                 :value => "#{cell.value}",
                 :onkeyup => "FieldOnKeyPress( this,event)"                

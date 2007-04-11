@@ -35,10 +35,6 @@ background-position: 4px 50%;
 
 .icon-attachment  { background-image: url(../images/attachment.png); }
 
-##
-# Icon for main model objects
-#
-
 .icon-project   { background-image: url(../images/model/project.png); }
 
 .icon-experiment{ background-image: url(../images/model/experiment.png); }

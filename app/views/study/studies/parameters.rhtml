@@ -1,6 +1,6 @@
 <% content_for :sidemenu do -%>
 <div>
-  <span class='menu'>Parameters</span>
+  <span class='menu'>StudyParameters</span>
   <%= link_to subject_icon('xls.png')+'Export ',parameter_url( :action => 'export', :id=>@study.id  )%> </li>
   <%= link_to (subject_icon('import.png'))+'Import ',parameter_url( :action => 'import', :id=>@study.id ) %> </li>
   <%= link_to (subject_icon('new.png'))+'New ',parameter_url( :action => 'new', :id=>@study.id  ) %> </li>

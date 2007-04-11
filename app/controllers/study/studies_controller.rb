@@ -37,7 +37,8 @@ class Study::StudiesController < ApplicationController
 # 
   def show
     @study = current( Study, params[:id] )
-    @project_folder = current_project.folder(@study)    
+    @project_folder = current_project.folder(@study)  
+    puts   @project_folder.to_yaml
     if !@study
       redirect_to study_url(:action => 'list')
     end
@@ -56,7 +57,7 @@ class Study::StudiesController < ApplicationController
     show
   end
 
-  def notes
+  def folder
     show
     @project_folder = current_project.folder(@study)
   end

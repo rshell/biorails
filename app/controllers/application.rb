@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   helper SessionHelper # Various session/parameter cache and lookup function
   helper TreeHelper # Tree display helpers
   include SessionHelper # Various session/parameter cache and lookup function
+  include TinyMCE
  
   include Biorails::CachingMethods
 

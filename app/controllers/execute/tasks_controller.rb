@@ -59,7 +59,7 @@ class Execute::TasksController < ApplicationController
 
 ##
 # show task notces,comments etc
-  def notes
+  def folder
     show
     @project_folder = current_project.folder(@task.experiment).folder(@task)    
   end

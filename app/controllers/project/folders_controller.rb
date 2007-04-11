@@ -16,8 +16,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder based on home folder for project
 # 
   def list
-    @project = current_project
-    @project_folder = @project.home
+    @project_folder =  current_project.home
     render :action => 'show'
   end
 ##
@@ -27,8 +26,12 @@ class Project::FoldersController < ApplicationController
 #  * @project based on folder
 # 
   def show
-    @project_folder =current_folder
-    render :partial => 'folder' ,:locals=>{:folder=>@project_folder}, :layout => false if request.xhr?
+    current_folder
+    if request.xhr?
+       render :partial => 'folder' ,:locals=>{:folder=>@project_folder}, :layout => false 
+    else
+       render :action => 'show' 
+    end
   end
 ##
 # List of elements in the route home folder
@@ -38,7 +41,9 @@ class Project::FoldersController < ApplicationController
 # 
   def new
     @parent = current_folder
-    @project_folder = ProjectFolder.new(:name=> Identifier.next_id(ProjectFolder), :parent_id=>@parent.id,:project_id=>@parent.project_id)
+    @project_folder = ProjectFolder.new(:name=> Identifier.next_id(ProjectFolder), 
+                                        :parent_id=>@parent.id,
+                                        :project_id=>@parent.project_id)
     render :partial => 'new' ,:layout => false if request.xhr?
   end
 ##
@@ -67,7 +72,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] 
 # 
   def edit
-    @project_folder =current_folder
+    current_folder
     render :action => 'edit' ,:layout => false if request.xhr?
   end
 ##
@@ -76,7 +81,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] then updated from params[:project_folder]
 #
   def update
-    @project_folder =current_folder
+    current_folder
     if @project_folder.update_attributes(params[:project_folder])
       flash[:notice] = 'ProjectFolder was successfully updated.'
       redirect_to :action => 'show', :id => @project_folder
@@ -93,9 +98,49 @@ class Project::FoldersController < ApplicationController
     redirect_to :action => 'list'
   end
 ##
+# Display the selector
+#     
+  def selector
+    current_folder
+    render :partial => 'selector',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end
+##
+# Display the current clipboard 
+# 
+  def clipboard
+    current_folder
+    render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end  
+##
+# Display the current clipboard 
+# 
+  def document
+    current_folder
+    render :partial => 'document',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end    
+##
+# Display the current clipboard 
+# 
+  def blog
+    current_folder
+    render :partial => 'blog',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
+  end      
+##
+# Display a file asset
+#   
+  def asset
+    current_project
+    @project_element =  current(ProjectElement, params[:id] )  
+    @project_asset   = @project_element.reference
+    @project_folder   = @project_element.parent
+    render :partial => 'asset' ,:locals=>{:asset=> @project_asset}, :layout => false if request.xhr?
+  end
+
+##
 # Display the file upload file selector
 #
   def new_asset
+    current_project
     @project_folder =current_folder
     @project_asset = ProjectAsset.new(:title=> Identifier.next_id(ProjectAsset),
                                       :project_id => @project_folder.project_id)
@@ -114,50 +159,14 @@ class Project::FoldersController < ApplicationController
         render :action => 'upload',:id => @project_folder
     end
   end 
-##
-# Display the selector
-#     
-  def selector
-    @project_folder =current_folder
-    render :partial => 'selector',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end
-##
-# Display the current clipboard 
-# 
-  def clipboard
-    @project_folder =current_folder
-    render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end  
-##
-# Display the current clipboard 
-# 
-  def document
-    @project_folder =current_folder
-    render :partial => 'document',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end    
-##
-# Display the current clipboard 
-# 
-  def blog
-    @project_folder =current_folder
-    render :partial => 'blog',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end      
-##
-# Display a file asset
-#   
-  def asset
-    @project_asset   = current(ProjectAsset,   params[:asset_id] )   
-    @project_element = current(ProjectElement, params[:element_id] )  
-    @project_folder =@project_element.parent
-  end
-
 ## 
 # Display a article for editing
 # 
   def article
-    @project_content   = current(ProjectContent,   params[:content_id] )   
-    @project_element = current(ProjectElement, params[:element_id] )  
+    @project_element = current(ProjectElement, params[:id] )  
+    @project_content   = @project_element.reference
     @project_folder =@project_element.parent
+    render :partial => 'article' ,:locals=>{:content=> @project_content}, :layout => false if request.xhr?
   end
 ##
 # Display the current clipboard 
@@ -169,7 +178,7 @@ class Project::FoldersController < ApplicationController
     if request.xhr?
        render :partial => 'article', :locals=>{:content=> @project_content} ,:layout => false 
     else
-       render :action => 'article',:locals=>{:folder=> @project_folder}
+       render :action => 'article'
     end
   end
 ##
@@ -180,7 +189,11 @@ class Project::FoldersController < ApplicationController
     @project_content = ProjectContent.new(params[:project_content])
     if @project_content.save
         @project_element = @project_folder.add(@project_content)
-        redirect_to :action => 'show',:id => @project_folder
+        if request.xhr?
+           render :partial => 'folder', :locals=>{:folder=> @project_folder} ,:layout => false 
+        else
+           redirect_to :action => 'show',:id => @project_folder
+        end
     else
         logger.warning @project_content.to_yaml
         render :action => 'article', :id => @project_folder
@@ -191,14 +204,21 @@ class Project::FoldersController < ApplicationController
 # Save a article
 # 
   def update_article
-    @project_content = current(ProjectContent,   params[:content_id] )   
-    @project_element = current(ProjectElement, params[:element_id] )     
-    if  @project_content.update_attributes(params[:project_content])
-        redirect_to :action => 'show',:id => @project_folder
-    else
-        logger.warning @project_content.to_yaml
-        render :action => 'article', :id => @project_folder
-    end
+     current_project
+     @project_element = current(ProjectElement,params[:id] )     
+     @project_folder  = @project_element.parent
+     @project_content = @project_element.reference
+     unless @project_content.update_attributes(params[:project_content])
+          logger.warning "problems in save on content"
+          logger.warning " Errors #{@user.errors.full_messages.to_sentence}"
+          flash[:error] = "failed to save content"
+          logger.info @project_content.to_yaml
+     end
+     if request.xhr?
+        render :partial => 'folder', :locals=>{:folder=> @project_folder} ,:layout => false 
+     else
+        redirect_to :action => 'show', :id => @project_folder
+     end
   end
 
 
@@ -208,20 +228,8 @@ protected
 # Simple helpers to get the current folder from the session or params 
 #  
   def current_folder
-     folder = current(ProjectFolder,params[:folder_id] || params[:id]) 
-     @project =folder.project
-     return folder
+     current_project
+     @project_folder = current(ProjectFolder,params[:folder_id] || params[:id]) 
   end  
- 
- def current_element
-     element = current(ProjectElement, params[:element_id] || params[:id]) 
-     @project =element.project
-     return element
-  end   
-
- def current_asset
-     asset = current(ProjectAsset,params[:asset_id] || params[:id]) 
-     return asset
-  end   
 
 end

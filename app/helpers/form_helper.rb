@@ -324,7 +324,7 @@ module FormHelper
     unless data_element.nil?
       out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
       
-      options[:url] = {:controller =>'data_elements',:action=>'choices',:id=>data_element.id} 
+      options[:url] = {:controller =>'admin/data_elements',:action=>'choices',:id=>data_element.id} 
       options[:min_chars] =2
       options[:after_update_element]= "FieldSave"
   

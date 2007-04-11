@@ -23,7 +23,10 @@
   <tbody>  
     <% for item in folder.children %>
       <tr class="<%= cycle('odd', 'even') %>">
-    	<td><%=subject_icon(item.style) %><%= link_to item.name, element_to_url(item) %></td>
+    	<td><%=subject_icon(item.style) %>
+    	    <%= link_to_remote item.name, :url=>element_to_url(item),
+    	                   :update=>:centre, 
+    	                   :complete => " tinyMCE.execCommand('mceAddControl',true,'project_content_body_html' );" %></td>
           
     	<td>
     	<% if item.asset? %>
@@ -33,9 +36,9 @@
             (W x H) <%=item.asset.width%> x <%=item.asset.height%> 
           <%end %>
     	<% elsif item.textual? %>
-    	  <%= item.content.title %>  
+      	   <%= item.content.title %>  
     	<% else %>
-    	  <%=item.path%>  
+    	   <%=item.path%>  
     	<% end %>
     	</td>
     	<td align="center"><%= short_date(item.created_at) %></td>

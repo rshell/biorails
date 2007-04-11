@@ -3,7 +3,7 @@
       <span class='menu'> <%=subject_icon('study')%><%= study.name %> </span>
       <%= link_to 'Study',    study_url(:action => 'show',  :id => study)%>
       <%= link_to 'Edit',        study_url(:action => 'edit', :id => study) %>
-      <%= link_to 'Notes',       study_url(:action => 'notes', :id => study )%>
+      <%= link_to 'Folder',       study_url(:action => 'folder', :id => study )%>
       <%= link_to 'Parameters',  parameter_url(:action => 'list' , :id => study)%>
       <%= link_to 'Services',    queue_url(:action => 'list', :id => study )%>
       <%= link_to 'Protocols',   study_url(:action => 'protocols' , :id => study)%>

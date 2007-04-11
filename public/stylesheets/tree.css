@@ -1,3 +1,8 @@
+/*
+ * Layout for dtrer javascript driven tree
+ */
+
+
 .dtree {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -17,7 +22,7 @@
 	padding: 0px 2px 1px 2px;
 }
 .dtree a.node:hover, .dtree a.nodeSel:hover {
-	Xcolor: #333;
+	color: #333;
 	text-decoration: underline;
 }
 
@@ -32,7 +37,40 @@ a:visited,a:active {
 	overflow: hidden;
 }
 .node{
-
  cursor: pointer;
- _cursor: hand;
+}
+
+
+/*
+ * Simple layout for tree display for reports
+ */
+
+.tree ul {
+    list-style: none;
+    height: 100%;
+    border-bottom-style:inset;
+    border-bottom-width:1px;
+    border-bottom-color:#7CB30F;
+    margin: 0 0 0 0 ;
+    padding: 0 0 0 0;
+}
+
+.tree ul .reversed {
+    background: #7cb30f;
+    color: #fff;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.tree ul a {
+  padding-top: 1px;
+  padding-right: 3px;
+}
+
+.tree li {
+  padding-left: 0px;
+}
+
+li.tree_leaf {
+  padding-left: 5px;
 }

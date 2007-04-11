@@ -1,3 +1,6 @@
+<%= javascript_include_tiny_mce %>
+<%= tiny_mce %>
+
 <h2>
  <%=subject_icon('task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   

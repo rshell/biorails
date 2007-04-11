@@ -6,7 +6,7 @@
        <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
        <%= link_to 'Metrics', experiment_url( :action => 'metrics', :id => experiment) %>
        <%= link_to subject_icon('edit')+' Edit',     experiment_url( :action => 'edit', :id => experiment) %>
-       <%= link_to subject_icon('notes')+' Notes',    experiment_url(:action => 'notes', :id => experiment )%>
+       <%= link_to subject_icon('notes')+' Folder',    experiment_url(:action => 'folder', :id => experiment )%>
        <%= link_to subject_icon('delete')+' Delete', experiment_url( :action => 'destroy', :id => experiment ), 
                     :confirm => 'Are you sure?',:method => "post" %>
        <%= link_to subject_icon('copy')+' Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>

@@ -2,6 +2,20 @@
  * Function to link in colour and style changes to cell status
  */
 
+var VK_LEFT = 0x25;
+var VK_UP = 0x26;
+var VK_RIGHT = 0x27;
+var VK_DOWN = 0x28;
+var VK_RETURN = 13;
+var VK_TAB = 9;
+
+var current_cell_classname = "cell-initial"
+var current_cell_background = 'rgb(255,255,255) none';
+var current_cell_value = '';
+var current_cell_regex = '/./';
+var current_cell_id ='';
+
+
 function FieldRestore(element) {
       element.style.background = current_cell_background
 }

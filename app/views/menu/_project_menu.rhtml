@@ -1,6 +1,6 @@
 <% unless project.nil?  %>
 <div>
-  <span class='menu'> <%=subject_icon('folder')%> <%=  project.name %></span>
+  <span class='menu' > <%=subject_icon('model/project')%> <%=  project.name %></span>
     <%= link_to l(:Project), project_url(:action => 'show', :id => project) %>
 	<%= link_to l(:calendar), project_url(:action => 'calendar', :id => project) %>
 	<%= link_to l(:timeline), project_url( :action => 'gantt', :id => project) %>

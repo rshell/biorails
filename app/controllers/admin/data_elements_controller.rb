@@ -43,7 +43,7 @@ class Admin::DataElementsController < ApplicationController
     text = request.raw_post || request.query_string
     @value = text.split("=")[1]
     @choices = element.like(@value)
-    render :inline => "<%= auto_complete_result(@choices, 'name',@value) %>"
+    render :inline => "<%= auto_complete_result(@choices, 'name') %>"
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    

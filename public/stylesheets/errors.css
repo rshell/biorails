@@ -1,6 +1,41 @@
 /*
  *=ERRORS AND NOTICES
  */
+/********** Validation error messages *************/
+#errorExplanation {
+  width: 400px;
+  border: 0;
+  padding: 7px;
+  padding-bottom: 3px;
+  margin-bottom: 0px;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 10px 26px;
+  font-size: 1em;
+  margin: -7px;
+  background: url(../images/alert.png) no-repeat 6px 6px;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation {
+  text-align: left;
+  border: 1px solid #F99;
+  background: #fdd;
+}
+
+
+#errorExplanation ul li {
+  font-size: 1em;
+  list-style: none;
+  margin-left: -16px;
+}
 
 #flash-errors, #errorExplanation {
   margin: 0 auto;
@@ -25,15 +60,4 @@
   list-style: none;
 }
 
-#errorExplanation {
-  text-align: left;
-  border: 1px solid #F99;
-  background: #fdd;
-}
-
-#errorExplanation h2 {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
 

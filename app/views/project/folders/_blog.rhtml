@@ -1,13 +1,14 @@
  <%= error_messages_for :project_folder %>
 <br/>
+<% if folder %>
 <h2>
-<% if  @project_folder.reference? %>
-<%= link_to  @project_folder.style, element_to_url(@project_folder) %>
+<% if  folder.reference? %>
+<%= link_to  folder.style, element_to_url(folder) %>
 <% else %>
-<%=  @project_folder.style%>
+<%=  folder.style%>
 <% end %>
-<%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
-<%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
+<%= link_to "/"+ folder.parent.path, folder_url( :action => 'show',:id=>folder.parent_id) if  folder.parent%>
+<%= link_to "/"+ folder.name,        folder_url( :action => 'show',:id=>folder.id) %>
 </h2>
 <% for item in folder.lastest %>    
 	<% if item.asset? and item.asset.image? %>
@@ -24,6 +25,10 @@
 	
 	<% end %>
 <% end %>
+<%else%>
+No Folder found
+<% end %>
+
 
 	
 
