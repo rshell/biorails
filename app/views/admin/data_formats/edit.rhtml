@@ -1,0 +1,21 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Data Format</span>
+<%= link_to 'List',    data_format_url(:action => 'list') %>
+<%= link_to 'New',    data_format_url(:action => 'new') %> 
+<%= link_to 'Edit',    data_format_url(:action => 'edit', :id => @data_format) %> 
+<%= link_to 'Show',    data_format_url(:action => 'show',:id => @data_format) %>
+<% if @data_format.parameters.size==0 %>
+<%= link_to 'Destroy', data_format_url(:action => 'destroy', :id => @data_format ), :confirm => 'Are you sure?', :method => :post %><
+<% end %>
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+
+<h1>Editing Data Format <%=@data_format.name%></h1>
+
+<% form_tag :action => 'update', :id => @data_format do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>

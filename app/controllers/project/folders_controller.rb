@@ -17,7 +17,6 @@ class Project::FoldersController < ApplicationController
 # 
   def list
     @project_folder =  current_project.home
-    render :action => 'show'
   end
 ##
 # List of elements in for a folder

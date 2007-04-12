@@ -5,147 +5,60 @@
 #
 class Inventory::PlatesController < ApplicationController
   check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+ 
 
-  include AjaxScaffold::Controller
-  
-  after_filter :clear_flashes
-  before_filter :update_params_filter
-  
-  def update_params_filter
-    update_params :default_scaffold_id => "plate", :default_sort => nil, :default_sort_direction => "asc"
-  end
+  in_place_edit_for :plate, :name
+  in_place_edit_for :plate, :description
+
   def index
-    redirect_to :action => 'list'
+    list
+    render :action => 'list'
   end
-  def return_to_main
-    # If you have multiple scaffolds on the same view then you will want to change this to
-    # to whatever controller/action shows all the views 
-    # (ex: redirect_to :controller => 'AdminConsole', :action => 'index')
-    redirect_to :action => 'list'
-  end
+
+  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
+  verify :method => :post, :only => [ :destroy, :create, :update ],
+         :redirect_to => { :action => :list }
 
   def list
-  end
-  
-  # All posts to change scaffold level variables like sort values or page changes go through this action
-  def component_update
-    @show_wrapper = false # don't show the outer wrapper elements if we are just updating an existing scaffold 
-    if request.xhr?
-      # If this is an AJAX request then we just want to delegate to the component to rerender itself
-      component
-    else
-      # If this is from a client without javascript we want to update the session parameters and then delegate
-      # back to whatever page is displaying the scaffold, which will then rerender all scaffolds with these update parameters
-      return_to_main
-    end
+    @plate_pages, @plates = paginate :plates, :per_page => 30
   end
 
-  def search
-     @key = request.raw_post || request.query_string
-     if @key.empty?
-        @conditions = nil
-     else
-        @conditions = ["name like ?",@key+"%"]
-     end 
-     component_update
-  end
-
-
-  def component  
-    @show_wrapper = true if @show_wrapper.nil?
-    @sort_sql = Plate.scaffold_columns_hash[current_sort(params)].sort_sql rescue nil
-    @sort_by = @sort_sql.nil? ? "#{Plate.table_name}.#{Plate.primary_key} asc" : @sort_sql  + " " + current_sort_direction(params)
-    @paginator, @plates = paginate(:plates,:conditions => @conditions, :order => @sort_by, :per_page => default_per_page)
-    
-    render :action => "component", :layout => false
+  def show
+    @plate = Plate.find(params[:id])
   end
 
   def new
     @plate = Plate.new
-    @successful = true
-
-    return render(:action => 'new.rjs') if request.xhr?
-
-    # Javascript disabled fallback
-    if @successful
-      @options = { :action => "create" }
-      render :partial => "new_edit", :layout => true
-    else 
-      return_to_main
-    end
   end
-  
+
   def create
-    begin
-      @plate = Plate.new(params[:plate])
-      @successful = @plate.save
-    rescue
-      flash[:error], @successful  = $!.to_s, false
-    end
-    
-    return render(:action => 'create.rjs') if request.xhr?
-    if @successful
-      return_to_main
+    @plate = Plate.new(params[:plates])
+    if @plate.save
+      flash[:notice] = 'Plate was successfully created.'
+      redirect_to :action => 'list'
     else
-      @options = { :scaffold_id => params[:scaffold_id], :action => "create" }
-      render :partial => 'new_edit', :layout => true
+      render :action => 'new'
     end
   end
 
   def edit
-    begin
-      @plate = Plate.find(params[:id])
-      @successful = !@plate.nil?
-    rescue
-      flash[:error], @successful  = $!.to_s, false
-    end
-    
-    return render(:action => 'edit.rjs') if request.xhr?
-
-    if @successful
-      @options = { :scaffold_id => params[:scaffold_id], :action => "update", :id => params[:id] }
-      render :partial => 'new_edit', :layout => true
-    else
-      return_to_main
-    end    
+    @plate = Plate.find(params[:id])
   end
 
   def update
-    begin
-      @plate = Plate.find(params[:id])
-      @successful = @plate.update_attributes(params[:plate])
-    rescue
-      flash[:error], @successful  = $!.to_s, false
-    end
-    
-    return render(:action => 'update.rjs') if request.xhr?
-
-    if @successful
-      return_to_main
+    @plate = Plate.find(params[:id])
+    if @plate.update_attributes(params[:plates])
+      flash[:notice] = 'Plate was successfully updated.'
+      redirect_to :action => 'show', :id => @plate
     else
-      @options = { :action => "update" }
-      render :partial => 'new_edit', :layout => true
+      render :action => 'edit'
     end
   end
 
   def destroy
-    begin
-      @successful = Plate.find(params[:id]).destroy
-    rescue
-      flash[:error], @successful  = $!.to_s, false
-    end
-    
-    return render(:action => 'destroy.rjs') if request.xhr?
-    
-    # Javascript disabled fallback
-    return_to_main
+    Plate.find(params[:id]).destroy
+    redirect_to :action => 'list'
   end
-  
-  def cancel
-    @successful = true
-    
-    return render(:action => 'cancel.rjs') if request.xhr?
-    
-    return_to_main
-  end
+
+
 end

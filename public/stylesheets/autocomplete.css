@@ -1,0 +1,38 @@
+   
+/* --------------------------------------------
+* Auto Complete popup Panel style
+--------------------------------------------*/
+
+div.auto_complete {              
+    background-color:blue;
+    border:1px solid #888;
+    margin:0;
+    padding:0;
+}            
+
+div.auto_complete ul {              
+    border:1px solid #888;              
+    background-color:white;
+    margin:0;              
+    padding:0;              
+    width:100%;              
+    list-style-type:none;            
+}            
+ 
+div.auto_complete ul li {              
+      list-style-type:none;
+      background-color:white;
+      display:block;
+      margin:0;
+      padding:0;
+      cursor:pointer;
+}            
+div.auto_complete ul li.selected {
+    background-color: #ffb;             
+}            
+div.auto_complete ul strong.highlight {               
+    color: #800;               
+    margin:0;              
+    padding:0;            
+}
+    

@@ -1,0 +1,21 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Parameter Type</span>
+<%= link_to 'List',    parameter_type_url(:action => 'list') %>
+<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
+<%= link_to 'Edit',    parameter_type_url(:action => 'edit', :id => @parameter_type) %> 
+<%= link_to 'Show',    parameter_type_url(:action => 'show',:id => @parameter_type) %>
+<% if @parameter_type.parameters.size==0 %>
+<%= link_to 'Destroy', parameter_type_url(:action => 'destroy', :id => @parameter_type ), :confirm => 'Are you sure?', :method => :post %><
+<% end %>
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+
+<h1>Editing parameter_types</h1>
+
+<% form_tag :action => 'update', :id => @parameter_type do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>

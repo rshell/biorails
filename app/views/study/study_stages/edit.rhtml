@@ -1,0 +1,21 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Study Stages</span>
+<%= link_to 'List',    study_stage_url(:action => 'list') %>
+<%= link_to 'New',    study_stage_url(:action => 'new') %> 
+<%= link_to 'Edit',    study_stage_url(:action => 'edit', :id => @study_stage) %> 
+<%= link_to 'Show',    study_stage_url(:action => 'show',:id => @study_stage) %>
+<% if @study_stage.parameters.size==0 %>
+<%= link_to 'Destroy', study_stage_url(:action => 'destroy', :id => @study_stage ), :confirm => 'Are you sure?', :method => :post %><
+<% end %>
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+
+<h1>Editing Study Stage</h1>
+
+<% form_tag :action => 'update', :id => @study_stage do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>

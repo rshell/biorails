@@ -214,7 +214,29 @@ background:#7CB30F;
 .textright{text-align:right;}
 .important{color:#f02025; background-color:inherit; font-weight:bold;}
 
+.box{
+margin:0 0 20px 0;
+padding:10px;
+border:1px solid #c0c0c0;
+background-color:#fafbfc;
+color:#505050;
+line-height:1.5em;
+}
 
+a.close-icon {
+display:block;
+margin-top:3px;
+overflow:hidden;
+width:12px;
+height:12px;
+background-repeat: no-repeat;
+cursor:pointer;
+background-image:url('../images/close.png');
+}
+
+a.close-icon:hover {
+background-image:url('../images/close_hl.png');
+}
 .layout-active {
 background: #ECF3E1;
 }

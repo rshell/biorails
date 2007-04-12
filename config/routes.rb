@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.data_type  'admin/data/:action/:id', :controller => 'admin/data_types'
   map.parameter_type 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
   map.parameter_role 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
+  map.study_stage 'admin/stage/:action/:id', :controller => 'admin/study_stages'
 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
@@ -37,9 +38,15 @@ ActionController::Routing::Routes.draw do |map|
   map.study     'app/study/:action/:id', :controller => 'study/studies'
   map.protocol  'app/protocol/:action/:id', :controller => 'study/study_protocols'
   map.parameter 'app/parameters/:action/:id', :controller => 'study/study_parameters'  
+  map.study_parameter 'app/parameters/:action/:id', :controller => 'study/study_parameters'  
   map.queue     'app/queue/:action/:id', :controller => 'study/study_queues'
   map.queue_item 'app/queue_item/:action/:id', :controller => 'study/queue_items'
   
+  map.plate     'plate/:action/:id',:controller => 'inventory/plates'  
+  map.sample    'sample/:action/:id',:controller => 'inventory/plates'  
+  map.compound  'compound/:action/:id',:controller => 'inventory/plates'  
+  map.batch     'batch/:action/:id',:controller => 'inventory/plates'  
+  map.container 'container/:action/:id',:controller => 'inventory/plates'  
   map.inventory 'app/inventory/:controller/:action/:id'
 
   map.experiment 'app/experiment/:action/:id', :controller => 'execute/experiments'

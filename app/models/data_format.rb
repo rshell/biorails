@@ -28,6 +28,9 @@ class DataFormat < ActiveRecord::Base
   validates_presence_of :description
   validates_uniqueness_of :name
 
+  has_many :parameters, :dependent => :destroy
+  has_many :study_parameters, :dependent => :destroy
+
   def self.content_columns
         @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|format_regex|_by|_at|_id|_count)$/ || c.name == inheritance_column }
   end

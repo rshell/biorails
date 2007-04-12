@@ -1,0 +1,38 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Data Format</span>
+<%= link_to 'List',    data_format_url(:action => 'list') %>
+<%= link_to 'New',    data_format_url(:action => 'new') %> 
+<%= link_to 'Edit',    data_format_url(:action => 'edit', :id => @data_format) %> 
+<%= link_to 'Show',    data_format_url(:action => 'show',:id => @data_format) %>
+<% if @data_format.parameters.size==0 %>
+<%= link_to 'Destroy', data_format_url(:action => 'destroy', :id => @data_format ), :confirm => 'Are you sure?', :method => :post %><
+<% end %>
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+
+
+<h1><%=@data_format.name%></h1>
+
+<p><%=@data_format.description%>
+</p>
+<table class="report">
+<tr>
+<th>Study Name</th>
+<th>Parameter Name </th>
+<th>Parameter Type</th>
+<th>Parameter Role</th>
+<th>Data Type</th>
+</tr>
+<%for item in  @data_format.study_parameters %>
+<tr>
+<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
+<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
+<td><%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %></td>
+<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
+<td><%=item.data_type.name%></td>
+</tr>
+<%end%>
+</table>

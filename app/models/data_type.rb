@@ -31,5 +31,7 @@ class DataType < ActiveRecord::Base
 #  to in other forms.
 #  
   has_many :data_formats, :dependent => :destroy
-   
+  has_many :parameters, :dependent => :destroy
+  has_many :study_parameters, :dependent => :destroy
+  
 end

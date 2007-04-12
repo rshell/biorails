@@ -1,0 +1,16 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Parameter Role</span>
+<%= link_to 'List', :action => 'list' %>
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+<h1>New Parameter Role</h1>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

@@ -1,8 +1,0 @@
-<% for column in DataType.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @data_type.send(column.name) %>
-</p>
-<% end %>
-
-<%= link_to '(subject_icon('edit.png'))+"Edit", :action => 'edit', :id => @data_type %> |
-<%= link_to (subject_icon('list.png')) +'List', :action => 'list' %>
