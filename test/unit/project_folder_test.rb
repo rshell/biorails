@@ -4,7 +4,7 @@ class ProjectFolderTest < Test::Unit::TestCase
   fixtures :projects
   fixtures :studies
   fixtures :experiments
-  fixtures :project_folders
+  fixtures :project_elements
 
   def assert_ok(object)
      assert_not_nil object, ' Object is missing'

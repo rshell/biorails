@@ -68,13 +68,13 @@ class ProjectTest < Test::Unit::TestCase
      folder = project.folder(study)
      assert_ok folder
      assert  project.folders.detect{|i|i==folder}     
-     assert_not_nil project.folders.notes(study) # folder for unstructed information linked to the object
+     assert_not_nil project.folders(study) # folder for unstructed information linked to the object
   end  
 
   def test007_linked_to
      project = Project.find(:first)
      assert 0==project.folders.size
-     assert 0==project.folders.linked_to(Study).size # array of folders linked to a model type
+     assert 0==project.folders_for(Study).size # array of folders linked to a model type
      study = Study.find(:first)
      assert_ok study
 
@@ -91,12 +91,12 @@ class ProjectTest < Test::Unit::TestCase
 
   def test008_studies
      project = Project.find(1)
-     assert 0==project.folders.studies.size
+     assert 0==project.studies.size
   end  
 
   def test009_experiments
      project = Project.find(1)
-     assert 0== project.folders.experiments.size
+     assert 0== project.experiments.size
   end  
 
 end
