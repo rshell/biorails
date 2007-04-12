@@ -191,13 +191,6 @@ SQL
  end
  
  
-##
-# Timeline of tasks returns 
-# 
- def schedule
-    Schedule.tasks_in(self)
- end
-
 
 ##
 # Import file into the task

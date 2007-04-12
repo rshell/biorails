@@ -21,7 +21,21 @@
 # 
 
 
+##
+#The schedule is expecteding the base queue to contain the following attibtures
+#
+#
+#  status_id           :integer(11)   Status  
+#  is_milestone        :boolean(1)    milestone flag to change icon
+#  priority_id         :integer(11)   priority
+#  start_date          :datetime      start
+#  end_date            :datetime      end
+#  expected_hours      :float         
+#  done_hours          :float    
+#
+#
 class Schedule
+
   attr_accessor :items
   attr_accessor :boxes
   attr_accessor :first
@@ -29,19 +43,29 @@ class Schedule
   attr_accessor :delta
 
   attr_accessor :model
+  attr_accessor :filter
+  attr_accessor :options
 
   attr_accessor :year
+  attr_accessor :year_from
   attr_accessor :month
+  attr_accessor :month_from
   attr_accessor :months
   attr_accessor :zoom
-  attr_accessor :date_from
-  attr_accessor :date_to
  
 
 ##
 #  Default initialize with a empty week,
 #  
-def initialize(model = Task)
+def initialize(model = Task,options={})
+   @options = options
+   @options[:data_from] ||= DateTime.now
+   @options[:data_to]   ||= DateTime.now + 7.days
+   @options[:delta]     ||=  1.day
+   @options[:start]     ||= 'created_at'
+   @options[:end]       ||= 'updated_at'
+   @options[:filter]    ||= nil
+   @options[:model]     ||= model.to_s
    @boxes = []
    @items = []
    @first = DateTime.now
@@ -50,19 +74,43 @@ def initialize(model = Task)
    @model = model
 end
 
+def date_from
+  @options[:data_from].to_date
+end
 
+def date_from=(date)
+  @options[:data_from] = date
+end
+
+def date_to
+  @options[:data_to].to_date
+end
+
+def date_to=(date)
+  @options[:data_to] = date
+end
+##
+# get a select filter 
+# 
+def filter
+  @options[:filter] 
+end
+##
+# set a select filter 
+# 
+def filter=(conditions)
+  @options[:filter] = conditions  
+end
 # Calculate the period of the schedule 
 #
 def period
-  return @last - @first
+  return @options[:data_to].to_d - @options[:data_from].to_s
 end
-
 ##
 # Get a list of all the events in the schedule
  def events
    items.flatten
  end
-
 ##
 # Get the number of time boxes in the schedule 
 # each box will have a size of delta<time>
@@ -72,103 +120,72 @@ end
  end
 
 ##
-# Fetch matching items from the database 
-# return items or null if not configured
-def find_by_user(user)
-    if (@model and @date_form and @date_to)
-         @items = @model.find(:all, 
-         :order => "start_date, end_date", 
-         :conditions => ["(created_by=?) and (((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)",
-         user, @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
-    end    
-end
+# get the current conditions filter for querying
+# 
+#  :start defaults created_at
+#  :end  defaults updated_at
+#  :filter  defaults project_id
+#  
+def refresh(options={})
+   options = @options.merge(options)
 
-## 
-# Featch all matching items from the database
-def find_by_project(user)
-    if (@model and @date_form and @date_to)
-         @items = @model.find(:all, 
-                              :order => "start_date, end_date", 
-                              :conditions => ["(((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)",
-                                          @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
-    end    
+   if (@model and options[:data_from] and options[:data_to])
+     if @filter
+       @items = @model.find(:all, :order => "#{options[:start]}, #{options[:end]}", 
+         :conditions => ["((#{options[:start]} between  ? and  ? ) or (#{options[:end]} between  ? and  ? )) and ( #{filter[0]} )",
+                           date_from, date_to, date_from, date_to, filter[1] ])
+     else
+       @items = @model.find(:all, :order => "#{options[:start]}, #{options[:end]}",
+         :conditions => ["((#{options[:start]} between  ? and  ? ) or (#{options[:end]} between  ? and  ? ))",
+                           date_from, date_to, date_from, date_to ])
+     end
+   end
 end
-
 
 ##
-# Fill scedule as a calendar of items 
+# setup a calender from parameters
 # 
-def Schedule.calendar(model,params)
-    schedule = Schedule.new(model)
-    if params[:year] and params[:year].to_i > 1900
-      @year = params[:year].to_i
-      if params[:month] and params[:month].to_i > 0 and params[:month].to_i < 13
-        @month = params[:month].to_i
+def calendar(params={})
+    options  = @options.merge(params)
+    if options[:year] and options[:year].to_i > 1900
+      self.year = options[:year].to_i
+      if options[:month] and options[:month].to_i > 0 and options[:month].to_i < 13
+        self.month = options[:month].to_i
       end    
     end
-    schedule.year ||= Date.today.year
-    schedule.month ||= Date.today.month
-    schedule.months = 1
-    schedule.date_from = Date.civil(@year, @month, 1)
-    schedule.date_to = (@date_from >> 1)-1
+
+    self.year ||= Date.today.year
+    self.month ||= Date.today.month
+    self.months = 1
+    self.date_from = Date.civil(self.year, self.month, 1)
+    self.date_to = (self.date_from >> 1)-1
     # start on monday
-    schedule.date_from = @date_from - (@date_from.cwday-1)
+    self.date_from = self.date_from - (self.date_from.cwday-1)
     # finish on sunday
-    schedule.date_to = @date_to + (7-@date_to.cwday)  
-    return schedule    
+    self.date_to = self.date_to + (7-self.date_to.cwday)  
+    return self    
 end
 
 ##
-# Create a schedule for a timeline
-#
-def Schedule.gantt(model,params)
-    schedule = Schedule.new(model)
-    schedule.project = current(Project,params[:id])
-    if params[:year] and params[:year].to_i >0
-      schedule.year_from = params[:year].to_i
-      if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12
-        schedule.month_from = params[:month].to_i
+# Setup schedule for a gnatt
+def gnatt(params)
+    if options[:year] and options[:year].to_i >0
+      self.year_from = options[:year].to_i
+      if options[:month] and options[:month].to_i >=1 and options[:month].to_i <= 12
+        self.month_from = options[:month].to_i
       else
-        schedule.month_from = 1
+        self.month_from = 1
       end
     else
-      schedule.month_from ||= (Date.today << 1).month
-      schedule.year_from ||= (Date.today << 1).year
+      self.month_from ||= (Date.today << 1).month
+      self.year_from ||= (Date.today << 1).year
     end
     
-    schedule.zoom = (params[:zoom].to_i > 0 and params[:zoom].to_i < 5) ? params[:zoom].to_i : 2
-    schedule.months = (params[:months].to_i > 0 and params[:months].to_i < 25) ? params[:months].to_i : 6
+    self.zoom = (options[:zoom].to_i > 0 and options[:zoom].to_i < 5) ? options[:zoom].to_i : 2
+    self.months = (options[:months].to_i > 0 and options[:months].to_i < 25) ? options[:months].to_i : 6
     
-    schedule.date_from = Date.civil(schedule.year_from, schedule.month_from, 1)
-    schedule.date_to = (schedule.date_from >> schedule.months) - 1
-    return schedule    
-end
-##
-#Build a schedule of tasks in the passed in experiment (the scientists views)  
-#  
-def Schedule.tasks_in(experiment)
-   schedule = Schedule.new
-   if experiment.tasks.size > 0
-     schedule.first = experiment.start_date.at_beginning_of_day
-     schedule.last = experiment.end_date + 24.hours 
-     schedule.default_delta
-     schedule.fill(experiment.tasks)
-   end
-   return schedule
-end
-
-##
-#Build a schedule of experiments in study ( the project management view) 
-#  
-def Schedule.experiments_in(study)
-   schedule = Schedule.new
-   if study.experiment.size > 0
-     schedule.first = study.start_date.at_beginning_of_day
-     schedule.last = study.end_date + 24.hours 
-     schedule.default_delta
-     schedule.fill(study.experiment)
-   end
-   return schedule
+    self.date_from = Date.civil(year_from, month_from, 1)
+    self.date_to = (self.date_from >> self.months) - 1
 end
 
 ##

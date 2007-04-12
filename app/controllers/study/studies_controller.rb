@@ -43,25 +43,31 @@ class Study::StudiesController < ApplicationController
       redirect_to study_url(:action => 'list')
     end
   end 
-  
-  
+##
+# List of experiments for the study.
+#
   def experiments
     show
   end
-
+##
+# Show the summary stats for the study
+#
   def metrics
     show
   end
-
+##
+# Show the services queues for the study
+#
   def queues
     show
   end
-
+##
+# Show the folder linked to this study
+# 
   def folder
     show
     @project_folder = current_project.folder(@study)
   end
-  
 ##
 # Configuration of a Study. This manages the setup of parameter list and 
 # list of users associated with a study
@@ -69,7 +75,6 @@ class Study::StudiesController < ApplicationController
   def parameters
     show       
   end
-  
 ##
 # Standard entry point for data entry mode for studies. This will display a list of   
 # 
@@ -77,9 +82,27 @@ class Study::StudiesController < ApplicationController
     show       
   end
 
+
+  def calender
+    show       
+    @calender = Schedule.calendar(Task,params)
+    @calender.find_by_user(@user.id)
+    render :layout => false if request.xhr?
+  end
+
+
+  def timeline
+    show     
+    
+    @calender = Schedule.gnatt(Task,params)
+    @calender.find_by_user(@user.id)
+    render :layout => false if request.xhr?
+  end
+
+
 ##
 # Output a timeline 
-  def timeline
+  def changes
     if params[:id]
       @logs = current( Study, params[:id] ).logs
     else  

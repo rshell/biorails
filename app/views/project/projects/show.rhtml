@@ -1,10 +1,47 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/folder_menu' , :locals=>{ :folder => @project.home} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
+<div>
+  <span class='menu'>Status</span>
+  <%if @project.studies.size>0%>
+       <%=subject_icon("true")%> Has studies<br/>
+  <%else%>
+      <%=subject_icon("false")%> No study defined <br/>
+  <%end%> 
+
+  <%if @project.tasks.size>0%>
+      <%=subject_icon("true")%> Has tasks <br/>
+  <%else%>
+      <%=subject_icon("false")%> No experiments defined <br/>
+  <%end%> 
+
+  <%if @project.experiments.size>0%>
+      <%=subject_icon("true")%> Has experiments <br/>
+  <%else%>
+      <%=subject_icon("false")%>No tasks defined <br/>
+  <%end%> 
+  <%= link_to subject_icon('new.png') +'New Study',  study_url(:action => 'new') %>
+  <%= link_to subject_icon('new.png') +'New Experiment',  experiment_url(:action => 'new') %>
+  <%= link_to subject_icon('new.png') +'New Request',  request_url(:action => 'new') %>
+
+</div>
+<% end -%>
+
+
+
+
 <h2><%= @project.name%></h2>
 <%= @project.summary%>
 
 <div class="splitcontentleft">
   <div class="box">
 	<h3><%=l('News')%></h3>
-		<%= render :partial => 'news/news', :collection => @news if @news %>
+		<% for item in @project.lastest(ProjectContent,5) %>
+			<li>
+			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.body_html %>
+			</li>
+		<% end %>
 	</div>
 </div>
 

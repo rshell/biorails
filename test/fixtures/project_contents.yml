@@ -1,32 +1,1063 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: project_contents
-#
-#  id             :integer(11)   not null, primary key
-#  project_id     :integer(11)   
-#  name           :string(255)   
-#  title          :string(255)   
-#  excerpt        :text          
-#  body           :text          
-#  excerpt_html   :text          
-#  body_html      :text          
-#  type           :string(20)    
-#  author_ip      :string(100)   
-#  comments_count :integer(11)   default(0)
-#  comment_age    :integer(11)   default(0)
-#  approved       :boolean(1)    
-#  lock_version   :integer(11)   default(0), not null
-#  created_by     :string(32)    default(sys), not null
-#  created_at     :datetime      not null
-#  updated_by     :string(32)    default(sys), not null
-#  updated_at     :datetime      not null
-#  published_by   :string(255)   
-#  published_at   :datetime      
-#
-
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+project_contents_045: 
+  name: Art-86
+  updated_at: 2007-04-11 21:35:02
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> kkkk </body> </html>
+  project_id: "10"
+  body: 
+  title: kk
+  created_by: sys
+  published: "0"
+  lock_version: "1"
+  type: 
+  updated_by: sys
+  id: "45"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 21:34:50
+project_contents_034: 
+  name: Art-68
+  updated_at: 2007-04-11 16:57:56
+  body_html: |-
+    &nbsp;Moose are long-legged and heavy bodied with a
+    drooping nose, a "bell" or dewlap under the chin, and a small tail.
+    Their color ranges from golden brown to almost black, depending
+    upon the season and the age of the animal. The hair of newborn
+    calves is generally red-brown fading to a lighter rust color within
+    a few weeks. Newborn calves weigh 28 to 35 pounds (13-16 kg) and
+    within five months grow to over 300 pounds (136 kg). Males in prime
+    condition weigh from 1,200 to 1,600 pounds (542-725 kg). Adult
+    females weigh 800 to 1,300 pounds (364-591 kg). Only the bulls have
+    antlers. The largest moose antlers in North America come from
+    Alaska, the Yukon Territory, and the Northwest Territories of
+    Canada. Trophy class bulls are found throughout Alaska, but the
+    largest come from the western portion of the state. Moose
+    occasionally produce trophy-size antlers when they are 6 or 7 years
+    old, with the largest antlers grown at approximately 10 to 12 years
+    of age. In the wild, moose rarely live more than 16 years.
+  project_id: "10"
+  body: 
+  title: General description
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "34"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:57:56
+project_contents_023: 
+  name: Art-56
+  updated_at: 2007-04-11 12:25:04
+  body_html: |-
+    <p>
+    <font size="2">Another explosion hit a police station in the east, near the airport, killing eight people and wounding at least 50.
+    </font></p><p>
+    <font size="2">Unharmed by the blast, Prime Minister Abdelaziz Belkhadem called the attacks a "cowardly and criminal act".
+    <!-- E SF -->
+    </font></p><p>
+    <font size="2">No group has yet admitted carrying out the attacks.
+    </font></p><p>
+    <font size="2">Violent attacks have been increasing in Algeria since
+    the main Islamist rebel group, the Salafist Group for Preaching and
+    Combat (GSPC), changed its name to the al-Qaeda Organisation in the
+    Islamic Maghreb in January.
+    </font></p><p>
+    <font size="2"><b>'Cowardice and betrayal'</b>
+    </font></p><p>
+    <font size="2">The city centre explosion was so loud it could be heard up to 10km (six miles) away, residents said.
+    </font></p>
+  project_id: "10"
+  body: 
+  title: NEWS
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "23"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:25:04
+project_contents_012: 
+  name: Art-7
+  updated_at: 2007-04-10 09:45:35
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <a href=\"http://www.jetbrains.com/\">Jetbrains </a>have released version 2 of their Collaboration and Continuous Build platform <a href=\"http://www.jetbrains.com/teamcity/\">TeamCity</a>, with a full complement of updated IDE plug-ins. Using their expertise garnered in the IDE/Plug-in space(with <a href=\"http://www.jetbrains.com/idea/download/\">IntelliJ</a>, <a href=\"http://www.jetbrains.com/resharper/index.html\">Resharper</a>),&nbsp; With Teamcity, JetBrains&nbsp; aim to bring the information delivered by the build/test/deploy stack into the IDE.<br /><br />The ethos of earlier releases of TeamCity bought agile software development, integration, testing &amp; release stack all into one product, including:<br /> <ul><li>Continuous Integration &amp; Testing</li><li>Build Management</li><li>Team Communication via IDE embedded Instant Messaging</li><li>Server-side Code Analysis</li><li>Code Coverage Analysis &amp; Reporting</li><li>&nbsp;Web-based Interface with Project Dashboard</li><li>Tight IDE Integration</li><li>Pre-tested (Delayed) Commit</li><li>Remote Run for Personal Builds</li></ul> This new release has focused on improving on what has gone before with TeamCity 1.2. Specific improvements are: </body> </html>"
+  project_id: "10"
+  body: 
+  title: More Text
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "12"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-10 09:45:35
+project_contents_001: 
+  name: 
+  updated_at: 2007-04-06 19:14:09
+  body_html: 
+  project_id: "10"
+  body: test
+  title: test
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "1"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:14:09
+project_contents_046: 
+  name: Art-87
+  updated_at: 2007-04-11 21:36:42
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> redglksdgkldsl;k gdkl;;sg  </body> </html>
+  project_id: "10"
+  body: 
+  title: good work
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "46"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 21:36:42
+project_contents_035: 
+  name: Art-69
+  updated_at: 2007-04-11 16:58:20
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: Life history
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "35"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:58:20
+project_contents_024: 
+  name: Art-57
+  updated_at: 2007-04-11 12:26:46
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: MORE
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "24"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:26:46
+project_contents_013: 
+  name: Art-8
+  updated_at: 2007-04-10 10:55:59
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> he <a href="http://wicket.sourceforge.net/">Wicket</a> and <a href="http://terracotta.org/">Terracotta</a> teams have Wicket up and running on Open Terracotta. Support is still not complete, but most of the examples that ship with Wicket now run without any problems. As soon as they have all the kinks out, Terracotta will put the configuration into a Terracotta config module. <p>Eelco Hillenius writes about the <a href="http://chillenious.wordpress.com/2007/04/07/terracotta-supports-subtype-expressions">changes that have taken place</a> in both Wicket and Terracotta to make configuring Wicket fairly easy, as well as descibing what configuration is needed for Wicket. Wicket was modified to have a tagging interface for all classes that need to be tracked by Terracotta. In Terracotta they added a feature that had existed previously but been removed or never committed to the mainline, to allow matching on subtypes of a class or interface when including classes to be monitored by Terracotta. </p> <p>Hillenius notes that the last remaining piece is proper support of Wicket&#39;s EnumeratedType.  </p> </body> </html>
+  project_id: "10"
+  body: 
+  title: Test
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "13"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-10 10:55:59
+project_contents_002: 
+  name: test
+  updated_at: 2007-04-06 19:17:11
+  body_html: 
+  project_id: "10"
+  body: test
+  title: test
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "2"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:17:11
+project_contents_047: 
+  name: Art-88
+  updated_at: 2007-04-11 21:37:10
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: jkgkjlsdjgkdlsjkg;ks
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "47"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 21:37:10
+project_contents_036: 
+  name: Art-70
+  updated_at: 2007-04-11 16:58:56
+  body_html: |-
+    &nbsp;During fall and winter, moose consume large quantities
+    of willow, birch, and aspen twigs. In some areas, moose actually
+    establish a "hedge" or browse line 6 to 8 feet above the ground by
+    clipping most of the terminal shoots of favored food species.
+    Spring is the time of grazing as well as browsing. Moose eat a
+    variety of foods, particularly sedges, equisetum (horsetail), pond
+    weeds, and grasses. During summer, moose feed on vegetation in
+    shallow ponds, forbs, and the leaves of birch, willow, and aspen.
+  project_id: "10"
+  body: 
+  title: Food habits
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "36"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:58:56
+project_contents_025: 
+  name: Art-58
+  updated_at: 2007-04-11 12:28:04
+  body_html: |-
+    "I live near Hoback Junction, Wyoming, eight miles south of Jackson
+    Hole and just the other day my roommates and I noticed two moose in our
+    yard. We believe them to be a Momma and a yearling! We often see then
+    grazing trees in our yard but recently we heard a huge thud on our
+    porch during the night and looked out to find the momma moose using our
+    porch to try to reach a tree branch. I couldn't help but open the door
+    and stick my arm outside to try and grab a picture but it was too dark
+    so I gave up and we all sat by the window gawking in amazement! She is
+    so beautiful! Her yearling, though also gorgeous, is completely bald on
+    her rump and I was wondering if this is normal. It looks as if she has
+    a parasite or disease and was wondering if she's okay or if I should
+    contact someone? I do have some pictures from afar that I could send if
+    you would like to see them. I also wanted to tell you that I was
+    researching this and came upon your site and think that it's WONDERFUL!
+    Thanks for all you do and take care! Molly."
+  project_id: "10"
+  body: 
+  title: MOOSE
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "25"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:28:04
+project_contents_014: 
+  name: Art-10
+  updated_at: 2007-04-10 11:27:25
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> o protect users&#39; private information, unprivileged scripts cannot   invoke the Cut, Copy, and Paste commands in the Mozilla rich text editor, so the   corresponding buttons on the Mozilla Rich Text Editing demo page will not work. To enable   these functions for purposes of the demo, you must modify your browser   preferences.  <p> For Firefox: </p> <ol><li>Quit Firefox. If you have Quick Launch running (in Windows, an icon in the toolbar), quit that too.</li><li>Find your Firefox profile directory. On Windows, this is often located in<p>       C:\\Documents and Settings\\&lt;Windows login&gt;\\Application Data\\Mozilla\\Firefox\\Profiles\\&lt;one</p></li></ol> </body> </html>"
+  project_id: "10"
+  body: 
+  title: test
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "14"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-10 11:27:25
+project_contents_003: 
+  name: RJS/1
+  updated_at: 2007-04-07 09:34:17
+  body_html: "  <h1 style=\"margin-left: 0cm; text-align: right; text-indent: 0cm\" align=\"right\"><span style=\"font-size: 28pt; font-family: &quot;Bitstream Vera Sans&quot;; color: #663300; font-weight: normal\">Derivatives of Ubuntu</span></h1>  <p class=\"MsoNormal\"><span>&nbsp;</span></p>  <p class=\"MsoNormal\"><span>Ubuntu is designed to be a solid foundation for creating further derivatives. In the case of the Official derivatives, all the packages used are from the main Ubuntu repositories, so a user from any variant can seamlessly install packages from any other, and even convert completely to a different variant. </span></p>  <p class=\"MsoNormal\"><span>&nbsp;</span></p>  <h1 style=\"margin-left: 0cm; text-indent: 0cm\"><span style=\"font-size: 18pt; font-family: &quot;Bitstream Vera Sans&quot;; color: #663300; font-weight: normal\">Kubuntu</span></h1>  <p class=\"MsoNormal\"><span>Kubuntu is a user friendly operating system based on KDE, the <em>K Desktop Environment</em>. Kubuntu and Ubuntu are not meant to be seen as distinct projects; Kubuntu is part of the Ubuntu project, and they are both part of one development team that contributes to the whole. Kubuntu is Ubuntu with a different default set-up, the Ubuntu CD contains only GNOME as a desktop environment; the Kubuntu CD contains only KDE, this is the primary difference. </span></p><!--[if gte vml 1]><v:shape  id=\"_x0000_s1027\" type=\"#_x0000_t75\" style='position:absolute;left:0;  text-align:left;margin-left:304.65pt;margin-top:29.75pt;width:176.9pt;  height:167.6pt;z-index:2;mso-wrap-distance-left:0;mso-wrap-distance-right:0;  mso-position-horizontal:absolute;mso-position-horizontal-relative:text;  mso-position-vertical:absolute;mso-position-vertical-relative:text' filled=\"t\">  <v:fill color2=\"black\"/>  <v:imagedata src=\"file:///C:\\DOCUME~1\\rshell\\LOCALS~1\\Temp\\msohtml1\\01\\clip_image003.png\"   o:title=\"\"/>  <w:wrap type=\"square\"/> </v:shape><![endif]--><!--[if !vml]--><!--[endif]--><span style=\"font-size: 18pt; font-family: &quot;Bitstream Vera Sans&quot;; color: #663300; font-weight: normal\">Edubuntu</span>  <p class=\"MsoNormal\"><span>Edubuntu is Ubuntu customised for classroom use. Educators can set up a computer lab, or establish an on-line learning environment, in an hour or so -- then administer that environment without having to become a fully-fledged Linux expert. The principal design goals of Edubuntu are centralized management of configuration, users, and processes together with facilities for working collaboratively in a classroom setting. Equally important is the gathering together of some of the best available free software and digital materials for education.</span></p>  <p class=\"MsoNormal\"><span>&nbsp;</span><span style=\"font-size: 18pt; font-family: &quot;Bitstream Vera Sans&quot;; color: #663300; font-weight: normal\">Xubuntu</span></p>    <p class=\"MsoNormal\"><span>Xubuntu is a light-weight operating system intended to run smoothly even on older, less powerful, hardware. It is built on the Ubuntu core, but uses the slim Xfce desktop environment and GTK+ applications wherever possible. </span></p>  <p class=\"MsoNormal\"><span>&nbsp;</span></p>  "
+  project_id: "10"
+  body: ""
+  title: linux
+  created_by: sys
+  published: "0"
+  lock_version: "2"
+  type: 
+  updated_by: sys
+  id: "3"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:18:34
+project_contents_037: 
+  name: Art-71
+  updated_at: 2007-04-11 17:38:34
+  body_html: |-
+    Most moose make seasonal movements for calving, rutting,
+    and wintering areas. They travel anywhere from only  a few miles to
+    as many as 60 miles during these transitions.
+  project_id: "10"
+  body: 
+  title: Movements
+  created_by: sys
+  published: "0"
+  lock_version: "6"
+  type: 
+  updated_by: sys
+  id: "37"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:59:16
+project_contents_026: 
+  name: Art-59
+  updated_at: 2007-04-11 20:00:08
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p>This is basically a simple edit with cut and paste to word</p><p>With </p><ul><li>&nbsp; Bullet point lists</li><li>....<br /></li></ul><ol><li>numbered lists</li><li>...</li></ol><p><strong>Some </strong><em>simple </em><u>text</u> formating </p><h1>&nbsp;Titles&nbsp;</h1><h3>&nbsp;tables</h3><table border="0"><tbody><tr><td>names&nbsp;</td><td>&nbsp;bases</td><td>more &nbsp;</td><td>titles&nbsp;</td></tr><tr><td>&nbsp;value</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><p>&nbsp;</p>  </body> </html>
+  project_id: "10"
+  body: 
+  title: "Document Editor "
+  created_by: sys
+  published: "0"
+  lock_version: "3"
+  type: 
+  updated_by: sys
+  id: "26"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:35:52
+project_contents_015: 
+  name: Art-12
+  updated_at: 2007-04-10 16:22:02
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> some test </body> </html>
+  project_id: "1"
+  body: 
+  title: Analysis
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "15"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-10 16:22:02
+project_contents_004: 
+  name: RJS/32
+  updated_at: 2007-04-06 20:31:27
+  body_html: "  <p class=\"Body\"><span>This construction conforms to the &lsquo;sample-centred&rsquo; view of pathology laboratories.</span></p>  <p class=\"Body\"><span>The </span><span style=\"font-family: Optima\">measurement </span><span>is made <u>on</u> the </span><span style=\"font-family: Optima\">patient</span><span>, <u>by means of</u> the sample (</span><span style=\"font-family: Optima\">resource</span><span>). The </span><span style=\"font-family: Optima\">patient</span><span> identity is available to the lab through the record made of the </span><span style=\"font-family: Optima\">intervention</span><span> that produced the sample.</span></p>  <p class=\"Body\"><span>If the identity of the </span><span style=\"font-family: Optima\">patient</span><span> is confined to certain clinicians, access to the record of the sample-taking </span><span style=\"font-family: Optima\">intervention</span><span> can be restricted to those clinicians, while the focus of the laboratory on the sample is retained.</span></p>  <p class=\"Body1\"><span>&para;In some clinical practices, the duty of confidentiality with respect to the identity of patients with HIV infection is extended to laboratory staff. In other clinical practices the sample identity is kept distinct from the </span><span style=\"font-family: Optima\">patient</span><span> identity, the link retained by the referring clinician by means of a record of the sample-taking </span><span style=\"font-family: Optima\">intervention</span><span>.</span></p>  <p class=\"Body\"><span>Some characteristics of </span><span style=\"font-family: Optima\">patient</span><span>-derived </span><span style=\"font-family: Optima\">resources</span><span> can be described, without the </span><span style=\"font-family: Optima\">observations</span><span> being of relevance to the </span><span style=\"font-family: Optima\">patient</span><span>. In the case of organs taken for transplantation much of the information required is information about the donor (blood group, HLA type, etc) and is recorded as such. However it can be necessary to record features of the organ that are no longer of relevance to the donor record, including the length of the vessels taken, their condition, subsequent modification, etc. These details can be recorded by classifying the </span><span style=\"font-family: Optima\">resource</span><span> as also being an </span><span style=\"font-family: Optima\">object of care</span><span>.</span></p>  <p class=\"Body\"><span>A donated organ can be classified as:</span></p>  <p class=\"bullet\"><span>&bull;<span>&nbsp;&nbsp;&nbsp; </span>a </span><span style=\"font-family: Optima\">resource</span><span> obtained by a specific </span><span style=\"font-family: Optima\">intervention</span><span> performed on the donor and available for use in a transplant </span><span style=\"font-family: Optima\">intervention</span><span> for a recipient.</span></p>  <p class=\"bullet\"><span>&bull;<span>&nbsp;&nbsp;&nbsp; </span>and also an </span><span style=\"font-family: Optima\">object of care</span><span> on which </span><span style=\"font-family: Optima\">observations</span><span> can be made and on which </span><span style=\"font-family: Optima\">interventions</span><span> can, if necessary, be performed (eg the use of particular anti-coagulants when taking units of blood donated for transfusion).</span></p>  "
+  project_id: "10"
+  body: ""
+  title: tests
+  created_by: sys
+  published: "0"
+  lock_version: "1"
+  type: 
+  updated_by: sys
+  id: "4"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:21:52
+project_contents_038: 
+  name: Art-72
+  updated_at: 2007-04-11 18:21:03
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> Moose have a high reproductive potential and can quickly fill a range to capacity if not limited by predation, hunting, and severe weather. Deep crusted snow can lead to malnutrition and subsequent death of hundreds of moose and decrease the survival of the succeeding year&#39;s calves.  <p>Moose are killed by wolves and black and brown bears. Black bears take moose calves in May and June. Brown bears kill calves and adults the entire time the bears are out of their winter dens. Wolves kill moose throughout the year. Predation limits the growth of many moose populations in Alaska.  </p> </body> </html>
+  project_id: "10"
+  body: 
+  title: Population dynamics
+  created_by: sys
+  published: "0"
+  lock_version: "1"
+  type: 
+  updated_by: sys
+  id: "38"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:59:47
+project_contents_027: 
+  name: Art-64
+  updated_at: 2007-04-11 18:24:37
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <font face="Arial, Helvetica, sans-serif" size="-1"> 	 &bull; <strong><a href="http://www.adfg.state.ak.us/pubs/notebook/biggame/moose.php" target="new">Alaska</a></strong><br />Moose facts from a state that should know about them.</font><p>  <font face="Arial, Helvetica, sans-serif" size="-1">&bull; <strong><a href="http://www.fishbc.com/adventure/wilderness/animals/moose.htm" target="new">British Columbia</a></strong><br />Facts on moose and other animals of British Columbia.</font></p><p>  <font face="Arial, Helvetica, sans-serif" size="-1">&bull; <strong><a href="http://ndis.nrel.colostate.edu/wildlifespx.asp?SpCode=051042" target="new">Colorado</a></strong><br /> The Colorado Division of Wildlife&#39;s fact page on moose, including a range map of Colorado counties.</font></p><p>  <font face="Arial, Helvetica, sans-serif" size="-1">&bull; <strong><a href="http://wildlife.visitmt.com/hooves/moose.htm" target="new">Montana</a></strong><br />Facts and a moose picture, moose tracks image and distribution map of moose in Montana.</font></p><p>  <font face="Arial, Helvetica, sans-serif" size="-1">&bull; <strong><a href="http://www.gov.nf.ca/snp/animals/moose.htm" target="new">Newfoundland</a></strong><br />History and current status of the moose population in Newfoundland.</font></p><p> <font face="Arial, Helvetica, sans-serif" size="-1">	 &bull; <strong><a href="http://www.wildlife.state.nh.us/Wildlife/Wildlife_profiles/profile_moose.htm" target="new">New Hampshire</a></strong><br />Moose facts, moose population in New Hampshire, moose drawing. In association with the University of New Hampshire.  </font></p> </body> </html>
+  project_id: "10"
+  body: 
+  title: moose3
+  created_by: sys
+  published: "0"
+  lock_version: "6"
+  type: 
+  updated_by: sys
+  id: "27"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 15:12:33
+project_contents_016: 
+  name: Art-41
+  updated_at: 2007-04-10 18:48:24
+  body_html: ""
+  project_id: "1"
+  body: 
+  title: sop
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "16"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-10 18:48:24
+project_contents_005: 
+  name: RJS/343
+  updated_at: 2007-04-07 15:08:55
+  body_html: "  <p class=\"MsoBodyText\">This is more in the app<span>lication domain but most system will contain the concepts of a user , role or group<span>&nbsp; </span>and a permission. </span></p>  <ul><li><!--[if !supportLists]--><span style=\"font-size: 9pt; font-family: Symbol\"><span><span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">  </span></span></span><!--[endif]-->Provide a list of roles allocated for a user</li><li><!--[if !supportLists]--><span style=\"font-size: 9pt; font-family: Symbol\"><span><span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">  </span></span></span><!--[endif]-->Provide a list of per<span>missions granted to user or role</span></li><li><!--[if !supportLists]--><span style=\"font-size: 9pt; font-family: Symbol\"></span><!--[endif]-->All<span>ow users to be grouped together</span></li></ul>Well this may not be the world best word processors but beats the hell out of notepad <br />      "
+  project_id: "10"
+  body: 
+  title: Simple test url
+  created_by: sys
+  published: "0"
+  lock_version: "2"
+  type: 
+  updated_by: sys
+  id: "5"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:25:25
+project_contents_039: 
+  name: Art-72
+  updated_at: 2007-04-11 18:22:25
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> Moose have a high reproductive potential and can quickly fill a range to capacity if not limited by predation, hunting, and severe weather. Deep crusted snow can lead to malnutrition and subsequent death of hundreds of moose and decrease the survival of the succeeding year&#39;s calves.   </body> </html>
+  project_id: "10"
+  body: 
+  title: Hunting
+  created_by: sys
+  published: "0"
+  lock_version: "12"
+  type: 
+  updated_by: sys
+  id: "39"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 17:00:07
+project_contents_028: 
+  name: Art-63
+  updated_at: 2007-04-11 15:12:59
+  body_html: "Moose do tend to sample a lot of things. Once they find something they\n\
+    like it\xE2\x80\x99s hard to know how they identify it again without asking the\n\
+    moose. However, we do know that moose have an excellent sense of smell\n\
+    (difficult not to with a nose that big) that is far superior to ours.\n\
+    Their tongue has fewer taste buds than a humans. This is something you\n\
+    would instantly realize if you ever tried to consume a mouthful of\n\
+    balsam fir. Based on this we assume their ability to recognize things\n\
+    by taste alone may not be as great as our own. Their ability to\n\
+    differentiate foods is sufficiently acute to allow them to eat only the\n\
+    highest quality and best tasting forage when forage is abundant, i.e.,\n\
+    if you had a clear cut full of regenerating red maple and aspen, moose\n\
+    in New Hampshire would eat far more aspen than red maple. But if you\n\
+    put that same moose in a clear cut with red maple and raspberry moose\n\
+    would feed primarily on the red maple."
+  project_id: "10"
+  body: 
+  title: moose2
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "28"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 15:12:59
+project_contents_017: 
+  name: Art-42
+  updated_at: 2007-04-11 09:15:54
+  body_html: ""
+  project_id: "1"
+  body: 
+  title: Project Folder
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "17"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 09:15:54
+project_contents_006: 
+  name: rjs/333
+  updated_at: 2007-04-07 14:57:20
+  body_html: "  <p class=\"MsoNormal\"><span>This package provides a simple method of reporting on ActivityBase data pivoting data into a more natural row of results per testing sample context. The context is defined as the same set of conditions associated with a sample position in a results. <br /> <span>&nbsp;</span><br /> <span>&nbsp;</span>To use the package the &#39;table&#39; in a SQL select is replaced with a Pl/SQL table function. So for example to get all results for testset M123 you would write the following :-<br /></span></p><pre><span><span>&nbsp;&nbsp; </span><span style=\"background-color: #ffcc00\">SELECT * FROM TABLE(EDGE_PIVOT.TESTSET(&#39;M123&#39;));</span></span></pre><pre><span>&nbsp; This will return<strong> a results set of the format defined below. With the results and conditons returned in the R1 to R32 columns. This are fill </strong></span></pre><pre><span><strong>results, then conditons in order of prpmno from the PROTPARM table.</strong></span></pre>  <p class=\"MsoNormal\"><span><span>&nbsp;</span>To save complex work to get the column titles right each time the results start with two special rows identified with by test_subject_no=0. </span></p>    <p class=\"MsoNormal\"><span>&nbsp;The first row contai<span style=\"background-color: #999999\">ns the Result and Condtions names (DICTID and DICTSEQNO&gt;1) from the PROTPARM table. So the first first use of a result type would be name NAME and the second usage would be post fixed by a sequence number NAME(2).</span></span></p>    <p class=\"MsoNormal\"><span>&nbsp;The second row contains the units the results are returned in. This is simply the unit from the protocol parameter definition DICTID_UNIT.<br /><!--[endif]--></span></p>  <p class=\"typetitle\"><span>EDGE_LIC_KEY </span></p>  <p class=\"typetitle\"><span>&nbsp;</span><span style=\"font-family: Courier; color: #101080\"><strong>EDGE_LIC_KEY CONSTANT VARCHAR2(128) </strong>:= &#39;nnnn-nnnn-nnnnnnnnnn&#39;;</span></p>    <p style=\"margin-bottom: 12pt\" class=\"desctext\"><span>This key limits the use of the package to a set environment and licenced period of time. Contract <a href=\"mailto:sales@edgesoftwareconsultancy.com\">sales@edgesoftwareconsultancy.com</a> for information on license keys. General the package is licenced for a specific schema on a specific server. </span></p>  <h3><a name=\"IS_LICENCED\" title=\"IS_LICENCED\"></a><span>IS_LICENCED </span></h3>  <pre><span style=\"font-family: Courier; color: #101080\">PROCEDURE IS_LICENCED;</span></pre>  <p style=\"margin-bottom: 12pt\" class=\"desctext\"><span>Test the licence key is valid in the current environment. To work if the package is licenced for this environment all this fuinction. A exception is returned if data is a licence problem. Too get the information for to issue a licence run this procedure with SET SERVEROUTPUT ON to display trhe environment.</span></p>  <h2><a name=\"TESTSET\" title=\"TESTSET\"></a><span>TESTSET </span></h2>  <pre><span style=\"font-family: Courier; color: #101080\">FUNCTION TESTSET(test_id IN VARCHAR2) RETURN <a href=\"file:///C:/Program%20Files/PLSQL%20Developer/plsqldoc/NOLIFE.ELK/AB$SALES53/edge_pivot.html#ResultsPivotTypeTable#ResultsPivotTypeTable\">ResultsPivotTypeTable</a></span></pre><pre><span style=\"font-family: Courier; color: #101080\"><span>&nbsp; </span>PIPELINED;</span></pre>  <p style=\"margin-bottom: 12pt\" class=\"desctext\"><span>This returns a pivot set of results for the the given test set. This is used in a query of the form of </span></p>  <p style=\"margin-bottom: 12pt\" class=\"desctext\"><span>select * from table(edge_pivot.testset(&#39;xxxx&#39;)) </span></p>  <span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;\">to provide a easy to you source of a data for reporting on the test</span>"
+  project_id: "10"
+  body: 
+  title: long text document
+  created_by: sys
+  published: "0"
+  lock_version: "3"
+  type: 
+  updated_by: sys
+  id: "6"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:30:52
+project_contents_040: 
+  name: Art-74
+  updated_at: 2007-04-11 17:00:32
+  body_html: "<p>Because moose range over so much of\n\
+    Alaska, they have played an important role in the development of\n\
+    the state. At one time professional hunters supplied moose meat to\n\
+    mining camps. Historically, moose were an important source of food,\n\
+    clothing, and implements to Athapaskan Indians dwelling along the\n\
+    major rivers. Today, Alaskans and nonresidents annually harvest\n\
+    approximately 6,000 to 8,000 moose\xE2\x80\x94some 3.5 million pounds of\n\
+    meat. Moose are an important part of the Alaskan landscape, and\n\
+    tourists photograph those animals that feed along the highway.\n\n\
+    </p><p>Man's developments in Alaska include many alterations upon the face\n\
+    of the land. These activities create conflicts between man and\n\
+    moose as moose eat crops, stand on airfields, eat young trees,\n\
+    wander the city streets, and collide with cars and trains.\n\n\
+    </p><p>Man's removal of mature timber through logging and careless use of\n\
+    fire has, in general, benefited moose as new stands of young timber\n\
+    have created vast areas of high-quality moose food. The future for\n\
+    moose is reasonably bright because man is learning how to\n\
+    manipulate habitat with wildfire and is becoming more skilled at\n\
+    managing factors that limit moose populations, such as predation\n\
+    and hunting.\n\n\
+    </p>"
+  project_id: "10"
+  body: 
+  title: Economic and future status
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "40"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 17:00:32
+project_contents_029: 
+  name: Art-63
+  updated_at: 2007-04-11 15:13:13
+  body_html: "Moose do tend to sample a lot of things. Once they find something they\n\
+    like it\xE2\x80\x99s hard to know how they identify it again without asking the\n\
+    moose. However, we do know that moose have an excellent sense of smell\n\
+    (difficult not to with a nose that big) that is far superior to ours.\n\
+    Their tongue has fewer taste buds than a humans. This is something you\n\
+    would instantly realize if you ever tried to consume a mouthful of\n\
+    balsam fir. Based on this we assume their ability to recognize things\n\
+    by taste alone may not be as great as our own. Their ability to\n\
+    differentiate foods is sufficiently acute to allow them to eat only the\n\
+    highest quality and best tasting forage when forage is abundant, i.e.,\n\
+    if you had a clear cut full of regenerating red maple and aspen, moose\n\
+    in New Hampshire would eat far more aspen than red maple. But if you\n\
+    put that same moose in a clear cut with red maple and raspberry moose\n\
+    would feed primarily on the red maple."
+  project_id: "10"
+  body: 
+  title: moose2
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "29"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 15:13:13
+project_contents_018: 
+  name: Art-43
+  updated_at: 2007-04-11 09:42:54
+  body_html: ""
+  project_id: "1"
+  body: 
+  title: ""
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "18"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 09:42:54
+project_contents_007: 
+  name: rjs/333
+  updated_at: 2007-04-06 19:32:17
+  body_html: <p>sdgsdgds</p><p>dgsg</p>Rendered menu/_top_menu_bar (0.01852)<br />Rendered /menu/_project_menu (0.00239)<br />Rendered menu/_default_left_menu (0.00286)<br /><br /><p><strong>ds</strong></p><p><strong>gsd</strong></p><p><strong>g&nbsp;</strong></p>
+  project_id: "10"
+  body: 
+  title: sdgdsgds
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "7"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:32:17
+project_contents_041: 
+  name: Art-77
+  updated_at: 2007-04-11 18:25:09
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: xxxx
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "41"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 18:25:09
+project_contents_030: 
+  name: Art-64
+  updated_at: 2007-04-11 18:23:34
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p><strong>Food habits:</strong> During fall and winter, moose consume large quantities of willow, birch, and aspen twigs. In some areas, moose actually establish a &quot;hedge&quot; or browse line 6 to 8 feet above the ground by clipping most of the terminal shoots of favored food species. Spring is the time of grazing as well as browsing. Moose eat a variety of foods, particularly sedges, equisetum (horsetail), pond weeds, and grasses. During summer, moose feed on vegetation in shallow ponds, forbs, and the leaves of birch, willow, and aspen.  </p><p><strong>Movements:</strong> Most moose make seasonal movements for calving, rutting, and wintering areas. They travel anywhere from only  a few miles to as many as 60 miles during these transitions.  </p><p><strong>Population dynamics:</strong> Moose have a high reproductive potential and can quickly fill a range to capacity if not limited by predation, hunting, and severe weather. Deep crusted snow can lead to malnutrition and subsequent death of hundreds of moose and decrease the survival of the succeeding year&#39;s calves.  </p><p>Moose are killed by wolves and black and brown bears. Black bears take moose calves in May and June. Brown bears kill calves and adults the entire time the bears are out of their winter dens. Wolves kill moose throughout the year. Predation limits the growth of many moose populations in Alaska.  </p><p><strong>Hunting:</strong> More people hunt moose than any other of Alaska&#39;s big game species.  </p> </body> </html>
+  project_id: "10"
+  body: 
+  title: moose3
+  created_by: sys
+  published: "0"
+  lock_version: "3"
+  type: 
+  updated_by: sys
+  id: "30"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 15:14:22
+project_contents_019: 
+  name: Art-49
+  updated_at: 2007-04-11 12:16:16
+  body_html: dfkl;hdfkl;hkl;fkhd; fkf;hk<br>
+  project_id: "10"
+  body: 
+  title: tyrdhhdf
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "19"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:16:16
+project_contents_008: 
+  name: RJS/343
+  updated_at: 2007-04-06 19:47:47
+  body_html: <p>gsglsd;klgk;lsd;lkgdsg</p><p>sdg</p><p>sdg</p><p>ds</p><p>gsd</p><p>gsdgsdgdsgsd&nbsp;</p>
+  project_id: "10"
+  body: 
+  title: tetess
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "8"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 19:47:47
+project_contents_042: 
+  name: Art-78
+  updated_at: 2007-04-11 19:56:45
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body><p> &lt;%= tiny_mce %&gt;</p><p>some more text</p><p>some more textsome </p><p>more textsome more</p><p> textsome more text </p><p>&nbsp;</p>   </body> </html>
+  project_id: "10"
+  body: 
+  title: test
+  created_by: sys
+  published: "0"
+  lock_version: "5"
+  type: 
+  updated_by: sys
+  id: "42"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 18:33:38
+project_contents_031: 
+  name: Art-62
+  updated_at: 2007-04-11 16:00:20
+  body_html: moose
+  project_id: "10"
+  body: 
+  title: moose
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "31"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:00:20
+project_contents_020: 
+  name: Art-49
+  updated_at: 2007-04-11 12:16:23
+  body_html: dfkl;hdfkl;hkl;fkhd; fkf;hk<br>
+  project_id: "10"
+  body: 
+  title: tyrdhhdf
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "20"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:16:23
+project_contents_009: 
+  name: rjs/333
+  updated_at: 2007-04-06 20:19:40
+  body_html: <p>sdgsdgds</p><p>dg<u>sg</u></p><p>sdg</p><p><strong>ds</strong></p><p><strong>gsd</strong></p><p><strong>g&nbsp;</strong></p>
+  project_id: "10"
+  body: 
+  title: sdgdsgds
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "9"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-06 20:19:40
+project_contents_043: 
+  name: Art-78
+  updated_at: 2007-04-11 18:33:40
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> &lt;%= tiny_mce %&gt;<br /> </body> </html>
+  project_id: "10"
+  body: 
+  title: test
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "43"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 18:33:40
+project_contents_032: 
+  name: Art-62
+  updated_at: 2007-04-11 16:01:44
+  body_html: moose
+  project_id: "10"
+  body: 
+  title: moose
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "32"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:01:44
+project_contents_021: 
+  name: Art-55
+  updated_at: 2007-04-11 12:22:49
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: my note
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "21"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:22:49
+project_contents_010: 
+  name: RJS/342
+  updated_at: 2007-04-07 16:19:02
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> o protect users&#39; private information, unprivileged scripts cannot   invoke the Cut, Copy, and Paste commands in the Mozilla rich text editor, so the   corresponding buttons on the Mozilla Rich Text Editing demo page will not work. To enable   these functions for purposes of the demo, you must modify your browser   preferences.  <p> For Firefox: </p> <ol><li>Quit Firefox. If you have Quick Launch running (in Windows, an icon in the toolbar), quit that too.</li><li>Find your Firefox profile directory. On Windows, this is often located in<p>       C:\\Documents and Settings\\&lt;Windows login&gt;\\Application Data\\Mozilla\\Firefox\\Profiles\\&lt;one folder&gt;.<br /> (See also <a href=\"http://www.mozilla.org/support/firefox/edit\" title=\"Firefox Help: Editing Configuration Files\">editing configuration files</a> for more info on locating your profile folder.)</p></li><li>Open the user.js file from that directory in a text editor.    If there&#39;s no user.js file, create one.   </li><li>    <p>Add these lines to user.js:    </p></li></ol> </body> </html>"
+  project_id: "10"
+  body: 
+  title: Tests
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "10"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-07 16:19:02
+project_contents_044: 
+  name: Art-85
+  updated_at: 2007-04-11 20:21:56
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: "more text "
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "44"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 20:21:56
+project_contents_033: 
+  name: Art-67
+  updated_at: 2007-04-11 16:57:26
+  body_html: ""
+  project_id: "10"
+  body: 
+  title: Introduction
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "33"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 16:57:26
+project_contents_022: 
+  name: Art-56
+  updated_at: 2007-04-11 12:24:56
+  body_html: |-
+    <p>
+    <font size="2">Another explosion hit a police station in the east, near the airport, killing eight people and wounding at least 50.
+    </font></p><p>
+    <font size="2">Unharmed by the blast, Prime Minister Abdelaziz Belkhadem called the attacks a "cowardly and criminal act".
+    <!-- E SF -->
+    </font></p><p>
+    <font size="2">No group has yet admitted carrying out the attacks.
+    </font></p><p>
+    <font size="2">Violent attacks have been increasing in Algeria since
+    the main Islamist rebel group, the Salafist Group for Preaching and
+    Combat (GSPC), changed its name to the al-Qaeda Organisation in the
+    Islamic Maghreb in January.
+    </font></p><p>
+    <font size="2"><b>'Cowardice and betrayal'</b>
+    </font></p><p>
+    <font size="2">The city centre explosion was so loud it could be heard up to 10km (six miles) away, residents said.
+    </font></p>
+  project_id: "10"
+  body: 
+  title: NEWS
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  type: 
+  updated_by: sys
+  id: "22"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-11 12:24:56
+project_contents_011: 
+  name: RJS-1
+  updated_at: 2007-04-07 21:00:59
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p>One of the useful features in Java is the built-in support for writing multithreaded applications. A <em>thread</em> is an execution path in the program that has its own local variables, program counter, and lifetime. If the task being executed on the thread takes a long time, there needs to be a mechanism to stop, monitor, pause, and resume the task.</p>  <!-- me -->  <p>This article will take a nontrivial example with threads and refactor the code to include these capabilities. This article assumes a basic understanding of threads and some knowledge of SWING programming. A zip file is provided for download at the end.</p>  <h3>A Nontrivial Example</h3>  <p>Develop an application to search recursively for all Java source files containing a particular string token within a particular directory. Include a SWING user interface from which the user will be able to choose a root directory from the local machine and enter the string token to be searched. The user will have the ability to start, stop, monitor, pause, or resume the Search task. The final user interface should be like</p>  </body> </html>
+  project_id: "10"
+  body: 
+  title: Simple test
+  created_by: sys
+  published: "0"
+  lock_version: "1"
+  type: 
+  updated_by: sys
+  id: "11"
+  lock_timeout: 
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-07 20:56:24

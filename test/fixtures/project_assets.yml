@@ -1,28 +1,856 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: project_assets
-#
-#  id               :integer(11)   not null, primary key
-#  project_id       :integer(11)   
-#  parent_id        :integer(11)   
-#  title            :string(255)   
-#  content_type     :string(255)   
-#  filename         :string(255)   
-#  size             :integer(11)   
-#  thumbnail        :string(255)   
-#  width            :integer(11)   
-#  height           :integer(11)   
-#  thumbnails_count :integer(11)   default(0)
-#  lock_version     :integer(11)   default(0), not null
-#  created_by       :string(32)    default(sys), not null
-#  created_at       :datetime      not null
-#  updated_by       :string(32)    default(sys), not null
-#  updated_at       :datetime      not null
-#
-
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+project_assets_036: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:50:32
+  thumbnails_count: "0"
+  size: "2930208"
+  thumbnail: 
+  project_id: 
+  title: File-13
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "83"
+  height: "1995"
+  filename: DSC_6836.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-10 18:50:32
+  width: "3000"
+project_assets_025: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:36
+  thumbnails_count: "0"
+  size: "323781"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "67"
+  height: "100"
+  filename: KEA01_small.JPG
+  content_hash: 
+  parent_id: "63"
+  created_at: 2007-04-06 18:00:36
+  width: "82"
+project_assets_014: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:17
+  thumbnails_count: "0"
+  size: "360286"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "56"
+  height: "32"
+  filename: BELLBIRD_icon.JPG
+  content_hash: 
+  parent_id: "53"
+  created_at: 2007-04-06 18:00:17
+  width: "48"
+project_assets_003: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:56:34
+  thumbnails_count: "0"
+  size: "1594511"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "45"
+  height: "200"
+  filename: KAKA_normal.JPG
+  content_hash: 
+  parent_id: "43"
+  created_at: 2007-04-06 17:56:34
+  width: "300"
+project_assets_037: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:50:33
+  thumbnails_count: "0"
+  size: "3458986"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "84"
+  height: "200"
+  filename: DSC_6836_normal.JPG
+  content_hash: 
+  parent_id: "83"
+  created_at: 2007-04-10 18:50:33
+  width: "301"
+project_assets_026: 
+  content_type: audio/mpeg
+  updated_at: 2007-04-06 18:03:48
+  thumbnails_count: "0"
+  size: "3616937"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "68"
+  height: 
+  filename: 07_A_Candle_In_Notre_Dame.mp3
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:03:48
+  width: 
+project_assets_015: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:17
+  thumbnails_count: "0"
+  size: "360286"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "57"
+  height: "67"
+  filename: BELLBIRD_small.JPG
+  content_hash: 
+  parent_id: "53"
+  created_at: 2007-04-06 18:00:17
+  width: "100"
+project_assets_004: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:56:35
+  thumbnails_count: "0"
+  size: "1594511"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "46"
+  height: "32"
+  filename: KAKA_icon.JPG
+  content_hash: 
+  parent_id: "43"
+  created_at: 2007-04-06 17:56:35
+  width: "48"
+project_assets_038: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:50:35
+  thumbnails_count: "0"
+  size: "3458986"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "85"
+  height: "532"
+  filename: DSC_6836_large.JPG
+  content_hash: 
+  parent_id: "83"
+  created_at: 2007-04-10 18:50:35
+  width: "800"
+project_assets_027: 
+  content_type: application/vnd.visio
+  updated_at: 2007-04-06 18:04:35
+  thumbnails_count: "0"
+  size: "989184"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "69"
+  height: 
+  filename: qmart.vsd
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:04:35
+  width: 
+project_assets_016: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:24
+  thumbnails_count: "0"
+  size: "169621"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "58"
+  height: "847"
+  filename: WALKER001.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:00:24
+  width: "1280"
+project_assets_005: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:56:36
+  thumbnails_count: "0"
+  size: "1594511"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "47"
+  height: "67"
+  filename: KAKA_small.JPG
+  content_hash: 
+  parent_id: "43"
+  created_at: 2007-04-06 17:56:36
+  width: "100"
+project_assets_040: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:50:37
+  thumbnails_count: "0"
+  size: "3458986"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "87"
+  height: "32"
+  filename: DSC_6836_icon.JPG
+  content_hash: 
+  parent_id: "83"
+  created_at: 2007-04-10 18:50:37
+  width: "48"
+project_assets_039: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:50:36
+  thumbnails_count: "0"
+  size: "3458986"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "86"
+  height: "67"
+  filename: DSC_6836_small.JPG
+  content_hash: 
+  parent_id: "83"
+  created_at: 2007-04-10 18:50:36
+  width: "100"
+project_assets_028: 
+  content_type: application/pdf
+  updated_at: 2007-04-06 18:05:10
+  thumbnails_count: "0"
+  size: "2318971"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "70"
+  height: 
+  filename: 5_styles.pdf
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:05:10
+  width: 
+project_assets_017: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:24
+  thumbnails_count: "0"
+  size: "199459"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "59"
+  height: "529"
+  filename: WALKER001_large.JPG
+  content_hash: 
+  parent_id: "58"
+  created_at: 2007-04-06 18:00:24
+  width: "800"
+project_assets_006: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:57:55
+  thumbnails_count: "0"
+  size: "3307047"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "48"
+  height: "1996"
+  filename: SUNSET001.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 17:57:55
+  width: "3000"
+project_assets_041: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:52:53
+  thumbnails_count: "0"
+  size: "2643559"
+  thumbnail: 
+  project_id: 
+  title: File-14
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "88"
+  height: "1995"
+  filename: DSC_6779.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-10 18:52:53
+  width: "3000"
+project_assets_030: 
+  content_type: application/pdf
+  updated_at: 2007-04-06 18:09:36
+  thumbnails_count: "0"
+  size: "416568"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "72"
+  height: 
+  filename: Teranode_Model_Server_User_Guide.pdf
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:09:36
+  width: 
+project_assets_029: 
+  content_type: text/html
+  updated_at: 2007-04-06 18:09:20
+  thumbnails_count: "0"
+  size: "5815"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "71"
+  height: 
+  filename: biobook-todo.html
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:09:20
+  width: 
+project_assets_018: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:25
+  thumbnails_count: "0"
+  size: "199459"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "60"
+  height: "200"
+  filename: WALKER001_normal.JPG
+  content_hash: 
+  parent_id: "58"
+  created_at: 2007-04-06 18:00:25
+  width: "302"
+project_assets_007: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:57:57
+  thumbnails_count: "0"
+  size: "1590294"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "49"
+  height: "532"
+  filename: SUNSET001_large.JPG
+  content_hash: 
+  parent_id: "48"
+  created_at: 2007-04-06 17:57:57
+  width: "800"
+project_assets_042: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:52:55
+  thumbnails_count: "0"
+  size: "2556066"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "89"
+  height: "200"
+  filename: DSC_6779_normal.JPG
+  content_hash: 
+  parent_id: "88"
+  created_at: 2007-04-10 18:52:55
+  width: "301"
+project_assets_031: 
+  content_type: image/jpeg
+  updated_at: 2007-04-07 16:06:02
+  thumbnails_count: "0"
+  size: "530649"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "78"
+  height: "1024"
+  filename: ROBIN.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-07 16:06:02
+  width: "1287"
+project_assets_020: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:25
+  thumbnails_count: "0"
+  size: "199459"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "62"
+  height: "66"
+  filename: WALKER001_small.JPG
+  content_hash: 
+  parent_id: "58"
+  created_at: 2007-04-06 18:00:25
+  width: "100"
+project_assets_019: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:25
+  thumbnails_count: "0"
+  size: "199459"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "61"
+  height: "32"
+  filename: WALKER001_icon.JPG
+  content_hash: 
+  parent_id: "58"
+  created_at: 2007-04-06 18:00:25
+  width: "48"
+project_assets_008: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:57:58
+  thumbnails_count: "0"
+  size: "1590294"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "50"
+  height: "200"
+  filename: SUNSET001_normal.JPG
+  content_hash: 
+  parent_id: "48"
+  created_at: 2007-04-06 17:57:58
+  width: "301"
+project_assets_043: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:52:56
+  thumbnails_count: "0"
+  size: "2556066"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "90"
+  height: "532"
+  filename: DSC_6779_large.JPG
+  content_hash: 
+  parent_id: "88"
+  created_at: 2007-04-10 18:52:56
+  width: "800"
+project_assets_032: 
+  content_type: image/jpeg
+  updated_at: 2007-04-07 16:06:02
+  thumbnails_count: "0"
+  size: "565475"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "79"
+  height: "38"
+  filename: ROBIN_icon.JPG
+  content_hash: 
+  parent_id: "78"
+  created_at: 2007-04-07 16:06:02
+  width: "48"
+project_assets_021: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:35
+  thumbnails_count: "0"
+  size: "268302"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "63"
+  height: "1280"
+  filename: KEA01.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:00:35
+  width: "1046"
+project_assets_010: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:58:00
+  thumbnails_count: "0"
+  size: "1590294"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "52"
+  height: "67"
+  filename: SUNSET001_small.JPG
+  content_hash: 
+  parent_id: "48"
+  created_at: 2007-04-06 17:58:00
+  width: "100"
+project_assets_009: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:57:59
+  thumbnails_count: "0"
+  size: "1590294"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "51"
+  height: "32"
+  filename: SUNSET001_icon.JPG
+  content_hash: 
+  parent_id: "48"
+  created_at: 2007-04-06 17:57:59
+  width: "48"
+project_assets_044: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:52:58
+  thumbnails_count: "0"
+  size: "2556066"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "91"
+  height: "67"
+  filename: DSC_6779_small.JPG
+  content_hash: 
+  parent_id: "88"
+  created_at: 2007-04-10 18:52:58
+  width: "100"
+project_assets_033: 
+  content_type: image/jpeg
+  updated_at: 2007-04-07 16:06:02
+  thumbnails_count: "0"
+  size: "565475"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "80"
+  height: "600"
+  filename: ROBIN_large.JPG
+  content_hash: 
+  parent_id: "78"
+  created_at: 2007-04-07 16:06:02
+  width: "754"
+project_assets_022: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:35
+  thumbnails_count: "0"
+  size: "323781"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "64"
+  height: "600"
+  filename: KEA01_large.JPG
+  content_hash: 
+  parent_id: "63"
+  created_at: 2007-04-06 18:00:35
+  width: "490"
+project_assets_011: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:16
+  thumbnails_count: "0"
+  size: "337919"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "53"
+  height: "852"
+  filename: BELLBIRD.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 18:00:16
+  width: "1280"
+project_assets_045: 
+  content_type: image/jpeg
+  updated_at: 2007-04-10 18:52:59
+  thumbnails_count: "0"
+  size: "2556066"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "92"
+  height: "32"
+  filename: DSC_6779_icon.JPG
+  content_hash: 
+  parent_id: "88"
+  created_at: 2007-04-10 18:52:59
+  width: "48"
+project_assets_034: 
+  content_type: image/jpeg
+  updated_at: 2007-04-07 16:06:03
+  thumbnails_count: "0"
+  size: "565475"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "81"
+  height: "200"
+  filename: ROBIN_normal.JPG
+  content_hash: 
+  parent_id: "78"
+  created_at: 2007-04-07 16:06:03
+  width: "251"
+project_assets_023: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:36
+  thumbnails_count: "0"
+  size: "323781"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "65"
+  height: "200"
+  filename: KEA01_normal.JPG
+  content_hash: 
+  parent_id: "63"
+  created_at: 2007-04-06 18:00:36
+  width: "163"
+project_assets_012: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:16
+  thumbnails_count: "0"
+  size: "360286"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "54"
+  height: "533"
+  filename: BELLBIRD_large.JPG
+  content_hash: 
+  parent_id: "53"
+  created_at: 2007-04-06 18:00:16
+  width: "800"
+project_assets_001: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:56:31
+  thumbnails_count: "0"
+  size: "4005208"
+  thumbnail: 
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "43"
+  height: "1997"
+  filename: KAKA.JPG
+  content_hash: 
+  parent_id: 
+  created_at: 2007-04-06 17:56:31
+  width: "3000"
+project_assets_035: 
+  content_type: image/jpeg
+  updated_at: 2007-04-07 16:06:03
+  thumbnails_count: "0"
+  size: "565475"
+  thumbnail: small
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "82"
+  height: "80"
+  filename: ROBIN_small.JPG
+  content_hash: 
+  parent_id: "78"
+  created_at: 2007-04-07 16:06:03
+  width: "100"
+project_assets_024: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:36
+  thumbnails_count: "0"
+  size: "323781"
+  thumbnail: icon
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "66"
+  height: "48"
+  filename: KEA01_icon.JPG
+  content_hash: 
+  parent_id: "63"
+  created_at: 2007-04-06 18:00:36
+  width: "39"
+project_assets_013: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 18:00:16
+  thumbnails_count: "0"
+  size: "360286"
+  thumbnail: normal
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "55"
+  height: "200"
+  filename: BELLBIRD_normal.JPG
+  content_hash: 
+  parent_id: "53"
+  created_at: 2007-04-06 18:00:16
+  width: "300"
+project_assets_002: 
+  content_type: image/jpeg
+  updated_at: 2007-04-06 17:56:32
+  thumbnails_count: "0"
+  size: "1594511"
+  thumbnail: large
+  project_id: 
+  title: 
+  created_by: sys
+  published: "0"
+  lock_version: "0"
+  updated_by: sys
+  id: "44"
+  height: "533"
+  filename: KAKA_large.JPG
+  content_hash: 
+  parent_id: "43"
+  created_at: 2007-04-06 17:56:32
+  width: "800"

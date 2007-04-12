@@ -32,8 +32,7 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current(Experiment,params[:id])
-    @project_folder = current_project.folder(@experiment)    
-    @schedule = Schedule.tasks_in(@experiment)    
+    @project_folder = current_project.folder(@experiment)     
   end
 
   def folder
@@ -43,6 +42,22 @@ class Execute::ExperimentsController < ApplicationController
 
   def metrics
     @experiment = current(Experiment,params[:id]) 
+  end
+
+  def calendar
+    @experiment = current(Experiment,params[:id]) 
+    @calendar = Schedule.new(Task)
+    @calendar.calendar(params)
+    @calendar.filter = ["experiment_id = ?",@experiment.id]
+    @calendar.refresh   
+  end
+
+  def timeline
+    @experiment = current(Experiment,params[:id]) 
+    @gnatt = Schedule.new(Task)
+    @gnatt.gnatt(params)
+    @gnatt.filter = ["experiment_id = ?",@experiment.id]
+    @gnatt.refresh   
   end
   
 ##
@@ -106,7 +121,7 @@ class Execute::ExperimentsController < ApplicationController
 
 ##
 # Output a timeline for the experiment
-  def timeline
+  def changes
     if params[:id]
       @logs = current( Experiment, params[:id] ).logs
     else  
@@ -190,6 +205,7 @@ class Execute::ExperimentsController < ApplicationController
     else
       flash[:error] ="couldn't work out where file was: {params.to_s}"
     end 
+    
     flash[:error]=@experiment.errors
     #flash[:warning]=@experiment.messages
     flash[:info]= "import task #{@task.name}" 

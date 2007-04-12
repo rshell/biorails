@@ -2,7 +2,7 @@
     <div>
       <span class='menu'> <%=subject_icon('experiment')%>Experiment <%=experiment.name%> </span>
        <%= link_to subject_icon('experiment')+' Overview',     experiment_url( :action => 'show', :id => experiment) %>
-       <%= link_to 'Calendar', experiment_url( :action => 'calender', :id => experiment) %>
+       <%= link_to 'Calendar', experiment_url( :action => 'calendar', :id => experiment) %>
        <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
        <%= link_to 'Metrics', experiment_url( :action => 'metrics', :id => experiment) %>
        <%= link_to subject_icon('edit')+' Edit',     experiment_url( :action => 'edit', :id => experiment) %>

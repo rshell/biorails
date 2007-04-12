@@ -1,5 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
+
 class SpecimenTest < Test::Unit::TestCase
   fixtures :specimens
 
@@ -8,3 +9,4 @@ class SpecimenTest < Test::Unit::TestCase
     assert true
   end
 end
+

@@ -1,59 +1,82 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: projects
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(30)    default(), not null
-#  summary            :text          default(), not null
-#  status_id          :integer(11)   default(0), not null
-#  title              :string(255)   
-#  subtitle           :string(255)   
-#  email              :string(255)   
-#  ping_urls          :text          
-#  articles_per_page  :integer(11)   default(15)
-#  host               :string(255)   
-#  akismet_key        :string(100)   
-#  akismet_url        :string(255)   
-#  approve_comments   :boolean(1)    
-#  comment_age        :integer(11)   
-#  timezone           :string(255)   
-#  filter             :string(255)   
-#  permalink_style    :string(255)   
-#  search_path        :string(255)   
-#  tag_path           :string(255)   
-#  search_layout      :string(255)   
-#  tag_layout         :string(255)   
-#  current_theme_path :string(255)   
-#  created_by         :string(32)    default(sys), not null
-#  created_at         :datetime      not null
-#  updated_by         :string(32)    default(sys), not null
-#  updated_at         :datetime      not null
-#
-
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
+--- 
+projects_001: 
   name: public
-  summary: testing
-  status_id: 0
+  updated_at: 0000-00-00 00:00:00
+  current_theme_path: simpla
+  akismet_url: 
   title: public
-  subtitle: sdss
-  email:
-  created_at: 2006-10-23 20:34:20 
   created_by: sys
-  updated_at: 2006-10-23 20:34:20
+  tag_path: tags
+  timezone: UTC
   updated_by: sys
-two:
-  id: 2
-  name: test
-  summary: testing
-  status_id: 0
-  title: public
-  subtitle: sdss
-  email:
-  created_at: 2006-10-23 20:34:20 
+  search_layout: 
+  id: "1"
+  search_path: search
+  filter: 
+  approve_comments: "0"
+  subtitle: public
+  summary: public data
+  permalink_style: ":year/:month/:day/:permalink"
+  tag_layout: 
+  akismet_key: 
+  host: localhost
+  articles_per_page: "15"
+  status_id: "0"
+  comment_age: "30"
+  created_at: 0000-00-00 00:00:00
+  ping_urls: 
+  email: info@biorails.com
+projects_002: 
+  name: test-project
+  updated_at: 2007-04-04 16:29:54
+  current_theme_path: 
+  akismet_url: 
+  title: 
   created_by: sys
-  updated_at: 2006-10-23 20:34:20
+  tag_path: 
+  timezone: 
   updated_by: sys
-  
+  search_layout: 
+  id: "9"
+  search_path: 
+  filter: 
+  approve_comments: 
+  subtitle: 
+  summary: New Project test-project created by user admin
+  permalink_style: 
+  tag_layout: 
+  akismet_key: 
+  host: 
+  articles_per_page: "15"
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-04 16:29:54
+  ping_urls: 
+  email: 
+projects_003: 
+  name: test-project2
+  updated_at: 2007-04-04 16:31:31
+  current_theme_path: 
+  akismet_url: 
+  title: 
+  created_by: sys
+  tag_path: 
+  timezone: 
+  updated_by: sys
+  search_layout: 
+  id: "10"
+  search_path: 
+  filter: 
+  approve_comments: 
+  subtitle: 
+  summary: New Project test-project2 created by user admin
+  permalink_style: 
+  tag_layout: 
+  akismet_key: 
+  host: 
+  articles_per_page: "15"
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-04 16:31:31
+  ping_urls: 
+  email: 

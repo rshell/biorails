@@ -15,8 +15,26 @@
       <tr><th class="label"><%=subject_icon('study.png')%> Study</th><td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td></tr>
       <tr><th class="label"><%=subject_icon('process.png')%> Process [Default]</th><td> <%= @experiment.process.path %></td></tr>
     </table>
-    <div id="tab-parameters">                                       
-            <%= render :partial => 'schedule' %>  
+    <div id="tab-parameters">   
+<table class="report">
+<tr>
+<th>Task</th>
+<th>Protocol</th>
+<th>Status</th>
+<th>Started</th>
+<th>Ended</th>
+</tr>
+<% for item in @experiment.tasks%>
+<tr>
+    <td><%= link_to item.name, task_url( :action => 'show', :id => item.id) %></td>
+    <td><%= item.protocol.name%></td>
+    <td><%= item.status%></td>
+    <td><%=short_date item.start_date%></td>
+    <td><%=short_date item.end_date%></td>
+</tr>
+<%end%>
+</table>
+
     </div>  
 </div>
 

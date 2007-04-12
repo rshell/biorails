@@ -1,19 +1,2566 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: project_elements
-#
-#  id                :integer(11)   not null, primary key
-#  type              :string(20)    
-#  project_id        :integer(11)   not null
-#  project_folder_id :integer(11)   not null
-#  position          :integer(11)   default(1)
-#  reference_id      :integer(11)   not null
-#  reference_type    :string(20)    
-#
-
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+project_elements_141: 
+  name: Group Summary
+  updated_at: 2007-04-10 15:21:05
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "193"
+  reference_type: StudyProtocol
+  reference_id: "46"
+  path: public/DarwinDemo/Group Summary
+  position: "3"
+  parent_id: "87"
+  created_at: 2007-04-10 15:21:05
+project_elements_058: 
+  name: Rat Locomotion
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "107"
+  reference_type: Study
+  reference_id: "16"
+  path: test-project2/Rat Locomotion
+  position: "25"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:49
+project_elements_113: 
+  name: TH001
+  updated_at: 2007-04-10 12:46:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "163"
+  reference_type: Experiment
+  reference_id: "14"
+  path: test-project2/TH001
+  position: "31"
+  parent_id: "3"
+  created_at: 2007-04-10 12:46:47
+project_elements_086: 
+  name: CZ001:13
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "136"
+  reference_type: Task
+  reference_id: "160"
+  path: public/CZ001/CZ001:13
+  position: "13"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_170: 
+  name: Art-87
+  updated_at: 2007-04-11 21:36:42
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "222"
+  reference_type: ProjectContent
+  reference_id: "46"
+  path: test-project2/TH001/TH001-2/Art-87
+  position: "0"
+  parent_id: "166"
+  created_at: 2007-04-11 21:36:42
+project_elements_142: 
+  name: Art-12
+  updated_at: 2007-04-10 16:22:02
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "194"
+  reference_type: ProjectContent
+  reference_id: "15"
+  path: public/Analytics/Art-12
+  position: "0"
+  parent_id: "91"
+  created_at: 2007-04-10 16:22:02
+project_elements_114: 
+  name: TH001-0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "164"
+  reference_type: Task
+  reference_id: "134"
+  path: test-project2/TH001/TH001-0
+  position: "0"
+  parent_id: "163"
+  created_at: 2007-04-10 12:46:47
+project_elements_087: 
+  name: CZ001:14
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "137"
+  reference_type: Task
+  reference_id: "163"
+  path: public/CZ001/CZ001:14
+  position: "14"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_059: 
+  name: Biomarker & Histology
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "108"
+  reference_type: Study
+  reference_id: "17"
+  path: test-project2/Biomarker & Histology
+  position: "26"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:50
+project_elements_171: 
+  name: Art-88
+  updated_at: 2007-04-11 21:37:10
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "223"
+  reference_type: ProjectContent
+  reference_id: "47"
+  path: test-project2/TH001/TH001-2/Art-88
+  position: "1"
+  parent_id: "166"
+  created_at: 2007-04-11 21:37:10
+project_elements_143: 
+  name: Art-41
+  updated_at: 2007-04-10 18:48:25
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "195"
+  reference_type: ProjectContent
+  reference_id: "16"
+  path: public/DarwinDemo/Art-41
+  position: "4"
+  parent_id: "87"
+  created_at: 2007-04-10 18:48:25
+project_elements_115: 
+  name: AL002-1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "165"
+  reference_type: Task
+  reference_id: "135"
+  path: test-project2/TH001/AL002-1
+  position: "1"
+  parent_id: "163"
+  created_at: 2007-04-10 12:46:47
+project_elements_088: 
+  name: DR-ELIZA-2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "138"
+  reference_type: Experiment
+  reference_id: "17"
+  path: public/DR-ELIZA-2
+  position: "12"
+  parent_id: "1"
+  created_at: 2007-04-10 12:46:47
+project_elements_001: 
+  name: public
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "1"
+  reference_type: Project
+  reference_id: "1"
+  path: public
+  position: "1"
+  parent_id: 
+  created_at: 0000-00-00 00:00:00
+project_elements_144: 
+  name: DSC_6836.JPG
+  updated_at: 2007-04-10 18:50:37
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "196"
+  reference_type: ProjectAsset
+  reference_id: "83"
+  path: public/DarwinDemo/DSC_6836.JPG
+  position: "5"
+  parent_id: "87"
+  created_at: 2007-04-10 18:50:37
+project_elements_116: 
+  name: TH001-2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "166"
+  reference_type: Task
+  reference_id: "136"
+  path: test-project2/TH001/TH001-2
+  position: "2"
+  parent_id: "163"
+  created_at: 2007-04-10 12:46:47
+project_elements_030: 
+  name: rjs/333
+  updated_at: 2007-04-06 19:30:52
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "69"
+  reference_type: ProjectContent
+  reference_id: "6"
+  path: test-project2/rjs/333
+  position: "17"
+  parent_id: "3"
+  created_at: 2007-04-06 19:30:52
+project_elements_089: 
+  name: TH001
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "139"
+  reference_type: Experiment
+  reference_id: "14"
+  path: test-project1/TH001
+  position: "9"
+  parent_id: "2"
+  created_at: 2007-04-10 12:46:47
+project_elements_002: 
+  name: test-project1
+  updated_at: 0000-00-00 00:00:00
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "2"
+  reference_type: Project
+  reference_id: "9"
+  path: test-project1
+  position: "1"
+  parent_id: 
+  created_at: 0000-00-00 00:00:00
+project_elements_145: 
+  name: DSC_6779.JPG
+  updated_at: 2007-04-10 18:52:59
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "197"
+  reference_type: ProjectAsset
+  reference_id: "88"
+  path: public/DarwinDemo/DSC_6779.JPG
+  position: "6"
+  parent_id: "87"
+  created_at: 2007-04-10 18:52:59
+project_elements_117: 
+  name: TH001-3
+  updated_at: 2007-04-10 12:46:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "167"
+  reference_type: Task
+  reference_id: "162"
+  path: test-project2/TH001/TH001-3
+  position: "3"
+  parent_id: "163"
+  created_at: 2007-04-10 12:46:47
+project_elements_031: 
+  name: ROBIN.JPG
+  updated_at: 2007-04-07 16:06:03
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "71"
+  reference_type: ProjectAsset
+  reference_id: "78"
+  path: test-project2/ROBIN.JPG
+  position: "18"
+  parent_id: "3"
+  created_at: 2007-04-07 16:06:03
+project_elements_003: 
+  name: test-project2
+  updated_at: 0000-00-00 00:00:00
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "3"
+  reference_type: Project
+  reference_id: "10"
+  path: test-project2
+  position: "1"
+  parent_id: 
+  created_at: 0000-00-00 00:00:00
+project_elements_146: 
+  name: Art-42
+  updated_at: 2007-04-11 09:15:54
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "198"
+  reference_type: ProjectContent
+  reference_id: "17"
+  path: public/Art-42
+  position: "15"
+  parent_id: "1"
+  created_at: 2007-04-11 09:15:54
+project_elements_118: 
+  name: CZ001
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "168"
+  reference_type: Experiment
+  reference_id: "15"
+  path: test-project2/CZ001
+  position: "32"
+  parent_id: "3"
+  created_at: 2007-04-10 12:46:48
+project_elements_032: 
+  name: RJS/342
+  updated_at: 2007-04-07 16:19:02
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "72"
+  reference_type: ProjectContent
+  reference_id: "10"
+  path: test-project2/RJS/342
+  position: "19"
+  parent_id: "3"
+  created_at: 2007-04-07 16:19:02
+project_elements_004: 
+  name: test
+  updated_at: 2007-04-05 19:38:11
+  project_id: "10"
+  created_by: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "8"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test
+  position: "0"
+  parent_id: "3"
+  created_at: 2007-04-05 19:37:59
+project_elements_060: 
+  name: Analytics
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "109"
+  reference_type: Study
+  reference_id: "18"
+  path: test-project2/Analytics
+  position: "27"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:50
+project_elements_147: 
+  name: Art-43
+  updated_at: 2007-04-11 09:42:54
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "199"
+  reference_type: ProjectContent
+  reference_id: "18"
+  path: public/DarwinDemo/Art-43
+  position: "7"
+  parent_id: "87"
+  created_at: 2007-04-11 09:42:54
+project_elements_119: 
+  name: CZ001:0
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "169"
+  reference_type: Task
+  reference_id: "143"
+  path: test-project2/CZ001/CZ001:0
+  position: "0"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_033: 
+  name: RJS-1
+  updated_at: 2007-04-07 20:56:24
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "73"
+  reference_type: ProjectContent
+  reference_id: "11"
+  path: test-project2/test/RJS-1
+  position: "0"
+  parent_id: "8"
+  created_at: 2007-04-07 20:56:24
+project_elements_005: 
+  name: test2
+  updated_at: 2007-04-05 19:38:25
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "9"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2
+  position: "1"
+  parent_id: "3"
+  created_at: 2007-04-05 19:38:25
+project_elements_061: 
+  name: Tumour Growth
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "110"
+  reference_type: Study
+  reference_id: "19"
+  path: test-project2/Tumour Growth
+  position: "28"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:50
+project_elements_148: 
+  name: Treatment Groups
+  updated_at: 2007-04-11 09:47:30
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "200"
+  reference_type: StudyProtocol
+  reference_id: "44"
+  path: public/DarwinDemo/Treatment Groups
+  position: "8"
+  parent_id: "87"
+  created_at: 2007-04-11 09:47:30
+project_elements_034: 
+  name: Art-7
+  updated_at: 2007-04-10 09:45:35
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "74"
+  reference_type: ProjectContent
+  reference_id: "12"
+  path: test-project2/Art-7
+  position: "20"
+  parent_id: "3"
+  created_at: 2007-04-10 09:45:35
+project_elements_006: 
+  name: xxxx
+  updated_at: 2007-04-05 19:38:45
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "10"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/xxxx
+  position: "0"
+  parent_id: "9"
+  created_at: 2007-04-05 19:38:45
+project_elements_090: 
+  name: TH001-0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "140"
+  reference_type: Task
+  reference_id: "134"
+  path: test-project1/TH001/TH001-0
+  position: "0"
+  parent_id: "139"
+  created_at: 2007-04-10 12:46:47
+project_elements_062: 
+  name: CR-EAE
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "111"
+  reference_type: Study
+  reference_id: "20"
+  path: test-project2/CR-EAE
+  position: "29"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:50
+project_elements_149: 
+  name: Art-49
+  updated_at: 2007-04-11 12:16:16
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "201"
+  reference_type: ProjectContent
+  reference_id: "19"
+  path: test-project2/SandBox/Art-49
+  position: "1"
+  parent_id: "75"
+  created_at: 2007-04-11 12:16:16
+project_elements_035: 
+  name: SandBox
+  updated_at: 2007-04-10 10:52:16
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "75"
+  reference_type: 
+  reference_id: 
+  path: test-project2/SandBox
+  position: "21"
+  parent_id: "3"
+  created_at: 2007-04-10 10:52:16
+project_elements_007: 
+  name: llllll
+  updated_at: 2007-04-05 19:38:57
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "11"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/llllll
+  position: "1"
+  parent_id: "9"
+  created_at: 2007-04-05 19:38:57
+project_elements_091: 
+  name: AL002-1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "141"
+  reference_type: Task
+  reference_id: "135"
+  path: test-project1/TH001/AL002-1
+  position: "1"
+  parent_id: "139"
+  created_at: 2007-04-10 12:46:47
+project_elements_063: 
+  name: Dev-1
+  updated_at: 2007-04-10 11:23:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "112"
+  reference_type: Study
+  reference_id: "21"
+  path: test-project2/Dev-1
+  position: "30"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:50
+project_elements_036: 
+  name: Art-8
+  updated_at: 2007-04-10 10:55:59
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "76"
+  reference_type: ProjectContent
+  reference_id: "13"
+  path: test-project2/SandBox/Art-8
+  position: "0"
+  parent_id: "75"
+  created_at: 2007-04-10 10:55:59
+project_elements_008: 
+  name: ssfdsfs
+  updated_at: 2007-04-05 19:39:07
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "12"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/ssfdsfs
+  position: "2"
+  parent_id: "9"
+  created_at: 2007-04-05 19:39:07
+project_elements_092: 
+  name: TH001-2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "142"
+  reference_type: Task
+  reference_id: "136"
+  path: test-project1/TH001/TH001-2
+  position: "2"
+  parent_id: "139"
+  created_at: 2007-04-10 12:46:47
+project_elements_064: 
+  name: Art-10
+  updated_at: 2007-04-10 11:27:25
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "113"
+  reference_type: ProjectContent
+  reference_id: "14"
+  path: test-project2/DarwinDemo/Art-10
+  position: "0"
+  parent_id: "105"
+  created_at: 2007-04-10 11:27:25
+project_elements_120: 
+  name: CZ001:1
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "170"
+  reference_type: Task
+  reference_id: "144"
+  path: test-project2/CZ001/CZ001:1
+  position: "1"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_037: 
+  name: DR-ELIZA-2
+  updated_at: 2007-04-10 11:06:34
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "77"
+  reference_type: 
+  reference_id: 
+  path: test-project2/DR-ELIZA-2
+  position: "22"
+  parent_id: "3"
+  created_at: 2007-04-10 11:06:34
+project_elements_009: 
+  name: tests
+  updated_at: 2007-04-05 19:42:53
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "13"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/tests
+  position: "3"
+  parent_id: "9"
+  created_at: 2007-04-05 19:42:53
+project_elements_093: 
+  name: TH001-3
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "143"
+  reference_type: Task
+  reference_id: "162"
+  path: test-project1/TH001/TH001-3
+  position: "3"
+  parent_id: "139"
+  created_at: 2007-04-10 12:46:47
+project_elements_065: 
+  name: TH001
+  updated_at: 2007-04-10 11:39:28
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "114"
+  reference_type: Experiment
+  reference_id: "14"
+  path: public/TH001
+  position: "9"
+  parent_id: "1"
+  created_at: 2007-04-10 11:39:28
+project_elements_121: 
+  name: CZ001:2
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "171"
+  reference_type: Task
+  reference_id: "145"
+  path: test-project2/CZ001/CZ001:2
+  position: "2"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_094: 
+  name: CZ001
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "144"
+  reference_type: Experiment
+  reference_id: "15"
+  path: test-project1/CZ001
+  position: "10"
+  parent_id: "2"
+  created_at: 2007-04-10 12:46:47
+project_elements_066: 
+  name: DR-ELIZA-1
+  updated_at: 2007-04-10 12:04:50
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "115"
+  reference_type: Experiment
+  reference_id: "16"
+  path: public/DR-ELIZA-1
+  position: "10"
+  parent_id: "1"
+  created_at: 2007-04-10 12:04:50
+project_elements_038: 
+  name: DarwinDemo
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "87"
+  reference_type: Study
+  reference_id: "14"
+  path: public/DarwinDemo
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_150: 
+  name: Art-55
+  updated_at: 2007-04-11 12:22:50
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "202"
+  reference_type: ProjectContent
+  reference_id: "21"
+  path: test-project2/SandBox/Art-55
+  position: "2"
+  parent_id: "75"
+  created_at: 2007-04-11 12:22:50
+project_elements_122: 
+  name: CZ001:3
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "172"
+  reference_type: Task
+  reference_id: "150"
+  path: test-project2/CZ001/CZ001:3
+  position: "3"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_095: 
+  name: CZ001:0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "145"
+  reference_type: Task
+  reference_id: "143"
+  path: test-project1/CZ001/CZ001:0
+  position: "0"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_067: 
+  name: DR-ELIZA-1-0
+  updated_at: 2007-04-10 12:40:22
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "116"
+  reference_type: Task
+  reference_id: "164"
+  path: public/DR-ELIZA-1/DR-ELIZA-1-0
+  position: "0"
+  parent_id: "115"
+  created_at: 2007-04-10 12:40:22
+project_elements_039: 
+  name: DR-ELIZA
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "88"
+  reference_type: Study
+  reference_id: "15"
+  path: public/DR-ELIZA
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_151: 
+  name: Art-56
+  updated_at: 2007-04-11 12:24:56
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "203"
+  reference_type: ProjectContent
+  reference_id: "22"
+  path: test-project2/SandBox/Art-56
+  position: "3"
+  parent_id: "75"
+  created_at: 2007-04-11 12:24:56
+project_elements_123: 
+  name: CZ001:4
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "173"
+  reference_type: Task
+  reference_id: "151"
+  path: test-project2/CZ001/CZ001:4
+  position: "4"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_096: 
+  name: CZ001:1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "146"
+  reference_type: Task
+  reference_id: "144"
+  path: test-project1/CZ001/CZ001:1
+  position: "1"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_068: 
+  name: TH001-0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "118"
+  reference_type: Task
+  reference_id: "134"
+  path: public/TH001/TH001-0
+  position: "0"
+  parent_id: "114"
+  created_at: 2007-04-10 12:46:47
+project_elements_152: 
+  name: Art-57
+  updated_at: 2007-04-11 12:26:46
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "204"
+  reference_type: ProjectContent
+  reference_id: "24"
+  path: test-project2/SandBox/Art-57
+  position: "4"
+  parent_id: "75"
+  created_at: 2007-04-11 12:26:46
+project_elements_124: 
+  name: CZ001:5
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "174"
+  reference_type: Task
+  reference_id: "152"
+  path: test-project2/CZ001/CZ001:5
+  position: "5"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_097: 
+  name: CZ001:2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "147"
+  reference_type: Task
+  reference_id: "145"
+  path: test-project1/CZ001/CZ001:2
+  position: "2"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_010: 
+  name: qwwww
+  updated_at: 2007-04-05 19:43:39
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "14"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/qwwww
+  position: "4"
+  parent_id: "9"
+  created_at: 2007-04-05 19:43:39
+project_elements_069: 
+  name: AL002-1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "119"
+  reference_type: Task
+  reference_id: "135"
+  path: public/TH001/AL002-1
+  position: "1"
+  parent_id: "114"
+  created_at: 2007-04-10 12:46:47
+project_elements_153: 
+  name: Art-58
+  updated_at: 2007-04-11 12:28:04
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "205"
+  reference_type: ProjectContent
+  reference_id: "25"
+  path: test-project2/SandBox/Art-58
+  position: "5"
+  parent_id: "75"
+  created_at: 2007-04-11 12:28:04
+project_elements_125: 
+  name: CZ001:6
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "175"
+  reference_type: Task
+  reference_id: "153"
+  path: test-project2/CZ001/CZ001:6
+  position: "6"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_098: 
+  name: CZ001:3
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "148"
+  reference_type: Task
+  reference_id: "150"
+  path: test-project1/CZ001/CZ001:3
+  position: "3"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_011: 
+  name: hhh
+  updated_at: 2007-04-05 19:44:16
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "15"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/hhh
+  position: "5"
+  parent_id: "9"
+  created_at: 2007-04-05 19:44:16
+project_elements_154: 
+  name: Art-59
+  updated_at: 2007-04-11 12:35:52
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "206"
+  reference_type: ProjectContent
+  reference_id: "26"
+  path: test-project2/Art-59
+  position: "34"
+  parent_id: "3"
+  created_at: 2007-04-11 12:35:52
+project_elements_126: 
+  name: CZ001:7
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "176"
+  reference_type: Task
+  reference_id: "154"
+  path: test-project2/CZ001/CZ001:7
+  position: "7"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_099: 
+  name: CZ001:4
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "149"
+  reference_type: Task
+  reference_id: "151"
+  path: test-project1/CZ001/CZ001:4
+  position: "4"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_012: 
+  name: hhhh
+  updated_at: 2007-04-05 19:44:20
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "16"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/hhhh
+  position: "6"
+  parent_id: "9"
+  created_at: 2007-04-05 19:44:19
+project_elements_040: 
+  name: Rat Locomotion
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "89"
+  reference_type: Study
+  reference_id: "16"
+  path: public/Rat Locomotion
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_155: 
+  name: Art-62
+  updated_at: 2007-04-11 15:12:34
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "207"
+  reference_type: ProjectContent
+  reference_id: "27"
+  path: test-project2/TH001/Art-62
+  position: "4"
+  parent_id: "163"
+  created_at: 2007-04-11 15:12:34
+project_elements_127: 
+  name: CZ001:8
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "177"
+  reference_type: Task
+  reference_id: "155"
+  path: test-project2/CZ001/CZ001:8
+  position: "8"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_013: 
+  name: hhhhggg
+  updated_at: 2007-04-05 19:44:23
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "17"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test2/hhhhggg
+  position: "7"
+  parent_id: "9"
+  created_at: 2007-04-05 19:44:23
+project_elements_041: 
+  name: Biomarker & Histology
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "90"
+  reference_type: Study
+  reference_id: "17"
+  path: public/Biomarker & Histology
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_156: 
+  name: Art-63
+  updated_at: 2007-04-11 15:12:59
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "208"
+  reference_type: ProjectContent
+  reference_id: "28"
+  path: test-project2/TH001/Art-63
+  position: "5"
+  parent_id: "163"
+  created_at: 2007-04-11 15:12:59
+project_elements_128: 
+  name: CZ001:9
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "178"
+  reference_type: Task
+  reference_id: "156"
+  path: test-project2/CZ001/CZ001:9
+  position: "9"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_014: 
+  name: test4
+  updated_at: 2007-04-06 13:42:39
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "33"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test4
+  position: "2"
+  parent_id: "3"
+  created_at: 2007-04-06 13:42:39
+project_elements_070: 
+  name: TH001-2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "120"
+  reference_type: Task
+  reference_id: "136"
+  path: public/TH001/TH001-2
+  position: "2"
+  parent_id: "114"
+  created_at: 2007-04-10 12:46:47
+project_elements_042: 
+  name: Analytics
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "91"
+  reference_type: Study
+  reference_id: "18"
+  path: public/Analytics
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_157: 
+  name: Art-64
+  updated_at: 2007-04-11 15:14:22
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "209"
+  reference_type: ProjectContent
+  reference_id: "30"
+  path: test-project2/TH001/Art-64
+  position: "6"
+  parent_id: "163"
+  created_at: 2007-04-11 15:14:22
+project_elements_129: 
+  name: CZ001:10
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "179"
+  reference_type: Task
+  reference_id: "157"
+  path: test-project2/CZ001/CZ001:10
+  position: "10"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_015: 
+  name: test5
+  updated_at: 2007-04-06 13:42:44
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "34"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test5
+  position: "3"
+  parent_id: "3"
+  created_at: 2007-04-06 13:42:44
+project_elements_071: 
+  name: TH001-3
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "121"
+  reference_type: Task
+  reference_id: "162"
+  path: public/TH001/TH001-3
+  position: "3"
+  parent_id: "114"
+  created_at: 2007-04-10 12:46:47
+project_elements_043: 
+  name: Tumour Growth
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "92"
+  reference_type: Study
+  reference_id: "19"
+  path: public/Tumour Growth
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_158: 
+  name: Art-67
+  updated_at: 2007-04-11 16:57:27
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "210"
+  reference_type: ProjectContent
+  reference_id: "33"
+  path: test-project2/TH001/Art-67
+  position: "7"
+  parent_id: "163"
+  created_at: 2007-04-11 16:57:27
+project_elements_016: 
+  name: test9
+  updated_at: 2007-04-06 13:42:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "35"
+  reference_type: 
+  reference_id: 
+  path: test-project2/test9
+  position: "4"
+  parent_id: "3"
+  created_at: 2007-04-06 13:42:48
+project_elements_072: 
+  name: CZ001
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "122"
+  reference_type: Experiment
+  reference_id: "15"
+  path: public/CZ001
+  position: "11"
+  parent_id: "1"
+  created_at: 2007-04-10 12:46:47
+project_elements_044: 
+  name: CR-EAE
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "93"
+  reference_type: Study
+  reference_id: "20"
+  path: public/CR-EAE
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_159: 
+  name: Art-68
+  updated_at: 2007-04-11 16:57:56
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "211"
+  reference_type: ProjectContent
+  reference_id: "34"
+  path: test-project2/TH001/Art-68
+  position: "8"
+  parent_id: "163"
+  created_at: 2007-04-11 16:57:56
+project_elements_073: 
+  name: CZ001:0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "123"
+  reference_type: Task
+  reference_id: "143"
+  path: public/CZ001/CZ001:0
+  position: "0"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_045: 
+  name: Dev-1
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "94"
+  reference_type: Study
+  reference_id: "21"
+  path: public/Dev-1
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_100: 
+  name: CZ001:5
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "150"
+  reference_type: Task
+  reference_id: "152"
+  path: test-project1/CZ001/CZ001:5
+  position: "5"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_017: 
+  name: KAKA.JPG
+  updated_at: 2007-04-06 17:56:36
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "56"
+  reference_type: ProjectAsset
+  reference_id: "43"
+  path: test-project2/KAKA.JPG
+  position: "5"
+  parent_id: "3"
+  created_at: 2007-04-06 17:56:36
+project_elements_074: 
+  name: CZ001:1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "124"
+  reference_type: Task
+  reference_id: "144"
+  path: public/CZ001/CZ001:1
+  position: "1"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_046: 
+  name: SandBox
+  updated_at: 2007-04-10 11:23:49
+  project_id: "1"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "95"
+  reference_type: Study
+  reference_id: "22"
+  path: public/SandBox
+  position: "0"
+  parent_id: "1"
+  created_at: 2007-04-10 11:23:49
+project_elements_101: 
+  name: CZ001:6
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "151"
+  reference_type: Task
+  reference_id: "153"
+  path: test-project1/CZ001/CZ001:6
+  position: "6"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_018: 
+  name: SUNSET001.JPG
+  updated_at: 2007-04-06 17:58:00
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "57"
+  reference_type: ProjectAsset
+  reference_id: "48"
+  path: test-project2/SUNSET001.JPG
+  position: "6"
+  parent_id: "3"
+  created_at: 2007-04-06 17:58:00
+project_elements_130: 
+  name: CZ001:11
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "180"
+  reference_type: Task
+  reference_id: "158"
+  path: test-project2/CZ001/CZ001:11
+  position: "11"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_075: 
+  name: CZ001:2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "125"
+  reference_type: Task
+  reference_id: "145"
+  path: public/CZ001/CZ001:2
+  position: "2"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_047: 
+  name: DarwinDemo
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "96"
+  reference_type: Study
+  reference_id: "14"
+  path: test-project1/DarwinDemo
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_102: 
+  name: CZ001:7
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "152"
+  reference_type: Task
+  reference_id: "154"
+  path: test-project1/CZ001/CZ001:7
+  position: "7"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_019: 
+  name: BELLBIRD.JPG
+  updated_at: 2007-04-06 18:00:17
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "58"
+  reference_type: ProjectAsset
+  reference_id: "53"
+  path: test-project2/BELLBIRD.JPG
+  position: "7"
+  parent_id: "3"
+  created_at: 2007-04-06 18:00:17
+project_elements_131: 
+  name: CZ001:12
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "181"
+  reference_type: Task
+  reference_id: "159"
+  path: test-project2/CZ001/CZ001:12
+  position: "12"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_076: 
+  name: CZ001:3
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "126"
+  reference_type: Task
+  reference_id: "150"
+  path: public/CZ001/CZ001:3
+  position: "3"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_048: 
+  name: DR-ELIZA
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "97"
+  reference_type: Study
+  reference_id: "15"
+  path: test-project1/DR-ELIZA
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_103: 
+  name: CZ001:8
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "153"
+  reference_type: Task
+  reference_id: "155"
+  path: test-project1/CZ001/CZ001:8
+  position: "8"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_160: 
+  name: Art-69
+  updated_at: 2007-04-11 16:58:20
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "212"
+  reference_type: ProjectContent
+  reference_id: "35"
+  path: test-project2/TH001/Art-69
+  position: "9"
+  parent_id: "163"
+  created_at: 2007-04-11 16:58:20
+project_elements_132: 
+  name: CZ001:13
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "182"
+  reference_type: Task
+  reference_id: "160"
+  path: test-project2/CZ001/CZ001:13
+  position: "13"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_077: 
+  name: CZ001:4
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "127"
+  reference_type: Task
+  reference_id: "151"
+  path: public/CZ001/CZ001:4
+  position: "4"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_049: 
+  name: Rat Locomotion
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "98"
+  reference_type: Study
+  reference_id: "16"
+  path: test-project1/Rat Locomotion
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_104: 
+  name: CZ001:9
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "154"
+  reference_type: Task
+  reference_id: "156"
+  path: test-project1/CZ001/CZ001:9
+  position: "9"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_161: 
+  name: Art-70
+  updated_at: 2007-04-11 16:58:56
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "213"
+  reference_type: ProjectContent
+  reference_id: "36"
+  path: test-project2/TH001/Art-70
+  position: "10"
+  parent_id: "163"
+  created_at: 2007-04-11 16:58:56
+project_elements_133: 
+  name: CZ001:14
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "183"
+  reference_type: Task
+  reference_id: "163"
+  path: test-project2/CZ001/CZ001:14
+  position: "14"
+  parent_id: "168"
+  created_at: 2007-04-10 12:46:48
+project_elements_078: 
+  name: CZ001:5
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "128"
+  reference_type: Task
+  reference_id: "152"
+  path: public/CZ001/CZ001:5
+  position: "5"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_105: 
+  name: CZ001:10
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "155"
+  reference_type: Task
+  reference_id: "157"
+  path: test-project1/CZ001/CZ001:10
+  position: "10"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_162: 
+  name: Art-71
+  updated_at: 2007-04-11 16:59:16
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "214"
+  reference_type: ProjectContent
+  reference_id: "37"
+  path: test-project2/TH001/Art-71
+  position: "11"
+  parent_id: "163"
+  created_at: 2007-04-11 16:59:16
+project_elements_134: 
+  name: DR-ELIZA-1
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "184"
+  reference_type: Experiment
+  reference_id: "16"
+  path: test-project2/DR-ELIZA-1
+  position: "33"
+  parent_id: "3"
+  created_at: 2007-04-10 12:46:48
+project_elements_079: 
+  name: CZ001:6
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "129"
+  reference_type: Task
+  reference_id: "153"
+  path: public/CZ001/CZ001:6
+  position: "6"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_106: 
+  name: CZ001:11
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "156"
+  reference_type: Task
+  reference_id: "158"
+  path: test-project1/CZ001/CZ001:11
+  position: "11"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_020: 
+  name: WALKER001.JPG
+  updated_at: 2007-04-06 18:00:25
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "59"
+  reference_type: ProjectAsset
+  reference_id: "58"
+  path: test-project2/WALKER001.JPG
+  position: "8"
+  parent_id: "3"
+  created_at: 2007-04-06 18:00:25
+project_elements_163: 
+  name: Art-72
+  updated_at: 2007-04-11 16:59:47
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "215"
+  reference_type: ProjectContent
+  reference_id: "38"
+  path: test-project2/TH001/Art-72
+  position: "12"
+  parent_id: "163"
+  created_at: 2007-04-11 16:59:47
+project_elements_135: 
+  name: DR-ELIZA-1-0
+  updated_at: 2007-04-10 12:46:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "185"
+  reference_type: Task
+  reference_id: "164"
+  path: test-project2/DR-ELIZA-1/DR-ELIZA-1-0
+  position: "0"
+  parent_id: "184"
+  created_at: 2007-04-10 12:46:48
+project_elements_107: 
+  name: CZ001:12
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "157"
+  reference_type: Task
+  reference_id: "159"
+  path: test-project1/CZ001/CZ001:12
+  position: "12"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_021: 
+  name: KEA01.JPG
+  updated_at: 2007-04-06 18:00:36
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "60"
+  reference_type: ProjectAsset
+  reference_id: "63"
+  path: test-project2/KEA01.JPG
+  position: "9"
+  parent_id: "3"
+  created_at: 2007-04-06 18:00:36
+project_elements_164: 
+  name: Art-73
+  updated_at: 2007-04-11 17:00:07
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "216"
+  reference_type: ProjectContent
+  reference_id: "39"
+  path: test-project2/TH001/Art-73
+  position: "13"
+  parent_id: "163"
+  created_at: 2007-04-11 17:00:07
+project_elements_136: 
+  name: st-6
+  updated_at: 2007-04-10 14:15:19
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "186"
+  reference_type: Study
+  reference_id: "23"
+  path: public/st-6
+  position: "13"
+  parent_id: "1"
+  created_at: 2007-04-10 14:15:19
+project_elements_108: 
+  name: CZ001:13
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "158"
+  reference_type: Task
+  reference_id: "160"
+  path: test-project1/CZ001/CZ001:13
+  position: "13"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_050: 
+  name: Biomarker & Histology
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "99"
+  reference_type: Study
+  reference_id: "17"
+  path: test-project1/Biomarker & Histology
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_022: 
+  name: 07_A_Candle_In_Notre_Dame.mp3
+  updated_at: 2007-04-06 18:03:48
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "61"
+  reference_type: ProjectAsset
+  reference_id: "68"
+  path: test-project2/07_A_Candle_In_Notre_Dame.mp3
+  position: "10"
+  parent_id: "3"
+  created_at: 2007-04-06 18:03:48
+project_elements_165: 
+  name: Art-74
+  updated_at: 2007-04-11 17:00:32
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "217"
+  reference_type: ProjectContent
+  reference_id: "40"
+  path: test-project2/TH001/Art-74
+  position: "14"
+  parent_id: "163"
+  created_at: 2007-04-11 17:00:32
+project_elements_137: 
+  name: Subjects
+  updated_at: 2007-04-10 15:16:52
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "189"
+  reference_type: StudyProtocol
+  reference_id: "45"
+  path: public/Subjects
+  position: "14"
+  parent_id: "1"
+  created_at: 2007-04-10 15:16:52
+project_elements_109: 
+  name: CZ001:14
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "159"
+  reference_type: Task
+  reference_id: "163"
+  path: test-project1/CZ001/CZ001:14
+  position: "14"
+  parent_id: "144"
+  created_at: 2007-04-10 12:46:47
+project_elements_051: 
+  name: Analytics
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "100"
+  reference_type: Study
+  reference_id: "18"
+  path: test-project1/Analytics
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_023: 
+  name: qmart.vsd
+  updated_at: 2007-04-06 18:04:35
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "62"
+  reference_type: ProjectAsset
+  reference_id: "69"
+  path: test-project2/qmart.vsd
+  position: "11"
+  parent_id: "3"
+  created_at: 2007-04-06 18:04:35
+project_elements_166: 
+  name: Art-77
+  updated_at: 2007-04-11 18:25:09
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "218"
+  reference_type: ProjectContent
+  reference_id: "41"
+  path: test-project2/TH001/Art-77
+  position: "15"
+  parent_id: "163"
+  created_at: 2007-04-11 18:25:09
+project_elements_138: 
+  name: Subjects
+  updated_at: 2007-04-10 15:20:25
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "190"
+  reference_type: StudyProtocol
+  reference_id: "45"
+  path: public/DarwinDemo/Subjects
+  position: "0"
+  parent_id: "87"
+  created_at: 2007-04-10 15:20:25
+project_elements_080: 
+  name: CZ001:7
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "130"
+  reference_type: Task
+  reference_id: "154"
+  path: public/CZ001/CZ001:7
+  position: "7"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_052: 
+  name: Tumour Growth
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "101"
+  reference_type: Study
+  reference_id: "19"
+  path: test-project1/Tumour Growth
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_024: 
+  name: 5_styles.pdf
+  updated_at: 2007-04-06 18:05:10
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "63"
+  reference_type: ProjectAsset
+  reference_id: "70"
+  path: test-project2/5_styles.pdf
+  position: "12"
+  parent_id: "3"
+  created_at: 2007-04-06 18:05:10
+project_elements_167: 
+  name: Art-78
+  updated_at: 2007-04-11 18:33:39
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "219"
+  reference_type: ProjectContent
+  reference_id: "42"
+  path: test-project2/Art-78
+  position: "35"
+  parent_id: "3"
+  created_at: 2007-04-11 18:33:39
+project_elements_139: 
+  name: Conclusion
+  updated_at: 2007-04-10 15:20:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "191"
+  reference_type: StudyProtocol
+  reference_id: "48"
+  path: public/DarwinDemo/Conclusion
+  position: "1"
+  parent_id: "87"
+  created_at: 2007-04-10 15:20:47
+project_elements_053: 
+  name: CR-EAE
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "102"
+  reference_type: Study
+  reference_id: "20"
+  path: test-project1/CR-EAE
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_025: 
+  name: biobook-todo.html
+  updated_at: 2007-04-06 18:09:20
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "64"
+  reference_type: ProjectAsset
+  reference_id: "71"
+  path: test-project2/biobook-todo.html
+  position: "13"
+  parent_id: "3"
+  created_at: 2007-04-06 18:09:20
+project_elements_081: 
+  name: CZ001:8
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "131"
+  reference_type: Task
+  reference_id: "155"
+  path: public/CZ001/CZ001:8
+  position: "8"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_168: 
+  name: Art-85
+  updated_at: 2007-04-11 20:21:56
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "220"
+  reference_type: ProjectContent
+  reference_id: "44"
+  path: test-project2/Art-85
+  position: "36"
+  parent_id: "3"
+  created_at: 2007-04-11 20:21:56
+project_elements_054: 
+  name: Dev-1
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "103"
+  reference_type: Study
+  reference_id: "21"
+  path: test-project1/Dev-1
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_026: 
+  name: Teranode_Model_Server_User_Guide.pdf
+  updated_at: 2007-04-06 18:09:36
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "65"
+  reference_type: ProjectAsset
+  reference_id: "72"
+  path: test-project2/test2/Teranode_Model_Server_User_Guide.pdf
+  position: "8"
+  parent_id: "9"
+  created_at: 2007-04-06 18:09:36
+project_elements_082: 
+  name: CZ001:9
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "132"
+  reference_type: Task
+  reference_id: "156"
+  path: public/CZ001/CZ001:9
+  position: "9"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_169: 
+  name: Art-86
+  updated_at: 2007-04-11 21:34:51
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "221"
+  reference_type: ProjectContent
+  reference_id: "45"
+  path: test-project2/Art-86
+  position: "37"
+  parent_id: "3"
+  created_at: 2007-04-11 21:34:51
+project_elements_055: 
+  name: SandBox
+  updated_at: 2007-04-10 11:23:49
+  project_id: "9"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "104"
+  reference_type: Study
+  reference_id: "22"
+  path: test-project1/SandBox
+  position: "0"
+  parent_id: "2"
+  created_at: 2007-04-10 11:23:49
+project_elements_110: 
+  name: DR-ELIZA-1
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "160"
+  reference_type: Experiment
+  reference_id: "16"
+  path: test-project1/DR-ELIZA-1
+  position: "11"
+  parent_id: "2"
+  created_at: 2007-04-10 12:46:47
+project_elements_027: 
+  name: RJS/1
+  updated_at: 2007-04-06 19:18:34
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "66"
+  reference_type: ProjectContent
+  reference_id: "3"
+  path: test-project2/RJS/1
+  position: "14"
+  parent_id: "3"
+  created_at: 2007-04-06 19:18:34
+project_elements_083: 
+  name: CZ001:10
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "133"
+  reference_type: Task
+  reference_id: "157"
+  path: public/CZ001/CZ001:10
+  position: "10"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_056: 
+  name: DarwinDemo
+  updated_at: 2007-04-10 11:23:49
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "105"
+  reference_type: Study
+  reference_id: "14"
+  path: test-project2/DarwinDemo
+  position: "23"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:49
+project_elements_111: 
+  name: DR-ELIZA-1-0
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "161"
+  reference_type: Task
+  reference_id: "164"
+  path: test-project1/DR-ELIZA-1/DR-ELIZA-1-0
+  position: "0"
+  parent_id: "160"
+  created_at: 2007-04-10 12:46:47
+project_elements_028: 
+  name: RJS/32
+  updated_at: 2007-04-06 19:21:52
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "67"
+  reference_type: ProjectContent
+  reference_id: "4"
+  path: test-project2/RJS/32
+  position: "15"
+  parent_id: "3"
+  created_at: 2007-04-06 19:21:52
+project_elements_084: 
+  name: CZ001:11
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "134"
+  reference_type: Task
+  reference_id: "158"
+  path: public/CZ001/CZ001:11
+  position: "11"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
+project_elements_140: 
+  name: Summary by Sex
+  updated_at: 2007-04-10 15:20:55
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "192"
+  reference_type: StudyProtocol
+  reference_id: "47"
+  path: public/DarwinDemo/Summary by Sex
+  position: "2"
+  parent_id: "87"
+  created_at: 2007-04-10 15:20:55
+project_elements_057: 
+  name: DR-ELIZA
+  updated_at: 2007-04-10 11:23:49
+  project_id: "10"
+  created_by: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "106"
+  reference_type: Study
+  reference_id: "15"
+  path: test-project2/DR-ELIZA
+  position: "24"
+  parent_id: "3"
+  created_at: 2007-04-10 11:23:49
+project_elements_112: 
+  name: DR-ELIZA-2
+  updated_at: 2007-04-10 12:46:47
+  project_id: "9"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "162"
+  reference_type: Experiment
+  reference_id: "17"
+  path: test-project1/DR-ELIZA-2
+  position: "12"
+  parent_id: "2"
+  created_at: 2007-04-10 12:46:47
+project_elements_029: 
+  name: RJS/343
+  updated_at: 2007-04-06 19:25:25
+  project_id: "10"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectElement
+  updated_by: "1"
+  id: "68"
+  reference_type: ProjectContent
+  reference_id: "5"
+  path: test-project2/RJS/343
+  position: "16"
+  parent_id: "3"
+  created_at: 2007-04-06 19:25:25
+project_elements_085: 
+  name: CZ001:12
+  updated_at: 2007-04-10 12:46:47
+  project_id: "1"
+  created_by: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  updated_by: "1"
+  id: "135"
+  reference_type: Task
+  reference_id: "159"
+  path: public/CZ001/CZ001:12
+  position: "12"
+  parent_id: "122"
+  created_at: 2007-04-10 12:46:47
