@@ -1,12 +1,12 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
-    <div>
-        <span class='menu'>Parameter Role</span>
-        <%= link_to 'List', :action => 'list' %>
-    </div>
+  <div>
+    <span class='menu'>Study Stage</span>
+    <%= link_to 'List', :action => 'list' %>
+  </div>
 <% end %>
 
-<h1>New Parameter Role</h1>
+<h1>Study Stage</h1>
 
 <% form_tag :action => 'create' do %>
   <%= render :partial => 'form' %>

@@ -1,0 +1,34 @@
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+<div>
+<span class='menu'>Parameter Types</span>
+<%= link_to 'List',    parameter_type_url(:action => 'list') %>
+<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
+</div>
+<% end %>
+
+<h1>Listing Parameter Roles</h1>
+<table class="report">
+  <tr>
+    <th>name</th>
+    <th>Description</th>
+    <th>Storage Unit</th>
+    <th>Studies</th>
+    <th>Protocols</th>
+    <th>Action</th>
+  </tr>
+  
+<% for parameter_type in @parameter_types %>
+  <tr>
+    <td> <%= link_to parameter_type.name,parameter_type_url( :action => 'show', :id => parameter_type) %></td>
+    <td> <%=h parameter_type.description%></td>
+    <td> <%=parameter_type.storage_unit%></td>
+    <td> <%=parameter_type.parameters.size%></td>
+    <td> <%=parameter_type.study_parameters.size%> </td>
+    <td> <%= link_to 'edit',parameter_type_url( :action => 'edit', :id => parameter_type) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @parameter_type_pages.current.previous } if @parameter_type_pages.current.previous %>
+<%= link_to 'Next page', { :page => @parameter_type_pages.current.next } if @parameter_type_pages.current.next %> 

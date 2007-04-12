@@ -1,41 +1,42 @@
-<div class="main" id='maintitle'>
-    <div class="title"> <%=subject_icon('reports')%> Current UML model View </div>
-    <%= @options[:model] %> with <%= @options[:levels] %> level of references and <%=@options[:many] %> levels of collections 
+<% content_for :sidemenu do%>
+<div>
+  <span class='menu'>Reports</span>
+  <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
 </div>
-<div class='panel'>
-    <% form_tag report_url(:action => 'uml') do %>
-    <fieldset> 
-    <div class="row">
-      <div class="form-element">
-          <label for="base_model">Model </label>
-         <%= select_tag(:model, options_for_select( @models.collect{|obj|[obj.to_s,obj.to_s]},@options[:model].to_s  )  ) %>
-      </div>
 
-      <div class="form-element">
-       <label for="report_name">Levels Ref.</label>
-         <%= select_tag(:levels, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:levels] )  ) %>
-      </div>
-      <div class="form-element">
-       <label for="report_name">Levels Many</label>
-         <%= select_tag(:many, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:many] )  ) %>
-      </div>
-      <div class="form-element">      
-       <label for="report_name">Style</label>
-         <%= select_tag(:style, options_for_select(['dot','neato','fdp'].collect{|obj|[obj,obj]},@options[:style] )  ) %>
-      </div>
-      <div class="form-element">
-      
-       <label for="report_name">Generate new image for printing</label>
-        <%= submit_tag 'view' %>
-      </div>
-    </div>
-      
-    <br />
-    </fieldset> 
-   <% end %>
-    
-    <fieldset>
+
+<div>
+  <span class='menu'>UML Models</span>
+  
+<% form_tag report_url(:action => 'uml') do %>
+  <div>
+     <%= select_tag(:model, options_for_select( @models.collect{|obj|[obj.to_s,obj.to_s]},@options[:model].to_s  )  ) %>
+   <label for="report_name">Levels Ref.</label>
+     <%= select_tag(:levels, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:levels] )  ) %>
+   <br/>
+   <label for="report_name">Levels Many</label>
+     <%= select_tag(:many, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:many] )  ) %>
+   <br/>
+   <label for="report_name">Style</label>
+     <%= select_tag(:style, options_for_select(['dot','neato','fdp'].collect{|obj|[obj,obj]},@options[:style] )  ) %>
+   <br/>   
+    <%= submit_tag 'redrew' %>
+   <br/>  
+  </div>
+<% end %>
+
+  
+<% for model in @models %>
+  <%= link_to model.to_s, :action => 'uml',:model=>"#{model}"  %> 
+<% end %>
+
+</div>
+<% end %>
+
+<h2> <%=subject_icon('reports')%> Current UML model View </div>
+    <%= @options[:model] %> with <%= @options[:levels] %> level of references and <%=@options[:many] %> levels of collections 
+</h2>
+<div class='panel'>
     <img  title="Map" src="/app/report/diagram/<%=@options[:model]%>?levels=<%=@options[:levels]%>?many=<%=@options[:many]%>&style=<%=@options[:style]%>">
-    </fieldset>
 </div>
               

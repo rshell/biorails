@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class Study::StudyStagesController < ApplicationController
+class Admin::StudyStagesController < ApplicationController
   check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
  
 

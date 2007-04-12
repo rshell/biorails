@@ -1,13 +1,17 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('data_element')%> New Data Element in [<strong><%=@data_element.system.path%></strong>]
-        <div class="actions">
-            <ul>
-                <li><%=subject_icon('list.png')%> List (TODO)<!--%= link_to (subject_icon('list.png')) +'List: @data_element.system.name', :action => 'show',
-                     :controller => 'data_systems', :id => "@data_element.data_system.id" %--></li>
-            </ul>
-        </div>
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+    <div>
+    <span class='menu'>Data Elements</span>
+       <%= link_to  (subject_icon('list.png')) +'List', :action => 'show',
+                    :controller => 'data_systems', :id => @data_element.system %>
     </div>
+<% end %>
+
+
+<div class='main' id='maintitle'>
+    <H2>
+        <%=subject_icon('data_element')%> New Data Element in [<strong><%=@data_element.system.path%></strong>]
+    </H2>
     <div class='dialog'>
         <% if @data_element.parent %>
           Child of <%=@data_element.parent.name %>

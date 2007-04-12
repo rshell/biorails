@@ -22,7 +22,6 @@
 # See license agreement for additional rights
 ##
 #
-require 'ajax_scaffold'
 
 class ParameterType < ActiveRecord::Base
   included Named

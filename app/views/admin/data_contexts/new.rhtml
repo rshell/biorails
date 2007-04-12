@@ -1,12 +1,15 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('context')%> New Conceptual Namespace
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %></li>
-            </ul>
-        </div>
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+    <div>
+    <span class='menu'>Data Context</span>
+        <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
     </div>
+<% end %>
+
+<div class='main' id='maintitle'>
+    <h2>
+        <%=subject_icon('context')%> New Conceptual Namespace
+    </h2>
     <div class='dialog'>
         <% form_tag :action => 'create' do %>
           <%= render :partial => 'form' %>

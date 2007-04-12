@@ -1,0 +1,33 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Plate</span>
+<%= link_to 'List',    plate_url(:action => 'list') %>
+<%= link_to 'New',    plate_url(:action => 'new') %> 
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+<h1>Listing Plates</h1>
+<table class="report">
+  <tr>
+    <th>name</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  
+<% for plate in @plates %>
+  <tr>
+    <td><%= link_to plate.name,plate_url( :action => 'show', :id => plate) %></td>
+    <td><%=h plate.description%></td>
+    <td><%= link_to 'edit',plate_url( :action => 'edit', :id => plate) %></td>
+  </tr>
+<% end %>
+<tr>
+<td colspan=2>
+<%= link_to 'New', plate_url(:action => 'new')%>
+</td>
+</tr>
+</table>
+
+<%= link_to 'Previous page', { :page => @plate_pages.current.previous } if @plate_pages.current.previous %>
+<%= link_to 'Next page', { :page => @plate_pages.current.next } if @plate_pages.current.next %> 

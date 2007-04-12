@@ -1,4 +1,4 @@
-    <% form_tag :action => 'visualize', :disposition=>'attachment', :id => @report do %>
+    <% form_tag :action => 'model', :disposition=>'attachment', :id => @report do %>
     <fieldset> 
     <div class="row">
       <div class="form-element">
@@ -26,5 +26,5 @@
    <% end %>
     
     <fieldset id="<%=@report.dom_id('diagram')%>">
-    <img  title="Map" src="/reports/visualize/<%=@report.id%>">   
+    <img  title="Map" src="/execute/reports/report_uml/<%=@report.id%>">   
     </fieldset>

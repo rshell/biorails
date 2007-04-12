@@ -1,12 +1,17 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('concept')%> New Concept
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %></li>
-            </ul>
-        </div>
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+    <div>
+    <span class='menu'>Data Concept</span>
+<%= link_to (subject_icon('list.png')) +'List', :action => 'show',
+                    :controller => 'data_contexts', :id => @data_concept.data_context %><
     </div>
+<% end %>
+
+
+<div class='main' id='maintitle'>
+    <h2>
+        <%=subject_icon('concept')%> New Concept
+    </h2>
     <div class='data_entry_form'>
         <% if @data_concept.parent %>
           <p>Child of <b><%=@data_concept.parent.name %></b> in the context of <b><%=@data_concept.data_context.name%></b></p>

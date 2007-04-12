@@ -23,8 +23,6 @@
 ##
 #
 
-require 'ajax_scaffold'
-
 class Plate < ActiveRecord::Base
   included Named
 #

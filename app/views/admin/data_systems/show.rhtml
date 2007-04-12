@@ -1,12 +1,12 @@
 <% content_for :sidemenu do%>
- <div>
- <span class='menu'>Data Source</span>
- <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
-                        :confirm => 'Are you sure?',:method => "post" %>
- <%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %>
- <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
- </div>
   <%= render :partial => '/menu/admin_menu'%>
+ <div>
+     <span class='menu'>Data Source</span>
+         <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
+                                :confirm => 'Are you sure?',:method => "post" %>
+         <%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %>
+         <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+ </div>
 <% end %>
 
     <h2>

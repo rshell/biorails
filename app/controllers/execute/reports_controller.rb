@@ -127,6 +127,11 @@ class Execute::ReportsController < ApplicationController
                           :offset =>  @data_pages.current.offset })
  end 
  
+ 
+  def visualize
+    @report = Report.find(params[:id])
+  end
+   
   def destroy
     Report.find(params[:id]).destroy
     redirect_to :action => 'list'
@@ -171,15 +176,20 @@ class Execute::ReportsController < ApplicationController
 #  * fdp draws undirected graphs using a ‘‘spring’’ model. It relies on a force-directed approach in the spirit of Fruchterman and Rein‐gold (cf. Software-Practice & Experience 21(11), 1991, pp. 1129-1164).
 # 
 #  
-  def visualize
+  def report_uml
     @report = Report.find(params[:id])
-    options= {}
-    options[:disposition]= params[:disposition]||'inline'
-    options[:type] = 'image/png'
-    options[:filename] = "model_#{@report.model.to_s.tableize}.png"
+    @options= {}
+    @options[:model]= params[:model]||@report.model
+    @options[:levels]= params[:levels]||2
+    @options[:many]= params[:many]||1
+    @options[:style]= params[:style]||'dot'
+    @options[:disposition]= params[:disposition]||'inline'
+    @options[:type] = 'image/png'
+    @options[:filename] = "model_#{@report.model.to_s.tableize}.png"
     @image_file = Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),@report.model,params)
-    send_file(@image_file.to_s,options)   
+    send_file(@image_file.to_s,@options)   
   end 
+
   
   def uml
     @models = Biorails::UmlModel.models

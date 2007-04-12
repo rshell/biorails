@@ -3,5 +3,5 @@
 # See license agreement for additional rights
 ##
 #
-module Study::StudyStagesHelper
+module Admin::StudyStagesHelper
 end

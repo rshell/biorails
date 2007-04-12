@@ -1,10 +1,10 @@
 <% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
  <div>
  <span class='menu'> Data Source </span>
    <%= link_to (subject_icon('new.png'))+'New', :action => 'new' %>
    <%= link_to (subject_icon('xls.png'))+'Export', :action => 'export' %>
  </div>
-  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
 
 
