@@ -55,7 +55,7 @@ class Execute::ReportsController < ApplicationController
 #  
  def new
    @models = Biorails::UmlModel.models
-   @allowed_models =  SiteController.models
+   @allowed_models =  Biorails::UmlModel.models
    @report = Report.new(:name=> Identifier.next_id(Report))
    if params[:id]    
       @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
