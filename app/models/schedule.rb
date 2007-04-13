@@ -20,6 +20,13 @@
 # See license agreement for additional rights
 # 
 
+  class ScheduleItem
+     attr_accessor :name
+     attr_accessor :start
+     attr_accessor :end
+     attr_accessor :url          
+  end
+
 
 ##
 #The schedule is expecteding the base queue to contain the following attibtures
@@ -142,6 +149,83 @@ def refresh(options={})
    end
 end
 
+def scale
+  zoom = 1
+  zoom.times { zoom = zoom * 2 }
+  subject_width = 260
+  header_heigth = 18
+  headers_heigth = header_heigth
+  show_weeks = false
+  show_days = false
+  
+  if zoom >1
+      show_weeks = true
+      headers_heigth = 2*header_heigth
+      if zoom > 2
+          show_days = true
+          headers_heigth = 3*header_heigth
+      end
+  end
+  g_width = (date_to - date_from + 1)*zoom
+  g_height = [(20 * items.length + 6)+150, 206].max
+  t_height = g_height + headers_heigth
+end
+
+##
+# Get a list of items for this date
+# 
+def for_day(day)
+	for item in @items
+	  day_issues << i if item.send(@options[:start]).to_date == day or item.send(@options[:end]).to_date == day 
+	end
+	return day_issues
+end
+
+
+def icon(item,day)
+  if item.send(@options[:start]).to_date == day and item.send(@options[:end]).to_date == day
+	image_tag('arrow_bw.png')
+	    
+  elsif item.send(@options[:start]).to_date == day
+    image_tag('arrow_from.png') 
+    
+  elsif item.send(@options[:end]).to_date == day
+    image_tag('arrow_to.png') 
+  end   
+end
+
+
+def link(item)
+
+end
+
+def to_html
+  out = ""
+  day = @calendar.date_from
+  while day <= @calendar.date_to	
+  	out << "<th>#{day.cweek}</th>" if day.cwday == 1 
+      out << "<td valign='top' class=" << (day.month==@calendar.month ? "even" : "odd")  
+      out << " style='width:14%; " <<  (Date.today == day ? 'background:#FDFED0;"' : '"')
+  	out << " <p class='textright'>" << (day==Date.today ? "<b>#{day.day}</b>" : day.day) << "</p>"	
+  
+  	for item in @calendar.for_day(day)
+  	    out << " <div class='tooltip'>"
+  	    out << icon(item,day)
+          out << "<small>"
+          out <<  link_to( "#{i.name}", task_url(:action=>'show',:id=>i.id) )
+          out item.description.sub(/^(.{30}[^\s]*\s).*$/, '\1 (...)')
+          out "</small> <span class='tip'>
+          out "<strong>Item #{item.name} [#{item.status}] </strong>{ item.description}"
+  		out " </div>"
+  	end
+      out "</td>"
+  	out '</tr><tr style="height:100px">' if day.cwday >= 7 and day!=@calendar.date_to
+  	
+  	day = day + 1
+  end 
+end
+
+
 ##
 # setup a calender from parameters
 # 
@@ -210,30 +294,5 @@ SQL
    return schedule
 end
 
-def fill(values)
-   from = @first
-   to = @first+ @delta
-   while from < @last
-      @boxes << from 
-      @items << values.reject{|item| item.start_date < from or item.start_date >= to}
-      from += @delta 
-      to += @delta
-   end
-end
-
-##
-# Calculate the size of a cell in the schedule
-# 
-def default_delta
-  @delta = 1.month      
-  @show_month = true
-  if self.period < 4.weeks
-      @show_month = false
-      @delta = 1.day        
-  elsif self.period < 2.month
-      @delta = 1.weeks
-  end
-  return delta
-end
 
 end

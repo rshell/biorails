@@ -1,0 +1,21 @@
+<% unless user.nil?  %>
+<div>
+  <span class='menu' > <%=subject_icon('model/user')%>User: <%=  user.name %> </span>
+    <%= link_to l(:home),        url_for( :action => 'show',      :id => user) %>
+	<%= link_to l(:calendar),    url_for( :action => 'calendar',  :id => user) %>
+	<%= link_to l(:timeline),    url_for( :action => 'timeline', :id => user) %>
+</div>
+<div>
+  <span class='menu' > <%=subject_icon('model/project')%> Projects </span>
+  <% for project in user.projects %>
+    <%= link_to project.name, project_url(:action => 'show', :id => project) %>
+  <% end %>  
+</div>
+
+<div>
+  <span class='menu' > Actions </span>
+  <%= link_to subject_icon('new.png') +'New Project',  project_url(:action => 'new') %>
+  <%= link_to subject_icon('new.png') +'New Request',  request_url(:action => 'new') %>
+</div>
+
+<% end %>

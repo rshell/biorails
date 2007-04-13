@@ -1,3 +1,9 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
+  <%= render :partial =>'/menu/folder_menu' , :locals=>{ :folder => @project.home} %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
+<% end -%>
+
 
 <h2><%=l(:reports)%></h2>
 

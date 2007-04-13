@@ -1,2 +1,7 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @user} %>
+<% end %>
+
+
 <h1>Home#blog</h1>
 <p>Find me in app/views/home/blog.rhtml</p>

@@ -1,49 +1,44 @@
-<% content_for :sidemenu do -%>
-  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
-  <%= render :partial =>'/menu/folder_menu' , :locals=>{ :folder => @project.home} %>
-  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
-<% end -%>
-
-
-<div class="contextual">
-<%= l(:label_export_to) %>
-<%= link_to 'PDF', {:zoom => @zoom, :year => @year_from, :month => @month_from, :months => @months, :output => 'pdf'}, :class => 'icon icon-pdf' %>
-</div>
-
-<h2><%= l(:label_gantt) %></h2>
-
 <table width="100%">
 <tr>
 <td align="left">
 <% form_tag do %>
 <p>
-<input type="text" name="months" size="2" value="<%= @months %>" />
+<input type="text" name="months" size="2" value="<%= @gnatt.months %>" />
 <%= l(:label_months_from) %>
-<%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
-<%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
-<%= hidden_field_tag 'zoom', @zoom %>
+<%= select_month(@gnatt.month_from, :prefix => "month", :discard_type => true) %>
+<%= select_year(@gnatt.year_from, :prefix => "year", :discard_type => true) %>
+<%= hidden_field_tag 'zoom', @gnatt.zoom %>
 <%= submit_tag l(:button_submit), :class => "button-small" %>
 </p>
 <% end %>
 </td>
 <td align="right">
-<%= if @zoom < 4
-    link_to image_tag('zoom_in.png'), {:zoom => (@zoom+1), :year => @year_from, :month => @month_from, :months => @months}
+<%= if @gnatt.zoom < 4
+    link_to image_tag('zoom_in.png'), {:zoom => (@gnatt.zoom+1), 
+                                       :year => @gnatt.year_from, 
+                                       :month => @gnatt.month_from, 
+                                       :months => @gnatt.months}
   else
     image_tag 'zoom_in_g.png'
   end %>
-<%= if @zoom > 1
-    link_to image_tag('zoom_out.png'), :zoom => (@zoom-1), :year => @year_from, :month => @month_from, :months => @months
+<%= if @gnatt.zoom > 1
+    link_to image_tag('zoom_out.png'), :zoom => (@gnatt.zoom-1), 
+                                       :year => @gnatt.year_from, 
+                                       :month => @gnatt.month_from, 
+                                       :months => @gnatt.months
   else
     image_tag 'zoom_out_g.png'
   end %>
+<%= link_to 'PDF', {:zoom => @gnatt.zoom, :year => @gnatt.year_from, 
+                    :month => @gnatt.month_from, :months => @gnatt.months, 
+                    :output => 'pdf'}, :class => 'icon icon-pdf' %>
 </td>
 </tr>
 </table>
 <br />
 
 <% zoom = 1
-@zoom.times { zoom = zoom * 2 }
+@gnatt.zoom.times { zoom = zoom * 2 }
 
 subject_width = 260
 header_heigth = 18
@@ -52,17 +47,17 @@ headers_heigth = header_heigth
 show_weeks = false
 show_days = false
 
-if @zoom >1
+if @gnatt.zoom >1
     show_weeks = true
     headers_heigth = 2*header_heigth
-    if @zoom > 2
+    if @gnatt.zoom > 2
         show_days = true
         headers_heigth = 3*header_heigth
     end
 end
 
-g_width = (@date_to - @date_from + 1)*zoom
-g_height = [(20 * @tasks.length + 6)+150, 206].max
+g_width = (@gnatt.date_to - @gnatt.date_from + 1)*zoom
+g_height = [(20 * @gnatt.items.length + 6)+150, 206].max
 t_height = g_height + headers_heigth
 %>
 
@@ -78,7 +73,7 @@ t_height = g_height + headers_heigth
 # Tasks subjects
 #
 top = headers_heigth + 8
-@tasks.each do |i| %>
+@gnatt.items.each do |i| %>
 	<div style="position: absolute;line-height:1.2em;height:16px;top:<%= top %>px;left:4px;overflow:hidden;">
 	<small><%= link_to "#{i.name} ", { :controller => 'tasks', :action => 'show', :id => i }, :title => "#{i.protocol.name} :  #{i.protocol.description} " %>:
 	<%=" [#{i.experiment.name}]" %></small>
@@ -95,14 +90,14 @@ end %>
 #
 # Months headers
 #
-month_f = @date_from
+month_f = @gnatt.date_from
 left = 0
 height = (show_weeks ? header_heigth : header_heigth + g_height)
-@months.times do 
+@gnatt.months.times do 
 	width = ((month_f >> 1) - month_f) * zoom - 1
 	%>
 	<div style="left:<%= left %>px;width:<%= width %>px;height:<%= height %>px;" class="gantt_hdr">
-	<%= link_to "#{month_f.year}-#{month_f.month}", { :year => month_f.year, :month => month_f.month, :zoom => @zoom, :months => @months }, :title => "#{month_name(month_f.month)} #{month_f.year}"%>
+	<%= link_to "#{month_f.year}-#{month_f.month}", { :year => month_f.year, :month => month_f.month, :zoom => @gnatt.zoom, :months => @gnatt.months }, :title => "#{month_name(month_f.month)} #{month_f.year}"%>
 	</div>
 	<% 
 	left = left + width + 1
@@ -116,21 +111,21 @@ end %>
 if show_weeks
 	left = 0
 	height = (show_days ? header_heigth-1 : header_heigth-1 + g_height)
-	if @date_from.cwday == 1
+	if  @gnatt.date_from.cwday == 1
 	    # @date_from is monday
-        week_f = @date_from
+        week_f =  @gnatt.date_from
 	else
 	    # find next monday after @date_from
-		week_f = @date_from + (7 - @date_from.cwday + 1)
-		width = (7 - @date_from.cwday + 1) * zoom-1
+		week_f =  @gnatt.date_from + (7 -  @gnatt.date_from.cwday + 1)
+		width = (7 -  @gnatt.date_from.cwday + 1) * zoom-1
 		%>
 		<div style="left:<%= left %>px;top:19px;width:<%= width %>px;height:<%= height %>px;" class="gantt_hdr">&nbsp;</div>
 		<% 
 		left = left + width+1
 	end %>
 	<%
-	while week_f <= @date_to
-		width = (week_f + 6 <= @date_to) ? 7 * zoom -1 : (@date_to - week_f + 1) * zoom-1
+	while week_f <=  @gnatt.date_to
+		width = (week_f + 6 <=  @gnatt.date_to) ? 7 * zoom -1 : ( @gnatt.date_to - week_f + 1) * zoom-1
 		%>
 		<div style="left:<%= left %>px;top:19px;width:<%= width %>px;height:<%= height %>px;" class="gantt_hdr">
 		<small><%= week_f.cweek if width >= 16 %></small>
@@ -148,8 +143,8 @@ end %>
 if show_days
 	left = 0
 	height = g_height + header_heigth - 1
-	wday = @date_from.cwday
-	(@date_to - @date_from + 1).to_i.times do 
+	wday =  @gnatt.date_from.cwday
+	( @gnatt.date_to -  @gnatt.date_from + 1).to_i.times do 
 	width =  zoom - 1
 	%>
 	<div style="left:<%= left %>px;top:37px;width:<%= width %>px;height:<%= height %>px;font-size:0.7em;<%= "background:#f1f1f1;" if wday > 5 %>" class="gantt_hdr">
@@ -166,8 +161,8 @@ end %>
 #
 # Today red line
 #
-if Date.today >= @date_from and Date.today <= @date_to %>
-    <div style="position: absolute;height:<%= g_height %>px;top:<%= headers_heigth + 1 %>px;left:<%= ((Date.today-@date_from+1)*zoom).floor()-1 %>px;width:10px;border-left: 1px dashed red;">&nbsp;</div>
+if Date.today >=  @gnatt.date_from and Date.today <=  @gnatt.date_to %>
+    <div style="position: absolute;height:<%= g_height %>px;top:<%= headers_heigth + 1 %>px;left:<%= ((Date.today- @gnatt.date_from+1)*zoom).floor()-1 %>px;width:10px;border-left: 1px dashed red;">&nbsp;</div>
 <% end %>
 
 <%
@@ -175,18 +170,18 @@ if Date.today >= @date_from and Date.today <= @date_to %>
 # Tasks
 #
 top = headers_heigth + 10
-@tasks.each do |i| %>
+ @gnatt.items.each do |i| %>
 	<%
-	i_start_date = (i.start_date.to_date >= @date_from ? i.start_date.to_date : @date_from )
-	i_end_date = (i.end_date.to_date <= @date_to ? i.end_date.to_date : @date_to )
+	i_start_date = (i.start_date.to_date >= @gnatt.date_from ? i.start_date.to_date : @gnatt.date_from )
+	i_end_date = (i.end_date.to_date <= @gnatt.date_to ? i.end_date.to_date : @gnatt.date_to )
 	
 	i_done_date = i.start_date.to_date + ((i.end_date.to_date - i.start_date.to_date+1)*i.done).floor
-	i_done_date = (i_done_date <= @date_from ? @date_from : i_done_date )
-	i_done_date = (i_done_date >= @date_to ? @date_to : i_done_date )
+	i_done_date = (i_done_date <= @gnatt.date_from ? @gnatt.date_from : i_done_date )
+	i_done_date = (i_done_date >= @gnatt.date_to ? @gnatt.date_to : i_done_date )
 	
 	i_late_date = [i_end_date, Date.today].min if i_start_date < Date.today
 	
-	i_left = ((i_start_date - @date_from)*zoom).floor 	
+	i_left = ((i_start_date - @gnatt.date_from)*zoom).floor 	
 	i_width = ((i_end_date - i_start_date + 1)*zoom).floor - 2                  # total width of the issue (- 2 for left and right borders)
 	d_width = ((i_done_date - i_start_date)*zoom).floor - 2                     # done width
 	l_width = i_late_date ? ((i_late_date - i_start_date+1)*zoom).floor - 2 : 0 # delay width
@@ -216,7 +211,7 @@ end %>
 
 <table width="100%">
 <tr>
-<td align="left"><%= link_to ('&#171; ' + l(:label_previous)), :year => (@date_from << @months).year, :month => (@date_from << @months).month, :zoom => @zoom, :months => @months %></td>
-<td align="right"><%= link_to (l(:label_next) + ' &#187;'), :year => (@date_from >> @months).year, :month => (@date_from >> @months).month, :zoom => @zoom, :months => @months %></td>
+<td align="left"><%= link_to ('&#171; ' + l(:label_previous)), :year => (@gnatt.date_from << @gnatt.months).year, :month => (@gnatt.date_from << @gnatt.months).month, :zoom => @gnatt.zoom, :months => @gnatt.months %></td>
+<td align="right"><%= link_to (l(:label_next) + ' &#187;'), :year => (@gnatt.date_from >> @gnatt.months).year, :month => (@gnatt.date_from >> @gnatt.months).month, :zoom => @gnatt.zoom, :months => @gnatt.months %></td>
 </tr>
 </table>

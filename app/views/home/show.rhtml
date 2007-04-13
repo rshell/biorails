@@ -1,0 +1,80 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @user} %>
+<% end %>
+
+
+<h2>Dashboard of user <%=@user.name%></h2>
+
+<div class="splitcontentleft">
+  <div class="box">
+	<h3><%=l('News')%></h3>
+		<% for item in @user.lastest(ProjectContent,5) %>
+			<li>
+			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.body_html %>
+			</li>
+		<% end %>
+	</div>
+</div>
+
+<div class="splitcontentright">
+	<div class="box">
+	<h3 class="icon icon-request"><%=l('Projects')%></h3>
+		<ul>
+		<% for item in @user.projects %>
+			<li>
+			<%= link_to item.name, project_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.summary %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<div class="splitcontentleft">
+	<div class="box">
+	<h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
+		<ul>
+		<% for item in @user.lastest(Experiment,5) %>
+			<li>
+			<%= link_to item.name, experiment_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+
+<div class="splitcontentright">
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=l('Requests')%></h3>
+		<ul>
+		<% for item in @user.requests %>
+			<li>
+			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+<div class="splitcontentleft">
+	<div class="box">
+	<h3 class="icon icon-task"><%=l('Tasks')%></h3>
+		<ul>
+		<% for item in @user.tasks %>
+			<li>
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>	
+
+
+
+
+

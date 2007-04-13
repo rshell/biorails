@@ -1,5 +1,5 @@
 <ul class="menu_bar"> 
- <li><%= link_to l(:home),       { :controller => '/account' }, :class => "icon icon-home" %></li>
+ <li><%= link_to l(:home), home_url(:action=>'index') , :class => "icon icon-home" %></li>
 
 <% unless current_project.nil? %>
  <li class="submenu">
@@ -36,14 +36,13 @@
  </li>
 
    <div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
-         <%= link_to l(:compounds), inventory_url(:controller=>'inventory/compounds', :action=>'list') %>  
-         <%= link_to l(:batches), inventory_url(:controller=>'inventory/batches', :action=>'list') %>  
-         <%= link_to l(:samples), inventory_url(:controller=>'inventory/samples', :action=>'list') %>  
-         <%= link_to l(:plates), inventory_url(:controller=>'inventory/plates', :action=>'list') %>  
-         <%= link_to l(:containers), inventory_url(:controller=>'inventory/containers', :action=>'list') %>  
-         <%= link_to l(:specimens), inventory_url(:controller=>'inventory/specimens', :action=>'list') %>  
-         <%= link_to l(:plate_formats), inventory_url(:controller=>'inventory/plate_formats', :action=>'list') %>  
-         <%= link_to l(:treatment_groups), inventory_url(:controller=>'inventory/treatment_groups', :action=>'list') %>  
+         <%= link_to l(:compounds), compound_url( :action=>'list') %>  
+         <%= link_to l(:batches),   batch_url(:action=>'list') %>  
+         <%= link_to l(:samples),   sample_url( :action=>'list') %>  
+         <%= link_to l(:plates),    plate_url( :action=>'list') %>  
+         <%= link_to l(:containers),container_url( :action=>'list') %>  
+         <%= link_to l(:specimens), specimen_url( :action=>'list') %>  
+         <%= link_to l('Treatment Groups'), treatment_group_url( :action=>'list') %>  
    </div>
 
  <li class="submenu"><%= link_to l(:execute), { :controller => 'execute' }, 

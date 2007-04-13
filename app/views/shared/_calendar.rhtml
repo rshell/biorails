@@ -1,23 +1,23 @@
-<% form_tag({:action => 'calendar', :id => @experiment}) do %>
+<% form_tag({:action => 'calendar', :id => @master}) do %>
 <table width="100%">
 <tr>
-    <td align="left" style="width:150px">
+<td align="left" style="width:150px">
     <%= link_to_remote ('&#171; ' + (@calendar.month==1 ? "#{month_name(12)} #{@calendar.year-1}" : "#{month_name(@calendar.month-1)}")), 
                         {:update => "main", :url => { :year => (@calendar.month==1 ? @calendar.year-1 : @calendar.year), :month =>(@calendar.month==1 ? 12 : @calendar.month-1) }},
                         {:href => url_for(:action => 'calendar', :year => (@calendar.month==1 ? @calendar.year-1 : @calendar.year), :month =>(@calendar.month==1 ? 12 : @calendar.month-1))}
                         %>
-    </td>
-    <td align="center">
+</td>
+<td align="center">
     <%= select_month(@calendar.month, :prefix => "month", :discard_type => true) %>
     <%= select_year(@calendar.year, :prefix => "year", :discard_type => true) %>
     <%= submit_tag l(:button_submit), :class => "button-small" %>
-    </td>
-    <td align="right" style="width:150px">
+</td>
+<td align="right" style="width:150px">
     <%= link_to_remote ((@calendar.month==12 ? "#{month_name(1)} #{@calendar.year+1}" : "#{month_name(@calendar.month+1)}") + ' &#187;'), 
                         {:update => "main", :url => { :year => (@calendar.month==12 ? @calendar.year+1 : @calendar.year), :month =>(@calendar.month==12 ? 1 : @calendar.month+1) }},
                         {:href => url_for(:action => 'calendar', :year => (@calendar.month==12 ? @calendar.year+1 : @calendar.year), :month =>(@calendar.month==12 ? 1 : @calendar.month+1))}
                         %>&nbsp;
-    </td>
+</td>
 </tr>
 </table>
 <% end %>
@@ -25,14 +25,13 @@
 
 <table class="list with-cells">
 <thead>
-    <tr>
-        <th></th>
-        <% 1.upto(7) do |d| %>
-            <th style="width:14%"><%= day_name(d) %></th>
-        <% end %>
-    </tr>
+<tr>
+<th></th>
+<% 1.upto(7) do |d| %>
+    <th style="width:14%"><%= day_name(d) %></th>
+<% end %>
+</tr>
 </thead>
-
 <tbody>
 <tr style="height:100px">
 <% day = @calendar.date_from

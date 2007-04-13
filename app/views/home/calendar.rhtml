@@ -1,7 +1,7 @@
 <% content_for :sidemenu do -%>
   <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @master} %>
-<% end %>
+<% end -%>
 
-<h2><%= l('Timeline for users tasks') %></h2>
+<h2><%= l('Users Calendar') %></h2>
 
-<%= render :partial=>'/shared/timeline' %>
+<%= render :partial=>'/shared/calendar' %>

@@ -1,32 +1,50 @@
 class HomeController < ApplicationController
 
   def index
+    show
+  end
+
+  def show
+    @user = current_user    
     respond_to do | format |
-      format.html
-      format.xml
+      format.html { render :action => 'show'}
+      format.xml {@user.to_xml}
     end
   end
 
-  def todo
-    
+  def projects
+    @user = current_user    
+    respond_to do | format |
+      format.html { render :action => 'projects'}
+      format.xml  {@user.to_xml}
+    end
   end
 
-  def calender
-    @user = current_user
-    @calender = Schedule.calendar(Task,@params)
-    @calender.find_by_user(@user.id)
+
+  def calendar
+    @master = current_user
+    @calendar = Schedule.new(Task)
+    @calendar.calendar(params)
     render :layout => false if request.xhr?
   end
 
-
+##
+#
   def timeline
-    @user = current_user
-    @calender = Schedule.gnatt(Task,@params)
-    @calender.find_by_user(@user.id)
+    @master = current_user
+    @gnatt = Schedule.new(Task)
+    @gnatt.gnatt(params)
     render :layout => false if request.xhr?
   end
 
+##
+# List of list 20 pieces of information added by the user
+#
   def blog
+    @user = current_user
+    @elements = ProjectElement.find(:conditions=>["created_by = ? or updated_by = ?",@user.id,@user.id],
+                                    :order=>'updated_by,created_by',:limit=>20 )
+    render :layout => false if request.xhr?
   end  
 
 protected 
