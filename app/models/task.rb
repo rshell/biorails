@@ -42,6 +42,11 @@ class Task < ActiveRecord::Base
 #
   include CurrentStatus
   include  CurrentPriority
+
+##
+#Owner project
+#  
+  belongs_to :project  
   
   attr_accessor :rows
 

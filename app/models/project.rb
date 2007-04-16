@@ -58,9 +58,12 @@ class Project < ActiveRecord::Base
 ##
 # Link through to users for members, and owners via memberships
 # 
-  has_many :memberships, :dependent => :destroy
-  has_many :members, :through => :memberships, :source => :user
-  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
+  access_control_list  :memberships, { :user => :user, 
+                                       :role => :role }
+
+#  has_many :memberships, :dependent => :destroy
+#  has_many :members, :through => :memberships, :source => :user
+#  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
 ##
 # home folders
 # 

@@ -1,0 +1,18 @@
+  <div class="row">
+    <!--[form:project]-->
+    <div class="form-element">
+       <label for="project_name">Name</label>
+       <%= text_field 'project', 'name' , {:class=>"text-input"} %>
+    </div>
+   </div>
+   
+  <div class="row">
+   <div class="form-element">
+     <label for="project_description">Summary</label>
+     <%= text_area('project', 'summary', {:rows=>5,:cols=>100})  %>
+   </div>
+  </div>
+  
+
+
+<!--[eoform:project]-->

@@ -21,7 +21,8 @@ class UserTest < Test::Unit::TestCase
   def test001_create
      user = User.new
      user.name ="test"
-     user.password="xxx-xxx"
+     user.username ="test"
+     user.set_password("xxx-xxx")
      user.fullname="test account"
      user.admin =false
      user.role = Role.find(:first)
@@ -37,14 +38,14 @@ class UserTest < Test::Unit::TestCase
     
   def test003_duplicate
      user = User.new(:name=>'test2')
-     user.password="xxx-xxx"
+     user.set_password "xxx-xxx"
      user.fullname="test account"
      user.admin =false
      assert user.save, 'save first test2 user'
      assert_ok user
 
      user = User.new(:name=>'test2')
-     user.password="xxx-xxx"
+     user.set_password "xxx-xxx"
      user.fullname="test account"
      user.admin =false
      assert !user.save,' should fail save test2 user duplicate '
@@ -54,10 +55,22 @@ class UserTest < Test::Unit::TestCase
      user = User.find(:first)
      assert_ok user
 
-     project = user.create_project("test-project")
-     assert_ok project     
+     project = user.create_project("test-projectss")
+     assert_ok project
+     user.projects.each{ |p|puts p.name }     
      assert user.projects.detect{|i|i==project}, "project on my list"
      assert user.members.detect{|i|i.project ==project}, "project is on my membership list"
      assert user.role == user.rights(project), "have my default role as a member of the project"
+  end
+  
+  
+  def test005_get_permission
+     user = User.find(:first)
+     role = Role.find(:first)
+     user.role = role
+     assert_ok user.role
+     assert_ok user.rights(user) 
+     assert user.rights(user) == user.role
+
   end
 end

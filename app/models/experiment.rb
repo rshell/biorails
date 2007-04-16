@@ -35,6 +35,11 @@ class Experiment < ActiveRecord::Base
   validates_presence_of   :study_id
 
 ##
+#Owner project
+#  
+  belongs_to :project  
+
+##
 # Stats view of whats happened in the experiment 
 #   
   has_many :stats, :class_name => "ExperimentStatistics"

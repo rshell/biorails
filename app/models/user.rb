@@ -29,28 +29,29 @@ require 'digest/sha1'
 # 
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
+##
+# Do user authorization and authentication has been moded to a plugin
+# 
+# In implementation alces_access_control plugin to customize authorization and
+# authenication functions. To allow delegation to LDAP, OS etc.
+# 
+  access_authenticated  :username => :login, 
+                        :passsword => :password_hash
+                           
+  access_control_via   :role                      
 
-  attr_accessor :password
 ##
 # Business Rules for a user
 # 
-  validates_presence_of :name
-  validates_length_of   :name,    :within => 3..40
-  validates_format_of   :name, :with => /^[a-z0-9_\-@\.]+$/i
-#  validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  validates_presence_of   :name
+  validates_length_of     :name,    :within => 3..40
+  validates_format_of     :name, :with => /^[a-z0-9_\-@\.]+$/i
   validates_uniqueness_of :name, :case_sensitve => false
-  validates_length_of   :password, :in => 4..12, :allow_nil => true
+  
+#  validates_length_of     :password, :in => 4..12, :allow_nil => true
 
+# validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
-  before_save :encrypt_password
-##
-# User May have be validated by a number of Authentication systems (LDAP,Password, Open-Id etc)
-# 
-  belongs_to :authentication, :class_name =>'AuthenticationSystem', :foreign_key => 'authentication_id'
-##
-# Users have a default role
-#   
-  belongs_to :role, :class_name=>'Role',:foreign_key=>'role_id'
 ##
 # Users are linked into the system as a the owner of a number of record types
 # 
@@ -70,18 +71,11 @@ class User < ActiveRecord::Base
 # 
   # Returns the user that matches provided login and password, or nil
   def self.login(username, password)
-    user = find(:first, :conditions => ["name=?", username])
+    user = User.authorized(username, password)
     if user
        logger.info "#{username} is a known username"
-       user.password = password
-       return user if user and  user.valid?
     else
-       logger.info "#{username} is a new username"
-       user = User.new(:name=> username)
-       user.login = username
-       user.set_password(password)
-       user.save
-       return user
+       logger.info "#{username} is a not known"
     end
   end
 
@@ -97,31 +91,12 @@ class User < ActiveRecord::Base
        return project
      end
   end
-##
-# reset the username for this user
-#  
-   def username=(new_user)
-     if (new_user!=self.name)
-        self.name = new_user
-        self.login = new_user
-        self.password_salt = self.username + rand.to_s
-        self.password_hash = Digest::SHA1.hexdigest(self.password_salt.to_s +  self.password.to_s).to_s
-    end     
-   end
-##
-# get the username   
-#
-   def username
-     self.name
-   end
 
 ##
 # reset the password for the user
    def reset_password( old_value, new_value )
       if authenticated?(old_value)
-        password         = new_value
-        confirm_password = new_value
-        encrypt_password
+        self.set_password(new_value)
       end
    end  
 ###
@@ -153,7 +128,7 @@ class User < ActiveRecord::Base
 ##
 # Test in the user is authorized for a subject and action in a project
 #  	
-  def authorized?(project,subject,action)
+  def authorized?(subject,action)
     membership = membership(project)
     if membership.nil?
        return self.admin  # Your not a member
@@ -161,31 +136,6 @@ class User < ActiveRecord::Base
        return membership.allow?(subject,action)
     end
   end 	
-
-##
-# Test if the password is correct
-# 
-  def authenticated?(password)
-     password_hash == encrypt(password)
-  end
-
-
-  protected
-
-    # Encrypts the password with the user salt
-    def encrypt(password)
-      Digest::SHA1.hexdigest("--#{self.password_salt}--#{password}--")
-    end
-
-    def encrypt_password
-      self.password_salt = rand_key if new_record?
-      self.password_hash = encrypt(password)
-    end
-    
-    def rand_key
-      Digest::SHA1.hexdigest("--#{Time.now.to_s.split(//).sort_by {rand}.join}--#{name}--")
-    end
-	
 
 end
 

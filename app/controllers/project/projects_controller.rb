@@ -38,6 +38,36 @@ class Project::ProjectsController < ApplicationController
     session[:project_id] = @project.id
   end
 
+
+  def new
+    @project = Project.new
+    @user = current_user
+  end
+
+  def create
+    @project = Project.new(params[:sample])
+    if @project.save
+      flash[:notice] = 'Sample was successfully created.'
+      redirect_to :action => 'list'
+    else
+      render :action => 'new'
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(params[:sample])
+      flash[:notice] = 'Sample was successfully updated.'
+      redirect_to :action => 'show', :id => @project
+    else
+      render :action => 'edit'
+    end
+  end
+  
 ##
 # List of most recent studies
 # 

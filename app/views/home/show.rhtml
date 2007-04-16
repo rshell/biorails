@@ -33,21 +33,6 @@
 
 <div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
-		<ul>
-		<% for item in @user.lastest(Experiment,5) %>
-			<li>
-			<%= link_to item.name, experiment_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.description %>
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-</div>	
-
-
-<div class="splitcontentright">
-	<div class="box">
 	<h3 class="icon icon-protocol"><%=l('Requests')%></h3>
 		<ul>
 		<% for item in @user.requests %>
@@ -60,7 +45,7 @@
 	</div>  
 </div>	
 
-<div class="splitcontentleft">
+<div class="splitcontentright">
 	<div class="box">
 	<h3 class="icon icon-task"><%=l('Tasks')%></h3>
 		<ul>

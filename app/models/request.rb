@@ -47,6 +47,10 @@ class Request < ActiveRecord::Base
   validates_presence_of :description
   validates_uniqueness_of :name
 ##
+#Owner project
+#  
+  belongs_to :project  
+##
 # Study Has a number of items associated with the request
 # 
   has_many :services, :class_name=>'RequestService'

@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 233) do
+ActiveRecord::Schema.define(:version => 236) do
 
   create_table "assets", :force => true do |t|
     t.column "project_id",       :integer
@@ -416,6 +416,7 @@ ActiveRecord::Schema.define(:version => 233) do
     t.column "updated_by",          :string,   :limit => 32,  :default => "", :null => false
     t.column "updated_at",          :datetime,                                :null => false
     t.column "study_protocol_id",   :integer
+    t.column "project_id",          :integer
   end
 
   create_table "identifiers", :force => true do |t|
@@ -716,31 +717,23 @@ ActiveRecord::Schema.define(:version => 233) do
   end
 
   create_table "projects", :force => true do |t|
-    t.column "name",               :string,   :limit => 30,  :default => "",    :null => false
-    t.column "summary",            :text,                    :default => "",    :null => false
-    t.column "status_id",          :integer,                 :default => 0,     :null => false
-    t.column "title",              :string
-    t.column "subtitle",           :string
-    t.column "email",              :string
-    t.column "ping_urls",          :text
-    t.column "articles_per_page",  :integer,                 :default => 15
-    t.column "host",               :string
-    t.column "akismet_key",        :string,   :limit => 100
-    t.column "akismet_url",        :string
-    t.column "approve_comments",   :boolean
-    t.column "comment_age",        :integer
-    t.column "timezone",           :string
-    t.column "filter",             :string
-    t.column "permalink_style",    :string
-    t.column "search_path",        :string
-    t.column "tag_path",           :string
-    t.column "search_layout",      :string
-    t.column "tag_layout",         :string
-    t.column "current_theme_path", :string
-    t.column "created_by",         :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "created_at",         :datetime,                                   :null => false
-    t.column "updated_by",         :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "updated_at",         :datetime,                                   :null => false
+    t.column "name",           :string,   :limit => 30, :default => "",    :null => false
+    t.column "summary",        :text,                   :default => "",    :null => false
+    t.column "status_id",      :integer,                :default => 0,     :null => false
+    t.column "title",          :string
+    t.column "email",          :string
+    t.column "host",           :string
+    t.column "comment_age",    :integer
+    t.column "timezone",       :string
+    t.column "created_by",     :string,   :limit => 32, :default => "sys", :null => false
+    t.column "created_at",     :datetime,                                  :null => false
+    t.column "updated_by",     :string,   :limit => 32, :default => "sys", :null => false
+    t.column "updated_at",     :datetime,                                  :null => false
+    t.column "start_date",     :datetime
+    t.column "end_date",       :datetime
+    t.column "expected_date",  :datetime
+    t.column "done_hours",     :float
+    t.column "expected_hours", :float
   end
 
   create_table "protocol_versions", :force => true do |t|
@@ -870,6 +863,7 @@ ActiveRecord::Schema.define(:version => 233) do
     t.column "data_element_id", :integer
     t.column "status_id",       :integer
     t.column "priority_id",     :integer
+    t.column "project_id",      :integer
   end
 
   create_table "role_permissions", :force => true do |t|
@@ -959,6 +953,7 @@ ActiveRecord::Schema.define(:version => 233) do
     t.column "created_at",    :datetime,                                :null => false
     t.column "updated_by",    :string,   :limit => 32,  :default => "", :null => false
     t.column "updated_at",    :datetime,                                :null => false
+    t.column "project_id",    :integer
   end
 
   add_index "studies", ["name"], :name => "studies_name_index"
@@ -1311,6 +1306,7 @@ ActiveRecord::Schema.define(:version => 233) do
     t.column "updated_by",          :string,   :limit => 32,  :default => "", :null => false
     t.column "updated_at",          :datetime,                                :null => false
     t.column "study_protocol_id",   :integer
+    t.column "project_id",          :integer
   end
 
   add_index "tasks", ["name"], :name => "tasks_name_index"
