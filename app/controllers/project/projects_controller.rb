@@ -1,13 +1,8 @@
 class Project::ProjectsController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
 
-  session :off, :only => :feed
-  before_filter :basic_auth_required, :only => :feed
-  caches_page :feed
-  helper :sort
-  include SortHelper
-  helper PaginationHelper
-  helper Project::ArticlesHelper
+  use_authorization :project,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights =>  :current_project  
 
 ##
 # Generate a index dashboard for the project 
@@ -34,8 +29,7 @@ class Project::ProjectsController < ApplicationController
 # Generate a index dashboard for the project 
 #  
   def show
-    @project = current(Project,params[:id])
-    session[:project_id] = @project.id
+    @project = set_project( current(Project,params[:id]))    
   end
 
 
@@ -45,10 +39,13 @@ class Project::ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:sample])
+    @user = current_user    
+    @project = current_user.create_project(params[:project][:name])
+    @project.summary = params[:project][:summary]
     if @project.save
       flash[:notice] = 'Sample was successfully created.'
-      redirect_to :action => 'list'
+      set_project(@project)
+      redirect_to  :action => 'show',:id => @project      
     else
       render :action => 'new'
     end
@@ -176,5 +173,6 @@ class Project::ProjectsController < ApplicationController
     render :update do |page|
       page["event-#{params[:id]}"].visual_effect :drop_out
     end
-  end
+  end 
+
 end

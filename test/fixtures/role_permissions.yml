@@ -1,29 +1,2731 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: role_permissions
-#
-#  id            :integer(11)   not null, primary key
-#  role_id       :integer(11)   not null
-#  subject       :string(40)    
-#  action        :string(40)    
-#  permission_id :integer(11)   
-#
-
 --- 
-permissions_001: 
+role_permissions_455: 
+  permission_id: "1411"
+  action: trend_by_hour
   role_id: "1"
-  id: "1"
-  subject: "role"
-  action: "show"
-permissions_002: 
+  subject: charts
+  id: "468"
+role_permissions_408: 
+  permission_id: "1383"
+  action: create
   role_id: "1"
-  id: "2"
-  subject: "role"
-  action: "list"
-permissions_003: 
+  subject: samples
+  id: "421"
+role_permissions_265: 
+  permission_id: "1184"
+  action: default_per_page
   role_id: "1"
-  id: "3"
-  subject: "role"
-  action: "edit"
-  
+  subject: parameter_types
+  id: "278"
+role_permissions_075: 
+  permission_id: "986"
+  action: index
+  role_id: "1"
+  subject: parameter_roles
+  id: "88"
+role_permissions_218: 
+  permission_id: "1139"
+  action: update
+  role_id: "1"
+  subject: treatment_groups
+  id: "231"
+role_permissions_028: 
+  permission_id: "1081"
+  action: show
+  role_id: "1"
+  subject: sections
+  id: "41"
+role_permissions_409: 
+  permission_id: "1356"
+  action: index
+  role_id: "1"
+  subject: home
+  id: "422"
+role_permissions_266: 
+  permission_id: "1185"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: parameter_types
+  id: "279"
+role_permissions_076: 
+  permission_id: "1002"
+  action: current_sort
+  role_id: "1"
+  subject: parameter_roles
+  id: "89"
+role_permissions_219: 
+  permission_id: "1142"
+  action: list
+  role_id: "1"
+  subject: treatment_groups
+  id: "232"
+role_permissions_029: 
+  permission_id: "1073"
+  action: show
+  role_id: "1"
+  subject: request_services
+  id: "42"
+role_permissions_267: 
+  permission_id: "1181"
+  action: cancel
+  role_id: "1"
+  subject: parameter_types
+  id: "280"
+role_permissions_077: 
+  permission_id: "998"
+  action: return_to_main
+  role_id: "1"
+  subject: parameter_roles
+  id: "90"
+role_permissions_268: 
+  permission_id: "1190"
+  action: update
+  role_id: "1"
+  subject: parameter_types
+  id: "281"
+role_permissions_078: 
+  permission_id: "999"
+  action: component_update
+  role_id: "1"
+  subject: parameter_roles
+  id: "91"
+role_permissions_269: 
+  permission_id: "1186"
+  action: update_params
+  role_id: "1"
+  subject: parameter_types
+  id: "282"
+role_permissions_079: 
+  permission_id: "987"
+  action: component
+  role_id: "1"
+  subject: parameter_roles
+  id: "92"
+role_permissions_320: 
+  permission_id: "1275"
+  action: index
+  role_id: "1"
+  subject: queue_items
+  id: "333"
+role_permissions_130: 
+  permission_id: "1023"
+  action: update
+  role_id: "1"
+  subject: study_stages
+  id: "143"
+role_permissions_321: 
+  permission_id: "1280"
+  action: edit
+  role_id: "1"
+  subject: queue_items
+  id: "334"
+role_permissions_131: 
+  permission_id: "1019"
+  action: update_params
+  role_id: "1"
+  subject: study_stages
+  id: "144"
+role_permissions_322: 
+  permission_id: "1276"
+  action: destroy
+  role_id: "1"
+  subject: queue_items
+  id: "335"
+role_permissions_132: 
+  permission_id: "1027"
+  action: list
+  role_id: "1"
+  subject: study_stages
+  id: "145"
+role_permissions_370: 
+  permission_id: "1339"
+  action: update
+  role_id: "1"
+  subject: permissions
+  id: "383"
+role_permissions_180: 
+  permission_id: "1072"
+  action: edit
+  role_id: "1"
+  subject: request_services
+  id: "193"
+role_permissions_323: 
+  permission_id: "1277"
+  action: new
+  role_id: "1"
+  subject: queue_items
+  id: "336"
+role_permissions_133: 
+  permission_id: "1022"
+  action: create
+  role_id: "1"
+  subject: study_stages
+  id: "146"
+role_permissions_371: 
+  permission_id: "1342"
+  action: list
+  role_id: "1"
+  subject: permissions
+  id: "384"
+role_permissions_181: 
+  permission_id: "1067"
+  action: destroy
+  role_id: "1"
+  subject: request_services
+  id: "194"
+role_permissions_324: 
+  permission_id: "1279"
+  action: update
+  role_id: "1"
+  subject: queue_items
+  id: "337"
+role_permissions_134: 
+  permission_id: "1034"
+  action: notes
+  role_id: "1"
+  subject: studies
+  id: "147"
+role_permissions_372: 
+  permission_id: "1345"
+  action: add_item
+  role_id: "1"
+  subject: requests
+  id: "385"
+role_permissions_182: 
+  permission_id: "1068"
+  action: new
+  role_id: "1"
+  subject: request_services
+  id: "195"
+role_permissions_325: 
+  permission_id: "1282"
+  action: list
+  role_id: "1"
+  subject: queue_items
+  id: "338"
+role_permissions_135: 
+  permission_id: "1032"
+  action: protocols
+  role_id: "1"
+  subject: studies
+  id: "148"
+role_permissions_373: 
+  permission_id: "1346"
+  action: remove_item
+  role_id: "1"
+  subject: requests
+  id: "386"
+role_permissions_183: 
+  permission_id: "1070"
+  action: update
+  role_id: "1"
+  subject: request_services
+  id: "196"
+role_permissions_326: 
+  permission_id: "1227"
+  action: set_context
+  role_id: "1"
+  subject: tasks
+  id: "339"
+role_permissions_136: 
+  permission_id: "1044"
+  action: edit
+  role_id: "1"
+  subject: studies
+  id: "149"
+role_permissions_374: 
+  permission_id: "1349"
+  action: add_service
+  role_id: "1"
+  subject: requests
+  id: "387"
+role_permissions_184: 
+  permission_id: "1074"
+  action: list
+  role_id: "1"
+  subject: request_services
+  id: "197"
+role_permissions_327: 
+  permission_id: "1226"
+  action: notes
+  role_id: "1"
+  subject: tasks
+  id: "340"
+role_permissions_137: 
+  permission_id: "1045"
+  action: show
+  role_id: "1"
+  subject: studies
+  id: "150"
+role_permissions_375: 
+  permission_id: "1353"
+  action: edit
+  role_id: "1"
+  subject: requests
+  id: "388"
+role_permissions_185: 
+  permission_id: "1069"
+  action: create
+  role_id: "1"
+  subject: request_services
+  id: "198"
+role_permissions_328: 
+  permission_id: "1228"
+  action: transform
+  role_id: "1"
+  subject: tasks
+  id: "341"
+role_permissions_138: 
+  permission_id: "1037"
+  action: queues
+  role_id: "1"
+  subject: studies
+  id: "151"
+role_permissions_376: 
+  permission_id: "1354"
+  action: show
+  role_id: "1"
+  subject: requests
+  id: "389"
+role_permissions_186: 
+  permission_id: "1082"
+  action: index
+  role_id: "1"
+  subject: parameters
+  id: "199"
+role_permissions_329: 
+  permission_id: "1233"
+  action: view
+  role_id: "1"
+  subject: tasks
+  id: "342"
+role_permissions_139: 
+  permission_id: "1033"
+  action: destroy
+  role_id: "1"
+  subject: studies
+  id: "152"
+role_permissions_377: 
+  permission_id: "1344"
+  action: destroy
+  role_id: "1"
+  subject: requests
+  id: "390"
+role_permissions_187: 
+  permission_id: "1083"
+  action: show
+  role_id: "1"
+  subject: parameters
+  id: "200"
+role_permissions_378: 
+  permission_id: "1348"
+  action: new
+  role_id: "1"
+  subject: requests
+  id: "391"
+role_permissions_188: 
+  permission_id: "1080"
+  action: edit
+  role_id: "1"
+  subject: sections
+  id: "201"
+role_permissions_001: 
+  permission_id: "1244"
+  action: index
+  role_id: "1"
+  subject: articles
+  id: "14"
+role_permissions_379: 
+  permission_id: "1347"
+  action: reports
+  role_id: "1"
+  subject: requests
+  id: "392"
+role_permissions_189: 
+  permission_id: "1076"
+  action: destroy
+  role_id: "1"
+  subject: sections
+  id: "202"
+role_permissions_002: 
+  permission_id: "1254"
+  action: show
+  role_id: "1"
+  subject: articles
+  id: "15"
+role_permissions_430: 
+  permission_id: "1368"
+  action: visualize
+  role_id: "1"
+  subject: reports
+  id: "443"
+role_permissions_003: 
+  permission_id: "1255"
+  action: upload
+  role_id: "1"
+  subject: articles
+  id: "16"
+role_permissions_240: 
+  permission_id: "1155"
+  action: study_list
+  role_id: "1"
+  subject: data_capture
+  id: "253"
+role_permissions_050: 
+  permission_id: "1224"
+  action: metrics
+  role_id: "1"
+  subject: tasks
+  id: "63"
+role_permissions_431: 
+  permission_id: "1376"
+  action: edit
+  role_id: "1"
+  subject: reports
+  id: "444"
+role_permissions_004: 
+  permission_id: "1251"
+  action: create
+  role_id: "1"
+  subject: articles
+  id: "17"
+role_permissions_241: 
+  permission_id: "1165"
+  action: api
+  role_id: "1"
+  subject: data_capture
+  id: "254"
+role_permissions_051: 
+  permission_id: "1230"
+  action: sheet
+  role_id: "1"
+  subject: tasks
+  id: "64"
+role_permissions_432: 
+  permission_id: "1377"
+  action: show
+  role_id: "1"
+  subject: reports
+  id: "445"
+role_permissions_005: 
+  permission_id: "1250"
+  action: new
+  role_id: "1"
+  subject: articles
+  id: "18"
+role_permissions_242: 
+  permission_id: "1158"
+  action: process_list
+  role_id: "1"
+  subject: data_capture
+  id: "255"
+role_permissions_052: 
+  permission_id: "1223"
+  action: index
+  role_id: "1"
+  subject: tasks
+  id: "65"
+role_permissions_433: 
+  permission_id: "1363"
+  action: destroy
+  role_id: "1"
+  subject: reports
+  id: "446"
+role_permissions_006: 
+  permission_id: "1246"
+  action: approve
+  role_id: "1"
+  subject: articles
+  id: "19"
+role_permissions_290: 
+  permission_id: "1211"
+  action: default_per_page
+  role_id: "1"
+  subject: data_formats
+  id: "303"
+role_permissions_243: 
+  permission_id: "1152"
+  action: task_context_update
+  role_id: "1"
+  subject: data_capture
+  id: "256"
+role_permissions_053: 
+  permission_id: "1302"
+  action: update_params_filter
+  role_id: "1"
+  subject: data_types
+  id: "66"
+role_permissions_434: 
+  permission_id: "1367"
+  action: new
+  role_id: "1"
+  subject: reports
+  id: "447"
+role_permissions_007: 
+  permission_id: "1252"
+  action: update
+  role_id: "1"
+  subject: articles
+  id: "20"
+role_permissions_291: 
+  permission_id: "1212"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: data_formats
+  id: "304"
+role_permissions_244: 
+  permission_id: "1153"
+  action: task_export
+  role_id: "1"
+  subject: data_capture
+  id: "257"
+role_permissions_054: 
+  permission_id: "1319"
+  action: index
+  role_id: "1"
+  subject: system_settings
+  id: "67"
+role_permissions_435: 
+  permission_id: "1372"
+  action: add_column
+  role_id: "1"
+  subject: reports
+  id: "448"
+role_permissions_008: 
+  permission_id: "1012"
+  action: index
+  role_id: "1"
+  subject: study_stages
+  id: "21"
+role_permissions_292: 
+  permission_id: "1208"
+  action: cancel
+  role_id: "1"
+  subject: data_formats
+  id: "305"
+role_permissions_245: 
+  permission_id: "1159"
+  action: parameter_list
+  role_id: "1"
+  subject: data_capture
+  id: "258"
+role_permissions_055: 
+  permission_id: "1325"
+  action: show
+  role_id: "1"
+  subject: system_settings
+  id: "68"
+role_permissions_436: 
+  permission_id: "1373"
+  action: uml
+  role_id: "1"
+  subject: reports
+  id: "449"
+role_permissions_009: 
+  permission_id: "1021"
+  action: update_params_filter
+  role_id: "1"
+  subject: study_stages
+  id: "22"
+role_permissions_293: 
+  permission_id: "1217"
+  action: update
+  role_id: "1"
+  subject: data_formats
+  id: "306"
+role_permissions_246: 
+  permission_id: "1156"
+  action: task_import
+  role_id: "1"
+  subject: data_capture
+  id: "259"
+role_permissions_056: 
+  permission_id: "1322"
+  action: create
+  role_id: "1"
+  subject: system_settings
+  id: "69"
+role_permissions_437: 
+  permission_id: "1369"
+  action: export
+  role_id: "1"
+  subject: reports
+  id: "450"
+role_permissions_294: 
+  permission_id: "1213"
+  action: update_params
+  role_id: "1"
+  subject: data_formats
+  id: "307"
+role_permissions_247: 
+  permission_id: "1160"
+  action: parameter_context_list
+  role_id: "1"
+  subject: data_capture
+  id: "260"
+role_permissions_057: 
+  permission_id: "1290"
+  action: show
+  role_id: "1"
+  subject: compounds
+  id: "70"
+role_permissions_438: 
+  permission_id: "1375"
+  action: refresh
+  role_id: "1"
+  subject: reports
+  id: "451"
+role_permissions_295: 
+  permission_id: "1221"
+  action: list
+  role_id: "1"
+  subject: data_formats
+  id: "308"
+role_permissions_248: 
+  permission_id: "1154"
+  action: invoke_method_params
+  role_id: "1"
+  subject: data_capture
+  id: "261"
+role_permissions_058: 
+  permission_id: "1343"
+  action: index
+  role_id: "1"
+  subject: requests
+  id: "71"
+role_permissions_439: 
+  permission_id: "1374"
+  action: remove_column
+  role_id: "1"
+  subject: reports
+  id: "452"
+role_permissions_296: 
+  permission_id: "1216"
+  action: create
+  role_id: "1"
+  subject: data_formats
+  id: "309"
+role_permissions_249: 
+  permission_id: "1162"
+  action: experiment_list
+  role_id: "1"
+  subject: data_capture
+  id: "262"
+role_permissions_059: 
+  permission_id: "1350"
+  action: remove_service
+  role_id: "1"
+  subject: requests
+  id: "72"
+role_permissions_297: 
+  permission_id: "1257"
+  action: index
+  role_id: "1"
+  subject: plates
+  id: "310"
+role_permissions_300: 
+  permission_id: "1270"
+  action: return_to_main
+  role_id: "1"
+  subject: plates
+  id: "313"
+role_permissions_110: 
+  permission_id: "1006"
+  action: create
+  role_id: "1"
+  subject: specimens
+  id: "123"
+role_permissions_298: 
+  permission_id: "1266"
+  action: search
+  role_id: "1"
+  subject: plates
+  id: "311"
+role_permissions_301: 
+  permission_id: "1271"
+  action: component_update
+  role_id: "1"
+  subject: plates
+  id: "314"
+role_permissions_111: 
+  permission_id: "953"
+  action: index
+  role_id: "1"
+  subject: data_concepts
+  id: "124"
+role_permissions_299: 
+  permission_id: "1274"
+  action: current_sort
+  role_id: "1"
+  subject: plates
+  id: "312"
+role_permissions_302: 
+  permission_id: "1258"
+  action: component
+  role_id: "1"
+  subject: plates
+  id: "315"
+role_permissions_112: 
+  permission_id: "959"
+  action: edit
+  role_id: "1"
+  subject: data_concepts
+  id: "125"
+role_permissions_303: 
+  permission_id: "1256"
+  action: current_sort_direction
+  role_id: "1"
+  subject: plates
+  id: "316"
+role_permissions_113: 
+  permission_id: "954"
+  action: destroy
+  role_id: "1"
+  subject: data_concepts
+  id: "126"
+role_permissions_350: 
+  permission_id: "1309"
+  action: current_sort
+  role_id: "1"
+  subject: data_types
+  id: "363"
+role_permissions_160: 
+  permission_id: "965"
+  action: timeline
+  role_id: "1"
+  subject: experiments
+  id: "173"
+role_permissions_304: 
+  permission_id: "1260"
+  action: clear_flashes
+  role_id: "1"
+  subject: plates
+  id: "317"
+role_permissions_114: 
+  permission_id: "955"
+  action: new
+  role_id: "1"
+  subject: data_concepts
+  id: "127"
+role_permissions_351: 
+  permission_id: "1305"
+  action: return_to_main
+  role_id: "1"
+  subject: data_types
+  id: "364"
+role_permissions_161: 
+  permission_id: "973"
+  action: copy
+  role_id: "1"
+  subject: experiments
+  id: "174"
+role_permissions_305: 
+  permission_id: "1272"
+  action: edit
+  role_id: "1"
+  subject: plates
+  id: "318"
+role_permissions_115: 
+  permission_id: "956"
+  action: export
+  role_id: "1"
+  subject: data_concepts
+  id: "128"
+role_permissions_352: 
+  permission_id: "1306"
+  action: component_update
+  role_id: "1"
+  subject: data_types
+  id: "365"
+role_permissions_162: 
+  permission_id: "976"
+  action: list
+  role_id: "1"
+  subject: experiments
+  id: "175"
+role_permissions_306: 
+  permission_id: "1261"
+  action: destroy
+  role_id: "1"
+  subject: plates
+  id: "319"
+role_permissions_116: 
+  permission_id: "958"
+  action: update
+  role_id: "1"
+  subject: data_concepts
+  id: "129"
+role_permissions_353: 
+  permission_id: "1294"
+  action: component
+  role_id: "1"
+  subject: data_types
+  id: "366"
+role_permissions_163: 
+  permission_id: "971"
+  action: create
+  role_id: "1"
+  subject: experiments
+  id: "176"
+role_permissions_307: 
+  permission_id: "1265"
+  action: new
+  role_id: "1"
+  subject: plates
+  id: "320"
+role_permissions_117: 
+  permission_id: "961"
+  action: list
+  role_id: "1"
+  subject: data_concepts
+  id: "130"
+role_permissions_354: 
+  permission_id: "1292"
+  action: current_sort_direction
+  role_id: "1"
+  subject: data_types
+  id: "367"
+role_permissions_164: 
+  permission_id: "1048"
+  action: logout
+  role_id: "1"
+  subject: auth
+  id: "177"
+role_permissions_308: 
+  permission_id: "1262"
+  action: default_per_page
+  role_id: "1"
+  subject: plates
+  id: "321"
+role_permissions_118: 
+  permission_id: "957"
+  action: create
+  role_id: "1"
+  subject: data_concepts
+  id: "131"
+role_permissions_355: 
+  permission_id: "1296"
+  action: clear_flashes
+  role_id: "1"
+  subject: data_types
+  id: "368"
+role_permissions_165: 
+  permission_id: "1053"
+  action: new_element
+  role_id: "1"
+  subject: catalogue
+  id: "178"
+role_permissions_309: 
+  permission_id: "1263"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: plates
+  id: "322"
+role_permissions_119: 
+  permission_id: "1028"
+  action: current_sort
+  role_id: "1"
+  subject: study_stages
+  id: "132"
+role_permissions_356: 
+  permission_id: "1307"
+  action: edit
+  role_id: "1"
+  subject: data_types
+  id: "369"
+role_permissions_166: 
+  permission_id: "1054"
+  action: create_element
+  role_id: "1"
+  subject: catalogue
+  id: "179"
+role_permissions_357: 
+  permission_id: "1297"
+  action: destroy
+  role_id: "1"
+  subject: data_types
+  id: "370"
+role_permissions_167: 
+  permission_id: "1056"
+  action: new_usage
+  role_id: "1"
+  subject: catalogue
+  id: "180"
+role_permissions_358: 
+  permission_id: "1301"
+  action: new
+  role_id: "1"
+  subject: data_types
+  id: "371"
+role_permissions_168: 
+  permission_id: "1057"
+  action: create_usage
+  role_id: "1"
+  subject: catalogue
+  id: "181"
+role_permissions_359: 
+  permission_id: "1298"
+  action: default_per_page
+  role_id: "1"
+  subject: data_types
+  id: "372"
+role_permissions_169: 
+  permission_id: "1061"
+  action: edit
+  role_id: "1"
+  subject: catalogue
+  id: "182"
+role_permissions_410: 
+  permission_id: "1357"
+  action: calender
+  role_id: "1"
+  subject: home
+  id: "423"
+role_permissions_220: 
+  permission_id: "1126"
+  action: index
+  role_id: "1"
+  subject: data_elements
+  id: "233"
+role_permissions_030: 
+  permission_id: "1109"
+  action: show
+  role_id: "1"
+  subject: data_systems
+  id: "43"
+role_permissions_411: 
+  permission_id: "1358"
+  action: timeline
+  role_id: "1"
+  subject: home
+  id: "424"
+role_permissions_221: 
+  permission_id: "1127"
+  action: add
+  role_id: "1"
+  subject: data_elements
+  id: "234"
+role_permissions_031: 
+  permission_id: "1116"
+  action: refresh_formats
+  role_id: "1"
+  subject: study_parameters
+  id: "44"
+role_permissions_412: 
+  permission_id: "1359"
+  action: blog
+  role_id: "1"
+  subject: home
+  id: "425"
+role_permissions_222: 
+  permission_id: "1131"
+  action: choices
+  role_id: "1"
+  subject: data_elements
+  id: "235"
+role_permissions_032: 
+  permission_id: "1143"
+  action: index
+  role_id: "1"
+  subject: resources
+  id: "45"
+role_permissions_413: 
+  permission_id: "1395"
+  action: import
+  role_id: "1"
+  subject: study_protocols
+  id: "426"
+role_permissions_223: 
+  permission_id: "1132"
+  action: edit
+  role_id: "1"
+  subject: data_elements
+  id: "236"
+role_permissions_033: 
+  permission_id: "1147"
+  action: upload
+  role_id: "1"
+  subject: resources
+  id: "46"
+role_permissions_270: 
+  permission_id: "1194"
+  action: list
+  role_id: "1"
+  subject: parameter_types
+  id: "283"
+role_permissions_080: 
+  permission_id: "985"
+  action: current_sort_direction
+  role_id: "1"
+  subject: parameter_roles
+  id: "93"
+role_permissions_414: 
+  permission_id: "1389"
+  action: move_parameter
+  role_id: "1"
+  subject: study_protocols
+  id: "427"
+role_permissions_224: 
+  permission_id: "1128"
+  action: destroy
+  role_id: "1"
+  subject: data_elements
+  id: "237"
+role_permissions_034: 
+  permission_id: "1144"
+  action: remove
+  role_id: "1"
+  subject: resources
+  id: "47"
+role_permissions_271: 
+  permission_id: "1189"
+  action: create
+  role_id: "1"
+  subject: parameter_types
+  id: "284"
+role_permissions_081: 
+  permission_id: "989"
+  action: clear_flashes
+  role_id: "1"
+  subject: parameter_roles
+  id: "94"
+role_permissions_415: 
+  permission_id: "1390"
+  action: delete_context
+  role_id: "1"
+  subject: study_protocols
+  id: "428"
+role_permissions_225: 
+  permission_id: "1129"
+  action: export
+  role_id: "1"
+  subject: data_elements
+  id: "238"
+role_permissions_035: 
+  permission_id: "1133"
+  action: show
+  role_id: "1"
+  subject: data_elements
+  id: "48"
+role_permissions_272: 
+  permission_id: "1196"
+  action: index
+  role_id: "1"
+  subject: data_contexts
+  id: "285"
+role_permissions_082: 
+  permission_id: "1000"
+  action: edit
+  role_id: "1"
+  subject: parameter_roles
+  id: "95"
+role_permissions_416: 
+  permission_id: "1394"
+  action: remove_parameter
+  role_id: "1"
+  subject: study_protocols
+  id: "429"
+role_permissions_226: 
+  permission_id: "1130"
+  action: update
+  role_id: "1"
+  subject: data_elements
+  id: "239"
+role_permissions_036: 
+  permission_id: "1135"
+  action: index
+  role_id: "1"
+  subject: treatment_groups
+  id: "49"
+role_permissions_273: 
+  permission_id: "1202"
+  action: edit
+  role_id: "1"
+  subject: data_contexts
+  id: "286"
+role_permissions_083: 
+  permission_id: "990"
+  action: destroy
+  role_id: "1"
+  subject: parameter_roles
+  id: "96"
+role_permissions_417: 
+  permission_id: "1402"
+  action: edit
+  role_id: "1"
+  subject: study_protocols
+  id: "430"
+role_permissions_227: 
+  permission_id: "1134"
+  action: list
+  role_id: "1"
+  subject: data_elements
+  id: "240"
+role_permissions_037: 
+  permission_id: "1141"
+  action: show
+  role_id: "1"
+  subject: treatment_groups
+  id: "50"
+role_permissions_274: 
+  permission_id: "1197"
+  action: destroy
+  role_id: "1"
+  subject: data_contexts
+  id: "287"
+role_permissions_084: 
+  permission_id: "994"
+  action: new
+  role_id: "1"
+  subject: parameter_roles
+  id: "97"
+role_permissions_418: 
+  permission_id: "1393"
+  action: destroy
+  role_id: "1"
+  subject: study_protocols
+  id: "431"
+role_permissions_228: 
+  permission_id: "1146"
+  action: edit
+  role_id: "1"
+  subject: resources
+  id: "241"
+role_permissions_038: 
+  permission_id: "1138"
+  action: create
+  role_id: "1"
+  subject: treatment_groups
+  id: "51"
+role_permissions_275: 
+  permission_id: "1198"
+  action: new
+  role_id: "1"
+  subject: data_contexts
+  id: "288"
+role_permissions_085: 
+  permission_id: "991"
+  action: default_per_page
+  role_id: "1"
+  subject: parameter_roles
+  id: "98"
+role_permissions_419: 
+  permission_id: "1396"
+  action: new
+  role_id: "1"
+  subject: study_protocols
+  id: "432"
+role_permissions_039: 
+  permission_id: "1166"
+  action: index
+  role_id: "1"
+  subject: study_queues
+  id: "52"
+role_permissions_276: 
+  permission_id: "1199"
+  action: export
+  role_id: "1"
+  subject: data_contexts
+  id: "289"
+role_permissions_086: 
+  permission_id: "992"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: parameter_roles
+  id: "99"
+role_permissions_229: 
+  permission_id: "1145"
+  action: update
+  role_id: "1"
+  subject: resources
+  id: "242"
+role_permissions_277: 
+  permission_id: "1201"
+  action: update
+  role_id: "1"
+  subject: data_contexts
+  id: "290"
+role_permissions_087: 
+  permission_id: "988"
+  action: cancel
+  role_id: "1"
+  subject: parameter_roles
+  id: "100"
+role_permissions_278: 
+  permission_id: "1204"
+  action: list
+  role_id: "1"
+  subject: data_contexts
+  id: "291"
+role_permissions_088: 
+  permission_id: "997"
+  action: update
+  role_id: "1"
+  subject: parameter_roles
+  id: "101"
+role_permissions_279: 
+  permission_id: "1200"
+  action: create
+  role_id: "1"
+  subject: data_contexts
+  id: "292"
+role_permissions_089: 
+  permission_id: "993"
+  action: update_params
+  role_id: "1"
+  subject: parameter_roles
+  id: "102"
+role_permissions_330: 
+  permission_id: "1241"
+  action: edit
+  role_id: "1"
+  subject: tasks
+  id: "343"
+role_permissions_140: 
+  permission_id: "1038"
+  action: experiments
+  role_id: "1"
+  subject: studies
+  id: "153"
+role_permissions_331: 
+  permission_id: "1242"
+  action: show
+  role_id: "1"
+  subject: tasks
+  id: "344"
+role_permissions_141: 
+  permission_id: "1040"
+  action: new
+  role_id: "1"
+  subject: studies
+  id: "154"
+role_permissions_332: 
+  permission_id: "1231"
+  action: analysis
+  role_id: "1"
+  subject: tasks
+  id: "345"
+role_permissions_142: 
+  permission_id: "1041"
+  action: export
+  role_id: "1"
+  subject: studies
+  id: "155"
+role_permissions_333: 
+  permission_id: "1225"
+  action: destroy
+  role_id: "1"
+  subject: tasks
+  id: "346"
+role_permissions_143: 
+  permission_id: "1039"
+  action: reports
+  role_id: "1"
+  subject: studies
+  id: "156"
+role_permissions_380: 
+  permission_id: "1352"
+  action: update
+  role_id: "1"
+  subject: requests
+  id: "393"
+role_permissions_190: 
+  permission_id: "1077"
+  action: new
+  role_id: "1"
+  subject: sections
+  id: "203"
+role_permissions_334: 
+  permission_id: "1234"
+  action: modify
+  role_id: "1"
+  subject: tasks
+  id: "347"
+role_permissions_144: 
+  permission_id: "1031"
+  action: cancel
+  role_id: "1"
+  subject: studies
+  id: "157"
+role_permissions_381: 
+  permission_id: "1355"
+  action: list
+  role_id: "1"
+  subject: requests
+  id: "394"
+role_permissions_191: 
+  permission_id: "1079"
+  action: update
+  role_id: "1"
+  subject: sections
+  id: "204"
+role_permissions_335: 
+  permission_id: "1229"
+  action: new
+  role_id: "1"
+  subject: tasks
+  id: "348"
+role_permissions_145: 
+  permission_id: "1043"
+  action: update
+  role_id: "1"
+  subject: studies
+  id: "158"
+role_permissions_382: 
+  permission_id: "1351"
+  action: create
+  role_id: "1"
+  subject: requests
+  id: "395"
+role_permissions_192: 
+  permission_id: "1078"
+  action: create
+  role_id: "1"
+  subject: sections
+  id: "205"
+role_permissions_146: 
+  permission_id: "1035"
+  action: timeline
+  role_id: "1"
+  subject: studies
+  id: "159"
+role_permissions_383: 
+  permission_id: "1283"
+  action: index
+  role_id: "1"
+  subject: compounds
+  id: "396"
+role_permissions_193: 
+  permission_id: "1111"
+  action: index
+  role_id: "1"
+  subject: study_parameters
+  id: "206"
+role_permissions_336: 
+  permission_id: "1239"
+  action: report
+  role_id: "1"
+  subject: tasks
+  id: "349"
+role_permissions_147: 
+  permission_id: "1036"
+  action: parameters
+  role_id: "1"
+  subject: studies
+  id: "160"
+role_permissions_384: 
+  permission_id: "1289"
+  action: edit
+  role_id: "1"
+  subject: compounds
+  id: "397"
+role_permissions_194: 
+  permission_id: "1117"
+  action: import
+  role_id: "1"
+  subject: study_parameters
+  id: "207"
+role_permissions_337: 
+  permission_id: "1232"
+  action: export
+  role_id: "1"
+  subject: tasks
+  id: "350"
+role_permissions_385: 
+  permission_id: "1284"
+  action: destroy
+  role_id: "1"
+  subject: compounds
+  id: "398"
+role_permissions_195: 
+  permission_id: "1112"
+  action: import_file
+  role_id: "1"
+  subject: study_parameters
+  id: "208"
+role_permissions_338: 
+  permission_id: "1238"
+  action: refresh_instances
+  role_id: "1"
+  subject: tasks
+  id: "351"
+role_permissions_148: 
+  permission_id: "1046"
+  action: list
+  role_id: "1"
+  subject: studies
+  id: "161"
+role_permissions_386: 
+  permission_id: "1286"
+  action: new
+  role_id: "1"
+  subject: compounds
+  id: "399"
+role_permissions_196: 
+  permission_id: "1113"
+  action: locate
+  role_id: "1"
+  subject: study_parameters
+  id: "209"
+role_permissions_339: 
+  permission_id: "1236"
+  action: update
+  role_id: "1"
+  subject: tasks
+  id: "352"
+role_permissions_149: 
+  permission_id: "1042"
+  action: create
+  role_id: "1"
+  subject: studies
+  id: "162"
+role_permissions_387: 
+  permission_id: "1285"
+  action: depict
+  role_id: "1"
+  subject: compounds
+  id: "400"
+role_permissions_197: 
+  permission_id: "1114"
+  action: refresh_type
+  role_id: "1"
+  subject: study_parameters
+  id: "210"
+role_permissions_200: 
+  permission_id: "1118"
+  action: test_save
+  role_id: "1"
+  subject: study_parameters
+  id: "213"
+role_permissions_010: 
+  permission_id: "1024"
+  action: return_to_main
+  role_id: "1"
+  subject: study_stages
+  id: "23"
+role_permissions_388: 
+  permission_id: "1288"
+  action: update
+  role_id: "1"
+  subject: compounds
+  id: "401"
+role_permissions_198: 
+  permission_id: "1123"
+  action: edit
+  role_id: "1"
+  subject: study_parameters
+  id: "211"
+role_permissions_201: 
+  permission_id: "1115"
+  action: destroy
+  role_id: "1"
+  subject: study_parameters
+  id: "214"
+role_permissions_011: 
+  permission_id: "983"
+  action: show
+  role_id: "1"
+  subject: containers
+  id: "24"
+role_permissions_389: 
+  permission_id: "1291"
+  action: list
+  role_id: "1"
+  subject: compounds
+  id: "402"
+role_permissions_199: 
+  permission_id: "1124"
+  action: show
+  role_id: "1"
+  subject: study_parameters
+  id: "212"
+role_permissions_202: 
+  permission_id: "1119"
+  action: new
+  role_id: "1"
+  subject: study_parameters
+  id: "215"
+role_permissions_012: 
+  permission_id: "1003"
+  action: index
+  role_id: "1"
+  subject: specimens
+  id: "25"
+role_permissions_440: 
+  permission_id: "1379"
+  action: diagram
+  role_id: "1"
+  subject: reports
+  id: "453"
+role_permissions_250: 
+  permission_id: "1157"
+  action: invoke_submit
+  role_id: "1"
+  subject: data_capture
+  id: "263"
+role_permissions_060: 
+  permission_id: "1341"
+  action: show
+  role_id: "1"
+  subject: permissions
+  id: "73"
+role_permissions_203: 
+  permission_id: "1120"
+  action: export
+  role_id: "1"
+  subject: study_parameters
+  id: "216"
+role_permissions_013: 
+  permission_id: "1009"
+  action: show
+  role_id: "1"
+  subject: specimens
+  id: "26"
+role_permissions_441: 
+  permission_id: "1371"
+  action: update
+  role_id: "1"
+  subject: reports
+  id: "454"
+role_permissions_251: 
+  permission_id: "1164"
+  action: task_list
+  role_id: "1"
+  subject: data_capture
+  id: "264"
+role_permissions_061: 
+  permission_id: "1338"
+  action: create
+  role_id: "1"
+  subject: permissions
+  id: "74"
+role_permissions_204: 
+  permission_id: "1122"
+  action: update
+  role_id: "1"
+  subject: study_parameters
+  id: "217"
+role_permissions_014: 
+  permission_id: "995"
+  action: update_params_filter
+  role_id: "1"
+  subject: parameter_roles
+  id: "27"
+role_permissions_442: 
+  permission_id: "1366"
+  action: builder
+  role_id: "1"
+  subject: reports
+  id: "455"
+role_permissions_252: 
+  permission_id: "1161"
+  action: protocol_list
+  role_id: "1"
+  subject: data_capture
+  id: "265"
+role_permissions_062: 
+  permission_id: "1310"
+  action: index
+  role_id: "1"
+  subject: batches
+  id: "75"
+role_permissions_205: 
+  permission_id: "1125"
+  action: list
+  role_id: "1"
+  subject: study_parameters
+  id: "218"
+role_permissions_015: 
+  permission_id: "1030"
+  action: metrics
+  role_id: "1"
+  subject: studies
+  id: "28"
+role_permissions_443: 
+  permission_id: "1378"
+  action: list
+  role_id: "1"
+  subject: reports
+  id: "456"
+role_permissions_253: 
+  permission_id: "1151"
+  action: task_contexts
+  role_id: "1"
+  subject: data_capture
+  id: "266"
+role_permissions_063: 
+  permission_id: "1317"
+  action: show
+  role_id: "1"
+  subject: batches
+  id: "76"
+role_permissions_206: 
+  permission_id: "1121"
+  action: create
+  role_id: "1"
+  subject: study_parameters
+  id: "219"
+role_permissions_016: 
+  permission_id: "1029"
+  action: index
+  role_id: "1"
+  subject: studies
+  id: "29"
+role_permissions_444: 
+  permission_id: "1362"
+  action: refresh_columns
+  role_id: "1"
+  subject: reports
+  id: "457"
+role_permissions_254: 
+  permission_id: "1163"
+  action: task_values
+  role_id: "1"
+  subject: data_capture
+  id: "267"
+role_permissions_064: 
+  permission_id: "1312"
+  action: auto_complete_for_compound_name
+  role_id: "1"
+  subject: batches
+  id: "77"
+role_permissions_207: 
+  permission_id: "1102"
+  action: index
+  role_id: "1"
+  subject: data_systems
+  id: "220"
+role_permissions_017: 
+  permission_id: "945"
+  action: index
+  role_id: "1"
+  subject: roles
+  id: "30"
+role_permissions_445: 
+  permission_id: "1370"
+  action: create
+  role_id: "1"
+  subject: reports
+  id: "458"
+role_permissions_065: 
+  permission_id: "1333"
+  action: show
+  role_id: "1"
+  subject: plate_formats
+  id: "78"
+role_permissions_208: 
+  permission_id: "1108"
+  action: edit
+  role_id: "1"
+  subject: data_systems
+  id: "221"
+role_permissions_018: 
+  permission_id: "951"
+  action: show
+  role_id: "1"
+  subject: roles
+  id: "31"
+role_permissions_255: 
+  permission_id: "1179"
+  action: index
+  role_id: "1"
+  subject: parameter_types
+  id: "268"
+role_permissions_446: 
+  permission_id: "1365"
+  action: expand
+  role_id: "1"
+  subject: reports
+  id: "459"
+role_permissions_066: 
+  permission_id: "1330"
+  action: create
+  role_id: "1"
+  subject: plate_formats
+  id: "79"
+role_permissions_209: 
+  permission_id: "1103"
+  action: destroy
+  role_id: "1"
+  subject: data_systems
+  id: "222"
+role_permissions_019: 
+  permission_id: "960"
+  action: show
+  role_id: "1"
+  subject: data_concepts
+  id: "32"
+role_permissions_256: 
+  permission_id: "1188"
+  action: update_params_filter
+  role_id: "1"
+  subject: parameter_types
+  id: "269"
+role_permissions_447: 
+  permission_id: "1413"
+  action: left_hide
+  role_id: "1"
+  subject: finder
+  id: "460"
+role_permissions_257: 
+  permission_id: "1195"
+  action: current_sort
+  role_id: "1"
+  subject: parameter_types
+  id: "270"
+role_permissions_067: 
+  permission_id: "1360"
+  action: todo
+  role_id: "1"
+  subject: home
+  id: "80"
+role_permissions_448: 
+  permission_id: "1416"
+  action: query
+  role_id: "1"
+  subject: finder
+  id: "461"
+role_permissions_258: 
+  permission_id: "1192"
+  action: component_update
+  role_id: "1"
+  subject: parameter_types
+  id: "271"
+role_permissions_068: 
+  permission_id: "1388"
+  action: index
+  role_id: "1"
+  subject: study_protocols
+  id: "81"
+role_permissions_449: 
+  permission_id: "1415"
+  action: right_hide
+  role_id: "1"
+  subject: finder
+  id: "462"
+role_permissions_259: 
+  permission_id: "1180"
+  action: component
+  role_id: "1"
+  subject: parameter_types
+  id: "272"
+role_permissions_069: 
+  permission_id: "1403"
+  action: show
+  role_id: "1"
+  subject: study_protocols
+  id: "82"
+role_permissions_310: 
+  permission_id: "1259"
+  action: cancel
+  role_id: "1"
+  subject: plates
+  id: "323"
+role_permissions_120: 
+  permission_id: "1025"
+  action: component_update
+  role_id: "1"
+  subject: study_stages
+  id: "133"
+role_permissions_311: 
+  permission_id: "1269"
+  action: update
+  role_id: "1"
+  subject: plates
+  id: "324"
+role_permissions_121: 
+  permission_id: "1013"
+  action: component
+  role_id: "1"
+  subject: study_stages
+  id: "134"
+role_permissions_312: 
+  permission_id: "1264"
+  action: update_params
+  role_id: "1"
+  subject: plates
+  id: "325"
+role_permissions_122: 
+  permission_id: "1011"
+  action: current_sort_direction
+  role_id: "1"
+  subject: study_stages
+  id: "135"
+role_permissions_360: 
+  permission_id: "1299"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: data_types
+  id: "373"
+role_permissions_170: 
+  permission_id: "1060"
+  action: remove_element
+  role_id: "1"
+  subject: catalogue
+  id: "183"
+role_permissions_313: 
+  permission_id: "1273"
+  action: list
+  role_id: "1"
+  subject: plates
+  id: "326"
+role_permissions_123: 
+  permission_id: "1015"
+  action: clear_flashes
+  role_id: "1"
+  subject: study_stages
+  id: "136"
+role_permissions_361: 
+  permission_id: "1295"
+  action: cancel
+  role_id: "1"
+  subject: data_types
+  id: "374"
+role_permissions_171: 
+  permission_id: "1062"
+  action: show
+  role_id: "1"
+  subject: catalogue
+  id: "184"
+role_permissions_314: 
+  permission_id: "1268"
+  action: create
+  role_id: "1"
+  subject: plates
+  id: "327"
+role_permissions_124: 
+  permission_id: "1026"
+  action: edit
+  role_id: "1"
+  subject: study_stages
+  id: "137"
+role_permissions_172: 
+  permission_id: "1052"
+  action: destroy
+  role_id: "1"
+  subject: catalogue
+  id: "185"
+role_permissions_315: 
+  permission_id: "1247"
+  action: unapprove
+  role_id: "1"
+  subject: articles
+  id: "328"
+role_permissions_125: 
+  permission_id: "1016"
+  action: destroy
+  role_id: "1"
+  subject: study_stages
+  id: "138"
+role_permissions_362: 
+  permission_id: "1304"
+  action: update
+  role_id: "1"
+  subject: data_types
+  id: "375"
+role_permissions_173: 
+  permission_id: "1055"
+  action: new
+  role_id: "1"
+  subject: catalogue
+  id: "186"
+role_permissions_316: 
+  permission_id: "1248"
+  action: destroy_comment
+  role_id: "1"
+  subject: articles
+  id: "329"
+role_permissions_126: 
+  permission_id: "1020"
+  action: new
+  role_id: "1"
+  subject: study_stages
+  id: "139"
+role_permissions_363: 
+  permission_id: "1300"
+  action: update_params
+  role_id: "1"
+  subject: data_types
+  id: "376"
+role_permissions_317: 
+  permission_id: "1249"
+  action: comments
+  role_id: "1"
+  subject: articles
+  id: "330"
+role_permissions_127: 
+  permission_id: "1017"
+  action: default_per_page
+  role_id: "1"
+  subject: study_stages
+  id: "140"
+role_permissions_364: 
+  permission_id: "1308"
+  action: list
+  role_id: "1"
+  subject: data_types
+  id: "377"
+role_permissions_174: 
+  permission_id: "1059"
+  action: update
+  role_id: "1"
+  subject: catalogue
+  id: "187"
+role_permissions_318: 
+  permission_id: "1253"
+  action: edit
+  role_id: "1"
+  subject: articles
+  id: "331"
+role_permissions_128: 
+  permission_id: "1018"
+  action: store_or_get_from_session
+  role_id: "1"
+  subject: study_stages
+  id: "141"
+role_permissions_365: 
+  permission_id: "1303"
+  action: create
+  role_id: "1"
+  subject: data_types
+  id: "378"
+role_permissions_175: 
+  permission_id: "1063"
+  action: list
+  role_id: "1"
+  subject: catalogue
+  id: "188"
+role_permissions_319: 
+  permission_id: "1245"
+  action: destroy
+  role_id: "1"
+  subject: articles
+  id: "332"
+role_permissions_129: 
+  permission_id: "1014"
+  action: cancel
+  role_id: "1"
+  subject: study_stages
+  id: "142"
+role_permissions_366: 
+  permission_id: "1335"
+  action: index
+  role_id: "1"
+  subject: permissions
+  id: "379"
+role_permissions_176: 
+  permission_id: "1058"
+  action: create
+  role_id: "1"
+  subject: catalogue
+  id: "189"
+role_permissions_367: 
+  permission_id: "1340"
+  action: edit
+  role_id: "1"
+  subject: permissions
+  id: "380"
+role_permissions_177: 
+  permission_id: "1065"
+  action: close
+  role_id: "1"
+  subject: comments
+  id: "190"
+role_permissions_368: 
+  permission_id: "1336"
+  action: destroy
+  role_id: "1"
+  subject: permissions
+  id: "381"
+role_permissions_178: 
+  permission_id: "1066"
+  action: index
+  role_id: "1"
+  subject: request_services
+  id: "191"
+role_permissions_369: 
+  permission_id: "1337"
+  action: new
+  role_id: "1"
+  subject: permissions
+  id: "382"
+role_permissions_179: 
+  permission_id: "1071"
+  action: update_item
+  role_id: "1"
+  subject: request_services
+  id: "192"
+role_permissions_420: 
+  permission_id: "1397"
+  action: export
+  role_id: "1"
+  subject: study_protocols
+  id: "433"
+role_permissions_230: 
+  permission_id: "1172"
+  action: update_item
+  role_id: "1"
+  subject: study_queues
+  id: "243"
+role_permissions_040: 
+  permission_id: "1174"
+  action: show
+  role_id: "1"
+  subject: study_queues
+  id: "53"
+role_permissions_421: 
+  permission_id: "1400"
+  action: new_context
+  role_id: "1"
+  subject: study_protocols
+  id: "434"
+role_permissions_231: 
+  permission_id: "1173"
+  action: edit
+  role_id: "1"
+  subject: study_queues
+  id: "244"
+role_permissions_041: 
+  permission_id: "1149"
+  action: invoke
+  role_id: "1"
+  subject: data_capture
+  id: "54"
+role_permissions_422: 
+  permission_id: "1391"
+  action: release
+  role_id: "1"
+  subject: study_protocols
+  id: "435"
+role_permissions_232: 
+  permission_id: "1167"
+  action: destroy
+  role_id: "1"
+  subject: study_queues
+  id: "245"
+role_permissions_042: 
+  permission_id: "1203"
+  action: show
+  role_id: "1"
+  subject: data_contexts
+  id: "55"
+role_permissions_423: 
+  permission_id: "1392"
+  action: template
+  role_id: "1"
+  subject: study_protocols
+  id: "436"
+role_permissions_280: 
+  permission_id: "1206"
+  action: index
+  role_id: "1"
+  subject: data_formats
+  id: "293"
+role_permissions_090: 
+  permission_id: "1001"
+  action: list
+  role_id: "1"
+  subject: parameter_roles
+  id: "103"
+role_permissions_233: 
+  permission_id: "1168"
+  action: new
+  role_id: "1"
+  subject: study_queues
+  id: "246"
+role_permissions_043: 
+  permission_id: "1191"
+  action: return_to_main
+  role_id: "1"
+  subject: parameter_types
+  id: "56"
+role_permissions_424: 
+  permission_id: "1401"
+  action: update
+  role_id: "1"
+  subject: study_protocols
+  id: "437"
+role_permissions_091: 
+  permission_id: "996"
+  action: create
+  role_id: "1"
+  subject: parameter_roles
+  id: "104"
+role_permissions_234: 
+  permission_id: "1171"
+  action: update
+  role_id: "1"
+  subject: study_queues
+  id: "247"
+role_permissions_044: 
+  permission_id: "1267"
+  action: update_params_filter
+  role_id: "1"
+  subject: plates
+  id: "57"
+role_permissions_281: 
+  permission_id: "1222"
+  action: current_sort
+  role_id: "1"
+  subject: data_formats
+  id: "294"
+role_permissions_425: 
+  permission_id: "1398"
+  action: update_context
+  role_id: "1"
+  subject: study_protocols
+  id: "438"
+role_permissions_092: 
+  permission_id: "950"
+  action: edit
+  role_id: "1"
+  subject: roles
+  id: "105"
+role_permissions_235: 
+  permission_id: "1169"
+  action: manage
+  role_id: "1"
+  subject: study_queues
+  id: "248"
+role_permissions_045: 
+  permission_id: "1215"
+  action: update_params_filter
+  role_id: "1"
+  subject: data_formats
+  id: "58"
+role_permissions_282: 
+  permission_id: "1218"
+  action: return_to_main
+  role_id: "1"
+  subject: data_formats
+  id: "295"
+role_permissions_426: 
+  permission_id: "1404"
+  action: list
+  role_id: "1"
+  subject: study_protocols
+  id: "439"
+role_permissions_236: 
+  permission_id: "1175"
+  action: list
+  role_id: "1"
+  subject: study_queues
+  id: "249"
+role_permissions_046: 
+  permission_id: "1281"
+  action: show
+  role_id: "1"
+  subject: queue_items
+  id: "59"
+role_permissions_283: 
+  permission_id: "1219"
+  action: component_update
+  role_id: "1"
+  subject: data_formats
+  id: "296"
+role_permissions_093: 
+  permission_id: "946"
+  action: destroy
+  role_id: "1"
+  subject: roles
+  id: "106"
+role_permissions_427: 
+  permission_id: "1399"
+  action: create
+  role_id: "1"
+  subject: study_protocols
+  id: "440"
+role_permissions_237: 
+  permission_id: "1170"
+  action: create
+  role_id: "1"
+  subject: study_queues
+  id: "250"
+role_permissions_047: 
+  permission_id: "1278"
+  action: create
+  role_id: "1"
+  subject: queue_items
+  id: "60"
+role_permissions_284: 
+  permission_id: "1207"
+  action: component
+  role_id: "1"
+  subject: data_formats
+  id: "297"
+role_permissions_094: 
+  permission_id: "947"
+  action: new
+  role_id: "1"
+  subject: roles
+  id: "107"
+role_permissions_428: 
+  permission_id: "1405"
+  action: add_parameter
+  role_id: "1"
+  subject: study_protocols
+  id: "441"
+role_permissions_238: 
+  permission_id: "1148"
+  action: task_create
+  role_id: "1"
+  subject: data_capture
+  id: "251"
+role_permissions_048: 
+  permission_id: "1177"
+  action: update
+  role_id: "1"
+  subject: settings
+  id: "61"
+role_permissions_285: 
+  permission_id: "1205"
+  action: current_sort_direction
+  role_id: "1"
+  subject: data_formats
+  id: "298"
+role_permissions_095: 
+  permission_id: "949"
+  action: update
+  role_id: "1"
+  subject: roles
+  id: "108"
+role_permissions_429: 
+  permission_id: "1364"
+  action: update_column
+  role_id: "1"
+  subject: reports
+  id: "442"
+role_permissions_239: 
+  permission_id: "1150"
+  action: task_context_create
+  role_id: "1"
+  subject: data_capture
+  id: "252"
+role_permissions_049: 
+  permission_id: "1176"
+  action: authorized?
+  role_id: "1"
+  subject: settings
+  id: "62"
+role_permissions_286: 
+  permission_id: "1209"
+  action: clear_flashes
+  role_id: "1"
+  subject: data_formats
+  id: "299"
+role_permissions_096: 
+  permission_id: "952"
+  action: list
+  role_id: "1"
+  subject: roles
+  id: "109"
+role_permissions_287: 
+  permission_id: "1220"
+  action: edit
+  role_id: "1"
+  subject: data_formats
+  id: "300"
+role_permissions_097: 
+  permission_id: "948"
+  action: create
+  role_id: "1"
+  subject: roles
+  id: "110"
+role_permissions_100: 
+  permission_id: "978"
+  action: destroy
+  role_id: "1"
+  subject: containers
+  id: "113"
+role_permissions_288: 
+  permission_id: "1210"
+  action: destroy
+  role_id: "1"
+  subject: data_formats
+  id: "301"
+role_permissions_098: 
+  permission_id: "977"
+  action: index
+  role_id: "1"
+  subject: containers
+  id: "111"
+role_permissions_101: 
+  permission_id: "979"
+  action: new
+  role_id: "1"
+  subject: containers
+  id: "114"
+role_permissions_289: 
+  permission_id: "1214"
+  action: new
+  role_id: "1"
+  subject: data_formats
+  id: "302"
+role_permissions_099: 
+  permission_id: "982"
+  action: edit
+  role_id: "1"
+  subject: containers
+  id: "112"
+role_permissions_102: 
+  permission_id: "981"
+  action: update
+  role_id: "1"
+  subject: containers
+  id: "115"
+role_permissions_340: 
+  permission_id: "1240"
+  action: cell_change
+  role_id: "1"
+  subject: tasks
+  id: "353"
+role_permissions_150: 
+  permission_id: "962"
+  action: index
+  role_id: "1"
+  subject: experiments
+  id: "163"
+role_permissions_103: 
+  permission_id: "984"
+  action: list
+  role_id: "1"
+  subject: containers
+  id: "116"
+role_permissions_341: 
+  permission_id: "1237"
+  action: copy
+  role_id: "1"
+  subject: tasks
+  id: "354"
+role_permissions_151: 
+  permission_id: "967"
+  action: import
+  role_id: "1"
+  subject: experiments
+  id: "164"
+role_permissions_104: 
+  permission_id: "980"
+  action: create
+  role_id: "1"
+  subject: containers
+  id: "117"
+role_permissions_342: 
+  permission_id: "1243"
+  action: list
+  role_id: "1"
+  subject: tasks
+  id: "355"
+role_permissions_152: 
+  permission_id: "966"
+  action: refresh_allowed_protocols
+  role_id: "1"
+  subject: experiments
+  id: "165"
+role_permissions_105: 
+  permission_id: "1008"
+  action: edit
+  role_id: "1"
+  subject: specimens
+  id: "118"
+role_permissions_343: 
+  permission_id: "1235"
+  action: create
+  role_id: "1"
+  subject: tasks
+  id: "356"
+role_permissions_153: 
+  permission_id: "963"
+  action: import_file
+  role_id: "1"
+  subject: experiments
+  id: "166"
+role_permissions_106: 
+  permission_id: "1004"
+  action: destroy
+  role_id: "1"
+  subject: specimens
+  id: "119"
+role_permissions_390: 
+  permission_id: "1287"
+  action: create
+  role_id: "1"
+  subject: compounds
+  id: "403"
+role_permissions_344: 
+  permission_id: "1324"
+  action: edit
+  role_id: "1"
+  subject: system_settings
+  id: "357"
+role_permissions_154: 
+  permission_id: "974"
+  action: edit
+  role_id: "1"
+  subject: experiments
+  id: "167"
+role_permissions_107: 
+  permission_id: "1005"
+  action: new
+  role_id: "1"
+  subject: specimens
+  id: "120"
+role_permissions_391: 
+  permission_id: "1316"
+  action: edit
+  role_id: "1"
+  subject: batches
+  id: "404"
+role_permissions_345: 
+  permission_id: "1320"
+  action: destroy
+  role_id: "1"
+  subject: system_settings
+  id: "358"
+role_permissions_155: 
+  permission_id: "964"
+  action: destroy
+  role_id: "1"
+  subject: experiments
+  id: "168"
+role_permissions_108: 
+  permission_id: "1007"
+  action: update
+  role_id: "1"
+  subject: specimens
+  id: "121"
+role_permissions_392: 
+  permission_id: "1311"
+  action: destroy
+  role_id: "1"
+  subject: batches
+  id: "405"
+role_permissions_346: 
+  permission_id: "1321"
+  action: new
+  role_id: "1"
+  subject: system_settings
+  id: "359"
+role_permissions_156: 
+  permission_id: "969"
+  action: new
+  role_id: "1"
+  subject: experiments
+  id: "169"
+role_permissions_109: 
+  permission_id: "1010"
+  action: list
+  role_id: "1"
+  subject: specimens
+  id: "122"
+role_permissions_393: 
+  permission_id: "1313"
+  action: new
+  role_id: "1"
+  subject: batches
+  id: "406"
+role_permissions_347: 
+  permission_id: "1323"
+  action: update
+  role_id: "1"
+  subject: system_settings
+  id: "360"
+role_permissions_157: 
+  permission_id: "970"
+  action: export
+  role_id: "1"
+  subject: experiments
+  id: "170"
+role_permissions_394: 
+  permission_id: "1315"
+  action: update
+  role_id: "1"
+  subject: batches
+  id: "407"
+role_permissions_348: 
+  permission_id: "1326"
+  action: list
+  role_id: "1"
+  subject: system_settings
+  id: "361"
+role_permissions_158: 
+  permission_id: "968"
+  action: reports
+  role_id: "1"
+  subject: experiments
+  id: "171"
+role_permissions_395: 
+  permission_id: "1318"
+  action: list
+  role_id: "1"
+  subject: batches
+  id: "408"
+role_permissions_349: 
+  permission_id: "1293"
+  action: index
+  role_id: "1"
+  subject: data_types
+  id: "362"
+role_permissions_159: 
+  permission_id: "972"
+  action: update
+  role_id: "1"
+  subject: experiments
+  id: "172"
+role_permissions_396: 
+  permission_id: "1314"
+  action: create
+  role_id: "1"
+  subject: batches
+  id: "409"
+role_permissions_397: 
+  permission_id: "1327"
+  action: index
+  role_id: "1"
+  subject: plate_formats
+  id: "410"
+role_permissions_400: 
+  permission_id: "1329"
+  action: new
+  role_id: "1"
+  subject: plate_formats
+  id: "413"
+role_permissions_210: 
+  permission_id: "1104"
+  action: new
+  role_id: "1"
+  subject: data_systems
+  id: "223"
+role_permissions_020: 
+  permission_id: "975"
+  action: show
+  role_id: "1"
+  subject: experiments
+  id: "33"
+role_permissions_398: 
+  permission_id: "1332"
+  action: edit
+  role_id: "1"
+  subject: plate_formats
+  id: "411"
+role_permissions_401: 
+  permission_id: "1331"
+  action: update
+  role_id: "1"
+  subject: plate_formats
+  id: "414"
+role_permissions_211: 
+  permission_id: "1105"
+  action: export
+  role_id: "1"
+  subject: data_systems
+  id: "224"
+role_permissions_021: 
+  permission_id: "1049"
+  action: forgotten
+  role_id: "1"
+  subject: auth
+  id: "34"
+role_permissions_399: 
+  permission_id: "1328"
+  action: destroy
+  role_id: "1"
+  subject: plate_formats
+  id: "412"
+role_permissions_402: 
+  permission_id: "1334"
+  action: list
+  role_id: "1"
+  subject: plate_formats
+  id: "415"
+role_permissions_212: 
+  permission_id: "1107"
+  action: update
+  role_id: "1"
+  subject: data_systems
+  id: "225"
+role_permissions_022: 
+  permission_id: "1050"
+  action: login_failed
+  role_id: "1"
+  subject: auth
+  id: "35"
+role_permissions_450: 
+  permission_id: "1412"
+  action: left_show
+  role_id: "1"
+  subject: finder
+  id: "463"
+role_permissions_403: 
+  permission_id: "1385"
+  action: edit
+  role_id: "1"
+  subject: samples
+  id: "416"
+role_permissions_260: 
+  permission_id: "1178"
+  action: current_sort_direction
+  role_id: "1"
+  subject: parameter_types
+  id: "273"
+role_permissions_070: 
+  permission_id: "1361"
+  action: run
+  role_id: "1"
+  subject: reports
+  id: "83"
+role_permissions_213: 
+  permission_id: "1110"
+  action: list
+  role_id: "1"
+  subject: data_systems
+  id: "226"
+role_permissions_023: 
+  permission_id: "1047"
+  action: login
+  role_id: "1"
+  subject: auth
+  id: "36"
+role_permissions_451: 
+  permission_id: "1406"
+  action: chart
+  role_id: "1"
+  subject: charts
+  id: "464"
+role_permissions_404: 
+  permission_id: "1381"
+  action: destroy
+  role_id: "1"
+  subject: samples
+  id: "417"
+role_permissions_261: 
+  permission_id: "1182"
+  action: clear_flashes
+  role_id: "1"
+  subject: parameter_types
+  id: "274"
+role_permissions_071: 
+  permission_id: "1380"
+  action: index
+  role_id: "1"
+  subject: samples
+  id: "84"
+role_permissions_214: 
+  permission_id: "1106"
+  action: create
+  role_id: "1"
+  subject: data_systems
+  id: "227"
+role_permissions_024: 
+  permission_id: "1051"
+  action: index
+  role_id: "1"
+  subject: catalogue
+  id: "37"
+role_permissions_452: 
+  permission_id: "1407"
+  action: resent_values
+  role_id: "1"
+  subject: charts
+  id: "465"
+role_permissions_405: 
+  permission_id: "1382"
+  action: new
+  role_id: "1"
+  subject: samples
+  id: "418"
+role_permissions_262: 
+  permission_id: "1193"
+  action: edit
+  role_id: "1"
+  subject: parameter_types
+  id: "275"
+role_permissions_072: 
+  permission_id: "1386"
+  action: show
+  role_id: "1"
+  subject: samples
+  id: "85"
+role_permissions_215: 
+  permission_id: "1140"
+  action: edit
+  role_id: "1"
+  subject: treatment_groups
+  id: "228"
+role_permissions_025: 
+  permission_id: "1064"
+  action: index
+  role_id: "1"
+  subject: comments
+  id: "38"
+role_permissions_453: 
+  permission_id: "1408"
+  action: test
+  role_id: "1"
+  subject: charts
+  id: "466"
+role_permissions_406: 
+  permission_id: "1384"
+  action: update
+  role_id: "1"
+  subject: samples
+  id: "419"
+role_permissions_263: 
+  permission_id: "1183"
+  action: destroy
+  role_id: "1"
+  subject: parameter_types
+  id: "276"
+role_permissions_073: 
+  permission_id: "1414"
+  action: right_show
+  role_id: "1"
+  subject: finder
+  id: "86"
+role_permissions_216: 
+  permission_id: "1136"
+  action: destroy
+  role_id: "1"
+  subject: treatment_groups
+  id: "229"
+role_permissions_026: 
+  permission_id: "1084"
+  action: list
+  role_id: "1"
+  subject: parameters
+  id: "39"
+role_permissions_454: 
+  permission_id: "1409"
+  action: trend_by_task
+  role_id: "1"
+  subject: charts
+  id: "467"
+role_permissions_407: 
+  permission_id: "1387"
+  action: list
+  role_id: "1"
+  subject: samples
+  id: "420"
+role_permissions_264: 
+  permission_id: "1187"
+  action: new
+  role_id: "1"
+  subject: parameter_types
+  id: "277"
+role_permissions_074: 
+  permission_id: "1410"
+  action: histogram
+  role_id: "1"
+  subject: charts
+  id: "87"
+role_permissions_217: 
+  permission_id: "1137"
+  action: new
+  role_id: "1"
+  subject: treatment_groups
+  id: "230"
+role_permissions_027: 
+  permission_id: "1075"
+  action: index
+  role_id: "1"
+  subject: sections
+  id: "40"

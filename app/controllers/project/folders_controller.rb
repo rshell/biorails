@@ -1,5 +1,9 @@
 class Project::FoldersController < ApplicationController
 
+  use_authorization :project,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights =>  :current_project  
+                    
   def index
     list
     render :action => 'list'

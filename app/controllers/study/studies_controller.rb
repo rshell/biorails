@@ -4,8 +4,10 @@
 ##
 #
 class Study::StudiesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
-  
+  use_authorization :study,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_project
+                      
   def index
     redirect_to study_url(:action => 'list')
   end
@@ -204,6 +206,7 @@ class Study::StudiesController < ApplicationController
     @successful = true
     redirect_to :action => 'list'
   end
+  
   
   
 end

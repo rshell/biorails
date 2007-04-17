@@ -1,6 +1,9 @@
 class Study::ParametersController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
-
+  
+  use_authorization :protocol,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_project
+                    
   def index
     list
     render :action => 'list'

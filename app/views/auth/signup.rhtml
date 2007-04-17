@@ -1,0 +1,37 @@
+<% content_for :sidemenu do -%>
+    <div>
+      <span class='menu'> Login </span>
+      <%= link_to 'Login',               auth_url(:action => 'login')%>
+      <%= link_to 'Signup new user',     auth_url(:action => 'signup')%>
+      <%= link_to 'Forgotten password',  auth_url(:action => 'forgotten') %>
+  </div>
+<%end %>
+
+<h2><%=l(:Signup)%></h2>
+
+<% form_tag({:action => 'signup'}, :class => "tabular") do %>
+<%= error_messages_for 'user' %>
+
+<div class="box">
+<!--[form:user]-->
+<p><label for="user_login"><%=l(:field_login)%> <span class="required"></span></label>
+<%= text_field 'user', 'name', :size => 25  %></p>
+
+<p><label for="password"><%=l(:field_password)%> <span class="required"></span></label>
+<%= password_field_tag 'password', nil, :size => 25  %></p>
+
+<p><label for="password_confirmation"><%=l(:field_password_confirmation)%> <span class="required"></span></label>
+<%= password_field_tag 'password_confirmation', nil, :size => 25  %></p>
+
+<p><label for="user_firstname"><%=l(:Fullname)%> <span class="required"></span></label>
+<%= text_field 'user', 'fullname'  %></p>
+
+<p><label for="user_mail"><%=l(:field_mail)%> <span class="required"></span></label>
+<%= text_field 'user', 'email'  %></p>
+
+<!--[eoform:user]-->
+</div>
+
+<%= submit_tag l(:button_submit) %>
+<% end %>
+

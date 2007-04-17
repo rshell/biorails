@@ -10,25 +10,26 @@
 </table>
 <hr />
 <h2> Permissions for <%= @role.name %></h2>
-<table>
+<table class="report">
 <thead>
-<tr>
-<th>Subject</th>
-<th colspan=10>Actions</th>
-</tr>
+    <tr>
+        <th>Subject</th>
+        <th colspan=10>Actions</th>
+    </tr>
 </thead>
 <tbody>
-<% for subject in Role.controllers.keys.sort do %>
-<tr>
-<th><%=subject%></th>
-<% for action in Role.methods(subject) %>
-<%if @role.allow?(subject,action) %>
-<td><%=action%></td>
-<%end%>
-<% end -%>
-</tr>
+<% for subject in Role.possible_subjects.keys.sort do %>
+    <tr>
+        <th><%=subject%></th>
+        <% for action in Role.possible_actions(subject) %>
+            <%if @role.allow?(subject,action) %>
+                <td><%=action%></td>
+            <%end%>
+        <% end -%>
+    </tr>
 <% end -%>
 </tbody>
 </table>
+
 <hr/>
 

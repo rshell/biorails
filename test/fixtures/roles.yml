@@ -1,30 +1,554 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: roles
-#
-#  id              :integer(11)   not null, primary key
-#  name            :string(255)   default(), not null
-#  parent_id       :integer(11)   
-#  description     :string(1024)  default(), not null
-#  default_page_id :integer(11)   
-#  cache           :text          
-#  created_at      :timestamp     
-#  updated_at      :timestamp     
-#
-
 --- 
-roles_public: 
+roles_004: 
+  name: test1
+  updated_at: 2007-04-02 21:50:25
+  cache: |+
+    --- {}
+    
+  default_page_id: 
+  id: "4"
+  description: xxxxx
+  parent_id: 
+  created_at: 2007-04-02 17:56:00
+roles_001: 
   name: Public
-  updated_at: 2007-03-24 19:14:31
+  updated_at: 2007-04-02 22:31:42
+  cache: |
+    --- 
+    study_stages: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      return_to_main: true
+      index: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    containers: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+    specimens: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    parameter_roles: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      return_to_main: true
+      index: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    studies: 
+      new: true
+      experiments: true
+      list: true
+      queues: true
+      parameters: true
+      edit: true
+      cancel: true
+      destroy: true
+      timeline: true
+      notes: true
+      create: true
+      show: true
+      index: true
+      metrics: true
+      update: true
+      reports: true
+      export: true
+      protocols: true
+    roles: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    data_concepts: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+      export: true
+    experiments: 
+      new: true
+      import_file: true
+      refresh_allowed_protocols: true
+      list: true
+      edit: true
+      destroy: true
+      timeline: true
+      create: true
+      index: true
+      show: true
+      update: true
+      reports: true
+      export: true
+      import: true
+      copy: true
+    auth: 
+      logout: true
+      login_failed: true
+      forgotten: true
+      login: true
+    b: 
+      s: true
+    catalogue: 
+      new: true
+      list: true
+      edit: true
+      create_element: true
+      destroy: true
+      remove_element: true
+      create: true
+      new_usage: true
+      show: true
+      new_element: true
+      index: true
+      create_usage: true
+      update: true
+    comments: 
+      close: true
+      index: true
+    parameters: 
+      list: true
+      show: true
+      index: true
+    sections: 
+      new: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    request_services: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+      update_item: true
+    d: 
+      e: true
+    data_systems: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+      export: true
+    study_parameters: 
+      new: true
+      locate: true
+      import_file: true
+      list: true
+      refresh_formats: true
+      test_save: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      refresh_type: true
+      update: true
+      export: true
+      import: true
+    resources: 
+      edit: true
+      upload: true
+      index: true
+      remove: true
+      update: true
+    data_elements: 
+      choices: true
+      list: true
+      add: true
+      edit: true
+      destroy: true
+      index: true
+      show: true
+      update: true
+      export: true
+    treatment_groups: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    study_queues: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      manage: true
+      create: true
+      show: true
+      index: true
+      update: true
+      update_item: true
+    data_capture: 
+      task_context_update: true
+      invoke_submit: true
+      task_import: true
+      task_export: true
+      process_list: true
+      experiment_list: true
+      api: true
+      task_create: true
+      protocol_list: true
+      task_list: true
+      invoke: true
+      invoke_method_params: true
+      task_contexts: true
+      parameter_context_list: true
+      parameter_list: true
+      study_list: true
+      task_values: true
+      task_context_create: true
+    test: 
+      show: true
+    articles: 
+      new: true
+      comments: true
+      edit: true
+      destroy: true
+      upload: true
+      approve: true
+      create: true
+      show: true
+      index: true
+      destroy_comment: true
+      unapprove: true
+      update: true
+    data_contexts: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+      export: true
+    parameter_types: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      index: true
+      return_to_main: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    plates: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      search: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      return_to_main: true
+      index: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    data_formats: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      return_to_main: true
+      index: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    queue_items: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+    settings: 
+      authorized?: true
+      update: true
+    tasks: 
+      new: true
+      list: true
+      transform: true
+      sheet: true
+      edit: true
+      refresh_instances: true
+      modify: true
+      destroy: true
+      notes: true
+      create: true
+      cell_change: true
+      analysis: true
+      show: true
+      set_context: true
+      index: true
+      metrics: true
+      update: true
+      export: true
+      report: true
+      view: true
+      copy: true
+    data_types: 
+      new: true
+      component: true
+      component_update: true
+      list: true
+      store_or_get_from_session: true
+      clear_flashes: true
+      edit: true
+      cancel: true
+      destroy: true
+      current_sort_direction: true
+      update_params_filter: true
+      create: true
+      update_params: true
+      return_to_main: true
+      index: true
+      default_per_page: true
+      current_sort: true
+      update: true
+    system_settings: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    compounds: 
+      depict: true
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+    requests: 
+      new: true
+      list: true
+      edit: true
+      remove_item: true
+      destroy: true
+      remove_service: true
+      add_service: true
+      create: true
+      show: true
+      index: true
+      update: true
+      reports: true
+      add_item: true
+    permissions: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+    batches: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      auto_complete_for_compound_name: true
+      update: true
+    plate_formats: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      index: true
+      show: true
+      update: true
+    home: 
+      blog: true
+      timeline: true
+      todo: true
+      index: true
+      calender: true
+    study_protocols: 
+      new: true
+      list: true
+      edit: true
+      remove_parameter: true
+      add_parameter: true
+      template: true
+      destroy: true
+      delete_context: true
+      move_parameter: true
+      create: true
+      update_context: true
+      release: true
+      show: true
+      index: true
+      update: true
+      new_context: true
+      export: true
+      import: true
+    reports: 
+      new: true
+      run: true
+      list: true
+      add_column: true
+      refresh_columns: true
+      edit: true
+      expand: true
+      destroy: true
+      refresh: true
+      update_column: true
+      create: true
+      show: true
+      diagram: true
+      builder: true
+      update: true
+      export: true
+      uml: true
+      visualize: true
+      remove_column: true
+    samples: 
+      new: true
+      list: true
+      edit: true
+      destroy: true
+      create: true
+      show: true
+      index: true
+      update: true
+    finder: 
+      left_hide: true
+      right_show: true
+      query: true
+      right_hide: true
+      left_show: true
+    charts: 
+      trend_by_task: true
+      resent_values: true
+      trend_by_hour: true
+      histogram: true
+      test: true
+      chart: true
+
+  default_page_id: 
   id: "1"
-  description: "sssss"
-  created_at: 2006-06-23 12:03:50
-roles_admin: 
+  description: Members of the public who are not logged in.
+  parent_id: 
+  created_at: 2006-06-23 12:03:49
+roles_002: 
+  name: Member
+  updated_at: 2007-04-02 21:50:25
+  cache: |
+    --- 
+    s: 
+      d: "on"
+
+  default_page_id: 
   id: "2"
-  name: Administrator
-  description: "ssssss"
-  updated_at: 2007-03-24 19:14:32
-  cache: 
+  description: test
   parent_id: "1"
+  created_at: 2006-06-23 12:03:50
+roles_003: 
+  name: Administrator
+  updated_at: 2007-04-02 21:50:25
+  cache: |
+    --- 
+    a: 
+      s: "on"
+    c: 
+      e: "on"
+
+  default_page_id: 
+  id: "3"
+  description: test
+  parent_id: "2"
   created_at: 2006-06-23 12:03:48

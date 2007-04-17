@@ -3,7 +3,10 @@
 # See license agreement for additional rights
 ##
 class Admin::DataElementsController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+   use_authorization :cataloge,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
 
 #
 # default action is list

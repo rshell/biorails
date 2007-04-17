@@ -4,7 +4,10 @@
 ##
 #
 class Study::StudyQueuesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+  use_authorization :study,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_project
+                      
 
   def index
     list

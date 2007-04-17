@@ -38,17 +38,22 @@ class User < ActiveRecord::Base
   access_authenticated  :username => :login, 
                         :passsword => :password_hash
                            
-  access_control_via   :role                      
-
+  access_control_rights :role                      
 ##
 # Business Rules for a user
 # 
+  attr_accessor :password
+  attr_accessor :password_conformation
+
   validates_presence_of   :name
-  validates_length_of     :name,    :within => 3..40
-  validates_format_of     :name, :with => /^[a-z0-9_\-@\.]+$/i
-  validates_uniqueness_of :name, :case_sensitve => false
-  
-#  validates_length_of     :password, :in => 4..12, :allow_nil => true
+  validates_presence_of   :role
+
+  validates_length_of     :login, :within => 3..40
+  validates_format_of     :login, :with => /^[a-z0-9_\-@\.]+$/i
+  validates_uniqueness_of :login, :case_sensitve => false
+
+  validates_presence_of   :password_hash
+  validates_length_of     :password, :in => 4..12, :allow_nil => true
 
 # validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
@@ -86,8 +91,10 @@ class User < ActiveRecord::Base
      Project.transaction do 
        project = Project.new(:name=>name)
        project.summary = "New Project #{name} created by user #{self.name}"
-       project.save     
        project.owner = self
+       if project.save     
+           self.memberships.create(:project_id =>project.id,:role_id=>self.role,:owner=>true)
+       end
        return project
      end
   end

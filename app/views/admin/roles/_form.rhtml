@@ -8,7 +8,7 @@
 <%= text_area 'role', 'description', :rows => 3 %> </p>
 
 <h2> Permissions for <%= @role.name %></h2>
-<table>
+<table class="report">
 
 <thead>
 <tr>
@@ -18,17 +18,18 @@
 </thead>
 
 <tbody>
-<% for subject in Role.controllers.keys.sort do %>
+<% for subject in Role.possible_subjects.keys.sort do %>
 <tr>
-<% actions = Role.methods(subject) %>
-<td></td>
-<% for action in actions %>
+<% actions = Role.possible_actions(subject) - ['*']  %>
+<th><%=subject%></th>
+<% for action in actions  %>
 <th> <%=action%> </th>
 <% end -%>
-</tr><tr>
-<td><%=subject%></td>
+</tr>
+<td>All  <%= check_box_tag "all[#{subject}]",true , @role.allow?(subject,'*') %></td>
+</td>
 <% for action in actions %>
-<td> <%= check_box_tag "allowed[#{subject}][#{action}]",@role.allow?(subject,action),false %></td>
+<td> <%= check_box_tag "allowed[#{subject}][#{action}]",true , @role.allow?(subject,action)  %></td>
 <% end -%>
 </tr>
 <% end -%>

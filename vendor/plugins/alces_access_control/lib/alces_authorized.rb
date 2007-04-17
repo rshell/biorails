@@ -45,51 +45,48 @@ module Alces
       end
     
       module ClassMethods
-         
-          def use_authorization (options={} )
-            write_inheritable_attribute(:authorization_options, { :subject => '*',
-                                                                  :actions =>  [:list,:show,:edit,:update,:new,:create,:destroy],
-                                                                  :authenticate => :current_user,
-                                                                  :rights => :current_user } )
-            class_inheritable_reader :authorization_options
+                   
+          def use_authorization (subject , options={} )
+            
+            write_inheritable_attribute(:rights_actions,  options[:actions] || [:list,:show,:edit,:update,:new,:create,:destroy] )
+            write_inheritable_attribute(:rights_subject,  subject || '*' )
+            write_inheritable_attribute(:rights_source,   options[:rights] ||  :current_user  )
+
+            class_inheritable_reader :rights_actions
+            class_inheritable_reader :rights_subject
+            class_inheritable_reader :rights_source     
+
+            before_filter :authorization, :only => rights_actions
+
             include Alces::AccessControl::AuthorizationService::ControllerInstanceMethods
-          end
-          ##
-          # Get the list of actions which need authorization for this controller
-          def rights_actions
-               authorization_options[:actions]
-          end
-          ##
-          # Test if this as actions which needs to be checked
-          def rights_actions?(value)
-             authorization_options[:subject].detect{|i|i.to_s == action.to_s}
+            logger.info  "use_authorization "
           end
       end
      
-      module ControllerInstanceMethods
-          ##
-          # The the subject scope for authorization
-          #
-          def rights_subject
-              self.send( authorization_options[:subject].to_s )   
-          end
-          ##
-          # get the current principal for authorization
-          # 
-          def rights_principal
-              self.send( authorization_options[:authenticate].to_s )   
-          end       
+      module ControllerInstanceMethods    
           ##
           # Get the list of rights for the controller
           # 
-          def rights_list
-              self.send( authorization_options[:rights_via].to_s )   
-          end
-  
-          def permission?(action) 
-            return true unless rights_actions?(action)
-            rights_list.permission?(rights_principal, rights_subject, action )  
-          end        
+          def authorized?(action) 
+            return true unless self.class.rights_actions.any?{|i| i.to_s == action.to_s}
+            rights = self.send( rights_source )  
+            return ( !rights.nil? and current_user and (current_user.admin || rights.permission?(current_user, self.class.rights_subject, action )  ) )
+          end   
+          ##
+          # authorization 
+          #
+          def authorization
+             logger.info "Authorization #{session[:current_username]} #{params[:controller]} #{params[:action]}"  
+             unless self.authenticate    
+                  redirect_to auth_url(:action => 'login')
+                  return false     
+             end     
+             if authorized?(params[:action])
+                  return true
+             end 
+             render :partial => 'auth/access_denied', :layout => true
+             return false     
+          end         
       end    
     end #AuthorizedService
 ###
@@ -110,58 +107,37 @@ module Alces
       
       module ClassMethods
          
-          def access_control_via ( role, relation_options={} )
+          def access_control_rights ( role, relation_options={} )
               belongs_to( role,relation_options)
-              write_inheritable_attribute(:access_control_list_options, { :role => role } )
-              class_inheritable_reader :access_control_list_options
-              include Alces::AccessControl::AuthorizationModel::ModelRoleRightInstanceMethods
+              write_inheritable_attribute(:access_control_list,  role  )
+              class_inheritable_reader :access_control_list
+              include Alces::AccessControl::AuthorizationModel::ModelPermissionsInstanceMethods
           end
 
-          def access_control_list( rights , options = {})
-           
-            write_inheritable_attribute( :access_control_list_options, { :rights => rights,
-                                                                         :role =>  options[:role] || :role,
-                                                                         :user =>  options[:user] || :user})
-            class_inheritable_reader :access_control_list_options
-            has_many rights, :dependent => :destroy do
-               def scope(user)
-                 find(:first, :conditions=>["#{access_control_list_options[:user]}_id",user.id]).send( access_control_list_options[:role])              
-               end
-            end
-            has_many :users, :through => rights, :source => :user                                                             
-            has_many :roles, :through => rights, :source => :role                                                                                                                       
-            include Alces::AccessControl::AuthorizationModel::ModelPerUserRightsInstanceMethods
+          def access_control_list( rights , relation_options = {})
+              has_many rights, relation_options do
+                  def permission?(user,subject,action)        
+                    return RolePermission.find_by_sql( 
+                    ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and p.action = ?",
+                     user.id, proxy_owner.id, subject.to_s, action.to_s])
+                  end
+              end                                                                                                                 
+              write_inheritable_attribute( :access_control_list, rights )
+              class_inheritable_reader :access_control_list
+              include Alces::AccessControl::AuthorizationModel::ModelPermissionsInstanceMethods
           end
       end
   
 
 ##------------------------------------------------------------------------------------------------------------------------------      
-      module ModelPerUserRightsInstanceMethods
+      module ModelPermissionsInstanceMethods
         ##
-        # reset the password
+        # check the permissions
         #
         def permission?(user,subject,action)        
-          self.send(access_control_list_options[:role].to_s).permission?(subject,action)  
+          return self.send(access_control_list).permission?(user,subject,action)
         end
 
-        def rights(user)
-          self.send( access_control_list_options[:rights].to_s ).scope(user)
-        end 
-      end
-##------------------------------------------------------------------------------------------------------------------------------      
-      
-      module ModelRoleRightInstanceMethods
-        ##
-        # reset the password
-        #
-        def permission?(user,subject,action)
-          self.send(access_control_list_options[:role].to_s).permission?(subject,action)
-        end
-
-        def rights(user = nil)
-          self.send(User.access_control_list_options[:role].to_s)
-        end 
-        
       end
     end
   end

@@ -1,17 +1,29 @@
 class Admin::UsersController < ApplicationController
-  check_permissions << 'show' << 'update' << 'new' << 'destroy' << 'list'
+##
+#  
+  use_authorization :user,
+                    {:actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user }
 
  ##
  # List all the users on the systems. Currently not paginated 
  #
   def index
-    @users = User.find(:all)
+    list
+    render :action=>'list'
   end
   
   def list 
-    index
+    @users = User.find(:all)
   end
- 
+
+  def show
+    @user = current(User,params[:id])
+  end 
+
+  def edit
+    @user = current(User,params[:id])
+  end 
  ##
  # put up a new default user account form 
  #
@@ -25,6 +37,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new params[:user]
     @user.save!
+    @user.memberships.create(:project_id=> PUBLIC_PROJECT_ID, :role_id=> @user.role_id)
     flash[:notice] = "User created."
     redirect_to :action => 'index'
   rescue ActiveRecord::RecordInvalid
@@ -51,11 +64,5 @@ class Admin::UsersController < ApplicationController
     @user.deleted_at = nil
     @user.save!
   end
-    
-  protected
 
-    
-    def authorized?
-      logged_in? && (admin? || (current_user.id.to_s == params[:id] && member_actions.include?(action_name)))
-    end
 end

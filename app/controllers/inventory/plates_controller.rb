@@ -4,7 +4,10 @@
 ##
 #
 class Inventory::PlatesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :inventory,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights =>  :current_user  
  
 
   in_place_edit_for :plate, :name

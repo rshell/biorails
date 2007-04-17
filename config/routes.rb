@@ -29,6 +29,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
+  map.auth 'auth/:action/:id' , :controller => 'auth'
 ##
 # Main Project elements
 #

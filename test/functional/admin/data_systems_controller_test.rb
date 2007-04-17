@@ -6,11 +6,12 @@ class Admin::DataSystemsController; def rescue_action(e) raise e end; end
 
 class Admin::DataSystemsControllerTest < Test::Unit::TestCase
   fixtures :data_systems
-
+  
   def setup
-    @controller = DataSystemsController.new
-    @request    = ActionController::TestRequest.new
+    @request    = ActionController::TestRequest.new(nil,nil,{:current_user_id => user.id,:current_project_id => project.id})
     @response   = ActionController::TestResponse.new
+    @session    = ActionController::TestSession.new
+    @controller = DataSystemsController.new(@request,@response,@session)
   end
 
   def test_index

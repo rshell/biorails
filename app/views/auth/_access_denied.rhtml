@@ -1,0 +1,12 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'menu/user_menu' , :locals=>{ :user => current_user} %>
+<% end %>
+
+
+<h2> Access Denied </h2>
+
+User <strong><%=session[:current_username] %></strong> does not have the rights to do this.
+<ul>
+<li>Controller: <%=params[:controller]%></li>
+<li>Action: <%=params[:action]%></li>
+</ul>

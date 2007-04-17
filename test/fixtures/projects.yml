@@ -1,82 +1,58 @@
 --- 
 projects_001: 
+  done_hours: 
+  end_date: 
+  start_date: 
   name: public
+  expected_hours: 
   updated_at: 0000-00-00 00:00:00
-  current_theme_path: simpla
-  akismet_url: 
   title: public
+  expected_date: 
   created_by: sys
-  tag_path: tags
   timezone: UTC
   updated_by: sys
-  search_layout: 
   id: "1"
-  search_path: search
-  filter: 
-  approve_comments: "0"
-  subtitle: public
   summary: public data
-  permalink_style: ":year/:month/:day/:permalink"
-  tag_layout: 
-  akismet_key: 
   host: localhost
-  articles_per_page: "15"
   status_id: "0"
   comment_age: "30"
   created_at: 0000-00-00 00:00:00
-  ping_urls: 
   email: info@biorails.com
 projects_002: 
+  done_hours: 
+  end_date: 
+  start_date: 
   name: test-project
+  expected_hours: 
   updated_at: 2007-04-04 16:29:54
-  current_theme_path: 
-  akismet_url: 
   title: 
+  expected_date: 
   created_by: sys
-  tag_path: 
   timezone: 
   updated_by: sys
-  search_layout: 
   id: "9"
-  search_path: 
-  filter: 
-  approve_comments: 
-  subtitle: 
   summary: New Project test-project created by user admin
-  permalink_style: 
-  tag_layout: 
-  akismet_key: 
   host: 
-  articles_per_page: "15"
   status_id: "0"
   comment_age: 
   created_at: 2007-04-04 16:29:54
-  ping_urls: 
   email: 
 projects_003: 
+  done_hours: 
+  end_date: 
+  start_date: 
   name: test-project2
+  expected_hours: 
   updated_at: 2007-04-04 16:31:31
-  current_theme_path: 
-  akismet_url: 
   title: 
+  expected_date: 
   created_by: sys
-  tag_path: 
   timezone: 
   updated_by: sys
-  search_layout: 
   id: "10"
-  search_path: 
-  filter: 
-  approve_comments: 
-  subtitle: 
   summary: New Project test-project2 created by user admin
-  permalink_style: 
-  tag_layout: 
-  akismet_key: 
   host: 
-  articles_per_page: "15"
   status_id: "0"
   comment_age: 
   created_at: 2007-04-04 16:31:31
-  ping_urls: 
   email: 

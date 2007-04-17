@@ -4,7 +4,11 @@
 ##
 #
 class Execute::RequestServicesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :request,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_project
+
 
   def index
     list

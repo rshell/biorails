@@ -1,16 +1,2361 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: permissions
-#
-#  id      :integer(11)   not null, primary key
-#  checked :boolean(1)    not null
-#  subject :string(255)   default(), not null
-#  action  :string(255)   default(), not null
-#
-
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+permissions_320: 
+  checked: "0"
+  action: update_params
+  subject: plates
+  id: "1264"
+permissions_130: 
+  checked: "1"
+  action: list
+  subject: request_services
+  id: "1074"
+permissions_321: 
+  checked: "1"
+  action: new
+  subject: plates
+  id: "1265"
+permissions_131: 
+  checked: "0"
+  action: index
+  subject: sections
+  id: "1075"
+permissions_322: 
+  checked: "0"
+  action: search
+  subject: plates
+  id: "1266"
+permissions_132: 
+  checked: "1"
+  action: destroy
+  subject: sections
+  id: "1076"
+permissions_370: 
+  checked: "0"
+  action: create
+  subject: batches
+  id: "1314"
+permissions_180: 
+  checked: "1"
+  action: show
+  subject: study_parameters
+  id: "1124"
+permissions_323: 
+  checked: "0"
+  action: update_params_filter
+  subject: plates
+  id: "1267"
+permissions_133: 
+  checked: "1"
+  action: new
+  subject: sections
+  id: "1077"
+permissions_371: 
+  checked: "0"
+  action: update
+  subject: batches
+  id: "1315"
+permissions_181: 
+  checked: "1"
+  action: list
+  subject: study_parameters
+  id: "1125"
+permissions_324: 
+  checked: "0"
+  action: create
+  subject: plates
+  id: "1268"
+permissions_134: 
+  checked: "0"
+  action: create
+  subject: sections
+  id: "1078"
+permissions_372: 
+  checked: "1"
+  action: edit
+  subject: batches
+  id: "1316"
+permissions_182: 
+  checked: "0"
+  action: index
+  subject: data_elements
+  id: "1126"
+permissions_325: 
+  checked: "0"
+  action: update
+  subject: plates
+  id: "1269"
+permissions_135: 
+  checked: "0"
+  action: update
+  subject: sections
+  id: "1079"
+permissions_373: 
+  checked: "1"
+  action: show
+  subject: batches
+  id: "1317"
+permissions_183: 
+  checked: "0"
+  action: add
+  subject: data_elements
+  id: "1127"
+permissions_326: 
+  checked: "0"
+  action: return_to_main
+  subject: plates
+  id: "1270"
+permissions_136: 
+  checked: "1"
+  action: edit
+  subject: sections
+  id: "1080"
+permissions_374: 
+  checked: "1"
+  action: list
+  subject: batches
+  id: "1318"
+permissions_184: 
+  checked: "1"
+  action: destroy
+  subject: data_elements
+  id: "1128"
+permissions_327: 
+  checked: "0"
+  action: component_update
+  subject: plates
+  id: "1271"
+permissions_137: 
+  checked: "1"
+  action: show
+  subject: sections
+  id: "1081"
+permissions_375: 
+  checked: "0"
+  action: index
+  subject: system_settings
+  id: "1319"
+permissions_185: 
+  checked: "0"
+  action: export
+  subject: data_elements
+  id: "1129"
+permissions_328: 
+  checked: "1"
+  action: edit
+  subject: plates
+  id: "1272"
+permissions_138: 
+  checked: "0"
+  action: index
+  subject: parameters
+  id: "1082"
+permissions_376: 
+  checked: "1"
+  action: destroy
+  subject: system_settings
+  id: "1320"
+permissions_186: 
+  checked: "0"
+  action: update
+  subject: data_elements
+  id: "1130"
+permissions_329: 
+  checked: "1"
+  action: list
+  subject: plates
+  id: "1273"
+permissions_139: 
+  checked: "1"
+  action: show
+  subject: parameters
+  id: "1083"
+permissions_377: 
+  checked: "1"
+  action: new
+  subject: system_settings
+  id: "1321"
+permissions_187: 
+  checked: "0"
+  action: choices
+  subject: data_elements
+  id: "1131"
+permissions_378: 
+  checked: "0"
+  action: create
+  subject: system_settings
+  id: "1322"
+permissions_188: 
+  checked: "1"
+  action: edit
+  subject: data_elements
+  id: "1132"
+permissions_001: 
+  checked: "0"
+  action: index
+  subject: roles
+  id: "945"
+permissions_379: 
+  checked: "0"
+  action: update
+  subject: system_settings
+  id: "1323"
+permissions_189: 
+  checked: "1"
+  action: show
+  subject: data_elements
+  id: "1133"
+permissions_002: 
+  checked: "1"
+  action: destroy
+  subject: roles
+  id: "946"
+permissions_430: 
+  checked: "0"
+  action: remove_column
+  subject: reports
+  id: "1374"
+permissions_240: 
+  checked: "0"
+  action: default_per_page
+  subject: parameter_types
+  id: "1184"
+permissions_050: 
+  checked: "1"
+  action: new
+  subject: parameter_roles
+  id: "994"
+permissions_003: 
+  checked: "1"
+  action: new
+  subject: roles
+  id: "947"
+permissions_431: 
+  checked: "0"
+  action: refresh
+  subject: reports
+  id: "1375"
+permissions_241: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: parameter_types
+  id: "1185"
+permissions_051: 
+  checked: "0"
+  action: update_params_filter
+  subject: parameter_roles
+  id: "995"
+permissions_004: 
+  checked: "0"
+  action: create
+  subject: roles
+  id: "948"
+permissions_432: 
+  checked: "1"
+  action: edit
+  subject: reports
+  id: "1376"
+permissions_242: 
+  checked: "0"
+  action: update_params
+  subject: parameter_types
+  id: "1186"
+permissions_052: 
+  checked: "0"
+  action: create
+  subject: parameter_roles
+  id: "996"
+permissions_005: 
+  checked: "0"
+  action: update
+  subject: roles
+  id: "949"
+permissions_433: 
+  checked: "1"
+  action: show
+  subject: reports
+  id: "1377"
+permissions_290: 
+  checked: "0"
+  action: modify
+  subject: tasks
+  id: "1234"
+permissions_243: 
+  checked: "1"
+  action: new
+  subject: parameter_types
+  id: "1187"
+permissions_053: 
+  checked: "0"
+  action: update
+  subject: parameter_roles
+  id: "997"
+permissions_006: 
+  checked: "1"
+  action: edit
+  subject: roles
+  id: "950"
+permissions_434: 
+  checked: "1"
+  action: list
+  subject: reports
+  id: "1378"
+permissions_291: 
+  checked: "0"
+  action: create
+  subject: tasks
+  id: "1235"
+permissions_244: 
+  checked: "0"
+  action: update_params_filter
+  subject: parameter_types
+  id: "1188"
+permissions_054: 
+  checked: "0"
+  action: return_to_main
+  subject: parameter_roles
+  id: "998"
+permissions_007: 
+  checked: "1"
+  action: show
+  subject: roles
+  id: "951"
+permissions_435: 
+  checked: "0"
+  action: diagram
+  subject: reports
+  id: "1379"
+permissions_292: 
+  checked: "0"
+  action: update
+  subject: tasks
+  id: "1236"
+permissions_245: 
+  checked: "0"
+  action: create
+  subject: parameter_types
+  id: "1189"
+permissions_055: 
+  checked: "0"
+  action: component_update
+  subject: parameter_roles
+  id: "999"
+permissions_008: 
+  checked: "1"
+  action: list
+  subject: roles
+  id: "952"
+permissions_436: 
+  checked: "0"
+  action: index
+  subject: samples
+  id: "1380"
+permissions_293: 
+  checked: "0"
+  action: copy
+  subject: tasks
+  id: "1237"
+permissions_246: 
+  checked: "0"
+  action: update
+  subject: parameter_types
+  id: "1190"
+permissions_056: 
+  checked: "1"
+  action: edit
+  subject: parameter_roles
+  id: "1000"
+permissions_009: 
+  checked: "0"
+  action: index
+  subject: data_concepts
+  id: "953"
+permissions_437: 
+  checked: "1"
+  action: destroy
+  subject: samples
+  id: "1381"
+permissions_294: 
+  checked: "0"
+  action: refresh_instances
+  subject: tasks
+  id: "1238"
+permissions_247: 
+  checked: "0"
+  action: return_to_main
+  subject: parameter_types
+  id: "1191"
+permissions_057: 
+  checked: "1"
+  action: list
+  subject: parameter_roles
+  id: "1001"
+permissions_438: 
+  checked: "1"
+  action: new
+  subject: samples
+  id: "1382"
+permissions_295: 
+  checked: "0"
+  action: report
+  subject: tasks
+  id: "1239"
+permissions_248: 
+  checked: "0"
+  action: component_update
+  subject: parameter_types
+  id: "1192"
+permissions_058: 
+  checked: "0"
+  action: current_sort
+  subject: parameter_roles
+  id: "1002"
+permissions_439: 
+  checked: "0"
+  action: create
+  subject: samples
+  id: "1383"
+permissions_296: 
+  checked: "0"
+  action: cell_change
+  subject: tasks
+  id: "1240"
+permissions_249: 
+  checked: "1"
+  action: edit
+  subject: parameter_types
+  id: "1193"
+permissions_059: 
+  checked: "0"
+  action: index
+  subject: specimens
+  id: "1003"
+permissions_297: 
+  checked: "1"
+  action: edit
+  subject: tasks
+  id: "1241"
+permissions_298: 
+  checked: "1"
+  action: show
+  subject: tasks
+  id: "1242"
+permissions_300: 
+  checked: "0"
+  action: index
+  subject: articles
+  id: "1244"
+permissions_110: 
+  checked: "0"
+  action: create_element
+  subject: catalogue
+  id: "1054"
+permissions_301: 
+  checked: "1"
+  action: destroy
+  subject: articles
+  id: "1245"
+permissions_111: 
+  checked: "1"
+  action: new
+  subject: catalogue
+  id: "1055"
+permissions_299: 
+  checked: "1"
+  action: list
+  subject: tasks
+  id: "1243"
+permissions_302: 
+  checked: "0"
+  action: approve
+  subject: articles
+  id: "1246"
+permissions_112: 
+  checked: "0"
+  action: new_usage
+  subject: catalogue
+  id: "1056"
+permissions_350: 
+  checked: "0"
+  action: component
+  subject: data_types
+  id: "1294"
+permissions_160: 
+  checked: "1"
+  action: new
+  subject: data_systems
+  id: "1104"
+permissions_303: 
+  checked: "0"
+  action: unapprove
+  subject: articles
+  id: "1247"
+permissions_113: 
+  checked: "0"
+  action: create_usage
+  subject: catalogue
+  id: "1057"
+permissions_351: 
+  checked: "0"
+  action: cancel
+  subject: data_types
+  id: "1295"
+permissions_161: 
+  checked: "0"
+  action: export
+  subject: data_systems
+  id: "1105"
+permissions_304: 
+  checked: "0"
+  action: destroy_comment
+  subject: articles
+  id: "1248"
+permissions_114: 
+  checked: "0"
+  action: create
+  subject: catalogue
+  id: "1058"
+permissions_352: 
+  checked: "0"
+  action: clear_flashes
+  subject: data_types
+  id: "1296"
+permissions_162: 
+  checked: "0"
+  action: create
+  subject: data_systems
+  id: "1106"
+permissions_305: 
+  checked: "0"
+  action: comments
+  subject: articles
+  id: "1249"
+permissions_115: 
+  checked: "0"
+  action: update
+  subject: catalogue
+  id: "1059"
+permissions_353: 
+  checked: "1"
+  action: destroy
+  subject: data_types
+  id: "1297"
+permissions_163: 
+  checked: "0"
+  action: update
+  subject: data_systems
+  id: "1107"
+permissions_306: 
+  checked: "1"
+  action: new
+  subject: articles
+  id: "1250"
+permissions_116: 
+  checked: "0"
+  action: remove_element
+  subject: catalogue
+  id: "1060"
+permissions_354: 
+  checked: "0"
+  action: default_per_page
+  subject: data_types
+  id: "1298"
+permissions_164: 
+  checked: "1"
+  action: edit
+  subject: data_systems
+  id: "1108"
+permissions_307: 
+  checked: "0"
+  action: create
+  subject: articles
+  id: "1251"
+permissions_117: 
+  checked: "1"
+  action: edit
+  subject: catalogue
+  id: "1061"
+permissions_355: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: data_types
+  id: "1299"
+permissions_165: 
+  checked: "1"
+  action: show
+  subject: data_systems
+  id: "1109"
+permissions_118: 
+  checked: "1"
+  action: show
+  subject: catalogue
+  id: "1062"
+permissions_356: 
+  checked: "0"
+  action: update_params
+  subject: data_types
+  id: "1300"
+permissions_166: 
+  checked: "1"
+  action: list
+  subject: data_systems
+  id: "1110"
+permissions_308: 
+  checked: "0"
+  action: update
+  subject: articles
+  id: "1252"
+permissions_119: 
+  checked: "1"
+  action: list
+  subject: catalogue
+  id: "1063"
+permissions_357: 
+  checked: "1"
+  action: new
+  subject: data_types
+  id: "1301"
+permissions_167: 
+  checked: "0"
+  action: index
+  subject: study_parameters
+  id: "1111"
+permissions_309: 
+  checked: "1"
+  action: edit
+  subject: articles
+  id: "1253"
+permissions_358: 
+  checked: "0"
+  action: update_params_filter
+  subject: data_types
+  id: "1302"
+permissions_168: 
+  checked: "0"
+  action: import_file
+  subject: study_parameters
+  id: "1112"
+permissions_359: 
+  checked: "0"
+  action: create
+  subject: data_types
+  id: "1303"
+permissions_169: 
+  checked: "0"
+  action: locate
+  subject: study_parameters
+  id: "1113"
+permissions_410: 
+  checked: "1"
+  action: show
+  subject: requests
+  id: "1354"
+permissions_220: 
+  checked: "0"
+  action: task_list
+  subject: data_capture
+  id: "1164"
+permissions_030: 
+  checked: "1"
+  action: edit
+  subject: experiments
+  id: "974"
+permissions_411: 
+  checked: "1"
+  action: list
+  subject: requests
+  id: "1355"
+permissions_221: 
+  checked: "0"
+  action: api
+  subject: data_capture
+  id: "1165"
+permissions_031: 
+  checked: "1"
+  action: show
+  subject: experiments
+  id: "975"
+permissions_412: 
+  checked: "0"
+  action: index
+  subject: home
+  id: "1356"
+permissions_222: 
+  checked: "0"
+  action: index
+  subject: study_queues
+  id: "1166"
+permissions_032: 
+  checked: "1"
+  action: list
+  subject: experiments
+  id: "976"
+permissions_460: 
+  checked: "1"
+  action: list
+  subject: study_protocols
+  id: "1404"
+permissions_413: 
+  checked: "0"
+  action: calender
+  subject: home
+  id: "1357"
+permissions_270: 
+  checked: "1"
+  action: new
+  subject: data_formats
+  id: "1214"
+permissions_080: 
+  checked: "0"
+  action: return_to_main
+  subject: study_stages
+  id: "1024"
+permissions_223: 
+  checked: "1"
+  action: destroy
+  subject: study_queues
+  id: "1167"
+permissions_033: 
+  checked: "0"
+  action: index
+  subject: containers
+  id: "977"
+permissions_461: 
+  checked: "0"
+  action: add_parameter
+  subject: study_protocols
+  id: "1405"
+permissions_414: 
+  checked: "0"
+  action: timeline
+  subject: home
+  id: "1358"
+permissions_271: 
+  checked: "0"
+  action: update_params_filter
+  subject: data_formats
+  id: "1215"
+permissions_081: 
+  checked: "0"
+  action: component_update
+  subject: study_stages
+  id: "1025"
+permissions_224: 
+  checked: "1"
+  action: new
+  subject: study_queues
+  id: "1168"
+permissions_034: 
+  checked: "1"
+  action: destroy
+  subject: containers
+  id: "978"
+permissions_462: 
+  checked: "0"
+  action: chart
+  subject: charts
+  id: "1406"
+permissions_415: 
+  checked: "0"
+  action: blog
+  subject: home
+  id: "1359"
+permissions_272: 
+  checked: "0"
+  action: create
+  subject: data_formats
+  id: "1216"
+permissions_082: 
+  checked: "1"
+  action: edit
+  subject: study_stages
+  id: "1026"
+permissions_225: 
+  checked: "0"
+  action: manage
+  subject: study_queues
+  id: "1169"
+permissions_035: 
+  checked: "1"
+  action: new
+  subject: containers
+  id: "979"
+permissions_463: 
+  checked: "0"
+  action: resent_values
+  subject: charts
+  id: "1407"
+permissions_416: 
+  checked: "0"
+  action: todo
+  subject: home
+  id: "1360"
+permissions_273: 
+  checked: "0"
+  action: update
+  subject: data_formats
+  id: "1217"
+permissions_083: 
+  checked: "1"
+  action: list
+  subject: study_stages
+  id: "1027"
+permissions_226: 
+  checked: "0"
+  action: create
+  subject: study_queues
+  id: "1170"
+permissions_036: 
+  checked: "0"
+  action: create
+  subject: containers
+  id: "980"
+permissions_464: 
+  checked: "0"
+  action: test
+  subject: charts
+  id: "1408"
+permissions_417: 
+  checked: "0"
+  action: run
+  subject: reports
+  id: "1361"
+permissions_274: 
+  checked: "0"
+  action: return_to_main
+  subject: data_formats
+  id: "1218"
+permissions_084: 
+  checked: "0"
+  action: current_sort
+  subject: study_stages
+  id: "1028"
+permissions_227: 
+  checked: "0"
+  action: update
+  subject: study_queues
+  id: "1171"
+permissions_037: 
+  checked: "0"
+  action: update
+  subject: containers
+  id: "981"
+permissions_465: 
+  checked: "0"
+  action: trend_by_task
+  subject: charts
+  id: "1409"
+permissions_275: 
+  checked: "0"
+  action: component_update
+  subject: data_formats
+  id: "1219"
+permissions_085: 
+  checked: "0"
+  action: index
+  subject: studies
+  id: "1029"
+permissions_228: 
+  checked: "0"
+  action: update_item
+  subject: study_queues
+  id: "1172"
+permissions_038: 
+  checked: "1"
+  action: edit
+  subject: containers
+  id: "982"
+permissions_466: 
+  checked: "0"
+  action: histogram
+  subject: charts
+  id: "1410"
+permissions_418: 
+  checked: "0"
+  action: refresh_columns
+  subject: reports
+  id: "1362"
+permissions_276: 
+  checked: "1"
+  action: edit
+  subject: data_formats
+  id: "1220"
+permissions_086: 
+  checked: "0"
+  action: metrics
+  subject: studies
+  id: "1030"
+permissions_229: 
+  checked: "1"
+  action: edit
+  subject: study_queues
+  id: "1173"
+permissions_039: 
+  checked: "1"
+  action: show
+  subject: containers
+  id: "983"
+permissions_467: 
+  checked: "0"
+  action: trend_by_hour
+  subject: charts
+  id: "1411"
+permissions_419: 
+  checked: "1"
+  action: destroy
+  subject: reports
+  id: "1363"
+permissions_277: 
+  checked: "1"
+  action: list
+  subject: data_formats
+  id: "1221"
+permissions_087: 
+  checked: "0"
+  action: cancel
+  subject: studies
+  id: "1031"
+permissions_468: 
+  checked: "0"
+  action: left_show
+  subject: finder
+  id: "1412"
+permissions_278: 
+  checked: "0"
+  action: current_sort
+  subject: data_formats
+  id: "1222"
+permissions_088: 
+  checked: "0"
+  action: protocols
+  subject: studies
+  id: "1032"
+permissions_469: 
+  checked: "0"
+  action: left_hide
+  subject: finder
+  id: "1413"
+permissions_279: 
+  checked: "0"
+  action: index
+  subject: tasks
+  id: "1223"
+permissions_089: 
+  checked: "1"
+  action: destroy
+  subject: studies
+  id: "1033"
+permissions_330: 
+  checked: "0"
+  action: current_sort
+  subject: plates
+  id: "1274"
+permissions_140: 
+  checked: "1"
+  action: list
+  subject: parameters
+  id: "1084"
+permissions_331: 
+  checked: "0"
+  action: index
+  subject: queue_items
+  id: "1275"
+permissions_141: 
+  checked: "0"
+  action: index
+  subject: projects
+  id: "1085"
+permissions_332: 
+  checked: "1"
+  action: destroy
+  subject: queue_items
+  id: "1276"
+permissions_142: 
+  checked: "0"
+  action: sort_header_tag
+  subject: projects
+  id: "1086"
+permissions_380: 
+  checked: "1"
+  action: edit
+  subject: system_settings
+  id: "1324"
+permissions_190: 
+  checked: "1"
+  action: list
+  subject: data_elements
+  id: "1134"
+permissions_333: 
+  checked: "1"
+  action: new
+  subject: queue_items
+  id: "1277"
+permissions_143: 
+  checked: "0"
+  action: calendar
+  subject: projects
+  id: "1087"
+permissions_381: 
+  checked: "1"
+  action: show
+  subject: system_settings
+  id: "1325"
+permissions_191: 
+  checked: "0"
+  action: index
+  subject: treatment_groups
+  id: "1135"
+permissions_334: 
+  checked: "0"
+  action: create
+  subject: queue_items
+  id: "1278"
+permissions_144: 
+  checked: "0"
+  action: gantt
+  subject: projects
+  id: "1088"
+permissions_382: 
+  checked: "1"
+  action: list
+  subject: system_settings
+  id: "1326"
+permissions_192: 
+  checked: "1"
+  action: destroy
+  subject: treatment_groups
+  id: "1136"
+permissions_335: 
+  checked: "0"
+  action: update
+  subject: queue_items
+  id: "1279"
+permissions_145: 
+  checked: "0"
+  action: members
+  subject: projects
+  id: "1089"
+permissions_383: 
+  checked: "0"
+  action: index
+  subject: plate_formats
+  id: "1327"
+permissions_193: 
+  checked: "1"
+  action: new
+  subject: treatment_groups
+  id: "1137"
+permissions_336: 
+  checked: "1"
+  action: edit
+  subject: queue_items
+  id: "1280"
+permissions_146: 
+  checked: "0"
+  action: studies
+  subject: projects
+  id: "1090"
+permissions_384: 
+  checked: "1"
+  action: destroy
+  subject: plate_formats
+  id: "1328"
+permissions_194: 
+  checked: "0"
+  action: create
+  subject: treatment_groups
+  id: "1138"
+permissions_337: 
+  checked: "1"
+  action: show
+  subject: queue_items
+  id: "1281"
+permissions_147: 
+  checked: "0"
+  action: experiments
+  subject: projects
+  id: "1091"
+permissions_385: 
+  checked: "1"
+  action: new
+  subject: plate_formats
+  id: "1329"
+permissions_195: 
+  checked: "0"
+  action: update
+  subject: treatment_groups
+  id: "1139"
+permissions_338: 
+  checked: "1"
+  action: list
+  subject: queue_items
+  id: "1282"
+permissions_148: 
+  checked: "0"
+  action: reports
+  subject: projects
+  id: "1092"
+permissions_386: 
+  checked: "0"
+  action: create
+  subject: plate_formats
+  id: "1330"
+permissions_196: 
+  checked: "1"
+  action: edit
+  subject: treatment_groups
+  id: "1140"
+permissions_339: 
+  checked: "0"
+  action: index
+  subject: compounds
+  id: "1283"
+permissions_149: 
+  checked: "0"
+  action: sort_init
+  subject: projects
+  id: "1093"
+permissions_387: 
+  checked: "0"
+  action: update
+  subject: plate_formats
+  id: "1331"
+permissions_197: 
+  checked: "1"
+  action: show
+  subject: treatment_groups
+  id: "1141"
+permissions_200: 
+  checked: "0"
+  action: remove
+  subject: resources
+  id: "1144"
+permissions_010: 
+  checked: "1"
+  action: destroy
+  subject: data_concepts
+  id: "954"
+permissions_388: 
+  checked: "1"
+  action: edit
+  subject: plate_formats
+  id: "1332"
+permissions_198: 
+  checked: "1"
+  action: list
+  subject: treatment_groups
+  id: "1142"
+permissions_201: 
+  checked: "0"
+  action: update
+  subject: resources
+  id: "1145"
+permissions_011: 
+  checked: "1"
+  action: new
+  subject: data_concepts
+  id: "955"
+permissions_389: 
+  checked: "1"
+  action: show
+  subject: plate_formats
+  id: "1333"
+permissions_199: 
+  checked: "0"
+  action: index
+  subject: resources
+  id: "1143"
+permissions_202: 
+  checked: "1"
+  action: edit
+  subject: resources
+  id: "1146"
+permissions_012: 
+  checked: "0"
+  action: export
+  subject: data_concepts
+  id: "956"
+permissions_440: 
+  checked: "0"
+  action: update
+  subject: samples
+  id: "1384"
+permissions_203: 
+  checked: "0"
+  action: upload
+  subject: resources
+  id: "1147"
+permissions_013: 
+  checked: "0"
+  action: create
+  subject: data_concepts
+  id: "957"
+permissions_250: 
+  checked: "1"
+  action: list
+  subject: parameter_types
+  id: "1194"
+permissions_060: 
+  checked: "1"
+  action: destroy
+  subject: specimens
+  id: "1004"
+permissions_441: 
+  checked: "1"
+  action: edit
+  subject: samples
+  id: "1385"
+permissions_204: 
+  checked: "0"
+  action: task_create
+  subject: data_capture
+  id: "1148"
+permissions_014: 
+  checked: "0"
+  action: update
+  subject: data_concepts
+  id: "958"
+permissions_251: 
+  checked: "0"
+  action: current_sort
+  subject: parameter_types
+  id: "1195"
+permissions_061: 
+  checked: "1"
+  action: new
+  subject: specimens
+  id: "1005"
+permissions_442: 
+  checked: "1"
+  action: show
+  subject: samples
+  id: "1386"
+permissions_205: 
+  checked: "0"
+  action: invoke
+  subject: data_capture
+  id: "1149"
+permissions_015: 
+  checked: "1"
+  action: edit
+  subject: data_concepts
+  id: "959"
+permissions_252: 
+  checked: "0"
+  action: index
+  subject: data_contexts
+  id: "1196"
+permissions_062: 
+  checked: "0"
+  action: create
+  subject: specimens
+  id: "1006"
+permissions_443: 
+  checked: "1"
+  action: list
+  subject: samples
+  id: "1387"
+permissions_206: 
+  checked: "0"
+  action: task_context_create
+  subject: data_capture
+  id: "1150"
+permissions_016: 
+  checked: "1"
+  action: show
+  subject: data_concepts
+  id: "960"
+permissions_253: 
+  checked: "1"
+  action: destroy
+  subject: data_contexts
+  id: "1197"
+permissions_063: 
+  checked: "0"
+  action: update
+  subject: specimens
+  id: "1007"
+permissions_444: 
+  checked: "0"
+  action: index
+  subject: study_protocols
+  id: "1388"
+permissions_207: 
+  checked: "0"
+  action: task_contexts
+  subject: data_capture
+  id: "1151"
+permissions_017: 
+  checked: "1"
+  action: list
+  subject: data_concepts
+  id: "961"
+permissions_254: 
+  checked: "1"
+  action: new
+  subject: data_contexts
+  id: "1198"
+permissions_064: 
+  checked: "1"
+  action: edit
+  subject: specimens
+  id: "1008"
+permissions_445: 
+  checked: "0"
+  action: move_parameter
+  subject: study_protocols
+  id: "1389"
+permissions_208: 
+  checked: "0"
+  action: task_context_update
+  subject: data_capture
+  id: "1152"
+permissions_018: 
+  checked: "0"
+  action: index
+  subject: experiments
+  id: "962"
+permissions_255: 
+  checked: "0"
+  action: export
+  subject: data_contexts
+  id: "1199"
+permissions_065: 
+  checked: "1"
+  action: show
+  subject: specimens
+  id: "1009"
+permissions_446: 
+  checked: "0"
+  action: delete_context
+  subject: study_protocols
+  id: "1390"
+permissions_019: 
+  checked: "0"
+  action: import_file
+  subject: experiments
+  id: "963"
+permissions_256: 
+  checked: "0"
+  action: create
+  subject: data_contexts
+  id: "1200"
+permissions_066: 
+  checked: "1"
+  action: list
+  subject: specimens
+  id: "1010"
+permissions_447: 
+  checked: "0"
+  action: release
+  subject: study_protocols
+  id: "1391"
+permissions_209: 
+  checked: "0"
+  action: task_export
+  subject: data_capture
+  id: "1153"
+permissions_257: 
+  checked: "0"
+  action: update
+  subject: data_contexts
+  id: "1201"
+permissions_067: 
+  checked: "0"
+  action: current_sort_direction
+  subject: study_stages
+  id: "1011"
+permissions_448: 
+  checked: "0"
+  action: template
+  subject: study_protocols
+  id: "1392"
+permissions_258: 
+  checked: "1"
+  action: edit
+  subject: data_contexts
+  id: "1202"
+permissions_068: 
+  checked: "0"
+  action: index
+  subject: study_stages
+  id: "1012"
+permissions_449: 
+  checked: "1"
+  action: destroy
+  subject: study_protocols
+  id: "1393"
+permissions_259: 
+  checked: "1"
+  action: show
+  subject: data_contexts
+  id: "1203"
+permissions_069: 
+  checked: "0"
+  action: component
+  subject: study_stages
+  id: "1013"
+permissions_310: 
+  checked: "1"
+  action: show
+  subject: articles
+  id: "1254"
+permissions_120: 
+  checked: "0"
+  action: index
+  subject: comments
+  id: "1064"
+permissions_311: 
+  checked: "0"
+  action: upload
+  subject: articles
+  id: "1255"
+permissions_121: 
+  checked: "0"
+  action: close
+  subject: comments
+  id: "1065"
+permissions_312: 
+  checked: "0"
+  action: current_sort_direction
+  subject: plates
+  id: "1256"
+permissions_122: 
+  checked: "0"
+  action: index
+  subject: request_services
+  id: "1066"
+permissions_313: 
+  checked: "0"
+  action: index
+  subject: plates
+  id: "1257"
+permissions_123: 
+  checked: "1"
+  action: destroy
+  subject: request_services
+  id: "1067"
+permissions_360: 
+  checked: "0"
+  action: update
+  subject: data_types
+  id: "1304"
+permissions_170: 
+  checked: "0"
+  action: refresh_type
+  subject: study_parameters
+  id: "1114"
+permissions_314: 
+  checked: "0"
+  action: component
+  subject: plates
+  id: "1258"
+permissions_124: 
+  checked: "1"
+  action: new
+  subject: request_services
+  id: "1068"
+permissions_361: 
+  checked: "0"
+  action: return_to_main
+  subject: data_types
+  id: "1305"
+permissions_171: 
+  checked: "1"
+  action: destroy
+  subject: study_parameters
+  id: "1115"
+permissions_315: 
+  checked: "0"
+  action: cancel
+  subject: plates
+  id: "1259"
+permissions_125: 
+  checked: "0"
+  action: create
+  subject: request_services
+  id: "1069"
+permissions_362: 
+  checked: "0"
+  action: component_update
+  subject: data_types
+  id: "1306"
+permissions_172: 
+  checked: "0"
+  action: refresh_formats
+  subject: study_parameters
+  id: "1116"
+permissions_316: 
+  checked: "0"
+  action: clear_flashes
+  subject: plates
+  id: "1260"
+permissions_126: 
+  checked: "0"
+  action: update
+  subject: request_services
+  id: "1070"
+permissions_363: 
+  checked: "1"
+  action: edit
+  subject: data_types
+  id: "1307"
+permissions_173: 
+  checked: "0"
+  action: import
+  subject: study_parameters
+  id: "1117"
+permissions_317: 
+  checked: "1"
+  action: destroy
+  subject: plates
+  id: "1261"
+permissions_127: 
+  checked: "0"
+  action: update_item
+  subject: request_services
+  id: "1071"
+permissions_364: 
+  checked: "1"
+  action: list
+  subject: data_types
+  id: "1308"
+permissions_174: 
+  checked: "0"
+  action: test_save
+  subject: study_parameters
+  id: "1118"
+permissions_318: 
+  checked: "0"
+  action: default_per_page
+  subject: plates
+  id: "1262"
+permissions_128: 
+  checked: "1"
+  action: edit
+  subject: request_services
+  id: "1072"
+permissions_365: 
+  checked: "0"
+  action: current_sort
+  subject: data_types
+  id: "1309"
+permissions_175: 
+  checked: "1"
+  action: new
+  subject: study_parameters
+  id: "1119"
+permissions_129: 
+  checked: "1"
+  action: show
+  subject: request_services
+  id: "1073"
+permissions_366: 
+  checked: "0"
+  action: index
+  subject: batches
+  id: "1310"
+permissions_176: 
+  checked: "0"
+  action: export
+  subject: study_parameters
+  id: "1120"
+permissions_319: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: plates
+  id: "1263"
+permissions_367: 
+  checked: "1"
+  action: destroy
+  subject: batches
+  id: "1311"
+permissions_177: 
+  checked: "0"
+  action: create
+  subject: study_parameters
+  id: "1121"
+permissions_368: 
+  checked: "0"
+  action: auto_complete_for_compound_name
+  subject: batches
+  id: "1312"
+permissions_178: 
+  checked: "0"
+  action: update
+  subject: study_parameters
+  id: "1122"
+permissions_369: 
+  checked: "1"
+  action: new
+  subject: batches
+  id: "1313"
+permissions_179: 
+  checked: "1"
+  action: edit
+  subject: study_parameters
+  id: "1123"
+permissions_420: 
+  checked: "0"
+  action: update_column
+  subject: reports
+  id: "1364"
+permissions_230: 
+  checked: "1"
+  action: show
+  subject: study_queues
+  id: "1174"
+permissions_040: 
+  checked: "1"
+  action: list
+  subject: containers
+  id: "984"
+permissions_421: 
+  checked: "0"
+  action: expand
+  subject: reports
+  id: "1365"
+permissions_231: 
+  checked: "1"
+  action: list
+  subject: study_queues
+  id: "1175"
+permissions_041: 
+  checked: "0"
+  action: current_sort_direction
+  subject: parameter_roles
+  id: "985"
+permissions_422: 
+  checked: "0"
+  action: builder
+  subject: reports
+  id: "1366"
+permissions_232: 
+  checked: "0"
+  action: authorized?
+  subject: settings
+  id: "1176"
+permissions_042: 
+  checked: "0"
+  action: index
+  subject: parameter_roles
+  id: "986"
+permissions_470: 
+  checked: "0"
+  action: right_show
+  subject: finder
+  id: "1414"
+permissions_423: 
+  checked: "1"
+  action: new
+  subject: reports
+  id: "1367"
+permissions_233: 
+  checked: "0"
+  action: update
+  subject: settings
+  id: "1177"
+permissions_043: 
+  checked: "0"
+  action: component
+  subject: parameter_roles
+  id: "987"
+permissions_280: 
+  checked: "0"
+  action: metrics
+  subject: tasks
+  id: "1224"
+permissions_090: 
+  checked: "0"
+  action: notes
+  subject: studies
+  id: "1034"
+permissions_471: 
+  checked: "0"
+  action: right_hide
+  subject: finder
+  id: "1415"
+permissions_424: 
+  checked: "0"
+  action: visualize
+  subject: reports
+  id: "1368"
+permissions_234: 
+  checked: "0"
+  action: current_sort_direction
+  subject: parameter_types
+  id: "1178"
+permissions_044: 
+  checked: "0"
+  action: cancel
+  subject: parameter_roles
+  id: "988"
+permissions_281: 
+  checked: "1"
+  action: destroy
+  subject: tasks
+  id: "1225"
+permissions_091: 
+  checked: "0"
+  action: timeline
+  subject: studies
+  id: "1035"
+permissions_472: 
+  checked: "0"
+  action: query
+  subject: finder
+  id: "1416"
+permissions_425: 
+  checked: "0"
+  action: export
+  subject: reports
+  id: "1369"
+permissions_235: 
+  checked: "0"
+  action: index
+  subject: parameter_types
+  id: "1179"
+permissions_045: 
+  checked: "0"
+  action: clear_flashes
+  subject: parameter_roles
+  id: "989"
+permissions_282: 
+  checked: "0"
+  action: notes
+  subject: tasks
+  id: "1226"
+permissions_092: 
+  checked: "0"
+  action: parameters
+  subject: studies
+  id: "1036"
+permissions_426: 
+  checked: "0"
+  action: create
+  subject: reports
+  id: "1370"
+permissions_236: 
+  checked: "0"
+  action: component
+  subject: parameter_types
+  id: "1180"
+permissions_046: 
+  checked: "1"
+  action: destroy
+  subject: parameter_roles
+  id: "990"
+permissions_283: 
+  checked: "0"
+  action: set_context
+  subject: tasks
+  id: "1227"
+permissions_093: 
+  checked: "0"
+  action: queues
+  subject: studies
+  id: "1037"
+permissions_427: 
+  checked: "0"
+  action: update
+  subject: reports
+  id: "1371"
+permissions_237: 
+  checked: "0"
+  action: cancel
+  subject: parameter_types
+  id: "1181"
+permissions_047: 
+  checked: "0"
+  action: default_per_page
+  subject: parameter_roles
+  id: "991"
+permissions_284: 
+  checked: "0"
+  action: transform
+  subject: tasks
+  id: "1228"
+permissions_094: 
+  checked: "0"
+  action: experiments
+  subject: studies
+  id: "1038"
+permissions_428: 
+  checked: "0"
+  action: add_column
+  subject: reports
+  id: "1372"
+permissions_238: 
+  checked: "0"
+  action: clear_flashes
+  subject: parameter_types
+  id: "1182"
+permissions_048: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: parameter_roles
+  id: "992"
+permissions_285: 
+  checked: "1"
+  action: new
+  subject: tasks
+  id: "1229"
+permissions_095: 
+  checked: "0"
+  action: reports
+  subject: studies
+  id: "1039"
+permissions_239: 
+  checked: "1"
+  action: destroy
+  subject: parameter_types
+  id: "1183"
+permissions_049: 
+  checked: "0"
+  action: update_params
+  subject: parameter_roles
+  id: "993"
+permissions_286: 
+  checked: "0"
+  action: sheet
+  subject: tasks
+  id: "1230"
+permissions_096: 
+  checked: "1"
+  action: new
+  subject: studies
+  id: "1040"
+permissions_429: 
+  checked: "0"
+  action: uml
+  subject: reports
+  id: "1373"
+permissions_287: 
+  checked: "0"
+  action: analysis
+  subject: tasks
+  id: "1231"
+permissions_097: 
+  checked: "0"
+  action: export
+  subject: studies
+  id: "1041"
+permissions_100: 
+  checked: "1"
+  action: edit
+  subject: studies
+  id: "1044"
+permissions_288: 
+  checked: "0"
+  action: export
+  subject: tasks
+  id: "1232"
+permissions_098: 
+  checked: "0"
+  action: create
+  subject: studies
+  id: "1042"
+permissions_101: 
+  checked: "1"
+  action: show
+  subject: studies
+  id: "1045"
+permissions_289: 
+  checked: "0"
+  action: view
+  subject: tasks
+  id: "1233"
+permissions_099: 
+  checked: "0"
+  action: update
+  subject: studies
+  id: "1043"
+permissions_102: 
+  checked: "1"
+  action: list
+  subject: studies
+  id: "1046"
+permissions_340: 
+  checked: "1"
+  action: destroy
+  subject: compounds
+  id: "1284"
+permissions_150: 
+  checked: "0"
+  action: feed
+  subject: projects
+  id: "1094"
+permissions_103: 
+  checked: "0"
+  action: login
+  subject: auth
+  id: "1047"
+permissions_341: 
+  checked: "0"
+  action: depict
+  subject: compounds
+  id: "1285"
+permissions_151: 
+  checked: "0"
+  action: files
+  subject: projects
+  id: "1095"
+permissions_104: 
+  checked: "0"
+  action: logout
+  subject: auth
+  id: "1048"
+permissions_342: 
+  checked: "1"
+  action: new
+  subject: compounds
+  id: "1286"
+permissions_152: 
+  checked: "0"
+  action: delete
+  subject: projects
+  id: "1096"
+permissions_105: 
+  checked: "0"
+  action: forgotten
+  subject: auth
+  id: "1049"
+permissions_343: 
+  checked: "0"
+  action: create
+  subject: compounds
+  id: "1287"
+permissions_153: 
+  checked: "0"
+  action: sort_update
+  subject: projects
+  id: "1097"
+permissions_106: 
+  checked: "0"
+  action: login_failed
+  subject: auth
+  id: "1050"
+permissions_390: 
+  checked: "1"
+  action: list
+  subject: plate_formats
+  id: "1334"
+permissions_344: 
+  checked: "0"
+  action: update
+  subject: compounds
+  id: "1288"
+permissions_154: 
+  checked: "0"
+  action: sort_clause
+  subject: projects
+  id: "1098"
+permissions_107: 
+  checked: "0"
+  action: index
+  subject: catalogue
+  id: "1051"
+permissions_391: 
+  checked: "0"
+  action: index
+  subject: permissions
+  id: "1335"
+permissions_345: 
+  checked: "1"
+  action: edit
+  subject: compounds
+  id: "1289"
+permissions_155: 
+  checked: "0"
+  action: folders
+  subject: projects
+  id: "1099"
+permissions_108: 
+  checked: "1"
+  action: destroy
+  subject: catalogue
+  id: "1052"
+permissions_392: 
+  checked: "1"
+  action: destroy
+  subject: permissions
+  id: "1336"
+permissions_346: 
+  checked: "1"
+  action: show
+  subject: compounds
+  id: "1290"
+permissions_156: 
+  checked: "1"
+  action: show
+  subject: projects
+  id: "1100"
+permissions_109: 
+  checked: "0"
+  action: new_element
+  subject: catalogue
+  id: "1053"
+permissions_393: 
+  checked: "1"
+  action: new
+  subject: permissions
+  id: "1337"
+permissions_347: 
+  checked: "1"
+  action: list
+  subject: compounds
+  id: "1291"
+permissions_157: 
+  checked: "0"
+  action: sort_link
+  subject: projects
+  id: "1101"
+permissions_394: 
+  checked: "0"
+  action: create
+  subject: permissions
+  id: "1338"
+permissions_348: 
+  checked: "0"
+  action: current_sort_direction
+  subject: data_types
+  id: "1292"
+permissions_158: 
+  checked: "0"
+  action: index
+  subject: data_systems
+  id: "1102"
+permissions_395: 
+  checked: "0"
+  action: update
+  subject: permissions
+  id: "1339"
+permissions_349: 
+  checked: "0"
+  action: index
+  subject: data_types
+  id: "1293"
+permissions_159: 
+  checked: "1"
+  action: destroy
+  subject: data_systems
+  id: "1103"
+permissions_396: 
+  checked: "1"
+  action: edit
+  subject: permissions
+  id: "1340"
+permissions_397: 
+  checked: "1"
+  action: show
+  subject: permissions
+  id: "1341"
+permissions_400: 
+  checked: "1"
+  action: destroy
+  subject: requests
+  id: "1344"
+permissions_210: 
+  checked: "0"
+  action: invoke_method_params
+  subject: data_capture
+  id: "1154"
+permissions_020: 
+  checked: "1"
+  action: destroy
+  subject: experiments
+  id: "964"
+permissions_398: 
+  checked: "1"
+  action: list
+  subject: permissions
+  id: "1342"
+permissions_401: 
+  checked: "0"
+  action: add_item
+  subject: requests
+  id: "1345"
+permissions_211: 
+  checked: "0"
+  action: study_list
+  subject: data_capture
+  id: "1155"
+permissions_021: 
+  checked: "0"
+  action: timeline
+  subject: experiments
+  id: "965"
+permissions_399: 
+  checked: "0"
+  action: index
+  subject: requests
+  id: "1343"
+permissions_402: 
+  checked: "0"
+  action: remove_item
+  subject: requests
+  id: "1346"
+permissions_212: 
+  checked: "0"
+  action: task_import
+  subject: data_capture
+  id: "1156"
+permissions_022: 
+  checked: "0"
+  action: refresh_allowed_protocols
+  subject: experiments
+  id: "966"
+permissions_450: 
+  checked: "0"
+  action: remove_parameter
+  subject: study_protocols
+  id: "1394"
+permissions_403: 
+  checked: "0"
+  action: reports
+  subject: requests
+  id: "1347"
+permissions_260: 
+  checked: "1"
+  action: list
+  subject: data_contexts
+  id: "1204"
+permissions_070: 
+  checked: "0"
+  action: cancel
+  subject: study_stages
+  id: "1014"
+permissions_213: 
+  checked: "0"
+  action: invoke_submit
+  subject: data_capture
+  id: "1157"
+permissions_023: 
+  checked: "0"
+  action: import
+  subject: experiments
+  id: "967"
+permissions_451: 
+  checked: "0"
+  action: import
+  subject: study_protocols
+  id: "1395"
+permissions_404: 
+  checked: "1"
+  action: new
+  subject: requests
+  id: "1348"
+permissions_261: 
+  checked: "0"
+  action: current_sort_direction
+  subject: data_formats
+  id: "1205"
+permissions_071: 
+  checked: "0"
+  action: clear_flashes
+  subject: study_stages
+  id: "1015"
+permissions_214: 
+  checked: "0"
+  action: process_list
+  subject: data_capture
+  id: "1158"
+permissions_024: 
+  checked: "0"
+  action: reports
+  subject: experiments
+  id: "968"
+permissions_452: 
+  checked: "1"
+  action: new
+  subject: study_protocols
+  id: "1396"
+permissions_405: 
+  checked: "0"
+  action: add_service
+  subject: requests
+  id: "1349"
+permissions_262: 
+  checked: "0"
+  action: index
+  subject: data_formats
+  id: "1206"
+permissions_072: 
+  checked: "1"
+  action: destroy
+  subject: study_stages
+  id: "1016"
+permissions_215: 
+  checked: "0"
+  action: parameter_list
+  subject: data_capture
+  id: "1159"
+permissions_025: 
+  checked: "1"
+  action: new
+  subject: experiments
+  id: "969"
+permissions_453: 
+  checked: "0"
+  action: export
+  subject: study_protocols
+  id: "1397"
+permissions_406: 
+  checked: "0"
+  action: remove_service
+  subject: requests
+  id: "1350"
+permissions_263: 
+  checked: "0"
+  action: component
+  subject: data_formats
+  id: "1207"
+permissions_073: 
+  checked: "0"
+  action: default_per_page
+  subject: study_stages
+  id: "1017"
+permissions_216: 
+  checked: "0"
+  action: parameter_context_list
+  subject: data_capture
+  id: "1160"
+permissions_026: 
+  checked: "0"
+  action: export
+  subject: experiments
+  id: "970"
+permissions_454: 
+  checked: "0"
+  action: update_context
+  subject: study_protocols
+  id: "1398"
+permissions_264: 
+  checked: "0"
+  action: cancel
+  subject: data_formats
+  id: "1208"
+permissions_074: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: study_stages
+  id: "1018"
+permissions_217: 
+  checked: "0"
+  action: protocol_list
+  subject: data_capture
+  id: "1161"
+permissions_027: 
+  checked: "0"
+  action: create
+  subject: experiments
+  id: "971"
+permissions_455: 
+  checked: "0"
+  action: create
+  subject: study_protocols
+  id: "1399"
+permissions_407: 
+  checked: "0"
+  action: create
+  subject: requests
+  id: "1351"
+permissions_265: 
+  checked: "0"
+  action: clear_flashes
+  subject: data_formats
+  id: "1209"
+permissions_075: 
+  checked: "0"
+  action: update_params
+  subject: study_stages
+  id: "1019"
+permissions_218: 
+  checked: "0"
+  action: experiment_list
+  subject: data_capture
+  id: "1162"
+permissions_028: 
+  checked: "0"
+  action: update
+  subject: experiments
+  id: "972"
+permissions_456: 
+  checked: "0"
+  action: new_context
+  subject: study_protocols
+  id: "1400"
+permissions_408: 
+  checked: "0"
+  action: update
+  subject: requests
+  id: "1352"
+permissions_266: 
+  checked: "1"
+  action: destroy
+  subject: data_formats
+  id: "1210"
+permissions_076: 
+  checked: "1"
+  action: new
+  subject: study_stages
+  id: "1020"
+permissions_219: 
+  checked: "0"
+  action: task_values
+  subject: data_capture
+  id: "1163"
+permissions_029: 
+  checked: "0"
+  action: copy
+  subject: experiments
+  id: "973"
+permissions_457: 
+  checked: "0"
+  action: update
+  subject: study_protocols
+  id: "1401"
+permissions_409: 
+  checked: "1"
+  action: edit
+  subject: requests
+  id: "1353"
+permissions_267: 
+  checked: "0"
+  action: default_per_page
+  subject: data_formats
+  id: "1211"
+permissions_077: 
+  checked: "0"
+  action: update_params_filter
+  subject: study_stages
+  id: "1021"
+permissions_458: 
+  checked: "1"
+  action: edit
+  subject: study_protocols
+  id: "1402"
+permissions_268: 
+  checked: "0"
+  action: store_or_get_from_session
+  subject: data_formats
+  id: "1212"
+permissions_078: 
+  checked: "0"
+  action: create
+  subject: study_stages
+  id: "1022"
+permissions_459: 
+  checked: "1"
+  action: show
+  subject: study_protocols
+  id: "1403"
+permissions_269: 
+  checked: "0"
+  action: update_params
+  subject: data_formats
+  id: "1213"
+permissions_079: 
+  checked: "0"
+  action: update
+  subject: study_stages
+  id: "1023"

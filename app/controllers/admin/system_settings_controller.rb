@@ -1,5 +1,7 @@
 class Admin::SystemSettingsController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+  use_authorization :catalogue,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
 
   def index
     list

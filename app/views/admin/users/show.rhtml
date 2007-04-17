@@ -1,13 +1,32 @@
-<% content_for :action_nav do %>
-<!-- begin action nav -->
-<div id="page-nav">
-  <ul id="act-nav" class="clear">
-    <li><%= link_to "Add new user", :action => "new" %></li>
-  </ul>
-</div>
-<!-- /end action nav -->
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
 <% end %>
 
-<% remote_form_for :user, :url => { :action => 'update', :id => @user }, :html => { :multipart => true } do |f| -%>
-<%= render :partial => 'form', :locals => { :f => f, :create => false } %>
+<h2> Editing User <%=@user.name%></h2>
+<%= error_messages_for :user %>
+<% form_for :user, :url => { :action => 'edit' } do |f| -%>
+<div class="setgroup">
+  <dl class="setform clear">
+    <dt><label for="user_login">Name</label></dt>
+    <dd><%= f.text_field :name %></dd>
+    
+    <dt><label for="user_login">Full Name</label></dt>
+    <dd><%= f.text_field :fullname %></dd>
+
+    <dt><%= f.label_for  :login %></dt>
+    <dd><%= f.text_field :login %></dd>
+
+    <dt><%= f.label_for      :password %></dt>
+    <dd><%= f.password_field :password %></dd>
+
+    <dt><label for="user_role">Access Level </label></dt>
+    <dd>
+        <%= select_named( :user, :role_id ,Role) %>
+    </dd>
+    <dt><label for="user_email">Email address</label></dt>
+    <dd><%= f.text_field :email %></dd>
+  </dl>
+</div>
+<p class="btns"><%= submit_tag('Update user') %></p>
+
 <% end -%>

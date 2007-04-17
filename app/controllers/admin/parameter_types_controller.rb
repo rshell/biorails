@@ -14,7 +14,10 @@
 # * destroy      destroy item and all its dependent objects
 # 
 class Admin::ParameterTypesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :catalogue,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
  
 
   in_place_edit_for :parameter_type, :name

@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
 
+  use_authorization :project,
+                    :actions => [:show,:projects,:calendar,:timeline,:blog,:desrroy],
+                    :rights => :current_user  
+
+
   def index
     show
   end
@@ -46,7 +51,8 @@ class HomeController < ApplicationController
                                     :order=>'updated_by,created_by',:limit=>20 )
     render :layout => false if request.xhr?
   end  
-
+  
+        
 protected 
   def context
     @user = current(user,params[:id])     

@@ -1,13 +1,16 @@
-<%= error_messages_for 'project' %>
-<h2><%=subject_icon('project.png')%> New Project </h2>
+<h2><%=subject_icon('model/project.png')%> New Project </h2>
 Create a new project for organization and execution of a block of work
 
+<%= error_messages_for 'project' %>
+<%= error_messages_for 'user' %>
+
 <% content_for :form do -%>
+
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
         <%= submit_tag "Save" %>
-        <%= link_to 'Cancel', :action => 'list' %>
+        <%= link_to 'Cancel', home_url %>
     </div>
     <% end %>
 <% end %>

@@ -3,7 +3,10 @@
 # See license agreement for additional rights
 # 
 class Inventory::SamplesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :inventory,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights =>  :current_user  
 
   def index
     list

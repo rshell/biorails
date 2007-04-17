@@ -58,12 +58,16 @@ class Project < ActiveRecord::Base
 ##
 # Link through to users for members, and owners via memberships
 # 
-  access_control_list  :memberships, { :user => :user, 
-                                       :role => :role }
-
-#  has_many :memberships, :dependent => :destroy
-#  has_many :members, :through => :memberships, :source => :user
-#  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
+  access_control_list  :memberships , :dependent => :destroy 
+#  has_many :memberships do
+#    def permission?(user,subject,action)        
+#      return RolePermission.find_by_sql( 
+#      ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and p.action = ?",
+#       user.id, proxy_owner.id, subject.to_s, action.to_s])
+#    end
+#  end
+  has_many :users, :through => :memberships, :source => :user
+  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
 ##
 # home folders
 # 

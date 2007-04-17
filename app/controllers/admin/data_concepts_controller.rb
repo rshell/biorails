@@ -20,7 +20,10 @@
 # * export       export all concept tree as CVS
 # 
 class Admin::DataConceptsController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :catalogue,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
 
   def index
     list

@@ -37,6 +37,8 @@ class UserTest < Test::Unit::TestCase
   end
     
   def test003_duplicate
+     user = User.find_by_name('test2')
+     user.destroy if user
      user = User.new(:name=>'test2')
      user.set_password "xxx-xxx"
      user.fullname="test account"
@@ -51,16 +53,15 @@ class UserTest < Test::Unit::TestCase
      assert !user.save,' should fail save test2 user duplicate '
   end
   
+  
   def test004_create_project
      user = User.find(:first)
-     assert_ok user
 
      project = user.create_project("test-projectss")
      assert_ok project
      user.projects.each{ |p|puts p.name }     
      assert user.projects.detect{|i|i==project}, "project on my list"
-     assert user.members.detect{|i|i.project ==project}, "project is on my membership list"
-     assert user.role == user.rights(project), "have my default role as a member of the project"
+     assert user.memberships.detect{|i|i.project ==project}, "project is on my membership list"
   end
   
   
@@ -70,7 +71,6 @@ class UserTest < Test::Unit::TestCase
      user.role = role
      assert_ok user.role
      assert_ok user.rights(user) 
-     assert user.rights(user) == user.role
-
   end
+  
 end

@@ -8,12 +8,12 @@
           :onmouseover => "buttonMouseover(event, 'menuProject');"  %>
  </li>
     <div id="menuProject" class="menu" onmouseover="menuMouseover(event)">
-         <% for item in Project.find(:all)%>
+         <% for item in current_user.projects %>
           <%= link_to l(item.name),  project_url(:action => 'show', :id =>item) %>         
          <% end %>   
     </div>
 <% end %>
-
+<% if current_user.admin %>
  <li class="submenu">
      <%= link_to l(:label_administration), catalogue_url( :action => 'list' ), 
          :class => "icon icon-admin", :onmouseover => "buttonMouseover(event, 'menuAdmin');" %>
@@ -28,7 +28,7 @@
          <%= link_to l(:roles),            role_url(:action=>'list') %>  
          <%= link_to l(:users),             user_url(:action=>'index') %>  
    </div>
-
+<% end %>
  <li class="submenu">
    <%= link_to l(:inventory), { :controller => 'inventory' }, 
    		                       :class => "icon icon-admin", 
@@ -58,8 +58,7 @@
    </div>
 
  <li class="right">
-   <%= link_to l(:logout), { :controller => 'account', 
-                       :action => (logged_in? ? 'logout':'login')}, :class => "icon icon-user" %>
+   <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %>
  </li>	
                        
  <li class="right">

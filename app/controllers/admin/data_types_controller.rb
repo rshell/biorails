@@ -4,8 +4,11 @@
 ##
 #
 class Admin::DataTypesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
- 
+  
+  use_authorization :system,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
+                     
 
   in_place_edit_for :data_type, :name
   in_place_edit_for :data_type, :description

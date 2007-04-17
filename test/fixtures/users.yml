@@ -1,34 +1,115 @@
-
-alemon: 
-  name: alemon
+--- 
+users_004: 
+  name: ANother
+  updated_at: 
+  activated_at: 
+  deleted_at: 
+  token: 
   admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: 
+  password_salt: 
+  role_id: "2"
+  id: "5"
+  filter: 
+  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  state_id: 
+  login: 
+  created_at: 
+  email: 
+users_005: 
+  name: alemon
+  updated_at: 
+  activated_at: 
+  deleted_at: 
+  token: 
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
   fullname: 
   password_salt: 
   role_id: "3"
-  id: "1"
+  id: "6"
+  filter: 
   password_hash: 773418797bbc217fa520ba98f090227cd0b74b18
-admin: 
+  state_id: 
+  login: 
+  created_at: 
+  email: 
+users_006: 
+  name: "Login \xC2\xBB"
+  updated_at: 2007-03-21 22:41:39
+  activated_at: 
+  deleted_at: 
+  token: 
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: 
+  password_salt: 26c4cb128eb6561dd87f421e0fccb024613c433a
+  role_id: 
+  id: "7"
+  filter: 
+  password_hash: 39e4b6005ef08e5f80cde6884c4a794bfca1462a
+  state_id: 
+  login: "Login \xC2\xBB"
+  created_at: 2007-03-21 22:41:39
+  email: 
+users_001: 
   name: admin
   updated_at: 
+  activated_at: 
+  deleted_at: 
+  token: 
   admin: "0"
+  token_expires_at: 
+  activation_code: 
   fullname: 
   password_salt: 
   role_id: "3"
   id: "2"
+  filter: 
   password_hash: d033e22ae348aeb5660fc2140aec35850c4da997
-rshell: 
+  state_id: 
+  login: 
+  created_at: 
+  email: 
+users_002: 
   name: rshell
+  updated_at: 
+  activated_at: 
+  deleted_at: 
+  token: 
   admin: "0"
+  token_expires_at: 
+  activation_code: 
   fullname: 
   password_salt: 
   role_id: "3"
   id: "3"
+  filter: 
   password_hash: 66549d85d66747b93596bd7b05409f544ef97310
-thawkins: 
+  state_id: 
+  login: 
+  created_at: 
+  email: 
+users_003: 
   name: thawkins
+  updated_at: 
+  activated_at: 
+  deleted_at: 
+  token: 
   admin: "0"
+  token_expires_at: 
+  activation_code: 
   fullname: 
   password_salt: 
   role_id: "3"
-  id: "4" 
+  id: "4"
+  filter: 
   password_hash: d84e5ddda8a7eef03dd5e4934ede87d1a1758a96
+  state_id: 
+  login: 
+  created_at: 
+  email: 

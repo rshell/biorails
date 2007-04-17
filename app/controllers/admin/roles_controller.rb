@@ -3,7 +3,10 @@
 # @TODO needs to be be rewritten now goldberg is removed
 
 class Admin::RolesController < ApplicationController
-  check_permissions << 'index' << 'update' << 'create' << 'destroy' << 'list'
+
+  use_authorization :users,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :rights => :current_user
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
@@ -45,14 +48,13 @@ class Admin::RolesController < ApplicationController
 
   def update
     @role = Role.find(params[:id])
-    logger.info params[:allowed].to_yaml
-    if @role.update_attributes(params[:role])
-      @role.reset_rights(params[:allowed])
-      @role = Role.find(params[:id])
-      flash[:notice] = 'Role was successfully updated.'
-      redirect_to :action => 'show', :id => @role.id
+    if @role.update_attributes(params[:role])    
+          @role.reset_rights(params[:allowed])
+          
+          flash[:notice] = 'Role was successfully updated.'
+          redirect_to :action => 'show', :id => @role.id
     else
-      render :action => 'edit'
+         render :action => 'edit'
     end
   end
 
