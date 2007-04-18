@@ -1,32 +1,67 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
+    <div>
+      <span class='menu' > user <%=@user.name%></span>
+       <%= link_to 'list', user_url( :action => 'list') %>
+       <%= link_to 'new',  user_url( :action => 'new') %>
+       <%= link_to 'edit', user_url( :action => 'edit',:id=>@user.id) %>
+    </div>
 <% end %>
-
-<h2> Editing User <%=@user.name%></h2>
-<%= error_messages_for :user %>
-<% form_for :user, :url => { :action => 'edit' } do |f| -%>
-<div class="setgroup">
-  <dl class="setform clear">
-    <dt><label for="user_login">Name</label></dt>
-    <dd><%= f.text_field :name %></dd>
-    
-    <dt><label for="user_login">Full Name</label></dt>
-    <dd><%= f.text_field :fullname %></dd>
-
-    <dt><%= f.label_for  :login %></dt>
-    <dd><%= f.text_field :login %></dd>
-
-    <dt><%= f.label_for      :password %></dt>
-    <dd><%= f.password_field :password %></dd>
-
-    <dt><label for="user_role">Access Level </label></dt>
-    <dd>
-        <%= select_named( :user, :role_id ,Role) %>
-    </dd>
-    <dt><label for="user_email">Email address</label></dt>
-    <dd><%= f.text_field :email %></dd>
-  </dl>
-</div>
-<p class="btns"><%= submit_tag('Update user') %></p>
-
+<h2> Current profile for User <%= @user.name %> </h2>
+<table>
+<tr><th>Login</th><td> <%= @user.login %></td></tr>
+<tr><th>Short Name</th><td> <%= @user.name %></td></tr>
+<tr><th>Full name</th><td> <%= @user.fullname %></td></tr>
+<tr><th>Created At</th><td> <%= short_date @user.created_at %></td></tr>
+<tr><th>Updated At</th><td> <%= short_date @user.updated_at %></td></tr>
+</table>
+<hr />
+<h2> Project Memberships </h2>
+<table class="report">
+<thead>
+<tr>
+   <th>Project</th>
+   <th>Role</th>
+   <th>Created</th>
+   <th>Updated</th>
+</tr>
+</thead>
+<tbody>
+<% for member in @user.memberships do %>
+    <tr>
+        <td><%= member.project.name%></td>
+        <td><%= member.role.name%></td>
+        <td><%= short_date member.created_at %></td>
+        <td><%= short_date member.updated_at %></td>
+    </tr>
 <% end -%>
+</tbody>
+</table>
+<hr/>
+
+<h2> User Permissions </h2>
+
+<table class="report">
+<thead>
+    <tr>
+        <th>Subject</th>
+        <th colspan=10>Allowed Actions for Role</th>
+    </tr>
+</thead>
+<tbody>
+<% for subject in Role.possible_subjects.keys.sort do %>
+    <tr>
+        <th><%=subject%></th>
+        <% for action in Role.possible_actions(subject) %>
+            <%if @user.role.allow?(subject,action) %>
+                <td><%=action%></td>
+            <%end%>
+        <% end -%>
+    </tr>
+<% end -%>
+</tbody>
+
+</table>
+
+<hr/>
+

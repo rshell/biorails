@@ -1,7 +1,13 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
+    <div>
+      <span class='menu' > Role <%=@role.name%></span>
+       <%= link_to 'list', role_url( :action => 'list') %>
+       <%= link_to 'new',  role_url( :action => 'new') %>
+       <%= link_to 'show', role_url( :action => 'show',:id=>@role.id) %>
+       <%= link_to 'edit', role_url( :action => 'edit',:id=>@role.id) %>
+    </div>
 <% end %>
-
 <h2> <%= @role.name %> </h2>
 <table>
 <tr><th>Description</th><td> <%= @role.description %></td></tr>
@@ -9,12 +15,58 @@
 <tr><th>Updated At</th><td> <%= short_date @role.updated_at %></td></tr>
 </table>
 <hr />
+<h2> User with Roles </h2>
+
+<table class="report">
+<thead>
+<tr>
+   <th>User</th>
+   <th>Created</th>
+   <th>Updated</th>
+</tr>
+</thead>
+<tbody>
+<% for user in @role.users do %>
+    <tr>
+        <td><%= link_to user.name, user_url(:action=>'show',:id=>user.id) %></td>
+        <td><%= short_date user.created_at %></td>
+        <td><%= short_date user.updated_at %></td>
+    </tr>
+<% end -%>
+</tbody>
+</table>
+
+<hr/>
+<h2> Project Memberships </h2>
+<table class="report">
+<thead>
+<tr>
+   <th>User</th>
+   <th>Project</th>
+   <th>Created</th>
+   <th>Updated</th>
+</tr>
+</thead>
+<tbody>
+<% for member in @role.memberships do %>
+    <tr>
+        <td><%= member.user.name%></td>
+        <td><%= member.project.name%></td>
+        <td><%= short_date member.created_at %></td>
+        <td><%= short_date member.updated_at %></td>
+    </tr>
+<% end -%>
+</tbody>
+</table>
+<hr/>
+
 <h2> Permissions for <%= @role.name %></h2>
+
 <table class="report">
 <thead>
     <tr>
         <th>Subject</th>
-        <th colspan=10>Actions</th>
+        <th colspan=10>Allowed Actions for Role</th>
     </tr>
 </thead>
 <tbody>
@@ -29,6 +81,7 @@
     </tr>
 <% end -%>
 </tbody>
+
 </table>
 
 <hr/>

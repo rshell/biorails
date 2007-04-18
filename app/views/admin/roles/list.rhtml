@@ -1,5 +1,10 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
+    <div>
+      <span class='menu' > Roles</span>
+       <%= link_to 'list', role_url( :action => 'list') %>
+       <%= link_to 'new', role_url( :action => 'new') %>
+    </div>
 <% end %>
 
 <h2>Roles</h2>
@@ -14,8 +19,8 @@
   <tr>
     <td><%= link_to role.name, :action => 'show', :id => role %></td>
     <td><%= role.description %></td>
-    <td><%= role.created_at %></td>
-    <td><%= role.updated_at %></td>
+    <td><%=short_date role.created_at %></td>
+    <td><%=short_date role.updated_at %></td>
     <!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
   </tr>
 <% end %>

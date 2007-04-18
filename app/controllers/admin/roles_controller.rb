@@ -26,14 +26,13 @@ class Admin::RolesController < ApplicationController
   end
 
   def new
-    @role = Role.new
-    foreign()
+    @role = Role.new(:name=> Identifier.next_id(Role))
   end
 
   def create
     @role = Role.new(params[:role])
     if @role.save
-      Role.rebuild_cache
+      @role.reset_rights(params[:allowed])
       flash[:notice] = 'Role was successfully created.'
       redirect_to :action => 'list'
     else

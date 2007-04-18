@@ -28,6 +28,8 @@ class Role < ActiveRecord::Base
   validates_presence_of :description
 
   has_many :permissions, :class_name=>'RolePermission',:include=>'permission'
+  has_many :users
+  has_many :memberships, :include=>[:user,:project]
  
 ##
 # Test if the role permissions is cached?

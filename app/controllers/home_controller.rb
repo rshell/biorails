@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
-  use_authorization :project,
-                    :actions => [:show,:projects,:calendar,:timeline,:blog,:desrroy],
+  use_authorization :home,
+                    :actions => [:index,:show,:projects,:calendar,:timeline,:blog,:destroy],
                     :rights => :current_user  
 
 
