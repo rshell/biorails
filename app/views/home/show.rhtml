@@ -15,6 +15,28 @@
 			</li>
 		<% end %>
 	</div>
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=l('Requests')%></h3>
+		<ul>
+		<% for item in @user.requests %>
+			<li>
+			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=l('Queues')%></h3>
+		<ul>
+		<% for item in @user.lastest(StudyQueue) %>
+			<li>
+			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
 </div>
 
 <div class="splitcontentright">
@@ -29,27 +51,28 @@
 		<% end %>
 		</ul>
 	</div>  
-</div>	
-
-<div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('Requests')%></h3>
+	<h3 class="icon icon-task"><%=l('Tasks')%> Recent</h3>
 		<ul>
-		<% for item in @user.requests %>
+		<% for item in @user.lastest(Task) %>
 			<li>
-			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
 		</ul>
-	</div>  
-</div>	
-
-<div class="splitcontentright">
-	<div class="box">
-	<h3 class="icon icon-task"><%=l('Tasks')%></h3>
+	<h3 class="icon icon-task"><%=l('Tasks')%> Overdue</h3>
 		<ul>
-		<% for item in @user.tasks %>
+		<% for item in @user.lastest(Task) %>
+			<li>
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	<h3 class="icon icon-task"><%=l('Tasks')%> Soon</h3>
+		<ul>
+		<% for item in @user.lastest(Task) %>
 			<li>
 			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>

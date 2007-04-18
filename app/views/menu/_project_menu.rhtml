@@ -6,7 +6,7 @@
 	<%= link_to l(:Calendar), project_url(:action => 'calendar', :id => project) %>
 	<%= link_to l(:Timeline), project_url( :action => 'gantt', :id => project) %>
     <%= link_to l(:Reports), project_url( :action => 'reports', :id => project) %>
-    <%= link_to l(:Members)+" [#{project.memberships.size}]",   project_url(:action => 'members', :id => project) %>
+    <%= link_to l(:Members)+" [#{project.memberships.size}]",   member_url(:action => 'list', :id => project) %>
     
 	<%= link_to l('Study Designs')+" [#{project.studies.size}]",  project_url( :action => 'studies', :id => project) %>
     <%= link_to l(:Experiments)+" [#{project.experiments.size}]", project_url( :action => 'experiments', :id => project) %>

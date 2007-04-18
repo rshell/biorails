@@ -1,0 +1,70 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => current_project} %>
+<% end -%>
+
+
+<% content_for :centre do -%>
+<h2> <%=current_project.name%> project members </h2>
+
+<table id="project_members", class="list">
+  <thead>
+    <tr>
+	<th>Name</th>
+	<th>Owner</th>
+	<th>Role</th>
+	<th>Created</th>
+	<th>Updated</th>
+    </tr>
+    </thead>
+  <tbody>
+  
+<% for item in @memberships %>
+  <tr class="<%= cycle('odd', 'even') %>">
+	<td>
+  	  <div class="tooltip">
+	   <%=link_to item.user.name, :action => 'edit' ,:id=>item %>
+       	  <span class="tip">
+    	     <h3><%=h item.user.name %>: <%=h item.user.fullname %></h3>
+       	     This user normallty acts as a <%=h item.user.role.name%> 
+       	     <% if item.user.admin %>
+       	      and is a <strong>system administrator</strong> so has full rights over the project.
+       	     <% end %>
+          </span>		
+          </div>
+	<td><%if item.owner%>
+       	  <div class="tooltip">
+	     Yes
+       	  <span class="tip">
+       	     <h3><%=item.user.name%></h3>
+             As a owner of a project this user has full rights to use every feature and
+       	     can add more members.
+          </span>		
+          </div>
+	     <%end%>
+	<td>
+   	  <div class="tooltip">
+   	  <%=h item.role.name %>
+   	  <span class="tip">
+     	 <h2><%=h item.role.name %></h2>
+         <%= item.role.description %>
+      </span>		
+      </div>
+	<td align="center"><%= short_date(item.created_at) %>
+	<td align="center"><%= short_date(item.updated_at) %>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+<%= link_to 'Previous page', { :page => @membership_pages.current.previous } if @membership_pages.current.previous %>
+<%= link_to 'Next page', { :page => @membership_pages.current.next } if @membership_pages.current.next %> 
+
+<%= link_to 'New membership', :action => 'new' %>
+<% end %>
+
+
+
+
+
+<br />
+

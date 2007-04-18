@@ -36,6 +36,7 @@ class Admin::UsersController < ApplicationController
   #
   def create
     @user = User.new params[:user]
+    @user.set_password( params[:user][:password])
     @user.save!
     @user.memberships.create(:project_id=> PUBLIC_PROJECT_ID, :role_id=> @user.role_id)
     flash[:notice] = "User created."

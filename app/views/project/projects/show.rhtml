@@ -1,6 +1,5 @@
 <% content_for :sidemenu do -%>
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
-  <%= render :partial =>'/menu/folder_menu' , :locals=>{ :folder => @project.home} %>
   <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
 <% end -%>
 
@@ -10,7 +9,7 @@
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3><%=l('News')%></h3>
+	<h3><%=l('News (Recent Articles)')%></h3>
 		<% for item in @project.lastest(ProjectContent,5) %>
 			<li>
 			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
@@ -18,9 +17,6 @@
 			</li>
 		<% end %>
 	</div>
-</div>
-
-<div class="splitcontentright">
 	<div class="box">
 	<h3 class="icon icon-request"><%=l('Requests')%></h3>
 		<ul>
@@ -32,22 +28,20 @@
 		<% end %>
 		</ul>
 	</div>  
-</div>	
 
-<div class="splitcontentleft">
 	<div class="box">
-	<h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
+	<h3 class="icon icon-compound"><%=l('Compounds')%></h3>
 		<ul>
-		<% for item in @project.lastest(Experiment,5) %>
+		<% for item in @project.lastest(Compound,5) %>
 			<li>
-			<%= link_to item.name, experiment_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, :controller => 'inventory/compounds', :action => 'show', :id => item %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
 		</ul>
 	</div>  
-</div>	
 
+</div>
 
 <div class="splitcontentright">
 	<div class="box">
@@ -61,9 +55,19 @@
 		<% end %>
 		</ul>
 	</div>  
-</div>	
 
-<div class="splitcontentleft">
+	<div class="box">
+	<h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
+		<ul>
+		<% for item in @project.lastest(Experiment,5) %>
+			<li>
+			<%= link_to item.name, experiment_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.description %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+
 	<div class="box">
 	<h3 class="icon icon-task"><%=l('Tasks')%></h3>
 		<ul>
@@ -75,35 +79,7 @@
 		<% end %>
 		</ul>
 	</div>  
-</div>	
 
-<div class="splitcontentright">
-	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('Protocols')%></h3>
-		<ul>
-		<% for item in @project.lastest(StudyProtocol,5) %>
-			<li>
-			<%= link_to item.name, protocol_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.description %>
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-</div>	
-
-
-<div class="splitcontentleft">
-	<div class="box">
-	<h3 class="icon icon-compound"><%=l('Compounds')%></h3>
-		<ul>
-		<% for item in @project.lastest(Compound,5) %>
-			<li>
-			<%= link_to item.name, :controller => 'inventory/compounds', :action => 'show', :id => item %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.description %>
-			</li>
-		<% end %>
-		</ul>
-	</div>  
 </div>	
 
 

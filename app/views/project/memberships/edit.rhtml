@@ -1,0 +1,23 @@
+<h1>Editing membership  of project <%=current_project.name%> </h1>
+
+<% form_tag :action => 'update', :id => @membership do %>
+    <%= error_messages_for 'membership' %>
+	<%=  hidden_field :membership, :project_id %>
+
+    <!--[form:membership]-->
+    <p>
+      <label for="membership_owner"><%= @membership.user.name%></label><br/>
+      <%= hidden_field :membership, :user_id  %>
+    </p>
+    <p><label for="membership_owner">Owner</label><br/>
+      <%= check_box    :membership, :owner  %>
+    </p>
+    <p><label for="membership_owner">Role</label><br/>
+      <%= select_named :membership, :role_id ,Role %>
+    </p>
+    
+    <!--[eoform:membership]-->
+          <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

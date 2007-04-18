@@ -78,13 +78,11 @@ module Alces
           def authorization
              logger.info "Authorization #{session[:current_username]} #{params[:controller]} #{params[:action]}"  
              unless self.authenticate    
-                  redirect_to auth_url(:action => 'login')
                   return false     
              end     
              if authorized?(params[:action])
                   return true
              end 
-             render :partial => 'auth/access_denied', :layout => true
              return false     
           end         
       end    

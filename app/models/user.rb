@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
 # Business Rules for a user
 # 
   attr_accessor :password
-  attr_accessor :password_conformation
+#  attr_accessor :password_conformation
 
   validates_presence_of   :name
   validates_presence_of   :role
@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   validates_format_of     :login, :with => /^[a-z0-9_\-@\.]+$/i
   validates_uniqueness_of :login, :case_sensitve => false
 
-  validates_presence_of   :password_hash
-  validates_length_of     :password, :in => 4..12, :allow_nil => true
+#  validates_presence_of   :password_hash
+#  validates_length_of     :password, :in => 4..12, :allow_nil => true
 
 # validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 

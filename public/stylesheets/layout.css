@@ -141,6 +141,8 @@ color: #ffffff;
   border: 1px solid #c0c0c0;
 }
 
+/* Main Panels Headers  */
+
 #main h2{
 display:block;
 margin:0 0 16px 0;
@@ -152,14 +154,35 @@ background-color:inherit;
 font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
-#main h2 a{font-weight:normal;}
-#main h3{margin:0 0 12px 0; font-size:1.4em;color:#707070;font-family: Trebuchet MS,Georgia,"Times New Roman",serif;}
-#main h4{font-size: 1em; margin-bottom: 12px; margin-top: 20px; font-weight: normal; border-bottom: dotted 1px #c0c0c0;} 
-#main a:hover,#subcontent a:hover{text-decoration:underline;}
-#main ul,#content ol{margin:0 5px 16px 35px;}
-#main dl{margin:0 5px 10px 25px;}
-#main dt{font-weight:bold; margin-bottom:5px;}
-#main dd{margin:0 0 10px 15px;}
+#main h2 a{
+    font-weight:normal;
+}
+#main h3{
+    margin:0 0 12px 0; 
+    font-size:1.4em;
+    color:#707070;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+}
+#main h4{
+    font-size: 1em; 
+    margin-bottom: 12px; 
+    margin-top: 20px; 
+    font-weight: normal; 
+    border-bottom: dotted 1px #c0c0c0;
+} 
+#main a:hover,#subcontent a:hover{
+    text-decoration:underline;
+    }
+#main dl{
+    margin:0 5px 10px 25px;
+    }
+#main dt{
+    font-weight:bold; 
+    margin-bottom:5px;
+}
+#main dd{
+    margin:0 0 10px 15px;
+}
 
 /***********************************************/
 

@@ -102,8 +102,13 @@ class Project::ProjectsController < ApplicationController
 # 
   def members
      @project = current(Project,params[:id])
+     @membership = Membership.new(:project_id=>@project)
   end
+##
+# add a  
+  def add_member
   
+  end
 ##
 # Show a overview calendar for the project this should list the experiments, documents etc linked into the project
 # 

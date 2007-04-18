@@ -1,0 +1,17 @@
+<%= error_messages_for 'membership' %>
+	<%=  hidden_field :membership, :project_id %>
+
+<!--[form:membership]-->
+<p>
+  <label for="membership_owner">User</label><br/>
+  <%= select_named :membership, :user_id ,User %>
+</p>
+<p><label for="membership_owner">Owner</label><br/>
+  <%= check_box    :membership, :owner  %>
+</p>
+<p><label for="membership_owner">Role</label><br/>
+  <%= select_named :membership, :role_id ,Role %>
+</p>
+
+<!--[eoform:membership]-->
+

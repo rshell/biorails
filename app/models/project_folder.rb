@@ -72,7 +72,7 @@ class ProjectFolder < ProjectElement
        when ProjectAsset
            add_reference( item.filename, item )        
        when String 
-           name = "comment-#{children.size}"
+           name = "comment-#{self.children.size}"
            content = ProjectContent.new(:project_id=> self.project_id, :name=>name, :title=>"comments",:body=>item )
            content.save
            add_reference( name, content )
@@ -87,7 +87,7 @@ class ProjectFolder < ProjectElement
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id )                                       
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id )                                       
          element.path = self.path + "/" + name
          element.reference = item
          element.save
@@ -116,14 +116,14 @@ class ProjectFolder < ProjectElement
        logger.info "Creating folder #{name}"
        if item.is_a?  ActiveRecord::Base
           folder = ProjectFolder.new(:name=> item.name, 
-                                     :position => children.size, 
+                                     :position => self.children.size, 
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
           folder.reference =  item         
           folder.path = self.path + "/" + item.name
        else
           folder = ProjectFolder.new(:name=> item, 
-                                     :position => children.size, 
+                                     :position => self.children.size, 
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
           folder.path = self.path + "/" + item
