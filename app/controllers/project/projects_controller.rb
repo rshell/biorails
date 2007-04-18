@@ -29,7 +29,8 @@ class Project::ProjectsController < ApplicationController
 # Generate a index dashboard for the project 
 #  
   def show
-    @project = set_project( current(Project,params[:id]))    
+    @project =  current(Project,params[:id])
+    set_project(@project)    
   end
 
 

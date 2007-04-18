@@ -12,7 +12,6 @@ class AuthController < ApplicationController
         logger.info "User #{params[:login][:name]} successfully logged in"
         set_user(user)
         set_project(user.projects[0])
-        session[:current_role]    = user.role
         redirect_to home_url(:action=>'show')
       else
         login_failed

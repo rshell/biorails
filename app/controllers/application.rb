@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
  
 ##
 # Help functionailty has been divided up into a number areas to keep modules readable 
-  helper SortHelper    # Dynamic table sort
+  helper :sort
+  include SortHelper
+  helper :pagination
   helper FormHelper    # Various Form helper and custom controllers
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
@@ -143,6 +145,7 @@ protected
   end
   
   def clear_session
+      logger.info("clear_session ")
     session[:current_user_id] = nil
     session[:current_project_id] = nil
     session[:current_username] = 'none'

@@ -33,7 +33,7 @@ module Alces
 #  use_authorization  :subject => :project ,
 #                     :actions => [:list,:show,:edit,:update,:new,:create,:destroy],
 #                     :authenticate => :current_user,
-#                     :rights => :current_project 
+#                     :rights => :current_user
 #
     module AuthorizationService
     

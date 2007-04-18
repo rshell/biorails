@@ -60,6 +60,12 @@ module SortHelper
   # - name is the name of the session hash entry that stores the sort state,
   #   defaults to '<controller_name>_sort'.
   #
+#  helper_method :sort_init
+#  helper_method :sort_update
+#  helper_method :sort_clause
+#  helper_method :sort_link
+#  helper_method :sort_header_tag
+  
   def sort_init(default_key, default_order='asc', name=nil)
     @sort_name = name || params[:controller] + params[:action] + '_sort'
     @sort_default = {:key => default_key, :order => default_order}
