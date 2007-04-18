@@ -35,12 +35,6 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current(Experiment,params[:id])
-    @project_folder = current_project.folder(@experiment)     
-  end
-
-  def folder
-    @experiment = current(Experiment,params[:id])
-    @project_folder = current_project.folder(@experiment)    
   end
 
   def metrics
@@ -86,7 +80,7 @@ class Execute::ExperimentsController < ApplicationController
         @experiment.process = @experiment.protocol.process 
     end
     if @experiment.save
-      @project_folder = current_project.folder(@experiment)    
+      current_project.folder(@experiment)    
       flash[:notice] = 'Experiment was successfully created.'
       redirect_to :action => 'show', :id => @experiment.id
     else

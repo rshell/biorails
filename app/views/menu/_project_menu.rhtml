@@ -2,21 +2,14 @@
 <div>
   <span class='menu' > <%=subject_icon('model/project')%> <%=  project.name %></span> 
     <%= link_to l(:Project), project_url(:action => 'show', :id => project) %>
+    <%= link_to l(:Folders), folder_url( :action => 'list', :project_id => project) %>
 	<%= link_to l(:Calendar), project_url(:action => 'calendar', :id => project) %>
 	<%= link_to l(:Timeline), project_url( :action => 'gantt', :id => project) %>
-    
-	<%= link_to l('Study Designs'),  project_url( :action => 'studies', :id => project) %>
-    <%unless project.studies.size>0%>
-       <%=subject_icon("false")%> No studies <br/>
-    <%end%> 
-    
-    <%= link_to l(:Experiments), project_url( :action => 'experiments', :id => project) %>
-    <%unless project.experiments.size>0%>
-      <%=subject_icon("false")%> No Experiments  <br/>
-    <%end%> 
-
     <%= link_to l(:Reports), project_url( :action => 'reports', :id => project) %>
-    <%= link_to l(:Folders), folder_url( :action => 'list', :project_id => project) %>
-    <%= link_to l(:Members),   project_url(:action => 'members', :id => project) %>
+    <%= link_to l(:Members)+" [#{project.memberships.size}]",   project_url(:action => 'members', :id => project) %>
+    
+	<%= link_to l('Study Designs')+" [#{project.studies.size}]",  project_url( :action => 'studies', :id => project) %>
+    <%= link_to l(:Experiments)+" [#{project.experiments.size}]", project_url( :action => 'experiments', :id => project) %>
+
 </div>
 <% end %>

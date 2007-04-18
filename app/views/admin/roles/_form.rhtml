@@ -18,9 +18,9 @@
 </thead>
 
 <tbody>
-<% for subject in Role.possible_subjects.keys.sort do %>
+<% for subject in Permission.possible_subjects.keys.sort do %>
 <tr>
-<% actions = Role.possible_actions(subject) - ['*']  %>
+<% actions = Permission.possible_actions(subject) - ['*']  %>
 <th><%=subject%></th>
 <% for action in actions  %>
 <th> <%=action%> </th>

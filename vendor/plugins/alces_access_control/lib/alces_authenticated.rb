@@ -110,7 +110,7 @@ module Alces
         # get a password salt
         #        
         def generate_salt
-           password_salt = Digest::SHA1.hexdigest("--#{Time.now.to_s.split(//).sort_by {rand}.join}--#{self.username}--")
+           Digest::SHA1.hexdigest("--#{Time.now.to_s.split(//).sort_by {rand}.join}--#{self.username}--")
         end
         
         def password_salt=(value)
@@ -125,7 +125,7 @@ module Alces
         # Encrypts the password with the user salt
         # 
         def encrypt(value)
-          generate_salt if password_salt.nil? 
+          self.password_salt ||= generate_salt
           Digest::SHA1.hexdigest("--#{self.password_salt}--#{value}--")
         end
         

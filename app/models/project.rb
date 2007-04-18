@@ -71,7 +71,7 @@ class Project < ActiveRecord::Base
 ##
 # home folders
 # 
-  has_one :home, :class_name=>'ProjectFolder', :conditions => 'parent_id is null'
+  has_one :home_folder, :class_name=>'ProjectFolder', :conditions => 'parent_id is null'
 ##
 # list of all folders in the project 
 # 
@@ -80,11 +80,7 @@ class Project < ActiveRecord::Base
 # Create a project root folder after create of project
 # 
   after_create do  |project| 
-     folder = ProjectFolder.new(:project_id=>project.id)
-     folder.name = '/'
-     folder.reference =  project
-     folder.path = project.name
-     folder.save
+     create_home_folder(project)
   end
 
 ##
@@ -132,6 +128,11 @@ class Project < ActiveRecord::Base
     membership.project = self
     membership.owner = true
     membership.save    
+  end
+  
+  def home
+     Project.create_home_folder(self) unless self.home_folder
+     return self.home_folder 
   end
 ##
 # Get the member details
@@ -232,5 +233,14 @@ class Project < ActiveRecord::Base
   def member?(user)
   end
 
+protected 
+
+  def Project.create_home_folder(project)
+     folder = ProjectFolder.new(:project_id=>project.id)
+     folder.name = '/'
+     folder.reference =  project
+     folder.path = project.name
+     folder.save
+  end
   
 end

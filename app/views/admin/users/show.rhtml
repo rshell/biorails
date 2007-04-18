@@ -49,10 +49,10 @@
     </tr>
 </thead>
 <tbody>
-<% for subject in Role.possible_subjects.keys.sort do %>
+<% for subject in Permission.possible_subjects.keys.sort do %>
     <tr>
         <th><%=subject%></th>
-        <% for action in Role.possible_actions(subject) %>
+        <% for action in Permission.possible_actions(subject) %>
             <%if @user.role.allow?(subject,action) %>
                 <td><%=action%></td>
             <%end%>

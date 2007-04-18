@@ -4,32 +4,6 @@
 
 ActiveRecord::Schema.define(:version => 236) do
 
-  create_table "assets", :force => true do |t|
-    t.column "project_id",       :integer
-    t.column "parent_id",        :integer
-    t.column "user_id",          :integer
-    t.column "name",             :string
-    t.column "content_type",     :string
-    t.column "filename",         :string
-    t.column "size",             :integer
-    t.column "thumbnail",        :string
-    t.column "width",            :integer
-    t.column "height",           :integer
-    t.column "thumbnails_count", :integer,                :default => 0
-    t.column "lock_version",     :integer,                :default => 0,     :null => false
-    t.column "created_by",       :string,   :limit => 32, :default => "sys", :null => false
-    t.column "created_at",       :datetime,                                  :null => false
-    t.column "updated_by",       :string,   :limit => 32, :default => "sys", :null => false
-    t.column "updated_at",       :datetime,                                  :null => false
-    t.column "desciption",       :text
-  end
-
-  create_table "assigned_sections", :force => true do |t|
-    t.column "article_id", :integer
-    t.column "section_id", :integer
-    t.column "position",   :integer, :default => 1
-  end
-
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
     t.column "auditable_type", :string
@@ -91,14 +65,6 @@ ActiveRecord::Schema.define(:version => 236) do
   end
 
   add_index "batches", ["compound_id"], :name => "batches_compound_fk"
-
-  create_table "cached_pages", :force => true do |t|
-    t.column "url",        :string
-    t.column "references", :text
-    t.column "updated_at", :datetime
-    t.column "project_id", :integer
-    t.column "cleared_at", :datetime
-  end
 
   create_table "catalog_logs", :force => true do |t|
     t.column "user_id",        :integer
@@ -170,48 +136,10 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "updated_at",      :datetime,                                :null => false
   end
 
-  create_table "content_subjects", :force => true do |t|
-    t.column "content_id",   :integer
-    t.column "subject_type", :string
-    t.column "subject_id",   :integer
-  end
-
-  create_table "contents", :force => true do |t|
-    t.column "article_id",     :integer
-    t.column "user_id",        :integer
-    t.column "title",          :string
-    t.column "permalink",      :string
-    t.column "excerpt",        :text
-    t.column "body",           :text
-    t.column "excerpt_html",   :text
-    t.column "body_html",      :text
-    t.column "type",           :string,   :limit => 20
-    t.column "author",         :string,   :limit => 100
-    t.column "author_url",     :string
-    t.column "author_email",   :string
-    t.column "author_ip",      :string,   :limit => 100
-    t.column "comments_count", :integer,                 :default => 0
-    t.column "updater_id",     :integer
-    t.column "version",        :integer
-    t.column "project_id",     :integer
-    t.column "approved",       :boolean,                 :default => false
-    t.column "comment_age",    :integer,                 :default => 0
-    t.column "filter",         :string
-    t.column "user_agent",     :string
-    t.column "referrer",       :string
-    t.column "lock_version",   :integer,                 :default => 0,     :null => false
-    t.column "created_by",     :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "created_at",     :datetime,                                   :null => false
-    t.column "updated_by",     :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "updated_at",     :datetime,                                   :null => false
-    t.column "published_at",   :datetime
-    t.column "published_by",   :string
-  end
-
   create_table "data_concepts", :force => true do |t|
     t.column "parent_id",         :integer
     t.column "name",              :string,   :limit => 50, :default => "",            :null => false
-    t.column "data_context_id",   :integer,                :default => 1,             :null => false
+    t.column "data_context_id",   :integer,                :default => 0,             :null => false
     t.column "description",       :text
     t.column "access_control_id", :integer
     t.column "lock_version",      :integer,                :default => 0,             :null => false
@@ -275,26 +203,6 @@ ActiveRecord::Schema.define(:version => 236) do
   add_index "data_elements", ["data_concept_id"], :name => "data_element_fk2"
   add_index "data_elements", ["data_system_id"], :name => "data_element_fk1"
 
-  create_table "data_environments", :force => true do |t|
-    t.column "name",              :string,   :limit => 50, :default => "",    :null => false
-    t.column "description",       :text
-    t.column "data_context_id",   :integer,                :default => 1,     :null => false
-    t.column "access_control_id", :integer
-    t.column "lock_version",      :integer,                :default => 0,     :null => false
-    t.column "created_by",        :string,   :limit => 32, :default => "sys", :null => false
-    t.column "created_at",        :datetime,                                  :null => false
-    t.column "updated_by",        :string,   :limit => 32, :default => "sys", :null => false
-    t.column "updated_at",        :datetime,                                  :null => false
-  end
-
-  add_index "data_environments", ["updated_by"], :name => "data_environments_idx1"
-  add_index "data_environments", ["updated_at"], :name => "data_environments_idx2"
-  add_index "data_environments", ["created_by"], :name => "data_environments_idx3"
-  add_index "data_environments", ["created_at"], :name => "data_environments_idx4"
-  add_index "data_environments", ["name"], :name => "data_environments_name_idx"
-  add_index "data_environments", ["access_control_id"], :name => "data_environments_acl_idx"
-  add_index "data_environments", ["data_context_id"], :name => "data_environments_fk1"
-
   create_table "data_formats", :force => true do |t|
     t.column "name",          :string,   :limit => 128, :default => "", :null => false
     t.column "description",   :text
@@ -353,22 +261,6 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "created_at",   :datetime,                               :null => false
     t.column "updated_by",   :string,   :limit => 32, :default => "", :null => false
     t.column "updated_at",   :datetime,                               :null => false
-  end
-
-  create_table "events", :force => true do |t|
-    t.column "project_id",   :integer
-    t.column "user_id",      :integer
-    t.column "article_id",   :integer
-    t.column "mode",         :string
-    t.column "title",        :text
-    t.column "body",         :text
-    t.column "author",       :string,   :limit => 100
-    t.column "comment_id",   :integer
-    t.column "lock_version", :integer,                 :default => 0,     :null => false
-    t.column "created_by",   :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "created_at",   :datetime,                                   :null => false
-    t.column "updated_by",   :string,   :limit => 32,  :default => "sys", :null => false
-    t.column "updated_at",   :datetime,                                   :null => false
   end
 
   create_table "experiment_logs", :force => true do |t|
@@ -474,19 +366,6 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "updated_by", :string,   :limit => 32, :default => "sys", :null => false
     t.column "updated_at", :datetime,                                  :null => false
   end
-
-  create_table "menu_items", :force => true do |t|
-    t.column "parent_id",            :integer
-    t.column "name",                 :string,  :default => "", :null => false
-    t.column "label",                :string,  :default => "", :null => false
-    t.column "seq",                  :integer
-    t.column "controller_action_id", :integer
-    t.column "content_page_id",      :integer
-  end
-
-  add_index "menu_items", ["controller_action_id"], :name => "fk_menu_item_controller_action_id"
-  add_index "menu_items", ["content_page_id"], :name => "fk_menu_item_content_page_id"
-  add_index "menu_items", ["parent_id"], :name => "fk_menu_item_parent_id"
 
   create_table "parameter_contexts", :force => true do |t|
     t.column "protocol_version_id", :integer
@@ -661,8 +540,8 @@ ActiveRecord::Schema.define(:version => 236) do
 
   create_table "project_assets", :force => true do |t|
     t.column "project_id",       :integer
-    t.column "parent_id",        :integer
     t.column "title",            :string
+    t.column "parent_id",        :integer
     t.column "content_type",     :string
     t.column "filename",         :string
     t.column "thumbnail",        :string
@@ -819,15 +698,7 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "type",         :string,                  :default => "Report"
   end
 
-  create_table "repositories", :force => true do |t|
-    t.column "name",        :string,   :limit => 30, :default => "",    :null => false
-    t.column "description", :string,                 :default => "",    :null => false
-    t.column "url",         :string,                 :default => "",    :null => false
-    t.column "type",        :string,                 :default => "",    :null => false
-    t.column "created_by",  :string,   :limit => 32, :default => "sys", :null => false
-    t.column "created_at",  :datetime,                                  :null => false
-    t.column "updated_by",  :string,   :limit => 32, :default => "sys", :null => false
-    t.column "updated_at",  :datetime,                                  :null => false
+  create_table "request_lists", :force => true do |t|
   end
 
   create_table "request_services", :force => true do |t|
@@ -866,15 +737,6 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "project_id",      :integer
   end
 
-  create_table "role_permissions", :force => true do |t|
-    t.column "role_id",       :integer,               :null => false
-    t.column "subject",       :string,  :limit => 40
-    t.column "action",        :string,  :limit => 40
-    t.column "permission_id", :integer
-  end
-
-  add_index "role_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
-
   create_table "roles", :force => true do |t|
     t.column "name",            :string,                    :default => "", :null => false
     t.column "parent_id",       :integer
@@ -888,28 +750,17 @@ ActiveRecord::Schema.define(:version => 236) do
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
   add_index "roles", ["default_page_id"], :name => "fk_role_default_page_id"
 
-  create_table "samples", :force => true do |t|
+  create_table "roles_permissions", :force => true do |t|
+    t.column "role_id",       :integer,               :null => false
+    t.column "permission_id", :integer,               :null => false
+    t.column "subject",       :string,  :limit => 40
+    t.column "action",        :string,  :limit => 40
   end
 
-  create_table "sections", :force => true do |t|
-    t.column "name",                :string
-    t.column "show_paged_articles", :boolean,                :default => false
-    t.column "articles_per_page",   :integer,                :default => 15
-    t.column "layout",              :string
-    t.column "template",            :string
-    t.column "project_id",          :integer
-    t.column "path",                :string
-    t.column "articles_count",      :integer,                :default => 0
-    t.column "archive_path",        :string
-    t.column "archive_template",    :string
-    t.column "position",            :integer,                :default => 1
-    t.column "parent_id",           :integer
-    t.column "desciption",          :text
-    t.column "lock_version",        :integer,                :default => 0,     :null => false
-    t.column "created_by",          :string,   :limit => 32, :default => "",    :null => false
-    t.column "created_at",          :datetime,                                  :null => false
-    t.column "updated_by",          :string,   :limit => 32, :default => "",    :null => false
-    t.column "updated_at",          :datetime,                                  :null => false
+  add_index "roles_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
+  add_index "roles_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
+
+  create_table "samples", :force => true do |t|
   end
 
   create_table "sessions", :force => true do |t|
@@ -1351,7 +1202,7 @@ ActiveRecord::Schema.define(:version => 236) do
   create_table "users", :force => true do |t|
     t.column "name",             :string,                 :default => "",    :null => false
     t.column "password_hash",    :string,   :limit => 40
-    t.column "role_id",          :integer
+    t.column "role_id",          :integer,                                   :null => false
     t.column "password_salt",    :string
     t.column "fullname",         :string
     t.column "email",            :string

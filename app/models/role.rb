@@ -19,8 +19,6 @@
 # 
 
 class Role < ActiveRecord::Base
-  cattr_accessor :cached_subjects
-  cattr_accessor :cached_controllers
   serialize :cache
 
   validates_uniqueness_of :name
@@ -85,7 +83,7 @@ class Role < ActiveRecord::Base
 # 
  def grant(subject,action)
     rebuild unless cached?
-    return true unless Role.is_checked?(subject,action)
+    return true unless Permission.is_checked?(subject,action)
     unless allow?(subject,action)
        permission = self.permissions.create(:subject=>subject.to_s,:action=>action.to_s)
        self.cache ||= {}
@@ -117,8 +115,8 @@ class Role < ActiveRecord::Base
 # Redo the  
  def reset_rights(rights)
    transaction do
-     for subject in Role.possible_subjects.keys
-       for action in Role.possible_actions(subject)
+     for subject in Permission.possible_subjects.keys
+       for action in Permission.possible_actions(subject)
          if rights[subject] and rights[subject][action]
              grant(subject,action)
          elsif allow?(subject,action)
@@ -134,9 +132,9 @@ class Role < ActiveRecord::Base
 # Grant all rights to a array of subjects
 # 
  def grant_all(subjects = nil)
-   subjects ||= Role.subjects.keys 
+   subjects ||= Permission.possible_subjects.keys 
    for subject in subjects
-     for action in Role.possible_actions(subject)
+     for action in Permission.possible_actions(subject)
         grant(subject,action)
      end
    end
@@ -147,7 +145,7 @@ class Role < ActiveRecord::Base
 # deny access to a list of subjects all methods will be denied
 # 
  def deny_all(subjects = nil)
-   subjects ||= Role.subjects.keys 
+   subjects ||= Permission.possible_subjects.keys 
    for subject in subjects
      for action in Role.possible_actions(subject)
         deny(subject,action)
@@ -162,7 +160,7 @@ class Role < ActiveRecord::Base
  def rebuild
      logger.info "rebuild rights cache"
      self.cache= {}
-     for subject in Role.possible_subjects.keys
+     for subject in Permission.possible_subjects.keys
         cache[subject] = {}
      end
      for item in permissions
@@ -172,71 +170,6 @@ class Role < ActiveRecord::Base
      self.save
  end
 
-##
-#
-#
-  def Role.is_checked?(subject,action)
-      return ( Role.possible_subjects[subject] and Role.possible_subjects[subject].detect{|item|item.to_s == action.to_s})
-  end
-##
-# List of possible actions
-#   
-  def Role.possible_actions(subject)
-      Role.possible_subjects[subject] || []
-  end
-##
-# Build the cache of all the menus and rights for roles
-# 
-  def Role.possible_subjects
-     return @@cached_subjects if @@cached_subjects
-     return Role.reload   
-  end
-
-##
-# Force a reload of all the controllers,models,methods and cache infomation
-# 
-  def Role.reload   
-     @@cached_subjects = {}
-     @@cached_controllers = nil 
-     for key in Role.controllers.keys
-        controller = Role.controllers[key]
-        if controller.respond_to?(:rights_subject)           
-           @@cached_subjects[controller.rights_subject.to_s] ||=['*']
-           @@cached_subjects[controller.rights_subject.to_s].concat(controller.rights_actions)
-           @@cached_subjects[controller.rights_subject.to_s] = @@cached_subjects[controller.rights_subject.to_s].uniq
-        else   
-           @@cached_subjects[key] ||=['*']
-        end
-     end
-     return @@cached_subjects
-  end
-   
-##
-#List all the controllers 
-#  
- def Role.controllers
-    unless @@cached_controllers and  @@cached_controllers.size>1  
-      @@cached_controllers = {}
-      logger.info "Reloading   Role.controllers"
-      rbfiles = File.join("#{RAILS_ROOT}/app/controllers/**", "*.rb")  
-      for file in Dir.glob(rbfiles) do
-        begin
-          load file
-        rescue
-          logger.debug "Couldn't load file '#{file}' (already loaded?)"
-        end
-      end
-      @@cached_controllers = Hash.new    
-      ObjectSpace.each_object(Class) do |klass|
-        if klass.respond_to? :controller_name
-            if klass.superclass.to_s == ApplicationController.to_s
-              @@cached_controllers[klass.controller_name] = klass
-            end
-        end
-      end
-    end    
-    return @@cached_controllers
- end
 
 
 end

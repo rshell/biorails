@@ -39,8 +39,6 @@ class Study::StudiesController < ApplicationController
 # 
   def show
     @study = current( Study, params[:id] )
-    @project_folder = current_project.folder(@study)  
-    puts   @project_folder.to_yaml
     if !@study
       redirect_to study_url(:action => 'list')
     end
@@ -63,13 +61,7 @@ class Study::StudiesController < ApplicationController
   def queues
     show
   end
-##
-# Show the folder linked to this study
-# 
-  def folder
-    show
-    @project_folder = current_project.folder(@study)
-  end
+
 ##
 # Configuration of a Study. This manages the setup of parameter list and 
 # list of users associated with a study

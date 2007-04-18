@@ -122,7 +122,7 @@ class Execute::TasksController < ApplicationController
     if @task.save
       session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
-      redirect_to :action => 'show'
+      redirect_to task_url(:action => 'show', :id=>@task.id)
     else
       render :action => 'new'
     end

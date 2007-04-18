@@ -7,7 +7,7 @@
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3><%=l('News')%></h3>
+	<h3><%=l('News: Recent Articles')%></h3>
 		<% for item in @user.lastest(ProjectContent,5) %>
 			<li>
 			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />

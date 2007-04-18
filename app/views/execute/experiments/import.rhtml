@@ -1,14 +1,7 @@
 <div class='main' id='maintitle'>
-    <div class="title" id="experiment">    
+<h2>
         <%= subject_icon('experiment.png')%> Import Data into Experiment [<strong><%=@experiment.name%></strong>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => @experiment %></li>
-                <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
- 
+</h2> 
      <div class='panel'>
         <p>
             This is a simple cvs file importer for getting larger blocks of data into the system. 

@@ -2,10 +2,11 @@
 <div>
   <span class='menu'><%=subject_icon('task')%>Task <%= task.name %></span>
   <%= link_to 'Overview', task_url( :action => 'show', :id => task) %>
+  <%= link_to 'Folder',  folder_url( :action => 'show', 
+                  :id => current_project.folder(task.experiment).folder(task) ) %>
   <%= link_to 'Edit', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Sheet View', task_url( :action => 'view', :id => task) %>
   <%= link_to 'Data Entry', task_url( :action => 'sheet', :id => task) %>
-  <%= link_to 'Folder', task_url( :action => 'folder', :id => task) %>
   <%= link_to 'Statistics', task_url( :action => 'metrics', :id => task) %>
   <%= link_to 'Analysis', task_url( :action => 'analysis', :id => task) %>
   <%= link_to 'Report', task_url( :action => 'report', :id => task) %>

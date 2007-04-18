@@ -264,7 +264,7 @@ end
       tree=TreeHelper::Tree.new('Project')
       tree.use_cookies = true
       folders = tree.add_node(project.home,:name) do |node,rec|
-          node.html_link = element_to_url(rec)
+          node.html_link = folder_url(:action=>'show', :id=> rec.id )
           node.icon = "/images/model/#{rec.style.downcase}.png"
       end    
       folders.open = true

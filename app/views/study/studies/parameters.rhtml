@@ -1,12 +1,12 @@
 <% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
 <div>
   <span class='menu'>StudyParameters</span>
   <%= link_to subject_icon('xls.png')+'Export ',parameter_url( :action => 'export', :id=>@study.id  )%> </li>
   <%= link_to (subject_icon('import.png'))+'Import ',parameter_url( :action => 'import', :id=>@study.id ) %> </li>
   <%= link_to (subject_icon('new.png'))+'New ',parameter_url( :action => 'new', :id=>@study.id  ) %> </li>
 </div>
-  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
-  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
 
 
