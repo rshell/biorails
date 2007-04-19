@@ -3,7 +3,6 @@
 # 
 if @successful
   page.replace_html 'current_columns', :partial => 'report_columns',  :locals => {:table => @report, :hidden => false  }
-  page.replace_html 'report-preview', :partial => 'report_preview', :locals => {:report => @report,:data => @data , :hidden => false  }
   page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['query'] }
 else
   page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['query'] }

@@ -1,22 +1,3 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: data_concepts
-#
-#  id                :integer(11)   not null, primary key
-#  parent_id         :integer(11)   
-#  name              :string(50)    default(), not null
-#  data_context_id   :integer(11)   default(1), not null
-#  description       :text          
-#  access_control_id :integer(11)   
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    default(sys), not null
-#  created_at        :datetime      not null
-#  updated_by        :string(32)    default(sys), not null
-#  updated_at        :datetime      not null
-#  type              :string(255)   default(DataConcept), not null
-#
-
 --- 
 data_concepts_023: 
   name: Users
@@ -99,6 +80,19 @@ data_concepts_002:
   description: Subject
   parent_id: "1"
   created_at: 2006-09-06 19:33:33
+data_concepts_025: 
+  name: Target
+  updated_at: 2007-04-03 16:44:25
+  access_control_id: 
+  created_by: sys
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "0"
+  updated_by: sys
+  id: "50"
+  description: A biological target are the subject of drug discovery campaigns and typically include newly discovered proteins.
+  parent_id: "2"
+  created_at: 2007-04-03 16:44:25
 data_concepts_014: 
   name: Unit
   updated_at: 2006-11-22 12:52:30

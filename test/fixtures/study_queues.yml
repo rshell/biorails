@@ -1,42 +1,20 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: study_queues
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  study_id           :integer(11)   
-#  study_stage_id     :integer(11)   
-#  study_parameter_id :integer(11)   
-#  study_protocol_id  :integer(11)   
-#  assigned_to        :string(60)    
-#  status             :string(255)   default(new), not null
-#  priority           :string(255)   default(normal), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_by         :string(32)    default(), not null
-#  created_at         :datetime      not null
-#  updated_by         :string(32)    default(), not null
-#  updated_at         :datetime      not null
-#
-
 --- 
 study_queues_013: 
   status: new
-  study_stage_id: "6"
-  name: RES Exposure Service
-  updated_at: 2007-03-21 09:49:14
+  study_stage_id: "8"
+  name: sex for test
+  updated_at: 2007-03-30 19:54:33
   assigned_to: "4"
   created_by: ""
-  lock_version: "1"
+  lock_version: "3"
   priority: normal
   updated_by: ""
   study_protocol_id: 
-  id: "18"
-  study_id: "2"
-  description: Please submit one or more compounds to this service.&nbsp; Turn around time is c. 1 week.
-  study_parameter_id: "29"
-  created_at: 2007-03-21 09:49:14
+  id: "20"
+  study_id: "4"
+  description: submit gender for test
+  study_parameter_id: "49"
+  created_at: 2007-03-30 19:54:10
 study_queues_002: 
   status: New
   study_stage_id: "6"
@@ -53,6 +31,22 @@ study_queues_002:
   description: Full screen against the compound library.  Please define the Target.  The service will include the development of the assay, full screen at single point, a confirmation assay of the initial hits and an EX50 determination of any hits.
   study_parameter_id: "175"
   created_at: 2007-01-31 16:39:19
+study_queues_014: 
+  status: new
+  study_stage_id: "5"
+  name: DevelopAssay
+  updated_at: 2007-04-03 19:03:04
+  assigned_to: "2"
+  created_by: ""
+  lock_version: "2"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "21"
+  study_id: "3"
+  description: Develop an assay for the defined target.&nbsp; Assay definition includes the scale up to production..
+  study_parameter_id: "58"
+  created_at: 2007-04-03 19:02:17
 study_queues_003: 
   status: New
   study_stage_id: "8"
@@ -69,6 +63,22 @@ study_queues_003:
   description: Run a dose response experiment against a defined assay for a list of compound ids (hits)
   study_parameter_id: "175"
   created_at: 2007-01-31 16:40:25
+study_queues_015: 
+  status: new
+  study_stage_id: "8"
+  name: DetermineActivity
+  updated_at: 2007-04-03 19:06:16
+  assigned_to: "4"
+  created_by: ""
+  lock_version: "2"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "22"
+  study_id: "3"
+  description: Hitentify if compound is a hit - output is simple flag.
+  study_parameter_id: "63"
+  created_at: 2007-04-03 19:02:54
 study_queues_004: 
   status: New
   study_stage_id: "8"
@@ -85,6 +95,22 @@ study_queues_004:
   description: Determine the structure of a sample
   study_parameter_id: "177"
   created_at: 2007-01-31 16:44:07
+study_queues_016: 
+  status: new
+  study_stage_id: "8"
+  name: DoseResponse
+  updated_at: 2007-04-03 19:05:10
+  assigned_to: "4"
+  created_by: ""
+  lock_version: "1"
+  priority: normal
+  updated_by: ""
+  study_protocol_id: 
+  id: "23"
+  study_id: "3"
+  description: Determin the IC50 for compound
+  study_parameter_id: "63"
+  created_at: 2007-04-03 19:05:10
 study_queues_005: 
   status: New
   study_stage_id: "5"
@@ -167,12 +193,12 @@ study_queues_009:
   created_at: 2007-03-08 07:19:50
 study_queues_010: 
   status: new
-  study_stage_id: "5"
-  name: Submit Compound
-  updated_at: 2007-03-20 18:59:39
-  assigned_to: "4"
+  study_stage_id: "8"
+  name: Compound for B=>H
+  updated_at: 2007-03-30 20:12:48
+  assigned_to: "2"
   created_by: ""
-  lock_version: "1"
+  lock_version: "2"
   priority: normal
   updated_by: ""
   study_protocol_id: 
@@ -184,35 +210,35 @@ study_queues_010:
 study_queues_011: 
   status: new
   study_stage_id: "6"
-  name: Animal for Taqman
-  updated_at: 2007-03-21 13:11:36
-  assigned_to: "2"
+  name: RES Exposure Service
+  updated_at: 2007-03-21 09:49:14
+  assigned_to: "4"
   created_by: ""
-  lock_version: "4"
+  lock_version: "1"
   priority: normal
   updated_by: ""
   study_protocol_id: 
-  id: "16"
-  study_id: "1"
-  description: Submit animal ID for Taqman gene expression analysis
-  study_parameter_id: "21"
-  created_at: 2007-03-20 19:00:57
+  id: "18"
+  study_id: "2"
+  description: Please submit one or more compounds to this service.&nbsp; Turn around time is c. 1 week.
+  study_parameter_id: "29"
+  created_at: 2007-03-21 09:49:14
 study_queues_012: 
   status: new
-  study_stage_id: "6"
-  name: Group for Histology
-  updated_at: 2007-03-20 21:34:02
+  study_stage_id: "5"
+  name: Compounds for Test
+  updated_at: 2007-03-30 19:53:40
   assigned_to: "6"
   created_by: ""
-  lock_version: "2"
+  lock_version: "1"
   priority: normal
   updated_by: ""
   study_protocol_id: 
-  id: "17"
-  study_id: "1"
-  description: Provide animal identifier for histological analysis
-  study_parameter_id: "8"
-  created_at: 2007-03-20 20:00:33
+  id: "19"
+  study_id: "4"
+  description: submit a compound so we can test it
+  study_parameter_id: "48"
+  created_at: 2007-03-30 19:53:40
 study_queues_001: 
   status: New
   study_stage_id: "5"

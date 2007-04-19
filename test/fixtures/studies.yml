@@ -1,24 +1,7 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: studies
-#
-#  id            :integer(11)   not null, primary key
-#  name          :string(128)   default(), not null
-#  description   :text          
-#  category_id   :integer(11)   
-#  research_area :string(255)   
-#  purpose       :string(255)   
-#  lock_version  :integer(11)   default(0), not null
-#  created_by    :string(32)    default(), not null
-#  created_at    :datetime      not null
-#  updated_by    :string(32)    default(), not null
-#  updated_at    :datetime      not null
-#
-
 --- 
 studies_001: 
   name: Biomarker And Histology
+  project_id: "1"
   updated_at: 2007-03-20 16:05:00
   purpose: RF
   created_by: ""
@@ -31,6 +14,7 @@ studies_001:
   research_area: in-vivo
 studies_002: 
   name: RES Exposure
+  project_id: "1"
   updated_at: 2007-03-21 10:44:45
   purpose: Case Study
   created_by: ""
@@ -43,6 +27,7 @@ studies_002:
   research_area: Behavioural
 studies_003: 
   name: Screen
+  project_id: "1"
   updated_at: 2007-03-21 12:49:02
   purpose: demo
   created_by: ""
@@ -54,38 +39,54 @@ studies_003:
   created_at: 2007-03-21 12:49:02
   research_area: screening
 studies_004: 
-  name: Testing
-  updated_at: 2007-03-24 18:51:39
-  purpose: test
+  name: Test
+  project_id: "1"
+  updated_at: 2007-03-30 19:44:26
+  purpose: testing
   created_by: ""
-  lock_version: "0"
+  lock_version: "2"
   updated_by: ""
   id: "4"
   category_id: 
-  description: "Tesit "
-  created_at: 2007-03-24 18:51:39
-  research_area: test
+  description: A study for testing
+  created_at: 2007-03-26 09:44:18
+  research_area: testing
 studies_005: 
-  name: Test2
-  updated_at: 2007-03-24 18:53:30
+  name: Dev-Test
+  project_id: 
+  updated_at: 2007-04-18 19:05:03
   purpose: ""
   created_by: ""
   lock_version: "0"
   updated_by: ""
   id: "5"
   category_id: 
-  description: text2
-  created_at: 2007-03-24 18:53:30
+  description: Test
+  created_at: 2007-04-18 19:05:03
   research_area: ""
 studies_006: 
-  name: test3
-  updated_at: 2007-03-24 18:56:54
-  purpose: ""
+  name: Dev-Test2
+  project_id: 
+  updated_at: 2007-04-18 19:16:34
+  purpose: kk
   created_by: ""
   lock_version: "0"
   updated_by: ""
   id: "6"
   category_id: 
-  description: test3
-  created_at: 2007-03-24 18:56:54
-  research_area: ""
+  description: Test
+  created_at: 2007-04-18 19:16:34
+  research_area: kk
+studies_007: 
+  name: Study-2
+  project_id: 
+  updated_at: 2007-04-18 21:22:39
+  purpose: test
+  created_by: ""
+  lock_version: "0"
+  updated_by: ""
+  id: "7"
+  category_id: 
+  description: test
+  created_at: 2007-04-18 21:22:39
+  research_area: test

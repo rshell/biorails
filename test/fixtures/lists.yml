@@ -1,21 +1,3 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: lists
-#
-#  id              :integer(11)   not null, primary key
-#  name            :string(255)   
-#  description     :text          
-#  type            :string(255)   
-#  expires_at      :datetime      
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  data_element_id :integer(11)   
-#
-
 --- 
 lists_005: 
   name: TH070321
@@ -41,6 +23,42 @@ lists_006:
   description: Request TH003
   data_element_id: "1"
   created_at: 2007-03-21 13:29:07
+lists_007: 
+  name: TestingRequest_Compounds
+  updated_at: 2007-03-30 20:02:28
+  expires_at: 
+  created_by: ""
+  lock_version: "0"
+  type: RequestList
+  updated_by: ""
+  id: "7"
+  description: Request TestingRequest_Compounds
+  data_element_id: "1"
+  created_at: 2007-03-30 20:02:28
+lists_008: 
+  name: Testing_Sex
+  updated_at: 2007-03-30 20:03:28
+  expires_at: 
+  created_by: ""
+  lock_version: "0"
+  type: RequestList
+  updated_by: ""
+  id: "8"
+  description: Request Testing_Sex
+  data_element_id: "57"
+  created_at: 2007-03-30 20:03:28
+lists_009: 
+  name: TarG001
+  updated_at: 2007-04-03 19:32:56
+  expires_at: 
+  created_by: ""
+  lock_version: "0"
+  type: RequestList
+  updated_by: ""
+  id: "9"
+  description: Request TarG001
+  data_element_id: "86"
+  created_at: 2007-04-03 19:32:56
 lists_001: 
   name: MyRequest
   updated_at: 2007-03-04 05:56:29

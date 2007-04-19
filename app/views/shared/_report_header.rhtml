@@ -2,7 +2,7 @@
     <%for column in report.displayed_columns %>
     <th>
        <% if column.is_sortable %>
-         <%= link_to_remote(column.label,
+         <%= link_to_remote(column.label,:url =>
           report_url( :action => 'refresh',:id =>report.id, :sort => "#{column.name}" , :page => nil ),
           :update => "#{report.dom_id('body')}" ) %>
        <%else %>

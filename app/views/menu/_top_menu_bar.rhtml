@@ -62,8 +62,8 @@
  </li>	
                        
  <li class="right">
-   <%= link_to l(:help), { :controller => 'help', :ctrl => params[:controller], 
-                       :page => params[:action] },
+   <%= link_to l(:help), help_url( :controller => 'help', :ctrl => params[:controller], 
+                       :page => params[:action] ),
                        :onclick => "window.open(this.href); return false;", :class => "icon icon-help" %>
  </li>
 </ul>		

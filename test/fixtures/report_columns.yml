@@ -1,35 +1,29 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: report_columns
-#
-#  id               :integer(11)   not null, primary key
-#  report_id        :integer(11)   not null
-#  name             :string(128)   default(), not null
-#  description      :text          
-#  join_model       :string(255)   
-#  label            :string(255)   
-#  action           :text          
-#  filter_operation :string(255)   
-#  filter_text      :string(255)   
-#  subject_type     :string(255)   
-#  subject_id       :integer(11)   
-#  data_element     :integer(11)   
-#  is_visible       :boolean(1)    default(true)
-#  is_filterible    :boolean(1)    default(true)
-#  is_sortable      :boolean(1)    default(true)
-#  order_num        :integer(11)   
-#  sort_num         :integer(11)   
-#  sort_direction   :string(11)    
-#  lock_version     :integer(11)   default(0), not null
-#  created_by       :string(32)    default(), not null
-#  created_at       :datetime      not null
-#  updated_by       :string(32)    default(), not null
-#  updated_at       :datetime      not null
-#  join_name        :string(255)   
-#
-
 --- 
+report_columns_322: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "396"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "5"
 report_columns_241: 
   is_visible: "1"
   data_element: 
@@ -37,6 +31,7 @@ report_columns_241:
   name: description
   updated_at: 2007-03-01 07:07:52
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -61,6 +56,7 @@ report_columns_027:
   name: updated_by
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -85,6 +81,7 @@ report_columns_053:
   name: parameter.context.process.name
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -109,6 +106,7 @@ report_columns_080:
   name: base_model
   updated_at: 2007-01-19 13:07:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -133,6 +131,7 @@ report_columns_108:
   name: purpose
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -157,6 +156,7 @@ report_columns_134:
   name: name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -181,6 +181,7 @@ report_columns_161:
   name: avg_values
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -203,9 +204,10 @@ report_columns_215:
   data_element: 
   filter_operation: 
   name: row_no
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -216,12 +218,37 @@ report_columns_215:
   report_id: "38"
   subject_id: 
   sort_direction: ""
-  is_filterible: 
+  is_filterible: "1"
   filter_text: 
   label: Row_no
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "0"
+report_columns_323: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "397"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "6"
 report_columns_242: 
   is_visible: "1"
   data_element: 
@@ -229,6 +256,7 @@ report_columns_242:
   name: requested_for
   updated_at: 2007-03-01 07:07:52
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -253,6 +281,7 @@ report_columns_028:
   name: updated_at
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -277,6 +306,7 @@ report_columns_054:
   name: parameter.context.process.process_definition.name
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -301,6 +331,7 @@ report_columns_081:
   name: custom_sql
   updated_at: 2007-01-19 13:07:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -325,6 +356,7 @@ report_columns_109:
   name: id
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -349,6 +381,7 @@ report_columns_135:
   name: description
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -371,9 +404,10 @@ report_columns_216:
   data_element: 
   filter_operation: 
   name: column_no
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -384,12 +418,87 @@ report_columns_216:
   report_id: "38"
   subject_id: 
   sort_direction: ""
-  is_filterible: 
+  is_filterible: "1"
   filter_text: 
   label: Column_no
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "1"
+report_columns_350: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "424"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "3"
+report_columns_324: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "398"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "7"
+report_columns_270: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "344"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "3"
 report_columns_243: 
   is_visible: "0"
   data_element: 
@@ -397,6 +506,7 @@ report_columns_243:
   name: id
   updated_at: 2007-03-01 07:07:52
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -421,6 +531,7 @@ report_columns_029:
   name: how_to
   updated_at: 2007-01-18 17:28:16
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -445,6 +556,7 @@ report_columns_055:
   name: parameter.context.process.process_definition.literature_ref
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -469,6 +581,7 @@ report_columns_082:
   name: comments
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -493,6 +606,7 @@ report_columns_136:
   name: default_value
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -517,6 +631,7 @@ report_columns_162:
   name: stddev_values
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -539,9 +654,10 @@ report_columns_217:
   data_element: 
   filter_operation: 
   name: compound_name
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -552,12 +668,112 @@ report_columns_217:
   report_id: "38"
   subject_id: 
   sort_direction: ""
-  is_filterible: 
+  is_filterible: "1"
   filter_text: 
   label: Compound_name
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "2"
+report_columns_351: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "425"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "4"
+report_columns_325: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 19:50:43
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "399"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 19:50:43
+  order_num: "8"
+report_columns_271: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "345"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "4"
+report_columns_244: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: row_no
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "318"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Row_no
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "0"
 report_columns_056: 
   is_visible: "1"
   data_element: 
@@ -565,6 +781,7 @@ report_columns_056:
   name: tasks.name
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -589,6 +806,7 @@ report_columns_083:
   name: status
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -613,6 +831,7 @@ report_columns_137:
   name: process.protocol.study.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -637,6 +856,7 @@ report_columns_163:
   name: num_values
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -661,6 +881,7 @@ report_columns_190:
   name: parameter_name
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -683,9 +904,10 @@ report_columns_218:
   data_element: 
   filter_operation: 
   name: label
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -696,12 +918,87 @@ report_columns_218:
   report_id: "38"
   subject_id: 
   sort_direction: ""
-  is_filterible: 
+  is_filterible: "1"
   filter_text: 
   label: Label
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "3"
+report_columns_352: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "426"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "5"
+report_columns_326: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 19:50:43
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "400"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 19:50:43
+  order_num: "9"
+report_columns_245: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: column_no
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "319"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Column_no
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "1"
 report_columns_057: 
   is_visible: "1"
   data_element: 
@@ -709,6 +1006,7 @@ report_columns_057:
   name: tasks.description
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -733,6 +1031,7 @@ report_columns_084:
   name: priority
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -757,6 +1056,7 @@ report_columns_138:
   name: process.protocol.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -781,6 +1081,7 @@ report_columns_164:
   name: num_unique
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -805,6 +1106,7 @@ report_columns_191:
   name: data_value
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -827,9 +1129,10 @@ report_columns_219:
   data_element: 
   filter_operation: 
   name: row_label
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -846,6 +1149,106 @@ report_columns_219:
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "4"
+report_columns_353: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "427"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "6"
+report_columns_327: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 21:43:40
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "401"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 21:43:40
+  order_num: "0"
+report_columns_272: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "346"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "5"
+report_columns_246: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: compound_name
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "320"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Compound
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "2"
 report_columns_058: 
   is_visible: "1"
   data_element: 
@@ -853,6 +1256,7 @@ report_columns_058:
   name: protocol.stage.name
   updated_at: 2007-01-18 23:30:24
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -877,6 +1281,7 @@ report_columns_139:
   name: process.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -901,6 +1306,7 @@ report_columns_165:
   name: max_values
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -925,6 +1331,7 @@ report_columns_192:
   name: created_by
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -942,6 +1349,106 @@ report_columns_192:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "6"
+report_columns_354: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "428"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "7"
+report_columns_328: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 21:43:40
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "402"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 21:43:40
+  order_num: "1"
+report_columns_273: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "347"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "6"
+report_columns_247: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: label
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "321"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Label
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "3"
 report_columns_059: 
   is_visible: "1"
   data_element: 
@@ -949,6 +1456,7 @@ report_columns_059:
   name: stats.type.name
   updated_at: 2007-01-18 23:31:01
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -973,6 +1481,7 @@ report_columns_085:
   name: data_name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -997,6 +1506,7 @@ report_columns_166:
   name: min_values
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -1021,6 +1531,7 @@ report_columns_193:
   name: created_at
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1038,6 +1549,106 @@ report_columns_193:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "7"
+report_columns_355: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "429"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "8"
+report_columns_329: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 21:43:40
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "403"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 21:43:40
+  order_num: "2"
+report_columns_274: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "348"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "7"
+report_columns_248: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: row_label
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "322"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Row_label
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "4"
 report_columns_086: 
   is_visible: "1"
   data_element: 
@@ -1045,6 +1656,7 @@ report_columns_086:
   name: assigned_to
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1069,6 +1681,7 @@ report_columns_167:
   name: task.name
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -1093,6 +1706,7 @@ report_columns_194:
   name: updated_by
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1110,6 +1724,81 @@ report_columns_194:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "8"
+report_columns_356: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "430"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "9"
+report_columns_275: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "349"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "8"
+report_columns_249: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: parameter_name
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "323"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Parameter_name
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "5"
 report_columns_087: 
   is_visible: "1"
   data_element: 
@@ -1117,6 +1806,7 @@ report_columns_087:
   name: queue.study.name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1141,6 +1831,7 @@ report_columns_168:
   name: task.status.name
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -1158,6 +1849,56 @@ report_columns_168:
   join_model: task
   created_at: 2007-01-28 22:50:16
   order_num: "5"
+report_columns_357: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: owner
+  updated_at: 2007-04-19 11:19:29
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "431"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Owner
+  join_model: 
+  created_at: 2007-04-19 11:19:29
+  order_num: "0"
+report_columns_276: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "350"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "9"
 report_columns_088: 
   is_visible: "1"
   data_element: 
@@ -1165,6 +1906,7 @@ report_columns_088:
   name: queue.name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1189,6 +1931,7 @@ report_columns_169:
   name: task.protocol.name
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -1213,6 +1956,7 @@ report_columns_195:
   name: updated_at
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1230,6 +1974,56 @@ report_columns_195:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "9"
+report_columns_358: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-19 11:19:29
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "432"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-19 11:19:29
+  order_num: "1"
+report_columns_277: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "351"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "0"
 report_columns_089: 
   is_visible: 
   data_element: 
@@ -1237,6 +2031,7 @@ report_columns_089:
   name: experiment.name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1261,6 +2056,7 @@ report_columns_196:
   name: id
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1278,6 +2074,56 @@ report_columns_196:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "10"
+report_columns_359: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-19 11:19:29
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "433"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-19 11:19:29
+  order_num: "2"
+report_columns_278: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "352"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "1"
 report_columns_197: 
   is_visible: "0"
   data_element: 
@@ -1285,6 +2131,7 @@ report_columns_197:
   name: parameter_id
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1302,6 +2149,31 @@ report_columns_197:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "11"
+report_columns_279: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "353"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "2"
 report_columns_198: 
   is_visible: "0"
   data_element: 
@@ -1309,6 +2181,7 @@ report_columns_198:
   name: parameter_context_id
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1333,6 +2206,7 @@ report_columns_199:
   name: row_no
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1357,6 +2231,7 @@ report_columns_010:
   name: queues.name
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -1381,6 +2256,7 @@ report_columns_011:
   name: experiments.name
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -1405,6 +2281,7 @@ report_columns_200:
   name: column_no
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1429,6 +2306,7 @@ report_columns_012:
   name: experiments.process.name
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -1453,6 +2331,7 @@ report_columns_120:
   name: created_by
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1477,6 +2356,7 @@ report_columns_201:
   name: compound_name
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1501,6 +2381,7 @@ report_columns_013:
   name: name
   updated_at: 2007-01-16 23:52:33
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1525,6 +2406,7 @@ report_columns_040:
   name: updated_by
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -1549,6 +2431,7 @@ report_columns_202:
   name: label
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1573,6 +2456,7 @@ report_columns_014:
   name: description
   updated_at: 2007-01-16 23:52:33
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1597,6 +2481,7 @@ report_columns_121:
   name: created_at
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1614,6 +2499,31 @@ report_columns_121:
   join_model: 
   created_at: 2007-01-28 19:09:30
   order_num: "8"
+report_columns_310: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "384"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "3"
 report_columns_203: 
   is_visible: "1"
   data_element: 
@@ -1621,6 +2531,7 @@ report_columns_203:
   name: row_label
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1645,6 +2556,7 @@ report_columns_015:
   name: avg_values
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -1669,6 +2581,7 @@ report_columns_041:
   name: updated_at
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -1693,6 +2606,7 @@ report_columns_122:
   name: updated_by
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1710,14 +2624,40 @@ report_columns_122:
   join_model: 
   created_at: 2007-01-28 19:09:30
   order_num: "9"
+report_columns_311: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "385"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "4"
 report_columns_230: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: parameter_name
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -1727,8 +2667,8 @@ report_columns_230:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Parameter_name
   join_model: 
@@ -1741,6 +2681,7 @@ report_columns_204:
   name: parameter_name
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1765,6 +2706,7 @@ report_columns_016:
   name: stddev_values
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -1789,6 +2731,7 @@ report_columns_042:
   name: parameter.name
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1813,6 +2756,7 @@ report_columns_123:
   name: updated_at
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1837,6 +2781,7 @@ report_columns_150:
   name: stddev_values
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -1854,14 +2799,40 @@ report_columns_150:
   join_model: 
   created_at: 2007-01-28 20:04:07
   order_num: "11"
+report_columns_312: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "386"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "5"
 report_columns_231: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: data_value
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -1871,8 +2842,8 @@ report_columns_231:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Data_value
   join_model: 
@@ -1885,6 +2856,7 @@ report_columns_205:
   name: data_value
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -1909,6 +2881,7 @@ report_columns_017:
   name: num_values
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -1933,6 +2906,7 @@ report_columns_043:
   name: task.name
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -1957,6 +2931,7 @@ report_columns_070:
   name: assigned_to
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1981,6 +2956,7 @@ report_columns_124:
   name: mandatory
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -1998,14 +2974,40 @@ report_columns_124:
   join_model: 
   created_at: 2007-01-28 19:09:30
   order_num: "11"
-report_columns_232: 
+report_columns_313: 
   is_visible: "0"
   data_element: 
   filter_operation: 
-  name: created_by
-  updated_at: 2007-02-03 16:12:38
+  name: created_at
+  updated_at: 2007-04-18 13:55:41
   created_by: ""
+  join_name: 
   lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "387"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "6"
+report_columns_232: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-03-25 16:44:22
+  created_by: ""
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2015,8 +3017,8 @@ report_columns_232:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Created_by
   join_model: 
@@ -2029,6 +3031,7 @@ report_columns_206:
   name: created_by
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2053,6 +3056,7 @@ report_columns_018:
   name: num_unique
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -2077,6 +3081,7 @@ report_columns_044:
   name: task.experiment.study.name
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -2101,6 +3106,7 @@ report_columns_071:
   name: id
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2125,6 +3131,7 @@ report_columns_125:
   name: default_value
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2149,6 +3156,7 @@ report_columns_151:
   name: num_values
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2166,14 +3174,90 @@ report_columns_151:
   join_model: 
   created_at: 2007-01-28 20:04:07
   order_num: "12"
-report_columns_233: 
+report_columns_340: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "414"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "3"
+report_columns_314: 
   is_visible: "0"
   data_element: 
   filter_operation: 
-  name: created_at
-  updated_at: 2007-02-03 16:12:38
+  name: updated_by
+  updated_at: 2007-04-18 13:55:41
   created_by: ""
+  join_name: 
   lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "388"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "7"
+report_columns_260: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "334"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "1"
+report_columns_233: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-03-25 16:44:22
+  created_by: ""
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2183,8 +3267,8 @@ report_columns_233:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Created_at
   join_model: 
@@ -2197,6 +3281,7 @@ report_columns_019:
   name: max_values
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -2221,6 +3306,7 @@ report_columns_045:
   name: name
   updated_at: 2007-01-17 12:57:20
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2245,6 +3331,7 @@ report_columns_072:
   name: queue.study.name
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2269,6 +3356,7 @@ report_columns_126:
   name: id
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2293,6 +3381,7 @@ report_columns_152:
   name: num_unique
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2317,6 +3406,7 @@ report_columns_207:
   name: created_at
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2334,14 +3424,65 @@ report_columns_207:
   join_model: 
   created_at: 2007-01-29 16:30:44
   order_num: "8"
-report_columns_234: 
+report_columns_341: 
   is_visible: "0"
   data_element: 
   filter_operation: 
-  name: updated_by
-  updated_at: 2007-02-03 16:12:38
+  name: lock_version
+  updated_at: 2007-04-18 22:48:50
   created_by: ""
+  join_name: 
   lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "415"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "4"
+report_columns_315: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "389"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "8"
+report_columns_234: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-03-25 16:44:22
+  created_by: ""
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2351,8 +3492,8 @@ report_columns_234:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Updated_by
   join_model: 
@@ -2365,6 +3506,7 @@ report_columns_046:
   name: description
   updated_at: 2007-01-17 12:57:20
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2389,6 +3531,7 @@ report_columns_073:
   name: queue.name
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2413,6 +3556,7 @@ report_columns_127:
   name: process.name
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2437,6 +3581,7 @@ report_columns_153:
   name: max_values
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2461,6 +3606,7 @@ report_columns_180:
   name: max_values
   updated_at: 2007-01-29 16:12:47
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2485,6 +3631,7 @@ report_columns_208:
   name: updated_by
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2502,14 +3649,90 @@ report_columns_208:
   join_model: 
   created_at: 2007-01-29 16:30:44
   order_num: "9"
-report_columns_235: 
+report_columns_342: 
   is_visible: "0"
   data_element: 
   filter_operation: 
-  name: updated_at
-  updated_at: 2007-02-03 16:12:38
+  name: created_by
+  updated_at: 2007-04-18 22:48:50
   created_by: ""
+  join_name: 
   lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "416"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "5"
+report_columns_316: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "390"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "9"
+report_columns_261: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: formula
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "335"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Formula
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "2"
+report_columns_235: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-03-25 16:44:22
+  created_by: ""
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2519,8 +3742,8 @@ report_columns_235:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Updated_at
   join_model: 
@@ -2533,6 +3756,7 @@ report_columns_047:
   name: assigned_to
   updated_at: 2007-01-17 12:57:20
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2557,6 +3781,7 @@ report_columns_128:
   name: process.protocol.name
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2581,6 +3806,7 @@ report_columns_154:
   name: min_values
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2605,6 +3831,7 @@ report_columns_181:
   name: min_values
   updated_at: 2007-01-29 16:12:46
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2629,6 +3856,7 @@ report_columns_209:
   name: updated_at
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2646,14 +3874,90 @@ report_columns_209:
   join_model: 
   created_at: 2007-01-29 16:30:44
   order_num: "10"
-report_columns_236: 
+report_columns_343: 
   is_visible: "0"
   data_element: 
   filter_operation: 
-  name: id
-  updated_at: 2007-02-03 16:12:38
+  name: created_at
+  updated_at: 2007-04-18 22:48:50
   created_by: ""
+  join_name: 
   lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "417"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "6"
+report_columns_317: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "391"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "0"
+report_columns_262: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: mass
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "336"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Mass
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "3"
+report_columns_236: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-03-25 16:44:22
+  created_by: ""
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2663,8 +3967,8 @@ report_columns_236:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Id
   join_model: 
@@ -2677,6 +3981,7 @@ report_columns_048:
   name: status
   updated_at: 2007-01-17 12:57:20
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2701,6 +4006,7 @@ report_columns_074:
   name: experiment.name
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2725,6 +4031,7 @@ report_columns_129:
   name: process.protocol.study.name
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2749,6 +4056,7 @@ report_columns_155:
   name: parameter.name
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2773,6 +4081,7 @@ report_columns_182:
   name: id
   updated_at: 2007-01-29 16:12:46
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2790,14 +4099,115 @@ report_columns_182:
   join_model: 
   created_at: 2007-01-28 23:35:54
   order_num: "99"
+report_columns_344: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "418"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "7"
+report_columns_318: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "392"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "1"
+report_columns_290: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "364"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "3"
+report_columns_263: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: smiles
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "337"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Smiles
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "4"
 report_columns_237: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: task.id
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2807,8 +4217,8 @@ report_columns_237:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: 
   filter_text: 
   label: Task Id
   join_model: task
@@ -2821,6 +4231,7 @@ report_columns_049:
   name: priority
   updated_at: 2007-01-17 12:57:20
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2845,6 +4256,7 @@ report_columns_075:
   name: task.name
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -2869,6 +4281,7 @@ report_columns_156:
   name: process.protocol.study.name
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2893,6 +4306,7 @@ report_columns_183:
   name: study_parameter_id
   updated_at: 2007-01-29 16:12:47
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -2910,14 +4324,115 @@ report_columns_183:
   join_model: 
   created_at: 2007-01-28 23:35:54
   order_num: "99"
+report_columns_345: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "419"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "8"
+report_columns_319: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "393"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "2"
+report_columns_291: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "365"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "4"
+report_columns_264: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: registration_date
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "338"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Registration_date
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "5"
 report_columns_238: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: task.name
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -2927,8 +4442,8 @@ report_columns_238:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Task Name
   join_model: task
@@ -2941,6 +4456,7 @@ report_columns_076:
   name: accepted_at
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: |+
     --- !ruby/object:Proc {}
@@ -2967,6 +4483,7 @@ report_columns_157:
   name: process.protocol.name
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -2984,6 +4501,81 @@ report_columns_157:
   join_model: process
   created_at: 2007-01-28 20:05:33
   order_num: "2"
+report_columns_346: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "420"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "9"
+report_columns_292: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "366"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "5"
+report_columns_265: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: iupacname
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "339"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Iupacname
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "6"
 report_columns_239: 
   is_visible: "1"
   data_element: 
@@ -2991,6 +4583,7 @@ report_columns_239:
   name: name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -3015,6 +4608,7 @@ report_columns_077:
   name: updated_at
   updated_at: 2007-01-19 10:13:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: |+
     --- !ruby/object:Proc {}
@@ -3041,6 +4635,7 @@ report_columns_158:
   name: process.version
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -3065,6 +4660,7 @@ report_columns_184:
   name: experiment.name
   updated_at: 2007-01-29 16:12:47
   created_by: ""
+  join_name: 
   lock_version: "5"
   action: 
   updated_by: ""
@@ -3082,6 +4678,81 @@ report_columns_184:
   join_model: experiment
   created_at: 2007-01-29 10:29:37
   order_num: "1"
+report_columns_347: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "421"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "0"
+report_columns_293: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "367"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "6"
+report_columns_266: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: batches.quantity_value
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "2"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "340"
+  is_sortable: 
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: 
+  is_filterible: 
+  filter_text: 
+  label: Batches Quantity_value
+  join_model: batches
+  created_at: 2007-03-26 09:55:52
+  order_num: "7"
 report_columns_078: 
   is_visible: "1"
   data_element: 
@@ -3089,6 +4760,7 @@ report_columns_078:
   name: name
   updated_at: 2007-01-19 13:07:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3113,6 +4785,7 @@ report_columns_159:
   name: id
   updated_at: 2007-01-28 20:09:28
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3137,6 +4810,7 @@ report_columns_185:
   name: experiment.study.name
   updated_at: 2007-01-29 16:12:46
   created_by: ""
+  join_name: 
   lock_version: "5"
   action: 
   updated_by: ""
@@ -3154,6 +4828,56 @@ report_columns_185:
   join_model: experiment
   created_at: 2007-01-29 10:29:43
   order_num: "2"
+report_columns_348: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "422"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "1"
+report_columns_267: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "341"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "0"
 report_columns_079: 
   is_visible: "1"
   data_element: 
@@ -3161,6 +4885,7 @@ report_columns_079:
   name: description
   updated_at: 2007-01-19 13:07:09
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3185,6 +4910,7 @@ report_columns_186:
   name: label
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3202,6 +4928,81 @@ report_columns_186:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "0"
+report_columns_349: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-19 10:23:59
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "423"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "51"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-19 10:23:59
+  order_num: "2"
+report_columns_294: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "368"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "7"
+report_columns_268: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "342"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "1"
 report_columns_187: 
   is_visible: "1"
   data_element: 
@@ -3209,6 +5010,7 @@ report_columns_187:
   name: row_label
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3226,6 +5028,56 @@ report_columns_187:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "1"
+report_columns_295: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "369"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "8"
+report_columns_269: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 13:18:26
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "343"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "43"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 13:18:26
+  order_num: "2"
 report_columns_188: 
   is_visible: "1"
   data_element: 
@@ -3233,6 +5085,7 @@ report_columns_188:
   name: row_no
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3250,6 +5103,31 @@ report_columns_188:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "2"
+report_columns_296: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "370"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "9"
 report_columns_189: 
   is_visible: "1"
   data_element: 
@@ -3257,6 +5135,7 @@ report_columns_189:
   name: column_no
   updated_at: 2007-01-29 14:18:34
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3274,6 +5153,56 @@ report_columns_189:
   join_model: 
   created_at: 2007-01-29 14:18:34
   order_num: "3"
+report_columns_297: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "371"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "0"
+report_columns_298: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "372"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "1"
 report_columns_001: 
   is_visible: "1"
   data_element: 
@@ -3281,6 +5210,7 @@ report_columns_001:
   name: name
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "14"
   action: 
   updated_by: ""
@@ -3298,6 +5228,31 @@ report_columns_001:
   join_model: 
   created_at: 2007-01-16 17:57:31
   order_num: "0"
+report_columns_299: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "373"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "2"
 report_columns_002: 
   is_visible: "1"
   data_element: 
@@ -3305,6 +5260,7 @@ report_columns_002:
   name: description
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "14"
   action: 
   updated_by: ""
@@ -3329,6 +5285,7 @@ report_columns_003:
   name: study.name
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "14"
   action: 
   updated_by: ""
@@ -3353,6 +5310,7 @@ report_columns_110:
   name: process.name
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3377,6 +5335,7 @@ report_columns_004:
   name: process.name
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "14"
   action: 
   updated_by: ""
@@ -3401,6 +5360,7 @@ report_columns_030:
   name: name
   updated_at: 2007-01-17 10:33:42
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3425,6 +5385,7 @@ report_columns_111:
   name: process.protocol.name
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3442,6 +5403,31 @@ report_columns_111:
   join_model: process
   created_at: 2007-01-28 19:06:57
   order_num: "6"
+report_columns_300: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "374"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "3"
 report_columns_005: 
   is_visible: "1"
   data_element: 
@@ -3449,6 +5435,7 @@ report_columns_005:
   name: process.version
   updated_at: 2007-01-18 22:36:17
   created_by: ""
+  join_name: 
   lock_version: "14"
   action: 
   updated_by: ""
@@ -3473,6 +5460,7 @@ report_columns_031:
   name: description
   updated_at: 2007-01-17 10:33:42
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3497,6 +5485,7 @@ report_columns_112:
   name: process.protocol.study.name
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3514,6 +5503,31 @@ report_columns_112:
   join_model: process
   created_at: 2007-01-28 19:06:57
   order_num: "7"
+report_columns_301: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "375"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "4"
 report_columns_006: 
   is_visible: "1"
   data_element: 
@@ -3521,6 +5535,7 @@ report_columns_006:
   name: name
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3545,6 +5560,7 @@ report_columns_032:
   name: process.name
   updated_at: 2007-01-17 10:33:42
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -3569,6 +5585,7 @@ report_columns_113:
   name: column_no
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3591,9 +5608,10 @@ report_columns_220:
   data_element: 
   filter_operation: 
   name: parameter_name
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -3610,6 +5628,31 @@ report_columns_220:
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "5"
+report_columns_302: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "376"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "5"
 report_columns_007: 
   is_visible: "1"
   data_element: 
@@ -3617,6 +5660,7 @@ report_columns_007:
   name: description
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3641,6 +5685,7 @@ report_columns_033:
   name: protocol.definition.name
   updated_at: 2007-01-17 10:33:42
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -3665,6 +5710,7 @@ report_columns_060:
   name: stats.role.name
   updated_at: 2007-01-18 23:31:14
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -3689,6 +5735,7 @@ report_columns_114:
   name: sequence_num
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3713,6 +5760,7 @@ report_columns_140:
   name: data_type.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -3735,9 +5783,10 @@ report_columns_221:
   data_element: 
   filter_operation: 
   name: data_value
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -3754,6 +5803,31 @@ report_columns_221:
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "6"
+report_columns_303: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "377"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "6"
 report_columns_008: 
   is_visible: "1"
   data_element: 
@@ -3761,6 +5835,7 @@ report_columns_008:
   name: research_area
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3785,6 +5860,7 @@ report_columns_034:
   name: protocol.definition.description
   updated_at: 2007-01-17 10:33:42
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -3809,6 +5885,7 @@ report_columns_061:
   name: stats.avg_values
   updated_at: 2007-01-18 23:31:22
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -3833,6 +5910,7 @@ report_columns_115:
   name: name
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -3857,6 +5935,7 @@ report_columns_141:
   name: role.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -3879,9 +5958,10 @@ report_columns_222:
   data_element: 
   filter_operation: 
   name: created_by
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -3898,14 +5978,65 @@ report_columns_222:
   join_model: 
   created_at: 2007-01-29 22:37:44
   order_num: "7"
+report_columns_330: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 21:43:40
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "404"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 21:43:40
+  order_num: "3"
+report_columns_304: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "378"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "7"
 report_columns_223: 
   is_visible: 
   data_element: 
   filter_operation: 
   name: created_at
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -3929,6 +6060,7 @@ report_columns_009:
   name: purpose
   updated_at: 2007-01-16 23:51:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -3953,6 +6085,7 @@ report_columns_035:
   name: data_value
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -3977,6 +6110,7 @@ report_columns_062:
   name: stats.num_unique
   updated_at: 2007-01-18 23:31:30
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4001,6 +6135,7 @@ report_columns_116:
   name: description
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4025,6 +6160,7 @@ report_columns_142:
   name: type.name
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4042,14 +6178,90 @@ report_columns_142:
   join_model: type
   created_at: 2007-01-28 19:16:36
   order_num: "19"
+report_columns_331: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "405"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "4"
+report_columns_305: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "379"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "8"
+report_columns_250: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: data_value
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "324"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Data_value
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "6"
 report_columns_224: 
   is_visible: 
   data_element: 
   filter_operation: 
   name: updated_by
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -4073,6 +6285,7 @@ report_columns_036:
   name: data_unit
   updated_at: 2007-01-18 21:01:47
   created_by: ""
+  join_name: 
   lock_version: "9"
   action: 
   updated_by: ""
@@ -4097,6 +6310,7 @@ report_columns_117:
   name: display_unit
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4121,6 +6335,7 @@ report_columns_143:
   name: context.label
   updated_at: 2007-01-28 19:21:32
   created_by: ""
+  join_name: 
   lock_version: "5"
   action: 
   updated_by: ""
@@ -4145,6 +6360,7 @@ report_columns_170:
   name: task.experiment.name
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -4162,14 +6378,90 @@ report_columns_170:
   join_model: task
   created_at: 2007-01-28 22:50:28
   order_num: "3"
+report_columns_332: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "406"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "5"
+report_columns_306: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 13:31:48
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "380"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "46"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 13:31:48
+  order_num: "9"
+report_columns_251: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "325"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "7"
 report_columns_225: 
   is_visible: 
   data_element: 
   filter_operation: 
   name: updated_at
-  updated_at: 2007-01-29 22:41:45
+  updated_at: 2007-03-23 17:33:01
   created_by: ""
-  lock_version: "1"
+  join_name: 
+  lock_version: "2"
   action: 
   updated_by: ""
   sort_num: 
@@ -4193,6 +6485,7 @@ report_columns_037:
   name: lock_version
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -4217,6 +6510,7 @@ report_columns_063:
   name: stats.num_values
   updated_at: 2007-01-18 23:31:41
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -4241,6 +6535,7 @@ report_columns_090:
   name: task.name
   updated_at: 2007-02-08 14:31:21
   created_by: ""
+  join_name: 
   lock_version: "8"
   action: 
   updated_by: ""
@@ -4265,6 +6560,7 @@ report_columns_118:
   name: qualifier_style
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4289,6 +6585,7 @@ report_columns_144:
   name: process.protocol.stage.name
   updated_at: 2007-01-28 19:40:40
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4313,6 +6610,7 @@ report_columns_171:
   name: task.experiment.study.name
   updated_at: 2007-01-28 22:51:46
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -4330,14 +6628,90 @@ report_columns_171:
   join_model: task
   created_at: 2007-01-28 22:50:33
   order_num: "1"
+report_columns_333: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "407"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "6"
+report_columns_307: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "381"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "0"
+report_columns_252: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "326"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "8"
 report_columns_226: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: label
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -4347,8 +6721,8 @@ report_columns_226:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Label
   join_model: 
@@ -4361,6 +6735,7 @@ report_columns_064:
   name: label
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4385,6 +6760,7 @@ report_columns_091:
   name: name
   updated_at: 2007-01-30 15:39:54
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4409,6 +6785,7 @@ report_columns_119:
   name: lock_version
   updated_at: 2007-01-28 19:09:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4433,6 +6810,7 @@ report_columns_145:
   name: process.protocol.study.name
   updated_at: 2007-01-28 19:40:39
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4457,6 +6835,7 @@ report_columns_172:
   name: parameter_id
   updated_at: 2007-01-28 23:12:13
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4481,6 +6860,7 @@ report_columns_038:
   name: created_by
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -4498,14 +6878,140 @@ report_columns_038:
   join_model: 
   created_at: 2007-01-17 10:38:42
   order_num: "0"
+report_columns_360: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-19 11:19:29
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "434"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-19 11:19:29
+  order_num: "3"
+report_columns_334: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "408"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "7"
+report_columns_308: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "382"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "1"
+report_columns_280: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "354"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "3"
+report_columns_253: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "327"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "9"
 report_columns_227: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: row_label
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -4515,8 +7021,8 @@ report_columns_227:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Row_label
   join_model: 
@@ -4529,6 +7035,7 @@ report_columns_065:
   name: comments
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4553,6 +7060,7 @@ report_columns_092:
   name: description
   updated_at: 2007-01-30 15:39:54
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4577,6 +7085,7 @@ report_columns_146:
   name: process.protocol.name
   updated_at: 2007-01-28 19:40:40
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4601,6 +7110,7 @@ report_columns_039:
   name: created_at
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -4618,14 +7128,140 @@ report_columns_039:
   join_model: 
   created_at: 2007-01-17 10:38:42
   order_num: "0"
+report_columns_361: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-19 11:19:29
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "435"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-19 11:19:29
+  order_num: "4"
+report_columns_335: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "409"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "8"
+report_columns_309: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 13:55:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "383"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "47"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 13:55:41
+  order_num: "2"
+report_columns_281: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "355"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "4"
+report_columns_254: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "17"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "328"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: 
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-03-24 17:38:53
+  order_num: "10"
 report_columns_228: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: row_no
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -4635,8 +7271,8 @@ report_columns_228:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Row_no
   join_model: 
@@ -4649,6 +7285,7 @@ report_columns_093:
   name: base_model
   updated_at: 2007-01-30 15:39:54
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4673,6 +7310,7 @@ report_columns_147:
   name: process.version
   updated_at: 2007-01-28 19:40:40
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4697,6 +7335,7 @@ report_columns_173:
   name: study_parameter_id
   updated_at: 2007-01-28 23:34:14
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4721,6 +7360,7 @@ report_columns_066:
   name: status
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4738,14 +7378,115 @@ report_columns_066:
   join_model: 
   created_at: 2007-01-19 10:13:08
   order_num: "99"
+report_columns_362: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: project.name
+  updated_at: 2007-04-19 11:19:48
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "436"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Project Name
+  join_model: project
+  created_at: 2007-04-19 11:19:48
+  order_num: "5"
+report_columns_336: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 21:43:41
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "410"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "49"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 21:43:41
+  order_num: "9"
+report_columns_282: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_by
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "356"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_by
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "5"
+report_columns_255: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: task.experiment.name
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "12"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "329"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Task Experiment Name
+  join_model: task
+  created_at: 2007-03-24 17:48:25
+  order_num: "11"
 report_columns_229: 
   is_visible: "1"
   data_element: 
   filter_operation: 
   name: column_no
-  updated_at: 2007-02-03 16:12:38
+  updated_at: 2007-03-25 16:44:22
   created_by: ""
-  lock_version: "0"
+  join_name: 
+  lock_version: "1"
   action: 
   updated_by: ""
   sort_num: 
@@ -4755,8 +7496,8 @@ report_columns_229:
   description: 
   report_id: "39"
   subject_id: 
-  sort_direction: 
-  is_filterible: "0"
+  sort_direction: ""
+  is_filterible: "1"
   filter_text: 
   label: Column_no
   join_model: 
@@ -4769,6 +7510,7 @@ report_columns_094:
   name: custom_sql
   updated_at: 2007-01-30 15:39:54
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4793,6 +7535,7 @@ report_columns_148:
   name: process.protocol.study.research_area
   updated_at: 2007-01-28 19:40:40
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4817,6 +7560,7 @@ report_columns_174:
   name: study_parameter_id
   updated_at: 2007-01-28 23:34:14
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4841,6 +7585,7 @@ report_columns_067:
   name: priority
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4858,6 +7603,81 @@ report_columns_067:
   join_model: 
   created_at: 2007-01-19 10:13:08
   order_num: "99"
+report_columns_363: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: user.name
+  updated_at: 2007-04-19 11:51:51
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "437"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "52"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: User Name
+  join_model: user
+  created_at: 2007-04-19 11:51:51
+  order_num: "6"
+report_columns_337: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "411"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "0"
+report_columns_256: 
+  is_visible: 
+  data_element: 
+  filter_operation: 
+  name: parameter.type.name
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "9"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "330"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Parameter Type Name
+  join_model: parameter
+  created_at: 2007-03-24 19:42:52
+  order_num: "12"
 report_columns_149: 
   is_visible: "1"
   data_element: 
@@ -4865,6 +7685,7 @@ report_columns_149:
   name: avg_values
   updated_at: 2007-01-28 20:06:51
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -4889,6 +7710,7 @@ report_columns_175:
   name: study_parameter_id
   updated_at: 2007-01-28 23:34:14
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4913,6 +7735,7 @@ report_columns_068:
   name: data_type
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -4937,6 +7760,7 @@ report_columns_095:
   name: id
   updated_at: 2007-01-30 15:39:54
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -4954,6 +7778,81 @@ report_columns_095:
   join_model: 
   created_at: 2007-01-19 15:01:12
   order_num: "4"
+report_columns_338: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "412"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "1"
+report_columns_283: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: created_at
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "357"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Created_at
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "6"
+report_columns_257: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: context.definition.label
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "5"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "331"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Context
+  join_model: context
+  created_at: 2007-03-24 19:48:48
+  order_num: "13"
 report_columns_176: 
   is_visible: "1"
   data_element: 
@@ -4961,6 +7860,7 @@ report_columns_176:
   name: avg_values
   updated_at: 2007-01-29 16:12:46
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -4985,6 +7885,7 @@ report_columns_069:
   name: data_name
   updated_at: 2007-01-19 10:13:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5002,6 +7903,81 @@ report_columns_069:
   join_model: 
   created_at: 2007-01-19 10:13:08
   order_num: "99"
+report_columns_339: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 22:48:50
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "413"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "50"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 22:48:50
+  order_num: "2"
+report_columns_284: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_by
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "358"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_by
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "7"
+report_columns_258: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: parameter.description
+  updated_at: 2007-03-24 19:52:08
+  created_by: ""
+  join_name: 
+  lock_version: "3"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "332"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "41"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Parameter Description
+  join_model: parameter
+  created_at: 2007-03-24 19:51:47
+  order_num: "14"
 report_columns_177: 
   is_visible: "1"
   data_element: 
@@ -5009,6 +7985,7 @@ report_columns_177:
   name: stddev_values
   updated_at: 2007-01-29 16:12:47
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -5033,6 +8010,7 @@ report_columns_096:
   name: name
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5050,6 +8028,56 @@ report_columns_096:
   join_model: 
   created_at: 2007-01-19 15:05:30
   order_num: "0"
+report_columns_285: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: updated_at
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "359"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Updated_at
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "8"
+report_columns_259: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-03-26 09:56:14
+  created_by: ""
+  join_name: 
+  lock_version: "1"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "333"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "42"
+  subject_id: 
+  sort_direction: ""
+  is_filterible: "1"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-03-26 09:55:10
+  order_num: "0"
 report_columns_178: 
   is_visible: "1"
   data_element: 
@@ -5057,6 +8085,7 @@ report_columns_178:
   name: num_values
   updated_at: 2007-01-29 16:12:46
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -5081,6 +8110,7 @@ report_columns_097:
   name: description
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5098,6 +8128,31 @@ report_columns_097:
   join_model: 
   created_at: 2007-01-19 15:05:30
   order_num: "1"
+report_columns_286: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: id
+  updated_at: 2007-04-18 13:18:46
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "360"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "44"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Id
+  join_model: 
+  created_at: 2007-04-18 13:18:46
+  order_num: "9"
 report_columns_179: 
   is_visible: "1"
   data_element: 
@@ -5105,6 +8160,7 @@ report_columns_179:
   name: num_unique
   updated_at: 2007-01-29 16:12:47
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -5129,6 +8185,7 @@ report_columns_098:
   name: research_area
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5146,6 +8203,31 @@ report_columns_098:
   join_model: 
   created_at: 2007-01-19 15:05:30
   order_num: "2"
+report_columns_287: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: name
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "361"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Name
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "0"
 report_columns_099: 
   is_visible: "1"
   data_element: 
@@ -5153,6 +8235,7 @@ report_columns_099:
   name: purpose
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5170,6 +8253,56 @@ report_columns_099:
   join_model: 
   created_at: 2007-01-19 15:05:30
   order_num: "3"
+report_columns_288: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: description
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "362"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Description
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "1"
+report_columns_289: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: research_area
+  updated_at: 2007-04-18 13:31:12
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "363"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "45"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Research_area
+  join_model: 
+  created_at: 2007-04-18 13:31:12
+  order_num: "2"
 report_columns_100: 
   is_visible: "0"
   data_element: 
@@ -5177,6 +8310,7 @@ report_columns_100:
   name: id
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5201,6 +8335,7 @@ report_columns_020:
   name: min_values
   updated_at: 2007-01-16 23:53:37
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5225,6 +8360,7 @@ report_columns_101:
   name: custom_sql
   updated_at: 2007-01-19 15:05:30
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5249,6 +8385,7 @@ report_columns_021:
   name: study.name
   updated_at: 2007-01-16 23:53:33
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -5273,6 +8410,7 @@ report_columns_102:
   name: name
   updated_at: 2007-01-19 15:25:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5297,6 +8435,7 @@ report_columns_022:
   name: name
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -5321,6 +8460,7 @@ report_columns_103:
   name: description
   updated_at: 2007-01-19 15:25:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5345,6 +8485,7 @@ report_columns_210:
   name: usage.name
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "5"
   action: 
   updated_by: ""
@@ -5369,6 +8510,7 @@ report_columns_023:
   name: version
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -5393,6 +8535,7 @@ report_columns_050:
   name: study.name
   updated_at: 2007-01-18 16:17:04
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5417,6 +8560,7 @@ report_columns_104:
   name: id
   updated_at: 2007-01-19 15:25:08
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5441,6 +8585,7 @@ report_columns_130:
   name: type.name
   updated_at: 2007-01-28 19:15:22
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5465,6 +8610,7 @@ report_columns_211:
   name: task.name
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -5489,6 +8635,7 @@ report_columns_024:
   name: lock_version
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -5513,6 +8660,7 @@ report_columns_051:
   name: parameter.context.label
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -5537,6 +8685,7 @@ report_columns_105:
   name: name
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5561,6 +8710,7 @@ report_columns_131:
   name: data_format.name
   updated_at: 2007-01-28 19:15:28
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5585,6 +8735,7 @@ report_columns_212:
   name: task.experiment.name
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "4"
   action: 
   updated_by: ""
@@ -5602,6 +8753,31 @@ report_columns_212:
   join_model: task
   created_at: 2007-01-29 16:44:35
   order_num: "13"
+report_columns_320: 
+  is_visible: "1"
+  data_element: 
+  filter_operation: 
+  name: purpose
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "394"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Purpose
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "3"
 report_columns_025: 
   is_visible: "1"
   data_element: 
@@ -5609,6 +8785,7 @@ report_columns_025:
   name: created_by
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -5633,6 +8810,7 @@ report_columns_106:
   name: description
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5657,6 +8835,7 @@ report_columns_132:
   name: data_element.name
   updated_at: 2007-01-28 19:15:47
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5681,6 +8860,7 @@ report_columns_213:
   name: compound.mass
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "3"
   action: 
   updated_by: ""
@@ -5698,6 +8878,31 @@ report_columns_213:
   join_model: compound
   created_at: 2007-01-29 17:59:11
   order_num: "14"
+report_columns_321: 
+  is_visible: "0"
+  data_element: 
+  filter_operation: 
+  name: lock_version
+  updated_at: 2007-04-18 19:50:42
+  created_by: ""
+  join_name: 
+  lock_version: "0"
+  action: 
+  updated_by: ""
+  sort_num: 
+  id: "395"
+  is_sortable: "1"
+  subject_type: 
+  description: 
+  report_id: "48"
+  subject_id: 
+  sort_direction: 
+  is_filterible: "0"
+  filter_text: 
+  label: Lock_version
+  join_model: 
+  created_at: 2007-04-18 19:50:42
+  order_num: "4"
 report_columns_240: 
   is_visible: "1"
   data_element: 
@@ -5705,6 +8910,7 @@ report_columns_240:
   name: name
   updated_at: 2007-03-01 07:07:52
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5729,6 +8935,7 @@ report_columns_026:
   name: created_at
   updated_at: 2007-01-17 00:10:03
   created_by: ""
+  join_name: 
   lock_version: "7"
   action: 
   updated_by: ""
@@ -5753,6 +8960,7 @@ report_columns_052:
   name: parameter.context.level_no
   updated_at: 2007-01-18 20:11:37
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""
@@ -5777,6 +8985,7 @@ report_columns_107:
   name: research_area
   updated_at: 2007-01-28 19:06:57
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5801,6 +9010,7 @@ report_columns_133:
   name: data_type.name
   updated_at: 2007-01-28 19:15:57
   created_by: ""
+  join_name: 
   lock_version: "1"
   action: 
   updated_by: ""
@@ -5825,6 +9035,7 @@ report_columns_160:
   name: parameter_id
   updated_at: 2007-01-28 20:09:28
   created_by: ""
+  join_name: 
   lock_version: "0"
   action: 
   updated_by: ""
@@ -5849,6 +9060,7 @@ report_columns_214:
   name: compound.formula
   updated_at: 2007-01-29 19:52:26
   created_by: ""
+  join_name: 
   lock_version: "2"
   action: 
   updated_by: ""

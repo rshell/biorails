@@ -75,7 +75,7 @@ class Project < ActiveRecord::Base
 ##
 # list of all folders in the project 
 # 
-  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id'
+  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'path'
 ##
 # Create a project root folder after create of project
 # 
@@ -183,6 +183,13 @@ class Project < ActiveRecord::Base
     return home.folder(item)    
   end
   
+  def folder_options
+     folders.collect do |folder|
+        level = folder.path.split('/').size
+        text ='+'.ljust(level+1,"-") + folder.name
+        [text,folder.id] 
+     end
+  end
 ##
 #Get a folder by path
 #

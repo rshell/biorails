@@ -1,0 +1,1018 @@
+--- 
+task_stats2_100: 
+  task_id: "5"
+  min_values: "0"
+  avg_values: 
+  num_values: "3"
+  parameter_id: "143"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "2"
+task_stats2_085: 
+  task_id: "16"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_001: 
+  task_id: "1"
+  min_values: "1"
+  avg_values: "3.5"
+  num_values: "6"
+  parameter_id: "88"
+  max_values: "6"
+  stddev_values: "1.70782512765993"
+  num_unique: "6"
+task_stats2_022: 
+  task_id: "5"
+  min_values: "128"
+  avg_values: "407"
+  num_values: "3"
+  parameter_id: "145"
+  max_values: "747"
+  stddev_values: "256.36042336263"
+  num_unique: "3"
+task_stats2_043: 
+  task_id: "9"
+  min_values: "39"
+  avg_values: "43.375"
+  num_values: "40"
+  parameter_id: "13"
+  max_values: "49"
+  stddev_values: "2.99739470207045"
+  num_unique: "10"
+task_stats2_064: 
+  task_id: "19"
+  min_values: "7.23536e-13"
+  avg_values: "14.299290322583"
+  num_values: "155"
+  parameter_id: "70"
+  max_values: "33"
+  stddev_values: "8.56503417763362"
+  num_unique: "141"
+task_stats2_086: 
+  task_id: "17"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_023: 
+  task_id: "5"
+  min_values: "20.6"
+  avg_values: "146.866666666667"
+  num_values: "3"
+  parameter_id: "146"
+  max_values: "260"
+  stddev_values: "98.1748553460723"
+  num_unique: "3"
+task_stats2_044: 
+  task_id: "9"
+  min_values: "184"
+  avg_values: "212.725"
+  num_values: "40"
+  parameter_id: "14"
+  max_values: "240"
+  stddev_values: "16.3492927981611"
+  num_unique: "28"
+task_stats2_065: 
+  task_id: "20"
+  min_values: "0"
+  avg_values: "0.02"
+  num_values: "4"
+  parameter_id: "65"
+  max_values: "0.06"
+  stddev_values: "0.0234520787991171"
+  num_unique: "3"
+task_stats2_101: 
+  task_id: "6"
+  min_values: "0"
+  avg_values: 
+  num_values: "9"
+  parameter_id: "204"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "2"
+task_stats2_087: 
+  task_id: "18"
+  min_values: 
+  avg_values: 
+  num_values: "4"
+  parameter_id: "26"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+task_stats2_045: 
+  task_id: "10"
+  min_values: "1"
+  avg_values: "1"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "1"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_066: 
+  task_id: "22"
+  min_values: "0.7"
+  avg_values: "1.07"
+  num_values: "2"
+  parameter_id: "221"
+  max_values: "1.44"
+  stddev_values: "0.37"
+  num_unique: "2"
+task_stats2_002: 
+  task_id: "1"
+  min_values: "5"
+  avg_values: "18.75"
+  num_values: "4"
+  parameter_id: "92"
+  max_values: "40"
+  stddev_values: "13.4047566184545"
+  num_unique: "4"
+task_stats2_102: 
+  task_id: "6"
+  min_values: "1"
+  avg_values: 
+  num_values: "1"
+  parameter_id: "206"
+  max_values: "1"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_088: 
+  task_id: "19"
+  min_values: 
+  avg_values: 
+  num_values: "4"
+  parameter_id: "59"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+task_stats2_067: 
+  task_id: "22"
+  min_values: "0.9"
+  avg_values: "1.005"
+  num_values: "2"
+  parameter_id: "222"
+  max_values: "1.11"
+  stddev_values: "0.105"
+  num_unique: "2"
+task_stats2_003: 
+  task_id: "1"
+  min_values: "8"
+  avg_values: "8"
+  num_values: "6"
+  parameter_id: "94"
+  max_values: "8"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_024: 
+  task_id: "5"
+  min_values: "63"
+  avg_values: "242.333333333333"
+  num_values: "3"
+  parameter_id: "147"
+  max_values: "490"
+  stddev_values: "180.894690051668"
+  num_unique: "3"
+task_stats2_103: 
+  task_id: "7"
+  min_values: "1"
+  avg_values: 
+  num_values: "5"
+  parameter_id: "210"
+  max_values: "1007"
+  stddev_values: 
+  num_unique: "5"
+task_stats2_090: 
+  task_id: "20"
+  min_values: 
+  avg_values: 
+  num_values: "4"
+  parameter_id: "64"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+task_stats2_089: 
+  task_id: "19"
+  min_values: 
+  avg_values: 
+  num_values: "156"
+  parameter_id: "68"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_004: 
+  task_id: "2"
+  min_values: "1"
+  avg_values: "3.5"
+  num_values: "6"
+  parameter_id: "95"
+  max_values: "6"
+  stddev_values: "1.70782512765993"
+  num_unique: "6"
+task_stats2_025: 
+  task_id: "5"
+  min_values: "10.6"
+  avg_values: "82.6"
+  num_values: "3"
+  parameter_id: "148"
+  max_values: "150"
+  stddev_values: "57.0026899950052"
+  num_unique: "3"
+task_stats2_046: 
+  task_id: "10"
+  min_values: "184"
+  avg_values: "212.725"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "240"
+  stddev_values: "16.3492927981611"
+  num_unique: "28"
+task_stats2_104: 
+  task_id: "7"
+  min_values: "0"
+  avg_values: 
+  num_values: "5"
+  parameter_id: "214"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
+task_stats2_091: 
+  task_id: "21"
+  min_values: 
+  avg_values: 
+  num_values: "1"
+  parameter_id: "76"
+  max_values: 
+  stddev_values: 
+  num_unique: "1"
+task_stats2_070: 
+  task_id: "1"
+  min_values: 
+  avg_values: 
+  num_values: "6"
+  parameter_id: "89"
+  max_values: 
+  stddev_values: 
+  num_unique: "6"
+task_stats2_068: 
+  task_id: "22"
+  min_values: "0.56"
+  avg_values: "1.83"
+  num_values: "2"
+  parameter_id: "223"
+  max_values: "3.1"
+  stddev_values: "1.27"
+  num_unique: "2"
+task_stats2_005: 
+  task_id: "2"
+  min_values: "1"
+  avg_values: "8.5"
+  num_values: "48"
+  parameter_id: "97"
+  max_values: "16"
+  stddev_values: "4.60977222864644"
+  num_unique: "16"
+task_stats2_026: 
+  task_id: "5"
+  min_values: "1"
+  avg_values: "10.5833333333333"
+  num_values: "12"
+  parameter_id: "149"
+  max_values: "33"
+  stddev_values: "8.65504027848642"
+  num_unique: "12"
+task_stats2_047: 
+  task_id: "11"
+  min_values: "2"
+  avg_values: "2"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "2"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_105: 
+  task_id: "8"
+  min_values: "0"
+  avg_values: 
+  num_values: "11"
+  parameter_id: "215"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
+task_stats2_092: 
+  task_id: "21"
+  min_values: 
+  avg_values: 
+  num_values: "10"
+  parameter_id: "77"
+  max_values: 
+  stddev_values: 
+  num_unique: "10"
+task_stats2_071: 
+  task_id: "2"
+  min_values: 
+  avg_values: 
+  num_values: "6"
+  parameter_id: "96"
+  max_values: 
+  stddev_values: 
+  num_unique: "6"
+task_stats2_069: 
+  task_id: "22"
+  min_values: "0.56"
+  avg_values: "0.58"
+  num_values: "2"
+  parameter_id: "224"
+  max_values: "0.6"
+  stddev_values: "0.0199999999999975"
+  num_unique: "2"
+task_stats2_006: 
+  task_id: "2"
+  min_values: "1"
+  avg_values: "24.5"
+  num_values: "48"
+  parameter_id: "98"
+  max_values: "48"
+  stddev_values: "13.8533991015442"
+  num_unique: "48"
+task_stats2_027: 
+  task_id: "5"
+  min_values: "1.5"
+  avg_values: "1.5"
+  num_values: "12"
+  parameter_id: "150"
+  max_values: "1.5"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_050: 
+  task_id: "12"
+  min_values: "190"
+  avg_values: "224.675"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "261"
+  stddev_values: "16.9401704536878"
+  num_unique: "31"
+task_stats2_048: 
+  task_id: "11"
+  min_values: "189"
+  avg_values: "219.25"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "250"
+  stddev_values: "16.5087098223938"
+  num_unique: "29"
+task_stats2_106: 
+  task_id: "8"
+  min_values: "1"
+  avg_values: 
+  num_values: "10"
+  parameter_id: "216"
+  max_values: "1006"
+  stddev_values: 
+  num_unique: "5"
+task_stats2_093: 
+  task_id: "22"
+  min_values: 
+  avg_values: 
+  num_values: "2"
+  parameter_id: "217"
+  max_values: 
+  stddev_values: 
+  num_unique: "2"
+task_stats2_072: 
+  task_id: "2"
+  min_values: 
+  avg_values: 
+  num_values: "48"
+  parameter_id: "99"
+  max_values: 
+  stddev_values: 
+  num_unique: "48"
+task_stats2_007: 
+  task_id: "2"
+  min_values: "267"
+  avg_values: "1750.72916666667"
+  num_values: "48"
+  parameter_id: "100"
+  max_values: "3318"
+  stddev_values: "696.696751929636"
+  num_unique: "48"
+task_stats2_030: 
+  task_id: "5"
+  min_values: "0.4"
+  avg_values: "0.591666666666667"
+  num_values: "12"
+  parameter_id: "153"
+  max_values: "1.1"
+  stddev_values: "0.189113428631837"
+  num_unique: "5"
+task_stats2_028: 
+  task_id: "5"
+  min_values: "98.3"
+  avg_values: "406.941666666667"
+  num_values: "12"
+  parameter_id: "151"
+  max_values: "963"
+  stddev_values: "298.671733006695"
+  num_unique: "12"
+task_stats2_051: 
+  task_id: "13"
+  min_values: "4"
+  avg_values: "4"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "4"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_049: 
+  task_id: "12"
+  min_values: "3"
+  avg_values: "3"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "3"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_107: 
+  task_id: "9"
+  min_values: "0"
+  avg_values: 
+  num_values: "1"
+  parameter_id: "7"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_094: 
+  task_id: "1"
+  min_values: "0"
+  avg_values: 
+  num_values: "6"
+  parameter_id: "90"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
+task_stats2_073: 
+  task_id: "5"
+  min_values: 
+  avg_values: 
+  num_values: "1"
+  parameter_id: "140"
+  max_values: 
+  stddev_values: 
+  num_unique: "1"
+task_stats2_010: 
+  task_id: "2"
+  min_values: "21"
+  avg_values: "261.270833333333"
+  num_values: "48"
+  parameter_id: "103"
+  max_values: "837"
+  stddev_values: "185.520297584852"
+  num_unique: "44"
+task_stats2_008: 
+  task_id: "2"
+  min_values: "3"
+  avg_values: "414.395833333333"
+  num_values: "48"
+  parameter_id: "101"
+  max_values: "1133"
+  stddev_values: "261.481654836381"
+  num_unique: "46"
+task_stats2_031: 
+  task_id: "5"
+  min_values: "0.6"
+  avg_values: "0.6"
+  num_values: "1"
+  parameter_id: "154"
+  max_values: "0.6"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_029: 
+  task_id: "5"
+  min_values: "52.7"
+  avg_values: "242.175"
+  num_values: "12"
+  parameter_id: "152"
+  max_values: "700"
+  stddev_values: "200.775708710823"
+  num_unique: "12"
+task_stats2_052: 
+  task_id: "13"
+  min_values: "194"
+  avg_values: "230.225"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "274"
+  stddev_values: "19.716094314037"
+  num_unique: "34"
+task_stats2_110: 
+  task_id: "20"
+  min_values: "0"
+  avg_values: 
+  num_values: "4"
+  parameter_id: "66"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_108: 
+  task_id: "18"
+  min_values: "1"
+  avg_values: 
+  num_values: "2"
+  parameter_id: "158"
+  max_values: "2"
+  stddev_values: 
+  num_unique: "2"
+task_stats2_095: 
+  task_id: "1"
+  min_values: "1"
+  avg_values: 
+  num_values: "5"
+  parameter_id: "91"
+  max_values: "1006"
+  stddev_values: 
+  num_unique: "3"
+task_stats2_074: 
+  task_id: "7"
+  min_values: 
+  avg_values: 
+  num_values: "5"
+  parameter_id: "211"
+  max_values: 
+  stddev_values: 
+  num_unique: "5"
+task_stats2_011: 
+  task_id: "2"
+  min_values: "15"
+  avg_values: "203.6875"
+  num_values: "48"
+  parameter_id: "104"
+  max_values: "573"
+  stddev_values: "135.55567064402"
+  num_unique: "46"
+task_stats2_009: 
+  task_id: "2"
+  min_values: "6"
+  avg_values: "432.1875"
+  num_values: "48"
+  parameter_id: "102"
+  max_values: "969"
+  stddev_values: "207.638573833838"
+  num_unique: "46"
+task_stats2_032: 
+  task_id: "5"
+  min_values: "0.2"
+  avg_values: "0.2"
+  num_values: "1"
+  parameter_id: "155"
+  max_values: "0.2"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_053: 
+  task_id: "14"
+  min_values: "5"
+  avg_values: "5"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "5"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_111: 
+  task_id: "20"
+  min_values: "0"
+  avg_values: 
+  num_values: "4"
+  parameter_id: "67"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "2"
+task_stats2_109: 
+  task_id: "18"
+  min_values: "0"
+  avg_values: 
+  num_values: "4"
+  parameter_id: "159"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "3"
+task_stats2_096: 
+  task_id: "1"
+  min_values: "1005"
+  avg_values: 
+  num_values: "5"
+  parameter_id: "93"
+  max_values: "1005"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_075: 
+  task_id: "8"
+  min_values: 
+  avg_values: 
+  num_values: "4"
+  parameter_id: "17"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+task_stats2_012: 
+  task_id: "2"
+  min_values: "0"
+  avg_values: "211.791666666667"
+  num_values: "48"
+  parameter_id: "105"
+  max_values: "513"
+  stddev_values: "131.154641284842"
+  num_unique: "45"
+task_stats2_033: 
+  task_id: "5"
+  min_values: "2"
+  avg_values: "2"
+  num_values: "1"
+  parameter_id: "156"
+  max_values: "2"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_054: 
+  task_id: "14"
+  min_values: "194"
+  avg_values: "237.425"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "284"
+  stddev_values: "20.8001051680033"
+  num_unique: "31"
+task_stats2_097: 
+  task_id: "4"
+  min_values: "1"
+  avg_values: 
+  num_values: "1"
+  parameter_id: "114"
+  max_values: "1"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_076: 
+  task_id: "9"
+  min_values: 
+  avg_values: 
+  num_values: "1"
+  parameter_id: "8"
+  max_values: 
+  stddev_values: 
+  num_unique: "1"
+task_stats2_034: 
+  task_id: "6"
+  min_values: "1"
+  avg_values: "2"
+  num_values: "3"
+  parameter_id: "203"
+  max_values: "3"
+  stddev_values: "0.816496580927726"
+  num_unique: "3"
+task_stats2_055: 
+  task_id: "15"
+  min_values: "6"
+  avg_values: "6"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "6"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_112: 
+  task_id: "20"
+  min_values: "1"
+  avg_values: 
+  num_values: "4"
+  parameter_id: "213"
+  max_values: "1006"
+  stddev_values: 
+  num_unique: "4"
+task_stats2_098: 
+  task_id: "4"
+  min_values: "0"
+  avg_values: 
+  num_values: "6"
+  parameter_id: "124"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
+task_stats2_077: 
+  task_id: "9"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "12"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_056: 
+  task_id: "15"
+  min_values: "200"
+  avg_values: "243.6"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "294"
+  stddev_values: "22.7165138170451"
+  num_unique: "33"
+task_stats2_013: 
+  task_id: "2"
+  min_values: "0"
+  avg_values: "227.395833333333"
+  num_values: "48"
+  parameter_id: "106"
+  max_values: "502"
+  stddev_values: "149.601100093902"
+  num_unique: "47"
+task_stats2_113: 
+  task_id: "22"
+  min_values: "1"
+  avg_values: 
+  num_values: "2"
+  parameter_id: "218"
+  max_values: "2"
+  stddev_values: 
+  num_unique: "2"
+task_stats2_099: 
+  task_id: "5"
+  min_values: "4"
+  avg_values: 
+  num_values: "1"
+  parameter_id: "136"
+  max_values: "4"
+  stddev_values: 
+  num_unique: "1"
+task_stats2_078: 
+  task_id: "9"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "15"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+task_stats2_014: 
+  task_id: "2"
+  min_values: "202"
+  avg_values: "1107.85416666667"
+  num_values: "48"
+  parameter_id: "108"
+  max_values: "2478"
+  stddev_values: "457.389876982397"
+  num_unique: "47"
+task_stats2_035: 
+  task_id: "6"
+  min_values: "0.003"
+  avg_values: "10.6015"
+  num_values: "2"
+  parameter_id: "205"
+  max_values: "21.2"
+  stddev_values: "10.5985"
+  num_unique: "2"
+task_stats2_080: 
+  task_id: "11"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_015: 
+  task_id: "4"
+  min_values: "58"
+  avg_values: "58"
+  num_values: "1"
+  parameter_id: "117"
+  max_values: "58"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_036: 
+  task_id: "7"
+  min_values: "125"
+  avg_values: "297"
+  num_values: "5"
+  parameter_id: "212"
+  max_values: "456"
+  stddev_values: "147.801217856958"
+  num_unique: "5"
+task_stats2_057: 
+  task_id: "16"
+  min_values: "7"
+  avg_values: "7"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "7"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_081: 
+  task_id: "12"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_079: 
+  task_id: "10"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_016: 
+  task_id: "4"
+  min_values: "20"
+  avg_values: "20"
+  num_values: "1"
+  parameter_id: "118"
+  max_values: "20"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_037: 
+  task_id: "8"
+  min_values: "1"
+  avg_values: "2.5"
+  num_values: "4"
+  parameter_id: "16"
+  max_values: "4"
+  stddev_values: "1.11803398874989"
+  num_unique: "4"
+task_stats2_060: 
+  task_id: "17"
+  min_values: "199"
+  avg_values: "255.525"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "320"
+  stddev_values: "29.4745547040155"
+  num_unique: "32"
+task_stats2_058: 
+  task_id: "16"
+  min_values: "200"
+  avg_values: "250.375"
+  num_values: "40"
+  parameter_id: "25"
+  max_values: "308"
+  stddev_values: "24.849232885544"
+  num_unique: "33"
+task_stats2_082: 
+  task_id: "13"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_017: 
+  task_id: "4"
+  min_values: "1"
+  avg_values: "3.5"
+  num_values: "6"
+  parameter_id: "119"
+  max_values: "6"
+  stddev_values: "1.70782512765993"
+  num_unique: "6"
+task_stats2_040: 
+  task_id: "9"
+  min_values: "40"
+  avg_values: "40"
+  num_values: "1"
+  parameter_id: "9"
+  max_values: "40"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_038: 
+  task_id: "8"
+  min_values: "10"
+  avg_values: "10"
+  num_values: "4"
+  parameter_id: "18"
+  max_values: "10"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_061: 
+  task_id: "18"
+  min_values: "207.8"
+  avg_values: "234.0125"
+  num_values: "32"
+  parameter_id: "57"
+  max_values: "287.3"
+  stddev_values: "19.9263134761551"
+  num_unique: "31"
+task_stats2_059: 
+  task_id: "17"
+  min_values: "8"
+  avg_values: "8"
+  num_values: "1"
+  parameter_id: "23"
+  max_values: "8"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_083: 
+  task_id: "14"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_020: 
+  task_id: "4"
+  min_values: "32.31560341"
+  avg_values: "49.453639725"
+  num_values: "4"
+  parameter_id: "132"
+  max_values: "59.34436767"
+  stddev_values: "10.7004872232304"
+  num_unique: "4"
+task_stats2_018: 
+  task_id: "4"
+  min_values: "5"
+  avg_values: "18.75"
+  num_values: "4"
+  parameter_id: "125"
+  max_values: "40"
+  stddev_values: "13.4047566184545"
+  num_unique: "4"
+task_stats2_041: 
+  task_id: "9"
+  min_values: "200"
+  avg_values: "200"
+  num_values: "1"
+  parameter_id: "10"
+  max_values: "200"
+  stddev_values: "0"
+  num_unique: "1"
+task_stats2_039: 
+  task_id: "8"
+  min_values: "205"
+  avg_values: "212.25"
+  num_values: "4"
+  parameter_id: "19"
+  max_values: "216"
+  stddev_values: "4.26468052730799"
+  num_unique: "3"
+task_stats2_062: 
+  task_id: "18"
+  min_values: "13.02518927"
+  avg_values: "17.5847051121875"
+  num_values: "32"
+  parameter_id: "58"
+  max_values: "21.90915587"
+  stddev_values: "3.22931777988597"
+  num_unique: "32"
+task_stats2_084: 
+  task_id: "15"
+  min_values: 
+  avg_values: 
+  num_values: "40"
+  parameter_id: "24"
+  max_values: 
+  stddev_values: 
+  num_unique: "40"
+task_stats2_021: 
+  task_id: "5"
+  min_values: "10"
+  avg_values: "23.3333333333333"
+  num_values: "3"
+  parameter_id: "144"
+  max_values: "40"
+  stddev_values: "12.4721912892465"
+  num_unique: "3"
+task_stats2_019: 
+  task_id: "4"
+  min_values: "721.75"
+  avg_values: "1107.85416666667"
+  num_values: "6"
+  parameter_id: "131"
+  max_values: "1499.625"
+  stddev_values: "234.620986653948"
+  num_unique: "6"
+task_stats2_042: 
+  task_id: "9"
+  min_values: "1"
+  avg_values: "20.5"
+  num_values: "40"
+  parameter_id: "11"
+  max_values: "40"
+  stddev_values: "11.5433963806152"
+  num_unique: "40"
+task_stats2_063: 
+  task_id: "19"
+  min_values: "1.35848e-14"
+  avg_values: "14.1011612903239"
+  num_values: "155"
+  parameter_id: "69"
+  max_values: "22.07"
+  stddev_values: "8.26849995794847"
+  num_unique: "136"

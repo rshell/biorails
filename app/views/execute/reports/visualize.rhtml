@@ -1,23 +1,10 @@
 <% content_for :sidemenu do%>
-<div>
-  <span class='menu'>Report <%=@report.name%> </span>
-  <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
-  <%= link_to (subject_icon('show.png')) + 'Run', :action => 'show', :id => @report %>
-  <%= link_to (subject_icon('show.png')) + 'Visualize', :action => 'visualize', :id => @report %>
-  <%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @report %>
-  <%= link_to (subject_icon('new.png'))  + 'New', :action => 'new' %>
-  <%= link_to (subject_icon('xls.png')) + 'Export', :action => 'export', :id => @report  %> </li>
-  <%= link_to (subject_icon('destroy.png')) + 'Delete',{ :action => 'destroy', :id => @report }, 
-                    :confirm => 'Are you sure?',:method => "post" %></li>
-  <%= link_to (subject_icon('new.png'))  + 'Uml', :action => 'uml' %>
-</div>
-<%end%>
+  <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
+<% end %>
 
-<h2>   <%=subject_icon('reports')%> Visualize Report Tables [<strong><%=@report.name%></strong>]</h2>
+<h2>   <%=subject_icon('model/report')%> Visualize Report Tables [<strong><%=@report.name%></strong>]</h2>
 
-<div class='panel'>
-  <div id="visualize-model">
-        <%= render :partial => 'visualize' %>  
-  </div>
+<div class="panel" id="visualize-model">
+    <%= render :partial => 'visualize' %>  
 </div>
 

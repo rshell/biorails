@@ -1,2361 +1,3281 @@
 --- 
 permissions_320: 
-  checked: "0"
-  action: update_params
-  subject: plates
-  id: "1264"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: catalogue
+  id: "320"
 permissions_130: 
   checked: "1"
-  action: list
-  subject: request_services
-  id: "1074"
+  action: |
+    --- :update
+
+  subject: study
+  id: "130"
 permissions_321: 
   checked: "1"
-  action: new
-  subject: plates
-  id: "1265"
+  action: |
+    --- :list
+
+  subject: project
+  id: "321"
 permissions_131: 
-  checked: "0"
-  action: index
-  subject: sections
-  id: "1075"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: study
+  id: "131"
 permissions_322: 
-  checked: "0"
-  action: search
-  subject: plates
-  id: "1266"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: project
+  id: "322"
 permissions_132: 
   checked: "1"
-  action: destroy
-  subject: sections
-  id: "1076"
+  action: |
+    --- :list
+
+  subject: catalogue
+  id: "132"
 permissions_370: 
-  checked: "0"
-  action: create
-  subject: batches
-  id: "1314"
+  checked: "1"
+  action: |
+    --- :index
+
+  subject: home
+  id: "370"
 permissions_180: 
   checked: "1"
-  action: show
-  subject: study_parameters
-  id: "1124"
+  action: |
+    --- :desrroy
+
+  subject: users
+  id: "180"
 permissions_323: 
-  checked: "0"
-  action: update_params_filter
-  subject: plates
-  id: "1267"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: project
+  id: "323"
 permissions_133: 
   checked: "1"
-  action: new
-  subject: sections
-  id: "1077"
+  action: |
+    --- :show
+
+  subject: catalogue
+  id: "133"
 permissions_371: 
-  checked: "0"
-  action: update
-  subject: batches
-  id: "1315"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: home
+  id: "371"
 permissions_181: 
   checked: "1"
-  action: list
-  subject: study_parameters
-  id: "1125"
+  action: |
+    --- :list
+
+  subject: report
+  id: "181"
 permissions_324: 
-  checked: "0"
-  action: create
-  subject: plates
-  id: "1268"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: project
+  id: "324"
 permissions_134: 
-  checked: "0"
-  action: create
-  subject: sections
-  id: "1078"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: catalogue
+  id: "134"
 permissions_372: 
   checked: "1"
-  action: edit
-  subject: batches
-  id: "1316"
+  action: |
+    --- :projects
+
+  subject: home
+  id: "372"
 permissions_182: 
-  checked: "0"
-  action: index
-  subject: data_elements
-  id: "1126"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: report
+  id: "182"
 permissions_325: 
-  checked: "0"
-  action: update
-  subject: plates
-  id: "1269"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: project
+  id: "325"
 permissions_135: 
-  checked: "0"
-  action: update
-  subject: sections
-  id: "1079"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: catalogue
+  id: "135"
 permissions_373: 
   checked: "1"
-  action: show
-  subject: batches
-  id: "1317"
+  action: |
+    --- :calendar
+
+  subject: home
+  id: "373"
 permissions_183: 
-  checked: "0"
-  action: add
-  subject: data_elements
-  id: "1127"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: report
+  id: "183"
 permissions_326: 
-  checked: "0"
-  action: return_to_main
-  subject: plates
-  id: "1270"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: project
+  id: "326"
 permissions_136: 
   checked: "1"
-  action: edit
-  subject: sections
-  id: "1080"
+  action: |
+    --- :edit
+
+  subject: catalogue
+  id: "136"
 permissions_374: 
   checked: "1"
-  action: list
-  subject: batches
-  id: "1318"
+  action: |
+    --- :timeline
+
+  subject: home
+  id: "374"
 permissions_184: 
   checked: "1"
-  action: destroy
-  subject: data_elements
-  id: "1128"
+  action: |
+    --- :create
+
+  subject: report
+  id: "184"
 permissions_327: 
-  checked: "0"
-  action: component_update
-  subject: plates
-  id: "1271"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: project
+  id: "327"
 permissions_137: 
   checked: "1"
-  action: show
-  subject: sections
-  id: "1081"
+  action: |
+    --- :update
+
+  subject: catalogue
+  id: "137"
 permissions_375: 
-  checked: "0"
-  action: index
-  subject: system_settings
-  id: "1319"
+  checked: "1"
+  action: |
+    --- :blog
+
+  subject: home
+  id: "375"
 permissions_185: 
-  checked: "0"
-  action: export
-  subject: data_elements
-  id: "1129"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: report
+  id: "185"
 permissions_328: 
   checked: "1"
-  action: edit
-  subject: plates
-  id: "1272"
+  action: |
+    --- :list
+
+  subject: system
+  id: "328"
 permissions_138: 
-  checked: "0"
-  action: index
-  subject: parameters
-  id: "1082"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: catalogue
+  id: "138"
 permissions_376: 
   checked: "1"
-  action: destroy
-  subject: system_settings
-  id: "1320"
+  action: |
+    --- :destroy
+
+  subject: home
+  id: "376"
 permissions_186: 
-  checked: "0"
-  action: update
-  subject: data_elements
-  id: "1130"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: report
+  id: "186"
 permissions_329: 
   checked: "1"
-  action: list
-  subject: plates
-  id: "1273"
+  action: |
+    --- :show
+
+  subject: system
+  id: "329"
 permissions_139: 
   checked: "1"
-  action: show
-  subject: parameters
-  id: "1083"
+  action: |
+    --- :list
+
+  subject: project
+  id: "139"
 permissions_377: 
   checked: "1"
-  action: new
-  subject: system_settings
-  id: "1321"
+  action: |
+    --- :list
+
+  subject: inventory
+  id: "377"
 permissions_187: 
-  checked: "0"
-  action: choices
-  subject: data_elements
-  id: "1131"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: report
+  id: "187"
 permissions_378: 
-  checked: "0"
-  action: create
-  subject: system_settings
-  id: "1322"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: inventory
+  id: "378"
 permissions_188: 
   checked: "1"
-  action: edit
-  subject: data_elements
-  id: "1132"
+  action: |
+    --- :index
+
+  subject: home
+  id: "188"
 permissions_001: 
-  checked: "0"
-  action: index
-  subject: roles
-  id: "945"
+  checked: "1"
+  action: "*"
+  subject: user
+  id: "1"
 permissions_379: 
-  checked: "0"
-  action: update
-  subject: system_settings
-  id: "1323"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: inventory
+  id: "379"
 permissions_189: 
   checked: "1"
-  action: show
-  subject: data_elements
-  id: "1133"
+  action: |
+    --- :show
+
+  subject: home
+  id: "189"
 permissions_002: 
   checked: "1"
-  action: destroy
-  subject: roles
-  id: "946"
+  action: |
+    --- :list
+
+  subject: user
+  id: "2"
 permissions_430: 
-  checked: "0"
-  action: remove_column
-  subject: reports
-  id: "1374"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: cataloge
+  id: "430"
 permissions_240: 
-  checked: "0"
-  action: default_per_page
-  subject: parameter_types
-  id: "1184"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: system
+  id: "240"
 permissions_050: 
   checked: "1"
-  action: new
-  subject: parameter_roles
-  id: "994"
+  action: "*"
+  subject: cataloge
+  id: "50"
 permissions_003: 
   checked: "1"
-  action: new
-  subject: roles
-  id: "947"
+  action: |
+    --- :show
+
+  subject: user
+  id: "3"
 permissions_431: 
-  checked: "0"
-  action: refresh
-  subject: reports
-  id: "1375"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: cataloge
+  id: "431"
 permissions_241: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: parameter_types
-  id: "1185"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: system
+  id: "241"
 permissions_051: 
-  checked: "0"
-  action: update_params_filter
-  subject: parameter_roles
-  id: "995"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: cataloge
+  id: "51"
 permissions_004: 
-  checked: "0"
-  action: create
-  subject: roles
-  id: "948"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: user
+  id: "4"
 permissions_432: 
   checked: "1"
-  action: edit
-  subject: reports
-  id: "1376"
+  action: |
+    --- :desrroy
+
+  subject: cataloge
+  id: "432"
 permissions_242: 
-  checked: "0"
-  action: update_params
-  subject: parameter_types
-  id: "1186"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: system
+  id: "242"
 permissions_052: 
-  checked: "0"
-  action: create
-  subject: parameter_roles
-  id: "996"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: cataloge
+  id: "52"
 permissions_005: 
-  checked: "0"
-  action: update
-  subject: roles
-  id: "949"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: user
+  id: "5"
 permissions_433: 
   checked: "1"
-  action: show
-  subject: reports
-  id: "1377"
+  action: |
+    --- :list
+
+  subject: experiment
+  id: "433"
 permissions_290: 
-  checked: "0"
-  action: modify
-  subject: tasks
-  id: "1234"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: inventory
+  id: "290"
 permissions_243: 
   checked: "1"
-  action: new
-  subject: parameter_types
-  id: "1187"
+  action: |
+    --- :desrroy
+
+  subject: system
+  id: "243"
 permissions_053: 
-  checked: "0"
-  action: update
-  subject: parameter_roles
-  id: "997"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: cataloge
+  id: "53"
 permissions_006: 
   checked: "1"
-  action: edit
-  subject: roles
-  id: "950"
+  action: |
+    --- :edit
+
+  subject: user
+  id: "6"
 permissions_434: 
   checked: "1"
-  action: list
-  subject: reports
-  id: "1378"
+  action: |
+    --- :show
+
+  subject: experiment
+  id: "434"
 permissions_291: 
-  checked: "0"
-  action: create
-  subject: tasks
-  id: "1235"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: inventory
+  id: "291"
 permissions_244: 
-  checked: "0"
-  action: update_params_filter
-  subject: parameter_types
-  id: "1188"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: cataloge
+  id: "244"
 permissions_054: 
-  checked: "0"
-  action: return_to_main
-  subject: parameter_roles
-  id: "998"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: cataloge
+  id: "54"
 permissions_007: 
   checked: "1"
-  action: show
-  subject: roles
-  id: "951"
+  action: |
+    --- :update
+
+  subject: user
+  id: "7"
 permissions_435: 
-  checked: "0"
-  action: diagram
-  subject: reports
-  id: "1379"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: experiment
+  id: "435"
 permissions_292: 
-  checked: "0"
-  action: update
-  subject: tasks
-  id: "1236"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: inventory
+  id: "292"
 permissions_245: 
-  checked: "0"
-  action: create
-  subject: parameter_types
-  id: "1189"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: cataloge
+  id: "245"
 permissions_055: 
-  checked: "0"
-  action: component_update
-  subject: parameter_roles
-  id: "999"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: cataloge
+  id: "55"
 permissions_008: 
   checked: "1"
-  action: list
-  subject: roles
-  id: "952"
+  action: |
+    --- :desrroy
+
+  subject: user
+  id: "8"
 permissions_436: 
-  checked: "0"
-  action: index
-  subject: samples
-  id: "1380"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: experiment
+  id: "436"
 permissions_293: 
-  checked: "0"
-  action: copy
-  subject: tasks
-  id: "1237"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: user
+  id: "293"
 permissions_246: 
-  checked: "0"
-  action: update
-  subject: parameter_types
-  id: "1190"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: cataloge
+  id: "246"
 permissions_056: 
   checked: "1"
-  action: edit
-  subject: parameter_roles
-  id: "1000"
+  action: |
+    --- :update
+
+  subject: cataloge
+  id: "56"
 permissions_009: 
-  checked: "0"
-  action: index
-  subject: data_concepts
-  id: "953"
+  checked: "1"
+  action: "*"
+  subject: auth
+  id: "9"
 permissions_437: 
   checked: "1"
-  action: destroy
-  subject: samples
-  id: "1381"
+  action: |
+    --- :edit
+
+  subject: experiment
+  id: "437"
 permissions_294: 
-  checked: "0"
-  action: refresh_instances
-  subject: tasks
-  id: "1238"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: user
+  id: "294"
 permissions_247: 
-  checked: "0"
-  action: return_to_main
-  subject: parameter_types
-  id: "1191"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: cataloge
+  id: "247"
 permissions_057: 
   checked: "1"
-  action: list
-  subject: parameter_roles
-  id: "1001"
+  action: |
+    --- :desrroy
+
+  subject: cataloge
+  id: "57"
 permissions_438: 
   checked: "1"
-  action: new
-  subject: samples
-  id: "1382"
+  action: |
+    --- :update
+
+  subject: experiment
+  id: "438"
 permissions_295: 
-  checked: "0"
-  action: report
-  subject: tasks
-  id: "1239"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: user
+  id: "295"
 permissions_248: 
-  checked: "0"
-  action: component_update
-  subject: parameter_types
-  id: "1192"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: cataloge
+  id: "248"
 permissions_058: 
-  checked: "0"
-  action: current_sort
-  subject: parameter_roles
-  id: "1002"
+  checked: "1"
+  action: "*"
+  subject: data_capture
+  id: "58"
 permissions_439: 
-  checked: "0"
-  action: create
-  subject: samples
-  id: "1383"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: experiment
+  id: "439"
 permissions_296: 
-  checked: "0"
-  action: cell_change
-  subject: tasks
-  id: "1240"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: user
+  id: "296"
 permissions_249: 
   checked: "1"
-  action: edit
-  subject: parameter_types
-  id: "1193"
+  action: |
+    --- :update
+
+  subject: cataloge
+  id: "249"
 permissions_059: 
-  checked: "0"
-  action: index
-  subject: specimens
-  id: "1003"
+  checked: "1"
+  action: "*"
+  subject: articles
+  id: "59"
 permissions_297: 
   checked: "1"
-  action: edit
-  subject: tasks
-  id: "1241"
+  action: |
+    --- :edit
+
+  subject: user
+  id: "297"
 permissions_298: 
   checked: "1"
-  action: show
-  subject: tasks
-  id: "1242"
+  action: |
+    --- :update
+
+  subject: user
+  id: "298"
 permissions_300: 
-  checked: "0"
-  action: index
-  subject: articles
-  id: "1244"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: protocol
+  id: "300"
 permissions_110: 
-  checked: "0"
-  action: create_element
-  subject: catalogue
-  id: "1054"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: inventory
+  id: "110"
 permissions_301: 
   checked: "1"
-  action: destroy
-  subject: articles
-  id: "1245"
+  action: |
+    --- :show
+
+  subject: protocol
+  id: "301"
 permissions_111: 
   checked: "1"
-  action: new
-  subject: catalogue
-  id: "1055"
+  action: |
+    --- :list
+
+  subject: user
+  id: "111"
 permissions_299: 
   checked: "1"
-  action: list
-  subject: tasks
-  id: "1243"
+  action: |
+    --- :desrroy
+
+  subject: user
+  id: "299"
 permissions_302: 
-  checked: "0"
-  action: approve
-  subject: articles
-  id: "1246"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: protocol
+  id: "302"
 permissions_112: 
-  checked: "0"
-  action: new_usage
-  subject: catalogue
-  id: "1056"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: user
+  id: "112"
 permissions_350: 
-  checked: "0"
-  action: component
-  subject: data_types
-  id: "1294"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: request
+  id: "350"
 permissions_160: 
   checked: "1"
-  action: new
-  subject: data_systems
-  id: "1104"
+  action: |
+    --- :list
+
+  subject: experiment
+  id: "160"
 permissions_303: 
-  checked: "0"
-  action: unapprove
-  subject: articles
-  id: "1247"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: protocol
+  id: "303"
 permissions_113: 
-  checked: "0"
-  action: create_usage
-  subject: catalogue
-  id: "1057"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: user
+  id: "113"
 permissions_351: 
-  checked: "0"
-  action: cancel
-  subject: data_types
-  id: "1295"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: request
+  id: "351"
 permissions_161: 
-  checked: "0"
-  action: export
-  subject: data_systems
-  id: "1105"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: experiment
+  id: "161"
 permissions_304: 
-  checked: "0"
-  action: destroy_comment
-  subject: articles
-  id: "1248"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: protocol
+  id: "304"
 permissions_114: 
-  checked: "0"
-  action: create
-  subject: catalogue
-  id: "1058"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: user
+  id: "114"
 permissions_352: 
-  checked: "0"
-  action: clear_flashes
-  subject: data_types
-  id: "1296"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: request
+  id: "352"
 permissions_162: 
-  checked: "0"
-  action: create
-  subject: data_systems
-  id: "1106"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: experiment
+  id: "162"
 permissions_305: 
-  checked: "0"
-  action: comments
-  subject: articles
-  id: "1249"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: protocol
+  id: "305"
 permissions_115: 
-  checked: "0"
-  action: update
-  subject: catalogue
-  id: "1059"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: user
+  id: "115"
 permissions_353: 
   checked: "1"
-  action: destroy
-  subject: data_types
-  id: "1297"
+  action: |
+    --- :edit
+
+  subject: request
+  id: "353"
 permissions_163: 
-  checked: "0"
-  action: update
-  subject: data_systems
-  id: "1107"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: experiment
+  id: "163"
 permissions_306: 
   checked: "1"
-  action: new
-  subject: articles
-  id: "1250"
+  action: |
+    --- :desrroy
+
+  subject: protocol
+  id: "306"
 permissions_116: 
-  checked: "0"
-  action: remove_element
-  subject: catalogue
-  id: "1060"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: user
+  id: "116"
 permissions_354: 
-  checked: "0"
-  action: default_per_page
-  subject: data_types
-  id: "1298"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: request
+  id: "354"
 permissions_164: 
   checked: "1"
-  action: edit
-  subject: data_systems
-  id: "1108"
+  action: |
+    --- :edit
+
+  subject: experiment
+  id: "164"
 permissions_307: 
-  checked: "0"
-  action: create
-  subject: articles
-  id: "1251"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: study
+  id: "307"
 permissions_117: 
   checked: "1"
-  action: edit
-  subject: catalogue
-  id: "1061"
+  action: |
+    --- :desrroy
+
+  subject: user
+  id: "117"
 permissions_355: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: data_types
-  id: "1299"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: request
+  id: "355"
 permissions_165: 
   checked: "1"
-  action: show
-  subject: data_systems
-  id: "1109"
+  action: |
+    --- :update
+
+  subject: experiment
+  id: "165"
 permissions_118: 
   checked: "1"
-  action: show
-  subject: catalogue
-  id: "1062"
+  action: |
+    --- :list
+
+  subject: protocol
+  id: "118"
 permissions_356: 
-  checked: "0"
-  action: update_params
-  subject: data_types
-  id: "1300"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: users
+  id: "356"
 permissions_166: 
   checked: "1"
-  action: list
-  subject: data_systems
-  id: "1110"
+  action: |
+    --- :desrroy
+
+  subject: experiment
+  id: "166"
 permissions_308: 
-  checked: "0"
-  action: update
-  subject: articles
-  id: "1252"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: study
+  id: "308"
 permissions_119: 
   checked: "1"
-  action: list
-  subject: catalogue
-  id: "1063"
+  action: |
+    --- :show
+
+  subject: protocol
+  id: "119"
 permissions_357: 
   checked: "1"
-  action: new
-  subject: data_types
-  id: "1301"
+  action: |
+    --- :show
+
+  subject: users
+  id: "357"
 permissions_167: 
-  checked: "0"
-  action: index
-  subject: study_parameters
-  id: "1111"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: request
+  id: "167"
 permissions_309: 
   checked: "1"
-  action: edit
-  subject: articles
-  id: "1253"
+  action: |
+    --- :new
+
+  subject: study
+  id: "309"
 permissions_358: 
-  checked: "0"
-  action: update_params_filter
-  subject: data_types
-  id: "1302"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: users
+  id: "358"
 permissions_168: 
-  checked: "0"
-  action: import_file
-  subject: study_parameters
-  id: "1112"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: request
+  id: "168"
 permissions_359: 
-  checked: "0"
-  action: create
-  subject: data_types
-  id: "1303"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: users
+  id: "359"
 permissions_169: 
-  checked: "0"
-  action: locate
-  subject: study_parameters
-  id: "1113"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: request
+  id: "169"
 permissions_410: 
   checked: "1"
-  action: show
-  subject: requests
-  id: "1354"
+  action: |
+    --- :update
+
+  subject: catalogue
+  id: "410"
 permissions_220: 
-  checked: "0"
-  action: task_list
-  subject: data_capture
-  id: "1164"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: study
+  id: "220"
 permissions_030: 
   checked: "1"
-  action: edit
-  subject: experiments
-  id: "974"
+  action: |
+    --- :create
+
+  subject: catalogue
+  id: "30"
 permissions_411: 
   checked: "1"
-  action: list
-  subject: requests
-  id: "1355"
+  action: |
+    --- :desrroy
+
+  subject: catalogue
+  id: "411"
 permissions_221: 
-  checked: "0"
-  action: api
-  subject: data_capture
-  id: "1165"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: study
+  id: "221"
 permissions_031: 
   checked: "1"
-  action: show
-  subject: experiments
-  id: "975"
+  action: |
+    --- :edit
+
+  subject: catalogue
+  id: "31"
 permissions_412: 
-  checked: "0"
-  action: index
-  subject: home
-  id: "1356"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: project
+  id: "412"
 permissions_222: 
-  checked: "0"
-  action: index
-  subject: study_queues
-  id: "1166"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: study
+  id: "222"
 permissions_032: 
   checked: "1"
-  action: list
-  subject: experiments
-  id: "976"
+  action: |
+    --- :update
+
+  subject: catalogue
+  id: "32"
 permissions_460: 
   checked: "1"
-  action: list
-  subject: study_protocols
-  id: "1404"
+  action: |
+    --- :desrroy
+
+  subject: report
+  id: "460"
 permissions_413: 
-  checked: "0"
-  action: calender
-  subject: home
-  id: "1357"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: project
+  id: "413"
 permissions_270: 
   checked: "1"
-  action: new
-  subject: data_formats
-  id: "1214"
+  action: |
+    --- :update
+
+  subject: users
+  id: "270"
 permissions_080: 
-  checked: "0"
-  action: return_to_main
-  subject: study_stages
-  id: "1024"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: users
+  id: "80"
 permissions_223: 
   checked: "1"
-  action: destroy
-  subject: study_queues
-  id: "1167"
+  action: |
+    --- :list
+
+  subject: catalogue
+  id: "223"
 permissions_033: 
-  checked: "0"
-  action: index
-  subject: containers
-  id: "977"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: catalogue
+  id: "33"
 permissions_461: 
-  checked: "0"
-  action: add_parameter
-  subject: study_protocols
-  id: "1405"
-permissions_414: 
-  checked: "0"
-  action: timeline
+  checked: "1"
+  action: |
+    --- :index
+
   subject: home
-  id: "1358"
+  id: "461"
+permissions_414: 
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: project
+  id: "414"
 permissions_271: 
-  checked: "0"
-  action: update_params_filter
-  subject: data_formats
-  id: "1215"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: users
+  id: "271"
 permissions_081: 
-  checked: "0"
-  action: component_update
-  subject: study_stages
-  id: "1025"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: users
+  id: "81"
 permissions_224: 
   checked: "1"
-  action: new
-  subject: study_queues
-  id: "1168"
+  action: |
+    --- :show
+
+  subject: catalogue
+  id: "224"
 permissions_034: 
   checked: "1"
-  action: destroy
-  subject: containers
-  id: "978"
+  action: "*"
+  subject: project
+  id: "34"
 permissions_462: 
-  checked: "0"
-  action: chart
-  subject: charts
-  id: "1406"
-permissions_415: 
-  checked: "0"
-  action: blog
+  checked: "1"
+  action: |
+    --- :show
+
   subject: home
-  id: "1359"
+  id: "462"
+permissions_415: 
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: project
+  id: "415"
 permissions_272: 
-  checked: "0"
-  action: create
-  subject: data_formats
-  id: "1216"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: report
+  id: "272"
 permissions_082: 
   checked: "1"
-  action: edit
-  subject: study_stages
-  id: "1026"
+  action: |
+    --- :edit
+
+  subject: users
+  id: "82"
 permissions_225: 
-  checked: "0"
-  action: manage
-  subject: study_queues
-  id: "1169"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: catalogue
+  id: "225"
 permissions_035: 
   checked: "1"
-  action: new
-  subject: containers
-  id: "979"
+  action: |
+    --- :list
+
+  subject: project
+  id: "35"
 permissions_463: 
-  checked: "0"
-  action: resent_values
-  subject: charts
-  id: "1407"
-permissions_416: 
-  checked: "0"
-  action: todo
+  checked: "1"
+  action: |
+    --- :projects
+
   subject: home
-  id: "1360"
+  id: "463"
+permissions_416: 
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: project
+  id: "416"
 permissions_273: 
-  checked: "0"
-  action: update
-  subject: data_formats
-  id: "1217"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: report
+  id: "273"
 permissions_083: 
   checked: "1"
-  action: list
-  subject: study_stages
-  id: "1027"
+  action: |
+    --- :update
+
+  subject: users
+  id: "83"
 permissions_226: 
-  checked: "0"
-  action: create
-  subject: study_queues
-  id: "1170"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: catalogue
+  id: "226"
 permissions_036: 
-  checked: "0"
-  action: create
-  subject: containers
-  id: "980"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: project
+  id: "36"
 permissions_464: 
-  checked: "0"
-  action: test
-  subject: charts
-  id: "1408"
+  checked: "1"
+  action: |
+    --- :calendar
+
+  subject: home
+  id: "464"
 permissions_417: 
-  checked: "0"
-  action: run
-  subject: reports
-  id: "1361"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: project
+  id: "417"
 permissions_274: 
-  checked: "0"
-  action: return_to_main
-  subject: data_formats
-  id: "1218"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: report
+  id: "274"
 permissions_084: 
-  checked: "0"
-  action: current_sort
-  subject: study_stages
-  id: "1028"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: users
+  id: "84"
 permissions_227: 
-  checked: "0"
-  action: update
-  subject: study_queues
-  id: "1171"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: catalogue
+  id: "227"
 permissions_037: 
-  checked: "0"
-  action: update
-  subject: containers
-  id: "981"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: project
+  id: "37"
 permissions_465: 
-  checked: "0"
-  action: trend_by_task
-  subject: charts
-  id: "1409"
+  checked: "1"
+  action: |
+    --- :timeline
+
+  subject: home
+  id: "465"
 permissions_275: 
-  checked: "0"
-  action: component_update
-  subject: data_formats
-  id: "1219"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: report
+  id: "275"
 permissions_085: 
-  checked: "0"
-  action: index
-  subject: studies
-  id: "1029"
+  checked: "1"
+  action: "*"
+  subject: report
+  id: "85"
 permissions_228: 
-  checked: "0"
-  action: update_item
-  subject: study_queues
-  id: "1172"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: catalogue
+  id: "228"
 permissions_038: 
   checked: "1"
-  action: edit
-  subject: containers
-  id: "982"
+  action: |
+    --- :create
+
+  subject: project
+  id: "38"
 permissions_466: 
-  checked: "0"
-  action: histogram
-  subject: charts
-  id: "1410"
+  checked: "1"
+  action: |
+    --- :blog
+
+  subject: home
+  id: "466"
 permissions_418: 
-  checked: "0"
-  action: refresh_columns
-  subject: reports
-  id: "1362"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: project
+  id: "418"
 permissions_276: 
   checked: "1"
-  action: edit
-  subject: data_formats
-  id: "1220"
+  action: |
+    --- :edit
+
+  subject: report
+  id: "276"
 permissions_086: 
-  checked: "0"
-  action: metrics
-  subject: studies
-  id: "1030"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: report
+  id: "86"
 permissions_229: 
   checked: "1"
-  action: edit
-  subject: study_queues
-  id: "1173"
+  action: |
+    --- :desrroy
+
+  subject: catalogue
+  id: "229"
 permissions_039: 
   checked: "1"
-  action: show
-  subject: containers
-  id: "983"
+  action: |
+    --- :edit
+
+  subject: project
+  id: "39"
 permissions_467: 
-  checked: "0"
-  action: trend_by_hour
-  subject: charts
-  id: "1411"
+  checked: "1"
+  action: |
+    --- :destroy
+
+  subject: home
+  id: "467"
 permissions_419: 
   checked: "1"
-  action: destroy
-  subject: reports
-  id: "1363"
+  action: |
+    --- :list
+
+  subject: system
+  id: "419"
 permissions_277: 
   checked: "1"
-  action: list
-  subject: data_formats
-  id: "1221"
+  action: |
+    --- :update
+
+  subject: report
+  id: "277"
 permissions_087: 
-  checked: "0"
-  action: cancel
-  subject: studies
-  id: "1031"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: report
+  id: "87"
 permissions_468: 
-  checked: "0"
-  action: left_show
-  subject: finder
-  id: "1412"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: inventory
+  id: "468"
 permissions_278: 
-  checked: "0"
-  action: current_sort
-  subject: data_formats
-  id: "1222"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: report
+  id: "278"
 permissions_088: 
-  checked: "0"
-  action: protocols
-  subject: studies
-  id: "1032"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: report
+  id: "88"
 permissions_469: 
-  checked: "0"
-  action: left_hide
-  subject: finder
-  id: "1413"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: inventory
+  id: "469"
 permissions_279: 
-  checked: "0"
-  action: index
-  subject: tasks
-  id: "1223"
+  checked: "1"
+  action: |
+    --- :index
+
+  subject: home
+  id: "279"
 permissions_089: 
   checked: "1"
-  action: destroy
-  subject: studies
-  id: "1033"
+  action: |
+    --- :create
+
+  subject: report
+  id: "89"
 permissions_330: 
-  checked: "0"
-  action: current_sort
-  subject: plates
-  id: "1274"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: system
+  id: "330"
 permissions_140: 
   checked: "1"
-  action: list
-  subject: parameters
-  id: "1084"
+  action: |
+    --- :show
+
+  subject: project
+  id: "140"
 permissions_331: 
-  checked: "0"
-  action: index
-  subject: queue_items
-  id: "1275"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: system
+  id: "331"
 permissions_141: 
-  checked: "0"
-  action: index
-  subject: projects
-  id: "1085"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: project
+  id: "141"
 permissions_332: 
   checked: "1"
-  action: destroy
-  subject: queue_items
-  id: "1276"
+  action: |
+    --- :edit
+
+  subject: system
+  id: "332"
 permissions_142: 
-  checked: "0"
-  action: sort_header_tag
-  subject: projects
-  id: "1086"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: project
+  id: "142"
 permissions_380: 
   checked: "1"
-  action: edit
-  subject: system_settings
-  id: "1324"
+  action: |
+    --- :create
+
+  subject: inventory
+  id: "380"
 permissions_190: 
   checked: "1"
-  action: list
-  subject: data_elements
-  id: "1134"
+  action: |
+    --- :projects
+
+  subject: home
+  id: "190"
 permissions_333: 
   checked: "1"
-  action: new
-  subject: queue_items
-  id: "1277"
+  action: |
+    --- :update
+
+  subject: system
+  id: "333"
 permissions_143: 
-  checked: "0"
-  action: calendar
-  subject: projects
-  id: "1087"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: project
+  id: "143"
 permissions_381: 
   checked: "1"
-  action: show
-  subject: system_settings
-  id: "1325"
+  action: |
+    --- :edit
+
+  subject: inventory
+  id: "381"
 permissions_191: 
-  checked: "0"
-  action: index
-  subject: treatment_groups
-  id: "1135"
+  checked: "1"
+  action: |
+    --- :calendar
+
+  subject: home
+  id: "191"
 permissions_334: 
-  checked: "0"
-  action: create
-  subject: queue_items
-  id: "1278"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: system
+  id: "334"
 permissions_144: 
-  checked: "0"
-  action: gantt
-  subject: projects
-  id: "1088"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: project
+  id: "144"
 permissions_382: 
   checked: "1"
-  action: list
-  subject: system_settings
-  id: "1326"
+  action: |
+    --- :update
+
+  subject: inventory
+  id: "382"
 permissions_192: 
   checked: "1"
-  action: destroy
-  subject: treatment_groups
-  id: "1136"
+  action: |
+    --- :timeline
+
+  subject: home
+  id: "192"
 permissions_335: 
-  checked: "0"
-  action: update
-  subject: queue_items
-  id: "1279"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: cataloge
+  id: "335"
 permissions_145: 
-  checked: "0"
-  action: members
-  subject: projects
-  id: "1089"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: project
+  id: "145"
 permissions_383: 
-  checked: "0"
-  action: index
-  subject: plate_formats
-  id: "1327"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: inventory
+  id: "383"
 permissions_193: 
   checked: "1"
-  action: new
-  subject: treatment_groups
-  id: "1137"
+  action: |
+    --- :blog
+
+  subject: home
+  id: "193"
 permissions_336: 
   checked: "1"
-  action: edit
-  subject: queue_items
-  id: "1280"
+  action: |
+    --- :show
+
+  subject: cataloge
+  id: "336"
 permissions_146: 
-  checked: "0"
-  action: studies
-  subject: projects
-  id: "1090"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: system
+  id: "146"
 permissions_384: 
   checked: "1"
-  action: destroy
-  subject: plate_formats
-  id: "1328"
+  action: |
+    --- :list
+
+  subject: user
+  id: "384"
 permissions_194: 
-  checked: "0"
-  action: create
-  subject: treatment_groups
-  id: "1138"
+  checked: "1"
+  action: |
+    --- :destroy
+
+  subject: home
+  id: "194"
 permissions_337: 
   checked: "1"
-  action: show
-  subject: queue_items
-  id: "1281"
+  action: |
+    --- :new
+
+  subject: cataloge
+  id: "337"
 permissions_147: 
-  checked: "0"
-  action: experiments
-  subject: projects
-  id: "1091"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: system
+  id: "147"
 permissions_385: 
   checked: "1"
-  action: new
-  subject: plate_formats
-  id: "1329"
+  action: |
+    --- :show
+
+  subject: user
+  id: "385"
 permissions_195: 
-  checked: "0"
-  action: update
-  subject: treatment_groups
-  id: "1139"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: inventory
+  id: "195"
 permissions_338: 
   checked: "1"
-  action: list
-  subject: queue_items
-  id: "1282"
+  action: |
+    --- :create
+
+  subject: cataloge
+  id: "338"
 permissions_148: 
-  checked: "0"
-  action: reports
-  subject: projects
-  id: "1092"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: system
+  id: "148"
 permissions_386: 
-  checked: "0"
-  action: create
-  subject: plate_formats
-  id: "1330"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: user
+  id: "386"
 permissions_196: 
   checked: "1"
-  action: edit
-  subject: treatment_groups
-  id: "1140"
+  action: |
+    --- :show
+
+  subject: inventory
+  id: "196"
 permissions_339: 
-  checked: "0"
-  action: index
-  subject: compounds
-  id: "1283"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: cataloge
+  id: "339"
 permissions_149: 
-  checked: "0"
-  action: sort_init
-  subject: projects
-  id: "1093"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: system
+  id: "149"
 permissions_387: 
-  checked: "0"
-  action: update
-  subject: plate_formats
-  id: "1331"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: user
+  id: "387"
 permissions_197: 
   checked: "1"
-  action: show
-  subject: treatment_groups
-  id: "1141"
+  action: |
+    --- :new
+
+  subject: inventory
+  id: "197"
 permissions_200: 
-  checked: "0"
-  action: remove
-  subject: resources
-  id: "1144"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: inventory
+  id: "200"
 permissions_010: 
   checked: "1"
-  action: destroy
-  subject: data_concepts
-  id: "954"
+  action: "*"
+  subject: protocol
+  id: "10"
 permissions_388: 
   checked: "1"
-  action: edit
-  subject: plate_formats
-  id: "1332"
+  action: |
+    --- :edit
+
+  subject: user
+  id: "388"
 permissions_198: 
   checked: "1"
-  action: list
-  subject: treatment_groups
-  id: "1142"
+  action: |
+    --- :create
+
+  subject: inventory
+  id: "198"
 permissions_201: 
-  checked: "0"
-  action: update
-  subject: resources
-  id: "1145"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: inventory
+  id: "201"
 permissions_011: 
   checked: "1"
-  action: new
-  subject: data_concepts
-  id: "955"
+  action: |
+    --- :list
+
+  subject: protocol
+  id: "11"
 permissions_389: 
   checked: "1"
-  action: show
-  subject: plate_formats
-  id: "1333"
+  action: |
+    --- :update
+
+  subject: user
+  id: "389"
 permissions_199: 
-  checked: "0"
-  action: index
-  subject: resources
-  id: "1143"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: inventory
+  id: "199"
 permissions_202: 
   checked: "1"
-  action: edit
-  subject: resources
-  id: "1146"
+  action: |
+    --- :list
+
+  subject: user
+  id: "202"
 permissions_012: 
-  checked: "0"
-  action: export
-  subject: data_concepts
-  id: "956"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: protocol
+  id: "12"
 permissions_440: 
-  checked: "0"
-  action: update
-  subject: samples
-  id: "1384"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: request
+  id: "440"
 permissions_203: 
-  checked: "0"
-  action: upload
-  subject: resources
-  id: "1147"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: user
+  id: "203"
 permissions_013: 
-  checked: "0"
-  action: create
-  subject: data_concepts
-  id: "957"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: protocol
+  id: "13"
 permissions_250: 
   checked: "1"
-  action: list
-  subject: parameter_types
-  id: "1194"
+  action: |
+    --- :desrroy
+
+  subject: cataloge
+  id: "250"
 permissions_060: 
   checked: "1"
-  action: destroy
-  subject: specimens
-  id: "1004"
+  action: "*"
+  subject: experiment
+  id: "60"
 permissions_441: 
   checked: "1"
-  action: edit
-  subject: samples
-  id: "1385"
+  action: |
+    --- :show
+
+  subject: request
+  id: "441"
 permissions_204: 
-  checked: "0"
-  action: task_create
-  subject: data_capture
-  id: "1148"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: user
+  id: "204"
 permissions_014: 
-  checked: "0"
-  action: update
-  subject: data_concepts
-  id: "958"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: protocol
+  id: "14"
 permissions_251: 
-  checked: "0"
-  action: current_sort
-  subject: parameter_types
-  id: "1195"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: experiment
+  id: "251"
 permissions_061: 
   checked: "1"
-  action: new
-  subject: specimens
-  id: "1005"
+  action: |
+    --- :list
+
+  subject: experiment
+  id: "61"
 permissions_442: 
   checked: "1"
-  action: show
-  subject: samples
-  id: "1386"
+  action: |
+    --- :new
+
+  subject: request
+  id: "442"
 permissions_205: 
-  checked: "0"
-  action: invoke
-  subject: data_capture
-  id: "1149"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: user
+  id: "205"
 permissions_015: 
   checked: "1"
-  action: edit
-  subject: data_concepts
-  id: "959"
+  action: |
+    --- :edit
+
+  subject: protocol
+  id: "15"
 permissions_252: 
-  checked: "0"
-  action: index
-  subject: data_contexts
-  id: "1196"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: experiment
+  id: "252"
 permissions_062: 
-  checked: "0"
-  action: create
-  subject: specimens
-  id: "1006"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: experiment
+  id: "62"
 permissions_443: 
   checked: "1"
-  action: list
-  subject: samples
-  id: "1387"
+  action: |
+    --- :create
+
+  subject: request
+  id: "443"
 permissions_206: 
-  checked: "0"
-  action: task_context_create
-  subject: data_capture
-  id: "1150"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: user
+  id: "206"
 permissions_016: 
   checked: "1"
-  action: show
-  subject: data_concepts
-  id: "960"
+  action: |
+    --- :update
+
+  subject: protocol
+  id: "16"
 permissions_253: 
   checked: "1"
-  action: destroy
-  subject: data_contexts
-  id: "1197"
+  action: |
+    --- :new
+
+  subject: experiment
+  id: "253"
 permissions_063: 
-  checked: "0"
-  action: update
-  subject: specimens
-  id: "1007"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: experiment
+  id: "63"
 permissions_444: 
-  checked: "0"
-  action: index
-  subject: study_protocols
-  id: "1388"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: request
+  id: "444"
 permissions_207: 
-  checked: "0"
-  action: task_contexts
-  subject: data_capture
-  id: "1151"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: user
+  id: "207"
 permissions_017: 
   checked: "1"
-  action: list
-  subject: data_concepts
-  id: "961"
+  action: |
+    --- :desrroy
+
+  subject: protocol
+  id: "17"
 permissions_254: 
   checked: "1"
-  action: new
-  subject: data_contexts
-  id: "1198"
+  action: |
+    --- :create
+
+  subject: experiment
+  id: "254"
 permissions_064: 
   checked: "1"
-  action: edit
-  subject: specimens
-  id: "1008"
+  action: |
+    --- :create
+
+  subject: experiment
+  id: "64"
 permissions_445: 
-  checked: "0"
-  action: move_parameter
-  subject: study_protocols
-  id: "1389"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: request
+  id: "445"
 permissions_208: 
-  checked: "0"
-  action: task_context_update
-  subject: data_capture
-  id: "1152"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: user
+  id: "208"
 permissions_018: 
-  checked: "0"
-  action: index
-  subject: experiments
-  id: "962"
+  checked: "1"
+  action: "*"
+  subject: study
+  id: "18"
 permissions_255: 
-  checked: "0"
-  action: export
-  subject: data_contexts
-  id: "1199"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: experiment
+  id: "255"
 permissions_065: 
   checked: "1"
-  action: show
-  subject: specimens
-  id: "1009"
+  action: |
+    --- :edit
+
+  subject: experiment
+  id: "65"
 permissions_446: 
-  checked: "0"
-  action: delete_context
-  subject: study_protocols
-  id: "1390"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: request
+  id: "446"
 permissions_019: 
-  checked: "0"
-  action: import_file
-  subject: experiments
-  id: "963"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: study
+  id: "19"
 permissions_256: 
-  checked: "0"
-  action: create
-  subject: data_contexts
-  id: "1200"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: experiment
+  id: "256"
 permissions_066: 
   checked: "1"
-  action: list
-  subject: specimens
-  id: "1010"
+  action: |
+    --- :update
+
+  subject: experiment
+  id: "66"
 permissions_447: 
-  checked: "0"
-  action: release
-  subject: study_protocols
-  id: "1391"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: users
+  id: "447"
 permissions_209: 
-  checked: "0"
-  action: task_export
-  subject: data_capture
-  id: "1153"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: protocol
+  id: "209"
 permissions_257: 
-  checked: "0"
-  action: update
-  subject: data_contexts
-  id: "1201"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: experiment
+  id: "257"
 permissions_067: 
-  checked: "0"
-  action: current_sort_direction
-  subject: study_stages
-  id: "1011"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: experiment
+  id: "67"
 permissions_448: 
-  checked: "0"
-  action: template
-  subject: study_protocols
-  id: "1392"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: users
+  id: "448"
 permissions_258: 
   checked: "1"
-  action: edit
-  subject: data_contexts
-  id: "1202"
+  action: |
+    --- :list
+
+  subject: request
+  id: "258"
 permissions_068: 
-  checked: "0"
-  action: index
-  subject: study_stages
-  id: "1012"
+  checked: "1"
+  action: "*"
+  subject: page
+  id: "68"
 permissions_449: 
   checked: "1"
-  action: destroy
-  subject: study_protocols
-  id: "1393"
+  action: |
+    --- :new
+
+  subject: users
+  id: "449"
 permissions_259: 
   checked: "1"
-  action: show
-  subject: data_contexts
-  id: "1203"
+  action: |
+    --- :show
+
+  subject: request
+  id: "259"
 permissions_069: 
-  checked: "0"
-  action: component
-  subject: study_stages
-  id: "1013"
+  checked: "1"
+  action: "*"
+  subject: request
+  id: "69"
 permissions_310: 
   checked: "1"
-  action: show
-  subject: articles
-  id: "1254"
+  action: |
+    --- :create
+
+  subject: study
+  id: "310"
 permissions_120: 
-  checked: "0"
-  action: index
-  subject: comments
-  id: "1064"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: protocol
+  id: "120"
 permissions_311: 
-  checked: "0"
-  action: upload
-  subject: articles
-  id: "1255"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: study
+  id: "311"
 permissions_121: 
-  checked: "0"
-  action: close
-  subject: comments
-  id: "1065"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: protocol
+  id: "121"
 permissions_312: 
-  checked: "0"
-  action: current_sort_direction
-  subject: plates
-  id: "1256"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: study
+  id: "312"
 permissions_122: 
-  checked: "0"
-  action: index
-  subject: request_services
-  id: "1066"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: protocol
+  id: "122"
 permissions_313: 
-  checked: "0"
-  action: index
-  subject: plates
-  id: "1257"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: study
+  id: "313"
 permissions_123: 
   checked: "1"
-  action: destroy
-  subject: request_services
-  id: "1067"
+  action: |
+    --- :update
+
+  subject: protocol
+  id: "123"
 permissions_360: 
-  checked: "0"
-  action: update
-  subject: data_types
-  id: "1304"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: users
+  id: "360"
 permissions_170: 
-  checked: "0"
-  action: refresh_type
-  subject: study_parameters
-  id: "1114"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: request
+  id: "170"
 permissions_314: 
-  checked: "0"
-  action: component
-  subject: plates
-  id: "1258"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: catalogue
+  id: "314"
 permissions_124: 
   checked: "1"
-  action: new
-  subject: request_services
-  id: "1068"
+  action: |
+    --- :desrroy
+
+  subject: protocol
+  id: "124"
 permissions_361: 
-  checked: "0"
-  action: return_to_main
-  subject: data_types
-  id: "1305"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: users
+  id: "361"
 permissions_171: 
   checked: "1"
-  action: destroy
-  subject: study_parameters
-  id: "1115"
+  action: |
+    --- :edit
+
+  subject: request
+  id: "171"
 permissions_315: 
-  checked: "0"
-  action: cancel
-  subject: plates
-  id: "1259"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: catalogue
+  id: "315"
 permissions_125: 
-  checked: "0"
-  action: create
-  subject: request_services
-  id: "1069"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: study
+  id: "125"
 permissions_362: 
-  checked: "0"
-  action: component_update
-  subject: data_types
-  id: "1306"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: users
+  id: "362"
 permissions_172: 
-  checked: "0"
-  action: refresh_formats
-  subject: study_parameters
-  id: "1116"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: request
+  id: "172"
 permissions_316: 
-  checked: "0"
-  action: clear_flashes
-  subject: plates
-  id: "1260"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: catalogue
+  id: "316"
 permissions_126: 
-  checked: "0"
-  action: update
-  subject: request_services
-  id: "1070"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: study
+  id: "126"
 permissions_363: 
   checked: "1"
-  action: edit
-  subject: data_types
-  id: "1307"
+  action: |
+    --- :list
+
+  subject: report
+  id: "363"
 permissions_173: 
-  checked: "0"
-  action: import
-  subject: study_parameters
-  id: "1117"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: request
+  id: "173"
 permissions_317: 
   checked: "1"
-  action: destroy
-  subject: plates
-  id: "1261"
+  action: |
+    --- :create
+
+  subject: catalogue
+  id: "317"
 permissions_127: 
-  checked: "0"
-  action: update_item
-  subject: request_services
-  id: "1071"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: study
+  id: "127"
 permissions_364: 
   checked: "1"
-  action: list
-  subject: data_types
-  id: "1308"
+  action: |
+    --- :show
+
+  subject: report
+  id: "364"
 permissions_174: 
-  checked: "0"
-  action: test_save
-  subject: study_parameters
-  id: "1118"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: users
+  id: "174"
 permissions_318: 
-  checked: "0"
-  action: default_per_page
-  subject: plates
-  id: "1262"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: catalogue
+  id: "318"
 permissions_128: 
   checked: "1"
-  action: edit
-  subject: request_services
-  id: "1072"
+  action: |
+    --- :create
+
+  subject: study
+  id: "128"
 permissions_365: 
-  checked: "0"
-  action: current_sort
-  subject: data_types
-  id: "1309"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: report
+  id: "365"
 permissions_175: 
   checked: "1"
-  action: new
-  subject: study_parameters
-  id: "1119"
+  action: |
+    --- :show
+
+  subject: users
+  id: "175"
 permissions_129: 
   checked: "1"
-  action: show
-  subject: request_services
-  id: "1073"
+  action: |
+    --- :edit
+
+  subject: study
+  id: "129"
 permissions_366: 
-  checked: "0"
-  action: index
-  subject: batches
-  id: "1310"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: report
+  id: "366"
 permissions_176: 
-  checked: "0"
-  action: export
-  subject: study_parameters
-  id: "1120"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: users
+  id: "176"
 permissions_319: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: plates
-  id: "1263"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: catalogue
+  id: "319"
 permissions_367: 
   checked: "1"
-  action: destroy
-  subject: batches
-  id: "1311"
+  action: |
+    --- :edit
+
+  subject: report
+  id: "367"
 permissions_177: 
-  checked: "0"
-  action: create
-  subject: study_parameters
-  id: "1121"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: users
+  id: "177"
 permissions_368: 
-  checked: "0"
-  action: auto_complete_for_compound_name
-  subject: batches
-  id: "1312"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: report
+  id: "368"
 permissions_178: 
-  checked: "0"
-  action: update
-  subject: study_parameters
-  id: "1122"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: users
+  id: "178"
 permissions_369: 
   checked: "1"
-  action: new
-  subject: batches
-  id: "1313"
+  action: |
+    --- :desrroy
+
+  subject: report
+  id: "369"
 permissions_179: 
   checked: "1"
-  action: edit
-  subject: study_parameters
-  id: "1123"
+  action: |
+    --- :update
+
+  subject: users
+  id: "179"
 permissions_420: 
-  checked: "0"
-  action: update_column
-  subject: reports
-  id: "1364"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: system
+  id: "420"
 permissions_230: 
   checked: "1"
-  action: show
-  subject: study_queues
-  id: "1174"
+  action: |
+    --- :list
+
+  subject: project
+  id: "230"
 permissions_040: 
   checked: "1"
-  action: list
-  subject: containers
-  id: "984"
+  action: |
+    --- :update
+
+  subject: project
+  id: "40"
 permissions_421: 
-  checked: "0"
-  action: expand
-  subject: reports
-  id: "1365"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: system
+  id: "421"
 permissions_231: 
   checked: "1"
-  action: list
-  subject: study_queues
-  id: "1175"
+  action: |
+    --- :show
+
+  subject: project
+  id: "231"
 permissions_041: 
-  checked: "0"
-  action: current_sort_direction
-  subject: parameter_roles
-  id: "985"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: project
+  id: "41"
 permissions_422: 
-  checked: "0"
-  action: builder
-  subject: reports
-  id: "1366"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: system
+  id: "422"
 permissions_232: 
-  checked: "0"
-  action: authorized?
-  subject: settings
-  id: "1176"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: project
+  id: "232"
 permissions_042: 
-  checked: "0"
-  action: index
-  subject: parameter_roles
-  id: "986"
+  checked: "1"
+  action: "*"
+  subject: system
+  id: "42"
 permissions_470: 
-  checked: "0"
-  action: right_show
-  subject: finder
-  id: "1414"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: inventory
+  id: "470"
 permissions_423: 
   checked: "1"
-  action: new
-  subject: reports
-  id: "1367"
+  action: |
+    --- :edit
+
+  subject: system
+  id: "423"
 permissions_233: 
-  checked: "0"
-  action: update
-  subject: settings
-  id: "1177"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: project
+  id: "233"
 permissions_043: 
-  checked: "0"
-  action: component
-  subject: parameter_roles
-  id: "987"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: system
+  id: "43"
 permissions_280: 
-  checked: "0"
-  action: metrics
-  subject: tasks
-  id: "1224"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: home
+  id: "280"
 permissions_090: 
-  checked: "0"
-  action: notes
-  subject: studies
-  id: "1034"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: report
+  id: "90"
 permissions_471: 
-  checked: "0"
-  action: right_hide
-  subject: finder
-  id: "1415"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: inventory
+  id: "471"
 permissions_424: 
-  checked: "0"
-  action: visualize
-  subject: reports
-  id: "1368"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: system
+  id: "424"
 permissions_234: 
-  checked: "0"
-  action: current_sort_direction
-  subject: parameter_types
-  id: "1178"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: project
+  id: "234"
 permissions_044: 
-  checked: "0"
-  action: cancel
-  subject: parameter_roles
-  id: "988"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: system
+  id: "44"
 permissions_281: 
   checked: "1"
-  action: destroy
-  subject: tasks
-  id: "1225"
+  action: |
+    --- :projects
+
+  subject: home
+  id: "281"
 permissions_091: 
-  checked: "0"
-  action: timeline
-  subject: studies
-  id: "1035"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: report
+  id: "91"
 permissions_472: 
-  checked: "0"
-  action: query
-  subject: finder
-  id: "1416"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: inventory
+  id: "472"
 permissions_425: 
-  checked: "0"
-  action: export
-  subject: reports
-  id: "1369"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: system
+  id: "425"
 permissions_235: 
-  checked: "0"
-  action: index
-  subject: parameter_types
-  id: "1179"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: project
+  id: "235"
 permissions_045: 
-  checked: "0"
-  action: clear_flashes
-  subject: parameter_roles
-  id: "989"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: system
+  id: "45"
 permissions_282: 
-  checked: "0"
-  action: notes
-  subject: tasks
-  id: "1226"
+  checked: "1"
+  action: |
+    --- :calendar
+
+  subject: home
+  id: "282"
 permissions_092: 
-  checked: "0"
-  action: parameters
-  subject: studies
-  id: "1036"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: report
+  id: "92"
+permissions_473: 
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: inventory
+  id: "473"
 permissions_426: 
-  checked: "0"
-  action: create
-  subject: reports
-  id: "1370"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: cataloge
+  id: "426"
 permissions_236: 
-  checked: "0"
-  action: component
-  subject: parameter_types
-  id: "1180"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: project
+  id: "236"
 permissions_046: 
   checked: "1"
-  action: destroy
-  subject: parameter_roles
-  id: "990"
+  action: |
+    --- :create
+
+  subject: system
+  id: "46"
 permissions_283: 
-  checked: "0"
-  action: set_context
-  subject: tasks
-  id: "1227"
+  checked: "1"
+  action: |
+    --- :timeline
+
+  subject: home
+  id: "283"
 permissions_093: 
-  checked: "0"
-  action: queues
-  subject: studies
-  id: "1037"
+  checked: "1"
+  action: "*"
+  subject: home
+  id: "93"
+permissions_474: 
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: inventory
+  id: "474"
 permissions_427: 
-  checked: "0"
-  action: update
-  subject: reports
-  id: "1371"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: cataloge
+  id: "427"
 permissions_237: 
-  checked: "0"
-  action: cancel
-  subject: parameter_types
-  id: "1181"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: system
+  id: "237"
 permissions_047: 
-  checked: "0"
-  action: default_per_page
-  subject: parameter_roles
-  id: "991"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: system
+  id: "47"
 permissions_284: 
-  checked: "0"
-  action: transform
-  subject: tasks
-  id: "1228"
+  checked: "1"
+  action: |
+    --- :blog
+
+  subject: home
+  id: "284"
 permissions_094: 
-  checked: "0"
-  action: experiments
-  subject: studies
-  id: "1038"
+  checked: "1"
+  action: |
+    --- :index
+
+  subject: home
+  id: "94"
 permissions_428: 
-  checked: "0"
-  action: add_column
-  subject: reports
-  id: "1372"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: cataloge
+  id: "428"
 permissions_238: 
-  checked: "0"
-  action: clear_flashes
-  subject: parameter_types
-  id: "1182"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: system
+  id: "238"
 permissions_048: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: parameter_roles
-  id: "992"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: system
+  id: "48"
 permissions_285: 
   checked: "1"
-  action: new
-  subject: tasks
-  id: "1229"
+  action: |
+    --- :destroy
+
+  subject: home
+  id: "285"
 permissions_095: 
-  checked: "0"
-  action: reports
-  subject: studies
-  id: "1039"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: home
+  id: "95"
 permissions_239: 
   checked: "1"
-  action: destroy
-  subject: parameter_types
-  id: "1183"
+  action: |
+    --- :new
+
+  subject: system
+  id: "239"
 permissions_049: 
-  checked: "0"
-  action: update_params
-  subject: parameter_roles
-  id: "993"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: system
+  id: "49"
 permissions_286: 
-  checked: "0"
-  action: sheet
-  subject: tasks
-  id: "1230"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: inventory
+  id: "286"
 permissions_096: 
   checked: "1"
-  action: new
-  subject: studies
-  id: "1040"
+  action: |
+    --- :projects
+
+  subject: home
+  id: "96"
 permissions_429: 
-  checked: "0"
-  action: uml
-  subject: reports
-  id: "1373"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: cataloge
+  id: "429"
 permissions_287: 
-  checked: "0"
-  action: analysis
-  subject: tasks
-  id: "1231"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: inventory
+  id: "287"
 permissions_097: 
-  checked: "0"
-  action: export
-  subject: studies
-  id: "1041"
+  checked: "1"
+  action: |
+    --- :calendar
+
+  subject: home
+  id: "97"
 permissions_100: 
   checked: "1"
-  action: edit
-  subject: studies
-  id: "1044"
+  action: |
+    --- :destroy
+
+  subject: home
+  id: "100"
 permissions_288: 
-  checked: "0"
-  action: export
-  subject: tasks
-  id: "1232"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: inventory
+  id: "288"
 permissions_098: 
-  checked: "0"
-  action: create
-  subject: studies
-  id: "1042"
+  checked: "1"
+  action: |
+    --- :timeline
+
+  subject: home
+  id: "98"
 permissions_101: 
   checked: "1"
-  action: show
-  subject: studies
-  id: "1045"
+  action: "*"
+  subject: finder
+  id: "101"
 permissions_289: 
-  checked: "0"
-  action: view
-  subject: tasks
-  id: "1233"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: inventory
+  id: "289"
 permissions_099: 
-  checked: "0"
-  action: update
-  subject: studies
-  id: "1043"
+  checked: "1"
+  action: |
+    --- :blog
+
+  subject: home
+  id: "99"
 permissions_102: 
   checked: "1"
-  action: list
-  subject: studies
-  id: "1046"
+  action: "*"
+  subject: charts
+  id: "102"
 permissions_340: 
   checked: "1"
-  action: destroy
-  subject: compounds
-  id: "1284"
+  action: |
+    --- :update
+
+  subject: cataloge
+  id: "340"
 permissions_150: 
-  checked: "0"
-  action: feed
-  subject: projects
-  id: "1094"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: system
+  id: "150"
 permissions_103: 
-  checked: "0"
-  action: login
-  subject: auth
-  id: "1047"
+  checked: "1"
+  action: "*"
+  subject: inventory
+  id: "103"
 permissions_341: 
-  checked: "0"
-  action: depict
-  subject: compounds
-  id: "1285"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: cataloge
+  id: "341"
 permissions_151: 
-  checked: "0"
-  action: files
-  subject: projects
-  id: "1095"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: system
+  id: "151"
 permissions_104: 
-  checked: "0"
-  action: logout
-  subject: auth
-  id: "1048"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: inventory
+  id: "104"
 permissions_342: 
   checked: "1"
-  action: new
-  subject: compounds
-  id: "1286"
+  action: |
+    --- :list
+
+  subject: experiment
+  id: "342"
 permissions_152: 
-  checked: "0"
-  action: delete
-  subject: projects
-  id: "1096"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: system
+  id: "152"
 permissions_105: 
-  checked: "0"
-  action: forgotten
-  subject: auth
-  id: "1049"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: inventory
+  id: "105"
 permissions_343: 
-  checked: "0"
-  action: create
-  subject: compounds
-  id: "1287"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: experiment
+  id: "343"
 permissions_153: 
-  checked: "0"
-  action: sort_update
-  subject: projects
-  id: "1097"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: cataloge
+  id: "153"
 permissions_106: 
-  checked: "0"
-  action: login_failed
-  subject: auth
-  id: "1050"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: inventory
+  id: "106"
 permissions_390: 
   checked: "1"
-  action: list
-  subject: plate_formats
-  id: "1334"
+  action: |
+    --- :desrroy
+
+  subject: user
+  id: "390"
 permissions_344: 
-  checked: "0"
-  action: update
-  subject: compounds
-  id: "1288"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: experiment
+  id: "344"
 permissions_154: 
-  checked: "0"
-  action: sort_clause
-  subject: projects
-  id: "1098"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: cataloge
+  id: "154"
 permissions_107: 
-  checked: "0"
-  action: index
-  subject: catalogue
-  id: "1051"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: inventory
+  id: "107"
 permissions_391: 
-  checked: "0"
-  action: index
-  subject: permissions
-  id: "1335"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: protocol
+  id: "391"
 permissions_345: 
   checked: "1"
-  action: edit
-  subject: compounds
-  id: "1289"
+  action: |
+    --- :create
+
+  subject: experiment
+  id: "345"
 permissions_155: 
-  checked: "0"
-  action: folders
-  subject: projects
-  id: "1099"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: cataloge
+  id: "155"
 permissions_108: 
   checked: "1"
-  action: destroy
-  subject: catalogue
-  id: "1052"
+  action: |
+    --- :edit
+
+  subject: inventory
+  id: "108"
 permissions_392: 
   checked: "1"
-  action: destroy
-  subject: permissions
-  id: "1336"
+  action: |
+    --- :show
+
+  subject: protocol
+  id: "392"
 permissions_346: 
   checked: "1"
-  action: show
-  subject: compounds
-  id: "1290"
+  action: |
+    --- :edit
+
+  subject: experiment
+  id: "346"
 permissions_156: 
   checked: "1"
-  action: show
-  subject: projects
-  id: "1100"
+  action: |
+    --- :create
+
+  subject: cataloge
+  id: "156"
 permissions_109: 
-  checked: "0"
-  action: new_element
-  subject: catalogue
-  id: "1053"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: inventory
+  id: "109"
 permissions_393: 
   checked: "1"
-  action: new
-  subject: permissions
-  id: "1337"
+  action: |
+    --- :new
+
+  subject: protocol
+  id: "393"
 permissions_347: 
   checked: "1"
-  action: list
-  subject: compounds
-  id: "1291"
+  action: |
+    --- :update
+
+  subject: experiment
+  id: "347"
 permissions_157: 
-  checked: "0"
-  action: sort_link
-  subject: projects
-  id: "1101"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: cataloge
+  id: "157"
 permissions_394: 
-  checked: "0"
-  action: create
-  subject: permissions
-  id: "1338"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: protocol
+  id: "394"
 permissions_348: 
-  checked: "0"
-  action: current_sort_direction
-  subject: data_types
-  id: "1292"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: experiment
+  id: "348"
 permissions_158: 
-  checked: "0"
-  action: index
-  subject: data_systems
-  id: "1102"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: cataloge
+  id: "158"
 permissions_395: 
-  checked: "0"
-  action: update
-  subject: permissions
-  id: "1339"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: protocol
+  id: "395"
 permissions_349: 
-  checked: "0"
-  action: index
-  subject: data_types
-  id: "1293"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: request
+  id: "349"
 permissions_159: 
   checked: "1"
-  action: destroy
-  subject: data_systems
-  id: "1103"
+  action: |
+    --- :desrroy
+
+  subject: cataloge
+  id: "159"
 permissions_396: 
   checked: "1"
-  action: edit
-  subject: permissions
-  id: "1340"
+  action: |
+    --- :update
+
+  subject: protocol
+  id: "396"
 permissions_397: 
   checked: "1"
-  action: show
-  subject: permissions
-  id: "1341"
+  action: |
+    --- :desrroy
+
+  subject: protocol
+  id: "397"
 permissions_400: 
   checked: "1"
-  action: destroy
-  subject: requests
-  id: "1344"
+  action: |
+    --- :new
+
+  subject: study
+  id: "400"
 permissions_210: 
-  checked: "0"
-  action: invoke_method_params
-  subject: data_capture
-  id: "1154"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: protocol
+  id: "210"
 permissions_020: 
   checked: "1"
-  action: destroy
-  subject: experiments
-  id: "964"
+  action: |
+    --- :show
+
+  subject: study
+  id: "20"
 permissions_398: 
   checked: "1"
-  action: list
-  subject: permissions
-  id: "1342"
+  action: |
+    --- :list
+
+  subject: study
+  id: "398"
 permissions_401: 
-  checked: "0"
-  action: add_item
-  subject: requests
-  id: "1345"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: study
+  id: "401"
 permissions_211: 
-  checked: "0"
-  action: study_list
-  subject: data_capture
-  id: "1155"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: protocol
+  id: "211"
 permissions_021: 
-  checked: "0"
-  action: timeline
-  subject: experiments
-  id: "965"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: study
+  id: "21"
 permissions_399: 
-  checked: "0"
-  action: index
-  subject: requests
-  id: "1343"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: study
+  id: "399"
 permissions_402: 
-  checked: "0"
-  action: remove_item
-  subject: requests
-  id: "1346"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: study
+  id: "402"
 permissions_212: 
-  checked: "0"
-  action: task_import
-  subject: data_capture
-  id: "1156"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: protocol
+  id: "212"
 permissions_022: 
-  checked: "0"
-  action: refresh_allowed_protocols
-  subject: experiments
-  id: "966"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: study
+  id: "22"
 permissions_450: 
-  checked: "0"
-  action: remove_parameter
-  subject: study_protocols
-  id: "1394"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: users
+  id: "450"
 permissions_403: 
-  checked: "0"
-  action: reports
-  subject: requests
-  id: "1347"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: study
+  id: "403"
 permissions_260: 
   checked: "1"
-  action: list
-  subject: data_contexts
-  id: "1204"
+  action: |
+    --- :new
+
+  subject: request
+  id: "260"
 permissions_070: 
-  checked: "0"
-  action: cancel
-  subject: study_stages
-  id: "1014"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: request
+  id: "70"
 permissions_213: 
-  checked: "0"
-  action: invoke_submit
-  subject: data_capture
-  id: "1157"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: protocol
+  id: "213"
 permissions_023: 
-  checked: "0"
-  action: import
-  subject: experiments
-  id: "967"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: study
+  id: "23"
 permissions_451: 
-  checked: "0"
-  action: import
-  subject: study_protocols
-  id: "1395"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: users
+  id: "451"
 permissions_404: 
   checked: "1"
-  action: new
-  subject: requests
-  id: "1348"
+  action: |
+    --- :desrroy
+
+  subject: study
+  id: "404"
 permissions_261: 
-  checked: "0"
-  action: current_sort_direction
-  subject: data_formats
-  id: "1205"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: request
+  id: "261"
 permissions_071: 
-  checked: "0"
-  action: clear_flashes
-  subject: study_stages
-  id: "1015"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: request
+  id: "71"
 permissions_214: 
-  checked: "0"
-  action: process_list
-  subject: data_capture
-  id: "1158"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: protocol
+  id: "214"
 permissions_024: 
-  checked: "0"
-  action: reports
-  subject: experiments
-  id: "968"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: study
+  id: "24"
 permissions_452: 
   checked: "1"
-  action: new
-  subject: study_protocols
-  id: "1396"
+  action: |
+    --- :update
+
+  subject: users
+  id: "452"
 permissions_405: 
-  checked: "0"
-  action: add_service
-  subject: requests
-  id: "1349"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: catalogue
+  id: "405"
 permissions_262: 
-  checked: "0"
-  action: index
-  subject: data_formats
-  id: "1206"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: request
+  id: "262"
 permissions_072: 
   checked: "1"
-  action: destroy
-  subject: study_stages
-  id: "1016"
+  action: |
+    --- :new
+
+  subject: request
+  id: "72"
 permissions_215: 
-  checked: "0"
-  action: parameter_list
-  subject: data_capture
-  id: "1159"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: protocol
+  id: "215"
 permissions_025: 
   checked: "1"
-  action: new
-  subject: experiments
-  id: "969"
+  action: |
+    --- :desrroy
+
+  subject: study
+  id: "25"
 permissions_453: 
-  checked: "0"
-  action: export
-  subject: study_protocols
-  id: "1397"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: users
+  id: "453"
 permissions_406: 
-  checked: "0"
-  action: remove_service
-  subject: requests
-  id: "1350"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: catalogue
+  id: "406"
 permissions_263: 
-  checked: "0"
-  action: component
-  subject: data_formats
-  id: "1207"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: request
+  id: "263"
 permissions_073: 
-  checked: "0"
-  action: default_per_page
-  subject: study_stages
-  id: "1017"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: request
+  id: "73"
 permissions_216: 
-  checked: "0"
-  action: parameter_context_list
-  subject: data_capture
-  id: "1160"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: study
+  id: "216"
 permissions_026: 
-  checked: "0"
-  action: export
-  subject: experiments
-  id: "970"
+  checked: "1"
+  action: "*"
+  subject: catalogue
+  id: "26"
 permissions_454: 
-  checked: "0"
-  action: update_context
-  subject: study_protocols
-  id: "1398"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: report
+  id: "454"
 permissions_264: 
-  checked: "0"
-  action: cancel
-  subject: data_formats
-  id: "1208"
+  checked: "1"
+  action: |
+    --- :desrroy
+
+  subject: request
+  id: "264"
 permissions_074: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: study_stages
-  id: "1018"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: request
+  id: "74"
 permissions_217: 
-  checked: "0"
-  action: protocol_list
-  subject: data_capture
-  id: "1161"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: study
+  id: "217"
 permissions_027: 
-  checked: "0"
-  action: create
-  subject: experiments
-  id: "971"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: catalogue
+  id: "27"
 permissions_455: 
-  checked: "0"
-  action: create
-  subject: study_protocols
-  id: "1399"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: report
+  id: "455"
 permissions_407: 
-  checked: "0"
-  action: create
-  subject: requests
-  id: "1351"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: catalogue
+  id: "407"
 permissions_265: 
-  checked: "0"
-  action: clear_flashes
-  subject: data_formats
-  id: "1209"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: users
+  id: "265"
 permissions_075: 
-  checked: "0"
-  action: update_params
-  subject: study_stages
-  id: "1019"
+  checked: "1"
+  action: |
+    --- :update
+
+  subject: request
+  id: "75"
 permissions_218: 
-  checked: "0"
-  action: experiment_list
-  subject: data_capture
-  id: "1162"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: study
+  id: "218"
 permissions_028: 
-  checked: "0"
-  action: update
-  subject: experiments
-  id: "972"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: catalogue
+  id: "28"
 permissions_456: 
-  checked: "0"
-  action: new_context
-  subject: study_protocols
-  id: "1400"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: report
+  id: "456"
 permissions_408: 
-  checked: "0"
-  action: update
-  subject: requests
-  id: "1352"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: catalogue
+  id: "408"
 permissions_266: 
   checked: "1"
-  action: destroy
-  subject: data_formats
-  id: "1210"
+  action: |
+    --- :show
+
+  subject: users
+  id: "266"
 permissions_076: 
   checked: "1"
-  action: new
-  subject: study_stages
-  id: "1020"
+  action: |
+    --- :desrroy
+
+  subject: request
+  id: "76"
 permissions_219: 
-  checked: "0"
-  action: task_values
-  subject: data_capture
-  id: "1163"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: study
+  id: "219"
 permissions_029: 
-  checked: "0"
-  action: copy
-  subject: experiments
-  id: "973"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: catalogue
+  id: "29"
 permissions_457: 
-  checked: "0"
-  action: update
-  subject: study_protocols
-  id: "1401"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: report
+  id: "457"
 permissions_409: 
   checked: "1"
-  action: edit
-  subject: requests
-  id: "1353"
+  action: |
+    --- :edit
+
+  subject: catalogue
+  id: "409"
 permissions_267: 
-  checked: "0"
-  action: default_per_page
-  subject: data_formats
-  id: "1211"
+  checked: "1"
+  action: |
+    --- :new
+
+  subject: users
+  id: "267"
 permissions_077: 
-  checked: "0"
-  action: update_params_filter
-  subject: study_stages
-  id: "1021"
+  checked: "1"
+  action: "*"
+  subject: users
+  id: "77"
 permissions_458: 
   checked: "1"
-  action: edit
-  subject: study_protocols
-  id: "1402"
+  action: |
+    --- :edit
+
+  subject: report
+  id: "458"
 permissions_268: 
-  checked: "0"
-  action: store_or_get_from_session
-  subject: data_formats
-  id: "1212"
+  checked: "1"
+  action: |
+    --- :create
+
+  subject: users
+  id: "268"
 permissions_078: 
-  checked: "0"
-  action: create
-  subject: study_stages
-  id: "1022"
+  checked: "1"
+  action: |
+    --- :list
+
+  subject: users
+  id: "78"
 permissions_459: 
   checked: "1"
-  action: show
-  subject: study_protocols
-  id: "1403"
+  action: |
+    --- :update
+
+  subject: report
+  id: "459"
 permissions_269: 
-  checked: "0"
-  action: update_params
-  subject: data_formats
-  id: "1213"
+  checked: "1"
+  action: |
+    --- :edit
+
+  subject: users
+  id: "269"
 permissions_079: 
-  checked: "0"
-  action: update
-  subject: study_stages
-  id: "1023"
+  checked: "1"
+  action: |
+    --- :show
+
+  subject: users
+  id: "79"

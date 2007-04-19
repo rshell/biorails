@@ -1,0 +1,10 @@
+<ul class="menu_bar"> 
+     <li><%= link_to l(:Tree),   folder_url(:action=>'selector')  %></li>
+     <li><%= link_to l(:Toc),    folder_url(:action=>'toc')  %>     </li>
+     <li><%= link_to l(:Latest), folder_url(:action=>'clipboard')  %></li>
+</ul>
+    
+<div id='folder_actions'>
+    <%= render :partial => 'selector',:locals=>{:folder=> @project_folder} %>   
+    <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
+</div>

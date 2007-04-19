@@ -125,12 +125,37 @@ class Execute::ReportsController < ApplicationController
 # 
  def show
     @report = Report.find(params[:id])
+    @snapshot_name = Identifier.next_id(current_user.login)
     @data_pages = Paginator.new self, 1000, 100, params[:page]
     @columns = @report.displayed_columns
     @data = @report.run({:limit  =>  @data_pages.items_per_page,
                           :offset =>  @data_pages.current.offset })
  end 
  
+ 
+ 
+###
+# Save a Run of a report to as ProjectContent for reporting
+# 
+ def snapshot
+    @report = Report.find(params[:id])
+    @data = @report.run    
+    @html = render_to_string(:action=>'print', :layout => false)
+    @project_folder  =ProjectFolder.find(params[:folder_id])
+    @project_content = ProjectContent.new
+    @project_content.name = params[:name]
+    @project_content.title = params[:title]
+    @project_content.body_html = @html
+    @project_content.project = current_project
+    if @project_content.save
+        @project_element = @project_folder.add(@project_content)
+        redirect_to folder_url( :action =>'show',:id=>@project_folder )
+    else
+        logger.warning @project_content.to_yaml
+        render :inline => @html
+    end
+ end
+
  
   def visualize
     @report = Report.find(params[:id])
@@ -140,10 +165,9 @@ class Execute::ReportsController < ApplicationController
     Report.find(params[:id]).destroy
     redirect_to :action => 'list'
  end
- 
- 
  ##
  # Alias for show
+ # 
  def run
    show
    render :action =>'show'
@@ -161,62 +185,7 @@ class Execute::ReportsController < ApplicationController
     @data = @report.run({:limit  =>  @data_pages.items_per_page,
                           :offset =>  @data_pages.current.offset })
     render :partial=> 'shared/report_body', :locals => {:report => @report, :data =>@data } 
-
  end
-##
-# This is a simple call to visualize the model the report is based on with all its related models
-# as a simple graph.
-# 
-# params[:id] name of the report
-# params[:levels] defaults to 2 how has down the graph to go
-# params[:many] defaults to 1 how has to follow has_many relationships down
-# params[:style] how to space dot and draw items 
-# 
-# options for style :-
-#  * dot  draws  directed  graphs. 
-#  * neato draws undirected graphs using ‘‘spring’’ models (see Kamada and Kawai, Information  Processing  Letters  31:1,  April  1989).
-#  * twopi draws graphs using a radial layout (see G. Wills, Symposium on Graph Drawing GD’97, September, 1997). 
-#  * circo  draws  graphs using a circular layout (see Six and Tollis, GD ’99 and ALENEX ’99, and Kaufmann and Wiese, GD ’02.) 
-#  * fdp draws undirected graphs using a ‘‘spring’’ model. It relies on a force-directed approach in the spirit of Fruchterman and Rein‐gold (cf. Software-Practice & Experience 21(11), 1991, pp. 1129-1164).
-# 
-#  
-  def report_uml
-    @report = Report.find(params[:id])
-    @options= {}
-    @options[:model]= params[:model]||@report.model
-    @options[:levels]= params[:levels]||2
-    @options[:many]= params[:many]||1
-    @options[:style]= params[:style]||'dot'
-    @options[:disposition]= params[:disposition]||'inline'
-    @options[:type] = 'image/png'
-    @options[:filename] = "model_#{@report.model.to_s.tableize}.png"
-    @image_file = Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),@report.model,params)
-    send_file(@image_file.to_s,@options)   
-  end 
-
-  
-  def uml
-    @models = Biorails::UmlModel.models
-    @options= {}
-    @options[:model]= params[:model]||'Task'
-    @options[:levels]= params[:levels]||2
-    @options[:many]= params[:many]||1
-    @options[:style]= params[:style]||'dot'
-  end
-
-###
-# Simple diagram any model
-# 
-# @todo rjs close security hole on eval of command line 
-# 
-  def diagram
-    model = eval(params[:id])
-    @models = Biorails::UmlModel.models
-    @image_file =  Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
-    puts @image_file
-    send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png')
-  end 
-
   
 ##
 # expand a element of the attribute tree
@@ -241,8 +210,6 @@ class Execute::ReportsController < ApplicationController
              :locals => {:root => @model, :link => @link, :model => @current }
    end
  end
-
-
 #
 #  export Report of Concepts as CVS
 #  
@@ -277,8 +244,7 @@ def export
    @report = Report.find(params[:context])
    @report.set_filter(params[:filter])if params[:filter] 
    @report.add_sort(params[:sort]) if params[:sort]
-   @data = @report.query(:limit=>3)
-    
+   
    @successful=true
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
@@ -292,7 +258,6 @@ def export
    column = ReportColumn.find(params[:id])
    column.customize(params[:column])   
    @successful=column.save
-   @data = @report.run(:limit=>3)
 
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
@@ -308,8 +273,7 @@ def export
    logger.debug "add_column #{text}"
    column = @report.column(text.split("~")[1])
    @successful=column.save
-   @data = @report.run(:limit=>3)
-   
+
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
  end
@@ -323,11 +287,9 @@ def export
    @report = Report.find(params[:context])
    column = ReportColumn.find(params[:id])
    @successful=column.destroy
-   @data = @report.run(:limit=>3)
-   
+
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
  end
-
 
 end

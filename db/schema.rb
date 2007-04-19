@@ -737,6 +737,16 @@ ActiveRecord::Schema.define(:version => 236) do
     t.column "project_id",      :integer
   end
 
+  create_table "role_permissions", :force => true do |t|
+    t.column "role_id",       :integer,               :null => false
+    t.column "permission_id", :integer
+    t.column "subject",       :string,  :limit => 40
+    t.column "action",        :string,  :limit => 40
+  end
+
+  add_index "role_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
+  add_index "role_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
+
   create_table "roles", :force => true do |t|
     t.column "name",            :string,                    :default => "", :null => false
     t.column "parent_id",       :integer
@@ -749,16 +759,6 @@ ActiveRecord::Schema.define(:version => 236) do
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
   add_index "roles", ["default_page_id"], :name => "fk_role_default_page_id"
-
-  create_table "roles_permissions", :force => true do |t|
-    t.column "role_id",       :integer,               :null => false
-    t.column "permission_id", :integer,               :null => false
-    t.column "subject",       :string,  :limit => 40
-    t.column "action",        :string,  :limit => 40
-  end
-
-  add_index "roles_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
-  add_index "roles_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
 
   create_table "samples", :force => true do |t|
   end

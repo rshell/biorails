@@ -29,11 +29,13 @@ This folder is referenced to the following
   <tbody>  
     <% for item in folder.children %>
       <tr class="<%= cycle('odd', 'even') %>">
-    	<td><%=subject_icon(item.style) %>
-    	    <%= link_to_remote item.name, :url=>element_to_url(item),
-    	                   :update=>:centre, 
-    	                   :complete => " tinyMCE.execCommand('mceAddControl',true,'project_content_body_html' );" %></td>
-          
+    	<td>
+    	    <%= link_to item.name, element_to_url(item) %>
+    	               
+            <%if item.reference?%>
+    	       <%= link_to "["+subject_icon(item.style)+"]", reference_to_url(item)  %>
+    	    <%end %>
+        </td>  
     	<td>
     	<% if item.asset? %>
     	  <%= image_tag(item.asset.public_filename(:icon)) if item.asset.image?%>

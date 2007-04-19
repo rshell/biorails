@@ -1,103 +1,493 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: study_statistics
-#
-#  id                :integer(11)   primary key
-#  study_id          :integer(11)   
-#  parameter_role_id :integer(11)   
-#  parameter_type_id :integer(11)   
-#  data_type_id      :integer(11)   
-#  avg_values        :float         
-#  stddev_values     :float         
-#  num_values        :integer(20)   default(0), not null
-#  num_unique        :integer(20)   default(0), not null
-#  max_values        :float         
-#  min_values        :float         
-#
-
 --- 
-study_statistics_001: 
+study_statistics_034: 
+  parameter_type_id: "17"
+  parameter_role_id: "3"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "1"
+  id: "19"
+  study_id: "1"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "1"
+study_statistics_023: 
+  parameter_type_id: "7"
+  parameter_role_id: "1"
+  min_values: "0.003"
+  avg_values: "10.6015"
+  data_type_id: "2"
+  num_values: "2"
+  id: "57"
+  study_id: "4"
+  max_values: "21.2"
+  stddev_values: "10.5985"
+  num_unique: "2"
+study_statistics_012: 
   parameter_type_id: "6"
   parameter_role_id: "1"
-  min_values: "11"
-  avg_values: "688.828125"
+  min_values: "0"
+  avg_values: "576.1640625"
   data_type_id: "2"
-  num_values: "128"
+  num_values: "384"
   id: "28"
   study_id: "2"
-  max_values: "3047"
-  stddev_values: "696.41834936623"
-  num_unique: "61"
-study_statistics_002: 
-  parameter_type_id: "5"
-  parameter_role_id: "3"
-  min_values: "1"
-  avg_values: "18.7142857142857"
+  max_values: "3318"
+  stddev_values: "622.490187054647"
+  num_unique: "323"
+study_statistics_001: 
+  parameter_type_id: "3"
+  parameter_role_id: "1"
+  min_values: "1.35848e-14"
+  avg_values: "14.2002258064534"
   data_type_id: "2"
-  num_values: "35"
-  id: "26"
-  study_id: "2"
-  max_values: "444"
-  stddev_values: "73.0532375066573"
-  num_unique: "9"
-study_statistics_003: 
-  parameter_type_id: "12"
+  num_values: "310"
+  id: "3"
+  study_id: "1"
+  max_values: "33"
+  stddev_values: "8.41865575894806"
+  num_unique: "197"
+study_statistics_035: 
+  parameter_type_id: "19"
   parameter_role_id: "3"
-  min_values: "18"
-  avg_values: "21.3333333333333"
-  data_type_id: "2"
-  num_values: "12"
-  id: "33"
-  study_id: "2"
-  max_values: "30"
-  stddev_values: "3.94405318873308"
-  num_unique: "3"
-study_statistics_004: 
-  parameter_type_id: "1"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "20"
+  id: "6"
+  study_id: "1"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
+study_statistics_024: 
+  parameter_type_id: "14"
   parameter_role_id: "6"
+  min_values: "1"
+  avg_values: "2"
+  data_type_id: "2"
+  num_values: "3"
+  id: "46"
+  study_id: "4"
+  max_values: "3"
+  stddev_values: "0.816496580927726"
+  num_unique: "3"
+study_statistics_013: 
+  parameter_type_id: "3"
+  parameter_role_id: "2"
+  min_values: "32.31560341"
+  avg_values: "51.16291178"
+  data_type_id: "2"
+  num_values: "5"
+  id: "34"
+  study_id: "2"
+  max_values: "59.34436767"
+  stddev_values: "10.1630106407319"
+  num_unique: "5"
+study_statistics_002: 
+  parameter_type_id: "7"
+  parameter_role_id: "1"
+  min_values: "13.02518927"
+  avg_values: "215.796987298107"
+  data_type_id: "2"
+  num_values: "428"
+  id: "2"
+  study_id: "1"
+  max_values: "320"
+  stddev_values: "61.3517982579735"
+  num_unique: "161"
+study_statistics_036: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  min_values: "1"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "23"
+  id: "15"
+  study_id: "1"
+  max_values: "1007"
+  stddev_values: 
+  num_unique: "6"
+study_statistics_025: 
+  parameter_type_id: "1"
+  parameter_role_id: "3"
+  min_values: 
+  avg_values: 
+  data_type_id: "1"
+  num_values: "51"
+  id: "8"
+  study_id: "1"
+  max_values: 
+  stddev_values: 
+  num_unique: "4"
+study_statistics_014: 
+  parameter_type_id: "4"
+  parameter_role_id: "2"
+  min_values: "721.75"
+  avg_values: "1107.85416666667"
+  data_type_id: "2"
+  num_values: "6"
+  id: "37"
+  study_id: "2"
+  max_values: "1499.625"
+  stddev_values: "234.620986653948"
+  num_unique: "6"
+study_statistics_003: 
+  parameter_type_id: "4"
+  parameter_role_id: "2"
+  min_values: "0"
+  avg_values: "0.02"
+  data_type_id: "2"
+  num_values: "4"
+  id: "4"
+  study_id: "1"
+  max_values: "0.06"
+  stddev_values: "0.0234520787991171"
+  num_unique: "3"
+study_statistics_037: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  min_values: "1"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "12"
+  id: "29"
+  study_id: "2"
+  max_values: "1006"
+  stddev_values: 
+  num_unique: "5"
+study_statistics_026: 
+  parameter_type_id: "1"
+  parameter_role_id: "3"
   min_values: 
   avg_values: 
   data_type_id: "1"
   num_values: "4"
-  id: "30"
-  study_id: "2"
+  id: "10"
+  study_id: "1"
   max_values: 
   stddev_values: 
   num_unique: "4"
-study_statistics_005: 
-  parameter_type_id: "22"
-  parameter_role_id: "6"
-  min_values: 
-  avg_values: 
-  data_type_id: "4"
-  num_values: "16"
-  id: "27"
+study_statistics_015: 
+  parameter_type_id: "7"
+  parameter_role_id: "2"
+  min_values: "0.2"
+  avg_values: "0.564285714285714"
+  data_type_id: "2"
+  num_values: "14"
+  id: "43"
   study_id: "2"
-  max_values: 
-  stddev_values: 
-  num_unique: "8"
-study_statistics_006: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  min_values: "8"
+  max_values: "1.1"
+  stddev_values: "0.20215673854407"
+  num_unique: "6"
+study_statistics_004: 
+  parameter_type_id: "14"
+  parameter_role_id: "2"
+  min_values: "0.56"
+  avg_values: "1.12125"
+  data_type_id: "2"
+  num_values: "8"
+  id: "23"
+  study_id: "1"
+  max_values: "3.1"
+  stddev_values: "0.801973152605497"
+  num_unique: "7"
+study_statistics_038: 
+  parameter_type_id: "15"
+  parameter_role_id: "6"
+  min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "6"
-  id: "29"
+  num_values: "3"
+  id: "38"
   study_id: "2"
-  max_values: "215"
+  max_values: "0"
   stddev_values: 
-  num_unique: "6"
-study_statistics_007: 
+  num_unique: "2"
+study_statistics_027: 
+  parameter_type_id: "1"
+  parameter_role_id: "3"
+  min_values: 
+  avg_values: 
+  data_type_id: "1"
+  num_values: "530"
+  id: "21"
+  study_id: "1"
+  max_values: 
+  stddev_values: 
+  num_unique: "45"
+study_statistics_016: 
+  parameter_type_id: "9"
+  parameter_role_id: "2"
+  min_values: "20.6"
+  avg_values: "363.605555555556"
+  data_type_id: "2"
+  num_values: "18"
+  id: "41"
+  study_id: "2"
+  max_values: "963"
+  stddev_values: "285.350393711588"
+  num_unique: "18"
+study_statistics_005: 
+  parameter_type_id: "5"
+  parameter_role_id: "3"
+  min_values: "1"
+  avg_values: "18.8636363636364"
+  data_type_id: "2"
+  num_values: "44"
+  id: "7"
+  study_id: "1"
+  max_values: "40"
+  stddev_values: "12.166628929335"
+  num_unique: "40"
+study_statistics_039: 
   parameter_type_id: "19"
   parameter_role_id: "6"
   min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "8"
+  num_values: "12"
   id: "31"
   study_id: "2"
   max_values: "0"
   stddev_values: 
   num_unique: "4"
+study_statistics_028: 
+  parameter_type_id: "1"
+  parameter_role_id: "3"
+  min_values: 
+  avg_values: 
+  data_type_id: "1"
+  num_values: "1"
+  id: "22"
+  study_id: "1"
+  max_values: 
+  stddev_values: 
+  num_unique: "1"
+study_statistics_017: 
+  parameter_type_id: "9"
+  parameter_role_id: "2"
+  min_values: "10.6"
+  avg_values: "215.605555555556"
+  data_type_id: "2"
+  num_values: "18"
+  id: "42"
+  study_id: "2"
+  max_values: "700"
+  stddev_values: "190.807201914574"
+  num_unique: "18"
+study_statistics_006: 
+  parameter_type_id: "7"
+  parameter_role_id: "3"
+  min_values: "200"
+  avg_values: "200"
+  data_type_id: "2"
+  num_values: "1"
+  id: "12"
+  study_id: "1"
+  max_values: "200"
+  stddev_values: "0"
+  num_unique: "1"
+study_statistics_040: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  min_values: "1"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "1"
+  id: "48"
+  study_id: "4"
+  max_values: "1"
+  stddev_values: 
+  num_unique: "1"
+study_statistics_029: 
+  parameter_type_id: "1"
+  parameter_role_id: "6"
+  min_values: 
+  avg_values: 
+  data_type_id: "1"
+  num_values: "5"
+  id: "14"
+  study_id: "1"
+  max_values: 
+  stddev_values: 
+  num_unique: "5"
+study_statistics_018: 
+  parameter_type_id: "5"
+  parameter_role_id: "3"
+  min_values: "1"
+  avg_values: "13.9842519685039"
+  data_type_id: "2"
+  num_values: "127"
+  id: "26"
+  study_id: "2"
+  max_values: "48"
+  stddev_values: "12.6104470201"
+  num_unique: "48"
+study_statistics_007: 
+  parameter_type_id: "7"
+  parameter_role_id: "3"
+  min_values: "40"
+  avg_values: "40"
+  data_type_id: "2"
+  num_values: "1"
+  id: "13"
+  study_id: "1"
+  max_values: "40"
+  stddev_values: "0"
+  num_unique: "1"
+study_statistics_041: 
+  parameter_type_id: "15"
+  parameter_role_id: "6"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "9"
+  id: "49"
+  study_id: "4"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "2"
+study_statistics_030: 
+  parameter_type_id: "1"
+  parameter_role_id: "6"
+  min_values: 
+  avg_values: 
+  data_type_id: "1"
+  num_values: "13"
+  id: "30"
+  study_id: "2"
+  max_values: 
+  stddev_values: 
+  num_unique: "7"
+study_statistics_019: 
+  parameter_type_id: "12"
+  parameter_role_id: "3"
+  min_values: "8"
+  avg_values: "8"
+  data_type_id: "2"
+  num_values: "6"
+  id: "33"
+  study_id: "2"
+  max_values: "8"
+  stddev_values: "0"
+  num_unique: "1"
+study_statistics_008: 
+  parameter_type_id: "7"
+  parameter_role_id: "6"
+  min_values: "125"
+  avg_values: "297"
+  data_type_id: "2"
+  num_values: "5"
+  id: "11"
+  study_id: "1"
+  max_values: "456"
+  stddev_values: "147.801217856958"
+  num_unique: "5"
+study_statistics_031: 
+  parameter_type_id: "22"
+  parameter_role_id: "6"
+  min_values: 
+  avg_values: 
+  data_type_id: "4"
+  num_values: "48"
+  id: "27"
+  study_id: "2"
+  max_values: 
+  stddev_values: 
+  num_unique: "48"
+study_statistics_020: 
+  parameter_type_id: "7"
+  parameter_role_id: "6"
+  min_values: "1.5"
+  avg_values: "1.5"
+  data_type_id: "2"
+  num_values: "12"
+  id: "40"
+  study_id: "2"
+  max_values: "1.5"
+  stddev_values: "0"
+  num_unique: "1"
+study_statistics_009: 
+  parameter_type_id: "7"
+  parameter_role_id: "6"
+  min_values: "39"
+  avg_values: "43.375"
+  data_type_id: "2"
+  num_values: "40"
+  id: "18"
+  study_id: "1"
+  max_values: "49"
+  stddev_values: "2.99739470207045"
+  num_unique: "10"
+study_statistics_032: 
+  parameter_type_id: "18"
+  parameter_role_id: "2"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "4"
+  id: "5"
+  study_id: "1"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "1"
+study_statistics_021: 
+  parameter_type_id: "9"
+  parameter_role_id: "6"
+  min_values: "5"
+  avg_values: "18.8888888888889"
+  data_type_id: "2"
+  num_values: "9"
+  id: "32"
+  study_id: "2"
+  max_values: "40"
+  stddev_values: "12.6442296408234"
+  num_unique: "4"
+study_statistics_010: 
+  parameter_type_id: "7"
+  parameter_role_id: "6"
+  min_values: "1"
+  avg_values: "4.5"
+  data_type_id: "2"
+  num_values: "8"
+  id: "20"
+  study_id: "1"
+  max_values: "8"
+  stddev_values: "2.29128784747792"
+  num_unique: "8"
+study_statistics_033: 
+  parameter_type_id: "18"
+  parameter_role_id: "2"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "4"
+  id: "25"
+  study_id: "1"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "2"
+study_statistics_022: 
+  parameter_type_id: "10"
+  parameter_role_id: "6"
+  min_values: "10"
+  avg_values: "23.3333333333333"
+  data_type_id: "2"
+  num_values: "3"
+  id: "39"
+  study_id: "2"
+  max_values: "40"
+  stddev_values: "12.4721912892465"
+  num_unique: "3"
+study_statistics_011: 
+  parameter_type_id: "12"
+  parameter_role_id: "6"
+  min_values: "10"
+  avg_values: "10"
+  data_type_id: "2"
+  num_values: "4"
+  id: "9"
+  study_id: "1"
+  max_values: "10"
+  stddev_values: "0"
+  num_unique: "1"

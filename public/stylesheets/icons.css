@@ -13,23 +13,21 @@ background-position: 4px 50%;
 }
 
 
-.icon-add { background-image: url(../images/add.png); }
-.icon-edit { background-image: url(../images/edit.png); }
-.icon-del { background-image: url(../images/delete.png); }
-.icon-move { background-image: url(../images/move.png); }
-.icon-save { background-image: url(../images/save.png); }
-.icon-cancel { background-image: url(../images/cancel.png); }
+.icon-add { background-image:    url(../images/action/add.png); }
+.icon-edit { background-image:   url(../images/action/edit.png); }
+.icon-del { background-image:    url(../images/action/delete.png); }
+.icon-move { background-image:   url(../images/action/move.png); }
+.icon-save { background-image:   url(../images/action/save.png); }
+.icon-cancel { background-image: url(../images/action/cancel.png); }
 
-.icon-pdf { background-image: url(../images/pdf.png); }
-.icon-csv { background-image: url(../images/csv.png); }
-.icon-file { background-image: url(../images/file.png); }
+.icon-pdf { background-image:  url(../images/mime/pdf.png); }
+.icon-csv { background-image:  url(../images/mime/csv.png); }
+.icon-file { background-image: url(../images/mime/file.png); }
 
-.icon-folder { background-image: url(../images/folder.png); }
+.icon-folder { background-image:  url(../images/model/folder.png); }
 .icon-package { background-image: url(../images/package.png); }
-.icon-home { background-image: url(../images/home.png); }
-.icon-user { background-image: url(../images/user.png); }
-.icon-mypage { background-image: url(../images/user_page.png); }
-.icon-admin { background-image: url(../images/admin.png); }
+.icon-home { background-image:    url(../images/home.png); }
+.icon-user { background-image:    url(../images/model/user.png); }
 .icon-logout { background-image: url(../images/logout.png); }
 .icon-help { background-image: url(../images/help.png); }
 

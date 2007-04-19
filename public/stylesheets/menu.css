@@ -90,7 +90,6 @@ div.sidemenu {
 	font-family: Arial, sans-serif;
 	font-size: 12px;
 	padding-bottom: 10px;
-	background: url(/images/bottom.gif) no-repeat  right bottom;
 	color: #fff;
 }
 div.sidemenu div {
@@ -108,13 +107,13 @@ div.sidemenu div span.menu {
 	padding: 5px 22px;
 	font-weight: bold;
 	color: white;
-	background: url(/images/expanded.gif) no-repeat 10px center;
 	cursor: default;
 	border-bottom: 1px solid #ddd;
+	background: url(/images/arrow_up.gif) no-repeat right center;
 }
 
 div.sidemenu div.collapsed span.menu {
-	background-image: url(/images/collapsed.gif);
+	background: url(/images/arrow_down.gif) no-repeat right center;
 }
 
 div.sidemenu div  a {
@@ -128,7 +127,7 @@ div.sidemenu div  a.current {
 	background : #ccc;
 }
 div.sidemenu div a:hover {
-	background : #0B6100 url(/images/linkarrow.gif) no-repeat right center;
+	background : #0B6100 url(/images/arrow_right.png) no-repeat right center;
 	color: #fff;
 	text-decoration: none;
 }

@@ -1,26 +1,7 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: experiments
-#
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :text          
-#  category_id         :integer(11)   
-#  status_id           :string(255)   
-#  study_id            :integer(11)   
-#  protocol_version_id :integer(11)   
-#  lock_version        :integer(11)   default(0), not null
-#  created_by          :string(32)    default(), not null
-#  created_at          :datetime      not null
-#  updated_by          :string(32)    default(), not null
-#  updated_at          :datetime      not null
-#  study_protocol_id   :integer(11)   
-#
-
 --- 
 experiments_001: 
   name: TH210307-1
+  project_id: "1"
   updated_at: 2007-03-21 15:08:03
   protocol_version_id: "10"
   created_by: ""
@@ -33,3 +14,48 @@ experiments_001:
   description: " Task in study RES Exposure "
   status_id: 
   created_at: 2007-03-21 15:08:03
+experiments_002: 
+  name: Test-0
+  project_id: "1"
+  updated_at: 2007-03-30 20:11:03
+  protocol_version_id: "16"
+  created_by: ""
+  lock_version: "1"
+  study_protocol_id: "13"
+  updated_by: ""
+  id: "4"
+  study_id: "4"
+  category_id: 
+  description: " Task in study Test "
+  status_id: 
+  created_at: 2007-03-30 20:00:11
+experiments_003: 
+  name: DMO-001
+  project_id: "1"
+  updated_at: 2007-03-30 20:25:34
+  protocol_version_id: "1"
+  created_by: ""
+  lock_version: "0"
+  study_protocol_id: "1"
+  updated_by: ""
+  id: "5"
+  study_id: "1"
+  category_id: 
+  description: " Task in study Biomarker And Histology "
+  status_id: 
+  created_at: 2007-03-30 20:25:34
+experiments_004: 
+  name: Experiment-1
+  project_id: 
+  updated_at: 2007-04-18 13:58:43
+  protocol_version_id: "23"
+  created_by: ""
+  lock_version: "0"
+  study_protocol_id: "20"
+  updated_by: ""
+  id: "6"
+  study_id: "3"
+  category_id: 
+  description: " Task in study Screen "
+  status_id: 
+  created_at: 2007-04-18 13:58:43

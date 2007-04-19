@@ -22,9 +22,12 @@
    <tr>
    <td><%=column.name%></td>
    <td><%=text_field_tag "columns[#{column.name}][label]",column.label,:size=>20 %></td>
-   <td><%=text_field_tag "columns[#{column.name}][order_num]",column.order_num,:size=>2 %></td>
+   <td><%=text_field_tag "columns[#{column.name}][order_num]",column.order_num,:size=>2 %>
+       <%=link_to subject_icon("arrow_up"),  report_url(:action=>'move_column',:no=>"-1",:id=>column) %>
+       <%=link_to subject_icon("arrow_down"),report_url(:action=>'move_column',:no=>"1",:id=>column) %>
+   </td>
    <td><%=check_box_tag  "columns[#{column.name}][is_visible]",1,column.is_visible %> </td>
-   <%if column.has_many %>
+   <%if column.has_many? %>
    <td colspan='5'>sub-table of one or more details elements</td>
    <%else%>
    <td><%=check_box_tag  "columns[#{column.name}][is_filterible]",1,column.is_filterible %> </td>

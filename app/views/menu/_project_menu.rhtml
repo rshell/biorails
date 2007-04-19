@@ -2,7 +2,7 @@
 <div>
   <span class='menu' > <%=subject_icon('model/project')%> <%=  project.name %></span> 
     <%= link_to l(:Project), project_url(:action => 'show', :id => project) %>
-    <%= link_to l(:Folders), folder_url( :action => 'list', :project_id => project) %>
+    <%= link_to l(:Folders), folder_url( :action => 'show', :id => project.home) %>
 	<%= link_to l(:Calendar), project_url(:action => 'calendar', :id => project) %>
 	<%= link_to l(:Timeline), project_url( :action => 'gantt', :id => project) %>
     <%= link_to l(:Reports), project_url( :action => 'reports', :id => project) %>

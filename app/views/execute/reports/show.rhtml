@@ -1,25 +1,37 @@
 <% content_for :sidemenu do%>
+  <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <div>
-  <span class='menu'>Report <%=@report.name%> </span>
-  <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
-  <%= link_to (subject_icon('show.png')) + 'Run', :action => 'show', :id => @report %>
-  <%= link_to (subject_icon('show.png')) + 'Visualize', :action => 'visualize', :id => @report %>
-  <%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @report %>
-  <%= link_to (subject_icon('new.png'))  + 'New', :action => 'new' %>
-  <%= link_to (subject_icon('xls.png')) + 'Export', :action => 'export', :id => @report  %> </li>
-  <%= link_to (subject_icon('destroy.png')) + 'Delete',{ :action => 'destroy', :id => @report }, 
-                    :confirm => 'Are you sure?',:method => "post" %></li>
-  <%= link_to (subject_icon('new.png'))  + 'Uml', :action => 'uml' %>
+  <span class='menu'>To Folder</span>
 </div>
- <%= render :partial => '/menu/default_left_menu'%>
+
+<% end %>
+
+<% content_for :left do%>
+<% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
+<div class="panel">
+  <label for="membership_owner">Ref</label><br/>
+   <%= text_field_tag :name , @snapshot_name,     {:size=>20, :class=>"text-input"} %><br/>
+  <label for="membership_owner">Title</label><br/>
+   <%= text_field_tag :title ,@report.name, {:size=>20, :class=>"text-input"} %><br/>
+  <label for="folder">Folder</label><br/>
+  <%= select_tag 'folder_id', options_for_select(current_project.folder_options) %><br/>
+  <label for="membership_owner">Published</label><br/>
+  <%= check_box_tag :published  %><br/>
+</div>
+<%= submit_tag 'Save' %>
+
+<% end %>
+
 <% end %>
 
 
-<h2>  <%=subject_icon('reports')%> Report [<strong><%=@report.name%></strong>]</h2>
-    <div class='panel'>
-         <p>
-            <%=@report.description%>
-         </p>
-        <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
-    </div>
+<h2>  
+<%=subject_icon('model/report')%> Report [<strong><%=@report.name%></strong>]
+</h2>
+<div class='panel'>
+     <p>
+        <%=@report.description%>
+     </p>
+    <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
+</div>
 

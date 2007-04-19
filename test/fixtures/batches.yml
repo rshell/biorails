@@ -1,53 +1,33 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: batches
-#
-#  id             :integer(11)   not null, primary key
-#  compound_id    :integer(11)   default(0), not null
-#  name           :string(255)   
-#  description    :text          
-#  external_ref   :string(255)   
-#  quantity_unit  :string(255)   
-#  quantity_value :float         
-#  url            :string(255)   
-#  lock_version   :integer(11)   default(0), not null
-#  created_by     :string(32)    default(sys), not null
-#  created_at     :datetime      not null
-#  updated_by     :string(32)    default(sys), not null
-#  updated_at     :datetime      not null
-#
-
 --- 
-batches_001: 
+batches_004: 
   quantity_value: 
-  name: AB001
+  name: AB004
   updated_at: 2006-11-28 16:50:09
   quantity_unit: ""
   created_by: sys
   lock_version: "2"
   url: ""
-  compound_id: "1"
+  compound_id: "4"
   updated_by: sys
-  id: "1"
+  id: "4"
   description: desc
   external_ref: ""
   created_at: 2006-11-28 16:48:02
-batches_002: 
+batches_005: 
   quantity_value: 
-  name: BB002
+  name: BB004
   updated_at: 2006-11-28 16:50:44
   quantity_unit: ""
   created_by: sys
   lock_version: "1"
   url: ""
-  compound_id: "2"
+  compound_id: "3"
   updated_by: sys
-  id: "2"
+  id: "5"
   description: Desc
   external_ref: ""
   created_at: 2006-11-28 16:50:44
-batches_003: 
+batches_006: 
   quantity_value: 
   name: BB005
   updated_at: 2006-11-28 16:53:17
@@ -55,9 +35,107 @@ batches_003:
   created_by: sys
   lock_version: "1"
   url: ""
-  compound_id: "2"
+  compound_id: "31"
   updated_by: sys
-  id: "3"
+  id: "6"
   description: desc
   external_ref: ""
   created_at: 2006-11-28 16:53:16
+batches_007: 
+  quantity_value: 
+  name: BB006
+  updated_at: 2006-11-28 16:54:12
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "3"
+  updated_by: sys
+  id: "7"
+  description: desc
+  external_ref: BB006
+  created_at: 2006-11-28 16:54:12
+batches_008: 
+  quantity_value: 
+  name: BB007
+  updated_at: 2006-11-28 16:59:03
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  updated_by: sys
+  id: "8"
+  description: desc
+  external_ref: AB001-3
+  created_at: 2006-11-28 16:59:03
+batches_010: 
+  quantity_value: 
+  name: BB9
+  updated_at: 2006-11-28 17:06:01
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  updated_by: sys
+  id: "10"
+  description: desc
+  external_ref: AB001-4
+  created_at: 2006-11-28 17:06:01
+batches_009: 
+  quantity_value: 
+  name: BB008
+  updated_at: 2006-11-28 16:59:43
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  updated_by: sys
+  id: "9"
+  description: deasc
+  external_ref: AB001-4
+  created_at: 2006-11-28 16:59:43
+batches_001: 
+  quantity_value: 
+  name: BB002
+  updated_at: 2006-11-28 16:45:42
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "4"
+  url: ""
+  compound_id: "1"
+  updated_by: sys
+  id: "1"
+  description: desc
+  external_ref: ""
+  created_at: 2006-11-28 14:51:00
+batches_002: 
+  quantity_value: 
+  name: B02
+  updated_at: 2006-11-28 14:56:07
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  updated_by: sys
+  id: "2"
+  description: another batch
+  external_ref: ""
+  created_at: 2006-11-28 14:55:40
+batches_003: 
+  quantity_value: 
+  name: BB003
+  updated_at: 2006-11-28 16:47:04
+  quantity_unit: ""
+  created_by: sys
+  lock_version: "1"
+  url: ""
+  compound_id: "2"
+  updated_by: sys
+  id: "3"
+  description: Desc
+  external_ref: ""
+  created_at: 2006-11-28 16:47:04

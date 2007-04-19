@@ -1,0 +1,2725 @@
+--- 
+study_logs_010: 
+  name: p
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "4"
+  id: "10"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter p in study Biomarker And Histology"
+  created_at: 2007-03-20 16:11:54
+study_logs_011: 
+  name: sig
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "5"
+  id: "11"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter sig in study Biomarker And Histology"
+  created_at: 2007-03-20 16:14:06
+study_logs_012: 
+  name: sig
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "5"
+  id: "12"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter sig in study Biomarker And Histology"
+  created_at: 2007-03-20 16:14:06
+study_logs_200: 
+  name: Hit Flag
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "69"
+  id: "200"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Hit Flag in study Screen"
+  created_at: 2007-04-03 18:56:16
+study_logs_013: 
+  name: Treatment Role
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "6"
+  id: "13"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Treatment Role in study Biomarker And Histology"
+  created_at: 2007-03-20 16:14:41
+study_logs_120: 
+  name: Brain Conc
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "42"
+  id: "120"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Brain Conc in study RES Exposure"
+  created_at: 2007-03-21 11:29:45
+study_logs_201: 
+  name: Hit Flag
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "69"
+  id: "201"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Hit Flag in study Screen"
+  created_at: 2007-04-03 18:56:43
+study_logs_014: 
+  name: Treatment Role
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "6"
+  id: "14"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Treatment Role in study Biomarker And Histology"
+  created_at: 2007-03-20 16:14:41
+study_logs_040: 
+  name: Age
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "18"
+  id: "40"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:32:53
+study_logs_121: 
+  name: B/P
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "43"
+  id: "121"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter B/P in study RES Exposure"
+  created_at: 2007-03-21 11:31:39
+study_logs_202: 
+  name: Fit Modifier
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "70"
+  id: "202"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Fit Modifier in study Screen"
+  created_at: 2007-04-03 19:20:34
+study_logs_015: 
+  name: Index
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "7"
+  id: "15"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Index in study Biomarker And Histology"
+  created_at: 2007-03-20 16:15:07
+study_logs_041: 
+  name: Species
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "19"
+  id: "41"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Species in study Biomarker And Histology"
+  created_at: 2007-03-20 16:35:07
+study_logs_122: 
+  name: B/P
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "43"
+  id: "122"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter B/P in study RES Exposure"
+  created_at: 2007-03-21 11:31:39
+study_logs_203: 
+  name: Fit Modifier
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "70"
+  id: "203"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Fit Modifier in study Screen"
+  created_at: 2007-04-03 19:20:34
+study_logs_016: 
+  name: Index
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "7"
+  id: "16"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Index in study Biomarker And Histology"
+  created_at: 2007-03-20 16:15:07
+study_logs_042: 
+  name: Species
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "19"
+  id: "42"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Species in study Biomarker And Histology"
+  created_at: 2007-03-20 16:35:07
+study_logs_123: 
+  name: Route of Administration
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "44"
+  id: "123"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Route of Administration in study RES Exposure"
+  created_at: 2007-03-21 11:32:13
+study_logs_204: 
+  name: Develop Assay
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "16"
+  id: "204"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Develop Assay in study Screen"
+  created_at: 2007-04-03 19:26:33
+study_logs_017: 
+  name: Treatment Group
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "8"
+  id: "17"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Treatment Group in study Biomarker And Histology"
+  created_at: 2007-03-20 16:15:36
+study_logs_043: 
+  name: Species
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "19"
+  id: "43"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Species in study Biomarker And Histology"
+  created_at: 2007-03-20 16:35:36
+study_logs_124: 
+  name: Route of Administration
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "44"
+  id: "124"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Route of Administration in study RES Exposure"
+  created_at: 2007-03-21 11:32:13
+study_logs_150: 
+  name: Time
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "52"
+  id: "150"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Time in study Test"
+  created_at: 2007-03-30 19:47:48
+study_logs_205: 
+  name: Develop Assay
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "16"
+  id: "205"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Develop Assay in study Screen"
+  created_at: 2007-04-03 19:26:33
+study_logs_018: 
+  name: Treatment Group
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "8"
+  id: "18"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Treatment Group in study Biomarker And Histology"
+  created_at: 2007-03-20 16:15:36
+study_logs_044: 
+  name: Day
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "20"
+  id: "44"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Day in study Biomarker And Histology"
+  created_at: 2007-03-20 16:37:35
+study_logs_070: 
+  name: Taqman Analysis
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "7"
+  id: "70"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Taqman Analysis in study Biomarker And Histology"
+  created_at: 2007-03-20 21:22:37
+study_logs_125: 
+  name: Brain Conc
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "42"
+  id: "125"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Brain Conc in study RES Exposure"
+  created_at: 2007-03-21 11:40:42
+study_logs_151: 
+  name: Time
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "52"
+  id: "151"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Time in study Test"
+  created_at: 2007-03-30 19:47:48
+study_logs_206: 
+  name: SOP
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "67"
+  id: "206"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter SOP in study Screen"
+  created_at: 2007-04-03 19:27:32
+study_logs_019: 
+  name: Group Size
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "9"
+  id: "19"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Group Size in study Biomarker And Histology"
+  created_at: 2007-03-20 16:16:05
+study_logs_045: 
+  name: Day
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "20"
+  id: "45"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Day in study Biomarker And Histology"
+  created_at: 2007-03-20 16:37:36
+study_logs_071: 
+  name: Flag
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "25"
+  id: "71"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Flag in study Biomarker And Histology"
+  created_at: 2007-03-20 21:24:00
+study_logs_126: 
+  name: TimeAfterDosing
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "40"
+  id: "126"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter TimeAfterDosing in study RES Exposure"
+  created_at: 2007-03-21 11:41:14
+study_logs_152: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "48"
+  id: "152"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Test"
+  created_at: 2007-03-30 19:48:33
+study_logs_207: 
+  name: Single Point
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "17"
+  id: "207"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Single Point in study Screen"
+  created_at: 2007-04-03 20:43:41
+study_logs_046: 
+  name: ID
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "21"
+  id: "46"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter ID in study Biomarker And Histology"
+  created_at: 2007-03-20 16:38:06
+study_logs_072: 
+  name: Flag
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "25"
+  id: "72"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Flag in study Biomarker And Histology"
+  created_at: 2007-03-20 21:24:00
+study_logs_127: 
+  name: Screen
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "3"
+  id: "127"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create study Screen"
+  created_at: 2007-03-21 12:49:02
+study_logs_153: 
+  name: Percent
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "53"
+  id: "153"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Percent in study Test"
+  created_at: 2007-03-30 19:49:15
+study_logs_047: 
+  name: ID
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "21"
+  id: "47"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter ID in study Biomarker And Histology"
+  created_at: 2007-03-20 16:38:06
+study_logs_073: 
+  name: Histology
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "25"
+  id: "73"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Histology in study Biomarker And Histology"
+  created_at: 2007-03-20 21:26:02
+study_logs_128: 
+  name: TE-AB001
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "1"
+  id: "128"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create experiment TE-AB001 in study Biomarker And Histology"
+  created_at: 2007-03-21 12:54:21
+study_logs_154: 
+  name: Percent
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "53"
+  id: "154"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Percent in study Test"
+  created_at: 2007-03-30 19:49:15
+study_logs_180: 
+  name: Readings
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "61"
+  id: "180"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Readings in study Screen"
+  created_at: 2007-04-03 17:22:06
+study_logs_208: 
+  name: Single Point
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "17"
+  id: "208"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Single Point in study Screen"
+  created_at: 2007-04-03 20:43:41
+study_logs_048: 
+  name: Strain
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "22"
+  id: "48"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Strain in study Biomarker And Histology"
+  created_at: 2007-03-20 16:38:39
+study_logs_074: 
+  name: Histological Scoring
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "8"
+  id: "74"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Histological Scoring in study Biomarker And Histology"
+  created_at: 2007-03-20 21:31:18
+study_logs_129: 
+  name: Materials
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "1"
+  id: "129"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Materials in study Biomarker And Histology"
+  created_at: 2007-03-21 14:27:23
+study_logs_155: 
+  name: Hyperlink
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "54"
+  id: "155"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Hyperlink in study Test"
+  created_at: 2007-03-30 19:49:57
+study_logs_181: 
+  name: Readings
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "61"
+  id: "181"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Readings in study Screen"
+  created_at: 2007-04-03 17:22:06
+study_logs_209: 
+  name: Well Literal
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "71"
+  id: "209"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Well Literal in study Screen"
+  created_at: 2007-04-03 20:51:11
+study_logs_049: 
+  name: Strain
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "22"
+  id: "49"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Strain in study Biomarker And Histology"
+  created_at: 2007-03-20 16:38:39
+study_logs_075: 
+  name: Histological Scoring
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "8"
+  id: "75"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Histological Scoring in study Biomarker And Histology"
+  created_at: 2007-03-20 21:31:18
+study_logs_156: 
+  name: Hyperlink
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "54"
+  id: "156"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Hyperlink in study Test"
+  created_at: 2007-03-30 19:49:58
+study_logs_182: 
+  name: Activity
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "62"
+  id: "182"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Activity in study Screen"
+  created_at: 2007-04-03 17:23:17
+study_logs_076: 
+  name: RES Exposure
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "2"
+  id: "76"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create study RES Exposure"
+  created_at: 2007-03-21 09:34:46
+study_logs_157: 
+  name: Pos
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "55"
+  id: "157"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Pos in study Test"
+  created_at: 2007-03-30 19:50:45
+study_logs_183: 
+  name: Activity
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "62"
+  id: "183"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Activity in study Screen"
+  created_at: 2007-04-03 17:23:17
+study_logs_077: 
+  name: Index
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "26"
+  id: "77"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Index in study RES Exposure"
+  created_at: 2007-03-21 09:35:43
+study_logs_158: 
+  name: Pos
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "55"
+  id: "158"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Pos in study Test"
+  created_at: 2007-03-30 19:50:45
+study_logs_184: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "63"
+  id: "184"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study Screen"
+  created_at: 2007-04-03 17:25:44
+study_logs_078: 
+  name: Index
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "26"
+  id: "78"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Index in study RES Exposure"
+  created_at: 2007-03-21 09:35:43
+study_logs_159: 
+  name: SciNote
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "56"
+  id: "159"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter SciNote in study Test"
+  created_at: 2007-03-30 19:51:24
+study_logs_185: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "63"
+  id: "185"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Screen"
+  created_at: 2007-04-03 17:25:44
+study_logs_079: 
+  name: Time
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "27"
+  id: "79"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Time in study RES Exposure"
+  created_at: 2007-03-21 09:36:36
+study_logs_186: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "63"
+  id: "186"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Screen"
+  created_at: 2007-04-03 17:26:06
+study_logs_187: 
+  name: Concentration
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "64"
+  id: "187"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Concentration in study Screen"
+  created_at: 2007-04-03 17:27:17
+study_logs_188: 
+  name: Concentration
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "64"
+  id: "188"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Concentration in study Screen"
+  created_at: 2007-04-03 17:27:17
+study_logs_189: 
+  name: Fit Statistic
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "65"
+  id: "189"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Fit Statistic in study Screen"
+  created_at: 2007-04-03 17:28:04
+study_logs_001: 
+  name: Biomarker And Histology
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "1"
+  id: "1"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create study Biomarker And Histology"
+  created_at: 2007-03-20 16:05:00
+study_logs_002: 
+  name: Score
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "1"
+  id: "2"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Score in study Biomarker And Histology"
+  created_at: 2007-03-20 16:07:43
+study_logs_003: 
+  name: Score
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "1"
+  id: "3"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Score in study Biomarker And Histology"
+  created_at: 2007-03-20 16:07:43
+study_logs_110: 
+  name: Brain Plasma Assessment
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "12"
+  id: "110"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update protocol Brain Plasma Assessment in study RES Exposure"
+  created_at: 2007-03-21 11:21:54
+study_logs_004: 
+  name: Weight
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "2"
+  id: "4"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Weight in study Biomarker And Histology"
+  created_at: 2007-03-20 16:08:24
+study_logs_030: 
+  name: Molecula Formula
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "14"
+  id: "30"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Molecula Formula in study Biomarker And Histology"
+  created_at: 2007-03-20 16:19:18
+study_logs_111: 
+  name: Gender
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "38"
+  id: "111"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Gender in study RES Exposure"
+  created_at: 2007-03-21 11:23:54
+study_logs_005: 
+  name: Weight
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "2"
+  id: "5"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Weight in study Biomarker And Histology"
+  created_at: 2007-03-20 16:08:24
+study_logs_031: 
+  name: Molecular Mass
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "11"
+  id: "31"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Molecular Mass in study Biomarker And Histology"
+  created_at: 2007-03-20 16:19:39
+study_logs_112: 
+  name: Gender
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "38"
+  id: "112"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Gender in study RES Exposure"
+  created_at: 2007-03-21 11:23:54
+study_logs_220: 
+  name: Screen Report
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "20"
+  id: "220"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Screen Report in study Screen"
+  created_at: 2007-04-03 21:34:27
+study_logs_006: 
+  name: Weight
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "2"
+  id: "6"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Weight in study Biomarker And Histology"
+  created_at: 2007-03-20 16:09:21
+study_logs_032: 
+  name: Group Size
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "9"
+  id: "32"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Group Size in study Biomarker And Histology"
+  created_at: 2007-03-20 16:19:59
+study_logs_113: 
+  name: Dose
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "39"
+  id: "113"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Dose in study RES Exposure"
+  created_at: 2007-03-21 11:24:41
+study_logs_007: 
+  name: Reading
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "3"
+  id: "7"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Reading in study Biomarker And Histology"
+  created_at: 2007-03-20 16:10:34
+study_logs_033: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "15"
+  id: "33"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study Biomarker And Histology"
+  created_at: 2007-03-20 16:24:03
+study_logs_114: 
+  name: Dose
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "39"
+  id: "114"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Dose in study RES Exposure"
+  created_at: 2007-03-21 11:24:41
+study_logs_140: 
+  name: Note
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "47"
+  id: "140"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Note in study Test"
+  created_at: 2007-03-30 19:45:03
+study_logs_221: 
+  name: Screen Report
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "20"
+  id: "221"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Screen Report in study Screen"
+  created_at: 2007-04-03 21:34:27
+study_logs_008: 
+  name: Reading
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "3"
+  id: "8"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Reading in study Biomarker And Histology"
+  created_at: 2007-03-20 16:10:34
+study_logs_034: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "15"
+  id: "34"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Biomarker And Histology"
+  created_at: 2007-03-20 16:24:03
+study_logs_060: 
+  name: Weights
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "4"
+  id: "60"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Weights in study Biomarker And Histology"
+  created_at: 2007-03-20 20:55:11
+study_logs_115: 
+  name: TimeAfterDosing
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "40"
+  id: "115"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter TimeAfterDosing in study RES Exposure"
+  created_at: 2007-03-21 11:27:51
+study_logs_141: 
+  name: Note
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "47"
+  id: "141"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Note in study Test"
+  created_at: 2007-03-30 19:45:03
+study_logs_222: 
+  name: Experiment-1
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "6"
+  id: "222"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-1 in study Screen"
+  created_at: 2007-04-18 13:58:43
+study_logs_223: 
+  name: Dev-Test
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "5"
+  id: "223"
+  study_id: "5"
+  changes: 
+  user_id: 
+  comment: " Create study Dev-Test"
+  created_at: 2007-04-18 19:05:03
+study_logs_009: 
+  name: p
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "4"
+  id: "9"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter p in study Biomarker And Histology"
+  created_at: 2007-03-20 16:11:54
+study_logs_035: 
+  name: Date
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "16"
+  id: "35"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Date in study Biomarker And Histology"
+  created_at: 2007-03-20 16:25:26
+study_logs_061: 
+  name: Weight Summary
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "5"
+  id: "61"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Weight Summary in study Biomarker And Histology"
+  created_at: 2007-03-20 21:00:33
+study_logs_116: 
+  name: TimeAfterDosing
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "40"
+  id: "116"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter TimeAfterDosing in study RES Exposure"
+  created_at: 2007-03-21 11:27:51
+study_logs_142: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "48"
+  id: "142"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study Test"
+  created_at: 2007-03-30 19:45:27
+study_logs_224: 
+  name: Dev-Test2
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "6"
+  id: "224"
+  study_id: "6"
+  changes: 
+  user_id: 
+  comment: " Create study Dev-Test2"
+  created_at: 2007-04-18 19:16:34
+study_logs_036: 
+  name: Date
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "16"
+  id: "36"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Date in study Biomarker And Histology"
+  created_at: 2007-03-20 16:25:26
+study_logs_062: 
+  name: Weight Summary
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "5"
+  id: "62"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Weight Summary in study Biomarker And Histology"
+  created_at: 2007-03-20 21:00:33
+study_logs_117: 
+  name: Plasma Conc
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "41"
+  id: "117"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Plasma Conc in study RES Exposure"
+  created_at: 2007-03-21 11:29:20
+study_logs_143: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "48"
+  id: "143"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Test"
+  created_at: 2007-03-30 19:45:27
+study_logs_225: 
+  name: Study-2
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "7"
+  id: "225"
+  study_id: "7"
+  changes: 
+  user_id: 
+  comment: " Create study Study-2"
+  created_at: 2007-04-18 21:22:39
+study_logs_037: 
+  name: Age
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "17"
+  id: "37"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:28:44
+study_logs_063: 
+  name: Statistic
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "24"
+  id: "63"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Statistic in study Biomarker And Histology"
+  created_at: 2007-03-20 21:04:51
+study_logs_118: 
+  name: Plasma Conc
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "41"
+  id: "118"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Plasma Conc in study RES Exposure"
+  created_at: 2007-03-21 11:29:20
+study_logs_144: 
+  name: Gender
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "49"
+  id: "144"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Gender in study Test"
+  created_at: 2007-03-30 19:46:06
+study_logs_170: 
+  name: DMO-001
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "5"
+  id: "170"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create experiment DMO-001 in study Biomarker And Histology"
+  created_at: 2007-03-30 20:25:34
+study_logs_226: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "73"
+  id: "226"
+  study_id: "7"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study Study-2"
+  created_at: 2007-04-18 21:24:20
+study_logs_038: 
+  name: Age
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "17"
+  id: "38"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:28:44
+study_logs_064: 
+  name: Statistic
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "24"
+  id: "64"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Statistic in study Biomarker And Histology"
+  created_at: 2007-03-20 21:04:51
+study_logs_090: 
+  name: Concentration
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "32"
+  id: "90"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Concentration in study RES Exposure"
+  created_at: 2007-03-21 09:42:41
+study_logs_119: 
+  name: Brain Conc
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "42"
+  id: "119"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Brain Conc in study RES Exposure"
+  created_at: 2007-03-21 11:29:45
+study_logs_145: 
+  name: Gender
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "49"
+  id: "145"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Gender in study Test"
+  created_at: 2007-03-30 19:46:06
+study_logs_171: 
+  name: Histology Summary
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "15"
+  id: "171"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Histology Summary in study Biomarker And Histology"
+  created_at: 2007-03-30 22:45:04
+study_logs_227: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "73"
+  id: "227"
+  study_id: "7"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Study-2"
+  created_at: 2007-04-18 21:24:20
+study_logs_039: 
+  name: Age
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "18"
+  id: "39"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:32:53
+study_logs_065: 
+  name: Taqman
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "6"
+  id: "65"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Taqman in study Biomarker And Histology"
+  created_at: 2007-03-20 21:15:22
+study_logs_091: 
+  name: Group Size
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "33"
+  id: "91"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Group Size in study RES Exposure"
+  created_at: 2007-03-21 09:45:50
+study_logs_146: 
+  name: Integer
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "50"
+  id: "146"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Integer in study Test"
+  created_at: 2007-03-30 19:46:48
+study_logs_172: 
+  name: Histology Summary
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "15"
+  id: "172"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Histology Summary in study Biomarker And Histology"
+  created_at: 2007-03-30 22:45:04
+study_logs_066: 
+  name: Taqman
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "6"
+  id: "66"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Taqman in study Biomarker And Histology"
+  created_at: 2007-03-20 21:15:22
+study_logs_092: 
+  name: Group Size
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "33"
+  id: "92"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Group Size in study RES Exposure"
+  created_at: 2007-03-21 09:45:50
+study_logs_147: 
+  name: Integer
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "50"
+  id: "147"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Integer in study Test"
+  created_at: 2007-03-30 19:46:48
+study_logs_173: 
+  name: Histology Summary
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "15"
+  id: "173"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Histology Summary in study Biomarker And Histology"
+  created_at: 2007-03-30 22:45:09
+study_logs_067: 
+  name: Taqman
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "6"
+  id: "67"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Taqman in study Biomarker And Histology"
+  created_at: 2007-03-20 21:15:38
+study_logs_093: 
+  name: Setup Materials and Groups
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "9"
+  id: "93"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create protocol Setup Materials and Groups in study RES Exposure"
+  created_at: 2007-03-21 09:51:33
+study_logs_148: 
+  name: Date
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "51"
+  id: "148"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Date in study Test"
+  created_at: 2007-03-30 19:47:16
+study_logs_174: 
+  name: Target
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "58"
+  id: "174"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Target in study Screen"
+  created_at: 2007-04-03 16:56:52
+study_logs_068: 
+  name: Taqman Readings
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "6"
+  id: "68"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Taqman Readings in study Biomarker And Histology"
+  created_at: 2007-03-20 21:20:28
+study_logs_094: 
+  name: Setup Materials and Groups
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "9"
+  id: "94"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update protocol Setup Materials and Groups in study RES Exposure"
+  created_at: 2007-03-21 09:51:33
+study_logs_149: 
+  name: Date
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "51"
+  id: "149"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Date in study Test"
+  created_at: 2007-03-30 19:47:16
+study_logs_175: 
+  name: Target
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "58"
+  id: "175"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Target in study Screen"
+  created_at: 2007-04-03 16:56:52
+study_logs_069: 
+  name: Taqman Analysis
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "7"
+  id: "69"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Taqman Analysis in study Biomarker And Histology"
+  created_at: 2007-03-20 21:22:37
+study_logs_095: 
+  name: Capture Raw Data
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "10"
+  id: "95"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create protocol Capture Raw Data in study RES Exposure"
+  created_at: 2007-03-21 10:07:13
+study_logs_176: 
+  name: Coordinate
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "59"
+  id: "176"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Coordinate in study Screen"
+  created_at: 2007-04-03 17:17:33
+study_logs_096: 
+  name: Capture Raw Data
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "10"
+  id: "96"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update protocol Capture Raw Data in study RES Exposure"
+  created_at: 2007-03-21 10:07:13
+study_logs_177: 
+  name: Coordinate
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "59"
+  id: "177"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Coordinate in study Screen"
+  created_at: 2007-04-03 17:17:33
+study_logs_097: 
+  name: ED50 Calculation
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "11"
+  id: "97"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create protocol ED50 Calculation in study RES Exposure"
+  created_at: 2007-03-21 10:32:26
+study_logs_178: 
+  name: Label
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "60"
+  id: "178"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Label in study Screen"
+  created_at: 2007-04-03 17:18:12
+study_logs_098: 
+  name: ED50 Calculation
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "11"
+  id: "98"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update protocol ED50 Calculation in study RES Exposure"
+  created_at: 2007-03-21 10:32:26
+study_logs_179: 
+  name: Label
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "60"
+  id: "179"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Label in study Screen"
+  created_at: 2007-04-03 17:18:12
+study_logs_099: 
+  name: RES Exposure
+  created_by: 
+  action: Update
+  auditable_type: Study
+  auditable_id: "2"
+  id: "99"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update study RES Exposure"
+  created_at: 2007-03-21 10:44:45
+study_logs_100: 
+  name: RES Exposure
+  created_by: 
+  action: Update
+  auditable_type: Study
+  auditable_id: "2"
+  id: "100"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update study RES Exposure"
+  created_at: 2007-03-21 10:44:45
+study_logs_020: 
+  name: Group Size
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "9"
+  id: "20"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Group Size in study Biomarker And Histology"
+  created_at: 2007-03-20 16:16:05
+study_logs_101: 
+  name: Inhibition
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "34"
+  id: "101"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Inhibition in study RES Exposure"
+  created_at: 2007-03-21 10:59:19
+study_logs_021: 
+  name: Gene
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "10"
+  id: "21"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Gene in study Biomarker And Histology"
+  created_at: 2007-03-20 16:16:46
+study_logs_102: 
+  name: Inhibition
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "34"
+  id: "102"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Inhibition in study RES Exposure"
+  created_at: 2007-03-21 10:59:19
+study_logs_022: 
+  name: Gene
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "10"
+  id: "22"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Gene in study Biomarker And Histology"
+  created_at: 2007-03-20 16:16:46
+study_logs_103: 
+  name: ED50
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "35"
+  id: "103"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter ED50 in study RES Exposure"
+  created_at: 2007-03-21 11:01:39
+study_logs_210: 
+  name: Well Literal
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "71"
+  id: "210"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Well Literal in study Screen"
+  created_at: 2007-04-03 20:51:11
+study_logs_023: 
+  name: Molecular Mass
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "11"
+  id: "23"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Molecular Mass in study Biomarker And Histology"
+  created_at: 2007-03-20 16:17:19
+study_logs_104: 
+  name: ED50
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "35"
+  id: "104"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter ED50 in study RES Exposure"
+  created_at: 2007-03-21 11:01:39
+study_logs_130: 
+  name: TH210307-1
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "2"
+  id: "130"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create experiment TH210307-1 in study RES Exposure"
+  created_at: 2007-03-21 14:51:47
+study_logs_211: 
+  name: Single Point 96
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "17"
+  id: "211"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Single Point 96 in study Screen"
+  created_at: 2007-04-03 20:56:12
+study_logs_050: 
+  name: Calculation
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "23"
+  id: "50"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Calculation in study Biomarker And Histology"
+  created_at: 2007-03-20 18:42:08
+study_logs_105: 
+  name: Fit Report
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "36"
+  id: "105"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Fit Report in study RES Exposure"
+  created_at: 2007-03-21 11:02:46
+study_logs_131: 
+  name: TH210307-1
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "3"
+  id: "131"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create experiment TH210307-1 in study RES Exposure"
+  created_at: 2007-03-21 15:08:03
+study_logs_212: 
+  name: Single Point 384
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "17"
+  id: "212"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Single Point 384 in study Screen"
+  created_at: 2007-04-03 20:58:41
+study_logs_024: 
+  name: Molecular Mass
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "11"
+  id: "24"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Molecular Mass in study Biomarker And Histology"
+  created_at: 2007-03-20 16:17:19
+study_logs_051: 
+  name: Calculation
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "23"
+  id: "51"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Calculation in study Biomarker And Histology"
+  created_at: 2007-03-20 18:42:08
+study_logs_106: 
+  name: Fit Report
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "36"
+  id: "106"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Fit Report in study RES Exposure"
+  created_at: 2007-03-21 11:02:46
+study_logs_132: 
+  name: Capture Raw Data
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "10"
+  id: "132"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update protocol Capture Raw Data in study RES Exposure"
+  created_at: 2007-03-24 16:26:31
+study_logs_213: 
+  name: Single Point 96
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "18"
+  id: "213"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Single Point 96 in study Screen"
+  created_at: 2007-04-03 20:59:54
+study_logs_025: 
+  name: Min Weight
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "12"
+  id: "25"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Min Weight in study Biomarker And Histology"
+  created_at: 2007-03-20 16:18:04
+study_logs_107: 
+  name: Mean Activity Count
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "37"
+  id: "107"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Mean Activity Count in study RES Exposure"
+  created_at: 2007-03-21 11:16:13
+study_logs_133: 
+  name: Dasage
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "45"
+  id: "133"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Dasage in study RES Exposure"
+  created_at: 2007-03-26 09:38:16
+study_logs_214: 
+  name: Single Point 96
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "18"
+  id: "214"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Single Point 96 in study Screen"
+  created_at: 2007-04-03 20:59:54
+study_logs_026: 
+  name: Min Weight
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "12"
+  id: "26"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Min Weight in study Biomarker And Histology"
+  created_at: 2007-03-20 16:18:04
+study_logs_052: 
+  name: Materials
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "1"
+  id: "52"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Materials in study Biomarker And Histology"
+  created_at: 2007-03-20 19:50:48
+study_logs_108: 
+  name: Mean Activity Count
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "37"
+  id: "108"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Mean Activity Count in study RES Exposure"
+  created_at: 2007-03-21 11:16:13
+study_logs_134: 
+  name: Dasage
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "45"
+  id: "134"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Dasage in study RES Exposure"
+  created_at: 2007-03-26 09:38:16
+study_logs_160: 
+  name: SciNote
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "56"
+  id: "160"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter SciNote in study Test"
+  created_at: 2007-03-30 19:51:24
+study_logs_215: 
+  name: Single Point 384
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "17"
+  id: "215"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Single Point 384 in study Screen"
+  created_at: 2007-04-03 21:06:12
+study_logs_027: 
+  name: Min Age
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "13"
+  id: "27"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Min Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:18:35
+study_logs_053: 
+  name: Materials
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "1"
+  id: "53"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Materials in study Biomarker And Histology"
+  created_at: 2007-03-20 19:50:48
+study_logs_135: 
+  name: Ted1
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "4"
+  id: "135"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create study Ted1"
+  created_at: 2007-03-26 09:44:18
+study_logs_161: 
+  name: Test_1
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "13"
+  id: "161"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create protocol Test_1 in study Test"
+  created_at: 2007-03-30 19:55:06
+study_logs_216: 
+  name: Dose Response
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "19"
+  id: "216"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Dose Response in study Screen"
+  created_at: 2007-04-03 21:08:08
+study_logs_028: 
+  name: Min Age
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "13"
+  id: "28"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update parameter Min Age in study Biomarker And Histology"
+  created_at: 2007-03-20 16:18:35
+study_logs_054: 
+  name: Animals
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "2"
+  id: "54"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Animals in study Biomarker And Histology"
+  created_at: 2007-03-20 20:05:26
+study_logs_080: 
+  name: Time
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "27"
+  id: "80"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Time in study RES Exposure"
+  created_at: 2007-03-21 09:36:36
+study_logs_136: 
+  name: Calculation
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "46"
+  id: "136"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Calculation in study Ted1"
+  created_at: 2007-03-26 09:44:49
+study_logs_162: 
+  name: Test_1
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "13"
+  id: "162"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update protocol Test_1 in study Test"
+  created_at: 2007-03-30 19:55:06
+study_logs_217: 
+  name: Dose Response
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "19"
+  id: "217"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Dose Response in study Screen"
+  created_at: 2007-04-03 21:08:08
+study_logs_029: 
+  name: Molecula Formula
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "14"
+  id: "29"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create parameter Molecula Formula in study Biomarker And Histology"
+  created_at: 2007-03-20 16:19:18
+study_logs_055: 
+  name: Animals
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "2"
+  id: "55"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Animals in study Biomarker And Histology"
+  created_at: 2007-03-20 20:05:26
+study_logs_081: 
+  name: ActivityCount
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "28"
+  id: "81"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter ActivityCount in study RES Exposure"
+  created_at: 2007-03-21 09:37:33
+study_logs_109: 
+  name: Brain Plasma Assessment
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "12"
+  id: "109"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create protocol Brain Plasma Assessment in study RES Exposure"
+  created_at: 2007-03-21 11:21:53
+study_logs_137: 
+  name: Calculation
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "46"
+  id: "137"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Calculation in study Ted1"
+  created_at: 2007-03-26 09:44:49
+study_logs_163: 
+  name: Double
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "57"
+  id: "163"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create parameter Double in study Test"
+  created_at: 2007-03-30 19:56:39
+study_logs_218: 
+  name: Starting Conc
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "72"
+  id: "218"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Starting Conc in study Screen"
+  created_at: 2007-04-03 21:14:13
+study_logs_056: 
+  name: Treatments
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "3"
+  id: "56"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Treatments in study Biomarker And Histology"
+  created_at: 2007-03-20 20:09:03
+study_logs_082: 
+  name: ActivityCount
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "28"
+  id: "82"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter ActivityCount in study RES Exposure"
+  created_at: 2007-03-21 09:37:33
+study_logs_164: 
+  name: Double
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "57"
+  id: "164"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update parameter Double in study Test"
+  created_at: 2007-03-30 19:56:39
+study_logs_190: 
+  name: Fit Statistic
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "65"
+  id: "190"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Fit Statistic in study Screen"
+  created_at: 2007-04-03 17:28:04
+study_logs_057: 
+  name: Treatments
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "3"
+  id: "57"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Treatments in study Biomarker And Histology"
+  created_at: 2007-03-20 20:09:03
+study_logs_083: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "29"
+  id: "83"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study RES Exposure"
+  created_at: 2007-03-21 09:39:02
+study_logs_138: 
+  name: Test
+  created_by: 
+  action: Update
+  auditable_type: Study
+  auditable_id: "4"
+  id: "138"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update study Test"
+  created_at: 2007-03-30 19:44:26
+study_logs_165: 
+  name: Test_Sex
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "14"
+  id: "165"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create protocol Test_Sex in study Test"
+  created_at: 2007-03-30 19:58:35
+study_logs_191: 
+  name: Plate QC Stat
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "66"
+  id: "191"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Plate QC Stat in study Screen"
+  created_at: 2007-04-03 18:53:08
+study_logs_219: 
+  name: Starting Conc
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "72"
+  id: "219"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Starting Conc in study Screen"
+  created_at: 2007-04-03 21:14:13
+study_logs_058: 
+  name: Weights
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "4"
+  id: "58"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create protocol Weights in study Biomarker And Histology"
+  created_at: 2007-03-20 20:54:26
+study_logs_084: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "29"
+  id: "84"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study RES Exposure"
+  created_at: 2007-03-21 09:39:02
+study_logs_139: 
+  name: Test
+  created_by: 
+  action: Update
+  auditable_type: Study
+  auditable_id: "4"
+  id: "139"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update study Test"
+  created_at: 2007-03-30 19:44:26
+study_logs_192: 
+  name: Plate QC Stat
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "66"
+  id: "192"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Plate QC Stat in study Screen"
+  created_at: 2007-04-03 18:53:08
+study_logs_059: 
+  name: Weights
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "4"
+  id: "59"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Update protocol Weights in study Biomarker And Histology"
+  created_at: 2007-03-20 20:54:27
+study_logs_085: 
+  name: Label
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "30"
+  id: "85"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Label in study RES Exposure"
+  created_at: 2007-03-21 09:40:29
+study_logs_166: 
+  name: Test_Sex
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "14"
+  id: "166"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update protocol Test_Sex in study Test"
+  created_at: 2007-03-30 19:58:35
+study_logs_193: 
+  name: SOP
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "67"
+  id: "193"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter SOP in study Screen"
+  created_at: 2007-04-03 18:54:04
+study_logs_086: 
+  name: Label
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "30"
+  id: "86"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Label in study RES Exposure"
+  created_at: 2007-03-21 09:40:29
+study_logs_167: 
+  name: Test_Compounds
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "13"
+  id: "167"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update protocol Test_Compounds in study Test"
+  created_at: 2007-03-30 19:59:34
+study_logs_087: 
+  name: Treatment Role
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "31"
+  id: "87"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Treatment Role in study RES Exposure"
+  created_at: 2007-03-21 09:41:49
+study_logs_168: 
+  name: Test-0
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "4"
+  id: "168"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Create experiment Test-0 in study Test"
+  created_at: 2007-03-30 20:00:11
+study_logs_194: 
+  name: SOP
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "67"
+  id: "194"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter SOP in study Screen"
+  created_at: 2007-04-03 18:54:04
+study_logs_088: 
+  name: Treatment Role
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "31"
+  id: "88"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Update parameter Treatment Role in study RES Exposure"
+  created_at: 2007-03-21 09:41:49
+study_logs_169: 
+  name: Test-0
+  created_by: 
+  action: Update
+  auditable_type: Experiment
+  auditable_id: "4"
+  id: "169"
+  study_id: "4"
+  changes: 
+  user_id: 
+  comment: " Update experiment Test-0 in study Test"
+  created_at: 2007-03-30 20:11:03
+study_logs_195: 
+  name: KO
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "68"
+  id: "195"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter KO in study Screen"
+  created_at: 2007-04-03 18:54:41
+study_logs_089: 
+  name: Concentration
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "32"
+  id: "89"
+  study_id: "2"
+  changes: 
+  user_id: 
+  comment: " Create parameter Concentration in study RES Exposure"
+  created_at: 2007-03-21 09:42:41
+study_logs_196: 
+  name: KO
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "68"
+  id: "196"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter KO in study Screen"
+  created_at: 2007-04-03 18:54:42
+study_logs_197: 
+  name: KO
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "68"
+  id: "197"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter KO in study Screen"
+  created_at: 2007-04-03 18:55:18
+study_logs_198: 
+  name: Hit Flag
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "69"
+  id: "198"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Hit Flag in study Screen"
+  created_at: 2007-04-03 18:55:56
+study_logs_199: 
+  name: Hit Flag
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "69"
+  id: "199"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Hit Flag in study Screen"
+  created_at: 2007-04-03 18:55:56

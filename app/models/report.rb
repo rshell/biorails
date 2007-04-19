@@ -1,3 +1,10 @@
+##
+# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+# 
+
+#
+#
 # == Schema Information
 # Schema version: 233
 #
@@ -15,12 +22,6 @@
 #  updated_at   :datetime      not null
 #  type         :string(255)   default(Report)
 #
-
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
-
 class Report < ActiveRecord::Base
   included Named
 #
@@ -34,14 +35,6 @@ class Report < ActiveRecord::Base
   attr_accessor :params
   attr_accessor :decimal_places
   
-
-##
-# List of unique join paths for columns in the report
-# 
- def joins
-    self.columns.collect{|column|column.join_model}.compact.uniq
- end
-
  def params
    @params ||= {}
  end
@@ -50,7 +43,7 @@ class Report < ActiveRecord::Base
    set_filter(defaults[:filter])if  defaults[:filter] 
    add_sort(defaults[:sort]) if defaults[:sort]
  end
-##
+#
 # get the action associated with the row
 # 
  def action(row)
@@ -60,8 +53,7 @@ class Report < ActiveRecord::Base
       nil   
    end
  end
-
-##
+#
 # List all reporting containing this model name. This will search for by base_model 
 # and report_columns join_model to find matches.
 # 
@@ -71,18 +63,19 @@ class Report < ActiveRecord::Base
     logger.debug("Reports.containing#{column})==> list of #{list.size}")
     return list
  end
-##
+#
 # Get the number of elements for each column in the table as a array
 # 
   def sizes(row)
      columns.reject{|c|c.join_model.nil?}.collect{|column|column.size(row)}
   end
-
+#
+# test if this has a column
+#
  def has_column?(name)
     column = columns.detect{|col|col.name == name}
  end
-
-##
+#
 #get a named column
 #
  def column(name)
@@ -90,11 +83,9 @@ class Report < ActiveRecord::Base
     column ||= add_column(name)
     return column
  end
-
-##
+#
 # Add a column to a report based on a dot separated path name.
 # eg. experiment.study.name this allow for the fun of trees of values
-# 
 # 
  def add_column(column_name,params={})
     column = ReportColumn.new(:report=> self,
@@ -104,32 +95,59 @@ class Report < ActiveRecord::Base
                               :is_visible => !(column_name =~ /(lock_version|_by|_at|_id|_count)$/ ) 
      )
     column.name = column_name
-    column.customize(params)
+    column.label = column_name.split('.').collect{|c|c.capitalize}.join(' ')
+    column.is_visible =  !(column_name =~ /(lock_version|_by|_at|_id|_count)$/ ) 
+    route = column_name.split(".")
+    if route.size>1 
+       join = self.model.reflections[route[0].to_sym]
+       column.join_model = route[0]
+       column.join_name = join.macro.to_s
+       if join.macro == :has_many
+         column.is_filterible = false
+         column.is_sortable = false
+       end
+    else
+       column.join_model = nil
+    end
     self.columns << column
     return column
+
  rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
  end
-
- 
+#
+# Number of decimal places to display
+#
  def decimal_places
    @decimal_places ||= 3
  end
-
 ##
+# Create a report from a model 
+# 
+ def Report.for_model(model,options={})
+     report = Report.new(options)
+     report.name        = Identifier.next_id(Report)
+     report.description = "new #{model.to_s} based report"
+     report.base_model = model.to_s
+     report.model = model
+     report.save
+     for col in model.content_columns
+        report.add_column(col.name)
+     end
+     return report
+ rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")    
+ end
+#
 # Set the base model for the report. Only if there are not columns defined 
 # and no existing model 
 #
  def model= (value)
    unless @model
      @model = value
-     self.name = "new #{@model.to_s}"
-     self.description = "new #{@model.to_s} report"
      self.base_model = @model.to_s
-     for col in @model.content_columns
-        add_column(col.name)
-     end
    else
      logger.warn("cant change the model of a report once set")
    end
@@ -140,17 +158,13 @@ class Report < ActiveRecord::Base
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
  end
-
-##
+#
 # get the current model
 # 
  def model
    @model ||= eval(base_model) if base_model
  end
- 
-
-  
-##
+#
 # Apply the name=value hash of filter values to the query. This applies these the the
 # named columns as a set of conbined filters on the returned data.
 # As a general rule values are scanned for special characters to set the filter operation
@@ -163,8 +177,7 @@ class Report < ActiveRecord::Base
         column(key.to_s).filter = value unless value.nil? or value.size==0
     end
  end
- 
-##
+#
 # adds columns to the sort order for the columns in the report.
 # Existing sorted columns are keeped as futher classification eg.
 #
@@ -180,11 +193,9 @@ class Report < ActiveRecord::Base
       c.sort_direction = item.split(":")[1]||'asc'
     end
  end
-
-##
+#
 # Get the current sort key of the query
 # returns a array of columns used to sort the data in order they are applied
-# 
 #  
 def sort_columns
    return self.columns.reject{|column|column.sort_num.nil?}.sort{|a,b| a.sort_num <=> b.sort_num}
@@ -192,8 +203,7 @@ def sort_columns
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
 end
-
-##
+#
 # Get a list of active filter columns in the report. Based on whether there is a filter_text
 # value in column
 # 
@@ -203,8 +213,7 @@ def filter_columns
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
 end
-
-##
+#
 # Get a sorted list of all the columns in the query
 # 
  def displayed_columns 
@@ -214,28 +223,19 @@ end
       logger.error ex.backtrace.join("\n")  
       return  self.columns 
  end
-
-##
-# Get a list of the joins to base view
-# 
-# @todo Currently only supports single level of joins to base table
-# 
- def joins  
-  self.columns.collect{|column|column.join}.compact.uniq
- end
-
-##
+#
 # output a list of model links to include in find method
 # 
  def includes
    out = []
-   for item in joins
-     if item[1]
-     out << item[0] unless item[1].macro==:has_many
+   for item in  self.columns
+     unless  item.join_model.nil?
+        puts item.join_model
+        out << item.join_model unless item.join_name=="has_many"
      end
    end
    if out.size>0
-     out
+     out.uniq
    else 
      nil
    end
@@ -243,20 +243,8 @@ end
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
  end
- 
- 
-##
-#Execute the Query Applying all the filter and sort rules for the columns 
 #
- def run( params= {})
-   @model = self.model
-   if @model
-     params = params.merge({:conditions => conditions, :order => order, :include => includes })
-     return @model.find(:all, params ) 
-   end  
- end 
-
-##
+# order clause for report
 # 
  def order
    sort = sort_columns
@@ -265,6 +253,13 @@ end
    else
       return sort.collect{|column|"#{column.table_attribute} #{column.sort_direction.to_s}"}.join(",")
    end
+ end
+ 
+##
+# Get the maximum depth of nested tables 
+# 
+ def max_depth
+   return columns.collect{|c|c.name.split(".").size}.max
  end
 
 ##
@@ -297,6 +292,16 @@ end
      return filter.flatten 
    end
  end
+#
+#Execute the Query Applying all the filter and sort rules for the columns 
+#
+ def run( params= {})
+   @model = self.model
+   if @model
+     params = params.merge({:conditions => conditions, :order => order, :include => includes })
+     return @model.find(:all, params ) 
+   end  
+ end 
 
 end
 

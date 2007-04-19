@@ -1,11 +1,71 @@
 --- 
-memberships_001: 
-  updated_at: 2007-04-04 16:35:37
-  project_id: "10"
+memberships_004: 
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
   created_by: sys
   role_id: "3"
   updated_by: sys
-  id: "1"
+  id: "4"
+  owner: "1"
+  user_id: "4"
+  created_at: 0000-00-00 00:00:00
+memberships_005: 
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
+  created_by: sys
+  role_id: "3"
+  updated_by: sys
+  id: "5"
+  owner: "1"
+  user_id: "6"
+  created_at: 0000-00-00 00:00:00
+memberships_006: 
+  updated_at: 2007-04-18 14:38:20
+  project_id: "3"
+  created_by: sys
+  role_id: "1"
+  updated_by: sys
+  id: "6"
   owner: "1"
   user_id: "2"
-  created_at: 2007-04-04 16:35:37
+  created_at: 2007-04-18 14:38:20
+memberships_007: 
+  updated_at: 2007-04-18 15:30:13
+  project_id: "1"
+  created_by: sys
+  role_id: "3"
+  updated_by: sys
+  id: "7"
+  owner: "0"
+  user_id: "7"
+  created_at: 2007-04-18 15:30:13
+memberships_001: 
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
+  created_by: sys
+  role_id: "1"
+  updated_by: sys
+  id: "1"
+  owner: "0"
+  user_id: "1"
+  created_at: 0000-00-00 00:00:00
+memberships_002: 
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
+  created_by: sys
+  role_id: "3"
+  updated_by: sys
+  id: "2"
+  owner: "1"
+  user_id: "2"
+  created_at: 0000-00-00 00:00:00
+memberships_003: 
+  updated_at: 0000-00-00 00:00:00
+  project_id: "1"
+  created_by: sys
+  role_id: "3"
+  updated_by: sys
+  id: "3"
+  owner: "1"
+  user_id: "3"
+  created_at: 0000-00-00 00:00:00

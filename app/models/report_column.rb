@@ -1,3 +1,8 @@
+##
+# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+# 
+
 # == Schema Information
 # Schema version: 233
 #
@@ -28,12 +33,6 @@
 #  updated_at       :datetime      not null
 #  join_name        :string(255)   
 #
-
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
-
 class ReportColumn < ActiveRecord::Base
 
   belongs_to :report
@@ -58,92 +57,22 @@ class ReportColumn < ActiveRecord::Base
   end
   
 ##
-# Created the join path  if needed based on the name 
-# 
-  def name=(value)
-    @attributes['name'] = value
-    self.label = value.split('.').collect{|c|c.capitalize}.join(' ')
-    self.is_visible =  !(value =~ /(lock_version|_by|_at|_id|_count)$/ ) 
-    @route = self.name.split(".")
-    if @route.size>1 
-       self.join_model = @route[0]
-       if has_many
-         self.is_filterible = false
-         self.is_sortable = false
-       end
-    else
-       self.join_model = nil
-    end
-  end
-
-
-##
-# if is a has many operation return rthe join otherwize nil
-#   
-  def has_many
-    elements = self.name.split(".")
-    return nil if elements.size ==1
-    @model = self.report.model
-    @join = @model.reflections.find{|key,value| key.to_s == elements[0]}
-    return ( (@join and @join[1].macro==:has_many)? @join : nil)
-  end
-  
-##
 # Get the name as a table attribute pair 
 # 
 # @todo Need to work on how to handle same table appearing multiple times.
 # 
   def table_attribute
     attribute = self.name.split(".").pop
-    return model.table_name.to_s + "." + attribute.to_s
-  end
-
-##
-# Get the join information for the route link   
-# 
-  def join
-    if self.join_name
-       @model = self.report.model
-       @model.reflections.find{|key,value| key.to_s == self.join_name}
+    if  join_model
+    return join_model.tableize.to_s + "." + attribute.to_s
     else
-       nil
+    return report.model.table_name.to_s + "." + attribute.to_s
     end
   end
-##
-# model for the attribute 
-#    
-  def model
-    if  self.join_model and route and route.size>0
-       @model ||= eval( route[0].class_name )
-    end
-    @model ||= self.report.model
-  end  
 
-  
-##
-# Returns the route to the column values as a stack to be processed
-# as a array of models on the link eg. [Study,StudyParameter,Parameter]
-#  
-  def route
-      return @route if @route 
-      @route = []  
-      elements = self.name.split(".")
-      elements.delete_at(elements.size-1)    
-      temp_model = self.report.model        
-      for item in elements
-           relation = temp_model.reflections[item.to_sym]
-           if relation
-              temp_model = eval( relation.class_name ) 
-              @route << relation
-           end
-      end 
-    return @route
-  rescue Exception => ex
-      puts ex.message
-      puts ex.backtrace.join("\n")       
-      @route
+  def has_many?
+   self.join_name=="has_many"
   end
-
 ##
 # Set the next direction for a sort based on current
 #    

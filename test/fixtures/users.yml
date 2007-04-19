@@ -1,6 +1,6 @@
 --- 
 users_004: 
-  name: ANother
+  name: thawkins
   updated_at: 
   activated_at: 
   deleted_at: 
@@ -10,12 +10,12 @@ users_004:
   activation_code: 
   fullname: 
   password_salt: 
-  role_id: "2"
-  id: "5"
+  role_id: "3"
+  id: "4"
   filter: 
-  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  password_hash: d84e5ddda8a7eef03dd5e4934ede87d1a1758a96
   state_id: 
-  login: 
+  login: thawkins
   created_at: 
   email: 
 users_005: 
@@ -34,30 +34,30 @@ users_005:
   filter: 
   password_hash: 773418797bbc217fa520ba98f090227cd0b74b18
   state_id: 
-  login: 
+  login: alemon
   created_at: 
   email: 
 users_006: 
-  name: "Login \xC2\xBB"
-  updated_at: 2007-03-21 22:41:39
+  name: ewallace
+  updated_at: 2007-04-18 15:30:13
   activated_at: 
   deleted_at: 
   token: 
   admin: "0"
   token_expires_at: 
   activation_code: 
-  fullname: 
-  password_salt: 26c4cb128eb6561dd87f421e0fccb024613c433a
-  role_id: 
+  fullname: Emma Wallace
+  password_salt: 745025c931ef3349548997790985f0b2cf4f6dd4
+  role_id: "3"
   id: "7"
   filter: 
-  password_hash: 39e4b6005ef08e5f80cde6884c4a794bfca1462a
+  password_hash: cdfcc3ace3be12baddddf8ace44be64f992d3887
   state_id: 
-  login: "Login \xC2\xBB"
-  created_at: 2007-03-21 22:41:39
-  email: 
+  login: ewallace
+  created_at: 2007-04-18 15:30:13
+  email: test@test
 users_001: 
-  name: admin
+  name: guest
   updated_at: 
   activated_at: 
   deleted_at: 
@@ -67,36 +67,36 @@ users_001:
   activation_code: 
   fullname: 
   password_salt: 
-  role_id: "3"
-  id: "2"
+  role_id: "2"
+  id: "1"
   filter: 
-  password_hash: d033e22ae348aeb5660fc2140aec35850c4da997
+  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
   state_id: 
-  login: 
+  login: guest
   created_at: 
   email: 
 users_002: 
-  name: rshell
-  updated_at: 
+  name: admin
+  updated_at: 2007-04-18 12:54:44
   activated_at: 
   deleted_at: 
   token: 
-  admin: "0"
+  admin: "1"
   token_expires_at: 
   activation_code: 
   fullname: 
-  password_salt: 
+  password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
   role_id: "3"
-  id: "3"
+  id: "2"
   filter: 
-  password_hash: 66549d85d66747b93596bd7b05409f544ef97310
+  password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
   state_id: 
-  login: 
+  login: admin
   created_at: 
   email: 
 users_003: 
-  name: thawkins
-  updated_at: 
+  name: rshell
+  updated_at: 2007-04-18 12:54:16
   activated_at: 
   deleted_at: 
   token: 
@@ -104,12 +104,12 @@ users_003:
   token_expires_at: 
   activation_code: 
   fullname: 
-  password_salt: 
+  password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
   role_id: "3"
-  id: "4"
+  id: "3"
   filter: 
-  password_hash: d84e5ddda8a7eef03dd5e4934ede87d1a1758a96
+  password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
   state_id: 
-  login: 
+  login: rshell
   created_at: 
   email: 

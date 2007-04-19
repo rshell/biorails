@@ -1,0 +1,1057 @@
+--- 
+task_result_texts_040: 
+  updated_at: 2007-03-30 22:31:30
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "67"
+  task_context_id: "2278"
+  id: "669"
+  parameter_id: "64"
+  row_no: "2"
+  row_label: Group[2]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:30
+  data_value: C
+task_result_texts_029: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: vehicle
+  reference_parameter_id: "159"
+  task_context_id: "1918"
+  id: "504"
+  parameter_id: "26"
+  row_no: "9"
+  row_label: Treatment Groups[46]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "0"
+  created_at: 2007-03-30 22:15:33
+  data_value: B
+task_result_texts_018: 
+  updated_at: 2007-03-30 20:37:36
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: saline
+  reference_parameter_id: "210"
+  task_context_id: "1289"
+  id: "94"
+  parameter_id: "211"
+  row_no: "1"
+  row_label: Compounds[6]
+  data_element_id: 
+  label: Compounds
+  data_id: "1006"
+  created_at: 2007-03-30 20:37:36
+  data_value: C23H50Cl2
+task_result_texts_007: 
+  updated_at: 2007-03-24 16:23:25
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: positive
+  reference_parameter_id: "90"
+  task_context_id: "891"
+  id: "33"
+  parameter_id: "89"
+  row_no: "1"
+  row_label: Dose Groups[1]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:22:35
+  data_value: 5pcHPbC + vehicle
+task_result_texts_041: 
+  updated_at: 2007-03-30 22:31:31
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "67"
+  task_context_id: "2279"
+  id: "670"
+  parameter_id: "64"
+  row_no: "3"
+  row_label: Group[3]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:31
+  data_value: D
+task_result_texts_030: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB001
+  reference_parameter_id: "158"
+  task_context_id: "1927"
+  id: "505"
+  parameter_id: "26"
+  row_no: "18"
+  row_label: Treatment Groups[55]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "1"
+  created_at: 2007-03-30 22:15:33
+  data_value: C
+task_result_texts_019: 
+  updated_at: 2007-03-30 20:37:23
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: vehicle
+  reference_parameter_id: "210"
+  task_context_id: "1288"
+  id: "93"
+  parameter_id: "211"
+  row_no: "0"
+  row_label: Compounds[5]
+  data_element_id: 
+  label: Compounds
+  data_id: "1007"
+  created_at: 2007-03-30 20:37:23
+  data_value: C12H30F3
+task_result_texts_008: 
+  updated_at: 2007-03-24 16:23:32
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: vehicle
+  reference_parameter_id: "90"
+  task_context_id: "890"
+  id: "32"
+  parameter_id: "89"
+  row_no: "0"
+  row_label: Dose Groups[0]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:22:12
+  data_value: 5pcHPbC + saline
+task_result_texts_042: 
+  updated_at: 2007-03-30 22:31:28
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: saline
+  reference_parameter_id: "213"
+  task_context_id: "2276"
+  id: "667"
+  parameter_id: "64"
+  row_no: "0"
+  row_label: Group[0]
+  data_element_id: 
+  label: Group
+  data_id: "1006"
+  created_at: 2007-03-30 22:31:25
+  data_value: A
+task_result_texts_031: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB002
+  reference_parameter_id: "158"
+  task_context_id: "1936"
+  id: "506"
+  parameter_id: "26"
+  row_no: "27"
+  row_label: Treatment Groups[64]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "2"
+  created_at: 2007-03-30 22:15:33
+  data_value: D
+task_result_texts_020: 
+  updated_at: 2007-03-30 20:37:48
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: AB0010
+  reference_parameter_id: "210"
+  task_context_id: "1290"
+  id: "95"
+  parameter_id: "211"
+  row_no: "2"
+  row_label: Compounds[7]
+  data_element_id: 
+  label: Compounds
+  data_id: "10"
+  created_at: 2007-03-30 20:37:48
+  data_value: C4H3
+task_result_texts_009: 
+  updated_at: 2007-03-24 16:23:57
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: interest
+  reference_parameter_id: "90"
+  task_context_id: "893"
+  id: "35"
+  parameter_id: "89"
+  row_no: "3"
+  row_label: Dose Groups[3]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:23:57
+  data_value: AB001 10mg + 00749
+task_result_texts_043: 
+  updated_at: 2007-03-30 22:31:29
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: 00749
+  reference_parameter_id: "213"
+  task_context_id: "2277"
+  id: "668"
+  parameter_id: "64"
+  row_no: "1"
+  row_label: Group[1]
+  data_element_id: 
+  label: Group
+  data_id: "1005"
+  created_at: 2007-03-30 22:31:26
+  data_value: B
+task_result_texts_032: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: negative
+  reference_parameter_id: "159"
+  task_context_id: "1909"
+  id: "503"
+  parameter_id: "26"
+  row_no: "0"
+  row_label: Treatment Groups[37]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "0"
+  created_at: 2007-03-30 22:15:33
+  data_value: A
+task_result_texts_021: 
+  updated_at: 2007-03-30 20:38:02
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: AB001
+  reference_parameter_id: "210"
+  task_context_id: "1291"
+  id: "96"
+  parameter_id: "211"
+  row_no: "3"
+  row_label: Compounds[8]
+  data_element_id: 
+  label: Compounds
+  data_id: "1"
+  created_at: 2007-03-30 20:38:02
+  data_value: C8H22F2
+task_result_texts_010: 
+  updated_at: 2007-03-24 16:24:26
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: interest
+  reference_parameter_id: "90"
+  task_context_id: "894"
+  id: "36"
+  parameter_id: "89"
+  row_no: "4"
+  row_label: Dose Groups[4]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:24:26
+  data_value: AB001 20mg + 00749
+task_result_texts_044: 
+  updated_at: 2007-03-30 22:31:30
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB001
+  reference_parameter_id: "213"
+  task_context_id: "2278"
+  id: "669"
+  parameter_id: "64"
+  row_no: "2"
+  row_label: Group[2]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:31:30
+  data_value: C
+task_result_texts_033: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: interest
+  reference_parameter_id: "159"
+  task_context_id: "1927"
+  id: "505"
+  parameter_id: "26"
+  row_no: "18"
+  row_label: Treatment Groups[55]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "0"
+  created_at: 2007-03-30 22:15:33
+  data_value: C
+task_result_texts_022: 
+  updated_at: 2007-03-30 20:38:12
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: AB002
+  reference_parameter_id: "210"
+  task_context_id: "1292"
+  id: "97"
+  parameter_id: "211"
+  row_no: "4"
+  row_label: Compounds[9]
+  data_element_id: 
+  label: Compounds
+  data_id: "2"
+  created_at: 2007-03-30 20:38:12
+  data_value: C2H5O
+task_result_texts_011: 
+  updated_at: 2007-03-24 16:24:35
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: interest
+  reference_parameter_id: "90"
+  task_context_id: "895"
+  id: "37"
+  parameter_id: "89"
+  row_no: "5"
+  row_label: Dose Groups[5]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:24:35
+  data_value: AB001 40mg + 00749
+task_result_texts_045: 
+  updated_at: 2007-03-30 22:31:31
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB002
+  reference_parameter_id: "213"
+  task_context_id: "2279"
+  id: "670"
+  parameter_id: "64"
+  row_no: "3"
+  row_label: Group[3]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:31:31
+  data_value: D
+task_result_texts_034: 
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  task_id: "18"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: interest
+  reference_parameter_id: "159"
+  task_context_id: "1936"
+  id: "506"
+  parameter_id: "26"
+  row_no: "27"
+  row_label: Treatment Groups[64]
+  data_element_id: 
+  label: Treatment Groups
+  data_id: "0"
+  created_at: 2007-03-30 22:15:33
+  data_value: D
+task_result_texts_023: 
+  updated_at: 2007-03-30 20:37:36
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: negative
+  reference_parameter_id: "214"
+  task_context_id: "1289"
+  id: "94"
+  parameter_id: "211"
+  row_no: "1"
+  row_label: Compounds[6]
+  data_element_id: 
+  label: Compounds
+  data_id: "0"
+  created_at: 2007-03-30 20:37:36
+  data_value: C23H50Cl2
+task_result_texts_012: 
+  updated_at: 2007-03-24 16:23:25
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: 00749
+  reference_parameter_id: "93"
+  task_context_id: "891"
+  id: "33"
+  parameter_id: "89"
+  row_no: "1"
+  row_label: Dose Groups[1]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1005"
+  created_at: 2007-03-24 16:22:35
+  data_value: 5pcHPbC + vehicle
+task_result_texts_001: 
+  updated_at: 2007-03-24 16:23:32
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: saline
+  reference_parameter_id: "91"
+  task_context_id: "890"
+  id: "32"
+  parameter_id: "89"
+  row_no: "0"
+  row_label: Dose Groups[0]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1006"
+  created_at: 2007-03-24 16:22:12
+  data_value: 5pcHPbC + saline
+task_result_texts_046: 
+  updated_at: 2007-03-30 22:31:31
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "66"
+  task_context_id: "2279"
+  id: "670"
+  parameter_id: "64"
+  row_no: "3"
+  row_label: Group[3]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:31
+  data_value: D
+task_result_texts_035: 
+  updated_at: 2007-03-30 22:31:28
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "66"
+  task_context_id: "2276"
+  id: "667"
+  parameter_id: "64"
+  row_no: "0"
+  row_label: Group[0]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:25
+  data_value: A
+task_result_texts_024: 
+  updated_at: 2007-03-30 20:37:48
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: challenge
+  reference_parameter_id: "214"
+  task_context_id: "1290"
+  id: "95"
+  parameter_id: "211"
+  row_no: "2"
+  row_label: Compounds[7]
+  data_element_id: 
+  label: Compounds
+  data_id: "0"
+  created_at: 2007-03-30 20:37:48
+  data_value: C4H3
+task_result_texts_013: 
+  updated_at: 2007-03-24 16:23:23
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: 00749
+  reference_parameter_id: "93"
+  task_context_id: "892"
+  id: "34"
+  parameter_id: "89"
+  row_no: "2"
+  row_label: Dose Groups[2]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1005"
+  created_at: 2007-03-24 16:23:23
+  data_value: 02707 5mg + 00749
+task_result_texts_002: 
+  updated_at: 2007-03-24 16:23:23
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: "02707"
+  reference_parameter_id: "91"
+  task_context_id: "892"
+  id: "34"
+  parameter_id: "89"
+  row_no: "2"
+  row_label: Dose Groups[2]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1004"
+  created_at: 2007-03-24 16:23:23
+  data_value: 02707 5mg + 00749
+task_result_texts_047: 
+  updated_at: 2007-03-30 22:48:47
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  created_by: ""
+  task_id: "22"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "682"
+  parameter_id: "217"
+  row_no: "0"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:48:47
+  data_value: C
+task_result_texts_036: 
+  updated_at: 2007-03-30 22:31:29
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "66"
+  task_context_id: "2277"
+  id: "668"
+  parameter_id: "64"
+  row_no: "1"
+  row_label: Group[1]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:26
+  data_value: B
+task_result_texts_025: 
+  updated_at: 2007-03-30 20:38:02
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: interest
+  reference_parameter_id: "214"
+  task_context_id: "1291"
+  id: "96"
+  parameter_id: "211"
+  row_no: "3"
+  row_label: Compounds[8]
+  data_element_id: 
+  label: Compounds
+  data_id: "0"
+  created_at: 2007-03-30 20:38:02
+  data_value: C8H22F2
+task_result_texts_014: 
+  updated_at: 2007-03-24 16:23:57
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: 00749
+  reference_parameter_id: "93"
+  task_context_id: "893"
+  id: "35"
+  parameter_id: "89"
+  row_no: "3"
+  row_label: Dose Groups[3]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1005"
+  created_at: 2007-03-24 16:23:57
+  data_value: AB001 10mg + 00749
+task_result_texts_003: 
+  updated_at: 2007-03-24 16:23:57
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: AB001
+  reference_parameter_id: "91"
+  task_context_id: "893"
+  id: "35"
+  parameter_id: "89"
+  row_no: "3"
+  row_label: Dose Groups[3]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1"
+  created_at: 2007-03-24 16:23:57
+  data_value: AB001 10mg + 00749
+task_result_texts_048: 
+  updated_at: 2007-03-30 22:48:50
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  created_by: ""
+  task_id: "22"
+  column_no: "1"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "683"
+  parameter_id: "217"
+  row_no: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:48:50
+  data_value: D
+task_result_texts_037: 
+  updated_at: 2007-03-30 22:31:30
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: pass
+  reference_parameter_id: "66"
+  task_context_id: "2278"
+  id: "669"
+  parameter_id: "64"
+  row_no: "2"
+  row_label: Group[2]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:30
+  data_value: C
+task_result_texts_026: 
+  updated_at: 2007-03-30 20:38:12
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: interest
+  reference_parameter_id: "214"
+  task_context_id: "1292"
+  id: "97"
+  parameter_id: "211"
+  row_no: "4"
+  row_label: Compounds[9]
+  data_element_id: 
+  label: Compounds
+  data_id: "0"
+  created_at: 2007-03-30 20:38:12
+  data_value: C2H5O
+task_result_texts_015: 
+  updated_at: 2007-03-24 16:24:26
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: 00749
+  reference_parameter_id: "93"
+  task_context_id: "894"
+  id: "36"
+  parameter_id: "89"
+  row_no: "4"
+  row_label: Dose Groups[4]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1005"
+  created_at: 2007-03-24 16:24:26
+  data_value: AB001 20mg + 00749
+task_result_texts_004: 
+  updated_at: 2007-03-24 16:24:26
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: AB001
+  reference_parameter_id: "91"
+  task_context_id: "894"
+  id: "36"
+  parameter_id: "89"
+  row_no: "4"
+  row_label: Dose Groups[4]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1"
+  created_at: 2007-03-24 16:24:26
+  data_value: AB001 20mg + 00749
+task_result_texts_038: 
+  updated_at: 2007-03-30 22:31:28
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: fail
+  reference_parameter_id: "67"
+  task_context_id: "2276"
+  id: "667"
+  parameter_id: "64"
+  row_no: "0"
+  row_label: Group[0]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:25
+  data_value: A
+task_result_texts_027: 
+  updated_at: 2007-03-30 20:37:23
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  created_by: ""
+  task_id: "7"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Molecula Formula
+  subject: vehicle
+  reference_parameter_id: "214"
+  task_context_id: "1288"
+  id: "93"
+  parameter_id: "211"
+  row_no: "0"
+  row_label: Compounds[5]
+  data_element_id: 
+  label: Compounds
+  data_id: "0"
+  created_at: 2007-03-30 20:37:23
+  data_value: C12H30F3
+task_result_texts_016: 
+  updated_at: 2007-03-24 16:24:35
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: 00749
+  reference_parameter_id: "93"
+  task_context_id: "895"
+  id: "37"
+  parameter_id: "89"
+  row_no: "5"
+  row_label: Dose Groups[5]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1005"
+  created_at: 2007-03-24 16:24:35
+  data_value: AB001 40mg + 00749
+task_result_texts_005: 
+  updated_at: 2007-03-24 16:24:35
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: DRUG
+  subject: AB001
+  reference_parameter_id: "91"
+  task_context_id: "895"
+  id: "37"
+  parameter_id: "89"
+  row_no: "5"
+  row_label: Dose Groups[5]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "1"
+  created_at: 2007-03-24 16:24:35
+  data_value: AB001 40mg + 00749
+task_result_texts_039: 
+  updated_at: 2007-03-30 22:31:29
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  created_by: ""
+  task_id: "20"
+  column_no: "1"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Treatment Group
+  subject: fail
+  reference_parameter_id: "67"
+  task_context_id: "2277"
+  id: "668"
+  parameter_id: "64"
+  row_no: "1"
+  row_label: Group[1]
+  data_element_id: 
+  label: Group
+  data_id: "0"
+  created_at: 2007-03-30 22:31:26
+  data_value: B
+task_result_texts_028: 
+  updated_at: 2007-03-30 21:46:56
+  parameter_context_id: "2"
+  protocol_version_id: "2"
+  created_by: ""
+  task_id: "9"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: Strain
+  subject: rat
+  reference_parameter_id: "7"
+  task_context_id: "1460"
+  id: "182"
+  parameter_id: "8"
+  row_no: "0"
+  row_label: Settings[82]
+  data_element_id: 
+  label: Settings
+  data_id: "0"
+  created_at: 2007-03-30 21:46:56
+  data_value: ADH
+task_result_texts_017: 
+  updated_at: 2007-03-24 17:16:13
+  parameter_context_id: "21"
+  protocol_version_id: "12"
+  created_by: ""
+  task_id: "5"
+  column_no: "2"
+  data_type: Compound
+  updated_by: ""
+  parameter_name: Forbehandling ICV
+  subject: AB004
+  reference_parameter_id: "136"
+  task_context_id: "1158"
+  id: "92"
+  parameter_id: "140"
+  row_no: "0"
+  row_label: Compound[0]
+  data_element_id: 
+  label: Compound
+  data_id: "4"
+  created_at: 2007-03-24 17:16:13
+  data_value: 00749 0,8ug
+task_result_texts_006: 
+  updated_at: 2007-03-24 16:23:23
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  created_by: ""
+  task_id: "1"
+  column_no: "2"
+  data_type: Hash
+  updated_by: ""
+  parameter_name: DRUG
+  subject: negative
+  reference_parameter_id: "90"
+  task_context_id: "892"
+  id: "34"
+  parameter_id: "89"
+  row_no: "2"
+  row_label: Dose Groups[2]
+  data_element_id: 
+  label: Dose Groups
+  data_id: "0"
+  created_at: 2007-03-24 16:23:23
+  data_value: 02707 5mg + 00749

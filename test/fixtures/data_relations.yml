@@ -1,13 +1,2 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: data_relations
-#
-#  id              :integer(11)   not null, primary key
-#  from_concept_id :integer(32)   not null
-#  to_concept_id   :integer(32)   not null
-#  role_concept_id :integer(32)   not null
-#
-
 --- {}
 

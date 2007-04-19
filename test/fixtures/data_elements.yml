@@ -1,26 +1,3 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: data_elements
-#
-#  id                :integer(11)   not null, primary key
-#  name              :string(50)    default(), not null
-#  description       :text          
-#  data_system_id    :integer(11)   not null
-#  data_concept_id   :integer(11)   not null
-#  access_control_id :integer(11)   
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    default(sys), not null
-#  created_at        :datetime      not null
-#  updated_by        :string(32)    default(sys), not null
-#  updated_at        :datetime      not null
-#  parent_id         :integer(10)   
-#  style             :string(10)    default(), not null
-#  content           :text          default(), not null
-#  estimated_count   :integer(11)   
-#  type              :string(255)   
-#
-
 --- 
 data_elements_025: 
   name: Progresssion
@@ -226,6 +203,40 @@ data_elements_006:
   parent_id: 
   style: sql
   created_at: 2007-01-23 09:21:03
+data_elements_030: 
+  name: Target
+  updated_at: 2007-04-03 16:52:31
+  access_control_id: 
+  created_by: sys
+  type: ListElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "5"
+  updated_by: sys
+  id: "86"
+  description: Targets
+  content: "'T1','T2','T3','T4','T5'"
+  data_concept_id: "50"
+  parent_id: 
+  style: list
+  created_at: 2007-04-03 16:52:31
+data_elements_029: 
+  name: TargetID
+  updated_at: 2007-04-03 16:47:26
+  access_control_id: 
+  created_by: sys
+  type: ListElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "7"
+  updated_by: sys
+  id: "85"
+  description: Internal ID of the targets used in the projects
+  content: "'T011','T012','T014','T015','T0016','T0017','T008'"
+  data_concept_id: "1"
+  parent_id: 
+  style: list
+  created_at: 2007-04-03 16:47:26
 data_elements_018: 
   name: Tasks
   updated_at: 2007-02-28 17:59:15
@@ -398,11 +409,11 @@ data_elements_011:
   created_at: 2007-02-06 09:47:13
 data_elements_023: 
   name: Score
-  updated_at: 2007-03-08 07:07:50
+  updated_at: 2007-03-30 22:40:53
   access_control_id: 
   created_by: sys
   type: ListElement
-  lock_version: "1"
+  lock_version: "5"
   data_system_id: "1"
   estimated_count: "9"
   updated_by: sys

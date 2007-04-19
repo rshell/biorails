@@ -1,207 +1,463 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: tasks
-#
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :text          
-#  experiment_id       :integer(11)   
-#  protocol_version_id :integer(11)   
-#  status_id           :integer(11)   
-#  is_milestone        :boolean(1)    
-#  assigned_to         :string(60)    
-#  priority_id         :integer(11)   
-#  start_date          :datetime      
-#  end_date            :datetime      
-#  expected_hours      :float         
-#  done_hours          :float         
-#  lock_version        :integer(11)   default(0), not null
-#  created_by          :string(32)    default(), not null
-#  created_at          :datetime      not null
-#  updated_by          :string(32)    default(), not null
-#  updated_at          :datetime      not null
-#  study_protocol_id   :integer(11)   
-#
-
 --- 
+tasks_020: 
+  done_hours: "0"
+  end_date: 2007-04-03 00:00:00
+  start_date: 2007-04-03 00:00:00
+  experiment_id: "5"
+  name: DMO-001-14
+  project_id: "1"
+  updated_at: 2007-03-30 22:37:00
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "8"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "8"
+  updated_by: ""
+  id: "21"
+  description: " Task in experiment DMO-001 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:33:59
+tasks_019: 
+  done_hours: "0"
+  end_date: 2007-04-01 00:00:00
+  start_date: 2007-04-01 00:00:00
+  experiment_id: "5"
+  name: DMO-001-13
+  project_id: "1"
+  updated_at: 2007-03-30 22:30:53
+  expected_hours: "1"
+  assigned_to: "6"
+  protocol_version_id: "7"
+  created_by: ""
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "7"
+  updated_by: ""
+  id: "20"
+  description: " Task in experiment DMO-001 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:30:53
 tasks_008: 
   done_hours: "0"
   end_date: 2007-03-24 00:00:00
+  start_date: 2007-03-24 00:00:00
+  experiment_id: "5"
+  name: DMO-001-2
+  project_id: "1"
+  updated_at: 2007-03-30 21:49:27
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "2"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "2"
+  updated_by: ""
+  id: "9"
+  description: "Treat animals<br /> "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 20:30:46
+tasks_021: 
+  done_hours: "0"
+  end_date: 2007-04-03 00:00:00
+  start_date: 2007-04-03 00:00:00
+  experiment_id: "5"
+  name: DMO-001-15
+  project_id: "1"
+  updated_at: 2007-03-30 22:48:28
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "18"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "15"
+  updated_by: ""
+  id: "22"
+  description: " Task in experiment DMO-001 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:47:50
+tasks_010: 
+  done_hours: "0"
+  end_date: 2007-03-25 00:00:00
+  start_date: 2007-03-25 00:00:00
+  experiment_id: "5"
+  name: DMO-001-4
+  project_id: "1"
+  updated_at: 2007-03-30 21:56:10
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "11"
+  description: "Weights "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 21:24:42
+tasks_009: 
+  done_hours: "0"
+  end_date: 2007-03-24 00:00:00
+  start_date: 2007-03-24 00:00:00
+  experiment_id: "5"
+  name: DMO-001-3
+  project_id: "1"
+  updated_at: 2007-03-30 21:53:47
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "10"
+  description: "weigh animals<br /> "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 20:32:24
+tasks_022: 
+  done_hours: "0"
+  end_date: 2007-04-25 00:00:00
+  start_date: 2007-04-18 00:00:00
+  experiment_id: "6"
+  name: Experiment-1-0
+  project_id: 
+  updated_at: 2007-04-18 14:08:54
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "23"
+  created_by: ""
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "20"
+  updated_by: ""
+  id: "23"
+  description: " Task in experiment Experiment-1 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-18 14:08:54
+tasks_011: 
+  done_hours: "0"
+  end_date: 2007-03-26 00:00:00
+  start_date: 2007-03-26 00:00:00
+  experiment_id: "5"
+  name: DMO-001-5
+  project_id: "1"
+  updated_at: 2007-03-30 21:58:38
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "3"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "12"
+  description: Data Import from file
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 21:57:38
+tasks_012: 
+  done_hours: "0"
+  end_date: 2007-03-27 00:00:00
+  start_date: 2007-03-27 00:00:00
+  experiment_id: "5"
+  name: DMO-001-6
+  project_id: "1"
+  updated_at: 2007-03-30 22:00:19
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "13"
+  description: Data Import from file
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 21:59:56
+tasks_001: 
+  done_hours: "0"
+  end_date: 2007-03-22 00:00:00
+  start_date: 2007-03-22 00:00:00
+  experiment_id: "3"
+  name: TH210307-1-0
+  project_id: "1"
+  updated_at: 2007-03-24 14:04:28
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "9"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "9"
+  updated_by: ""
+  id: "1"
+  description: "Set up experiment with example materials<br /> "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-23 13:08:47
+tasks_013: 
+  done_hours: "0"
+  end_date: 2007-03-28 00:00:00
+  start_date: 2007-03-28 00:00:00
+  experiment_id: "5"
+  name: DMO-001-7
+  project_id: "1"
+  updated_at: 2007-03-30 22:01:56
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "14"
+  description: Data Import from file
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:01:36
+tasks_002: 
+  done_hours: "0"
+  end_date: 2007-03-23 00:00:00
   start_date: 2007-03-23 00:00:00
   experiment_id: "3"
-  name: TH210307-1-7
-  updated_at: 2007-03-23 18:03:26
+  name: TH210307-1-1
+  project_id: "1"
+  updated_at: 2007-03-24 16:31:29
   expected_hours: "1"
   assigned_to: "2"
   protocol_version_id: "10"
   created_by: ""
-  lock_version: "0"
-  priority_id: 
-  study_protocol_id: "10"
-  updated_by: ""
-  id: "8"
-  description: " Task in experiment TH210307-1 "
-  status_id: "0"
-  is_milestone: "0"
-  created_at: 2007-03-23 18:03:26
-tasks_009: 
-  done_hours: "0"
-  end_date: 2007-03-25 15:33:54
-  start_date: 2007-03-24 14:33:54
-  experiment_id: "3"
-  name: TH210307-1-2
-  updated_at: 2007-03-24 14:33:58
-  expected_hours: "1"
-  assigned_to: 
-  protocol_version_id: "10"
-  created_by: ""
-  lock_version: "1"
-  priority_id: 
-  study_protocol_id: "10"
-  updated_by: ""
-  id: "9"
-  description: Data Import from file
-  status_id: 
-  is_milestone: 
-  created_at: 2007-03-24 14:33:54
-tasks_001: 
-  done_hours: "0"
-  end_date: 2007-03-24 09:43:17
-  start_date: 2007-03-23 09:43:17
-  experiment_id: "3"
-  name: TH210307-1:0
-  updated_at: 2007-03-23 10:36:47
-  expected_hours: "1"
-  assigned_to: 
-  protocol_version_id: "12"
-  created_by: ""
-  lock_version: "4"
-  priority_id: 
-  study_protocol_id: "12"
-  updated_by: ""
-  id: "1"
-  description: This task is linked to external cvs file for import created called TH210307-1-TH210307-1:0.csv
-  status_id: 
-  is_milestone: 
-  created_at: 2007-03-23 09:43:17
-tasks_002: 
-  done_hours: "0"
-  end_date: 2007-03-24 09:49:19
-  start_date: 2007-03-23 09:49:19
-  experiment_id: "3"
-  name: TH210307-1:1
-  updated_at: 2007-03-23 19:10:50
-  expected_hours: "1"
-  assigned_to: 
-  protocol_version_id: "10"
-  created_by: ""
-  lock_version: "5"
+  lock_version: "3"
   priority_id: 
   study_protocol_id: "10"
   updated_by: ""
   id: "2"
-  description: This task is linked to external cvs file for import created called TH210307-1-TH210307-1:1.csv
-  status_id: 
-  is_milestone: 
-  created_at: 2007-03-23 09:49:19
+  description: " Task in experiment TH210307-1 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-23 18:03:27
+tasks_014: 
+  done_hours: "0"
+  end_date: 2007-03-29 00:00:00
+  start_date: 2007-03-29 00:00:00
+  experiment_id: "5"
+  name: DMO-001-8
+  project_id: "1"
+  updated_at: 2007-03-30 22:03:32
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "2"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "15"
+  description: Data Import from file
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:03:01
 tasks_003: 
   done_hours: "0"
-  end_date: 2007-03-24 09:51:20
-  start_date: 2007-03-23 09:51:20
-  experiment_id: "3"
-  name: TH210307-1:2
-  updated_at: 2007-03-23 09:51:20
-  expected_hours: "1"
-  assigned_to: 
-  protocol_version_id: "9"
-  created_by: ""
-  lock_version: "1"
-  priority_id: 
-  study_protocol_id: "9"
-  updated_by: ""
-  id: "3"
-  description: This task is linked to external cvs file for import created called TH210307-1-TH210307-1:2.csv
-  status_id: 
-  is_milestone: 
-  created_at: 2007-03-23 09:51:20
-tasks_004: 
-  done_hours: "0"
-  end_date: 2007-03-30 00:00:00
+  end_date: 2007-03-25 16:54:25
   start_date: 2007-03-23 00:00:00
   experiment_id: "3"
-  name: TH210307-1-3
-  updated_at: 2007-03-23 12:14:37
+  name: TH210307-1-2
+  project_id: "1"
+  updated_at: 2007-03-25 16:54:25
   expected_hours: "1"
-  assigned_to: "3"
-  protocol_version_id: "9"
+  assigned_to: "2"
+  protocol_version_id: "11"
   created_by: ""
-  lock_version: "0"
+  lock_version: "2"
   priority_id: 
-  study_protocol_id: "9"
+  study_protocol_id: "11"
   updated_by: ""
   id: "4"
   description: " Task in experiment TH210307-1 "
-  status_id: "0"
+  status_id: "5"
   is_milestone: "0"
-  created_at: 2007-03-23 12:14:37
-tasks_005: 
+  created_at: 2007-03-24 16:40:28
+tasks_015: 
   done_hours: "0"
   end_date: 2007-03-30 00:00:00
-  start_date: 2007-03-23 00:00:00
-  experiment_id: "3"
-  name: TH210307-1-4
-  updated_at: 2007-03-23 12:45:26
+  start_date: 2007-03-30 00:00:00
+  experiment_id: "5"
+  name: DMO-001-9
+  project_id: "1"
+  updated_at: 2007-03-30 22:05:00
   expected_hours: "1"
   assigned_to: "2"
-  protocol_version_id: "10"
+  protocol_version_id: "4"
   created_by: ""
-  lock_version: "0"
+  lock_version: "2"
   priority_id: 
-  study_protocol_id: "9"
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "16"
+  description: Data Import from file
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:04:40
+tasks_004: 
+  done_hours: "0"
+  end_date: 2007-03-26 00:00:00
+  start_date: 2007-03-26 00:00:00
+  experiment_id: "3"
+  name: TH210307-1-3
+  project_id: "1"
+  updated_at: 2007-03-25 16:54:41
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "12"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "12"
   updated_by: ""
   id: "5"
-  description: " Task in experiment TH210307-1 "
-  status_id: "0"
+  description: "Follow up assessment of blood brain ratio<br /> "
+  status_id: "4"
   is_milestone: "0"
-  created_at: 2007-03-23 12:45:26
-tasks_006: 
+  created_at: 2007-03-24 17:15:59
+tasks_016: 
   done_hours: "0"
-  end_date: 2007-03-30 00:00:00
-  start_date: 2007-03-23 00:00:00
-  experiment_id: "3"
-  name: TH210307-1-5
-  updated_at: 2007-03-23 13:19:58
+  end_date: 2007-03-31 22:05:55
+  start_date: 2007-03-30 22:05:55
+  experiment_id: "5"
+  name: DMO-001-10
+  project_id: "1"
+  updated_at: 2007-03-30 22:05:56
+  expected_hours: "1"
+  assigned_to: 
+  protocol_version_id: "4"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "4"
+  updated_by: ""
+  id: "17"
+  description: Data Import from file
+  status_id: 
+  is_milestone: 
+  created_at: 2007-03-30 22:05:55
+tasks_005: 
+  done_hours: "0"
+  end_date: 2007-03-29 00:00:00
+  start_date: 2007-03-29 00:00:00
+  experiment_id: "4"
+  name: Test-0-0
+  project_id: "1"
+  updated_at: 2007-03-30 20:00:38
   expected_hours: "1"
   assigned_to: "2"
-  protocol_version_id: "9"
+  protocol_version_id: "16"
   created_by: ""
   lock_version: "0"
   priority_id: 
-  study_protocol_id: "9"
+  study_protocol_id: "13"
   updated_by: ""
   id: "6"
-  description: " Task in experiment TH210307-1 "
+  description: "Test compounds<br /> "
   status_id: "0"
   is_milestone: "0"
-  created_at: 2007-03-23 13:19:58
-tasks_007: 
+  created_at: 2007-03-30 20:00:38
+tasks_017: 
   done_hours: "0"
-  end_date: 2007-03-24 00:00:00
-  start_date: 2007-03-23 00:00:00
-  experiment_id: "3"
-  name: TH210307-1-6
-  updated_at: 2007-03-23 16:42:29
+  end_date: 2007-03-31 00:00:00
+  start_date: 2007-03-31 00:00:00
+  experiment_id: "5"
+  name: DMO-001-11
+  project_id: "1"
+  updated_at: 2007-03-30 22:17:35
   expected_hours: "1"
   assigned_to: "2"
-  protocol_version_id: "9"
+  protocol_version_id: "5"
+  created_by: ""
+  lock_version: "4"
+  priority_id: 
+  study_protocol_id: "5"
+  updated_by: ""
+  id: "18"
+  description: " Task in experiment DMO-001 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:07:01
+tasks_006: 
+  done_hours: "0"
+  end_date: 2007-03-30 22:50:51
+  start_date: 2007-03-23 00:00:00
+  experiment_id: "5"
+  name: DMO-001-0
+  project_id: "1"
+  updated_at: 2007-03-30 22:50:51
+  expected_hours: "1"
+  assigned_to: "2"
+  protocol_version_id: "1"
+  created_by: ""
+  lock_version: "3"
+  priority_id: 
+  study_protocol_id: "1"
+  updated_by: ""
+  id: "7"
+  description: "Set up materials<br /> "
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-03-30 20:26:03
+tasks_018: 
+  done_hours: "0"
+  end_date: 2007-04-01 00:00:00
+  start_date: 2007-04-01 00:00:00
+  experiment_id: "5"
+  name: DMO-001-12
+  project_id: "1"
+  updated_at: 2007-03-30 22:28:27
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "6"
+  created_by: ""
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "6"
+  updated_by: ""
+  id: "19"
+  description: " Task in experiment DMO-001 "
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-03-30 22:19:18
+tasks_007: 
+  done_hours: "0"
+  end_date: 2007-03-23 00:00:00
+  start_date: 2007-03-23 00:00:00
+  experiment_id: "5"
+  name: DMO-001-1
+  project_id: "1"
+  updated_at: 2007-03-30 20:28:38
+  expected_hours: "1"
+  assigned_to: "4"
+  protocol_version_id: "3"
   created_by: ""
   lock_version: "0"
   priority_id: 
-  study_protocol_id: "9"
+  study_protocol_id: "3"
   updated_by: ""
-  id: "7"
-  description: " Task in experiment TH210307-1 "
+  id: "8"
+  description: "Set up treatments<br /> "
   status_id: "0"
   is_milestone: "0"
-  created_at: 2007-03-23 16:42:29
+  created_at: 2007-03-30 20:28:38

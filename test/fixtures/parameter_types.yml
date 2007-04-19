@@ -1,22 +1,3 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: parameter_types
-#
-#  id              :integer(11)   not null, primary key
-#  name            :string(50)    default(), not null
-#  description     :string(255)   default(), not null
-#  weighing        :integer(11)   default(0), not null
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  data_concept_id :integer(11)   
-#  data_type_id    :integer(11)   
-#  storage_unit    :string(255)   
-#
-
 --- 
 parameter_types_020: 
   name: Score
@@ -134,6 +115,19 @@ parameter_types_001:
   description: Text - used for labels, well ref etc
   data_concept_id: 
   created_at: 2007-03-20 14:13:11
+  weighing: "0"
+parameter_types_024: 
+  name: Target
+  storage_unit: 
+  updated_at: 2007-04-03 16:56:22
+  created_by: ""
+  data_type_id: "5"
+  lock_version: "0"
+  updated_by: ""
+  id: "25"
+  description: Target
+  data_concept_id: "50"
+  created_at: 2007-04-03 16:56:22
   weighing: "0"
 parameter_types_013: 
   name: Link

@@ -2,10 +2,7 @@
   <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
 <% end %>
 
+
 <% content_for :right do -%>
- <div>
-  <div class='panel' id='folder_actions'>
-    <%= render :partial => 'toc',:locals=>{:folder=> @project_folder} %>   
-  </div>
-</div>
+    <%= render :partial => 'right_panel',:locals=>{:folder=> @project_folder} %>   
 <% end %>

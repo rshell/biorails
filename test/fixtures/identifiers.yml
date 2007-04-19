@@ -1,5 +1,79 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+identifiers_002: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Experiment-
+  name: Experiment
+  updated_at: 2007-04-18 13:58:39
+  created_by: sys
+  lock_version: "1"
+  updated_by: sys
+  mask: 
+  id: "2"
+  created_at: 2007-04-18 13:58:39
+  postfix: ""
+identifiers_003: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Task-
+  name: Task
+  updated_at: 2007-04-18 14:08:30
+  created_by: sys
+  lock_version: "1"
+  updated_by: sys
+  mask: 
+  id: "3"
+  created_at: 2007-04-18 14:08:30
+  postfix: ""
+identifiers_004: 
+  current_step: "1"
+  current_counter: "5"
+  prefix: ProjectContent-
+  name: ProjectContent
+  updated_at: 2007-04-19 10:20:46
+  created_by: sys
+  lock_version: "5"
+  updated_by: sys
+  mask: 
+  id: "4"
+  created_at: 2007-04-18 14:31:57
+  postfix: ""
+identifiers_005: 
+  current_step: "1"
+  current_counter: "2"
+  prefix: Study-
+  name: Study
+  updated_at: 2007-04-18 21:22:14
+  created_by: sys
+  lock_version: "2"
+  updated_by: sys
+  mask: 
+  id: "5"
+  created_at: 2007-04-18 19:04:32
+  postfix: ""
+identifiers_006: 
+  current_step: "1"
+  current_counter: "2"
+  prefix: Report-
+  name: Report
+  updated_at: 2007-04-19 12:42:22
+  created_by: sys
+  lock_version: "2"
+  updated_by: sys
+  mask: 
+  id: "6"
+  created_at: 2007-04-19 11:18:58
+  postfix: ""
+identifiers_001: 
+  current_step: "1"
+  current_counter: "2"
+  prefix: ProjectFolder-
+  name: ProjectFolder
+  updated_at: 2007-04-18 14:31:33
+  created_by: sys
+  lock_version: "2"
+  updated_by: sys
+  mask: 
+  id: "1"
+  created_at: 2007-04-18 13:30:15
+  postfix: ""

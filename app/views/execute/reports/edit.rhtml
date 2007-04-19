@@ -1,18 +1,7 @@
 <% content_for :sidemenu do%>
-<div>
-  <span class='menu'>Report <%=@report.name%> </span>
-  <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
-  <%= link_to (subject_icon('show.png')) + 'Run', :action => 'show', :id => @report %>
-  <%= link_to (subject_icon('show.png')) + 'Visualize', :action => 'visualize', :id => @report %>
-  <%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @report %>
-  <%= link_to (subject_icon('new.png'))  + 'New', :action => 'new' %>
-  <%= link_to (subject_icon('xls.png')) + 'Export', :action => 'export', :id => @report  %> </li>
-  <%= link_to (subject_icon('destroy.png')) + 'Delete',{ :action => 'destroy', :id => @report }, 
-                    :confirm => 'Are you sure?',:method => "post" %></li>
-  <%= link_to (subject_icon('new.png'))  + 'Uml', :action => 'uml' %>
-</div>
- <%= render :partial => '/menu/default_left_menu'%>
+  <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <% end %>
+
 <% content_for :left do%>
 <div class="tree">
 <h2>Column Selector </h2>
@@ -22,41 +11,12 @@
  
 <%end%>
 
-<h2>   <%=subject_icon('reports')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
+<h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
 
-<div class='panel'>
-    <% tab_ids = ['report-definition','report-view','visualize-model']%>   
-    <% tab_names = ['Definition','Preview','Visualize']%>   
-    <%= render :partial => 'layouts/tabpanel_js', :locals => {:div_ids => tab_ids} -%>
-
-  <div id="report-definition" style="display:block;">    
-        <%= render :partial => 'layouts/tabpanel_list',
-            :locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[0] } %>
-
-        <%= render :partial => 'report_definition'%>  
-  </div>
-
-  <div id="report-view" style="display:none;">
-        <%= render :partial => 'layouts/tabpanel_list',
-            :locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[1] } %>
-        <br />
-        <fieldset id="report-preview">
-        <%= render :partial => 'report_preview' %>  
-        </fieldset>
-  </div>
-
-  <div id="visualize-model" style="display:none;">
-        <%= render :partial => 'layouts/tabpanel_list',
-            :locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[2] } %>
-        <%= render :partial => 'visualize' %>  
-  </div>
+<div id="report-definition">    
+    <%= render :partial => 'report_definition'%>  
 </div>
 
-<%= drop_receiving_element "report-preview", 
-      :url => { :action => "add_column",:id => @report.id },
-      :accept => "column",
-      :droponempy => true %>
-              
 <%= drop_receiving_element "report-definition", 
     :url => { :action => "add_column",:id => @report.id },
     :accept => "column",

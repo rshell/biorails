@@ -1,42 +1,7 @@
-# == Schema Information
-# Schema version: 233
-#
-# Table name: requests
-#
-#  id              :integer(11)   not null, primary key
-#  name            :string(128)   default(), not null
-#  description     :text          
-#  requested_by    :string(255)   
-#  requested_for   :string(255)   
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  list_id         :integer(11)   
-#  data_element_id :integer(11)   
-#  status_id       :integer(11)   
-#  priority_id     :integer(11)   
-#
-
 --- 
 requests_001: 
-  name: TH070321
-  updated_at: 2007-03-21 13:05:14
-  requested_by: thawkins
-  created_by: ""
-  priority_id: "1"
-  lock_version: "8"
-  updated_by: ""
-  id: "3"
-  list_id: "5"
-  requested_for: "2007-04-21"
-  description: Not urgent but need results by the end of April
-  status_id: "0"
-  data_element_id: "1"
-  created_at: 2007-03-21 09:00:10
-requests_002: 
   name: TH003
+  project_id: 
   updated_at: 2007-03-21 13:30:23
   requested_by: thawkins
   created_by: ""
@@ -50,3 +15,51 @@ requests_002:
   status_id: "0"
   data_element_id: "1"
   created_at: 2007-03-21 13:29:07
+requests_002: 
+  name: TestingRequest_Compounds
+  project_id: 
+  updated_at: 2007-03-30 20:02:28
+  requested_by: thawkins
+  created_by: ""
+  priority_id: "1"
+  lock_version: "1"
+  updated_by: ""
+  id: "5"
+  list_id: "7"
+  requested_for: "2007-04-06"
+  description: Compounds
+  status_id: "0"
+  data_element_id: "1"
+  created_at: 2007-03-30 20:02:28
+requests_003: 
+  name: Testing_Sex
+  project_id: 
+  updated_at: 2007-03-30 20:03:28
+  requested_by: alemon
+  created_by: ""
+  priority_id: "2"
+  lock_version: "1"
+  updated_by: ""
+  id: "6"
+  list_id: "8"
+  requested_for: "2007-04-30"
+  description: sex
+  status_id: "0"
+  data_element_id: "57"
+  created_at: 2007-03-30 20:03:28
+requests_004: 
+  name: TarG001
+  project_id: 
+  updated_at: 2007-04-03 19:32:56
+  requested_by: thawkins
+  created_by: ""
+  priority_id: 
+  lock_version: "1"
+  updated_by: ""
+  id: "7"
+  list_id: "9"
+  requested_for: "2007-09-01"
+  description: Need to get this through HTS in the next quarter
+  status_id: "0"
+  data_element_id: "86"
+  created_at: 2007-04-03 19:32:56
