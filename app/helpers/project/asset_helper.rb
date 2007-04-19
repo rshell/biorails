@@ -1,0 +1,2 @@
+module Project::AssetHelper
+end

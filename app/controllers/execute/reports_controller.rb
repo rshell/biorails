@@ -133,7 +133,12 @@ class Execute::ReportsController < ApplicationController
  end 
  
  
- 
+
+ def print
+    @report = Report.find(params[:id])
+    @data = @report.run  
+    render :action=>'print', :layout => false
+ end 
 ###
 # Save a Run of a report to as ProjectContent for reporting
 # 
@@ -141,6 +146,7 @@ class Execute::ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @data = @report.run    
     @html = render_to_string(:action=>'print', :layout => false)
+    
     @project_folder  =ProjectFolder.find(params[:folder_id])
     @project_content = ProjectContent.new
     @project_content.name = params[:name]

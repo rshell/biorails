@@ -7,21 +7,7 @@
 <% end %>
 
 <% content_for :left do%>
-<% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
-<div class="panel">
-  <label for="membership_owner">Ref</label><br/>
-   <%= text_field_tag :name , @snapshot_name,     {:size=>20, :class=>"text-input"} %><br/>
-  <label for="membership_owner">Title</label><br/>
-   <%= text_field_tag :title ,@report.name, {:size=>20, :class=>"text-input"} %><br/>
-  <label for="folder">Folder</label><br/>
-  <%= select_tag 'folder_id', options_for_select(current_project.folder_options) %><br/>
-  <label for="membership_owner">Published</label><br/>
-  <%= check_box_tag :published  %><br/>
-</div>
-<%= submit_tag 'Save' %>
-
-<% end %>
-
+<%=render :partial => 'snapshot' %>
 <% end %>
 
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title><%= SystemSettings.app_title + (@html_title ? ": #{@html_title}" : "") %></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="biorails" />
+<meta name="keywords" content="study,project,experiment,request,wiki,issue,tracker" />
+<!--[if IE]>
+    <style type="text/css">
+    body {behavior: url(<%= stylesheet_path "csshover.htc" %>);}
+    </style>
+<![endif]-->
+
+<%= stylesheet_link_tag "icons" %>
+<%= stylesheet_link_tag "forms" %>
+<%= stylesheet_link_tag "table" %>
+<%= stylesheet_link_tag "gnatt" %>
+<%= stylesheet_link_tag "report" %>
+<%= stylesheet_link_tag "sheet" %>
+<%= stylesheet_link_tag "autocomplete" %>
+<%= stylesheet_link_tag "tabs" %>
+<%= stylesheet_link_tag "menu" %>
+<%= stylesheet_link_tag "print", :media => "print" %>
+<%= stylesheet_link_tag 'tree' %>
+<%= stylesheet_link_tag 'calendar-green' %>
+
+<%= javascript_include_tag 'calendar' %>
+<%= javascript_include_tag 'tree' %>
+
+<!-- page specific tags -->
+<%= yield :includes %>
+
+<%= yield :header_tags %>
+
+</head>
+
+<body>
+<div id="container" >
+<!--Main Contents -->  
+  <div id="content">        
+      <div id="messages">
+          <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>
+      </div>
+
+      <%= yield %>
+
+      <%= yield :form if @content_for_form %>
+
+      <div id="centre">         
+         <%= yield :centre %>
+      </div>
+  </div>
+</div>
+</body>
+</html>

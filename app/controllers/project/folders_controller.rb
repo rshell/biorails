@@ -122,6 +122,14 @@ class Project::FoldersController < ApplicationController
     current_folder
     render :partial => 'document',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
   end    
+
+##
+# Display the current clipboard 
+# 
+  def print
+    current_folder
+    render :action => 'print', :layout => "layouts/printout.rhtml"
+  end
 ##
 # Display the current clipboard 
 # 
