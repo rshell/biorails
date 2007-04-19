@@ -33,6 +33,10 @@ class Study::StudyQueuesController < ApplicationController
     @study_queue = current(StudyQueue,params[:id])
   end
 
+  def items
+    @study_queue = current(StudyQueue,params[:id])
+  end
+
   def new
     @study = current( Study, params[:id] )
     @study_queue = StudyQueue.new

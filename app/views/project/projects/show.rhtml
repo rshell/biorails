@@ -13,7 +13,7 @@
 		<% for item in @project.lastest(ProjectContent,5) %>
 			<li>
 			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.body_html %>
+			<%= item.title %>
 			</li>
 		<% end %>
 	</div>
