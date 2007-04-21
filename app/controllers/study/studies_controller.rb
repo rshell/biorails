@@ -39,6 +39,7 @@ class Study::StudiesController < ApplicationController
 # 
   def show
     @study = current( Study, params[:id] )
+    @folder = set_folder(current_project.folder(@study))
     if !@study
       redirect_to study_url(:action => 'list')
     end

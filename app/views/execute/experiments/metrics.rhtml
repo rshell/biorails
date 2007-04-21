@@ -8,7 +8,7 @@
       <tr><th class="label"><%=subject_icon('name.png')%> Name</th><td> <%= @experiment.name %></td></tr>
       <tr><th class="label"><%=subject_icon('description.png')%> Description</th><td> <%= @experiment.description %></td></tr>
       <tr><th class="label"><%=subject_icon('study.png')%> Study</th><td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td></tr>
-      <tr><th class="label"><%=subject_icon('process.png')%> Process [Default]</th><td> <%= @experiment.process.path %></td></tr>
+      <tr><th class="label"><%=subject_icon('protocol.png')%> Process [Default]</th><td> <%= @experiment.process.path %></td></tr>
     </table>
     <div id="tab-parameters">                                       
             <%= render :partial => 'stats' %>  

@@ -4,6 +4,8 @@
 <% end -%>
 
 
+<% content_for :centre do -%>
+
 <h2><%= @project.name%></h2>
 <%= @project.summary%>
 
@@ -81,7 +83,15 @@
 	</div>  
 
 </div>	
+<% end %>
 
+
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(@project)%>
+   </div>
+<% end %>
 
 
 

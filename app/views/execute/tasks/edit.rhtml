@@ -3,7 +3,7 @@
 
 
 <h2>
-    <%=subject_icon('task.png')%> Updating Task [<strong><%= link_to @task.name, :action => 'show', :id => @task %></strong>]
+    <%=subject_icon('model/task.png')%> Updating Task [<strong><%= link_to @task.name, :action => 'show', :id => @task %></strong>]
         in Experiment [<%= link_to @task.experiment.name, :controller => 'experiments', 
         :action => 'show', :id => @task.experiment.id  %>]
 

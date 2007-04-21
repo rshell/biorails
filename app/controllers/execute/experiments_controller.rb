@@ -35,6 +35,7 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current(Experiment,params[:id])
+    @folder = set_folder(current_project.folder(@experiment))
   end
 
   def metrics

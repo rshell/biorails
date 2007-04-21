@@ -31,10 +31,10 @@ table.list tbody th {
 
 table p {margin:0; padding:0;}
 
-table .odd { 
+table .even { 
     background-color: #E1EEC6;
     }
     
-table .even {
+table .odd {
     background-color: #fff;
     }

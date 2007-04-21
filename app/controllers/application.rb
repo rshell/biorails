@@ -93,6 +93,14 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def current_folder
+    if session[:current_folder_id]  
+       @current_folder ||= ProjectFolder.find(session[:current_folder_id])
+    end
+     logger.info("current_folder #{@current_folder.name}")
+     return @current_project
+  end
+
 ##
 # Get current version of this model passed on param[:id] and
 # if not found the current session
@@ -165,6 +173,18 @@ protected
       end
       return @current_project
   end  
+
+  def set_folder(folder)
+      logger.info("set_folder #{folder.name}")
+      if folder.project.member(current_user)
+         session[:current_folder_id] = folder.id
+         @current_folder = folder
+      else
+         show_access_denied      
+      end
+      return @current_folder
+  end  
+
 ##
 # Test whether the user is logged_in
 #   

@@ -13,13 +13,16 @@
         <%= render :partial => 'queues', :locals => { :study => @study } %>  
     </div>
 
+    <div>
+       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
+    </div>
+
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
 <% end %>
 
 <% content_for :right do -%>
- <div>
-  <div class='panel' id='folder_actions'>
-    <%= render :partial => '/project/folders/selector',:locals=>{:folder=> current_project.home } %>   
-  </div>
-</div>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
 <% end %>

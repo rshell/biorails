@@ -1,4 +1,6 @@
 <ul class="menu_bar"> 
+<%if logged_in?%>
+
  <li><%= link_to l(:home), home_url(:action=>'index') , :class => "icon icon-home" %></li>
 
 <% unless current_project.nil? %>
@@ -56,10 +58,16 @@
          <%= link_to l(:reports),    report_url( :action=>'list') %>  
          <%= link_to l(:uml),      report_url( :action=>'uml') %>  
    </div>
-
  <li class="right">
    <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %>
  </li>	
+<%else %>
+ <li class="right">
+   <%= link_to l(:login), auth_url(:action => 'login'), :class => "icon icon-user" %>
+ </li>	
+
+<% end %>
+
                        
  <li class="right">
    <%= link_to l(:help), help_url( :controller => 'help', :ctrl => params[:controller], 

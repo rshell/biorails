@@ -1,9 +1,24 @@
 <%= javascript_include_tiny_mce %>
 <%= tiny_mce %>
 
-<h2>
- <%=subject_icon('task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
- [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
-</h2>
+<% content_for :centre do -%>
+    <h2>
+     <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
+     [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
+    </h2>
+    
+    <%= render :partial => 'task' %>      
 
-<%= render :partial => 'task' %>      
+    <div class="panel">
+       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder %>
+    </div>
+
+<% end %>
+
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
+<% end %>
+   

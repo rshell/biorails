@@ -13,7 +13,7 @@
 
 <% content_for :centre do -%>
    <h2>
-        <%=subject_icon('process.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
+        <%=subject_icon('protocol.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
         in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
     </h2> 
  

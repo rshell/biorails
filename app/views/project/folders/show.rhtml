@@ -1,4 +1,22 @@
 <% content_for :centre do -%>
+
+ <%= error_messages_for :project_folder %>
+  <br/>
+  <h2>
+    <% if @project_folder.parent %>
+    Folder: 
+    <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
+    <%else%>
+    Root: <%= @project_folder.path %>
+    <% end%>
+  </h2>
+  <span class="right">
+    <% if  @project_folder.reference? %>
+    This folder is referenced to the following  
+    <%= link_to  "#{@project_folder.style}: #{@project_folder.reference.name}", reference_to_url(@project_folder) %>
+    <% end %>
+  </span>
   <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
 <% end %>
 

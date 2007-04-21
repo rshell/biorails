@@ -32,6 +32,7 @@ class Execute::TasksController < ApplicationController
 # 
   def show
     @task = current( Task, params[:id] )
+    @folder = set_folder(current_project.folder(@task.experiment).folder(@task))
     redirect_to project_url(:action => 'show') if @task.nil?
   end
 
