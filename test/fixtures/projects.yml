@@ -1,3 +1,28 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: projects
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(30)    default(), not null
+#  summary            :text          default(), not null
+#  status_id          :integer(11)   default(0), not null
+#  title              :string(255)   
+#  email              :string(255)   
+#  host               :string(255)   
+#  comment_age        :integer(11)   
+#  timezone           :string(255)   
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  start_date         :datetime      
+#  end_date           :datetime      
+#  expected_date      :datetime      
+#  done_hours         :float         
+#  expected_hours     :float         
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 projects_001: 
   done_hours: 

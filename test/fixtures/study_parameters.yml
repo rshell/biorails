@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: study_parameters
+#
+#  id                :integer(11)   not null, primary key
+#  parameter_type_id :integer(11)   
+#  parameter_role_id :integer(11)   
+#  study_id          :integer(11)   default(1)
+#  name              :string(255)   
+#  default_value     :string(255)   
+#  data_element_id   :integer(11)   
+#  data_type_id      :integer(11)   
+#  data_format_id    :integer(11)   
+#  description       :string(1024)  default(), not null
+#  display_unit      :string(255)   
+#
+
 --- 
 study_parameters_001: 
   name: Score

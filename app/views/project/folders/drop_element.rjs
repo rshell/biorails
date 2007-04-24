@@ -1,0 +1,9 @@
+##
+# Script to replace current process-layout with updated version with changed values
+# 
+if @successful
+  page.replace_html "project_folder", :partial => 'folder',:locals=>{:folder=>@project_folder}
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_element'] }
+else
+  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_element'] }
+end

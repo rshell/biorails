@@ -1,3 +1,19 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: memberships
+#
+#  id                 :integer(11)   not null, primary key
+#  user_id            :integer(11)   default(0), not null
+#  project_id         :integer(11)   default(0), not null
+#  role_id            :integer(11)   default(0), not null
+#  owner              :boolean(1)    
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 memberships_004: 
   updated_at: 0000-00-00 00:00:00

@@ -1,4 +1,19 @@
 # == Schema Information
+# Schema version: 239
+#
+# Table name: user_settings
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(30)    default(), not null
+#  description        :string(255)   default(), not null
+#  value              :string(255)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
+# == Schema Information
 # Schema version: 233
 #
 # Table name: user_settings
@@ -21,6 +36,10 @@
 # the initial set of parameters. There are 
 # 
 class UserSettings < ActiveRecord::Base
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
   cattr_accessor :defaults
   @@defaults = YAML::load(File.open("#{RAILS_ROOT}/config/user_settings.yml"))

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: tasks
 #
@@ -17,11 +17,12 @@
 #  expected_hours      :float         
 #  done_hours          :float         
 #  lock_version        :integer(11)   default(0), not null
-#  created_by          :string(32)    default(), not null
 #  created_at          :datetime      not null
-#  updated_by          :string(32)    default(), not null
 #  updated_at          :datetime      not null
 #  study_protocol_id   :integer(11)   
+#  project_id          :integer(11)   
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
 #
 
 require "faster_csv"
@@ -42,6 +43,10 @@ class Task < ActiveRecord::Base
 #
   include CurrentStatus
   include  CurrentPriority
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
 ##
 #Owner project
@@ -89,8 +94,7 @@ class Task < ActiveRecord::Base
  has_many :texts, :class_name=>'TaskText', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
 
  has_many :references, :class_name=>'TaskReference', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
-
-
+ 
  def completed_at=(value)
   self.end_date = value
  end
@@ -129,6 +133,20 @@ class Task < ActiveRecord::Base
 	and   s1.parameter_id = s2.parameter_id
 SQL
    TaskStatistics.find_by_sql([sql,self.id])
+ end
+ 
+##
+# List of all the queue Items associated with the task
+#  
+ def queue_items
+   sql= <<SQL
+select qi.* 
+from queue_items qi 
+inner join task_references tr on tr.data_type=qi.data_type and tr.data_id = qi.data_id 
+inner join parameters p on p.id =tr.parameter_id and p.study_queue_id=qi.study_queue_id
+where tr.task_id = ?
+SQL
+   QueueItem.find_by_sql([sql,self.id])
  end
 ##
 #List of reports setup to run against this task
@@ -289,19 +307,21 @@ SQL
 ##
 # Update all queue_items with where current task status value if they are acvtive
 # 
+# 1) Only update active items
+# 2) Only update items which are not associated with a task or with this taks
+# 3) Dont
+# 
  def update_queued_items
-   sql= <<SQL
-select qi.* 
-from queue_items qi 
-inner join task_references tr on tr.data_type=qi.data_type and tr.data_id = qi.data_id 
-inner join parameters p on p.id =tr.parameter_id and p.study_queue_id=qi.study_queue_id
-where tr.task_id = ?
-SQL
-   for item in QueueItem.find_by_sql([sql,self.id])
-      if item.is_active
-         item.task = self
-         item.experiment = self.experiment
-         item.current_state_id = self.current_state_id if self.is_status(ACCEPTED,WAITING,PROCESSING,VALIDATION,COMPLETED)
+   for item in self.queue_items
+      if item.is_active and (item.task_id.nil? or item.task_id==self.id)
+         item.task_id = self.id
+         item.experiment_id = self.experiment_id
+         if self.is_active or self.is_completed
+             item.current_state_id = self.current_state_id 
+         elsif  self.is_status(FAILED_STATES)
+             item.current_state_id = WAITING 
+         end
+         item.save
       end
    end
  end

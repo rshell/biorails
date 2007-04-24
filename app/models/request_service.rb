@@ -1,25 +1,25 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: request_services
 #
-#  id            :integer(11)   not null, primary key
-#  request_id    :integer(11)   not null
-#  service_id    :integer(11)   not null
-#  name          :string(128)   default(), not null
-#  description   :text          
-#  requested_by  :string(60)    
-#  requested_for :datetime      
-#  assigned_to   :string(60)    
-#  accepted_at   :datetime      
-#  completed_at  :datetime      
-#  lock_version  :integer(11)   default(0), not null
-#  created_by    :string(32)    default(), not null
-#  created_at    :datetime      not null
-#  updated_by    :string(32)    default(), not null
-#  updated_at    :datetime      not null
-#  status_id     :integer(11)   
-#  priority_id   :integer(11)   
+#  id                 :integer(11)   not null, primary key
+#  request_id         :integer(11)   not null
+#  service_id         :integer(11)   not null
+#  name               :string(128)   default(), not null
+#  description        :text          
+#  requested_by       :string(60)    
+#  requested_for      :datetime      
+#  assigned_to        :string(60)    
+#  accepted_at        :datetime      
+#  completed_at       :datetime      
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  status_id          :integer(11)   
+#  priority_id        :integer(11)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 
@@ -33,6 +33,10 @@
 class RequestService < ActiveRecord::Base
  include  CurrentStatus
  include  CurrentPriority
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
 ##
 #Study 

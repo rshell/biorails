@@ -1,2 +1,18 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: audits
+#
+#  id             :integer(11)   not null, primary key
+#  auditable_id   :integer(11)   
+#  auditable_type :string(255)   
+#  user_id        :integer(11)   
+#  user_type      :string(255)   
+#  session        :string(255)   
+#  action         :string(255)   
+#  changes        :text          
+#  created_at     :datetime      
+#
+
 --- {}
 

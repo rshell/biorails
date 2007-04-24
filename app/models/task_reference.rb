@@ -1,4 +1,24 @@
 # == Schema Information
+# Schema version: 239
+#
+# Table name: task_references
+#
+#  id                 :integer(11)   not null, primary key
+#  task_context_id    :integer(11)   
+#  parameter_id       :integer(11)   
+#  data_element_id    :integer(11)   
+#  data_type          :string(255)   
+#  data_id            :integer(11)   
+#  data_name          :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  task_id            :integer(11)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
+# == Schema Information
 # Schema version: 233
 #
 # Table name: task_references
@@ -28,6 +48,11 @@
 class TaskReference < ActiveRecord::Base
   include TaskItem 
   include CatalogueReference
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+
   
   validates_presence_of :task
   validates_presence_of :context

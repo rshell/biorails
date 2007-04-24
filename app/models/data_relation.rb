@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: data_relations
 #
@@ -24,6 +24,10 @@ class DataRelation < ActiveRecord::Base
   belongs_to :to,   :class_name =>'DataConcept', :foreign_key=>'to_concept_id', :dependent => :destroy
   belongs_to :from, :class_name =>'DataConcept', :foreign_key=>'to_concept_id', :dependent => :destroy
   belongs_to :role, :class_name =>'DataConcept', :foreign_key=>'to_concept_id', :dependent => :destroy
-  acts_as_audited :except => [:created_by, :updated_by,:created_at,:updated_at,:lock_version]
+
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
 end

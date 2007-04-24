@@ -1,31 +1,36 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: authentication_systems
 #
-#  id               :integer(11)   not null, primary key
-#  name             :string(50)    default(), not null
-#  description      :text          
-#  type             :string(255)   default(DataConcept), not null
-#  host             :string(60)    
-#  port             :integer(11)   
-#  account          :string(60)    
-#  account_password :string(60)    
-#  base_dn          :string(255)   
-#  attr_login       :string(30)    
-#  attr_firstname   :string(30)    
-#  attr_lastname    :string(30)    
-#  attr_mail        :string(30)    
-#  lock_version     :integer(11)   default(0), not null
-#  created_by       :string(32)    default(sys), not null
-#  created_at       :datetime      not null
-#  updated_by       :string(32)    default(sys), not null
-#  updated_at       :datetime      not null
+#  id                 :integer(11)   not null, primary key
+#  name               :string(50)    default(), not null
+#  description        :text          
+#  type               :string(255)   default(DataConcept), not null
+#  host               :string(60)    
+#  port               :integer(11)   
+#  account            :string(60)    
+#  account_password   :string(60)    
+#  base_dn            :string(255)   
+#  attr_login         :string(30)    
+#  attr_firstname     :string(30)    
+#  attr_lastname      :string(30)    
+#  attr_mail          :string(30)    
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
 # This represent the default Authentication System with local password base
 class AuthenticationSystem < ActiveRecord::Base
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+
   has_many :users
   
   validates_presence_of :name

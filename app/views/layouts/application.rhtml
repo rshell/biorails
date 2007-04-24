@@ -68,7 +68,7 @@
   </div> 
   <%= render :partial =>'menu/top_menu_bar' %>      
 <!--Main Contents -->  
-  <div id="content">        
+<div id="content">        
 
     <div id="left">
       <div class='sidemenu'>
@@ -77,12 +77,12 @@
         else    
 	       render :partial =>'menu/default_left_menu' 
         end %>
-       </div>
-       <div class="left_panel">
+      </div>
+      <div class="left_panel">
        <%= if @content_for_left 
             yield :left  
 	    end %> 
-	    </div>
+	  </div>
     </div>
 
 <script type="text/javascript">
@@ -97,37 +97,28 @@
 	// ]]>
 </script>
 
-    <div id="main">
-
+  <div id="main">
       <div id="messages">
-          <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>
+         <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>
       </div>
-
       <%= yield %>
+  </div>
 
-      <%= yield :form if @content_for_form %>
+  <div id="right">
+    <%= yield :right %>
+  </div>
 
-          
-      <div id="centre">         
-         <%= yield :centre %>
-      </div>
-
-      <div id="right">
-        <%= yield :right %>
-        <%= yield :action_nav %>        	 
-        <%= yield :sidebar %>
-      </div>
-      
-      <%= '</form>' if @content_for_form %>
-    </div>
+  <div id="centre">         
+     <%= yield :centre %>
+  </div>
 
 
-  <div>  
-    <div id="footer">
-        <%= yield :footer %>
-        <!--%=debug session%-->
-    </div>
+  <div id="footer">
+    <%= yield :footer %>
+    <!--%=debug session%-->
+   </div>
 </div>
+
 </body>
 </html>
 

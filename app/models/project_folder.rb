@@ -1,28 +1,22 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
-# Table name: project_folders
+# Table name: project_elements
 #
-#  id             :integer(11)   not null, primary key
-#  project_id     :integer(11)   not null
-#  parent_id      :integer(11)   
-#  folder_type    :string(20)    
-#  position       :integer(11)   default(1)
-#  name           :string(255)   default(), not null
-#  description    :string(255)   
-#  reference_id   :integer(11)   not null
-#  reference_type :string(20)    
-#  path           :string(255)   default(), not null
-#  layout         :string(255)   
-#  template       :string(255)   
-#  element_count  :integer(11)   default(0)
-#  lock_version   :integer(11)   default(0), not null
-#  created_by     :string(32)    default(sys), not null
-#  created_at     :datetime      not null
-#  updated_by     :string(32)    default(sys), not null
-#  updated_at     :datetime      not null
-#  published_at   :datetime      
-#  published_by   :string(255)   
+#  id                 :integer(11)   not null, primary key
+#  parent_id          :integer(11)   
+#  project_id         :integer(11)   not null
+#  type               :string(32)    default(ProjectElement)
+#  position           :integer(11)   default(1)
+#  name               :string(64)    default(), not null
+#  path               :string(255)   default(), not null
+#  reference_id       :integer(11)   
+#  reference_type     :string(20)    
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##

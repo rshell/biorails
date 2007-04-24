@@ -80,6 +80,7 @@ class Execute::ExperimentsController < ApplicationController
     elsif  @experiment.protocol
         @experiment.process = @experiment.protocol.process 
     end
+    @experiment.project = current_project
     if @experiment.save
       current_project.folder(@experiment)    
       flash[:notice] = 'Experiment was successfully created.'

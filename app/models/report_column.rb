@@ -37,9 +37,15 @@ class ReportColumn < ActiveRecord::Base
 
   belongs_to :report
   belongs_to :filter, :polymorphic => true
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
 ##
 # Simgle helper call to customize a columns property
+#
+#
   def customize(params={})
     if params.size>0
       self.is_visible = params[:is_visible]

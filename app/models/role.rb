@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: roles
 #
@@ -20,6 +20,10 @@
 
 class Role < ActiveRecord::Base
   serialize :cache
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
   validates_uniqueness_of :name
   validates_presence_of :name

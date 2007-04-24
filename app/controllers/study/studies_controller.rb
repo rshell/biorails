@@ -134,6 +134,7 @@ class Study::StudiesController < ApplicationController
 #   
   def create
     @study = Study.new(params[:study])
+    @study.project = current_project
     if @study.save
       @project_folder = current_project.folder(@study)    
       flash[:notice] = 'Study was successfully created.'

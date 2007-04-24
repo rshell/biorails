@@ -5,11 +5,13 @@ Report Table Style
 */
 .report {
    width: 100%;
+   z-index: 20;
 }
 
 .report td {
     padding: 0px 2px 0px 2px;
     color: #333;
+    z-index: 20;
     font-family: Verdana, sans-serif;
     font-size: 11px;
 }
@@ -18,7 +20,8 @@ Report Table Style
     border-right: solid 1px #ccc;
 }
  
-.report tr.even td {
+.report tr.even {
+    z-index: 20;
     background-color: #E1EEC6;
     border-left: solid 1px #ddd;
 }
@@ -60,6 +63,7 @@ Report Table Style
 }
  
 .report  th {
+    z-index: 20;
     color:#fff;
     background: #7CB30F;
     font: bold 11px arial, sans-serif;

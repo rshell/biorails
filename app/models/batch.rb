@@ -1,21 +1,21 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: batches
 #
-#  id             :integer(11)   not null, primary key
-#  compound_id    :integer(11)   default(0), not null
-#  name           :string(255)   
-#  description    :text          
-#  external_ref   :string(255)   
-#  quantity_unit  :string(255)   
-#  quantity_value :float         
-#  url            :string(255)   
-#  lock_version   :integer(11)   default(0), not null
-#  created_by     :string(32)    default(sys), not null
-#  created_at     :datetime      not null
-#  updated_by     :string(32)    default(sys), not null
-#  updated_at     :datetime      not null
+#  id                 :integer(11)   not null, primary key
+#  compound_id        :integer(11)   default(0), not null
+#  name               :string(255)   
+#  description        :text          
+#  external_ref       :string(255)   
+#  quantity_unit      :string(255)   
+#  quantity_value     :float         
+#  url                :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 
@@ -25,6 +25,10 @@
 # 
 class Batch < ActiveRecord::Base
   included Named
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name

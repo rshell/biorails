@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: study_logs
+#
+#  id             :integer(11)   not null, primary key
+#  study_id       :integer(11)   
+#  user_id        :integer(11)   
+#  auditable_id   :integer(11)   
+#  auditable_type :string(255)   
+#  action         :string(255)   
+#  name           :string(255)   
+#  comment        :string(255)   
+#  changes        :text          
+#  created_by     :string(255)   
+#  created_at     :datetime      
+#
+
 --- 
 study_logs_010: 
   name: p

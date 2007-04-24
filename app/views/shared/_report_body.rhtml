@@ -1,11 +1,12 @@
 <% controller ||=report.model.to_s.tableize %>
 <% action ||='show'%>
+<%if report.displayed_columns.size>0 %>
 
 <% for row in data %>
    <% values =   report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
    <% max = values.collect{ |item| item.size}.max %>       
    <% classAttr = cycle("", "class=\"even\"") %>
-   <% for item  in (0..max-1) %>
+     <% for item  in (0..max-1) %>
        <tr <%=classAttr%>  > 
                 <% for col  in (0..values.size-1) %>
                 <% value = values[col][item] %>
@@ -23,6 +24,8 @@
                      :action=>report.params[:action], :id=> row) if report.params[:action] %>
         </td>
       </tr>
-      <%end%>
+    <%end%>
+
 <% end %>
+<%end%>
 

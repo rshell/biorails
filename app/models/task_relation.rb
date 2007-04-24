@@ -1,4 +1,15 @@
 # == Schema Information
+# Schema version: 239
+#
+# Table name: task_relations
+#
+#  id           :integer(11)   not null, primary key
+#  to_task_id   :integer(11)   
+#  from_task_id :integer(11)   
+#  relation_id  :integer(11)   
+#
+
+# == Schema Information
 # Schema version: 233
 #
 # Table name: task_relations

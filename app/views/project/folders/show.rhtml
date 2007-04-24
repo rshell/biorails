@@ -17,7 +17,10 @@
     <%= link_to  "#{@project_folder.style}: #{@project_folder.reference.name}", reference_to_url(@project_folder) %>
     <% end %>
   </span>
+  <div id='project_folder'>
   <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
+  </div>
+  
 <% end %>
 
 

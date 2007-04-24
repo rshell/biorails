@@ -1,6 +1,37 @@
 <ul class="menu_bar"> 
 <%if logged_in?%>
 
+<div id="menuProject" class="menu" onmouseover="menuMouseover(event)">
+     <% for item in current_user.projects %>
+      <%= link_to l(item.name),  project_url(:action => 'show', :id =>item) %>         
+     <% end %>   
+</div>
+<div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
+     <%= link_to l(:catalogue),        catalogue_url(:action=>'list') %>  
+     <%= link_to l(:data_systems),     data_system_url(:action=>'list') %>  
+     <%= link_to l(:data_types),       data_type_url(:action=>'list') %>  
+     <%= link_to l(:data_formats),     data_format_url(:action=>'list') %>  
+     <%= link_to l(:parameter_roles),  parameter_role_url(:action=>'list') %>  
+     <%= link_to l(:parameter_types),  parameter_type_url(:action=>'list') %>  
+     <%= link_to l(:roles),            role_url(:action=>'list') %>  
+     <%= link_to l(:users),             user_url(:action=>'index') %>  
+</div>
+<div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
+     <%= link_to l(:compounds), compound_url( :action=>'list') %>  
+     <%= link_to l(:batches),   batch_url(:action=>'list') %>  
+     <%= link_to l(:samples),   sample_url( :action=>'list') %>  
+     <%= link_to l(:plates),    plate_url( :action=>'list') %>  
+     <%= link_to l(:containers),container_url( :action=>'list') %>  
+     <%= link_to l(:specimens), specimen_url( :action=>'list') %>  
+     <%= link_to l('Treatment Groups'), treatment_group_url( :action=>'list') %>  
+</div>
+<div id="menuExecute" class="menu" onmouseover="menuMouseover(event)">
+     <%= link_to l(:experiment), experiment_url( :action=>'list') %>  
+     <%= link_to l(:request),    request_url( :action=>'list') %>  
+     <%= link_to l(:reports),    report_url( :action=>'list') %>  
+     <%= link_to l(:uml),      help_url( :action=>'uml') %>  
+</div>
+
  <li><%= link_to l(:home), home_url(:action=>'index') , :class => "icon icon-home" %></li>
 
 <% unless current_project.nil? %>
@@ -9,55 +40,22 @@
           :class => "icon icon-projects", 
           :onmouseover => "buttonMouseover(event, 'menuProject');"  %>
  </li>
-    <div id="menuProject" class="menu" onmouseover="menuMouseover(event)">
-         <% for item in current_user.projects %>
-          <%= link_to l(item.name),  project_url(:action => 'show', :id =>item) %>         
-         <% end %>   
-    </div>
 <% end %>
 <% if current_user.admin %>
  <li class="submenu">
      <%= link_to l(:label_administration), catalogue_url( :action => 'list' ), 
          :class => "icon icon-admin", :onmouseover => "buttonMouseover(event, 'menuAdmin');" %>
- </li>
-    <div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
-         <%= link_to l(:catalogue),        catalogue_url(:action=>'list') %>  
-         <%= link_to l(:data_systems),     data_system_url(:action=>'list') %>  
-         <%= link_to l(:data_types),       data_type_url(:action=>'list') %>  
-         <%= link_to l(:data_formats),     data_format_url(:action=>'list') %>  
-         <%= link_to l(:parameter_roles),  parameter_role_url(:action=>'list') %>  
-         <%= link_to l(:parameter_types),  parameter_type_url(:action=>'list') %>  
-         <%= link_to l(:roles),            role_url(:action=>'list') %>  
-         <%= link_to l(:users),             user_url(:action=>'index') %>  
-   </div>
 <% end %>
  <li class="submenu">
    <%= link_to l(:inventory), { :controller => 'inventory' }, 
    		                       :class => "icon icon-admin", 
    		                       :onmouseover => "buttonMouseover(event, 'menuInventory');" %>
  </li>
-
-   <div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
-         <%= link_to l(:compounds), compound_url( :action=>'list') %>  
-         <%= link_to l(:batches),   batch_url(:action=>'list') %>  
-         <%= link_to l(:samples),   sample_url( :action=>'list') %>  
-         <%= link_to l(:plates),    plate_url( :action=>'list') %>  
-         <%= link_to l(:containers),container_url( :action=>'list') %>  
-         <%= link_to l(:specimens), specimen_url( :action=>'list') %>  
-         <%= link_to l('Treatment Groups'), treatment_group_url( :action=>'list') %>  
-   </div>
-
  <li class="submenu"><%= link_to l(:execute), { :controller => 'execute' }, 
    		                                    :class => "icon icon-admin", 
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>
 
-   <div id="menuExecute" class="menu" onmouseover="menuMouseover(event)">
-         <%= link_to l(:experiment), experiment_url( :action=>'list') %>  
-         <%= link_to l(:request),    request_url( :action=>'list') %>  
-         <%= link_to l(:reports),    report_url( :action=>'list') %>  
-         <%= link_to l(:uml),      report_url( :action=>'uml') %>  
-   </div>
  <li class="right">
    <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %>
  </li>	
@@ -67,7 +65,6 @@
  </li>	
 
 <% end %>
-
                        
  <li class="right">
    <%= link_to l(:help), help_url( :controller => 'help', :ctrl => params[:controller], 

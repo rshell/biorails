@@ -26,6 +26,25 @@
 	text-decoration: underline;
 }
 
+
+tr.drop-active {
+    background: #FFF4D8     !important;
+    border:2px solid #E8A400     !important;
+    z-index: 50;  
+}
+
+
+div.drop-active {
+    background: #FFF4D8 !important;
+    border:2px solid #E8A400 !important;   
+}
+
+.dtree span {
+    background-color:#fafbfc;
+    z-index:-1;
+}
+
+
 a:visited,a:active {
 	border:none;
 	text-decoration: none;
@@ -36,63 +55,5 @@ a:visited,a:active {
 .dtree .clip {
 	overflow: hidden;
 }
-.node{
- cursor: pointer;
-}
 
-div.tree {
-	width: 150px;
-	font-family: Arial, sans-serif;
-	font-size: 10px;
-	padding-bottom: 10px;
-	background: url(/images/bottom.gif) no-repeat  right bottom;
-	color: #fff;
-}
 
-div.tree div {
-    background:#7CB30F;
-	overflow: hidden;
-}
-
-div.tree h2 {
-	display: block;
-    background-color: #7cb30f;
-    color: #ffffff;
-	padding: 5px 22px;
-	font-weight: bold;
-	color: white;
-	cursor: default;
-	border-bottom: 1px solid #ddd;
-}
-
-div.tree h3 {
-	display: block;
-	padding: 5px 22px;
-	font-weight: bold;
-    color: #0b6100;
-    background-color: #FFFFF0;
-    border: 1px solid #c0c0c0;
-	cursor: default;
-}
-
-/*
- * Simple layout for tree display for reports
- */
-div.tree div.column {
-    background: url(/images/text_columns.png) no-repeat 10px center;
-    padding-top: 1px;
-    padding-right: 5px;
-    padding-bottom: 1px;
-    padding-left: 5px;
-    background-color: #eeeeee;
-    background-image: none;
-    background-repeat: repeat;
-    background-attachment: scroll;
-    background-x-position: 0%;
-    background-y-position: 0%;
-    display: block;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #dddddd;
-    color: #0b6100;
-    }

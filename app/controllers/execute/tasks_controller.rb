@@ -101,6 +101,7 @@ class Execute::TasksController < ApplicationController
     @task.experiment = @experiment
     @task.protocol = @experiment.protocol
     @task.process = @experiment.process
+    @task.project = current_project
     @task.assigned_to = current_user
     @task.expected_hours =1
     @task.done_hours = 0
@@ -119,6 +120,7 @@ class Execute::TasksController < ApplicationController
 #
   def create
     @task = Task.new(params[:task])
+    @task.project = current_project
     @experiment = @task.experiment
     if @task.save
       session[:task_id] = @task.id

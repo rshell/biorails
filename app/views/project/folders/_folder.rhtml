@@ -14,13 +14,16 @@
     </thead>
   <tbody>  
     <% for item in folder.children %>
-      <tr class="<%= cycle('odd', 'even') %>">
+      <tr id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
     	<td>
+    	    <span id='<%=item.dom_id(:current)%>' class='<%=item.class.to_s.underscore%>' >
+    	    <%=item.class==ProjectFolder ? image_tag('/images/tree/folder.gif') : image_tag('/images/tree/page.gif') %>
     	    <%= link_to item.name, element_to_url(item) %>
     	               
             <%if item.reference?%>
     	       <%= link_to "["+subject_icon(item.style)+"]", reference_to_url(item)  %>
     	    <%end %>
+    	    </span>
         </td>  
     	<td>
     	<% if item.asset? %>
@@ -39,6 +42,10 @@
     	<td align="center"><%= short_date(item.updated_at) %></td>
         <td align="center"><%= link_to l(:delete),  folder_url( :action => 'destroy', :id => item ), :class => "button" %></td>
       </tr>
+      <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => true, :revert=> true) %>
+      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-zone",
+           :hoverclass => "drop-active",     
+           :url => folder_url(:action=>"drop_element",:id=>item )) %>
     <% end %>
   </tbody>
 </table>

@@ -1,24 +1,24 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: data_systems
 #
-#  id                :integer(11)   not null, primary key
-#  name              :string(50)    default(), not null
-#  description       :text          
-#  data_context_id   :integer(11)   default(1), not null
-#  access_control_id :integer(11)   
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    default(sys), not null
-#  created_at        :datetime      not null
-#  updated_by        :string(32)    default(sys), not null
-#  updated_at        :datetime      not null
-#  adapter           :string(50)    default(mysql), not null
-#  host              :string(50)    default(localhost)
-#  username          :string(50)    default(root)
-#  password          :string(50)    default()
-#  database          :string(50)    default()
-#  test_object       :string(45)    default(), not null
+#  id                 :integer(11)   not null, primary key
+#  name               :string(50)    default(), not null
+#  description        :text          
+#  data_context_id    :integer(11)   default(1), not null
+#  access_control_id  :integer(11)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  adapter            :string(50)    default(mysql), not null
+#  host               :string(50)    default(localhost)
+#  username           :string(50)    default(root)
+#  password           :string(50)    default()
+#  database           :string(50)    default()
+#  test_object        :string(45)    default(), not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 
@@ -29,6 +29,10 @@
 
 class DataSystem < ActiveRecord::Base
   included Named
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name

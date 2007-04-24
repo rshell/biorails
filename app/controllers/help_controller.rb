@@ -7,9 +7,17 @@ class HelpController < ApplicationController
     @controllers = Biorails::UmlModel.controllers
   end
   
-  def doc
-
+  def model
+    @models = Biorails::UmlModel.models
+    @name = params[:id]||params[:model]
+    @options= {}
+    @options[:model]=@name
   end
+  
+  def controller
+    @controllers = Biorails::UmlModel.controllers.keys
+    @name = params[:id]
+  end  
   
 ##
 # This is a simple call to visualize the model the report is based on with all its related models

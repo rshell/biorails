@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_Biorails2_session_id'
 
+  before_filter :setup_context
+
 #  cattr_accessor :project_count
 #  before_filter  :set_cache_root
 #  helper_method  :project
@@ -140,6 +142,12 @@ class ApplicationController < ActionController::Base
   
 protected   
 
+  def setup_context
+    @current_user = User.find(session[:current_user_id]) unless session[:current_user_id].nil? 
+    @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
+    User.current_user=@current_user
+    #Project.current_project = @current_project  
+  end  
 ##
 # Set the Current user
 # 
@@ -153,7 +161,7 @@ protected
   end
   
   def clear_session
-      logger.info("clear_session ")
+    logger.info("clear_session ")
     session[:current_user_id] = nil
     session[:current_project_id] = nil
     session[:current_username] = 'none'
@@ -210,34 +218,5 @@ protected
           render :file => File.join(RAILS_ROOT, 'public/500.html'), :status => '500 Error'
       end
   end
-
-##
-# Default report to build if none found in library
-#    
-  def report_list_for(name,model)
-    report = Report.new
-    report.model=model
-    report.name = name || "#{model}List"
-    report.description = "Default reports for display as /#{model.to_s}/list"
-    report.column('id').is_visible = false
-    return report
-  end
-##
-# Generate a default report to display all the reports in the list of types
-# 
-  def reports_on_models(name,list)
-   report = Report.new
-   report.model = Report
-   report.name = name
-   report.description = "#{name} list of all #{list.join(',')} centric reports on the system"
-   report.column('custom_sql').is_visible=false
-   report.column('id').is_visible = false
-   column = report.column('base_model')
-   column.filter_operation = 'in'
-   column.filter_text = "("+list.collect{|item|"'#{item.to_s}'"}.join(",")+")"
-   column.is_filterible = false
-   return report
-  end
- 
 
 end  # class ApplicationController

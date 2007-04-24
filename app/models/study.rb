@@ -1,4 +1,23 @@
 # == Schema Information
+# Schema version: 239
+#
+# Table name: studies
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :text          
+#  category_id        :integer(11)   
+#  research_area      :string(255)   
+#  purpose            :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  project_id         :integer(11)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
+# == Schema Information
 # Schema version: 233
 #
 # Table name: studies
@@ -28,6 +47,10 @@
 #   
 class Study < ActiveRecord::Base
   included Named
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name

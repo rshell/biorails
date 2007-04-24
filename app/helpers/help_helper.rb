@@ -1,2 +1,2 @@
-module RdocHelper
+module HelpHelper
 end

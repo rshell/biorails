@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: experiments
 #
@@ -11,11 +11,12 @@
 #  study_id            :integer(11)   
 #  protocol_version_id :integer(11)   
 #  lock_version        :integer(11)   default(0), not null
-#  created_by          :string(32)    default(), not null
 #  created_at          :datetime      not null
-#  updated_by          :string(32)    default(), not null
 #  updated_at          :datetime      not null
 #  study_protocol_id   :integer(11)   
+#  project_id          :integer(11)   
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
 #
 
 require "faster_csv"
@@ -28,6 +29,10 @@ require "faster_csv"
 class Experiment < ActiveRecord::Base
   included Named
   include CurrentStatus
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
  
   validates_uniqueness_of :name
   validates_presence_of   :name

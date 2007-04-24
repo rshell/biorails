@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: identifiers
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(255)   
+#  prefix             :string(255)   
+#  postfix            :string(255)   
+#  mask               :string(255)   
+#  current_counter    :integer(11)   default(0)
+#  current_step       :integer(11)   default(1)
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 ##
 # This is a simple table based identifier generator to filling in the name field for 
 # new records. If is based on lookup on the model/name passed.

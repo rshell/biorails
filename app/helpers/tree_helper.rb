@@ -12,59 +12,102 @@ module TreeHelper
 # created via 
 #
 class Node 
+##
+# Add in needed helpers
+   
    attr_accessor :id
+   attr_accessor :model
+   attr_accessor :icon
+   attr_accessor :drag
+   attr_accessor :drop_url
+   
+
+   attr_accessor :name       # Text Label of the Node
+   attr_accessor :tooltip    # Long tooltip for the node
+   attr_accessor :url        # url to fire on the node
+   attr_accessor :open        # open/close boolean
+
    attr_accessor :parent     # parent of this node in the tree   
    attr_accessor :children   # children of this node in the tree
-   attr_accessor :name       # Text Label of the Node
-   attr_accessor :url        # url to fire on the node
-   attr_accessor :tooltip    # Long tooltip for the node
-   attr_accessor :icon       # closed icon
-   attr_accessor :icon_open  # open icon
-   attr_accessor :event_name # 
-   attr_accessor :open        # open/close boolean
-   
+   attr_accessor :successor  # next on level
+   attr_accessor :previous   # prev on level
+
+
 ##
 # Node Creator from params hash or model
 #     
-   def initialize(name)
-      @icon = ''
-      @icon_open = ''
-      @open = false
+   def initialize(model)
+     logger.debug "initialize(#{model.dom_id})"
+      @model = model
+      @name = model.name
+      @open = true
+      @drag = true
+      @drop_url = nil
       @event_name = "href"
-      @name = name
       @tooltip =''
-      @children = [] 
+      @children = []
+      @id = @model.dom_id
       yield self if block_given?   
    end   
 
 ##
+# Defeult logger got tracing problesm
+  def logger
+    ActionController::Base.logger rescue nil
+  end 
+##
 # id for node 
 #   
    def id        
-      @id ||=self.object_id.abs
+      @id || 0
    end  
+   
+   def dom_id(scope=nil)
+     @model.dom_id(scope)
+   end
+   
 ##
 # This is the root node
 #
   def root?
     parent.nil?
   end
+  
+  def drag?
+    (@drag == true)
+  end
+  
+  def drop?
+    !@drop_url.nil?
+  end
 ##
 # Create a node and its children 
 # 
 # * rec = object to use
-# * label = name of the method to use to as a label
+# * label = name of ICONSthe method to use to as a label
 # * children = name of the method to use as a collection for details
 # 
 #   
-   def add_node(rec,label=:name, children=:children, &block)
-     if rec
-       node = Node.create(rec,label,children, &block)
+   def add_node(object, children=:children, &block)
+     logger.debug "add_node(#{object.id})"
+     if object
+       node = Node.create(object,children, &block)
        node.parent = self  
        self.children << node
        return node
      end
    end
+
+  def add_collection(items,&block)
+    old =nil
+    for item in items
+        child = self.add_node(item, &block)
+		child.previous = old
+		old.successor = child unless old.nil?
+		old = child
+     end   
+  end
+   
 ##
 # Create a node and its children 
 # 
@@ -72,31 +115,18 @@ class Node
 # * label = name of the method to use to as a label
 # * children = name of the method to use as a collection for details
 #   
-   def Node.create(rec,label=:name, children=:children, &block)
-     if rec
-       node = Node.new(rec.send(label))
-       if rec.respond_to?(children)            
-         for item in rec.send(children)
-            node.add_node(item, &block)
-         end   
+   def Node.create(object, children=:children, &block)
+     if object
+       node = Node.new(object)
+       node.model = object
+       if object.respond_to?(children)    
+	     node.add_collection(object.send(children),&block)
        end
-       yield node,rec  if block_given?        
+       yield node,object  if block_given?        
        return node
      end
    end   
 
-##
-# Add a named collection to the tree
-#
-   def add_collection(name, collection, label=:name, children=:children,&block)       
-      node=Node.new(name)
-      node.parent = self
-      self.children << node
-      for item in collection
-         child = node.add_node(item,label,children,&block)
-      end 
-      return node 
-   end 
 
    def html_link=(url)
      @event_name = "href"
@@ -105,100 +135,134 @@ class Node
    
    def ajax_link=(url)
      @event_name='onclick'
-     @url="javascript: new Ajax.Request('#{url}', {asynchronous:true, evalScripts:true})"
+     @url="javascript: new Ajax.Request('#{url}', {asynchronous:true, evalScripts:true});"
    end
    
-   def to_jscript(div_id)
-     out = " #{div_id}.add(#{id}, #{@parent ? @parent.id : -1}, '#{@name}',\"#{@url}\",'#{@event_name}','#{@tooltip}',null,'#{@icon}','#{@icon_open}',#{@open});\n"
-     self.children.each{|node| out << node.to_jscript(div_id)}
-     return out
-   end       
    
-end
-
-##
-# Tree Structure management class for presentation of a Tree (Explorer Tree like)
-# This code is basically taken from http://www.destroydrop.com/javascripts/tree/
-# 
-class Tree < Node 
-   
-   attr_accessor :div_id
-   attr_accessor :folder_links  #Should folders be links.
-   attr_accessor :use_selection  #Nodes can be selected(highlighted).
-   attr_accessor :use_cookies  	#	The tree uses cookies to rember it's state.
-   attr_accessor :use_lines 	#Tree is drawn with lines.
-   attr_accessor :use_icons 	#Tree is drawn with icons.
-   attr_accessor :use_status_text #	Displays node names in the statusbar instead of the url.
-   attr_accessor :close_same_level #	Only one node within a parent can be expanded at the same time. openAll() and closeAll() functions do not work when this is enabled.
-   attr_accessor :in_order 	#	If parent nodes are always added before children, setting this to true speeds up the tree.
-
-##
-# Node Creator from params hash or model
-#     
-   def initialize(name)
-      @icon = ''
-      @icon_open = ''
-      @open = false
-      @event_name = "href"
-      @target =''
-      @name = name
-      @title =''
-      @tooltip =''
-      @children = [] 
-      @folder_links=true
-      @use_selection=true
-      @use_cookies=false
-      @use_lines=true
-      @use_icons =true
-      yield self if block_given?   
-   end   
-##
-# Get the name of the div_id and jscript variable to contain the tree
-#    
-  def div_id
-    @div_id ||="dtree_#{id}"
+  def display_style
+    if open
+      "style='display: block;'"
+    else
+      "style='display: none;'"
+    end
   end 
 ##
-# Convert a option into a jscript setting   
+# correct folder icon
 # 
-   def output_option(name,value)
-      state = (value ? 'true' : 'false')
-      " #{div_id}.config.#{name.to_s} =#{state}"
-   end
+  def folder_icon
+      return "<img src='#{@icon}' alt=''/>"  if @icon
+      if self.has_children
+        "<img src='/images/tree/folder.gif' alt=''/>"
+      else
+        "<img src='/images/tree/page.gif' alt=''/>"
+      end
+  end
 ##
-# output a javascript 
-#          
-   def to_html   
-	out =  "<a href='javascript: #{div_id}.openAll();'>open all</a> |<a href='javascript: #{div_id}.closeAll();'>close all</a> \n"    
-    out << "<script> \n"
-    out <<"#{div_id} = new dTree('#{div_id}');"
-    out << output_option(:folderLinks,@folder_links) << ";\n"
-    out << output_option(:useSelection,@use_selection) << ";\n"
-    out << output_option(:useCookies,@use_cookies) << ";\n"
-    out << output_option(:useLines,@use_lines) << ";\n"
-    out << output_option(:useIcons,@use_icons) << ";\n"
-    out << output_option(:useStatusText,@use_status_text) << ";\n"
-    out << output_option(:closeSameLevel,@close_same_level) << ";\n"
-    out << output_option(:inOrder,@in_order)  << ";\n"
-    out << to_jscript(div_id)   
-    out << "document.write(#{div_id});\n"
-    out << "</script>\n"
-    return out  
-   end 
-
+# +/- symbols for functions to open/close tree  
+# 
+  def status_icon
+      if self.open
+        "<img src='/images/tree/minus.gif' alt=''/>"
+      else
+        "<img src='/images/tree/plus.gif' alt=''/>"
+      end
+  end
+##
+# Draw the correct lines to jon up nodes  
+# 
+  def join_icon
+      if self.parent.nil? 
+          '<img src="/images/tree/jointop.png" alt=""/>'      
+      elsif self.successor.nil?
+         '<img src="/images/tree/joinbottom.png" alt=""/>'
+      else
+          '<img src="/images/tree/join.png" alt=""/>'
+      end
+  end
+  
+  def has_children
+    return !(self.children.nil? or self.children.size ==0)
+  end       
+      
 end
+##########################################################################################################
+# Main Helper functions
+# 
+# tree_html <= Tree
+# node_html <= node
+#
+#
 
- 
+##
+# Generate html for full tree
+# 
+  def tree_html(tree)
+    out = ""
+    out << "<div id='#{tree.dom_id}' class='dtree'>"
+    out << node_html(tree, 0 )
+    out << '</div>'
+    return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end
+
+##
+# Generate html for a tree node
+# 
+  def node_html(node,level)     
+      out = ""
+      out << "<div id='#{node.dom_id(:node)}' class='clip' style='display: block;'>"
+      out << "   <div class='node'>"
+      2.upto(level) { |i|  out << '<img src="/images/tree/line.png" alt=""/>'  }          
+      out << node.join_icon
+      if node.has_children
+        out << link_to_function(  node.status_icon,nil ) do |page|
+             page[node.dom_id(:child)].toggle
+        end
+      end
+      
+      out << "<span id='#{node.dom_id}' class='#{node.model.class.to_s.underscore}'>"
+      out << node.folder_icon 
+      out << "<a class='node'  href='#{node.url}'>" << node.name.to_s << "</a>"
+      out << "</span>"
+      out << "</div>"
+      if node.has_children
+        out << "<div id='#{node.dom_id(:child)}' class='children clip' #{node.display_style} >"
+        for child in node.children 
+          out << node_html(child,level+1) 
+        end
+        out << "</div>"
+      else
+        out << draggable_element(node.dom_id ,:zindex=>999,:scroll=> true,:ghosting => true, :revert=> true) if node.drag?
+      end 
+      if node.drop?
+         out << drop_receiving_element(node.dom_id(:node),
+               :hoverclass => "drop-active",
+               :url => node.drop_url )
+      end
+      out << '</div>'
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end
+
+##
+# Convert the catalogue into a sett
+# 
   def tree_for_catalog( context)
-      tree = TreeHelper::Tree.new(context.name)  
+      tree=TreeHelper::Node.create(context) do |node,rec|
+         node.ajax_link = catalogue_url(:action=>:show,:id=>rec)
+      end    
       tree.ajax_link = catalogue_url(:action=>:show,:id=>context)         
-      tree.close_same_level = true
-       for item in context.children
-          tree.add_node(item) do |node,rec|
-               node.ajax_link = catalogue_url(:action=>:show,:id=>rec)
-          end    
-       end   
-      return tree.to_html
+      out = ""
+      out << "<div id='#{context.dom_id(:tree)}' class='dtree'>"
+      out << node_html(tree, 0 )
+      out << '</div>'
+      return out
   rescue Exception => ex
       logger.error "error: #{ex.message}"
       logger.error ex.backtrace.join("\n")    
@@ -206,113 +270,78 @@ end
    end
   
   
-  def tree_for_all
-      tree= TreeHelper::Tree.new('Root')
-      tree.close_same_level = true
-      catalog = tree.add_collection('Catalog',DataContext.find(:all),:name,:concepts)  do |node,rec|
-          node.url = catalogue_url(:action=>:show,:id=>rec) 
-      end    
-      
-      catalog.add_collection('Users',User.find(:all),:name) do |node,rec|
-          node.url = user_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/user.png"          
-      end
-      
-      catalog.add_collection('Roles',Role.find(:all),:name) do |node,rec|
-          node.url = role_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/role.png"
-      end
-      
-      catalog.add_collection('Formats',DataFormat.find(:all),:name) do |node,rec|
-          node.url = data_format_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/data_format.png"
-      end
-      
-      catalog.add_collection('Parameters',ParameterType.find(:all),:name) do |node,rec|
-          node.url = parameter_type_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/parameter.png"
-      end 
-      
-      tree.add_collection('Projects',Project.find(:all),:name,:folders) do |node,rec|
-          node.url = study_url(:action=>:show,:id=>rec) 
-      end
-      
-      tree.add_collection('Studies',Study.find(:all))  do |node,rec|
-          node.url = study_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/study.png"
-      end
-      
-      tree.add_collection('Experiments',Experiment.find(:all)) do |node,rec|
-          node.url = experiment_url(:action=>:show,:id=>rec) 
-          node.icon ="/images/experiment.png"
-      end 
-      
-      tree.add_collection('Requests',Request.find(:all)) do |node,rec|
-          node.url = request_url(:action=>:show,:id=>rec) 
-      end 
-      return tree.to_html
-   rescue Exception => ex
-      logger.error "error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      return "Failed in tree_for_all"
-   end
-  
 ##
 # Generate a Tree for a project
 #
   def tree_for_project(project)
-      tree=TreeHelper::Tree.new('Project')
-      tree.use_cookies = true
-      folders = tree.add_node(project.home,:name) do |node,rec|
-          node.html_link = folder_url(:action=>'show', :id=> rec.id )
+      tree=TreeHelper::Node.create(project.home) do |node,rec|
+          node.html_link = reference_to_url(rec )
           node.icon = "/images/model/#{rec.style.downcase}.png"
+          node.drop_url = nil
+#          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
       end    
-      folders.open = true
-      return tree.to_html
+      out = ""
+      out << "<div id='#{project.dom_id(:tree)}' class='dtree'>"
+      out << node_html(tree, 0 )
+      out << '</div>'
+      return out
   rescue Exception => ex
       logger.error "error: #{ex.message}"
       logger.error ex.backtrace.join("\n")    
-      return "Failed in tree_for"
-   end  
-   
+      return  "error: #{ex.message}"
+  end
+  
+  
+  def tree_for_study(study)
+      tree=TreeHelper::Node.create(study)
+      tree.drag=false
+      for role in study.parameter_roles  
+        role_node = tree.add_node(role)
+        role_node.drag =false
+        role_node.add_collection(study.parameters_for_role( role )) do |node,rec|
+            node.html_link = reference_to_url(rec )
+            node.icon = "/images/#{rec.data_type.name}.png"
+            node.drag=true
+            node.open=true
+        end    
+      end    
 
+      out = ""
+      out << "<div id=#{study.dom_id(:tree)} class='dtree'>"
+      out << node_html(tree, 0 )
+      out << '</div>'
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end  
+
+##
+# Convert a element in to a url call to display it
+#    
   def element_to_url(element)
     case element.attributes['reference_type']
-    when 'ProjectContent'
-       folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
-
-    when 'ProjectAsset'
-       folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
-
+    when 'ProjectContent' : folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
+    when 'ProjectAsset':    folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
     else
        folder_url(:action=>'show', :id=> element.id )
     end
   end  
 
-   
+##
+# Convert a type/id reference into a url to the correct controlelr
+#    
   def reference_to_url(element)
     case element.attributes['reference_type']
-    when 'ProjectContent'
-       folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
-
-    when 'ProjectAsset'
-       folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
-
-    when 'Study'
-       study_url(:action=>'show', :id=> element.reference_id )
-       
-    when 'Experiment'
-       experiment_url(:action=>'show', :id=> element.reference_id )
-       
-    when 'Task'
-       task_url(:action=>'show', :id=> element.reference_id )
-       
-    when 'StudyProtocol'
-       protocol_url(:action=>'show', :id=> element.reference_id )
-
-    when 'StudyParameter'
-       study_parameter_url(:action=>'show', :id=> element.reference_id )
-       
+    when 'Project' :        project_url(:action=>'show', :id=>element.reference_id )
+    when 'ProjectContent':  folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
+    when 'ProjectAsset' :   folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
+    when 'Study' :          study_url(:action=>'show', :id=> element.reference_id )
+    when 'Experiment':      experiment_url(:action=>'show', :id=> element.reference_id )
+    when 'Task':            task_url(:action=>'show', :id=> element.reference_id )
+    when 'StudyProtocol':   protocol_url(:action=>'show', :id=> element.reference_id )
+    when 'StudyParameter':  study_parameter_url(:action=>'show', :id=> element.reference_id )
     else
        folder_url(:action=>'show', :id=> element.id )
     end

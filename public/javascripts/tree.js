@@ -1,8 +1,20 @@
-<!--
-//
-// This provides Implementation for a Tree control used for 
-// complex explorer like tree of records.
-//
+
+// Toggle Open or close
+
+OpenNode = function(id) 
+{
+    $(id).show
+};
+
+
+CloseNode = function(id) 
+{
+    $(id).hide
+};
+
+
+
+
 
  /*--------------------------------------------------|
 |---------------------------------------------------|

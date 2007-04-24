@@ -1,3 +1,33 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: queue_items
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(255)   
+#  comments           :text          
+#  study_queue_id     :integer(11)   
+#  experiment_id      :integer(11)   
+#  task_id            :integer(11)   
+#  study_parameter_id :integer(11)   
+#  data_type          :string(255)   
+#  data_id            :integer(11)   
+#  data_name          :string(255)   
+#  requested_by       :string(60)    
+#  assigned_to        :string(60)    
+#  requested_for      :datetime      
+#  accepted_at        :datetime      
+#  completed_at       :datetime      
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  request_service_id :integer(11)   
+#  status_id          :integer(11)   
+#  priority_id        :integer(11)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 queue_items_008: 
   completed_at: 

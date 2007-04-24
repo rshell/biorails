@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: treatment_groups
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :text          
+#  study_id           :integer(11)   
+#  experiment_id      :integer(11)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 treatment_groups_001: 
   experiment_id: 

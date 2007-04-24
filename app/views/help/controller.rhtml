@@ -1,0 +1,23 @@
+<% content_for :sidemenu do%>
+<div>
+  <span class='menu'>Help</span>
+   <%= link_to "UML", :action => 'uml',:model=>"Task"  %> 
+   <%= link_to "docs", :action => 'model',:model=>"Task"  %> 
+</div>
+
+<div>
+  <span class='menu'>Ref. Docs</span>
+  
+<% for item in @controllers %>
+  <%= link_to item.to_s, :action => 'controller',:id=>"#{item}"  %> 
+<% end %>
+
+</div>
+<% end %>
+
+<h2> <%=subject_icon('reports')%> Current Reference documentation model <%=@name%></h2>
+<div class='panel'>
+   <%= render :file=> "help/controllers/classes/#{@name}Controller.html" %>
+</div>mc
+
+      

@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: data_concepts
 #
-#  id                :integer(11)   not null, primary key
-#  parent_id         :integer(11)   
-#  name              :string(50)    default(), not null
-#  data_context_id   :integer(11)   default(1), not null
-#  description       :text          
-#  access_control_id :integer(11)   
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    default(sys), not null
-#  created_at        :datetime      not null
-#  updated_by        :string(32)    default(sys), not null
-#  updated_at        :datetime      not null
-#  type              :string(255)   default(DataConcept), not null
+#  id                 :integer(11)   not null, primary key
+#  parent_id          :integer(11)   
+#  name               :string(50)    default(), not null
+#  data_context_id    :integer(11)   default(0), not null
+#  description        :text          
+#  access_control_id  :integer(11)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  type               :string(255)   default(DataConcept), not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
@@ -31,6 +31,11 @@
 #   DataContext. 
 #
 class DataConcept < ActiveRecord::Base
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+
 ##
 # Generic rules for a name and description to be present
 #

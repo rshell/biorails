@@ -1,28 +1,27 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: project_contents
 #
-#  id             :integer(11)   not null, primary key
-#  project_id     :integer(11)   
-#  name           :string(255)   
-#  title          :string(255)   
-#  excerpt        :text          
-#  body           :text          
-#  excerpt_html   :text          
-#  body_html      :text          
-#  type           :string(20)    
-#  author_ip      :string(100)   
-#  comments_count :integer(11)   default(0)
-#  comment_age    :integer(11)   default(0)
-#  approved       :boolean(1)    
-#  lock_version   :integer(11)   default(0), not null
-#  created_by     :string(32)    default(sys), not null
-#  created_at     :datetime      not null
-#  updated_by     :string(32)    default(sys), not null
-#  updated_at     :datetime      not null
-#  published_by   :string(255)   
-#  published_at   :datetime      
+#  id                 :integer(11)   not null, primary key
+#  project_id         :integer(11)   not null
+#  type               :string(20)    
+#  name               :string(255)   
+#  title              :string(255)   
+#  body               :text          
+#  body_html          :text          
+#  author_ip          :string(100)   
+#  comments_count     :integer(11)   default(0)
+#  comment_age        :integer(11)   default(0)
+#  published          :boolean(1)    
+#  content_hash       :string(255)   
+#  lock_timeout       :datetime      
+#  lock_user_id       :integer(11)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##

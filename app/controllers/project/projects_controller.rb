@@ -33,6 +33,11 @@ class Project::ProjectsController < ApplicationController
     set_project(@project)    
   end
 
+  def tree
+    @project =  current(Project,params[:id])
+    set_project(@project)   
+    render :action=>'tree' ,:layout => false
+  end
 
   def new
     @project = Project.new

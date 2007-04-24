@@ -1,3 +1,25 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: study_queues
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :text          
+#  study_id           :integer(11)   
+#  study_stage_id     :integer(11)   
+#  study_parameter_id :integer(11)   
+#  study_protocol_id  :integer(11)   
+#  assigned_to        :string(60)    
+#  status             :string(255)   default(new), not null
+#  priority           :string(255)   default(normal), not null
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 study_queues_013: 
   status: new

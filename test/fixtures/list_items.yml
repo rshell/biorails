@@ -1,3 +1,15 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: list_items
+#
+#  id        :integer(11)   not null, primary key
+#  list_id   :integer(11)   
+#  data_type :string(255)   
+#  data_id   :integer(11)   
+#  data_name :string(255)   
+#
+
 --- 
 list_items_002: 
   data_name: AB002

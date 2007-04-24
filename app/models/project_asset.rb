@@ -1,4 +1,29 @@
 # == Schema Information
+# Schema version: 239
+#
+# Table name: project_assets
+#
+#  id                 :integer(11)   not null, primary key
+#  project_id         :integer(11)   
+#  title              :string(255)   
+#  parent_id          :integer(11)   
+#  content_type       :string(255)   
+#  filename           :string(255)   
+#  thumbnail          :string(255)   
+#  size               :integer(11)   
+#  width              :integer(11)   
+#  height             :integer(11)   
+#  thumbnails_count   :integer(11)   default(0)
+#  published          :boolean(1)    
+#  content_hash       :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
+# == Schema Information
 # Schema version: 233
 #
 # Table name: project_assets

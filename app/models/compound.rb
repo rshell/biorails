@@ -1,21 +1,21 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: compounds
 #
-#  id                :integer(11)   not null, primary key
-#  name              :string(50)    default(), not null
-#  description       :text          
-#  formula           :string(50)    
-#  mass              :float         
-#  smiles            :string(255)   
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    default(sys), not null
-#  created_at        :datetime      not null
-#  updated_by        :string(32)    default(sys), not null
-#  updated_at        :datetime      not null
-#  registration_date :datetime      
-#  iupacname         :string(255)   default()
+#  id                 :integer(11)   not null, primary key
+#  name               :string(50)    default(), not null
+#  description        :text          
+#  formula            :string(50)    
+#  mass               :float         
+#  smiles             :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  registration_date  :datetime      
+#  iupacname          :string(255)   default()
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
@@ -24,6 +24,10 @@
 # 
 
 class Compound < ActiveRecord::Base
+ ##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
  
   has_many :batches, :dependent => :destroy
   validates_uniqueness_of :name

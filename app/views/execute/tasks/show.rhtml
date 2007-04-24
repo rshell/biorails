@@ -10,7 +10,11 @@
     <%= render :partial => 'task' %>      
 
     <div class="panel">
-       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder %>
+       <%= render :partial => '/study/study_queues/queue_items',:locals=>{:queue_items=>@task.queue_items} %>
+    </div>
+
+    <div class="panel">
+       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
     </div>
 
 <% end %>

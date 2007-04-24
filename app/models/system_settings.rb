@@ -1,16 +1,16 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: system_settings
 #
-#  id          :integer(11)   not null, primary key
-#  name        :string(30)    default(), not null
-#  description :string(255)   default(), not null
-#  text        :string(255)   default(0), not null
-#  created_by  :string(32)    default(sys), not null
-#  created_at  :datetime      not null
-#  updated_by  :string(32)    default(sys), not null
-#  updated_at  :datetime      not null
+#  id                 :integer(11)   not null, primary key
+#  name               :string(30)    default(), not null
+#  description        :string(255)   default(), not null
+#  text               :string(255)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
@@ -18,6 +18,10 @@
 # be over ridden via records in the system_settings table.
 #
 class SystemSettings < ActiveRecord::Base
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
   cattr_accessor :defaults
   @@defaults = YAML::load(File.open("#{RAILS_ROOT}/config/system_settings.yml"))

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: projects
 #
@@ -8,27 +8,19 @@
 #  summary            :text          default(), not null
 #  status_id          :integer(11)   default(0), not null
 #  title              :string(255)   
-#  subtitle           :string(255)   
 #  email              :string(255)   
-#  ping_urls          :text          
-#  articles_per_page  :integer(11)   default(15)
 #  host               :string(255)   
-#  akismet_key        :string(100)   
-#  akismet_url        :string(255)   
-#  approve_comments   :boolean(1)    
 #  comment_age        :integer(11)   
 #  timezone           :string(255)   
-#  filter             :string(255)   
-#  permalink_style    :string(255)   
-#  search_path        :string(255)   
-#  tag_path           :string(255)   
-#  search_layout      :string(255)   
-#  tag_layout         :string(255)   
-#  current_theme_path :string(255)   
-#  created_by         :string(32)    default(sys), not null
 #  created_at         :datetime      not null
-#  updated_by         :string(32)    default(sys), not null
 #  updated_at         :datetime      not null
+#  start_date         :datetime      
+#  end_date           :datetime      
+#  expected_date      :datetime      
+#  done_hours         :float         
+#  expected_hours     :float         
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
@@ -43,29 +35,28 @@
 require 'tzinfo'
 
 class Project < ActiveRecord::Base
-  cattr_accessor :multi_projects_enabled
-  cattr_accessor :cache_sweeper_tracing
+
+  DEFAULT_PRODUCT_ID = 1
+##
+# Populated in Application controller with current user for the transaction
+# @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
+#
+  cattr_accessor :current_project
 
   validates_uniqueness_of :name
   validates_presence_of :name
   validates_presence_of :summary
   validates_presence_of :status_id 
-
-  ##
-  # Link to Document Management repository (subversion,documentum etc)
-  # belongs_to :repository, :class_name => 'Repository', :foreign_key=>'repository_id'
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 
 ##
 # Link through to users for members, and owners via memberships
 # 
   access_control_list  :memberships , :dependent => :destroy 
-#  has_many :memberships do
-#    def permission?(user,subject,action)        
-#      return RolePermission.find_by_sql( 
-#      ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and p.action = ?",
-#       user.id, proxy_owner.id, subject.to_s, action.to_s])
-#    end
-#  end
+
   has_many :users, :through => :memberships, :source => :user
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
 ##
@@ -129,7 +120,10 @@ class Project < ActiveRecord::Base
     membership.owner = true
     membership.save    
   end
-  
+
+##
+# get the home folder for the project creating it if none exists
+#   
   def home
      Project.create_home_folder(self) unless self.home_folder
      return self.home_folder 
@@ -231,15 +225,13 @@ class Project < ActiveRecord::Base
     comment_age.to_i > -1
   end
 
-  def owner=(user)
+##
+# Helper to return the current active project 
+# 
+  def Project.current
+    Project.current_project || Project.find(DEFAULT_PROJECT_ID)
   end
   
-  def owner?(user)
-  end
-  
-  def member?(user)
-  end
-
 protected 
 
   def Project.create_home_folder(project)

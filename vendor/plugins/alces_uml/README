@@ -1,0 +1,24 @@
+AlcesUml
+========
+
+This is a set of library functions for the generation of uml models from a ruby on rails project. It contains helpers functions to 
+allow the 
+
+Getting a list of models to display
+
+    @models      = Alces::UmlModel.models
+ 
+    @controllers = Alces::UmlModel.controllers
+
+To Display UML for a model the following call can be used
+
+   @image_file = Alces::UmlModel.create_model_diagram(file,model,options)
+
+In a controller to display a diagram the following simple code sample can be added
+
+ def uml_diagram
+    model = eval(params[:id])
+    @models = Biorails::UmlModel.models
+    @image_file =  Alces::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
+    send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png')
+  end 

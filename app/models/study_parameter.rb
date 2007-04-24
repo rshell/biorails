@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: study_parameters
 #
@@ -28,6 +28,10 @@
 #  
 class StudyParameter < ActiveRecord::Base
   included Named
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name

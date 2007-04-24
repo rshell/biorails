@@ -1,15 +1,16 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: users
 #
 #  id               :integer(11)   not null, primary key
 #  name             :string(255)   default(), not null
 #  password_hash    :string(40)    
+#  role_id          :integer(11)   not null
 #  password_salt    :string(255)   
-#  role_id          :integer(11)   
 #  fullname         :string(255)   
 #  email            :string(255)   
+#  login            :string(40)    
 #  activation_code  :string(40)    
 #  state_id         :integer(11)   
 #  activated_at     :datetime      
@@ -29,6 +30,13 @@ require 'digest/sha1'
 # 
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
+
+  DEFAULT_GUEST_USER_ID = 1
+##
+# Populated in Application controller with current user for the transaction
+# @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
+#
+  cattr_accessor :current_user
 ##
 # Do user authorization and authentication has been moded to a plugin
 # 
@@ -58,18 +66,37 @@ class User < ActiveRecord::Base
 # validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
 ##
-# Users are linked into the system as a the owner of a number of record types
-# 
-  has_many :tasks ,   :class_name=>'Task',           :foreign_key=> 'assigned_to'
-  has_many :requests ,:class_name=>'Request',        :foreign_key=> 'requested_by'
-  has_many :articles, :class_name=>'ProjectContent', :foreign_key=> 'created_by'
-  has_many :files,    :class_name=>'ProjectAsset',   :foreign_key=> 'created_by'  
-##
 # User a linked into projects
 #   
   has_many   :projects, :through=>:memberships, :order => 'name' 
+##
+# Has membership of a a number of projects with a set role in each
+#   
   has_many   :memberships, :include => [ :project, :role ], :dependent => :delete_all
+##
+# Users are linked into the system as a the owner of a number of record types
+# 
+  has_many :requests ,   :class_name=>'Request',      :foreign_key=> 'requested_by_user_id'
+  has_many :studies ,    :class_name=>'Study',        :foreign_key=> 'created_by_user_id'
+  has_many :protocols ,  :class_name=>'StudyProtocol',:foreign_key=> 'created_by_user_id'
+  has_many :experiments ,:class_name=>'Experiment',   :foreign_key=> 'created_by_user_id'
+  has_many :tasks ,      :class_name=>'Task',         :foreign_key=> 'assigned_to_user_id'
+  has_many :queue_items, :class_name=>'QueueItem',    :foreign_key=> 'assigned_to_user_id'
+##
+# unstructured data
+# 
+  has_many :articles, :class_name=>'ProjectContent', :foreign_key=> 'created_by_user_id'
+  has_many :files,    :class_name=>'ProjectAsset',   :foreign_key=> 'created_by_user_id'  
+##
+# Has a record of all the changes they have performed
 
+  has_many :audits  
+
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+  
 #  acts_as_paranoid
 ##
 # Class level methods
@@ -110,15 +137,17 @@ class User < ActiveRecord::Base
 # Get the lastest n record of a type linked to this user   
 # 
   def lastest(model = Task, count=5)
-    if model.columns.any?{|c|c.name=='user_id'} and model.columns.any?{|c|c.name=='updated_at'}
-    
-       model.find(:all,:conditions => ['user_id=?',self.id] ,
-                  :order=>'updated_at desc',:limit => count)
+    if model.columns.any?{|c|c.name=='assigned_to_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['created_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)
        
-    elsif model.columns.any?{|c|c.name=='updated_by'} and model.columns.any?{|c|c.name=='updated_at'}
-    
-       model.find(:all,:conditions => ['updated_by=?',self.id],
-                  :order=>'updated_at desc',:limit => count)
+    elsif model.columns.any?{|c|c.name=='requested_for_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['created_by_user_id=?',self.id] ,:order=>'updated_at desc',:limit => count)
+       
+    elsif model.columns.any?{|c|c.name=='updated_by_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['updated_by_user_id=?',self.id], :order=>'updated_at desc',:limit => count)
+       
+    elsif model.columns.any?{|c|c.name=='created_by_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['created_by_user_id=?',self.id] ,  :order=>'updated_at desc',:limit => count)
        
     else
       model.find(:all,:order=>'id desc',:limit => count)
@@ -142,7 +171,11 @@ class User < ActiveRecord::Base
     else
        return membership.allow?(subject,action)
     end
-  end 	
+  end 	  
+  
+  def User.current
+    User.current_user || User.find(DEFAULT_GUEST_USER_ID)
+  end
 
 end
 

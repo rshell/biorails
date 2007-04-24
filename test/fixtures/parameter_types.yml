@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 239
+#
+# Table name: parameter_types
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(50)    default(), not null
+#  description        :string(255)   default(), not null
+#  weighing           :integer(11)   default(0), not null
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  data_concept_id    :integer(11)   
+#  data_type_id       :integer(11)   
+#  storage_unit       :string(255)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 parameter_types_020: 
   name: Score

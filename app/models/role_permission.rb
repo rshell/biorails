@@ -1,13 +1,13 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: role_permissions
 #
 #  id            :integer(11)   not null, primary key
 #  role_id       :integer(11)   not null
+#  permission_id :integer(11)   
 #  subject       :string(40)    
 #  action        :string(40)    
-#  permission_id :integer(11)   
 #
 
 ##

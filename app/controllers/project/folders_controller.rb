@@ -137,6 +137,44 @@ class Project::FoldersController < ApplicationController
     current_folder
     render :partial => 'blog',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
   end      
+  
+##
+# a element has been dropped on the folder
+#  
+  def drop_element
+    @project_element =  current(ProjectElement, params[:id] )  
+    @project_folder = @project_element.parent
+    text = request.raw_post || request.query_string
+    items = text.split("_")
+    
+    logger.info text
+    logger.info request.raw_post
+    logger.info request.query_string
+    @successful =true
+    case text
+    when /id=current_project_element_*/
+        @source = ProjectElement.find($')        
+    when /id=project_element_*/
+        @source = ProjectElement.find($')        
+    when /id=project_folder*/
+        @source = ProjectFolder.find($')
+    when /id=project_asset*/
+        @source = ProjectAsset.find($')
+    when /id=project_article*/
+        @source = ProjectArticle.find($')
+    when /id=task_*/
+        @source = Task.find($')
+    when /id=study_*/
+        @source = Study.find($')
+    when /id=experiment_*/
+        @source = Experiment.find($')
+    else
+      @successful =false
+      @source= @project_element
+    end
+    flash[:info] = "add reference to #{@source.dom_id} to #{@project_element.dom_id}"
+    return render( :action => 'drop_element.rjs') if request.xhr?  
+  end
 ##
 # Display a file asset
 #   

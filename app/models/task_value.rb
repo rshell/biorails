@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 233
+# Schema version: 239
 #
 # Table name: task_values
 #
-#  id              :integer(11)   not null, primary key
-#  task_context_id :integer(11)   
-#  parameter_id    :integer(11)   
-#  data_value      :float         
-#  display_unit    :string(255)   
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  task_id         :integer(11)   
-#  storage_unit    :string(255)   
+#  id                 :integer(11)   not null, primary key
+#  task_context_id    :integer(11)   
+#  parameter_id       :integer(11)   
+#  data_value         :float         
+#  display_unit       :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  task_id            :integer(11)   
+#  storage_unit       :string(255)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##
@@ -30,6 +30,10 @@
 #  built out of it in the system
 #
 class TaskValue < ActiveRecord::Base
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
 ##
 # This add all the common functions for TaskItem
   include TaskItem 
