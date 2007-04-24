@@ -5,7 +5,7 @@
 #
  require 'csv'
  
-class Study::StudyParametersController < ApplicationController
+class Organize::StudyParametersController < ApplicationController
   use_authorization :study,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
                     :rights => :current_project

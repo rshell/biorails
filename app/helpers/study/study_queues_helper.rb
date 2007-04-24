@@ -1,2 +1,2 @@
-module Study::StudyQueuesHelper
+module Organize::StudyQueuesHelper
 end

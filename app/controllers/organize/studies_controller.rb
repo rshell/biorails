@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class Study::StudiesController < ApplicationController
+class Organize::StudiesController < ApplicationController
   use_authorization :study,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
                     :rights => :current_project
@@ -17,9 +17,10 @@ class Study::StudiesController < ApplicationController
 # 
 # 
   def list
+   @project = current_project
    @report = Report.find_by_name("StudyList") 
    unless @report
-      @report = report_list_for("StudyList",Study)
+      @report = Report.report_list_for("StudyList",Study)
       @report.column('custom_sql').is_visible=false 
       @report.save
    end  

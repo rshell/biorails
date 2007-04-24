@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-module Study::StudyProtocolsHelper
+module Organize::StudyProtocolsHelper
 
 include TasksHelper
 

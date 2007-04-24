@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class Study::StudyProtocolsController < ApplicationController
+class Organize::StudyProtocolsController < ApplicationController
   use_authorization :study,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
                     :rights => :current_project

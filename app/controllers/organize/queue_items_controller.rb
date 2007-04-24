@@ -1,4 +1,4 @@
-class Study::QueueItemsController < ApplicationController
+class Organize::QueueItemsController < ApplicationController
 
   use_authorization :study,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],

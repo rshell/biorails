@@ -71,16 +71,6 @@ class Project::ProjectsController < ApplicationController
     end
   end
   
-##
-# List of most recent studies
-# 
-  def studies
-   @project = current(Project,params[:id])
-   @report = SystemReport.list_for_model(Study)
-   @report.refresh(params)
-   puts "report id = #{@report.id}"
-   @data = @report.run()
-  end
 
 ##
 # List of most recent experiments

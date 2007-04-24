@@ -3,6 +3,6 @@
 # See license agreement for additional rights
 ##
 #
-module Study::StudiesHelper
+module Organize::StudiesHelper
 
 end

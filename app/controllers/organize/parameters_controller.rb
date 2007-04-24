@@ -1,4 +1,4 @@
-class Study::ParametersController < ApplicationController
+class Organize::ParametersController < ApplicationController
   
   use_authorization :protocol,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],

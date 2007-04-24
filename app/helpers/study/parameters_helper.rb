@@ -1,2 +1,2 @@
-module Study::ParametersHelper
+module Organize::ParametersHelper
 end

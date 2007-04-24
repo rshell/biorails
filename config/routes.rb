@@ -34,22 +34,20 @@ ActionController::Routing::Routes.draw do |map|
 ##
 # Main Project elements
 #
-  map.project 'app/project/:action/:id', :controller => 'project/projects'
-  map.member  'app/members/:action/:id', :controller => 'project/memberships'
-  map.section 'app/folder/:action/:id', :controller => 'project/folders'
-  map.folder  'app/folder/:action/:id', :controller => 'project/folders'
-  map.article 'app/doc/:action/:id', :controller => 'project/articles'
-  map.asset   'app/file/:action/:id', :controller => 'project/assets'
-  map.comment 'app/comment/:action/:id', :controller => 'project/comments'
+  map.project 'projects/:action/:id', :controller => 'project/projects'
+  map.member  'members/:action/:id', :controller => 'project/memberships'
+  map.folder  'folders/:action/:id', :controller => 'project/folders'
+  map.article 'articles/:action/:id', :controller => 'project/articles'
+  map.asset   'asserts/:action/:id', :controller => 'project/assets'
 ##
 # Studies
 #  
-  map.study     'app/study/:action/:id', :controller => 'study/studies'
-  map.protocol  'app/protocol/:action/:id', :controller => 'study/study_protocols'
-  map.parameter 'app/parameters/:action/:id', :controller => 'study/study_parameters'  
-  map.study_parameter 'app/parameters/:action/:id', :controller => 'study/study_parameters'  
-  map.queue     'app/queue/:action/:id', :controller => 'study/study_queues'
-  map.queue_item 'app/queue_item/:action/:id', :controller => 'study/queue_items'
+  map.study     'studies/:action/:id', :controller => 'organize/studies'
+  map.protocol  'protocols/:action/:id', :controller => 'organize/study_protocols'
+  map.parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
+  map.study_parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
+  map.queue     'queues/:action/:id', :controller => 'organize/study_queues'
+  map.queue_item 'queue_items/:action/:id', :controller => 'organize/queue_items'
 ##
 # Inventory
 #  
@@ -63,11 +61,11 @@ ActionController::Routing::Routes.draw do |map|
 ##
 # Execution
 #
-  map.experiment 'app/experiment/:action/:id', :controller => 'execute/experiments'
-  map.task 'app/task/:action/:id', :controller => 'execute/tasks'
-  map.report 'app/report/:action/:id', :controller => 'execute/reports'
-  map.request 'app/request/:action/:id', :controller => 'execute/requests'
-  map.service 'app/service/:action/:id', :controller => 'execute/request_services'
+  map.experiment 'experiments/:action/:id', :controller => 'execute/experiments'
+  map.task       'tasks/:action/:id',       :controller => 'execute/tasks'
+  map.report     'reports/:action/:id',     :controller => 'execute/reports'
+  map.request    'requests/:action/:id',    :controller => 'execute/requests'
+  map.service    'services/:action/:id',    :controller => 'execute/request_services'
   
   # Normal controller/action route.
   map.connect ':controller/:action/:id'

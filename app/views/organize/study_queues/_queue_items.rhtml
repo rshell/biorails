@@ -14,7 +14,7 @@
  <%for queue_item in queue_items %>
   <% form_tag :action => 'update_item',:id=> queue_item.id do %>
         <tr id='<%=queue_item.dom_id(:updated_at)%>'>
-          <%= render :partial => '/study/study_queues/queue_item', :locals => { :queue_item => queue_item} %>  
+          <%= render :partial => '/organize/study_queues/queue_item', :locals => { :queue_item => queue_item} %>  
         </tr>
    <% end %>   
 
