@@ -9,10 +9,7 @@ Element Path:
 
 </h2>
 
-<%= image_tag(asset.public_filename(:large) ) if asset.image? %>
-<%= image_tag(asset.public_filename(:normal) ) if asset.image? %>
-<%= image_tag(asset.public_filename(:small)  ) if asset.image? %>
-<%= image_tag(asset.public_filename(:icon)   ) if asset.image? %>
+<%= image_tag(asset.public_filename) if asset.image? %>
 <ul>
 <li><b>title: </b><%=asset.title%> </li>
 <li><b>download: </b> <%= link_to asset.filename, asset.public_filename%></li>
