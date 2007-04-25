@@ -153,21 +153,40 @@ class Project::FoldersController < ApplicationController
     @successful =true
     case text
     when /id=current_project_element_*/
+        @source = ProjectElement.find($') 
+        if @source.parent_id == @project_folder.parent_id and @source.id != @project_folder.id
+          @source.reorder_before( @project_element )
+        end     
+    
+    when /id=project_element_*/ 
         @source = ProjectElement.find($')        
-    when /id=project_element_*/
-        @source = ProjectElement.find($')        
+        if allowed_move(@source,@project_element)
+          @new_element = @project_folder.add(@source)
+          @new_element.reorder_before( @project_element )
+        end     
+    
     when /id=project_folder*/
         @source = ProjectFolder.find($')
-    when /id=project_asset*/
-        @source = ProjectAsset.find($')
-    when /id=project_article*/
-        @source = ProjectArticle.find($')
+        if allowed_move(@source,@project_element)
+          @new_element = @project_folder.add(@source)
+          @new_element.reorder_before( @project_element )
+        end     
+
     when /id=task_*/
         @source = Task.find($')
+        @new_element = @project_folder.add(@source)
+        @new_element.reorder_before( @project_element )
+        
     when /id=study_*/
         @source = Study.find($')
+        @new_element = @project_folder.add(@source)
+        @new_element.reorder_before( @project_element )
+        
     when /id=experiment_*/
         @source = Experiment.find($')
+        @new_element = @project_folder.add(@source)
+        @new_element.reorder_before( @project_element )
+        
     else
       @successful =false
       @source= @project_element
@@ -176,8 +195,12 @@ class Project::FoldersController < ApplicationController
     return render( :action => 'drop_element.rjs') if request.xhr?  
   end
   
+  
 protected
 
+  def allowed_move(source,dest)
+     return !(source.id == dest.id or source.id == dest.parent_id or  source.parent_id == dest.id  or source.parent_id == dest.parent_id)
+  end
 ##
 # Simple helpers to get the current folder from the session or params 
 #  

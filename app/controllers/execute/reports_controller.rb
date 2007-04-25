@@ -148,13 +148,9 @@ class Execute::ReportsController < ApplicationController
     @html = render_to_string(:action=>'print', :layout => false)
     
     @project_folder  =ProjectFolder.find(params[:folder_id])
-    @project_content = ProjectContent.new
-    @project_content.name = params[:name]
-    @project_content.title = params[:title]
-    @project_content.body_html = @html
-    @project_content.project = current_project
-    if @project_content.save
-        @project_element = @project_folder.add(@project_content)
+    @project_element = @project_folder.add_content(params[:name], params[:title],@html)
+    @project_element.reference = @report
+    if @project_element.save
         redirect_to folder_url( :action =>'show',:id=>@project_folder )
     else
         logger.warning @project_content.to_yaml

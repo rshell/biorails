@@ -65,15 +65,35 @@ class ProjectFolder < ProjectElement
      ProjectElement.transaction do          
        case item
        when ProjectAsset
-           add_reference( item.filename, item )        
+           element = add_reference( item.name, item )        
+           element.content_id = item.content_id
+           return element       
+
+       when ProjectContent
+           element =add_reference( item.name ,item )  
+           element.content_id = item.content_id
+           return element       
+
+       when ProjectFolder
+           element =add_reference( item.name ,item )  
+           element.content_id = item.content_id
+           element.asset_id = item.asset_id
+           return element       
+
+       when ProjectElement
+           element =add_reference( item.name ,item )  
+           element.content_id = item.content_id
+           element.asset_id = item.asset_id
+           return element       
+
        when String 
            name = "comment-#{self.children.size}"
            content = ProjectContent.new(:project_id=> self.project_id, :name=>name, :title=>"comments",:body=>item )
            content.save
-           add_reference( name, content )
+           return add_reference( name, content )
        else    
            name = (item.respond_to?(:name) ? item.name : item.to_s )
-           add_reference( name, item ) 
+           return add_reference( name, item ) 
        end       
      end       
   end
@@ -82,9 +102,30 @@ class ProjectFolder < ProjectElement
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,:parent_id=>self.id, :project_id => self.project.id )                                       
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
+                                      :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.reference = item
+         
+         case item
+         when ProjectElement
+         when ProjectFolder
+         end
+         
+         element.save
+         return element
+     end
+  end
+  
+  
+  def add_content(name,title,body)
+     ProjectFolder.transaction do 
+         content = ProjectContent.new(:name=> name, :title=> title, :body_html=>body,:project_id=>self.project_id)
+         content.save
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
+                                       :parent_id=>self.id, :project_id => self.project_id )                                       
+         element.path = self.path + "/" + name
+         element.content = content
          element.save
          return element
      end
@@ -101,7 +142,26 @@ class ProjectFolder < ProjectElement
     end
  
   end  
+
+  def icon( options={} )
+     case attributes['reference_type']
+      when 'Project' :        return '/images/model/project.png'
+      when 'Study' :          return '/images/model/study.png'
+      when 'StudyParameter':  return '/images/model/parameter.png'
+      when 'StudyProtocol':   return '/images/model/protocol.png'
+      when 'Experiment':      return '/images/model/experiment.png'
+      when 'Task':            return '/images/model/task.png'
+      when 'Report':          return '/images/model/report.png'
+      when 'Request':         return '/images/model/request.png'
+      when 'Compound':        return '/images/model/compound.png'
+      else
+         return '/images/model/folder.png'
+      end 
+  end    
   
+  def summary
+     return "folder of #{children.size} items"
+  end  
 ##
 # add/find a folder to the project. This  
 # 

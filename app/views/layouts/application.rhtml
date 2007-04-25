@@ -26,7 +26,7 @@
 <%= stylesheet_link_tag 'calendar-green' %>
 <%= stylesheet_link_tag 'datebocks_engine' %>
 
-<%= javascript_include_tag "tiny_mce/tiny_mce" %>
+<!--%= javascript_include_tag "tiny_mce/tiny_mce" %-->
 <%= javascript_include_tag 'prototype' %>
 <%= javascript_include_tag 'effects' %>
 <%= javascript_include_tag 'dragdrop' %>
@@ -42,9 +42,7 @@
 <!-- page specific tags -->
 <%= yield :includes %>
 
-<%= yield :header_tags %>
-
-<%= tiny_mce %>
+<%= yield :header_script %>
 
 </head>
 

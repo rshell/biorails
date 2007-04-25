@@ -1,4 +1,4 @@
-class Project::AssetController < ApplicationController
+class Project::AssetsController < ApplicationController
 
   use_authorization :project,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],

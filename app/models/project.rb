@@ -66,7 +66,9 @@ class Project < ActiveRecord::Base
 ##
 # list of all folders in the project 
 # 
-  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'path'
+  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name'
+
+  has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name'
 ##
 # Create a project root folder after create of project
 # 

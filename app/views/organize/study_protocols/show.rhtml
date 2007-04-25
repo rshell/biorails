@@ -5,9 +5,10 @@
   <%= render :partial =>'/menu/process_menu' ,    :locals=>{ :process => @protocol_version||@study_protocol.process} %>
 <% end -%>
 
+<% content_for :centre do -%>
 
 <h2>
-    <%=subject_icon('protocols')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
+    <%=subject_icon('model/protocol')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
     [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
 </h2>
         <%= error_messages_for 'study_protocol' %>
@@ -25,7 +26,8 @@
       <tr>
           <th class="label"><%=subject_icon('litref')%> Lit.Ref.</th>
           <td colspan='3'> <%= @study_protocol.literature_ref %></td>
-      </tr>
+      </tr><br/>
+      
       <tr>
           <th class="label"><%=subject_icon('category')%> Catagory</th>
           <td> <%= @study_protocol.protocol_catagory %></td>
@@ -39,6 +41,7 @@
           <td> <%= @protocol_version.version %></td>
       </tr>
     </table>
+<br/>
                                         
     <table class="report">
         <thead>  
@@ -64,6 +67,9 @@
            </tr>
         </tbody>
     </table>
+
+<br/>
+
     <table class="report">
         <thead>  
             <tr> 
@@ -94,4 +100,16 @@
             <% end %>
         </tbody>
     </table>
+<br/>
+    <div>
+       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
+    </div>
 </div>
+<% end -%>
+
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
+<% end %>

@@ -43,6 +43,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # 
   def show
     find_process
+    @folder = set_folder(current_project.folder(@study).folder(@study_protocol))
   end
 
   def metrics

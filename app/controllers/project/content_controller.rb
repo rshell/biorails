@@ -5,63 +5,85 @@ class Project::ContentController < ApplicationController
                     :rights =>  :current_project  
 
   def index
-    list
-    render :action => 'list'
+    show
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
-##
-# List of elements in the route home folder
-# 
-#  * @project based on current context params[:project_id] || params[:id] || session[:project_id]
-#  * @project_folder based on home folder for project
-# 
-  def list
-    @project_folder =  current_project.home
-    render :action => 'show' 
-  end
 ## 
-# Display a article for editing
+# Display a article
 # 
   def show
-    current_folder
-    @project_element = current(ProjectElement, params[:id] )  
-    @project_content   = @project_element.reference
-    @project_folder =@project_element.parent
-    render :partial => 'article' ,:locals=>{:content=> @project_content}, :layout => false if request.xhr?
+    load_contents
+    respond_to do |format|
+      format.html { render :action=>'show'}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'message', :partial=> 'messages'
+           page.replace_html 'centre',  :partial=> 'show'
+         end
+      }
+    end  
   end
+
+##
+# Edit a article 
+# 
+  def edit
+   load_contents
+   respond_to do |format|
+      format.html { render :action=>'edit'}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html 'centre',  :partial=> 'edit'
+         end
+      }
+    end  
+  end
+
 ##
 # Display the current clipboard 
 # 
   def new
-    current_folder
-    @project_content = ProjectContent.new(:name => Identifier.next_id(ProjectContent),      
+    load_folder
+    @project_element = ProjectElement.new(:name => Identifier.next_id(ProjectContent),      
                                           :project_id => @project_folder.project_id)
-    if request.xhr?
-       render :partial => 'article', :locals=>{:content=> @project_content} ,:layout => false 
-    else
-       render :action => 'article'
-    end
+    @project_content = ProjectContent.new(:name => @project_element.name,      
+                                          :project_id => @project_folder.project_id)
+    respond_to do |format|
+      format.html { render :action=>'new'}
+      format.xml  { render :xml => @project_content.to_xml(:include=>[:project])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html 'centre',  :partial=> 'new'
+         end
+      }
+    end  
   end
 ##
 # Save a article
 # 
   def create
-    current_folder
-    @project_content = ProjectContent.new(params[:project_content])
-    if @project_content.save
-        @project_element = @project_folder.add(@project_content)
-        if request.xhr?
-           render :partial => 'folder', :locals=>{:folder=> @project_folder} ,:layout => false 
-        else
-           redirect_to :action => 'show',:id => @project_folder
-        end
+    load_folder
+    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_content][:title],params[:project_content][:body_html])
+    @project_element.tag_list = params[:project_element][:tag_list]
+
+    if @project_element.save
+        respond_to do |format|
+          format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
+          format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
+          format.js  { render :update do | page |
+               page.replace_html 'messages', :partial=> 'messages'
+               page.replace_html 'centre',  :partial=> 'show'
+             end
+          }
+        end  
     else
         logger.warning @project_content.to_yaml
-        render :action => 'article', :id => @project_folder
+        render :action => 'new', :id => @project_folder
     end
   end
 
@@ -69,32 +91,44 @@ class Project::ContentController < ApplicationController
 # Save a article
 # 
   def update
-     current_folder
-     @project_element = current(ProjectElement,params[:id] )     
-     @project_folder  = @project_element.parent
-     @project_content = @project_element.reference
-     unless @project_content.update_attributes(params[:project_content])
-          logger.warning "problems in save on content"
-          logger.warning " Errors #{@user.errors.full_messages.to_sentence}"
-          flash[:error] = "failed to save content"
-          logger.info @project_content.to_yaml
-     end
-     if request.xhr?
-        render :partial => 'folder', :locals=>{:folder=> @project_folder} ,:layout => false 
+     load_contents
+     if @project_content.update_attributes(params[:project_content]) and @project_element.update_attributes(params[:project_element])
+         respond_to do |format|
+            format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
+            format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
+            format.js  { render :update do | page |
+                 page.replace_html 'messages', :partial=> 'messages'
+                 page.replace_html 'centre',  :partial=> 'show'
+               end
+            }
+         end  
      else
-        redirect_to :action => 'show', :id => @project_folder
+        logger.warning "problems in save on content"
+        logger.warning " Errors #{@project_content.errors.full_messages.to_sentence}"
+        logger.warning " Errors #{@project_element.errors.full_messages.to_sentence}"
+        flash[:error] = "failed to save content"
+        logger.info @project_content.to_yaml
+        render :action => 'new', :id => @project_folder
      end
   end
 
 
 protected
-
+##
+# Load the contents
+# 
+  def load_contents
+     @project = current_project
+     @project_element = current(ProjectElement, params[:id] )  
+     @project_content   = @project_element.content
+     @project_folder  = @project_element.parent    
+  end
 ##
 # Simple helpers to get the current folder from the session or params 
 #  
-  def current_folder
-     current_project
-     @project_folder = current(ProjectFolder,params[:folder_id] || params[:id]) 
+  def load_folder
+     @project = current_project
+     @project_folder = ProjectFolder.find(params[:folder_id]||params[:id]) 
   end  
                     
 

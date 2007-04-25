@@ -63,13 +63,13 @@ class ProjectElement < ActiveRecord::Base
   end
 
   def asset?
-    attributes['asset_id'] == 'ProjectAsset'
+    !self.asset_id.nil? 
   end
 ##
 # This has a textual? entries
 #  
   def textual?
-    attributes['content_id'] == 'ProjectContent'
+    !self.content_id.nil?
   end
 ##
 # This has a reference entries 
@@ -77,29 +77,51 @@ class ProjectElement < ActiveRecord::Base
   def reference?
     !(attributes['reference_type'].nil?)
   end
+
+  def icon( options={} )
+     return asset.icon(options) if asset?
+     return content.icon(options) if textual?
+     return '/images/model/note.png'
+  end  
   
+  def summary
+     return asset.summary if asset?
+     return content.summary if textual?
+     return path
+  end
 ##
 # Show the style of the project element
 # 
   def style
     case attributes['reference_type']
-    when 'ProjectContent'
-      "note"
-    when 'ProjectAsset'
-      "file"
-    when 'Study'
-      "study"
-    when 'Experiment'
-      "experiment"
-    when 'Task'
-      "task"
-    when 'StudyProtocol'
-      "protocol"
-    when nil 
-      "folder"  
+    when 'ProjectContent': "note"
+    when 'ProjectAsset':   "file"
+    when 'Study' :         "study"
+    when 'Experiment'      "experiment" 
+    when 'Task':           "task"
+    when 'Report' :        "report"
+    when 'StudyProtocol':  "protocol"
+    when nil :             "folder"  
     else
-      attributes['reference_type']
+      "link_go"
     end
   end
   
+  
+  def reorder_before(destination)
+     if self.parent_id ==  destination.parent_id
+       ProjectElement.transaction do
+         pos = destination.position 
+         if destination.position > self.position
+            ProjectElement.update_all("position=position-1",
+             " parent_id=#{self.parent_id} and id between #{self.id+1} and #{destination.id}")    
+         else
+            ProjectElement.update_all("position=position+1",
+             " parent_id=#{self.parent_id} and id between  #{destination.id} and #{self.id-1} ")        
+         end 
+         self.position = pos
+         self.save
+         end
+     end
+  end
 end

@@ -4,15 +4,17 @@
     <div class='panel'>
         <%= render :partial => 'study', :locals => { :study => @study } %>  
     </div>
+<br/>
         
     <div class='panel'>
         <%= render :partial => 'protocols', :locals => { :study => @study } %>
     </div>
+<br/>
 
     <div class='panel'>
         <%= render :partial => 'queues', :locals => { :study => @study } %>  
     </div>
-
+<br/>
     <div>
        <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
     </div>

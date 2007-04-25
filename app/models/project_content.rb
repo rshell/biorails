@@ -27,8 +27,9 @@
 ##
 # This represents a piece of textual content associated with a project
 class ProjectContent < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
 
-  attr_accessor :tags
+  attr_accessor :tag_list
 
 ##
 # This record has a full audit log created for changes 
@@ -57,10 +58,17 @@ class ProjectContent < ActiveRecord::Base
   end
 
 
-  def to_html
-      
+  def icon(options={} )
+        '/images/mime/html.png'
   end
   
+  def summary
+     out = ' ' 
+     out << title
+     out << ' ['
+     out << number_to_human_size( body_html.size)
+     out << "]"  
+  end
   
 ##
 # calculate the signature of a record and return the result.

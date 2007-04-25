@@ -38,13 +38,13 @@ require 'digest/md5'
 require 'digest/sha1'
 
 class ProjectAsset < ActiveRecord::Base
-
+   include ActionView::Helpers::NumberHelper
 ##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
  
-  attr_accessor :tags
+  attr_accessor :tag_list
 
   validates_uniqueness_of :filename, :scope => 'project_id'
   validates_presence_of   :filename
@@ -93,5 +93,25 @@ class ProjectAsset < ActiveRecord::Base
      data << 'file:' << Digest::MD5.hexdigest(File.read(self.full_filename))
      Digest::MD5.hexdigest(data )
   end
+  
+  def icon( options={} )
+     if image? and options[:images]
+        self.public_filename(:icon)
+     else
+        '/images/model/file.png'
+     end       
+  end
+
+  def summary
+     out = number_to_human_size( size)
+     out << " "  << content_type 
+     if width 
+       out << " (W x H) "
+       out << " "<< width.to_s
+       out << " x "
+       out << " " << height.to_s
+     end          
+  end
+  
   
 end

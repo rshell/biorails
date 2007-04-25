@@ -46,6 +46,21 @@ class ApplicationController < ActionController::Base
 #set norfello style layout
 # layout 'norfello'
 
+  uses_tiny_mce(:options => {
+     :theme => 'advanced',
+     :mode => "textareas",
+     :browsers => %w{msie,gecko,opera,safari},
+     :theme_advanced_toolbar_location => "top",
+     :theme_advanced_toolbar_align => "left",
+     :auto_resize => false,
+     :theme_advanced_resizing => true,
+     :theme_advanced_statusbar_location => "bottom",
+     :paste_auto_cleanup_on_paste => true,
+     :theme_advanced_buttons1 => %w{formatselect fontselect fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent bullist numlist separator fullscreen help},
+     :theme_advanced_buttons2 => %w{cut copy paste pastetext pasteword undo redo link unlink image separator visualaid tablecontrols separator fullpage code cleanup},
+     :theme_advanced_buttons3 => [],
+     :plugins => %w{contextmenu paste table fullscreen fullpage}
+     })  
 
   helper_method :logged_in?
   helper_method :current_user

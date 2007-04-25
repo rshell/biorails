@@ -37,7 +37,6 @@ class Node
 # Node Creator from params hash or model
 #     
    def initialize(model)
-     logger.debug "initialize(#{model.dom_id})"
       @model = model
       @name = model.name
       @open = true
@@ -89,7 +88,6 @@ class Node
 # 
 #   
    def add_node(object, children=:children, &block)
-     logger.debug "add_node(#{object.id})"
      if object
        node = Node.create(object,children, &block)
        node.parent = self  
@@ -107,7 +105,31 @@ class Node
 		old = child
      end   
   end
-   
+##
+# Build tree from single sorted query of tree 
+#  xxxx.find(:all,:order=>'parent_id,name' )
+#   
+  def Node.build( collection, &block )
+     hash = {}
+     root = nil
+     collection.each do |object| 
+        node = Node.new(object)
+        root ||= node
+        node.model = object
+        hash[object.id] = node
+        if object.parent_id
+            if hash[object.parent_id].children.size>0
+              old = hash[object.parent_id].children.last
+              node.previous = old
+              old.successor = node
+            end
+            node.parent = hash[object.parent_id]  
+            hash[object.parent_id].children << node  
+        end
+       yield node,object  if block_given?        
+      end         
+      return root
+  end 
 ##
 # Create a node and its children 
 # 
@@ -274,9 +296,27 @@ end
 # Generate a Tree for a project
 #
   def tree_for_project(project)
-      tree=TreeHelper::Node.create(project.home) do |node,rec|
+      tree=TreeHelper::Node.build(project.folders) do |node,rec|
           node.html_link = reference_to_url(rec )
-          node.icon = "/images/model/#{rec.style.downcase}.png"
+          node.icon = rec.icon
+          node.drop_url = nil
+#          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
+      end    
+      out = ""
+      out << "<div id='#{project.dom_id(:tree)}' class='dtree'>"
+      out << node_html(tree, 0 )
+      out << '</div>'
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end
+  
+  def tree_for_collection(project , folders)
+      tree=TreeHelper::Node.build(folders) do |node,rec|
+          node.html_link = reference_to_url(rec )
+          node.icon = rec.icon
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
       end    
@@ -321,9 +361,10 @@ end
 # Convert a element in to a url call to display it
 #    
   def element_to_url(element)
-    case element.attributes['reference_type']
-    when 'ProjectContent' : content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
-    when 'ProjectAsset':    asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
+    if element.textual?
+       content_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
+    elsif element.asset?
+       asset_url(:action=>'show',:id=>element.id, :folder_id=>element.parent_id )
     else
        folder_url(:action=>'show', :id=> element.id )
     end
@@ -335,13 +376,16 @@ end
   def reference_to_url(element)
     case element.attributes['reference_type']
     when 'Project' :        project_url(:action=>'show', :id=>element.reference_id )
-    when 'ProjectContent':  folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
-    when 'ProjectAsset' :   folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
+    when 'ProjectContent':  content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
+    when 'ProjectAsset' :   asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
     when 'Study' :          study_url(:action=>'show', :id=> element.reference_id )
+    when 'StudyParameter':  study_parameter_url(:action=>'show', :id=> element.reference_id )
+    when 'StudyProtocol':   protocol_url(:action=>'show', :id=> element.reference_id )
     when 'Experiment':      experiment_url(:action=>'show', :id=> element.reference_id )
     when 'Task':            task_url(:action=>'show', :id=> element.reference_id )
-    when 'StudyProtocol':   protocol_url(:action=>'show', :id=> element.reference_id )
-    when 'StudyParameter':  study_parameter_url(:action=>'show', :id=> element.reference_id )
+    when 'Report':          report_url(:action=>'show', :id=> element.reference_id )
+    when 'Request':         report_url(:action=>'show', :id=> element.reference_id )
+    when 'Compound':        compound_url(:action=>'show', :id=> element.reference_id )
     else
        folder_url(:action=>'show', :id=> element.id )
     end

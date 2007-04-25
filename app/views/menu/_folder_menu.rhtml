@@ -14,12 +14,10 @@
   <%= link_to_remote subject_icon('new')+'Add Folder',      
             :url =>folder_url( :action => 'new',     :folder_id => folder.id ), 
             :update => "centre" %> 
-  <%= link_to_remote subject_icon('new')+'Add Article',    
-            :url =>folder_url( :action => 'new_article',:folder_id => folder.id ),   
-            :update => "centre" ,
+  <%= link_to subject_icon('new')+'Add Article',    
+            content_url( :action => 'new',:folder_id => folder.id ), 
             :complete => " tinyMCE.execCommand('mceAddControl',true,'project_content_body_html' );"  %> 
   <%= link_to_remote subject_icon('new')+'Add Asset',          
-            :url =>folder_url( :action => 'new_asset',:folder_id => folder.id ), 
-            :update => "centre" %> 
+            :url =>asset_url( :action => 'new',:folder_id => folder.id ) %> 
 </div>
 <% end %>
