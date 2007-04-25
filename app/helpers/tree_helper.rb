@@ -322,8 +322,8 @@ end
 #    
   def element_to_url(element)
     case element.attributes['reference_type']
-    when 'ProjectContent' : folder_url(:action=>'article', :id=>element.id ,:folder_id=>element.parent_id )
-    when 'ProjectAsset':    folder_url(:action=>'asset',:id=>element.id,:folder_id=>element.parent_id )
+    when 'ProjectContent' : content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
+    when 'ProjectAsset':    asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
     else
        folder_url(:action=>'show', :id=> element.id )
     end

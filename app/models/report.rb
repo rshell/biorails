@@ -315,26 +315,30 @@ end
 ##
 # Default report to build if none found in library
 #    
-  def self.list_for_model(model,name = nil)
-    name ||= "List_of_#{model}"
-    report = Report.find(:first,:conditions=>['name=? and base_model=?',name,model.class.to_s])
-    unless report
-        Report.transaction do
+  def self.internal_report( name, model, &block)
+    name ||= "Biorails::List #{model}"
+    Report.transaction do
+      report = Report.find(:first,:conditions=>['name=? and base_model=?',name,model.class.to_s])
+      unless report
           report = Report.new
           report.name = name 
           report.description = "Default reports for display as /#{model.to_s}/list"
-          report.save
           report.model= model
+          report.save
+          for col in model.content_columns
+            report.column(col.name)
+         end          
           report.column('id').is_visible = false
           if report.has_column?('name')
              report.column('name').is_filterible = true
           end
           unless report.save
              logger.warn("failed to save report:"+report.errors.full_messages().join("\n"))
-             #logger.debug(report.to_yaml)             
+             logger.debug(report.to_yaml)             
           end
-        end
-    end
+       end #built report
+       yield report if block_given?   
+    end # commit transaction
     return report
   end
 

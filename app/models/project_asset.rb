@@ -23,29 +23,6 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #
 
-# == Schema Information
-# Schema version: 233
-#
-# Table name: project_assets
-#
-#  id               :integer(11)   not null, primary key
-#  project_id       :integer(11)   
-#  parent_id        :integer(11)   
-#  title            :string(255)   
-#  content_type     :string(255)   
-#  filename         :string(255)   
-#  size             :integer(11)   
-#  thumbnail        :string(255)   
-#  width            :integer(11)   
-#  height           :integer(11)   
-#  thumbnails_count :integer(11)   default(0)
-#  lock_version     :integer(11)   default(0), not null
-#  created_by       :string(32)    default(sys), not null
-#  created_at       :datetime      not null
-#  updated_by       :string(32)    default(sys), not null
-#  updated_at       :datetime      not null
-#
-#
 ##
 # ProjectAsset is the gatekeeping between internally kept data and external files. In initial version the application
 # server file system is used for storage but it is expected that the following may be added as neededd:-
@@ -62,6 +39,11 @@ require 'digest/sha1'
 
 class ProjectAsset < ActiveRecord::Base
 
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+ 
   attr_accessor :tags
 
   validates_uniqueness_of :filename, :scope => 'project_id'
@@ -71,15 +53,19 @@ class ProjectAsset < ActiveRecord::Base
 # To allow for existing of previews, images and multiple derived versions of a asset child records are
 #  created. The two main use cases are thumbnail preview images and windows clipboard multiple formats ( for client application use)
 #   
-  acts_as_tree :order => "name"    
+  acts_as_tree :order => "name"   
+
+##
+# binary data stored separately in id/data table to help with queries etc.   
+  belongs_to :db_file    
 ##
 # The main purpose of a Project asset is is to act as a link to external raw/process data block.
 # This could be a image file, csv raw data, office document or many other thinks.
 # 
-  has_attachment :storage => :file_system, 
-                 :max_size => 5000.kilobytes,
+  has_attachment :max_size => 5000.kilobytes,
                  :resize_to => '3000x2000>',
-                 :thumbnails => { :large=>'800x600', :normal=>'320x200', :small => '100x100>', :icon => '48x48' }
+                 :storage => :db_file,
+                 :thumbnails => {:normal=>'320x200', :icon => '48x48' }
 
   validates_as_attachment
 

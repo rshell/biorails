@@ -27,8 +27,14 @@
 ##
 # This represents a piece of textual content associated with a project
 class ProjectContent < ActiveRecord::Base
+
   attr_accessor :tags
 
+##
+# This record has a full audit log created for changes 
+#   
+  acts_as_audited :change_log
+  
   belongs_to :project
 
   has_many :elements,  :class_name  =>'ProjectElement',

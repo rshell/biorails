@@ -37,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   map.project 'projects/:action/:id', :controller => 'project/projects'
   map.member  'members/:action/:id', :controller => 'project/memberships'
   map.folder  'folders/:action/:id', :controller => 'project/folders'
-  map.article 'articles/:action/:id', :controller => 'project/articles'
+  map.content 'content/:action/:id', :controller => 'project/content'
   map.asset   'asserts/:action/:id', :controller => 'project/assets'
 ##
 # Studies

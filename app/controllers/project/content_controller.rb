@@ -1,4 +1,4 @@
-class Project::ArticleController < ApplicationController
+class Project::ContentController < ApplicationController
 
   use_authorization :project,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],

@@ -1,0 +1,22 @@
+<% content_for :sidemenu do%>
+<div>
+  <span class='menu'>Help</span>
+   <%= link_to "UML", :action => 'uml',:model=>"#{@name}"  %> 
+   <%= link_to "docs", :action => 'model',:model=>"#{@name}"  %> 
+</div>
+
+<div>
+  <span class='menu'>Ref. Docs</span>
+  
+<% for model in @models %>
+  <%= link_to model.to_s, :action => 'model',:id=>"#{model}"  %> 
+<% end %>
+
+</div>
+<% end %>
+
+<h2> <%=subject_icon('reports')%> Current Reference documentation model <%=@name%></h2>
+<div class='panel'>
+   <%= render :file=> "help/models/classes/#{@name}.html" %>
+</div>
+            

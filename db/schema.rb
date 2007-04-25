@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 239) do
+ActiveRecord::Schema.define(:version => 242) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -253,6 +253,10 @@ ActiveRecord::Schema.define(:version => 239) do
     t.column "updated_at",         :datetime,                :null => false
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
+  end
+
+  create_table "db_files", :force => true do |t|
+    t.column "data", :binary
   end
 
   create_table "experiment_logs", :force => true do |t|
@@ -545,6 +549,8 @@ ActiveRecord::Schema.define(:version => 239) do
     t.column "updated_at",         :datetime,                    :null => false
     t.column "updated_by_user_id", :integer,  :default => 1,     :null => false
     t.column "created_by_user_id", :integer,  :default => 1,     :null => false
+    t.column "content_data",       :binary
+    t.column "db_file_id",         :integer
   end
 
   create_table "project_contents", :force => true do |t|
@@ -582,6 +588,9 @@ ActiveRecord::Schema.define(:version => 239) do
     t.column "updated_at",         :datetime,                                             :null => false
     t.column "updated_by_user_id", :integer,                :default => 1,                :null => false
     t.column "created_by_user_id", :integer,                :default => 1,                :null => false
+    t.column "asset_id",           :integer
+    t.column "content_id",         :integer
+    t.column "published_hash",     :string
   end
 
   create_table "projects", :force => true do |t|

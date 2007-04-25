@@ -27,7 +27,7 @@ class Project::AssetController < ApplicationController
 # Display a file asset
 #   
   def show
-    current_folder
+    current_project
     @project_element =  current(ProjectElement, params[:id] )  
     @project_asset   = @project_element.reference
     @project_folder   = @project_element.parent
@@ -38,7 +38,8 @@ class Project::AssetController < ApplicationController
 # Display the file upload file selector
 #
   def new
-    current_folder
+    current_project
+    @project_folder =current_folder
     @project_asset = ProjectAsset.new(:title=> Identifier.next_id(ProjectAsset),
                                       :project_id => @project_folder.project_id)
     render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?

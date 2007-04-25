@@ -33,8 +33,8 @@ class ProjectElement < ActiveRecord::Base
   acts_as_audited :change_log
 
   acts_as_tree :order => "position"  
-
-  attr_accessor :tags
+  
+  acts_as_taggable 
   
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
@@ -52,10 +52,10 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :reference, :polymorphic => true
 ##
 # Textual content  
-  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'reference_id'
+  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'content_id'
 ##
 # File assets  
-  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'reference_id'
+  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'asset_id'
 ##
 # Parent of a record is a   
   def folder
@@ -63,19 +63,19 @@ class ProjectElement < ActiveRecord::Base
   end
 
   def asset?
-    attributes['reference_type'] == 'ProjectAsset'
+    attributes['asset_id'] == 'ProjectAsset'
   end
 ##
 # This has a textual? entries
 #  
   def textual?
-    attributes['reference_type'] == 'ProjectContent'
+    attributes['content_id'] == 'ProjectContent'
   end
 ##
 # This has a reference entries 
 #   
   def reference?
-    !(attributes['reference_type'].nil? or textual? or asset?)
+    !(attributes['reference_type'].nil?)
   end
   
 ##
