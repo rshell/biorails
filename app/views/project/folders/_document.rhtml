@@ -9,9 +9,9 @@
 <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
 <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
 </h2>
-<% for item in folder.children %>    
+<% for item in folder.elements %>    
 	<% if item.asset? and item.asset.image? %>
-	<h2>Figure: <%=item.name%></h2>
+	<h4>Figure: <%=item.name%></h4>
 	<p>  <%=  link_to image_tag(item.asset.public_filename), element_to_url(item) %>	</p>      	  
 	<% elsif item.textual? %>
 	<h2> 	   <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
@@ -20,10 +20,10 @@
 <% end %>
 
 <h2> References to source materials </h2>
- <% for item in folder.children %>
-  <ol>
-    <li><%=subject_icon(item.style) %><%= link_to item.name, element_to_url(item) %></li>
-  </ol>
+ <% for item in folder.elements %>
+  <ul>
+    <li><%=item.position %>. <%= link_to item.name, element_to_url(item) %></li>
+  </ul>
  <% end %>	
 	
 

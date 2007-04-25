@@ -10,7 +10,8 @@
 <%= link_to "/"+ folder.parent.path, folder_url( :action => 'show',:id=>folder.parent_id) if  folder.parent%>
 <%= link_to "/"+ folder.name,        folder_url( :action => 'show',:id=>folder.id) %>
 </h2>
-<% for item in folder.lastest %>    
+<% for item in folder.lastest %>  
+<div class='box'>  
 	<% if item.asset? and item.asset.image? %>
 	
 	<h2>Figure: <%= link_to item.name, element_to_url(item)  %> (<%= format_time(item.updated_at) %>)</h2>
@@ -18,12 +19,13 @@
 	    	  
 	<% elsif item.textual? %>
 	
-	<h2> Article:  <%= link_to item.content.title, element_to_url(item)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
+	<h2> Article:  <%= link_to item.content.title, content_url(:action=>'edit',:id=>item.id)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
 	<p>       <%= item.content.body_html %>	</p>
 	
 	<% else %>
 	
 	<% end %>
+</div>	
 <% end %>
 <%else%>
 No Folder found
