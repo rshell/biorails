@@ -1,0 +1,16 @@
+<%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+<%= error_messages_for :project_element %>
+<%= error_messages_for :project_asset %>
+<br/>
+<h2>
+Content Path: 
+<%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+<%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
+</h2>
+<% form_remote_tag :before => 'tinyMCE.triggerSave(false,false);', 
+                    :url => folder_url(:action => 'update_article',  :id =>@project_element), 
+                     do %>
+ 
+   <%= render :partial => 'article' %>
+
+<% end %>

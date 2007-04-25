@@ -1,67 +1,42 @@
-<%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
-<%= error_messages_for :project_element %>
-<%= error_messages_for :project_asset %>
-<br/>
 <h2>
-Content Path: 
-<%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
-<%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
-
+Content Path: <%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+<%= "/"+ ( @project_element ? @project_element.name : 'new article') %>
 </h2>
-<% unless @project_element 
-   @callback =  folder_url(:action => 'save_article', :folder_id=>@project_folder) 
-else
-    @callback = folder_url(:action => 'update_article',  :id =>@project_element) 
-end %>
-<script>
-var content = tinyMCE.getContent().replace(/\+/g, "&#43");
-	content = content.replace(/\\/g, "&#92");
-	content = escape(content);
-	var elementId = inst.formTargetElementId;
-	var url = 'update.php';
-	var pars = elementId + '=' + content;
-	
-</script>
-<% form_remote_tag :before => 'tinyMCE.triggerSave(false,false);', :url => @callback, :update=>:centre do %>
- 
+
+
    <%= hidden_field 'project_element', 'id'  %>
-   <%= hidden_field 'project_element', 'name'  %>
    <%= hidden_field 'project_element', 'position'  %>
    <%= hidden_field 'project_element', 'path'  %>
    <%= hidden_field 'project_element', 'project_id'  %>
+
    <%= hidden_field 'project_content', 'project_id'  %>
  
-  <div class="row">
-    <!--[form:study]-->
+<div class="row">
     <div class="form-element">
        <label for="study_name">Ref</label>
-       <%= text_field 'project_content', 'name' , {:size=>20, :class=>"text-input"} %>
+       <%= text_field 'project_element', 'name' , {:size=>20, :class=>"text-input"} %>
     </div>
 
     <div class="form-element">
        <label for="study_name">Title</label>
        <%= text_field 'project_content', 'title' , {:size=>80, :class=>"text-input"} %>
     </div>
-   </div>
+</div>
    
   <div class="row">
-   <div class="form-element">
+    <div class="form-element">
      <label for="study_description">Article</label>
      <%= text_area('project_content', 'body_html', {:rows=>40,:cols=>100})  %>
-   </div>
+     </div>
   </div>
   
   <div class="row">
    <div class="form-element">
-     <label for="study_research_area">tags</label>
-     <%= text_field 'project_content', 'tags' , {:size=>100,:class=>"text-input"} %>
+         <label for="study_research_area">tags</label>
+         <%= text_field 'project_element', 'tag_list' , {:size=>100,:class=>"text-input"} %>
    </div>
   </div>
+
   <div class="row">
   <%= submit_tag "Save"  %>
   </div>
-
-<% end %>
-
-
-<!--[eoform:study]-->
