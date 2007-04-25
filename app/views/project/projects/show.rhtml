@@ -12,10 +12,11 @@
 <div class="splitcontentleft">
   <div class="box">
 	<h3><%=l('News (Recent Articles)')%></h3>
-		<% for item in @project.lastest(ProjectContent,5) %>
+		<% for item in @project.lastest(ProjectElement,5) %>
 			<li>
-			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.title %>
+			<%= image_tag(item.icon) %>
+			<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.summary %>
 			</li>
 		<% end %>
 	</div>
