@@ -1,45 +1,18 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: compound_results
-#
-#  id                    :integer(11)   default(0), not null, primary key
-#  row_no                :integer(11)   default(0), not null
-#  column_no             :integer(11)   
-#  task_id               :integer(11)   
-#  parameter_context_id  :integer(11)   
-#  task_context_id       :integer(11)   
-#  data_element_id       :integer(11)   
-#  compound_parameter_id :integer(11)   
-#  compound_id           :integer(11)   
-#  compound_name         :string(255)   
-#  protocol_version_id   :integer(11)   
-#  label                 :string(255)   
-#  row_label             :string(255)   
-#  parameter_id          :integer(11)   
-#  parameter_name        :string(62)    
-#  data_value            :float         
-#  created_by_user_id    :integer(11)   default(0), not null
-#  created_at            :datetime      not null
-#  updated_by_user_id    :integer(11)   default(0), not null
-#  updated_at            :datetime      not null
-#
-
 --- 
 compound_results_047: 
   updated_at: 2007-03-30 22:49:15
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: Cellular Infiltration
   task_context_id: "2307"
   id: "1714"
   parameter_id: "221"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -51,16 +24,16 @@ compound_results_036:
   updated_at: 2007-03-30 20:38:26
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "10"
-  updated_by: ""
   parameter_name: Molecular Mass
   task_context_id: "1290"
   id: "867"
   parameter_id: "212"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Compounds[7]
   data_element_id: 
   label: Compounds
@@ -72,16 +45,16 @@ compound_results_025:
   updated_at: 2007-03-24 16:20:07
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "894"
   id: "271"
   parameter_id: "92"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -93,16 +66,16 @@ compound_results_014:
   updated_at: 2007-03-24 16:20:10
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "895"
   id: "272"
   parameter_id: "92"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -114,16 +87,16 @@ compound_results_003:
   updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1004"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "892"
   id: "260"
   parameter_id: "94"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -135,16 +108,16 @@ compound_results_048:
   updated_at: 2007-03-30 22:49:18
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "4"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: Edema
   task_context_id: "2307"
   id: "1715"
   parameter_id: "222"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -156,16 +129,16 @@ compound_results_037:
   updated_at: 2007-03-30 20:38:30
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Molecular Mass
   task_context_id: "1291"
   id: "868"
   parameter_id: "212"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Compounds[8]
   data_element_id: 
   label: Compounds
@@ -177,16 +150,16 @@ compound_results_026:
   updated_at: 2007-03-24 16:24:56
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "895"
   id: "263"
   parameter_id: "94"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -198,16 +171,16 @@ compound_results_015:
   updated_at: 2007-03-24 16:24:44
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "891"
   id: "259"
   parameter_id: "94"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -219,16 +192,16 @@ compound_results_004:
   updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1004"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "892"
   id: "266"
   parameter_id: "88"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -240,16 +213,16 @@ compound_results_049:
   updated_at: 2007-03-30 22:49:20
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: Hyperplasia
   task_context_id: "2307"
   id: "1716"
   parameter_id: "223"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -261,16 +234,16 @@ compound_results_038:
   updated_at: 2007-03-30 20:38:34
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: Molecular Mass
   task_context_id: "1292"
   id: "869"
   parameter_id: "212"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Compounds[9]
   data_element_id: 
   label: Compounds
@@ -282,16 +255,16 @@ compound_results_027:
   updated_at: 2007-03-24 16:19:27
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "895"
   id: "269"
   parameter_id: "88"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -303,16 +276,16 @@ compound_results_016:
   updated_at: 2007-03-24 16:19:12
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "891"
   id: "265"
   parameter_id: "88"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -324,16 +297,16 @@ compound_results_005:
   updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1004"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "892"
   id: "273"
   parameter_id: "92"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -345,16 +318,16 @@ compound_results_050:
   updated_at: 2007-03-30 22:49:24
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "6"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: Macrophage
   task_context_id: "2307"
   id: "1717"
   parameter_id: "224"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -366,16 +339,16 @@ compound_results_039:
   updated_at: 2007-03-30 22:31:35
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   compound_id: "1006"
-  updated_by: ""
   parameter_name: p
   task_context_id: "2276"
   id: "1706"
   parameter_id: "65"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[0]
   data_element_id: 
   label: Group
@@ -387,16 +360,16 @@ compound_results_028:
   updated_at: 2007-03-24 16:20:10
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "895"
   id: "272"
   parameter_id: "92"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -408,16 +381,16 @@ compound_results_017:
   updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "892"
   id: "260"
   parameter_id: "94"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -429,16 +402,16 @@ compound_results_006:
   updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "893"
   id: "261"
   parameter_id: "94"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -450,16 +423,16 @@ compound_results_040:
   updated_at: 2007-03-30 22:31:39
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: p
   task_context_id: "2277"
   id: "1707"
   parameter_id: "65"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[1]
   data_element_id: 
   label: Group
@@ -471,16 +444,16 @@ compound_results_029:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "19"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "4"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Max Inhibition
   task_context_id: "1151"
   id: "760"
   parameter_id: "117"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[21]
   data_element_id: 
   label: Compound
@@ -492,16 +465,16 @@ compound_results_018:
   updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "892"
   id: "266"
   parameter_id: "88"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -513,16 +486,16 @@ compound_results_007:
   updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "893"
   id: "268"
   parameter_id: "88"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -534,16 +507,16 @@ compound_results_041:
   updated_at: 2007-03-30 22:31:42
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: p
   task_context_id: "2278"
   id: "1708"
   parameter_id: "65"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Group[2]
   data_element_id: 
   label: Group
@@ -555,16 +528,16 @@ compound_results_030:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "19"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Max Inhibition Conc
   task_context_id: "1151"
   id: "761"
   parameter_id: "118"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[21]
   data_element_id: 
   label: Compound
@@ -576,16 +549,16 @@ compound_results_019:
   updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "892"
   id: "273"
   parameter_id: "92"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -597,16 +570,16 @@ compound_results_008:
   updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "893"
   id: "270"
   parameter_id: "92"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -618,16 +591,16 @@ compound_results_042:
   updated_at: 2007-03-30 22:31:47
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   compound_id: "2"
-  updated_by: ""
   parameter_name: p
   task_context_id: "2279"
   id: "1709"
   parameter_id: "65"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Group[3]
   data_element_id: 
   label: Group
@@ -639,16 +612,16 @@ compound_results_031:
   updated_at: 2007-03-24 17:31:41
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "4"
-  updated_by: ""
   parameter_name: Group No.
   task_context_id: "1158"
   id: "782"
   parameter_id: "156"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -660,16 +633,16 @@ compound_results_020:
   updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "893"
   id: "261"
   parameter_id: "94"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -681,16 +654,16 @@ compound_results_009:
   updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "894"
   id: "262"
   parameter_id: "94"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -702,16 +675,16 @@ compound_results_043:
   updated_at: 2007-03-30 22:49:03
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Cellular Infiltration
   task_context_id: "2306"
   id: "1710"
   parameter_id: "221"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -723,16 +696,16 @@ compound_results_032:
   updated_at: 2007-03-24 17:32:08
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "4"
+  updated_by_user_id: "1"
   compound_id: "4"
-  updated_by: ""
   parameter_name: sd B/P
   task_context_id: "1158"
   id: "783"
   parameter_id: "155"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -744,16 +717,16 @@ compound_results_021:
   updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "893"
   id: "268"
   parameter_id: "88"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -765,16 +738,16 @@ compound_results_010:
   updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "894"
   id: "267"
   parameter_id: "88"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -786,16 +759,16 @@ compound_results_044:
   updated_at: 2007-03-30 22:49:06
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "4"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Edema
   task_context_id: "2306"
   id: "1711"
   parameter_id: "222"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -807,16 +780,16 @@ compound_results_033:
   updated_at: 2007-03-24 17:32:04
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "4"
-  updated_by: ""
   parameter_name: mean B/P
   task_context_id: "1158"
   id: "784"
   parameter_id: "154"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -828,16 +801,16 @@ compound_results_022:
   updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "893"
   id: "270"
   parameter_id: "92"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -849,16 +822,16 @@ compound_results_011:
   updated_at: 2007-03-24 16:20:07
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Concentration
   task_context_id: "894"
   id: "271"
   parameter_id: "92"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -870,16 +843,16 @@ compound_results_045:
   updated_at: 2007-03-30 22:49:08
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "5"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Hyperplasia
   task_context_id: "2306"
   id: "1712"
   parameter_id: "223"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -891,16 +864,16 @@ compound_results_034:
   updated_at: 2007-03-30 20:38:23
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "1006"
-  updated_by: ""
   parameter_name: Molecular Mass
   task_context_id: "1289"
   id: "866"
   parameter_id: "212"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Compounds[6]
   data_element_id: 
   label: Compounds
@@ -912,16 +885,16 @@ compound_results_023:
   updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "894"
   id: "262"
   parameter_id: "94"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -933,16 +906,16 @@ compound_results_012:
   updated_at: 2007-03-24 16:24:56
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "895"
   id: "263"
   parameter_id: "94"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -954,16 +927,16 @@ compound_results_001:
   updated_at: 2007-03-24 16:24:40
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   compound_id: "1006"
-  updated_by: ""
   parameter_name: Group Size
   task_context_id: "890"
   id: "258"
   parameter_id: "94"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
@@ -975,16 +948,16 @@ compound_results_046:
   updated_at: 2007-03-30 22:49:13
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "6"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: Macrophage
   task_context_id: "2306"
   id: "1713"
   parameter_id: "224"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -996,16 +969,16 @@ compound_results_035:
   updated_at: 2007-03-30 20:38:18
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   compound_id: "1007"
-  updated_by: ""
   parameter_name: Molecular Mass
   task_context_id: "1288"
   id: "865"
   parameter_id: "212"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compounds[5]
   data_element_id: 
   label: Compounds
@@ -1017,16 +990,16 @@ compound_results_024:
   updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1005"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "894"
   id: "267"
   parameter_id: "88"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -1038,16 +1011,16 @@ compound_results_013:
   updated_at: 2007-03-24 16:19:27
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "895"
   id: "269"
   parameter_id: "88"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -1059,16 +1032,16 @@ compound_results_002:
   updated_at: 2007-03-24 16:19:11
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   compound_id: "1006"
-  updated_by: ""
   parameter_name: DoseGroupID
   task_context_id: "890"
   id: "264"
   parameter_id: "88"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups

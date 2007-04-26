@@ -81,11 +81,11 @@ task_stats1_042:
   parameter_role_id: "1"
   task_id: "19"
   min_values: "1.35848e-14"
-  avg_values: "14.2002258064534"
+  avg_values: "14.2002258064535"
   data_type_id: "2"
   num_values: "310"
   max_values: "33"
-  stddev_values: "8.41865575894806"
+  stddev_values: "8.41865575894804"
   num_unique: "197"
 task_stats1_063: 
   parameter_type_id: "1"

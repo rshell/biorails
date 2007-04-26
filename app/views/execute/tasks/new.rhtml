@@ -1,15 +1,9 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="task">
+<% content_for :centre do -%>
+<h2>
         <%=subject_icon('model/task.png')%> New Task in Experiment [<%=subject_icon('experiment.png')%> 
         <%= link_to @experiment.name, :controller => 'experiments', 
                 :action => 'show', :id => @experiment.id  %>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %><li>
-            </ul>
-        </div>
-    </div>
-
+</h2>
     <% form_tag :action => 'create' do %>
 
         <div>
@@ -49,7 +43,7 @@
             <div class="row">
                 <div class="form-element">
                     <label for="task_assigned_to">Assigned to</label>
-                    <%= select_named 'task', 'assigned_to', User  %>
+                    <%= select_named 'task', 'assigned_to_user_id', User  %>
                 </div>
                 <div class="form-element">
                     <label for="task_is_milestone">Is milestone</label>
@@ -86,7 +80,15 @@
             </div>
             </fieldset>
         </div>
-    <!--[eoform:task]-->
+   <% end %>
 <% end %>
-</div>
+
+<% content_for :right do -%>
+   <h2>Guide </h2>
+   <div class="panel">
+
+   </div>
+<% end %>
+   
+
 

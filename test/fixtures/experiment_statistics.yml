@@ -1,22 +1,3 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: experiment_statistics
-#
-#  id                 :integer(20)   primary key
-#  experiment_id      :integer(11)   
-#  study_parameter_id :integer(11)   
-#  parameter_role_id  :integer(11)   
-#  parameter_type_id  :integer(11)   
-#  data_type_id       :integer(11)   
-#  avg_values         :float         
-#  stddev_values      :float         
-#  num_values         :integer(20)   default(0), not null
-#  num_unique         :integer(20)   default(0), not null
-#  max_values         :float         
-#  min_values         :float         
-#
-
 --- 
 experiment_statistics_033: 
   experiment_id: "3"
@@ -198,7 +179,7 @@ experiment_statistics_014:
   id: "5000003"
   max_values: "33"
   study_parameter_id: "3"
-  stddev_values: "8.41865575894805"
+  stddev_values: "8.41865575894803"
   num_unique: "197"
 experiment_statistics_003: 
   experiment_id: "3"
@@ -250,7 +231,7 @@ experiment_statistics_015:
   id: "5000002"
   max_values: "320"
   study_parameter_id: "2"
-  stddev_values: "61.3517982579738"
+  stddev_values: "61.3517982579739"
   num_unique: "161"
 experiment_statistics_004: 
   experiment_id: "3"

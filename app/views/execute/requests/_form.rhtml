@@ -1,44 +1,42 @@
   <div class="row">
    <div class="form-element">
        <label for="request_name">Name</label>
-       <%= text_field :request, 'name' , {:class=>"text-input"} %>
+       <%= text_field :user_request, 'name' , {:class=>"text-input"} %>
    </div>
 
    <div class="form-element">
      <label for="request_for">Item Type</label>
-       <%= select( :request, :data_element_id, @request.allowed_elements.collect{|c|[c.path,c.id]})  %>
+       <%= select( :user_request, :data_element_id, @user_request.allowed_elements.collect{|c|[c.path,c.id]})  %>
    </div>
-
-
  </div>
    
   <div class="row">
      <div class="form-element">
        <label for="request_description">Description</label>
-       <%= text_area('request', 'description',{:rows=>5, :cols=>100} )  %>
+       <%= text_area(:user_request, 'description',{:rows=>5, :cols=>100} )  %>
      </div>
   </div>
   
   <div class="row">
 
    <div class="form-element">
-     <label for="request_by">By User</label>
-     <%= text_field :request, 'requested_by' , {:class=>"text-input"} %>
+     <label for="request_by">Requested For User</label>
+      <%= select_named :user_request, 'requested_by_user_id', User  %>
    </div>
 
    <div class="form-element">
      <label for="request_for">By Date</label>
-     <%= date_field 'request', 'requested_for'  %>
+     <%= date_field 'user_request', 'requested_for'  %>
    </div>
 
    <div class="form-element">
      <label for="request_for">Status</label>
-       <%= select( :request, :current_state_id, @request.allowed_status_list)  %>
+       <%= select( :user_request, :current_state_id, @user_request.allowed_status_list)  %>
    </div>
 
    <div class="form-element">
      <label for="request_for">Priority</label>
-       <%= select( :request, :priority_id, @request.allowed_priority_list)  %>
+       <%= select( :user_request, :priority_id, @user_request.allowed_priority_list)  %>
    </div>
 
   </div>

@@ -17,19 +17,19 @@ class Organize::StudiesController < ApplicationController
 # 
 # 
   def list
-   @project = current_projectl
+   @project = current_project
    @report = Report.internal_report("StudyList",Study) do | report |
       report.column('project_id').filter = @project.id
       report.column('project_id').is_visible = false
       report.column('name').customize(:order_num=>1)
+      report.column('name').is_visible = true
       report.column('name').action = :show
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, 1000, 100, params[:page]
+   @data_pages = Paginator.new self, @project.studies.size, 20, params[:page]
    @data = @report.run({:limit  =>  @data_pages.items_per_page,
                         :offset =>  @data_pages.current.offset })
-
   end
 
 ##

@@ -42,28 +42,32 @@ class List < ActiveRecord::Base
    item = ListItem.new
    item.list = self
    case new_value
-   when String
-       logger.warn "is String"
-       value = lookup(new_value)  
+   when Hash
        return nil unless value
-       item.data_type = value.class.to_s
-       item.data_id   = value.id  
-       item.data_name = value.name 
+       item.data_type = nil
+       item.data_id   = value[:id]
+       item.data_name = value[:name] 
 
     when Fixnum
-       logger.warn "is Fixnum"
        value = reference(new_value)      
        return nil unless value
        item.data_type = value.class.to_s
        item.data_id   = value.id  
        item.data_name = value.name 
+
+   when String
+       value = lookup(new_value)  
+       return nil unless value
+       item.data_type = value.class.to_s
+       item.data_id   = value[:id]  
+       item.data_name = value[:name] 
+
+
     when ListItem
-       logger.warn "is ListItem"
        item.data_type = new_value.data_type
        item.data_id   = new_value.data_id 
        item.data_name = new_value.data_name 
     else
-      logger.warn "is unknown"
       self.data_type = new_value.data_type if new_value.respond_to?(:date_type)
       self.data_id   = new_value.data_id if new_value.respond_to?(:date_id)
       self.data_name = new_value.data_name if new_value.respond_to?(:date_name)

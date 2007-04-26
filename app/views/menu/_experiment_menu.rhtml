@@ -8,7 +8,7 @@
        <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
        <%= link_to 'Metrics', experiment_url( :action => 'metrics', :id => experiment) %>
        <%= link_to 'Edit',     experiment_url( :action => 'edit', :id => experiment) %>
-       <%= link_to 'Delete '+ subject_icon('delete'), experiment_url( :action => 'destroy', :id => experiment ), 
+       <%= link_to 'Delete ',  experiment_url( :action => 'destroy', :id => experiment ), 
                     :confirm => 'Are you sure?',:method => "post" %>
        <%= link_to 'Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>
        <%= link_to 'Import Task',   experiment_url( :action =>'import',:id => experiment) %>         

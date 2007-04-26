@@ -1,279 +1,257 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: study_queues
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  study_id           :integer(11)   
-#  study_stage_id     :integer(11)   
-#  study_parameter_id :integer(11)   
-#  study_protocol_id  :integer(11)   
-#  assigned_to        :string(60)    
-#  status             :string(255)   default(new), not null
-#  priority           :string(255)   default(normal), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 study_queues_013: 
   status: new
   study_stage_id: "8"
   name: sex for test
   updated_at: 2007-03-30 19:54:33
-  assigned_to: "4"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "3"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "20"
   study_id: "4"
   description: submit gender for test
   study_parameter_id: "49"
+  created_by_user_id: "1"
   created_at: 2007-03-30 19:54:10
 study_queues_002: 
   status: New
   study_stage_id: "6"
   name: Screening
   updated_at: 2007-02-08 14:08:59
-  assigned_to: alemon
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "2"
   priority: Low
-  updated_by: ""
   study_protocol_id: "52"
   id: "7"
   study_id: "15"
   description: Full screen against the compound library.  Please define the Target.  The service will include the development of the assay, full screen at single point, a confirmation assay of the initial hits and an EX50 determination of any hits.
   study_parameter_id: "175"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:39:19
 study_queues_014: 
   status: new
   study_stage_id: "5"
   name: DevelopAssay
   updated_at: 2007-04-03 19:03:04
-  assigned_to: "2"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "2"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "21"
   study_id: "3"
   description: Develop an assay for the defined target.&nbsp; Assay definition includes the scale up to production..
   study_parameter_id: "58"
+  created_by_user_id: "1"
   created_at: 2007-04-03 19:02:17
 study_queues_003: 
   status: New
   study_stage_id: "8"
   name: Dose Response
   updated_at: 2007-01-31 16:40:25
-  assigned_to: alemon
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: High
-  updated_by: ""
   study_protocol_id: 
   id: "8"
   study_id: "15"
   description: Run a dose response experiment against a defined assay for a list of compound ids (hits)
   study_parameter_id: "175"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:40:25
 study_queues_015: 
   status: new
   study_stage_id: "8"
   name: DetermineActivity
   updated_at: 2007-04-03 19:06:16
-  assigned_to: "4"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "2"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "22"
   study_id: "3"
   description: Hitentify if compound is a hit - output is simple flag.
   study_parameter_id: "63"
+  created_by_user_id: "1"
   created_at: 2007-04-03 19:02:54
 study_queues_004: 
   status: New
   study_stage_id: "8"
   name: Structure Elucidation
   updated_at: 2007-01-31 16:44:07
-  assigned_to: rshell
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: High
-  updated_by: ""
   study_protocol_id: 
   id: "9"
   study_id: "18"
   description: Determine the structure of a sample
   study_parameter_id: "177"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:44:07
 study_queues_016: 
   status: new
   study_stage_id: "8"
   name: DoseResponse
   updated_at: 2007-04-03 19:05:10
-  assigned_to: "4"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "23"
   study_id: "3"
   description: Determin the IC50 for compound
   study_parameter_id: "63"
+  created_by_user_id: "1"
   created_at: 2007-04-03 19:05:10
 study_queues_005: 
   status: New
   study_stage_id: "5"
   name: Structure Confirmation
   updated_at: 2007-01-31 16:44:44
-  assigned_to: rshell
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: Low
-  updated_by: ""
   study_protocol_id: 
   id: "10"
   study_id: "18"
   description: Confirm suggested structure
   study_parameter_id: "177"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:44:44
 study_queues_006: 
   status: New
   study_stage_id: "5"
   name: Purity
   updated_at: 2007-01-31 16:45:15
-  assigned_to: alemon
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: Normal
-  updated_by: ""
   study_protocol_id: 
   id: "11"
   study_id: "18"
   description: Determination of sample purity
   study_parameter_id: "177"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:45:15
 study_queues_007: 
   status: new
   study_stage_id: "5"
   name: B&H Study
   updated_at: 2007-03-08 07:22:23
-  assigned_to: "2"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "3"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "12"
   study_id: "17"
   description: A full run of the BioMarker and histology study
   study_parameter_id: "212"
+  created_by_user_id: "1"
   created_at: 2007-03-08 07:14:00
 study_queues_008: 
   status: new
   study_stage_id: "6"
   name: Taqman Analysis
   updated_at: 2007-03-08 07:17:46
-  assigned_to: "2"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "13"
   study_id: "17"
   description: Taqman readings of surviving animals
   study_parameter_id: "217"
+  created_by_user_id: "1"
   created_at: 2007-03-08 07:17:46
 study_queues_009: 
   status: new
   study_stage_id: "6"
   name: Histological Analysis
   updated_at: 2007-03-08 07:19:50
-  assigned_to: "2"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "14"
   study_id: "17"
   description: Good look at the internal organs
   study_parameter_id: "229"
+  created_by_user_id: "1"
   created_at: 2007-03-08 07:19:50
 study_queues_010: 
   status: new
   study_stage_id: "8"
   name: Compound for B=>H
   updated_at: 2007-03-30 20:12:48
-  assigned_to: "2"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "2"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "15"
   study_id: "1"
   description: Submit a compound for testing
   study_parameter_id: "15"
+  created_by_user_id: "1"
   created_at: 2007-03-20 18:59:39
 study_queues_011: 
   status: new
   study_stage_id: "6"
   name: RES Exposure Service
   updated_at: 2007-03-21 09:49:14
-  assigned_to: "4"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "18"
   study_id: "2"
   description: Please submit one or more compounds to this service.&nbsp; Turn around time is c. 1 week.
   study_parameter_id: "29"
+  created_by_user_id: "1"
   created_at: 2007-03-21 09:49:14
 study_queues_012: 
   status: new
   study_stage_id: "5"
   name: Compounds for Test
   updated_at: 2007-03-30 19:53:40
-  assigned_to: "6"
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: normal
-  updated_by: ""
   study_protocol_id: 
   id: "19"
   study_id: "4"
   description: submit a compound so we can test it
   study_parameter_id: "48"
+  created_by_user_id: "1"
   created_at: 2007-03-30 19:53:40
 study_queues_001: 
   status: New
   study_stage_id: "5"
   name: Weight_Impact
   updated_at: 2007-01-31 16:33:14
-  assigned_to: thawkins
-  created_by: ""
+  assigned_to: "3"
+  updated_by_user_id: "1"
   lock_version: "1"
   priority: Low
-  updated_by: ""
   study_protocol_id: "41"
   id: "6"
   study_id: "14"
   description: Assessment of the impact of compound on the change of weight of animals.&nbsp; Can vary route of administration, sex and species.
   study_parameter_id: "166"
+  created_by_user_id: "1"
   created_at: 2007-01-31 16:33:14

@@ -1,8 +1,8 @@
 <% content_for :centre do -%>
-<h2>        <%=subject_icon('services')%> Edit Request  [<strong><%=h @request.name%></strong>]  </h2>
+<h2>        <%=subject_icon('services')%> Edit Request  [<strong><%=h @user_request.name%></strong>]  </h2>
     
     <div class='dialog'>
-        <% form_tag :action => 'update',:id=> @request.id do %>
+        <% form_tag :action => 'update',:id=> @user_request.id do %>
         <%= render :partial => 'form' %>
         <div class="row">
             <%= submit_tag "Submit" %>
@@ -18,21 +18,21 @@
         </tr>
         <tr>
           <td valign="top">   
-            <% form_tag :action => 'add_service',:id =>@request.id do %>
-             <%= select( :service, :id, @request.allowed_services.collect{|c|[c.path,c.id]})  %>
+            <% form_tag :action => 'add_service',:id =>@user_request.id do %>
+             <%= select( :service, :id, @user_request.allowed_services.collect{|c|[c.path,c.id]})  %>
              <%= submit_tag "add" %>
            <% end %>        
             <div id="current_services">  
-            <%= render :partial => 'list_services', :locals => { :request => @request } %>  
+            <%= render :partial => 'list_services', :locals => { :request => @user_request } %>  
             </div>
           </td>
           <td valign="top">   
-            <% form_tag :action => 'add_item',:id =>@request.id do %>
-             <%=my_lookup_tag("item","name", @request.data_element,{ :save=>"/requests/add_item/#{@request.id}"} ) %>     
+            <% form_tag :action => 'add_item',:id =>@user_request.id do %>
+             <%=my_lookup_tag("item","name", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
              <%= submit_tag "add" %>
            <% end %>          
             <div id="current_items">  
-            <%= render :partial => 'list_items', :locals => { :request => @request } %>  
+            <%= render :partial => 'list_items', :locals => { :request => @user_request } %>  
             </div>
           </td>
         </tr>
@@ -40,7 +40,7 @@
     </div>
     
     <div class='panel'>
-        <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
+        <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
     </div>
 </div>
 <%end %>
@@ -54,15 +54,5 @@ In the request the user may add new materials and services over time if the init
 produce further work. 
 </p>
 </div> 
-<div class="actions">
-    <ul>
-        <li><%= link_to subject_icon('destroy.png')+'Delete', { :action => 'destroy', 
-            :id => @request }, :confirm => 'Are you sure?',:method => "post" %></li>
-        <li><%= link_to subject_icon('new.png')+ 'New', :action => 'new' %></li>
-        <li><%= link_to subject_icon('show.png')+ 'Show', :action => 'show' %></li>
-        <li><%= link_to subject_icon('list.png')+'List', :action => 'list' %></li>
-    </ul>
-</div>
-
 <%end %>    
 

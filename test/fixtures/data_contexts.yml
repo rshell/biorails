@@ -3,19 +3,19 @@ data_contexts_001:
   name: BioRails
   updated_at: 2006-12-05 18:10:03
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
-  updated_by: sys
   id: "1"
   description: Main BIo Rails Context for application development namespace. This includes all the standard models and relationships in the default application setup
+  created_by_user_id: "1"
   created_at: 2006-09-06 19:28:02
 data_contexts_002: 
   name: LegacyHTS
   updated_at: 2007-01-03 19:55:49
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "2"
-  updated_by: sys
   id: "2"
   description: This is a example <em>namespace</em> for a custom integration of BioRails into a legacy inventory system.
+  created_by_user_id: "1"
   created_at: 2006-12-05 18:13:35

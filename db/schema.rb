@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 242) do
+ActiveRecord::Schema.define(:version => 243) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -632,28 +632,28 @@ ActiveRecord::Schema.define(:version => 242) do
   add_index "protocol_versions", ["updated_at"], :name => "process_instances_updated_at_index"
 
   create_table "queue_items", :force => true do |t|
-    t.column "name",               :string
-    t.column "comments",           :text
-    t.column "study_queue_id",     :integer
-    t.column "experiment_id",      :integer
-    t.column "task_id",            :integer
-    t.column "study_parameter_id", :integer
-    t.column "data_type",          :string
-    t.column "data_id",            :integer
-    t.column "data_name",          :string
-    t.column "requested_by",       :string,   :limit => 60
-    t.column "assigned_to",        :string,   :limit => 60
-    t.column "requested_for",      :datetime
-    t.column "accepted_at",        :datetime
-    t.column "completed_at",       :datetime
-    t.column "lock_version",       :integer,                :default => 0, :null => false
-    t.column "created_at",         :datetime,                              :null => false
-    t.column "updated_at",         :datetime,                              :null => false
-    t.column "request_service_id", :integer
-    t.column "status_id",          :integer
-    t.column "priority_id",        :integer
-    t.column "updated_by_user_id", :integer,                :default => 1, :null => false
-    t.column "created_by_user_id", :integer,                :default => 1, :null => false
+    t.column "name",                 :string
+    t.column "comments",             :text
+    t.column "study_queue_id",       :integer
+    t.column "experiment_id",        :integer
+    t.column "task_id",              :integer
+    t.column "study_parameter_id",   :integer
+    t.column "data_type",            :string
+    t.column "data_id",              :integer
+    t.column "data_name",            :string
+    t.column "requested_for",        :datetime
+    t.column "accepted_at",          :datetime
+    t.column "completed_at",         :datetime
+    t.column "lock_version",         :integer,  :default => 0, :null => false
+    t.column "created_at",           :datetime,                :null => false
+    t.column "updated_at",           :datetime,                :null => false
+    t.column "request_service_id",   :integer
+    t.column "status_id",            :integer
+    t.column "priority_id",          :integer
+    t.column "updated_by_user_id",   :integer,  :default => 1, :null => false
+    t.column "created_by_user_id",   :integer,  :default => 1, :null => false
+    t.column "requested_by_user_id", :integer,  :default => 1
+    t.column "assigned_to_user_id",  :integer,  :default => 1
   end
 
   create_table "report_columns", :force => true do |t|
@@ -701,39 +701,39 @@ ActiveRecord::Schema.define(:version => 242) do
   end
 
   create_table "request_services", :force => true do |t|
-    t.column "request_id",         :integer,                                 :null => false
-    t.column "service_id",         :integer,                                 :null => false
-    t.column "name",               :string,   :limit => 128, :default => "", :null => false
-    t.column "description",        :text
-    t.column "requested_by",       :string,   :limit => 60
-    t.column "requested_for",      :datetime
-    t.column "assigned_to",        :string,   :limit => 60
-    t.column "accepted_at",        :datetime
-    t.column "completed_at",       :datetime
-    t.column "lock_version",       :integer,                 :default => 0,  :null => false
-    t.column "created_at",         :datetime,                                :null => false
-    t.column "updated_at",         :datetime,                                :null => false
-    t.column "status_id",          :integer
-    t.column "priority_id",        :integer
-    t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "request_id",           :integer,                                 :null => false
+    t.column "service_id",           :integer,                                 :null => false
+    t.column "name",                 :string,   :limit => 128, :default => "", :null => false
+    t.column "description",          :text
+    t.column "requested_for",        :datetime
+    t.column "accepted_at",          :datetime
+    t.column "completed_at",         :datetime
+    t.column "lock_version",         :integer,                 :default => 0,  :null => false
+    t.column "created_at",           :datetime,                                :null => false
+    t.column "updated_at",           :datetime,                                :null => false
+    t.column "status_id",            :integer
+    t.column "priority_id",          :integer
+    t.column "updated_by_user_id",   :integer,                 :default => 1,  :null => false
+    t.column "created_by_user_id",   :integer,                 :default => 1,  :null => false
+    t.column "requested_by_user_id", :integer,                 :default => 1
+    t.column "assigned_to_user_id",  :integer,                 :default => 1
   end
 
   create_table "requests", :force => true do |t|
-    t.column "name",               :string,   :limit => 128, :default => "", :null => false
-    t.column "description",        :text
-    t.column "requested_by",       :string
-    t.column "requested_for",      :string
-    t.column "lock_version",       :integer,                 :default => 0,  :null => false
-    t.column "created_at",         :datetime,                                :null => false
-    t.column "updated_at",         :datetime,                                :null => false
-    t.column "list_id",            :integer
-    t.column "data_element_id",    :integer
-    t.column "status_id",          :integer
-    t.column "priority_id",        :integer
-    t.column "project_id",         :integer
-    t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "name",                 :string,   :limit => 128, :default => "", :null => false
+    t.column "description",          :text
+    t.column "requested_for",        :string
+    t.column "lock_version",         :integer,                 :default => 0,  :null => false
+    t.column "created_at",           :datetime,                                :null => false
+    t.column "updated_at",           :datetime,                                :null => false
+    t.column "list_id",              :integer
+    t.column "data_element_id",      :integer
+    t.column "status_id",            :integer
+    t.column "priority_id",          :integer
+    t.column "project_id",           :integer
+    t.column "updated_by_user_id",   :integer,                 :default => 1,  :null => false
+    t.column "created_by_user_id",   :integer,                 :default => 1,  :null => false
+    t.column "requested_by_user_id", :integer,                 :default => 1
   end
 
   create_table "role_permissions", :force => true do |t|
@@ -868,20 +868,20 @@ ActiveRecord::Schema.define(:version => 242) do
   add_index "study_protocols", ["process_definition_id"], :name => "study_protocols_process_definition_id_index"
 
   create_table "study_queues", :force => true do |t|
-    t.column "name",               :string,   :limit => 128, :default => "",       :null => false
-    t.column "description",        :text
-    t.column "study_id",           :integer
-    t.column "study_stage_id",     :integer
-    t.column "study_parameter_id", :integer
-    t.column "study_protocol_id",  :integer
-    t.column "assigned_to",        :string,   :limit => 60
-    t.column "status",             :string,                  :default => "new",    :null => false
-    t.column "priority",           :string,                  :default => "normal", :null => false
-    t.column "lock_version",       :integer,                 :default => 0,        :null => false
-    t.column "created_at",         :datetime,                                      :null => false
-    t.column "updated_at",         :datetime,                                      :null => false
-    t.column "updated_by_user_id", :integer,                 :default => 1,        :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1,        :null => false
+    t.column "name",                :string,   :limit => 128, :default => "",       :null => false
+    t.column "description",         :text
+    t.column "study_id",            :integer
+    t.column "study_stage_id",      :integer
+    t.column "study_parameter_id",  :integer
+    t.column "study_protocol_id",   :integer
+    t.column "status",              :string,                  :default => "new",    :null => false
+    t.column "priority",            :string,                  :default => "normal", :null => false
+    t.column "lock_version",        :integer,                 :default => 0,        :null => false
+    t.column "created_at",          :datetime,                                      :null => false
+    t.column "updated_at",          :datetime,                                      :null => false
+    t.column "updated_by_user_id",  :integer,                 :default => 1,        :null => false
+    t.column "created_by_user_id",  :integer,                 :default => 1,        :null => false
+    t.column "assigned_to_user_id", :integer,                 :default => 1
   end
 
   create_table "study_stages", :force => true do |t|
@@ -926,6 +926,7 @@ ActiveRecord::Schema.define(:version => 242) do
     t.column "tag_id",        :integer
     t.column "taggable_id",   :integer
     t.column "taggable_type", :string
+    t.column "created_at",    :timestamp
   end
 
   create_table "tags", :force => true do |t|
@@ -1140,7 +1141,6 @@ ActiveRecord::Schema.define(:version => 242) do
     t.column "protocol_version_id", :integer
     t.column "status_id",           :integer
     t.column "is_milestone",        :boolean
-    t.column "assigned_to",         :string,   :limit => 60
     t.column "priority_id",         :integer
     t.column "start_date",          :datetime
     t.column "end_date",            :datetime
@@ -1153,6 +1153,7 @@ ActiveRecord::Schema.define(:version => 242) do
     t.column "project_id",          :integer
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
+    t.column "assigned_to_user_id", :integer,                 :default => 1
   end
 
   add_index "tasks", ["name"], :name => "tasks_name_index"

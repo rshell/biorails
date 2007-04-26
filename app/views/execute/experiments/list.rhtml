@@ -1,49 +1,12 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="experiment">
-        <%= subject_icon('experiment.png')%> List of Experiments
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('new.png'))+'New Expt', :action => 'new' %></li>
-            </ul>
-        </div>
-    </div>
-    <div>
-    <div class='panel'>
-      <table class="report">
-          <tr>
-          <% for column in Experiment.content_columns %>
-            <th><%=subject_icon(column.human_name.downcase)%> <%= column.human_name %></th>
-          <% end %>
-          <th><%=subject_icon('study.png')%> Study</th>
-          <th><%=subject_icon('protocol.png')%> Protocol</th>
-          <th><%=subject_icon('protocol.png')%> Process</th>
-          <th><%=subject_icon('task.png')%> Tasks</th>
-          <th><%=subject_icon('started.png')%> Started</th>
-          <th><%=subject_icon('ended.png')%> Ends</th>
-          <th><%=subject_icon('action.png')%> Actions</th>
-          </tr>
-          
-
-        <% for experiment in @experiments %>
-        <% classAttr = cycle("", "class=\"even\"") %>
-        <tr <%=classAttr%>  > 
-          <td><%= link_to experiment.name , :action => 'show', :id => experiment %> </td>
-          <td><%=h experiment.description %></td>
-          <td><%= link_to experiment.study.name,:controller =>'studies', :action => 'show', :id => experiment.study  %></td>
-          <td><%= link_to experiment.protocol.name,:controller =>'study_protocols', :action => 'show', :id => experiment.protocol  %></td>
-          <td><%= experiment.process.name  %></td>
-          <td><%=experiment.tasks.size %></td>
-          <td><%= short_date experiment.start_date %></td>
-          <td><%= short_date experiment.end_date  %></td>
-          <td><%= link_to (subject_icon('edit.png'))+' Edit', :action => 'edit', :id => experiment %></td>
-          </tr>
-        <% end %>
-        </table>
-    </div>
-
-    <div class='panel'>
-        <%= link_to (subject_icon('arrow_left')) +' Previous page', { :page => @experiment_pages.current.previous } if @experiment_pages.current.previous %>
-        <%= link_to (subject_icon('arrow_right')) +' Next page', { :page => @experiment_pages.current.next } if @experiment_pages.current.next %> 
-    </div>
-    </div>
+<h2> Experiment in project <%=@project.name%> </h2>
+<div class='panel'>
+    <%= error_messages_for 'experiment' %>
 </div>
+
+<div class="panel">                              
+    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
+    <%= link_to 'Previous page', { :page => @data_pages.current.previous } if @data_pages.current.previous %>
+    <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
+</div>
+
+<%=link_to (subject_icon('new.png'))+'New', :action=>'new' %>

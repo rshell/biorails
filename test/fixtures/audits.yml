@@ -1,18 +1,5916 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: audits
-#
-#  id             :integer(11)   not null, primary key
-#  auditable_id   :integer(11)   
-#  auditable_type :string(255)   
-#  user_id        :integer(11)   
-#  user_type      :string(255)   
-#  session        :string(255)   
-#  action         :string(255)   
-#  changes        :text          
-#  created_at     :datetime      
-#
+--- 
+audits_084: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "26"
+  id: "84"
+  changes: |
+    --- 
+    body_html: 
+    - ""
+    - "<ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">\t                         Tissue injury causes the release of various inflammatory                          and pain mediators resulting in peripheral sensitization<font size=\"-2\">                          1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Pain response mediators: ATP, acetylcholine and serotonin                          are released from damaged endothelial cells and platelets;                          prostaglandin E2 is synthesized by Cyclooxygenase I and                          II enzymes in damaged cells; bradykinin is released from                          plasma from damaged vessels<font size=\"-2\"> 1,2</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Inflammatory response mediators: Histamine is released                          from mast cells in response to Substance P and calcitonin                          gene-related peptide (CGRP) released by primary afferent                          sensory fibers; additional mediators are released from                          blood cells (cytokines, complement factors C3a and C5a,                          serotonin, platelet-activating factor, neutrophil chemotactic                          factor, fibrinopeptides, leukotrienes)<font size=\"-2\">                          1,2</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Together with bradykinin and prostaglandins, these inflammatory                          mediators cause peripheral vasodilation, increased vascular                          permeability, plasma extravasation, migration of leucocytes                          to the site of injury, and clotting responses<font size=\"-2\">                          1</font> </font></li></ul>"
+    updated_at: 
+    - 2007-04-25 11:51:59 Z
+    - 2007-04-25 11:53:00.545411 Z
+    lock_version: 
+    - 0
+    - 1
 
---- {}
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:53:00
+audits_056: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "9"
+  id: "56"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    size: 
+    - 
+    - 41535
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:38:46.934647 Z
+    title: 
+    - 
+    - 2.Cross talk_sm
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 9
+    filename: 
+    - 
+    - 2.Cross_talk_sm.jpg
+    height: 
+    - 
+    - 150
+    created_by_user_id: 
+    - 1
+    - 3
+    width: 
+    - 
+    - 200
+    created_at: 
+    - 
+    - *id001
 
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:38:46
+audits_111: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "110"
+  id: "111"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:17:28.901674 Z
+    - 2007-04-25 20:17:28.919282 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:17:28
+audits_028: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "12"
+  id: "28"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - base_model
+    updated_at: 
+    - 
+    - &id001 2007-04-24 17:27:56.307846 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 12
+    report_id: 
+    - 
+    - 2
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Base_model
+    order_num: 
+    - 
+    - 4
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:56
+audits_140: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "113"
+  id: "140"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - DMO-001-15
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 21:59:34.381795 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 113
+    reference_type: 
+    - 
+    - ProjectElement
+    reference_id: 
+    - 
+    - 85
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 21
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/DMO-001-15
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:59:34
+audits_085: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "25"
+  id: "85"
+  changes: |
+    --- 
+    body_html: 
+    - ""
+    - <font face="Verdana, Arial, Helvetica, sans-serif" size="2">In                          the synapse, repeated firing from peripheral afferent                          sensory fibers and consequent release of glutamate results                          in the prolonged opening of post-synaptic ion channels                          gated by N-methyl-D-aspartate (NMDA)-type glutamate receptors                          <font size="-2">1,2,3</font></font>
+    updated_at: 
+    - 2007-04-25 11:48:55 Z
+    - 2007-04-25 11:53:43.240223 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:53:43
+audits_057: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "10"
+  id: "57"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - icon
+    size: 
+    - 
+    - 41427
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:38:46.960465 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 10
+    filename: 
+    - 
+    - 2.Cross_talk_sm_icon.jpg
+    height: 
+    - 
+    - 36
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 9
+    width: 
+    - 
+    - 48
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:38:46
+audits_112: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "36"
+  id: "112"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-39
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - ""
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:22:02.613801 Z
+    title: 
+    - 
+    - testing
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 36
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:22:02
+audits_029: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "12"
+  id: "29"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 17:27:56.307846 Z
+    - 2007-04-24 17:27:56.458505 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:56
+audits_141: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "113"
+  id: "141"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 21:59:34.381795 Z
+    - 2007-04-25 21:59:34.939406 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 21
+    - 5
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:59:34
+audits_086: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "23"
+  id: "86"
+  changes: |
+    --- 
+    body_html: 
+    - ""
+    - <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Neuropathic                          pain occurs following direct injury to the nerves in the                          peripheral or central nervous systems. Neuropathic pain                          can result from complete or partial nerve transection,                          nerve compression, infiltration or infectious/inflammatory/ischemic                          etiologies <font size="-2">1,2,4</font></font>                          <font face="Verdana, Arial, Helvetica, sans-serif" size="2">                              Partial severance of peripheral afferent sensory fibers                              results in neuropathic pain in the form of ectopic                              activity</font>
+    updated_at: 
+    - 2007-04-25 11:47:39 Z
+    - 2007-04-25 11:54:23.066914 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:54:23
+audits_058: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "11"
+  id: "58"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - normal
+    size: 
+    - 
+    - 41427
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:38:47.160564 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 11
+    filename: 
+    - 
+    - 2.Cross_talk_sm_normal.jpg
+    height: 
+    - 
+    - 200
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 9
+    width: 
+    - 
+    - 267
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:38:47
+audits_113: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "111"
+  id: "113"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-39
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 36
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:22:02.641145 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 111
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 20
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-39
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:22:02
+audits_142: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "114"
+  id: "142"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - DMO-001-3
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 22:20:53.979952 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 114
+    reference_type: 
+    - 
+    - ProjectElement
+    reference_id: 
+    - 
+    - 102
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 22
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/DMO-001-3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 22:20:53
+audits_059: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "89"
+  id: "59"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - 2.Cross_talk_sm.jpg
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:38:47.225480 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 89
+    reference_type: 
+    - 
+    - ProjectAsset
+    reference_id: 
+    - 
+    - 9
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 2
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/2.Cross_talk_sm.jpg
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:38:47
+audits_114: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "111"
+  id: "114"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:22:02.641145 Z
+    - 2007-04-25 20:22:02.660266 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:22:02
+audits_087: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "87"
+  changes: |
+    --- 
+    body_html: 
+    - ""
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Hyperalgesia: Certain noxious stimuli (e.g. severe bruising)                          can result in the individual perceiving abnormally high                          levels of pain in response to normal noxious stimuli such                          as a small scratch; in such cases, patients often perceive                          spontaneous pain <font size=\"-2\">1,2,4</font></font>"
+    updated_at: 
+    - 2007-04-25 11:46:15 Z
+    - 2007-04-25 11:54:50.149991 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:54:50
+audits_143: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "114"
+  id: "143"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 22:20:53.979952 Z
+    - 2007-04-25 22:20:54.000264 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 22
+    - 15
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 22:20:54
+audits_115: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "115"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:54:50 Z
+    - 2007-04-25 20:37:00.596339 Z
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:37:00
+audits_001: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "1"
+  changes: |
+    --- 
+    start_date: 
+    - 2007-04-03 00:00:00 Z
+    - !timestamp 2007-04-24T14:29:26+0100
+    updated_at: 
+    - 2007-03-30 22:48:28 Z
+    - 2007-04-24 13:29:26.233584 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    lock_version: 
+    - 1
+    - 2
+    status_id: 
+    - 0
+    - 1
+    is_milestone: 
+    - false
+    - true
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 13:29:26
+audits_088: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "27"
+  id: "88"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-16
+    body_html: 
+    - 
+    - tests
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 13:39:46.205355 Z
+    title: 
+    - 
+    - test tags
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 27
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 13:39:46
+audits_144: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "115"
+  id: "144"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Sop-7
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 22:24:59.276577 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 115
+    reference_type: 
+    - 
+    - ProjectElement
+    reference_id: 
+    - 
+    - 37
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 23
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/Sop-7
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 22:24:59
+audits_116: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "116"
+  changes: |
+    --- 
+    name: 
+    - h1
+    - Hyper.1
+    body_html: 
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Hyperalgesia: Certain noxious stimuli (e.g. severe bruising)                          can result in the individual perceiving abnormally high                          levels of pain in response to normal noxious stimuli such                          as a small scratch; in such cases, patients often perceive                          spontaneous pain <font size=\"-2\">1,2,4</font></font>"
+    - "<p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Hyperalgesia: Certain noxious stimuli (e.g. severe bruising)                          can result in the individual perceiving abnormally high                          levels of pain in response to normal noxious stimuli such                          as a small scratch; in such cases, patients often perceive                          spontaneous pain <font size=\"-2\">1,2,4</font></font></p><p>&nbsp;</p><p>&nbsp;</p>"
+    updated_at: 
+    - 2007-04-25 20:37:00 Z
+    - 2007-04-25 20:41:03.721083 Z
+    lock_version: 
+    - 2
+    - 3
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:41:03
+audits_002: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "2"
+  changes: |
+    --- 
+    start_date: 
+    - 2007-04-24 14:29:26 Z
+    - !timestamp 2007-04-24T14:45:09+0100
+    assigned_to: 
+    - "2"
+    - "6"
+    updated_at: 
+    - 2007-04-24 13:29:26 Z
+    - 2007-04-24 13:45:09.302257 Z
+    lock_version: 
+    - 2
+    - 3
+    is_milestone: 
+    - true
+    - false
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 13:45:09
+audits_030: 
+  action: destroy
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "2"
+  id: "30"
+  changes: 
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:28:13
+audits_089: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "99"
+  id: "89"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-16
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 13:39:46.484747 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 99
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 27
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 12
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-16
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 13:39:46
+audits_145: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "115"
+  id: "145"
+  changes: |
+    --- 
+    content_id: 
+    - 
+    - 19
+    updated_at: 
+    - 2007-04-25 22:24:59.276577 Z
+    - 2007-04-25 22:24:59.297012 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 23
+    - 6
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 22:24:59
+audits_117: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "117"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:41:03 Z
+    - 2007-04-25 20:43:49.835406 Z
+    lock_version: 
+    - 3
+    - 4
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:43:49
+audits_031: 
+  action: destroy
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "1"
+  id: "31"
+  changes: 
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:28:15
+audits_003: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "3"
+  changes: |
+    --- 
+    start_date: 
+    - 2007-04-24 14:45:09 Z
+    - 2007-04-24 14:29:26 Z
+    updated_at: 
+    - 2007-04-24 13:45:09 Z
+    - 2007-04-24 13:48:38.766609 Z
+    lock_version: 
+    - 3
+    - 4
+    status_id: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 13:48:38
+audits_146: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "116"
+  id: "146"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Hyper.1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-26 07:54:02.681594 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 116
+    reference_type: 
+    - 
+    - ProjectElement
+    reference_id: 
+    - 
+    - 92
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 6
+    parent_id: 
+    - 
+    - 27
+    path: 
+    - ""
+    - AssayDev/Hyper.1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-26 07:54:02
+audits_118: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "92"
+  id: "118"
+  changes: |
+    --- 
+    name: 
+    - h1
+    - Hyper.1
+    updated_at: 
+    - 2007-04-25 11:46:15 Z
+    - 2007-04-25 20:43:49.852732 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:43:49
+audits_060: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "12"
+  id: "60"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    size: 
+    - 
+    - 205307
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:40:54.383154 Z
+    title: 
+    - 
+    - 4.Hyperexcitation.
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 12
+    filename: 
+    - 
+    - 4.Hyperexcitation.jpg
+    height: 
+    - 
+    - 576
+    created_by_user_id: 
+    - 1
+    - 3
+    width: 
+    - 
+    - 768
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:40:54
+audits_032: 
+  action: create
+  session: 
+  auditable_type: Report
+  auditable_id: "4"
+  id: "32"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - List_of_Study
+    updated_at: 
+    - 
+    - &id001 2007-04-24 18:49:19.916608 Z
+    type: 
+    - Report
+    - SystemReport
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 4
+    description: 
+    - 
+    - Default reports for display as /Study/list
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 18:49:19
+audits_004: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "4"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 13:48:38 Z
+    - 2007-04-24 13:49:07.529900 Z
+    lock_version: 
+    - 4
+    - 5
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 13:49:07
+audits_147: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "116"
+  id: "147"
+  changes: |
+    --- 
+    content_id: 
+    - 
+    - 21
+    updated_at: 
+    - 2007-04-26 07:54:02.681594 Z
+    - 2007-04-26 07:54:02.899950 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 6
+    - 5
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-26 07:54:02
+audits_119: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "119"
+  changes: |
+    --- 
+    body_html: 
+    - "<p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Hyperalgesia: Certain noxious stimuli (e.g. severe bruising)                          can result in the individual perceiving abnormally high                          levels of pain in response to normal noxious stimuli such                          as a small scratch; in such cases, patients often perceive                          spontaneous pain <font size=\"-2\">1,2,4</font></font></p><p>&nbsp;</p><p>&nbsp;</p>"
+    - "<p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Hyperalgesia: Certain noxious stimuli (e.g. severe bruising)                          can result in the individual perceiving abnormally high                          levels of pain in response to normal noxious stimuli such                          as a small scratch; in such cases, patients often perceive                          spontaneous pain <font size=\"-2\">1,2,4</font></font></p><p>&nbsp;<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\"><strong>References:</strong></font></p>               <p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">1.                  Kandel ER, Schwartz JH, Jessell TM, editors. Principles of Neural                  Science (Fourth Edition). New York: McGraw Hill (Health Professions                  Division). 2000;472-491. </font></p>               <p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">2.                  Millan MJ. Progress in Neurobiology 1999;57:1-164. </font></p>               <p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">3.                  Dickenson AH. Brit J Anaesthesia 1995;75:193-200. </font></p>               <p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">4.                  Suzuki R and Dickenson AH. Neuroreport 2000;11:R17-21. </font></p>               <p><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">5.                  Waxman S. Pain 1999;6:S133-140. </font></p><p>&nbsp;</p>"
+    updated_at: 
+    - 2007-04-25 20:43:49 Z
+    - 2007-04-25 20:45:21.073158 Z
+    lock_version: 
+    - 4
+    - 5
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:45:21
+audits_061: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "13"
+  id: "61"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - icon
+    size: 
+    - 
+    - 199945
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:40:54.493828 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 13
+    filename: 
+    - 
+    - 4.Hyperexcitation_icon.jpg
+    height: 
+    - 
+    - 36
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 12
+    width: 
+    - 
+    - 48
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:40:54
+audits_033: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "13"
+  id: "33"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - id
+    updated_at: 
+    - 
+    - &id001 2007-04-24 18:49:19.938421 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 13
+    report_id: 
+    - 
+    - 4
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Id
+    order_num: 
+    - 
+    - 0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 18:49:19
+audits_005: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "5"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 13:49:07 Z
+    - 2007-04-24 13:49:50.269557 Z
+    lock_version: 
+    - 5
+    - 6
+    status_id: 
+    - 2
+    - 3
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 13:49:50
+audits_148: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "38"
+  id: "148"
+  changes: |
+    --- 
+    name: 
+    - 
+    - rshell-27
+    body_html: 
+    - 
+    - |
+      <div class="report">
+      <table class="report" width='100%'>
+      
+      <thead class='header_report_2'>
+        <tr>
+          
+          <th>
+               Name
+          </th>
+          
+          <th>
+               Description
+          </th>
+          
+          <th>
+               Base_model
+          </th>
+          
+        </tr>
+      </thead>  
+      
+      <tbody id='body_report_2'>  
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        ReportList                
+                      </td>
+               
+                      
+                      <td >
+                        Default reports for display as /Report/list                
+                      </td>
+               
+                      
+                      <td >
+                        Report                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        All-Reports                
+                      </td>
+               
+                      
+                      <td >
+                        List of all reports on the system                
+                      </td>
+               
+                      
+                      <td >
+                        Report                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        List_of_Study                
+                      </td>
+               
+                      
+                      <td >
+                        Default reports for display as /Study/list                
+                      </td>
+               
+                      
+                      <td >
+                        Study                
+                      </td>
+               
+            </tr>
+            
+      
+      
+        </tbody>
+      </table>
+      
+      </div>
+    
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-26 07:55:30.528267 Z
+    title: 
+    - 
+    - ReportList
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 38
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-26 07:55:30
+audits_062: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "14"
+  id: "62"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - normal
+    size: 
+    - 
+    - 199945
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:40:54.827234 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 14
+    filename: 
+    - 
+    - 4.Hyperexcitation_normal.jpg
+    height: 
+    - 
+    - 200
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 12
+    width: 
+    - 
+    - 267
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:40:54
+audits_034: 
+  action: update
+  session: 
+  auditable_type: Report
+  auditable_id: "4"
+  id: "34"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 18:49:19.916608 Z
+    - 2007-04-24 18:49:20.122186 Z
+    lock_version: 
+    - 0
+    - 1
+    base_model: 
+    - 
+    - Study
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 18:49:20
+audits_006: 
+  action: update
+  session: 
+  auditable_type: Task
+  auditable_id: "22"
+  id: "6"
+  changes: |
+    --- 
+    assigned_to: 
+    - "6"
+    - "2"
+    updated_at: 
+    - 2007-04-24 13:49:50 Z
+    - 2007-04-24 14:07:50.415912 Z
+    lock_version: 
+    - 6
+    - 7
+    status_id: 
+    - 3
+    - 4
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:07:50
+audits_090: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "28"
+  id: "90"
+  changes: |
+    --- 
+    name: 
+    - 
+    - rshell-22
+    body_html: 
+    - 
+    - |
+      <div class="report">
+      <table class="report" width='100%'>
+      
+      <thead class='header_report_5'>
+        <tr>
+          
+          <th>
+               Id
+          </th>
+          
+          <th>
+               Name
+          </th>
+          
+          <th>
+               Description
+          </th>
+          
+          <th>
+               Research_area
+          </th>
+          
+          <th>
+               Purpose
+          </th>
+          
+        </tr>
+      </thead>  
+      
+      <tbody id='body_report_5'>  
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        1.000                
+                      </td>
+               
+                      
+                      <td >
+                        Biomarker And Histology                
+                      </td>
+               
+                      
+                      <td >
+                        A synchronous study covering multiple groups using different techniques and employing request fulfillment to progress the animals under investigation through the three tiers of testing: weight monitoring, taqman analysis and histological analysis.                
+                      </td>
+               
+                      
+                      <td >
+                        in-vivo                
+                      </td>
+               
+                      
+                      <td >
+                        RF                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        2.000                
+                      </td>
+               
+                      
+                      <td >
+                        RES Exposure                
+                      </td>
+               
+                      
+                      <td >
+                        An example behavioural study                
+                      </td>
+               
+                      
+                      <td >
+                        Behavioural                
+                      </td>
+               
+                      
+                      <td >
+                        Case Study                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        3.000                
+                      </td>
+               
+                      
+                      <td >
+                        Screen                
+                      </td>
+               
+                      
+                      <td >
+                        <h3>Purpose&nbsp;</h3><p>This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report&nbsp;</p>                
+                      </td>
+               
+                      
+                      <td >
+                        screening                
+                      </td>
+               
+                      
+                      <td >
+                        demo                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        4.000                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                        A study for testing                
+                      </td>
+               
+                      
+                      <td >
+                        testing                
+                      </td>
+               
+                      
+                      <td >
+                        testing                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        5.000                
+                      </td>
+               
+                      
+                      <td >
+                        Dev-Test                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        6.000                
+                      </td>
+               
+                      
+                      <td >
+                        Dev-Test2                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                        kk                
+                      </td>
+               
+                      
+                      <td >
+                        kk                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        7.000                
+                      </td>
+               
+                      
+                      <td >
+                        Study-2                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        8.000                
+                      </td>
+               
+                      
+                      <td >
+                        Study-3                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        9.000                
+                      </td>
+               
+                      
+                      <td >
+                        Cell Assay                
+                      </td>
+               
+                      
+                      <td >
+                        Cell Based Assay                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        10.000                
+                      </td>
+               
+                      
+                      <td >
+                        Solubility                
+                      </td>
+               
+                      
+                      <td >
+                        Test Solubility                
+                      </td>
+               
+                      
+                      <td >
+                        QC                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+      
+        </tbody>
+      </table>
+      
+      </div>
+    
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 15:08:30.038943 Z
+    title: 
+    - 
+    - List_of_Study
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 28
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 15:08:30
+audits_149: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "117"
+  id: "149"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - rshell-27
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 38
+    updated_at: 
+    - 
+    - &id001 2007-04-26 07:55:30.557303 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 117
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 0
+    parent_id: 
+    - 
+    - 104
+    path: 
+    - ""
+    - AssayDev/Biomarker And Histology/Weights/rshell-27
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-26 07:55:30
+audits_063: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "90"
+  id: "63"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - 4.Hyperexcitation.jpg
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:40:55.061890 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 90
+    reference_type: 
+    - 
+    - ProjectAsset
+    reference_id: 
+    - 
+    - 12
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/4.Hyperexcitation.jpg
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:40:55
+audits_035: 
+  action: create
+  session: 
+  auditable_type: Report
+  auditable_id: "4"
+  id: "35"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - List_of_Study
+    updated_at: 
+    - 
+    - &id001 2007-04-24 20:45:23.850929 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 4
+    description: 
+    - 
+    - Default reports for display as /Study/list
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:23
+audits_007: 
+  action: create
+  session: 
+  auditable_type: Report
+  auditable_id: "2"
+  id: "7"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ReportList
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:44:52.804949 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    base_model: 
+    - 
+    - Report
+    id: 
+    - 
+    - 2
+    description: 
+    - 
+    - Default reports for display as /Report/list
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:44:52
+audits_091: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "100"
+  id: "91"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - rshell-22
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 15:08:30.143322 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 100
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 28
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 13
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/rshell-22
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 15:08:30
+audits_064: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "20"
+  id: "64"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ps-1
+    body_html: 
+    - 
+    - <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Peripheral                        senstization </strong></font></p>                     <ul><li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bradykinin                          stimulates further synthesis/release of prostaglandins,                          and, together with the prostaglandins, sensitizes the                          primary afferent sensory fibers in response to stimulation                          by ATP, acetylcholine, serotonin and mechanical and thermal                          stimuli <font size="-2">1,2,3</font></font></li><li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Substance                          P and CGRP released by the primary afferent sensory fibers                          contribute to the pain response by triggering the release                          of histamine from mast cells which, in turn, excites the                          peripheral afferent sensory fibers <font size="-2">1,2,3                          </font></font></li><li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&quot;                          Sensitization of the primary afferent sensory fibers by                          mediators of the pain response results in greater, more                          frequent transmission of action potentials to the nociceptive                          neurons than in &#39;normal&#39; pain responses <font size="-2">1,2,5                          </font></font></li></ul>
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:45:45.580395 Z
+    title: 
+    - 
+    - Peripheral senstization
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 20
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:45:45
+audits_036: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "14"
+  id: "36"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - id
+    updated_at: 
+    - 
+    - &id001 2007-04-24 20:45:23.877491 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 14
+    report_id: 
+    - 
+    - 4
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Id
+    order_num: 
+    - 
+    - 0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:23
+audits_008: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "1"
+  id: "8"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - id
+    is_visible: 
+    - true
+    - false
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:44:52.828736 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 1
+    report_id: 
+    - 
+    - 2
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Id
+    order_num: 
+    - 
+    - 0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:44:52
+audits_092: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "29"
+  id: "92"
+  changes: |
+    --- 
+    name: 
+    - 
+    - rshell-25
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - |
+      <div class="report">
+      <table class="report" width='100%'>
+      
+      <thead class='header_report_5'>
+        <tr>
+          
+          <th>
+               Id
+          </th>
+          
+          <th>
+               Name
+          </th>
+          
+          <th>
+               Description
+          </th>
+          
+          <th>
+               Research_area
+          </th>
+          
+          <th>
+               Purpose
+          </th>
+          
+        </tr>
+      </thead>  
+      
+      <tbody id='body_report_5'>  
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        1.000                
+                      </td>
+               
+                      
+                      <td >
+                        Biomarker And Histology                
+                      </td>
+               
+                      
+                      <td >
+                        A synchronous study covering multiple groups using different techniques and employing request fulfillment to progress the animals under investigation through the three tiers of testing: weight monitoring, taqman analysis and histological analysis.                
+                      </td>
+               
+                      
+                      <td >
+                        in-vivo                
+                      </td>
+               
+                      
+                      <td >
+                        RF                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        2.000                
+                      </td>
+               
+                      
+                      <td >
+                        RES Exposure                
+                      </td>
+               
+                      
+                      <td >
+                        An example behavioural study                
+                      </td>
+               
+                      
+                      <td >
+                        Behavioural                
+                      </td>
+               
+                      
+                      <td >
+                        Case Study                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        3.000                
+                      </td>
+               
+                      
+                      <td >
+                        Screen                
+                      </td>
+               
+                      
+                      <td >
+                        <h3>Purpose&nbsp;</h3><p>This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report&nbsp;</p>                
+                      </td>
+               
+                      
+                      <td >
+                        screening                
+                      </td>
+               
+                      
+                      <td >
+                        demo                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        4.000                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                        A study for testing                
+                      </td>
+               
+                      
+                      <td >
+                        testing                
+                      </td>
+               
+                      
+                      <td >
+                        testing                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        5.000                
+                      </td>
+               
+                      
+                      <td >
+                        Dev-Test                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        6.000                
+                      </td>
+               
+                      
+                      <td >
+                        Dev-Test2                
+                      </td>
+               
+                      
+                      <td >
+                        Test                
+                      </td>
+               
+                      
+                      <td >
+                        kk                
+                      </td>
+               
+                      
+                      <td >
+                        kk                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        7.000                
+                      </td>
+               
+                      
+                      <td >
+                        Study-2                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        8.000                
+                      </td>
+               
+                      
+                      <td >
+                        Study-3                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr   > 
+                      
+                      
+                      <td >
+                        9.000                
+                      </td>
+               
+                      
+                      <td >
+                        Cell Assay                
+                      </td>
+               
+                      
+                      <td >
+                        Cell Based Assay                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+                      
+                      <td >
+                        test                
+                      </td>
+               
+            </tr>
+            
+      
+         
+                
+         
+         
+             <tr class="even"  > 
+                      
+                      
+                      <td >
+                        10.000                
+                      </td>
+               
+                      
+                      <td >
+                        Solubility                
+                      </td>
+               
+                      
+                      <td >
+                        Test Solubility                
+                      </td>
+               
+                      
+                      <td >
+                        QC                
+                      </td>
+               
+                      
+                      <td >
+                                        
+                      </td>
+               
+            </tr>
+            
+      
+      
+        </tbody>
+      </table>
+      
+      </div>
+    
+    updated_at: 
+    - 
+    - &id001 2007-04-25 15:39:55.850274 Z
+    title: 
+    - 
+    - List_of_Study
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 29
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 15:39:55
+audits_120: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "92"
+  id: "120"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:43:49 Z
+    - 2007-04-25 20:45:21.112485 Z
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:45:21
+audits_065: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "91"
+  id: "65"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ps-1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:45:45.894153 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 91
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 20
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 4
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ps-1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:45:45
+audits_037: 
+  action: update
+  session: 
+  auditable_type: Report
+  auditable_id: "4"
+  id: "37"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 20:45:23.850929 Z
+    - 2007-04-24 20:45:23.995137 Z
+    lock_version: 
+    - 0
+    - 1
+    base_model: 
+    - 
+    - Study
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:23
+audits_009: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "2"
+  id: "9"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - custom_sql
+    is_visible: 
+    - true
+    - false
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:44:52.859566 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 2
+    report_id: 
+    - 
+    - 2
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Custom_sql
+    order_num: 
+    - 
+    - 1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:44:53
+audits_093: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "101"
+  id: "93"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - rshell-25
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 29
+    updated_at: 
+    - 
+    - &id001 2007-04-25 15:39:55.877170 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 101
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 14
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/rshell-25
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 15:39:56
+audits_121: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "37"
+  id: "121"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-43
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <ul class=\"clearfix\"><li>K. Fecho<a href=\"javascript:popRef(&#39;a1%20a2&#39;)\" class=\"nameLink\">*<sup>,</sup>&dagger;<span class=\"tooltip\"><span class=\"item first odd\">*Department of Anesthesiology, Division of Pain Medicine</span><span class=\"item last even\">&dagger;Curriculum in Neurobiology</span></span></a> and </li><li>J. G. Valtschanoff<a href=\"javascript:popRef(&#39;a2%20a3&#39;)\" class=\"nameLink\">&dagger;<sup>,</sup>&Dagger;<span class=\"tooltip\"><span class=\"item first odd\">&dagger;Curriculum in Neurobiology</span><span class=\"item last even\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></span></a></li></ul><ul class=\"author_affiliations\"><li><address><span class=\"first\">*Department of Anesthesiology, Division of Pain Medicine</span>, <span>&dagger;Curriculum in Neurobiology</span> and <span class=\"last\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></address></li></ul><address class=\"author_address\">Dr Karamarie Fecho, Department of Anesthesiology, The University of North Carolina at Chapel Hill, CB #7010, 335 MacNider Hall, Chapel Hill, North Carolina 27599-7010, USA (e-mail: <a href=\"mailto:kfecho@aims.unc.edu\" class=\"externallink\">kfecho@aims.unc.edu</a>).</address><p>&nbsp;</p><p>Inbred, histocompatible Lewis and Fischer 344 rats (LEW and FIS) have been used to identify an inverse relationship between hypothalamic-pituitary-adrenal (HPA) axis activity and susceptibility to autoimmune and chronic inflammatory disorders, with LEW showing blunted HPA axis activity and increased susceptibility toward the development of autoimmunity and chronic inflammation, and FIS showing the opposite relationship. In the present study, LEW and FIS were used to determine the relationship between HPA axis function and acute inflammatory pain (carrageenan-induced hindpaw inflammation) and neuropathic pain (partial sciatic nerve ligation; PSNL). The results showed that carrageenan-induced thermal and mechanical allodynia and hyperalgesia were greater in FIS than in LEW. Similarly, FIS showed more carrageenan-induced hindpaw swelling and higher levels of myeloperoxidase (a measure of neutrophils) in the carrageenan-inflamed hindpaw. After PSNL, LEW showed a profound mechanical allodynia and hyperalgesia, whereas mechanical sensitivity in FIS was unaltered. However, FIS, but not LEW, developed thermal allodynia and hyperalgesia after PSNL. These results provide strong evidence for a positive relationship between HPA axis activity and acute inflammatory pain. The results also support a relationship between HPA axis activity and neuropathic pain, but the relationship is complex and may depend on the pain assay.</p> </body> </html>"
+    updated_at: 
+    - 
+    - &id001 2007-04-25 21:01:15.720435 Z
+    title: 
+    - 
+    - Acute Inflammatory and Neuropathic Pain in Lewis and Fischer Rats
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 37
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:01:15
+audits_038: 
+  action: create
+  session: 
+  auditable_type: Report
+  auditable_id: "5"
+  id: "38"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - List_of_Study
+    updated_at: 
+    - 
+    - &id001 2007-04-24 20:45:49.011923 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 5
+    description: 
+    - 
+    - Default reports for display as /Study/list
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:49
+audits_094: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "101"
+  id: "94"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 15:39:55.877170 Z
+    - 2007-04-25 15:39:56.161465 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 15:39:56
+audits_066: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "21"
+  id: "66"
+  changes: |
+    --- 
+    name: 
+    - 
+    - h1
+    body_html: 
+    - 
+    - ""
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:46:15.239775 Z
+    title: 
+    - 
+    - Hyperexitation
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 21
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:46:15
+audits_150: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "117"
+  id: "150"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-26 07:55:30.557303 Z
+    - 2007-04-26 07:55:30.577932 Z
+    lock_version: 
+    - 0
+    - 1
+    reference_type: 
+    - 
+    - Report
+    reference_id: 
+    - 
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-26 07:55:30
+audits_122: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "112"
+  id: "122"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-43
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 37
+    updated_at: 
+    - 
+    - &id001 2007-04-25 21:01:16.080672 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 112
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 0
+    parent_id: 
+    - 
+    - 105
+    path: 
+    - ""
+    - AssayDev/Solubility/ProjectContent-43
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:01:16
+audits_039: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "15"
+  id: "39"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - id
+    updated_at: 
+    - 
+    - &id001 2007-04-24 20:45:49.068946 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 15
+    report_id: 
+    - 
+    - 5
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Id
+    order_num: 
+    - 
+    - 0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:49
+audits_095: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "102"
+  id: "95"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - DMO-001-3
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 17:29:09.317285 Z
+    type: 
+    - ProjectElement
+    - ProjectFolder
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 102
+    reference_type: 
+    - 
+    - Task
+    reference_id: 
+    - 
+    - 10
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 2
+    parent_id: 
+    - 
+    - 83
+    path: 
+    - ""
+    - AssayDev/DMO-001/DMO-001-3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 17:29:09
+audits_067: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "92"
+  id: "67"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - h1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:46:15.545277 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 92
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 21
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 5
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/h1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:46:15
+audits_123: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "112"
+  id: "123"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 21:01:16.080672 Z
+    - 2007-04-25 21:01:16.130759 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:01:16
+audits_096: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "103"
+  id: "96"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Biomarker And Histology
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 17:29:21.265690 Z
+    type: 
+    - ProjectElement
+    - ProjectFolder
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 103
+    reference_type: 
+    - 
+    - Study
+    reference_id: 
+    - 
+    - 1
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 4
+    parent_id: 
+    - 
+    - 27
+    path: 
+    - ""
+    - AssayDev/Biomarker And Histology
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 17:29:21
+audits_068: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "22"
+  id: "68"
+  changes: |
+    --- 
+    name: 
+    - 
+    - pain-1
+    body_html: 
+    - 
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\"><strong>Nociceptive pain</strong></font>                     <p><font face=\"Verdana, Arial, Helvetica, sans-serif\"><strong><font size=\"2\">Allodynia</font></strong></font></p>                     <ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Tissue injury often results in nociceptive pain, in which                          persistent pain is felt in response to direct activation                          of peripheral nerve terminals in the skin by pain response                          mediators from the damaged tissue<font size=\"-2\"> 1,2                          </font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain: Following tissue injury, Substance P,                          CGRP and glutamate are released by peripheral afferent                          sensory fibers and act on peptide and glutamate receptors                          on the post-synaptic membrane to cause greater excitability                          of nociceptive neurons. Nociceptive neurons become hyperexcitable,                          resulting in central sensitization and thus greater perception                          of pain in the higher centers <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain may involve the abnormal pain states                          of allodynia or hyperalgesia which result from both peripheral                          and central hypersensitivity <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Allodynia: Certain types of noxious stimulus (e.g. sunburn,                          injury, post-surgical wounds) may result in the individual                          perceiving pain in response to stimuli that are not normally                          painful, such as a light stroking of the skin<font size=\"-3\">                          1,2,4 </font></font></li></ul>"
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:47:04.401902 Z
+    title: 
+    - 
+    - Nociceptive pain
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 22
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:47:04
+audits_124: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "37"
+  id: "124"
+  changes: |
+    --- 
+    body_html: 
+    - "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <ul class=\"clearfix\"><li>K. Fecho<a href=\"javascript:popRef(&#39;a1%20a2&#39;)\" class=\"nameLink\">*<sup>,</sup>&dagger;<span class=\"tooltip\"><span class=\"item first odd\">*Department of Anesthesiology, Division of Pain Medicine</span><span class=\"item last even\">&dagger;Curriculum in Neurobiology</span></span></a> and </li><li>J. G. Valtschanoff<a href=\"javascript:popRef(&#39;a2%20a3&#39;)\" class=\"nameLink\">&dagger;<sup>,</sup>&Dagger;<span class=\"tooltip\"><span class=\"item first odd\">&dagger;Curriculum in Neurobiology</span><span class=\"item last even\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></span></a></li></ul><ul class=\"author_affiliations\"><li><address><span class=\"first\">*Department of Anesthesiology, Division of Pain Medicine</span>, <span>&dagger;Curriculum in Neurobiology</span> and <span class=\"last\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></address></li></ul><address class=\"author_address\">Dr Karamarie Fecho, Department of Anesthesiology, The University of North Carolina at Chapel Hill, CB #7010, 335 MacNider Hall, Chapel Hill, North Carolina 27599-7010, USA (e-mail: <a href=\"mailto:kfecho@aims.unc.edu\" class=\"externallink\">kfecho@aims.unc.edu</a>).</address><p>&nbsp;</p><p>Inbred, histocompatible Lewis and Fischer 344 rats (LEW and FIS) have been used to identify an inverse relationship between hypothalamic-pituitary-adrenal (HPA) axis activity and susceptibility to autoimmune and chronic inflammatory disorders, with LEW showing blunted HPA axis activity and increased susceptibility toward the development of autoimmunity and chronic inflammation, and FIS showing the opposite relationship. In the present study, LEW and FIS were used to determine the relationship between HPA axis function and acute inflammatory pain (carrageenan-induced hindpaw inflammation) and neuropathic pain (partial sciatic nerve ligation; PSNL). The results showed that carrageenan-induced thermal and mechanical allodynia and hyperalgesia were greater in FIS than in LEW. Similarly, FIS showed more carrageenan-induced hindpaw swelling and higher levels of myeloperoxidase (a measure of neutrophils) in the carrageenan-inflamed hindpaw. After PSNL, LEW showed a profound mechanical allodynia and hyperalgesia, whereas mechanical sensitivity in FIS was unaltered. However, FIS, but not LEW, developed thermal allodynia and hyperalgesia after PSNL. These results provide strong evidence for a positive relationship between HPA axis activity and acute inflammatory pain. The results also support a relationship between HPA axis activity and neuropathic pain, but the relationship is complex and may depend on the pain assay.</p> </body> </html>"
+    - "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <ul class=\"clearfix\"><li>K. Fecho<a href=\"javascript:popRef(&#39;a1%20a2&#39;)\" class=\"nameLink\">*<sup>,</sup>&dagger;<span class=\"tooltip\"><span class=\"item first odd\">*Department of Anesthesiology, Division of Pain Medicine</span><span class=\"item last even\">&dagger;Curriculum in Neurobiology</span></span></a> and </li><li>J. G. Valtschanoff<a href=\"javascript:popRef(&#39;a2%20a3&#39;)\" class=\"nameLink\">&dagger;<sup>,</sup>&Dagger;<span class=\"tooltip\"><span class=\"item first odd\">&dagger;Curriculum in Neurobiology</span><span class=\"item last even\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></span></a></li></ul><ul class=\"author_affiliations\"><li><address><span class=\"first\">*Department of Anesthesiology, Division of Pain Medicine</span>, <span>&dagger;Curriculum in Neurobiology</span> and <span class=\"last\">&Dagger;Department of Cell and Developmental Biology, School of Medicine, The University of North Carolina at Chapel Hill, Chapel Hill, NC, USA.</span></address></li></ul><address class=\"author_address\">Dr Karamarie Fecho, Department of Anesthesiology, The University of North Carolina at Chapel Hill, CB #7010, 335 MacNider Hall, Chapel Hill, North Carolina 27599-7010, USA (e-mail: <a href=\"mailto:kfecho@aims.unc.edu\" class=\"externallink\">kfecho@aims.unc.edu</a>).</address><p>&nbsp;</p><p>Inbred, histocompatible Lewis and Fischer 344 rats (LEW and FIS) have been used to identify an inverse relationship between hypothalamic-pituitary-adrenal (HPA) axis activity and susceptibility to autoimmune and chronic inflammatory disorders, with LEW showing blunted HPA axis activity and increased susceptibility toward the development of autoimmunity and chronic inflammation, and FIS showing the opposite relationship. In the present study, LEW and FIS were used to determine the relationship between HPA axis function and acute inflammatory pain (carrageenan-induced hindpaw inflammation) and neuropathic pain (partial sciatic nerve ligation; PSNL). The results showed that carrageenan-induced thermal and mechanical allodynia and hyperalgesia were greater in FIS than in LEW. Similarly, FIS showed more carrageenan-induced hindpaw swelling and higher levels of myeloperoxidase (a measure of neutrophils) in the carrageenan-inflamed hindpaw. After PSNL, LEW showed a profound mechanical allodynia and hyperalgesia, whereas mechanical sensitivity in FIS was unaltered. However, FIS, but not LEW, developed thermal allodynia and hyperalgesia after PSNL. These results provide strong evidence for a positive relationship between HPA axis activity and acute inflammatory pain. The results also support a relationship between HPA axis activity and neuropathic pain, but the relationship is complex and may depend on the pain assay.</p>  </body> </html>"
+    updated_at: 
+    - 2007-04-25 21:01:15 Z
+    - 2007-04-25 21:03:08.763211 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:03:08
+audits_097: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "104"
+  id: "97"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Weights
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 17:29:21.466937 Z
+    type: 
+    - ProjectElement
+    - ProjectFolder
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 104
+    reference_type: 
+    - 
+    - StudyProtocol
+    reference_id: 
+    - 
+    - 4
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 0
+    parent_id: 
+    - 
+    - 103
+    path: 
+    - ""
+    - AssayDev/Biomarker And Histology/Weights
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 17:29:21
+audits_010: 
+  action: create
+  session: 
+  auditable_type: Report
+  auditable_id: "3"
+  id: "10"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - All-Reports
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:52:18.923659 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    base_model: 
+    - 
+    - Report
+    id: 
+    - 
+    - 3
+    description: 
+    - 
+    - List of all reports on the system
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:52:18
+audits_069: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "93"
+  id: "69"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - pain-1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:47:04.497875 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 93
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 22
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 6
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/pain-1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:47:04
+audits_125: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "112"
+  id: "125"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 21:01:16 Z
+    - 2007-04-25 21:03:08.786578 Z
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:03:08
+audits_098: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "105"
+  id: "98"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Solubility
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 19:06:32.302582 Z
+    type: 
+    - ProjectElement
+    - ProjectFolder
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 105
+    reference_type: 
+    - 
+    - Study
+    reference_id: 
+    - 
+    - 10
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 5
+    parent_id: 
+    - 
+    - 27
+    path: 
+    - ""
+    - AssayDev/Solubility
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 19:06:32
+audits_011: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "3"
+  id: "11"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - name
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:52:53.732877 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 3
+    report_id: 
+    - 
+    - 3
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Name
+    order_num: 
+    - 
+    - 0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:52:53
+audits_126: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "22"
+  id: "126"
+  changes: |
+    --- 
+    body_html: 
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\"><strong><font size=\"2\">Allodynia</font></strong></font>                     <ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Tissue injury often results in nociceptive pain, in which                          persistent pain is felt in response to direct activation                          of peripheral nerve terminals in the skin by pain response                          mediators from the damaged tissue<font size=\"-2\"> 1,2                          </font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain: Following tissue injury, Substance P,                          CGRP and glutamate are released by peripheral afferent                          sensory fibers and act on peptide and glutamate receptors                          on the post-synaptic membrane to cause greater excitability                          of nociceptive neurons. Nociceptive neurons become hyperexcitable,                          resulting in central sensitization and thus greater perception                          of pain in the higher centers <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain may involve the abnormal pain states                          of allodynia or hyperalgesia which result from both peripheral                          and central hypersensitivity <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Allodynia: Certain types of noxious stimulus (e.g. sunburn,                          injury, post-surgical wounds) may result in the individual                          perceiving pain in response to stimuli that are not normally                          painful, such as a light stroking of the skin<font size=\"-3\">                          1,2,4 </font></font></li></ul>"
+    - "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <font face=\"Verdana, Arial, Helvetica, sans-serif\"><strong><font size=\"2\">Allodynia</font></strong></font>                     <ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Tissue injury often results in nociceptive pain, in which                          persistent pain is felt in response to direct activation                          of peripheral nerve terminals in the skin by pain response                          mediators from the damaged tissue<font size=\"-2\"> 1,2                          </font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain: Following tissue injury, Substance P,                          CGRP and glutamate are released by peripheral afferent                          sensory fibers and act on peptide and glutamate receptors                          on the post-synaptic membrane to cause greater excitability                          of nociceptive neurons. Nociceptive neurons become hyperexcitable,                          resulting in central sensitization and thus greater perception                          of pain in the higher centers <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain may involve the abnormal pain states                          of allodynia or hyperalgesia which result from both peripheral                          and central hypersensitivity <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Allodynia: Certain types of noxious stimulus (e.g. sunburn,                          injury, post-surgical wounds) may result in the individual                          perceiving pain in response to stimuli that are not normally                          painful, such as a light stroking of the skin<font size=\"-3\">                          1,2,4 </font></font></li></ul> </body> </html>"
+    updated_at: 
+    - 2007-04-25 11:49:29 Z
+    - 2007-04-25 21:16:34.196636 Z
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:16:34
+audits_040: 
+  action: update
+  session: 
+  auditable_type: Report
+  auditable_id: "5"
+  id: "40"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 20:45:49.011923 Z
+    - 2007-04-24 20:45:49.104856 Z
+    lock_version: 
+    - 0
+    - 1
+    base_model: 
+    - 
+    - Study
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 20:45:49
+audits_099: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "30"
+  id: "99"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-27
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - ""
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:04:02.053643 Z
+    title: 
+    - 
+    - ""
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 30
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:04:02
+audits_012: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "3"
+  id: "12"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:52:53.732877 Z
+    - 2007-04-24 14:52:53.974791 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:52:53
+audits_127: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "93"
+  id: "127"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:47:04 Z
+    - 2007-04-25 21:16:34.235018 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:16:34
+audits_041: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "16"
+  id: "41"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - name
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.345972 Z
+    id: 
+    - 
+    - 16
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Name
+    order_num: 
+    - 
+    - 1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_013: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "7"
+  id: "13"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - description
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:58:32.318387 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 7
+    report_id: 
+    - 
+    - 3
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Description
+    order_num: 
+    - 
+    - 1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:32
+audits_128: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "35"
+  id: "128"
+  changes: |
+    --- 
+    body_html: 
+    - testgs
+    - "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body>   <p align=\"center\"><strong>MAQC Study - Data Generation Plan </strong>(<em>DRAFT) </em></p>  <p align=\"center\"><strong><em>Genospectra Quanti</em></strong><strong><em>G</em></strong><strong><em>ene Platform </em></strong></p>    <p><strong>Test Site </strong></p>  <p>&nbsp;Genospectra, Inc.</p>  <p>Contact person: Yuling Luo </p>  <p>Address: 6519 Dumbarton Circle,  Fremont, CA 94555 </p>  <p>Phone: 510.818.2623</p>  <p>Email: yluo@genospectra.com</p>    <p>&nbsp;<strong>Materials Required </strong></p>    <p>&nbsp;<strong><em>Genospectra Products </em></strong></p>  <ul><li> QuantiGene kits</li><li> Gene-specific probe sets for over 200 genes</li></ul>    <p>&nbsp;</p>  <p><strong><em>Non-Genospectra Products </em></strong></p>  <ul><li> Total RNA, Brain (Ambion)(AB) </li><li> Total RNA, Universal Human Reference RNA (Stratagene) (UHRR)</li><li> Total RNA, Mixture of 75% AB + 25% UHRR</li><li> Total RNA, Mixture of 25% AB + 75% UHRR</li></ul>        <p>&nbsp;</p>  <p><strong><em>Equipment and consumables </em></strong></p>  <ul><li> General laboratory equipment include a 96-well plate-based luminometer (Lmax, Molecular Device) and a hybridization incubator (Hybaid) capable of maintaining temperature between 46&ordm;C and 53&ordm;C.</li><li> General consumables are listed in the QuantiGene assay SOP manual</li></ul>    <p>&nbsp;</p>  <p><strong><em>User Manuals </em></strong></p>  <ul><li> Genospectra QuantiGene Assay SOP Manual</li></ul>  <p>&nbsp;</p>  <p><strong>Experimental Design</strong></p>  <p>&nbsp;</p>  <p>Minimal of 200 genes will be selected for the QuantiGene assay and agreed to by MAQC. The 200 gene will be matched within the ABI&#39;s 1,000 gene list, which will be matched within the list of 5,000 RefSeq genes shared by all microarray platforms. The 200 genes will be selected to cover different expression level, fold changes, and some genes showing cross-platform discrepancy in the pilot study.</p>  <p><strong>&nbsp;</strong></p>  <p><strong>Agreement need to be reached among Genospectra, ABI, and Stratagene for the platform validation assays</strong>. Three, four or five replicate measurements for each gene can be processed for each of the following mRNA samples, depending on the agreement among Genospectra, ABI, and Stratagene: </p>  <p>1. UHRR (100%)</p>  <p>2. AB (25%) vs. UHRR (75%) </p>  <p>3. AB (75%) vs. UHRR (25%) </p>  <p>4. AB (100%)</p>  <p>&nbsp;</p>  <p><strong>Total RNA Preparation and Analysis </strong></p>  <p>&nbsp;</p>  <p>It is assumed that all four total RNA samples will be provided in aqueous solution ready for use.<strong> </strong>The total RNA samples will be stored at -80 <sup>o</sup>C and will be used directly in the QuantiGene assay, unless there is a need to dilute the sample further. No additional manipulation is required for the QuantiGene assay. As a result, we rely on the quality assessment of the original total RNA samples by Ambion and Stratagene.</p>  <p>&nbsp;</p>  <p><strong><em>QuantiGene&reg; assay conditions:</em></strong></p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.&nbsp; Stock total RNA samples will be diluted to [40ng/ul] in RNase Free water. </p>  <p>2.&nbsp; 100 to 800ng of total RNA will be added to each well of QuantiGene assay, depending on the gene expression level.</p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. Hybridization assay will be carried out per QuantiGene&reg; manual.</p>  <p>4. Background signal for each gene will be assessed in a QuantiGene assay with no sample RNA added, just the probe set.</p>  <p>&nbsp;</p>  <p><strong>Data Acquisition and Analysis </strong></p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QuantiGene assay signal is measured by a luminometer, and the Relative Luminescent Unit (RLU) data will be directly read from the luminometer machine. The data will be exported into an Excel file and reported directly to MAQC. </p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For those genes (e.g. selected genes from MAQC pilot II study) whose expression in AB and UHRR is substantially different (e.g. over 100: 1 ratio), we expect an assay signal ratio of 100: 75:25:0 ratio for the four total RNA samples. The closeness to the expected 100:75:25:0 ratio will be a measurement of the assay platform accuracy. &nbsp;</p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Once the assay platform accuracy is established, the relative ratio of the 200 genes among different samples will be assessed, and their correlation with the data from other platforms will be compared.</p>  <p>&nbsp;</p>    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Overview of the QuantiGene Workflow</strong></p>  <p><strong>&nbsp;</strong></p>  <p><strong>&nbsp;</strong></p>  <p><strong>Day One:</strong></p>  <p><!--[if gte vml 1]><![endif]--><img alt=\"\" width=\"566\" height=\"2\" /><strong>&nbsp;</strong></p>  <h2>&nbsp;</h2>  <br />  <h2>A.&nbsp;&nbsp;&nbsp;&nbsp; Prepare the QuantiGene<sup>&reg;</sup> Reagents and gene-specific Probe Set</h2>  <p>&nbsp;</p>  <h2>B.&nbsp;&nbsp;&nbsp;&nbsp; Prepare RNA samples for the selected genes.</h2>  <p>&nbsp;</p>  <ol><li>Follow Experimental Layout on      Plate Map.</li></ol>  <p>&nbsp;</p>  <p>&nbsp;</p>  <p>&nbsp;</p>  <p><strong>Day Two:</strong></p>  <p><!--[if gte vml 1]><![endif]--><img alt=\"\" width=\"566\" height=\"2\" /><strong>&nbsp;</strong></p>  <p><strong>&nbsp;</strong></p>  <ol><br /><li>Prepare      the QuantiGene Reagents used for the target mRNA.</li></ol>  <p>&nbsp;</p>  <h2>E.&nbsp;&nbsp;&nbsp;&nbsp; Amplify the Signal and Detect target mRNA.</h2>  <p>&nbsp;</p>  <ol><li>Analyze the Data.</li></ol>  <h1>&nbsp;</h1>  <p>&nbsp;</p>  <strong><u> </u></strong>  <p>&nbsp;</p>  <p align=\"center\"><strong><ins datetime=\"2004-12-13T15:12\" cite=\"mailto:Kate%20Stankis\">QuantiGene </ins>Assay</strong><strong> SOP</strong></p>  <p>PURPOSE:</p>  <p>This protocol describes the procedure for performing, single-plex QuantiGene assays with purified RNA using the LMAX luminometer.</p>  <p>SCOPE:</p>  <p>This procedure applies to all R&amp;D personnel performing a QuantiGene single-plex assay using purified RNA or IVTs as the sample source.</p>  <p>KEY SPONSOR and responsibility: </p>  <p>The R&amp;D Manager is responsible for the content, updating and implementation of this document.</p>  <p>eQUIPMENT:</p>  <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pipettes, single and multichannel</p>  <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vortex mixer</p>  <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LMAX luminometer</p>  <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Incubators:&nbsp; 46&deg; +/-1.0&deg;C and 53&deg; C +/- 1.0&deg; C</p>  <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quick spin bench top micro-centrifuge</p>  <p>mATERIALS</p>  <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QuantiGene Assay Kit (at 4&deg;C - capture plates, amplifier, label probe, substrate; at 15-30&deg;C -&nbsp; amplifier/label probe diluent, lysis mixture)</p>  <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Plastic pipette tips, aerosol resistant</p>  <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Disposable reagent reservoirs, 25 and 100 mL capacity</p>  <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Plate Sealers (Bioexpress, Cat. No. T-3025-8B)</p>  <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10X or 1X Wash Buffer</p>  <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10% Lithium Lauryl Sulfate solution</p>  <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Capture Buffer</p>  <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 mg/mL tRNA (Blocking Agent)</p>  <p>9.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Purified total RNA, mRNA, or IVT RNA</p>  <p>10. Appropriate Probe Set(s) with pooled Label Extenders, pooled Capture Extenders and pooled Blocking Probes</p>  <p>11. Nuclease Free water </p>    testgs </body> </html>"
+    updated_at: 
+    - 2007-04-25 20:17:28 Z
+    - 2007-04-25 21:20:30.532370 Z
+    title: 
+    - tet
+    - "MAQC Study - Data Generation Plan "
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:20:30
+audits_042: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "17"
+  id: "42"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - description
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.380921 Z
+    id: 
+    - 
+    - 17
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Description
+    order_num: 
+    - 
+    - 2
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_014: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "7"
+  id: "14"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:32.318387 Z
+    - 2007-04-24 14:58:32.472921 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:32
+audits_070: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "23"
+  id: "70"
+  changes: |
+    --- 
+    name: 
+    - 
+    - pain-2
+    body_html: 
+    - 
+    - ""
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:47:39.488610 Z
+    title: 
+    - 
+    - Nueropathic Pain
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 23
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:47:39
+audits_129: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "110"
+  id: "129"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:17:28 Z
+    - 2007-04-25 21:20:30.570091 Z
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:20:30
+audits_043: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "18"
+  id: "43"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - research_area
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.406308 Z
+    id: 
+    - 
+    - 18
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Research_area
+    order_num: 
+    - 
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_015: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "8"
+  id: "15"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - base_model
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:58:36.881603 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 8
+    report_id: 
+    - 
+    - 3
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Base_model
+    order_num: 
+    - 
+    - 2
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:36
+audits_071: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "94"
+  id: "71"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - pain-2
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:47:39.560913 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 94
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 23
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 7
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/pain-2
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:47:39
+audits_044: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "19"
+  id: "44"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - purpose
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.431833 Z
+    id: 
+    - 
+    - 19
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Purpose
+    order_num: 
+    - 
+    - 4
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_016: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "8"
+  id: "16"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:36.881603 Z
+    - 2007-04-24 14:58:37.014260 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:37
+audits_072: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "24"
+  id: "72"
+  changes: |
+    --- 
+    name: 
+    - 
+    - paf-1
+    body_html: 
+    - 
+    - <font face="Verdana, Arial, Helvetica, sans-serif" size="2">During                          wind up, the peripheral afferent sensory fibers fire repeatedly,                          there is increased transmitter release into the spinal                          cord, and the response by spinal cord neurons increases                          progressively <font size="-2">1,3,4</font></font>
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:48:23.687072 Z
+    title: 
+    - 
+    - Repeated firing of PAF's
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 24
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:48:23
+audits_100: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "106"
+  id: "100"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-27
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 30
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:04:02.081786 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 106
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 15
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-27
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:04:02
+audits_017: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "9"
+  id: "17"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - created_by_user.name
+    updated_at: 
+    - 
+    - &id001 2007-04-24 14:58:48.425530 Z
+    join_name: 
+    - 
+    - belongs_to
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 9
+    report_id: 
+    - 
+    - 3
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Created_by_user Name
+    join_model: 
+    - 
+    - created_by_user
+    order_num: 
+    - 
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:48
+audits_073: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "95"
+  id: "73"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - paf-1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:48:24.012695 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 95
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 24
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 8
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/paf-1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:48:24
+audits_045: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "20"
+  id: "45"
+  changes: |
+    --- 
+    is_visible: 
+    - true
+    - false
+    name: 
+    - ""
+    - lock_version
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.466140 Z
+    id: 
+    - 
+    - 20
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Lock_version
+    order_num: 
+    - 
+    - 5
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_101: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "31"
+  id: "101"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-29
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - test
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:05:20.654266 Z
+    title: 
+    - 
+    - test
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 31
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:05:20
+audits_018: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "9"
+  id: "18"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:48.425530 Z
+    - 2007-04-24 14:58:48.445569 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:48
+audits_074: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "25"
+  id: "74"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ion-1
+    body_html: 
+    - 
+    - ""
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:48:55.931103 Z
+    title: 
+    - 
+    - Ion channels
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 25
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:48:55
+audits_046: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "21"
+  id: "46"
+  changes: |
+    --- 
+    is_visible: 
+    - true
+    - false
+    name: 
+    - ""
+    - created_at
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.492169 Z
+    id: 
+    - 
+    - 21
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Created_at
+    order_num: 
+    - 
+    - 6
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_130: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "30"
+  id: "130"
+  changes: |
+    --- 
+    body_html: 
+    - ""
+    - <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <font face="Verdana, Arial, Helvetica" size="2"><font face="Verdana,Arial,Helvetica" size="2">he HRP2 drug sensitivity assay is based on the measurement of the increase in HRP2 concentrations in <em>P. falciparum</em> culture samples. HRP2 is being produced in the course of parasite growth and propagation and may easily be measured in a simple ELISA. If parasite growth is inhibited by antmalarial drugs, the inhibition is reflected in HRP2 levels and may therefore easily be quantified.<br /><br /> The culture procedures are similar to other drug sensitivity assays (e.g. isotopic assay), except that the HRP2 assay is very sensitive and therefore requires only low parasite densities. The HRP2 concentrations are determined with a commercial ELISA test kit (Malaria Ag CELISA, Cellabs Pty. Ltd., Brookvale, NSW, Australia; http://www.cellabs.com.au) which takes only about 2.5 hours to perform.<br /><br /> In a first evaluation with culture adapted parasite strains, the assay proved to be sensitive, simple to establish and highly reproducible. It may be carried out with commercial test kits and requires relatively little technical equipment. In correlation analysis (and to a lower extent in Bland-Altman plots) the results closely paralleled those obtained from the isotopic assay (R = 0.892; P &lt; 0.0001) and from a modified WHO schizont maturation test (R = 0.959; P &lt; 0.0001). It may therefore be used for a wide range of applications from epidemiological studies to the screening of new drugs, and may have the potential to replace traditional <em>in vitro</em> techniques, such as the isotopic assay.</font></font> </body> </html>
+    updated_at: 
+    - 2007-04-25 20:04:02 Z
+    - 2007-04-25 21:23:28.810270 Z
+    title: 
+    - ""
+    - T H E   H R P 2   A S S A Y   -   G E N E R A L   I N F O R M A T I O N
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:23:28
+audits_019: 
+  action: update
+  session: 
+  auditable_type: Report
+  auditable_id: "3"
+  id: "19"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:52:18 Z
+    - 2007-04-24 14:58:56.064861 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:56
+audits_075: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "96"
+  id: "75"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ion-1
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:48:56.018969 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 96
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 25
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 9
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ion-1
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:48:56
+audits_047: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "22"
+  id: "47"
+  changes: |
+    --- 
+    is_visible: 
+    - true
+    - false
+    name: 
+    - ""
+    - updated_at
+    updated_at: 
+    - 
+    - &id001 2007-04-24 21:27:06.517164 Z
+    id: 
+    - 
+    - 22
+    report_id: 
+    - 
+    - 5
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Updated_at
+    order_num: 
+    - 
+    - 7
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:06
+audits_102: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "107"
+  id: "102"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-29
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 31
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:05:20.678148 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 107
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 16
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-29
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:05:20
+audits_131: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "106"
+  id: "131"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:04:02 Z
+    - 2007-04-25 21:23:28.834217 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:23:28
+audits_076: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "22"
+  id: "76"
+  changes: |
+    --- 
+    body_html: 
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\"><strong>Nociceptive pain</strong></font>                     <p><font face=\"Verdana, Arial, Helvetica, sans-serif\"><strong><font size=\"2\">Allodynia</font></strong></font></p>                     <ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Tissue injury often results in nociceptive pain, in which                          persistent pain is felt in response to direct activation                          of peripheral nerve terminals in the skin by pain response                          mediators from the damaged tissue<font size=\"-2\"> 1,2                          </font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain: Following tissue injury, Substance P,                          CGRP and glutamate are released by peripheral afferent                          sensory fibers and act on peptide and glutamate receptors                          on the post-synaptic membrane to cause greater excitability                          of nociceptive neurons. Nociceptive neurons become hyperexcitable,                          resulting in central sensitization and thus greater perception                          of pain in the higher centers <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain may involve the abnormal pain states                          of allodynia or hyperalgesia which result from both peripheral                          and central hypersensitivity <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Allodynia: Certain types of noxious stimulus (e.g. sunburn,                          injury, post-surgical wounds) may result in the individual                          perceiving pain in response to stimuli that are not normally                          painful, such as a light stroking of the skin<font size=\"-3\">                          1,2,4 </font></font></li></ul>"
+    - "<font face=\"Verdana, Arial, Helvetica, sans-serif\"><strong><font size=\"2\">Allodynia</font></strong></font>                     <ul><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Tissue injury often results in nociceptive pain, in which                          persistent pain is felt in response to direct activation                          of peripheral nerve terminals in the skin by pain response                          mediators from the damaged tissue<font size=\"-2\"> 1,2                          </font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain: Following tissue injury, Substance P,                          CGRP and glutamate are released by peripheral afferent                          sensory fibers and act on peptide and glutamate receptors                          on the post-synaptic membrane to cause greater excitability                          of nociceptive neurons. Nociceptive neurons become hyperexcitable,                          resulting in central sensitization and thus greater perception                          of pain in the higher centers <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Nociceptive pain may involve the abnormal pain states                          of allodynia or hyperalgesia which result from both peripheral                          and central hypersensitivity <font size=\"-2\">1,2,3</font></font></li><li><font face=\"Verdana, Arial, Helvetica, sans-serif\" size=\"2\">                          Allodynia: Certain types of noxious stimulus (e.g. sunburn,                          injury, post-surgical wounds) may result in the individual                          perceiving pain in response to stimuli that are not normally                          painful, such as a light stroking of the skin<font size=\"-3\">                          1,2,4 </font></font></li></ul>"
+    updated_at: 
+    - 2007-04-25 11:47:04 Z
+    - 2007-04-25 11:49:29.749930 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:49:29
+audits_048: 
+  action: update
+  session: 
+  auditable_type: Report
+  auditable_id: "5"
+  id: "48"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 20:45:49 Z
+    - 2007-04-24 21:27:22.301139 Z
+    updated_by_user_id: 
+    - 3
+    - 1
+    lock_version: 
+    - 1
+    - 2
+
+  user_type: 
+  user_id: 
+  created_at: 2007-04-24 21:27:22
+audits_103: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "32"
+  id: "103"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-31
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - test
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:11:17.319734 Z
+    title: 
+    - 
+    - test
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 32
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:11:17
+audits_132: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "91"
+  id: "132"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:45:45 Z
+    - 2007-04-25 21:42:24.704594 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 4
+    - 0
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:42:24
+audits_077: 
+  action: update
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "20"
+  id: "77"
+  changes: |
+    --- 
+    body_html: 
+    - <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><strong>Peripheral                        senstization </strong></font></p>                     <ul><li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bradykinin                          stimulates further synthesis/release of prostaglandins,                          and, together with the prostaglandins, sensitizes the                          primary afferent sensory fibers in response to stimulation                          by ATP, acetylcholine, serotonin and mechanical and thermal                          stimuli <font size="-2">1,2,3</font></font></li><li> <font face="Verdana, Arial, Helvetica, sans-serif" size="2">Substance                          P and CGRP released by the primary afferent sensory fibers                          contribute to the pain response by triggering the release                          of histamine from mast cells which, in turn, excites the                          peripheral afferent sensory fibers <font size="-2">1,2,3                          </font></font></li><li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&quot;                          Sensitization of the primary afferent sensory fibers by                          mediators of the pain response results in greater, more                          frequent transmission of action potentials to the nociceptive                          neurons than in &#39;normal&#39; pain responses <font size="-2">1,2,5                          </font></font></li></ul>
+    - <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Bradykinin                          stimulates further synthesis/release of prostaglandins,                          and, together with the prostaglandins, sensitizes the                          primary afferent sensory fibers in response to stimulation                          by ATP, acetylcholine, serotonin and mechanical and thermal                          stimuli <font size="-2">1,2,3</font></font></p><p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Substance                          P and CGRP released by the primary afferent sensory fibers                          contribute to the pain response by triggering the release                          of histamine from mast cells which, in turn, excites the                          peripheral afferent sensory fibers <font size="-2">1,2,3</font></font></p><p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&quot;                          Sensitization of the primary afferent sensory fibers by                          mediators of the pain response results in greater, more                          frequent transmission of action potentials to the nociceptive                          neurons than in &#39;normal&#39; pain responses <font size="-2">1,2,5                          </font></font></p>
+    updated_at: 
+    - 2007-04-25 11:45:45 Z
+    - 2007-04-25 11:49:53.547447 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:49:53
+audits_049: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "86"
+  id: "49"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - Slides
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 09:44:15.192294 Z
+    type: 
+    - ProjectElement
+    - ProjectFolder
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 86
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 27
+    path: 
+    - ""
+    - AssayDev/Slides
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 09:44:15
+audits_104: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "108"
+  id: "104"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-31
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 32
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:11:17.345617 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 108
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 17
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-31
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:11:17
+audits_133: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "94"
+  id: "133"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:47:39 Z
+    - 2007-04-25 21:42:42.181655 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 7
+    - 2
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:42:42
+audits_078: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "26"
+  id: "78"
+  changes: |
+    --- 
+    name: 
+    - 
+    - pain-0
+    body_html: 
+    - 
+    - ""
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:51:59.168373 Z
+    title: 
+    - 
+    - Pain inflammatory mediators
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 26
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:51:59
+audits_105: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "33"
+  id: "105"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-31
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - test
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:12:07.953285 Z
+    title: 
+    - 
+    - test
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 33
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:12:07
+audits_134: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "93"
+  id: "134"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 21:16:34 Z
+    - 2007-04-25 21:42:49.582534 Z
+    lock_version: 
+    - 1
+    - 2
+    position: 
+    - 7
+    - 4
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:42:49
+audits_020: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "3"
+  id: "20"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:52:53 Z
+    - 2007-04-24 14:58:56.303090 Z
+    lock_version: 
+    - 1
+    - 2
+    sort_direction: 
+    - 
+    - ""
+    is_filterible: 
+    - false
+    - 
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:56
+audits_079: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "97"
+  id: "79"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - pain-0
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:51:59.516691 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 97
+    reference_type: 
+    - 
+    - ProjectContent
+    reference_id: 
+    - 
+    - 26
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 10
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/pain-0
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:51:59
+audits_106: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "34"
+  id: "106"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-33
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - testgs
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:15:01.139761 Z
+    title: 
+    - 
+    - tet
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 34
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:15:01
+audits_135: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "95"
+  id: "135"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:48:24 Z
+    - 2007-04-25 21:42:56.210174 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 8
+    - 6
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:42:56
+audits_021: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "8"
+  id: "21"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:37 Z
+    - 2007-04-24 14:58:56.413898 Z
+    lock_version: 
+    - 1
+    - 2
+    sort_direction: 
+    - 
+    - ""
+    is_filterible: 
+    - false
+    - 
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:56
+audits_107: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "109"
+  id: "107"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-33
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 34
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:15:01.165271 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 109
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 18
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-33
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:15:01
+audits_136: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "92"
+  id: "136"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:45:21 Z
+    - 2007-04-25 21:43:03.431163 Z
+    lock_version: 
+    - 2
+    - 3
+    position: 
+    - 8
+    - 7
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:43:03
+audits_022: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "7"
+  id: "22"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:32 Z
+    - 2007-04-24 14:58:56.427440 Z
+    lock_version: 
+    - 1
+    - 2
+    sort_direction: 
+    - 
+    - ""
+    is_filterible: 
+    - false
+    - 
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:56
+audits_108: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "109"
+  id: "108"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 20:15:01.165271 Z
+    - 2007-04-25 20:15:01.195904 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:15:01
+audits_050: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "86"
+  id: "50"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 09:44:15.192294 Z
+    - 2007-04-25 09:44:15.360779 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 09:44:15
+audits_137: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "100"
+  id: "137"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 15:08:30 Z
+    - 2007-04-25 21:43:17.774777 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 13
+    - 10
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:43:18
+audits_023: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "9"
+  id: "23"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 14:58:48 Z
+    - 2007-04-24 14:58:56.440417 Z
+    lock_version: 
+    - 1
+    - 2
+    sort_direction: 
+    - 
+    - ""
+    label: 
+    - Created_by_user Name
+    - Created_by
+    is_filterible: 
+    - false
+    - 
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 14:58:56
+audits_109: 
+  action: create
+  session: 
+  auditable_type: ProjectContent
+  auditable_id: "35"
+  id: "109"
+  changes: |
+    --- 
+    name: 
+    - 
+    - ProjectContent-34
+    project_id: 
+    - 
+    - 4
+    body_html: 
+    - 
+    - testgs
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:17:28.701042 Z
+    title: 
+    - 
+    - tet
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 35
+    created_by_user_id: 
+    - 1
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:17:28
+audits_051: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "87"
+  id: "51"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - 1.Ephaptic_activity_sm.jpg
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 09:56:29.105959 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 87
+    reference_type: 
+    - 
+    - ProjectAsset
+    reference_id: 
+    - 
+    - 1
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 0
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/1.Ephaptic_activity_sm.jpg
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 09:56:29
+audits_138: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "91"
+  id: "138"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 21:42:24 Z
+    - 2007-04-25 21:45:15.679647 Z
+    lock_version: 
+    - 1
+    - 2
+    position: 
+    - 4
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:45:15
+audits_080: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "15"
+  id: "80"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    size: 
+    - 
+    - 52802
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:52:28.521391 Z
+    title: 
+    - 
+    - Pain inflammatory mediators_sm
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 15
+    filename: 
+    - 
+    - 2.Pain_inflammatory_mediators_sm.jpg
+    height: 
+    - 
+    - 150
+    created_by_user_id: 
+    - 1
+    - 3
+    width: 
+    - 
+    - 200
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:52:28
+audits_052: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "6"
+  id: "52"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    size: 
+    - 
+    - 234534
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:35:18.372977 Z
+    title: 
+    - 
+    - 1.Partial nerve severance.
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 6
+    filename: 
+    - 
+    - 1.Partial_nerve_severance.jpg
+    height: 
+    - 
+    - 576
+    created_by_user_id: 
+    - 1
+    - 3
+    width: 
+    - 
+    - 768
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:35:18
+audits_024: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "10"
+  id: "24"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - name
+    updated_at: 
+    - 
+    - &id001 2007-04-24 17:27:51.418947 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 10
+    report_id: 
+    - 
+    - 2
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Name
+    order_num: 
+    - 
+    - 2
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:51
+audits_139: 
+  action: update
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "88"
+  id: "139"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-25 11:35:18 Z
+    - 2007-04-25 21:45:39.874385 Z
+    lock_version: 
+    - 0
+    - 1
+    position: 
+    - 4
+    - 17
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 21:45:39
+audits_081: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "16"
+  id: "81"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - icon
+    size: 
+    - 
+    - 53704
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:52:28.550929 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 16
+    filename: 
+    - 
+    - 2.Pain_inflammatory_mediators_sm_icon.jpg
+    height: 
+    - 
+    - 36
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 15
+    width: 
+    - 
+    - 48
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:52:28
+audits_053: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "7"
+  id: "53"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - icon
+    size: 
+    - 
+    - 222252
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:35:18.475730 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 7
+    filename: 
+    - 
+    - 1.Partial_nerve_severance_icon.jpg
+    height: 
+    - 
+    - 36
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 6
+    width: 
+    - 
+    - 48
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:35:18
+audits_025: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "10"
+  id: "25"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 17:27:51.418947 Z
+    - 2007-04-24 17:27:51.440455 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:51
+audits_082: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "17"
+  id: "82"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - normal
+    size: 
+    - 
+    - 53704
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:52:28.605286 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 17
+    filename: 
+    - 
+    - 2.Pain_inflammatory_mediators_sm_normal.jpg
+    height: 
+    - 
+    - 200
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 15
+    width: 
+    - 
+    - 267
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:52:28
+audits_054: 
+  action: create
+  session: 
+  auditable_type: ProjectAsset
+  auditable_id: "8"
+  id: "54"
+  changes: |
+    --- 
+    content_type: 
+    - 
+    - image/jpeg
+    thumbnail: 
+    - 
+    - normal
+    size: 
+    - 
+    - 222252
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:35:18.618249 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 8
+    filename: 
+    - 
+    - 1.Partial_nerve_severance_normal.jpg
+    height: 
+    - 
+    - 200
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 6
+    width: 
+    - 
+    - 267
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:35:18
+audits_026: 
+  action: create
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "11"
+  id: "26"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - description
+    updated_at: 
+    - 
+    - &id001 2007-04-24 17:27:53.414771 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 11
+    report_id: 
+    - 
+    - 2
+    created_by_user_id: 
+    - 1
+    - 3
+    is_filterible: 
+    - true
+    - false
+    label: 
+    - 
+    - Description
+    order_num: 
+    - 
+    - 3
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:53
+audits_083: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "98"
+  id: "83"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - 2.Pain_inflammatory_mediators_sm.jpg
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:52:28.932057 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 98
+    reference_type: 
+    - 
+    - ProjectAsset
+    reference_id: 
+    - 
+    - 15
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 11
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/2.Pain_inflammatory_mediators_sm.jpg
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:52:28
+audits_055: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "88"
+  id: "55"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - 1.Partial_nerve_severance.jpg
+    project_id: 
+    - 
+    - 4
+    updated_at: 
+    - 
+    - &id001 2007-04-25 11:35:18.859470 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 88
+    reference_type: 
+    - 
+    - ProjectAsset
+    reference_id: 
+    - 
+    - 6
+    created_by_user_id: 
+    - 1
+    - 3
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/1.Partial_nerve_severance.jpg
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 11:35:18
+audits_110: 
+  action: create
+  session: 
+  auditable_type: ProjectElement
+  auditable_id: "110"
+  id: "110"
+  changes: |
+    --- 
+    name: 
+    - ""
+    - ProjectContent-34
+    project_id: 
+    - 
+    - 4
+    content_id: 
+    - 
+    - 35
+    updated_at: 
+    - 
+    - &id001 2007-04-25 20:17:28.901674 Z
+    updated_by_user_id: 
+    - 1
+    - 3
+    id: 
+    - 
+    - 110
+    created_by_user_id: 
+    - 1
+    - 3
+    position: 
+    - 1
+    - 19
+    parent_id: 
+    - 
+    - 86
+    path: 
+    - ""
+    - AssayDev/Slides/ProjectContent-34
+    created_at: 
+    - 
+    - *id001
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-25 20:17:28
+audits_027: 
+  action: update
+  session: 
+  auditable_type: ReportColumn
+  auditable_id: "11"
+  id: "27"
+  changes: |
+    --- 
+    updated_at: 
+    - 2007-04-24 17:27:53.414771 Z
+    - 2007-04-24 17:27:53.552048 Z
+    lock_version: 
+    - 0
+    - 1
+
+  user_type: 
+  user_id: "3"
+  created_at: 2007-04-24 17:27:53

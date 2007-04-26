@@ -1,34 +1,3 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: parameters
-#
-#  id                   :integer(11)   not null, primary key
-#  protocol_version_id  :integer(11)   
-#  parameter_type_id    :integer(11)   
-#  parameter_role_id    :integer(11)   
-#  parameter_context_id :integer(11)   
-#  column_no            :integer(11)   
-#  sequence_num         :integer(11)   
-#  name                 :string(62)    
-#  description          :string(62)    
-#  display_unit         :string(20)    
-#  data_element_id      :integer(11)   
-#  qualifier_style      :string(1)     
-#  access_control_id    :integer(11)   default(0), not null
-#  lock_version         :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  mandatory            :string(255)   default(N)
-#  default_value        :string(255)   
-#  data_type_id         :integer(11)   
-#  data_format_id       :integer(11)   
-#  study_parameter_id   :integer(11)   
-#  study_queue_id       :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#
-
 --- 
 parameters_164: 
   name: Readings
@@ -41,17 +10,17 @@ parameters_164:
   protocol_version_id: "21"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "247"
   qualifier_style: 
   description: 
   study_parameter_id: "61"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:03:12
@@ -66,17 +35,17 @@ parameters_136:
   protocol_version_id: "1"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "4"
   parameter_role_id: "3"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "2"
-  updated_by: ""
   id: "214"
   qualifier_style: 
   description: 
   study_parameter_id: "6"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-30 20:34:47
@@ -91,17 +60,17 @@ parameters_022:
   protocol_version_id: "7"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "65"
   qualifier_style: 
   description: 
   study_parameter_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:23:03
@@ -116,17 +85,17 @@ parameters_107:
   protocol_version_id: "14"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "4"
-  updated_by: ""
   id: "184"
   qualifier_style: 
   description: 
   study_parameter_id: "36"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:34
@@ -141,17 +110,17 @@ parameters_050:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "104"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "4"
   created_at: 2007-03-21 10:10:18
@@ -166,17 +135,17 @@ parameters_165:
   protocol_version_id: "21"
   data_format_id: "13"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "248"
   qualifier_style: 
   description: 
   study_parameter_id: "62"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:03:15
@@ -191,17 +160,17 @@ parameters_023:
   protocol_version_id: "7"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "66"
   qualifier_style: 
   description: 
   study_parameter_id: "5"
+  created_by_user_id: "1"
   data_element_id: "80"
   sequence_num: "0"
   created_at: 2007-03-20 21:23:07
@@ -216,17 +185,17 @@ parameters_108:
   protocol_version_id: "14"
   data_format_id: "12"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "185"
   qualifier_style: 
   description: 
   study_parameter_id: "34"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:37
@@ -241,17 +210,17 @@ parameters_051:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "11"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "105"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "5"
   created_at: 2007-03-21 10:10:20
@@ -266,17 +235,17 @@ parameters_166:
   protocol_version_id: "21"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "5"
-  updated_by: ""
   id: "249"
   qualifier_style: 
   description: 
   study_parameter_id: "69"
+  created_by_user_id: "1"
   data_element_id: "81"
   sequence_num: "0"
   created_at: 2007-04-03 21:03:18
@@ -291,17 +260,17 @@ parameters_137:
   protocol_version_id: "3"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "5"
   parameter_role_id: "3"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "2"
-  updated_by: ""
   id: "215"
   qualifier_style: 
   description: 
   study_parameter_id: "6"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-30 20:40:47
@@ -316,17 +285,17 @@ parameters_080:
   protocol_version_id: "12"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "4"
-  updated_by: ""
   id: "157"
   qualifier_style: 
   description: 
   study_parameter_id: "36"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:46:59
@@ -341,17 +310,17 @@ parameters_109:
   protocol_version_id: "14"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "186"
   qualifier_style: 
   description: 
   study_parameter_id: "32"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:41
@@ -366,17 +335,17 @@ parameters_052:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "12"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "106"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "6"
   created_at: 2007-03-21 10:10:26
@@ -391,17 +360,17 @@ parameters_024:
   protocol_version_id: "7"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "67"
   qualifier_style: 
   description: 
   study_parameter_id: "25"
+  created_by_user_id: "1"
   data_element_id: "80"
   sequence_num: "0"
   created_at: 2007-03-20 21:26:38
@@ -416,17 +385,17 @@ parameters_167:
   protocol_version_id: "20"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "2"
-  updated_by: ""
   id: "250"
   qualifier_style: 
   description: 
   study_parameter_id: "69"
+  created_by_user_id: "1"
   data_element_id: "81"
   sequence_num: "0"
   created_at: 2007-04-03 21:03:23
@@ -441,17 +410,17 @@ parameters_138:
   protocol_version_id: "3"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "6"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "2"
-  updated_by: ""
   id: "216"
   qualifier_style: 
   description: 
   study_parameter_id: "15"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-30 20:40:50
@@ -466,17 +435,17 @@ parameters_081:
   protocol_version_id: "5"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "2"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "158"
   qualifier_style: 
   description: 
   study_parameter_id: "15"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 14:32:21
@@ -491,17 +460,17 @@ parameters_053:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "13"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "108"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:12:59
@@ -516,17 +485,17 @@ parameters_025:
   protocol_version_id: "6"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "6"
-  updated_by: ""
   id: "68"
   qualifier_style: 
   description: 
   study_parameter_id: "21"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:28:47
@@ -541,17 +510,17 @@ parameters_168:
   protocol_version_id: "22"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "251"
   qualifier_style: 
   description: 
   study_parameter_id: "60"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:08:31
@@ -566,17 +535,17 @@ parameters_139:
   protocol_version_id: "18"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "217"
   qualifier_style: 
   description: 
   study_parameter_id: "8"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 22:45:19
@@ -591,17 +560,17 @@ parameters_082:
   protocol_version_id: "5"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "3"
   parameter_role_id: "3"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "159"
   qualifier_style: 
   description: 
   study_parameter_id: "6"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-21 14:32:32
@@ -616,17 +585,17 @@ parameters_054:
   protocol_version_id: "11"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "114"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 11:00:46
@@ -641,17 +610,17 @@ parameters_026:
   protocol_version_id: "6"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "1"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "69"
   qualifier_style: 
   description: 
   study_parameter_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:29:04
@@ -666,17 +635,17 @@ parameters_169:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "252"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:08:33
@@ -691,17 +660,17 @@ parameters_083:
   protocol_version_id: "13"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "14"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "160"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:42:13
@@ -716,17 +685,17 @@ parameters_055:
   protocol_version_id: "11"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "8"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "115"
   qualifier_style: 
   description: 
   study_parameter_id: "35"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:31
@@ -741,17 +710,17 @@ parameters_110:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "3"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "187"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:27
@@ -766,17 +735,17 @@ parameters_084:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "15"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "161"
   qualifier_style: 
   description: 
   study_parameter_id: "40"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:42:27
@@ -791,17 +760,17 @@ parameters_056:
   protocol_version_id: "11"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "4"
-  updated_by: ""
   id: "116"
   qualifier_style: 
   description: 
   study_parameter_id: "36"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:34
@@ -816,17 +785,17 @@ parameters_111:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "4"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "188"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 10:09:30
@@ -841,17 +810,17 @@ parameters_027:
   protocol_version_id: "6"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "1"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "70"
   qualifier_style: 
   description: 
   study_parameter_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-20 21:29:06
@@ -866,17 +835,17 @@ parameters_140:
   protocol_version_id: "18"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "218"
   qualifier_style: 
   description: 
   study_parameter_id: "15"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-30 22:45:25
@@ -891,17 +860,17 @@ parameters_085:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "16"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "162"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:42:40
@@ -916,17 +885,17 @@ parameters_057:
   protocol_version_id: "11"
   data_format_id: "12"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "117"
   qualifier_style: 
   description: 
   study_parameter_id: "34"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:37
@@ -941,17 +910,17 @@ parameters_112:
   protocol_version_id: "15"
   data_format_id: "20"
   mandatory: Y
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "22"
+  updated_by_user_id: "1"
   data_type_id: "4"
   lock_version: "8"
-  updated_by: ""
   id: "189"
   qualifier_style: 
   description: 
   study_parameter_id: "27"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:41
@@ -966,17 +935,17 @@ parameters_028:
   protocol_version_id: "8"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "76"
   qualifier_style: 
   description: 
   study_parameter_id: "8"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:34:44
@@ -991,17 +960,17 @@ parameters_141:
   protocol_version_id: "18"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "221"
   qualifier_style: 
   description: 
   study_parameter_id: "23"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 22:46:06
@@ -1016,17 +985,17 @@ parameters_086:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "17"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "163"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:42:44
@@ -1041,17 +1010,17 @@ parameters_058:
   protocol_version_id: "11"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "118"
   qualifier_style: 
   description: 
   study_parameter_id: "32"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:41
@@ -1066,17 +1035,17 @@ parameters_113:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "190"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:52
@@ -1091,17 +1060,17 @@ parameters_029:
   protocol_version_id: "8"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "77"
   qualifier_style: 
   description: 
   study_parameter_id: "21"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:35:23
@@ -1116,17 +1085,17 @@ parameters_170:
   protocol_version_id: "22"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "6"
-  updated_by: ""
   id: "265"
   qualifier_style: 
   description: 
   study_parameter_id: "63"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-04-03 21:23:57
@@ -1141,17 +1110,17 @@ parameters_142:
   protocol_version_id: "18"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "222"
   qualifier_style: 
   description: 
   study_parameter_id: "23"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-30 22:46:28
@@ -1166,17 +1135,17 @@ parameters_059:
   protocol_version_id: "11"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "119"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:10:45
@@ -1191,17 +1160,17 @@ parameters_114:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "7"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "191"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 10:10:05
@@ -1216,17 +1185,17 @@ parameters_087:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "18"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "164"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:42:47
@@ -1241,17 +1210,17 @@ parameters_171:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "3"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "266"
   qualifier_style: 
   description: 
   study_parameter_id: "72"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:24:33
@@ -1266,17 +1235,17 @@ parameters_143:
   protocol_version_id: "18"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "223"
   qualifier_style: 
   description: 
   study_parameter_id: "23"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-30 22:46:31
@@ -1291,17 +1260,17 @@ parameters_001:
   protocol_version_id: "2"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "17"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "7"
   qualifier_style: 
   description: 
   study_parameter_id: "19"
+  created_by_user_id: "1"
   data_element_id: "63"
   sequence_num: "0"
   created_at: 2007-03-20 20:05:44
@@ -1316,17 +1285,17 @@ parameters_088:
   protocol_version_id: "13"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "10"
-  updated_by: ""
   id: "165"
   qualifier_style: 
   description: 
   study_parameter_id: "38"
+  created_by_user_id: "1"
   data_element_id: "57"
   sequence_num: "0"
   created_at: 2007-03-21 11:39:27
@@ -1341,17 +1310,17 @@ parameters_172:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "2"
   parameter_type_id: "8"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "267"
   qualifier_style: 
   description: 
   study_parameter_id: "65"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:24:39
@@ -1366,17 +1335,17 @@ parameters_144:
   protocol_version_id: "18"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "224"
   qualifier_style: 
   description: 
   study_parameter_id: "23"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "3"
   created_at: 2007-03-30 22:46:34
@@ -1391,17 +1360,17 @@ parameters_115:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "8"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "192"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 10:10:08
@@ -1416,17 +1385,17 @@ parameters_002:
   protocol_version_id: "2"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "8"
   qualifier_style: 
   description: 
   study_parameter_id: "22"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:05:49
@@ -1441,17 +1410,17 @@ parameters_030:
   protocol_version_id: "8"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "1"
   parameter_type_id: "20"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "78"
   qualifier_style: 
   description: 
   study_parameter_id: "1"
+  created_by_user_id: "1"
   data_element_id: "77"
   sequence_num: "0"
   created_at: 2007-03-20 21:35:26
@@ -1466,17 +1435,17 @@ parameters_089:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "6"
   parameter_type_id: "10"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "10"
-  updated_by: ""
   id: "166"
   qualifier_style: 
   description: 
   study_parameter_id: "39"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:34
@@ -1491,17 +1460,17 @@ parameters_173:
   protocol_version_id: "22"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "6"
-  updated_by: ""
   id: "268"
   qualifier_style: 
   description: 
   study_parameter_id: "67"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:24:42
@@ -1516,17 +1485,17 @@ parameters_145:
   protocol_version_id: "19"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "25"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "225"
   qualifier_style: 
   description: 
   study_parameter_id: "58"
+  created_by_user_id: "1"
   data_element_id: "86"
   sequence_num: "0"
   created_at: 2007-04-03 19:26:44
@@ -1541,17 +1510,17 @@ parameters_116:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "9"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "193"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "3"
   created_at: 2007-03-21 10:10:13
@@ -1566,17 +1535,17 @@ parameters_031:
   protocol_version_id: "8"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "1"
   parameter_type_id: "20"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "79"
   qualifier_style: 
   description: 
   study_parameter_id: "1"
+  created_by_user_id: "1"
   data_element_id: "77"
   sequence_num: "1"
   created_at: 2007-03-20 21:35:29
@@ -1591,17 +1560,17 @@ parameters_003:
   protocol_version_id: "2"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "3"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "9"
   qualifier_style: 
   description: 
   study_parameter_id: "13"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:05:56
@@ -1616,17 +1585,17 @@ parameters_174:
   protocol_version_id: "22"
   data_format_id: "13"
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "269"
   qualifier_style: 
   description: 
   study_parameter_id: "62"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:24:53
@@ -1641,17 +1610,17 @@ parameters_146:
   protocol_version_id: "19"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "3"
-  updated_by: ""
   id: "226"
   qualifier_style: 
   description: 
   study_parameter_id: "67"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 19:27:54
@@ -1666,17 +1635,17 @@ parameters_117:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "194"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "4"
   created_at: 2007-03-21 10:10:18
@@ -1691,17 +1660,17 @@ parameters_060:
   protocol_version_id: "11"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "124"
   qualifier_style: 
   description: 
   study_parameter_id: "31"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-21 11:13:07
@@ -1716,17 +1685,17 @@ parameters_032:
   protocol_version_id: "8"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "1"
   parameter_type_id: "20"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "80"
   qualifier_style: 
   description: 
   study_parameter_id: "1"
+  created_by_user_id: "1"
   data_element_id: "77"
   sequence_num: "2"
   created_at: 2007-03-20 21:35:32
@@ -1741,17 +1710,17 @@ parameters_004:
   protocol_version_id: "2"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "3"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "10"
   qualifier_style: 
   description: 
   study_parameter_id: "12"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:05:58
@@ -1766,17 +1735,17 @@ parameters_175:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "270"
   qualifier_style: 
   description: 
   study_parameter_id: "64"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:24:58
@@ -1791,17 +1760,17 @@ parameters_147:
   protocol_version_id: "19"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "227"
   qualifier_style: 
   description: 
   study_parameter_id: "60"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 19:28:00
@@ -1816,17 +1785,17 @@ parameters_118:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "11"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "195"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "5"
   created_at: 2007-03-21 10:10:20
@@ -1841,17 +1810,17 @@ parameters_061:
   protocol_version_id: "11"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "125"
   qualifier_style: 
   description: 
   study_parameter_id: "32"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:13:15
@@ -1866,17 +1835,17 @@ parameters_033:
   protocol_version_id: "8"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "1"
   parameter_type_id: "20"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "81"
   qualifier_style: 
   description: 
   study_parameter_id: "1"
+  created_by_user_id: "1"
   data_element_id: "77"
   sequence_num: "3"
   created_at: 2007-03-20 21:35:35
@@ -1891,17 +1860,17 @@ parameters_176:
   protocol_version_id: "22"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "17"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "14"
-  updated_by: ""
   id: "271"
   qualifier_style: 
   description: 
   study_parameter_id: "71"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-04-03 21:25:39
@@ -1916,17 +1885,17 @@ parameters_119:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "12"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "196"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "6"
   created_at: 2007-03-21 10:10:26
@@ -1941,17 +1910,17 @@ parameters_062:
   protocol_version_id: "11"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "131"
   qualifier_style: 
   description: 
   study_parameter_id: "37"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:16:48
@@ -1966,17 +1935,17 @@ parameters_034:
   protocol_version_id: "9"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "7"
-  updated_by: ""
   id: "88"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 09:54:06
@@ -1991,17 +1960,17 @@ parameters_005:
   protocol_version_id: "2"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "5"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "11"
   qualifier_style: 
   description: 
   study_parameter_id: "7"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:06:17
@@ -2016,17 +1985,17 @@ parameters_090:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "10"
-  updated_by: ""
   id: "167"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:58
@@ -2041,17 +2010,17 @@ parameters_177:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: N
-  created_by: ""
   column_no: "18"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "12"
-  updated_by: ""
   id: "272"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:26:22
@@ -2066,17 +2035,17 @@ parameters_148:
   protocol_version_id: "20"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "228"
   qualifier_style: 
   description: 
   study_parameter_id: "60"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 20:44:26
@@ -2091,17 +2060,17 @@ parameters_063:
   protocol_version_id: "11"
   data_format_id: "12"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "132"
   qualifier_style: 
   description: 
   study_parameter_id: "34"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:16:52
@@ -2116,17 +2085,17 @@ parameters_035:
   protocol_version_id: "9"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "7"
-  updated_by: ""
   id: "89"
   qualifier_style: 
   description: 
   study_parameter_id: "30"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 09:54:18
@@ -2141,17 +2110,17 @@ parameters_006:
   protocol_version_id: "2"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "6"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "12"
   qualifier_style: 
   description: 
   study_parameter_id: "21"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:06:21
@@ -2166,17 +2135,17 @@ parameters_091:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "11"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "10"
-  updated_by: ""
   id: "168"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:40:02
@@ -2191,17 +2160,17 @@ parameters_178:
   protocol_version_id: "22"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "11"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "273"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:27:22
@@ -2216,17 +2185,17 @@ parameters_149:
   protocol_version_id: "20"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "229"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 20:44:30
@@ -2241,17 +2210,17 @@ parameters_064:
   protocol_version_id: "12"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "9"
-  updated_by: ""
   id: "136"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 11:35:17
@@ -2266,17 +2235,17 @@ parameters_036:
   protocol_version_id: "9"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "7"
-  updated_by: ""
   id: "90"
   qualifier_style: 
   description: 
   study_parameter_id: "31"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-21 09:54:23
@@ -2291,17 +2260,17 @@ parameters_007:
   protocol_version_id: "2"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "7"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "13"
   qualifier_style: 
   description: 
   study_parameter_id: "18"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:06:24
@@ -2316,17 +2285,17 @@ parameters_092:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "12"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "10"
-  updated_by: ""
   id: "169"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:41:50
@@ -2341,17 +2310,17 @@ parameters_179:
   protocol_version_id: "22"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "12"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "275"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 21:27:32
@@ -2366,17 +2335,17 @@ parameters_120:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "13"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "197"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:12:59
@@ -2391,17 +2360,17 @@ parameters_065:
   protocol_version_id: "12"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "9"
-  updated_by: ""
   id: "140"
   qualifier_style: 
   description: 
   study_parameter_id: "30"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:36:22
@@ -2416,17 +2385,17 @@ parameters_037:
   protocol_version_id: "9"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "7"
-  updated_by: ""
   id: "91"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 09:54:35
@@ -2441,17 +2410,17 @@ parameters_008:
   protocol_version_id: "2"
   data_format_id: "4"
   mandatory: Y
-  created_by: ""
   column_no: "8"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "14"
   qualifier_style: 
   description: 
   study_parameter_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:06:31
@@ -2466,17 +2435,17 @@ parameters_093:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "13"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "10"
-  updated_by: ""
   id: "170"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:41:54
@@ -2491,17 +2460,17 @@ parameters_121:
   protocol_version_id: "15"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "198"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:07:41
@@ -2516,17 +2485,17 @@ parameters_009:
   protocol_version_id: "2"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "9"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "15"
   qualifier_style: 
   description: 
   study_parameter_id: "8"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:06:41
@@ -2541,17 +2510,17 @@ parameters_094:
   protocol_version_id: "13"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "9"
-  updated_by: ""
   id: "171"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 11:35:17
@@ -2566,17 +2535,17 @@ parameters_066:
   protocol_version_id: "12"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "9"
-  updated_by: ""
   id: "143"
   qualifier_style: 
   description: 
   study_parameter_id: "38"
+  created_by_user_id: "1"
   data_element_id: "57"
   sequence_num: "0"
   created_at: 2007-03-21 11:39:27
@@ -2591,17 +2560,17 @@ parameters_150:
   protocol_version_id: "20"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "230"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 20:44:34
@@ -2616,17 +2585,17 @@ parameters_122:
   protocol_version_id: "15"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "199"
   qualifier_style: 
   description: 
   study_parameter_id: "30"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:07:49
@@ -2641,17 +2610,17 @@ parameters_038:
   protocol_version_id: "9"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "7"
-  updated_by: ""
   id: "92"
   qualifier_style: 
   description: 
   study_parameter_id: "32"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 09:54:40
@@ -2666,17 +2635,17 @@ parameters_095:
   protocol_version_id: "13"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "9"
-  updated_by: ""
   id: "172"
   qualifier_style: 
   description: 
   study_parameter_id: "30"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:36:22
@@ -2691,17 +2660,17 @@ parameters_067:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "6"
   parameter_type_id: "10"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "144"
   qualifier_style: 
   description: 
   study_parameter_id: "39"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:34
@@ -2716,17 +2685,17 @@ parameters_151:
   protocol_version_id: "20"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "231"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-04-03 20:44:37
@@ -2741,17 +2710,17 @@ parameters_123:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: N
-  created_by: ""
   column_no: "7"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "200"
   qualifier_style: 
   description: 
   study_parameter_id: "37"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-26 09:28:25
@@ -2766,17 +2735,17 @@ parameters_039:
   protocol_version_id: "9"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "7"
-  updated_by: ""
   id: "93"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "1"
   created_at: 2007-03-21 09:54:48
@@ -2791,17 +2760,17 @@ parameters_096:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "173"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:43:13
@@ -2816,17 +2785,17 @@ parameters_068:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "145"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:58
@@ -2841,17 +2810,17 @@ parameters_180:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "13"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "276"
   qualifier_style: 
   description: 
   study_parameter_id: "61"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:28:01
@@ -2866,17 +2835,17 @@ parameters_152:
   protocol_version_id: "20"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "6"
-  updated_by: ""
   id: "234"
   qualifier_style: 
   description: 
   study_parameter_id: "71"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-04-03 20:52:04
@@ -2891,17 +2860,17 @@ parameters_124:
   protocol_version_id: "16"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "1"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "3"
-  updated_by: ""
   id: "201"
   qualifier_style: 
   description: 
   study_parameter_id: "54"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 19:55:15
@@ -2916,17 +2885,17 @@ parameters_097:
   protocol_version_id: "13"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "174"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:43:16
@@ -2941,17 +2910,17 @@ parameters_010:
   protocol_version_id: "3"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "16"
   qualifier_style: 
   description: 
   study_parameter_id: "7"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:09:36
@@ -2966,17 +2935,17 @@ parameters_069:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "146"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:40:02
@@ -2991,17 +2960,17 @@ parameters_181:
   protocol_version_id: "22"
   data_format_id: "13"
   mandatory: 
-  created_by: ""
   column_no: "14"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "277"
   qualifier_style: 
   description: 
   study_parameter_id: "62"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:28:06
@@ -3016,17 +2985,17 @@ parameters_153:
   protocol_version_id: "20"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "235"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 20:52:11
@@ -3041,17 +3010,17 @@ parameters_125:
   protocol_version_id: "16"
   data_format_id: "4"
   mandatory: N
-  created_by: ""
   column_no: "3"
   parameter_role_id: "6"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "203"
   qualifier_style: 
   description: 
   study_parameter_id: "46"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 19:56:07
@@ -3066,17 +3035,17 @@ parameters_098:
   protocol_version_id: "13"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "175"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:44:30
@@ -3091,17 +3060,17 @@ parameters_011:
   protocol_version_id: "3"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "2"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "5"
-  updated_by: ""
   id: "17"
   qualifier_style: 
   description: 
   study_parameter_id: "21"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:09:40
@@ -3116,17 +3085,17 @@ parameters_182:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "15"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "278"
   qualifier_style: 
   description: 
   study_parameter_id: "64"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:28:13
@@ -3141,17 +3110,17 @@ parameters_154:
   protocol_version_id: "20"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "236"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 20:52:14
@@ -3166,17 +3135,17 @@ parameters_040:
   protocol_version_id: "9"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "3"
   parameter_type_id: "12"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "7"
-  updated_by: ""
   id: "94"
   qualifier_style: 
   description: 
   study_parameter_id: "33"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 09:55:07
@@ -3191,17 +3160,17 @@ parameters_099:
   protocol_version_id: "13"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "4"
-  updated_by: ""
   id: "176"
   qualifier_style: 
   description: 
   study_parameter_id: "36"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:46:59
@@ -3216,17 +3185,17 @@ parameters_012:
   protocol_version_id: "3"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "3"
   parameter_role_id: "6"
   parameter_type_id: "12"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "18"
   qualifier_style: 
   description: 
   study_parameter_id: "9"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:09:46
@@ -3241,17 +3210,17 @@ parameters_183:
   protocol_version_id: "22"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "19"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "279"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:28:49
@@ -3266,17 +3235,17 @@ parameters_155:
   protocol_version_id: "20"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "238"
   qualifier_style: 
   description: 
   study_parameter_id: "61"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 20:53:30
@@ -3291,17 +3260,17 @@ parameters_126:
   protocol_version_id: "16"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "4"
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "204"
   qualifier_style: 
   description: 
   study_parameter_id: "49"
+  created_by_user_id: "1"
   data_element_id: "57"
   sequence_num: "0"
   created_at: 2007-03-30 19:56:10
@@ -3316,17 +3285,17 @@ parameters_041:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "95"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:07:41
@@ -3341,17 +3310,17 @@ parameters_013:
   protocol_version_id: "3"
   data_format_id: "4"
   mandatory: Y
-  created_by: ""
   column_no: "4"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "19"
   qualifier_style: 
   description: 
   study_parameter_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:09:51
@@ -3366,17 +3335,17 @@ parameters_184:
   protocol_version_id: "22"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "20"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "280"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 21:29:00
@@ -3391,17 +3360,17 @@ parameters_156:
   protocol_version_id: "20"
   data_format_id: "13"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "239"
   qualifier_style: 
   description: 
   study_parameter_id: "62"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 20:53:32
@@ -3416,17 +3385,17 @@ parameters_127:
   protocol_version_id: "16"
   data_format_id: "4"
   mandatory: N
-  created_by: ""
   column_no: "5"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "205"
   qualifier_style: 
   description: 
   study_parameter_id: "57"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 19:56:59
@@ -3441,17 +3410,17 @@ parameters_042:
   protocol_version_id: "10"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "96"
   qualifier_style: 
   description: 
   study_parameter_id: "30"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:07:49
@@ -3466,17 +3435,17 @@ parameters_014:
   protocol_version_id: "4"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "23"
   qualifier_style: 
   description: 
   study_parameter_id: "20"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:56:25
@@ -3491,17 +3460,17 @@ parameters_070:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "11"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "147"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:41:50
@@ -3516,17 +3485,17 @@ parameters_185:
   protocol_version_id: "22"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "21"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "7"
-  updated_by: ""
   id: "281"
   qualifier_style: 
   description: 
   study_parameter_id: "61"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 21:31:02
@@ -3541,17 +3510,17 @@ parameters_157:
   protocol_version_id: "21"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "240"
   qualifier_style: 
   description: 
   study_parameter_id: "60"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:00:55
@@ -3566,17 +3535,17 @@ parameters_128:
   protocol_version_id: "16"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "2"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "206"
   qualifier_style: 
   description: 
   study_parameter_id: "48"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-30 19:57:30
@@ -3591,17 +3560,17 @@ parameters_043:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "3"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "97"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:27
@@ -3616,17 +3585,17 @@ parameters_015:
   protocol_version_id: "4"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "24"
   qualifier_style: 
   description: 
   study_parameter_id: "21"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:56:38
@@ -3641,17 +3610,17 @@ parameters_071:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "12"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "9"
-  updated_by: ""
   id: "148"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:41:54
@@ -3666,17 +3635,17 @@ parameters_186:
   protocol_version_id: "22"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "16"
   parameter_role_id: "6"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "5"
-  updated_by: ""
   id: "282"
   qualifier_style: 
   description: 
   study_parameter_id: "68"
+  created_by_user_id: "1"
   data_element_id: "82"
   sequence_num: "0"
   created_at: 2007-04-03 21:32:13
@@ -3691,17 +3660,17 @@ parameters_158:
   protocol_version_id: "21"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "241"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:01:00
@@ -3716,17 +3685,17 @@ parameters_129:
   protocol_version_id: "17"
   data_format_id: 
   mandatory: Y
-  created_by: ""
   column_no: "1"
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "207"
   qualifier_style: 
   description: 
   study_parameter_id: "49"
+  created_by_user_id: "1"
   data_element_id: "57"
   sequence_num: "0"
   created_at: 2007-03-30 19:58:42
@@ -3741,17 +3710,17 @@ parameters_044:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "4"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "98"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 10:09:30
@@ -3766,17 +3735,17 @@ parameters_072:
   protocol_version_id: "12"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "13"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "11"
-  updated_by: ""
   id: "149"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:42:13
@@ -3791,17 +3760,17 @@ parameters_187:
   protocol_version_id: "22"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "2"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "283"
   qualifier_style: 
   description: 
   study_parameter_id: "70"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:32:26
@@ -3816,17 +3785,17 @@ parameters_100:
   protocol_version_id: "14"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "177"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:10:45
@@ -3841,17 +3810,17 @@ parameters_016:
   protocol_version_id: "4"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "25"
   qualifier_style: 
   description: 
   study_parameter_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:56:52
@@ -3866,17 +3835,17 @@ parameters_073:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "14"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "11"
-  updated_by: ""
   id: "150"
   qualifier_style: 
   description: 
   study_parameter_id: "40"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:42:27
@@ -3891,17 +3860,17 @@ parameters_045:
   protocol_version_id: "10"
   data_format_id: "20"
   mandatory: Y
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "22"
+  updated_by_user_id: "1"
   data_type_id: "4"
   lock_version: "8"
-  updated_by: ""
   id: "99"
   qualifier_style: 
   description: 
   study_parameter_id: "27"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:41
@@ -3916,17 +3885,17 @@ parameters_188:
   protocol_version_id: "22"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "284"
   qualifier_style: 
   description: 
   study_parameter_id: "69"
+  created_by_user_id: "1"
   data_element_id: "81"
   sequence_num: "0"
   created_at: 2007-04-03 21:32:37
@@ -3941,17 +3910,17 @@ parameters_159:
   protocol_version_id: "21"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "242"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 21:01:03
@@ -3966,17 +3935,17 @@ parameters_101:
   protocol_version_id: "14"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "3"
-  updated_by: ""
   id: "178"
   qualifier_style: 
   description: 
   study_parameter_id: "31"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-03-21 11:13:07
@@ -3991,17 +3960,17 @@ parameters_017:
   protocol_version_id: "5"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "26"
   qualifier_style: 
   description: 
   study_parameter_id: "8"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:01:34
@@ -4016,17 +3985,17 @@ parameters_074:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "15"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "11"
-  updated_by: ""
   id: "151"
   qualifier_style: 
   description: 
   study_parameter_id: "41"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:42:40
@@ -4041,17 +4010,17 @@ parameters_046:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "100"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:52
@@ -4066,17 +4035,17 @@ parameters_189:
   protocol_version_id: "23"
   data_format_id: "24"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "3"
-  updated_by: ""
   id: "285"
   qualifier_style: 
   description: 
   study_parameter_id: "67"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:34:49
@@ -4091,17 +4060,17 @@ parameters_130:
   protocol_version_id: "17"
   data_format_id: "1"
   mandatory: Y
-  created_by: ""
   column_no: "2"
   parameter_role_id: "7"
   parameter_type_id: "2"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "208"
   qualifier_style: 
   description: 
   study_parameter_id: "47"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 19:58:47
@@ -4116,17 +4085,17 @@ parameters_018:
   protocol_version_id: "5"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "57"
   qualifier_style: 
   description: 
   study_parameter_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:12:12
@@ -4141,17 +4110,17 @@ parameters_075:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "16"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "11"
-  updated_by: ""
   id: "152"
   qualifier_style: 
   description: 
   study_parameter_id: "42"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:42:44
@@ -4166,17 +4135,17 @@ parameters_047:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "7"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "101"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 10:10:05
@@ -4191,17 +4160,17 @@ parameters_102:
   protocol_version_id: "14"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "8"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "179"
   qualifier_style: 
   description: 
   study_parameter_id: "32"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:13:15
@@ -4216,17 +4185,17 @@ parameters_131:
   protocol_version_id: "17"
   data_format_id: "4"
   mandatory: Y
-  created_by: ""
   column_no: "3"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "209"
   qualifier_style: 
   description: 
   study_parameter_id: "57"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-30 19:58:51
@@ -4241,17 +4210,17 @@ parameters_019:
   protocol_version_id: "5"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "58"
   qualifier_style: 
   description: 
   study_parameter_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-20 21:12:16
@@ -4266,17 +4235,17 @@ parameters_076:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "17"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "11"
-  updated_by: ""
   id: "153"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:42:47
@@ -4291,17 +4260,17 @@ parameters_048:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "8"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "102"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 10:10:08
@@ -4316,17 +4285,17 @@ parameters_103:
   protocol_version_id: "14"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "9"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "180"
   qualifier_style: 
   description: 
   study_parameter_id: "37"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:16:48
@@ -4341,17 +4310,17 @@ parameters_160:
   protocol_version_id: "21"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "243"
   qualifier_style: 
   description: 
   study_parameter_id: "66"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-04-03 21:01:07
@@ -4366,17 +4335,17 @@ parameters_132:
   protocol_version_id: "1"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "5"
-  updated_by: ""
   id: "210"
   qualifier_style: 
   description: 
   study_parameter_id: "15"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-30 20:16:54
@@ -4391,17 +4360,17 @@ parameters_077:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "154"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:43:13
@@ -4416,17 +4385,17 @@ parameters_161:
   protocol_version_id: "21"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "5"
-  updated_by: ""
   id: "244"
   qualifier_style: 
   description: 
   study_parameter_id: "71"
+  created_by_user_id: "1"
   data_element_id: "76"
   sequence_num: "0"
   created_at: 2007-04-03 21:02:42
@@ -4441,17 +4410,17 @@ parameters_133:
   protocol_version_id: "1"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "5"
-  updated_by: ""
   id: "211"
   qualifier_style: 
   description: 
   study_parameter_id: "14"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-30 20:16:59
@@ -4466,17 +4435,17 @@ parameters_078:
   protocol_version_id: "12"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "4"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "6"
-  updated_by: ""
   id: "155"
   qualifier_style: 
   description: 
   study_parameter_id: "43"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:43:16
@@ -4491,17 +4460,17 @@ parameters_049:
   protocol_version_id: "10"
   data_format_id: "8"
   mandatory: Y
-  created_by: ""
   column_no: "9"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "8"
-  updated_by: ""
   id: "103"
   qualifier_style: 
   description: 
   study_parameter_id: "28"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "3"
   created_at: 2007-03-21 10:10:13
@@ -4516,17 +4485,17 @@ parameters_104:
   protocol_version_id: "14"
   data_format_id: "12"
   mandatory: 
-  created_by: ""
   column_no: "10"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "3"
-  updated_by: ""
   id: "181"
   qualifier_style: 
   description: 
   study_parameter_id: "34"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:16:52
@@ -4541,17 +4510,17 @@ parameters_162:
   protocol_version_id: "21"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "6"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "245"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-04-03 21:02:54
@@ -4566,17 +4535,17 @@ parameters_134:
   protocol_version_id: "1"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "3"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "212"
   qualifier_style: 
   description: 
   study_parameter_id: "11"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-30 20:17:03
@@ -4591,17 +4560,17 @@ parameters_020:
   protocol_version_id: "6"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "4"
-  updated_by: ""
   id: "59"
   qualifier_style: 
   description: 
   study_parameter_id: "10"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:16:39
@@ -4616,17 +4585,17 @@ parameters_079:
   protocol_version_id: "12"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "5"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "156"
   qualifier_style: 
   description: 
   study_parameter_id: "26"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "2"
   created_at: 2007-03-21 11:44:30
@@ -4641,17 +4610,17 @@ parameters_105:
   protocol_version_id: "14"
   data_format_id: 
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "4"
-  updated_by: ""
   id: "182"
   qualifier_style: 
   description: 
   study_parameter_id: "29"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 11:00:46
@@ -4666,17 +4635,17 @@ parameters_163:
   protocol_version_id: "21"
   data_format_id: "8"
   mandatory: 
-  created_by: ""
   column_no: "7"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "5"
-  updated_by: ""
   id: "246"
   qualifier_style: 
   description: 
   study_parameter_id: "59"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-04-03 21:02:56
@@ -4691,17 +4660,17 @@ parameters_135:
   protocol_version_id: "7"
   data_format_id: 
   mandatory: N
-  created_by: ""
   column_no: "5"
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "2"
-  updated_by: ""
   id: "213"
   qualifier_style: 
   description: 
   study_parameter_id: "15"
+  created_by_user_id: "1"
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-30 20:22:33
@@ -4716,17 +4685,17 @@ parameters_021:
   protocol_version_id: "7"
   data_format_id: "1"
   mandatory: 
-  created_by: ""
   column_no: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "3"
-  updated_by: ""
   id: "64"
   qualifier_style: 
   description: 
   study_parameter_id: "8"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:23:00
@@ -4741,17 +4710,17 @@ parameters_106:
   protocol_version_id: "14"
   data_format_id: "4"
   mandatory: 
-  created_by: ""
   column_no: "2"
   parameter_role_id: "2"
   parameter_type_id: "8"
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "4"
-  updated_by: ""
   id: "183"
   qualifier_style: 
   description: 
   study_parameter_id: "35"
+  created_by_user_id: "1"
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:09:31

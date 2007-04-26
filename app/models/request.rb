@@ -56,6 +56,9 @@ class Request < ActiveRecord::Base
 #Owner project
 #  
   belongs_to :project  
+  
+  belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
+  
 ##
 # Study Has a number of items associated with the request
 # 
@@ -110,7 +113,7 @@ class Request < ActiveRecord::Base
   end
 
 ##
-# get the status if the request
+# get the status if the ritem.assigned_toequest
 # 
   def status
     self.current_state
@@ -140,9 +143,9 @@ class Request < ActiveRecord::Base
              ti.display_unit,
              ti.storage_unit,
              ti.lock_version,
-             ti.created_by,
+             ti.created_by_user_id,
              ti.created_at,
-             ti.updated_by,
+             ti.updated_by_user_id,
              ti.updated_at,
              t.name task_name,
              tc.row_no,
@@ -187,7 +190,8 @@ SQL
       request_service.queue = queue
       request_service.name = "RS-#{self.id}-#{queue.id}"    
       request_service.requested_for = self.requested_for
-      request_service.requested_by = self.requested_by
+      request_service.requested_by_user_id = self.requested_by_user_id
+      request_service.assigned_to_user_id = queue.assigned_to_user_id
       services << request_service
     end
   end

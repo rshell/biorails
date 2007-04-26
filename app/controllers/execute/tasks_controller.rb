@@ -102,7 +102,7 @@ class Execute::TasksController < ApplicationController
     @task.protocol = @experiment.protocol
     @task.process = @experiment.process
     @task.project = current_project
-    @task.assigned_to = current_user
+    @task.assigned_to_user_id = current_user.id
     @task.expected_hours =1
     @task.done_hours = 0
     @task.name =  @experiment.name+"-"+@experiment.tasks.size.to_s 

@@ -65,13 +65,13 @@ class ProjectFolder < ProjectElement
      ProjectElement.transaction do          
        case item
        when ProjectAsset
-           element = add_reference( item.name, item )        
-           element.content_id = item.content_id
+           element = add_reference( item.title, item )        
+           element.asset_id = item.id
            return element       
 
        when ProjectContent
            element =add_reference( item.name ,item )  
-           element.content_id = item.content_id
+           element.content_id = item.id
            return element       
 
        when ProjectFolder
@@ -105,18 +105,22 @@ class ProjectFolder < ProjectElement
          element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
                                       :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
-         element.reference = item
-         
-         case item
-         when ProjectElement
-         when ProjectFolder
-         end
-         
+         element.reference = item       
          element.save
          return element
      end
   end
-  
+
+  def add_asset(name,asset)
+     ProjectFolder.transaction do 
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
+                                       :parent_id=>self.id, :project_id => self.project_id )                                       
+         element.path = self.path + "/" + name
+         element.asset = asset
+         element.save
+         return element
+     end
+  end
   
   def add_content(name,title,body)
      ProjectFolder.transaction do 
@@ -160,7 +164,7 @@ class ProjectFolder < ProjectElement
   end    
   
   def summary
-     return "folder of #{children.size} items"
+     return "folder of #{elements.size} items"
   end  
 ##
 # add/find a folder to the project. This  

@@ -1,41 +1,12 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: task_result_values
-#
-#  id                     :integer(11)   default(0), not null, primary key
-#  row_no                 :integer(11)   default(0), not null
-#  column_no              :integer(11)   
-#  task_id                :integer(11)   
-#  parameter_context_id   :integer(11)   
-#  task_context_id        :integer(11)   
-#  reference_parameter_id :integer(11)   
-#  data_element_id        :integer(11)   
-#  data_type              :string(255)   
-#  data_id                :integer(11)   
-#  subject                :string(255)   
-#  parameter_id           :integer(11)   
-#  protocol_version_id    :integer(11)   
-#  label                  :string(255)   
-#  row_label              :string(255)   
-#  parameter_name         :string(62)    
-#  data_value             :float         
-#  created_by_user_id     :integer(11)   default(0), not null
-#  created_at             :datetime      not null
-#  updated_by_user_id     :integer(11)   default(0), not null
-#  updated_at             :datetime      not null
-#
-
 --- 
 task_result_values_117: 
   updated_at: 2007-03-30 22:49:13
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Macrophage
   subject: AB001
   reference_parameter_id: "218"
@@ -43,6 +14,7 @@ task_result_values_117:
   id: "1713"
   parameter_id: "224"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -53,11 +25,10 @@ task_result_values_060:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "124"
@@ -65,6 +36,7 @@ task_result_values_060:
   id: "775"
   parameter_id: "125"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[26]
   data_element_id: 
   label: Dose Groups
@@ -75,11 +47,10 @@ task_result_values_032:
   updated_at: 2007-03-24 16:19:12
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: 00749
   reference_parameter_id: "93"
@@ -87,6 +58,7 @@ task_result_values_032:
   id: "265"
   parameter_id: "88"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -97,11 +69,10 @@ task_result_values_004:
   updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: "02707"
   reference_parameter_id: "91"
@@ -109,6 +80,7 @@ task_result_values_004:
   id: "266"
   parameter_id: "88"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -119,11 +91,10 @@ task_result_values_118:
   updated_at: 2007-03-30 22:49:15
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Cellular Infiltration
   subject: AB002
   reference_parameter_id: "218"
@@ -131,6 +102,7 @@ task_result_values_118:
   id: "1714"
   parameter_id: "221"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -141,11 +113,10 @@ task_result_values_061:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: interest
   reference_parameter_id: "124"
@@ -153,6 +124,7 @@ task_result_values_061:
   id: "776"
   parameter_id: "131"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[26]
   data_element_id: 
   label: Dose Groups
@@ -163,11 +135,10 @@ task_result_values_033:
   updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: 00749
   reference_parameter_id: "93"
@@ -175,6 +146,7 @@ task_result_values_033:
   id: "260"
   parameter_id: "94"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -185,11 +157,10 @@ task_result_values_119:
   updated_at: 2007-03-30 22:49:18
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "4"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Edema
   subject: AB002
   reference_parameter_id: "218"
@@ -197,6 +168,7 @@ task_result_values_119:
   id: "1715"
   parameter_id: "222"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -207,11 +179,10 @@ task_result_values_034:
   updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: 00749
   reference_parameter_id: "93"
@@ -219,6 +190,7 @@ task_result_values_034:
   id: "266"
   parameter_id: "88"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -229,11 +201,10 @@ task_result_values_005:
   updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: "02707"
   reference_parameter_id: "91"
@@ -241,6 +212,7 @@ task_result_values_005:
   id: "273"
   parameter_id: "92"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -251,11 +223,10 @@ task_result_values_090:
   updated_at: 2007-03-30 20:38:23
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: saline
   reference_parameter_id: "210"
@@ -263,6 +234,7 @@ task_result_values_090:
   id: "866"
   parameter_id: "212"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Compounds[6]
   data_element_id: 
   label: Compounds
@@ -273,11 +245,10 @@ task_result_values_062:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Inhibition
   subject: interest
   reference_parameter_id: "124"
@@ -285,6 +256,7 @@ task_result_values_062:
   id: "777"
   parameter_id: "132"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[26]
   data_element_id: 
   label: Dose Groups
@@ -295,11 +267,10 @@ task_result_values_035:
   updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: 00749
   reference_parameter_id: "93"
@@ -307,6 +278,7 @@ task_result_values_035:
   id: "273"
   parameter_id: "92"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -317,11 +289,10 @@ task_result_values_006:
   updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: AB001
   reference_parameter_id: "91"
@@ -329,6 +300,7 @@ task_result_values_006:
   id: "261"
   parameter_id: "94"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -339,11 +311,10 @@ task_result_values_091:
   updated_at: 2007-03-30 20:38:18
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: vehicle
   reference_parameter_id: "210"
@@ -351,6 +322,7 @@ task_result_values_091:
   id: "865"
   parameter_id: "212"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compounds[5]
   data_element_id: 
   label: Compounds
@@ -361,11 +333,10 @@ task_result_values_063:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "124"
@@ -373,6 +344,7 @@ task_result_values_063:
   id: "778"
   parameter_id: "119"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Groups[27]
   data_element_id: 
   label: Dose Groups
@@ -383,11 +355,10 @@ task_result_values_036:
   updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: 00749
   reference_parameter_id: "93"
@@ -395,6 +366,7 @@ task_result_values_036:
   id: "261"
   parameter_id: "94"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -405,11 +377,10 @@ task_result_values_007:
   updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: AB001
   reference_parameter_id: "91"
@@ -417,6 +388,7 @@ task_result_values_007:
   id: "268"
   parameter_id: "88"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -427,11 +399,10 @@ task_result_values_092:
   updated_at: 2007-03-30 20:38:26
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: AB0010
   reference_parameter_id: "210"
@@ -439,6 +410,7 @@ task_result_values_092:
   id: "867"
   parameter_id: "212"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Compounds[7]
   data_element_id: 
   label: Compounds
@@ -449,11 +421,10 @@ task_result_values_064:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "124"
@@ -461,6 +432,7 @@ task_result_values_064:
   id: "779"
   parameter_id: "125"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Groups[27]
   data_element_id: 
   label: Dose Groups
@@ -471,11 +443,10 @@ task_result_values_120:
   updated_at: 2007-03-30 22:49:20
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Hyperplasia
   subject: AB002
   reference_parameter_id: "218"
@@ -483,6 +454,7 @@ task_result_values_120:
   id: "1716"
   parameter_id: "223"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -493,11 +465,10 @@ task_result_values_037:
   updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: 00749
   reference_parameter_id: "93"
@@ -505,6 +476,7 @@ task_result_values_037:
   id: "268"
   parameter_id: "88"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -515,11 +487,10 @@ task_result_values_008:
   updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: AB001
   reference_parameter_id: "91"
@@ -527,6 +498,7 @@ task_result_values_008:
   id: "270"
   parameter_id: "92"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -537,11 +509,10 @@ task_result_values_093:
   updated_at: 2007-03-30 20:38:30
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: AB001
   reference_parameter_id: "210"
@@ -549,6 +520,7 @@ task_result_values_093:
   id: "868"
   parameter_id: "212"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Compounds[8]
   data_element_id: 
   label: Compounds
@@ -559,11 +531,10 @@ task_result_values_065:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: interest
   reference_parameter_id: "124"
@@ -571,6 +542,7 @@ task_result_values_065:
   id: "780"
   parameter_id: "131"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Groups[27]
   data_element_id: 
   label: Dose Groups
@@ -581,11 +553,10 @@ task_result_values_121:
   updated_at: 2007-03-30 22:49:24
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Macrophage
   subject: AB002
   reference_parameter_id: "218"
@@ -593,6 +564,7 @@ task_result_values_121:
   id: "1717"
   parameter_id: "224"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[5]
   data_element_id: 
   label: Group
@@ -603,11 +575,10 @@ task_result_values_009:
   updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: AB001
   reference_parameter_id: "91"
@@ -615,6 +586,7 @@ task_result_values_009:
   id: "262"
   parameter_id: "94"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -625,11 +597,10 @@ task_result_values_094:
   updated_at: 2007-03-30 20:38:34
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: AB002
   reference_parameter_id: "210"
@@ -637,6 +608,7 @@ task_result_values_094:
   id: "869"
   parameter_id: "212"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Compounds[9]
   data_element_id: 
   label: Compounds
@@ -647,11 +619,10 @@ task_result_values_066:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Inhibition
   subject: interest
   reference_parameter_id: "124"
@@ -659,6 +630,7 @@ task_result_values_066:
   id: "781"
   parameter_id: "132"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Groups[27]
   data_element_id: 
   label: Dose Groups
@@ -669,11 +641,10 @@ task_result_values_038:
   updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: 00749
   reference_parameter_id: "93"
@@ -681,6 +652,7 @@ task_result_values_038:
   id: "270"
   parameter_id: "92"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -691,11 +663,10 @@ task_result_values_095:
   updated_at: 2007-03-30 20:38:23
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: negative
   reference_parameter_id: "214"
@@ -703,6 +674,7 @@ task_result_values_095:
   id: "866"
   parameter_id: "212"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Compounds[6]
   data_element_id: 
   label: Compounds
@@ -713,11 +685,10 @@ task_result_values_067:
   updated_at: 2007-03-24 17:32:25
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Dose
   subject: female
   reference_parameter_id: "143"
@@ -725,6 +696,7 @@ task_result_values_067:
   id: "785"
   parameter_id: "144"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Group[16]
   data_element_id: 
   label: Dose Group
@@ -735,11 +707,10 @@ task_result_values_096:
   updated_at: 2007-03-30 20:38:26
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: challenge
   reference_parameter_id: "214"
@@ -747,6 +718,7 @@ task_result_values_096:
   id: "867"
   parameter_id: "212"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Compounds[7]
   data_element_id: 
   label: Compounds
@@ -757,11 +729,10 @@ task_result_values_068:
   updated_at: 2007-03-24 17:32:34
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Plasma Conc
   subject: female
   reference_parameter_id: "143"
@@ -769,6 +740,7 @@ task_result_values_068:
   id: "786"
   parameter_id: "145"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Group[16]
   data_element_id: 
   label: Dose Group
@@ -779,11 +751,10 @@ task_result_values_039:
   updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: 00749
   reference_parameter_id: "93"
@@ -791,6 +762,7 @@ task_result_values_039:
   id: "262"
   parameter_id: "94"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -801,11 +773,10 @@ task_result_values_097:
   updated_at: 2007-03-30 20:38:30
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: interest
   reference_parameter_id: "214"
@@ -813,6 +784,7 @@ task_result_values_097:
   id: "868"
   parameter_id: "212"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Compounds[8]
   data_element_id: 
   label: Compounds
@@ -823,11 +795,10 @@ task_result_values_010:
   updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: AB001
   reference_parameter_id: "91"
@@ -835,6 +806,7 @@ task_result_values_010:
   id: "267"
   parameter_id: "88"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -845,11 +817,10 @@ task_result_values_069:
   updated_at: 2007-03-24 17:32:41
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Plasma Conc
   subject: female
   reference_parameter_id: "143"
@@ -857,6 +828,7 @@ task_result_values_069:
   id: "787"
   parameter_id: "146"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Group[16]
   data_element_id: 
   label: Dose Group
@@ -867,11 +839,10 @@ task_result_values_098:
   updated_at: 2007-03-30 20:38:34
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: interest
   reference_parameter_id: "214"
@@ -879,6 +850,7 @@ task_result_values_098:
   id: "869"
   parameter_id: "212"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Compounds[9]
   data_element_id: 
   label: Compounds
@@ -889,11 +861,10 @@ task_result_values_011:
   updated_at: 2007-03-24 16:20:07
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: AB001
   reference_parameter_id: "91"
@@ -901,6 +872,7 @@ task_result_values_011:
   id: "271"
   parameter_id: "92"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -911,11 +883,10 @@ task_result_values_040:
   updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: 00749
   reference_parameter_id: "93"
@@ -923,6 +894,7 @@ task_result_values_040:
   id: "267"
   parameter_id: "88"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -933,11 +905,10 @@ task_result_values_099:
   updated_at: 2007-03-30 20:38:18
   parameter_context_id: "1"
   protocol_version_id: "1"
-  created_by: ""
   task_id: "7"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Molecular Mass
   subject: vehicle
   reference_parameter_id: "214"
@@ -945,6 +916,7 @@ task_result_values_099:
   id: "865"
   parameter_id: "212"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compounds[5]
   data_element_id: 
   label: Compounds
@@ -955,11 +927,10 @@ task_result_values_012:
   updated_at: 2007-03-24 16:24:56
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: AB001
   reference_parameter_id: "91"
@@ -967,6 +938,7 @@ task_result_values_012:
   id: "263"
   parameter_id: "94"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -977,11 +949,10 @@ task_result_values_013:
   updated_at: 2007-03-24 16:19:27
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: AB001
   reference_parameter_id: "91"
@@ -989,6 +960,7 @@ task_result_values_013:
   id: "269"
   parameter_id: "88"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -999,11 +971,10 @@ task_result_values_041:
   updated_at: 2007-03-24 16:20:07
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: 00749
   reference_parameter_id: "93"
@@ -1011,6 +982,7 @@ task_result_values_041:
   id: "271"
   parameter_id: "92"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -1021,11 +993,10 @@ task_result_values_014:
   updated_at: 2007-03-24 16:20:10
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: AB001
   reference_parameter_id: "91"
@@ -1033,6 +1004,7 @@ task_result_values_014:
   id: "272"
   parameter_id: "92"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -1043,11 +1015,10 @@ task_result_values_070:
   updated_at: 2007-03-24 17:32:45
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "11"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Brain Conc
   subject: female
   reference_parameter_id: "143"
@@ -1055,6 +1026,7 @@ task_result_values_070:
   id: "788"
   parameter_id: "147"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Group[16]
   data_element_id: 
   label: Dose Group
@@ -1065,11 +1037,10 @@ task_result_values_042:
   updated_at: 2007-03-24 16:24:56
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: 00749
   reference_parameter_id: "93"
@@ -1077,6 +1048,7 @@ task_result_values_042:
   id: "263"
   parameter_id: "94"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -1087,11 +1059,10 @@ task_result_values_015:
   updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: negative
   reference_parameter_id: "90"
@@ -1099,6 +1070,7 @@ task_result_values_015:
   id: "260"
   parameter_id: "94"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -1109,11 +1081,10 @@ task_result_values_071:
   updated_at: 2007-03-24 17:32:47
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "12"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Brain Conc
   subject: female
   reference_parameter_id: "143"
@@ -1121,6 +1092,7 @@ task_result_values_071:
   id: "789"
   parameter_id: "148"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Group[16]
   data_element_id: 
   label: Dose Group
@@ -1131,11 +1103,10 @@ task_result_values_043:
   updated_at: 2007-03-24 16:19:27
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: 00749
   reference_parameter_id: "93"
@@ -1143,6 +1114,7 @@ task_result_values_043:
   id: "269"
   parameter_id: "88"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -1153,11 +1125,10 @@ task_result_values_072:
   updated_at: 2007-03-24 17:34:03
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Dose
   subject: male
   reference_parameter_id: "143"
@@ -1165,6 +1136,7 @@ task_result_values_072:
   id: "810"
   parameter_id: "144"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Group[21]
   data_element_id: 
   label: Dose Group
@@ -1175,11 +1147,10 @@ task_result_values_044:
   updated_at: 2007-03-24 16:20:10
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Concentration
   subject: 00749
   reference_parameter_id: "93"
@@ -1187,6 +1158,7 @@ task_result_values_044:
   id: "272"
   parameter_id: "92"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -1197,11 +1169,10 @@ task_result_values_016:
   updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: negative
   reference_parameter_id: "90"
@@ -1209,6 +1180,7 @@ task_result_values_016:
   id: "266"
   parameter_id: "88"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -1219,11 +1191,10 @@ task_result_values_073:
   updated_at: 2007-03-24 17:34:09
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Plasma Conc
   subject: male
   reference_parameter_id: "143"
@@ -1231,6 +1202,7 @@ task_result_values_073:
   id: "811"
   parameter_id: "145"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Group[21]
   data_element_id: 
   label: Dose Group
@@ -1241,11 +1213,10 @@ task_result_values_045:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "19"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "4"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Max Inhibition
   subject: AB001
   reference_parameter_id: "114"
@@ -1253,6 +1224,7 @@ task_result_values_045:
   id: "760"
   parameter_id: "117"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[21]
   data_element_id: 
   label: Compound
@@ -1263,11 +1235,10 @@ task_result_values_100:
   updated_at: 2007-03-30 21:49:27
   parameter_context_id: "2"
   protocol_version_id: "2"
-  created_by: ""
   task_id: "9"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Min Age
   subject: rat
   reference_parameter_id: "7"
@@ -1275,6 +1246,7 @@ task_result_values_100:
   id: "1002"
   parameter_id: "9"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Settings[82]
   data_element_id: 
   label: Settings
@@ -1285,11 +1257,10 @@ task_result_values_017:
   updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: negative
   reference_parameter_id: "90"
@@ -1297,6 +1268,7 @@ task_result_values_017:
   id: "273"
   parameter_id: "92"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
@@ -1307,11 +1279,10 @@ task_result_values_074:
   updated_at: 2007-03-24 17:34:12
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Plasma Conc
   subject: male
   reference_parameter_id: "143"
@@ -1319,6 +1290,7 @@ task_result_values_074:
   id: "812"
   parameter_id: "146"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Group[21]
   data_element_id: 
   label: Dose Group
@@ -1329,11 +1301,10 @@ task_result_values_046:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "19"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Max Inhibition Conc
   subject: AB001
   reference_parameter_id: "114"
@@ -1341,6 +1312,7 @@ task_result_values_046:
   id: "761"
   parameter_id: "118"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[21]
   data_element_id: 
   label: Compound
@@ -1351,11 +1323,10 @@ task_result_values_101:
   updated_at: 2007-03-30 21:49:27
   parameter_context_id: "2"
   protocol_version_id: "2"
-  created_by: ""
   task_id: "9"
   column_no: "4"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Min Weight
   subject: rat
   reference_parameter_id: "7"
@@ -1363,6 +1334,7 @@ task_result_values_101:
   id: "1003"
   parameter_id: "10"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Settings[82]
   data_element_id: 
   label: Settings
@@ -1373,11 +1345,10 @@ task_result_values_075:
   updated_at: 2007-03-24 17:34:15
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "11"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Brain Conc
   subject: male
   reference_parameter_id: "143"
@@ -1385,6 +1356,7 @@ task_result_values_075:
   id: "813"
   parameter_id: "147"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Group[21]
   data_element_id: 
   label: Dose Group
@@ -1395,11 +1367,10 @@ task_result_values_047:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: vehicle
   reference_parameter_id: "124"
@@ -1407,6 +1378,7 @@ task_result_values_047:
   id: "762"
   parameter_id: "119"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[22]
   data_element_id: 
   label: Dose Groups
@@ -1417,11 +1389,10 @@ task_result_values_102:
   updated_at: 2007-03-30 22:31:35
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "66"
@@ -1429,6 +1400,7 @@ task_result_values_102:
   id: "1706"
   parameter_id: "65"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[0]
   data_element_id: 
   label: Group
@@ -1439,11 +1411,10 @@ task_result_values_018:
   updated_at: 2007-03-24 16:24:44
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: positive
   reference_parameter_id: "90"
@@ -1451,6 +1422,7 @@ task_result_values_018:
   id: "259"
   parameter_id: "94"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -1461,11 +1433,10 @@ task_result_values_076:
   updated_at: 2007-03-24 17:34:18
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "12"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Brain Conc
   subject: male
   reference_parameter_id: "143"
@@ -1473,6 +1444,7 @@ task_result_values_076:
   id: "814"
   parameter_id: "148"
   row_no: "6"
+  created_by_user_id: "1"
   row_label: Dose Group[21]
   data_element_id: 
   label: Dose Group
@@ -1483,11 +1455,10 @@ task_result_values_048:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: vehicle
   reference_parameter_id: "124"
@@ -1495,6 +1466,7 @@ task_result_values_048:
   id: "763"
   parameter_id: "131"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[22]
   data_element_id: 
   label: Dose Groups
@@ -1505,11 +1477,10 @@ task_result_values_103:
   updated_at: 2007-03-30 22:31:39
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "66"
@@ -1517,6 +1488,7 @@ task_result_values_103:
   id: "1707"
   parameter_id: "65"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[1]
   data_element_id: 
   label: Group
@@ -1527,11 +1499,10 @@ task_result_values_019:
   updated_at: 2007-03-24 16:19:12
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: positive
   reference_parameter_id: "90"
@@ -1539,6 +1510,7 @@ task_result_values_019:
   id: "265"
   parameter_id: "88"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -1549,11 +1521,10 @@ task_result_values_077:
   updated_at: 2007-03-24 17:35:34
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Dose
   subject: male
   reference_parameter_id: "143"
@@ -1561,6 +1532,7 @@ task_result_values_077:
   id: "835"
   parameter_id: "144"
   row_no: "11"
+  created_by_user_id: "1"
   row_label: Dose Group[26]
   data_element_id: 
   label: Dose Group
@@ -1571,11 +1543,10 @@ task_result_values_078:
   updated_at: 2007-03-24 17:35:37
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Plasma Conc
   subject: male
   reference_parameter_id: "143"
@@ -1583,6 +1554,7 @@ task_result_values_078:
   id: "836"
   parameter_id: "145"
   row_no: "11"
+  created_by_user_id: "1"
   row_label: Dose Group[26]
   data_element_id: 
   label: Dose Group
@@ -1593,11 +1565,10 @@ task_result_values_049:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: positive
   reference_parameter_id: "124"
@@ -1605,6 +1576,7 @@ task_result_values_049:
   id: "764"
   parameter_id: "119"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[23]
   data_element_id: 
   label: Dose Groups
@@ -1615,11 +1587,10 @@ task_result_values_104:
   updated_at: 2007-03-30 22:31:42
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "66"
@@ -1627,6 +1598,7 @@ task_result_values_104:
   id: "1708"
   parameter_id: "65"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Group[2]
   data_element_id: 
   label: Group
@@ -1637,11 +1609,10 @@ task_result_values_079:
   updated_at: 2007-03-24 17:35:42
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Plasma Conc
   subject: male
   reference_parameter_id: "143"
@@ -1649,6 +1620,7 @@ task_result_values_079:
   id: "837"
   parameter_id: "146"
   row_no: "11"
+  created_by_user_id: "1"
   row_label: Dose Group[26]
   data_element_id: 
   label: Dose Group
@@ -1659,11 +1631,10 @@ task_result_values_105:
   updated_at: 2007-03-30 22:31:35
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: fail
   reference_parameter_id: "67"
@@ -1671,6 +1642,7 @@ task_result_values_105:
   id: "1706"
   parameter_id: "65"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[0]
   data_element_id: 
   label: Group
@@ -1681,11 +1653,10 @@ task_result_values_020:
   updated_at: 2007-03-24 16:24:40
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: vehicle
   reference_parameter_id: "90"
@@ -1693,6 +1664,7 @@ task_result_values_020:
   id: "258"
   parameter_id: "94"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
@@ -1703,11 +1675,10 @@ task_result_values_106:
   updated_at: 2007-03-30 22:31:39
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: fail
   reference_parameter_id: "67"
@@ -1715,6 +1686,7 @@ task_result_values_106:
   id: "1707"
   parameter_id: "65"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[1]
   data_element_id: 
   label: Group
@@ -1725,11 +1697,10 @@ task_result_values_021:
   updated_at: 2007-03-24 16:19:11
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: vehicle
   reference_parameter_id: "90"
@@ -1737,6 +1708,7 @@ task_result_values_021:
   id: "264"
   parameter_id: "88"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
@@ -1747,11 +1719,10 @@ task_result_values_107:
   updated_at: 2007-03-30 22:31:42
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "67"
@@ -1759,6 +1730,7 @@ task_result_values_107:
   id: "1708"
   parameter_id: "65"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Group[2]
   data_element_id: 
   label: Group
@@ -1769,11 +1741,10 @@ task_result_values_050:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: positive
   reference_parameter_id: "124"
@@ -1781,6 +1752,7 @@ task_result_values_050:
   id: "765"
   parameter_id: "131"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[23]
   data_element_id: 
   label: Dose Groups
@@ -1791,11 +1763,10 @@ task_result_values_022:
   updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: interest
   reference_parameter_id: "90"
@@ -1803,6 +1774,7 @@ task_result_values_022:
   id: "261"
   parameter_id: "94"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -1813,11 +1785,10 @@ task_result_values_108:
   updated_at: 2007-03-30 22:31:47
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "67"
@@ -1825,6 +1796,7 @@ task_result_values_108:
   id: "1709"
   parameter_id: "65"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Group[3]
   data_element_id: 
   label: Group
@@ -1835,11 +1807,10 @@ task_result_values_051:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: negative
   reference_parameter_id: "124"
@@ -1847,6 +1818,7 @@ task_result_values_051:
   id: "766"
   parameter_id: "119"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[24]
   data_element_id: 
   label: Dose Groups
@@ -1857,11 +1829,10 @@ task_result_values_023:
   updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "90"
@@ -1869,6 +1840,7 @@ task_result_values_023:
   id: "268"
   parameter_id: "88"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -1879,11 +1851,10 @@ task_result_values_080:
   updated_at: 2007-03-24 17:35:51
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "11"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: mean Brain Conc
   subject: male
   reference_parameter_id: "143"
@@ -1891,6 +1862,7 @@ task_result_values_080:
   id: "838"
   parameter_id: "147"
   row_no: "11"
+  created_by_user_id: "1"
   row_label: Dose Group[26]
   data_element_id: 
   label: Dose Group
@@ -1901,11 +1873,10 @@ task_result_values_109:
   updated_at: 2007-03-30 22:31:35
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: p
   subject: saline
   reference_parameter_id: "213"
@@ -1913,6 +1884,7 @@ task_result_values_109:
   id: "1706"
   parameter_id: "65"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[0]
   data_element_id: 
   label: Group
@@ -1923,11 +1895,10 @@ task_result_values_052:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: negative
   reference_parameter_id: "124"
@@ -1935,6 +1906,7 @@ task_result_values_052:
   id: "767"
   parameter_id: "125"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[24]
   data_element_id: 
   label: Dose Groups
@@ -1945,11 +1917,10 @@ task_result_values_024:
   updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "90"
@@ -1957,6 +1928,7 @@ task_result_values_024:
   id: "270"
   parameter_id: "92"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
@@ -1967,11 +1939,10 @@ task_result_values_081:
   updated_at: 2007-03-24 17:35:56
   parameter_context_id: "22"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "12"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: sd Brain Conc
   subject: male
   reference_parameter_id: "143"
@@ -1979,6 +1950,7 @@ task_result_values_081:
   id: "839"
   parameter_id: "148"
   row_no: "11"
+  created_by_user_id: "1"
   row_label: Dose Group[26]
   data_element_id: 
   label: Dose Group
@@ -1989,11 +1961,10 @@ task_result_values_053:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: negative
   reference_parameter_id: "124"
@@ -2001,6 +1972,7 @@ task_result_values_053:
   id: "768"
   parameter_id: "131"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[24]
   data_element_id: 
   label: Dose Groups
@@ -2011,11 +1983,10 @@ task_result_values_025:
   updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: interest
   reference_parameter_id: "90"
@@ -2023,6 +1994,7 @@ task_result_values_025:
   id: "262"
   parameter_id: "94"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -2033,11 +2005,10 @@ task_result_values_082:
   updated_at: 2007-03-24 17:31:41
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group No.
   subject: AB004
   reference_parameter_id: "136"
@@ -2045,6 +2016,7 @@ task_result_values_082:
   id: "782"
   parameter_id: "156"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -2055,11 +2027,10 @@ task_result_values_054:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Inhibition
   subject: negative
   reference_parameter_id: "124"
@@ -2067,6 +2038,7 @@ task_result_values_054:
   id: "769"
   parameter_id: "132"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Dose Groups[24]
   data_element_id: 
   label: Dose Groups
@@ -2077,11 +2049,10 @@ task_result_values_026:
   updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "90"
@@ -2089,6 +2060,7 @@ task_result_values_026:
   id: "267"
   parameter_id: "88"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -2099,11 +2071,10 @@ task_result_values_055:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "124"
@@ -2111,6 +2082,7 @@ task_result_values_055:
   id: "770"
   parameter_id: "119"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[25]
   data_element_id: 
   label: Dose Groups
@@ -2121,11 +2093,10 @@ task_result_values_110:
   updated_at: 2007-03-30 22:31:39
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: p
   subject: 00749
   reference_parameter_id: "213"
@@ -2133,6 +2104,7 @@ task_result_values_110:
   id: "1707"
   parameter_id: "65"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Group[1]
   data_element_id: 
   label: Group
@@ -2143,11 +2115,10 @@ task_result_values_083:
   updated_at: 2007-03-24 17:32:08
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "4"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: sd B/P
   subject: AB004
   reference_parameter_id: "136"
@@ -2155,6 +2126,7 @@ task_result_values_083:
   id: "783"
   parameter_id: "155"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -2165,11 +2137,10 @@ task_result_values_056:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "8"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "124"
@@ -2177,6 +2148,7 @@ task_result_values_056:
   id: "771"
   parameter_id: "125"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[25]
   data_element_id: 
   label: Dose Groups
@@ -2187,11 +2159,10 @@ task_result_values_111:
   updated_at: 2007-03-30 22:31:42
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: p
   subject: AB001
   reference_parameter_id: "213"
@@ -2199,6 +2170,7 @@ task_result_values_111:
   id: "1708"
   parameter_id: "65"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Group[2]
   data_element_id: 
   label: Group
@@ -2209,11 +2181,10 @@ task_result_values_027:
   updated_at: 2007-03-24 16:20:07
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "90"
@@ -2221,6 +2192,7 @@ task_result_values_027:
   id: "271"
   parameter_id: "92"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
@@ -2231,11 +2203,10 @@ task_result_values_084:
   updated_at: 2007-03-24 17:32:04
   parameter_context_id: "21"
   protocol_version_id: "12"
-  created_by: ""
   task_id: "5"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: mean B/P
   subject: AB004
   reference_parameter_id: "136"
@@ -2243,6 +2214,7 @@ task_result_values_084:
   id: "784"
   parameter_id: "154"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Compound[0]
   data_element_id: 
   label: Compound
@@ -2253,11 +2225,10 @@ task_result_values_057:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "9"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Activity Count
   subject: interest
   reference_parameter_id: "124"
@@ -2265,6 +2236,7 @@ task_result_values_057:
   id: "772"
   parameter_id: "131"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[25]
   data_element_id: 
   label: Dose Groups
@@ -2275,11 +2247,10 @@ task_result_values_112:
   updated_at: 2007-03-30 22:31:47
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: p
   subject: AB002
   reference_parameter_id: "213"
@@ -2287,6 +2258,7 @@ task_result_values_112:
   id: "1709"
   parameter_id: "65"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Group[3]
   data_element_id: 
   label: Group
@@ -2297,11 +2269,10 @@ task_result_values_028:
   updated_at: 2007-03-24 16:24:56
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Group Size
   subject: interest
   reference_parameter_id: "90"
@@ -2309,6 +2280,7 @@ task_result_values_028:
   id: "263"
   parameter_id: "94"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -2319,11 +2291,10 @@ task_result_values_085:
   updated_at: 2007-03-30 20:01:05
   parameter_context_id: "32"
   protocol_version_id: "16"
-  created_by: ""
   task_id: "6"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Calculation
   subject: male
   reference_parameter_id: "204"
@@ -2331,6 +2302,7 @@ task_result_values_085:
   id: "860"
   parameter_id: "203"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: morestuff[1]
   data_element_id: 
   label: morestuff
@@ -2341,11 +2313,10 @@ task_result_values_058:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "10"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Mean Inhibition
   subject: interest
   reference_parameter_id: "124"
@@ -2353,6 +2324,7 @@ task_result_values_058:
   id: "773"
   parameter_id: "132"
   row_no: "4"
+  created_by_user_id: "1"
   row_label: Dose Groups[25]
   data_element_id: 
   label: Dose Groups
@@ -2363,11 +2335,10 @@ task_result_values_113:
   updated_at: 2007-03-30 22:31:47
   parameter_context_id: "13"
   protocol_version_id: "7"
-  created_by: ""
   task_id: "20"
   column_no: "2"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: p
   subject: pass
   reference_parameter_id: "66"
@@ -2375,6 +2346,7 @@ task_result_values_113:
   id: "1709"
   parameter_id: "65"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: Group[3]
   data_element_id: 
   label: Group
@@ -2385,11 +2357,10 @@ task_result_values_029:
   updated_at: 2007-03-24 16:19:27
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "90"
@@ -2397,6 +2368,7 @@ task_result_values_029:
   id: "269"
   parameter_id: "88"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -2407,11 +2379,10 @@ task_result_values_086:
   updated_at: 2007-03-30 20:01:15
   parameter_context_id: "32"
   protocol_version_id: "16"
-  created_by: ""
   task_id: "6"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Double
   subject: male
   reference_parameter_id: "204"
@@ -2419,6 +2390,7 @@ task_result_values_086:
   id: "863"
   parameter_id: "205"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: morestuff[1]
   data_element_id: 
   label: morestuff
@@ -2429,11 +2401,10 @@ task_result_values_059:
   updated_at: 2007-03-24 17:05:07
   parameter_context_id: "20"
   protocol_version_id: "11"
-  created_by: ""
   task_id: "4"
   column_no: "6"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: interest
   reference_parameter_id: "124"
@@ -2441,6 +2412,7 @@ task_result_values_059:
   id: "774"
   parameter_id: "119"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[26]
   data_element_id: 
   label: Dose Groups
@@ -2451,11 +2423,10 @@ task_result_values_114:
   updated_at: 2007-03-30 22:49:03
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Cellular Infiltration
   subject: AB001
   reference_parameter_id: "218"
@@ -2463,6 +2434,7 @@ task_result_values_114:
   id: "1710"
   parameter_id: "221"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -2473,11 +2445,10 @@ task_result_values_087:
   updated_at: 2007-03-30 20:01:06
   parameter_context_id: "32"
   protocol_version_id: "16"
-  created_by: ""
   task_id: "6"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Calculation
   subject: male
   reference_parameter_id: "204"
@@ -2485,6 +2456,7 @@ task_result_values_087:
   id: "861"
   parameter_id: "203"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: morestuff[2]
   data_element_id: 
   label: morestuff
@@ -2495,11 +2467,10 @@ task_result_values_088:
   updated_at: 2007-03-30 20:01:18
   parameter_context_id: "32"
   protocol_version_id: "16"
-  created_by: ""
   task_id: "6"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Double
   subject: male
   reference_parameter_id: "204"
@@ -2507,6 +2478,7 @@ task_result_values_088:
   id: "864"
   parameter_id: "205"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: morestuff[2]
   data_element_id: 
   label: morestuff
@@ -2517,11 +2489,10 @@ task_result_values_001:
   updated_at: 2007-03-24 16:24:40
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: saline
   reference_parameter_id: "91"
@@ -2529,6 +2500,7 @@ task_result_values_001:
   id: "258"
   parameter_id: "94"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
@@ -2539,11 +2511,10 @@ task_result_values_115:
   updated_at: 2007-03-30 22:49:06
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "4"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Edema
   subject: AB001
   reference_parameter_id: "218"
@@ -2551,6 +2522,7 @@ task_result_values_115:
   id: "1711"
   parameter_id: "222"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -2561,11 +2533,10 @@ task_result_values_030:
   updated_at: 2007-03-24 16:20:10
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Concentration
   subject: interest
   reference_parameter_id: "90"
@@ -2573,6 +2544,7 @@ task_result_values_030:
   id: "272"
   parameter_id: "92"
   row_no: "5"
+  created_by_user_id: "1"
   row_label: Dose Groups[5]
   data_element_id: 
   label: Dose Groups
@@ -2583,11 +2555,10 @@ task_result_values_089:
   updated_at: 2007-03-30 20:01:07
   parameter_context_id: "32"
   protocol_version_id: "16"
-  created_by: ""
   task_id: "6"
   column_no: "3"
+  updated_by_user_id: "1"
   data_type: Hash
-  updated_by: ""
   parameter_name: Calculation
   subject: female
   reference_parameter_id: "204"
@@ -2595,6 +2566,7 @@ task_result_values_089:
   id: "862"
   parameter_id: "203"
   row_no: "3"
+  created_by_user_id: "1"
   row_label: morestuff[3]
   data_element_id: 
   label: morestuff
@@ -2605,11 +2577,10 @@ task_result_values_002:
   updated_at: 2007-03-24 16:19:11
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "1"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: DoseGroupID
   subject: saline
   reference_parameter_id: "91"
@@ -2617,6 +2588,7 @@ task_result_values_002:
   id: "264"
   parameter_id: "88"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
@@ -2627,11 +2599,10 @@ task_result_values_116:
   updated_at: 2007-03-30 22:49:08
   parameter_context_id: "34"
   protocol_version_id: "18"
-  created_by: ""
   task_id: "22"
   column_no: "5"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Hyperplasia
   subject: AB001
   reference_parameter_id: "218"
@@ -2639,6 +2610,7 @@ task_result_values_116:
   id: "1712"
   parameter_id: "223"
   row_no: "0"
+  created_by_user_id: "1"
   row_label: Group[4]
   data_element_id: 
   label: Group
@@ -2649,11 +2621,10 @@ task_result_values_031:
   updated_at: 2007-03-24 16:24:44
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: 00749
   reference_parameter_id: "93"
@@ -2661,6 +2632,7 @@ task_result_values_031:
   id: "259"
   parameter_id: "94"
   row_no: "1"
+  created_by_user_id: "1"
   row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
@@ -2671,11 +2643,10 @@ task_result_values_003:
   updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
-  created_by: ""
   task_id: "1"
   column_no: "7"
+  updated_by_user_id: "1"
   data_type: Compound
-  updated_by: ""
   parameter_name: Group Size
   subject: "02707"
   reference_parameter_id: "91"
@@ -2683,6 +2654,7 @@ task_result_values_003:
   id: "260"
   parameter_id: "94"
   row_no: "2"
+  created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups

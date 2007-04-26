@@ -19,7 +19,7 @@
                              :with =>'priority_id' %> 
 
     </td>
-    <td><%=h queue_item.assigned_to  %></td>
+    <td><%=h queue_item.assigned_to.name  %></td>
     <td> <%=queue_item.comments  %></td>
     <td><%=short_date queue_item.updated_at%></td>
     <td><%=short_date queue_item.accepted_at  %></td>

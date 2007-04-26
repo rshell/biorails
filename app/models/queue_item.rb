@@ -53,7 +53,10 @@ class QueueItem < ActiveRecord::Base
   validates_presence_of   :data_id
   validates_presence_of   :data_name
 
- belongs_to :assigned_to, :class_name=>'User', :foreign_key =>'assigned_to'
+
+ belongs_to :request_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
+
+ belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
  
 
 ##

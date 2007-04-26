@@ -29,7 +29,7 @@ class Project::AssetsController < ApplicationController
   def show
     current_project
     @project_element =  current(ProjectElement, params[:id] )  
-    @project_asset   = @project_element.reference
+    @project_asset   = @project_element.asset
     @project_folder   = @project_element.parent
     render :partial => 'asset' ,:locals=>{:asset=> @project_asset}, :layout => false if request.xhr?
   end
@@ -40,21 +40,37 @@ class Project::AssetsController < ApplicationController
   def new
     current_project
     @project_folder =current_folder
-    @project_asset = ProjectAsset.new(:title=> Identifier.next_id(ProjectAsset),
+
+    @project_element = ProjectElement.new(:name => Identifier.next_id(ProjectAsset),      
+                                          :project_id => @project_folder.project_id)
+    
+    @project_asset = ProjectAsset.new(:title=>'new file',
                                       :project_id => @project_folder.project_id)
-    render :partial => 'upload' ,:locals=>{:folder=> @project_folder}, :layout => false if request.xhr?
+    respond_to do |format|
+      format.html { render :action=>'upload'}
+      format.xml  { render :xml => @project_asset.to_xml(:include=>[:project])}
+      format.js  { render :update do | page |
+           page.replace_html 'message', :partial=> 'messages'
+           page.replace_html 'centre',  :partial => 'upload' ,:locals=>{:folder=> @project_folder}
+         end
+      }
+    end  
   end
 ##
 # File update handler to create a ProjectAsset and link it into the current folder.
 #  
   def upload
     current_folder
-    @project_asset = ProjectAsset.new(params[:project_asset])
-    if @project_asset.save
-        asset =  @project_folder.add(@project_asset)
-        redirect_to :action => 'upload',:id => @project_folder
-    else
-        render :action => 'upload',:id => @project_folder
+    ProjectFolder.transaction do
+      @project_asset = ProjectAsset.new(params[:project_asset])
+      if @project_asset.save
+          @project_element =  @project_folder.add_asset(@project_asset.filename,@project_asset)
+          redirect_to folder_url(:action => 'show',:id => @project_folder)
+      else
+          logger.warn " Errors #{@project_asset.errors.full_messages.to_sentence}"
+          flash[:error] = " Errors #{@project_asset.errors.full_messages.to_sentence}"
+          render :action => 'upload',:id => @project_folder
+      end
     end
   end 
 

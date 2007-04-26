@@ -9,11 +9,11 @@
   </tr>
   <tr>
     <th class="label">Request</th>
-    <td> <%= link_to request_service.request.name, queue_url( :action => 'show', :id=> request_service.request) %></td>
+    <td> <%= link_to request_service.request.name, request_url( :action => 'show', :id=> request_service.request) %></td>
     <th class="label">Study</th>
     <td><%=link_to request_service.queue.study.name, study_url(:action => 'show', :id => request_service.queue.study) %></td>
     <th class="label">Queue</th>
-    <td><%=link_to request_service.queue.name, service_url( :action => 'show', :id => request_service.queue) %>  </td>
+    <td><%=link_to request_service.queue.name, queue_url( :action => 'show', :id => request_service.queue) %>  </td>
   </tr>
   <tr>
       <th class="label"> Status </th>

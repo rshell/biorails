@@ -1,34 +1,54 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: studies
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  category_id        :integer(11)   
-#  research_area      :string(255)   
-#  purpose            :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  project_id         :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
+studies_008: 
+  name: Study-3
+  project_id: "1"
+  updated_at: 2007-04-20 08:50:00
+  purpose: ""
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "8"
+  category_id: 
+  description: test
+  created_by_user_id: "1"
+  created_at: 2007-04-20 08:50:00
+  research_area: ""
+studies_010: 
+  name: Solubility
+  project_id: "4"
+  updated_at: 2007-04-23 18:30:16
+  purpose: ""
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "10"
+  category_id: 
+  description: Test Solubility
+  created_by_user_id: "1"
+  created_at: 2007-04-23 18:30:16
+  research_area: QC
+studies_009: 
+  name: Cell Assay
+  project_id: "4"
+  updated_at: 2007-04-20 12:51:45
+  purpose: test
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "9"
+  category_id: 
+  description: Cell Based Assay
+  created_by_user_id: "1"
+  created_at: 2007-04-20 12:51:45
+  research_area: test
 studies_001: 
   name: Biomarker And Histology
   project_id: "1"
   updated_at: 2007-03-20 16:05:00
   purpose: RF
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "1"
   category_id: 
   description: "A synchronous study covering multiple groups using different techniques and employing request fulfillment to progress the animals under investigation through the three tiers of testing: weight monitoring, taqman analysis and histological analysis."
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:05:00
   research_area: in-vivo
 studies_002: 
@@ -36,12 +56,12 @@ studies_002:
   project_id: "1"
   updated_at: 2007-03-21 10:44:45
   purpose: Case Study
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "2"
-  updated_by: ""
   id: "2"
   category_id: 
   description: An example behavioural study
+  created_by_user_id: "1"
   created_at: 2007-03-21 09:34:46
   research_area: Behavioural
 studies_003: 
@@ -49,12 +69,12 @@ studies_003:
   project_id: "1"
   updated_at: 2007-03-21 12:49:02
   purpose: demo
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "3"
   category_id: 
   description: <h3>Purpose&nbsp;</h3><p>This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report&nbsp;</p>
+  created_by_user_id: "1"
   created_at: 2007-03-21 12:49:02
   research_area: screening
 studies_004: 
@@ -62,50 +82,50 @@ studies_004:
   project_id: "1"
   updated_at: 2007-03-30 19:44:26
   purpose: testing
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "2"
-  updated_by: ""
   id: "4"
   category_id: 
   description: A study for testing
+  created_by_user_id: "1"
   created_at: 2007-03-26 09:44:18
   research_area: testing
 studies_005: 
   name: Dev-Test
-  project_id: 
+  project_id: "1"
   updated_at: 2007-04-18 19:05:03
   purpose: ""
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "5"
   category_id: 
   description: Test
+  created_by_user_id: "1"
   created_at: 2007-04-18 19:05:03
   research_area: ""
 studies_006: 
   name: Dev-Test2
-  project_id: 
+  project_id: "1"
   updated_at: 2007-04-18 19:16:34
   purpose: kk
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "6"
   category_id: 
   description: Test
+  created_by_user_id: "1"
   created_at: 2007-04-18 19:16:34
   research_area: kk
 studies_007: 
   name: Study-2
-  project_id: 
+  project_id: "1"
   updated_at: 2007-04-18 21:22:39
   purpose: test
-  created_by: ""
+  updated_by_user_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "7"
   category_id: 
   description: test
+  created_by_user_id: "1"
   created_at: 2007-04-18 21:22:39
   research_area: test

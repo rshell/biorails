@@ -1,41 +1,18 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: data_elements
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :text          
-#  data_system_id     :integer(11)   not null
-#  data_concept_id    :integer(11)   not null
-#  access_control_id  :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  parent_id          :integer(10)   
-#  style              :string(10)    default(), not null
-#  content            :text          default(), not null
-#  estimated_count    :integer(11)   
-#  type               :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 data_elements_025: 
   name: Progresssion
   updated_at: 2007-03-20 15:55:17
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "3"
-  updated_by: sys
   id: "81"
   description: hit, miss, retest
   content: "'hit','miss','retest'"
   data_concept_id: "49"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-20 15:55:17
@@ -43,16 +20,16 @@ data_elements_014:
   name: Users
   updated_at: 2007-02-28 17:56:19
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "67"
   description: Internal users for the biorails systems
   content: User
   data_concept_id: "48"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 17:56:19
@@ -60,16 +37,16 @@ data_elements_003:
   name: Plate
   updated_at: 2006-10-24 14:03:15
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ViewElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "12"
-  updated_by: sys
   id: "8"
   description: Plates
   content: plates
   data_concept_id: "8"
+  created_by_user_id: "1"
   parent_id: 
   style: sql
   created_at: 2006-10-24 14:03:15
@@ -77,16 +54,16 @@ data_elements_026:
   name: KO
   updated_at: 2007-03-20 15:56:19
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "2"
-  updated_by: sys
   id: "82"
   description: Concept 'knocked-out' out is true
   content: "'True','False'"
   data_concept_id: "49"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-20 15:56:19
@@ -94,16 +71,16 @@ data_elements_015:
   name: ParameterRoles
   updated_at: 2007-02-28 17:57:47
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "6"
-  updated_by: sys
   id: "69"
   description: Parameter Usage Roles for extra classication of a data collected. This allow important results to be easily&nbsp; separated from&nbsp; setting, configuration and raw data saved back to the database.
   content: ParameterRole
   data_concept_id: "31"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 17:57:47
@@ -111,16 +88,16 @@ data_elements_004:
   name: Studies
   updated_at: 2007-01-19 16:08:38
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "4"
-  updated_by: sys
   id: "45"
   description: Studies on system
   content: Study
   data_concept_id: "3"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-01-19 16:08:38
@@ -128,16 +105,16 @@ data_elements_027:
   name: significance
   updated_at: 2007-03-20 16:13:38
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "83"
   description: NS to ****
   content: "'NS','*','**','***','****'"
   data_concept_id: "49"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-20 16:13:38
@@ -145,16 +122,16 @@ data_elements_016:
   name: ParameterTypes
   updated_at: 2007-02-28 17:58:07
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "31"
-  updated_by: sys
   id: "70"
   description: Internal Types of data managed
   content: ParameterType
   data_concept_id: "30"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 17:58:07
@@ -162,16 +139,16 @@ data_elements_005:
   name: Requests
   updated_at: 2007-01-19 16:09:48
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "9"
-  updated_by: sys
   id: "46"
   description: Requests
   content: QueueItem
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-01-19 16:09:48
@@ -179,16 +156,16 @@ data_elements_028:
   name: Boolean
   updated_at: 2007-03-20 21:25:37
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "2"
-  updated_by: sys
   id: "84"
   description: true or false
   content: "'True','False'"
   data_concept_id: "49"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-20 21:25:37
@@ -196,16 +173,16 @@ data_elements_017:
   name: Compounds
   updated_at: 2007-02-28 17:58:55
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "1002"
-  updated_by: sys
   id: "71"
   description: Compounds as sample id
   content: Compound
   data_concept_id: "6"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 17:58:55
@@ -213,16 +190,16 @@ data_elements_006:
   name: Plates
   updated_at: 2007-01-23 09:21:03
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: SqlElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "0"
-  updated_by: sys
   id: "48"
   description: List of Plates defined on the system
   content: select * from plates
   data_concept_id: "7"
+  created_by_user_id: "1"
   parent_id: 
   style: sql
   created_at: 2007-01-23 09:21:03
@@ -230,16 +207,16 @@ data_elements_030:
   name: Target
   updated_at: 2007-04-03 16:52:31
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "86"
   description: Targets
   content: "'T1','T2','T3','T4','T5'"
   data_concept_id: "50"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-04-03 16:52:31
@@ -247,16 +224,16 @@ data_elements_029:
   name: TargetID
   updated_at: 2007-04-03 16:47:26
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "7"
-  updated_by: sys
   id: "85"
   description: Internal ID of the targets used in the projects
   content: "'T011','T012','T014','T015','T0016','T0017','T008'"
   data_concept_id: "1"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-04-03 16:47:26
@@ -264,16 +241,16 @@ data_elements_018:
   name: Tasks
   updated_at: 2007-02-28 17:59:15
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "19"
-  updated_by: sys
   id: "72"
   description: List of Tasks in the system
   content: Task
   data_concept_id: "27"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 17:59:15
@@ -281,16 +258,16 @@ data_elements_007:
   name: COmpounds
   updated_at: 2007-01-23 09:22:24
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: SqlElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "1000"
-  updated_by: sys
   id: "49"
   description: Compounds Id as Sample Identifiers
   content: select * from compounds
   data_concept_id: "7"
+  created_by_user_id: "1"
   parent_id: 
   style: sql
   created_at: 2007-01-23 09:22:24
@@ -298,16 +275,16 @@ data_elements_020:
   name: hours
   updated_at: 2007-02-28 18:00:43
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "6"
-  updated_by: sys
   id: "74"
   description: hours
   content: "1,2,6,12,24,48"
   data_concept_id: "33"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-02-28 18:00:43
@@ -315,16 +292,16 @@ data_elements_019:
   name: Times
   updated_at: 2007-02-28 17:59:43
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "14"
-  updated_by: sys
   id: "73"
   description: Times
   content: "0,1,2,3,4,5,10,15,20,25,30,40,50,100"
   data_concept_id: "33"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-02-28 17:59:43
@@ -332,16 +309,16 @@ data_elements_008:
   name: Route of Administration
   updated_at: 2007-01-31 13:48:35
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "56"
   description: Route of Administration
   content: "'im','iv', 'ip', 'po', 'sc'"
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-01-31 13:48:35
@@ -349,16 +326,16 @@ data_elements_021:
   name: Concentration
   updated_at: 2007-02-28 18:17:28
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "6"
-  updated_by: sys
   id: "75"
   description: Simple Concentrations
   content: "'Mol','mMol','uMol','nMol','pMol','mg/kg'"
   data_concept_id: "26"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-02-28 18:17:28
@@ -366,16 +343,16 @@ data_elements_010:
   name: Mammals
   updated_at: 2007-03-20 15:57:59
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "2"
   data_system_id: "1"
   estimated_count: "4"
-  updated_by: sys
   id: "63"
   description: Small Mammals
   content: "'rat', 'mouse', 'guinea pig', 'moose'"
   data_concept_id: "47"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-01-31 14:35:09
@@ -383,16 +360,16 @@ data_elements_009:
   name: Sex
   updated_at: 2007-01-31 13:49:55
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "2"
-  updated_by: sys
   id: "57"
   description: Male or female (not frequency!)
   content: "'male', 'female'"
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-01-31 13:49:55
@@ -400,16 +377,16 @@ data_elements_022:
   name: Compound Role
   updated_at: 2007-03-08 06:58:48
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "76"
   description: What role does each compound take within an experiment
   content: "'vehicle','negative','positive','challenge','interest'"
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-08 06:58:48
@@ -417,16 +394,16 @@ data_elements_011:
   name: "serum species "
   updated_at: 2007-02-06 09:47:13
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "5"
-  updated_by: sys
   id: "64"
   description: Serum species used in DR-ELIZA study
   content: "'Human', 'Bovine', 'Rat', 'Mouse', 'Guinea Pig'"
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-02-06 09:47:13
@@ -434,16 +411,16 @@ data_elements_023:
   name: Score
   updated_at: 2007-03-30 22:40:53
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "5"
   data_system_id: "1"
   estimated_count: "9"
-  updated_by: sys
   id: "77"
   description: Score
   content: 0,1,2,3,4,5,6,7,8,9
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-08 07:06:52
@@ -451,16 +428,16 @@ data_elements_012:
   name: Eliza Treatments
   updated_at: 2007-02-06 10:28:45
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "4"
-  updated_by: sys
   id: "65"
   description: Eliza treamtments
   content: "'AB ELISA - serum', 'Tox - serum', 'AB ELISA + serum', 'Tox + serum'"
   data_concept_id: "39"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-02-06 10:28:45
@@ -468,16 +445,16 @@ data_elements_001:
   name: Compound
   updated_at: 2006-10-24 11:28:28
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "7"
   data_system_id: "1"
   estimated_count: "1000"
-  updated_by: sys
   id: "1"
   description: Compound
   content: Compound
   data_concept_id: "4"
+  created_by_user_id: "1"
   parent_id: 
   style: sql
   created_at: 2006-10-10 16:59:38
@@ -485,16 +462,16 @@ data_elements_024:
   name: QC
   updated_at: 2007-03-20 15:54:30
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ListElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "3"
-  updated_by: sys
   id: "80"
   description: pass, fail, retest
   content: "'pass','fail','retest'"
   data_concept_id: "49"
+  created_by_user_id: "1"
   parent_id: 
   style: list
   created_at: 2007-03-20 15:54:30
@@ -502,16 +479,16 @@ data_elements_013:
   name: Protocol
   updated_at: 2007-02-28 12:17:59
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: ModelElement
   lock_version: "0"
   data_system_id: "1"
   estimated_count: "9"
-  updated_by: sys
   id: "66"
   description: Protocols
   content: StudyProtocol
   data_concept_id: "25"
+  created_by_user_id: "1"
   parent_id: 
   style: model
   created_at: 2007-02-28 12:17:59
@@ -519,16 +496,16 @@ data_elements_002:
   name: Batch
   updated_at: 2006-10-12 14:22:13
   access_control_id: 
-  created_by: sys
+  updated_by_user_id: "1"
   type: SqlElement
   lock_version: "6"
   data_system_id: "1"
   estimated_count: "12222"
-  updated_by: sys
   id: "2"
   description: Batch
   content: Select * from batches
   data_concept_id: "5"
+  created_by_user_id: "1"
   parent_id: 
   style: sql
   created_at: 2006-10-10 17:00:19

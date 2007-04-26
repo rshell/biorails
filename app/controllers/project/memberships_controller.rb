@@ -17,11 +17,13 @@ class Project::MembershipsController < ApplicationController
   end
 
   def new
+    
     @membership = Membership.new(:project_id=>current_project)
   end
 
   def create
     @membership = Membership.new(params[:membership])
+    current_project.memberships  << @membership    
     if @membership.save
       flash[:notice] = 'Membership was successfully created.'
       redirect_to :action => 'list'

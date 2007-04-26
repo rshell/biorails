@@ -1,87 +1,151 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: memberships
-#
-#  id                 :integer(11)   not null, primary key
-#  user_id            :integer(11)   default(0), not null
-#  project_id         :integer(11)   default(0), not null
-#  role_id            :integer(11)   default(0), not null
-#  owner              :boolean(1)    
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
+memberships_015: 
+  updated_at: 2007-04-23 18:32:33
+  project_id: "0"
+  updated_by_user_id: "1"
+  role_id: "2"
+  id: "15"
+  created_by_user_id: "1"
+  owner: "0"
+  user_id: "6"
+  created_at: 2007-04-23 18:32:33
 memberships_004: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "3"
-  updated_by: sys
   id: "4"
+  created_by_user_id: "1"
   owner: "1"
   user_id: "4"
   created_at: 0000-00-00 00:00:00
 memberships_005: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "3"
-  updated_by: sys
   id: "5"
+  created_by_user_id: "1"
   owner: "1"
   user_id: "6"
   created_at: 0000-00-00 00:00:00
 memberships_006: 
   updated_at: 2007-04-18 14:38:20
   project_id: "3"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "1"
-  updated_by: sys
   id: "6"
+  created_by_user_id: "1"
   owner: "1"
   user_id: "2"
   created_at: 2007-04-18 14:38:20
 memberships_007: 
-  updated_at: 2007-04-18 15:30:13
+  updated_at: 2007-04-19 20:50:06
   project_id: "1"
-  created_by: sys
-  role_id: "3"
-  updated_by: sys
+  updated_by_user_id: "1"
+  role_id: "2"
   id: "7"
+  created_by_user_id: "1"
   owner: "0"
   user_id: "7"
   created_at: 2007-04-18 15:30:13
+memberships_008: 
+  updated_at: 2007-04-20 07:34:32
+  project_id: "4"
+  updated_by_user_id: "1"
+  role_id: "1"
+  id: "8"
+  created_by_user_id: "1"
+  owner: "1"
+  user_id: "3"
+  created_at: 2007-04-20 07:34:32
+memberships_009: 
+  updated_at: 2007-04-20 07:35:03
+  project_id: "5"
+  updated_by_user_id: "1"
+  role_id: "1"
+  id: "9"
+  created_by_user_id: "1"
+  owner: "1"
+  user_id: "3"
+  created_at: 2007-04-20 07:35:03
+memberships_010: 
+  updated_at: 2007-04-20 07:35:25
+  project_id: "6"
+  updated_by_user_id: "1"
+  role_id: "1"
+  id: "10"
+  created_by_user_id: "1"
+  owner: "1"
+  user_id: "3"
+  created_at: 2007-04-20 07:35:25
+memberships_011: 
+  updated_at: 2007-04-20 07:35:57
+  project_id: "0"
+  updated_by_user_id: "1"
+  role_id: "3"
+  id: "11"
+  created_by_user_id: "1"
+  owner: "0"
+  user_id: "4"
+  created_at: 2007-04-20 07:35:57
+memberships_012: 
+  updated_at: 2007-04-20 07:57:01
+  project_id: "0"
+  updated_by_user_id: "1"
+  role_id: "2"
+  id: "12"
+  created_by_user_id: "1"
+  owner: "0"
+  user_id: "4"
+  created_at: 2007-04-20 07:57:01
 memberships_001: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "1"
-  updated_by: sys
   id: "1"
+  created_by_user_id: "1"
   owner: "0"
   user_id: "1"
   created_at: 0000-00-00 00:00:00
+memberships_013: 
+  updated_at: 2007-04-23 18:29:30
+  project_id: "7"
+  updated_by_user_id: "1"
+  role_id: "1"
+  id: "13"
+  created_by_user_id: "1"
+  owner: "1"
+  user_id: "3"
+  created_at: 2007-04-23 18:29:30
 memberships_002: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "3"
-  updated_by: sys
   id: "2"
+  created_by_user_id: "1"
   owner: "1"
   user_id: "2"
   created_at: 0000-00-00 00:00:00
+memberships_014: 
+  updated_at: 2007-04-23 18:32:20
+  project_id: "0"
+  updated_by_user_id: "1"
+  role_id: "3"
+  id: "14"
+  created_by_user_id: "1"
+  owner: "0"
+  user_id: "4"
+  created_at: 2007-04-23 18:32:20
 memberships_003: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
-  created_by: sys
+  updated_by_user_id: "1"
   role_id: "3"
-  updated_by: sys
   id: "3"
+  created_by_user_id: "1"
   owner: "1"
   user_id: "3"
   created_at: 0000-00-00 00:00:00

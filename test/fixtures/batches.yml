@@ -1,36 +1,16 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: batches
-#
-#  id                 :integer(11)   not null, primary key
-#  compound_id        :integer(11)   default(0), not null
-#  name               :string(255)   
-#  description        :text          
-#  external_ref       :string(255)   
-#  quantity_unit      :string(255)   
-#  quantity_value     :float         
-#  url                :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 batches_004: 
   quantity_value: 
   name: AB004
   updated_at: 2006-11-28 16:50:09
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "2"
   url: ""
   compound_id: "4"
-  updated_by: sys
   id: "4"
   description: desc
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 16:48:02
 batches_005: 
@@ -38,13 +18,13 @@ batches_005:
   name: BB004
   updated_at: 2006-11-28 16:50:44
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "3"
-  updated_by: sys
   id: "5"
   description: Desc
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 16:50:44
 batches_006: 
@@ -52,13 +32,13 @@ batches_006:
   name: BB005
   updated_at: 2006-11-28 16:53:17
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "31"
-  updated_by: sys
   id: "6"
   description: desc
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 16:53:16
 batches_007: 
@@ -66,13 +46,13 @@ batches_007:
   name: BB006
   updated_at: 2006-11-28 16:54:12
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "3"
-  updated_by: sys
   id: "7"
   description: desc
+  created_by_user_id: "1"
   external_ref: BB006
   created_at: 2006-11-28 16:54:12
 batches_008: 
@@ -80,13 +60,13 @@ batches_008:
   name: BB007
   updated_at: 2006-11-28 16:59:03
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "1"
-  updated_by: sys
   id: "8"
   description: desc
+  created_by_user_id: "1"
   external_ref: AB001-3
   created_at: 2006-11-28 16:59:03
 batches_010: 
@@ -94,13 +74,13 @@ batches_010:
   name: BB9
   updated_at: 2006-11-28 17:06:01
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "1"
-  updated_by: sys
   id: "10"
   description: desc
+  created_by_user_id: "1"
   external_ref: AB001-4
   created_at: 2006-11-28 17:06:01
 batches_009: 
@@ -108,13 +88,13 @@ batches_009:
   name: BB008
   updated_at: 2006-11-28 16:59:43
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "1"
-  updated_by: sys
   id: "9"
   description: deasc
+  created_by_user_id: "1"
   external_ref: AB001-4
   created_at: 2006-11-28 16:59:43
 batches_001: 
@@ -122,13 +102,13 @@ batches_001:
   name: BB002
   updated_at: 2006-11-28 16:45:42
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "4"
   url: ""
   compound_id: "1"
-  updated_by: sys
   id: "1"
   description: desc
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 14:51:00
 batches_002: 
@@ -136,13 +116,13 @@ batches_002:
   name: B02
   updated_at: 2006-11-28 14:56:07
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "1"
-  updated_by: sys
   id: "2"
   description: another batch
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 14:55:40
 batches_003: 
@@ -150,12 +130,12 @@ batches_003:
   name: BB003
   updated_at: 2006-11-28 16:47:04
   quantity_unit: ""
-  created_by: sys
+  updated_by_user_id: "1"
   lock_version: "1"
   url: ""
   compound_id: "2"
-  updated_by: sys
   id: "3"
   description: Desc
+  created_by_user_id: "1"
   external_ref: ""
   created_at: 2006-11-28 16:47:04

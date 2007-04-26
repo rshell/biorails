@@ -18,13 +18,12 @@
 	<div class="box">
 	<h3 class="icon icon-protocol"><%=l('My Requests')%></h3>
 		<ul>
-		<% for item in @user.lastest(RequestService,5) %>
+		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
 			<li>
 			<%= link_to item.request.name, request_url( :action => 'show', :id => item) %> /
 			<%= link_to item.queue.name, service_url( :action => 'show', :id => item) %> 
 			(<%= short_date item.updated_at %>) 
 			<%= item.status_summary %> <br />
-			 <%= item.request.description %>
 			</li>
 		<% end %>
 		</ul>
@@ -35,7 +34,6 @@
 		<% for item in @user.lastest(StudyQueue,5) %>
 			<li>
 			<%= link_to item.name, queue_url( :action => 'show', :id => item) %> (<%= short_date(item.updated_at) %>) [<%= item.status_summary %>] <br />
-			<%= item.description %>
 			</li>
 		<% end %>
 		</ul>
@@ -66,29 +64,29 @@
 		</ul>
 	</div>  
 	<div class="box">
-	<h3 class="icon icon-task"><%=l('Tasks')%> Recent</h3>
+	<h3 class="icon icon-task"><%=l('Tasks')%> Todo</h3>
 		<ul>
-		<% for item in @user.lastest(Task,5) %>
+		<% for item in @user.tasks.current(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
 		</ul>
 	<h3 class="icon icon-task"><%=l('Tasks')%> Overdue</h3>
 		<ul>
-		<% for item in @user.lastest(Task,5) %>
+		<% for item in @user.tasks.overdue(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
 		</ul>
 	<h3 class="icon icon-task"><%=l('Tasks')%> Soon</h3>
 		<ul>
-		<% for item in @user.lastest(Task,5) %>
+		<% for item in @user.tasks.future(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>

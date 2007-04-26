@@ -16,25 +16,6 @@
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
 #
-
-# == Schema Information
-# Schema version: 233
-#
-# Table name: studies
-#
-#  id            :integer(11)   not null, primary key
-#  name          :string(128)   default(), not null
-#  description   :text          
-#  category_id   :integer(11)   
-#  research_area :string(255)   
-#  purpose       :string(255)   
-#  lock_version  :integer(11)   default(0), not null
-#  created_by    :string(32)    default(), not null
-#  created_at    :datetime      not null
-#  updated_by    :string(32)    default(), not null
-#  updated_at    :datetime      not null
-#
-
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
@@ -97,9 +78,8 @@ class Study < ActiveRecord::Base
 ##
 # List of experiments carried out for this study
 # 
-  has_many :experiments ,
-   :order => "name desc",
-    :dependent => :destroy
+  has_many_scheduled :experiments,  :class_name=>'Experiment',
+                    :foreign_key =>'study_id',:dependent => :destroy,:order => "name desc"
 
 ##
 # The study has a collection of prefered parameters and roles assocated with it

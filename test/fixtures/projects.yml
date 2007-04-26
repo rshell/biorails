@@ -1,28 +1,3 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: projects
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(30)    default(), not null
-#  summary            :text          default(), not null
-#  status_id          :integer(11)   default(0), not null
-#  title              :string(255)   
-#  email              :string(255)   
-#  host               :string(255)   
-#  comment_age        :integer(11)   
-#  timezone           :string(255)   
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  start_date         :datetime      
-#  end_date           :datetime      
-#  expected_date      :datetime      
-#  done_hours         :float         
-#  expected_hours     :float         
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 projects_001: 
   done_hours: 
@@ -33,11 +8,11 @@ projects_001:
   updated_at: 0000-00-00 00:00:00
   title: Global
   expected_date: 
-  created_by: sys
   timezone: 
-  updated_by: sys
+  updated_by_user_id: "1"
   id: "1"
   summary: Public Area for open work everyone allowed to see!
+  created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
@@ -52,13 +27,89 @@ projects_002:
   updated_at: 2007-04-18 14:38:20
   title: 
   expected_date: 
-  created_by: sys
   timezone: 
-  updated_by: sys
+  updated_by_user_id: "1"
   id: "3"
   summary: Assay Development
+  created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
   created_at: 2007-04-18 14:38:20
+  email: 
+projects_003: 
+  done_hours: 
+  end_date: 
+  start_date: 
+  name: AssayDev
+  expected_hours: 
+  updated_at: 2007-04-20 07:34:32
+  title: 
+  expected_date: 
+  timezone: 
+  updated_by_user_id: "1"
+  id: "4"
+  summary: Assay Development Area
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-20 07:34:32
+  email: 
+projects_004: 
+  done_hours: 
+  end_date: 
+  start_date: 
+  name: HTS
+  expected_hours: 
+  updated_at: 2007-04-20 07:35:03
+  title: 
+  expected_date: 
+  timezone: 
+  updated_by_user_id: "1"
+  id: "5"
+  summary: High Throughput Screening
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-20 07:35:03
+  email: 
+projects_005: 
+  done_hours: 
+  end_date: 
+  start_date: 
+  name: Tox
+  expected_hours: 
+  updated_at: 2007-04-20 07:35:25
+  title: 
+  expected_date: 
+  timezone: 
+  updated_by_user_id: "1"
+  id: "6"
+  summary: Tox Profile
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-20 07:35:25
+  email: 
+projects_006: 
+  done_hours: 
+  end_date: 
+  start_date: 
+  name: Profiling
+  expected_hours: 
+  updated_at: 2007-04-23 18:29:30
+  title: 
+  expected_date: 
+  timezone: 
+  updated_by_user_id: "1"
+  id: "7"
+  summary: Profiling
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  created_at: 2007-04-23 18:29:30
   email: 

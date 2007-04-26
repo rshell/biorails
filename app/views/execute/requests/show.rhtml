@@ -1,31 +1,36 @@
-   <% tab_ids = ['tab-services','tab-items','tab-results']%>   
-   <% tab_names = ['Services','Materials','Results']%>   
-   <%=tab_setup(tab_ids,tab_names) %>
 
 <% content_for :centre do -%>
 
-<h2>  Request <%=subject_icon('services')%> <%= @request.name %>    </h2>
+<h2>  Request <%=subject_icon('services')%> <%= @user_request.name %>    </h2>
    
     <div class='panel'>
-    <%= render :partial => 'request', :locals => { :request => @request } %>  
+    <%= render :partial => 'request', :locals => { :request => @user_request } %>  
     
-    <div class='tab_stuff'>
-       <%= tab_divide(tab_ids,tab_names,0) %>                                          
-            <%= render :partial => 'services', :locals => { :request => @request } %>  
-        </div>  
+    <h4>Services requested </h4>
+    <div class='box'>
+    <%= render :partial => 'services', :locals => { :request =>@user_request } %>  
+    </div>  
+
+    <h4>Status of Items </h4>
+    <div class='box'>
+        <%= render :partial => 'items', :locals => { :request => @user_request } %>
+    </div>  
+
+    <h4> Folder </h4>
+    <div class='box'>
+       <% for item in @project_folder.elements %>
+			<li>
+			<%= image_tag(item.icon) %>
+			<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.summary %>
+			</li>
+	   <% end %>
+    </div>    
     
-       <%= tab_divide(tab_ids,tab_names,1) %>   
-            <%= render :partial => 'items', :locals => { :request => @request } %>
-        </div>  
-    
-        <%= tab_divide(tab_ids,tab_names,2) %>                                
-            <%= render :partial => 'results', :locals => { :request => @request } %>  
-        </div>  
-    </div>
 </div>
 
 <div class='panel'>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @request} %>
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
 </div>
 
 <%end%>
@@ -39,12 +44,4 @@ In the request the user may add new materials and services over time if the init
 produce further work. 
 </p>
 </div> 
-
-<div class="actions">
-    <ul>
-        <li><%= link_to subject_icon('new.png') +'New', :action => 'new' %></li>
-        <li><%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @request %></li>
-        <li><%= link_to subject_icon('list.png') +'List', :action => 'list' %></li>
-    </ul>
-</div>
 <%end %>    

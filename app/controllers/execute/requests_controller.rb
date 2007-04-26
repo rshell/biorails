@@ -63,14 +63,16 @@ class Execute::RequestsController < ApplicationController
 # Show the status of a request item with a history of testing of the requested item in the 
 # current study. eg a schedule of task data entry
   def show
-    @request = current(Request,params[:id])
+    @user_request = current(Request,params[:id])
+    @project_folder =current_project.folder(@user_request)
   end
 
 ##
 # Display form for a new request item
   def new
-    @request = Request.new(:name=> Identifier.next_id(Request))
-    @request.status_id = 0
+    @user_request = Request.new(:name=> Identifier.next_id(Request))
+    @user_request.requested_by_user_id = current_user.id
+    @user_request.status_id = 0
   end
 
 ##
@@ -79,10 +81,12 @@ class Execute::RequestsController < ApplicationController
 #
   def create
     ok = true
-    @request = Request.create(params[:request])
-    if @request
+    @user_request = Request.create(params[:user_request])
+    @user_request.project = current_project
+    if @user_request
+      @project_folder =current_project.folder(@user_request)
       flash[:notice] = 'Request was successfully created.'
-      redirect_to :action => 'edit',:id=> @request.id
+      redirect_to :action => 'edit',:id=> @user_request.id
     else
       flash[:warning] = " Failed to create request "
       render :action => 'new'
@@ -93,36 +97,36 @@ class Execute::RequestsController < ApplicationController
 # add a item to the request
 # 
   def add_item
-    @request = Request.find(params[:id])
-    @item = @request.add_item(params[:name])
+    @user_request = Request.find(params[:id])
+    @item = @user_request.add_item(params[:name])
     unless @item
-      flash[:warning] = " Could not find #{@request.data_element.name} with name #{params[:name]} in database "
+      flash[:warning] = " Could not find #{@user_request.data_element.name} with name #{params[:name]} in database "
     end
     return render(:action => 'add_item.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@request.id
+    redirect_to :action => 'edit',:id=>@user_request.id
   end
 
 ##
 # remove a service from the requested list  
 # 
   def remove_item
-    @request = Request.find(params[:request_id])
+    @user_request = Request.find(params[:request_id])
     @list_item = ListItem.find(params[:id])
-    @request.remove_item(@list_item.value)
+    @user_request.remove_item(@list_item.value)
     @list_item.destroy
     return render(:action => 'refresh_services.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@request.id
+    redirect_to :action => 'edit',:id=>@user_request.id
   end
 
 ###
 # add a service to the current request
 #   
   def add_service
-    @request = Request.find(params[:id])
+    @user_request = Request.find(params[:id])
     @queue = StudyQueue.find(params[:service][:id])
-    @request.add_service(@queue)
+    @user_request.add_service(@queue)
     return render(:action => 'add_service.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@request.id
+    redirect_to :action => 'edit',:id=>@user_request.id
   end
 
 ##
@@ -130,15 +134,16 @@ class Execute::RequestsController < ApplicationController
 # 
   def remove_service
     @request_service = RequestService.find(params[:id])
-    @request = @request_service.request
+    @user_request = @request_service.request
     @request_service.destroy
     return render(:action => 'refresh_services.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@request.id
+    redirect_to :action => 'edit',:id=>@user_request.id
   end
 ##
 # Display the edit form for a item in the request
   def edit
-    @request = Request.find(params[:id])
+    @user_request = Request.find(params[:id])
+    @project_folder =current_project.folder(@user_request)
   end
 
 
@@ -146,13 +151,13 @@ class Execute::RequestsController < ApplicationController
 # update a item in the request
 # 
   def update
-    @request = Request.find(params[:id])
-    @request.current_state_id = params[:request][:current_state_id]
-    if @request.update_attributes(params[:request])
-   
-      @request.services.each{|item|item.submit}   
+    @user_request = Request.find(params[:id])
+    @user_request.current_state_id = params[:user_request][:current_state_id]
+    if @user_request.update_attributes(params[:user_request])
+      
+      @user_request.services.each{|item|item.submit}   
       flash[:notice] = 'QueueItem was successfully updated.'
-      redirect_to :action => 'show',:id=>@request.id
+      redirect_to :action => 'show',:id=>@user_request.id
     else
       render :action => 'edit'
     end

@@ -69,6 +69,11 @@ class Project < ActiveRecord::Base
   has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name'
 
   has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name'
+  
+  has_many_scheduled :studies,  :class_name=>'Study',:foreign_key =>'project_id'
+  has_many_scheduled :experiments,  :class_name=>'Experiment',:foreign_key =>'project_id'
+  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'project_id'
+
 ##
 # Create a project root folder after create of project
 # 
@@ -195,33 +200,10 @@ class Project < ActiveRecord::Base
 ##
 # Get a list of a folders linked to a model
 # 
-    def folders_for(model)
-      ProjectFolder.find(:all, :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
-    end
-##
-# All the study folders linked to this project
-#
-    def studies
-       folders_for('Study')
-    end
-##
-# All the experiment folders linked to this project
-#
-    def experiments
-       folders_for('Experiment')
-    end
-##
-# All the task folders linked to this project
-#
-    def tasks
-       folders_for('Task')
-    end
-##
-# All the request folder linked to a project
-# 
-    def requests
-       folders_for('Request')
-    end
+  def folders_for(model)
+    ProjectFolder.find(:all, :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
+  end
+
 
   def accept_comments?
     comment_age.to_i > -1

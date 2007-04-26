@@ -85,6 +85,8 @@ class Task < ActiveRecord::Base
 #
  has_many :roots, :class_name =>'TaskContext', :order => 'row_no', :conditions=>'parent_id is null'
 
+ belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
+ 
 ##
 # Ok links to complete sets of TaskItems associated with the Task.
 # Generally for working with data a complete task is loaded into server

@@ -1,34 +1,28 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: queue_items
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  comments           :text          
-#  study_queue_id     :integer(11)   
-#  experiment_id      :integer(11)   
-#  task_id            :integer(11)   
-#  study_parameter_id :integer(11)   
-#  data_type          :string(255)   
-#  data_id            :integer(11)   
-#  data_name          :string(255)   
-#  requested_by       :string(60)    
-#  assigned_to        :string(60)    
-#  requested_for      :datetime      
-#  accepted_at        :datetime      
-#  completed_at       :datetime      
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  request_service_id :integer(11)   
-#  status_id          :integer(11)   
-#  priority_id        :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
+queue_items_019: 
+  completed_at: 
+  accepted_at: 
+  data_name: AB004
+  experiment_id: 
+  name: AB004
+  updated_at: 2007-04-19 20:52:30
+  assigned_to: "6"
+  requested_by: rshell
+  study_queue_id: "19"
+  comments: From RS-8-19
+  request_service_id: "16"
+  task_id: 
+  updated_by_user_id: "1"
+  priority_id: "1"
+  lock_version: "1"
+  data_type: Compound
+  id: "19"
+  requested_for: 2007-04-20 00:00:00
+  study_parameter_id: "48"
+  created_by_user_id: "1"
+  status_id: "0"
+  data_id: "4"
+  created_at: 2007-04-19 20:52:30
 queue_items_008: 
   completed_at: 
   accepted_at: 
@@ -36,20 +30,20 @@ queue_items_008:
   experiment_id: 
   name: r8
   updated_at: 2007-01-09 13:39:00
-  assigned_to: 
+  assigned_to: "3"
   requested_by: thawkins
   study_queue_id: "4"
   comments: ""
   request_service_id: 
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "0"
   data_type: 
-  updated_by: ""
   id: "8"
   requested_for: 2007-01-15 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 13:39:00
@@ -60,20 +54,20 @@ queue_items_009:
   experiment_id: 
   name: r8
   updated_at: 2007-01-09 13:39:19
-  assigned_to: 
+  assigned_to: "3"
   requested_by: thawkins
   study_queue_id: "4"
   comments: ""
   request_service_id: 
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "0"
   data_type: 
-  updated_by: ""
   id: "9"
   requested_for: 2007-01-15 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 13:39:19
@@ -81,48 +75,48 @@ queue_items_010:
   completed_at: 
   accepted_at: 2007-03-21 13:31:49
   data_name: AB001
-  experiment_id: 
+  experiment_id: "5"
   name: AB001
-  updated_at: 2007-03-21 13:32:00
+  updated_at: 2007-04-24 14:07:50
   assigned_to: "4"
   requested_by: thawkins
   study_queue_id: "15"
   comments: From RS-4-15
   request_service_id: "9"
-  created_by: ""
-  task_id: 
-  priority_id: "2"
-  lock_version: "3"
+  task_id: "22"
+  updated_by_user_id: "1"
+  priority_id: "1"
+  lock_version: "6"
   data_type: Compound
-  updated_by: ""
   id: "10"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "15"
-  status_id: "1"
+  created_by_user_id: "1"
+  status_id: "4"
   data_id: "1"
   created_at: 2007-03-21 13:30:23
 queue_items_011: 
   completed_at: 
   accepted_at: 2007-03-21 13:31:52
   data_name: AB002
-  experiment_id: 
+  experiment_id: "5"
   name: AB002
-  updated_at: 2007-03-21 13:32:01
+  updated_at: 2007-04-24 14:07:50
   assigned_to: "4"
   requested_by: thawkins
   study_queue_id: "15"
   comments: From RS-4-15
   request_service_id: "9"
-  created_by: ""
-  task_id: 
-  priority_id: "1"
-  lock_version: "3"
+  task_id: "22"
+  updated_by_user_id: "1"
+  priority_id: "0"
+  lock_version: "6"
   data_type: Compound
-  updated_by: ""
   id: "11"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "15"
-  status_id: "1"
+  created_by_user_id: "1"
+  status_id: "4"
   data_id: "2"
   created_at: 2007-03-21 13:30:23
 queue_items_012: 
@@ -137,15 +131,15 @@ queue_items_012:
   study_queue_id: "15"
   comments: From RS-4-15
   request_service_id: "9"
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: "1"
   lock_version: "3"
   data_type: Compound
-  updated_by: ""
   id: "12"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "15"
+  created_by_user_id: "1"
   status_id: "1"
   data_id: "3"
   created_at: 2007-03-21 13:30:23
@@ -156,20 +150,20 @@ queue_items_001:
   experiment_id: 
   name: req/1
   updated_at: 2007-01-09 12:44:59
-  assigned_to: rshell
+  assigned_to: "3"
   requested_by: alemon
   study_queue_id: "1"
   comments: OK
   request_service_id: 
-  created_by: ""
   task_id: "95"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "2"
   data_type: 
-  updated_by: ""
   id: "1"
   requested_for: 2007-01-16 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 09:37:32
@@ -185,15 +179,15 @@ queue_items_013:
   study_queue_id: "18"
   comments: From RS-4-18
   request_service_id: "10"
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: "1"
   lock_version: "3"
   data_type: Compound
-  updated_by: ""
   id: "13"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "29"
+  created_by_user_id: "1"
   status_id: "5"
   data_id: "1"
   created_at: 2007-03-21 13:30:24
@@ -204,20 +198,20 @@ queue_items_002:
   experiment_id: 
   name: req/2
   updated_at: 2007-01-09 10:03:36
-  assigned_to: thawkins
+  assigned_to: "3"
   requested_by: alemon
   study_queue_id: "1"
   comments: ""
   request_service_id: 
-  created_by: ""
   task_id: "95"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: 
-  updated_by: ""
   id: "2"
   requested_for: 2007-01-16 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 09:37:46
@@ -233,15 +227,15 @@ queue_items_014:
   study_queue_id: "18"
   comments: From RS-4-18
   request_service_id: "10"
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "2"
   data_type: Compound
-  updated_by: ""
   id: "14"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "29"
+  created_by_user_id: "1"
   status_id: "2"
   data_id: "2"
   created_at: 2007-03-21 13:30:24
@@ -252,20 +246,20 @@ queue_items_003:
   experiment_id: 
   name: rea/3
   updated_at: 2007-01-09 10:02:39
-  assigned_to: alemon
+  assigned_to: "3"
   requested_by: alemon
   study_queue_id: "2"
   comments: Cannot do this assay in 1 day!
   request_service_id: 
-  created_by: ""
   task_id: "123"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: 
-  updated_by: ""
   id: "3"
   requested_for: 2007-01-10 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 09:38:52
@@ -281,15 +275,15 @@ queue_items_015:
   study_queue_id: "18"
   comments: From RS-4-18
   request_service_id: "10"
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: Compound
-  updated_by: ""
   id: "15"
   requested_for: 2007-03-28 00:00:00
   study_parameter_id: "29"
+  created_by_user_id: "1"
   status_id: "0"
   data_id: "3"
   created_at: 2007-03-21 13:30:24
@@ -300,23 +294,47 @@ queue_items_004:
   experiment_id: 
   name: r/4
   updated_at: 2007-01-09 10:04:11
-  assigned_to: agibson
+  assigned_to: "3"
   requested_by: alemon
   study_queue_id: "2"
   comments: v.v.\important
   request_service_id: 
-  created_by: ""
   task_id: "123"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: 
-  updated_by: ""
   id: "4"
   requested_for: 2007-01-15 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 09:39:54
+queue_items_016: 
+  completed_at: 
+  accepted_at: 2007-04-23 16:31:54
+  data_name: AB003
+  experiment_id: 
+  name: AB003
+  updated_at: 2007-04-23 15:32:01
+  assigned_to: "2"
+  requested_by: rshell
+  study_queue_id: "15"
+  comments: From RS-8-15
+  request_service_id: "15"
+  task_id: 
+  updated_by_user_id: "1"
+  priority_id: "0"
+  lock_version: "3"
+  data_type: Compound
+  id: "16"
+  requested_for: 2007-04-20 00:00:00
+  study_parameter_id: "15"
+  created_by_user_id: "1"
+  status_id: "1"
+  data_id: "3"
+  created_at: 2007-04-19 20:52:29
 queue_items_005: 
   completed_at: 2007-01-16 00:00:00
   accepted_at: 
@@ -324,23 +342,47 @@ queue_items_005:
   experiment_id: 
   name: r/5
   updated_at: 2007-01-09 10:30:39
-  assigned_to: alemon
+  assigned_to: "3"
   requested_by: thawkins
   study_queue_id: "2"
   comments: ""
   request_service_id: 
-  created_by: ""
   task_id: "125"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: 
-  updated_by: ""
   id: "5"
   requested_for: 2007-01-09 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 10:28:00
+queue_items_017: 
+  completed_at: 
+  accepted_at: 2007-04-23 16:31:57
+  data_name: AB004
+  experiment_id: 
+  name: AB004
+  updated_at: 2007-04-23 15:32:04
+  assigned_to: "2"
+  requested_by: rshell
+  study_queue_id: "15"
+  comments: From RS-8-15
+  request_service_id: "15"
+  task_id: 
+  updated_by_user_id: "1"
+  priority_id: "0"
+  lock_version: "3"
+  data_type: Compound
+  id: "17"
+  requested_for: 2007-04-20 00:00:00
+  study_parameter_id: "15"
+  created_by_user_id: "1"
+  status_id: "1"
+  data_id: "4"
+  created_at: 2007-04-19 20:52:29
 queue_items_006: 
   completed_at: 2007-02-09 00:00:00
   accepted_at: 
@@ -348,23 +390,47 @@ queue_items_006:
   experiment_id: 
   name: r/6
   updated_at: 2007-01-09 13:41:39
-  assigned_to: ""
+  assigned_to: "3"
   requested_by: thawkins
   study_queue_id: "2"
   comments: Finished
   request_service_id: 
-  created_by: ""
   task_id: "129"
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "1"
   data_type: 
-  updated_by: ""
   id: "6"
   requested_for: 2007-01-09 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 10:28:03
+queue_items_018: 
+  completed_at: 
+  accepted_at: 
+  data_name: AB003
+  experiment_id: 
+  name: AB003
+  updated_at: 2007-04-19 20:52:30
+  assigned_to: "6"
+  requested_by: rshell
+  study_queue_id: "19"
+  comments: From RS-8-19
+  request_service_id: "16"
+  task_id: 
+  updated_by_user_id: "1"
+  priority_id: "1"
+  lock_version: "1"
+  data_type: Compound
+  id: "18"
+  requested_for: 2007-04-20 00:00:00
+  study_parameter_id: "48"
+  created_by_user_id: "1"
+  status_id: "0"
+  data_id: "3"
+  created_at: 2007-04-19 20:52:30
 queue_items_007: 
   completed_at: 
   accepted_at: 
@@ -372,20 +438,20 @@ queue_items_007:
   experiment_id: 
   name: r6
   updated_at: 2007-01-09 10:28:56
-  assigned_to: 
+  assigned_to: "3"
   requested_by: thawkins
   study_queue_id: "1"
   comments: ""
   request_service_id: 
-  created_by: ""
   task_id: 
+  updated_by_user_id: "1"
   priority_id: 
   lock_version: "0"
   data_type: 
-  updated_by: ""
   id: "7"
   requested_for: 2007-01-10 00:00:00
   study_parameter_id: 
+  created_by_user_id: "1"
   status_id: 
   data_id: 
   created_at: 2007-01-09 10:28:56

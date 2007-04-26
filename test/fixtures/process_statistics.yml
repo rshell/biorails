@@ -1,22 +1,3 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: process_statistics
-#
-#  id                  :integer(11)   default(0), not null, primary key
-#  study_parameter_id  :integer(11)   
-#  protocol_version_id :integer(11)   
-#  parameter_id        :integer(11)   
-#  parameter_role_id   :integer(11)   
-#  parameter_type_id   :integer(11)   
-#  avg_values          :float         
-#  stddev_values       :float         
-#  num_values          :integer(20)   default(0), not null
-#  num_unique          :integer(20)   default(0), not null
-#  max_values          :float         
-#  min_values          :float         
-#
-
 --- 
 process_statistics_073: 
   protocol_version_id: "7"
@@ -991,7 +972,7 @@ process_statistics_005:
   parameter_id: "58"
   max_values: "21.90915587"
   study_parameter_id: "2"
-  stddev_values: "3.22931777988595"
+  stddev_values: "3.22931777988596"
   num_unique: "32"
 process_statistics_026: 
   protocol_version_id: "12"
@@ -1212,5 +1193,5 @@ process_statistics_051:
   parameter_id: "153"
   max_values: "1.1"
   study_parameter_id: "43"
-  stddev_values: "0.189113428631836"
+  stddev_values: "0.189113428631837"
   num_unique: "5"

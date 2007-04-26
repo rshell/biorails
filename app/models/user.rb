@@ -79,9 +79,11 @@ class User < ActiveRecord::Base
   has_many :requests ,   :class_name=>'Request',      :foreign_key=> 'requested_by_user_id'
   has_many :studies ,    :class_name=>'Study',        :foreign_key=> 'created_by_user_id'
   has_many :protocols ,  :class_name=>'StudyProtocol',:foreign_key=> 'created_by_user_id'
-  has_many :experiments ,:class_name=>'Experiment',   :foreign_key=> 'created_by_user_id'
-  has_many :tasks ,      :class_name=>'Task',         :foreign_key=> 'assigned_to_user_id'
-  has_many :queue_items, :class_name=>'QueueItem',    :foreign_key=> 'assigned_to_user_id'
+
+  has_many_scheduled :requested_services ,:class_name=>'RequestService', :foreign_key=> 'requested_by_user_id'  
+  has_many_scheduled :experiments ,:class_name=>'Experiment',   :foreign_key=> 'created_by_user_id'  
+  has_many_scheduled :tasks ,      :class_name=>'Task',         :foreign_key=> 'assigned_to_user_id'   
+  has_many_scheduled :queue_items, :class_name=>'QueueItem',    :foreign_key=> 'assigned_to_user_id'
 ##
 # unstructured data
 # 
@@ -136,12 +138,15 @@ class User < ActiveRecord::Base
 ###
 # Get the lastest n record of a type linked to this user   
 # 
-  def lastest(model = Task, count=5)
-    if model.columns.any?{|c|c.name=='assigned_to_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
-       model.find(:all,:conditions => ['created_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)
+  def lastest(model = Task, count=5, field=nil)
+    if field and model.columns.any?{|c|c.name==field.to_s} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => [field.to_s,self.id] , :order=>'updated_at desc',:limit => count)
        
-    elsif model.columns.any?{|c|c.name=='requested_for_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
-       model.find(:all,:conditions => ['created_by_user_id=?',self.id] ,:order=>'updated_at desc',:limit => count)
+    elsif model.columns.any?{|c|c.name=='assigned_to_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['assigned_to_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)
+       
+    elsif model.columns.any?{|c|c.name=='requested_by_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
+       model.find(:all,:conditions => ['requested_by_user_id=?',self.id] ,:order=>'updated_at desc',:limit => count)
        
     elsif model.columns.any?{|c|c.name=='updated_by_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
        model.find(:all,:conditions => ['updated_by_user_id=?',self.id], :order=>'updated_at desc',:limit => count)

@@ -5,14 +5,19 @@
     </h2>
     
     <%= render :partial => 'task' %>      
-<br/>
 
-    <div class="panel">
+<h4> Requests Fulfilled </h2>
+    <div class="box">
        <%= render :partial => '/organize/study_queues/queue_items',:locals=>{:queue_items=>@task.queue_items} %>
     </div>
-<br/>
-    <div class="panel">
+<h4> Content </h2>
+    <div class="box">
        <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
+    </div>
+
+<h4> Summary Status </h2>
+    <div class="box">
+      <%= render :partial => 'stats' %>  
     </div>
 
 <% end %>

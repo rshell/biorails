@@ -384,7 +384,7 @@ end
     when 'Experiment':      experiment_url(:action=>'show', :id=> element.reference_id )
     when 'Task':            task_url(:action=>'show', :id=> element.reference_id )
     when 'Report':          report_url(:action=>'show', :id=> element.reference_id )
-    when 'Request':         report_url(:action=>'show', :id=> element.reference_id )
+    when 'Request':         request_url(:action=>'show', :id=> element.reference_id )
     when 'Compound':        compound_url(:action=>'show', :id=> element.reference_id )
     else
        folder_url(:action=>'show', :id=> element.id )

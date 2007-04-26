@@ -1,7 +1,7 @@
 <% content_for :centre do -%>
-<h2>        <%=subject_icon('services')%> New Request  [<strong><%=h @request.name%></strong>]  </h2>
+<h2>        <%=subject_icon('services')%> New Request  [<strong><%=h @user_request.name%></strong>]  </h2>
  
-    <%= error_messages_for 'request' %>
+    <%= error_messages_for 'user_request' %>
 
     <div class="dialog">                              
       <% form_tag :action => 'create' do %>

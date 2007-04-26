@@ -1,332 +1,313 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: parameter_types
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(255)   default(), not null
-#  weighing           :integer(11)   default(0), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  data_concept_id    :integer(11)   
-#  data_type_id       :integer(11)   
-#  storage_unit       :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 parameter_types_020: 
   name: Score
   storage_unit: 
   updated_at: 2007-03-20 16:00:58
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "20"
   description: Scored values 1..10
   data_concept_id: "39"
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:00:58
   weighing: "0"
 parameter_types_009: 
   name: Concentration
   storage_unit: 
   updated_at: 2007-03-20 14:16:57
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "9"
   description: Concentration (not dose)
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:16:57
   weighing: "0"
 parameter_types_021: 
   name: Date
   storage_unit: 
   updated_at: 2007-03-20 16:01:14
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "3"
   lock_version: "0"
-  updated_by: ""
   id: "21"
   description: Date
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:01:14
   weighing: "0"
 parameter_types_010: 
   name: Dose
   storage_unit: 
   updated_at: 2007-03-20 14:18:14
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "10"
   description: Dose (Not concentration)
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:18:14
   weighing: "0"
 parameter_types_022: 
   name: Time
   storage_unit: 
   updated_at: 2007-03-20 16:01:40
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "4"
   lock_version: "0"
-  updated_by: ""
   id: "22"
   description: Time (hh:mm:ss) of observation
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:01:40
   weighing: "0"
 parameter_types_011: 
   name: Correction Factor
   storage_unit: 
   updated_at: 2007-03-20 14:18:36
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "11"
   description: Numeric facture used to adjust data
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:18:36
   weighing: "0"
 parameter_types_023: 
   name: Compound
   storage_unit: 
   updated_at: 2007-03-20 16:23:42
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "23"
   description: Compound under investigation
   data_concept_id: "4"
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:23:42
   weighing: "0"
 parameter_types_012: 
   name: Sample Size
   storage_unit: 
   updated_at: 2007-03-20 14:19:04
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "12"
   description: Integer - size of treatment group, number of obs etc
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:19:04
   weighing: "0"
 parameter_types_001: 
   name: Label
   storage_unit: 
   updated_at: 2007-03-20 14:13:11
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "1"
   description: Text - used for labels, well ref etc
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:13:11
   weighing: "0"
 parameter_types_024: 
   name: Target
   storage_unit: 
   updated_at: 2007-04-03 16:56:22
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "25"
   description: Target
   data_concept_id: "50"
+  created_by_user_id: "1"
   created_at: 2007-04-03 16:56:22
   weighing: "0"
 parameter_types_013: 
   name: Link
   storage_unit: 
   updated_at: 2007-03-20 14:59:55
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "6"
   lock_version: "0"
-  updated_by: ""
   id: "13"
   description: Link, URL pathname
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:59:55
   weighing: "0"
 parameter_types_002: 
   name: Note
   storage_unit: 
   updated_at: 2007-03-20 14:13:50
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "0"
-  updated_by: ""
   id: "2"
   description: Textual note
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:13:50
   weighing: "0"
 parameter_types_014: 
   name: Calculation
   storage_unit: 
   updated_at: 2007-03-20 15:00:50
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "14"
   description: Calculated Value
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 15:00:50
   weighing: "0"
 parameter_types_003: 
   name: Activity
   storage_unit: 
   updated_at: 2007-03-20 14:14:31
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "3"
   description: Normalised data used in screening for example
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:14:31
   weighing: "0"
 parameter_types_015: 
   name: Sex
   storage_unit: 
   updated_at: 2007-03-20 15:01:35
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "15"
   description: Sex - dictionary (lookup)
   data_concept_id: "39"
+  created_by_user_id: "1"
   created_at: 2007-03-20 15:01:35
   weighing: "0"
 parameter_types_004: 
   name: Statistic
   storage_unit: 
   updated_at: 2007-03-20 14:14:55
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "4"
   description: Derived numerical statistic
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:14:55
   weighing: "0"
 parameter_types_016: 
   name: Route of Administration
   storage_unit: 
   updated_at: 2007-03-20 15:02:13
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "16"
   description: Route of administration - dictionary
   data_concept_id: "39"
+  created_by_user_id: "1"
   created_at: 2007-03-20 15:02:13
   weighing: "0"
 parameter_types_005: 
   name: Index
   storage_unit: 
   updated_at: 2007-03-20 14:15:12
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "5"
   description: Used as a key in tables
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:15:12
   weighing: "0"
 parameter_types_017: 
   name: Species
   storage_unit: 
   updated_at: 2007-03-20 15:58:56
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "1"
-  updated_by: ""
   id: "17"
   description: Species - dictionary (lookup)
   data_concept_id: "47"
+  created_by_user_id: "1"
   created_at: 2007-03-20 15:02:41
   weighing: "0"
 parameter_types_006: 
   name: Counts
   storage_unit: 
   updated_at: 2007-03-20 14:15:39
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "6"
   description: CPM, Behavioral counts etc
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:15:39
   weighing: "0"
 parameter_types_018: 
   name: Flag
   storage_unit: 
   updated_at: 2007-03-20 15:59:28
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "18"
   description: QC, progression and KO flags
   data_concept_id: "49"
+  created_by_user_id: "1"
   created_at: 2007-03-20 15:59:28
   weighing: "0"
 parameter_types_007: 
   name: Measure
   storage_unit: 
   updated_at: 2007-03-20 14:16:03
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "7"
   description: A double, physical measurement
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:16:03
   weighing: "0"
 parameter_types_019: 
   name: Treatment Role
   storage_unit: 
   updated_at: 2007-03-20 16:00:18
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
-  updated_by: ""
   id: "19"
   description: Role of treatment - vehicle, subject etc
   data_concept_id: "39"
+  created_by_user_id: "1"
   created_at: 2007-03-20 16:00:18
   weighing: "0"
 parameter_types_008: 
   name: Fit Statistic
   storage_unit: 
   updated_at: 2007-03-20 14:16:30
-  created_by: ""
+  updated_by_user_id: "1"
   data_type_id: "2"
   lock_version: "0"
-  updated_by: ""
   id: "8"
   description: Statistics generated from fitting activities
   data_concept_id: 
+  created_by_user_id: "1"
   created_at: 2007-03-20 14:16:30
   weighing: "0"

@@ -68,6 +68,7 @@ class StudyQueue < ActiveRecord::Base
 # Stage the protocol is linked into 
  belongs_to :stage,  :class_name =>'StudyStage',:foreign_key=>'study_stage_id'
 
+ belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
  
 ##
 # Study Has a number of queues associated with it
@@ -86,7 +87,7 @@ class StudyQueue < ActiveRecord::Base
            attr[:request_service_id] = request_service.id
            attr[:priority_id]   = request_service.priority_id
            attr[:requested_for] = request_service.requested_for
-           attr[:requested_by]  = request_service.requested_by
+           attr[:requested_by_user_id]  = request_service.requested_by_user_id
            attr[:comments] = "From #{request_service.name}"
        end     
        

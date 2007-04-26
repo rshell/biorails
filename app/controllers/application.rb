@@ -132,7 +132,6 @@ class ApplicationController < ActionController::Base
     return instance
   rescue Exception => ex
       logger.error "current error: #{ex.message}"
-      return lastest(model)
   end
 
 ##
@@ -198,7 +197,7 @@ protected
   end  
 
   def set_folder(folder)
-      logger.info("set_folder #{folder.name}")
+      logger.info("set_folder #{folder.name} ")
       if folder.project.member(current_user)
          session[:current_folder_id] = folder.id
          @current_folder = folder

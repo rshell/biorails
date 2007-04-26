@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <th class="label"><%=subject_icon('status')%>Status   </th><td><%=@task.status%></td>
-        <th class="label"><%=subject_icon('lab_worker')%> Assigned To  </th><td><%=@task.assigned_to%></td></tr>
+        <th class="label"><%=subject_icon('lab_worker')%> Assigned To  </th><td><%=@task.assigned_to.name%></td></tr>
       <tr>
         <th class="label"><%=subject_icon('time')%> Expected (hours)  </th><td><%=@task.expected_hours%></td>
         <th class="label"><%=subject_icon('done')%> Done (hours)  </th><td><%=@task.done_hours%></td>

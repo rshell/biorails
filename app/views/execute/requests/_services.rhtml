@@ -16,11 +16,15 @@
          <td><%=item.queue.path%> </td>
          <td><%=item.status %>  <%=item.status_summary %>  </td>
          <td><%=item.priority%>         </td>
-         <td><%=item.assigned_to%> </td>
+         <% if item.assigned_to_user_id %>
+         <td><%=item.assigned_to.name  %> </td>
          <td><%=item.updated_by%> </td>
          <td><%=short_date item.updated_at%> </td>
          <td><%=short_date item.accepted_at%> </td>
          <td><%=short_date item.completed_at%> </td>
+         <% else %>
+         <td colspan='5'><i><b>Not submitted yet <b></i></td>
+         <% end %>
     </tr>
     <% end %>
 </table>

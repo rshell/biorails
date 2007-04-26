@@ -1,13 +1,43 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: taggings
-#
-#  id            :integer(11)   not null, primary key
-#  tag_id        :integer(11)   
-#  taggable_id   :integer(11)   
-#  taggable_type :string(255)   
-#
-
---- {}
-
+--- 
+taggings_003: 
+  tag_id: "1"
+  id: "3"
+  taggable_type: ProjectElement
+  taggable_id: "110"
+  created_at: 2007-04-25 20:17:28
+taggings_004: 
+  tag_id: "2"
+  id: "4"
+  taggable_type: ProjectElement
+  taggable_id: "110"
+  created_at: 2007-04-25 20:17:28
+taggings_005: 
+  tag_id: "3"
+  id: "5"
+  taggable_type: ProjectElement
+  taggable_id: "111"
+  created_at: 2007-04-25 20:22:02
+taggings_006: 
+  tag_id: "4"
+  id: "6"
+  taggable_type: ProjectElement
+  taggable_id: "92"
+  created_at: 2007-04-25 20:45:21
+taggings_007: 
+  tag_id: "5"
+  id: "7"
+  taggable_type: ProjectElement
+  taggable_id: "112"
+  created_at: 2007-04-25 21:01:16
+taggings_001: 
+  tag_id: "1"
+  id: "1"
+  taggable_type: ProjectElement
+  taggable_id: "109"
+  created_at: 2007-04-25 20:15:01
+taggings_002: 
+  tag_id: "2"
+  id: "2"
+  taggable_type: ProjectElement
+  taggable_id: "109"
+  created_at: 2007-04-25 20:15:01

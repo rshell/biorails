@@ -1,21 +1,3 @@
-# == Schema Information
-# Schema version: 239
-#
-# Table name: experiment_logs
-#
-#  id             :integer(11)   not null, primary key
-#  experiment_id  :integer(11)   
-#  task_id        :integer(11)   
-#  user_id        :integer(11)   
-#  auditable_id   :integer(11)   
-#  auditable_type :string(255)   
-#  action         :string(255)   
-#  name           :string(255)   
-#  comment        :string(255)   
-#  created_by     :string(255)   
-#  created_at     :datetime      
-#
-
 --- 
 experiment_logs_011: 
   name: TH210307-1-0
@@ -53,6 +35,18 @@ experiment_logs_053:
   user_id: 
   comment: " Update task DMO-001-9 in experiment DMO-001-9"
   created_at: 2007-03-30 22:04:40
+experiment_logs_075: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "80"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 13:45:09
 experiment_logs_012: 
   name: TH210307-1-1
   experiment_id: "3"
@@ -89,6 +83,18 @@ experiment_logs_054:
   user_id: 
   comment: " Update task DMO-001-9 in experiment DMO-001-9"
   created_at: 2007-03-30 22:05:00
+experiment_logs_076: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "81"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 13:48:38
 experiment_logs_013: 
   name: TH210307-1-1
   experiment_id: "3"
@@ -125,6 +131,18 @@ experiment_logs_055:
   user_id: 
   comment: " Create task DMO-001:10 in experiment DMO-001:10"
   created_at: 2007-03-30 22:05:55
+experiment_logs_077: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "82"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 13:49:07
 experiment_logs_014: 
   name: TH210307-1-1
   experiment_id: "3"
@@ -161,6 +179,18 @@ experiment_logs_056:
   user_id: 
   comment: " Update task DMO-001-10 in experiment DMO-001-10"
   created_at: 2007-03-30 22:05:56
+experiment_logs_078: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "83"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 13:49:50
 experiment_logs_015: 
   name: TH210307-1-0
   experiment_id: "3"
@@ -197,6 +227,18 @@ experiment_logs_057:
   user_id: 
   comment: " Create task DMO-001-11 in experiment DMO-001-11"
   created_at: 2007-03-30 22:07:01
+experiment_logs_079: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "84"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 14:07:50
 experiment_logs_037: 
   name: DMO-001-3
   experiment_id: "5"
@@ -857,6 +899,18 @@ experiment_logs_052:
   user_id: 
   comment: " Create task DMO-001:9 in experiment DMO-001:9"
   created_at: 2007-03-30 22:04:40
+experiment_logs_074: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "79"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-24 13:29:26
 experiment_logs_010: 
   name: TH210307-1-0
   experiment_id: "3"

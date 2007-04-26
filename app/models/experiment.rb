@@ -67,8 +67,9 @@ class Experiment < ActiveRecord::Base
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 ##
 # In the Process sets of parameters are grouped into a context of usages
-# 
- has_many :tasks,  :dependent => :destroy
+#
+  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
+
 #
 # Overide context_columns to remove all the internal system columns.
 # 

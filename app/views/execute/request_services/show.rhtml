@@ -1,28 +1,20 @@
-<% tab_ids = ['tab-items','tab-notes','tab-history']%>   
-<% tab_names = ['Items','Notes','History']%>   
-<%=tab_setup(tab_ids,tab_names) %>
-
 <% content_for :centre do -%>
     <h2>   Service Request <%=subject_icon('services')%> <%= @request_service.name %>  </h2>
     <div class='panel'>
         <%= render :partial => 'request_service', :locals => { :request_service => @request_service } %>  
-        
-        <div class='tab_stuff'>
-    
-           <%= tab_divide(tab_ids,tab_names,0) %>                                          
-                <%= render :partial => 'items', :locals => { :request_service => @request_service } %>  
-            </div>  
-        
-           <%= tab_divide(tab_ids,tab_names,1) %>   
-                <!--%= render :partial => 'history', :locals => { :request => @request_service } %-->
-            </div>  
-    
-           <%= tab_divide(tab_ids,tab_names,2) %>   
-                <!--%= render :partial => 'history', :locals => { :request => @request_service } %-->
-            </div>  
-    
-        </div>
+        <br/>
+        <%= render :partial => 'items', :locals => { :request_service => @request_service } %>  
     </div>
+    <div class='box'>
+       <% for item in @project_folder.elements %>
+			<li>
+			<%= image_tag(item.icon) %>
+			<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= item.summary %>
+			</li>
+	   <% end %>
+    </div>
+    
     <div class='panel'>
         <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
     </div>
@@ -32,11 +24,6 @@
     <h2><%=l(:Instructions)%></h2>
     <div class="panel">
         <p>Actual request for a service </p>
-    </div>
-    <div class="actions">
-        <ul>
-           <li><%= link_to subject_icon('list.png') +'List', :action => 'list', :study_queue_id=> @request_service.queue %></li>
-        </ul>
     </div>
 <%end %>    
 

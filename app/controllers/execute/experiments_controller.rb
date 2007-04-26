@@ -19,15 +19,26 @@ class Execute::ExperimentsController < ApplicationController
 # default action is linked to list
   def index
     list
-    render :action => 'list'
+    render :action=>'list'
   end
 
 ###
 # list all the experiments 
 # 
   def list
-    @study = current( Study, params[:id]  )
-    @experiment_pages, @experiments = paginate :experiments, :per_page => 10
+   @project = current_project
+   @report = Report.internal_report("ExperimentList",Experiment) do | report |
+      report.column('project_id').filter = @project.id
+      report.column('project_id').is_visible = false
+      report.column('name').customize(:order_num=>1)
+      report.column('name').is_visible = true
+      report.column('name').action = :show
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   @data_pages = Paginator.new self, @project.experiments.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page,
+                        :offset =>  @data_pages.current.offset })
   end
 
 ##
@@ -35,7 +46,6 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current(Experiment,params[:id])
-    @folder = set_folder( current_project.folder(@experiment) )
   end
 
   def metrics

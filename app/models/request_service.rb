@@ -45,7 +45,10 @@ class RequestService < ActiveRecord::Base
 ##
 #Current Request element is linked to a service provided
 #
- belongs_to :queue, :class_name =>'StudyQueue', :foreign_key=>'service_id'
+  belongs_to :queue, :class_name =>'StudyQueue', :foreign_key=>'service_id'
+
+  belongs_to :request_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
+  belongs_to :assigned_to , :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
 
 ##
 # Study Has a number of items associated with the request
@@ -59,6 +62,7 @@ class RequestService < ActiveRecord::Base
   def submit
       logger.debug "submit #{self.name}"
       self.status = CurrentStatus::NEW      
+      self.assigned_to = queue.assigned_to
       for item  in request.items
          unless is_submitted(item.value)
            queue_item = self.queue.items.add(item,self)
@@ -66,9 +70,10 @@ class RequestService < ActiveRecord::Base
            puts queue_item.to_yaml
          end
       end
+      self.save
       items.size
   rescue Exception => ex
-     logger.warn "failed to save cell #{self.to_s}: #{ex.message}"
+     logger.warn "failed to submit #{self.to_s}: #{ex.message}"
       
   end 
 
