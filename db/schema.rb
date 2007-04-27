@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 247) do
+ActiveRecord::Schema.define(:version => 248) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -834,16 +834,18 @@ ActiveRecord::Schema.define(:version => 247) do
   add_index "study_logs", ["created_at"], :name => "study_logs_created_at_index"
 
   create_table "study_parameters", :force => true do |t|
-    t.column "parameter_type_id", :integer
-    t.column "parameter_role_id", :integer
-    t.column "study_id",          :integer,                 :default => 1
-    t.column "name",              :string
-    t.column "default_value",     :string
-    t.column "data_element_id",   :integer
-    t.column "data_type_id",      :integer
-    t.column "data_format_id",    :integer
-    t.column "description",       :string,  :limit => 1024, :default => "", :null => false
-    t.column "display_unit",      :string
+    t.column "parameter_type_id",  :integer
+    t.column "parameter_role_id",  :integer
+    t.column "study_id",           :integer,                 :default => 1
+    t.column "name",               :string
+    t.column "default_value",      :string
+    t.column "data_element_id",    :integer
+    t.column "data_type_id",       :integer
+    t.column "data_format_id",     :integer
+    t.column "description",        :string,  :limit => 1024, :default => "", :null => false
+    t.column "display_unit",       :string
+    t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
   add_index "study_parameters", ["study_id"], :name => "study_parameters_study_id_index"
