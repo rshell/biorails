@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 248) do
+ActiveRecord::Schema.define(:version => 249) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -750,13 +750,15 @@ ActiveRecord::Schema.define(:version => 248) do
   add_index "role_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
 
   create_table "roles", :force => true do |t|
-    t.column "name",            :string,                    :default => "", :null => false
-    t.column "parent_id",       :integer
-    t.column "description",     :string,    :limit => 1024, :default => "", :null => false
-    t.column "default_page_id", :integer
-    t.column "cache",           :text
-    t.column "created_at",      :timestamp
-    t.column "updated_at",      :timestamp
+    t.column "name",               :string,                    :default => "", :null => false
+    t.column "parent_id",          :integer
+    t.column "description",        :string,    :limit => 1024, :default => "", :null => false
+    t.column "default_page_id",    :integer
+    t.column "cache",              :text
+    t.column "created_at",         :timestamp
+    t.column "updated_at",         :timestamp
+    t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
+    t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
   end
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
