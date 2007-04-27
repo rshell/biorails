@@ -31,12 +31,11 @@ class Project::ProjectsController < ApplicationController
   def show
     @project =  current(Project,params[:id])
     set_project(@project)    
-  end
+    respond_to do | format |
+      format.html { render :action => 'show'}
+      format.xml {render :xml =>  @project.to_xml(:include=>[:memberships,:folders,:studies,:experiments,:tasks])}
+    end
 
-  def tree
-    @project =  current(Project,params[:id])
-    set_project(@project)   
-    render :action=>'tree' ,:layout => false
   end
 
   def new
@@ -59,6 +58,10 @@ class Project::ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    respond_to do | format |
+      format.html { render :action => 'edit'}
+      format.xml {render :xml =>  @project.to_xml}
+    end
   end
 
   def update
@@ -98,6 +101,10 @@ class Project::ProjectsController < ApplicationController
   def members
      @project = current(Project,params[:id])
      @membership = Membership.new(:project_id=>@project)
+    respond_to do | format |
+      format.html { render :action => 'members'}
+      format.xml {render :xml =>  @project.to_xml(:include =>[:memberships,:owners,:users])}
+    end
   end
 ##
 # add a  

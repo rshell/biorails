@@ -16,25 +16,6 @@
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
 #
-
-# == Schema Information
-# Schema version: 233
-#
-# Table name: protocol_versions
-#
-#  id                :integer(11)   not null, primary key
-#  study_protocol_id :integer(11)   
-#  name              :string(77)    
-#  version           :integer(6)    not null
-#  lock_version      :integer(11)   default(0), not null
-#  created_by        :string(32)    
-#  created_at        :time          
-#  updated_by        :string(32)    
-#  updated_at        :time          
-#  how_to            :text          
-#  report_id         :integer(11)   
-#  analysis_id       :integer(11)   
-#
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights

@@ -255,13 +255,11 @@ protected
 # Generate a report on protocol using this parameter type
 # 
  def protocol_list
-   @protocol_report = Report.find_by_name("ParameterProtocols") 
-   @protocol_report.column('study_parameter_id').is_visible = false
-   unless @protocol_report
-      @protocol_report = report_list_for("ParameterProtocols",Parameter)
-      @protocol_report.save
-   end  
-   @protocol_report.column('study_parameter_id').filter = "#{@study_parameter.id}"
+   @protocol_report = Report.internal_report("ParameterProtocols",Parameter) do |report|
+       report.column('study_parameter_id').is_visible = false
+       report.column('study_parameter_id').filter = "#{@study_parameter.id}"
+       report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
+   end 
    @protocol_data = @protocol_report.run({:limit  =>  32})
   end
 
@@ -270,13 +268,10 @@ protected
 # Generate a report on protocol level statistics filter down to only this parameter type
 # 
   def protocol_metrics
-   @metrics_report = Report.find_by_name("ParameterStatistics") 
-   @metrics_report.column('study_parameter_id').is_visible = false
-   unless @metrics_report
-      @metrics_report = report_list_for("ParameterStatistics",ProcessStatistics)
-      @metrics_report.save
+   @metrics_report = Report.internal_report("ParameterStatistics",ProcessStatistics) do | report |
+      report.column('study_parameter_id').is_visible = false
+      report.column('study_parameter_id').filter = "#{@study_parameter.id}"
    end  
-   @metrics_report.column('study_parameter_id').filter = "#{@study_parameter.id}"
    @metrics_data = @metrics_report.run({:limit  =>  32})
   end
 
@@ -284,14 +279,10 @@ protected
 # Generate a report on experiment level statistics filter down to only this parameter type
 # 
   def experiment_metrics
-   @experiment_report = Report.find_by_name("ExperimentStatistics") 
-   @experiment_report.column('study_parameter_id').is_visible = false
-   unless @experiment_report
-      @experiment_report = report_list_for("ExperimentStatistics",ExperimentStatistics)
-      @experiment_report.save
-   end  
-   @experiment_report.column('study_parameter_id').filter = "#{@study_parameter.id}"
-   
+   @experiment_report = Report.internal_report("ExperimentStatistics",ExperimentStatistics) do | report|
+     report.column('study_parameter_id').is_visible = false
+     report.column('study_parameter_id').filter = "#{@study_parameter.id}"
+   end
    @experiment_data = @experiment_report.run({:limit  =>  32})
   end
   

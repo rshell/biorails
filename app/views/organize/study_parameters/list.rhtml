@@ -5,7 +5,7 @@
   <span  class='menu'> <%=subject_icon('model/parameter')%>Parameters</span>
   <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
   <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
+  <%= link_to subject_icon('new')+' Add Parameter ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
 </div>
 <% end -%>
 
@@ -56,7 +56,11 @@
       </tr>
       <% end %>
       </tbody>
+      <thead>
+      <th colspan=8></th>
+      </thead>
    </table>
+   <%= link_to subject_icon('new')+' New ',:controller =>'study_parameters', :action => 'new', :id=>@study %>
    </div>
 
    <div class='panel'>
@@ -67,4 +71,3 @@
             link back to the type of data saved against the parameter.    
         </p>
     </div>
-fff

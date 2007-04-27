@@ -91,7 +91,6 @@ class Project < ActiveRecord::Base
 # thumbnails etc are children of the root Assets
 # 
   has_many  :assets, :class_name=>'ProjectAsset', :order => 'created_at desc', :conditions => 'parent_id is null' do
-
     def images
       find(:first, :conditions=>["project_id=? and content_type like 'image%'",proxy_owner.id])
     end

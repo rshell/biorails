@@ -233,7 +233,7 @@ class Study < ActiveRecord::Base
 #  research_area :string(255)   
 #  purpose       :string(255)   
 
- def to_xml(xml = Builder::XmlMarkup.new)  
+ def to_my_xml(xml = Builder::XmlMarkup.new)  
     xml.study(:id => id, :name => name) do
       xml.description(description)
       xml.research_area(research_area)

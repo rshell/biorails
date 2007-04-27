@@ -56,6 +56,8 @@
           </tr>
         <% end %>
         </table>
+  <hr/>
+  <%= link_to subject_icon('new.png') +'New Service',  queue_url( :action => 'new', :id=>@study  ) %>
     </div>
     <div class='panel'
     <%= link_to 'Previous page', { :page => @study_queue_pages.current.previous } if @study_queue_pages.current.previous %>

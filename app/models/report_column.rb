@@ -48,15 +48,15 @@ class ReportColumn < ActiveRecord::Base
 #
   def customize(params={})
     if params.size>0
-      self.is_visible = params[:is_visible]
-      self.label = params[:label] if params[:label]
-      self.order_num = params[:order_num] || 99 
+      self.is_visible = params[:is_visible]          unless params[:is_visible].nil?
+      self.label = params[:label]                    if params[:label]
+      self.order_num = params[:order_num]            if params[:order_num]
   
-      self.is_filterible =  params[:is_filterible]
-      self.filter =  params[:filter] 
+      self.is_filterible =  params[:is_filterible]   unless params[:is_filterible].nil?
+      self.filter =  params[:filter]                 if  params[:filter] 
       
-      self.is_sortable =  params[:is_sortable]
-      self.sort_num = params[:sort_num] 
+      self.is_sortable =  params[:is_sortable]       unless params[:is_sortable].nil?
+      self.sort_num = params[:sort_num]              if params[:sort_num]
       self.sort_direction = params[:sort_direction]  unless params[:sort_direction].nil?
     end
     logger.debug "ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"

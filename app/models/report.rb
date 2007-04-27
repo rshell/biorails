@@ -108,13 +108,17 @@ class Report < ActiveRecord::Base
     column.is_visible =  !(column_name =~ /(lock_version|_by|_at|_id|_count)$/ ) 
     route = column_name.split(".")
     if route.size>1 
+       logger.debug "add_column route= #{route[0]}"
        join = self.model.reflections[route[0].to_sym]
-       column.join_model = route[0]
-       column.join_name = join.macro.to_s
-       if join.macro == :has_many
-         column.is_filterible = false
-         column.is_sortable = false
+       if join
+           column.join_model = route[0]
+           column.join_name = join.macro.to_s
+           if join.macro == :has_many
+             column.is_filterible = false
+             column.is_sortable = false
+           end
        end
+         
     else
        column.join_model = nil
     end
@@ -334,7 +338,7 @@ end
           if report.has_column?('name')
              report.column('name').is_filterible = true
           end
-          unless report.saveclass
+          unless report.save
              logger.warn("failed to save report:"+report.errors.full_messages().join("\n"))
              logger.debug(report.to_yaml)             
           end
