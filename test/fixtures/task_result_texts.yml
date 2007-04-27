@@ -140,7 +140,7 @@ task_result_texts_019:
   updated_by_user_id: "1"
   data_type: Compound
   parameter_name: Molecula Formula
-  subject: vehicle
+  subject: AB008
   reference_parameter_id: "210"
   task_context_id: "1288"
   id: "93"
@@ -150,7 +150,7 @@ task_result_texts_019:
   row_label: Compounds[5]
   data_element_id: 
   label: Compounds
-  data_id: "1007"
+  data_id: "8"
   created_at: 2007-03-30 20:37:23
   data_value: C12H30F3
 task_result_texts_008: 
@@ -492,7 +492,7 @@ task_result_texts_023:
   updated_by_user_id: "1"
   data_type: Hash
   parameter_name: Molecula Formula
-  subject: negative
+  subject: positive
   reference_parameter_id: "214"
   task_context_id: "1289"
   id: "94"
@@ -712,7 +712,7 @@ task_result_texts_025:
   updated_by_user_id: "1"
   data_type: Hash
   parameter_name: Molecula Formula
-  subject: interest
+  subject: negative
   reference_parameter_id: "214"
   task_context_id: "1291"
   id: "96"
@@ -822,7 +822,7 @@ task_result_texts_026:
   updated_by_user_id: "1"
   data_type: Hash
   parameter_name: Molecula Formula
-  subject: interest
+  subject: negative
   reference_parameter_id: "214"
   task_context_id: "1292"
   id: "97"

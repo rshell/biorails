@@ -1,4 +1,18 @@
 --- 
+reports_006: 
+  internal: "1"
+  custom_sql: 
+  name: ExperimentList
+  project_id: 
+  updated_at: 2007-04-26 21:08:09
+  updated_by_user_id: "3"
+  lock_version: "3"
+  base_model: Experiment
+  id: "17"
+  description: Default reports for display as /Experiment/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-26 21:05:42
 reports_001: 
   internal: 
   custom_sql: 
@@ -41,3 +55,31 @@ reports_003:
   created_by_user_id: "3"
   style: 
   created_at: 2007-04-24 20:45:49
+reports_004: 
+  internal: "1"
+  custom_sql: 
+  name: StudyList
+  project_id: 
+  updated_at: 2007-04-26 21:03:13
+  updated_by_user_id: "3"
+  lock_version: "1"
+  base_model: Study
+  id: "15"
+  description: Default reports for display as /Study/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-26 21:03:12
+reports_005: 
+  internal: "1"
+  custom_sql: 
+  name: StudyList
+  project_id: 
+  updated_at: 2007-04-26 21:03:52
+  updated_by_user_id: "3"
+  lock_version: "1"
+  base_model: Study
+  id: "16"
+  description: Default reports for display as /Study/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-26 21:03:52

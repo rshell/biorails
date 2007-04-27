@@ -24,8 +24,8 @@ module Alces
     module ScheduledCollection #:nodoc:
           DEFAULT_SCHEDULE_SUMMARY = <<SQL
           case 
-          when status_id in (0,1,2,3,4) and end_date < current_date then 'overdue'
-          when status_id in (0,1,2,3,4) and end_date > current_date then 'todo'
+          when status_id in (0,1,2,3,4) and ended_at < current_date then 'overdue'
+          when status_id in (0,1,2,3,4) and ended_at > current_date then 'todo'
           when status_id < 0  then 'failed'
           else 'done'
           end
@@ -34,11 +34,11 @@ SQL
        
           DEFAULT_SCHEDULE_ORDER = <<SQL 
           case 
-          when status_id in (0,1,2,3,4) and end_date < current_date then '1'
-          when status_id in (0,1,2,3,4) and end_date > current_date then '2'
+          when status_id in (0,1,2,3,4) and ended_at < current_date then '1'
+          when status_id in (0,1,2,3,4) and ended_at > current_date then '2'
           when status_id < 0  then '3'
           else '4'
-          end, end_date
+          end, ended_at
 SQL
 
       def self.included(base) # :nodoc:
@@ -61,7 +61,7 @@ SQL
           # don't allow multiple calls
           class_eval do
 
-            has_many scheduled_collection ,{:order =>'start_date desc'}.merge(options) do
+            has_many scheduled_collection ,{:order =>'started_at desc'}.merge(options) do
                 ##
                 # Important schedule items linked to this object with optional limit count (default=10)
                 # The important is done via overdue ,future, aborted then completed items
@@ -80,7 +80,7 @@ SQL
                 # 
                 def overdue(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['end_date < ? and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>['ended_at < ? and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
                   end  
                 end
                 ##
@@ -90,7 +90,7 @@ SQL
                 #
                 def current(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['? between start_date and end_date and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>['? between started_at and ended_at and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
                   end
                 end
 
@@ -101,8 +101,8 @@ SQL
                 #
                 def range(date_from,date_to, limit=10, options={})
                   with_scope :find => options do
-                    find(:all, :order => "start_date, end_date", 
-                          :conditions => ["( (start_date between  ? and  ? ) or (end_date between  ? and  ? ) ) ",
+                    find(:all, :order => "started_at, ended_at", 
+                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
                                            date_from, date_to, date_from, date_to] )
                   end                 
                 end
@@ -128,7 +128,7 @@ SQL
                 #
                 def future(limit=10,options={})
                   with_scope :find => options do
-                    find(:all,:conditions=>[' start_date > ?  and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit )
+                    find(:all,:conditions=>[' started_at > ?  and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit )
                   end
                 end
                                 
@@ -142,7 +142,7 @@ SQL
                 #
                 def summary(options={}) 
                   with_scope :find => options do
-                    find(:all,:select => "count(*) num_items ,min(start_date) first_date,max(end_date) last_date, #{DEFAULT_SCHEDULE_SUMMARY} state ",
+                    find(:all,:select => "count(*) num_items ,min(started_at) first_date,max(ended_at) last_date, #{DEFAULT_SCHEDULE_SUMMARY} state ",
                               :group => DEFAULT_SCHEDULE_SUMMARY )
                   end
                 end

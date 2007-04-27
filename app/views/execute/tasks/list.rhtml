@@ -30,8 +30,8 @@
             <td><%= link_to task.protocol.name, :controller => 'study_protocols', :action => 'show', :id => task.protocol.id %></td>
             <td><%=h task.process.name %></td>
             <td><%=h task.assigned_to %></td>
-            <td><%= short_date( task.start_date) %></td>
-            <td><%= short_date( task.end_date ) %></td>
+            <td><%= short_date( task.started_at) %></td>
+            <td><%= short_date( task.ended_at ) %></td>
             <td><%=h task.contexts.size %></td>
             <td><%=h task.done*100 %></td>
             <td><%= link_to (subject_icon('destroy.png'))+'Destroy', { :action => 'destroy', :id => task }, :confirm => 'Are you sure?',:method => "post" %></td>

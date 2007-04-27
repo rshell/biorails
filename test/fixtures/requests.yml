@@ -1,13 +1,29 @@
 --- 
+requests_008: 
+  name: Request-10
+  project_id: 
+  updated_at: 2007-04-26 15:44:13
+  updated_by_user_id: "2"
+  priority_id: "0"
+  lock_version: "2"
+  id: "12"
+  requested_by_user_id: "4"
+  list_id: "13"
+  requested_for: "2007-05-26"
+  description: screen against this target
+  created_by_user_id: "2"
+  status_id: "0"
+  data_element_id: "86"
+  created_at: 2007-04-26 15:42:43
 requests_001: 
   name: TH003
-  project_id: 
+  project_id: "1"
   updated_at: 2007-03-21 13:30:23
-  requested_by: rshell
   updated_by_user_id: "1"
-  priority_id: 
+  priority_id: "1"
   lock_version: "2"
   id: "4"
+  requested_by_user_id: "1"
   list_id: "6"
   requested_for: "2007-03-28"
   description: Generic training request
@@ -17,13 +33,13 @@ requests_001:
   created_at: 2007-03-21 13:29:07
 requests_002: 
   name: TestingRequest_Compounds
-  project_id: 
+  project_id: "1"
   updated_at: 2007-03-30 20:02:28
-  requested_by: rshell
   updated_by_user_id: "1"
   priority_id: "1"
   lock_version: "1"
   id: "5"
+  requested_by_user_id: "1"
   list_id: "7"
   requested_for: "2007-04-06"
   description: Compounds
@@ -33,13 +49,13 @@ requests_002:
   created_at: 2007-03-30 20:02:28
 requests_003: 
   name: Testing_Sex
-  project_id: 
-  updated_at: 2007-03-30 20:03:28
-  requested_by: rshell
-  updated_by_user_id: "1"
+  project_id: "1"
+  updated_at: 2007-04-26 13:42:51
+  updated_by_user_id: "3"
   priority_id: "2"
-  lock_version: "1"
+  lock_version: "4"
   id: "6"
+  requested_by_user_id: "1"
   list_id: "8"
   requested_for: "2007-04-30"
   description: sex
@@ -49,13 +65,13 @@ requests_003:
   created_at: 2007-03-30 20:03:28
 requests_004: 
   name: TarG001
-  project_id: 
+  project_id: "1"
   updated_at: 2007-04-03 19:32:56
-  requested_by: rshell
   updated_by_user_id: "1"
-  priority_id: 
+  priority_id: "1"
   lock_version: "1"
   id: "7"
+  requested_by_user_id: "1"
   list_id: "9"
   requested_for: "2007-09-01"
   description: Need to get this through HTS in the next quarter
@@ -65,13 +81,13 @@ requests_004:
   created_at: 2007-04-03 19:32:56
 requests_005: 
   name: Request-1
-  project_id: 
+  project_id: "1"
   updated_at: 2007-04-19 20:52:29
-  requested_by: rshell
   updated_by_user_id: "1"
   priority_id: "1"
   lock_version: "2"
   id: "8"
+  requested_by_user_id: "1"
   list_id: "10"
   requested_for: "2007-04-20"
   description: Test these compounds
@@ -81,13 +97,13 @@ requests_005:
   created_at: 2007-04-19 20:51:38
 requests_006: 
   name: Request-2
-  project_id: 
+  project_id: "11"
   updated_at: 2007-04-23 18:31:30
-  requested_by: rshell
   updated_by_user_id: "1"
-  priority_id: 
+  priority_id: "1"
   lock_version: "2"
   id: "9"
+  requested_by_user_id: "1"
   list_id: "11"
   requested_for: ""
   description: Compound to retrieve
@@ -95,3 +111,19 @@ requests_006:
   status_id: "0"
   data_element_id: "1"
   created_at: 2007-04-23 18:30:59
+requests_007: 
+  name: Request-8
+  project_id: "1"
+  updated_at: 2007-04-26 12:35:29
+  updated_by_user_id: "3"
+  priority_id: "1"
+  lock_version: "4"
+  id: "10"
+  requested_by_user_id: "3"
+  list_id: "12"
+  requested_for: "2007-05-03"
+  description: Give be some
+  created_by_user_id: "3"
+  status_id: "0"
+  data_element_id: "57"
+  created_at: 2007-04-26 11:51:12

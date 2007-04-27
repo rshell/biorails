@@ -56,20 +56,20 @@
      
      <div class="form-element">
         <label for="task_status_id">Status</label>
-        <%= select( :task, :current_state_id, @task.allowed_status_list)  %>
+        <%= select( :task, :status_id, @task.allowed_status_list)  %>
      </div> 
        
   </div>
 
   <div class="row">
      <div class="form-element">
-        <label for="task_start_date">Start date</label>
-        <%= date_field 'task', 'start_date'  %>
+        <label for="task_started_at">Start date</label>
+        <%= date_field 'task', 'started_at'  %>
      </div>   
 
      <div class="form-element">
-        <label for="task_end_date">End date</label>
-        <%= date_field 'task', 'end_date'  %>
+        <label for="task_ended_at">End date</label>
+        <%= date_field 'task', 'ended_at'  %>
      </div>
   </div>
 <!--[eoform:task]-->

@@ -602,18 +602,18 @@ task_references_040:
   data_id: "10"
   created_at: 2007-03-30 20:36:57
 task_references_039: 
-  data_name: vehicle
-  updated_at: 2007-03-30 20:36:43
+  data_name: AB008
+  updated_at: 2007-04-26 15:09:50
   task_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "0"
+  updated_by_user_id: "3"
+  lock_version: "1"
   data_type: Compound
   task_context_id: "1288"
   id: "39"
   parameter_id: "210"
   created_by_user_id: "1"
   data_element_id: 
-  data_id: "1007"
+  data_id: "8"
   created_at: 2007-03-30 20:36:43
 task_references_061: 
   data_name: 00749
@@ -798,11 +798,11 @@ task_references_022:
   data_id: "0"
   created_at: 2007-03-24 17:05:07
 task_references_043: 
-  data_name: negative
-  updated_at: 2007-03-30 20:38:39
+  data_name: positive
+  updated_at: 2007-04-26 15:09:55
   task_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "1"
+  updated_by_user_id: "3"
+  lock_version: "3"
   data_type: Hash
   task_context_id: "1289"
   id: "43"
@@ -924,11 +924,11 @@ task_references_024:
   data_id: "0"
   created_at: 2007-03-24 17:31:19
 task_references_045: 
-  data_name: interest
-  updated_at: 2007-03-30 20:38:45
+  data_name: negative
+  updated_at: 2007-04-26 15:10:06
   task_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "1"
+  updated_by_user_id: "3"
+  lock_version: "3"
   data_type: Hash
   task_context_id: "1291"
   id: "45"
@@ -994,11 +994,11 @@ task_references_067:
   data_id: "1005"
   created_at: 2007-03-30 21:23:48
 task_references_046: 
-  data_name: interest
-  updated_at: 2007-03-30 20:38:47
+  data_name: negative
+  updated_at: 2007-04-26 15:10:02
   task_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "1"
+  updated_by_user_id: "3"
+  lock_version: "3"
   data_type: Hash
   task_context_id: "1292"
   id: "46"

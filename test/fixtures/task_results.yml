@@ -3600,21 +3600,21 @@ task_results_340:
   created_at: 2007-03-24 16:31:33
   data_value: "751"
 task_results_2160: 
-  updated_at: 2007-03-30 21:21:58
-  parameter_context_id: "6"
-  protocol_version_id: "3"
-  task_id: "8"
-  column_no: "5"
-  updated_by_user_id: "1"
+  updated_at: 2007-04-26 15:09:55
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "4"
+  updated_by_user_id: "3"
   parameter_name: Treatment Role
-  id: "49"
-  parameter_id: "215"
+  id: "43"
+  parameter_id: "214"
   row_no: "1"
   created_by_user_id: "1"
-  row_label: Treatments[32]
-  label: Treatments
-  created_at: 2007-03-30 21:21:57
-  data_value: vehicle
+  row_label: Compounds[6]
+  label: Compounds
+  created_at: 2007-03-30 20:38:36
+  data_value: positive
 task_results_2097: 
   updated_at: 2007-03-30 22:31:29
   parameter_context_id: "13"
@@ -3712,21 +3712,21 @@ task_results_1010:
   created_at: 2007-03-30 22:04:41
   data_value: "269"
 task_results_2161: 
-  updated_at: 2007-03-30 21:22:03
-  parameter_context_id: "6"
-  protocol_version_id: "3"
-  task_id: "8"
-  column_no: "5"
+  updated_at: 2007-03-30 20:38:41
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "50"
-  parameter_id: "215"
+  id: "44"
+  parameter_id: "214"
   row_no: "2"
   created_by_user_id: "1"
-  row_label: Treatments[33]
-  label: Treatments
-  created_at: 2007-03-30 21:21:59
-  data_value: negative
+  row_label: Compounds[7]
+  label: Compounds
+  created_at: 2007-03-30 20:38:40
+  data_value: challenge
 task_results_1976: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -3808,21 +3808,21 @@ task_results_1011:
   created_at: 2007-03-30 22:04:41
   data_value: "260"
 task_results_2162: 
-  updated_at: 2007-03-30 21:22:09
-  parameter_context_id: "6"
-  protocol_version_id: "3"
-  task_id: "8"
-  column_no: "6"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "51"
-  parameter_id: "216"
-  row_no: "1"
+  updated_at: 2007-04-26 15:10:06
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "4"
+  updated_by_user_id: "3"
+  parameter_name: Treatment Role
+  id: "45"
+  parameter_id: "214"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Treatments[32]
-  label: Treatments
-  created_at: 2007-03-30 21:22:09
-  data_value: AB0010
+  row_label: Compounds[8]
+  label: Compounds
+  created_at: 2007-03-30 20:38:44
+  data_value: negative
 task_results_2098: 
   updated_at: 2007-03-30 22:31:30
   parameter_context_id: "13"
@@ -3904,21 +3904,21 @@ task_results_1012:
   created_at: 2007-03-30 22:04:41
   data_value: "252"
 task_results_2163: 
-  updated_at: 2007-03-30 21:22:15
-  parameter_context_id: "6"
-  protocol_version_id: "3"
-  task_id: "8"
-  column_no: "6"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "52"
-  parameter_id: "216"
-  row_no: "2"
+  updated_at: 2007-04-26 15:10:02
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "4"
+  updated_by_user_id: "3"
+  parameter_name: Treatment Role
+  id: "46"
+  parameter_id: "214"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Treatments[33]
-  label: Treatments
-  created_at: 2007-03-30 21:22:15
-  data_value: saline
+  row_label: Compounds[9]
+  label: Compounds
+  created_at: 2007-03-30 20:38:46
+  data_value: negative
 task_results_2099: 
   updated_at: 2007-03-30 22:31:31
   parameter_context_id: "13"
@@ -4064,20 +4064,20 @@ task_results_1014:
   created_at: 2007-03-30 22:04:41
   data_value: "303"
 task_results_2164: 
-  updated_at: 2007-03-30 21:22:19
-  parameter_context_id: "6"
-  protocol_version_id: "3"
-  task_id: "8"
-  column_no: "5"
+  updated_at: 2007-03-30 20:38:49
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "53"
-  parameter_id: "215"
-  row_no: "5"
+  id: "47"
+  parameter_id: "214"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Treatments[35]
-  label: Treatments
-  created_at: 2007-03-30 21:22:18
+  row_label: Compounds[5]
+  label: Compounds
+  created_at: 2007-03-30 20:38:48
   data_value: vehicle
 task_results_346: 
   updated_at: 2007-03-24 16:31:33
@@ -4128,21 +4128,21 @@ task_results_1015:
   created_at: 2007-03-30 22:04:41
   data_value: "289"
 task_results_2165: 
-  updated_at: 2007-03-30 21:22:26
+  updated_at: 2007-03-30 21:21:58
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "6"
+  column_no: "5"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "54"
-  parameter_id: "216"
-  row_no: "5"
+  parameter_name: Treatment Role
+  id: "49"
+  parameter_id: "215"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Treatments[35]
+  row_label: Treatments[32]
   label: Treatments
-  created_at: 2007-03-30 21:22:26
-  data_value: AB0010
+  created_at: 2007-03-30 21:21:57
+  data_value: vehicle
 task_results_347: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -4192,21 +4192,21 @@ task_results_1016:
   created_at: 2007-03-30 22:04:41
   data_value: "297"
 task_results_2166: 
-  updated_at: 2007-03-30 21:22:31
+  updated_at: 2007-03-30 21:22:03
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "55"
+  id: "50"
   parameter_id: "215"
-  row_no: "6"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Treatments[36]
+  row_label: Treatments[33]
   label: Treatments
-  created_at: 2007-03-30 21:22:29
-  data_value: challenge
+  created_at: 2007-03-30 21:21:59
+  data_value: negative
 task_results_348: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -4272,21 +4272,21 @@ task_results_1017:
   created_at: 2007-03-30 22:04:41
   data_value: "275"
 task_results_2167: 
-  updated_at: 2007-03-30 21:22:35
+  updated_at: 2007-03-30 21:22:09
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "56"
+  id: "51"
   parameter_id: "216"
-  row_no: "6"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Treatments[36]
+  row_label: Treatments[32]
   label: Treatments
-  created_at: 2007-03-30 21:22:35
-  data_value: 00749
+  created_at: 2007-03-30 21:22:09
+  data_value: AB0010
 task_results_349: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -4352,21 +4352,21 @@ task_results_1018:
   created_at: 2007-03-30 22:04:41
   data_value: "278"
 task_results_2168: 
-  updated_at: 2007-03-30 21:22:38
+  updated_at: 2007-03-30 21:22:15
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "5"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "57"
-  parameter_id: "215"
-  row_no: "7"
+  parameter_name: Compound
+  id: "52"
+  parameter_id: "216"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Treatments[37]
+  row_label: Treatments[33]
   label: Treatments
-  created_at: 2007-03-30 21:22:36
-  data_value: vehicle
+  created_at: 2007-03-30 21:22:15
+  data_value: saline
 task_results_680: 
   updated_at: 2007-03-30 21:49:28
   parameter_context_id: "3"
@@ -4432,20 +4432,20 @@ task_results_1019:
   created_at: 2007-03-30 22:04:41
   data_value: "253"
 task_results_2169: 
-  updated_at: 2007-03-30 21:22:42
+  updated_at: 2007-03-30 21:22:19
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "58"
+  id: "53"
   parameter_id: "215"
-  row_no: "9"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Treatments[38]
+  row_label: Treatments[35]
   label: Treatments
-  created_at: 2007-03-30 21:22:41
+  created_at: 2007-03-30 21:22:18
   data_value: vehicle
 task_results_681: 
   updated_at: 2007-03-30 21:49:28
@@ -9072,21 +9072,21 @@ task_results_330:
   created_at: 2007-03-24 16:31:33
   data_value: "592"
 task_results_2150: 
-  updated_at: 2007-03-30 20:35:18
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "1"
+  updated_at: 2007-03-30 20:00:44
+  parameter_context_id: "32"
+  protocol_version_id: "16"
+  task_id: "6"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "38"
-  parameter_id: "210"
-  row_no: "1"
+  parameter_name: Gender
+  id: "33"
+  parameter_id: "204"
+  row_no: "7"
   created_by_user_id: "1"
-  row_label: Compounds[6]
-  label: Compounds
-  created_at: 2007-03-30 20:35:18
-  data_value: saline
+  row_label: morestuff[7]
+  label: morestuff
+  created_at: 2007-03-30 20:00:44
+  data_value: male
 task_results_1965: 
   updated_at: 2007-03-30 22:28:28
   parameter_context_id: "12"
@@ -9152,21 +9152,21 @@ task_results_1000:
   created_at: 2007-03-30 22:04:40
   data_value: "246"
 task_results_2151: 
-  updated_at: 2007-03-30 20:36:43
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "1"
+  updated_at: 2007-03-30 20:00:44
+  parameter_context_id: "32"
+  protocol_version_id: "16"
+  task_id: "6"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "39"
-  parameter_id: "210"
-  row_no: "0"
+  parameter_name: Gender
+  id: "34"
+  parameter_id: "204"
+  row_no: "9"
   created_by_user_id: "1"
-  row_label: Compounds[5]
-  label: Compounds
-  created_at: 2007-03-30 20:36:43
-  data_value: vehicle
+  row_label: morestuff[9]
+  label: morestuff
+  created_at: 2007-03-30 20:00:44
+  data_value: male
 task_results_2087: 
   updated_at: 2007-03-30 22:28:32
   parameter_context_id: "12"
@@ -9248,21 +9248,21 @@ task_results_1001:
   created_at: 2007-03-30 22:04:40
   data_value: "227"
 task_results_2152: 
-  updated_at: 2007-03-30 20:36:57
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "1"
+  updated_at: 2007-03-30 20:00:44
+  parameter_context_id: "32"
+  protocol_version_id: "16"
+  task_id: "6"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "40"
-  parameter_id: "210"
-  row_no: "2"
+  parameter_name: Gender
+  id: "35"
+  parameter_id: "204"
+  row_no: "10"
   created_by_user_id: "1"
-  row_label: Compounds[7]
-  label: Compounds
-  created_at: 2007-03-30 20:36:57
-  data_value: AB0010
+  row_label: morestuff[10]
+  label: morestuff
+  created_at: 2007-03-30 20:00:44
+  data_value: male
 task_results_2088: 
   updated_at: 2007-03-30 22:28:32
   parameter_context_id: "12"
@@ -9424,21 +9424,21 @@ task_results_1003:
   created_at: 2007-03-30 22:04:41
   data_value: "226"
 task_results_2153: 
-  updated_at: 2007-03-30 20:37:03
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "1"
+  updated_at: 2007-03-30 20:00:44
+  parameter_context_id: "32"
+  protocol_version_id: "16"
+  task_id: "6"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "41"
-  parameter_id: "210"
-  row_no: "3"
+  parameter_name: Gender
+  id: "36"
+  parameter_id: "204"
+  row_no: "11"
   created_by_user_id: "1"
-  row_label: Compounds[8]
-  label: Compounds
-  created_at: 2007-03-30 20:37:03
-  data_value: AB001
+  row_label: morestuff[11]
+  label: morestuff
+  created_at: 2007-03-30 20:00:44
+  data_value: male
 task_results_1969: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -9504,21 +9504,21 @@ task_results_1004:
   created_at: 2007-03-30 22:04:41
   data_value: "274"
 task_results_2154: 
-  updated_at: 2007-03-30 20:37:07
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "1"
+  updated_at: 2007-03-30 20:01:00
+  parameter_context_id: "31"
+  protocol_version_id: "16"
+  task_id: "6"
+  column_no: "2"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "42"
-  parameter_id: "210"
-  row_no: "4"
+  id: "37"
+  parameter_id: "206"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Compounds[9]
-  label: Compounds
-  created_at: 2007-03-30 20:37:07
-  data_value: AB002
+  row_label: stuff[0]
+  label: stuff
+  created_at: 2007-03-30 20:01:00
+  data_value: AB001
 task_results_336: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -9552,21 +9552,21 @@ task_results_1005:
   created_at: 2007-03-30 22:04:41
   data_value: "252"
 task_results_2155: 
-  updated_at: 2007-03-30 20:38:39
+  updated_at: 2007-03-30 20:35:18
   parameter_context_id: "1"
   protocol_version_id: "1"
   task_id: "7"
-  column_no: "4"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "43"
-  parameter_id: "214"
+  parameter_name: Compound
+  id: "38"
+  parameter_id: "210"
   row_no: "1"
   created_by_user_id: "1"
   row_label: Compounds[6]
   label: Compounds
-  created_at: 2007-03-30 20:38:36
-  data_value: negative
+  created_at: 2007-03-30 20:35:18
+  data_value: saline
 task_results_337: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -9632,21 +9632,21 @@ task_results_1006:
   created_at: 2007-03-30 22:04:41
   data_value: "249"
 task_results_2156: 
-  updated_at: 2007-03-30 20:38:41
+  updated_at: 2007-04-26 15:09:50
   parameter_context_id: "1"
   protocol_version_id: "1"
   task_id: "7"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "44"
-  parameter_id: "214"
-  row_no: "2"
+  column_no: "1"
+  updated_by_user_id: "3"
+  parameter_name: Compound
+  id: "39"
+  parameter_id: "210"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Compounds[7]
+  row_label: Compounds[5]
   label: Compounds
-  created_at: 2007-03-30 20:38:40
-  data_value: challenge
+  created_at: 2007-03-30 20:36:43
+  data_value: AB008
 task_results_338: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -9712,21 +9712,21 @@ task_results_1007:
   created_at: 2007-03-30 22:04:41
   data_value: "253"
 task_results_2157: 
-  updated_at: 2007-03-30 20:38:45
+  updated_at: 2007-03-30 20:36:57
   parameter_context_id: "1"
   protocol_version_id: "1"
   task_id: "7"
-  column_no: "4"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "45"
-  parameter_id: "214"
-  row_no: "3"
+  parameter_name: Compound
+  id: "40"
+  parameter_id: "210"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Compounds[8]
+  row_label: Compounds[7]
   label: Compounds
-  created_at: 2007-03-30 20:38:44
-  data_value: interest
+  created_at: 2007-03-30 20:36:57
+  data_value: AB0010
 task_results_339: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -9792,21 +9792,21 @@ task_results_1008:
   created_at: 2007-03-30 22:04:41
   data_value: "255"
 task_results_2158: 
-  updated_at: 2007-03-30 20:38:47
+  updated_at: 2007-03-30 20:37:03
   parameter_context_id: "1"
   protocol_version_id: "1"
   task_id: "7"
-  column_no: "4"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "46"
-  parameter_id: "214"
-  row_no: "4"
+  parameter_name: Compound
+  id: "41"
+  parameter_id: "210"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Compounds[9]
+  row_label: Compounds[8]
   label: Compounds
-  created_at: 2007-03-30 20:38:46
-  data_value: interest
+  created_at: 2007-03-30 20:37:03
+  data_value: AB001
 task_results_670: 
   updated_at: 2007-03-30 21:49:28
   parameter_context_id: "3"
@@ -9872,21 +9872,21 @@ task_results_1009:
   created_at: 2007-03-30 22:04:41
   data_value: "272"
 task_results_2159: 
-  updated_at: 2007-03-30 20:38:49
+  updated_at: 2007-03-30 20:37:07
   parameter_context_id: "1"
   protocol_version_id: "1"
   task_id: "7"
-  column_no: "4"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "47"
-  parameter_id: "214"
-  row_no: "0"
+  parameter_name: Compound
+  id: "42"
+  parameter_id: "210"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Compounds[5]
+  row_label: Compounds[9]
   label: Compounds
-  created_at: 2007-03-30 20:38:48
-  data_value: vehicle
+  created_at: 2007-03-30 20:37:07
+  data_value: AB002
 task_results_1340: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -14416,21 +14416,21 @@ task_results_320:
   created_at: 2007-03-24 16:31:33
   data_value: "1533"
 task_results_2140: 
-  updated_at: 2007-03-30 20:00:44
-  parameter_context_id: "32"
-  protocol_version_id: "16"
-  task_id: "6"
-  column_no: "4"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "20"
+  protocol_version_id: "11"
+  task_id: "4"
+  column_no: "7"
   updated_by_user_id: "1"
-  parameter_name: Gender
-  id: "28"
-  parameter_id: "204"
-  row_no: "1"
+  parameter_name: Treatment Role
+  id: "23"
+  parameter_id: "124"
+  row_no: "6"
   created_by_user_id: "1"
-  row_label: morestuff[1]
-  label: morestuff
-  created_at: 2007-03-30 20:00:44
-  data_value: male
+  row_label: Dose Groups[27]
+  label: Dose Groups
+  created_at: 2007-03-24 17:05:07
+  data_value: interest
 task_results_2076: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -14512,21 +14512,21 @@ task_results_321:
   created_at: 2007-03-24 16:31:33
   data_value: "15"
 task_results_2141: 
-  updated_at: 2007-03-30 20:00:44
-  parameter_context_id: "32"
-  protocol_version_id: "16"
-  task_id: "6"
-  column_no: "4"
+  updated_at: 2007-03-26 09:15:26
+  parameter_context_id: "22"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "7"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "29"
-  parameter_id: "204"
-  row_no: "2"
+  id: "24"
+  parameter_id: "143"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: morestuff[2]
-  label: morestuff
-  created_at: 2007-03-30 20:00:44
-  data_value: male
+  row_label: Dose Group[16]
+  label: Dose Group
+  created_at: 2007-03-24 17:31:19
+  data_value: female
 task_results_2077: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -14688,21 +14688,21 @@ task_results_1260:
   created_at: 2007-03-30 22:28:30
   data_value: "17.35"
 task_results_2142: 
-  updated_at: 2007-03-30 20:01:11
-  parameter_context_id: "32"
-  protocol_version_id: "16"
-  task_id: "6"
-  column_no: "4"
+  updated_at: 2007-03-24 17:31:26
+  parameter_context_id: "22"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "7"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "30"
-  parameter_id: "204"
-  row_no: "3"
+  id: "25"
+  parameter_id: "143"
+  row_no: "6"
   created_by_user_id: "1"
-  row_label: morestuff[3]
-  label: morestuff
-  created_at: 2007-03-30 20:00:44
-  data_value: female
+  row_label: Dose Group[21]
+  label: Dose Group
+  created_at: 2007-03-24 17:31:25
+  data_value: male
 task_results_2079: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -14800,20 +14800,20 @@ task_results_1261:
   created_at: 2007-03-30 22:28:30
   data_value: "17.35"
 task_results_2143: 
-  updated_at: 2007-03-30 20:00:44
-  parameter_context_id: "32"
-  protocol_version_id: "16"
-  task_id: "6"
-  column_no: "4"
+  updated_at: 2007-03-24 17:31:28
+  parameter_context_id: "22"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "7"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "31"
-  parameter_id: "204"
-  row_no: "5"
+  id: "26"
+  parameter_id: "143"
+  row_no: "11"
   created_by_user_id: "1"
-  row_label: morestuff[5]
-  label: morestuff
-  created_at: 2007-03-30 20:00:44
+  row_label: Dose Group[26]
+  label: Dose Group
+  created_at: 2007-03-24 17:31:27
   data_value: male
 task_results_1959: 
   updated_at: 2007-03-30 22:28:28
@@ -14880,21 +14880,21 @@ task_results_325:
   created_at: 2007-03-24 16:31:33
   data_value: "255"
 task_results_2144: 
-  updated_at: 2007-03-30 20:00:44
-  parameter_context_id: "32"
-  protocol_version_id: "16"
-  task_id: "6"
-  column_no: "4"
+  updated_at: 2007-03-26 09:15:45
+  parameter_context_id: "21"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Gender
-  id: "32"
-  parameter_id: "204"
-  row_no: "6"
+  parameter_name: Compound
+  id: "27"
+  parameter_id: "136"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: morestuff[6]
-  label: morestuff
-  created_at: 2007-03-30 20:00:44
-  data_value: male
+  row_label: Compound[0]
+  label: Compound
+  created_at: 2007-03-24 17:32:13
+  data_value: AB004
 task_results_593: 
   updated_at: 2007-03-24 17:36:28
   parameter_context_id: "23"
@@ -14967,11 +14967,11 @@ task_results_2145:
   column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "33"
+  id: "28"
   parameter_id: "204"
-  row_no: "7"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: morestuff[7]
+  row_label: morestuff[1]
   label: morestuff
   created_at: 2007-03-30 20:00:44
   data_value: male
@@ -15031,11 +15031,11 @@ task_results_2146:
   column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "34"
+  id: "29"
   parameter_id: "204"
-  row_no: "9"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: morestuff[9]
+  row_label: morestuff[2]
   label: morestuff
   created_at: 2007-03-30 20:00:44
   data_value: male
@@ -15088,21 +15088,21 @@ task_results_1264:
   created_at: 2007-03-30 22:28:30
   data_value: "18.05"
 task_results_2147: 
-  updated_at: 2007-03-30 20:00:44
+  updated_at: 2007-03-30 20:01:11
   parameter_context_id: "32"
   protocol_version_id: "16"
   task_id: "6"
   column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "35"
+  id: "30"
   parameter_id: "204"
-  row_no: "10"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: morestuff[10]
+  row_label: morestuff[3]
   label: morestuff
   created_at: 2007-03-30 20:00:44
-  data_value: male
+  data_value: female
 task_results_596: 
   updated_at: 2007-03-24 17:36:51
   parameter_context_id: "23"
@@ -15159,11 +15159,11 @@ task_results_2148:
   column_no: "4"
   updated_by_user_id: "1"
   parameter_name: Gender
-  id: "36"
+  id: "31"
   parameter_id: "204"
-  row_no: "11"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: morestuff[11]
+  row_label: morestuff[5]
   label: morestuff
   created_at: 2007-03-30 20:00:44
   data_value: male
@@ -15216,21 +15216,21 @@ task_results_1266:
   created_at: 2007-03-30 22:28:30
   data_value: "17.9"
 task_results_2149: 
-  updated_at: 2007-03-30 20:01:00
-  parameter_context_id: "31"
+  updated_at: 2007-03-30 20:00:44
+  parameter_context_id: "32"
   protocol_version_id: "16"
   task_id: "6"
-  column_no: "2"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "37"
-  parameter_id: "206"
-  row_no: "0"
+  parameter_name: Gender
+  id: "32"
+  parameter_id: "204"
+  row_no: "6"
   created_by_user_id: "1"
-  row_label: stuff[0]
-  label: stuff
-  created_at: 2007-03-30 20:01:00
-  data_value: AB001
+  row_label: morestuff[6]
+  label: morestuff
+  created_at: 2007-03-30 20:00:44
+  data_value: male
 task_results_1330: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -19696,21 +19696,21 @@ task_results_310:
   created_at: 2007-03-24 16:31:33
   data_value: "1460"
 task_results_2130: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "20"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "7"
+  updated_at: 2007-03-24 16:20:53
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "18"
-  parameter_id: "124"
-  row_no: "1"
+  parameter_name: Challange
+  id: "13"
+  parameter_id: "93"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[22]
+  row_label: Dose Groups[2]
   label: Dose Groups
-  created_at: 2007-03-24 17:05:07
-  data_value: vehicle
+  created_at: 2007-03-24 16:20:53
+  data_value: 00749
 task_results_2066: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -19856,21 +19856,21 @@ task_results_312:
   created_at: 2007-03-24 16:31:33
   data_value: "46"
 task_results_2131: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "20"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "7"
+  updated_at: 2007-03-24 16:20:57
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "19"
-  parameter_id: "124"
-  row_no: "2"
+  parameter_name: Challange
+  id: "14"
+  parameter_id: "93"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[23]
+  row_label: Dose Groups[3]
   label: Dose Groups
-  created_at: 2007-03-24 17:05:07
-  data_value: positive
+  created_at: 2007-03-24 16:20:57
+  data_value: 00749
 task_results_2068: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -19968,21 +19968,21 @@ task_results_1250:
   created_at: 2007-03-30 22:28:29
   data_value: "18.22"
 task_results_2132: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "20"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "7"
+  updated_at: 2007-03-24 16:21:29
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "20"
-  parameter_id: "124"
-  row_no: "3"
+  parameter_name: Challange
+  id: "15"
+  parameter_id: "93"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[24]
+  row_label: Dose Groups[4]
   label: Dose Groups
-  created_at: 2007-03-24 17:05:07
-  data_value: negative
+  created_at: 2007-03-24 16:21:29
+  data_value: 00749
 task_results_2069: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -20064,21 +20064,21 @@ task_results_314:
   created_at: 2007-03-24 16:31:33
   data_value: "569"
 task_results_2133: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "20"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "7"
+  updated_at: 2007-03-24 16:21:33
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "21"
-  parameter_id: "124"
-  row_no: "4"
+  parameter_name: Challange
+  id: "16"
+  parameter_id: "93"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Dose Groups[25]
+  row_label: Dose Groups[5]
   label: Dose Groups
-  created_at: 2007-03-24 17:05:07
-  data_value: interest
+  created_at: 2007-03-24 16:21:33
+  data_value: 00749
 task_results_1949: 
   updated_at: 2007-03-30 22:28:28
   parameter_context_id: "12"
@@ -20161,20 +20161,20 @@ task_results_1251:
   data_value: "18.22"
 task_results_2134: 
   updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "20"
+  parameter_context_id: "19"
   protocol_version_id: "11"
   task_id: "4"
-  column_no: "7"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "22"
-  parameter_id: "124"
-  row_no: "5"
+  parameter_name: Compound
+  id: "17"
+  parameter_id: "114"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[26]
-  label: Dose Groups
+  row_label: Compound[21]
+  label: Compound
   created_at: 2007-03-24 17:05:07
-  data_value: interest
+  data_value: AB001
 task_results_583: 
   updated_at: 2007-03-24 17:36:05
   parameter_context_id: "23"
@@ -20247,14 +20247,14 @@ task_results_2135:
   column_no: "7"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "23"
+  id: "18"
   parameter_id: "124"
-  row_no: "6"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Dose Groups[27]
+  row_label: Dose Groups[22]
   label: Dose Groups
   created_at: 2007-03-24 17:05:07
-  data_value: interest
+  data_value: vehicle
 task_results_584: 
   updated_at: 2007-03-24 17:36:06
   parameter_context_id: "23"
@@ -20304,21 +20304,21 @@ task_results_1253:
   created_at: 2007-03-30 22:28:29
   data_value: "18.73"
 task_results_2136: 
-  updated_at: 2007-03-26 09:15:26
-  parameter_context_id: "22"
-  protocol_version_id: "12"
-  task_id: "5"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "20"
+  protocol_version_id: "11"
+  task_id: "4"
   column_no: "7"
   updated_by_user_id: "1"
-  parameter_name: Gender
-  id: "24"
-  parameter_id: "143"
-  row_no: "1"
+  parameter_name: Treatment Role
+  id: "19"
+  parameter_id: "124"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Group[16]
-  label: Dose Group
-  created_at: 2007-03-24 17:31:19
-  data_value: female
+  row_label: Dose Groups[23]
+  label: Dose Groups
+  created_at: 2007-03-24 17:05:07
+  data_value: positive
 task_results_585: 
   updated_at: 2007-03-24 17:36:06
   parameter_context_id: "23"
@@ -20368,37 +20368,37 @@ task_results_1254:
   created_at: 2007-03-30 22:28:29
   data_value: "18.49"
 task_results_2200: 
-  updated_at: 2007-03-30 22:48:53
-  parameter_context_id: "34"
-  protocol_version_id: "18"
-  task_id: "22"
-  column_no: "2"
+  updated_at: 2007-03-30 22:32:26
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "89"
-  parameter_id: "218"
+  id: "84"
+  parameter_id: "213"
   row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[4]
+  row_label: Group[0]
   label: Group
-  created_at: 2007-03-30 22:48:53
-  data_value: AB001
+  created_at: 2007-03-30 22:32:26
+  data_value: saline
 task_results_2137: 
-  updated_at: 2007-03-24 17:31:26
-  parameter_context_id: "22"
-  protocol_version_id: "12"
-  task_id: "5"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "20"
+  protocol_version_id: "11"
+  task_id: "4"
   column_no: "7"
   updated_by_user_id: "1"
-  parameter_name: Gender
-  id: "25"
-  parameter_id: "143"
-  row_no: "6"
+  parameter_name: Treatment Role
+  id: "20"
+  parameter_id: "124"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Group[21]
-  label: Dose Group
-  created_at: 2007-03-24 17:31:25
-  data_value: male
+  row_label: Dose Groups[24]
+  label: Dose Groups
+  created_at: 2007-03-24 17:05:07
+  data_value: negative
 task_results_586: 
   updated_at: 2007-03-24 17:36:07
   parameter_context_id: "23"
@@ -20448,37 +20448,37 @@ task_results_1255:
   created_at: 2007-03-30 22:28:29
   data_value: "18.32"
 task_results_2201: 
-  updated_at: 2007-03-30 22:48:58
-  parameter_context_id: "34"
-  protocol_version_id: "18"
-  task_id: "22"
-  column_no: "2"
+  updated_at: 2007-03-30 22:32:33
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "90"
-  parameter_id: "218"
+  id: "85"
+  parameter_id: "213"
   row_no: "1"
   created_by_user_id: "1"
-  row_label: Group[5]
+  row_label: Group[1]
   label: Group
-  created_at: 2007-03-30 22:48:58
-  data_value: AB002
+  created_at: 2007-03-30 22:32:33
+  data_value: 00749
 task_results_2138: 
-  updated_at: 2007-03-24 17:31:28
-  parameter_context_id: "22"
-  protocol_version_id: "12"
-  task_id: "5"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "20"
+  protocol_version_id: "11"
+  task_id: "4"
   column_no: "7"
   updated_by_user_id: "1"
-  parameter_name: Gender
-  id: "26"
-  parameter_id: "143"
-  row_no: "11"
+  parameter_name: Treatment Role
+  id: "21"
+  parameter_id: "124"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Group[26]
-  label: Dose Group
-  created_at: 2007-03-24 17:31:27
-  data_value: male
+  row_label: Dose Groups[25]
+  label: Dose Groups
+  created_at: 2007-03-24 17:05:07
+  data_value: interest
 task_results_587: 
   updated_at: 2007-03-24 17:36:12
   parameter_context_id: "23"
@@ -20527,22 +20527,38 @@ task_results_1256:
   label: Animals
   created_at: 2007-03-30 22:28:29
   data_value: "19.02"
-task_results_2139: 
-  updated_at: 2007-03-26 09:15:45
-  parameter_context_id: "21"
-  protocol_version_id: "12"
-  task_id: "5"
-  column_no: "1"
+task_results_2202: 
+  updated_at: 2007-03-30 22:32:37
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "27"
-  parameter_id: "136"
-  row_no: "0"
+  id: "86"
+  parameter_id: "213"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Compound[0]
-  label: Compound
-  created_at: 2007-03-24 17:32:13
-  data_value: AB004
+  row_label: Group[2]
+  label: Group
+  created_at: 2007-03-30 22:32:37
+  data_value: AB001
+task_results_2139: 
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "20"
+  protocol_version_id: "11"
+  task_id: "4"
+  column_no: "7"
+  updated_by_user_id: "1"
+  parameter_name: Treatment Role
+  id: "22"
+  parameter_id: "124"
+  row_no: "5"
+  created_by_user_id: "1"
+  row_label: Dose Groups[26]
+  label: Dose Groups
+  created_at: 2007-03-24 17:05:07
+  data_value: interest
 task_results_1320: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -20607,6 +20623,22 @@ task_results_1257:
   label: Animals
   created_at: 2007-03-30 22:28:29
   data_value: "18.49"
+task_results_2203: 
+  updated_at: 2007-03-30 22:32:43
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "5"
+  updated_by_user_id: "1"
+  parameter_name: Compound
+  id: "87"
+  parameter_id: "213"
+  row_no: "3"
+  created_by_user_id: "1"
+  row_label: Group[3]
+  label: Group
+  created_at: 2007-03-30 22:32:43
+  data_value: AB002
 task_results_1321: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -20671,6 +20703,22 @@ task_results_1258:
   label: Animals
   created_at: 2007-03-30 22:28:30
   data_value: "17.21"
+task_results_2204: 
+  updated_at: 2007-03-30 22:32:46
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "3"
+  updated_by_user_id: "1"
+  parameter_name: sig
+  id: "88"
+  parameter_id: "66"
+  row_no: "3"
+  created_by_user_id: "1"
+  row_label: Group[3]
+  label: Group
+  created_at: 2007-03-30 22:32:46
+  data_value: pass
 task_results_1590: 
   updated_at: 2007-03-30 21:46:17
   parameter_context_id: "3"
@@ -20735,6 +20783,22 @@ task_results_1259:
   label: Animals
   created_at: 2007-03-30 22:28:30
   data_value: "17.21"
+task_results_2205: 
+  updated_at: 2007-03-30 22:48:53
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  task_id: "22"
+  column_no: "2"
+  updated_by_user_id: "1"
+  parameter_name: Compound
+  id: "89"
+  parameter_id: "218"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  label: Group
+  created_at: 2007-03-30 22:48:53
+  data_value: AB001
 task_results_1591: 
   updated_at: 2007-03-30 21:49:28
   parameter_context_id: "3"
@@ -20783,6 +20847,22 @@ task_results_654:
   label: Animals
   created_at: 2007-03-30 21:46:17
   data_value: "217"
+task_results_2206: 
+  updated_at: 2007-03-30 22:48:58
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  task_id: "22"
+  column_no: "2"
+  updated_by_user_id: "1"
+  parameter_name: Compound
+  id: "90"
+  parameter_id: "218"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  label: Group
+  created_at: 2007-03-30 22:48:58
+  data_value: AB002
 task_results_1324: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -21968,21 +22048,21 @@ task_results_1040:
   created_at: 2007-03-30 22:05:56
   data_value: "239"
 task_results_2190: 
-  updated_at: 2007-03-30 22:32:03
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
+  updated_at: 2007-03-30 22:16:36
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  task_id: "18"
   column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: sig
-  id: "79"
-  parameter_id: "66"
-  row_no: "2"
+  parameter_name: Treatment Role
+  id: "74"
+  parameter_id: "159"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[2]
-  label: Group
-  created_at: 2007-03-30 22:32:02
-  data_value: pass
+  row_label: Treatment Groups[37]
+  label: Treatment Groups
+  created_at: 2007-03-30 22:16:36
+  data_value: negative
 task_results_1801: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22064,21 +22144,21 @@ task_results_1041:
   created_at: 2007-03-30 22:05:56
   data_value: "246"
 task_results_2191: 
-  updated_at: 2007-03-30 22:32:09
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "4"
+  updated_at: 2007-03-30 22:16:46
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  task_id: "18"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Histology
-  id: "80"
-  parameter_id: "67"
-  row_no: "0"
+  parameter_name: Treatment Role
+  id: "75"
+  parameter_id: "159"
+  row_no: "18"
   created_by_user_id: "1"
-  row_label: Group[0]
-  label: Group
-  created_at: 2007-03-30 22:32:09
-  data_value: fail
+  row_label: Treatment Groups[55]
+  label: Treatment Groups
+  created_at: 2007-03-30 22:16:44
+  data_value: interest
 task_results_1802: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22144,21 +22224,21 @@ task_results_105:
   created_at: 2007-03-24 16:31:30
   data_value: "96"
 task_results_2192: 
-  updated_at: 2007-03-30 22:32:10
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "4"
+  updated_at: 2007-03-30 22:16:48
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  task_id: "18"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Histology
-  id: "81"
-  parameter_id: "67"
-  row_no: "1"
+  parameter_name: Treatment Role
+  id: "76"
+  parameter_id: "159"
+  row_no: "27"
   created_by_user_id: "1"
-  row_label: Group[1]
-  label: Group
-  created_at: 2007-03-30 22:32:10
-  data_value: fail
+  row_label: Treatment Groups[64]
+  label: Treatment Groups
+  created_at: 2007-03-30 22:16:48
+  data_value: interest
 task_results_1803: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22224,20 +22304,20 @@ task_results_1042:
   created_at: 2007-03-30 22:05:56
   data_value: "229"
 task_results_2193: 
-  updated_at: 2007-03-30 22:33:15
+  updated_at: 2007-03-30 22:32:00
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "4"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Histology
-  id: "82"
-  parameter_id: "67"
-  row_no: "2"
+  parameter_name: sig
+  id: "77"
+  parameter_id: "66"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[2]
+  row_label: Group[0]
   label: Group
-  created_at: 2007-03-30 22:32:13
+  created_at: 2007-03-30 22:31:50
   data_value: pass
 task_results_1804: 
   updated_at: 2007-03-30 22:01:37
@@ -22304,20 +22384,20 @@ task_results_1043:
   created_at: 2007-03-30 22:05:56
   data_value: "219"
 task_results_2194: 
-  updated_at: 2007-03-30 22:32:18
+  updated_at: 2007-03-30 22:32:01
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "4"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Histology
-  id: "83"
-  parameter_id: "67"
-  row_no: "3"
+  parameter_name: sig
+  id: "78"
+  parameter_id: "66"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Group[3]
+  row_label: Group[1]
   label: Group
-  created_at: 2007-03-30 22:32:18
+  created_at: 2007-03-30 22:31:53
   data_value: pass
 task_results_1805: 
   updated_at: 2007-03-30 22:01:37
@@ -22384,21 +22464,21 @@ task_results_1044:
   created_at: 2007-03-30 22:05:56
   data_value: "225"
 task_results_2195: 
-  updated_at: 2007-03-30 22:32:26
+  updated_at: 2007-03-30 22:32:03
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "5"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "84"
-  parameter_id: "213"
-  row_no: "0"
+  parameter_name: sig
+  id: "79"
+  parameter_id: "66"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Group[0]
+  row_label: Group[2]
   label: Group
-  created_at: 2007-03-30 22:32:26
-  data_value: saline
+  created_at: 2007-03-30 22:32:02
+  data_value: pass
 task_results_1806: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22464,21 +22544,21 @@ task_results_1045:
   created_at: 2007-03-30 22:05:56
   data_value: "274"
 task_results_2196: 
-  updated_at: 2007-03-30 22:32:33
+  updated_at: 2007-03-30 22:32:09
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "5"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "85"
-  parameter_id: "213"
-  row_no: "1"
+  parameter_name: Histology
+  id: "80"
+  parameter_id: "67"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[1]
+  row_label: Group[0]
   label: Group
-  created_at: 2007-03-30 22:32:33
-  data_value: 00749
+  created_at: 2007-03-30 22:32:09
+  data_value: fail
 task_results_1807: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22624,21 +22704,21 @@ task_results_1110:
   created_at: 2007-03-30 22:15:33
   data_value: "20.52126269"
 task_results_2197: 
-  updated_at: 2007-03-30 22:32:37
+  updated_at: 2007-03-30 22:32:10
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "5"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "86"
-  parameter_id: "213"
-  row_no: "2"
+  parameter_name: Histology
+  id: "81"
+  parameter_id: "67"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Group[2]
+  row_label: Group[1]
   label: Group
-  created_at: 2007-03-30 22:32:37
-  data_value: AB001
+  created_at: 2007-03-30 22:32:10
+  data_value: fail
 task_results_1809: 
   updated_at: 2007-03-30 22:01:37
   parameter_context_id: "8"
@@ -22720,21 +22800,21 @@ task_results_1111:
   created_at: 2007-03-30 22:15:33
   data_value: "236.2"
 task_results_2198: 
-  updated_at: 2007-03-30 22:32:43
+  updated_at: 2007-03-30 22:33:15
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "5"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "87"
-  parameter_id: "213"
-  row_no: "3"
+  parameter_name: Histology
+  id: "82"
+  parameter_id: "67"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Group[3]
+  row_label: Group[2]
   label: Group
-  created_at: 2007-03-30 22:32:43
-  data_value: AB002
+  created_at: 2007-03-30 22:32:13
+  data_value: pass
 task_results_443: 
   updated_at: 2007-03-24 16:31:34
   parameter_context_id: "18"
@@ -22800,20 +22880,20 @@ task_results_1112:
   created_at: 2007-03-30 22:15:33
   data_value: "20.39171945"
 task_results_2199: 
-  updated_at: 2007-03-30 22:32:46
+  updated_at: 2007-03-30 22:32:18
   parameter_context_id: "13"
   protocol_version_id: "7"
   task_id: "20"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: sig
-  id: "88"
-  parameter_id: "66"
+  parameter_name: Histology
+  id: "83"
+  parameter_id: "67"
   row_no: "3"
   created_by_user_id: "1"
   row_label: Group[3]
   label: Group
-  created_at: 2007-03-30 22:32:46
+  created_at: 2007-03-30 22:32:18
   data_value: pass
 task_results_444: 
   updated_at: 2007-03-24 16:31:34
@@ -25232,21 +25312,21 @@ task_results_301:
   created_at: 2007-03-24 16:31:33
   data_value: "13"
 task_results_2120: 
-  updated_at: 2007-03-24 16:48:44
+  updated_at: 2007-03-24 16:19:43
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "8"
-  parameter_id: "90"
-  row_no: "0"
+  parameter_name: Compound
+  id: "3"
+  parameter_id: "91"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[0]
+  row_label: Dose Groups[3]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:37
-  data_value: vehicle
+  created_at: 2007-03-24 16:19:43
+  data_value: AB001
 task_results_2057: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -25328,21 +25408,21 @@ task_results_302:
   created_at: 2007-03-24 16:31:33
   data_value: "45"
 task_results_2121: 
-  updated_at: 2007-03-24 16:20:40
+  updated_at: 2007-03-24 16:19:55
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "9"
-  parameter_id: "90"
-  row_no: "3"
+  parameter_name: Compound
+  id: "4"
+  parameter_id: "91"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[3]
+  row_label: Dose Groups[4]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:39
-  data_value: interest
+  created_at: 2007-03-24 16:19:55
+  data_value: AB001
 task_results_2058: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -25424,21 +25504,21 @@ task_results_303:
   created_at: 2007-03-24 16:31:33
   data_value: "1882"
 task_results_2122: 
-  updated_at: 2007-03-24 16:20:42
+  updated_at: 2007-03-24 16:20:00
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "10"
-  parameter_id: "90"
-  row_no: "4"
+  parameter_name: Compound
+  id: "5"
+  parameter_id: "91"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[5]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:41
-  data_value: interest
+  created_at: 2007-03-24 16:20:00
+  data_value: AB001
 task_results_2059: 
   updated_at: 2007-03-30 22:28:31
   parameter_context_id: "12"
@@ -25536,21 +25616,21 @@ task_results_1240:
   created_at: 2007-03-30 22:28:29
   data_value: "18.47"
 task_results_2123: 
-  updated_at: 2007-03-24 16:20:44
+  updated_at: 2007-03-24 16:48:49
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
   column_no: "3"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "11"
+  id: "6"
   parameter_id: "90"
-  row_no: "5"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[2]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:43
-  data_value: interest
+  created_at: 2007-03-24 16:20:29
+  data_value: negative
 task_results_1939: 
   updated_at: 2007-03-30 22:28:27
   parameter_context_id: "12"
@@ -25632,21 +25712,21 @@ task_results_1241:
   created_at: 2007-03-30 22:28:29
   data_value: "18.47"
 task_results_2124: 
-  updated_at: 2007-03-24 16:20:50
+  updated_at: 2007-03-24 16:48:47
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "6"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Challange
-  id: "12"
-  parameter_id: "93"
+  parameter_name: Treatment Role
+  id: "7"
+  parameter_id: "90"
   row_no: "1"
   created_by_user_id: "1"
   row_label: Dose Groups[1]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:50
-  data_value: 00749
+  created_at: 2007-03-24 16:20:31
+  data_value: positive
 task_results_573: 
   updated_at: 2007-03-24 17:35:14
   parameter_context_id: "23"
@@ -25712,21 +25792,21 @@ task_results_1242:
   created_at: 2007-03-30 22:28:29
   data_value: "18.36"
 task_results_2125: 
-  updated_at: 2007-03-24 16:20:53
+  updated_at: 2007-03-24 16:48:44
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "6"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Challange
-  id: "13"
-  parameter_id: "93"
-  row_no: "2"
+  parameter_name: Treatment Role
+  id: "8"
+  parameter_id: "90"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[2]
+  row_label: Dose Groups[0]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:53
-  data_value: 00749
+  created_at: 2007-03-24 16:20:37
+  data_value: vehicle
 task_results_574: 
   updated_at: 2007-03-24 17:35:19
   parameter_context_id: "23"
@@ -25776,21 +25856,21 @@ task_results_1243:
   created_at: 2007-03-30 22:28:29
   data_value: "18.36"
 task_results_2126: 
-  updated_at: 2007-03-24 16:20:57
+  updated_at: 2007-03-24 16:20:40
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "6"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Challange
-  id: "14"
-  parameter_id: "93"
+  parameter_name: Treatment Role
+  id: "9"
+  parameter_id: "90"
   row_no: "3"
   created_by_user_id: "1"
   row_label: Dose Groups[3]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:57
-  data_value: 00749
+  created_at: 2007-03-24 16:20:39
+  data_value: interest
 task_results_575: 
   updated_at: 2007-03-24 17:35:22
   parameter_context_id: "23"
@@ -25840,21 +25920,21 @@ task_results_1244:
   created_at: 2007-03-30 22:28:29
   data_value: "19.11"
 task_results_2127: 
-  updated_at: 2007-03-24 16:21:29
+  updated_at: 2007-03-24 16:20:42
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "6"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Challange
-  id: "15"
-  parameter_id: "93"
+  parameter_name: Treatment Role
+  id: "10"
+  parameter_id: "90"
   row_no: "4"
   created_by_user_id: "1"
   row_label: Dose Groups[4]
   label: Dose Groups
-  created_at: 2007-03-24 16:21:29
-  data_value: 00749
+  created_at: 2007-03-24 16:20:41
+  data_value: interest
 task_results_576: 
   updated_at: 2007-03-24 17:35:25
   parameter_context_id: "23"
@@ -25904,21 +25984,21 @@ task_results_1245:
   created_at: 2007-03-30 22:28:29
   data_value: "19.11"
 task_results_2128: 
-  updated_at: 2007-03-24 16:21:33
+  updated_at: 2007-03-24 16:20:44
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "6"
+  column_no: "3"
   updated_by_user_id: "1"
-  parameter_name: Challange
-  id: "16"
-  parameter_id: "93"
+  parameter_name: Treatment Role
+  id: "11"
+  parameter_id: "90"
   row_no: "5"
   created_by_user_id: "1"
   row_label: Dose Groups[5]
   label: Dose Groups
-  created_at: 2007-03-24 16:21:33
-  data_value: 00749
+  created_at: 2007-03-24 16:20:43
+  data_value: interest
 task_results_577: 
   updated_at: 2007-03-24 17:35:28
   parameter_context_id: "23"
@@ -25968,21 +26048,21 @@ task_results_1246:
   created_at: 2007-03-30 22:28:29
   data_value: "18.06"
 task_results_2129: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "19"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "1"
+  updated_at: 2007-03-24 16:20:50
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "17"
-  parameter_id: "114"
-  row_no: "0"
+  parameter_name: Challange
+  id: "12"
+  parameter_id: "93"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Compound[21]
-  label: Compound
-  created_at: 2007-03-24 17:05:07
-  data_value: AB001
+  row_label: Dose Groups[1]
+  label: Dose Groups
+  created_at: 2007-03-24 16:20:50
+  data_value: 00749
 task_results_1310: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -27536,21 +27616,21 @@ task_results_1030:
   created_at: 2007-03-30 22:04:41
   data_value: "226"
 task_results_2180: 
-  updated_at: 2007-03-30 21:23:53
+  updated_at: 2007-03-30 21:23:33
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "6"
+  column_no: "5"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "69"
-  parameter_id: "216"
-  row_no: "15"
+  parameter_name: Treatment Role
+  id: "64"
+  parameter_id: "215"
+  row_no: "13"
   created_by_user_id: "1"
-  row_label: Treatments[43]
+  row_label: Treatments[41]
   label: Treatments
-  created_at: 2007-03-30 21:23:53
-  data_value: AB002
+  created_at: 2007-03-30 21:23:32
+  data_value: vehicle
 task_results_1995: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -27616,21 +27696,21 @@ task_results_361:
   created_at: 2007-03-24 16:31:33
   data_value: "1478"
 task_results_2181: 
-  updated_at: 2007-03-30 21:49:27
-  parameter_context_id: "2"
-  protocol_version_id: "2"
-  task_id: "9"
-  column_no: "1"
+  updated_at: 2007-03-30 21:23:34
+  parameter_context_id: "6"
+  protocol_version_id: "3"
+  task_id: "8"
+  column_no: "5"
   updated_by_user_id: "1"
-  parameter_name: Species
-  id: "70"
-  parameter_id: "7"
-  row_no: "0"
+  parameter_name: Treatment Role
+  id: "65"
+  parameter_id: "215"
+  row_no: "14"
   created_by_user_id: "1"
-  row_label: Settings[82]
-  label: Settings
-  created_at: 2007-03-30 21:49:27
-  data_value: rat
+  row_label: Treatments[42]
+  label: Treatments
+  created_at: 2007-03-30 21:23:33
+  data_value: challenge
 task_results_1996: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -27712,21 +27792,21 @@ task_results_1031:
   created_at: 2007-03-30 22:04:41
   data_value: "221"
 task_results_2182: 
-  updated_at: 2007-03-30 22:16:43
-  parameter_context_id: "9"
-  protocol_version_id: "5"
-  task_id: "18"
-  column_no: "3"
+  updated_at: 2007-03-30 21:23:36
+  parameter_context_id: "6"
+  protocol_version_id: "3"
+  task_id: "8"
+  column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "71"
-  parameter_id: "159"
-  row_no: "9"
+  id: "66"
+  parameter_id: "215"
+  row_no: "15"
   created_by_user_id: "1"
-  row_label: Treatment Groups[46]
-  label: Treatment Groups
-  created_at: 2007-03-30 22:15:33
-  data_value: vehicle
+  row_label: Treatments[43]
+  label: Treatments
+  created_at: 2007-03-30 21:23:35
+  data_value: interest
 task_results_1997: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -27776,21 +27856,21 @@ task_results_1032:
   created_at: 2007-03-30 22:04:41
   data_value: "234"
 task_results_2183: 
-  updated_at: 2007-03-30 22:15:33
-  parameter_context_id: "9"
-  protocol_version_id: "5"
-  task_id: "18"
-  column_no: "2"
+  updated_at: 2007-03-30 21:23:41
+  parameter_context_id: "6"
+  protocol_version_id: "3"
+  task_id: "8"
+  column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "72"
-  parameter_id: "158"
-  row_no: "18"
+  id: "67"
+  parameter_id: "216"
+  row_no: "13"
   created_by_user_id: "1"
-  row_label: Treatment Groups[55]
-  label: Treatment Groups
-  created_at: 2007-03-30 22:15:33
-  data_value: AB001
+  row_label: Treatments[41]
+  label: Treatments
+  created_at: 2007-03-30 21:23:41
+  data_value: AB0010
 task_results_1998: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -27840,21 +27920,21 @@ task_results_1033:
   created_at: 2007-03-30 22:04:41
   data_value: "260"
 task_results_2184: 
-  updated_at: 2007-03-30 22:15:33
-  parameter_context_id: "9"
-  protocol_version_id: "5"
-  task_id: "18"
-  column_no: "2"
+  updated_at: 2007-03-30 21:23:48
+  parameter_context_id: "6"
+  protocol_version_id: "3"
+  task_id: "8"
+  column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "73"
-  parameter_id: "158"
-  row_no: "27"
+  id: "68"
+  parameter_id: "216"
+  row_no: "14"
   created_by_user_id: "1"
-  row_label: Treatment Groups[64]
-  label: Treatment Groups
-  created_at: 2007-03-30 22:15:33
-  data_value: AB002
+  row_label: Treatments[42]
+  label: Treatments
+  created_at: 2007-03-30 21:23:48
+  data_value: 00749
 task_results_1999: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -27904,21 +27984,21 @@ task_results_1034:
   created_at: 2007-03-30 22:05:56
   data_value: "8"
 task_results_2185: 
-  updated_at: 2007-03-30 22:16:36
-  parameter_context_id: "9"
-  protocol_version_id: "5"
-  task_id: "18"
-  column_no: "3"
+  updated_at: 2007-03-30 21:23:53
+  parameter_context_id: "6"
+  protocol_version_id: "3"
+  task_id: "8"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "74"
-  parameter_id: "159"
-  row_no: "0"
+  parameter_name: Compound
+  id: "69"
+  parameter_id: "216"
+  row_no: "15"
   created_by_user_id: "1"
-  row_label: Treatment Groups[37]
-  label: Treatment Groups
-  created_at: 2007-03-30 22:16:36
-  data_value: negative
+  row_label: Treatments[43]
+  label: Treatments
+  created_at: 2007-03-30 21:23:53
+  data_value: AB002
 task_results_366: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -28000,21 +28080,21 @@ task_results_1036:
   created_at: 2007-03-30 22:05:56
   data_value: "231"
 task_results_2186: 
-  updated_at: 2007-03-30 22:16:46
-  parameter_context_id: "9"
-  protocol_version_id: "5"
-  task_id: "18"
-  column_no: "3"
+  updated_at: 2007-03-30 21:49:27
+  parameter_context_id: "2"
+  protocol_version_id: "2"
+  task_id: "9"
+  column_no: "1"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "75"
-  parameter_id: "159"
-  row_no: "18"
+  parameter_name: Species
+  id: "70"
+  parameter_id: "7"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Treatment Groups[55]
-  label: Treatment Groups
-  created_at: 2007-03-30 22:16:44
-  data_value: interest
+  row_label: Settings[82]
+  label: Settings
+  created_at: 2007-03-30 21:49:27
+  data_value: rat
 task_results_368: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -28080,21 +28160,21 @@ task_results_1100:
   created_at: 2007-03-30 22:15:33
   data_value: "13.65487296"
 task_results_2187: 
-  updated_at: 2007-03-30 22:16:48
+  updated_at: 2007-03-30 22:16:43
   parameter_context_id: "9"
   protocol_version_id: "5"
   task_id: "18"
   column_no: "3"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "76"
+  id: "71"
   parameter_id: "159"
-  row_no: "27"
+  row_no: "9"
   created_by_user_id: "1"
-  row_label: Treatment Groups[64]
+  row_label: Treatment Groups[46]
   label: Treatment Groups
-  created_at: 2007-03-30 22:16:48
-  data_value: interest
+  created_at: 2007-03-30 22:15:33
+  data_value: vehicle
 task_results_369: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -28160,21 +28240,21 @@ task_results_1101:
   created_at: 2007-03-30 22:15:33
   data_value: "250.5"
 task_results_2188: 
-  updated_at: 2007-03-30 22:32:00
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "3"
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  task_id: "18"
+  column_no: "2"
   updated_by_user_id: "1"
-  parameter_name: sig
-  id: "77"
-  parameter_id: "66"
-  row_no: "0"
+  parameter_name: Compound
+  id: "72"
+  parameter_id: "158"
+  row_no: "18"
   created_by_user_id: "1"
-  row_label: Group[0]
-  label: Group
-  created_at: 2007-03-30 22:31:50
-  data_value: pass
+  row_label: Treatment Groups[55]
+  label: Treatment Groups
+  created_at: 2007-03-30 22:15:33
+  data_value: AB001
 task_results_433: 
   updated_at: 2007-03-24 16:31:34
   parameter_context_id: "18"
@@ -28240,21 +28320,21 @@ task_results_1102:
   created_at: 2007-03-30 22:15:33
   data_value: "14.35424831"
 task_results_2189: 
-  updated_at: 2007-03-30 22:32:01
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "3"
+  updated_at: 2007-03-30 22:15:33
+  parameter_context_id: "9"
+  protocol_version_id: "5"
+  task_id: "18"
+  column_no: "2"
   updated_by_user_id: "1"
-  parameter_name: sig
-  id: "78"
-  parameter_id: "66"
-  row_no: "1"
+  parameter_name: Compound
+  id: "73"
+  parameter_id: "158"
+  row_no: "27"
   created_by_user_id: "1"
-  row_label: Group[1]
-  label: Group
-  created_at: 2007-03-30 22:31:53
-  data_value: pass
+  row_label: Treatment Groups[64]
+  label: Treatment Groups
+  created_at: 2007-03-30 22:15:33
+  data_value: AB002
 task_results_434: 
   updated_at: 2007-03-24 16:31:34
   parameter_context_id: "18"
@@ -31200,21 +31280,21 @@ task_results_1230:
   created_at: 2007-03-30 22:28:29
   data_value: "19.33"
 task_results_2113: 
-  updated_at: 2007-03-24 16:19:33
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "1"
-  parameter_id: "91"
+  updated_at: 2007-04-26 15:14:22
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "25"
+  column_no: "2"
+  updated_by_user_id: "3"
+  parameter_name: Molecula Formula
+  id: "684"
+  parameter_id: "211"
   row_no: "0"
-  created_by_user_id: "1"
-  row_label: Dose Groups[0]
-  label: Dose Groups
-  created_at: 2007-03-24 16:19:33
-  data_value: saline
+  created_by_user_id: "3"
+  row_label: Compounds[0]
+  label: Compounds
+  created_at: 2007-04-26 15:14:22
+  data_value: a
 task_results_1929: 
   updated_at: 2007-03-30 22:05:56
   parameter_context_id: "8"
@@ -31296,21 +31376,21 @@ task_results_1231:
   created_at: 2007-03-30 22:28:29
   data_value: "20.21"
 task_results_2114: 
-  updated_at: 2007-03-24 16:20:25
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "2"
-  parameter_id: "91"
-  row_no: "2"
-  created_by_user_id: "1"
-  row_label: Dose Groups[2]
-  label: Dose Groups
-  created_at: 2007-03-24 16:19:38
-  data_value: "02707"
+  updated_at: 2007-04-26 15:14:22
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "25"
+  column_no: "2"
+  updated_by_user_id: "3"
+  parameter_name: Molecula Formula
+  id: "685"
+  parameter_id: "211"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: Compounds[1]
+  label: Compounds
+  created_at: 2007-04-26 15:14:22
+  data_value: s
 task_results_563: 
   updated_at: 2007-03-24 17:34:34
   parameter_context_id: "23"
@@ -31360,21 +31440,21 @@ task_results_1232:
   created_at: 2007-03-30 22:28:29
   data_value: "20.05"
 task_results_2115: 
-  updated_at: 2007-03-24 16:19:43
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "3"
-  parameter_id: "91"
-  row_no: "3"
-  created_by_user_id: "1"
-  row_label: Dose Groups[3]
-  label: Dose Groups
-  created_at: 2007-03-24 16:19:43
-  data_value: AB001
+  updated_at: 2007-04-26 15:14:22
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "25"
+  column_no: "2"
+  updated_by_user_id: "3"
+  parameter_name: Molecula Formula
+  id: "686"
+  parameter_id: "211"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: Compounds[2]
+  label: Compounds
+  created_at: 2007-04-26 15:14:22
+  data_value: d
 task_results_564: 
   updated_at: 2007-03-24 17:34:35
   parameter_context_id: "23"
@@ -31408,21 +31488,21 @@ task_results_1233:
   created_at: 2007-03-30 22:28:29
   data_value: "18.37"
 task_results_2116: 
-  updated_at: 2007-03-24 16:19:55
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "4"
-  parameter_id: "91"
-  row_no: "4"
-  created_by_user_id: "1"
-  row_label: Dose Groups[4]
-  label: Dose Groups
-  created_at: 2007-03-24 16:19:55
-  data_value: AB001
+  updated_at: 2007-04-26 15:14:22
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "25"
+  column_no: "2"
+  updated_by_user_id: "3"
+  parameter_name: Molecula Formula
+  id: "687"
+  parameter_id: "211"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: Compounds[3]
+  label: Compounds
+  created_at: 2007-04-26 15:14:22
+  data_value: f
 task_results_565: 
   updated_at: 2007-03-24 17:34:37
   parameter_context_id: "23"
@@ -31456,21 +31536,21 @@ task_results_1234:
   created_at: 2007-03-30 22:28:29
   data_value: "17.87"
 task_results_2117: 
-  updated_at: 2007-03-24 16:20:00
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "5"
-  parameter_id: "91"
-  row_no: "5"
-  created_by_user_id: "1"
-  row_label: Dose Groups[5]
-  label: Dose Groups
-  created_at: 2007-03-24 16:20:00
-  data_value: AB001
+  updated_at: 2007-04-26 15:14:22
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "25"
+  column_no: "2"
+  updated_by_user_id: "3"
+  parameter_name: Molecula Formula
+  id: "688"
+  parameter_id: "211"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: Compounds[4]
+  label: Compounds
+  created_at: 2007-04-26 15:14:22
+  data_value: g
 task_results_566: 
   updated_at: 2007-03-24 17:34:46
   parameter_context_id: "23"
@@ -31504,21 +31584,21 @@ task_results_1235:
   created_at: 2007-03-30 22:28:29
   data_value: "18.37"
 task_results_2118: 
-  updated_at: 2007-03-24 16:48:49
+  updated_at: 2007-03-24 16:19:33
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "6"
-  parameter_id: "90"
-  row_no: "2"
+  parameter_name: Compound
+  id: "1"
+  parameter_id: "91"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[2]
+  row_label: Dose Groups[0]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:29
-  data_value: negative
+  created_at: 2007-03-24 16:19:33
+  data_value: saline
 task_results_567: 
   updated_at: 2007-03-24 17:34:49
   parameter_context_id: "23"
@@ -31568,21 +31648,21 @@ task_results_1236:
   created_at: 2007-03-30 22:28:29
   data_value: "17.99"
 task_results_2119: 
-  updated_at: 2007-03-24 16:48:47
+  updated_at: 2007-03-24 16:20:25
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "3"
+  column_no: "4"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "7"
-  parameter_id: "90"
-  row_no: "1"
+  parameter_name: Compound
+  id: "2"
+  parameter_id: "91"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[1]
+  row_label: Dose Groups[2]
   label: Dose Groups
-  created_at: 2007-03-24 16:20:31
-  data_value: positive
+  created_at: 2007-03-24 16:19:38
+  data_value: "02707"
 task_results_1300: 
   updated_at: 2007-03-30 22:28:30
   parameter_context_id: "12"
@@ -33120,21 +33200,21 @@ task_results_350:
   created_at: 2007-03-24 16:31:33
   data_value: "422"
 task_results_2170: 
-  updated_at: 2007-03-30 21:22:46
+  updated_at: 2007-03-30 21:22:26
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "5"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "59"
-  parameter_id: "215"
-  row_no: "10"
+  parameter_name: Compound
+  id: "54"
+  parameter_id: "216"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Treatments[39]
+  row_label: Treatments[35]
   label: Treatments
-  created_at: 2007-03-30 21:22:43
-  data_value: challenge
+  created_at: 2007-03-30 21:22:26
+  data_value: AB0010
 task_results_1985: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -33216,21 +33296,21 @@ task_results_1020:
   created_at: 2007-03-30 22:04:41
   data_value: "265"
 task_results_2171: 
-  updated_at: 2007-03-30 21:22:48
+  updated_at: 2007-03-30 21:22:31
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "60"
+  id: "55"
   parameter_id: "215"
-  row_no: "11"
+  row_no: "6"
   created_by_user_id: "1"
-  row_label: Treatments[40]
+  row_label: Treatments[36]
   label: Treatments
-  created_at: 2007-03-30 21:22:47
-  data_value: interest
+  created_at: 2007-03-30 21:22:29
+  data_value: challenge
 task_results_1986: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -33312,21 +33392,21 @@ task_results_1021:
   created_at: 2007-03-30 22:04:41
   data_value: "308"
 task_results_2172: 
-  updated_at: 2007-03-30 21:23:14
+  updated_at: 2007-03-30 21:22:35
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "61"
+  id: "56"
   parameter_id: "216"
-  row_no: "9"
+  row_no: "6"
   created_by_user_id: "1"
-  row_label: Treatments[38]
+  row_label: Treatments[36]
   label: Treatments
-  created_at: 2007-03-30 21:23:14
-  data_value: AB0010
+  created_at: 2007-03-30 21:22:35
+  data_value: 00749
 task_results_1987: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -33392,21 +33472,21 @@ task_results_1022:
   created_at: 2007-03-30 22:04:41
   data_value: "250"
 task_results_2173: 
-  updated_at: 2007-03-30 21:23:20
+  updated_at: 2007-03-30 21:22:38
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "6"
+  column_no: "5"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "62"
-  parameter_id: "216"
-  row_no: "10"
+  parameter_name: Treatment Role
+  id: "57"
+  parameter_id: "215"
+  row_no: "7"
   created_by_user_id: "1"
-  row_label: Treatments[39]
+  row_label: Treatments[37]
   label: Treatments
-  created_at: 2007-03-30 21:23:20
-  data_value: 00749
+  created_at: 2007-03-30 21:22:36
+  data_value: vehicle
 task_results_1988: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -33472,21 +33552,21 @@ task_results_1023:
   created_at: 2007-03-30 22:04:41
   data_value: "274"
 task_results_2174: 
-  updated_at: 2007-03-30 21:23:28
+  updated_at: 2007-03-30 21:22:42
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "6"
+  column_no: "5"
   updated_by_user_id: "1"
-  parameter_name: Compound
-  id: "63"
-  parameter_id: "216"
-  row_no: "11"
+  parameter_name: Treatment Role
+  id: "58"
+  parameter_id: "215"
+  row_no: "9"
   created_by_user_id: "1"
-  row_label: Treatments[40]
+  row_label: Treatments[38]
   label: Treatments
-  created_at: 2007-03-30 21:23:28
-  data_value: AB001
+  created_at: 2007-03-30 21:22:41
+  data_value: vehicle
 task_results_1989: 
   updated_at: 2007-03-30 22:28:29
   parameter_context_id: "12"
@@ -33600,21 +33680,21 @@ task_results_1025:
   created_at: 2007-03-30 22:04:41
   data_value: "230"
 task_results_2175: 
-  updated_at: 2007-03-30 21:23:33
+  updated_at: 2007-03-30 21:22:46
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "64"
+  id: "59"
   parameter_id: "215"
-  row_no: "13"
+  row_no: "10"
   created_by_user_id: "1"
-  row_label: Treatments[41]
+  row_label: Treatments[39]
   label: Treatments
-  created_at: 2007-03-30 21:23:32
-  data_value: vehicle
+  created_at: 2007-03-30 21:22:43
+  data_value: challenge
 task_results_357: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -33680,21 +33760,21 @@ task_results_1026:
   created_at: 2007-03-30 22:04:41
   data_value: "231"
 task_results_2176: 
-  updated_at: 2007-03-30 21:23:34
+  updated_at: 2007-03-30 21:22:48
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "5"
   updated_by_user_id: "1"
   parameter_name: Treatment Role
-  id: "65"
+  id: "60"
   parameter_id: "215"
-  row_no: "14"
+  row_no: "11"
   created_by_user_id: "1"
-  row_label: Treatments[42]
+  row_label: Treatments[40]
   label: Treatments
-  created_at: 2007-03-30 21:23:33
-  data_value: challenge
+  created_at: 2007-03-30 21:22:47
+  data_value: interest
 task_results_358: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -33744,21 +33824,21 @@ task_results_1027:
   created_at: 2007-03-30 22:04:41
   data_value: "237"
 task_results_2177: 
-  updated_at: 2007-03-30 21:23:36
+  updated_at: 2007-03-30 21:23:14
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
-  column_no: "5"
+  column_no: "6"
   updated_by_user_id: "1"
-  parameter_name: Treatment Role
-  id: "66"
-  parameter_id: "215"
-  row_no: "15"
+  parameter_name: Compound
+  id: "61"
+  parameter_id: "216"
+  row_no: "9"
   created_by_user_id: "1"
-  row_label: Treatments[43]
+  row_label: Treatments[38]
   label: Treatments
-  created_at: 2007-03-30 21:23:35
-  data_value: interest
+  created_at: 2007-03-30 21:23:14
+  data_value: AB0010
 task_results_359: 
   updated_at: 2007-03-24 16:31:33
   parameter_context_id: "18"
@@ -33824,21 +33904,21 @@ task_results_1028:
   created_at: 2007-03-30 22:04:41
   data_value: "271"
 task_results_2178: 
-  updated_at: 2007-03-30 21:23:41
+  updated_at: 2007-03-30 21:23:20
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "67"
+  id: "62"
   parameter_id: "216"
-  row_no: "13"
+  row_no: "10"
   created_by_user_id: "1"
-  row_label: Treatments[41]
+  row_label: Treatments[39]
   label: Treatments
-  created_at: 2007-03-30 21:23:41
-  data_value: AB0010
+  created_at: 2007-03-30 21:23:20
+  data_value: 00749
 task_results_690: 
   updated_at: 2007-03-30 21:49:28
   parameter_context_id: "3"
@@ -33920,21 +34000,21 @@ task_results_1360:
   created_at: 2007-03-30 22:28:31
   data_value: "19"
 task_results_2179: 
-  updated_at: 2007-03-30 21:23:48
+  updated_at: 2007-03-30 21:23:28
   parameter_context_id: "6"
   protocol_version_id: "3"
   task_id: "8"
   column_no: "6"
   updated_by_user_id: "1"
   parameter_name: Compound
-  id: "68"
+  id: "63"
   parameter_id: "216"
-  row_no: "14"
+  row_no: "11"
   created_by_user_id: "1"
-  row_label: Treatments[42]
+  row_label: Treatments[40]
   label: Treatments
-  created_at: 2007-03-30 21:23:48
-  data_value: 00749
+  created_at: 2007-03-30 21:23:28
+  data_value: AB001
 task_results_691: 
   updated_at: 2007-03-30 21:49:28
   parameter_context_id: "3"

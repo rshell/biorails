@@ -147,8 +147,8 @@ class Execute::TasksController < ApplicationController
     old_task = current( Task, params[:id] )
     @task = old_task.copy
     @task.experiment = nil
-    @task.start_date = Time.now
-    @task.end_date =  Time.now + (old_task.end_date-old_task.start_date)
+    @task.started_at = Time.now
+    @task.ended_at =  Time.now + (old_task.ended_at-old_task.started_at)
     old_task.experiment.tasks << @task
     @data_sheet = TreeGrid.from_task(@task)
     @task.save

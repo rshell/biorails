@@ -35,8 +35,8 @@
 #  status_id           :integer(11)   Status  
 #  is_milestone        :boolean(1)    milestone flag to change icon
 #  priority_id         :integer(11)   priority
-#  start_date          :datetime      start
-#  end_date            :datetime      end
+#  started_at          :datetime      start
+#  ended_at            :datetime      end
 #  expected_hours      :float         
 #  done_hours          :float    
 #

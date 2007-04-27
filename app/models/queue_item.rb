@@ -15,7 +15,7 @@
 #  data_name          :string(255)   
 #  requested_by       :string(60)    
 #  assigned_to        :string(60)    
-#  requested_for      :datetime      
+#  expected_at      :datetime      
 #  accepted_at        :datetime      
 #  completed_at       :datetime      
 #  lock_version       :integer(11)   default(0), not null
@@ -38,9 +38,11 @@
 # in tasks.
 # 
 class QueueItem < ActiveRecord::Base
-  include CurrentStatus
   include CurrentPriority
   include CatalogueReference
+
+  acts_as_scheduled 
+
 ##
 # This record has a full audit log created for changes 
 #   
@@ -82,12 +84,7 @@ class QueueItem < ActiveRecord::Base
 # Eg Compounds or Plates
 #  
  belongs_to :parameter, :class_name =>'StudyParameter',:foreign_key=>'study_parameter_id'
-##
-# get the status
-#
- def status
-   self.current_state
- end
+
 ##
 # get the request linked to item
 #
@@ -109,11 +106,6 @@ class QueueItem < ActiveRecord::Base
       order by c.parameter_context_id,c.task_id
 SQL
     return TaskContext.find_by_sql([sql,self.object.class.to_s,self.object.id])
-  end
-
-
-  def self.content_columns
-    @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
   end
 
 end

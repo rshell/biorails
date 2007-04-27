@@ -82,11 +82,11 @@ class StudyQueue < ActiveRecord::Base
           :data_id => list_item.data_id,
           :data_name => list_item.data_name,
           :name => list_item.data_name,
-          :status_id => current_state = CurrentStatus::NEW }
+          :status_id => current_state = 1 }
        if  request_service
            attr[:request_service_id] = request_service.id
            attr[:priority_id]   = request_service.priority_id
-           attr[:requested_for] = request_service.requested_for
+           attr[:expected_at] = request_service.expected_at
            attr[:requested_by_user_id]  = request_service.requested_by_user_id
            attr[:comments] = "From #{request_service.name}"
        end     

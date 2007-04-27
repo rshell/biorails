@@ -229,7 +229,7 @@ process_statistics_077:
   num_values: "5"
   id: "210"
   parameter_id: "210"
-  max_values: "1007"
+  max_values: "1006"
   study_parameter_id: "15"
   stddev_values: 
   num_unique: "5"
@@ -577,13 +577,13 @@ process_statistics_062:
   parameter_role_id: "6"
   min_values: 
   avg_values: 
-  num_values: "5"
+  num_values: "10"
   id: "211"
   parameter_id: "211"
   max_values: 
   study_parameter_id: "14"
   stddev_values: 
-  num_unique: "5"
+  num_unique: "10"
 process_statistics_084: 
   protocol_version_id: "9"
   parameter_type_id: "23"
@@ -972,7 +972,7 @@ process_statistics_005:
   parameter_id: "58"
   max_values: "21.90915587"
   study_parameter_id: "2"
-  stddev_values: "3.22931777988596"
+  stddev_values: "3.22931777988597"
   num_unique: "32"
 process_statistics_026: 
   protocol_version_id: "12"
@@ -998,7 +998,7 @@ process_statistics_047:
   parameter_id: "151"
   max_values: "963"
   study_parameter_id: "41"
-  stddev_values: "298.671733006694"
+  stddev_values: "298.671733006695"
   num_unique: "12"
 process_statistics_092: 
   protocol_version_id: "16"
@@ -1050,7 +1050,7 @@ process_statistics_006:
   parameter_id: "69"
   max_values: "22.07"
   study_parameter_id: "3"
-  stddev_values: "8.26849995794846"
+  stddev_values: "8.26849995794845"
   num_unique: "136"
 process_statistics_027: 
   protocol_version_id: "12"

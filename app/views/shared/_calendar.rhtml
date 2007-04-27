@@ -42,14 +42,14 @@ while day <= @calendar.date_to
 	<td valign="top" class="<%= day.month==@calendar.month ? "even" : "odd" %>" style="width:14%; <%= Date.today == day ? 'background:#FDFED0;' : '' %>">
 	<p class="textright"><%= day==Date.today ? "<b>#{day.day}</b>" : day.day %></p>	
 	<% day_issues = []
-	@calendar.items.each { |i| day_issues << i if i.start_date.to_date == day or i.end_date.to_date == day } 
+	@calendar.items.each { |i| day_issues << i if i.started_at.to_date == day or i.ended_at.to_date == day } 
 	day_issues.each do |i| %>
 	    <div class="tooltip">
-		<%= if day == i.start_date and day == i.end_date.to_date
+		<%= if day == i.started_at and day == i.ended_at.to_date
 		    image_tag('arrow_bw.png')
-		elsif day == i.start_date.to_date
+		elsif day == i.started_at.to_date
 		    image_tag('arrow_from.png') 
-		elsif day == i.end_date.to_date
+		elsif day == i.ended_at.to_date
 		    image_tag('arrow_to.png') 
 		end %>
 		<small><%= link_to "#{i.name}", task_url(:action=>'show',:id=>i.id) %>: <%= i.description.sub(/^(.{30}[^\s]*\s).*$/, '\1 (...)') %></small>

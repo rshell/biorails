@@ -1,14 +1,4 @@
 --- 
-memberships_015: 
-  updated_at: 2007-04-23 18:32:33
-  project_id: "0"
-  updated_by_user_id: "1"
-  role_id: "2"
-  id: "15"
-  created_by_user_id: "1"
-  owner: "0"
-  user_id: "6"
-  created_at: 2007-04-23 18:32:33
 memberships_004: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
@@ -80,25 +70,25 @@ memberships_010:
   user_id: "3"
   created_at: 2007-04-20 07:35:25
 memberships_011: 
-  updated_at: 2007-04-20 07:35:57
-  project_id: "0"
+  updated_at: 2007-04-23 18:29:30
+  project_id: "7"
   updated_by_user_id: "1"
-  role_id: "3"
-  id: "11"
+  role_id: "1"
+  id: "13"
   created_by_user_id: "1"
-  owner: "0"
-  user_id: "4"
-  created_at: 2007-04-20 07:35:57
+  owner: "1"
+  user_id: "3"
+  created_at: 2007-04-23 18:29:30
 memberships_012: 
-  updated_at: 2007-04-20 07:57:01
-  project_id: "0"
-  updated_by_user_id: "1"
+  updated_at: 2007-04-26 21:12:55
+  project_id: "4"
+  updated_by_user_id: "3"
   role_id: "2"
-  id: "12"
-  created_by_user_id: "1"
+  id: "18"
+  created_by_user_id: "3"
   owner: "0"
   user_id: "4"
-  created_at: 2007-04-20 07:57:01
+  created_at: 2007-04-26 21:12:55
 memberships_001: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
@@ -109,16 +99,6 @@ memberships_001:
   owner: "0"
   user_id: "1"
   created_at: 0000-00-00 00:00:00
-memberships_013: 
-  updated_at: 2007-04-23 18:29:30
-  project_id: "7"
-  updated_by_user_id: "1"
-  role_id: "1"
-  id: "13"
-  created_by_user_id: "1"
-  owner: "1"
-  user_id: "3"
-  created_at: 2007-04-23 18:29:30
 memberships_002: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
@@ -129,16 +109,6 @@ memberships_002:
   owner: "1"
   user_id: "2"
   created_at: 0000-00-00 00:00:00
-memberships_014: 
-  updated_at: 2007-04-23 18:32:20
-  project_id: "0"
-  updated_by_user_id: "1"
-  role_id: "3"
-  id: "14"
-  created_by_user_id: "1"
-  owner: "0"
-  user_id: "4"
-  created_at: 2007-04-23 18:32:20
 memberships_003: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"

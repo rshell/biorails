@@ -125,8 +125,8 @@ class Project::ProjectsController < ApplicationController
     # finish on sunday
     @date_to = @date_to + (7-@date_to.cwday)  
       
-    @tasks = Task.find(:all, :order => "start_date, end_date", :include => [:experiment], 
-                         :conditions => ["(((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
+    @tasks = Task.find(:all, :order => "started_at, ended_at", :include => [:experiment], 
+                         :conditions => ["(((started_at>=? and started_at<=?) or (ended_at>=? and ended_at<=?) or (started_at<? and ended_at>?)) and started_at is not null and ended_at is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
     
     render :layout => false if request.xhr?
   end  
@@ -155,8 +155,8 @@ class Project::ProjectsController < ApplicationController
     @date_from = Date.civil(@year_from, @month_from, 1)
     @date_to = (@date_from >> @months) - 1
 
-    @tasks = Task.find(:all, :order => "start_date, end_date", :include => [:experiment], 
-                         :conditions => ["(((start_date>=? and start_date<=?) or (end_date>=? and end_date<=?) or (start_date<? and end_date>?)) and start_date is not null and end_date is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
+    @tasks = Task.find(:all, :order => "started_at, ended_at", :include => [:experiment], 
+                         :conditions => ["(((started_at>=? and started_at<=?) or (ended_at>=? and ended_at<=?) or (started_at<? and ended_at>?)) and started_at is not null and ended_at is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
     
     if params[:output]=='pdf'
       @options_for_rfpdf ||= {}

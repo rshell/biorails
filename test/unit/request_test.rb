@@ -13,7 +13,7 @@ class RequestTest < Test::Unit::TestCase
     request = Request.new(:name =>'test2',:description=>'test1')
     request.data_element = DataElement.find(1)
     request.requested_by='test'
-    rerequest.quest.requested_for='2/2/2020'
+    rerequest.quest.expected_at='2/2/2020'
     request.status ='new'
     request.priority = 'normal'
     request.save
@@ -33,7 +33,7 @@ class RequestTest < Test::Unit::TestCase
 
     request = Request.create( {:name =>'test2',:description=>'test1',:data_element_id=>1} )
     request.requested_by='test'
-    rerequest.quest.requested_for='2/2/2020'
+    rerequest.quest.expected_at='2/2/2020'
     request.status ='new'
     request.priority = 'normal'
 

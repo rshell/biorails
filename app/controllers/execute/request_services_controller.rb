@@ -63,7 +63,7 @@ class Execute::RequestServicesController < ApplicationController
     @queue_item = QueueItem.find(params[:id])
        
     if params[:status_id]
-      @queue_item.current_state_id = params[:status_id]
+      @queue_item.states_id = params[:status_id]
     elsif params[:priority_id]
       @queue_item.priority_id = params[:priority_id] 
     elsif params[:comments]

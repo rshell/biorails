@@ -7,7 +7,7 @@
 #  name               :string(128)   default(), not null
 #  description        :text          
 #  requested_by       :string(255)   
-#  requested_for      :string(255)   
+#  expected_at      :string(255)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
@@ -40,7 +40,7 @@
 
 class Request < ActiveRecord::Base
   included Named
-  include  CurrentStatus
+
   include  CurrentPriority
 ##
 # This record has a full audit log created for changes 
@@ -189,7 +189,7 @@ SQL
       request_service.request = self
       request_service.queue = queue
       request_service.name = "RS-#{self.id}-#{queue.id}"    
-      request_service.requested_for = self.requested_for
+      request_service.expected_at = self.expected_at
       request_service.requested_by_user_id = self.requested_by_user_id
       request_service.assigned_to_user_id = queue.assigned_to_user_id
       services << request_service

@@ -9,7 +9,7 @@
 #  name               :string(128)   default(), not null
 #  description        :text          
 #  requested_by       :string(60)    
-#  requested_for      :datetime      
+#  expected_at      :datetime      
 #  assigned_to        :string(60)    
 #  accepted_at        :datetime      
 #  completed_at       :datetime      
@@ -31,8 +31,17 @@
 # See license agreement for additional rights
 # 
 class RequestService < ActiveRecord::Base
- include  CurrentStatus
- include  CurrentPriority
+  
+  include  CurrentPriority
+
+##
+# This scheduled item is in turn broken down as follows
+# 
+  acts_as_scheduled :summary_of=>:items
+
+  has_many_scheduled :items, :class_name => "QueueItem" 
+
+ 
 ##
 # This record has a full audit log created for changes 
 #   
@@ -49,11 +58,6 @@ class RequestService < ActiveRecord::Base
 
   belongs_to :request_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
   belongs_to :assigned_to , :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
-
-##
-# Study Has a number of items associated with the request
-# 
-  has_many :items, :class_name => "QueueItem" 
 
   
 ##
@@ -94,15 +98,15 @@ class RequestService < ActiveRecord::Base
 # Submit the request
 #  
   def accept
-      self.status = CurrentStatus::ACCEPTED
+      self.status = Alces::ScheduledItem::ACCEPTED
   end 
   
   def reject
-      self.status = CurrentStatus::REJECTED
+      self.status =  Alces::ScheduledItem::REJECTED
   end
 
   def complete
-      self.status = CurrentStatus::COMPLETED
+      self.status =  Alces::ScheduledItem::COMPLETED
   end
 
 ##

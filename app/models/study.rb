@@ -29,6 +29,10 @@
 class Study < ActiveRecord::Base
   included Named
 ##
+# This item can be scheduled 
+#
+  acts_as_scheduled 
+##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
@@ -79,7 +83,7 @@ class Study < ActiveRecord::Base
 # List of experiments carried out for this study
 # 
   has_many_scheduled :experiments,  :class_name=>'Experiment',
-                    :foreign_key =>'study_id',:dependent => :destroy,:order => "name desc"
+                     :foreign_key =>'study_id',:dependent => :destroy,:order => "name desc"
 
 ##
 # The study has a collection of prefered parameters and roles assocated with it

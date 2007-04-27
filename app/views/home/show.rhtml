@@ -68,7 +68,7 @@
 		<ul>
 		<% for item in @user.tasks.current(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
@@ -77,7 +77,7 @@
 		<ul>
 		<% for item in @user.tasks.overdue(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>
@@ -86,7 +86,7 @@
 		<ul>
 		<% for item in @user.tasks.future(5) %>
 			<li>
-			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.end_date) %> (<%= format_time(item.updated_at) %>)<br />
+			<%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>
 			</li>
 		<% end %>

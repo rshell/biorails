@@ -1,4 +1,15 @@
 --- 
+task_stats1_083: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "22"
+  min_values: "1"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "2"
+  max_values: "2"
+  stddev_values: 
+  num_unique: "2"
 task_stats1_020: 
   parameter_type_id: "12"
   parameter_role_id: "6"
@@ -143,16 +154,16 @@ task_stats1_022:
   stddev_values: "11.5433963806152"
   num_unique: "40"
 task_stats1_065: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "1"
-  min_values: "1"
+  parameter_type_id: "1"
+  parameter_role_id: "6"
+  task_id: "25"
+  min_values: 
   avg_values: 
-  data_type_id: "5"
-  num_values: "10"
-  max_values: "1006"
+  data_type_id: "1"
+  num_values: "5"
+  max_values: 
   stddev_values: 
-  num_unique: "4"
+  num_unique: "5"
 task_stats1_002: 
   parameter_type_id: "12"
   parameter_role_id: "3"
@@ -209,6 +220,17 @@ task_stats1_045:
   stddev_values: 
   num_unique: "6"
 task_stats1_066: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "1"
+  min_values: "1"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "10"
+  max_values: "1006"
+  stddev_values: 
+  num_unique: "4"
+task_stats1_067: 
   parameter_type_id: "19"
   parameter_role_id: "6"
   task_id: "1"
@@ -219,17 +241,6 @@ task_stats1_066:
   max_values: "0"
   stddev_values: 
   num_unique: "4"
-task_stats1_067: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "4"
-  min_values: "1"
-  avg_values: 
-  data_type_id: "5"
-  num_values: "1"
-  max_values: "1"
-  stddev_values: 
-  num_unique: "1"
 task_stats1_003: 
   parameter_type_id: "9"
   parameter_role_id: "6"
@@ -253,16 +264,16 @@ task_stats1_046:
   stddev_values: 
   num_unique: "6"
 task_stats1_068: 
-  parameter_type_id: "19"
-  parameter_role_id: "6"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
   task_id: "4"
-  min_values: "0"
+  min_values: "1"
   avg_values: 
   data_type_id: "5"
-  num_values: "6"
-  max_values: "0"
+  num_values: "1"
+  max_values: "1"
   stddev_values: 
-  num_unique: "4"
+  num_unique: "1"
 task_stats1_004: 
   parameter_type_id: "6"
   parameter_role_id: "1"
@@ -286,16 +297,16 @@ task_stats1_025:
   stddev_values: "16.3492927981611"
   num_unique: "28"
 task_stats1_070: 
-  parameter_type_id: "15"
-  parameter_role_id: "6"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
   task_id: "5"
-  min_values: "0"
+  min_values: "4"
   avg_values: 
   data_type_id: "5"
-  num_values: "3"
-  max_values: "0"
+  num_values: "1"
+  max_values: "4"
   stddev_values: 
-  num_unique: "2"
+  num_unique: "1"
 task_stats1_005: 
   parameter_type_id: "5"
   parameter_role_id: "3"
@@ -330,27 +341,27 @@ task_stats1_047:
   stddev_values: 
   num_unique: "48"
 task_stats1_071: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "6"
-  min_values: "1"
-  avg_values: 
-  data_type_id: "5"
-  num_values: "1"
-  max_values: "1"
-  stddev_values: 
-  num_unique: "1"
-task_stats1_069: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "15"
+  parameter_role_id: "6"
   task_id: "5"
-  min_values: "4"
+  min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "1"
-  max_values: "4"
+  num_values: "3"
+  max_values: "0"
   stddev_values: 
-  num_unique: "1"
+  num_unique: "2"
+task_stats1_069: 
+  parameter_type_id: "19"
+  parameter_role_id: "6"
+  task_id: "4"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "6"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "4"
 task_stats1_006: 
   parameter_type_id: "3"
   parameter_role_id: "2"
@@ -396,16 +407,16 @@ task_stats1_048:
   stddev_values: 
   num_unique: "1"
 task_stats1_072: 
-  parameter_type_id: "15"
-  parameter_role_id: "6"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
   task_id: "6"
-  min_values: "0"
+  min_values: "1"
   avg_values: 
   data_type_id: "5"
-  num_values: "9"
-  max_values: "0"
+  num_values: "1"
+  max_values: "1"
   stddev_values: 
-  num_unique: "2"
+  num_unique: "1"
 task_stats1_007: 
   parameter_type_id: "4"
   parameter_role_id: "2"
@@ -462,16 +473,16 @@ task_stats1_049:
   stddev_values: 
   num_unique: "5"
 task_stats1_073: 
-  parameter_type_id: "19"
-  parameter_role_id: "3"
-  task_id: "7"
+  parameter_type_id: "15"
+  parameter_role_id: "6"
+  task_id: "6"
   min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "5"
+  num_values: "9"
   max_values: "0"
   stddev_values: 
-  num_unique: "4"
+  num_unique: "2"
 task_stats1_010: 
   parameter_type_id: "7"
   parameter_role_id: "2"
@@ -528,16 +539,16 @@ task_stats1_052:
   stddev_values: 
   num_unique: "40"
 task_stats1_074: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "19"
+  parameter_role_id: "3"
   task_id: "7"
-  min_values: "1"
+  min_values: "0"
   avg_values: 
   data_type_id: "5"
   num_values: "5"
-  max_values: "1007"
+  max_values: "0"
   stddev_values: 
-  num_unique: "5"
+  num_unique: "4"
 task_stats1_009: 
   parameter_type_id: "9"
   parameter_role_id: "6"
@@ -583,16 +594,16 @@ task_stats1_011:
   stddev_values: "253.75602011955"
   num_unique: "36"
 task_stats1_075: 
-  parameter_type_id: "19"
-  parameter_role_id: "3"
-  task_id: "8"
-  min_values: "0"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "7"
+  min_values: "1"
   avg_values: 
   data_type_id: "5"
-  num_values: "11"
-  max_values: "0"
+  num_values: "5"
+  max_values: "1006"
   stddev_values: 
-  num_unique: "4"
+  num_unique: "5"
 task_stats1_054: 
   parameter_type_id: "1"
   parameter_role_id: "3"
@@ -627,16 +638,16 @@ task_stats1_033:
   stddev_values: "20.8001051680033"
   num_unique: "31"
 task_stats1_076: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "19"
+  parameter_role_id: "3"
   task_id: "8"
-  min_values: "1"
+  min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "10"
-  max_values: "1006"
+  num_values: "11"
+  max_values: "0"
   stddev_values: 
-  num_unique: "5"
+  num_unique: "4"
 task_stats1_013: 
   parameter_type_id: "7"
   parameter_role_id: "6"
@@ -671,16 +682,16 @@ task_stats1_055:
   stddev_values: 
   num_unique: "40"
 task_stats1_077: 
-  parameter_type_id: "17"
-  parameter_role_id: "3"
-  task_id: "9"
-  min_values: "0"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "8"
+  min_values: "1"
   avg_values: 
   data_type_id: "5"
-  num_values: "1"
-  max_values: "0"
+  num_values: "10"
+  max_values: "1006"
   stddev_values: 
-  num_unique: "1"
+  num_unique: "5"
 task_stats1_035: 
   parameter_type_id: "7"
   parameter_role_id: "1"
@@ -704,16 +715,16 @@ task_stats1_056:
   stddev_values: 
   num_unique: "40"
 task_stats1_078: 
-  parameter_type_id: "19"
+  parameter_type_id: "17"
   parameter_role_id: "3"
-  task_id: "18"
+  task_id: "9"
   min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "4"
+  num_values: "1"
   max_values: "0"
   stddev_values: 
-  num_unique: "3"
+  num_unique: "1"
 task_stats1_014: 
   parameter_type_id: "10"
   parameter_role_id: "6"
@@ -737,17 +748,6 @@ task_stats1_057:
   stddev_values: 
   num_unique: "40"
 task_stats1_080: 
-  parameter_type_id: "18"
-  parameter_role_id: "2"
-  task_id: "20"
-  min_values: "0"
-  avg_values: 
-  data_type_id: "5"
-  num_values: "8"
-  max_values: "0"
-  stddev_values: 
-  num_unique: "2"
-task_stats1_079: 
   parameter_type_id: "23"
   parameter_role_id: "4"
   task_id: "18"
@@ -758,6 +758,17 @@ task_stats1_079:
   max_values: "2"
   stddev_values: 
   num_unique: "2"
+task_stats1_079: 
+  parameter_type_id: "19"
+  parameter_role_id: "3"
+  task_id: "18"
+  min_values: "0"
+  avg_values: 
+  data_type_id: "5"
+  num_values: "4"
+  max_values: "0"
+  stddev_values: 
+  num_unique: "3"
 task_stats1_015: 
   parameter_type_id: "7"
   parameter_role_id: "1"
@@ -781,16 +792,16 @@ task_stats1_036:
   stddev_values: "0"
   num_unique: "1"
 task_stats1_081: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "18"
+  parameter_role_id: "2"
   task_id: "20"
-  min_values: "1"
+  min_values: "0"
   avg_values: 
   data_type_id: "5"
-  num_values: "4"
-  max_values: "1006"
+  num_values: "8"
+  max_values: "0"
   stddev_values: 
-  num_unique: "4"
+  num_unique: "2"
 task_stats1_016: 
   parameter_type_id: "14"
   parameter_role_id: "6"
@@ -838,14 +849,14 @@ task_stats1_058:
 task_stats1_082: 
   parameter_type_id: "23"
   parameter_role_id: "4"
-  task_id: "22"
+  task_id: "20"
   min_values: "1"
   avg_values: 
   data_type_id: "5"
-  num_values: "2"
-  max_values: "2"
+  num_values: "4"
+  max_values: "1006"
   stddev_values: 
-  num_unique: "2"
+  num_unique: "4"
 task_stats1_017: 
   parameter_type_id: "7"
   parameter_role_id: "6"

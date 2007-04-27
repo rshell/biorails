@@ -76,7 +76,7 @@ class ScheduleTest < Test::Unit::TestCase
   end   
 
   def test008_requests_for_user
-    schedule = Schedule.new(RequestService,{:start=>'created_at',:end=>'requested_for'})
+    schedule = Schedule.new(RequestService,{:start=>'created_at',:end=>'expected_at'})
     schedule.calendar({:year=>2007,:month=>1})
     schedule.filter = ["user_id",User.find(:first)]
     schedule.refresh

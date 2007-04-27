@@ -29,8 +29,8 @@
                 <td><%= link_to item.name, task_url( :action => 'show', :id => item.id) %></td>
                 <td><%= item.protocol.name%></td>
                 <td><%= item.status%></td>
-                <td><%=short_date item.start_date%></td>
-                <td><%=short_date item.end_date%></td>
+                <td><%=short_date item.started_at%></td>
+                <td><%=short_date item.ended_at%></td>
             </tr>
             <%end%>
         </table>

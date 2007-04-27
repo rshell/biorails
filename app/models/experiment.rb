@@ -28,7 +28,7 @@ require "faster_csv"
 #
 class Experiment < ActiveRecord::Base
   included Named
-  include CurrentStatus
+
 ##
 # This record has a full audit log created for changes 
 #   
@@ -43,6 +43,13 @@ class Experiment < ActiveRecord::Base
 #Owner project
 #  
   belongs_to :project  
+
+##
+# The experiment is a summary of the tasks
+#
+  acts_as_scheduled  :summary_of=>:tasks
+
+  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
 
 ##
 # Stats view of whats happened in the experiment 
@@ -65,23 +72,13 @@ class Experiment < ActiveRecord::Base
 # Protocol this is linked to
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
-##
-# In the Process sets of parameters are grouped into a context of usages
-#
-  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
 
-#
-# Overide context_columns to remove all the internal system columns.
-# 
-  def self.content_columns
-        @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
-  end
 ##
 # first task to start in the experiment
 #   
  def first_task    
     if tasks.size>0 
-       self.tasks.min{|i,j|i.start_date <=> j.start_date}
+       self.tasks.min{|i,j|i.started_at <=> j.started_at}
     end
  end
 ##
@@ -89,15 +86,15 @@ class Experiment < ActiveRecord::Base
 # 
  def last_task
     if tasks.size>0 
-        self.tasks.max{|i,j|i.start_date <=> j.start_date}
+        self.tasks.max{|i,j|i.started_at <=> j.started_at}
     end 
  end 
 ##
 # start of first task 
 #
- def start_date
+ def started_at
     if tasks.size > 0 
-       return first_task.start_date
+       return first_task.started_at
    else
        return created_at  
     end
@@ -105,9 +102,9 @@ class Experiment < ActiveRecord::Base
 ##
 # end of last task
 #
- def end_date
+ def ended_at
    if tasks.size >0 
-       return last_task.end_date
+       return last_task.ended_at
    else
        return nil  
    end  
@@ -157,7 +154,7 @@ SQL
 # 
  def period
      if tasks.size>0
-       return last_task.end_date - first_task.start_date 
+       return last_task.ended_at - first_task.started_at 
      else
        return 1.week
      end   
@@ -173,12 +170,12 @@ SQL
    expt.save    
    
    new_start = Time.new
-   old_start = self.start_date
+   old_start = self.started_at
    for old_task in self.tasks
       task = old_task.copy
       task.experiment = nil
-      task.start_date = new_start + (task.start_date-old_start)
-      task.end_date = new_start + (task.end_date)
+      task.started_at = new_start + (task.started_at-old_start)
+      task.ended_at = new_start + (task.ended_at)
       expt.tasks << task
       task.save
    end
@@ -191,8 +188,8 @@ SQL
  def new_task
    task = Task.new
    task.name = self.name+":"+self.tasks.size.to_s
-   task.start_date = Time.new
-   task.end_date = Time.new + 1.day
+   task.started_at = Time.new
+   task.ended_at = Time.new + 1.day
    task.process = self.process
    task.protocol= self.protocol 
    task.done_hours = 0

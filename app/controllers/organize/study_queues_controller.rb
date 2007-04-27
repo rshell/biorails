@@ -79,7 +79,7 @@ class Organize::StudyQueuesController < ApplicationController
        
     if params[:status_id]
       logger.warn "updating status #{@queue_item.status_id} to #{ params[:status_id]}"
-      @queue_item.current_state_id = params[:status_id]
+      @queue_item.status_id = params[:status_id]
     elsif params[:priority_id]
       logger.warn "updating priority #{@queue_item.priority_id} to  #{ params[:priority_id]}"
       @queue_item.priority_id = params[:priority_id] 

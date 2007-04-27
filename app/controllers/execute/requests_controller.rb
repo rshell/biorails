@@ -152,7 +152,7 @@ class Execute::RequestsController < ApplicationController
 # 
   def update
     @user_request = Request.find(params[:id])
-    @user_request.current_state_id = params[:user_request][:current_state_id]
+    @user_request.status_id = params[:user_request][:status_id]
     if @user_request.update_attributes(params[:user_request])
       
       @user_request.services.each{|item|item.submit}   

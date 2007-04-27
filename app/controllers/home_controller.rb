@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     @user = current_user    
     respond_to do | format |
       format.html { render :action => 'show'}
-      format.xml {@user.to_xml}
+      format.xml {render :xml =>  @user.to_xml(:include=>[:projects,:tasks,:requested_services,:queue_items])}
     end
   end
 
@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     @user = current_user    
     respond_to do | format |
       format.html { render :action => 'projects'}
-      format.xml  {@user.to_xml}
+      format.xml  { render :xml =>  @user.to_xml(:include=>[:projects])}
     end
   end
 

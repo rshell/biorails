@@ -172,19 +172,19 @@ if Date.today >=  @gnatt.date_from and Date.today <=  @gnatt.date_to %>
 top = headers_heigth + 10
  @gnatt.items.each do |i| %>
 	<%
-	i_start_date = (i.start_date.to_date >= @gnatt.date_from ? i.start_date.to_date : @gnatt.date_from )
-	i_end_date = (i.end_date.to_date <= @gnatt.date_to ? i.end_date.to_date : @gnatt.date_to )
+	i_started_at = (i.started_at.to_date >= @gnatt.date_from ? i.started_at.to_date : @gnatt.date_from )
+	i_ended_at = (i.ended_at.to_date <= @gnatt.date_to ? i.ended_at.to_date : @gnatt.date_to )
 	
-	i_done_date = i.start_date.to_date + ((i.end_date.to_date - i.start_date.to_date+1)*i.done).floor
+	i_done_date = i.started_at.to_date + ((i.ended_at.to_date - i.started_at.to_date+1)*i.done).floor
 	i_done_date = (i_done_date <= @gnatt.date_from ? @gnatt.date_from : i_done_date )
 	i_done_date = (i_done_date >= @gnatt.date_to ? @gnatt.date_to : i_done_date )
 	
-	i_late_date = [i_end_date, Date.today].min if i_start_date < Date.today
+	i_late_date = [i_ended_at, Date.today].min if i_started_at < Date.today
 	
-	i_left = ((i_start_date - @gnatt.date_from)*zoom).floor 	
-	i_width = ((i_end_date - i_start_date + 1)*zoom).floor - 2                  # total width of the issue (- 2 for left and right borders)
-	d_width = ((i_done_date - i_start_date)*zoom).floor - 2                     # done width
-	l_width = i_late_date ? ((i_late_date - i_start_date+1)*zoom).floor - 2 : 0 # delay width
+	i_left = ((i_started_at - @gnatt.date_from)*zoom).floor 	
+	i_width = ((i_ended_at - i_started_at + 1)*zoom).floor - 2                  # total width of the issue (- 2 for left and right borders)
+	d_width = ((i_done_date - i_started_at)*zoom).floor - 2                     # done width
+	l_width = i_late_date ? ((i_late_date - i_started_at+1)*zoom).floor - 2 : 0 # delay width
 	%>
 	<div style="top:<%= top %>px;left:<%= i_left %>px;width:<%= i_width %>px;" class="task task_todo">&nbsp;</div>
 	<% if l_width > 0 %>

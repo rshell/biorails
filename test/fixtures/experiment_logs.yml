@@ -179,6 +179,18 @@ experiment_logs_056:
   user_id: 
   comment: " Update task DMO-001-10 in experiment DMO-001-10"
   created_at: 2007-03-30 22:05:56
+experiment_logs_080: 
+  name: DMO-001-16
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Task
+  auditable_id: "24"
+  id: "85"
+  user_id: 
+  comment: " Create task DMO-001-16 in experiment DMO-001-16"
+  created_at: 2007-04-26 14:14:15
 experiment_logs_078: 
   name: DMO-001-15
   experiment_id: "5"
@@ -227,6 +239,18 @@ experiment_logs_057:
   user_id: 
   comment: " Create task DMO-001-11 in experiment DMO-001-11"
   created_at: 2007-03-30 22:07:01
+experiment_logs_081: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "86"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-26 14:19:18
 experiment_logs_079: 
   name: DMO-001-15
   experiment_id: "5"
@@ -287,6 +311,18 @@ experiment_logs_016:
   user_id: 
   comment: " Create task TH210307-1:2 in experiment TH210307-1:2"
   created_at: 2007-03-24 14:36:17
+experiment_logs_082: 
+  name: DMO-001-15
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "22"
+  id: "87"
+  user_id: 
+  comment: " Update task DMO-001-15 in experiment DMO-001-15"
+  created_at: 2007-04-26 15:02:16
 experiment_logs_059: 
   name: DMO-001-11
   experiment_id: "5"
@@ -347,6 +383,18 @@ experiment_logs_061:
   user_id: 
   comment: " Update task DMO-001-11 in experiment DMO-001-11"
   created_at: 2007-03-30 22:17:35
+experiment_logs_083: 
+  name: DMO-001:17
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Task
+  auditable_id: "25"
+  id: "88"
+  user_id: 
+  comment: " Create task DMO-001:17 in experiment DMO-001:17"
+  created_at: 2007-04-26 15:13:20
 experiment_logs_018: 
   name: TH210307-1-2
   experiment_id: "3"
@@ -395,6 +443,18 @@ experiment_logs_062:
   user_id: 
   comment: " Create task DMO-001-12 in experiment DMO-001-12"
   created_at: 2007-03-30 22:19:18
+experiment_logs_084: 
+  name: DMO-001:17
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "25"
+  id: "89"
+  user_id: 
+  comment: " Update task DMO-001:17 in experiment DMO-001:17"
+  created_at: 2007-04-26 15:13:20
 experiment_logs_020: 
   name: TH210307-1-2
   experiment_id: "3"
@@ -431,6 +491,18 @@ experiment_logs_063:
   user_id: 
   comment: " Update task DMO-001-12 in experiment DMO-001-12"
   created_at: 2007-03-30 22:28:27
+experiment_logs_085: 
+  name: DMO-001:17
+  experiment_id: "5"
+  created_by: 
+  task_id: 
+  action: Update
+  auditable_type: Task
+  auditable_id: "25"
+  id: "90"
+  user_id: 
+  comment: " Update task DMO-001:17 in experiment DMO-001:17"
+  created_at: 2007-04-26 15:14:22
 experiment_logs_021: 
   name: TH210307-1-2
   experiment_id: "3"
@@ -503,6 +575,18 @@ experiment_logs_064:
   user_id: 
   comment: " Create task DMO-001-13 in experiment DMO-001-13"
   created_at: 2007-03-30 22:30:53
+experiment_logs_086: 
+  name: Experiment-2
+  experiment_id: "7"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "7"
+  id: "91"
+  user_id: 
+  comment: " Create study Experiment-2"
+  created_at: 2007-04-26 15:24:15
 experiment_logs_002: 
   name: TH210307-1-0
   experiment_id: "3"
@@ -551,6 +635,18 @@ experiment_logs_065:
   user_id: 
   comment: " Create task DMO-001-14 in experiment DMO-001-14"
   created_at: 2007-03-30 22:33:59
+experiment_logs_087: 
+  name: Scoring
+  experiment_id: "8"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "8"
+  id: "92"
+  user_id: 
+  comment: " Create study Scoring"
+  created_at: 2007-04-26 15:24:43
 experiment_logs_003: 
   name: TH210307-1-0
   experiment_id: "3"
@@ -599,6 +695,18 @@ experiment_logs_066:
   user_id: 
   comment: " Update task DMO-001-14 in experiment DMO-001-14"
   created_at: 2007-03-30 22:37:00
+experiment_logs_088: 
+  name: Scoring-0
+  experiment_id: "8"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Task
+  auditable_id: "26"
+  id: "93"
+  user_id: 
+  comment: " Create task Scoring-0 in experiment Scoring-0"
+  created_at: 2007-04-26 15:25:54
 experiment_logs_067: 
   name: DMO-001-15
   experiment_id: "5"
@@ -647,6 +755,18 @@ experiment_logs_046:
   user_id: 
   comment: " Create task DMO-001:7 in experiment DMO-001:7"
   created_at: 2007-03-30 22:01:36
+experiment_logs_089: 
+  name: Experiment-3
+  experiment_id: "9"
+  created_by: 
+  task_id: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "9"
+  id: "94"
+  user_id: 
+  comment: " Create study Experiment-3"
+  created_at: 2007-04-26 15:32:17
 experiment_logs_070: 
   name: DMO-001-0
   experiment_id: "5"

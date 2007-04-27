@@ -395,6 +395,18 @@ study_logs_206:
   user_id: 
   comment: " Update parameter SOP in study Screen"
   created_at: 2007-04-03 19:27:32
+study_logs_233: 
+  name: Experiment-2
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "7"
+  id: "233"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-2 in study Biomarker And Histology"
+  created_at: 2007-04-26 15:24:15
 study_logs_019: 
   name: Group Size
   created_by: 
@@ -467,6 +479,18 @@ study_logs_207:
   user_id: 
   comment: " Create protocol Single Point in study Screen"
   created_at: 2007-04-03 20:43:41
+study_logs_234: 
+  name: Scoring
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "8"
+  id: "234"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create experiment Scoring in study Biomarker And Histology"
+  created_at: 2007-04-26 15:24:43
 study_logs_046: 
   name: ID
   created_by: 
@@ -515,6 +539,18 @@ study_logs_153:
   user_id: 
   comment: " Create parameter Percent in study Test"
   created_at: 2007-03-30 19:49:15
+study_logs_235: 
+  name: Experiment-3
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "9"
+  id: "235"
+  study_id: "1"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-3 in study Biomarker And Histology"
+  created_at: 2007-04-26 15:32:16
 study_logs_047: 
   name: ID
   created_by: 

@@ -94,7 +94,7 @@
     else
       new_id == value.id
     end
-    current_state_id = new_id
+    status_id = new_id
     return  CurrentStatus::STATES[self.status_id]
  end
  
@@ -157,7 +157,17 @@
  def has_failed
    return FAILED_STATES.include?(self.status_id)   
  end
- 
+
+##
+#get the default period of time for a task
+#
+ def period 
+   if ended_at > started_at 
+      ended_at - started_at 
+   else
+      1.day
+   end
+ end 
 ##
 # Setup Initial status value
   def initial

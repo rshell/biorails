@@ -1,17 +1,17 @@
 --- 
 task_statistics_081: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "18"
+  parameter_role_id: "2"
   task_id: "20"
-  min_values: 00749
+  min_values: fail
   avg_values: 
   data_type_id: "5"
-  num_values: "4"
-  id: "2000213"
-  parameter_id: "213"
-  max_values: saline
+  num_values: "8"
+  id: "2000067"
+  parameter_id: "67"
+  max_values: pass
   stddev_values: 
-  num_unique: "4"
+  num_unique: "2"
 task_statistics_017: 
   parameter_type_id: "7"
   parameter_role_id: "6"
@@ -67,16 +67,16 @@ task_statistics_059:
 task_statistics_082: 
   parameter_type_id: "23"
   parameter_role_id: "4"
-  task_id: "22"
-  min_values: AB001
+  task_id: "20"
+  min_values: 00749
   avg_values: 
   data_type_id: "5"
-  num_values: "2"
-  id: "2200218"
-  parameter_id: "218"
-  max_values: AB002
+  num_values: "4"
+  id: "2000213"
+  parameter_id: "213"
+  max_values: saline
   stddev_values: 
-  num_unique: "2"
+  num_unique: "4"
 task_statistics_018: 
   parameter_type_id: "7"
   parameter_role_id: "1"
@@ -129,6 +129,19 @@ task_statistics_061:
   max_values: "1"
   stddev_values: 
   num_unique: "44"
+task_statistics_083: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "22"
+  min_values: AB001
+  avg_values: 
+  data_type_id: "5"
+  num_values: "2"
+  id: "2200218"
+  parameter_id: "218"
+  max_values: AB002
+  stddev_values: 
+  num_unique: "2"
 task_statistics_062: 
   parameter_type_id: "1"
   parameter_role_id: "3"
@@ -199,13 +212,13 @@ task_statistics_042:
   parameter_role_id: "1"
   task_id: "19"
   min_values: "1.35848e-14"
-  avg_values: "14.2002258064534"
+  avg_values: "14.2002258064535"
   data_type_id: "2"
   num_values: "310"
   id: "1900069"
   parameter_id: "69"
   max_values: "33"
-  stddev_values: "8.41865575894805"
+  stddev_values: "8.41865575894804"
   num_unique: "197"
 task_statistics_063: 
   parameter_type_id: "1"
@@ -312,18 +325,18 @@ task_statistics_044:
   stddev_values: "0.801973152605497"
   num_unique: "7"
 task_statistics_065: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "1"
-  min_values: 00749
+  parameter_type_id: "1"
+  parameter_role_id: "6"
+  task_id: "25"
+  min_values: s
   avg_values: 
-  data_type_id: "5"
-  num_values: "10"
-  id: "100091"
-  parameter_id: "91"
-  max_values: saline
+  data_type_id: "1"
+  num_values: "5"
+  id: "2500211"
+  parameter_id: "211"
+  max_values: a
   stddev_values: 
-  num_unique: "4"
+  num_unique: "5"
 task_statistics_003: 
   parameter_type_id: "9"
   parameter_role_id: "6"
@@ -364,6 +377,19 @@ task_statistics_045:
   stddev_values: 
   num_unique: "6"
 task_statistics_066: 
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "1"
+  min_values: 00749
+  avg_values: 
+  data_type_id: "5"
+  num_values: "10"
+  id: "100091"
+  parameter_id: "91"
+  max_values: saline
+  stddev_values: 
+  num_unique: "4"
+task_statistics_067: 
   parameter_type_id: "19"
   parameter_role_id: "6"
   task_id: "1"
@@ -376,19 +402,6 @@ task_statistics_066:
   max_values: vehicle
   stddev_values: 
   num_unique: "4"
-task_statistics_067: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "4"
-  min_values: AB001
-  avg_values: 
-  data_type_id: "5"
-  num_values: "1"
-  id: "400114"
-  parameter_id: "114"
-  max_values: AB001
-  stddev_values: 
-  num_unique: "1"
 task_statistics_004: 
   parameter_type_id: "6"
   parameter_role_id: "1"
@@ -397,8 +410,8 @@ task_statistics_004:
   avg_values: "576.1640625"
   data_type_id: "2"
   num_values: "384"
-  id: "200103"
-  parameter_id: "103"
+  id: "200105"
+  parameter_id: "105"
   max_values: "3318"
   stddev_values: "622.490187054647"
   num_unique: "323"
@@ -429,18 +442,18 @@ task_statistics_046:
   stddev_values: 
   num_unique: "6"
 task_statistics_068: 
-  parameter_type_id: "19"
-  parameter_role_id: "6"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
   task_id: "4"
-  min_values: interest
+  min_values: AB001
   avg_values: 
   data_type_id: "5"
-  num_values: "6"
-  id: "400124"
-  parameter_id: "124"
-  max_values: vehicle
+  num_values: "1"
+  id: "400114"
+  parameter_id: "114"
+  max_values: AB001
   stddev_values: 
-  num_unique: "4"
+  num_unique: "1"
 task_statistics_005: 
   parameter_type_id: "5"
   parameter_role_id: "3"
@@ -481,19 +494,6 @@ task_statistics_047:
   stddev_values: 
   num_unique: "48"
 task_statistics_070: 
-  parameter_type_id: "15"
-  parameter_role_id: "6"
-  task_id: "5"
-  min_values: female
-  avg_values: 
-  data_type_id: "5"
-  num_values: "3"
-  id: "500143"
-  parameter_id: "143"
-  max_values: male
-  stddev_values: 
-  num_unique: "2"
-task_statistics_069: 
   parameter_type_id: "23"
   parameter_role_id: "4"
   task_id: "5"
@@ -506,6 +506,19 @@ task_statistics_069:
   max_values: AB004
   stddev_values: 
   num_unique: "1"
+task_statistics_069: 
+  parameter_type_id: "19"
+  parameter_role_id: "6"
+  task_id: "4"
+  min_values: interest
+  avg_values: 
+  data_type_id: "5"
+  num_values: "6"
+  id: "400124"
+  parameter_id: "124"
+  max_values: vehicle
+  stddev_values: 
+  num_unique: "4"
 task_statistics_006: 
   parameter_type_id: "3"
   parameter_role_id: "2"
@@ -546,18 +559,18 @@ task_statistics_048:
   stddev_values: 
   num_unique: "1"
 task_statistics_071: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
-  task_id: "6"
-  min_values: AB001
+  parameter_type_id: "15"
+  parameter_role_id: "6"
+  task_id: "5"
+  min_values: female
   avg_values: 
   data_type_id: "5"
-  num_values: "1"
-  id: "600206"
-  parameter_id: "206"
-  max_values: AB001
+  num_values: "3"
+  id: "500143"
+  parameter_id: "143"
+  max_values: male
   stddev_values: 
-  num_unique: "1"
+  num_unique: "2"
 task_statistics_007: 
   parameter_type_id: "4"
   parameter_role_id: "2"
@@ -611,18 +624,18 @@ task_statistics_049:
   stddev_values: 
   num_unique: "5"
 task_statistics_072: 
-  parameter_type_id: "15"
-  parameter_role_id: "6"
+  parameter_type_id: "23"
+  parameter_role_id: "4"
   task_id: "6"
-  min_values: female
+  min_values: AB001
   avg_values: 
   data_type_id: "5"
-  num_values: "9"
-  id: "600204"
-  parameter_id: "204"
-  max_values: male
+  num_values: "1"
+  id: "600206"
+  parameter_id: "206"
+  max_values: AB001
   stddev_values: 
-  num_unique: "2"
+  num_unique: "1"
 task_statistics_029: 
   parameter_type_id: "7"
   parameter_role_id: "1"
@@ -676,18 +689,18 @@ task_statistics_030:
   stddev_values: "0"
   num_unique: "1"
 task_statistics_073: 
-  parameter_type_id: "19"
-  parameter_role_id: "3"
-  task_id: "7"
-  min_values: challenge
+  parameter_type_id: "15"
+  parameter_role_id: "6"
+  task_id: "6"
+  min_values: female
   avg_values: 
   data_type_id: "5"
-  num_values: "5"
-  id: "700214"
-  parameter_id: "214"
-  max_values: vehicle
+  num_values: "9"
+  id: "600204"
+  parameter_id: "204"
+  max_values: male
   stddev_values: 
-  num_unique: "4"
+  num_unique: "2"
 task_statistics_010: 
   parameter_type_id: "7"
   parameter_role_id: "2"
@@ -696,8 +709,8 @@ task_statistics_010:
   avg_values: "0.564285714285714"
   data_type_id: "2"
   num_values: "14"
-  id: "500153"
-  parameter_id: "153"
+  id: "500154"
+  parameter_id: "154"
   max_values: "1.1"
   stddev_values: "0.20215673854407"
   num_unique: "6"
@@ -741,18 +754,18 @@ task_statistics_052:
   stddev_values: 
   num_unique: "40"
 task_statistics_074: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "19"
+  parameter_role_id: "3"
   task_id: "7"
-  min_values: AB001
+  min_values: challenge
   avg_values: 
   data_type_id: "5"
   num_values: "5"
-  id: "700210"
-  parameter_id: "210"
+  id: "700214"
+  parameter_id: "214"
   max_values: vehicle
   stddev_values: 
-  num_unique: "5"
+  num_unique: "4"
 task_statistics_011: 
   parameter_type_id: "9"
   parameter_role_id: "2"
@@ -793,18 +806,18 @@ task_statistics_053:
   stddev_values: 
   num_unique: "40"
 task_statistics_075: 
-  parameter_type_id: "19"
-  parameter_role_id: "3"
-  task_id: "8"
-  min_values: challenge
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "7"
+  min_values: AB001
   avg_values: 
   data_type_id: "5"
-  num_values: "11"
-  id: "800215"
-  parameter_id: "215"
-  max_values: vehicle
+  num_values: "5"
+  id: "700210"
+  parameter_id: "210"
+  max_values: saline
   stddev_values: 
-  num_unique: "4"
+  num_unique: "5"
 task_statistics_012: 
   parameter_type_id: "5"
   parameter_role_id: "3"
@@ -845,18 +858,18 @@ task_statistics_054:
   stddev_values: 
   num_unique: "40"
 task_statistics_076: 
-  parameter_type_id: "23"
-  parameter_role_id: "4"
+  parameter_type_id: "19"
+  parameter_role_id: "3"
   task_id: "8"
-  min_values: 00749
+  min_values: challenge
   avg_values: 
   data_type_id: "5"
-  num_values: "10"
-  id: "800216"
-  parameter_id: "216"
-  max_values: saline
+  num_values: "11"
+  id: "800215"
+  parameter_id: "215"
+  max_values: vehicle
   stddev_values: 
-  num_unique: "5"
+  num_unique: "4"
 task_statistics_013: 
   parameter_type_id: "7"
   parameter_role_id: "6"
@@ -897,18 +910,18 @@ task_statistics_055:
   stddev_values: 
   num_unique: "40"
 task_statistics_077: 
-  parameter_type_id: "17"
-  parameter_role_id: "3"
-  task_id: "9"
-  min_values: rat
+  parameter_type_id: "23"
+  parameter_role_id: "4"
+  task_id: "8"
+  min_values: 00749
   avg_values: 
   data_type_id: "5"
-  num_values: "1"
-  id: "900007"
-  parameter_id: "7"
-  max_values: rat
+  num_values: "10"
+  id: "800216"
+  parameter_id: "216"
+  max_values: saline
   stddev_values: 
-  num_unique: "1"
+  num_unique: "5"
 task_statistics_014: 
   parameter_type_id: "10"
   parameter_role_id: "6"
@@ -949,18 +962,18 @@ task_statistics_056:
   stddev_values: 
   num_unique: "40"
 task_statistics_078: 
-  parameter_type_id: "19"
+  parameter_type_id: "17"
   parameter_role_id: "3"
-  task_id: "18"
-  min_values: interest
+  task_id: "9"
+  min_values: rat
   avg_values: 
   data_type_id: "5"
-  num_values: "4"
-  id: "1800159"
-  parameter_id: "159"
-  max_values: vehicle
+  num_values: "1"
+  id: "900007"
+  parameter_id: "7"
+  max_values: rat
   stddev_values: 
-  num_unique: "3"
+  num_unique: "1"
 task_statistics_015: 
   parameter_type_id: "7"
   parameter_role_id: "1"
@@ -1001,19 +1014,6 @@ task_statistics_057:
   stddev_values: 
   num_unique: "40"
 task_statistics_080: 
-  parameter_type_id: "18"
-  parameter_role_id: "2"
-  task_id: "20"
-  min_values: fail
-  avg_values: 
-  data_type_id: "5"
-  num_values: "8"
-  id: "2000067"
-  parameter_id: "67"
-  max_values: pass
-  stddev_values: 
-  num_unique: "2"
-task_statistics_079: 
   parameter_type_id: "23"
   parameter_role_id: "4"
   task_id: "18"
@@ -1026,6 +1026,19 @@ task_statistics_079:
   max_values: AB002
   stddev_values: 
   num_unique: "2"
+task_statistics_079: 
+  parameter_type_id: "19"
+  parameter_role_id: "3"
+  task_id: "18"
+  min_values: interest
+  avg_values: 
+  data_type_id: "5"
+  num_values: "4"
+  id: "1800159"
+  parameter_id: "159"
+  max_values: vehicle
+  stddev_values: 
+  num_unique: "3"
 task_statistics_016: 
   parameter_type_id: "14"
   parameter_role_id: "6"

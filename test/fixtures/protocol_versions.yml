@@ -272,6 +272,19 @@ protocol_versions_001:
   created_by_user_id: "1"
   how_to: 
   created_at: "19:50:48"
+protocol_versions_024: 
+  name: Screen Report:2
+  analysis_id: 
+  updated_at: "15:20:06"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: "20"
+  id: "24"
+  report_id: 
+  version: "2"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "15:20:06"
 protocol_versions_013: 
   name: Brain Plasma Assessment:2
   analysis_id: 

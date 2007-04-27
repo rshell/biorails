@@ -1,115 +1,115 @@
 --- 
 projects_001: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: global
   expected_hours: 
   updated_at: 0000-00-00 00:00:00
+  ended_at: 
   title: Global
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "1"
   summary: Public Area for open work everyone allowed to see!
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 0000-00-00 00:00:00
   email: 
 projects_002: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: Assay-Dev2
   expected_hours: 
   updated_at: 2007-04-18 14:38:20
+  ended_at: 
   title: 
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "3"
   summary: Assay Development
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 2007-04-18 14:38:20
   email: 
 projects_003: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: AssayDev
   expected_hours: 
   updated_at: 2007-04-20 07:34:32
+  ended_at: 
   title: 
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "4"
   summary: Assay Development Area
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 2007-04-20 07:34:32
   email: 
 projects_004: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: HTS
   expected_hours: 
   updated_at: 2007-04-20 07:35:03
+  ended_at: 
   title: 
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "5"
   summary: High Throughput Screening
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 2007-04-20 07:35:03
   email: 
 projects_005: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: Tox
   expected_hours: 
   updated_at: 2007-04-20 07:35:25
+  ended_at: 
   title: 
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "6"
   summary: Tox Profile
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 2007-04-20 07:35:25
   email: 
 projects_006: 
   done_hours: 
-  end_date: 
-  start_date: 
   name: Profiling
   expected_hours: 
   updated_at: 2007-04-23 18:29:30
+  ended_at: 
   title: 
-  expected_date: 
   timezone: 
   updated_by_user_id: "1"
+  expected_at: 
   id: "7"
   summary: Profiling
   created_by_user_id: "1"
   host: 
   status_id: "0"
   comment_age: 
+  started_at: 
   created_at: 2007-04-23 18:29:30
   email: 

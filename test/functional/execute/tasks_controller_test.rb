@@ -58,8 +58,8 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
   def test_create
     num_tasks = Task.count
 
-    post :create, :task => {"experiment_id"=>"14", "done_hours"=>"0", "end_date"=>"2007-02-17",
-     "name"=>"TH001-3", "start_date"=>"2007-02-11", "expected_hours"=>"1", "assigned_to"=>"rshell",
+    post :create, :task => {"experiment_id"=>"14", "done_hours"=>"0", "ended_at"=>"2007-02-17",
+     "name"=>"TH001-3", "started_at"=>"2007-02-11", "expected_hours"=>"1", "assigned_to"=>"rshell",
      "protocol_version_id"=>"125","study_protocol_id"=>"44", "description"=>"", "status_id"=>"1",
       "is_milestone"=>"false"}
 

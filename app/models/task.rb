@@ -12,8 +12,8 @@
 #  is_milestone        :boolean(1)    
 #  assigned_to         :string(60)    
 #  priority_id         :integer(11)   
-#  start_date          :datetime      
-#  end_date            :datetime      
+#  started_at          :datetime      
+#  ended_at            :datetime      
 #  expected_hours      :float         
 #  done_hours          :float         
 #  lock_version        :integer(11)   default(0), not null
@@ -41,8 +41,9 @@ class Task < ActiveRecord::Base
 ##
 # Moved Priority and Status enumeriation code to /lib modules
 #
-  include CurrentStatus
   include  CurrentPriority
+  
+  acts_as_scheduled 
 ##
 # This record has a full audit log created for changes 
 #   
@@ -58,8 +59,8 @@ class Task < ActiveRecord::Base
   validates_uniqueness_of :name, :scope =>"experiment_id"
   validates_presence_of :experiment_id
   validates_presence_of :protocol_version_id
-  validates_presence_of :start_date
-  validates_presence_of :end_date
+  validates_presence_of :started_at
+  validates_presence_of :ended_at
 ##
 # Link to view for summary stats for study
 # 
@@ -97,13 +98,7 @@ class Task < ActiveRecord::Base
 
  has_many :references, :class_name=>'TaskReference', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
  
- def completed_at=(value)
-  self.end_date = value
- end
- 
- def accepted_at=(value)
-  self.start_date = value
- end 
+
 ##
 # Get summary stats to compare task with all runs in the process.
 # This is basically a set of TaskStatistics with added details on
@@ -163,19 +158,14 @@ SQL
     end
     return @reports
  end
-##
-# get the status if the request
-# 
-  def status
-    self.current_state
-  end   
+ 
 ##
 # Clear current date and work done and setup for 1 day from  now
 #  
   def reset
      @is_milestone = false
-     @start_date = Date.new
-     @end_date = Date.new + 1.day
+     @started_at = Date.new
+     @ended_at = Date.new + 1.day
      @expected_hours = 1
      @done_hours = 0
      refresh
@@ -206,8 +196,8 @@ SQL
  def copy
    task = self.clone
    task.id = nil
-   task.start_date = Time.new
-   task.end_date = task.start_date + self.period
+   task.started_at = Time.new
+   task.ended_at = task.started_at + self.period
    task.done_hours = 0
    task.initial
    return task
@@ -218,16 +208,7 @@ SQL
  def grid
     @grid ||=TreeGrid.from_task(self)
  end
-##
-#get the default period of time for a task
-#
- def period 
-   if end_date > start_date 
-      end_date - start_date 
-   else
-      1.day
-   end
- end
+
 ##
 # Fraction of work done  
 # 
@@ -319,9 +300,9 @@ SQL
          item.task_id = self.id
          item.experiment_id = self.experiment_id
          if self.is_active or self.is_completed
-             item.current_state_id = self.current_state_id 
+             item.status_id = self.status_id 
          elsif  self.is_status(FAILED_STATES)
-             item.current_state_id = WAITING 
+             item.status_id = WAITING 
          end
          item.save
       end

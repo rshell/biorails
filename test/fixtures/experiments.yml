@@ -3,7 +3,9 @@ experiments_001:
   name: TH210307-1
   project_id: "1"
   updated_at: 2007-03-21 15:08:03
+  ended_at: 
   protocol_version_id: "10"
+  expected_at: 
   updated_by_user_id: "1"
   lock_version: "0"
   study_protocol_id: "10"
@@ -13,12 +15,15 @@ experiments_001:
   description: " Task in study RES Exposure "
   created_by_user_id: "1"
   status_id: 
+  started_at: 
   created_at: 2007-03-21 15:08:03
 experiments_002: 
   name: Test-0
   project_id: "1"
   updated_at: 2007-03-30 20:11:03
+  ended_at: 
   protocol_version_id: "16"
+  expected_at: 
   updated_by_user_id: "1"
   lock_version: "1"
   study_protocol_id: "13"
@@ -28,12 +33,15 @@ experiments_002:
   description: " Task in study Test "
   created_by_user_id: "1"
   status_id: 
+  started_at: 
   created_at: 2007-03-30 20:00:11
 experiments_003: 
   name: DMO-001
   project_id: "1"
   updated_at: 2007-03-30 20:25:34
+  ended_at: 
   protocol_version_id: "1"
+  expected_at: 
   updated_by_user_id: "1"
   lock_version: "0"
   study_protocol_id: "1"
@@ -43,12 +51,15 @@ experiments_003:
   description: " Task in study Biomarker And Histology "
   created_by_user_id: "1"
   status_id: 
+  started_at: 
   created_at: 2007-03-30 20:25:34
 experiments_004: 
   name: Experiment-1
   project_id: 
   updated_at: 2007-04-18 13:58:43
+  ended_at: 
   protocol_version_id: "23"
+  expected_at: 
   updated_by_user_id: "1"
   lock_version: "0"
   study_protocol_id: "20"
@@ -58,4 +69,59 @@ experiments_004:
   description: " Task in study Screen "
   created_by_user_id: "1"
   status_id: 
+  started_at: 
   created_at: 2007-04-18 13:58:43
+experiments_005: 
+  name: Experiment-2
+  project_id: 
+  updated_at: 2007-04-26 15:24:15
+  ended_at: 
+  protocol_version_id: 
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: 
+  id: "7"
+  study_id: "1"
+  category_id: 
+  description: " Task in study Biomarker And Histology "
+  created_by_user_id: "3"
+  status_id: 
+  started_at: 
+  created_at: 2007-04-26 15:24:15
+experiments_006: 
+  name: Scoring
+  project_id: "1"
+  updated_at: 2007-04-26 15:24:43
+  ended_at: 
+  protocol_version_id: "8"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: "8"
+  id: "8"
+  study_id: "1"
+  category_id: 
+  description: Test of the drop downs
+  created_by_user_id: "3"
+  status_id: 
+  started_at: 
+  created_at: 2007-04-26 15:24:43
+experiments_007: 
+  name: Experiment-3
+  project_id: 
+  updated_at: 2007-04-26 15:32:16
+  ended_at: 
+  protocol_version_id: 
+  expected_at: 
+  updated_by_user_id: "2"
+  lock_version: "0"
+  study_protocol_id: 
+  id: "9"
+  study_id: "1"
+  category_id: 
+  description: " Task in study Biomarker And Histology "
+  created_by_user_id: "2"
+  status_id: 
+  started_at: 
+  created_at: 2007-04-26 15:32:16

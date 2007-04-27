@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 243) do
+ActiveRecord::Schema.define(:version => 247) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -305,6 +305,9 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "project_id",          :integer
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
+    t.column "started_at",          :datetime
+    t.column "ended_at",            :datetime
+    t.column "expected_at",         :datetime
   end
 
   create_table "identifiers", :force => true do |t|
@@ -604,9 +607,9 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "timezone",           :string
     t.column "created_at",         :datetime,                               :null => false
     t.column "updated_at",         :datetime,                               :null => false
-    t.column "start_date",         :datetime
-    t.column "end_date",           :datetime
-    t.column "expected_date",      :datetime
+    t.column "started_at",         :datetime
+    t.column "ended_at",           :datetime
+    t.column "expected_at",        :datetime
     t.column "done_hours",         :float
     t.column "expected_hours",     :float
     t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
@@ -641,9 +644,9 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "data_type",            :string
     t.column "data_id",              :integer
     t.column "data_name",            :string
-    t.column "requested_for",        :datetime
-    t.column "accepted_at",          :datetime
-    t.column "completed_at",         :datetime
+    t.column "expected_at",          :datetime
+    t.column "started_at",           :datetime
+    t.column "ended_at",             :datetime
     t.column "lock_version",         :integer,  :default => 0, :null => false
     t.column "created_at",           :datetime,                :null => false
     t.column "updated_at",           :datetime,                :null => false
@@ -705,9 +708,9 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "service_id",           :integer,                                 :null => false
     t.column "name",                 :string,   :limit => 128, :default => "", :null => false
     t.column "description",          :text
-    t.column "requested_for",        :datetime
-    t.column "accepted_at",          :datetime
-    t.column "completed_at",         :datetime
+    t.column "expected_at",          :datetime
+    t.column "started_at",           :datetime
+    t.column "ended_at",             :datetime
     t.column "lock_version",         :integer,                 :default => 0,  :null => false
     t.column "created_at",           :datetime,                                :null => false
     t.column "updated_at",           :datetime,                                :null => false
@@ -804,6 +807,9 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "project_id",         :integer
     t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "started_at",         :datetime
+    t.column "ended_at",           :datetime
+    t.column "expected_at",        :datetime
   end
 
   add_index "studies", ["name"], :name => "studies_name_index"
@@ -1142,8 +1148,8 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "status_id",           :integer
     t.column "is_milestone",        :boolean
     t.column "priority_id",         :integer
-    t.column "start_date",          :datetime
-    t.column "end_date",            :datetime
+    t.column "started_at",          :datetime
+    t.column "ended_at",            :datetime
     t.column "expected_hours",      :float
     t.column "done_hours",          :float
     t.column "lock_version",        :integer,                 :default => 0,  :null => false
@@ -1154,14 +1160,15 @@ ActiveRecord::Schema.define(:version => 243) do
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "assigned_to_user_id", :integer,                 :default => 1
+    t.column "expected_at",         :datetime
   end
 
   add_index "tasks", ["name"], :name => "tasks_name_index"
   add_index "tasks", ["experiment_id"], :name => "tasks_experiment_id_index"
   add_index "tasks", ["protocol_version_id"], :name => "tasks_process_instance_id_index"
   add_index "tasks", ["study_protocol_id"], :name => "tasks_study_protocol_id_index"
-  add_index "tasks", ["start_date"], :name => "tasks_start_date_index"
-  add_index "tasks", ["end_date"], :name => "tasks_end_date_index"
+  add_index "tasks", ["started_at"], :name => "tasks_start_date_index"
+  add_index "tasks", ["ended_at"], :name => "tasks_end_date_index"
 
   create_table "tmp_data", :force => true do |t|
   end
@@ -1196,23 +1203,25 @@ ActiveRecord::Schema.define(:version => 243) do
   end
 
   create_table "users", :force => true do |t|
-    t.column "name",             :string,                 :default => "",    :null => false
-    t.column "password_hash",    :string,   :limit => 40
-    t.column "role_id",          :integer,                                   :null => false
-    t.column "password_salt",    :string
-    t.column "fullname",         :string
-    t.column "email",            :string
-    t.column "login",            :string,   :limit => 40
-    t.column "activation_code",  :string,   :limit => 40
-    t.column "state_id",         :integer
-    t.column "activated_at",     :datetime
-    t.column "token",            :string
-    t.column "token_expires_at", :datetime
-    t.column "filter",           :string
-    t.column "admin",            :boolean,                :default => false
-    t.column "created_at",       :datetime
-    t.column "updated_at",       :datetime
-    t.column "deleted_at",       :datetime
+    t.column "name",               :string,                 :default => "",    :null => false
+    t.column "password_hash",      :string,   :limit => 40
+    t.column "role_id",            :integer,                                   :null => false
+    t.column "password_salt",      :string
+    t.column "fullname",           :string
+    t.column "email",              :string
+    t.column "login",              :string,   :limit => 40
+    t.column "activation_code",    :string,   :limit => 40
+    t.column "state_id",           :integer
+    t.column "activated_at",       :datetime
+    t.column "token",              :string
+    t.column "token_expires_at",   :datetime
+    t.column "filter",             :string
+    t.column "admin",              :boolean,                :default => false
+    t.column "created_at",         :datetime
+    t.column "updated_at",         :datetime
+    t.column "deleted_at",         :datetime
+    t.column "created_by_user_id", :integer,                :default => 1,     :null => false
+    t.column "updated_by_user_id", :integer,                :default => 1,     :null => false
   end
 
   add_index "users", ["role_id"], :name => "fk_user_role_id"

@@ -26,12 +26,12 @@
 
    <div class="form-element">
      <label for="request_for">By Date</label>
-     <%= date_field 'user_request', 'requested_for'  %>
+     <%= date_field 'user_request', 'expected_at'  %>
    </div>
 
    <div class="form-element">
      <label for="request_for">Status</label>
-       <%= select( :user_request, :current_state_id, @user_request.allowed_status_list)  %>
+       <%= select( :user_request, :status_id, @user_request.allowed_status_list)  %>
    </div>
 
    <div class="form-element">

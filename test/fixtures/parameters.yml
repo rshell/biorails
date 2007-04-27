@@ -4499,6 +4499,31 @@ parameters_104:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:16:52
+parameters_190: 
+  name: Screen Report
+  default_value: ""
+  updated_at: 2007-04-26 15:20:06
+  display_unit: ""
+  parameter_context_id: "48"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "24"
+  data_format_id: "24"
+  mandatory: 
+  column_no: "1"
+  parameter_role_id: "2"
+  parameter_type_id: "13"
+  updated_by_user_id: "3"
+  data_type_id: "6"
+  lock_version: "3"
+  id: "286"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "67"
+  created_by_user_id: "3"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-03 21:34:49
 parameters_162: 
   name: Row
   default_value: ""
@@ -4624,6 +4649,31 @@ parameters_105:
   data_element_id: "1"
   sequence_num: "0"
   created_at: 2007-03-21 11:00:46
+parameters_191: 
+  name: Fit Modifier
+  default_value: ""
+  updated_at: 2007-04-26 15:20:43
+  display_unit: uM
+  parameter_context_id: "48"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "24"
+  data_format_id: "1"
+  mandatory: N
+  column_no: "2"
+  parameter_role_id: "2"
+  parameter_type_id: "2"
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "2"
+  id: "287"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "70"
+  created_by_user_id: "3"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-26 15:20:42
 parameters_163: 
   name: Column
   default_value: ""

@@ -69,7 +69,7 @@
         <td><%=h queue_item.status  %></td>
         <td><%=h queue_item.priority  %></td>
         <td><%=short_date queue_item.accepted_at  %></td>
-        <td><%=short_date queue_item.requested_for  %></td>
+        <td><%=short_date queue_item.expected_at  %></td>
         <td><%=short_date queue_item.completed_at  %></td>
         <td><%= link_to 'Edit', :controller=> 'queue_items', :action => 'edit', :id => queue_item %></td>
       </tr>

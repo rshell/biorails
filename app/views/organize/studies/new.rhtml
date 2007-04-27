@@ -2,14 +2,13 @@
 <% content_for :sidemenu do -%>
     <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <% end -%>
+<% content_for :centre do -%>
 
 <h2><%=subject_icon('study.png')%> New Study </h2>
 
-Create a new study for orgranization of protocols and accepting services.
 
 <%= error_messages_for 'study' %>
 
-<% content_for :form do -%>
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
@@ -19,3 +18,11 @@ Create a new study for orgranization of protocols and accepting services.
     <% end %>
 <% end %>
 
+<% content_for :right do -%>
+<h2>Guide</h2>
+<div class='panel'>
+Create a new study for orgranization of protocols and accepting services.
+The study is built up as a list of parametered type types which are entered via a number of
+protocols which define how data is layed out.
+</div>
+<% end %>

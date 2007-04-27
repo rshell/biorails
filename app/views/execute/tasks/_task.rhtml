@@ -26,8 +26,8 @@
         <th class="label"><%=subject_icon('done')%> Done (hours)  </th><td><%=@task.done_hours%></td>
       </tr>
       <tr>
-        <th class="label"><%=subject_icon('started.png')%> Started </th><td><%= short_date(@task.start_date) %></td>
-        <th class="label"><%=subject_icon('ended.png')%> Ended   </th><td><%= short_date(@task.end_date) %></td>
+        <th class="label"><%=subject_icon('started.png')%> Started </th><td><%= short_date(@task.started_at) %></td>
+        <th class="label"><%=subject_icon('ended.png')%> Ended   </th><td><%= short_date(@task.ended_at) %></td>
       </tr>
   </table>
 </div>

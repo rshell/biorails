@@ -39,13 +39,13 @@ study_statistics_001:
   parameter_type_id: "3"
   parameter_role_id: "1"
   min_values: "1.35848e-14"
-  avg_values: "14.2002258064534"
+  avg_values: "14.2002258064535"
   data_type_id: "2"
   num_values: "310"
   id: "3"
   study_id: "1"
   max_values: "33"
-  stddev_values: "8.41865575894805"
+  stddev_values: "8.41865575894804"
   num_unique: "197"
 study_statistics_035: 
   parameter_type_id: "19"
@@ -58,7 +58,7 @@ study_statistics_035:
   study_id: "1"
   max_values: "0"
   stddev_values: 
-  num_unique: "4"
+  num_unique: "5"
 study_statistics_024: 
   parameter_type_id: "14"
   parameter_role_id: "6"
@@ -87,13 +87,13 @@ study_statistics_002:
   parameter_type_id: "7"
   parameter_role_id: "1"
   min_values: "13.02518927"
-  avg_values: "215.796987298108"
+  avg_values: "215.796987298107"
   data_type_id: "2"
   num_values: "428"
   id: "2"
   study_id: "1"
   max_values: "320"
-  stddev_values: "61.3517982579731"
+  stddev_values: "61.3517982579733"
   num_unique: "161"
 study_statistics_036: 
   parameter_type_id: "23"
@@ -104,7 +104,7 @@ study_statistics_036:
   num_values: "23"
   id: "15"
   study_id: "1"
-  max_values: "1007"
+  max_values: "1006"
   stddev_values: 
   num_unique: "6"
 study_statistics_025: 
@@ -267,7 +267,7 @@ study_statistics_017:
   parameter_type_id: "9"
   parameter_role_id: "2"
   min_values: "10.6"
-  avg_values: "215.605555555556"
+  avg_values: "215.605555555555"
   data_type_id: "2"
   num_values: "18"
   id: "42"
@@ -305,12 +305,12 @@ study_statistics_029:
   min_values: 
   avg_values: 
   data_type_id: "1"
-  num_values: "5"
+  num_values: "10"
   id: "14"
   study_id: "1"
   max_values: 
   stddev_values: 
-  num_unique: "5"
+  num_unique: "10"
 study_statistics_018: 
   parameter_type_id: "5"
   parameter_role_id: "3"

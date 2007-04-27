@@ -14,8 +14,8 @@
 #  timezone           :string(255)   
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  start_date         :datetime      
-#  end_date           :datetime      
+#  started_at         :datetime      
+#  ended_at           :datetime      
 #  expected_date      :datetime      
 #  done_hours         :float         
 #  expected_hours     :float         
@@ -36,7 +36,7 @@ require 'tzinfo'
 
 class Project < ActiveRecord::Base
 
-  DEFAULT_PRODUCT_ID = 1
+  DEFAULT_PROJECT_ID = 1
 ##
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
@@ -69,10 +69,15 @@ class Project < ActiveRecord::Base
   has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name'
 
   has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name'
+
+##
+# The project is the main holder of schedules but in turn can be seen on a system schedule
+#   
+  acts_as_scheduled :summary_of=>:tasks
   
-  has_many_scheduled :studies,  :class_name=>'Study',:foreign_key =>'project_id'
+  has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id'
   has_many_scheduled :experiments,  :class_name=>'Experiment',:foreign_key =>'project_id'
-  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'project_id'
+  has_many_scheduled :tasks,        :class_name=>'Task',:foreign_key =>'project_id'
 
 ##
 # Create a project root folder after create of project
