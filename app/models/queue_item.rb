@@ -16,8 +16,8 @@
 #  requested_by       :string(60)    
 #  assigned_to        :string(60)    
 #  expected_at      :datetime      
-#  accepted_at        :datetime      
-#  completed_at       :datetime      
+#  started_at        :datetime      
+#  ended_at       :datetime      
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null

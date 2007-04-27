@@ -22,11 +22,11 @@
 <p><label for="queue_item_expected_at">Requested for</label><br/>
 <%= datetime_select 'queue_item', 'expected_at'  %></p>
 
-<p><label for="queue_item_accepted_at">Accepted at</label><br/>
-<%= datetime_select 'queue_item', 'accepted_at'  %></p>
+<p><label for="queue_item_started_at">Accepted at</label><br/>
+<%= datetime_select 'queue_item', 'started_at'  %></p>
 
-<p><label for="queue_item_completed_at">Completed at</label><br/>
-<%= datetime_select 'queue_item', 'completed_at'  %></p>
+<p><label for="queue_item_ended_at">Completed at</label><br/>
+<%= datetime_select 'queue_item', 'ended_at'  %></p>
 
 <p><label for="queue_item_lock_version">Lock version</label><br/>
 <%= text_field 'queue_item', 'lock_version'  %></p>

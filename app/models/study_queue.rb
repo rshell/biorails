@@ -82,7 +82,7 @@ class StudyQueue < ActiveRecord::Base
           :data_id => list_item.data_id,
           :data_name => list_item.data_name,
           :name => list_item.data_name,
-          :status_id => current_state = 1 }
+          :status_id =>  1 }
        if  request_service
            attr[:request_service_id] = request_service.id
            attr[:priority_id]   = request_service.priority_id

@@ -25,8 +25,8 @@
     <td><%=queue_item.assigned_to.name %></td>
     <td> <%=queue_item.comments  %></td>
     <td><%=short_date queue_item.updated_at%></td>
-    <td><%=short_date queue_item.accepted_at  %></td>
-    <td><%=short_date queue_item.completed_at  %></td>
+    <td><%=short_date queue_item.started_at  %></td>
+    <td><%=short_date queue_item.ended_at  %></td>
     <td><%= link_to 'Remove', :action => 'destroy', :id => queue_item %></td>
 
 

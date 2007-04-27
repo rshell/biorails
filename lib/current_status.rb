@@ -3,8 +3,8 @@
 # 
 # This expects the following attribute in the base class
 #  status
-#  accepted_at
-#  completed_at
+#  started_at
+#  ended_at
 # 
   module CurrentStatus
 ##
@@ -76,7 +76,7 @@
       date_logger = "#{STATES[self.status_id].downcase}_at="
       self.send(date_logger,DateTime.now) if self.respond_to?(date_logger)
       if is_finished
-         self.completed_at = DateTime.now if self.respond_to?(:completed_at)
+         self.ended_at = DateTime.now if self.respond_to?(:ended_at)
       end
     end
     self.status_id
@@ -173,8 +173,8 @@
   def initial
      if !is_finished 
        self.status_id = CurrentStatus::NEW
-       self.accepted_at = nil
-       self.completed_at = nil
+       self.started_at = nil
+       self.ended_at = nil
      end
   end 
 

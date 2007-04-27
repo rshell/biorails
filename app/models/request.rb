@@ -62,7 +62,7 @@ class Request < ActiveRecord::Base
 ##
 # Study Has a number of items associated with the request
 # 
-  has_many :services, :class_name=>'RequestService'
+  has_many_scheduled :services, :class_name=>'RequestService'
   
   belongs_to :data_element
   
@@ -116,15 +116,15 @@ class Request < ActiveRecord::Base
 # get the status if the ritem.assigned_toequest
 # 
   def status
-    self.current_state
+    RequestService.schedule_states[self.status_id]
   end
   
 ##
 # request the status of the request and all contained services
 #   
   def status=(value)
-    if is_allowed_state(value)
-      self.current_state == value
+    if RequestService.is_allowed_state(value)
+      self.status_id == value
       for item  in self.services
           item.status = value
       end

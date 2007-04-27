@@ -11,8 +11,8 @@
 #  requested_by       :string(60)    
 #  expected_at      :datetime      
 #  assigned_to        :string(60)    
-#  accepted_at        :datetime      
-#  completed_at       :datetime      
+#  started_at        :datetime      
+#  ended_at       :datetime      
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
@@ -107,29 +107,6 @@ class RequestService < ActiveRecord::Base
 
   def complete
       self.status =  Alces::ScheduledItem::COMPLETED
-  end
-
-##
-# Change the status of the value and all children
-#   
-  def status=(value)
-    if is_allowed_state(value)
-      self.current_state == value
-      for item  in self.items
-          item.current_state = value
-      end
-    end
-  end
-  
-  def status   
-    if items.any?{|item|item.is_active}
-      self.status_id = CurrentStatus::PROCESSING
-    elsif items.any?{|item|item.is_finished}
-      self.status_id = CurrentStatus::COMPLETED
-    else
-      self.status_id = CurrentStatus::NEW
-    end
-    current_state
   end
 
   def num_active

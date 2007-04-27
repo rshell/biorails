@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 249) do
+ActiveRecord::Schema.define(:version => 250) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -725,7 +725,7 @@ ActiveRecord::Schema.define(:version => 249) do
   create_table "requests", :force => true do |t|
     t.column "name",                 :string,   :limit => 128, :default => "", :null => false
     t.column "description",          :text
-    t.column "requested_for",        :string
+    t.column "expected_at",          :string
     t.column "lock_version",         :integer,                 :default => 0,  :null => false
     t.column "created_at",           :datetime,                                :null => false
     t.column "updated_at",           :datetime,                                :null => false
@@ -737,6 +737,8 @@ ActiveRecord::Schema.define(:version => 249) do
     t.column "updated_by_user_id",   :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",   :integer,                 :default => 1,  :null => false
     t.column "requested_by_user_id", :integer,                 :default => 1
+    t.column "started_at",           :datetime
+    t.column "ended_at",             :datetime
   end
 
   create_table "role_permissions", :force => true do |t|

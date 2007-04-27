@@ -387,7 +387,7 @@ end
     when 'Request':         request_url(:action=>'show', :id=> element.reference_id )
     when 'Compound':        compound_url(:action=>'show', :id=> element.reference_id )
     else
-       folder_url(:action=>'show', :id=> element.id )
+       element_to_url(element)
     end
   end  
 

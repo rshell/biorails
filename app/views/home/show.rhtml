@@ -7,20 +7,21 @@
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3><%=l('News: Recent Articles')%></h3>
-		<% for item in @user.lastest(ProjectContent,5) %>
+	<h3><%=l('News: Recent Articles ')%></h3>
+		<% for item in @user.lastest(ProjectElement,5) %>
 			<li>
-			<%= link_to item.name, folder_url( :action => 'article', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%=item.title%> [<%=item.body_html.size %> bytes]
+			<%=image_tag(item.icon) %> 
+			<%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=item.summary%> 
 			</li>
 		<% end %>
 	</div>
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('My Requests')%></h3>
+	<h3 class="icon icon-protocol"><%=l('Requested Services')%></h3>
 		<ul>
 		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
 			<li>
-			<%= link_to item.request.name, request_url( :action => 'show', :id => item) %> /
+			<%= link_to item.request.name, request_url( :action => 'show', :id => item.request) %> /
 			<%= link_to item.queue.name, service_url( :action => 'show', :id => item) %> 
 			(<%= short_date item.updated_at %>) 
 			<%= item.status_summary %> <br />

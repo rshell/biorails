@@ -3,8 +3,8 @@
 # 
 # This expects the following attribute in the base class
 #  status
-#  accepted_at
-#  completed_at
+#  started_at
+#  ended_at
 # 
   module CurrentPriority
 ##

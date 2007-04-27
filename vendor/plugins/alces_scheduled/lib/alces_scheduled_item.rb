@@ -112,6 +112,7 @@ module Alces
             write_inheritable_attribute(:schedule_state_finished, options[:state_finished] || FINISHED_STATES )
             write_inheritable_attribute(:schedule_state_failed,   options[:state_failed] || FAILED_STATES )
 
+
             class_inheritable_reader :schedule_started
             class_inheritable_reader :schedule_ended
             class_inheritable_reader :schedule_expected
@@ -128,6 +129,26 @@ module Alces
         end
       end
 #######################################################################################
+# Add to model class
+# 
+      module SingletonMethods
+          # Executes the block with the auditing callbacks disabled.
+          #
+          #   Foo.without_auditing do
+          #     @foo.save
+          #   end
+          #
+        ##
+        # Test if state change is valid
+        # 
+         def allowed_change?(old_id,new_id)
+            self.schedule_state_changes[old_id.to_i].include?(new_id.to_i)
+         end
+
+      end # module SingletonMethods
+      
+
+#######################################################################################
 # Add to model Instance
 # 
       module InstanceMethods
@@ -135,7 +156,7 @@ module Alces
         # Test if state change is valid
         # 
          def is_allowed_state(new_id)
-            self.schedule_state_changes[self.status_id].include?(new_id.to_i)
+            allowed_change?(self.status_id,new_id)
          end
         
         ##
@@ -147,17 +168,35 @@ module Alces
         ##
         # Change the current status_id if allowed and return the value
         # 
-           def status_id=(new_id)
-              if is_allowed_state(new_id) and new_id != self.status_id 
-                self.attributes[self.schedule_status_id] = new_id
-                if self.is_finished
-                   self.attributes[self.schedule_ended] = DateTime.now 
-                end
-                self.updated_at = DateTime.now if self.respond_to?(:updated_at)
+         def status_id=(new_id)
+            if is_allowed_state(new_id) and new_id != self.status_id 
+              self.attributes[self.schedule_status_id] = new_id
+              if self.is_finished
+                 self.attributes[self.schedule_ended] = DateTime.now 
               end
-              self.status_id
-           end
+              self.updated_at = DateTime.now if self.respond_to?(:updated_at)
+            end
+            ##
+            #update dependent items with overall progress
+            #
+            if scheduled_summary
+                items = self.send(scheduled_summary)
+                for item  in items
+                    item.status_id = new_id if (new_id>item.status_id)
+                end    
+            end
+            self.status_id
+         end
 
+         def summary_status   
+          if items.any?{|item|item.is_active}
+             schedule_state_active[0]
+          elsif items.all?{|item|item.is_finished}
+             schedule_state_finished[0]
+          else
+            self.status_id
+          end
+         end
       
           ##
         # Get the status of the object  
