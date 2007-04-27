@@ -10,7 +10,7 @@
 <% end %>
 
 <%= error_messages_for :user %>
-<% form_for :user, :url => { :action => 'create' } do |f| -%>
+<% form_for :user, :url => { :action => 'update' ,:id=>@user.id} do |f| -%>
 <div class="setgroup">
   <dl class="setform clear">
     <dt><label for="user_login">Name</label></dt>

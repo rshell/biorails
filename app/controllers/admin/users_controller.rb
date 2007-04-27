@@ -47,13 +47,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    render :update do |page|
-      if @user.update_attributes(params[:user])
-        page.call 'Flash.notice', 'Profile updated.'
-      else
-        page.call 'Flash.errors', "Save failed: #{@user.errors.full_messages.to_sentence}"
-      end
+    @user = User.find(params[:id]) 
+   
+    if @user.update_attributes(params[:user])
+      flash[:notice] ='Profile updated.'
+    else
+      flash[:error] = "Save failed: #{@user.errors.full_messages.to_sentence}"
     end
+
+    redirect_to :action => 'index'
   end
 
   def destroy
