@@ -6,7 +6,7 @@ class AddExpectedDateToScheduledItems < ActiveRecord::Migration
      add_column :studies,     :expected_at, :datetime
 
      rename_column :queue_items,          :requested_for,:expected_at
-     rename_column :reques_services,   :requested_for,:expected_at
+     rename_column :request_services,   :requested_for,:expected_at
   end
 
   def self.down
