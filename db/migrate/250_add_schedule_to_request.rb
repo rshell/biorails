@@ -7,7 +7,7 @@ class AddScheduleToRequest < ActiveRecord::Migration
 
   def self.down
      rename_column    :requests,   :expected_at,  :requested_for
-     remove_column    :requests,   :started_at, :datetime
-     remove_column    :requests,   :ended_at, :datetime
+     remove_column    :requests,   :started_at
+     remove_column    :requests,   :ended_at
   end
 end
