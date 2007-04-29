@@ -22,15 +22,14 @@ module Alces
       ###
       # Status to human readable version for display
       # 
-      STATES = {nil =>'undefined',
-                ABORTED=>'aborted',
-                REJECTED =>'rejected',
-                NEW =>'new',
+      STATES = {NEW =>'new',
                 ACCEPTED =>'accepted',
                 WAITING =>'waiting',
                 PROCESSING =>'processing',
                 VALIDATION =>'validation',
-                COMPLETED =>'completed'}
+                COMPLETED =>'completed',
+                ABORTED=>'aborted',
+                REJECTED =>'rejected'     }
                 
       ##
       # This the the table of allowed state changes for the system
@@ -95,16 +94,14 @@ module Alces
     # 
         def acts_as_scheduled(options={})
           
-          return if self.included_modules.include?(Alces::ScheduledItem::InstanceMethods)
-          include Alces::ScheduledItem::InstanceMethods         
-
           # don't allow multiple calls
           class_eval do
           
-            write_inheritable_attribute(:schedule_started,    options[:started_at]  || :started_at)
+            write_inheritable_attribute(:schedule_started,    options[:started_at]  || :started_at )
             write_inheritable_attribute(:schedule_ended,      options[:ended_at]    || :ended_at )
             write_inheritable_attribute(:schedule_expected,   options[:expected_at] || :expected_at )
             write_inheritable_attribute(:schedule_status_id,  options[:status]      || :status_id )
+            write_inheritable_attribute(:scheduled_summary,   options[:summary]   )
 
             write_inheritable_attribute(:schedule_states,         options[:states] || STATES )
             write_inheritable_attribute(:schedule_state_changes,  options[:state_changes] || STATE_CHANGES )
@@ -113,6 +110,8 @@ module Alces
             write_inheritable_attribute(:schedule_state_failed,   options[:state_failed] || FAILED_STATES )
 
 
+
+            class_inheritable_reader :scheduled_summary
             class_inheritable_reader :schedule_started
             class_inheritable_reader :schedule_ended
             class_inheritable_reader :schedule_expected
@@ -125,6 +124,10 @@ module Alces
             class_inheritable_reader :schedule_state_failed
         
           end
+
+          return if self.included_modules.include?(Alces::ScheduledItem::InstanceMethods)
+          include Alces::ScheduledItem::InstanceMethods         
+
 
         end
       end
@@ -156,14 +159,14 @@ module Alces
         # Test if state change is valid
         # 
          def is_allowed_state(new_id)
-            allowed_change?(self.status_id,new_id)
+            self.schedule_state_changes[self.status_id].include?(new_id.to_i)
          end
         
         ##
         # Get the current status_id value
         #  
          def status_id
-            self.attributes[self.schedule_status_id]
+            self.attributes[self.schedule_status_id.to_s]
          end
         ##
         # Change the current status_id if allowed and return the value
@@ -265,15 +268,21 @@ module Alces
            end
            
            def started_at
-             self.attributes[schedule_started] || DateTime.now + 1.day
+              self.attributes[schedule_started.to_s]
            end
 
            def ended_at
-             self.attributes[schedule_ended]
+              self.attributes[schedule_ended.to_s]
            end
 
            def expected_at
-             self.attributes[schedule_expected] || started_at + 2.weeks
+              self.attributes[schedule_expected.to_s]
+           end
+           
+           def finished_at
+              return self.ended_at    if self.ended_at
+              return self.expected_at if self.expected_at
+              return  Time.now+10.day
            end
 
           ##
@@ -287,8 +296,16 @@ module Alces
              end
            end
            
-           def current?
-              return (self.start_at < DateTime.now and (self.ended_at.nil? or self.ended_at>DateTime.now ))
+           def starting?(day = DateTime.now)
+             return  (!started_at.nil? and  day.to_date == started_at.to_date)
+           end
+           
+           def ending?(day = DateTime.now)
+             return (!finished_at.nil? and day.to_date == finished_at.to_date)
+           end
+           
+           def current?(day = DateTime.now)
+              return (self.start_at < day and (self.ended_at.nil? or self.ended_at>day ))
            end
            
            def overdue?

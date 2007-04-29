@@ -108,6 +108,33 @@ SQL
                 end
                 
                 ##
+                # get fill calenndar for the date range
+                # 
+                def calendar(data_from,months=1, options={})
+                   calendar = CalendarData.new(data_from,months)
+                   with_scope :find => options do
+                     calendar.fill(find(:all, :order => "started_at, ended_at", 
+                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
+                                 calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
+                  end                 
+                  return calendar 
+                end
+                
+                
+                ##
+                # get fill calenndar for the date range
+                # 
+                def add_into(calendar, options={})
+                   with_scope :find => options do
+                     calendar.fill(find(:all, :order => "started_at, ended_at", 
+                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
+                                   calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
+                  end                 
+                  return calendar 
+                end
+                
+                                
+                ##
                 # count of items with a status accepts single or array
                 # 
                 # stuff.schedule.count_status([1,2,3])
