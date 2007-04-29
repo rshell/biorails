@@ -147,6 +147,12 @@ class Project::ProjectsController < ApplicationController
 #   
   def gantt
      @project = current(Project,params[:id])
+     @options ={ 'month' => Date.today.month,
+                'year'=> Date.today.year,
+                'items'=> {'task'=>1},
+                'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
+    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+                    
     if params[:year] and params[:year].to_i >0
       @year_from = params[:year].to_i
       if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12
@@ -164,7 +170,7 @@ class Project::ProjectsController < ApplicationController
     
     @date_from = Date.civil(@year_from, @month_from, 1)
     @date_to = (@date_from >> @months) - 1
-    @tasks = @project.tasks.range( @date_from, @date_to)  
+    @tasks = @project.tasks.range( @date_from, @date_to,50,find_options)  
 
     if params[:output]=='pdf'
       @options_for_rfpdf ||= {}

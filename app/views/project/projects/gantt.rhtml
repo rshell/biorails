@@ -4,12 +4,7 @@
 <% end -%>
 
 
-<div class="contextual">
-<%= l(:label_export_to) %>
-<%= link_to 'PDF', {:zoom => @zoom, :year => @year_from, :month => @month_from, :months => @months, :output => 'pdf'}, :class => 'icon icon-pdf' %>
-</div>
-
-<h2><%= l(:label_gantt) %></h2>
+<h2>Project <%= @project.name %> gnatt chart </h2>
 
 <table width="100%">
 <tr>
@@ -21,20 +16,25 @@
 <%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
 <%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
 <%= hidden_field_tag 'zoom', @zoom %>
-<%= submit_tag l(:button_submit), :class => "button-small" %>
+<% for state in Task.schedule_states.keys.sort  %>
+ <span class='state_<%=Task.schedule_states[state]%>'>  
+ <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state.to_s] %><%=Task.schedule_states[state]%>
+ </span>
+<% end %>
+  <%= submit_tag l(:button_submit), :class => "button-small" %>
 </p>
 <% end %>
 </td>
 <td align="right">
 <%= if @zoom < 4
-    link_to image_tag('zoom_in.png'), {:zoom => (@zoom+1), :year => @year_from, :month => @month_from, :months => @months}
+    link_to image_tag('schedule/zoom_in.png'), {:zoom => (@zoom+1), :year => @year_from, :month => @month_from, :months => @months}
   else
-    image_tag 'zoom_in_g.png'
+    image_tag 'schedule/zoom_in_g.png'
   end %>
 <%= if @zoom > 1
-    link_to image_tag('zoom_out.png'), :zoom => (@zoom-1), :year => @year_from, :month => @month_from, :months => @months
+    link_to image_tag('schedule/zoom_out.png'), :zoom => (@zoom-1), :year => @year_from, :month => @month_from, :months => @months
   else
-    image_tag 'zoom_out_g.png'
+    image_tag 'schedule/zoom_out_g.png'
   end %>
 </td>
 </tr>
@@ -79,8 +79,8 @@ t_height = g_height + headers_heigth
 top = headers_heigth + 8
 @tasks.each do |i| %>
 	<div style="position: absolute;line-height:1.2em;height:16px;top:<%= top %>px;left:4px;overflow:hidden;">
-	<small><%= link_to "#{i.name} ", { :controller => 'tasks', :action => 'show', :id => i }, :title => "#{i.protocol.name} :  #{i.protocol.description} " %>:
-	<%=" [#{i.experiment.name}]" %></small>
+	<small><%= link_to subject_icon('model/task')+"#{i.name} ", { :controller => 'tasks', :action => 'show', :id => i }, :title => "#{i.protocol.name} :  #{i.protocol.description} " %>:
+	<span class='state_<%=i.status%>'><%=i.status %></span></small>
 	</div>
 <% top = top + 20
 end %>
@@ -212,6 +212,7 @@ end %>
 </td>
 </tr>
 </table>
+<%= link_to  'export', {:zoom => @zoom, :year => @year_from, :month => @month_from, :months => @months, :output => 'pdf'}, :class => 'icon icon-pdf' %>
 
 <table width="100%">
 <tr>

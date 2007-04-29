@@ -18,14 +18,14 @@ class ProjectTest < Test::Unit::TestCase
   end
   
   def test001_valid
-     project = Project.new(:name=>'test1',:summary=>'sssss')
+     project = Project.new(:name=>'test1',:summary=>'sssss',:status_id=>0)
      assert project.valid? , project.errors.full_messages().join('\n')
   end
   
   def test002_duplicate_name
-     project = Project.new(:name=>'test2',:summary=>'sssss')
+     project = Project.new(:name=>'test2',:summary=>'sssss',:status_id=>0)
      assert project.save , project.errors.full_messages().join('\n')
-     project = Project.new(:name=>'test2',:summary=>'sssss')
+     project = Project.new(:name=>'test2',:summary=>'sssss',:status_id=>0)
      assert !project.valid? , "Should not allow duplicate name"
   end
 
@@ -46,7 +46,7 @@ class ProjectTest < Test::Unit::TestCase
      
      assert project.folders.size==1, 'has a root folder'
      assert project.articles.size==0, 'has no articles'
-     assert project.members.size==0, 'has one member'
+     assert project.users.size==0, 'has one member'
      assert project.memberships.size==0, 'has one membership'
      assert project.owners.size==0, 'has one owner'
   end 
@@ -54,7 +54,7 @@ class ProjectTest < Test::Unit::TestCase
   
   def test005_folders
      project = Project.find(1)
-     assert 0==project.folders.size
+     assert project.folders.size > 0
   end  
 
   def test006_notes
@@ -73,30 +73,51 @@ class ProjectTest < Test::Unit::TestCase
 
   def test007_linked_to
      project = Project.find(:first)
-     assert 0==project.folders.size
-     assert 0==project.folders_for(Study).size # array of folders linked to a model type
+     assert project.folders.size>0
+     assert project.folders_for(Study).size>0 # array of folders linked to a model type
      study = Study.find(:first)
      assert_ok study
 
-     user = User.find(users(:rshell).id)
+     user = User.find(3)
      assert_ok user
 
      folder = project.folder(study)
      assert_ok folder
 
-     assert 1==project.folders.linked_to(Study).size # array of folders linked to a model type
-     
-
-  end  
+     assert project.folders_for(Study).size>0 # array of folders linked to a model type
+   end  
 
   def test008_studies
      project = Project.find(1)
-     assert 0==project.studies.size
+     assert project.studies.size > 0
   end  
 
   def test009_experiments
      project = Project.find(1)
-     assert 0== project.experiments.size
+     assert project.experiments.size > 0
   end  
 
+  def test0010_create_calendar
+    s = Time.now-30.days
+    e = Time.now
+    project = Project.find(1)
+    items = project.tasks.range(s,e)
+    
+    cal = project.tasks.calendar(s,e)
+    
+    calendar = Calendar.from_collection(items,s,e)
+
+
+    assert ( (calendar.finished_at - calendar.started_at+1) == 35 ) , 
+        " failed to be 5 weeks is #{calendar.finished_at - calendar.started_at} from #{calendar.finished_at} to #{calendar.started_at}"
+    assert items.size >0
+    assert_not_nil calendar
+    assert_not_nil calendar.started_at
+    assert_not_nil calendar.finished_at
+    assert calendar.items.size >0
+    assert calendar.boxes.size >0
+    puts calendar.to_s
+  end
+ 
+   
 end

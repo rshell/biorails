@@ -77,12 +77,14 @@ module Alces
           #
           def authorization
              logger.info "Authorization #{session[:current_username]} #{params[:controller]} #{params[:action]}"  
-             unless self.authenticate    
+             unless self.authenticate  
+                  logger.warn "Authentication Failed #{session[:current_username]}"  
                   return false     
              end     
              if authorized?(params[:action])
                   return true
              end 
+             logger.warn "Authorization Failed #{params[:controller]} #{params[:action]}"  
              return false     
           end         
       end    

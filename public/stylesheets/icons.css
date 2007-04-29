@@ -20,7 +20,7 @@ background-position: 4px 50%;
 .icon-save { background-image:   url(../images/action/save.png); }
 .icon-cancel { background-image: url(../images/action/cancel.png); }
 
-.icon-pdf { background-image:  url(../images/mime/pdf.png); }
+.icon-pdf { background-image:  url(../images/mime/pdf.gif); }
 .icon-csv { background-image:  url(../images/mime/csv.png); }
 .icon-file { background-image: url(../images/mime/file.png); }
 
