@@ -1,6 +1,103 @@
 
 /********** Table used to display lists of things ***********/
 
+table.calendar-grid {
+    width:100%;
+    border-collapse: collapse;
+    border: 1px dotted #d0d0d0;
+    margin-bottom: 6px;
+}
+
+table.calendar-grid td {
+    border: 1px solid #d7d7d7;
+}
+
+table.calendar-grid td {
+    padding:2px;
+}
+
+table.calendar-grid thead th {
+    text-align: center;
+    background: #eed;
+    border: 1px solid #d7d7d7;
+    color: #777;
+}
+table.calendar-grid thead th.dayname {
+    width:14%;
+}
+
+
+table.calendar-grid tbody th {
+	font-weight: normal;
+    background: #eed;
+    border: 1px solid #d7d7d7;
+}
+
+table.calendar-grid p {margin:0; padding:0;}
+
+table.calendar-grid .weekend { 
+    background-color: #E1EEC6;
+    width:14%;
+    }
+    
+table.calendar-grid .weekday {
+    background-color: #fff;
+    width:14%;
+    }
+
+table.calendar-grid .grey {
+    background-color: #EEE;
+    }
+
+
+table.calendar-grid .today {
+    background-color: #FDFED0;
+    width:14%;
+    }
+
+.state_new {
+    background-color: #fffdc5;
+
+    }
+.state_accepted {
+    background-color: #fffdc3;
+    }
+
+ .state_processing {
+    background-color: #ffbb9b;
+    }
+
+ .state_waiting {
+    background-color: #c7edff;
+    }
+
+ .state_completed {
+    background-color: #c1ffc3;
+    }
+
+.state_validation {
+    background-color: #bfffd1;
+    }
+
+.state_rejected {
+    background-color: #ffd3f1;
+    }
+
+.state_aborted {
+     background-color: #f6d3ff;
+    }
+
+
+
+table p.day {
+    text-align: right;
+    margin-top: 0pt;
+    margin-right: 0pt;
+    margin-bottom: 0pt;
+    margin-left: 0pt;
+}
+
+
 table.list {
     width:100%;
     border-collapse: collapse;
@@ -38,3 +135,4 @@ table .even {
 table .odd {
     background-color: #fff;
     }
+    

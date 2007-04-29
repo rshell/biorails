@@ -3,7 +3,6 @@
 /**************** Body and tag styles ****************/
 
 #header * {margin:0; padding:0;}
-p, ul, ol, li {margin:0; padding:0;}
 
 body{
     font:76% Verdana,Tahoma,Arial,sans-serif;
@@ -29,8 +28,11 @@ a:hover{
 
 a img{border:none;}
 
-p{margin:0 0 1em 0;}
-p form{margin-top:0; margin-bottom:20px;}
+p{
+    margin:0 0 1em 0;}
+p form{
+    margin-top:0; margin-bottom:20px;
+    }
 
 img.left,img.center,img.right{
     padding:4px; 
@@ -55,92 +57,92 @@ img.right{
 /**************** Header  styles ****************/
 
 #container{
-width:100%;
-min-width: 800px;
-margin:0;
-padding:0;
-text-align:left;
-background:#ffffff;
-color:#303030;
-z-index: 10;
+    width:100%;
+    min-width: 800px;
+    margin:0;
+    padding:0;
+    text-align:left;
+    background:#ffffff;
+    color:#303030;
+    z-index: 10;
 }
 
 #header{
-height:4.5em;
-margin:0;
-background:#7CB30F;
-color:#ffffff;
-margin-bottom:1px;
+    height:4.5em;
+    margin:0;
+    background:#7CB30F;
+    color:#ffffff;
+    margin-bottom:1px;
 }
 
 #header h1{
-padding:10px 0 0 20px;
-font-size:2em;
-background-color:inherit;
-color:#fff;
-letter-spacing:-1px;
-font-weight:bold;
-font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    padding:10px 0 0 20px;
+    font-size:2em;
+    background-color:inherit;
+    color:#fff;
+    letter-spacing:-1px;
+    font-weight:bold;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
 #header .left{
-float: left;
+    float: left;
 }
 
 #header .right{
-float: right; 
-padding-right: 1em; 
-padding-top: 0.2em;
+    float: right; 
+    padding-right: 1em; 
+    padding-top: 0.2em;
 }
 
 #header h2{
-margin:3px 0 0 40px;
-font-size:1.5em;
-background-color:inherit;
-color:#f0f2f4;
-letter-spacing:-1px;
-font-weight:normal;
-font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    margin:3px 0 0 40px;
+    font-size:1.5em;
+    background-color:inherit;
+    color:#f0f2f4;
+    letter-spacing:-1px;
+    font-weight:normal;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
 
 /**************** Content styles ****************/
 
 html>body #content {
-height: auto;
-min-height: 600px;
+    height: auto;
+    min-height: 600px;
 } 
 
 #content{
-width: auto;
-height:600px;
-font-size:0.9em;
-padding:10px 10px 10px 10px;
-margin-left: 155px;
-border-left: 1px dashed #c0c0c0;
-z-index: 10;
+    width: auto;
+    height:600px;
+    font-size:0.9em;
+    padding:10px 10px 10px 10px;
+    margin-left: 155px;
+    border-left: 1px dashed #c0c0c0;
+    z-index: 10;
 }
 
 #left {
-  position: absolute;
-  left: 5px;
-  width: 150px;
-  background-color: #F0F0F0;
-  border: 1px solid #c0c0c0;
-  z-index: 10;
+      position: absolute;
+      left: 5px;
+      width: 150px;
+      background-color: #F0F0F0;
+      border: 1px solid #c0c0c0;
+      z-index: 10;
 }
 
 #left_panel {
-width: 150px;
-font-family: Arial,sans-serif;
-font-size: 12px;
-padding-bottom: 10px;
-background-color: transparent;
-background-image: url(/images/bottom.gif);
-background-repeat: no-repeat;
-background-attachment: scroll;
-color: #ffffff;
-z-index: 20;
+    width: 150px;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    background-image: url(/images/bottom.gif);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #ffffff;
+    z-index: 20;
 }
 
 #main {
@@ -176,19 +178,20 @@ z-index: 20;
 /* Main Panels Headers  */
 
 #main h2{
-display:block;
-margin:0 0 16px 0;
-font-size:1.7em;
-font-weight:normal;
-letter-spacing:-1px;
-color:#606060;
-background-color:inherit;
-font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    display:block;
+    margin:0 0 16px 0;
+    font-size:1.7em;
+    font-weight:normal;
+    letter-spacing:-1px;
+    color:#606060;
+    background-color:inherit;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
 #main h2 a{
     font-weight:normal;
 }
+
 #main h3{
     margin:0 0 12px 0; 
     font-size:1.4em;
@@ -223,22 +226,22 @@ font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 
 
 #left h2{
-display:block;
-margin:0 0 5px 0;
-font-size:1.2em;
-font-weight:bold;
-text-align:left;
-font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    display:block;
+    margin:0 0 5px 0;
+    font-size:1.2em;
+    font-weight:bold;
+    text-align:left;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
 
 #left h3{
-display:block;
-margin:0 0 5px 0;
-font-size:1.0em;
-font-weight:bold;
-text-align:left;
-font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    display:block;
+    margin:0 0 5px 0;
+    font-size:1.0em;
+    font-weight:bold;
+    text-align:left;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
 
 
@@ -246,12 +249,12 @@ font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 /**************** Footer styles ****************/
 
 #footer{
-clear:both;
-padding:5px 0;
-margin:0;
-font-size:0.9em;
-color:#f0f0f0;
-background:#7CB30F;
+    clear:both;
+    padding:5px 0;
+    margin:0;
+    font-size:0.9em;
+    color:#f0f0f0;
+    background:#7CB30F;
 }
 
 #footer p{padding:0; margin:0; text-align:center;}
@@ -273,34 +276,25 @@ background:#7CB30F;
 
 .hide{display:none;}
 
-.textcenter{text-align:center;}
-.textright{text-align:right;}
+.textcenter{
+    text-align:center;
+     }
+     
+.textright{
+    text-align:right;
+    }
 
 .important{color:#f02025; background-color:inherit; font-weight:bold;}
 
 .box{
-margin:0 0 20px 0;
-padding:10px;
-border:1px solid #c0c0c0;
-background-color:#fafbfc;
-color:#505050;
-line-height:1.5em;
+    margin:10px 10px 20px 10px;
+    padding:10px;
+    border:1px solid #c0c0c0;
+    background-color:#fafbfc;
+    color:#505050;
+    line-height:1.5em;
 }
 
-a.close-icon {
-display:block;
-margin-top:3px;
-overflow:hidden;
-width:12px;
-height:12px;
-background-repeat: no-repeat;
-cursor:pointer;
-background-image:url('../images/close.png');
-}
-
-a.close-icon:hover {
-background-image:url('../images/close_hl.png');
-}
 .layout-active {
 background: #ECF3E1;
 }
@@ -327,30 +321,30 @@ img.calendar-trigger {
 .tooltip span.tip{display: none}
 
 div.tooltip:hover span.tip{
-display:block;
-position:absolute;
-top:12px; left:24px; width:270px;
-border:1px solid #555;
-background-color:#fff;
-padding: 4px;
-font-size: 0.8em;
-color:#505050;
+    display:block;
+    position:absolute;
+    top:12px; left:24px; width:270px;
+    border:1px solid #555;
+    background-color:#fff;
+    padding: 4px;
+    font-size: 0.8em;
+    color:#505050;
 }
 
 /***** CSS FORM ******/
 .tabular p{
-margin: 0;
-padding: 5px 0 8px 0;
-padding-left: 180px; /*width of left column containing the label elements*/
-height: 1%;
+    margin: 0;
+    padding: 5px 0 8px 0;
+    padding-left: 180px; /*width of left column containing the label elements*/
+    height: 1%;
 }
 
 .tabular label{
-font-weight: bold;
-float: left;
-margin-left: -180px; /*width of left column*/
-width: 175px; /*width of labels. Should be smaller than left column to create some right 
-margin*/
+    font-weight: bold;
+    float: left;
+    margin-left: -180px; /*width of left column*/
+    width: 175px; /*width of labels. Should be smaller than left column to create some right 
+    margin*/
 }
 
 .error {

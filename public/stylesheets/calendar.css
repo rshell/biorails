@@ -7,7 +7,6 @@ div.calendar { position: relative; }
   font-size: 11px;
   color: #000;
   cursor: default;
-  background: #fafbfc;
   font-family: tahoma,verdana,sans-serif;
 }
 
@@ -112,6 +111,14 @@ div.calendar { position: relative; }
 
 .calendar tbody td.weekend { /* Cells showing weekend days */
   color: #a66;
+  background: #cde;
+  padding: 2px 2px 0px 2px;
+}
+
+.calendar tbody td.work { /* Cells showing weekend days */
+  color: #f00;
+  background: #cde;
+  padding: 2px 2px 0px 2px;
 }
 
 .calendar tbody td.today { /* Cell showing selected date */
