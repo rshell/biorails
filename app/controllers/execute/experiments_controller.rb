@@ -15,6 +15,7 @@ class Execute::ExperimentsController < ApplicationController
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
+  helper :calendar
 ##
 # default action is linked to list
   def index
@@ -54,10 +55,28 @@ class Execute::ExperimentsController < ApplicationController
 
   def calendar
     @experiment = current(Experiment,params[:id]) 
-    @calendar = Schedule.new(Task)
-    @calendar.calendar(params)
-    @calendar.filter = ["experiment_id = ?",@experiment.id]
-    @calendar.refresh   
+    @options ={ 'month' => Date.today.month,
+                'year'=> Date.today.year,
+                'items'=> {'task'=>1},
+                'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
+    @user = current_user
+
+    logger.info " Calendar for #{@options.to_yaml}"
+
+    started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
+
+    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+
+    @schedule = CalendarData.new(started,1)
+    @experiment.tasks.add_into(@schedule,find_options)               if @options['items']['task']
+    @experiment.queue_items.add_into(@schedule,find_options)         if @options['items']['queue']
+
+    respond_to do | format |
+      format.html { render :action => 'calendar' }
+      format.js    { render :action => 'calendar', :layout => false }
+      #format.ical  { render :text => @schedule.to_ical}
+    end
+
   end
 
   def timeline

@@ -4,6 +4,7 @@ class Project::ProjectsController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
                     :rights =>  :current_project  
 
+  helper :calendar
 ##
 # Generate a index dashboard for the project 
 #   
@@ -116,26 +117,28 @@ class Project::ProjectsController < ApplicationController
 # 
   def calendar
      @project = current(Project,params[:id])
-    if params[:year] and params[:year].to_i > 1900
-      @year = params[:year].to_i
-      if params[:month] and params[:month].to_i > 0 and params[:month].to_i < 13
-        @month = params[:month].to_i
-      end    
+ 
+     @options ={ 'month' => Date.today.month,
+                'year'=> Date.today.year,
+                'items'=> {'task'=>1},
+                'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
+ 
+    logger.info " Calendar for #{@options.to_yaml}"
+
+    started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
+
+    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+
+    @schedule = CalendarData.new(started,1)
+    @project.tasks.add_into(@schedule,find_options)               if @options['items']['task']
+    @project.experiments.add_into(@schedule,find_options)         if @options['items']['experiment']
+    @project.studies.add_into(@schedule,find_options)  if @options['items']['study']
+
+    respond_to do | format |
+      format.html { render :action => 'calendar' }
+      format.js    { render :partial => 'calendar' }
+      #format.ical  { render :text => @schedule.to_ical}
     end
-    @year ||= Date.today.year
-    @month ||= Date.today.month
-    
-    @date_from = Date.civil(@year, @month, 1)
-    @date_to = (@date_from >> 1)-1
-    # start on monday
-    @date_from = @date_from - (@date_from.cwday-1)
-    # finish on sunday
-    @date_to = @date_to + (7-@date_to.cwday)  
-      
-    @tasks = Task.find(:all, :order => "started_at, ended_at", :include => [:experiment], 
-                         :conditions => ["(((started_at>=? and started_at<=?) or (ended_at>=? and ended_at<=?) or (started_at<? and ended_at>?)) and started_at is not null and ended_at is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
-    
-    render :layout => false if request.xhr?
   end  
 
 ##
@@ -161,10 +164,8 @@ class Project::ProjectsController < ApplicationController
     
     @date_from = Date.civil(@year_from, @month_from, 1)
     @date_to = (@date_from >> @months) - 1
+    @tasks = @project.tasks.range( @date_from, @date_to)  
 
-    @tasks = Task.find(:all, :order => "started_at, ended_at", :include => [:experiment], 
-                         :conditions => ["(((started_at>=? and started_at<=?) or (ended_at>=? and ended_at<=?) or (started_at<? and ended_at>?)) and started_at is not null and ended_at is not null)", @date_from, @date_to, @date_from, @date_to, @date_from, @date_to])
-    
     if params[:output]=='pdf'
       @options_for_rfpdf ||= {}
       @options_for_rfpdf[:file_name] = "gantt.pdf"

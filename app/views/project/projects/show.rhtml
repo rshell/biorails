@@ -50,7 +50,7 @@
 	<div class="box">
 	<h3 class="icon icon-study"><%=l('Study Designs')%></h3>
 		<ul>
-		<% for item in @project.lastest(Study,3) %>
+		<% for item in @project.lastest(Study,5) %>
 			<li>
 			<%= link_to item.name, study_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%= item.description %>

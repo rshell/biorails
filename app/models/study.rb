@@ -31,7 +31,7 @@ class Study < ActiveRecord::Base
 ##
 # This item can be scheduled 
 #
-  acts_as_scheduled 
+  acts_as_scheduled :summary_of=>:experiments
 ##
 # This record has a full audit log created for changes 
 #   

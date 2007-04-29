@@ -63,13 +63,13 @@ class ProjectElement < ActiveRecord::Base
   end
 
   def asset?
-    !self.asset_id.nil? 
+    !(attributes['asset_id'].nil?)
   end
 ##
 # This has a textual? entries
 #  
   def textual?
-    !self.content_id.nil?
+    !(attributes['content_id'].nil?)
   end
 ##
 # This has a reference entries 

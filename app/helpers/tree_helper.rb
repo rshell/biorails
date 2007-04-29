@@ -361,9 +361,9 @@ end
 # Convert a element in to a url call to display it
 #    
   def element_to_url(element)
-    if element.textual?
+    if element.content_id
        content_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
-    elsif element.asset?
+    elsif element.asset_id
        asset_url(:action=>'show',:id=>element.id, :folder_id=>element.parent_id )
     else
        folder_url(:action=>'show', :id=> element.id )

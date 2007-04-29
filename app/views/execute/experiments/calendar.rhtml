@@ -1,72 +1,45 @@
-<% form_tag({:action => 'calendar', :id => @experiment}) do %>
-<table width="100%">
-<tr>
-    <td align="left" style="width:150px">
-    <%= link_to_remote ('&#171; ' + (@calendar.month==1 ? "#{month_name(12)} #{@calendar.year-1}" : "#{month_name(@calendar.month-1)}")), 
-                        {:update => "main", :url => { :year => (@calendar.month==1 ? @calendar.year-1 : @calendar.year), :month =>(@calendar.month==1 ? 12 : @calendar.month-1) }},
-                        {:href => url_for(:action => 'calendar', :year => (@calendar.month==1 ? @calendar.year-1 : @calendar.year), :month =>(@calendar.month==1 ? 12 : @calendar.month-1))}
-                        %>
-    </td>
-    <td align="center">
-    <%= select_month(@calendar.month, :prefix => "month", :discard_type => true) %>
-    <%= select_year(@calendar.year, :prefix => "year", :discard_type => true) %>
-    <%= submit_tag l(:button_submit), :class => "button-small" %>
-    </td>
-    <td align="right" style="width:150px">
-    <%= link_to_remote ((@calendar.month==12 ? "#{month_name(1)} #{@calendar.year+1}" : "#{month_name(@calendar.month+1)}") + ' &#187;'), 
-                        {:update => "main", :url => { :year => (@calendar.month==12 ? @calendar.year+1 : @calendar.year), :month =>(@calendar.month==12 ? 1 : @calendar.month+1) }},
-                        {:href => url_for(:action => 'calendar', :year => (@calendar.month==12 ? @calendar.year+1 : @calendar.year), :month =>(@calendar.month==12 ? 1 : @calendar.month+1))}
-                        %>&nbsp;
-    </td>
-</tr>
-</table>
-<% end %>
-<br />
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/experiment_menu' , :locals=>{ :project => @experiment} %>
+<% end -%>
 
-<table class="list with-cells">
-<thead>
-    <tr>
-        <th></th>
-        <% 1.upto(7) do |d| %>
-            <th style="width:14%"><%= day_name(d) %></th>
+<% content_for :centre do -%>
+   <%= render :partial=>'calendar' %>
+<% end -%>
+
+
+<% content_for :right do -%>
+    <h2> Update View </h2>
+    <%form_tag({:action =>'calendar', :id=> @experiment.id} ) do %>
+        <div class='panel'>
+        <%= error_messages_for("user") %>
+        <fieldset>
+        <br>Month:
+        <%= select_month(@schedule.started_at, :prefix => "month", :discard_type => true)%>
+        <br/>Year:
+        <%= select_year(@schedule.started_at, :prefix => "year", :discard_type => true)%>
+        </fieldset>
+        <fieldset>
+        Types 
+        <ul>
+        <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[task]', 'y',      checked = @options['items']['task'] %>Tasks</li>
+        <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[queue]', 'y',      checked = @options['items']['queue'] %>Queued</li>
+        </ul>
+        </fieldset>
+        <fieldset>
+         Status values 
+        <ul>
+        <% for state in Task.schedule_states.keys.sort  %>
+           <li class='state_<%=Task.schedule_states[state]%>'>  <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state]||@options['states'][state.to_s] %>
+                 <%=Task.schedule_states[state]%></li>
         <% end %>
-    </tr>
-</thead>
+        </ul>
+        </fieldset>
+        </div>   
+        <br />
+        <%= submit_tag("Update")%>
+     <% end %>
+<% end -%>
 
-<tbody>
-<tr style="height:100px">
-<% day = @calendar.date_from
-while day <= @calendar.date_to
-	if day.cwday == 1 %>
-	<th><%= day.cweek %></th>
-	<% end %>	
-	<td valign="top" class="<%= day.month==@calendar.month ? "even" : "odd" %>" style="width:14%; <%= Date.today == day ? 'background:#FDFED0;' : '' %>">
-	<p class="textright"><%= day==Date.today ? "<b>#{day.day}</b>" : day.day %></p>	
-	<% day_issues = []
-	@calendar.items.each { |i| day_issues << i if i.started_at.to_date == day or i.ended_at.to_date == day } 
-	day_issues.each do |i| %>
-	    <div class="tooltip">
-		<%= if day == i.started_at and day == i.ended_at.to_date
-		    image_tag('arrow_bw.png')
-		elsif day == i.started_at.to_date
-		    image_tag('arrow_from.png') 
-		elsif day == i.ended_at.to_date
-		    image_tag('arrow_to.png') 
-		end %>
-		<small><%= link_to "#{i.name}", task_url(:action=>'show',:id=>i.id) %>: <%= i.description.sub(/^(.{30}[^\s]*\s).*$/, '\1 (...)') %></small>
-        <span class="tip">
-        <strong>Item: <%=i.name%> [<%=i.status%>] </strong><%= i.description%>
-		</div>
-	<% end %>
-    </td>
-	<%= '</tr><tr style="height:100px">' if day.cwday >= 7 and day!=@calendar.date_to %>
-	<%
-	day = day + 1
-end %>
-</tr>
-</tbody>
-</table>
 
-<%= image_tag 'arrow_from.png' %>&nbsp;&nbsp;<%= l(:text_tip_task_begin_day) %><br />
-<%= image_tag 'arrow_to.png' %>&nbsp;&nbsp;<%= l(:text_tip_task_end_day) %><br />
-<%= image_tag 'arrow_bw.png' %>&nbsp;&nbsp;<%= l(:text_tip_task_begin_end_day) %><br />
+

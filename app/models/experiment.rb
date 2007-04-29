@@ -50,6 +50,7 @@ class Experiment < ActiveRecord::Base
   acts_as_scheduled  :summary_of=>:tasks
 
   has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
+  has_many_scheduled :queue_items,  :class_name=>'QueueItem',:foreign_key =>'experiment_id'
 
 ##
 # Stats view of whats happened in the experiment 

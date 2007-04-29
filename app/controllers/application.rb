@@ -147,7 +147,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     session[:current_params] = params
     unless logged_in?
-      redirect_to :controller => "auth", :action => "login"
+      redirect_to  login_url
       return false
     end
     true
@@ -211,6 +211,7 @@ protected
 # Test whether the user is logged_in
 #   
   def show_login
+      log.info "show login form"
       redirect_to auth_url(:action => "login")
       return false
   end

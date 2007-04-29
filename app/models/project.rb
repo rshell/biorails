@@ -67,7 +67,6 @@ class Project < ActiveRecord::Base
 # list of all folders in the project 
 # 
   has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name'
-
   has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name'
 
 ##
@@ -76,8 +75,8 @@ class Project < ActiveRecord::Base
   acts_as_scheduled :summary_of=>:tasks
   
   has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id'
-  has_many_scheduled :experiments,  :class_name=>'Experiment',:foreign_key =>'project_id'
-  has_many_scheduled :tasks,        :class_name=>'Task',:foreign_key =>'project_id'
+  has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id'
+  has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id'
 
 ##
 # Create a project root folder after create of project
