@@ -18,7 +18,7 @@
     <td valign='top'>
     <% for queue in study.queues_in_stage(stage) %>
        <%= link_to queue.name , queue_url( :action => 'show', :id=>queue) %> 
-       [<%= queue.status_summary %>]
+       <%= queue.status_summary %>
        <br/>
     <%end%>
       </td>

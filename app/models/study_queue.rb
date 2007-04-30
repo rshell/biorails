@@ -68,18 +68,15 @@ class StudyQueue < ActiveRecord::Base
 # Stage the protocol is linked into 
  belongs_to :stage,  :class_name =>'StudyStage',:foreign_key=>'study_stage_id'
 
- belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
- 
+ belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'   
 ##
 # Study Has a number of queues associated with it
 # 
-  acts_as_scheduled
   has_many_scheduled :items, :class_name => "QueueItem"
-
 ##
 #Link to service request for work to be done
 #  
-  has_many :requests, :class_name=> "RequestService",:foreign_key=>'service_id'
+  has_many_scheduled :requests, :class_name=> "RequestService",:foreign_key=>'service_id'
 
 ##
 # Add a object to the queue
@@ -141,4 +138,25 @@ SQL
    return QueueItem.find_by_sql([sql,self.id])
  end
 
+
+  def num_active
+    return items.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}
+  end
+
+  def num_finished
+    return items.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}
+  end
+  
+  def percent_done
+    if items.size>0
+      ((100*num_active)/2 + 100*num_finished)/items.size 
+    else
+      0
+    end
+  end
+
+  def status_summary   
+    "[#{items.size} / #{num_active} / #{num_finished}] #{percent_done}%"
+  end
+ 
 end

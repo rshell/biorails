@@ -97,10 +97,6 @@ module Alces
           # don't allow multiple calls
           class_eval do
           
-#            write_inheritable_attribute(:schedule_started,    options[:started_at]  || :started_at )
-#            write_inheritable_attribute(:schedule_ended,      options[:ended_at]    || :ended_at )
-#            write_inheritable_attribute(:schedule_expected,   options[:expected_at] || :expected_at )
-#            write_inheritable_attribute(:schedule_status_id,  options[:status]      || :status_id )
             write_inheritable_attribute(:scheduled_summary,   options[:summary]   )
 
             write_inheritable_attribute(:schedule_states,         options[:states] || STATES )
@@ -112,10 +108,7 @@ module Alces
 
 
             class_inheritable_reader :scheduled_summary
-            class_inheritable_reader :schedule_started
-            class_inheritable_reader :schedule_ended
-            class_inheritable_reader :schedule_expected
-            class_inheritable_reader :schedule_status_id
+
 
             class_inheritable_reader :schedule_states
             class_inheritable_reader :schedule_state_changes
@@ -194,18 +187,7 @@ module Alces
             end
             self.status_id
          end
-
-         def summary_status   
-          if items.any?{|item|item.is_active}
-             schedule_state_active[0]
-          elsif items.all?{|item|item.is_finished}
-             schedule_state_finished[0]
-          else
-            self.status_id
-          end
-         end
-      
-          ##
+        ##
         # Get the status of the object  
         # 
          def status
@@ -228,6 +210,20 @@ module Alces
          end
          
          
+         ##
+         #
+         #
+         def status_summary
+          return self.status unless scheduled_summary   
+          out = "["
+          tmp = self.send(scheduled_summary) || []
+          out << tmp.size
+          out << '/' << tmp.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}
+          out << '/' << tmp.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}
+          out << ']'
+         end
+      
+         
         ##
         # Get a list of  
          def allowed_status_list
@@ -245,7 +241,7 @@ module Alces
             when Fixnum
               return self.status_id == value
             when String
-              return self.state == value
+              return self.status == value
             when Array
               return value.include?(self.status_id)  
             else

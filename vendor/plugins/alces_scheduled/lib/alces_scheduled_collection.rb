@@ -175,7 +175,7 @@ SQL
                 end
                 
                 def status_summary
-                   summary.collect{|i|"#{i.state}:#{i.num_items}"}.join("/")
+                   summary_list.collect{|i|"#{i.state}:#{i.num_items}"}.join("/")
                 end
                 
                 def summary

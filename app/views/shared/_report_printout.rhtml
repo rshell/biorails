@@ -21,7 +21,7 @@
                 <% value = values[col][item] %>
                 <td >
                   <%= if value.kind_of? Numeric
-                        number_with_precision(value,report.decimal_places)
+                        value
                       else 
                         value
                       end
