@@ -1,4 +1,5 @@
 <h1>Add member to project <%=current_project.name%></h1>
+<div class='panel'>
 
 <% form_tag :action => 'create' do %>
     <%= error_messages_for 'membership' %>
@@ -6,13 +7,13 @@
 
     <!--[form:membership]-->
     <p>
-      <label for="membership_owner">User</label><br/>
+      <label for="membership_owner">User</label>
       <%= select_named :membership, :user_id ,User %>
     </p>
-    <p><label for="membership_owner">Owner</label><br/>
+    <p><label for="membership_owner">Owner</label>
       <%= check_box    :membership, :owner  %>
     </p>
-    <p><label for="membership_owner">Role</label><br/>
+    <p><label for="membership_owner">Role</label>
       <%= select_named :membership, :role_id ,Role %>
     </p>
     
@@ -20,5 +21,5 @@
         
   <%= submit_tag "Create" %>
 <% end %>
-
+</div>
 <%= link_to 'Back', :action => 'list' %>

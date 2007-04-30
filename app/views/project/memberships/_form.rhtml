@@ -1,5 +1,5 @@
 <%= error_messages_for 'membership' %>
-
+<div class='panel'>
  <%=  hidden_field :membership, :project_id %>
 
 <!--[form:membership]-->
@@ -13,6 +13,7 @@
 <p><label for="membership_owner">Role</label><br/>
   <%= select_named :membership, :role_id ,Role %>
 </p>
+</div>
 
 <!--[eoform:membership]-->
 

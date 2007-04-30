@@ -1,4 +1,5 @@
 <h1>Editing membership  of project <%=current_project.name%> </h1>
+<div class='panel'>
 
 <% form_tag :action => 'update', :id => @membership do %>
     <%= error_messages_for 'membership' %>
@@ -6,18 +7,18 @@
 
     <!--[form:membership]-->
     <p>
-      <label for="membership_owner"><%= @membership.user.name%></label><br/>
+      <label for="membership_owner">User:</label>
+      <b><%= @membership.user.name%></b>
       <%= hidden_field :membership, :user_id  %>
-    </p>
-    <p><label for="membership_owner">Owner</label><br/>
-      <%= check_box    :membership, :owner  %>
-    </p>
-    <p><label for="membership_owner">Role</label><br/>
+
+    <label for="membership_owner">Role</label>
       <%= select_named :membership, :role_id ,Role %>
-    </p>
+
+    <label for="membership_owner">Owner</label>
+      <%= check_box    :membership, :owner  %>
     
     <!--[eoform:membership]-->
           <%= submit_tag 'Edit' %>
 <% end %>
-
+</div>
 <%= link_to 'Back', :action => 'list' %>

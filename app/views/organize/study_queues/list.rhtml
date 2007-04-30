@@ -39,7 +39,7 @@
           <tr>
             <td><%= link_to study_queue.name, :action => 'manage', :id => study_queue %></td>
             <td><%=h study_queue.description %></td>
-            <td><%=h study_queue.assigned_to %></td>
+            <td><%=h study_queue.assigned_to.name %></td>
             <td><%=h study_queue.status %></td>
             <td>
                 <%for row in study_queue.status_counts %>
