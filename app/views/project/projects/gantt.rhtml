@@ -79,7 +79,7 @@ t_height = g_height + headers_heigth
 top = headers_heigth + 8
 @tasks.each do |i| %>
 	<div style="position: absolute;line-height:1.2em;height:16px;top:<%= top %>px;left:4px;overflow:hidden;">
-	<small><%= link_to subject_icon('model/task')+"#{i.name} ", { :controller => 'tasks', :action => 'show', :id => i }, :title => "#{i.protocol.name} :  #{i.protocol.description} " %>:
+	<small><%= link_to subject_icon('model/task')+"#{i.name} ", task_url( :action => 'show', :id => i ), :title => "#{i.protocol.name} :  #{i.protocol.description} " %>:
 	<span class='state_<%=i.status%>'><%=i.status %></span></small>
 	</div>
 <% top = top + 20
