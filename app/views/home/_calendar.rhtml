@@ -1,12 +1,14 @@
 <h2><%= l('Users Calendar') %></h2>
 <%  started = Date.civil(2007,3,1)  %>
 
-<%= month_navigator(@schedule)  %>
-<% calendar(@schedule) do |item|  %>
+<%= month_navigator(@calendar)  %>
+
+<% calendar(@calendar) do |item|  %>
+
  <%=subject_icon("model/#{item.class.table_name.singularize}") %>
- <small> <%=link_to( item.name , task_url(:action=>'show',:id=>item.id) )%>  </small>
+ <small> <%=link_to_object( item )%>  </small>
  <span class='tip'>
-   <strong> <%=item.name%> [<%=item.status%>] </strong>
+   <strong> <%=item.class.to_s %>  <%=item.name%> [<%=item.status%>] </strong>
    <ul>
    <li> Started: <%= short_date item.started_at %>
    </li><li>Expected: <%= short_date item.expected_at %>
@@ -15,6 +17,7 @@
    <%= item.description if item.respond_to?(:description) %>
    <%= item.summary  if item.respond_to?(:summary) %>
  </span>
+ 
 <% end %>
  
  

@@ -73,48 +73,36 @@ class StudyQueue < ActiveRecord::Base
 ##
 # Study Has a number of queues associated with it
 # 
-  has_many :items, :class_name => "QueueItem" do
-     def add(list_item,request_service=nil)
-       attr = {
-          :assigned_to => @owner.assigned_to,
-          :study_parameter_id => @owner.study_parameter_id,
-          :data_type => list_item.data_type,
-          :data_id => list_item.data_id,
-          :data_name => list_item.data_name,
-          :name => list_item.data_name,
-          :status_id =>  1 }
-       if  request_service
-           attr[:request_service_id] = request_service.id
-           attr[:priority_id]   = request_service.priority_id
-           attr[:expected_at] = request_service.expected_at
-           attr[:requested_by_user_id]  = request_service.requested_by_user_id
-           attr[:comments] = "From #{request_service.name}"
-       end     
-       
-       logger.debug "add queue item #{attr.to_s}"     
-       return create(attr) 
-     end
-     
-     
-     def state(state=0) 
-       case state
-       when Array
-          self.collect{|item|item if state.include?(item.status_id) }.compact
-       when Fixnum
-          self.collect{|item|item if item.status_id==state}.compact
-       else
-          []
-       end
-     end
-  
-  
-  end
-  
+  acts_as_scheduled
+  has_many_scheduled :items, :class_name => "QueueItem"
+
 ##
 #Link to service request for work to be done
 #  
   has_many :requests, :class_name=> "RequestService",:foreign_key=>'service_id'
 
+##
+# Add a object to the queue
+#   
+ def add(object,request_service=nil)
+     item = QueueItem.new({ 
+        :assigned_to => self.assigned_to,
+        :study_parameter_id => self.study_parameter_id,
+        :data_type => object.data_type,
+        :data_id => object.data_id,
+        :data_name => object.data_name,
+        :name => object.data_name})
+     item.status_id = 0
+     if  request_service
+         item.request_service_id   = request_service.id
+         item.priority_id          = request_service.priority_id
+         item.expected_at          = request_service.expected_at
+         item.requested_by_user_id = request_service.requested_by_user_id
+         item.comments = "From #{request_service.name}"
+     end            
+     self.items << item
+     return item
+ end
 ##
 # get the data element type
 # 

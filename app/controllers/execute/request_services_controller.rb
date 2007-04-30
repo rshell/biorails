@@ -58,24 +58,57 @@ class Execute::RequestServicesController < ApplicationController
     end
   end
 
+##
+# Update the service 
+# 
+  def update_service
+    logger.debug "got service status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
+    @request_service = RequestService.find(params[:id])
+    @request_service.update_state(params)
+    @request_service.items.each{|item| item.update(params)}
+    
+    @request_service.save
+ 
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.js   { render :update do | page |
+        for item in @request_service.items
+          page.replace_html item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => item } 
+          page.visual_effect :highlight, item.dom_id(:updated_at),:duration => 1.5
+        end
+      end }
+      format.json { render :json => @request_service.to_json }
+      format.xml  { render :xml => @request_service.to_xml }
+    end
+  end
+
+##
+# Update a single service queue item
+# 
   def update_item
     logger.debug "got item status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
+
     @queue_item = QueueItem.find(params[:id])
-       
-    if params[:status_id]
-      @queue_item.states_id = params[:status_id]
-    elsif params[:priority_id]
-      @queue_item.priority_id = params[:priority_id] 
-    elsif params[:comments]
-      @queue_item.comments << params[:comments] 
-    end
+    @queue_item.update_state(params)
     @queue_item.save
-    return render(:action => 'queue_item.rjs') if request.xhr?
-    redirect_to :action => 'show', :id => @request_service
+
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.js   { render :update do | page |
+          page.replace_html @queue_item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => @queue_item } 
+          page.visual_effect :highlight, @queue_item.dom_id(:updated_at),:duration => 1.5
+      end }
+      format.json { render :json => @request_service.to_json }
+      format.xml  { render :xml => @request_service.to_xml }
+    end
   end
 
   def destroy
     RequestService.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+  
+protected
+   def update_queue_item
+   end 
 end

@@ -136,20 +136,20 @@ class Organize::StudyProtocolsController < ApplicationController
       if params[:version]                       
         @protocol_version = ProtocolVersion.find(params[:version])  
         if @successful = @protocol_version.update_attributes(params[:protocol_version])
-           @flash[:info] = "Updated overview for protocol [#{@study_protocol.name}] "
+           flash[:info] = "Updated overview for protocol [#{@study_protocol.name}] "
         else
-           logger.warn @flash[:warning] = "Failed to update current protocol version [#{@study_protocol.name}] "
+           logger.warn flash[:warning] = "Failed to update current protocol version [#{@study_protocol.name}] "
         end
       end
     else
-      logger.warn @flash[:warning] = "Failed to update protocol [#{@study_protocol.name}] "
+      logger.warn flash[:warning] = "Failed to update protocol [#{@study_protocol.name}] "
     end
     return render( :action => 'refresh_overview.rjs') if request.xhr?
 
     render :action => 'edit'
 
   rescue Exception => ex
-    logger.error @flash[:error] =" Unexpected error in update for study_protocol #{params[:id]} exception: #{ex.message}" 
+    logger.error flash[:error] =" Unexpected error in update for study_protocol #{params[:id]} exception: #{ex.message}" 
     logger.error ex.message
     logger.error ex.backtrace.join("\n")
     return render( :action => 'refresh_overview.rjs') if request.xhr?

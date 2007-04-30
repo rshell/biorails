@@ -10,16 +10,10 @@
   <tr>
     <th class="label">Stage</th>
    <td> <%= study_queue.stage.name if study_queue.stage %> </td>
-    <th class="label">Protocol</th>
-    <td> <%= link_to study_queue.protocol.name, protocol_url( :action => 'show', :id=> study_queue.protocol) if study_queue.protocol %></td>
+    <th class="label">Managed By </th>
+    <td> <%= study_queue.assigned_to.name %></td>
     <th class="label">Study</th>
     <td><%=link_to  study_queue.study.name, study_url(:action => 'show', :id => study_queue.study) %></td>
-  </tr>
-  <tr>
-      <th class="label"> Default Status </th>
-      <td> <%= study_queue.status %> </td>
-      <th class="label"> Default Priority</th>
-      <td> </td>
   </tr>
 </table>
 

@@ -14,7 +14,7 @@
              <% if  grid[item.data_name][service.name] %>
              <td class='state-<%=grid[item.data_name][service.name].status%>' ><%=   grid[item.data_name][service.name].status    %> </td>
              <% else %>
-             <td><not submitted </td>
+             <td>not submitted </td>
              <% end %>
          <% end %>
          <td><%= link_to 'Remove', request_url(:action => 'remove_item',:id=> request, :list_item_id => item.id ) %> </td>

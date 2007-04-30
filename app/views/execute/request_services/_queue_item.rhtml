@@ -19,7 +19,15 @@
                              :with =>'priority_id' %> 
 
     </td>
-    <td><%=h queue_item.assigned_to.name  %></td>
+    <td> <%= select_tag 'assigned_to_user_id', 
+                          options_for_select(User.selector, queue_item.assigned_to_user_id),
+                          {:id=>queue_item.dom_id('user_id')}  %>
+       
+           <%= observe_field  queue_item.dom_id('user_id'),
+                             :url=>{:action=>'update_item',:id=>queue_item},
+                             :with =>'user_id' %> 
+    
+    </td>
     <td> <%=queue_item.comments  %></td>
     <td><%=short_date queue_item.updated_at%></td>
     <td><%=short_date queue_item.started_at  %></td>

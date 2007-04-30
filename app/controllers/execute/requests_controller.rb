@@ -154,8 +154,11 @@ class Execute::RequestsController < ApplicationController
     @user_request = Request.find(params[:id])
     @user_request.status_id = params[:user_request][:status_id]
     if @user_request.update_attributes(params[:user_request])
-      
-      @user_request.services.each{|item|item.submit}   
+      Request.transaction do
+        @user_request.services.each do |service|
+           service.submit 
+        end   
+      end
       flash[:notice] = 'QueueItem was successfully updated.'
       redirect_to :action => 'show',:id=>@user_request.id
     else

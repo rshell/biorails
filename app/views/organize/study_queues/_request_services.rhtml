@@ -10,19 +10,11 @@
          <th>Accepted At</th>
          <th>Complated At</th>
     </tr>
-    <%for item in request_services %>
-    <tr>
-         <td><%=link_to item.name, service_url( :action => 'show', :id => item) %>  </td>
-         <td><%=item.queue.path%> </td>
-         <td><%=item.status %>  <%=item.status_summary %>  </td>
-         <td><%=item.priority%>         </td>
-         <td><%=item.assigned_to.name%> </td>
-         <td><%=item.updated_by%> </td>
-         <td><%=short_date item.updated_at%> </td>
-         <td><%=short_date item.started_at%> </td>
-         <td><%=short_date item.ended_at%> </td>
+    <%for request_service in request_services %>
+    <tr id='<%=request_service.dom_id(:updated_at)%>'>
+        <%= render :partial => 'request_service', :locals => { :request_service => request_service } %>  
     </tr>
+    
     <% end %>
 </table>
-
 

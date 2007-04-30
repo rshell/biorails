@@ -182,6 +182,10 @@ class User < ActiveRecord::Base
     User.current_user || User.find(DEFAULT_GUEST_USER_ID)
   end
 
+  def User.selector
+     User.find(:all).collect{|item|[item.name,item.id]}
+  end
+  
 end
 
 

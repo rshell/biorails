@@ -97,10 +97,10 @@ module Alces
           # don't allow multiple calls
           class_eval do
           
-            write_inheritable_attribute(:schedule_started,    options[:started_at]  || :started_at )
-            write_inheritable_attribute(:schedule_ended,      options[:ended_at]    || :ended_at )
-            write_inheritable_attribute(:schedule_expected,   options[:expected_at] || :expected_at )
-            write_inheritable_attribute(:schedule_status_id,  options[:status]      || :status_id )
+#            write_inheritable_attribute(:schedule_started,    options[:started_at]  || :started_at )
+#            write_inheritable_attribute(:schedule_ended,      options[:ended_at]    || :ended_at )
+#            write_inheritable_attribute(:schedule_expected,   options[:expected_at] || :expected_at )
+#            write_inheritable_attribute(:schedule_status_id,  options[:status]      || :status_id )
             write_inheritable_attribute(:scheduled_summary,   options[:summary]   )
 
             write_inheritable_attribute(:schedule_states,         options[:states] || STATES )
@@ -165,17 +165,21 @@ module Alces
         ##
         # Get the current status_id value
         #  
-         def status_id
-            self.attributes[self.schedule_status_id.to_s]
+         def state_id
+            self.status_id
          end
         ##
         # Change the current status_id if allowed and return the value
         # 
-         def status_id=(new_id)
+         def state_id=(new_id)
             if is_allowed_state(new_id) and new_id != self.status_id 
-              self.attributes[self.schedule_status_id] = new_id
+              self.status_id = new_id
+              if self.is_active
+                 self.started_at ||= DateTime.now 
+              end
               if self.is_finished
-                 self.attributes[self.schedule_ended] = DateTime.now 
+                 self.started_at ||= DateTime.now 
+                 self.ended_at = DateTime.now 
               end
               self.updated_at = DateTime.now if self.respond_to?(:updated_at)
             end
@@ -214,13 +218,13 @@ module Alces
          def status=(value)
             case value
             when Fixnum
-              self.state_id = value
+              self.status_id = value
             when String
-              self.state_id =  self.schedule_states.invert[value]  
+              self.status_id =  self.schedule_states.invert[value]  
             else
-              self.state_id == value.id
+              self.status_id == value.id
             end
-            return  self.schedule_states[self.state_id]
+            return  self.schedule_states[self.status_id]
          end
          
          
@@ -267,17 +271,6 @@ module Alces
              return schedule_state_failed.include?(self.status_id)   
            end
            
-           def started_at
-              self.attributes[schedule_started.to_s]
-           end
-
-           def ended_at
-              self.attributes[schedule_ended.to_s]
-           end
-
-           def expected_at
-              self.attributes[schedule_expected.to_s]
-           end
            
            def finished_at
               return self.ended_at    if self.ended_at

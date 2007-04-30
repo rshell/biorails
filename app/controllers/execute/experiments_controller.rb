@@ -67,13 +67,18 @@ class Execute::ExperimentsController < ApplicationController
 
     find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
 
-    @schedule = CalendarData.new(started,1)
-    @experiment.tasks.add_into(@schedule,find_options)               if @options['items']['task']
-    @experiment.queue_items.add_into(@schedule,find_options)         if @options['items']['queue']
+    @calendar = CalendarData.new(started,1)
+    @experiment.tasks.add_into( @calendar,find_options)               if @options['items']['task']
+    @experiment.queue_items.add_into( @calendar,find_options)         if @options['items']['queue']
 
     respond_to do | format |
       format.html { render :action => 'calendar' }
-      format.js    { render :action => 'calendar', :layout => false }
+      format.json { render :json => {:experiment=>@experiment,:items=>@calendar.items}.to_json }
+      format.xml  { render :xml => {:experiment=>@experiment,:items=>@calendar.items}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'right',  :partial => 'calendar_right' 
+         end }
       #format.ical  { render :text => @schedule.to_ical}
     end
 

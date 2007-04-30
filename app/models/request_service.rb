@@ -64,21 +64,23 @@ class RequestService < ActiveRecord::Base
 # Submit a request to the queue
 # 
   def submit
-      logger.debug "submit #{self.name}"
-      self.status = CurrentStatus::NEW      
+      logger.debug "submit #{self.name}"    
       self.assigned_to = queue.assigned_to
+      n = 0
       for item  in request.items
-         unless is_submitted(item.value)
-           queue_item = self.queue.items.add(item,self)
-           queue_item.save
-           puts queue_item.to_yaml
+         unless self.is_submitted(item.value)
+           queue_item = self.queue.add(item, self)
+           n +=1
+           unless queue_item.save
+             logger.warn "Failed to save QueueItem #{queue_item.errors.full_messages.to_sentence}"
+           end
          end
       end
       self.save
-      items.size
+      return n
   rescue Exception => ex
      logger.warn "failed to submit #{self.to_s}: #{ex.message}"
-      
+     return -1
   end 
 
 ##
@@ -93,7 +95,13 @@ class RequestService < ActiveRecord::Base
       item.priority_id = new_id
     end
   end
-   
+
+ def update_state(params)
+    self.state_id = params[:status_id]          if params[:status_id]
+    self.priority_id = params[:priority_id]     if params[:priority_id]
+    self.assigned_to_user_id = params[:user_id] if params[:user_id]
+    self.comments << params[:comments]         if params[:comments]
+ end   
 ##
 # Submit the request
 #  

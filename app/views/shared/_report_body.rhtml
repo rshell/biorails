@@ -1,30 +1,36 @@
-<% controller ||=report.model.to_s.tableize %>
+<% columns = report.displayed_columns  %>
+
 <% action ||='show'%>
 <%if report.displayed_columns.size>0 %>
 
 <% for row in data %>
-   <% values =   report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
-   <% max = values.collect{ |item| item.size}.max %>       
-   <% classAttr = cycle("", "class=\"even\"") %>
-     <% for item  in (0..max-1) %>
-       <tr <%=classAttr%>  > 
-                <% for col  in (0..values.size-1) %>
-                <% value = values[col][item] %>
-                <td >
-                  <%= if value.kind_of? Numeric
-                        number_with_precision(value,report.decimal_places)
-                      else 
-                        value
-                      end
-                   %>                
-                </td>
-         <%end%>
-        <td>       
-        <%= link_to( report.params[:action], :controller=>report.params[:controller] ,
-                     :action=>report.params[:action], :id=> row) if report.params[:action] %>
-        </td>
-      </tr>
+
+   <% grid = report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
+   <% max  = grid.collect{ |item| item.size}.max %>       
+
+   <tr>
+   <% for column in columns %>
+      <% value = column.value(row) %>
+      <% classAttr = cycle("", "class=\"even\"") %>
+      <% if (value.class == Array) %>
+         <% for item in values %>
+         <table><tr <%=classAttr%> > <td > <%= column.format(item)  %> </td></tr></table>
+         <% end %>
+      <% else %>
+          <td>
+          <% if column.action %>
+              <%= link_to_object(row, column.format(value), {:action=>column.action} ) %>   
+          <% else%>          
+              <%= column.format(value) %>
+          <% end %>
+          </td>                    
+      <% end %>      
+
     <%end%>
+  <td>
+     <%= link_to_object(row,'show')  %>   
+  </td>  
+  </tr>
 
 <% end %>
 <%end%>

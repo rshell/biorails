@@ -129,14 +129,19 @@ class Project::ProjectsController < ApplicationController
 
     find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
 
-    @schedule = CalendarData.new(started,1)
-    @project.tasks.add_into(@schedule,find_options)               if @options['items']['task']
-    @project.experiments.add_into(@schedule,find_options)         if @options['items']['experiment']
-    @project.studies.add_into(@schedule,find_options)  if @options['items']['study']
+    @calendar = CalendarData.new(started,1)
+    @project.tasks.add_into(@calendar,find_options)               if @options['items']['task']
+    @project.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
+    @project.studies.add_into(@calendar,find_options)             if @options['items']['study']
 
     respond_to do | format |
       format.html { render :action => 'calendar' }
-      format.js    { render :partial => 'calendar' }
+      format.json { render :json => {:project=> @project, :items=>@calendar.items}.to_json }
+      format.xml  { render :xml => {:project=> @project,:items=>@calendar.items}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'right',  :partial => 'calendar_right' 
+         end }
       #format.ical  { render :text => @schedule.to_ical}
     end
   end  

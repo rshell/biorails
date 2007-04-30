@@ -49,7 +49,6 @@ class QueueItem < ActiveRecord::Base
   acts_as_audited :change_log
 
   validates_presence_of   :study_parameter_id
-  validates_presence_of   :status_id
   
   validates_presence_of   :data_type
   validates_presence_of   :data_id
@@ -95,6 +94,14 @@ class QueueItem < ActiveRecord::Base
  def data_element
    queue.data_element if queue
  end
+ 
+ def update_state(params)
+    self.state_id = params[:status_id]          if params[:status_id]
+    self.priority_id = params[:priority_id]     if params[:priority_id]
+    self.assigned_to_user_id = params[:user_id] if params[:user_id]
+    self.comments << params[:comments]         if params[:comments]
+ end
+
 ##
 #Build a list of test contexts associc (the analysts views) 
 #  

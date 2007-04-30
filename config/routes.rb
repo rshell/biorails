@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.protocol  'protocols/:action/:id', :controller => 'organize/study_protocols'
   map.parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
   map.study_parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
+  map.study_queue     'queues/:action/:id', :controller => 'organize/study_queues'
   map.queue     'queues/:action/:id', :controller => 'organize/study_queues'
   map.queue_item 'queue_items/:action/:id', :controller => 'organize/queue_items'
 ##

@@ -6,6 +6,11 @@ class HomeController < ApplicationController
 
   helper :calendar
   
+  DEFAULT_CALENDAR_OPTIONS = {  'month' => Date.today.month,
+                                'year'=> Date.today.year,
+                                'items'=> {'task'=>1},
+                                'states' =>{'0'=>'new','1'=>'accepted','2'=>'waiting','3'=>'processing','4'=>'validation'} }
+                  
   def index
     show
   end
@@ -26,30 +31,32 @@ class HomeController < ApplicationController
     end
   end
 
-
+##
+# Generate a calendar in a number of formats
+# 
   def calendar
-    @options ={ 'month' => Date.today.month,
-                'year'=> Date.today.year,
-                'items'=> {'task'=>1},
-                'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
     @user = current_user
-
-    logger.info " Calendar for #{@options.to_yaml}"
-
+    
+    @options = DEFAULT_CALENDAR_OPTIONS.merge(params)
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
 
     find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
 
-    @schedule = CalendarData.new(started,1)
-    @user.tasks.add_into(@schedule,find_options)               if @options['items']['task']
-    @user.experiments.add_into(@schedule,find_options)         if @options['items']['experiment']
-    @user.requested_services.add_into(@schedule,find_options)  if @options['items']['request']
-    @user.queue_items.add_into(@schedule,find_options)         if @options['items']['queue']
+    @calendar = CalendarData.new(started,1)
+    @user.tasks.add_into(@calendar,find_options)               if @options['items']['task']
+    @user.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
+    @user.requested_services.add_into(@calendar,find_options)  if @options['items']['request']
+    @user.queue_items.add_into(@calendar,find_options)         if @options['items']['queue']
 
     respond_to do | format |
       format.html { render :action => 'calendar' }
-      format.js    { render :action => 'calendar', :layout => false }
-      #format.ical  { render :text => @schedule.to_ical}
+      format.json { render :json => {:user=>@user,:items=>@calendar.items}.to_json }
+      format.xml  { render :xml => {:user=>@user,:items=>@calendar.items}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'right',  :partial => 'calendar_right' 
+         end }
+      #format.ical  { render :text => >@calendar@user.calendar.to_ical}
     end
   end
 

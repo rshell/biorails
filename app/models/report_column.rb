@@ -54,6 +54,7 @@ class ReportColumn < ActiveRecord::Base
   
       self.is_filterible =  params[:is_filterible]   unless params[:is_filterible].nil?
       self.filter =  params[:filter]                 if  params[:filter] 
+      self.filter =  params[:action]                 if  params[:action] 
       
       self.is_sortable =  params[:is_sortable]       unless params[:is_sortable].nil?
       self.sort_num = params[:sort_num]              if params[:sort_num]
@@ -90,12 +91,14 @@ class ReportColumn < ActiveRecord::Base
      end
   end
   
-##
-# Sets a piece of code to fire to process a row to display a value for a column.
-#  
-  def action(&code)
-    self.action = code
+  def format(value)
+     if value.kind_of? Numeric
+         number_with_precision(value,report.decimal_places).to_s
+     else 
+         value.to_s
+     end
   end
+
 ##
 # The the value for display for the row/column. As this may be on another object
 # follow the the dot separated path in the name (eg object.object.method) to the end.
@@ -104,13 +107,7 @@ class ReportColumn < ActiveRecord::Base
   def value(row)
     elements = name.split(".").reverse
     @value = values(row,elements)
-    if self.action 
-      self.action.call(row).to_s
-    else
-      @value
-    end    
   rescue Exception => ex
-      puts ex.message,self.name,self.action
       logger.error ex.message
       logger.error ex.backtrace.join("\n")  
       return " "  

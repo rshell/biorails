@@ -46,7 +46,12 @@ class Request < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
+##
+# Request is a summary of list of scheduled request for services
+# 
+  acts_as_scheduled :summary_of=>:services
 
+  has_many_scheduled :services,  :class_name=>'RequestService'
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
@@ -59,10 +64,6 @@ class Request < ActiveRecord::Base
   
   belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
   
-##
-# Study Has a number of items associated with the request
-# 
-  has_many_scheduled :services, :class_name=>'RequestService'
   
   belongs_to :data_element
   
@@ -74,7 +75,7 @@ class Request < ActiveRecord::Base
      list = RequestList.create(params)
      request = list.request if list
      if request
-       request.status_id = CurrentStatus::NEW
+       request.status_id = 0
        request.priority_id = CurrentPriority::LOW
        return request
      end
@@ -112,24 +113,6 @@ class Request < ActiveRecord::Base
     end
   end
 
-##
-# get the status if the ritem.assigned_toequest
-# 
-  def status
-    RequestService.schedule_states[self.status_id]
-  end
-  
-##
-# request the status of the request and all contained services
-#   
-  def status=(value)
-    if RequestService.is_allowed_state(value)
-      self.status_id == value
-      for item  in self.services
-          item.status = value
-      end
-    end
-  end
 ##
 #  Get any numeric results linked to this list of materials
 #  

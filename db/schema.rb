@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 251) do
+ActiveRecord::Schema.define(:version => 253) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -295,7 +295,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
     t.column "category_id",         :integer
-    t.column "status_id",           :string
+    t.column "status_id",           :integer,                 :default => 0,  :null => false
     t.column "study_id",            :integer
     t.column "protocol_version_id", :integer
     t.column "lock_version",        :integer,                 :default => 0,  :null => false
@@ -651,8 +651,8 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "created_at",           :datetime,                :null => false
     t.column "updated_at",           :datetime,                :null => false
     t.column "request_service_id",   :integer
-    t.column "status_id",            :integer
-    t.column "priority_id",          :integer
+    t.column "status_id",            :integer,  :default => 0, :null => false
+    t.column "priority_id",          :integer,  :default => 0, :null => false
     t.column "updated_by_user_id",   :integer,  :default => 1, :null => false
     t.column "created_by_user_id",   :integer,  :default => 1, :null => false
     t.column "requested_by_user_id", :integer,  :default => 1
@@ -665,7 +665,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "description",        :text
     t.column "join_model",         :string
     t.column "label",              :string
-    t.column "action",             :text
+    t.column "action",             :string
     t.column "filter_operation",   :string
     t.column "filter_text",        :string
     t.column "subject_type",       :string
@@ -714,7 +714,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "lock_version",         :integer,                 :default => 0,  :null => false
     t.column "created_at",           :datetime,                                :null => false
     t.column "updated_at",           :datetime,                                :null => false
-    t.column "status_id",            :integer
+    t.column "status_id",            :integer,                 :default => 0,  :null => false
     t.column "priority_id",          :integer
     t.column "updated_by_user_id",   :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",   :integer,                 :default => 1,  :null => false
@@ -731,7 +731,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "updated_at",           :datetime,                                :null => false
     t.column "list_id",              :integer
     t.column "data_element_id",      :integer
-    t.column "status_id",            :integer
+    t.column "status_id",            :integer,                 :default => 0,  :null => false
     t.column "priority_id",          :integer
     t.column "project_id",           :integer
     t.column "updated_by_user_id",   :integer,                 :default => 1,  :null => false
@@ -814,7 +814,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "started_at",         :datetime
     t.column "ended_at",           :datetime
     t.column "expected_at",        :datetime
-    t.column "status_id",          :integer
+    t.column "status_id",          :integer,                 :default => 0,  :null => false
   end
 
   add_index "studies", ["name"], :name => "studies_name_index"
@@ -1152,7 +1152,7 @@ ActiveRecord::Schema.define(:version => 251) do
     t.column "description",         :text
     t.column "experiment_id",       :integer
     t.column "protocol_version_id", :integer
-    t.column "status_id",           :integer
+    t.column "status_id",           :integer,                 :default => 0,  :null => false
     t.column "is_milestone",        :boolean
     t.column "priority_id",         :integer
     t.column "started_at",          :datetime

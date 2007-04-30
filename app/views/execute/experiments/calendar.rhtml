@@ -7,38 +7,8 @@
    <%= render :partial=>'calendar' %>
 <% end -%>
 
-
 <% content_for :right do -%>
-    <h2> Update View </h2>
-    <%form_tag({:action =>'calendar', :id=> @experiment.id} ) do %>
-        <div class='panel'>
-        <%= error_messages_for("user") %>
-        <fieldset>
-        <br>Month:
-        <%= select_month(@schedule.started_at, :prefix => "month", :discard_type => true)%>
-        <br/>Year:
-        <%= select_year(@schedule.started_at, :prefix => "year", :discard_type => true)%>
-        </fieldset>
-        <fieldset>
-        Types 
-        <ul>
-        <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[task]', 'y',      checked = @options['items']['task'] %>Tasks</li>
-        <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[queue]', 'y',      checked = @options['items']['queue'] %>Queued</li>
-        </ul>
-        </fieldset>
-        <fieldset>
-         Status values 
-        <ul>
-        <% for state in Task.schedule_states.keys.sort  %>
-           <li class='state_<%=Task.schedule_states[state]%>'>  <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state]||@options['states'][state.to_s] %>
-                 <%=Task.schedule_states[state]%></li>
-        <% end %>
-        </ul>
-        </fieldset>
-        </div>   
-        <br />
-        <%= submit_tag("Update")%>
-     <% end %>
+   <%= render :partial=>'calendar_right' %>
 <% end -%>
 
 

@@ -1,23 +1,6 @@
-<table class="report">
-  <tr>
-      <th class="label"><%=subject_icon('name.png')%> Name</th>
-      <td> <%= request_service.name %></td>
-  </tr>
-  <tr>
-      <th class="label"><%=subject_icon('description.png')%> Description</th>
-      <td> <%= request_service.description %></td>
-  </tr>
-  <tr>
-    <th class="label">Request</th>
-    <td> <%= link_to request_service.request.name, request_url( :action => 'show', :id=> request_service.request) %></td>
-    <th class="label">Study</th>
-    <td><%=link_to request_service.queue.study.name, study_url(:action => 'show', :id => request_service.queue.study) %></td>
-    <th class="label">Queue</th>
-    <td><%=link_to request_service.queue.name, queue_url( :action => 'show', :id => request_service.queue) %>  </td>
-  </tr>
-  <tr>
-      <th class="label"> Status </th>
-      <td> <%= select_tag 'status_id', 
+         <td><%=link_to request_service.name, service_url( :action => 'show', :id => request_service) %>  </td>
+         <td><%=request_service.queue.path%> </td>
+         <td> <%= select_tag 'status_id', 
                          options_for_select(request_service.allowed_status_list,request_service.status_id),
                           {:id=>request_service.dom_id('status_id')}  %>
       
@@ -26,26 +9,25 @@
                              :with =>'status_id' %>
 
             <%= request_service.status_summary %>
-           
-      </td>
-      <th class="label"> Priority</th>
-      <td> <%= select_tag 'priority_id', 
+         
+         </td>
+         <td><%= select_tag 'priority_id', 
                           options_for_select(request_service.allowed_priority_list,request_service.priority_id),
                           {:id=>request_service.dom_id('priority_id')}  %>
        
            <%= observe_field  request_service.dom_id('priority_id'),
                              :url=>{:action=>'update_service',:id=>request_service},
                              :with =>'priority_id' %> 
-      </td>
-      <th class="label"> Assigned To</th>
-      <td> <%= select_tag 'assigned_to_user_id', 
+         </td>
+         <td><%= select_tag 'assigned_to_user_id', 
                           options_for_select(User.selector, request_service.assigned_to_user_id),
                           {:id=>request_service.dom_id('user_id')}  %>
        
            <%= observe_field  request_service.dom_id('user_id'),
                              :url=>{:action=>'update_service',:id=>request_service},
                              :with =>'user_id' %> 
-      </td>
-  </tr>
-</table>
-
+          </td>
+         <td><%=request_service.updated_by%> </td>
+         <td><%=short_date request_service.updated_at%> </td>
+         <td><%=short_date request_service.started_at%> </td>
+         <td><%=short_date request_service.ended_at%> </td>

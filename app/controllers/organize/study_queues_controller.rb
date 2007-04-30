@@ -72,6 +72,27 @@ class Organize::StudyQueuesController < ApplicationController
     end
   end
 
+##
+# Update the service 
+# 
+  def update_service
+    logger.debug "got service status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
+    @request_service = RequestService.find(params[:id])
+    @request_service.update_state(params)
+    @request_service.items.each{|item| item.update_state(params)}
+    
+    @request_service.save
+ 
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.js   { render :update do | page |
+          page.replace_html @request_service.dom_id(:updated_at), :partial => 'request_service',:locals => { :queue_item => @request_service } 
+          page.visual_effect :highlight, @request_service.dom_id(:updated_at),:duration => 1.5
+      end }
+      format.json { render :json => @request_service.to_json }
+      format.xml  { render :xml => @request_service.to_xml }
+    end
+  end
   
   def update_item
     logger.debug "got item status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"

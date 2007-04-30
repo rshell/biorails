@@ -8,7 +8,7 @@ module CalendarHelper
     url = { :action => options['action'] ,:year =>schedule.last_month.year, :month =>schedule.last_month.month}
 
     out << link_to_remote('&#171;'+ schedule.last_month.strftime("%b-%Y")  , 
-                {:update => "centre", :url => url },{:href => url_for(url )}  )
+                { :url => url },{:href => url_for(url )}  )
                     
     out << '</td> <td align="center">'
     out <<  '<b>' << schedule.started_at.strftime("%b-%Y") << '</b>'
@@ -17,7 +17,7 @@ module CalendarHelper
     url = { :action => options['action'] ,:year =>schedule.next_month.year, :month =>schedule.next_month.month}
                                               
     out <<  link_to_remote( ' &#187;'+schedule.next_month.strftime("%b-%Y")  , 
-               {:update => "centre", :url => url },{:href => url_for(url )}  )
+               {:url => url },{:href => url_for(url )}  )
     out << '</td></tr></table>'
     return out.to_s
   end
@@ -52,13 +52,13 @@ module CalendarHelper
     	out << " <p class='day'>"  << ( day==Date.today ? "<b>#{day.day}</b>" : day.day.to_s)   << " </p>"	
     	for item in schedule.for_day(day)
     	    out << "<div class='tooltip'> <p class='state_#{item.status}'>"
-            out << image_tag('arrow_from.png')  if item.starting?(day)
+            out << image_tag('schedule/arrow_from.png')  if item.starting?(day)
     	    if block_given?    
        	      out << capture(item,&proc)
     	    else
     	      out << item.name
     	    end
-		     out <<    image_tag('arrow_to.png')  if item.ending?(day)
+		     out <<    image_tag('schedule/arrow_to.png')  if item.ending?(day)
 		     out << '</p></div>'
     	end
         out << "</td>\n"
