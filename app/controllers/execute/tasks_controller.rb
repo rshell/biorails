@@ -192,7 +192,6 @@ class Execute::TasksController < ApplicationController
 #  
   def export
     @task = current( Task, params[:id] )
-    set_context(@task)
     filename = "#{@task.experiment.name}-#{@task.name}.csv"
     send_data( @task.grid.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
                             :filename => filename)   
