@@ -87,18 +87,6 @@
 
     </div>
 
-<script type="text/javascript">
-	// <![CDATA[
-	var leftMenu;
-	window.onload = function() {
-		leftMenu = new SideMenu("left");
-		leftMenu.speed=5;
-		leftMenu.markCurrent= true;
-		leftMenu.init();
-	};
-	// ]]>
-</script>
-
   <div id="main">
       <div id="messages">
          <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>

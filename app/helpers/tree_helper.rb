@@ -24,7 +24,7 @@ class Node
 
    attr_accessor :name       # Text Label of the Node
    attr_accessor :tooltip    # Long tooltip for the node
-   attr_accessor :url        # url to fire on the node
+   attr_accessor :link       # url to fire on the node
    attr_accessor :open        # open/close boolean
 
    attr_accessor :parent     # parent of this node in the tree   
@@ -149,17 +149,6 @@ class Node
      end
    end   
 
-
-   def html_link=(url)
-     @event_name = "href"
-     @url=url
-   end
-   
-   def ajax_link=(url)
-     @event_name='onclick'
-     @url="javascript: new Ajax.Request('#{url}', {asynchronous:true, evalScripts:true});"
-   end
-   
    
   def display_style
     if open
@@ -233,7 +222,7 @@ end
 ##
 # Generate html for a tree node
 # 
-  def node_html(node,level)     
+  def node_html(node,level,ajax=false)     
       out = ""
       out << "<div id='#{node.dom_id(:node)}' class='clip' style='display: block;'>"
       out << "   <div class='node'>"
@@ -247,17 +236,17 @@ end
       
       out << "<span id='#{node.dom_id}' class='#{node.model.class.to_s.underscore}'>"
       out << node.folder_icon 
-      out << "<a class='node'  href='#{node.url}'>" << node.name.to_s << "</a>"
+      out << node.link if node.link
       out << "</span>"
       out << "</div>"
       if node.has_children
         out << "<div id='#{node.dom_id(:child)}' class='children clip' #{node.display_style} >"
         for child in node.children 
-          out << node_html(child,level+1) 
+          out << node_html(child,level+1,ajax) 
         end
         out << "</div>"
       else
-        out << draggable_element(node.dom_id ,:zindex=>999,:scroll=> true,:ghosting => true, :revert=> true) if node.drag?
+        out << draggable_element(node.dom_id ,:zindex=>1999,:scroll=> true,:ghosting => true, :revert=> true) if node.drag?
       end 
       if node.drop?
          out << drop_receiving_element(node.dom_id(:node),
@@ -277,12 +266,12 @@ end
 # 
   def tree_for_catalog( context)
       tree=TreeHelper::Node.create(context) do |node,rec|
-         node.ajax_link = catalogue_url(:action=>:show,:id=>rec)
+         node.link = link_to_remote rec.name, :url => catalogue_url(:action=>:show,:id=>rec)
       end    
-      tree.ajax_link = catalogue_url(:action=>:show,:id=>context)         
+      tree.link = link_to_remote context.name, :url => catalogue_url(:action=>:show,:id=>context)         
       out = ""
       out << "<div id='#{context.dom_id(:tree)}' class='dtree'>"
-      out << node_html(tree, 0 )
+      out << node_html(tree, 0 ,true)
       out << '</div>'
       return out
   rescue Exception => ex
