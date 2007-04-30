@@ -3,26 +3,26 @@
 %>
 <% for role in roles %>
 <h3 class="reversed"><span><%= subject_icon(role.name) %><%=role.name%></span></h3>
- <ul>
+ <dt>
   <% for study_parameter in @study.parameters_for_role( role ) %> 
-  <li>   
+  <dl>   
   <span id ='sp_<%=study_parameter.id%>' class ='study_parameter'>
      <%= study_parameter.name%> <%= subject_icon('drag') %>
   </span> 
-  </li>
+  </dl>
  <% end %>
-</ul>
+</dt>
 <%   end %>
 <h3 class="reversed"> Queues   </h3>
-<ul>
+<dt>
 <% for study_queue in @study.queues %> 
-  <li>   
+  <dl>   
   <span id='sq_<%=study_queue.id%>' class='study_queue'>
      <%= study_queue.name%> <%= subject_icon('drag') %>
   </span> 
-  </li>
+  </dl>
 <% end %>
-</ul>
+</dt>
                         
 <% for study_parameter in @study.parameters %> 
        <%= draggable_element( "sp_#{study_parameter.id}" , :revert=> true) %>

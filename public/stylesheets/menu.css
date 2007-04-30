@@ -91,15 +91,18 @@ div.sidemenu {
 	font-size: 12px;
 	padding-bottom: 10px;
 	color: #fff;
+    z-index: 10; 	
 }
 div.sidemenu div {
     background:#7CB30F;
 	overflow: hidden;
-}
+    z-index: 10; 
+    }
 
 div.sidemenu div.collapsed {
 	height: 25px;
     background:#7CB30F;
+    z-index: 10; 
 }
 
 div.sidemenu div span.menu {
@@ -110,10 +113,12 @@ div.sidemenu div span.menu {
 	cursor: default;
 	border-bottom: 1px solid #ddd;
 	background: url(/images/arrow_up.gif) no-repeat right center;
+    z-index: 10; 
 }
 
 div.sidemenu div.collapsed span.menu {
 	background: url(/images/arrow_down.gif) no-repeat right center;
+    z-index: 10; 
 }
 
 div.sidemenu div  a {
@@ -122,13 +127,16 @@ div.sidemenu div  a {
 	display: block;
 	border-bottom: 1px solid #ddd;
 	color: #0B6100;
+    z-index: 10; 
 }
 div.sidemenu div  a.current {
 	background : #ccc;
+    z-index: 10; 
 }
 div.sidemenu div a:hover {
 	background : #0B6100 url(/images/arrow_right.png) no-repeat right center;
 	color: #fff;
 	text-decoration: none;
+    z-index: 10; 
 }
 

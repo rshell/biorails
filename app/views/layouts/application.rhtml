@@ -17,6 +17,7 @@
 <%= stylesheet_link_tag "table" %>
 <%= stylesheet_link_tag "gnatt" %>
 <%= stylesheet_link_tag "report" %>
+<%= stylesheet_link_tag "protocols" %>
 <%= stylesheet_link_tag "sheet" %>
 <%= stylesheet_link_tag "autocomplete" %>
 <%= stylesheet_link_tag "tabs" %>
@@ -69,6 +70,7 @@
 <div id="content">        
 
     <div id="left">
+    
       <div class='sidemenu'>
        <%= if @content_for_sidemenu
             yield :sidemenu 
@@ -76,11 +78,13 @@
 	       render :partial =>'menu/default_left_menu' 
         end %>
       </div>
+
       <div class="left_panel">
        <%= if @content_for_left 
             yield :left  
 	    end %> 
 	  </div>
+
     </div>
 
 <script type="text/javascript">

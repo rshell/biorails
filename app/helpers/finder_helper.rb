@@ -5,8 +5,6 @@
 #
 module FinderHelper
 
-  def close_button
-   link_to_function(subject_icon("close.png"), " new Element.hide('left_panel')")
-  end
+
   
 end

@@ -4,48 +4,71 @@
 #allowed_types {
     background-color:#fff;
 }
+#parameter_tree {
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+}
+
+#parameter_tree dt {
+    margin: 1px 1px 1px 1px;;
+    color:#ffffff;
+}
+
+#parameter_tree dl {
+    margin: 1px 1px 1px 1px;
+    list-style-type:none;
+    border-right:1px solid #ffffff;
+    white-space:nowrap;
+}
+
+h3.reversed {
+    background:#7CB30F;
+}
 
 span.study_parameter {
 
     font-family: Arial,Verdana, Helvetica, sans-serif;
     font-style: normal;
     font-size: 1.0em;
-    z-index:            666;
+    z-index:            1666;
     color:black;
     background-color:#E3FFA2;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
     border-width: thin;
+    white-space: nowrap;
 }
 
 span.study_queue {
     font-family: Arial,Verdana, Helvetica, sans-serif;
     font-style: normal;
     font-size: 1.0em;
-    z-index:            666;
+    z-index:            1666;
     color:black;
     background-color:#FFFFA2;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
     border-width: thin;
+    white-space: nowrap;
 }
 
 span.parameter {
     font-family: Arial,Verdana, Helvetica, sans-serif;
     font-style: normal;
     font-size: 1.0em;
-    z-index:            666;
+    z-index:            1666;
     color:black;
     background-color:#E3FFA2;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
     border-width: thin;
+    white-space: nowrap;
 }
 
-.parameter_context {
+span.parameter_context {
   background-color: #FFF4D8;
   border:1px solid #E8A400;
 }

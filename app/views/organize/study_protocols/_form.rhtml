@@ -37,9 +37,12 @@
       <label for="process_definition_protocol_status">Protocol status</label>
       <%= text_field 'study_protocol', 'protocol_status' , {:class=>"text-input"} %>
     </div>
+</div>
 
+<div class="row">
     <div class="form-element">
       <label for="process_definition_literature_ref">Literature ref</label>
-      <%= text_field 'study_protocol', 'literature_ref' , {:class=>"text-input"} %>
+      <%= text_area 'study_protocol', 'literature_ref' , {:rows=>5, :cols=>100} %>
     </div>
 </div>
+    
