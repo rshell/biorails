@@ -1,12 +1,9 @@
-<div class='main' id='maintitle'>
-    <div class="title" id="study">
-        <%=subject_icon('protocols')%> New protocol in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('list.png'))+'List', :action => 'list', :id => @study.id  %></li>
-            </ul>
-        </div>
-    </div>
+<% content_for :centre do%>
+<h2>
+    <%=subject_icon('protocols')%> New protocol in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
+</h2>
+<div class='panel'>
+
         <%= error_messages_for 'study_protocol' %>
         <%= error_messages_for 'protocol_version' %>
     <div class='dialog'>
@@ -21,13 +18,17 @@
         <% end %>
 
     </div>
-    <div class='panel'>
-        <h3>Guidance</h3>
-        <p>Creation of a new protocol is a 2 step operation.</p>
-        <ol>
-            <li>First a protocol needs to be given a name and a over view description 
-                given to provide a link in general catalogue of procedures.</li>
-            <li>Then a version needs to be created to define the data entry Sheet.</li>
-        </ol>
-    </div>
 </div>
+<%end%>
+    
+<% content_for :right do%>
+<h3>Guidance</h3>
+<div class='panel'>
+    <p>Creation of a new protocol is a 2 step operation.</p>
+    <ol>
+        <li>First a protocol needs to be given a name and a over view description 
+            given to provide a link in general catalogue of procedures.</li>
+        <li>Then a version needs to be created to define the data entry Sheet.</li>
+    </ol>
+</div>
+<%end%>
