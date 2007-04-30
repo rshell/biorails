@@ -1,6 +1,9 @@
 <table class="report">
   <tr>
-      <th class="label"><%=subject_icon('name.png')%> Name</th>
+    <th class="label">Request</th>
+    <td> <%= link_to request_service.request.name, request_url( :action => 'show', :id=> request_service.request) %></td>
+
+      <th class="label"><%=subject_icon('name.png')%> Ref.</th>
       <td> <%= request_service.name %></td>
   </tr>
   <tr>
@@ -8,8 +11,6 @@
       <td> <%= request_service.description %></td>
   </tr>
   <tr>
-    <th class="label">Request</th>
-    <td> <%= link_to request_service.request.name, request_url( :action => 'show', :id=> request_service.request) %></td>
     <th class="label">Study</th>
     <td><%=link_to request_service.queue.study.name, study_url(:action => 'show', :id => request_service.queue.study) %></td>
     <th class="label">Queue</th>

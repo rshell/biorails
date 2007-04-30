@@ -63,12 +63,15 @@ class Execute::RequestServicesController < ApplicationController
 # 
   def update_service
     logger.debug "got service status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
-    @request_service = RequestService.find(params[:id])
-    @request_service.update_state(params)
-    @request_service.items.each{|item| item.update(params)}
-    
-    @request_service.save
- 
+    RequestService.transaction do 
+      @request_service = RequestService.find(params[:id])
+      @request_service.update_state(params)
+      @request_service.items.each do |item| 
+         item.update_state(params)
+         item.save
+      end   
+      @request_service.save
+    end
     respond_to do | format |
       format.html { render :action => 'show' }
       format.js   { render :update do | page |
@@ -87,10 +90,11 @@ class Execute::RequestServicesController < ApplicationController
 # 
   def update_item
     logger.debug "got item status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
-
-    @queue_item = QueueItem.find(params[:id])
-    @queue_item.update_state(params)
-    @queue_item.save
+    RequestService.transaction do 
+      @queue_item = QueueItem.find(params[:id])
+      @queue_item.update_state(params)
+      @queue_item.save
+    end
 
     respond_to do | format |
       format.html { render :action => 'show' }

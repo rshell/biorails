@@ -1,4 +1,4 @@
-         <td><%=link_to request_service.name, service_url( :action => 'show', :id => request_service) %>  </td>
+         <td><%=link_to request_service.request.name, service_url( :action => 'show', :id => request_service) %>  </td>
          <td><%=request_service.queue.path%> </td>
          <td> <%= select_tag 'status_id', 
                          options_for_select(request_service.allowed_status_list,request_service.status_id),
