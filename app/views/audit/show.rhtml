@@ -1,0 +1,40 @@
+<% if @audits.size>0 %>
+<h1>Change log for <%= @root.class%>.id=<%=@root.id%></h1>
+<table class='report'>
+<thead>
+<tr>
+    <th>Action</th>
+    <th>User</th>
+    <th>Created</th>
+    <% for column in @root.class.columns %>
+       <th>
+       <%= column.name.to_s %> 
+       </th>
+    <% end %>
+</tr>
+</thead>
+<tbody>
+<% for audit in @audits%>
+<tr>
+    <th><b><%= audit.action %></b></th>
+    <th><%= audit.user.name %></th>
+    <th><%=format_date audit.created_at %></th>
+    <% for column in @root.class.columns %>
+       <% change = audit.changes[column.name] %>
+       <% unless change %>
+       <td>
+          <%= @root.attributes[column.name]  %>
+       </td>
+       <% else %>
+       <td class='state_accepted'> <%= change[0] %> => <b><%= change[1] %></b> </span>
+       </td>
+       <% end %>
+    <% end %>
+    </td>
+</tr>
+<%end%>
+</tbody>
+</table>
+<%else%>
+No old versions founds
+<%end%>

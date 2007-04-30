@@ -1,0 +1,29 @@
+<h1>Audits of <%@auditable_type%></h1>
+<p>Find me in app/views/audit/list.rhtml</p>
+
+<table>
+<tr>
+    <th>Action</th>
+    <th>User</th>
+    <th>Created</th>
+    <% for column in @root.columns %>
+       <td>
+       <%= column.to_s %> 
+       </td>
+    <% end %>
+</tr>
+<tr>
+<% for audit in @audits%>
+    <td><%= audit.action %></td>
+    <td><%= audit.user.name %></td>
+    <td><%=format_date audit.created_at %></td>
+    <% for column in @root.columns %>
+       <td>
+       <%=audit.changes[column][0] %> 
+       </td>
+    <% end %>
+    </td>
+<%end%>
+</tr>
+</table>
+

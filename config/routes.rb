@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
   map.auth 'auth/:action/:id' , :controller => 'auth'
+  map.audit 'audit/:action/:id' , :controller => 'audit'
   map.help 'help/:action/:id' , :controller => 'help'
   map.login 'login' , :controller => 'auth',:action=>'login'
   map.logoff 'logoff' , :controller => 'auth',:action=>'logout'
