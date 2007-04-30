@@ -82,6 +82,10 @@ class ProjectElement < ActiveRecord::Base
      return asset.icon(options) if asset?
      return content.icon(options) if textual?
      return '/images/model/note.png'
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")
+      '/images/model/file.png'
   end  
   
   def summary

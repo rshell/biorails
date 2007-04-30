@@ -299,7 +299,7 @@ SQL
       if item.is_active and (item.task_id.nil? or item.task_id==self.id)
          item.task_id = self.id
          item.experiment_id = self.experiment_id
-         if self.is_active or self.is_completed
+         if self.is_active or self.is_finished
              item.status_id = self.status_id 
          elsif  self.is_status(FAILED_STATES)
              item.status_id = WAITING 

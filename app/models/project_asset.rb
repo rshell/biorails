@@ -99,7 +99,11 @@ class ProjectAsset < ActiveRecord::Base
         self.public_filename(:icon)
      else
         '/images/model/file.png'
-     end       
+     end  
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")
+      '/images/model/file.png'
   end
 
   def summary
