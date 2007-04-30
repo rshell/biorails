@@ -167,15 +167,19 @@ SQL
                 # ==> [num_item,first_date,Last_date,state]
                 # 
                 #
-                def summary(options={}) 
+                def summary_list(options={}) 
                   with_scope :find => options do
                     find(:all,:select => "count(*) num_items ,min(started_at) first_date,max(ended_at) last_date, #{DEFAULT_SCHEDULE_SUMMARY} state ",
                               :group => DEFAULT_SCHEDULE_SUMMARY )
                   end
                 end
                 
-                def summary_text
+                def status_summary
                    summary.collect{|i|"#{i.state}:#{i.num_items}"}.join("/")
+                end
+                
+                def summary
+                    return "#{count_status(0)} / #{count_status([1,2,3,4])} / #{count_status([5,-1,-2])}"
                 end
             end
             

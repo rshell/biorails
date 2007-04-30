@@ -141,8 +141,4 @@ SQL
    return QueueItem.find_by_sql([sql,self.id])
  end
 
- def status_summary
-   " #{items.size} / #{items.state(CurrentStatus::NEW).size} / #{items.state(CurrentStatus::ACTIVE_STATES).size} / #{items.state(CurrentStatus::FINISHED_STATES).size}"
- end
- 
 end
