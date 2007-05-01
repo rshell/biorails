@@ -267,6 +267,7 @@ end
   def tree_for_catalog( context)
       tree=TreeHelper::Node.create(context) do |node,rec|
          node.link = link_to_remote rec.name, :url => catalogue_url(:action=>:show,:id=>rec)
+         node.drop_url = nil
       end    
       tree.link = link_to_remote context.name, :url => catalogue_url(:action=>:show,:id=>context)         
       out = ""
@@ -286,7 +287,7 @@ end
 #
   def tree_for_project(project)
       tree=TreeHelper::Node.build(project.folders) do |node,rec|
-          node.html_link = reference_to_url(rec )
+          node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)

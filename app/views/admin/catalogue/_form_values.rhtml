@@ -1,3 +1,9 @@
+<script type="text/javascript" >
+function set_model_type(id){	
+    $('list-panel','range-panel','model-panel','view-pane','sql-panel','child-panel').invoke('hide')
+	Element.show(id) }
+</script>
+
 <div class="row">
 <%if  @data_element.new_record? %>
 
@@ -5,7 +11,7 @@
       <label for="data_element_style">Style</label>
       <%= select(:data_element, :style, @data_element.types {|p| p})%>
     </div>
-     <%= observe_field 'data_element_style',:function => "showTab('contents-tabs',value+'-panel');" %>
+     <%= observe_field 'data_element_style',:function => "set_model_type(value+'-panel');" %>
 
      <%= hidden_field( 'data_element', 'content')  %>    
 </div>
@@ -13,6 +19,7 @@
 
 <div class="row" id="contents-tabs">
 <fieldset class='form'>    
+
     <div class="TabPanel" id="list-panel" >
         <div class="form-element">
           <label for="data_element_content">comma separated values:-</label>

@@ -58,9 +58,9 @@ function toggle_element(label,body)
    Effect.toggle(body,'appear');
 }
 
-
 function showTab(block,tab)
 {
   blocks =document.getElementsByClassName('TabPanel').each( 
         function(value, index) {  value.style.display ='none';  });
   $(tab).style.display ='';       
+}

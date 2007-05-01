@@ -13,9 +13,9 @@
 
 <h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
 
-<div id="report-definition">    
-    <%= render :partial => 'report_definition'%>  
-</div>
+    <div id="report-definition">    
+        <%= render :partial => 'report_definition'%>  
+    </div>
 
 <%= drop_receiving_element "report-definition", 
     :url => { :action => "add_column",:id => @report.id },
