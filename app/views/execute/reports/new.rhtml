@@ -1,6 +1,9 @@
 
 <h2>    <%=subject_icon('model/report')%> Create Report Definition </h2>
 <div class='dialog'>
+
+<%=render :partial =>'shared/messages',:locals => { :objects => ['report'] }  %>
+
  <% form_tag :action => 'create' do %> 
     <fieldset>
       <div class="row">

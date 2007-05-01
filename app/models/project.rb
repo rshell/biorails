@@ -57,6 +57,7 @@ class Project < ActiveRecord::Base
 # 
   access_control_list  :memberships , :dependent => :destroy 
 
+
   has_many :users, :through => :memberships, :source => :user
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
 ##
@@ -66,17 +67,19 @@ class Project < ActiveRecord::Base
 ##
 # list of all folders in the project 
 # 
-  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name'
-  has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name'
+  has_many :reports, :class_name=>'Report',:foreign_key =>'project_id',:order=>'name', :dependent => :destroy 
+
+  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name', :dependent => :destroy 
+  has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name', :dependent => :destroy 
 
 ##
 # The project is the main holder of schedules but in turn can be seen on a system schedule
 #   
   acts_as_scheduled :summary_of=>:tasks
   
-  has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id'
-  has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id'
-  has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id'
+  has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id', :dependent => :destroy 
+  has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id', :dependent => :destroy 
+  has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id', :dependent => :destroy 
 
 ##
 # Create a project root folder after create of project
@@ -89,7 +92,7 @@ class Project < ActiveRecord::Base
 # List of assets associated with the the project in reverse order
 # thumbnails etc are children of the root Assets
 # 
-  has_many  :assets, :class_name=>'ProjectAsset', :order => 'created_at desc', :conditions => 'parent_id is null' do
+  has_many  :assets, :class_name=>'ProjectAsset', :order => 'created_at desc', :dependent => :destroy , :conditions => 'parent_id is null' do
     def images
       find(:first, :conditions=>["project_id=? and content_type like 'image%'",proxy_owner.id])
     end
@@ -105,7 +108,7 @@ class Project < ActiveRecord::Base
 ##
 # List of all articles associated with a the project in reverse order
 # 
-  has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc'
+  has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc', :dependent => :destroy 
 
 ##
 # Unstructurted data is mapped into a set of folders for the project. For anotement of  models 

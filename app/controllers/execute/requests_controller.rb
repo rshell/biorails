@@ -8,13 +8,9 @@ class Execute::RequestsController < ApplicationController
   use_authorization :experiment,
                     :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
                     :rights => :current_project
-
-
 ##
 # Catch for queue model needed to include helper model for it to work in queue.action
 # 
-
-
   def index
     list
     render :action => 'list'
@@ -28,19 +24,20 @@ class Execute::RequestsController < ApplicationController
 ##
 # List of all the items for set queue
 # 
-  def list      
-   @report = Report.find_by_name("RequestList") 
-   unless @report
-      @report = report_list_for("RequestList",Request)
-      @report.save
-   end  
-    @report.params[:controller]='requests'   
-    @report.params[:action]='show'   
-    @report.set_filter(params[:filter])if  params[:filter] 
-    @report.add_sort(params[:sort]) if params[:sort]
-    @queue_items_pages = Paginator.new self, QueueItem.count, 50, params[:page]
-    @queue_items = @report.run({:limit  =>  @queue_items_pages.items_per_page,
-                                :offset =>  @queue_items_pages.current.offset })
+  def list                                     
+   @project = current_project
+   @report = Report.internal_report("RequestList",Request) do | report |
+      report.column('project_id').filter = @project.id
+      report.column('project_id').is_visible = false
+      report.column('name').customize(:order_num=>1)
+      report.column('name').is_visible = true
+      report.column('name').action = :show
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   
+   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })                            
   end
 
 
@@ -71,6 +68,7 @@ class Execute::RequestsController < ApplicationController
 # Display form for a new request item
   def new
     @user_request = Request.new(:name=> Identifier.next_id(Request))
+    @user_request.project_id = current_project.id
     @user_request.requested_by_user_id = current_user.id
     @user_request.status_id = 0
   end
@@ -81,9 +79,9 @@ class Execute::RequestsController < ApplicationController
 #
   def create
     ok = true
-    @user_request = Request.create(params[:user_request])
-    @user_request.project = current_project
-    if @user_request
+    @user_request = Request.new(params[:user_request])
+    @user_request.list = RequestList.new(:name=>@user_request.name,:data_element_id=>@user_request.data_element_id)
+    if @user_request.list.save and @user_request.save
       @project_folder =current_project.folder(@user_request)
       flash[:notice] = 'Request was successfully created.'
       redirect_to :action => 'edit',:id=> @user_request.id
@@ -102,8 +100,15 @@ class Execute::RequestsController < ApplicationController
     unless @item
       flash[:warning] = " Could not find #{@user_request.data_element.name} with name #{params[:name]} in database "
     end
-    return render(:action => 'add_item.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@user_request.id
+    
+    respond_to do | format |
+      format.html { redirect_to :action => 'edit',:id=> @user_request.id }
+      format.xml  { render :xml => @user_request.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'current_items',  :partial => 'list_items', :locals => { :request => @user_request } 
+           page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['user_request','item'] }
+         end }
+    end
   end
 
 ##
@@ -111,11 +116,19 @@ class Execute::RequestsController < ApplicationController
 # 
   def remove_item
     @user_request = Request.find(params[:request_id])
-    @list_item = ListItem.find(params[:id])
+    @list_item = ListItem.find(params[:list_item_id])
     @user_request.remove_item(@list_item.value)
     @list_item.destroy
-    return render(:action => 'refresh_services.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@user_request.id
+
+    respond_to do | format |
+      format.html { redirect_to :action => 'show',:id=> @user_request.id }
+      format.xml  { render :xml => @user_request.to_xml }
+      format.js   { render :update do | page |
+          page.replace_html 'current_items',  :partial => 'list_items', :locals => { :request => @user_request } 
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['user_request'] }
+         end }
+    end
+
   end
 
 ###
@@ -125,8 +138,15 @@ class Execute::RequestsController < ApplicationController
     @user_request = Request.find(params[:id])
     @queue = StudyQueue.find(params[:service][:id])
     @user_request.add_service(@queue)
-    return render(:action => 'add_service.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@user_request.id
+    
+    respond_to do | format |
+      format.html { redirect_to :action => 'edit',:id=> @user_request.id }
+      format.xml  { render :xml => @user_request.to_xml }
+      format.js   { render :update do | page |
+          page.replace_html 'current_services',  :partial => 'list_services', :locals => { :request => @user_request } 
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['user_request','queue'] }
+         end }
+    end
   end
 
 ##
@@ -136,9 +156,18 @@ class Execute::RequestsController < ApplicationController
     @request_service = RequestService.find(params[:id])
     @user_request = @request_service.request
     @request_service.destroy
-    return render(:action => 'refresh_services.rjs') if request.xhr?
-    redirect_to :action => 'edit',:id=>@user_request.id
+
+    respond_to do | format |
+      format.html { redirect_to :action => 'edit',:id=> @user_request.id }
+      format.xml  { render :xml => @user_request.to_xml }
+      format.js   { render :update do | page |
+          page.replace_html 'current_services',  :partial => 'list_services', :locals => { :request => @user_request } 
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['user_request'] }
+         end }
+    end
+
   end
+  
 ##
 # Display the edit form for a item in the request
   def edit

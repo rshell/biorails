@@ -6,8 +6,7 @@
 
 <h2><%=subject_icon('study.png')%> New Study </h2>
 
-
-<%= error_messages_for 'study' %>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study']} %>
 
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>

@@ -231,7 +231,7 @@ experiment_statistics_015:
   id: "5000002"
   max_values: "320"
   study_parameter_id: "2"
-  stddev_values: "61.3517982579731"
+  stddev_values: "61.3517982579729"
   num_unique: "161"
 experiment_statistics_004: 
   experiment_id: "3"
@@ -296,7 +296,7 @@ experiment_statistics_005:
   id: "3000041"
   max_values: "963"
   study_parameter_id: "41"
-  stddev_values: "285.350393711587"
+  stddev_values: "285.350393711588"
   num_unique: "18"
 experiment_statistics_039: 
   experiment_id: "5"

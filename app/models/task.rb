@@ -86,6 +86,12 @@ class Task < ActiveRecord::Base
 #
  has_many :roots, :class_name =>'TaskContext', :order => 'row_no', :conditions=>'parent_id is null'
 
+##
+#  has many project elements associated with it
+#  
+  has_many :elements, :class_name=>'ProjectElement' ,:as => :reference, :dependent => :destroy
+
+
  belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
  
 ##

@@ -894,7 +894,7 @@ process_statistics_004:
   parameter_id: "57"
   max_values: "287.3"
   study_parameter_id: "2"
-  stddev_values: "19.9263134761553"
+  stddev_values: "19.9263134761549"
   num_unique: "31"
 process_statistics_025: 
   protocol_version_id: "11"
@@ -1115,7 +1115,7 @@ process_statistics_007:
   parameter_id: "70"
   max_values: "33"
   study_parameter_id: "3"
-  stddev_values: "8.56503417763363"
+  stddev_values: "8.56503417763364"
   num_unique: "141"
 process_statistics_028: 
   protocol_version_id: "10"

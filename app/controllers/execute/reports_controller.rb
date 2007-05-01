@@ -59,7 +59,6 @@ class Execute::ReportsController < ApplicationController
 #  
  def new
    @models = Biorails::UmlModel.models
-   @allowed_models =  Biorails::UmlModel.models
    @report = Report.new(:name=> Identifier.next_id(Report))
    if params[:id]    
       @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
@@ -73,6 +72,7 @@ class Execute::ReportsController < ApplicationController
 # * params[:report] for the map of properties of the Report object to create
 #
   def create
+    @models = Biorails::UmlModel.models
     @report = Report.new(params[:report])
     if @report.save
       @model = eval(@report.base_model)

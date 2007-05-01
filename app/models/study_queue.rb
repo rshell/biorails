@@ -72,11 +72,11 @@ class StudyQueue < ActiveRecord::Base
 ##
 # Study Has a number of queues associated with it
 # 
-  has_many_scheduled :items, :class_name => "QueueItem"
+  has_many_scheduled :items, :class_name => "QueueItem",:dependent => :destroy
 ##
 #Link to service request for work to be done
 #  
-  has_many_scheduled :requests, :class_name=> "RequestService",:foreign_key=>'service_id'
+  has_many_scheduled :requests, :class_name=> "RequestService",:foreign_key=>'service_id',:dependent => :destroy
 
 ##
 # Add a object to the queue

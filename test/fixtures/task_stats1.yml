@@ -96,7 +96,7 @@ task_stats1_042:
   data_type_id: "2"
   num_values: "310"
   max_values: "33"
-  stddev_values: "8.41865575894804"
+  stddev_values: "8.41865575894802"
   num_unique: "197"
 task_stats1_063: 
   parameter_type_id: "1"

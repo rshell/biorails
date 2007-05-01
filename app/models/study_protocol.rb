@@ -76,7 +76,11 @@ class StudyProtocol < ActiveRecord::Base
 
 ##
 # Is the default option for a number of experiments 
- has_many :experiments
+ has_many :experiments, :dependent => :destroy
+##
+#  has many project elements associated with it
+#  
+  has_many :elements, :class_name=>'ProjectElement' ,:as => :reference,:dependent => :destroy
 
  has_many :tasks, :finder_sql => ' select t.* from tasks t, protocol_versions v where t.protocol_version_id = v.id and v.study_protocol_id= #{id}'
 ##

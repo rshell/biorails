@@ -5,6 +5,7 @@ users_004:
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "0"
   token_expires_at: 
   activation_code: 
@@ -14,6 +15,7 @@ users_004:
   id: "4"
   filter: 
   password_hash: d84e5ddda8a7eef03dd5e4934ede87d1a1758a96
+  created_by_user_id: "1"
   state_id: 
   login: thawkins
   created_at: 
@@ -24,6 +26,7 @@ users_005:
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "0"
   token_expires_at: 
   activation_code: 
@@ -33,6 +36,7 @@ users_005:
   id: "6"
   filter: 
   password_hash: 773418797bbc217fa520ba98f090227cd0b74b18
+  created_by_user_id: "1"
   state_id: 
   login: alemon
   created_at: 
@@ -43,6 +47,7 @@ users_006:
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "0"
   token_expires_at: 
   activation_code: 
@@ -52,16 +57,60 @@ users_006:
   id: "7"
   filter: 
   password_hash: cdfcc3ace3be12baddddf8ace44be64f992d3887
+  created_by_user_id: "1"
   state_id: 
   login: ewallace
   created_at: 2007-04-18 15:30:13
   email: test@test
+users_007: 
+  name: auser
+  updated_at: 2007-04-27 13:26:58
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "2"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: a user
+  password_salt: 1cc946f8aef219c8e1da5b7e713a2a82d8c1d3d6
+  role_id: "2"
+  id: "8"
+  filter: 
+  password_hash: 947800e1cdd614c3b0e15b571b7e8e16de2d5b0a
+  created_by_user_id: "2"
+  state_id: 
+  login: auser
+  created_at: 2007-04-27 13:26:58
+  email: a@user.com
+users_008: 
+  name: mike
+  updated_at: 2007-04-27 15:17:23
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "2"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: moose
+  password_salt: cedd211271c6e23135f45b4fbe03e59ff618d482
+  role_id: "2"
+  id: "9"
+  filter: 
+  password_hash: 3069e7acbf9c86bd6d2607f47eec69643f90f199
+  created_by_user_id: "2"
+  state_id: 
+  login: mike
+  created_at: 2007-04-27 15:09:59
+  email: kkk
 users_001: 
   name: guest
   updated_at: 
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "0"
   token_expires_at: 
   activation_code: 
@@ -71,6 +120,7 @@ users_001:
   id: "1"
   filter: 
   password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  created_by_user_id: "1"
   state_id: 
   login: guest
   created_at: 
@@ -81,6 +131,7 @@ users_002:
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "1"
   token_expires_at: 
   activation_code: 
@@ -90,6 +141,7 @@ users_002:
   id: "2"
   filter: 
   password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
+  created_by_user_id: "1"
   state_id: 
   login: admin
   created_at: 
@@ -100,6 +152,7 @@ users_003:
   activated_at: 
   deleted_at: 
   token: 
+  updated_by_user_id: "1"
   admin: "0"
   token_expires_at: 
   activation_code: 
@@ -109,6 +162,7 @@ users_003:
   id: "3"
   filter: 
   password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+  created_by_user_id: "1"
   state_id: 
   login: rshell
   created_at: 

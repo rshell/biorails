@@ -17,7 +17,7 @@
              <td>not submitted </td>
              <% end %>
          <% end %>
-         <td><%= link_to 'Remove', request_url(:action => 'remove_item',:id=> request, :list_item_id => item.id ) %> </td>
+         <td><%= link_to 'Remove', request_url(:action => 'remove_item',:request_id=> request.id, :list_item_id => item.id ) %> </td>
     </tr>
      <% end %>
 </table>

@@ -35,7 +35,9 @@ class Report < ActiveRecord::Base
   validates_presence_of :description
   
   #validates_uniqueness_of :name
-  has_many :columns, :class_name=>'ReportColumn'
+  has_many :columns, :class_name=>'ReportColumn', :dependent => :destroy 
+
+  belongs_to :project
 
   attr_accessor :default_action
   attr_accessor :params

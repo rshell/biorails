@@ -70,13 +70,13 @@ tasks_021:
   experiment_id: "5"
   name: DMO-001-15
   project_id: "1"
-  updated_at: 2007-04-26 15:02:16
+  updated_at: 2007-04-29 21:41:18
   expected_hours: "1"
-  ended_at: 2007-04-03 00:00:00
+  ended_at: 2007-05-06 00:00:00
   protocol_version_id: "18"
   expected_at: 
   updated_by_user_id: "3"
-  lock_version: "9"
+  lock_version: "10"
   priority_id: 
   study_protocol_id: "15"
   id: "22"
@@ -466,13 +466,13 @@ tasks_017:
   experiment_id: "5"
   name: DMO-001-11
   project_id: "1"
-  updated_at: 2007-03-30 22:17:35
+  updated_at: 2007-04-30 15:56:50
   expected_hours: "1"
   ended_at: 2007-03-31 00:00:00
   protocol_version_id: "5"
   expected_at: 
-  updated_by_user_id: "1"
-  lock_version: "4"
+  updated_by_user_id: "3"
+  lock_version: "5"
   priority_id: 
   study_protocol_id: "5"
   id: "18"

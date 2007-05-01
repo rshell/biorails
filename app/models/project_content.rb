@@ -38,8 +38,9 @@ class ProjectContent < ActiveRecord::Base
   
   belongs_to :project
 
-  has_many :elements,  :class_name  =>'ProjectElement',
-                       :foreign_key =>'reference_id'
+  has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
+  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'content_id',  :dependent => :destroy
+
 ##
 # The textual information is linked into a number of folders
 #   

@@ -47,11 +47,23 @@ list_items_005:
   id: "5"
   list_id: "6"
   data_id: "2"
+list_items_017: 
+  data_name: AB002
+  data_type: Compound
+  id: "17"
+  list_id: "14"
+  data_id: "2"
 list_items_006: 
   data_name: AB003
   data_type: Compound
   id: "6"
   list_id: "6"
+  data_id: "3"
+list_items_018: 
+  data_name: AB003
+  data_type: Compound
+  id: "18"
+  list_id: "14"
   data_id: "3"
 list_items_007: 
   data_name: AB001
@@ -59,11 +71,23 @@ list_items_007:
   id: "7"
   list_id: "7"
   data_id: "1"
+list_items_019: 
+  data_name: AB004
+  data_type: Compound
+  id: "19"
+  list_id: "14"
+  data_id: "4"
 list_items_008: 
   data_name: AB002
   data_type: Compound
   id: "8"
   list_id: "7"
+  data_id: "2"
+list_items_020: 
+  data_name: AB002
+  data_type: Compound
+  id: "20"
+  list_id: "15"
   data_id: "2"
 list_items_009: 
   data_name: AB003
@@ -71,6 +95,12 @@ list_items_009:
   id: "9"
   list_id: "10"
   data_id: "3"
+list_items_021: 
+  data_name: AB006
+  data_type: Compound
+  id: "21"
+  list_id: "15"
+  data_id: "6"
 list_items_010: 
   data_name: AB004
   data_type: Compound

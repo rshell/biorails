@@ -4,6 +4,7 @@
         :action => 'show', :id => @task.experiment.id  %>]
 
 </h2>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
 
 <div class="panel">
     <div id="<%=@task.dom_id('overview') %>"  class='dialog'> 

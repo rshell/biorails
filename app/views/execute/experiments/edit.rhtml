@@ -1,6 +1,9 @@
 <h2>
-        <%= subject_icon('experiment.png')%> Edit Experiment [<strong><%=@experiment.name%></strong>]
-    </h2>
+    <%= subject_icon('experiment.png')%> Edit Experiment [<strong><%=@experiment.name%></strong>]
+</h2>
+
+<%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
+
 <div class='dialog'>
     <% form_tag :action => 'update', :id => @experiment do %>
       <%= render :partial => 'form' %>

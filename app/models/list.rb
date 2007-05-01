@@ -36,8 +36,7 @@ class List < ActiveRecord::Base
 # Create a new task context
 # 
  def add(new_value)
-   logger.warn new_value
-   logger.warn  new_value.class
+   logger.warn "add #{new_value} or class  #{new_value.class}"
    return nil if new_value.nil?
    item = ListItem.new
    item.list = self
@@ -59,9 +58,8 @@ class List < ActiveRecord::Base
        value = lookup(new_value)  
        return nil unless value
        item.data_type = value.class.to_s
-       item.data_id   = value[:id]  
-       item.data_name = value[:name] 
-
+       item.data_id   = value.id  
+       item.data_name = value.name 
 
     when ListItem
        item.data_type = new_value.data_type
@@ -72,7 +70,7 @@ class List < ActiveRecord::Base
       self.data_id   = new_value.data_id if new_value.respond_to?(:date_id)
       self.data_name = new_value.data_name if new_value.respond_to?(:date_name)
    end
-   items << item
+   self.items << item
    return item
  end
  

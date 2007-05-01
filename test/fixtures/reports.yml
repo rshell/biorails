@@ -13,6 +13,90 @@ reports_006:
   created_by_user_id: "3"
   style: 
   created_at: 2007-04-26 21:05:42
+reports_007: 
+  internal: "1"
+  custom_sql: 
+  name: ParameterProtocols
+  project_id: 
+  updated_at: 2007-04-27 14:53:33
+  updated_by_user_id: "3"
+  lock_version: "1"
+  base_model: Parameter
+  id: "22"
+  description: Default reports for display as /Parameter/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-27 14:53:31
+reports_008: 
+  internal: "1"
+  custom_sql: 
+  name: ParameterStatistics
+  project_id: 
+  updated_at: 2007-04-27 14:54:26
+  updated_by_user_id: "3"
+  lock_version: "1"
+  base_model: ProcessStatistics
+  id: "25"
+  description: Default reports for display as /ProcessStatistics/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-27 14:54:25
+reports_009: 
+  internal: "1"
+  custom_sql: 
+  name: ExperimentStatistics
+  project_id: 
+  updated_at: 2007-04-27 15:07:19
+  updated_by_user_id: "3"
+  lock_version: "1"
+  base_model: ExperimentStatistics
+  id: "26"
+  description: Default reports for display as /ExperimentStatistics/list
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-04-27 15:07:18
+reports_010: 
+  internal: 
+  custom_sql: 
+  name: Report-14
+  project_id: 
+  updated_at: 2007-05-01 07:04:57
+  updated_by_user_id: "3"
+  lock_version: "2"
+  base_model: Request
+  id: "27"
+  description: Requests
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-05-01 07:00:11
+reports_011: 
+  internal: 
+  custom_sql: 
+  name: Compounds
+  project_id: 
+  updated_at: 2007-05-01 07:11:54
+  updated_by_user_id: "3"
+  lock_version: "0"
+  base_model: Compound
+  id: "28"
+  description: Description
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-05-01 07:11:54
+reports_012: 
+  internal: 
+  custom_sql: 
+  name: Test Values
+  project_id: 
+  updated_at: 2007-05-01 08:14:41
+  updated_by_user_id: "3"
+  lock_version: "4"
+  base_model: TaskValue
+  id: "29"
+  description: Test
+  created_by_user_id: "3"
+  style: 
+  created_at: 2007-05-01 08:10:55
 reports_001: 
   internal: 
   custom_sql: 

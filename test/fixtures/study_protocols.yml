@@ -101,6 +101,23 @@ study_protocols_009:
   literature_ref: ""
   created_at: 2007-03-21 09:51:33
   current_process_id: "9"
+study_protocols_021: 
+  name: Profile-1
+  study_stage_id: "5"
+  updated_at: 2007-04-30 16:12:05
+  process_style: Entry
+  protocol_status: ""
+  updated_by_user_id: "2"
+  lock_version: "1"
+  protocol_catagory: Protocol
+  process_definition_id: 
+  id: "21"
+  description: new protocol created for study Screen
+  study_id: "3"
+  created_by_user_id: "2"
+  literature_ref: ""
+  created_at: 2007-04-30 16:12:05
+  current_process_id: "25"
 study_protocols_010: 
   name: Capture Raw Data
   study_stage_id: "6"

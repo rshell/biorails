@@ -32,6 +32,6 @@
     <td><%=short_date queue_item.updated_at%></td>
     <td><%=short_date queue_item.started_at  %></td>
     <td><%=short_date queue_item.ended_at  %></td>
-    <td><%= link_to 'Remove', :action => 'destroy', :id => queue_item %></td>
+    <td><%= link_to 'Remove', :action => 'destroy_item',:id=>queue_item.service  , :item_id => queue_item.id %></td>
 
 

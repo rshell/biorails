@@ -623,6 +623,18 @@ study_logs_208:
   user_id: 
   comment: " Update protocol Single Point in study Screen"
   created_at: 2007-04-03 20:43:41
+study_logs_236: 
+  name: Study-9
+  created_by: 
+  action: Create
+  auditable_type: Study
+  auditable_id: "11"
+  id: "236"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Create study Study-9"
+  created_at: 2007-04-27 13:32:35
 study_logs_048: 
   name: Strain
   created_by: 
@@ -695,6 +707,18 @@ study_logs_209:
   user_id: 
   comment: " Create parameter Well Literal in study Screen"
   created_at: 2007-04-03 20:51:11
+study_logs_237: 
+  name: Compound
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "75"
+  id: "237"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Create parameter Compound in study Study-9"
+  created_at: 2007-04-27 13:55:59
 study_logs_049: 
   name: Strain
   created_by: 
@@ -743,6 +767,18 @@ study_logs_182:
   user_id: 
   comment: " Create parameter Activity in study Screen"
   created_at: 2007-04-03 17:23:17
+study_logs_238: 
+  name: Compound
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "75"
+  id: "238"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Update parameter Compound in study Study-9"
+  created_at: 2007-04-27 13:55:59
 study_logs_076: 
   name: RES Exposure
   created_by: 
@@ -779,6 +815,18 @@ study_logs_183:
   user_id: 
   comment: " Update parameter Activity in study Screen"
   created_at: 2007-04-03 17:23:17
+study_logs_239: 
+  name: Activity
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "76"
+  id: "239"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Create parameter Activity in study Study-9"
+  created_at: 2007-04-27 14:35:45
 study_logs_077: 
   name: Index
   created_by: 
@@ -2123,6 +2171,18 @@ study_logs_025:
   user_id: 
   comment: " Create parameter Min Weight in study Biomarker And Histology"
   created_at: 2007-03-20 16:18:04
+study_logs_240: 
+  name: Activity
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "76"
+  id: "240"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Update parameter Activity in study Study-9"
+  created_at: 2007-04-27 14:35:45
 study_logs_107: 
   name: Mean Activity Count
   created_by: 
@@ -2183,6 +2243,18 @@ study_logs_052:
   user_id: 
   comment: " Create protocol Materials in study Biomarker And Histology"
   created_at: 2007-03-20 19:50:48
+study_logs_241: 
+  name: Activity
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "76"
+  id: "241"
+  study_id: "11"
+  changes: 
+  user_id: 
+  comment: " Update parameter Activity in study Study-9"
+  created_at: 2007-04-27 15:07:40
 study_logs_108: 
   name: Mean Activity Count
   created_by: 
@@ -2255,6 +2327,18 @@ study_logs_053:
   user_id: 
   comment: " Update protocol Materials in study Biomarker And Histology"
   created_at: 2007-03-20 19:50:48
+study_logs_242: 
+  name: Profile-1
+  created_by: 
+  action: Create
+  auditable_type: StudyProtocol
+  auditable_id: "21"
+  id: "242"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create protocol Profile-1 in study Screen"
+  created_at: 2007-04-30 16:12:05
 study_logs_135: 
   name: Ted1
   created_by: 
@@ -2327,6 +2411,18 @@ study_logs_080:
   user_id: 
   comment: " Update parameter Time in study RES Exposure"
   created_at: 2007-03-21 09:36:36
+study_logs_243: 
+  name: Profile-1
+  created_by: 
+  action: Update
+  auditable_type: StudyProtocol
+  auditable_id: "21"
+  id: "243"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update protocol Profile-1 in study Screen"
+  created_at: 2007-04-30 16:12:05
 study_logs_136: 
   name: Calculation
   created_by: 
@@ -2411,6 +2507,18 @@ study_logs_109:
   user_id: 
   comment: " Create protocol Brain Plasma Assessment in study RES Exposure"
   created_at: 2007-03-21 11:21:53
+study_logs_244: 
+  name: Link
+  created_by: 
+  action: Create
+  auditable_type: StudyParameter
+  auditable_id: "77"
+  id: "244"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create parameter Link in study Screen"
+  created_at: 2007-04-30 17:35:12
 study_logs_137: 
   name: Calculation
   created_by: 
@@ -2471,6 +2579,18 @@ study_logs_082:
   user_id: 
   comment: " Update parameter ActivityCount in study RES Exposure"
   created_at: 2007-03-21 09:37:33
+study_logs_245: 
+  name: Link
+  created_by: 
+  action: Update
+  auditable_type: StudyParameter
+  auditable_id: "77"
+  id: "245"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Update parameter Link in study Screen"
+  created_at: 2007-04-30 17:35:12
 study_logs_164: 
   name: Double
   created_by: 
@@ -2531,6 +2651,18 @@ study_logs_138:
   user_id: 
   comment: " Update study Test"
   created_at: 2007-03-30 19:44:26
+study_logs_246: 
+  name: Experiment-5
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "10"
+  id: "246"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-5 in study Screen"
+  created_at: 2007-05-01 07:55:11
 study_logs_165: 
   name: Test_Sex
   created_by: 
@@ -2603,6 +2735,18 @@ study_logs_139:
   user_id: 
   comment: " Update study Test"
   created_at: 2007-03-30 19:44:26
+study_logs_247: 
+  name: Experiment-6
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "11"
+  id: "247"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-6 in study Screen"
+  created_at: 2007-05-01 07:56:13
 study_logs_192: 
   name: Plate QC Stat
   created_by: 
@@ -2651,6 +2795,18 @@ study_logs_166:
   user_id: 
   comment: " Update protocol Test_Sex in study Test"
   created_at: 2007-03-30 19:58:35
+study_logs_248: 
+  name: Experiment-7
+  created_by: 
+  action: Create
+  auditable_type: Experiment
+  auditable_id: "12"
+  id: "248"
+  study_id: "3"
+  changes: 
+  user_id: 
+  comment: " Create experiment Experiment-7 in study Screen"
+  created_at: 2007-05-01 07:58:16
 study_logs_193: 
   name: SOP
   created_by: 

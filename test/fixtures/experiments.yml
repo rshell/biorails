@@ -14,7 +14,7 @@ experiments_001:
   category_id: 
   description: " Task in study RES Exposure "
   created_by_user_id: "1"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-03-21 15:08:03
 experiments_002: 
@@ -32,7 +32,7 @@ experiments_002:
   category_id: 
   description: " Task in study Test "
   created_by_user_id: "1"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-03-30 20:00:11
 experiments_003: 
@@ -50,7 +50,7 @@ experiments_003:
   category_id: 
   description: " Task in study Biomarker And Histology "
   created_by_user_id: "1"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-03-30 20:25:34
 experiments_004: 
@@ -68,7 +68,7 @@ experiments_004:
   category_id: 
   description: " Task in study Screen "
   created_by_user_id: "1"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-04-18 13:58:43
 experiments_005: 
@@ -86,7 +86,7 @@ experiments_005:
   category_id: 
   description: " Task in study Biomarker And Histology "
   created_by_user_id: "3"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-04-26 15:24:15
 experiments_006: 
@@ -104,7 +104,7 @@ experiments_006:
   category_id: 
   description: Test of the drop downs
   created_by_user_id: "3"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-04-26 15:24:43
 experiments_007: 
@@ -122,6 +122,60 @@ experiments_007:
   category_id: 
   description: " Task in study Biomarker And Histology "
   created_by_user_id: "2"
-  status_id: 
+  status_id: "0"
   started_at: 
   created_at: 2007-04-26 15:32:16
+experiments_008: 
+  name: Experiment-5
+  project_id: 
+  updated_at: 2007-05-01 07:55:11
+  ended_at: 
+  protocol_version_id: 
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: 
+  id: "10"
+  study_id: "3"
+  category_id: 
+  description: " Task in study Screen "
+  created_by_user_id: "3"
+  status_id: "0"
+  started_at: 
+  created_at: 2007-05-01 07:55:11
+experiments_009: 
+  name: Experiment-6
+  project_id: 
+  updated_at: 2007-05-01 07:56:13
+  ended_at: 
+  protocol_version_id: 
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: 
+  id: "11"
+  study_id: "3"
+  category_id: 
+  description: " Task in study Screen "
+  created_by_user_id: "3"
+  status_id: "0"
+  started_at: 
+  created_at: 2007-05-01 07:56:13
+experiments_010: 
+  name: Experiment-7
+  project_id: 
+  updated_at: 2007-05-01 07:58:16
+  ended_at: 
+  protocol_version_id: 
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  study_protocol_id: 
+  id: "12"
+  study_id: "3"
+  category_id: 
+  description: " Task in study Screen "
+  created_by_user_id: "3"
+  status_id: "0"
+  started_at: 
+  created_at: 2007-05-01 07:58:16

@@ -85576,6 +85576,26 @@ project_contents_009:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 19:40:16
+project_contents_032: 
+  name: ProjectContent-48
+  updated_at: 2007-04-30 13:15:52
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> LOts of ajax on theses forms </body> </html>
+  project_id: "6"
+  body: 
+  title: ""
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "41"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 13:15:52
 project_contents_021: 
   name: ProjectContent-27
   updated_at: 2007-04-25 21:23:28

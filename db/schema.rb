@@ -700,9 +700,6 @@ ActiveRecord::Schema.define(:version => 253) do
     t.column "project_id",         :integer
   end
 
-  create_table "request_lists", :force => true do |t|
-  end
-
   create_table "request_services", :force => true do |t|
     t.column "request_id",           :integer,                                 :null => false
     t.column "service_id",           :integer,                                 :null => false

@@ -51,7 +51,7 @@ class Request < ActiveRecord::Base
 # 
   acts_as_scheduled :summary_of=>:services
 
-  has_many_scheduled :services,  :class_name=>'RequestService'
+  has_many_scheduled :services,  :class_name=>'RequestService',:dependent => :destroy
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
@@ -63,11 +63,14 @@ class Request < ActiveRecord::Base
   belongs_to :project  
   
   belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
-  
+##
+#  has many project elements associated with it
+#  
+  has_many :elements, :class_name=>'ProjectElement' ,:as => :reference,:dependent => :destroy
   
   belongs_to :data_element
   
-  belongs_to :list , :dependent => false
+  belongs_to :list , :dependent => :destroy
   
 ##
 # Create a List and its linked RequestList   
@@ -91,7 +94,8 @@ class Request < ActiveRecord::Base
      end           
      for request_service in self.services
         for item in request_service.items
-          @items_status[item.data_name][request_service.name] = item          
+           @items_status[item.data_name] = {}
+           @items_status[item.data_name][request_service.name] = item          
         end
      end
      return @items_status
@@ -190,18 +194,20 @@ SQL
 # Add a item to the list of objects in the request 
 #  
   def add_item(object)
-    unless self.list
-      logger.warn "add_items to new list #{object}"
-      @list = RequestList.new
-      #@list.request = self
-      @list.name = self.name
-      @list.description = "Request #{self.name}"
-      @list.data_element = self.data_element
-      @list.save
-      self.list = @list
-
-    end  
-    list.add(object)    
+    logger.info "add_items( #{object} )"
+    RequestList.transaction do
+      unless self.list
+        logger.warn "add_items to new list #{object}"
+        @list = RequestList.find_by_name(self.name) || RequestList.new
+        #@list.request = self
+        @list.name = self.name
+        @list.description = "Request #{self.name}"
+        @list.data_element = self.data_element
+        @list.save
+        self.list = @list
+      end  
+      self.list.add(object)   
+    end 
   end
   
 ##
@@ -210,10 +216,11 @@ SQL
   def remove_item(name)   
     for service in services
        item = QueueItem.find(:first,:conditions=>['request_service_id = ? and data_name = ?',service.id,name])
-       if item and (item.is_waiting or item.has_failed)
+       if item and item.is_status([0,1,2,5,-1,-2])
           item.destroy 
        end
     end
+    self.items.find_by_data_name(name).destroy    
   end
 
 ##

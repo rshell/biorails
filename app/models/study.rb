@@ -62,7 +62,12 @@ class Study < ActiveRecord::Base
 ##
 # Study Has a number of queues associated with it
 # 
-  has_many :queues, :class_name => "StudyQueue"
+  has_many :queues, :class_name => "StudyQueue",:dependent => :destroy
+
+##
+#  has many project elements associated with it
+#  
+  has_many :elements, :class_name=>'ProjectElement' ,:as => :reference, :dependent => :destroy
 
 ##
 # The study has a collection of protocols assocated with it

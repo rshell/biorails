@@ -6,10 +6,12 @@ study_parameters_001:
   data_format_id: 
   parameter_role_id: "1"
   parameter_type_id: "20"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "1"
   description: Manual scoring of samples between 0 &amp; 10
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "77"
 study_parameters_022: 
   name: Statistic
@@ -18,10 +20,12 @@ study_parameters_022:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "24"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_043: 
   name: Dasage
@@ -30,10 +34,12 @@ study_parameters_043:
   data_format_id: "13"
   parameter_role_id: "2"
   parameter_type_id: "10"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "45"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_064: 
   name: Plate QC Stat
@@ -42,10 +48,12 @@ study_parameters_064:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "66"
   description: ""
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_002: 
   name: Weight
@@ -54,10 +62,12 @@ study_parameters_002:
   data_format_id: "4"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "2"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_023: 
   name: Histology
@@ -66,10 +76,12 @@ study_parameters_023:
   data_format_id: 
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "25"
   description: Progression flags
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "84"
 study_parameters_044: 
   name: Calculation
@@ -78,10 +90,12 @@ study_parameters_044:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "46"
   description: my param
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_065: 
   name: SOP
@@ -90,10 +104,12 @@ study_parameters_065:
   data_format_id: "24"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   id: "67"
   description: Assay Development Report. This will be alink to an asset in V2.0
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_003: 
   name: Reading
@@ -102,10 +118,12 @@ study_parameters_003:
   data_format_id: "4"
   parameter_role_id: "1"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "3"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_024: 
   name: Index
@@ -114,10 +132,12 @@ study_parameters_024:
   data_format_id: "8"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "26"
   description: Animal number, index for tables etc
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_045: 
   name: Note
@@ -126,10 +146,12 @@ study_parameters_045:
   data_format_id: "1"
   parameter_role_id: "7"
   parameter_type_id: "2"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "47"
   description: A comment result type
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_066: 
   name: KO
@@ -138,10 +160,12 @@ study_parameters_066:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "68"
   description: Context knocked out?&nbsp; Default = False
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: "82"
 study_parameters_067: 
   name: Hit Flag
@@ -150,10 +174,12 @@ study_parameters_067:
   data_format_id: 
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "69"
   description: Context (result) is a hit, miss or retest
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: "81"
 study_parameters_004: 
   name: p
@@ -162,10 +188,12 @@ study_parameters_004:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "4"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_025: 
   name: Time
@@ -174,10 +202,12 @@ study_parameters_025:
   data_format_id: "20"
   parameter_role_id: "6"
   parameter_type_id: "22"
+  updated_by_user_id: "1"
   data_type_id: "4"
   id: "27"
   description: Start time etc
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_046: 
   name: Compound
@@ -186,10 +216,12 @@ study_parameters_046:
   data_format_id: 
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "48"
   description: A look up to the compounds table
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_068: 
   name: Fit Modifier
@@ -198,10 +230,12 @@ study_parameters_068:
   data_format_id: "1"
   parameter_role_id: "2"
   parameter_type_id: "2"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "70"
   description: Used for &lt;, &gt; and no-fit
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_026: 
   name: ActivityCount
@@ -210,10 +244,12 @@ study_parameters_026:
   data_format_id: "8"
   parameter_role_id: "1"
   parameter_type_id: "6"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "28"
   description: Used for activity counts
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_047: 
   name: Gender
@@ -222,10 +258,12 @@ study_parameters_047:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "49"
   description: a sexy lookup
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: "57"
 study_parameters_005: 
   name: sig
@@ -234,10 +272,12 @@ study_parameters_005:
   data_format_id: 
   parameter_role_id: "2"
   parameter_type_id: "18"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "5"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "83"
 study_parameters_070: 
   name: Starting Conc
@@ -246,10 +286,12 @@ study_parameters_070:
   data_format_id: "4"
   parameter_role_id: "3"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "72"
   description: Starting concentration for compound under investigation
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_069: 
   name: Well Literal
@@ -258,10 +300,12 @@ study_parameters_069:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "71"
   description: To identify Neg, Pos of compounds wells
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: "76"
 study_parameters_048: 
   name: Integer
@@ -270,10 +314,12 @@ study_parameters_048:
   data_format_id: "8"
   parameter_role_id: "3"
   parameter_type_id: "12"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "50"
   description: Test for integer
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_006: 
   name: Treatment Role
@@ -282,10 +328,12 @@ study_parameters_006:
   data_format_id: 
   parameter_role_id: "3"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "6"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "76"
 study_parameters_027: 
   name: Compound
@@ -294,10 +342,12 @@ study_parameters_027:
   data_format_id: 
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "29"
   description: Compound Under Investigation
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_071: 
   name: Compound
@@ -306,10 +356,12 @@ study_parameters_071:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "73"
   description: Compound Lookup
   study_id: "7"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_007: 
   name: Index
@@ -318,10 +370,12 @@ study_parameters_007:
   data_format_id: "8"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "7"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_028: 
   name: Label
@@ -330,10 +384,12 @@ study_parameters_028:
   data_format_id: "1"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "30"
   description: Used for names to identify groups etc
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_050: 
   name: Time
@@ -342,10 +398,12 @@ study_parameters_050:
   data_format_id: "20"
   parameter_role_id: "2"
   parameter_type_id: "22"
+  updated_by_user_id: "1"
   data_type_id: "4"
   id: "52"
   description: ""
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_049: 
   name: Date
@@ -354,10 +412,12 @@ study_parameters_049:
   data_format_id: "10"
   parameter_role_id: "2"
   parameter_type_id: "21"
+  updated_by_user_id: "1"
   data_type_id: "3"
   id: "51"
   description: test for date
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_072: 
   name: Compound
@@ -366,10 +426,12 @@ study_parameters_072:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "74"
   description: test
   study_id: "8"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_008: 
   name: Treatment Group
@@ -378,10 +440,12 @@ study_parameters_008:
   data_format_id: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "8"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_030: 
   name: Concentration
@@ -390,10 +454,12 @@ study_parameters_030:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "32"
   description: Concentration of compound under investigation
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_029: 
   name: Treatment Role
@@ -402,10 +468,12 @@ study_parameters_029:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "19"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "31"
   description: Simplifies the identification of the different treatment groups
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: "76"
 study_parameters_051: 
   name: Percent
@@ -414,11 +482,27 @@ study_parameters_051:
   data_format_id: "13"
   parameter_role_id: "3"
   parameter_type_id: "11"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "53"
   description: Percent Test
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
+study_parameters_073: 
+  name: Compound
+  display_unit: ""
+  default_value: ""
+  data_format_id: 
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  updated_by_user_id: "3"
+  data_type_id: "5"
+  id: "75"
+  description: Compound
+  study_id: "11"
+  created_by_user_id: "3"
+  data_element_id: "1"
 study_parameters_010: 
   name: Gene
   display_unit: ""
@@ -426,10 +510,12 @@ study_parameters_010:
   data_format_id: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "10"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_009: 
   name: Group Size
@@ -438,10 +524,12 @@ study_parameters_009:
   data_format_id: "8"
   parameter_role_id: "6"
   parameter_type_id: "12"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "9"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_031: 
   name: Group Size
@@ -450,10 +538,12 @@ study_parameters_031:
   data_format_id: "4"
   parameter_role_id: "3"
   parameter_type_id: "12"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "33"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_052: 
   name: Hyperlink
@@ -462,10 +552,26 @@ study_parameters_052:
   data_format_id: "24"
   parameter_role_id: "1"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   id: "54"
   description: ""
   study_id: "4"
+  created_by_user_id: "1"
+  data_element_id: 
+study_parameters_074: 
+  name: Activity
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "3"
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  id: "76"
+  description: Activity
+  study_id: "11"
+  created_by_user_id: "3"
   data_element_id: 
 study_parameters_011: 
   name: Molecular Mass
@@ -474,10 +580,12 @@ study_parameters_011:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "11"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_032: 
   name: Inhibition
@@ -486,10 +594,12 @@ study_parameters_032:
   data_format_id: "12"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "34"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_053: 
   name: Pos
@@ -498,10 +608,26 @@ study_parameters_053:
   data_format_id: "11"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "55"
   description: Positive integer
   study_id: "4"
+  created_by_user_id: "1"
+  data_element_id: 
+study_parameters_075: 
+  name: Link
+  display_unit: ""
+  default_value: ""
+  data_format_id: "24"
+  parameter_role_id: "7"
+  parameter_type_id: "13"
+  updated_by_user_id: "2"
+  data_type_id: "6"
+  id: "77"
+  description: link
+  study_id: "3"
+  created_by_user_id: "2"
   data_element_id: 
 study_parameters_012: 
   name: Min Weight
@@ -510,10 +636,12 @@ study_parameters_012:
   data_format_id: "4"
   parameter_role_id: "3"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "12"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_033: 
   name: ED50
@@ -522,10 +650,12 @@ study_parameters_033:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "8"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "35"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_054: 
   name: SciNote
@@ -534,10 +664,12 @@ study_parameters_054:
   data_format_id: "7"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "56"
   description: ""
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_013: 
   name: Min Age
@@ -546,10 +678,12 @@ study_parameters_013:
   data_format_id: "8"
   parameter_role_id: "3"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "13"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_034: 
   name: Fit Report
@@ -558,10 +692,12 @@ study_parameters_034:
   data_format_id: "24"
   parameter_role_id: "2"
   parameter_type_id: "13"
+  updated_by_user_id: "1"
   data_type_id: "6"
   id: "36"
   description: A full statistical report of fits
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_055: 
   name: Double
@@ -570,10 +706,12 @@ study_parameters_055:
   data_format_id: "4"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "57"
   description: ""
   study_id: "4"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_014: 
   name: Molecula Formula
@@ -582,10 +720,12 @@ study_parameters_014:
   data_format_id: "1"
   parameter_role_id: "6"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "14"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_035: 
   name: Mean Activity Count
@@ -594,10 +734,12 @@ study_parameters_035:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "4"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "37"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_056: 
   name: Target
@@ -606,10 +748,12 @@ study_parameters_056:
   data_format_id: 
   parameter_role_id: "4"
   parameter_type_id: "25"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "58"
   description: ""
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: "86"
 study_parameters_015: 
   name: Compound
@@ -618,10 +762,12 @@ study_parameters_015:
   data_format_id: 
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "15"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_036: 
   name: Gender
@@ -630,10 +776,12 @@ study_parameters_036:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "15"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "38"
   description: sex of rat
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: "57"
 study_parameters_057: 
   name: Coordinate
@@ -642,10 +790,12 @@ study_parameters_057:
   data_format_id: "8"
   parameter_role_id: "3"
   parameter_type_id: "5"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "59"
   description: Used for X,Y (or even Z) plate cordinates
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_037: 
   name: Dose
@@ -654,10 +804,12 @@ study_parameters_037:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "10"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "39"
   description: Dosage
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_058: 
   name: Label
@@ -666,10 +818,12 @@ study_parameters_058:
   data_format_id: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "60"
   description: Label used for well ref, plate Ids and so forth
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_016: 
   name: Age
@@ -678,10 +832,12 @@ study_parameters_016:
   data_format_id: "8"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "18"
   description: Animal age in days
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_059: 
   name: Readings
@@ -690,10 +846,12 @@ study_parameters_059:
   data_format_id: "4"
   parameter_role_id: "1"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "61"
   description: Cused for reader output
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_017: 
   name: Species
@@ -702,10 +860,12 @@ study_parameters_017:
   data_format_id: 
   parameter_role_id: "3"
   parameter_type_id: "17"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "19"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: "63"
 study_parameters_038: 
   name: TimeAfterDosing
@@ -714,10 +874,12 @@ study_parameters_038:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "40"
   description: IF actual time i considerably different from the nominal time please enter the actuak time after dosing
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_060: 
   name: Activity
@@ -726,10 +888,12 @@ study_parameters_060:
   data_format_id: "13"
   parameter_role_id: "2"
   parameter_type_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "62"
   description: Percent Activity or Inhibition (if positive)
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_018: 
   name: Day
@@ -738,10 +902,12 @@ study_parameters_018:
   data_format_id: "8"
   parameter_role_id: "6"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "20"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_040: 
   name: Brain Conc
@@ -750,10 +916,12 @@ study_parameters_040:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "42"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_039: 
   name: Plasma Conc
@@ -762,10 +930,12 @@ study_parameters_039:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "41"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_061: 
   name: Compound
@@ -774,10 +944,12 @@ study_parameters_061:
   data_format_id: 
   parameter_role_id: "4"
   parameter_type_id: "23"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "63"
   description: Compund of interest
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: "1"
 study_parameters_020: 
   name: Strain
@@ -786,10 +958,12 @@ study_parameters_020:
   data_format_id: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "22"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_019: 
   name: ID
@@ -798,10 +972,12 @@ study_parameters_019:
   data_format_id: "1"
   parameter_role_id: "3"
   parameter_type_id: "1"
+  updated_by_user_id: "1"
   data_type_id: "1"
   id: "21"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_041: 
   name: B/P
@@ -810,10 +986,12 @@ study_parameters_041:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "7"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "43"
   description: "Brain concentration (ng/g) : Plasma Concentration (ng/mL)"
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_062: 
   name: Concentration
@@ -822,10 +1000,12 @@ study_parameters_062:
   data_format_id: "4"
   parameter_role_id: "6"
   parameter_type_id: "9"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "64"
   description: Concentration, often refered to as dose (incorectly)
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_021: 
   name: Calculation
@@ -834,10 +1014,12 @@ study_parameters_021:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "14"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "23"
   description: ""
   study_id: "1"
+  created_by_user_id: "1"
   data_element_id: 
 study_parameters_042: 
   name: Route of Administration
@@ -846,10 +1028,12 @@ study_parameters_042:
   data_format_id: 
   parameter_role_id: "6"
   parameter_type_id: "16"
+  updated_by_user_id: "1"
   data_type_id: "5"
   id: "44"
   description: ""
   study_id: "2"
+  created_by_user_id: "1"
   data_element_id: "56"
 study_parameters_063: 
   name: Fit Statistic
@@ -858,8 +1042,10 @@ study_parameters_063:
   data_format_id: "4"
   parameter_role_id: "2"
   parameter_type_id: "8"
+  updated_by_user_id: "1"
   data_type_id: "2"
   id: "65"
   description: IC50 and related statistice
   study_id: "3"
+  created_by_user_id: "1"
   data_element_id: 

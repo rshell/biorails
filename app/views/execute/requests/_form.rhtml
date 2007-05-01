@@ -8,6 +8,11 @@
      <label for="request_for">Item Type</label>
        <%= select( :user_request, :data_element_id, @user_request.allowed_elements.collect{|c|[c.path,c.id]})  %>
    </div>
+
+   <div class="form-element">
+     <label for="request_for"> For Project </label>
+       <%= select( :user_request, :project_id, current_user.projects.collect{|c|[c.name,c.id]})  %>
+   </div>
  </div>
    
   <div class="row">

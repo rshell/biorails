@@ -52,10 +52,10 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :reference, :polymorphic => true
 ##
 # Textual content  
-  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'content_id'
+  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'content_id', :dependent => :destroy
 ##
 # File assets  
-  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'asset_id'
+  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'asset_id', :dependent => :destroy
 ##
 # Parent of a record is a   
   def folder

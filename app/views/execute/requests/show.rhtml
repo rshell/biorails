@@ -2,6 +2,8 @@
 <% content_for :centre do -%>
 
 <h2>  Request <%=subject_icon('services')%> <%= @user_request.name %>    </h2>
+
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request']} %>
    
     <div class='panel'>
     <%= render :partial => 'request', :locals => { :request => @user_request } %>  

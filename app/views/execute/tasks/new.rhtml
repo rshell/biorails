@@ -6,9 +6,7 @@
 </h2>
     <% form_tag :action => 'create' do %>
 
-        <div>
-            <%= error_messages_for 'task' %>
-        </div>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
     
         <%= hidden_field 'task','experiment_id'%>  
 

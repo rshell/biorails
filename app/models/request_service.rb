@@ -39,7 +39,7 @@ class RequestService < ActiveRecord::Base
 # 
   acts_as_scheduled :summary_of=>:items
 
-  has_many_scheduled :items, :class_name => "QueueItem" 
+  has_many_scheduled :items, :class_name => "QueueItem" ,:dependent => :destroy
 
  
 ##

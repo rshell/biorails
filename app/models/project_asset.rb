@@ -79,8 +79,8 @@ class ProjectAsset < ActiveRecord::Base
 # A assert may be referenced as a element in a number of folders to allow its inclusion into 
 # reports and analysis.
 #   
-#  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id'
-
+  has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
+  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'asset_id',:dependent => :destroy
 
 ##
 # calculate the signature of a record and return the result.

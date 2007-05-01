@@ -1,4 +1,29 @@
 --- 
+parameters_192: 
+  name: Compound
+  default_value: Compound
+  updated_at: 2007-04-30 17:36:38
+  display_unit: ""
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "1"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "2"
+  id: "288"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "63"
+  created_by_user_id: "2"
+  data_element_id: "1"
+  sequence_num: "0"
+  created_at: 2007-04-30 17:36:38
 parameters_164: 
   name: Readings
   default_value: ""
@@ -124,6 +149,31 @@ parameters_050:
   data_element_id: 
   sequence_num: "4"
   created_at: 2007-03-21 10:10:18
+parameters_193: 
+  name: Concentration
+  default_value: "10"
+  updated_at: 2007-04-30 17:37:22
+  display_unit: uM
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "4"
+  mandatory: N
+  column_no: "2"
+  parameter_role_id: "6"
+  parameter_type_id: "9"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "289"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "64"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 17:37:22
 parameters_165: 
   name: Activity
   default_value: ""
@@ -224,6 +274,31 @@ parameters_051:
   data_element_id: 
   sequence_num: "5"
   created_at: 2007-03-21 10:10:20
+parameters_194: 
+  name: Activity
+  default_value: ""
+  updated_at: 2007-04-30 17:38:16
+  display_unit: "%"
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "13"
+  mandatory: N
+  column_no: "3"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "290"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "62"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 17:38:16
 parameters_166: 
   name: Hit Flag
   default_value: miss
@@ -374,6 +449,31 @@ parameters_024:
   data_element_id: "80"
   sequence_num: "0"
   created_at: 2007-03-20 21:26:38
+parameters_195: 
+  name: Readings
+  default_value: ""
+  updated_at: 2007-04-30 17:39:23
+  display_unit: ""
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "4"
+  mandatory: N
+  column_no: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "291"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "61"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 17:39:23
 parameters_167: 
   name: Hit Flag
   default_value: miss
@@ -499,6 +599,31 @@ parameters_025:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:28:47
+parameters_196: 
+  name: Hit Flag
+  default_value: miss
+  updated_at: 2007-04-30 17:55:17
+  display_unit: ""
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "5"
+  parameter_role_id: "2"
+  parameter_type_id: "18"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "2"
+  id: "292"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "69"
+  created_by_user_id: "2"
+  data_element_id: "81"
+  sequence_num: "0"
+  created_at: 2007-04-30 17:55:17
 parameters_168: 
   name: PlateId
   default_value: ""
@@ -624,6 +749,31 @@ parameters_026:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 21:29:04
+parameters_197: 
+  name: Coordinate
+  default_value: ""
+  updated_at: 2007-04-30 18:14:50
+  display_unit: ""
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "8"
+  mandatory: N
+  column_no: "6"
+  parameter_role_id: "3"
+  parameter_type_id: "5"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "3"
+  id: "294"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "59"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 18:14:07
 parameters_169: 
   name: Z prime
   default_value: ""
@@ -724,6 +874,31 @@ parameters_110:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 10:09:27
+parameters_198: 
+  name: Activity_1
+  default_value: ""
+  updated_at: 2007-04-30 18:21:58
+  display_unit: "%"
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "13"
+  mandatory: N
+  column_no: "7"
+  parameter_role_id: "2"
+  parameter_type_id: "3"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "296"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "62"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-04-30 18:21:58
 parameters_084: 
   name: TimeAfterDosing
   default_value: ""
@@ -824,6 +999,31 @@ parameters_027:
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-20 21:29:06
+parameters_199: 
+  name: Readings_1
+  default_value: ""
+  updated_at: 2007-04-30 18:35:00
+  display_unit: ""
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "4"
+  mandatory: N
+  column_no: "8"
+  parameter_role_id: "1"
+  parameter_type_id: "7"
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "297"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "61"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "1"
+  created_at: 2007-04-30 18:35:00
 parameters_140: 
   name: Compound
   default_value: ""
@@ -1449,6 +1649,31 @@ parameters_089:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:34
+parameters_200: 
+  name: Fit Modifier
+  default_value: ""
+  updated_at: 2007-04-30 18:55:32
+  display_unit: uM
+  parameter_context_id: "49"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "1"
+  mandatory: N
+  column_no: "9"
+  parameter_role_id: "2"
+  parameter_type_id: "2"
+  updated_by_user_id: "2"
+  data_type_id: "1"
+  lock_version: "2"
+  id: "298"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "70"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 18:55:32
 parameters_173: 
   name: Fit Report
   default_value: ""
@@ -1574,6 +1799,31 @@ parameters_003:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:05:56
+parameters_201: 
+  name: KO
+  default_value: "False"
+  updated_at: 2007-04-30 19:06:48
+  display_unit: ""
+  parameter_context_id: "51"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "10"
+  parameter_role_id: "6"
+  parameter_type_id: "18"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "3"
+  id: "300"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "68"
+  created_by_user_id: "2"
+  data_element_id: "82"
+  sequence_num: "0"
+  created_at: 2007-04-30 19:06:08
 parameters_174: 
   name: Activity Max
   default_value: ""
@@ -1724,6 +1974,31 @@ parameters_004:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-20 20:05:58
+parameters_202: 
+  name: Well Literal
+  default_value: ""
+  updated_at: 2007-04-30 19:06:48
+  display_unit: ""
+  parameter_context_id: "51"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "11"
+  parameter_role_id: "6"
+  parameter_type_id: "19"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "3"
+  id: "301"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "71"
+  created_by_user_id: "2"
+  data_element_id: "76"
+  sequence_num: "0"
+  created_at: 2007-04-30 19:06:12
 parameters_175: 
   name: Concentration Max
   default_value: "100"
@@ -1999,6 +2274,31 @@ parameters_090:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:39:58
+parameters_203: 
+  name: Target
+  default_value: ""
+  updated_at: 2007-04-30 19:06:55
+  display_unit: ""
+  parameter_context_id: "51"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "12"
+  parameter_role_id: "4"
+  parameter_type_id: "25"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "2"
+  id: "302"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "58"
+  created_by_user_id: "2"
+  data_element_id: "86"
+  sequence_num: "0"
+  created_at: 2007-04-30 19:06:55
 parameters_177: 
   name: Plate QC Stat
   default_value: ""
@@ -2149,6 +2449,31 @@ parameters_091:
   data_element_id: 
   sequence_num: "1"
   created_at: 2007-03-21 11:40:02
+parameters_204: 
+  name: Label
+  default_value: ""
+  updated_at: 2007-04-30 19:12:17
+  display_unit: ""
+  parameter_context_id: "53"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: "1"
+  mandatory: N
+  column_no: "13"
+  parameter_role_id: "3"
+  parameter_type_id: "1"
+  updated_by_user_id: "2"
+  data_type_id: "1"
+  lock_version: "2"
+  id: "303"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "60"
+  created_by_user_id: "2"
+  data_element_id: 
+  sequence_num: "0"
+  created_at: 2007-04-30 19:12:17
 parameters_178: 
   name: Row
   default_value: ""
@@ -2299,6 +2624,31 @@ parameters_092:
   data_element_id: 
   sequence_num: "0"
   created_at: 2007-03-21 11:41:50
+parameters_205: 
+  name: Compound_1
+  default_value: Compound
+  updated_at: 2007-04-30 19:12:22
+  display_unit: ""
+  parameter_context_id: "53"
+  study_queue_id: 
+  access_control_id: "0"
+  protocol_version_id: "25"
+  data_format_id: 
+  mandatory: N
+  column_no: "14"
+  parameter_role_id: "4"
+  parameter_type_id: "23"
+  updated_by_user_id: "2"
+  data_type_id: "5"
+  lock_version: "2"
+  id: "304"
+  qualifier_style: 
+  description: 
+  study_parameter_id: "63"
+  created_by_user_id: "2"
+  data_element_id: "1"
+  sequence_num: "1"
+  created_at: 2007-04-30 19:12:22
 parameters_179: 
   name: Column
   default_value: ""

@@ -106,13 +106,22 @@ class Execute::RequestServicesController < ApplicationController
       format.xml  { render :xml => @request_service.to_xml }
     end
   end
-
+  ##
+  # Remove the request service
+  #
   def destroy
-    RequestService.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    @request_service = RequestService.find(params[:id])
+    @user_request = @request_service.request
+    @request_service.destroy
+    redirect_to request_url(:action => 'show', :id=>@user_request.id)
   end
-  
-protected
-   def update_queue_item
-   end 
+  ##
+  # Remove a item from a service
+  # 
+  def destroy_item
+    QueueItem.find(params[:item_id]).destroy
+    @request_service = RequestService.find(params[:id])
+    redirect_to service_url(:action => 'show', :id=> @request_service.id)
+  end
+
 end
