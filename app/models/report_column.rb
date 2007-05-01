@@ -93,7 +93,7 @@ class ReportColumn < ActiveRecord::Base
   
   def format(value)
      if value.kind_of? Numeric
-         sprintf("%01.#{report.decimal_places}f", value).to_s
+         sprintf("%01.2f", value).to_s
      else 
          value.to_s
      end

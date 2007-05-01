@@ -54,7 +54,7 @@ module SessionHelper
 
       when Compound:        link_to name || element.name, compound_url(       options.merge({:id=>element.id})  )
       when Batch:           link_to name || element.name, batch_url(          options.merge({:id=>element.id})  )
-      when Sample:          link_to name || element.name, sample_url(         options.merge({:id=>element.id})  )
+      #when Sample:          link_to name || element.name, sample_url(         options.merge({:id=>element.id})  )
       when Plate:           link_to name || element.name, plate_url(          options.merge({:id=>element.id}) )
       when Container:       link_to name || element.name, container_url(      options.merge({:id=>element.id})  )
       when Specimen:        link_to name || element.name, specimen_url(       options.merge({:id=>element.id})  )
