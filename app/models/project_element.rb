@@ -30,10 +30,10 @@ class ProjectElement < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
+  acts_as_tree :order => "position"  
+
   acts_as_audited :change_log
 
-  acts_as_tree :order => "position"  
-  
   acts_as_taggable 
   
 # Generic rules for a name and description to be present
@@ -49,7 +49,7 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :project
 ##
 #All references 
-  belongs_to :reference, :polymorphic => true
+  belongs_to :reference, :polymorphic => true 
 ##
 # Textual content  
   belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'content_id', :dependent => :destroy

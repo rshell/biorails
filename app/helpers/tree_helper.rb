@@ -305,7 +305,7 @@ end
   
   def tree_for_collection(project , folders)
       tree=TreeHelper::Node.build(folders) do |node,rec|
-          node.html_link = reference_to_url(rec )
+          node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
@@ -329,7 +329,7 @@ end
         role_node = tree.add_node(role)
         role_node.drag =false
         role_node.add_collection(study.parameters_for_role( role )) do |node,rec|
-            node.html_link = reference_to_url(rec )
+            node.link = link_to rec.name,reference_to_url(rec )
             node.icon = "/images/#{rec.data_type.name}.png"
             node.drag=true
             node.open=true

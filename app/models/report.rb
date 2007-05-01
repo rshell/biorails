@@ -332,6 +332,7 @@ end
           report.description = "Default reports for display as /#{model.to_s}/list"
           report.model= model
           report.internal=true
+          report.style ='System'
           report.save
           for col in model.content_columns
             report.column(col.name)

@@ -47,20 +47,21 @@ class ReportColumn < ActiveRecord::Base
 #
 #
   def customize(params={})
+    logger.debug "old ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
     if params.size>0
-      self.is_visible = params[:is_visible]          unless params[:is_visible].nil?
+      self.is_visible = params[:is_visible]=='1'
       self.label = params[:label]                    if params[:label]
       self.order_num = params[:order_num]            if params[:order_num]
   
-      self.is_filterible =  params[:is_filterible]   unless params[:is_filterible].nil?
+      self.is_filterible =  params[:is_filterible]=='1'
       self.filter =  params[:filter]                 if  params[:filter] 
       self.filter =  params[:action]                 if  params[:action] 
       
-      self.is_sortable =  params[:is_sortable]       unless params[:is_sortable].nil?
+      self.is_sortable =  params[:is_sortable]=='1'
       self.sort_num = params[:sort_num]              if params[:sort_num]
       self.sort_direction = params[:sort_direction]  unless params[:sort_direction].nil?
     end
-    logger.debug "ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
+    logger.debug "new ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
   end
   
 ##
@@ -128,7 +129,7 @@ class ReportColumn < ActiveRecord::Base
   end  
 ##
 # go down the tree of related objects to find the list of matchingb values. In case of 
-# a has_many relationship this may lead down a whole tree. This can result in a large
+# a has_Reportmany relationship this may lead down a whole tree. This can result in a large
 # nested tree of of values where links are arrays. 
 # eg. row.experiments.tasks.name -> [[a,b,c],[e,f,g]]
 # 
@@ -171,6 +172,9 @@ class ReportColumn < ActiveRecord::Base
     when /%/
        self.filter_operation = "like"
        self.filter_text = value
+    when /^in/ 
+       self.filter_operation = "in"
+       self.filter_text = value
     when "" 
        self.filter_operation = nil
        self.filter_text = nil
@@ -190,6 +194,8 @@ class ReportColumn < ActiveRecord::Base
     case self.filter_operation
     when nil
       nil
+    when "in
+      "#{self.filter_text}"
     when '=','like'
       self.filter_text
     else

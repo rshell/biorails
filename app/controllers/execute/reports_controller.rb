@@ -32,17 +32,41 @@ class Execute::ReportsController < ApplicationController
 #  * params[id] filter down list for a single type of model
 #
  def list
-   @report = Report.find_by_name("ReportList") 
-   unless @report
-      @report = report_list_for("ReportList",Report)
-      @report.column('custom_sql').is_visible=false 
-      @report.save
-   end  
-   @report.params[:action]='run'
-   @report.params[:controller]='reports'
-   @report.set_filter(params[:filter])if  params[:filter] 
-   @report.add_sort(params[:sort]) if params[:sort]
-   @data = @report.run
+   @project = current_project
+   @report = Report.internal_report("ReportList",Report) do | report |
+      report.column('project_id').filter_operation = "in" 
+      report.column('project_id').filter_text = "( 1 , #{@project.id} )"
+      report.column('project_id').is_visible = false
+      report.column('name').customize(:order_num=>1)
+      report.column('name').is_visible = true
+      report.column('name').action = :show
+      report.column('style').filter = 'Report'
+      report.column('custom_sql').is_visible=false 
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   
+   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })      
+ end
+
+ def internal
+   @project = current_project
+   @report = Report.internal_report("ReportList",Report) do | report |
+      report.column('project_id').filter = nil
+      report.column('project_id').is_visible = false
+      report.column('name').customize(:order_num=>1)
+      report.column('name').is_visible = true
+      report.column('name').action = :show
+      report.column('style').filter = 'System'
+      report.column('custom_sql').is_visible=false 
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   
+   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset }) 
+   render :action=>'list'     
  end
 
 ##
@@ -59,7 +83,7 @@ class Execute::ReportsController < ApplicationController
 #  
  def new
    @models = Biorails::UmlModel.models
-   @report = Report.new(:name=> Identifier.next_id(Report))
+   @report = Report.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'report')
    if params[:id]    
       @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
    end
@@ -73,7 +97,7 @@ class Execute::ReportsController < ApplicationController
 #
   def create
     @models = Biorails::UmlModel.models
-    @report = Report.new(params[:report])
+    @report = Report.new(params[:report])    
     if @report.save
       @model = eval(@report.base_model)
       @report.model = @model
@@ -106,7 +130,6 @@ class Execute::ReportsController < ApplicationController
     map = params[:columns]
     if map
       for key in map.keys
-        puts "map column #{key} report"
         column = @report.column(key)
         column.customize(map[key])
         column.save

@@ -6,6 +6,8 @@
 
  <% form_tag :action => 'create' do %> 
     <fieldset>
+     <% hidden_field :report,:style %>
+     <% hidden_field :report,:project_id %>
       <div class="row">
          <div class="form-element">
               <label for="base_model">Based on </label>
