@@ -115,12 +115,15 @@ class User < ActiveRecord::Base
 
 ##
 # Create a new Project owned by this user
+#  accepts a list of parameters for the project eg {:name=>'xxxx',:summary=>'ddddd'}
+#  the user is automatically made a member of the project and its owner
 # 
-  def create_project(name)
+# 
+  def create_project(params={})
+    logger.info params.to_yaml
      Project.transaction do 
-       project = Project.new(:name=>name)
-       project.summary = "New Project #{name} created by user #{self.name}"
-       project.owner = self
+       project = Project.new(params)
+       project.summary||= "New Project #{params[:name]} created by user #{self.name}"
        if project.save     
            self.memberships.create(:project_id =>project.id,:role_id=>self.role,:owner=>true)
        end

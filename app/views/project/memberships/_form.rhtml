@@ -5,7 +5,7 @@
 <!--[form:membership]-->
 <p>
   <label for="membership_owner">User</label><br/>
-  <%= select_named :membership, :user_id ,User %>
+  <%= collection_select(object, method ,Project.non_members, :id, :name)  %>
 </p>
 <p><label for="membership_owner">Owner</label><br/>
   <%= check_box    :membership, :owner  %>

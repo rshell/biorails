@@ -121,19 +121,13 @@ class Project < ActiveRecord::Base
 #  * project.folders.tasks
 #  
 #
-  
-###
-# Set a user as a owner of the project
-#  
-  def owner=(user)
-    membership = Membership.new
-    membership.user =user
-    membership.role =user.role
-    membership.project = self
-    membership.owner = true
-    membership.save    
-  end
 
+##
+# List of all the users who are not a member of the project
+# 
+  def non_members
+    User.find(:all,:conditions=>[" not exists (select 1 from memberships where memberships.project_id=? and memberships.user_id=users.id)",self.id] )    
+  end
 ##
 # get the home folder for the project creating it if none exists
 #   
@@ -225,11 +219,11 @@ class Project < ActiveRecord::Base
 protected 
 
   def Project.create_home_folder(project)
-     folder = ProjectFolder.new(:project_id=>project.id)
-     folder.name = '/'
-     folder.reference =  project
-     folder.path = project.name
-     folder.save
+     home_folder = ProjectFolder.new(:project_id=>project.id)
+     home_folder.name = '/'
+     home_folder.path = project.name
+     logger.info home_folder.to_yaml
+     home_folder.save
   end
   
 end

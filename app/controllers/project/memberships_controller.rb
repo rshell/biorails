@@ -40,14 +40,20 @@ class Project::MembershipsController < ApplicationController
     @membership = Membership.find(params[:id])
     if @membership.update_attributes(params[:membership])
       flash[:notice] = 'Membership was successfully updated.'
-      redirect_to :action => 'show', :id => @membership
+      redirect_to :action => 'list'
     else
       render :action => 'edit'
     end
   end
 
   def destroy
-    Membership.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    @membership = Membership.find(params[:id])
+    if @membership.project_id == 1
+       flash[:warning]="Cant delete user from the default public group"
+       render :action => 'edit'
+    else
+       @membership.destroy
+      redirect_to :action => 'list'
+    end
   end
 end

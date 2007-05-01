@@ -45,15 +45,17 @@ class Project::ProjectsController < ApplicationController
   end
 
   def create
-    @user = current_user    
-    @project = current_user.create_project(params[:project][:name])
-    @project.summary = params[:project][:summary]
-    if @project.save
-      flash[:notice] = 'Sample was successfully created.'
-      set_project(@project)
-      redirect_to  :action => 'show',:id => @project      
-    else
-      render :action => 'new'
+    Project.transaction do
+      @user = current_user    
+      @project = current_user.create_project(params['project'])
+      @project.summary = params[:project][:summary]
+      if @project.save
+        flash[:notice] = 'Sample was successfully created.'
+        set_project(@project)
+        redirect_to  :action => 'show',:id => @project      
+      else
+        render :action => 'new'
+      end
     end
   end
 
@@ -66,12 +68,14 @@ class Project::ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
-    if @project.update_attributes(params[:sample])
-      flash[:notice] = 'Sample was successfully updated.'
-      redirect_to :action => 'show', :id => @project
-    else
-      render :action => 'edit'
+    Project.transaction do
+      @project = Project.find(params[:id])
+      if @project.update_attributes(params[:sample])
+        flash[:notice] = 'Sample was successfully updated.'
+        redirect_to :action => 'show', :id => @project
+      else
+        render :action => 'edit'
+      end
     end
   end
   

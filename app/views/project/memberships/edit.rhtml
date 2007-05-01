@@ -1,24 +1,38 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <div>
+  <span class='menu'>Membership</span>
+   <%= link_to 'List', :action => 'list' %>
+   <%= link_to 'Add Member', :action => 'new' %>
+   <%= link_to (subject_icon('action/destroy.png')) + 'Delete',{ :action => 'destroy', :id => @membership }, 
+                    :confirm => 'Are you sure?',:method => "post" %></li>
+  </div>
+<% end -%>
+
+
 <h1>Editing membership  of project <%=current_project.name%> </h1>
 <div class='panel'>
 
 <% form_tag :action => 'update', :id => @membership do %>
-    <%= error_messages_for 'membership' %>
+
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
+
 	<%=  hidden_field :membership, :project_id %>
 
     <!--[form:membership]-->
     <p>
-      <label for="membership_owner">User:</label>
-      <b><%= @membership.user.name%></b>
+      <h3>User <%= @membership.user.name%></h3>
       <%= hidden_field :membership, :user_id  %>
-
-    <label for="membership_owner">Role</label>
-      <%= select_named :membership, :role_id ,Role %>
-
+<br />
     <label for="membership_owner">Owner</label>
       <%= check_box    :membership, :owner  %>
-    
+    <label for="membership_owner">Role</label>
+      <%= select_named :membership, :role_id ,Role %>
+<br />    
+<br />    
     <!--[eoform:membership]-->
           <%= submit_tag 'Edit' %>
 <% end %>
 </div>
-<%= link_to 'Back', :action => 'list' %>
+ 
+                    

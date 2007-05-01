@@ -83,7 +83,7 @@ class Execute::ReportsController < ApplicationController
 #  
  def new
    @models = Biorails::UmlModel.models
-   @report = Report.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'report')
+   @report = Report.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'Report')
    if params[:id]    
       @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
    end

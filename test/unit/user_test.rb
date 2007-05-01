@@ -57,7 +57,7 @@ class UserTest < Test::Unit::TestCase
   def test004_create_project
      user = User.find(:first)
 
-     project = user.create_project("test-projectss")
+     project = user.create_project(:name=>"test-projectss")
      assert_ok project
      user.projects.each{ |p|puts p.name }     
      assert user.projects.detect{|i|i==project}, "project on my list"

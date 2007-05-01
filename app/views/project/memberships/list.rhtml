@@ -1,13 +1,17 @@
 <% content_for :sidemenu do -%>
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => current_project} %>
+  <div>
+  <span class='menu'>Membership</span>
+   <%= link_to 'List', :action => 'list' %>
+   <%= link_to 'Add Member', :action => 'new' %>
+  </div>
 <% end -%>
 
 
 <% content_for :centre do -%>
-<h2> <%=current_project.name%> project members </h2>
+<h2> Project <b><%=current_project.name%></b> membership </h2>
 
-<table id="project_members", class="list">
+<table id="project_members", class="report">
   <thead>
     <tr>
 	<th>Name</th>
@@ -26,9 +30,9 @@
 	   <%=link_to item.user.name, :action => 'edit' ,:id=>item %>
        	  <span class="tip">
     	     <h3><%=h item.user.name %>: <%=h item.user.fullname %></h3>
-       	     This user normallty acts as a <%=h item.user.role.name%> 
+      	      Last login was <%=format_date item.user.updated_at%>. 
        	     <% if item.user.admin %>
-       	      and is a <strong>system administrator</strong> so has full rights over the project.
+       	      This user is a <strong>system administrator</strong> so has full rights over the project.
        	     <% end %>
           </span>		
           </div>
@@ -50,8 +54,8 @@
          <%= item.role.description %>
       </span>		
       </div>
-	<td align="center"><%= short_date(item.created_at) %>
-	<td align="center"><%= short_date(item.updated_at) %>
+	<td ><%= short_date(item.created_at) %>
+	<td><%= short_date(item.updated_at) %>
   </tr>
 <% end %>
   </tbody>
