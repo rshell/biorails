@@ -95,9 +95,10 @@ class Execute::ExperimentsController < ApplicationController
 ##
 # create a new experiment
   def new
-    @study = current( Study, params[:id] )
+    @study = current( Study, params[:id] ) if  params[:id]
+    @study ||= current_project.studies.find(:first)
     @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_id(Experiment))
-    @experiment.description = " Task in study #{@study.name} "  
+    @experiment.description = " Experiment in project #{current_project.name} "  
   end
 
   def copy
