@@ -4,8 +4,8 @@ module SheetHelper
 # Mega Helper for display of a whole data view
 # Display the data for a task is a tabluar manor
 
- def task_dataview(task )
-   data_view(task.grid )
+ def task_dataview(task,auditing =false)
+   data_view(task.grid,auditing )
  rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -25,7 +25,7 @@ module SheetHelper
 ##
 # create a data display grid for the passed task and parameter_context
 # 
- def data_view(grid )
+ def data_view(grid,auditing =false)
    out = String.new
    out << '<table class="sheet"><tbody>' << "\n"
    old = nil
@@ -37,7 +37,7 @@ module SheetHelper
        out << data_grid_headers(row) 
        out << "</tbody><tbody id ='#{row.dom_id('body')}' >\n"
      end
-     out << data_view_row(row)
+     out << data_view_row(row,auditing)
      n +=1
    end    
    out << '</tbody></table>' << "\n"
@@ -49,13 +49,17 @@ module SheetHelper
 ##
 # Out a grid row of data cells
 # 
- def data_view_row(row)
+ def data_view_row(row,auditing =false)
    out = String.new
    out << "<tr>\n  <th>" << row.label 
    out << "  </th>\n" 
    for cell in row.cells
      out << '  <td class="cell">'
-     out << cell.value.to_s || ' '
+     if cell.item and auditing
+       out << link_to( cell.value.to_s, audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ))
+     else
+       out << cell.value.to_s || ' '
+     end
      out << "  </td>\n"
    end
    out << "</tr>\n"
@@ -83,7 +87,7 @@ module SheetHelper
    end    
    out << '</tbody></table>' << "\n"
  rescue Exception => ex
-    logger.error ex.message
+    logger.error ex.message     
     logger.error ex.backtrace.join("\n")  
  end
 

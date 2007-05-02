@@ -6,7 +6,7 @@
     <th>Action</th>
     <th>User</th>
     <th>Created</th>
-    <% for column in @root.class.columns %>
+    <% for column in @root.class.content_columns %>
        <th>
        <%= column.name.to_s %> 
        </th>
@@ -19,14 +19,18 @@
     <th><b><%= audit.action %></b></th>
     <th><%= audit.user.name %></th>
     <th><%=format_date audit.created_at %></th>
-    <% for column in @root.class.columns %>
+    <% for column in @root.class.content_columns %>
        <% change = audit.changes[column.name] %>
        <% unless change %>
        <td>
           <%= @root.attributes[column.name]  %>
        </td>
        <% else %>
-       <td class='state_accepted'> <%= change[0] %> => <b><%= change[1] %></b> </span>
+       <% if audit.action=='update'%>
+       <td class='state_accepted'> <b><%= change[1] %></b> </span>
+       <% else %>
+       <td class='state_accepted'> <b><%= change[1] %></b> </span>
+       <% end %>
        </td>
        <% end %>
     <% end %>

@@ -6,6 +6,7 @@
    <div id="SheetPanel" class="datasheet">
      <% form_tag :action => 'update', :id => @task do %>
                 <!-- start data sheet -->  
+                
                  <%= data_sheet(@task.grid) %>
                 <!-- end data sheet -->  
     <% end %>

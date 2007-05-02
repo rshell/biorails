@@ -4,7 +4,8 @@
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2> 
 <% if @task.contexts.size < 2000 %>
-   <%= task_dataview(@task) %>
+   <%= task_dataview(@task,true) %>
+      
 <% else%>
    <p> 
     <%=subject_icon('information')%> This display is currently optimized for ~2000 rows of data and this task has too much data to display at present.
