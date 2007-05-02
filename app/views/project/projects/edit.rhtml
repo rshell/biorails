@@ -3,10 +3,9 @@
   <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
 <% end -%>
 
-<%= error_messages_for 'project' %>
-<%= error_messages_for 'user' %>
-
 <% content_for :centre do -%>
+    <%= error_messages_for 'project' %>
+    <%= error_messages_for 'user' %>
 
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>

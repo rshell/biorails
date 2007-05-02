@@ -2,8 +2,8 @@
  *=ERRORS AND NOTICES
  */
 /********** Validation error messages *************/
+
 #errorExplanation {
-  width: 400px;
   border: 0;
   padding: 7px;
   padding-bottom: 3px;
@@ -13,9 +13,7 @@
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
-  padding: 5px 5px 10px 26px;
-  font-size: 1em;
-  margin: -7px;
+  font-size: 1.5em;
   background: url(../images/alert.png) no-repeat 6px 6px;
 }
 
@@ -27,22 +25,20 @@
 #errorExplanation {
   text-align: left;
   border: 1px solid #F99;
-  background: #fdd;
+  background: #ffd5cd;
 }
 
 
 #errorExplanation ul li {
   font-size: 1em;
-  list-style: none;
-  margin-left: -16px;
 }
 
 #flash-errors, #errorExplanation {
   margin: 0 auto;
-  background: #F69A91;
+  background: #ffc7b6;
   padding: 10px;
   color: #510;
-  text-align: center;
+
 }
 
 #flash-notice {
@@ -50,7 +46,7 @@
   padding: 10px;
   color: #051;
   text-align: center;
-}
+  }
 
 #errorExplanation ul, 
 #flash-notice ul, 
