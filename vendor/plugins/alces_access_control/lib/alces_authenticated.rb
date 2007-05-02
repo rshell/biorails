@@ -61,7 +61,7 @@ module Alces
               logger.info "User #{user.name} authenticate..."    
               return user
           else    
-              logger.info "User #{user.name} not authenticate..."    
+              logger.info "User #{user} not authenticate..."    
           end
           return nil
         end
