@@ -1,10 +1,10 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/users_controller'
+require 'project/projects_controller'
 
 # Re-raise errors caught by the controller.
-class Admin::UsersController; def rescue_action(e) raise e end; end
+class Project::ProjectsController; def rescue_action(e) raise e end; end
 
-class Admin::UsersControllerTest < Test::Unit::TestCase
+class Project::ProjectsControllerTest < Test::Unit::TestCase
   fixtures :users
   fixtures :roles
   fixtures :role_permissions
@@ -12,7 +12,7 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
   fixtures :projects
 
   def setup
-    @controller = Admin::UsersController.new
+    @controller = Project::ProjectsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end

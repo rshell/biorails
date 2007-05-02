@@ -5,6 +5,9 @@ class Project::ProjectsController < ApplicationController
                     :rights =>  :current_project  
 
   helper :calendar
+  
+  in_place_edit_for :project, :name
+  in_place_edit_for :project, :summary
 ##
 # Generate a index dashboard for the project 
 #   

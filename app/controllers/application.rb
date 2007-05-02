@@ -128,7 +128,7 @@ class ApplicationController < ActionController::Base
     instance = model.find(id) if id
     instance ||= model.find(session[key]) if session[key]
     instance ||= current_user.lastest(model) if logged_in?
-    session[key]= instance.id
+    session[key]= instance.id if instance
     return instance
   rescue Exception => ex
       logger.error "current error: #{ex.message}"

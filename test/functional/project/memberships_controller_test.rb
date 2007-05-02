@@ -1,16 +1,18 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'study/study_queues_controller'
+require 'project/memberships_controller'
 
 # Re-raise errors caught by the controller.
-class Study::StudyQueuesController; def rescue_action(e) raise e end; end
+class MembershipsController; def rescue_action(e) raise e end; end
 
-class Study::StudyQueuesControllerTest < Test::Unit::TestCase
-  fixtures :study_queues
+class MembershipsControllerTest < Test::Unit::TestCase
+  fixtures :memberships
 
   def setup
-    @controller = StudyQueuesController.new
+    @controller = Project::MembershipsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+
+    @first_id = memberships(:first).id
   end
 
   def test_index
@@ -25,17 +27,17 @@ class Study::StudyQueuesControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'list'
 
-    assert_not_nil assigns(:study_queues)
+    assert_not_nil assigns(:memberships)
   end
 
   def test_show
-    get :show, :id => 1
+    get :show, :id => @first_id
 
     assert_response :success
     assert_template 'show'
 
-    assert_not_nil assigns(:study_queue)
-    assert assigns(:study_queue).valid?
+    assert_not_nil assigns(:membership)
+    assert assigns(:membership).valid?
   end
 
   def test_new
@@ -44,45 +46,47 @@ class Study::StudyQueuesControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'new'
 
-    assert_not_nil assigns(:study_queue)
+    assert_not_nil assigns(:membership)
   end
 
   def test_create
-    num_study_queues = StudyQueue.count
+    num_memberships = Membership.count
 
-    post :create, :study_queue => {}
+    post :create, :membership => {}
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
-    assert_equal num_study_queues + 1, StudyQueue.count
+    assert_equal num_memberships + 1, Membership.count
   end
 
   def test_edit
-    get :edit, :id => 1
+    get :edit, :id => @first_id
 
     assert_response :success
     assert_template 'edit'
 
-    assert_not_nil assigns(:study_queue)
-    assert assigns(:study_queue).valid?
+    assert_not_nil assigns(:membership)
+    assert assigns(:membership).valid?
   end
 
   def test_update
-    post :update, :id => 1
+    post :update, :id => @first_id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show', :id => @first_id
   end
 
   def test_destroy
-    assert_not_nil StudyQueue.find(1)
+    assert_nothing_raised {
+      Membership.find(@first_id)
+    }
 
-    post :destroy, :id => 1
+    post :destroy, :id => @first_id
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      StudyQueue.find(1)
+      Membership.find(@first_id)
     }
   end
 end

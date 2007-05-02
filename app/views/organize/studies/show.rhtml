@@ -1,3 +1,18 @@
+
+<% content_for :sidemenu do -%>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
+  <div>
+      <span class='menu'> Actions </span>
+      <%= link_to subject_icon('action/new') +'Add Parameter',    parameter_url(:action => 'new',  :id => @study)%>
+      <%= link_to subject_icon('action/new') +'Add Protocol',     protocol_url(:action => 'new',  :id => @study)%>
+      <%= link_to subject_icon('action/new') +'Add Queue',        queue_url(:action => 'new',  :id => @study)%>
+      <%= link_to subject_icon('action/new') +'Add Experiment',   experiment_url(:action => 'new',  :id => @study) if @study.protocols.size>0 %>
+  </div>
+
+<% end %>
+
+
 <% content_for :centre do -%>
   <h2><%=subject_icon('study.png')%> Study Design [<strong><%=@study.name %></strong>] </h2>
 

@@ -30,5 +30,10 @@ class DataElementsTest < Test::Unit::TestCase
 #     assert  cmpd.values.size ,"has values "
   end
   
+  def test_create_list_element
+     element = ListElement.new
+     element.content = "'a','b','c','d'"
+     element.save     
+  end
   
 end

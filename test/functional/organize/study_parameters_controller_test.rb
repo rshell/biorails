@@ -1,14 +1,14 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'study/parameters_controller'
+require 'organize/study_parameters_controller'
 
 # Re-raise errors caught by the controller.
-class Study::ParametersController; def rescue_action(e) raise e end; end
+class Organize::StudyParametersController; def rescue_action(e) raise e end; end
 
-class Study::ParametersControllerTest < Test::Unit::TestCase
-  fixtures :parameters
+class Organize::StudyParametersControllerTest < Test::Unit::TestCase
+  fixtures :study_parameters
 
   def setup
-    @controller = ParametersController.new
+    @controller = StudyParametersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
@@ -25,7 +25,7 @@ class Study::ParametersControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'list'
 
-    assert_not_nil assigns(:parameters)
+    assert_not_nil assigns(:study_parameters)
   end
 
   def test_show
@@ -34,8 +34,8 @@ class Study::ParametersControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'show'
 
-    assert_not_nil assigns(:parameter)
-    assert assigns(:parameter).valid?
+    assert_not_nil assigns(:study_parameter)
+    assert assigns(:study_parameter).valid?
   end
 
   def test_new
@@ -44,18 +44,18 @@ class Study::ParametersControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'new'
 
-    assert_not_nil assigns(:parameter)
+    assert_not_nil assigns(:study_parameter)
   end
 
   def test_create
-    num_parameters = Parameter.count
+    num_study_parameters = StudyParameter.count
 
-    post :create, :parameter => {}
+    post :create, :study_parameter => {}
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
-    assert_equal num_parameters + 1, Parameter.count
+    assert_equal num_study_parameters + 1, StudyParameter.count
   end
 
   def test_edit
@@ -64,8 +64,8 @@ class Study::ParametersControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'edit'
 
-    assert_not_nil assigns(:parameter)
-    assert assigns(:parameter).valid?
+    assert_not_nil assigns(:study_parameter)
+    assert assigns(:study_parameter).valid?
   end
 
   def test_update
@@ -75,14 +75,14 @@ class Study::ParametersControllerTest < Test::Unit::TestCase
   end
 
   def test_destroy
-    assert_not_nil Parameter.find(1)
+    assert_not_nil StudyParameter.find(1)
 
     post :destroy, :id => 1
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Parameter.find(1)
+      StudyParameter.find(1)
     }
   end
 end

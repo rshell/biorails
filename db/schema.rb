@@ -686,16 +686,16 @@ ActiveRecord::Schema.define(:version => 253) do
   end
 
   create_table "reports", :force => true do |t|
-    t.column "name",               :string,   :limit => 128, :default => "", :null => false
+    t.column "name",               :string,   :limit => 128, :default => "",       :null => false
     t.column "description",        :text
     t.column "base_model",         :string
     t.column "custom_sql",         :string
-    t.column "lock_version",       :integer,                 :default => 0,  :null => false
-    t.column "created_at",         :datetime,                                :null => false
-    t.column "updated_at",         :datetime,                                :null => false
-    t.column "style",              :string
-    t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "lock_version",       :integer,                 :default => 0,        :null => false
+    t.column "created_at",         :datetime,                                      :null => false
+    t.column "updated_at",         :datetime,                                      :null => false
+    t.column "style",              :string,                  :default => "Report"
+    t.column "updated_by_user_id", :integer,                 :default => 1,        :null => false
+    t.column "created_by_user_id", :integer,                 :default => 1,        :null => false
     t.column "internal",           :boolean
     t.column "project_id",         :integer
   end

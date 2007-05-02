@@ -144,7 +144,7 @@ class User < ActiveRecord::Base
 # 
   def lastest(model = Task, count=5, field=nil)
     if field and model.columns.any?{|c|c.name==field.to_s} and model.columns.any?{|c|c.name=='updated_at'}
-       model.find(:all,:conditions => [field.to_s,self.id] , :order=>'updated_at desc',:limit => count)
+       model.find(:all,:conditions => ["#{field.to_s}=?",self.id] , :order=>'updated_at desc',:limit => count)
        
     elsif model.columns.any?{|c|c.name=='assigned_to_user_id'} and model.columns.any?{|c|c.name=='updated_at'}
        model.find(:all,:conditions => ['assigned_to_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)

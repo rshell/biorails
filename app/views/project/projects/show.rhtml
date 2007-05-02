@@ -5,9 +5,14 @@
 
 
 <% content_for :centre do -%>
+<%if @project.owner?(current_user)%>
+<h2> Project <%= in_place_editor_field :project, 'name' %></h2>
+<b>Summary:</b> <%= in_place_editor_field :project, 'summary' %>
+<%else%>
+<h2> Project <%= @project.name %></h2>
+<b>Summary:</b><%= @project.summary %>
+<%end%>
 
-<h2><%= @project.name%></h2>
-<%= @project.summary%>
 
 <div class="splitcontentleft">
   <div class="box">

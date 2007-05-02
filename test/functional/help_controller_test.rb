@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'rdoc_controller'
+require 'help_controller'
 
 # Re-raise errors caught by the controller.
-class RdocController; def rescue_action(e) raise e end; end
+class HelpController; def rescue_action(e) raise e end; end
 
-class RdocControllerTest < Test::Unit::TestCase
+class HelpControllerTest < Test::Unit::TestCase
   def setup
-    @controller = RdocController.new
+    @controller = HelpController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end
