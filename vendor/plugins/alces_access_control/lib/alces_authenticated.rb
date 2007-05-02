@@ -49,8 +49,7 @@ module Alces
 # get the user for a username
 #       
         def for_username(username)
-           user = find(:first, :conditions => ["#{acts_as_authenticated_options[:username]}=?", username])
-           logger.info "User #{user.name} found..."  
+           user = find(:first, :conditions => ["#{acts_as_authenticated_options[:username]}=?", username]) 
            return user        
         end
 ##
