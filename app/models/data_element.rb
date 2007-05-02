@@ -112,13 +112,16 @@ class DataElement < ActiveRecord::Base
 # Lookup to find value in a list
 # 
   def lookup(name)
-    return self.children.detect{|item|item.name == name}
+    item = self.children.detect{|item|item.name.to_s == name.to_s}
+    item ||= self.children.detect{|item|item.id.to_s == name.to_s}
+    logger.info "lookup for #{self.id}  with #{name} ==> #{item}"
+    return item
   end
 ##
 # convert a id to a DataValue
 # 
-  def reference(id)description
-    return self.children.detect{|item|item.id == id}
+  def reference(id)
+    return self.children.detect{|item|item.id.to_s == id.to_s}
   end
   
   def like(name)
