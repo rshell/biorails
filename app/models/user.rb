@@ -51,10 +51,11 @@ class User < ActiveRecord::Base
 # Business Rules for a user
 # 
   attr_accessor :password
-#  attr_accessor :password_conformation
+  attr_accessor :password_confirmation
 
   validates_presence_of   :name
-  validates_presence_of   :role
+  validates_presence_of   :role 
+  validates_confirmation_of :password
 
   validates_length_of     :login, :within => 3..40
   validates_format_of     :login, :with => /^[a-z0-9_\-@\.]+$/i

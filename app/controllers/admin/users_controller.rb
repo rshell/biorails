@@ -48,14 +48,16 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
-   
-    if @user.update_attributes(params[:user])
+    if  @user.update_attributes(params[:user])
+      @user.set_password( params[:user][:password])   
+      @user.save!
       flash[:notice] ='Profile updated.'
+      redirect_to :action => 'index'
     else
-      flash[:error] = "Save failed: #{@user.errors.full_messages.to_sentence}"
+      flash[:error] = "Save failed"
+      render :action => 'edit'
     end
 
-    redirect_to :action => 'index'
   end
 
   def destroy

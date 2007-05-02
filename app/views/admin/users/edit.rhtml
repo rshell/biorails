@@ -9,7 +9,8 @@
     </div>
 <% end %>
 
-<%= error_messages_for :user %>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['user']} %>
+
 <% form_for :user, :url => { :action => 'update' ,:id=>@user.id} do |f| -%>
 <div class="setgroup">
   <dl class="setform clear">
@@ -22,8 +23,14 @@
     <dt><%= f.label_for  :login %></dt>
     <dd><%= f.text_field :login %></dd>
 
+    <dt><%= f.label_for  'Adminstrator Rights [Full System Liability]' %></dt>
+    <dd><%= f.check_box :admin %></dd>
+
     <dt><%= f.label_for      :password %></dt>
     <dd><%= f.password_field :password %></dd>
+
+    <dt><%= f.label_for      :password_confirmation %></dt>
+    <dd><%= f.password_field :password_confirmation %></dd>
 
     <dt><label for="user_role">Access Level </label></dt>
     <dd>
