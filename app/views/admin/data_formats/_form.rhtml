@@ -1,7 +1,7 @@
-<fieldset>
+
+  <fieldset>
   <div class="row">
     <!--[form:data_format]-->
-<div class="row">
     <div class="form-element">
       <label for="data_format_data_type">Data type</label>
       <%= select_named( :data_format, :data_type_id ,DataType) %>
@@ -19,25 +19,25 @@
 </div>
 
 <div class="row">
-    <div class="form-element">
       <label for="data_format_description">Description</label>
-      <%= text_area 'data_format', 'description',{:rows=>5, :cols=>100}   %>
-    </div>
+      <%= text_area 'data_format', 'description',{:rows=>2, :cols=>100}   %>
 </div>
-  
+ 
+
+<div class="row">
+      <label for="data_format_format_regex">Format regex</label>
+      <%= text_area 'data_format', 'format_regex' , {:rows=>2, :cols=>100 ,
+           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
+</div>
+
 <div class="row">
     <div class="form-element">
-      <label for="data_format_format_regex">Format regex</label>
-      <%= text_field 'data_format', 'format_regex' , {:size=>30 ,:class=>"text-input",:onkeyup=> 'onKeyMatchClick()'} %>
-    </div>
-
-    <div class="form-element">
       <label for="data_format_test">Test String
-            <%= link_to_function('[test match]', "demoMatchClick();") %>       
+            <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>       
       </label>
-      <%= text_field_tag 'test_match','',{:size=>30,:class=>"text-input",:onkeyup=> 'onKeyMatchClick()'}  %>
+      <%= text_field_tag 'test_match','',{:size=>30,:class=>"text-input",
+           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"}  %>
       <br />
-      <span id="test_result">Untested</span>
     </div>
 
 </div>

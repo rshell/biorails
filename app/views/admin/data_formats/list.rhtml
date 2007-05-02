@@ -11,14 +11,17 @@
 <table class="report">
   <tr>
     <th>name</th>
-    <th>Description</th>
+    <th>Test Field</th>
+    <th>Regex Rule </th>
     <th>Action</th>
   </tr>
   
 <% for data_format in @data_formats %>
   <tr>
     <td><%= link_to data_format.name,data_format_url( :action => 'show', :id => data_format) %></td>
-    <td><%=h data_format.description%></td>
+    <td><%= text_field_tag data_format.dom_id('test'),'',{:size=>30,:class=>"text-input",
+           :onkeyup=> "RegExMatchOnKey( '#{data_format.format_regex}', $('#{data_format.dom_id('test')}' ) )"}  %></td>
+    <td><%=h data_format.description %></td>
     <td><%= link_to 'edit',data_format_url( :action => 'edit', :id => data_format) %></td>
   </tr>
 <% end %>

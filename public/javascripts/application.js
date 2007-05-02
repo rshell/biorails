@@ -44,23 +44,27 @@ function toggle_classes(label,body)
         function(value, index) {  value.style.display ='';  });
    }
 }
-
-/**
- * Set a single panel to be displayed or not
+/*
+ * simple RegEx match tester
  */
-function toggle_element(label,body)
-{
-   if ($(label).className =="selected") {
-     $(label).className ="unselected";
-   } else {
-     $(label).className ="selected";
-   }
-   Effect.toggle(body,'appear');
+function RegExMatchCheck(mask,subject) {
+
+   re = new RegExp(mask);
+     if (re.test(subject.value)) {
+       alert("passed mask matches: "+subject.value );
+     } else {
+       alert("failed");
+    }
 }
 
-function showTab(block,tab)
-{
-  blocks =document.getElementsByClassName('TabPanel').each( 
-        function(value, index) {  value.style.display ='none';  });
-  $(tab).style.display ='';       
+/*
+ * simple RegEx match hifhligher
+ */
+function RegExMatchOnKey(mask,subject) {
+   re = new RegExp(mask);
+    if (re.test(subject.value)) {
+       new Effect.Highlight(subject.id,{endcolor:'#99FF99', restorecolor:'#99FF99'} );
+    } else {
+       new Effect.Highlight(subject.id,{endcolor:'#FFAAAA', restorecolor:'#FFAAAA'} );
+    }
 }

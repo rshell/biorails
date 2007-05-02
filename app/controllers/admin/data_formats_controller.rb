@@ -51,7 +51,7 @@ class Admin::DataFormatsController < ApplicationController
     @data_format = DataFormat.find(params[:id])
     if @data_format.update_attributes(params[:data_formats])
       flash[:notice] = 'DataFormat was successfully updated.'
-      redirect_to :action => 'show', :id => @data_format
+      redirect_to :action => 'list'
     else
       render :action => 'edit'
     end
