@@ -30,10 +30,41 @@ class DataElementsTest < Test::Unit::TestCase
 #     assert  cmpd.values.size ,"has values "
   end
   
-  def test_create_list_element
+  def test_create_list_element_text
      element = ListElement.new
+     element.name = 'xxxx'
+     element.description = 'test'
+     element.concept = DataConcept.find(2)
+     element.system = DataSystem.find(:first)
      element.content = "'a','b','c','d'"
      element.save     
+     assert element.valid? ,"failed to save"
+     assert element.children.size==4, "wrong number of children"
+  end
+
+
+  def test_create_list_element_integer
+     element = ListElement.new
+     element.name = 'xxx2'
+     element.description = 'test'
+     element.concept = DataConcept.find(2)
+     element.system = DataSystem.find(:first)
+     element.content = "1,2,3,4,5,6"
+     element.save     
+     assert element.valid? ,"failed to save"
+     assert element.children.size==6, "wrong number of children"
   end
   
+  def test_create_model_element
+     element = ModelElement.new
+     element.name = 'xxx3'
+     element.description = 'test'
+     element.concept = DataConcept.find(2)
+     element.system = DataSystem.find(:first)
+     element.content = "Study"
+     element.save     
+     assert element.valid? ,"failed to save"
+     assert element.size == Study.count, "wrong number of Studies"
+  end
+    
 end

@@ -7,10 +7,11 @@
     </div>
 <% end %>
 
+<% content_for :centre do %>
 
 <div class='main' id='maintitle'>
     <H2>
-        <%=subject_icon('data_element')%> New Data Element in [<strong><%=@data_element.system.path%></strong>]
+        <%=subject_icon('data_element')%> New Data Element implemening [<strong><%=@data_concept.path%></strong>]
     </H2>
     <div class='dialog'>
         <% if @data_element.parent %>
@@ -23,14 +24,18 @@
             <% end %>
         <% end %>
         
-      <% form_tag :action => 'create' do %>
+      <% form_tag :action => 'create',:id=>@data_concept do %>
         <%= render :partial => 'form' %>
-        <%= render :partial => 'values' %>
-        <fieldset>
-            <div class='row'>
-                <%= submit_tag "Create" %>
-            </div>
-        </feildset>
+
+        <div class='row'>
+            <%= submit_tag "Save" %>
+        </div>
+
       <% end %>
     </div>
 </div>
+<% end %>
+
+<% content_for :right do %>
+  <%= render :partial=>'guide'%>
+<% end %>

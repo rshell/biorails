@@ -4,7 +4,6 @@ Enter the implementation for the  concept [<%=@data_concept.path%>] below:-
 <%= form_remote_tag :url => {:action =>'create_element', :id => @data_concept} %>
   <fieldset class='form'>                              
       <%= render :partial =>'form_element' %>
-      <%= render :partial => 'form_values' %>
   </fieldset>   
   <%= submit_tag 'Save' %>
   <%=link_to_remote "Cancel", :url =>{:action=>'show',:id => @data_concept.id} %>

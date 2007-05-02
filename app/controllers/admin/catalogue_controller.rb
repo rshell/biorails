@@ -118,8 +118,9 @@ def new_element
     @data_element = DataElement.new
     @data_element.style=='list'
     @data_element.concept = @data_concept
+    @data_element.name = @data_concept.name
+    @data_element.system = DataSystem.find(:first)  
     @data_element.parent = nil
-#   return render(:action => 'concept.rjs') if request.xhr?
    return render( :action => 'new_element')   if request.xhr?
    render( :partial => 'new_element')
 end
@@ -128,13 +129,9 @@ end
 # Create a new DataElement for the concept to link in a list of real entities into the catalogue
 #
 def create_element 
-    @data_concept = DataConcept.find(params[:id])
-    @data_element = DataElement.create(params[:data_element],params[:content]) 
-    @data_element.concept = @data_concept
-    @data_system =  @data_element.system
-  
-    @data_element.estimated_count = @data_element.values.size
     @current_tab =1
+    @data_concept = DataConcept.find(params[:id])
+    @data_element = DataElement.create_from_params(params['data_element']) 
     if @data_element.save
       flash[:notice] = 'DataElement was successfully created.'
       return render(:action => 'show.rjs') if request.xhr?

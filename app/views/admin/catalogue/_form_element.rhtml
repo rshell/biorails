@@ -25,10 +25,23 @@
 
 </div>
 <div class="row">
-    <div class="form-element">
       <label for="data_element_description">Description</label>
       <%= text_area( :data_element, :description ,{:rows=>5, :cols=>100}	)%>
-    </div>
+</div>
+<%if  @data_element.new_record? %>
+<div class="row">
+      <div class="form-element">
+        <label for="data_element_style">Lookup Style</label>
+        <%= select(:data_element, :style, @data_element.allowed_styles {|p| p})%>
+      </div>
+ </div>
+<% else %>
+<%= @data_element.style %> based lookup
+<% end %>
+
+<div class="row">
+  <label for="data_element_content">content:</label>
+  <%= text_area( 'data_element', 'content')  %>
 </div>
 
 <!--[eoform:data_element]-->

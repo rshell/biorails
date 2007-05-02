@@ -8,51 +8,23 @@
 <% end %>
 
 
-<div class='main'>
+<% content_for :centre do %>
 
     <h2>
         <%=subject_icon('data_element')%> Editing Data Element [<strong><%=@data_element.name%></strong>]
     </h2>
 
     <% form_tag :action => 'update', :id => @data_element do %>
-        
-    <div class='dialog'>
-        
-        <div class="row">
-          <strong>System:</strong>  <%= @data_element.system.name %><br/>
-          <strong>Concept:</strong>  <%= @data_element.concept.name %>
-        
-        </div>
-        <div class="row">
-            <div class="form-element">
-                  <label for="data_element_name">Name</label>
-                  <%= text_field :data_element, :name,{:class=>"text-input"}  %>
-            </div>
-        </div>
-        <div class="row">       
-            <div class="form-element">
-                  <label for="data_element_estimated_count">Estimated No. Values</label>
-                  <%= text_field :data_element, :estimated_count ,{:size => 7, :class=>"text-input"}%>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="form-element">
-            
-              <label for="data_element_description">Description</label>
-              <%= text_area( 'data_element', 'description',{:rows=>5, :cols=>100} )%>
-            </div>
+        <%= render :partial => 'form' %>
+
+        <div class='row'>
+            <%= submit_tag "Save" %>
         </div>
 
-      <div class="row">
-         <%= render :partial => 'values' %>
-      </div>
-
-     <div class="row">
-        <%= submit_tag 'Save' %>
-     </div>
-
-   </div>
-  <% end %>
+   <% end %>
  
-</div>
+<% end %>
+
+<% content_for :right do %>
+  <%= render :partial=>'guide'%>
+<% end %>

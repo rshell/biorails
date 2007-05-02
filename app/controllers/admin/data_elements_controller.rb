@@ -65,7 +65,37 @@ class Admin::DataElementsController < ApplicationController
        render :action => 'show'        
      end
   end
-  
+ 
+##
+# Put up Ajax from for a new Element
+def new
+    @data_concept = DataConcept.find(params[:id])    
+    @data_element = DataElement.new
+    @data_element.style=='list'
+    @data_element.concept = @data_concept
+    @data_element.name = @data_concept.name
+    @data_element.system = DataSystem.find(:first)  
+    @data_element.parent = nil
+    render( :action => 'new')
+end
+
+##
+# Create a new DataElement for the concept to link in a list of real entities into the catalogue
+#
+def create
+    @data_concept = DataConcept.find(params[:id])
+    @data_element = DataElement.create_from_params(params['data_element']) 
+    if @data_element.save
+      flash[:notice] = 'DataElement was successfully created.'
+      return render(:action => 'show.rjs') if request.xhr?
+      redirect_to :action => 'list', :id => @data_element.concept
+    else
+      flash[:warning] = 'DataElement failed  to save.'
+      return render( :action => 'new_element')   if request.xhr?
+      render( :partial => 'new_element')
+    end
+end  
+
 #
 #  edit the record
 #  

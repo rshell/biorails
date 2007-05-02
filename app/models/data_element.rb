@@ -32,7 +32,6 @@ class DataElement < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-  
 #
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>"parent_id"
@@ -41,11 +40,6 @@ class DataElement < ActiveRecord::Base
 
   belongs_to :system,  :class_name=>'DataSystem',  :foreign_key=>'data_system_id'
   belongs_to :concept, :class_name=>'DataConcept', :foreign_key=>'data_concept_id'
-
-
-#  belongs_to :access, :class_name => "AccessControl", :foreign_key => "access_control_id"
-
-
 ##
 # @todo rethink this as a bit of a hack
 # These are the holders for the various types of data
@@ -57,32 +51,29 @@ class DataElement < ActiveRecord::Base
   attr_accessor :min
   attr_accessor :max
   
-  
   has_many :study_parameters, :dependent => :destroy
   has_many :parameters, :dependent => :destroy
   has_many :task_references, :dependent => :destroy
   
   acts_as_tree :order => "name"  
-  
- 
+##
+# Test if the element is used
+#   
   def not_used
     return (study_parameters.size==0 and parameters.size==0)
   end 
-  
 #
 # Allowed list of types
 # 
-  def types
-    return ['list','range','model','view','sql','child']
+  def allowed_styles
+    return ['list','model','view','sql']
   end   
-
 ##
 # convert content to a Array
 # 
   def to_array
      return  self.children.collect{|v|v.name}
   end
-
 #
 # path to name
 #
@@ -123,7 +114,9 @@ class DataElement < ActiveRecord::Base
   def lookup(name)
     return self.children.detect{|item|item.name == name}
   end
-
+##
+# convert a id to a DataValue
+# 
   def reference(id)description
     return self.children.detect{|item|item.id == id}
   end
@@ -150,7 +143,6 @@ class DataElement < ActiveRecord::Base
   rescue
     false
   end 
- 
 #
 # List of allowed concepts
 # 
@@ -165,7 +157,6 @@ class DataElement < ActiveRecord::Base
          allowed = [] 
       end
   end
-
 #
 #  List of data systems this element can be linked to
 #  
@@ -196,97 +187,39 @@ class DataElement < ActiveRecord::Base
   end
 
       
-  def DataElement.create(params={},content={})  
+  def DataElement.create_from_params(params={})  
     case params[:style]
       when 'list'
-         params[:content] = content[:list] if content[:list]
-         ListElement.new(params)
-      when 'range'
-         params[:content] = "#{content[:min]}..#{content[:max]}" if content[:min] && content[:max]
-         RangeElement.new(params)
+         element = ListElement.create(params)
+                
       when 'sql'
-         params[:content] = content[:sql] if content[:sql]
-         SqlElement.new(params)
+         element =SqlElement.create(params)
       when 'model'
-         params[:content] = content[:model] if content[:model]
-         ModelElement.new(params)
+         element =ModelElement.create(params)
       when 'view'
-         params[:content] = content[:view] if content[:view]
-         ViewModel.new(params)
+         element =ViewModel.create(params)
       else 
-       DataElement.new(params)
+       element =DataElement.create(params)
     end   
   end  
-  
+
+    
 end
 
 ###############################################################################################
 # List  based in statement
 # 
 class ListElement < DataElement
+  after_save :populate 
 
-##
-# convert content to a Array
-# 
-  def to_array
-     return eval("[#{content}]") 
-  end
-#
-#  List values for this element   
-#    
-  def values
-    return to_array.collect {|v|{:name => v,:id => v}}         
-  end    
-
-##
-# number of items
-  def size
-    return to_array.size
-  end
-
-  def like(name)
-    return self.values
-  end
-
-###
-# Lookup to find value in a list
-# 
-  def lookup(name)
-    return self.values.detect{|item|item[:name] == name}
-  end
-
-##
-# Get by id  
-# 
-  def reference(id)
-    return self.values[id]
-  end
-#
-#  List values for this element   
-#    
-  def choices
-    to_array.collect {|v|[v, v]}         
-  end    
-
-end
-
-###############################################################################################
-# SQLType based in statement
-# 
-class RangeElement < ListElement
-
-##
-# convert content to a Array
-# 
-  def to_range
-     return eval("(#{content})")
-  end
-
-  def to_array
-     return to_range.to_a
+protected
+  def populate
+     list = eval("[#{content}]") 
+     list.each{|item| self.add_child(item)}
   end
 
 end
+
 
 ###############################################################################################
 # SQLType based in statement
@@ -309,7 +242,6 @@ class SqlElement < DataElement
    @values = self.system.connection.select_all(content) if !@values
    return @values
   end    
-
 ##
 # Count the number of records returned with a select count(*) from (select ....)
 # 
@@ -373,7 +305,6 @@ class ModelElement < DataElement
   def lookup(name)
     return self.model.find_by_name(name)
   end
-
 ##
 # Get by id  
 # 
