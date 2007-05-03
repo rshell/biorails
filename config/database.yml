@@ -16,7 +16,13 @@ development:
   username: biorails 
   password: moose
   host: localhost
-
+  
+demo:
+  adapter: mysql
+  database: biorails2_demo
+  username: biorails 
+  password: moose
+  host: 192.168.1.10  
 ##
 # Lite version to ship as part of checkin
 

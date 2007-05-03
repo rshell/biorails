@@ -13,7 +13,7 @@
       <% value = column.value(row) %>
       <% classAttr = cycle("", "class=\"even\"") %>
       <% if (value.class == Array) %>
-         <% for item in values %>
+         <% for item in value %>
          <table><tr <%=classAttr%> > <td > <%= column.format(item)  %> </td></tr></table>
          <% end %>
       <% else %>

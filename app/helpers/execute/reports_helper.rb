@@ -1,4 +1,7 @@
 module Execute::ReportsHelper
+
+ ## include Alces::TreeControl
+
   # Initializes the default sort column (default_key) and sort order
   # (default_order).
   #

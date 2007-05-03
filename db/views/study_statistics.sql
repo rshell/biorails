@@ -1,6 +1,7 @@
 create view study_statistics as 
 select
     p.study_parameter_id id,
+    p.study_parameter_id,
     e.study_id,
     p.parameter_role_id,
     p.parameter_type_id,
@@ -23,6 +24,7 @@ group by e.study_id,
 union
 select 
     p.study_parameter_id id,
+    p.study_parameter_id,
     e.study_id,
     p.parameter_role_id,
     p.parameter_type_id,
@@ -45,6 +47,7 @@ group by e.study_id,
 union
 select 
     p.study_parameter_id id,
+    p.study_parameter_id,
     e.study_id,
     p.parameter_role_id,
     p.parameter_type_id,

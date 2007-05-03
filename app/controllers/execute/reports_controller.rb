@@ -25,6 +25,7 @@ class Execute::ReportsController < ApplicationController
   
  GRAPHIZ_STYLES = ['dot','neato','twopi','fdp']
                
+helper :tree
 
 ##
 # List of created reports

@@ -39,7 +39,7 @@ class ParameterContext < ActiveRecord::Base
 ##
 # Link to actual result row. Have to be careful here as there may be 1000s ofrows here.
 # 
- has_many :result_rows, :class_name=>'TaskContexts'
+ has_many :usages, :class_name=>'TaskContext',:foreign_key =>'parameter_content_id'
 ##
 # path to name
 #

@@ -1,8 +1,8 @@
 <%for column in model.content_columns%>
-    <div id='<%="#{root}~#{link}#{column.name}" %>' class='column'>
+    <span id='<%="#{root}~#{link}#{column.name}" %>' class='column'>
       <%=column.name%>  
       <%=link_to_remote subject_icon("add.gif"),:url=>{ :action =>'add_column',:id=>@report.id, :column=>"#{root}~#{link}#{column.name}"} %>             
-    </div>
+    </span>
     <%= draggable_element "#{root}~#{link}#{column.name}",:zindex=>99999, :revert=> true %>
 <%end%> 
     

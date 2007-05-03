@@ -15,6 +15,7 @@ class Node
 ##
 # Add in needed helpers
    
+   cattr_accessor :seq 
    attr_accessor :id
    attr_accessor :model
    attr_accessor :icon
@@ -32,20 +33,21 @@ class Node
    attr_accessor :successor  # next on level
    attr_accessor :previous   # prev on level
 
-
+   @@seq =0
 ##
 # Node Creator from params hash or model
 #     
-   def initialize(model)
-      @model = model
-      @name = model.name
+   def initialize(object)
+      @model = object
+      @name = object.name if object.respond_to?(:name)
       @open = true
       @drag = true
       @drop_url = nil
       @event_name = "href"
       @tooltip =''
       @children = []
-      @id = @model.dom_id
+      
+      @id = @@seq +=1
       yield self if block_given?   
    end   
 
@@ -62,7 +64,8 @@ class Node
    end  
    
    def dom_id(scope=nil)
-     @model.dom_id(scope)
+    return "node_#{scope}_#{id}"
+
    end
    
 ##
@@ -236,6 +239,7 @@ end
       
       out << "<span id='#{node.dom_id}' class='#{node.model.class.to_s.underscore}'>"
       out << node.folder_icon 
+      out << node.name.to_s if node.name
       out << node.link if node.link
       out << "</span>"
       out << "</div>"
@@ -280,8 +284,63 @@ end
       logger.error ex.backtrace.join("\n")    
       return "Failed in tree_for_catalog"
    end
-  
-  
+
+
+##
+# Build tree structure as a nested set of lists
+# 
+ def build_column_tree(report,model,path="",level=0,max=2)
+    old = nil
+    tree =TreeHelper::Node.create(model,:content_columns) do |node,rec|
+         #logger.info "Node(#{model},#{path},#{level})  #{rec.name}"
+         node.id = "#{report.model}~#{path}#{rec.name}"
+         node.icon = "/images/relations/#{rec.type}.png" 
+         node.name = ""
+         node.link =  link_to_remote rec.name + subject_icon("add.gif"),
+                        :url=>{ :action =>'add_column',:id=>report.id, :column=>node.id }
+  	     node.previous = old
+    	 node.successor = node unless old.nil?
+    	 old = node
+     end  
+     tree.link=nil
+     tree.name="<b>#{report.model}</b>"
+     return tree if level>=max  
+     for relation in model.reflections.values
+        unless (report.base_model==relation.class_name) or (relation.macro==:has_many and level>0) or relation.options[:polymorphic]
+           #logger.info "Reference(#{model},#{path},#{level})  #{relation.macro}  #{relation.class_name}"
+           
+           node = build_column_tree(report, eval(relation.class_name), "#{path}#{relation.name}.",level+1,max)
+           node.id = "#{path}#{relation.name}"
+           node.icon = "/images/relations/#{relation.macro}.png" 
+           node.name = relation.name
+           node.link = nil
+           node.parent = tree
+    	   node.open = false
+    	   node.previous = old
+    	   old.successor = node unless old.nil?
+    	   old = node
+           tree.children << node
+        end
+      end
+      return tree
+ end    
+
+##
+# Tree of report columns
+# 
+  def tree_for_report_columns(report)
+      tree= build_column_tree(report, report.model)
+      out = ""
+      out << "<div id='#{report.dom_id(:tree)}' class='dtree'>"
+      out << node_html(tree, 0 ,true)
+      out << '</div>'
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return "Error in tree_for_report_columns:  #{ex.message}"
+   end
+          
 ##
 # Generate a Tree for a project
 #
@@ -302,7 +361,11 @@ end
       logger.error ex.backtrace.join("\n")    
       return  "error: #{ex.message}"
   end
-  
+ 
+ 
+##
+# Tree for a folder and children  
+# 
   def tree_for_collection(project , folders)
       tree=TreeHelper::Node.build(folders) do |node,rec|
           node.link = link_to rec.name,reference_to_url(rec )
@@ -322,30 +385,7 @@ end
   end
   
   
-  def tree_for_study(study)
-      tree=TreeHelper::Node.create(study)
-      tree.drag=false
-      for role in study.parameter_roles  
-        role_node = tree.add_node(role)
-        role_node.drag =false
-        role_node.add_collection(study.parameters_for_role( role )) do |node,rec|
-            node.link = link_to rec.name,reference_to_url(rec )
-            node.icon = "/images/#{rec.data_type.name}.png"
-            node.drag=true
-            node.open=true
-        end    
-      end    
-
-      out = ""
-      out << "<div id=#{study.dom_id(:tree)} class='dtree'>"
-      out << node_html(tree, 0 )
-      out << '</div>'
-      return out
-  rescue Exception => ex
-      logger.error "error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      return  "error: #{ex.message}"
-  end  
+ 
 
 ##
 # Convert a element in to a url call to display it

@@ -2,14 +2,25 @@
   <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <% end %>
 
-<% content_for :left do%>
-<div class="tree">
-<h2>Column Selector </h2>
-<h3><%=@report.model.to_s%> </h3>
-<%= render :partial => 'attribute_selector',:locals => {:root => @report.model,:link =>"",:model => @report.model } %> 
+<% content_for :right do%>
+<div class="tree panel">
+<h2><%=@report.model.to_s%> Model </h2>
+<p> Select columns for report from this tree of columns and related models </p>
+<%= tree_for_report_columns(@report) %>
 </div>
- 
+<h4> Key</h>
+<ul>
+<li><%=image_tag("relations/belongs_to.png")%> Reference to
+</li><li><%=image_tag("relations/has_many.png")%> Collection of 
+</li><li><%=image_tag("relations/text.png")%> Long Text 
+</li><li><%=image_tag("relations/string.png")%> Short Text
+</li><li><%=image_tag("relations/float.png")%> Numeric
+</li><li><%=image_tag("relations/date.png")%> Date
+</li><li><%=image_tag("relations/binary.png")%> Binary (Unreadable)
+</li><li><%=image_tag("relations/boolean.png")%> Yes/No (1/0)
+</li></ul>   
 <%end%>
+<% content_for :centre do%>
 
 <h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
 
@@ -18,6 +29,7 @@
     <div id="report-definition">    
         <%= render :partial => 'report_definition'%>  
     </div>
+
 
 <%= drop_receiving_element "report-definition", 
     :url => { :action => "add_column",:id => @report.id },
@@ -28,3 +40,5 @@
     :url => { :action => "remove_column",:id => @report.id },
         :accept => "report_column",
         :droponempy => true %>
+<%end%>
+        

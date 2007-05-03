@@ -1,4 +1,9 @@
 ##
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+##
+#
+##
 #This is setup for the  acts_as_authenticated method
 #
 # class User < ActiveRecord::Base
