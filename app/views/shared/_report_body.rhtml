@@ -4,19 +4,23 @@
 <%if report.displayed_columns.size>0 %>
 
 <% for row in data %>
-
+   <% classAttr = cycle("", "class=\"even\"",:name => "master") %>
    <% grid = report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
    <% max  = grid.collect{ |item| item.size}.max %>       
 
-    <% classAttr = cycle("", "class=\"even\"") %>
    <tr <%=classAttr%> >
    <% for column in columns %>
       <% value = column.value(row) %>
       <td valign='top'>
       <% if (value.class == Array) %>
+         <table>
          <% for item in value %>
-         <table><tr> <td > <%= column.format(item)  %> </td></tr></table>
+           <% childAttr = cycle("class=\"child-old\"", "class=\"child-even\"",:name => "child") %>
+           <tr <%=childAttr%> > 
+               <td > <%= column.format(item)  %> </td>
+            </tr>
          <% end %>
+         </table>
       <% else %>
           <% if column.action %>
               <%= link_to_object(row, column.format(value), {:action=>column.action} ) %>   
@@ -24,6 +28,7 @@
               <%= column.format(value) %>
           <% end %>
       <% end %>      
+         <% reset_cycle("child")  %>
       </td>                    
 
     <%end%>

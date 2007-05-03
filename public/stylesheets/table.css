@@ -128,11 +128,19 @@ table.list tbody th {
 
 table p {margin:0; padding:0;}
 
-table .even { 
+table tr.even { 
     background-color: #E1EEC6;
     }
+
+table tr.child-even { 
+    background-color: #fff;
+    }
+
+table tr.child-old { 
+    background-color: #efffc7;
+    }
     
-table .odd {
+table tr.odd {
     background-color: #fff;
     }
     

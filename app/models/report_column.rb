@@ -93,10 +93,12 @@ class ReportColumn < ActiveRecord::Base
   end
   
   def format(value)
-     if value.kind_of? Numeric
+     if value.nil?
+         '<null>'  
+     elsif value.kind_of? Numeric
          sprintf("%01.2f", value).to_s
      else 
-         value.to_s
+         value.to_s 
      end
   end
 
