@@ -8,23 +8,23 @@
    <% grid = report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
    <% max  = grid.collect{ |item| item.size}.max %>       
 
-   <tr>
+    <% classAttr = cycle("", "class=\"even\"") %>
+   <tr <%=classAttr%> >
    <% for column in columns %>
       <% value = column.value(row) %>
-      <% classAttr = cycle("", "class=\"even\"") %>
+      <td valign='top'>
       <% if (value.class == Array) %>
          <% for item in value %>
-         <table><tr <%=classAttr%> > <td > <%= column.format(item)  %> </td></tr></table>
+         <table><tr> <td > <%= column.format(item)  %> </td></tr></table>
          <% end %>
       <% else %>
-          <td>
           <% if column.action %>
               <%= link_to_object(row, column.format(value), {:action=>column.action} ) %>   
           <% else%>          
               <%= column.format(value) %>
           <% end %>
-          </td>                    
       <% end %>      
+      </td>                    
 
     <%end%>
   <td>

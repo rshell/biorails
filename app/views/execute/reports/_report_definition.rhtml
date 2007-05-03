@@ -16,6 +16,11 @@
            <label for="report_name">Decimal Places</label>
             <%= select_tag 'report[decimal_places]', "<option>#{(0..9).to_a.join('</option><option>')}</option>" %>
           </div>
+          <div class="form-element">
+           <label for="report_name">Row Action</label>
+            <%= select_tag 'report[action]', "<option>#{["","show","edit"].to_a.join('</option><option>')}</option>" %>
+          </div>
+          
         </div>
    
         <div class="row">
