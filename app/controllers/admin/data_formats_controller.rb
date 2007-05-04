@@ -49,7 +49,7 @@ class Admin::DataFormatsController < ApplicationController
 
   def update
     @data_format = DataFormat.find(params[:id])
-    if @data_format.update_attributes(params[:data_formats])
+    if @data_format.update_attributes(params[:data_format])
       flash[:notice] = 'DataFormat was successfully updated.'
       redirect_to :action => 'list'
     else
