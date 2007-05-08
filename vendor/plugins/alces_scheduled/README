@@ -1,4 +1,20 @@
 AlcesScheduled
 ==============
+Function: Providing the ability to easy provide a schedule of items
+Licence: GNU version 2 standard license
 
-Description goes here
+This provides to model methods  
+
+acts_as_scheduled options
+
+There is currently only one option :summary_of is is a summary item which is in term has a schedule
+
+has_many_scheduled  name, options
+
+The options are the same as has_many for linkage to another model. 
+ 
+##
+# The experiment is a summary of the tasks
+#
+  acts_as_scheduled  :summary_of=>:tasks
+  has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy

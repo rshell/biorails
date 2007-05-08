@@ -49,8 +49,9 @@ class Project::ContentController < ApplicationController
 # 
   def new
     load_folder
-    @project_element = ProjectElement.new(:name => Identifier.next_id(ProjectContent),      
+    @project_element = ProjectElement.new(:name => Identifier.next_user_ref,      
                                           :project_id => @project_folder.project_id)
+                                          
     @project_content = ProjectContent.new(:name => @project_element.name,      
                                           :project_id => @project_folder.project_id)
     respond_to do |format|

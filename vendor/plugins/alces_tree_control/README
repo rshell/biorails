@@ -1,0 +1,28 @@
+AlcesTreeControl
+================
+Function: Providing helpers for display of Tree in a view
+Licence: GNU version 2 standard license
+
+This provides helper functions for the support of Tree controls in views. generally in included the library 
+with "include Alces::TreeControl"
+
+For generation of a tree Alces::TreeControl::Node.create(object) can be used. If this implements object.children then 
+a tree in automiatcally created. Too customize the function a body can be specified.
+
+
+
+
+Example helper
+
+  include Alces::TreeControl
+
+  def tree_for_catalog( context)
+      tree= Alces::TreeControl::Node.create(context) do |node,rec|
+         node.link = link_to_remote rec.name, :url => catalogue_url(:action=>:show,:id=>rec)
+         node.name = nil
+         node.drop_url = nil
+      end    
+      tree.link = link_to_remote context.name, :url => catalogue_url(:action=>:show,:id=>context)         
+      return node_html(tree, 0 ,true)
+   end
+

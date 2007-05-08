@@ -52,5 +52,10 @@ class Identifier < ActiveRecord::Base
        return generator.next_id
      end
   end
-
+##
+# Next user specfic reference
+#
+  def self.next_user_ref
+     self.next_id(User.current.login)
+  end
 end

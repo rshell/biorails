@@ -1,5 +1,7 @@
 AlcesUml
 ========
+Function: Providing simple method of generation of UML from models
+Licence: GNU version 2 standard license
 
 This is a set of library functions for the generation of uml models from a ruby on rails project. It contains helpers functions to 
 allow the 

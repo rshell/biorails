@@ -40,11 +40,11 @@ class Project::AssetsController < ApplicationController
   def new
     current_project
     @project_folder =current_folder
-
-    @project_element = ProjectElement.new(:name => Identifier.next_id(ProjectAsset),      
+    name = Identifier.next_user_ref 
+    @project_element = ProjectElement.new(:name => name ,      
                                           :project_id => @project_folder.project_id)
     
-    @project_asset = ProjectAsset.new(:title=>'new file',
+    @project_asset = ProjectAsset.new(:title=> name,
                                       :project_id => @project_folder.project_id)
     respond_to do |format|
       format.html { render :action=>'upload'}

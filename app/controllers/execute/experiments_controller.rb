@@ -87,7 +87,7 @@ class Execute::ExperimentsController < ApplicationController
   def new
     @study = current( Study, params[:id] ) if  params[:id]
     @study ||= current_project.studies.find(:first)
-    @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_id(Experiment))
+    @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_user_ref)
     @experiment.project = current_project
     @experiment.description = " Experiment in project #{current_project.name} "  
   end

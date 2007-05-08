@@ -45,7 +45,7 @@ class Project::FoldersController < ApplicationController
 # 
   def new
     @parent = current_folder
-    @project_folder = ProjectFolder.new(:name=> Identifier.next_id(ProjectFolder), 
+    @project_folder = ProjectFolder.new(:name=> Identifier.next_user_ref, 
                                         :parent_id=>@parent.id,
                                         :project_id=>@parent.project_id)
     render :partial => 'new' ,:layout => false if request.xhr?

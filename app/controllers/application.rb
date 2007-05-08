@@ -156,10 +156,8 @@ class ApplicationController < ActionController::Base
 protected   
 
   def setup_context
-    @current_user = User.find(session[:current_user_id]) unless session[:current_user_id].nil? 
-    @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
-    User.current_user=@current_user
-    #Project.current_project = @current_project  
+    User.current_user = @current_user = User.find(session[:current_user_id]) unless session[:current_user_id].nil? 
+    Project.current_project = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
   end  
 ##
 # Set the Current user

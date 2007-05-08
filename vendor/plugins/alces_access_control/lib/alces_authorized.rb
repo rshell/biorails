@@ -64,7 +64,6 @@ module Alces
             before_filter :authorization, :only => rights_actions
 
             include Alces::AccessControl::AuthorizationService::ControllerInstanceMethods
-            logger.info  "use_authorization "
           end
       end
      
