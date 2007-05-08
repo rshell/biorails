@@ -17,7 +17,7 @@ div.tab_stuff {
     border-bottom: 1px solid #7CB30F;
     margin: 0;
     padding-bottom: 19px;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .tablist ul, .tablist li {
@@ -36,7 +36,7 @@ div.tab_stuff {
     font-weight: normal;
     line-height: 14px;
     margin-right: 8px;
-    padding: 2px 10px 2px 10px;
+    padding: 2px 5px 2px 5px;
     text-decoration:none;
 }
 

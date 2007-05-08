@@ -146,7 +146,7 @@ class Organize::StudyProtocolsController < ApplicationController
     end
     return render( :action => 'refresh_overview.rjs') if request.xhr?
 
-    render :action => 'edit'
+    redirect_to :action => 'show'
 
   rescue Exception => ex
     logger.error flash[:error] =" Unexpected error in update for study_protocol #{params[:id]} exception: #{ex.message}" 

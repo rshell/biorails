@@ -1,4 +1,4 @@
- <%= form_remote_tag  :url =>{:action => 'update', :id => @study_protocol.id, :version => @protocol_version.id} %>
+ <%= form_tag  protocol_url(:action => 'update', :id => @study_protocol.id, :version => @protocol_version.id) %>
   <div class='dialog'>
     <%= render :partial => 'form' %>
 

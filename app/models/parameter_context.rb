@@ -114,12 +114,13 @@ class ParameterContext < ActiveRecord::Base
 #  * context is the protocol context to add the created parameter to (effects name generation) 
 #  
   def add_parameter( definition )
+    logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     return nil if definition.nil?
-    #logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     parameter = Parameter.new
     parameter.study_parameter = definition
-    parameter.context = self
     parameter.sequence_num    =  0 
+    parameter.context = self
+    parameter.fill_type_and_formating
     while Parameter.find(:first, :conditions => 
             ["protocol_version_id=? and name=?", self.process.id, parameter.name])
        parameter.sequence_num +=1
@@ -128,6 +129,7 @@ class ParameterContext < ActiveRecord::Base
     self.process.parameters << parameter 
     self.parameters << parameter    
     parameter.column_no = self.process.parameters.size 
+    logger.info "Parameter Created [#{parameter.name}] in context [#{self.label}]"
     return parameter
     
   rescue Exception => ex

@@ -1,5 +1,5 @@
-<ul class="menu_bar"> 
-     <li><%= link_to l(:Tree),   folder_url(:action=>'selector')  %></li>
+<ul class="tablist"> 
+     <li ><%= link_to l(:Tree),  folder_url(:action=>'selector'),:class=>"current"  %></li>
      <li><%= link_to l(:Toc),    folder_url(:action=>'toc')  %>     </li>
      <li><%= link_to l(:Latest), folder_url(:action=>'clipboard')  %></li>
 </ul>

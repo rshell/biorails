@@ -127,18 +127,17 @@ class Parameter < ActiveRecord::Base
 ##
 # fill in any missing format or type information based on study defaults
  def fill_type_and_formating   
-   self.name ||= self.study_parameter.name 
-   self.data_type_id ||= self.study_parameter.data_type_id 
-   self.parameter_type_id ||= self.study_parameter.parameter_type_id 
-   self.parameter_role_id ||= self.study_parameter.parameter_role_id 
-   self.data_element_id ||= self.study_parameter.data_element_id
-   self.data_format_id ||= self.study_parameter.data_format_id
-   self.default_value ||= self.study_parameter.default_value
-   self.display_unit ||= self.study_parameter.display_unit
-   self.protocol_version_id ||= self.context.protocol_version_id
-   #logger.info "context= #{parameter_context_id} "
-   #logger.info "version = #{protocol_version_id} "
-   #logger.info "fill_type_and_formating"
+   if self.study_parameter
+       self.name ||= self.study_parameter.name 
+       self.data_type_id ||= self.study_parameter.data_type_id 
+       self.parameter_type_id ||= self.study_parameter.parameter_type_id 
+       self.parameter_role_id ||= self.study_parameter.parameter_role_id 
+       self.data_element_id ||= self.study_parameter.data_element_id
+       self.data_format_id ||= self.study_parameter.data_format_id
+       self.default_value ||= self.study_parameter.default_value
+       self.display_unit ||= self.study_parameter.display_unit
+   end
+   self.protocol_version_id ||= self.context.protocol_version_id if self.context
   end
  
  def to_xml(options = {})
