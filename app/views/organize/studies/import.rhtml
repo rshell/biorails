@@ -1,0 +1,48 @@
+<%content_for :centre do%>
+<h2>
+        <%= subject_icon('study.png')%> Import Study Design into Project [<strong><%=current_project.name%></strong>]
+</h2> 
+<div class='panel'>
+   <%form_tag({:action =>'import_file', :id=> current_project.id} , {:multipart => true}) do %>
+
+   <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
+
+   <div class="row">
+     <div class="form-element">
+       <label for="study_name">Study design file to import :-        
+       </label>
+          <%=file_field_tag(:file) %>  
+     </div>        
+   </div>        
+  <div class="row">
+    <!--[form:study]-->
+    <div class="form-element">
+       <label for="study_name">New Name</label>
+       <%= text_field_tag :name, nil , {:class=>"text-input"} %>
+    </div>
+   </div>        
+  <div class="row">
+        The options for importing the study :-
+        <ol>
+        <li>  <%= check_box_tag 'study_queue', 'study_queue',        checked =true %>Create Queues </li>
+        <li>  <%= check_box_tag 'study_protocol', 'study_protocol',  checked =true %>Create Protocols</li>
+        </ol>
+        In a number of cases if protocols have references to queue both will need to be included for the import to succeed.
+        Also with larger studies the import process may take 10-30 seconds to complete as it applies all the same validation
+        rules as manually created study.
+        <br />
+        <%= submit_tag("Import")%>
+        <% end %>
+    </div> 
+   </div>        
+<% end%>
+
+<% content_for :right do%>
+<h2>Guide</h2>
+<div class='panel'>
+This allows the import of the study design into a project. This can include all the protocols,parameters and queues
+in the study. For this to work the central catalogue most be consistent with the source database. In the cases of 
+the same systems this is easy. In the case of a new database then you may need to include catalogue references. 
+This whole process needs to be done with care. 
+</div>
+<% end %>

@@ -44,7 +44,7 @@ class Parameter < ActiveRecord::Base
  validates_uniqueness_of :name, :scope =>"protocol_version_id"
 
  belongs_to :context, :class_name=>'ParameterContext',  :foreign_key =>'parameter_context_id'
- belongs_to :process, :class_name =>'ProtocolVersion',:foreign_key =>'protocol_version_id'
+ belongs_to :process, :class_name=>'ProtocolVersion',  :foreign_key =>'protocol_version_id'
  belongs_to :role,    :class_name =>'ParameterRole',:foreign_key =>'parameter_role_id'
  belongs_to :type,    :class_name =>'ParameterType',:foreign_key =>'parameter_type_id'
 
@@ -62,31 +62,47 @@ class Parameter < ActiveRecord::Base
  has_many :task_references, :dependent => :destroy
  has_many :task_texts,      :dependent => :destroy
 
- validates_presence_of :protocol_version_id
+# validates_presence_of :protocol_version_id
  validates_presence_of :parameter_type_id
  validates_presence_of :parameter_role_id
  validates_presence_of :study_parameter_id
  validates_presence_of :data_type_id
  validates_presence_of :name
- 
-# before_validation :fill_type_and_formating
+ validates_associated  :study_parameter, 
+    :if => Proc.new { | p | p.study_parameter.study == p.study},
+    :message => "Parameter is linked to a the wrong study" 
+
+ before_validation :fill_type_and_formating
  
  
   def mask
     return data_format.format_regex if data_format
     return '.'
   end
-
+ ##
+ # helper to protocol
+ #
+  def protocol
+    logger.info "finding protocol"
+    self.context.process.protocol if self.context.process
+  end
+ ##
+ # helper to study
+ #
+  def study
+    self.protocol.study if self.protocol
+  end
+  
 ##
 # Template the parameter
   def description
      out = ""
      if queue
-     out << "Queue:" << queue.name 
+       out << "Queue:" << queue.name 
      elsif study_parameter
-     out << "Parameter " 
+       out << "Parameter " 
      end
-     out <<"  ["
+     out << "  ["
      out << role.name if role
      out << "/"
      out << type.name if type
@@ -119,21 +135,27 @@ class Parameter < ActiveRecord::Base
    self.data_format_id ||= self.study_parameter.data_format_id
    self.default_value ||= self.study_parameter.default_value
    self.display_unit ||= self.study_parameter.display_unit
+   self.protocol_version_id ||= self.context.protocol_version_id
+   #logger.info "context= #{parameter_context_id} "
+   #logger.info "version = #{protocol_version_id} "
+   #logger.info "fill_type_and_formating"
   end
+ 
+ def to_xml(options = {})
+      my_options = options.dup
+      my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
+      my_options[:except] = [:protocol_version_id,:study_queue_id,:study_parameter_id,:parameter_type_id,:parameter_role_id,:data_format_id,:data_element_id] +  my_options[:except]
+     Alces::XmlSerializer.new(self,my_options ).to_s
+ end
 
-##
-# Convert context to xml
-# 
- def to_xml( xml = Builder::XmlMarkup.new)
-   xml.parameter(:id => id, :name => name) do
-       xml.type(:id=>type.id, :name=>type.name) if type
-       xml.role(:id=> role.id,:name=> role.name) if role
-       xml.datatype(:id=> data_type.id,   :name=> data_type.name) if data_type
-       xml.lookup(  :id=> data_element.id,:name=> data_element.name) if data_element
-       xml.format(  :id=> data_format.id, :name=> data_format.name) if data_format
-       xml.default(default_value) if default_value
-   end
-   return xml
- end 
-   
+ ##
+ # Get from xml
+ # Lookup the references to catalogue by name was may be in a difference database
+ # 
+ def self.from_xml(xml,options ={} )
+      my_options = options.dup
+      my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end  
+     
 end

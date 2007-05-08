@@ -64,7 +64,6 @@ class Execute::ExperimentsController < ApplicationController
     logger.info " Calendar for #{@options.to_yaml}"
 
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
-
     find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
 
     @calendar = CalendarData.new(started,1)
@@ -81,23 +80,15 @@ class Execute::ExperimentsController < ApplicationController
          end }
       #format.ical  { render :text => @schedule.to_ical}
     end
-
   end
 
-  def timeline
-    @experiment = current(Experiment,params[:id]) 
-    @gnatt = Schedule.new(Task)
-    @gnatt.gnatt(params)
-    @gnatt.filter = ["experiment_id = ?",@experiment.id]
-    @gnatt.refresh   
-  end
-  
 ##
 # create a new experiment
   def new
     @study = current( Study, params[:id] ) if  params[:id]
     @study ||= current_project.studies.find(:first)
     @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_id(Experiment))
+    @experiment.project = current_project
     @experiment.description = " Experiment in project #{current_project.name} "  
   end
 

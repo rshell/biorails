@@ -38,6 +38,8 @@ class Experiment < ActiveRecord::Base
   validates_presence_of   :name
   validates_presence_of   :description
   validates_presence_of   :study_id
+  validates_presence_of   :project_id
+  validates_presence_of   :study_protocol_id
 
 ##
 #Owner project

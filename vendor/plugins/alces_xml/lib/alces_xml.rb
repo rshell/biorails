@@ -36,6 +36,10 @@ module Alces
       #     <last-read type="date">2004-04-15</last-read>
       #   </topic>
       # 
+      # options[:include]->[] List of relationship names to used in xml generation
+      # options[:except]->[] List of attributes to override on loading
+      # options[:reference]=>{} Hash of models to represent as a referenece and the name of the field to use for the reference
+      #
       # To include first level associations use :include
       #
       #   firm.to_xml :include => [ :account, :clients ]
@@ -51,29 +55,59 @@ module Alces
       #
       # options[:create] =>[] List of models to ignore the id field and recreate on load
       # options[:update] =>[] List of models update to match this imported data
-      # options[:lookup] =>[] List of models as termination points in graph there a simple lookup of existing object is used
       # options[:include]->[] List of relationship names to used in xml generation
-      #
+      # options[:except]->[] List of attributes to override on loading
+      # options[:override]->{} Hash of attributes to override on loading
+      # options[:reference]=>{} Hash of models to represent as a referenece and the name of the field to use for the reference
+      #   
       # Example of a loader to create new study and study_parameter objects
       # in the load is even below
       #
-      # Study.from_xml(:create=>[:study,:study_parameter]) 
+      # Parameter.from_xml(xml, :create => [:parameter],
+      #                     :override => { :name =>'xxxx' },
+      #                     :reference => {:data_type=>:name} ) 
       #
-      def from_xml(options = {})
-         Alces::XmlDeserializer.new(self, options).to_object
+      #  Study.from_xml (xml, :create => [:study,:study_parameter ],
+      #                   :include => [:parameters] )
+      #
+      # Unluckly some configuration is needed to manually identify where the break points in the model.
+      # Generally a subset of the dependent collection and references are needed to build a consistent model 
+      #
+      def from_xml(xml, options = {})
+         Alces::XmlDeserializer.new(self, options).to_object(xml)
       end
 
      include Alces::Xml::InstanceMethods         
     end
   end
 
+   
+#
+# XML serialization processing to convert a list of ActiveRecord objects to a XML graph
+#
+#
   class XmlSerializer #:nodoc:
     attr_reader :options
-    
+
     def initialize(record, options = {})
       @record, @options = record, options.dup
+ 
+      #puts " #{@record.class}(#{@record.id}).to_xml( options={"
+      #puts "   :reference=>[#{( @options[:reference] || [] ).to_a.join(', ')}],"
+      #puts "   :include  =>[#{( @options[:include]   || [] ).to_a.join(', ')}],"
+      #puts "   :except   =>[#{( @options[:except]    || [] ).to_a.join(', ')}]}"
+
     end
-    
+    ##
+    # Default logger got tracing problem
+    #
+    def logger
+      ActionController::Base.logger rescue nil
+    end
+
+    #
+    # Generate a XML builder it none is defined
+    #
     def builder
       @builder ||= begin
         options[:indent] ||= 2
@@ -103,61 +137,123 @@ module Alces
     # then because :except is set to a default value, the second
     # level model can have both :except and :only set.  So if
     # :only is set, always delete :except.
+    #
     def serializable_attributes
       attribute_names = @record.attribute_names
-
       if options[:only]
         options.delete(:except)
         attribute_names = attribute_names & Array(options[:only]).collect { |n| n.to_s }
       else
         options[:except] = Array(options[:except]) | Array(@record.class.inheritance_column)
         attribute_names = attribute_names - options[:except].collect { |n| n.to_s }
-      end
-      
+      end      
       attribute_names.collect { |name| Attribute.new(name, @record) }
     end
+
 
     def serializable_method_attributes
       Array(options[:methods]).collect { |name| MethodAttribute.new(name.to_s, @record) }
     end
+    ##
+    # Exclude a attribute from output
+    #
+    def except?(key = nil)
+      if key and options[:except]
+        options[:except].include?(key)
+      else
+        options[:except]
+      end
+    end
 
-
+    ##
+    # is this included in the output
+    #
+    def include?(key = nil)
+      if key and options[:include]
+      	options[:include].include?(key)
+      else
+      	options[:include]
+      end
+    end
+    ##
+    # is this a reference? that should be outputed
+    #
+    def reference?(key = nil)
+      if key and options[:reference]
+      	options[:reference].include?(key)
+      else
+      	options[:reference]
+      end
+    end
+    #
+    # Added the basic attributes on the model
+    #
     def add_attributes
       (serializable_attributes + serializable_method_attributes).each do |attribute|
         add_tag(attribute)
       end
     end
+     
+    ##
+    # add a related collection to the the output
+    #
+    def add_collection(link)
+	    if include?(link.name)
+	      records = @record.send(link.name).to_a
+	      unless records.empty?
+          opts = child_options(link)
+      		builder.tag!(format(link.name),{:style => link.macro,:class=>link.class_name}) do
+      		    records.each { |r| r.to_xml(opts.merge(:root => format(r.class) )) }
+      		end
+	      end
+      end	
+    end
 
-    def add_includes
-      if include_associations = options.delete(:include)
-        root_only_or_except = { :except => options[:except],
-                                :only => options[:only] }
-
-        include_has_options = include_associations.is_a?(Hash)
-
-        for association in include_has_options ? include_associations.keys : Array(include_associations)
-          association_options = include_has_options ? include_associations[association] : root_only_or_except
-
-          opts = options.merge(association_options)
-
-          case @record.class.reflect_on_association(association).macro
-          when :has_many, :has_and_belongs_to_many
-            records = @record.send(association).to_a
-            unless records.empty?
-              tag = format(association)
-              builder.tag!(tag) do
-                records.each { |r| r.to_xml(opts.merge(:root => format(r.class) )) }
-              end
-            end
-          when :has_one, :belongs_to
-            if record = @record.send(association)
-              record.to_xml(opts.merge(:root => format(association)))
-            end
-          end
+    def add_composed(link)
+     # @todo sorry have not used in project
+    end    
+    #
+    # Add references to classes with will not be linked in the XML 
+    # This is done as a partial class
+    # 
+    def add_reference(link)
+    	if reference?(link.name)
+    		ref = @record.send(link.name)
+          if ref
+      		builder.tag!(format(link.name),{:style => link.macro,:class=>link.class_name}) do
+            id = options[:reference][link.name] || :id
+       			builder.tag!(id,ref.send(id) ) 
+      		end
         end
-
-        options[:include] = include_associations
+      elsif include?(link.name)
+        opts = child_options(link)
+        if record = @record.send(link.name)
+          record.to_xml(opts.merge(:root => format(link.name)))
+        end
       end
+    end
+    
+    def child_options(link)
+       opts = options.dup 
+       opts[:include] = options[:include].is_a?(Hash) ? option[:include][link.name] : []
+       opts[:except] = [link.primary_key_name]  
+       return opts
+    end
+    #
+    # Add associated collections and reference classes
+    #
+    def add_includes
+       for key in @record.class.reflections().keys
+          link =  @record.class.reflect_on_association(key)
+          case link.macro
+          when :has_many, :has_and_belongs_to_many
+              add_collection(link)
+          when :belongs_to, :has_one
+              add_reference(link)
+          when :composed_of
+              add_composed(link)
+          end
+       end
     end
 
     def add_procs
@@ -274,6 +370,7 @@ module Alces
     attr_reader :options
     attr_reader :root
     attr_reader :model
+    attr_reader :object
     
     #
     # options[:create] =>[] List of models to ignore the id field and recreate on load
@@ -287,36 +384,56 @@ module Alces
       @options = options.dup
       @options[:create]  = XmlDeserializer.fill(options[:create])
       @options[:update]  = XmlDeserializer.fill(options[:update])
-      @options[:lookup]  = XmlDeserializer.fill(options[:lookup])
       @options[:include] = XmlDeserializer.fill(options[:include])
-      @options[:exclude] = XmlDeserializer.fill(options[:exclude])
-      puts " #{model}.from_xml( options={"
-      puts "  :create=>[#{@options[:create].to_a.join(', ')}],"
-      puts "  :update=>[#{@options[:update].to_a.join(', ')}],"
-      puts "  :lookup=>[#{@options[:lookup].to_a.join(', ')}],"
-      puts "  :include=>[#{@options[:include].to_a.join(', ')}],"
-      puts "  :exclude=>[#{@options[:exclude].to_a.join(', ')}]}"
+      @options[:except]  = XmlDeserializer.fill(options[:except])
+      @options[:override]   = XmlDeserializer.fill(options[:override] || {})
+      @options[:reference]  = XmlDeserializer.fill(options[:reference] || {})
+
+      #logger.info " #{model}.from_xml( options={"
+      #logger.info "  	:create=>[#{@options[:create].to_a.join(', ')}],"
+      #logger.info "  	:update=>[#{@options[:update].to_a.join(', ')}],"
+      #logger.info "  	:reference=>[#{@options[:reference].to_a.join(', ')}],"
+      #logger.info "  	:override=>[#{@options[:override].to_a.join(', ')}],"
+      #logger.info "  	:include=>[#{@options[:include].to_a.join(', ')}],"
+      #logger.info "  	:except=>[#{@options[:except].to_a.join(', ')}]}"
 
     end
+    
+    ##
+    #Helper to sort out the inputted options
+    #
     def XmlDeserializer.fill(object)
       case object
+      when Set
+         return object.to_a.collect{|i|i.to_s}
       when Hash
-         return object.keys.to_set
+         return object.stringify_keys!
       when Array
-         return object.collect{|i|i.to_s}.to_set
+         return object.uniq.collect{|i|i.to_s}
       else
          return []
       end
     end 
+    ##
+    # Defeult logger got tracing problem
+    #
+    def logger
+      ActionController::Base.logger rescue nil
+    end
+    
     ##.
     # Setup from String or xml object for reading
     # 
     def setup(xml)
-      if xml.class== String
+      case xml 
+      when String, File, Tempfile,StringIO
          @doc = REXML::Document.new(xml)
          @root = @doc.root
-      else
+      when REXML::Element
          @root = xml
+      when REXML::Document
+         @doc = xml 
+         @root = @doc.root
       end
       raise RuntimeError, 'from_xml() failed did not any xml to read ' if @root.nil?
     end
@@ -327,29 +444,33 @@ module Alces
     #   options[:create] = [:studies,:study_protocols]
     # 
     def create?(klass)
-      options.has_key?(:create) and options[:create].include?(klass.to_s.underscore)
+      options[:create].include?(klass.to_s.underscore)
     end
     ##
     # Test if this is on the update attributes if exists list
     def update?(klass)
-      options.has_key?(:update) and options[:update].include?(klass.to_s.underscore)
+      options[:update].include?(klass.to_s.underscore)
     end
 
     def include?(klass)
-      options.has_key?(:include) and options[:include].include?(klass.to_s.underscore)
+      options[:include].include?(klass.to_s.underscore)
     end
 
     def exclude?(attribute)
-      options.has_key?(:exclude) and options[:exclude].include?(attribute.to_s.underscore)
+      options[:except].include?(attribute.to_s.underscore)
     end
-    
+
+    def override?(attribute)
+      options[:override][attribute.to_s]
+    end
+
     ##
     # Lookup records in databases as loading XML
     # This is used to stop recursion on back reference to preview loadded types. Should with 
     # simple graphs but may have problem with many to many self references and trees.
     # 
-    def lookup?(klass)
-       (options.has_key?(:lookup) and options[:lookup].any?{|i|i.to_s.underscore==klass.to_s.underscore}) or !create?(klass)
+    def reference?(attribute)
+        options[:reference].include?(attribute.to_s.underscore)
     end
     ##
     # use dashes in names
@@ -376,7 +497,7 @@ module Alces
     def format(object)
        dasherize? ? object.to_s.underscore.dasherize : object.to_s.underscore
     end
-    
+
     ##
     # Lookup the element by id in the current database 
     # 
@@ -386,74 +507,130 @@ module Alces
        return source_model.find(id)
     end
     ##
+    # Lookup a reference to a existing record
+    # returned the last created match to hopefully return internal references
+    # @todo handle cyclic references to other created elements better
+    #       make sure models have valiations for this in code
+    #
+    def reference(element,link)
+       item_class = eval(link.class_name)
+       if reference?(link.name)
+         #logger.info "reference? #{link.name}"
+         list = []
+         logger.info element.to_s
+         element.elements.each do |i|
+           list << " #{i.name}='#{i.text}' " 
+         end
+         logger.info "lookup :conditions => #{list.join(' and ')}"
+         return item_class.find(:first, :conditions => list.join(' and '),:order =>'id desc')
+       else 
+         child_options = options.dup
+         child_options[:include] = nil
+         child_options[:override]= {}
+       
+         return item_class.from_xml(element,child_options)
+       end
+    end
+    #
+    # Read the basic attributes
+    #
+    def read_attributes
+       for column in model.column_names
+          if override?(column)
+            @object[column]= override?(column)  
+            logger.debug "override #{column}=#{override?(column)} [#{object[column]}]"
+            
+          elsif not exclude?(column) 
+            value = root.elements[format(column)]
+            unless value.nil?
+              @object[column]= value.text
+              #logger.info "read   #{object.class} #{column}=#{value.text} [#{object[column]}]"
+            end 
+            
+          end  
+       end          
+    end
+
+   ##
+   # Deal with references to bemore objects before basic save
+   # 
+    def read_references
+       for relation_name in model.reflections.keys
+         link = model.reflect_on_association(relation_name.to_sym)
+         if (link.macro == :has_one or link.macro == :belongs_to)  and !exclude?(relation_name) 
+           element = root.elements[ format(relation_name) ]
+
+           unless element.nil?
+              @object.send("#{relation_name}=", reference(element,link) )
+           end
+           
+         end  
+       end
+    end
+    
+   ##
+   # as inserting will have to add dependent collections are objects
+   # 
+    def read_collections
+       for relation_name in options[:include]
+        link = model.reflect_on_association(relation_name.to_sym)
+        if (link and (link.macro == :has_many or link.macro == :has_and_belongs_to_many))
+            child_options = @options.dup
+            child_options[:except] << link.primary_key_name
+            child_options[:include] = nil
+            child_options[:override] = { link.primary_key_name => object.id }
+ 
+            element = root.elements[ format(relation_name) ]
+
+            unless element.nil? 
+                logger.info "reading collection #{element.name}"
+                element.each_element do |child|
+                    item_class = element_to_class(child)
+                    item = item_class.from_xml(child,child_options)
+                    eval("object.#{relation_name} <<  item" )
+                    #if item.save!
+                    #   logger.info "Inserted #{item.class}.#{item.id}" 
+                    #else
+                    #   logger.warning "Failed Inserting #{item.class}.#{item.id} #{item.errors.full_messages().join('\n')}"
+                    #   raise "Xml Deserialized Problem: Inserted #{item.class}.#{item.id} #{item.errors.full_messages().join('<br/>')}"
+                    #end
+                end 
+            end
+         end
+       end         
+    end
+    ##
     # Convert a piece of xml to a object grapg
     # 
     def to_object(xml)
        setup(xml)
        if !create?(root.name) and root.elements['id']
-         object =  model.find(root.elements['id'].text)
-         return object if lookup?(root.name)
+          id = root.elements['id'].text
+          @object =  model.find(id)
+          logger.info "find #{model}"
+       else  
+          logger.info "new  #{model}"
+          @object = model.new(@options[:override])
        end
-       object = model.new
-   
-       for column in model.columns
-          unless exclude?(column.name) 
-            value = root.elements[format(column.name)]
-            unless value.nil?
-              object.send("#{column.name}=", value.text )
-              ## puts "#{object.class} #{column.name}=#{value.text}"
-            end 
-          end  
-       end    
-
-       child_options = options.dup
-       child_options[:lookup] << format(model.to_s) 
-       ##
-       # Deal with references to bemore objects before basic save
-       # 
-       for relation_name in model.reflections.keys
-         link = model.reflections[relation_name]
-         if (link.macro == :has_one or link.macro == :belongs_to)     
-           element = root.elements[ format(relation_name) ]
-           unless element.nil?
-              puts "reference #{relation_name}"
-              item_class = eval(link.class_name)
-              item = item_class.from_xml(element)
-              object.send("#{relation_name}=", item )
-           end
-         end  
+       unless @object
+          raise "Reference to #{model} #{root} "
        end
+       read_attributes
+       read_references         
   
-       if (object.new_record? and  create?(object.class))
-           object.id = nil
-           object.save 
-           puts "Inserted #{object.class}.#{object.id}.." if object.valid?
-           ##
-           # as inserting will have to add dependent collections are objects
-           # 
-           for relation_name in model.reflections.keys
-             link = model.reflections[relation_name]          
-             child_options = options.dup
-             child_options[:lookup] << format(model.to_s) 
-             child_options[:exclude] << link.primary_key_name
-
-             if (link.macro == :has_many or link.macro == :has_and_belongs_to_many)
-                element = root.elements[ format(relation_name) ]
-                unless element.nil?
-                    puts "reading #{element.name}"
-                    element.each_element do |child|
-                      item_class = element_to_class(child)
-                      item = item_class.from_xml(child,child_options)
-                      eval("object.#{relation_name} <<  item" )
-                      puts "Inserted #{item.class}.#{item.id}.." if item.valid?
-                      puts item.errors.full_messages().join("\n")
-                    end 
-                end
-             end
-           end         
+       if (object.new_record? and  create?(model))
+           old_id = @object.id
+           @object.id = nil
+           unless @object.save
+             raise "Xml Deserialized Problem: Inserted #{@object.class}.#{@object.id} #{@object.errors.full_messages().join('<br/>')}"
+           end
+           logger.info "Inserted #{object.class}.#{object.id} " 
+           read_collections
        elsif update?(object.class)
-         puts "Updating #{object.class}.#{object.id}..."
-         object.save  
+          unless @object.save
+             raise "Xml Deserialized Problem: Updating #{@object.class}.#{@object.id} #{@object.errors.full_messages().join('<br/>')}"
+          end
+          logger.info "Updating #{object.class}.#{object.id} "            
        end
        
        return object

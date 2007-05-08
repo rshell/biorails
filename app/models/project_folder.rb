@@ -173,7 +173,7 @@ class ProjectFolder < ProjectElement
     folder = self.folder?(item)
     if folder.nil? 
        logger.info "Creating folder #{name}"
-       if item.is_a?  ActiveRecord::Base
+       if item.respond_to?(:name)
           folder = ProjectFolder.new(:name=> item.name, 
                                      :position => self.elements.size, 
                                      :parent_id=>self.id, 
@@ -181,11 +181,11 @@ class ProjectFolder < ProjectElement
           folder.reference =  item         
           folder.path = self.path + "/" + item.name
        else
-          folder = ProjectFolder.new(:name=> item, 
+          folder = ProjectFolder.new(:name=> item.to_s, 
                                      :position => self.elements.size, 
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
-          folder.path = self.path + "/" + item
+          folder.path = self.path + "/" + item.to_s
        end
        self.elements << folder    
     end

@@ -35,6 +35,7 @@ class StudyParameter < ActiveRecord::Base
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
+  validates_presence_of :description
   validates_uniqueness_of :name,:scope=>'study_id'
 
   belongs_to :study   
@@ -105,17 +106,20 @@ class StudyParameter < ActiveRecord::Base
 ##
 # Convert context to xml
 # 
- def to_xml( xml = Builder::XmlMarkup.new)
-   xml.parameter(:id => id, :name => name) do
-       xml.type(:id=>type.id, :name=>type.name) if type
-       xml.role(:id=> role.id,:name=> role.name) if role
-       xml.datatype(:id=> data_type.id,   :name=> data_type.name) if data_type
-       xml.lookup(  :id=> data_element.id,:name=> data_element.name) if data_element
-       xml.format(  :id=> data_format.id, :name=> data_format.name) if data_format
-       xml.default(default_value) if default_value
-   end
-   return xml
+ def to_xml(options={})
+    my_options = options.dup
+    my_options[:reference] = {:data_type=>:name,:parameter_type=>:name,:role=>:name,:data_format=>'name',:data_element=>'name'}
+    my_options[:except] = [:parameter_type_id, :parameter_role_id, :data_format_id, :data_element_id] +  options[:except]
+    Alces::XmlSerializer.new(self, my_options  ).to_s
  end 
    
-
+##
+# Get from xml
+# 
+ def self.from_xml(xml,options = {})      
+      my_options = options.dup
+      my_options[:reference] = {:data_type=>:name,:parameter_type=>:name,:role=>:name,:data_format=>'name',:data_element=>'name'}
+      Alces::XmlDeserializer.new(self, my_options ).to_object(xml)
+ end
+ 
 end

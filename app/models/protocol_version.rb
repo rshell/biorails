@@ -37,11 +37,6 @@ class ProtocolVersion < ActiveRecord::Base
  belongs_to :protocol, :class_name => 'StudyProtocol',:foreign_key =>'study_protocol_id'
 
 ##
-# In term the instance is defined 
-#
- has_many :parameters ,:include => [:data_format,:study_parameter], :order => ['parameter_context_id,column_no']
-
-##
 # Link to view for summary stats for study
 # 
   has_many :stats, :class_name => "ProcessStatistics"
@@ -55,6 +50,16 @@ class ProtocolVersion < ActiveRecord::Base
  
  has_many :tasks, :dependent => :destroy
  
+ 
+
+ def parameters
+   sql = <<SQL
+  select * from parameters  
+  inner join parameter_contexts  on parameters.parameter_context_id = parameter_contexts.id
+  where parameter_contexts.protocol_version_id = ?
+SQL
+   Parameter.find_by_sql([sql,self.id])
+ end
 ##
 # Test if this instance is used in any tasks
  def is_used
@@ -163,5 +168,17 @@ class ProtocolVersion < ActiveRecord::Base
      return context
    end      
    
-      
+ def to_xml(options = {})
+     Alces::XmlSerializer.new(self, options.merge( {:include=> [:contexts]} )  ).to_s
+ end
+     
+ ##
+# Get from xml
+# 
+ def self.from_xml(xml,options = {} )
+      my_options =options.dup
+      my_options[:include] ||= [:contexts]
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end  
+     
 end

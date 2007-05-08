@@ -164,26 +164,23 @@ class StudyProtocol < ActiveRecord::Base
     return Task.count_by_sql( [sql ,self.id])  
  end
  
- 
- def to_xml(xml = Builder::XmlMarkup.new)  
-    xml.protocol(:class => self.class.to_s ,:name=>name, :id=>id ) do 
-      xml.description(description)
-      xml.catagory(protocol_catagory)
-      xml.status(protocol_status)
-      xml.literature(literature_ref)
-      xml.study(:id => study.id, :name => study.name )
-      xml.stage(:id => stage.id, :name => stage.name )      
-      xml.instance(:id =>process.id) do
-        xml.label(process.name)
-        xml.version(process.version)    
-        xml.contexts do
-          for context in process.roots
-            context.to_xml(xml)       
-          end
-        end 
-      end
-    end
-    return xml
+ def to_xml(options = {})
+      my_options = options.dup
+      my_options[:reference] ||= {:process=>:name}
+      my_options[:except] = [:process] + options[:except]
+      my_options[:include] = [:versions, :stage]
+     Alces::XmlSerializer.new(self, my_options ).to_s
  end
+
+##
+# Get from xml
+# 
+ def self.from_xml(xml,options = {})
+      my_options = options.dup
+      my_options[:except] = [:process] + options[:except]
+      my_options[:include] = [:versions,:stage]
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end
+ 
  
 end

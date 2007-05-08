@@ -103,3 +103,13 @@ class Time
     return [from.midnight, to.midnight-1]
   end
 end
+
+ MOLE               = File.new("#{RAILS_ROOT}/config/mole.conf")
+ MOLEABLE_APP       = true
+ MOLE_PERF_MAX_TIME = 5
+
+# ---------------------------------------------------------------------------
+# Inject moles...
+
+ load MOLE.path if File.exists?(MOLE.path) and MOLEABLE_APP
+

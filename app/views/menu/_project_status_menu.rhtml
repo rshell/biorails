@@ -1,6 +1,7 @@
 <div>
   <span class='menu'>Actions</span>
   <%= link_to subject_icon('new.png') +'Add Study',       study_url(     :action => 'new', :project_id=>project.id) %>
+  <%= link_to subject_icon('new.png') +'Import Study',    study_url(     :action => 'import', :project_id=>project.id) %>
   <%= link_to subject_icon('new.png') +'Add Experiment',  experiment_url(:action => 'new', :project_id=>project.id) if project.studies.size >0 %>
   <%= link_to subject_icon('new.png') +'Add Request',     request_url(   :action => 'new', :project_id=>project.id) %>
   <%= link_to subject_icon('new.png') +'Add Report',     report_url(   :action => 'new', :project_id=>project.id) %>

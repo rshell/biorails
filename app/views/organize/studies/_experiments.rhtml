@@ -23,7 +23,7 @@
     <% classAttr = cycle("", "class=\"even\"") %>
     <tr <%=classAttr%>> 
       <td><%= link_to experiment.name, experiment_url( :action => 'show', :id=>experiment.id) %> </td>
-      <td><%=experiment.updated_by %></td>
+      <td><%=experiment.updated_by if experiment.updated_by_user_id %></td>
       <td><%=short_date experiment.updated_at %></td>
       <td><%= link_to experiment.protocol.name, protocol_url( :action => 'show', :id=>experiment.protocol.id) %> </td>
       <td><%=experiment.process.name %></td>

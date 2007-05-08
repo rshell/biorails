@@ -42,8 +42,6 @@ class StudyQueue < ActiveRecord::Base
 # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
-  
-  include  CurrentPriority
 
   validates_uniqueness_of :name,:scope=>'study_id'
   validates_presence_of   :study_id
@@ -158,5 +156,24 @@ SQL
   def status_summary   
     "[#{items.size} / #{num_active} / #{num_finished}] #{percent_done}%"
   end
+
+##
+# Convert context to xml
+# 
+ def to_xml(options={})
+    my_options = options.dup
+    my_options[:reference] = {:parameter=>:name}
+    my_options[:except] = [:study_parameter_id] +  my_options[:except]
+    Alces::XmlSerializer.new(self, my_options  ).to_s
+ end 
+   
+##
+# Get from xml
+# 
+ def self.from_xml(xml,options = {})      
+      my_options = options.dup
+      my_options[:reference] = {:parameter=>:name}
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end
  
 end

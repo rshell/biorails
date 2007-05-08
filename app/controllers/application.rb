@@ -30,7 +30,6 @@ class ApplicationController < ActionController::Base
   include SessionHelper # Various session/parameter cache and lookup function
   include TinyMCE
  
-  include Biorails::CachingMethods
 
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_Biorails2_session_id'

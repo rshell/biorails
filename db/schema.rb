@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 254) do
+ActiveRecord::Schema.define(:version => 256) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(:version => 254) do
   add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
 
   create_table "experiment_statistics", :force => true do |t|
-    t.column "experiment_id",      :integer
+    t.column "experiment_id",      :integer,               :default => 0, :null => false
     t.column "study_parameter_id", :integer
     t.column "parameter_role_id",  :integer
     t.column "parameter_type_id",  :integer
@@ -296,13 +296,13 @@ ActiveRecord::Schema.define(:version => 254) do
     t.column "description",         :text
     t.column "category_id",         :integer
     t.column "status_id",           :integer,                 :default => 0,  :null => false
-    t.column "study_id",            :integer
+    t.column "study_id",            :integer,                                 :null => false
     t.column "protocol_version_id", :integer
     t.column "lock_version",        :integer,                 :default => 0,  :null => false
     t.column "created_at",          :datetime,                                :null => false
     t.column "updated_at",          :datetime,                                :null => false
-    t.column "study_protocol_id",   :integer
-    t.column "project_id",          :integer
+    t.column "study_protocol_id",   :integer,                                 :null => false
+    t.column "project_id",          :integer,                                 :null => false
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "started_at",          :datetime
@@ -652,7 +652,7 @@ ActiveRecord::Schema.define(:version => 254) do
     t.column "updated_at",           :datetime,                :null => false
     t.column "request_service_id",   :integer
     t.column "status_id",            :integer,  :default => 0, :null => false
-    t.column "priority_id",          :integer,  :default => 0, :null => false
+    t.column "priority_id",          :integer
     t.column "updated_by_user_id",   :integer,  :default => 1, :null => false
     t.column "created_by_user_id",   :integer,  :default => 1, :null => false
     t.column "requested_by_user_id", :integer,  :default => 1
@@ -686,18 +686,21 @@ ActiveRecord::Schema.define(:version => 254) do
   end
 
   create_table "reports", :force => true do |t|
-    t.column "name",               :string,   :limit => 128, :default => "",       :null => false
+    t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "description",        :text
     t.column "base_model",         :string
     t.column "custom_sql",         :string
-    t.column "lock_version",       :integer,                 :default => 0,        :null => false
-    t.column "created_at",         :datetime,                                      :null => false
-    t.column "updated_at",         :datetime,                                      :null => false
-    t.column "style",              :string,                  :default => "Report"
-    t.column "updated_by_user_id", :integer,                 :default => 1,        :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1,        :null => false
+    t.column "lock_version",       :integer,                 :default => 0,  :null => false
+    t.column "created_at",         :datetime,                                :null => false
+    t.column "updated_at",         :datetime,                                :null => false
+    t.column "style",              :string
+    t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
+    t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "internal",           :boolean
     t.column "project_id",         :integer
+  end
+
+  create_table "request_lists", :force => true do |t|
   end
 
   create_table "request_services", :force => true do |t|
@@ -805,7 +808,7 @@ ActiveRecord::Schema.define(:version => 254) do
     t.column "lock_version",       :integer,                 :default => 0,  :null => false
     t.column "created_at",         :datetime,                                :null => false
     t.column "updated_at",         :datetime,                                :null => false
-    t.column "project_id",         :integer
+    t.column "project_id",         :integer,                                 :null => false
     t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "started_at",         :datetime
@@ -905,16 +908,17 @@ ActiveRecord::Schema.define(:version => 254) do
   end
 
   create_table "study_statistics", :force => true do |t|
-    t.column "study_id",          :integer
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :float
-    t.column "min_values",        :float
+    t.column "study_parameter_id", :integer
+    t.column "study_id",           :integer,               :default => 0, :null => false
+    t.column "parameter_role_id",  :integer
+    t.column "parameter_type_id",  :integer
+    t.column "data_type_id",       :integer
+    t.column "avg_values",         :float
+    t.column "stddev_values",      :float
+    t.column "num_values",         :integer, :limit => 20, :default => 0, :null => false
+    t.column "num_unique",         :integer, :limit => 20, :default => 0, :null => false
+    t.column "max_values",         :float
+    t.column "min_values",         :float
   end
 
   create_table "subscribers", :force => true do |t|
@@ -1147,8 +1151,8 @@ ActiveRecord::Schema.define(:version => 254) do
   create_table "tasks", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
-    t.column "experiment_id",       :integer
-    t.column "protocol_version_id", :integer
+    t.column "experiment_id",       :integer,                                 :null => false
+    t.column "protocol_version_id", :integer,                                 :null => false
     t.column "status_id",           :integer,                 :default => 0,  :null => false
     t.column "is_milestone",        :boolean
     t.column "priority_id",         :integer
@@ -1160,7 +1164,7 @@ ActiveRecord::Schema.define(:version => 254) do
     t.column "created_at",          :datetime,                                :null => false
     t.column "updated_at",          :datetime,                                :null => false
     t.column "study_protocol_id",   :integer
-    t.column "project_id",          :integer
+    t.column "project_id",          :integer,                                 :null => false
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "assigned_to_user_id", :integer,                 :default => 1

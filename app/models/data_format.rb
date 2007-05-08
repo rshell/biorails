@@ -37,7 +37,7 @@ class DataFormat < ActiveRecord::Base
   has_many :study_parameters, :dependent => :destroy
 
   def self.content_columns
-        @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|format_regex|_by|_at|_id|_count)$/ || c.name == inheritance_column }
+        @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
   end
 
   belongs_to :data_type

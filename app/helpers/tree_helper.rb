@@ -348,6 +348,7 @@ end
       tree=TreeHelper::Node.build(project.folders) do |node,rec|
           node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
+          node.name = nil
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
       end    
@@ -366,10 +367,11 @@ end
 ##
 # Tree for a folder and children  
 # 
-  def tree_for_collection(project , folders)
-      tree=TreeHelper::Node.build(folders) do |node,rec|
+  def tree_for_folder(project , folder)
+      tree=TreeHelper::Node.create( folder ) do |node,rec|
           node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
+          node.name = nil
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
       end    

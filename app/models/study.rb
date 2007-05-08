@@ -26,6 +26,7 @@
 # have a number of protocols (linked Processed) associated with it and a large number of 
 # experiments run containing tasked used to managed data collected by running the protocols.
 #   
+
 class Study < ActiveRecord::Base
   included Named
 ##
@@ -38,9 +39,12 @@ class Study < ActiveRecord::Base
   acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
+  validates_uniqueness_of :name,:scope=>:project_id
+
   validates_presence_of :name
   validates_presence_of :description
-  validates_uniqueness_of :name
+  validates_presence_of :project_id
+
 
 ##
 #Owner project
@@ -231,35 +235,20 @@ class Study < ActiveRecord::Base
       return grid
    end
 
-#  id            :integer(11)   not null, primary key
-#  name          :string(128)   default(), not null
-#  description   :text          
-#  category_id   :integer(11)   
-#  research_area :string(255)   
-#  purpose       :string(255)   
-
- def to_my_xml(xml = Builder::XmlMarkup.new)  
-    xml.study(:id => id, :name => name) do
-      xml.description(description)
-      xml.research_area(research_area)
-      xml.purpose(purpose)
-      xml.category_id(category_id)
-      
-      ## Output the parameters
-      xml.study_parameters do
-         for parameter in parameters
-            parameter.to_xml(xml)
-         end  
-      end
-      
-      ## output the protocols
-      xml.protocols do
-        for protocol in protocols
-              protocol.to_xml(xml)       
-        end
-      end         
-    end
-    return xml
- end
  
+ def to_xml(options = {})
+      my_options = options.dup
+      my_options[:include] ||= [:parameters,:queues,:protocols]
+      Alces::XmlSerializer.new(self, my_options  ).to_s
+ end
+
+##
+# Get Study from xml
+# 
+ def self.from_xml(xml,options = {})
+      my_options = options.dup
+      my_options[:include] ||= [:parameters,:queues,:protocols]
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end
+
 end

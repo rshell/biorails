@@ -31,72 +31,72 @@ class Organize::StudiesController < ApplicationController
    @data = @report.run({:limit  =>  @data_pages.items_per_page,
                         :offset =>  @data_pages.current.offset })
   end
-
 ##
 # Show a overview of the current study
 # 
   def show
-    @study = current( Study, params[:id] )
-    @folder = set_folder(current_project.folder(@study))
-    if !@study
-      redirect_to study_url(:action => 'list')
+    set_study_content
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.json { render :json => @study.to_json }
+      format.xml  { render :xml => @study.to_xml }
     end
   end 
 ##
 # List of experiments for the study.
 #
   def experiments
-    show
+    set_study_content
   end
 ##
 # Show the summary stats for the study
 #
   def metrics
-    show
+    set_study_content
   end
 ##
 # Show the services queues for the study
 #
   def queues
-    show
+    set_study_content
   end
-
 ##
 # Configuration of a Study. This manages the setup of parameter list and 
 # list of users associated with a study
 #   
   def parameters
-    show       
+    set_study_content
   end
 ##
 # Standard entry point for data entry mode for studies. This will display a list of   
 # 
   def protocols
-    show       
+    set_study_content
   end
-
-
-  def calender
-    show       
+##
+# Calendar of stuff in the study
+#
+  def calendar
+    set_study_content
     @calender = Schedule.calendar(Task,params)
     @calender.find_by_user(@user.id)
     render :layout => false if request.xhr?
+    respond_to do | format |
+      format.html { render :action => 'calendar' }
+      format.json { render :json => {:study=> @study, :items=>@calendar.items}.to_json }
+      format.xml  { render :xml =>  {:study=> @study ,:items=>@calendar.items}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'right',  :partial => 'calendar_right' 
+         end }
+    end
   end
-
-
-  def timeline
-    show     
-    
-    @calender = Schedule.gnatt(Task,params)
-    @calender.find_by_user(@user.id)
-    render :layout => false if request.xhr?
-  end
-
-
 ##
 # Output a timeline 
+#
   def changes
     if params[:id]
+      set_study_content
       @logs = current( Study, params[:id] ).logs
     else  
       @logs = StudyLog.find(:all,:limit=>100, :order=>'id desc')
@@ -107,6 +107,7 @@ class Organize::StudiesController < ApplicationController
 # add reports
 #   
   def reports
+   set_study_content
    @report = Report.new      
    @report.model = Report
    @report.name = "Study Reports List"
@@ -131,7 +132,9 @@ class Organize::StudiesController < ApplicationController
 # response to new with details to created a study
 #   
   def create
+    @project = current_project
     @study = Study.new(params[:study])
+    @project.studies << @study
     @study.project = current_project
     if @study.save
       @project_folder = current_project.folder(@study)    
@@ -146,14 +149,14 @@ class Organize::StudiesController < ApplicationController
 #Edit the current study 
 #
   def edit
-    @study = current( Study, params[:id] )
+    set_study_content
   end
 
 ##
 #manage the response to edit
 #
   def update
-    @study = current( Study, params[:id] )
+    set_study_content
     @successful = @study.update_attributes(params[:study])
     if @study.update_attributes(params[:study])
       flash[:notice] = 'Study  was successfully updated.'
@@ -168,14 +171,54 @@ class Organize::StudiesController < ApplicationController
 #  
  def export
     if params[:id]
-      @study = current( Study, params[:id] )
-      xml = Builder::XmlMarkup.new(:ident=>2)
-      xml.instruct!
-      @study.to_xml(xml)
-      send_data(xml.target!(),:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @study.name+'.xml')     
+      set_study_content
+      xml = @study.to_xml()
+      send_data(xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @study.name+'.xml')     
     end  
  end
 
+##
+#Import a a study xml file
+#
+ def import 
+#    set_study_content
+    render :action => 'import'   
+ end
+
+STUDY_MODELS = [:study,:study_parameter,:study_queue,:study_protocol, :protocol_version,:parameter_context,:parameter]
+CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter_type,:parameter_role]
+
+##
+#Import a a study xml file
+#
+ def import_file 
+   Study.transaction do
+      options = {:override=>{:project_id=>current_project.id,:name=>params[:name] },
+                 :include=>[],:ignore=>[], :create  =>STUDY_MODELS }
+           
+      options[:include] << :parameters
+      options[:include] << :queues if params[:study_queue] 
+      options[:include] << :protocols if params[:study_protocol]
+      
+#      options[:create] << :parameter_type if  params[:parameter_type]  
+#      options[:create] << :parameter_role if params[:parameter_role]  
+#      options[:create] << :data_format    if  params[:data_format]  
+      
+      @study = Study.from_xml(params[:file]||params['File'],options)  
+      @study.project = current_project
+      unless @study.save 
+        flash[:error] = "Import Failed "
+        return render( :action => 'import'  ) 
+      end 
+    end
+    flash[:info]= "Import Study #{@study.name}" 
+    redirect_to( study_url(:action => 'show', :id => @study))
+
+ rescue Exception => ex
+    logger.error "current error: #{ex.message}"
+    flash[:error] = "Import Failed #{ex.message}"
+    return render( :action => 'import'  ) 
+ end
 ##
 # Destroy a study
 #
@@ -190,15 +233,27 @@ class Organize::StudiesController < ApplicationController
        flash[:error] = $!.to_s
        @successful  = false
     end
-    redirect_to :action => 'list'
+    redirect_to :action => 'show'
   end
   
-
+##
+# cancel redirect to list
+#
   def cancel
     @successful = true
     redirect_to :action => 'list'
   end
-  
+
+protected
+
+  def set_study_content
+    @study = current( Study, params[:id] )
+    if @study
+      logger.info "set_study_content(#{@study.name})"
+      @folder = set_folder(current_project.folder(@study))
+    end
+  end
+    
   
   
 end

@@ -23,6 +23,7 @@
 class ParameterContext < ActiveRecord::Base
 
  validates_uniqueness_of :label, :scope =>"protocol_version_id"
+ validates_presence_of :protocol_version_id
  validates_presence_of :label
  validates_presence_of :default_count
 
@@ -114,7 +115,7 @@ class ParameterContext < ActiveRecord::Base
 #  
   def add_parameter( definition )
     return nil if definition.nil?
-    logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
+    #logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     parameter = Parameter.new
     parameter.study_parameter = definition
     parameter.fill_type_and_formating
@@ -137,27 +138,25 @@ class ParameterContext < ActiveRecord::Base
 ##
 #  
   def add_queue( queue)
-    logger.info "Queue Parameter Create [#{queue.name}] in context [#{self.label}]"
+    #logger.info "Queue Parameter Create [#{queue.name}] in context [#{self.label}]"
     parameter = add_parameter(queue.parameter)
     parameter.queue = queue
     return parameter
   end
   
-##
-# Convert context to xml
-  def to_xml( xml = Builder::XmlMarkup.new)
-   xml.context(:id =>id, :label => label, :rows => default_count) do
-     xml.parent(parent_id) if parent_id
-     xml.parameters do
-       for parameter in parameters
-         parameter.to_xml(xml)
-       end  
-     end
-     for child in children
-         child.to_xml(xml)
-     end
-   end
-   return xml
-  end 
-  
+
+ def to_xml(options = {})
+     Alces::XmlSerializer.new(self, options.merge( {:include=> [:parameters]} )  ).to_s
+ end
+
+ ##
+# Get from xml
+# 
+ def self.from_xml(xml,options ={} )
+      my_options = options.dup
+      my_options[:include] = [:parameters]
+ 
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end  
+            
 end

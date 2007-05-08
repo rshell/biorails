@@ -23,7 +23,7 @@ study_parameters_022:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "24"
-  description: ""
+  description: Statistic
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -37,7 +37,7 @@ study_parameters_043:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "45"
-  description: ""
+  description: Dasage
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -51,7 +51,7 @@ study_parameters_064:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "66"
-  description: ""
+  description: Plate QC Stat
   study_id: "3"
   created_by_user_id: "1"
   data_element_id: 
@@ -65,7 +65,7 @@ study_parameters_002:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "2"
-  description: ""
+  description: Weight
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -93,7 +93,7 @@ study_parameters_044:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "46"
-  description: my param
+  description: Calculation
   study_id: "4"
   created_by_user_id: "1"
   data_element_id: 
@@ -121,7 +121,7 @@ study_parameters_003:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "3"
-  description: ""
+  description: Reading
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -191,7 +191,7 @@ study_parameters_004:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "4"
-  description: ""
+  description: p
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -275,7 +275,7 @@ study_parameters_005:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "5"
-  description: ""
+  description: sig
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: "83"
@@ -331,7 +331,7 @@ study_parameters_006:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "6"
-  description: ""
+  description: Treatment Role
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: "76"
@@ -373,7 +373,7 @@ study_parameters_007:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "7"
-  description: ""
+  description: Index
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -401,7 +401,7 @@ study_parameters_050:
   updated_by_user_id: "1"
   data_type_id: "4"
   id: "52"
-  description: ""
+  description: Time
   study_id: "4"
   created_by_user_id: "1"
   data_element_id: 
@@ -429,7 +429,7 @@ study_parameters_072:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "74"
-  description: test
+  description: Compound
   study_id: "8"
   created_by_user_id: "1"
   data_element_id: "1"
@@ -443,7 +443,7 @@ study_parameters_008:
   updated_by_user_id: "1"
   data_type_id: "1"
   id: "8"
-  description: ""
+  description: Treatment Group
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -513,7 +513,7 @@ study_parameters_010:
   updated_by_user_id: "1"
   data_type_id: "1"
   id: "10"
-  description: ""
+  description: Gene
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -527,7 +527,7 @@ study_parameters_009:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "9"
-  description: ""
+  description: Group Size
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -541,7 +541,7 @@ study_parameters_031:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "33"
-  description: ""
+  description: Group Size
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -555,7 +555,7 @@ study_parameters_052:
   updated_by_user_id: "1"
   data_type_id: "6"
   id: "54"
-  description: ""
+  description: Hyperlink
   study_id: "4"
   created_by_user_id: "1"
   data_element_id: 
@@ -583,7 +583,7 @@ study_parameters_011:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "11"
-  description: ""
+  description: Molecular Mass
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -597,7 +597,7 @@ study_parameters_032:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "34"
-  description: ""
+  description: Inhibition
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -639,7 +639,7 @@ study_parameters_012:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "12"
-  description: ""
+  description: Min Weight
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -653,7 +653,7 @@ study_parameters_033:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "35"
-  description: ""
+  description: ED50
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -667,9 +667,23 @@ study_parameters_054:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "56"
-  description: ""
+  description: SciNote
   study_id: "4"
   created_by_user_id: "1"
+  data_element_id: 
+study_parameters_076: 
+  name: Calculation
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "7"
+  parameter_type_id: "14"
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  id: "78"
+  description: Calculation
+  study_id: "13"
+  created_by_user_id: "3"
   data_element_id: 
 study_parameters_013: 
   name: Min Age
@@ -681,7 +695,7 @@ study_parameters_013:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "13"
-  description: ""
+  description: Min Age
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -709,9 +723,23 @@ study_parameters_055:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "57"
-  description: ""
+  description: Double
   study_id: "4"
   created_by_user_id: "1"
+  data_element_id: 
+study_parameters_077: 
+  name: Compound
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "1"
+  parameter_type_id: "23"
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  id: "79"
+  description: Compound
+  study_id: "13"
+  created_by_user_id: "3"
   data_element_id: 
 study_parameters_014: 
   name: Molecula Formula
@@ -723,7 +751,7 @@ study_parameters_014:
   updated_by_user_id: "1"
   data_type_id: "1"
   id: "14"
-  description: ""
+  description: Molecula Formula
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -737,7 +765,7 @@ study_parameters_035:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "37"
-  description: ""
+  description: Mean Activity Count
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -751,10 +779,24 @@ study_parameters_056:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "58"
-  description: ""
+  description: Target
   study_id: "3"
   created_by_user_id: "1"
   data_element_id: "86"
+study_parameters_078: 
+  name: moose
+  display_unit: ""
+  default_value: ""
+  data_format_id: "4"
+  parameter_role_id: "7"
+  parameter_type_id: "10"
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  id: "80"
+  description: Moose
+  study_id: "13"
+  created_by_user_id: "3"
+  data_element_id: 
 study_parameters_015: 
   name: Compound
   display_unit: ""
@@ -765,7 +807,7 @@ study_parameters_015:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "15"
-  description: ""
+  description: Compound
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: "1"
@@ -863,7 +905,7 @@ study_parameters_017:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "19"
-  description: ""
+  description: Species
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: "63"
@@ -905,7 +947,7 @@ study_parameters_018:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "20"
-  description: ""
+  description: Day
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -919,7 +961,7 @@ study_parameters_040:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "42"
-  description: ""
+  description: Brain Conc
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -933,7 +975,7 @@ study_parameters_039:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "41"
-  description: ""
+  description: Plasma Conc
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: 
@@ -961,7 +1003,7 @@ study_parameters_020:
   updated_by_user_id: "1"
   data_type_id: "1"
   id: "22"
-  description: ""
+  description: Strain
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -975,7 +1017,7 @@ study_parameters_019:
   updated_by_user_id: "1"
   data_type_id: "1"
   id: "21"
-  description: ""
+  description: ID
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -1017,7 +1059,7 @@ study_parameters_021:
   updated_by_user_id: "1"
   data_type_id: "2"
   id: "23"
-  description: ""
+  description: Calculation
   study_id: "1"
   created_by_user_id: "1"
   data_element_id: 
@@ -1031,7 +1073,7 @@ study_parameters_042:
   updated_by_user_id: "1"
   data_type_id: "5"
   id: "44"
-  description: ""
+  description: Route of Administration
   study_id: "2"
   created_by_user_id: "1"
   data_element_id: "56"
