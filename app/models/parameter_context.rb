@@ -118,7 +118,7 @@ class ParameterContext < ActiveRecord::Base
     #logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     parameter = Parameter.new
     parameter.study_parameter = definition
-    parameter.fill_type_and_formating
+    parameter.context = self
     parameter.sequence_num    =  0 
     while Parameter.find(:first, :conditions => 
             ["protocol_version_id=? and name=?", self.process.id, parameter.name])
