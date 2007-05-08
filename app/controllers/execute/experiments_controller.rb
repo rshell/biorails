@@ -61,8 +61,6 @@ class Execute::ExperimentsController < ApplicationController
                 'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
     @user = current_user
 
-    logger.info " Calendar for #{@options.to_yaml}"
-
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
     find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
 
@@ -82,6 +80,45 @@ class Execute::ExperimentsController < ApplicationController
     end
   end
 
+##
+# Display of Gantt chart of task in  the project
+# This will need to show studies,experiments and tasks in order
+#   
+  def timeline
+    @experiment = current(Experiment,params[:id]) 
+    @options ={ 'month' => Date.today.month,
+                'year'=> Date.today.year,
+                'items'=> {'task'=>1},
+                'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
+    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+                    
+    if params[:year] and params[:year].to_i >0
+      @year_from = params[:year].to_i
+      if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12
+        @month_from = params[:month].to_i
+      else
+        @month_from = 1
+      end
+    else
+      @month_from ||= (Date.today << 1).month
+      @year_from ||= (Date.today << 1).year
+    end
+    
+    @zoom = (params[:zoom].to_i > 0 and params[:zoom].to_i < 5) ? params[:zoom].to_i : 2
+    @months = (params[:months].to_i > 0 and params[:months].to_i < 25) ? params[:months].to_i : 6
+    
+    @date_from = Date.civil(@year_from, @month_from, 1)
+    @date_to = (@date_from >> @months) - 1
+    @tasks = @experiment.tasks.range( @date_from, @date_to,50,find_options)  
+
+    if params[:output]=='pdf'
+      @options_for_rfpdf ||= {}
+      @options_for_rfpdf[:file_name] = "gantt.pdf"
+      render :action => "gantt.rfpdf", :layout => false
+    else
+      render :action => "timeline.rhtml"
+    end
+  end
 ##
 # create a new experiment
   def new
