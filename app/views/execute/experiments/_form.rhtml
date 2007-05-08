@@ -4,7 +4,7 @@
 
      <div class="form-element">
       <label for="experiment_study_id">Study</label>
-     <%= select_study(:experiment, :study_id) %>
+     <%= collection_select(:experiment, :study_id ,current_project.studies, :id, :name)%>
      
      <%= observe_field 'experiment_study_id',:url => {:action =>'refresh_allowed_protocols'},  :update =>@experiment.dom_id('protocols') %>
      

@@ -133,14 +133,7 @@ module FormHelper
 ##
 # Selector for a study_protocol in a given context (Study,All,StudyProtocol)
 # 
-  def select_study( object,method, item = nil)
-     studies = []
-     case item
-     when Study
-       studies << item
-     else
-       studies =  Study.find(:all,:order=>'name')
-     end
+  def select_study( object,method)
     return collection_select(object, method ,studies, :id, :name) 
   rescue Exception => ex
       logger.error ex.message
