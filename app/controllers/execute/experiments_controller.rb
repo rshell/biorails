@@ -8,7 +8,7 @@ require "faster_csv"
 class Execute::ExperimentsController < ApplicationController
 
   use_authorization :experiment,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                     
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)

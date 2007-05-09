@@ -1,7 +1,7 @@
 class Project::FoldersController < ApplicationController
 
   use_authorization :project,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
                     
   def index
@@ -10,7 +10,7 @@ class Project::FoldersController < ApplicationController
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
+  verify :method => :post, :only => [ :create, :update ],
          :redirect_to => { :action => :list }
 
 ##
@@ -97,9 +97,10 @@ class Project::FoldersController < ApplicationController
 # Destroy the the  folder
 #
   def destroy
-    project_folder =current_folder
-    project_folder.destroy
-    redirect_to :action => 'list'
+    logger.info "destroy"
+    element  = ProjectElement.find(params[:id]) 
+    element.destroy
+    redirect_to :action => 'show', :id=>element.parent_id
   end
 ##
 # Display the selector
@@ -154,7 +155,7 @@ class Project::FoldersController < ApplicationController
     case text
     when /id=current_project_element_*/
         @source = ProjectElement.find($') 
-        if @source.parent_id == @project_folder.parent_id and @source.id != @project_folder.id
+        if @source.parent_id == @project_element.parent_id and @source.id != @project_element.id
           @source.reorder_before( @project_element )
         end     
     

@@ -6,7 +6,7 @@
 class Execute::TasksController < ApplicationController
 
   use_authorization :experiment,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
 
   helper SheetHelper
@@ -31,41 +31,40 @@ class Execute::TasksController < ApplicationController
 # This will show the task and provide a read only view of the entered data on the screen
 # 
   def show
-    @task = current( Task, params[:id] )
-    @folder = set_folder(current_project.folder(@task.experiment).folder(@task))
+    set_task
     redirect_to project_url(:action => 'show') if @task.nil?
   end
 
 ##
 # show statics on task
   def metrics
-    show
+    set_task
   end
 
 ##
 # show data entry sheet readonly
   def view
-    show
+    set_task
   end
 
 ##
 # show data entry sheet 
   def sheet
-    show
+    set_task
   end
 
 ##
 # show data task analysis options
 # 
   def analysis
-    show
+    set_task
   end
 
 ##
 # show task notces,comments etc
   def folder
-    show
-    @project_folder = current_project.folder(@task.experiment).folder(@task)    
+    set_task
+    @project_folder = set_folder(current_project.folder(@task.experiment).folder(@task))    
   end
 ##
 # show reporting options
@@ -137,7 +136,7 @@ class Execute::TasksController < ApplicationController
 # This is used for validation of task and changing of schedule
 # 
   def edit
-    @task = current( Task, params[:id] )
+    set_task
     session[:data_sheet] = @data_sheet
   end
 
@@ -191,7 +190,7 @@ class Execute::TasksController < ApplicationController
 #  export Report of Elements as CVS
 #  
   def export
-    @task = current( Task, params[:id] )
+    set_task
     filename = "#{@task.experiment.name}-#{@task.name}.csv"
     send_data( @task.grid.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
                             :filename => filename)   
@@ -246,5 +245,11 @@ class Execute::TasksController < ApplicationController
     return render(:action => 'cell_saved.rjs') if request.xhr?
   end
 
-
+protected
+  
+  def set_task
+    @task = current( Task, params[:id] )
+    @experiment =@task.experiment
+    @folder = set_folder(current_project.folder(@task.experiment).folder(@task))  
+  end
 end

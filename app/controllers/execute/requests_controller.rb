@@ -6,7 +6,7 @@
 class Execute::RequestsController < ApplicationController
 
   use_authorization :experiment,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
 ##
 # Catch for queue model needed to include helper model for it to work in queue.action

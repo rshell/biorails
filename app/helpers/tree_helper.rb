@@ -71,6 +71,7 @@ module TreeHelper
       tree= Alces::TreeControl::Node.build(project.folders) do |node,rec|
           node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
+          node.id = rec.dom_id
           node.name = nil
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
@@ -94,6 +95,7 @@ module TreeHelper
       tree= Alces::TreeControl::Node.create( folder ) do |node,rec|
           node.link = link_to rec.name,reference_to_url(rec )
           node.icon = rec.icon
+          node.id = rec.dom_id
           node.name = nil
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)

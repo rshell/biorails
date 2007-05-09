@@ -12,7 +12,7 @@
     <% end%>
   </h2>
   <span class="right">
-    <% if  @project_folder.reference? %>
+    <% if  @project_folder.reference? and @project_folder.reference %>
     This folder is referenced to the following  
     <%= link_to  "#{@project_folder.style}: #{@project_folder.reference.name}", reference_to_url(@project_folder) %>
     <% end %>

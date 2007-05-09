@@ -33,6 +33,7 @@
         <td align="center">
             <%= link_to( l(:edit),  content_url( :action => 'edit', :id => item ), :class => "button") if item.textual? and !item.reference? %>
             <%= link_to( l(:view),  asset_url( :action => 'show', :id => item ), :class => "button") if item.asset? %>
+            <%= link_to( l(:delete), folder_url( :action => 'destroy', :id => item ), :class => "button") if item.children.size==0 %>
         </td>
       </tr>
 
@@ -40,7 +41,7 @@
 
       <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-zone",
            :hoverclass => "drop-active",     
-           :url => folder_url(:action=>"drop_element",:id=>item )) %>
+           :url => folder_url(:action=>"drop_element",:id=>item.id )) %>
     <% end %>
   </tbody>
 </table>

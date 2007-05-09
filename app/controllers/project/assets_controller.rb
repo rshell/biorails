@@ -1,7 +1,7 @@
 class Project::AssetsController < ApplicationController
 
   use_authorization :project,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
 
   def index

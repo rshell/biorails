@@ -7,7 +7,7 @@
  
 class Organize::StudyParametersController < ApplicationController
   use_authorization :study,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                       
 

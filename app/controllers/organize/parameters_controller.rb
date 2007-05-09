@@ -1,7 +1,7 @@
 class Organize::ParametersController < ApplicationController
   
   use_authorization :protocol,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:desrroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                     
   def index

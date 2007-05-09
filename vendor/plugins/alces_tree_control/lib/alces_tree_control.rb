@@ -42,6 +42,7 @@ module Alces
             @name = object.name if object.respond_to?(:name)
             @open = true
             @drag = true
+
             @drop_url = nil
             @event_name = "href"
             @tooltip =''
@@ -64,12 +65,12 @@ module Alces
          end  
          
          def dom_id(scope=nil)
-          return "node_#{scope}_#{id}"
-      
+          return "#{scope}_#{id}"   if scope
+           "#{id}" 
          end
          
       ##
-      # This is the root node
+      # This is @modelthe root node
       #
         def root?
           parent.nil?

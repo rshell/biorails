@@ -5,6 +5,6 @@
 </ul>
     
 <div id='folder_actions' class='panel'>
-     <%= tree_for_folder(current_project, @project_folder)%>  
+     <%= tree_for_folder(current_project, current_project.home)%>  
     <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
 </div>
