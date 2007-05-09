@@ -2,6 +2,13 @@
  <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2>
+<ul class="tablist"> 
+     <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task) %></li>
+     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task)  %></li>
+     <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task),:class=>"current"  %>     </li>
+     <li><%= link_to l('Import'),    task_url(:action=>'import',:id=>@task)  %>     </li>
+</ul>
+
 <div id="<%=@task.dom_id('entry') %>"  class='dialog'>
    <div id="SheetPanel" class="datasheet">
      <% form_tag :action => 'update', :id => @task do %>

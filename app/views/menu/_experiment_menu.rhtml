@@ -1,7 +1,7 @@
 <% unless experiment.nil? %>
     <div>
       <span class='menu'> <%=subject_icon('experiment')%>Experiment <%=experiment.name%> </span>
-       <%= link_to 'Experiment',     experiment_url( :action => 'show', :id => experiment) %>
+       <%= link_to 'Overview',     experiment_url( :action => 'show', :id => experiment) %>
        <%= link_to 'Folder',       folder_url(:action => 'show', :id => current_project.folder(experiment) )%>
 
        <%= link_to 'Calendar', experiment_url( :action => 'calendar', :id => experiment) %>

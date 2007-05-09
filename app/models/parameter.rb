@@ -112,8 +112,8 @@ class Parameter < ActiveRecord::Base
 # Get a string describing the style of the parameter in term of a data element or data format
 # 
   def style
-      if data_type==5
-        data_element.name if data_element
+      if self.data_type_id==5
+        self.data_element.name if self.data_element
       else
         data_format.name if data_format
       end

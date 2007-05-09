@@ -310,6 +310,7 @@ module FormHelper
     options[:onfocus] ||= 'FieldEntry( this,event)'
     options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onchanged]  ||= 'FieldSave(this,event)'    
+    options[:onblur]  ||= 'FieldExit(this,event)'    
     out = String.new
 
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 

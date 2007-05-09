@@ -259,15 +259,16 @@ class Execute::ExperimentsController < ApplicationController
 # Data   row    [value,]
 # 
   def import_file
-    @experiment = current( Experiment, params[:id] )
-    if params[:file] # Firefox style
-       @task = @experiment.import_task(params[:file])  
-    elsif params['File'] # IE6 style tmp/file
-       @task = @experiment.import_task(params['File'])  
-    else
-      flash[:error] ="couldn't work out where file was: {params.to_s}"
-    end 
-    
+    Experiment.transaction do 
+      @experiment = current( Experiment, params[:id] )
+      if params[:file] # Firefox style
+         @task = @experiment.import_task(params[:file])  
+      elsif params['File'] # IE6 style tmp/file
+         @task = @experiment.import_task(params['File'])  
+      else
+        flash[:error] ="couldn't work out where file was: {params.to_s}"
+      end 
+    end
     flash[:error]=@experiment.errors
     #flash[:warning]=@experiment.messages
     flash[:info]= "import task #{@task.name}" 
@@ -278,7 +279,6 @@ class Execute::ExperimentsController < ApplicationController
      logger.error ex.backtrace.join("\n") 
      flash[:error] = "Import Failed:" + ex.message
      flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
-     flash[:trace] = ex.backtrace.join("<br \>")
      render :action => 'import'   
   end
   

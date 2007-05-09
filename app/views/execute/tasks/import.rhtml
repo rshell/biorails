@@ -1,31 +1,29 @@
 
 <h2>
-        <%= subject_icon('experiment.png')%> Import Data into Experiment [<strong><%=@experiment.name%></strong>]
+        <%= subject_icon('experiment.png')%> Import Data into Task [<strong><%=@task.name%></strong>]
 </h2> 
+<ul class="tablist"> 
+     <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task) %></li>
+     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task)  %></li>
+     <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task)  %>     </li>
+     <li><%= link_to l('Import'),    task_url(:action=>'import',:id=>@task),:class=>"current"  %>     </li>
+</ul>
+<div class='panel'>
 
 <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task'] }  %>
 
-     <div class='panel'>
         <p>
             This is a simple cvs file importer for getting larger blocks of data into the system. 
             For a template to fill in click on following links to get a CVS sheet fill in. These can be build by hand but 
             life should not be made any more difficult then needed.
         </p>
-        <ul>
-         <%for protocol in @experiment.study.protocols %>
-          <li>
-            <%= link_to (subject_icon('xls.png'))+' Template for [' + protocol.name + ']',
-                :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
-            <%= protocol.definition.description %>    
-          </li>
-         <%end%>
-         </ul>
-    </div> 
+        <%= link_to subject_icon('xls')+' Export Current Data ', task_url(:action => 'export', :id => @task ) %>
+
 
 
      <div class='dialog'>
         Once is is filled it can be re-imported via the following file selector:-
-        <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
+        <%form_tag( task_url(:action =>'import_file', :id=> @task.id) , {:multipart => true}) do %>
         <%= error_messages_for("import") %>
           <%=file_field_tag(:file) %>  
         <br />
@@ -39,4 +37,5 @@
         <% end %>
         
     </div> 
+</div> 
 

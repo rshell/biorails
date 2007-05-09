@@ -33,7 +33,7 @@
   font-size: 1em;
 }
 
-#flash-errors, #errorExplanation {
+.flash_error, #errorExplanation {
   margin: 0 auto;
   background: #ffc7b6;
   padding: 10px;
@@ -41,18 +41,17 @@
 
 }
 
-#flash-notice {
+.flash_notice, .flash_info {
   background: #cfc;
   padding: 10px;
   color: #051;
-  text-align: center;
   }
 
 #errorExplanation ul, 
-#flash-notice ul, 
-#flash-errors ul,
-#flash-notice li,
-#flash-errors li {
+.flash_notice ul, 
+.flash_errors ul,
+.flash_notice li,
+.flash_errors li {
   list-style: none;
 }
 

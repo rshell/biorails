@@ -200,6 +200,47 @@ class Execute::TasksController < ApplicationController
       redirect_to :action => 'show', :id => @task
   end  
 
+##
+# Import form
+  def import
+    set_task
+  end
+
+##
+# Import file into the task
+# 
+# first  
+# Task   study,experiment,task,status
+# note   description
+# Header label  [name,]
+# Data   row    [value,]
+# 
+  def import_file
+    set_task
+    Experiment.transaction do 
+      @experiment = @task.experiment
+      if params[:file] # Firefox style
+         @task = @experiment.import_task(params[:file])  
+      elsif params['File'] # IE6 style tmp/file
+         @task = @experiment.import_task(params['File'])  
+      else
+        flash[:error] ="couldn't work out where file was: {params.to_s}"
+      end 
+    end
+    flash[:error]=@experiment.errors
+    #flash[:warning]=@experiment.messages
+    flash[:info]= "import task #{@task.name}" 
+    redirect_to  task_url( :action => 'view', :id => @task)
+
+  rescue  Exception => ex
+     logger.error ex.message
+     logger.error ex.backtrace.join("\n") 
+     flash[:error] = "Import Failed:" + ex.message
+     flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
+     render :action => 'import'   
+  end
+  
+
 
 ##
 # Handle cell change events to save data back to the database
@@ -216,27 +257,17 @@ class Execute::TasksController < ApplicationController
     @dom_id = params[:element]  
     @row =@dom_id.split('_')[2].to_i
     @col = @dom_id.split('_')[3].to_i
-    @task_id = params[:id].to_i
+    @task = Task.find(params[:id])
     @value = params[:value]     
-    unless session[:data_sheet] ## Catch all to reload task into session if messing
-           flash[:info] = "Data_sheet for #{@task_id} had to be reloading from database "
-           session[:data_sheet] = TreeGrid.from_task(Task.find(@task_id))       
-    end
-    grid = session[:data_sheet]
-    if grid.task.id != @task_id
-        flash[:warning]= "Task #{ @task_id} does not match expecting #{grid.task.name} in server session.\n"+
-                          "Expect your trying to edit two task at same time, which is not currently supported."        
-    else
-        @task = grid.task
-        @cell = grid.cell(@row,@col)
-        @cell.value = @value
-        @successful = @cell.save
-        unless @successful
-        flash[:warning] = "Failed to save value '#{@value}' into #{@cell.item.class} cell :- <ul><li>  "
-        flash[:warning] += @cell.item.errors.full_messages().join('</li><li>')
-        flash[:warning] += "</li></ul>"
+    @grid = @task.grid
+    @cell = @grid.cell(@row,@col)
+    @cell.value = @value
+    @successful = @cell.save
+    unless @successful
+    flash[:warning] = "Failed to save value '#{@value}' into #{@cell.item.class} cell :- <ul><li>  "
+    flash[:warning] += @cell.item.errors.full_messages().join('</li><li>')
+    flash[:warning] += "</li></ul>"
         end
-    end
     return render(:action => 'cell_saved.rjs') if request.xhr?
   rescue Exception => ex
     flash[:error]="Problems with save of cell "+@dom_id

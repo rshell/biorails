@@ -93,7 +93,7 @@ module TreeHelper
 # 
   def tree_for_folder(project , folder)
       tree= Alces::TreeControl::Node.create( folder ) do |node,rec|
-          node.link = link_to rec.name,reference_to_url(rec )
+          node.link = link_to rec.name,element_to_url(rec )
           node.icon = rec.icon
           node.id = rec.dom_id
           node.name = nil
