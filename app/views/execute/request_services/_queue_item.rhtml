@@ -1,4 +1,4 @@
-    <td><%=link_to queue_item.data_name,  :controller => 'queue_items',  :action => 'show', :id => queue_item %></td>
+    <td><%=link_to queue_item.data_name, queue_item_url( :action => 'show', :id => queue_item) %></td>
     <td>
            <%= select_tag 'status_id', 
                           options_for_select(queue_item.allowed_status_list,queue_item.status_id),

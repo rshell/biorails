@@ -14,27 +14,21 @@ class Organize::ParametersController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-   @report = Report.find_by_name("ParameterList") 
-   unless @report
-      @report = report_list_for("ParameterList",Parameter)
-
-      @report.column('column_no').is_visible = false
-      @report.column('sequence_num').is_visible = false
-      @report.column('display_unit').is_visible = false
-      @report.column('qualifier_style').is_visible = false
-      @report.column('process.protocol.study.name').label= 'study'
-      @report.column('process.protocol.name').label ='protocol'
-      @report.column('process.name').label ='version'
-      @report.column('data_type.name').label ='data'
-      @report.column('role.name').label ='role'
-      @report.column('type.name').label ='type'
-      @report.save
-   end  
-   @report.params[:controller]='parameters'
-   @report.params[:action]='show'
-   @report.set_filter(params[:filter])if params[:filter] 
-   @report.add_sort(params[:sort]) if params[:sort]
-
+   @report = Report.internal_report("ParameterList",Study) do | report |
+      report.column('column_no').is_visible = false
+      report.column('sequence_num').is_visible = false
+      report.column('display_unit').is_visible = false
+      report.column('qualifier_style').is_visible = false
+      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.name').label ='protocol'
+      report.column('process.name').label ='version'
+      report.column('data_type.name').label ='data'
+      report.column('role.name').label ='role'
+      report.column('type.name').label ='type'
+      report.column('name').action = :show
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
    @data_pages = Paginator.new self, 1000, 100, params[:page]
    @data = @report.run({:limit  =>  @data_pages.items_per_page,
                         :offset =>  @data_pages.current.offset })
@@ -50,15 +44,21 @@ class Organize::ParametersController < ApplicationController
 
 protected
 
+
   def protocol_list
-   @protocol_report = Report.find_by_name("ParameterProtocols") 
-   unless @protocol_report
-      @protocol_report = report_list_for("ParameterProtocols",Parameter)
-      @protocol_report.save
+   @report = Report.internal_report("ParameterProtocols",Parameter) do | report |
+      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.name').label ='protocol'
+      report.column('process.name').label ='version'
+      report.column('data_type.name').label ='data'
+      report.column('role.name').label ='role'
+      report.column('type.name').label ='type'
+      report.column('id').filter = "#{@parameter.id}"
+      report.column('id').is_visible = false
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
    end  
-   @protocol_report.column('id').filter = "#{@parameter.id}"
-   @protocol_report.column('id').is_visible = false
-   @protocol_data = @protocol_report.run({:limit  =>  32})
+   @protocol_data = @report.run({:limit  =>  32})
   end
 
 
@@ -66,30 +66,38 @@ protected
 # Generate a report on task level statistics filter down to only this parameter type
 # 
   def task_metrics
-   @task_report = Report.find_by_name("TaskStatistics") 
-   unless @task_report
-      @task_report = report_list_for("TaskStatistics",ProcessStatistics)
-      @task_report.save
-   end  
-   @task_report.column('parameter_id').filter = "#{@parameter.id}"
-   @task_report.column('parameter_id').is_visible = false
-   @task_data = @task_report.run({:limit  =>  32})
+   @report = Report.internal_report("ProcessStatistics",ProcessStatistics) do | report |
+      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.name').label ='protocol'
+      report.column('process.name').label ='version'
+      report.column('data_type.name').label ='data'
+      report.column('role.name').label ='role'
+      report.column('type.name').label ='type'
+      report.column('id').filter = "#{@parameter.id}"
+      report.column('id').is_visible = false
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end 
+   @task_data = @report.run({:limit  =>  32})
   end
 
 ##
 # Generate a report on task level statistics filter down to only this parameter type
 # 
   def parameter_results
-   @results_report = Report.find_by_name("ParameterResults") 
-   unless @results_report
-      @results_report = report_list_for("ParameterResults",TaskResult)
-      @results_report.save
-   end  
-   @results_report.column('parameter_id').filter = "#{@parameter.id}"
-   @results_report.column('parameter_id').is_visible = false
-   @results_report.column('parameter_context_id').filter = "#{@parameter.parameter_context_id}"
-   @results_report.column('parameter_context_id').is_visible = false
-   @results_data = @task_report.run({:limit  =>  32})
+   @report = Report.internal_report("ParameterResults",TaskResult) do | report |
+      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.name').label ='protocol'
+      report.column('process.name').label ='version'
+      report.column('data_type.name').label ='data'
+      report.column('role.name').label ='role'
+      report.column('type.name').label ='type'
+      report.column('parameter_id').filter = "#{@parameter.id}"
+      report.column('parameter_id').is_visible = false
+      report.column('parameter_context_id').filter = "#{@parameter.parameter_context_id}"
+      report.column('parameter_context_id').is_visible = false
+   end 
+   @results_data = @report.run({:limit  =>  32})
   end
 
 

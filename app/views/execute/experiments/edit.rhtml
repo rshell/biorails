@@ -4,13 +4,11 @@
 
 <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
 
-<div class='dialog'>
     <% form_tag :action => 'update', :id => @experiment do %>
       <%= render :partial => 'form' %>
     <div class="row">
     <%= submit_tag 'Edit' %>
     </div>
    <% end %>
-</div>
 
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>

@@ -33,12 +33,11 @@
   font-size: 1em;
 }
 
-.flash_error, #errorExplanation {
+.flash_error,.flash_warning, #errorExplanation {
   margin: 0 auto;
   background: #ffc7b6;
   padding: 10px;
   color: #510;
-
 }
 
 .flash_notice, .flash_info {

@@ -1,92 +1,76 @@
-<% content_for :centre do -%>
 <h2>
         <%=subject_icon('model/task.png')%> New Task in Experiment [<%=subject_icon('experiment.png')%> 
         <%= link_to @experiment.name, :controller => 'experiments', 
                 :action => 'show', :id => @experiment.id  %>]
 </h2>
-    <% form_tag :action => 'create' do %>
+<div class='panel'>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
 
-    <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
+ <% form_tag :action => 'create' do %>
     
-        <%= hidden_field 'task','experiment_id'%>  
+    <%= hidden_field 'task','experiment_id'%>  
 
-        <div class='dialog'>
-            <fieldset>
-            <div class="row">
-                <div class="form-element">
-                    <label for="task_name">Name</label>
-                    <%= text_field 'task', 'name' , {:class=>"text-input"} %>
-                </div>        
-                <div class="form-element">
-                    <label for="tasks_study_protocol_id">Protocol</label>
-                    <%= select_protocol(:task, :study_protocol_id, @experiment.study) %>
-                </div>   
-                <%= observe_field( :task_study_protocol_id, 
-                    :update =>'select_instances_id' , :url => {:action => 'refresh_instances' }) %>
+    <div class="row">
+        <div class="form-element">
+            <label for="task_name">Name</label>
+            <%= text_field 'task', 'name' , {:class=>"text-input"} %>
+        </div>        
+        <div class="form-element">
+            <label for="tasks_study_protocol_id">Protocol</label>
+            <%= select_protocol(:task, :study_protocol_id, @experiment.study) %>
+        </div>   
+        <%= observe_field( :task_study_protocol_id, 
+            :update =>'select_instances_id' , :url => {:action => 'refresh_instances' }) %>
 
-                <div class="form-element" id="select_instances_id">
-                  <label for="tasks_protocol_version_id">Version</label>
-                   <%= select_process(:task, :protocol_version_id, @experiment.protocol) %>
-                 </div>   
+        <div class="form-element" id="select_instances_id">
+          <label for="tasks_protocol_version_id">Version</label>
+           <%= select_process(:task, :protocol_version_id, @experiment.protocol) %>
+         </div>   
 
-            </div>
+    </div>
     
-            <div class="row">
-                <div class="form-element">
-                    <label for="study_description">Description</label>
-                    <%= text_area('task', 'description', {:rows=>5, :cols=>100} )%>
-                </div>
-            </div>
+    <div class="row">
+        <label for="study_description">Description</label>
+        <%= text_area('task', 'description', {:rows=>5, :cols=>100} )%>
+    </div>
     
-            <div class="row">
-                <div class="form-element">
-                    <label for="task_assigned_to">Assigned to</label>
-                    <%= select_named 'task', 'assigned_to_user_id', User  %>
-                </div>
-                <div class="form-element">
-                    <label for="task_is_milestone">Is milestone</label>
-                    <select id="task_is_milestone" name="task[is_milestone]"><option value="false">False</option><option value="true">True</option></select>
-                </div>   
-            
-                <div class="form-element">
-                    <label for="task_expected_hours">Expected hours</label>
-                    <%= text_field 'task', 'expected_hours', 'size' => 6  %>
-                </div>   
-                <div class="form-element">
-                    <label for="task_done_hours">Done hours</label> 
-                    <%= text_field 'task', 'done_hours', 'size' => 6  %>
-                </div>   
-                <div class="form-element">
-                    <label for="task_status_id">Status</label>
-                    <%= select( :task, :status_id, @task.allowed_status_list)  %>
-                </div>   
-            </div>
-    
-            <div class="row">
-                <div class="form-element">
-                    <label for="task_started_at">Start date</label>
-                    <%= date_field 'task', 'started_at'  %>
-                </div>   
-                <div class="form-element">
-                    <label for="task_ended_at">End date</label>
-                    <%= date_field 'task', 'ended_at'  %>
-                </div>
-            </div>
-            <div class="row">
+    <div class="row">
 
-              <%= submit_tag "Create" %>
-            </div>
-            </fieldset>
+        <div class="form-element">
+            <label for="task_assigned_to">Assigned to</label>
+            <%= select_named 'task', 'assigned_to_user_id', User  %>
         </div>
-   <% end %>
-<% end %>
+    
+        <div class="form-element">
+            <label for="task_expected_hours">Expected hours</label>
+            <%= text_field 'task', 'expected_hours', 'size' => 6  %>
+        </div>   
 
-<% content_for :right do -%>
-   <h2>Guide </h2>
-   <div class="panel">
+        <div class="form-element">
+            <label for="task_done_hours">Done hours</label> 
+            <%= text_field 'task', 'done_hours', 'size' => 6  %>
+        </div>   
 
-   </div>
-<% end %>
-   
+        <div class="form-element">
+            <label for="task_status_id">Status</label>
+            <%= select( :task, :status_id, @task.allowed_status_list)  %>
+        </div>   
+    </div>
+    
+    <div class="row">
+        <div class="form-element">
+            <label for="task_started_at">Start date</label>
+            <%= date_field 'task', 'started_at'  %>
+        </div>   
 
+        <div class="form-element">
+            <label for="task_ended_at">End date</label>
+            <%= date_field 'task', 'ended_at'  %>
+        </div>
+    </div>
 
+    <div class="row">
+      <%= submit_tag "Create" %>
+    </div>
+   <%end%> 
+</div>

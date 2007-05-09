@@ -42,7 +42,7 @@ module SessionHelper
       when Study :          link_to name || element.name, study_url(      options.merge({ :id=>element.id}) )
       when StudyProtocol:   link_to name || element.name, protocol_url(   options.merge({ :id=>element.id})  )
       when StudyQueue:      link_to name || element.name, queue_url(      options.merge({ :id=>element.id})  )
-      when QueueItem:       link_to name || element.data_name, queue_url( options.merge({ :id=> element.queue.id}) )
+      when QueueItem:       link_to name || element.data_name, queue_item_url( options.merge({ :id=> element.id}) )
       when ProtocolVersion: link_to name || element.name, protocol_url(   options.merge({ :id=> element.protocol.id}) )
       when StudyParameter:  link_to name || element.name, study_parameter_url( options.merge({:id=>element.id}) )
   

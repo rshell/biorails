@@ -23,7 +23,7 @@
          </table>
       <% else %>
           <% if column.action %>
-              <%= link_to_object(row, column.format(value), {:action=>column.action} ) %>   
+              <%= link_to_object(row, column.format(value), {:action=>column.action} )  if row.id and column.action%>   
           <% else%>          
               <%= column.format(value) %>
           <% end %>
@@ -32,9 +32,9 @@
       </td>                    
 
     <%end%>
-  <td>
-     <%= link_to_object(row,'show')  %>   
-  </td>  
+      <td>
+         <%= link_to_object( row, report.action , {:action=>'show' } )  if row and report.action %>   
+      </td>  
   </tr>
 
 <% end %>

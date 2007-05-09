@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 256) do
+ActiveRecord::Schema.define(:version => 257) do
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -366,6 +366,25 @@ ActiveRecord::Schema.define(:version => 256) do
     t.column "created_by_user_id", :integer,  :default => 1,     :null => false
   end
 
+  create_table "mole_features", :force => true do |t|
+    t.column "name",       :string
+    t.column "created_at", :datetime
+    t.column "updated_at", :datetime
+  end
+
+  add_index "mole_features", ["name"], :name => "index_mole_features_on_name"
+
+  create_table "mole_logs", :force => true do |t|
+    t.column "mole_feature_id", :integer
+    t.column "user_id",         :integer
+    t.column "params",          :string
+    t.column "created_at",      :datetime
+    t.column "updated_at",      :datetime
+  end
+
+  add_index "mole_logs", ["mole_feature_id", "user_id"], :name => "index_mole_logs_on_mole_feature_id_and_user_id"
+  add_index "mole_logs", ["mole_feature_id", "created_at"], :name => "index_mole_logs_on_mole_feature_id_and_created_at"
+
   create_table "parameter_contexts", :force => true do |t|
     t.column "protocol_version_id", :integer
     t.column "parent_id",           :integer
@@ -698,6 +717,7 @@ ActiveRecord::Schema.define(:version => 256) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "internal",           :boolean
     t.column "project_id",         :integer
+    t.column "action",             :string
   end
 
   create_table "request_lists", :force => true do |t|

@@ -1,39 +1,28 @@
 
-    <!--[form:experiment]-->
-  <div class="row">
+ <div class="row">
 
-     <div class="form-element">
-      <label for="experiment_study_id">Study</label>
-     <%= collection_select(:experiment, :study_id ,current_project.studies, :id, :name)%>
-     
-     <%= observe_field 'experiment_study_id',:url => {:action =>'refresh_allowed_protocols'},  :update =>@experiment.dom_id('protocols') %>
-     
-     </div>
+ <div class="form-element">
+  <label for="experiment_study_id">Study</label>
+ <%= collection_select(:experiment, :study_id ,current_project.studies, :id, :name)%>
+ </div>
+ <%= observe_field 'experiment_study_id',:url => {:action =>'refresh_allowed_protocols'},  :update =>@experiment.dom_id('protocols') %>
 
-     <div class="form-element">
-      <label for="experiment_name">Name</label>
-      <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
-     </div>
+ <div class="form-element">
+  <label for="experiment_name">Name</label>
+  <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
+ </div>
 
 
-     <div class="form-element">
-      <label for="study_parameter_role">Default Protocol</label>
-      <div id="<%=@experiment.dom_id('protocols')%>">
-       <%= select_protocol(:experiment, :study_protocol_id, @study) %>
-       </div>
-     </div>
-
-
+ <div class="form-element">
+  <label for="study_parameter_role">Default Protocol</label>
+  <div id="<%=@experiment.dom_id('protocols')%>">
+   <%= select_protocol(:experiment, :study_protocol_id, @study) %>
+   </div>
+ </div>
     
-  </div>
+</div>
 
   <div class="row">
-
-   <div class="form-element">
      <label for="study_description">Description</label>
      <%= text_area('experiment', 'description',{:rows=>5, :cols=>100} 	) %>
-   </div>
-
   </div>
-
-<!--[eoform:experiment]-->

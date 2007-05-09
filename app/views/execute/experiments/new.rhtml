@@ -5,12 +5,10 @@
 
 <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
 
-<div class='panel'>
-    <% form_tag :action => 'create' do %>
-      <%= render :partial => 'form' %>
-    <div class="row">
-        <%= submit_tag "Create" %>
-    </div>
-    <% end %>
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+<div class="row">
+    <%= submit_tag "Create" %>
 </div>
+<% end %>
 

@@ -54,16 +54,7 @@ class Report < ActiveRecord::Base
    set_filter(defaults[:filter])if  defaults[:filter] 
    add_sort(defaults[:sort]) if defaults[:sort]
  end
-#
-# get the action associated with the row
-# 
- def action(row)
-   if @default_action
-      @default_action.cell(row)
-   else 
-      nil   
-   end
- end
+
 #
 # List all reporting containing this model name. This will search for by base_model 
 # and report_columns join_model to find matches.
