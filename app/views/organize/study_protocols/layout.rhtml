@@ -11,6 +11,12 @@
 </div>
 <% end -%>
 
+<%= drop_receiving_element("parameter_tree", :hoverclass => "drop-zone",
+           :hoverclass => "drop-active",     
+           :accept =>'parameter',
+           :url => protocol_url(:action=> "remove_parameter")) %>
+
+
    <h2>
         <%=subject_icon('model/protocol.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
         in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]

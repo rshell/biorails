@@ -272,7 +272,7 @@ module FormHelper
      case parameter.data_type_id
      when 1: my_regex_tag(id, name, options)
      when 2: my_regex_tag(id, name, options)
-     when 3: my_date_field(id,name,parameter.default_value)
+     when 3: my_date_field(id,name,parameter.default_value,options)
      when 4: my_regex_tag(id, name,options)
      when 5: my_lookup_tag(id,name, parameter.element,options)
      when 6: my_regex_tag(id, name, options)
@@ -355,30 +355,26 @@ module FormHelper
 
 
 ##
-# file upload field with a browser button
-#  
-  def my_file_field(id,name,value,options={})
-    out = String.new
-    out = <<EOS 
-  <input id="#{id}" name="#{name}" value="#{value}" type="file" onblur="CellSave(this);" />  
-EOS
-  end
-
-
-##
 # Date selector cell
 #   
   def my_date_field(id,name,value,options={})
+    options[:mask]    ||= '.'
+    options[:value]   ||= value
+    options[:default] ||= ''
+    options[:autocomplete]   ||= 'off'
+    options[:onfocus] ||= 'FieldEntry( this,event)'
+    options[:onkeyup] ||= 'FieldValidate( this,event)'
+    options[:onkeypress]  ||= 'DateFieldOnKeyPress(this,event); return dateBocksKeyListener(event);'   
+    options[:onchanged]  ||= 'FieldSave(this,event)'    
+    options[:onblur]  ||= 'DateFieldExit(this,event);' 
+    options[:onclick]  ||= 'this.select();'
+ 
     out = String.new
-    out = <<EOS
-      <div id="dateBocks">
-        <table><tr>
-          <td>
-             <input type="text" name="#{name}" id="#{id}" value="#{value}" 
-              onkeypress="CellOnKeyPressDate(this,event); return dateBocksKeyListener(event);"
-              onfocus="CellOnFocus( this,event,'');"
-              onblur="CellOnBlur(this,event);" 
-              onClick = "this.select();" />
+
+    out  << '<div id="dateBocks">'
+    out  << '<table><tr> <td>'
+    out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
+    out << <<EOS
           </td>
           <td>#{image_tag('icon-calendar.gif', :alt => 'Calendar', :id => id + '_Button', :style => 'cursor: pointer;' ) }</td>
           <td>#{image_tag('icon-help.gif', :alt => 'Help', :id => id+ '_Help' ) }</td>

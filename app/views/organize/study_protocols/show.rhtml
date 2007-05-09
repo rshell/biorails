@@ -69,12 +69,12 @@
     </table>
 
 <br/>
-
     <table class="report">
         <thead>  
             <tr> 
                 <th>   Label    </th>
-                <th>   Version </th>
+                <th>   Version 
+                 </th>
                 <th>   No. Contexts </th>           
                 <th>   No. Parameters </th>           
                 <th>   No. Tasks </th>
@@ -100,6 +100,7 @@
             <% end %>
         </tbody>
     </table>
+    <%= link_to (subject_icon('release'))+" Release Latest", :action => 'release', :id => @study_protocol %>
 <br/>
     <div>
        <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>

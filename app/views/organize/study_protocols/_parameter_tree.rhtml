@@ -27,6 +27,7 @@
 <% for study_parameter in @study.parameters %> 
        <%= draggable_element( "sp_#{study_parameter.id}" , :revert=> true) %>
 <% end %> 
+
 <% for study_queue in @study.queues %> 
        <%= draggable_element( "sq_#{study_queue.id}" , :revert=> true) %>
 <% end %> 

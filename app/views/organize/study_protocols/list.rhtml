@@ -1,13 +1,13 @@
 <h2>
-   <%=subject_icon('protocols')%>Protocols in [<%=link_to "#{@study.name}", :controller=>'studies', 
+   <%=subject_icon('model/protocol.png')%>Protocols in [<%=link_to "#{@study.name}", :controller=>'studies', 
             :action =>'show',:id =>@study.id %>]
 </h2>
     <div class='panel'>
         <table class="report">
           <tr>
-            <th colspan='2'><%=subject_icon('study.png')%> Study</th>
-            <th colspan='2'><%=subject_icon('protocol.png')%> Process</th>
-            <th colspan='3'><%=subject_icon('metric.png')%> Version Usage</th>
+            <th colspan='3'><%=subject_icon('model/study.png')%> Study</th>
+            <th colspan='2'><%=subject_icon('model/protocol.png')%> Released Version</th>
+            <th colspan='1'><%=subject_icon('metric.png')%>  Pending </th>
             <th colspan='3'></th>
           </tr>  
           <tr>
@@ -16,10 +16,9 @@
             
             <th>Catagory</th>
             <th>Version</th>
-          
-            <th>Any </th>
-            <th>Current </th>
-            <th>[Lastest] Released </th>
+            <th>tasks </th>
+            
+            <th>Versions</th>
             <th colspan='3'>Actions</th>
           </tr>
           
@@ -32,22 +31,18 @@
             <td><%=h study_protocol.protocol_catagory %></td>
             <td><%= link_to study_protocol.process.name, :action => 'show', :id => study_protocol %></td>
         
-            <td><%=h study_protocol.usage_count %></td>   
             <td> <%=study_protocol.process.tasks.size.to_s %> </td>
             <td> 
             <%if study_protocol.lastest != study_protocol.process %>
-              [<%=link_to study_protocol.lastest.path , :action => 'edit',:id => study_protocol, :version => study_protocol.lastest %>] 
-               <%=study_protocol.lastest.tasks.count.to_s%>
+               <%=link_to study_protocol.lastest.path , :action => 'edit',:id => study_protocol, :version => study_protocol.lastest %> 
+               <%= link_to (subject_icon('release'))+" Release", :action => 'release', :id => study_protocol %>
             <%else%>
-              Current
+              None
             <%end%>   
             </td>
         
             <td><%= link_to (subject_icon('edit.png'))+" Edit", :action => 'edit', :id => study_protocol %></td>
             <td>
-            <%if study_protocol.lastest != study_protocol.process %>
-              <%= link_to (subject_icon('release'))+" Release", :action => 'release', :id => study_protocol %>
-            <%end%>   
             </td>
             
             <td>

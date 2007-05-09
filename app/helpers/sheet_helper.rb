@@ -56,7 +56,7 @@ module SheetHelper
    for cell in row.cells
      out << '  <td class="cell">'
      if cell.item and auditing
-       out << link_to( cell.value.to_s, audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ))
+       out << link_to( cell.value.to_s, audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ),:popup => true)
      else
        out << cell.value.to_s || ' '
      end

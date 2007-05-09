@@ -72,6 +72,7 @@ class Organize::StudiesController < ApplicationController
 # 
   def protocols
     set_study_content
+    redirect_to protocol_url(:action => 'list',:id=>@study)
   end
 ##
 # Calendar of stuff in the study

@@ -151,21 +151,21 @@ function DateFieldOnKeyPress(element, event)
 {
     var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if (keyCode == VK_DOWN){ 
-  		CellValidateDate(element); 
+  		DateFieldValidate(element); 
         CellMove(element,1,0)   
         }
     else if (keyCode == VK_UP)    { 
-  		CellValidateDate(element);
+  		DateFieldValidate(element);
         CellMove(element,-1,0) 
     }
     else if (keyCode == VK_RETURN)
     { 
-  		CellValidateDate(element);
+  		DateFieldValidate(element);
         CellMove(element,1,0) 
     }
     else if ( keyCode == VK_TAB )
     { 
-  		CellValidateDate(element);
+  		DateFieldValidate(element);
     }
 }
 
@@ -175,7 +175,7 @@ function DateFieldOnKeyPress(element, event)
 */
 function DateFieldValidate(input) {
     ok =true;   
-    CellActive(input);
+    FieldEntry(input);
     try {
         var d = parseDateString(input.value);
         
@@ -211,7 +211,25 @@ function DateFieldValidate(input) {
             message = 'Invalid date string';
         }
         ok =false; 
-        CellError(input)  
+        new Effect.Highlight(input.id,{endcolor:'#FFAAAA', restorecolor:'#FFAAAA'} );
     }
     return ok;
+}
+
+/*
+* Ajax call to send a cells data upto server if changed
+*/
+function DateFieldExit(element,event)
+{
+  if (element.value != current_cell_value)
+  {
+      if (DateFieldValidate(element,event))
+      {
+         FieldSave(element,event);
+      }
+  }
+  else
+  {
+     FieldRestore(element);
+  }  
 }
