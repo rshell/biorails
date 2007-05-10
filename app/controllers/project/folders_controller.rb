@@ -31,12 +31,79 @@ class Project::FoldersController < ApplicationController
 # 
   def show
     current_folder
-    if request.xhr?
-       render :partial => 'folder' ,:locals=>{:folder=>@project_folder}, :layout => false 
-    else
-       render :action => 'show' 
-    end
+    respond_to do |format|
+      format.html { render :action=>'show'}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial => 'messages'
+           page.replace_html 'data_view',  :partial => 'folder' ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
   end
+  
+##
+# Display the current clipboard 
+# 
+  def document
+    current_folder
+    respond_to do |format|
+      format.html { render :action=>'document'}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => 'document' ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
+  end    
+
+##
+# Display the current clipboard 
+# 
+  def layout
+    current_folder
+    respond_to do |format|
+      format.html { render :action => 'layout', :layout => "layouts/printout.rhtml"}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => 'layout' ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
+  end
+##
+##
+# Display the current clipboard 
+# 
+  def print
+    current_folder
+    respond_to do |format|
+      format.html { render :action => 'print', :layout => "layouts/printout.rhtml"}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => 'print' ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
+  end
+##
+# Display the current clipboard 
+# 
+  def blog
+    current_folder
+    respond_to do |format|
+      format.html { render :action => 'blog' }
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => 'blog' ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
+  end    
 ##
 # List of elements in the route home folder
 # 
@@ -116,31 +183,11 @@ class Project::FoldersController < ApplicationController
     current_folder
     render :partial => 'clipboard',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
   end  
-##
-# Display the current clipboard 
-# 
-  def document
-    current_folder
-    render :partial => 'document',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end    
-
-##
-# Display the current clipboard 
-# 
-  def print
-    current_folder
-    render :action => 'print', :layout => "layouts/printout.rhtml"
-  end
-##
-# Display the current clipboard 
-# 
-  def blog
-    current_folder
-    render :partial => 'blog',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
-  end      
+   
   
   def add_element   
     @project_folder = ProjectFolder.find(params[:id]) 
+    mode = params[:mode] ||'folder'
     text = request.raw_post || request.query_string
     case text
     when /id=project_element_*/ 
@@ -150,14 +197,23 @@ class Project::FoldersController < ApplicationController
          flash[:info] = "add reference to #{@source.dom_id} to #{@project_folder.dom_id}"
         end     
      end
-    @successful =true
+     @successful =true
      @project_folder.reload
-    return render( :action => 'drop_element.rjs') if request.xhr?  
+     respond_to do |format|
+      format.html { render :action=> mode }
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => mode ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
   end
 
   def move_element
     @project_folder = ProjectFolder.find(params[:id]) 
     @project_element =  current(ProjectElement, params[:before] ) 
+    mode = params[:mode] ||'folder'
     text = request.raw_post || request.query_string
     case text
     when /id=current_project_element_*/
@@ -168,7 +224,15 @@ class Project::FoldersController < ApplicationController
     end    
     @successful =true
     @project_folder.reload
-    return render( :action => 'drop_element.rjs') if request.xhr?  
+    respond_to do |format|
+      format.html { render :action=> mode }
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => mode ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
   end
   
   
@@ -178,6 +242,7 @@ class Project::FoldersController < ApplicationController
   def drop_element
     @project_folder = ProjectFolder.find(params[:id])
     @project_element =  current(ProjectElement, params[:before] ) 
+    mode = params[:mode] ||'folder'
     text = request.raw_post || request.query_string
     @successful =true
     
@@ -201,7 +266,15 @@ class Project::FoldersController < ApplicationController
       @source= @project_element
     end
      @project_folder.reload
-    return render( :action => 'drop_element.rjs') if request.xhr?  
+    respond_to do |format|
+      format.html { render :action=> mode }
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages',   :partial => 'messages'
+           page.replace_html 'data_view',  :partial => mode ,:locals=>{:folder=>@project_folder}
+         end
+      }
+    end  
   end
   
   

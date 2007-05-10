@@ -15,7 +15,7 @@ class FinderController < ApplicationController
 
    def reindex
      Project.rebuild_index(Study,StudyProtocol,StudyParameter,StudyQueue)
-     Project.rebuild_index(Project,ProjectElement,ProjectContent)
+     Project.rebuild_index(Project,ProjectElement)
      Project.rebuild_index(Experiment,Task)
      Project.rebuild_index(Request,RequestService)
    end

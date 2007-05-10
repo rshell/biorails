@@ -1,4 +1,10 @@
- <%= error_messages_for :project_folder %>
+<ul class="tablist"> 
+<li>  <%= link_to_remote 'Folder',   :url =>folder_url( :action => 'show',    :folder_id => folder.id ), :class=>'current' %> </li>
+<li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
+<li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
+<li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
+</ul>
+
 <br/>
 <% if folder %>
 <h2>

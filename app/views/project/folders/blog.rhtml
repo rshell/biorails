@@ -1,4 +1,8 @@
 <% content_for :centre do -%>
+  <%= render :partial => 'title' %>
+  <div id='messages'>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+  </div>
   <%= render :partial => 'blog',:locals=>{:folder=>@project_folder} %>
 <% end %>
 

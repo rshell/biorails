@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
 # 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
   map.data_format 'admin/format/:action/:id', :controller => 'admin/data_formats'
+  map.data_element 'admin/element/:action/:id', :controller => 'admin/data_elements'
   map.data_system 'admin/system/:action/:id', :controller => 'admin/data_systems'
   map.data_type  'admin/data/:action/:id', :controller => 'admin/data_types'
   map.parameter_type 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
@@ -39,7 +40,8 @@ ActionController::Routing::Routes.draw do |map|
 #
   map.project 'projects/:action/:id', :controller => 'project/projects'
   map.member  'members/:action/:id', :controller => 'project/memberships'
-  map.folder  'folders/:action/:id', :controller => 'project/folders'
+  map.folder  'folders/:action/:id', :controller => 'project/folders',:mode=>'folder'
+  map.element  'element/:action/:id', :controller => 'project/folders',:mode=>'layout'
   map.content 'content/:action/:id', :controller => 'project/content'
   map.asset   'asserts/:action/:id', :controller => 'project/assets'
 ##

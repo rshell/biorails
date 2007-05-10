@@ -1,21 +1,18 @@
- <%= error_messages_for :project_folder %>
+<ul class="tablist"> 
+<li>  <%= link_to_remote 'Folder',   :url =>folder_url( :action => 'show',    :folder_id => folder.id ), :class=>'current' %> </li>
+<li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
+<li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
+<li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
+</ul>
 <br/>
-<h2>
-<% if  @project_folder.reference? %>
-<%= link_to  @project_folder.style, element_to_url(@project_folder) %>
-<% else %>
-<%=  @project_folder.style%>
-<% end %>
-<%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=>@project_folder.parent_id) if  @project_folder.parent%>
-<%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=>@project_folder.id) if  @project_folder%>
-</h2>
 <% for item in folder.elements %>    
 	<% if item.asset? and item.asset.image? %>
 	<h4>Figure: <%=item.name%></h4>
 	<p>  <%=  link_to image_tag(item.asset.public_filename), element_to_url(item) %>	</p>      	  
+
 	<% elsif item.textual? %>
-	<h2> 	   <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
-	<p>       <%= item.content.body_html %>	</p>
+	<h2>   <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
+	<p>     <%= item.content.body_html %>	</p>
 	<% end %>
 <% end %>
 
