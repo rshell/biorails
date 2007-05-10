@@ -5,27 +5,19 @@
 #
 class FinderController < ApplicationController
  
-   def query
-     text = params.keys[0]
-     @hits = Array.new
-     if !text.empty?
-        text += "%"
-        puts text
-        @hits.concat Study.find(:all,:conditions =>["name like ?",text], :limit=>5)
-        @hits.concat Experiment.find(:all,:conditions =>["name like ?",text], :limit=>5)
-        @hits.concat Task.find(:all,:conditions =>["name like ?",text], :limit=>5)
-        if @hits.size < 6
-         @hits.concat ParameterType.find(:all,:conditions =>["name like ?",text], :limit=>5)
-        end 
-        if @hits.size < 6
-         @hits.concat Compound.find(:all,:conditions =>["name like ?",text], :limit=>5)
-         @hits.concat Batch.find(:all,:conditions =>["name like ?",text], :limit=>5)
-         @hits.concat Plate.find(:all,:conditions =>["name like ?",text], :limit=>5)
-        end 
+   def search
+     @search_text = params['query']
+     @hitlist = []
+     unless @search_text.empty?
+        @hitlist = Project.find_by_contents(@search_text,:models=>:all,:limit=>100)
      end 
-     session[:hits] = @hits
-     render :partial => 'shared/hitlist', :layout => false      
    end
 
+   def reindex
+     Project.rebuild_index(Study,StudyProtocol,StudyParameter,StudyQueue)
+     Project.rebuild_index(Project,ProjectElement,ProjectContent)
+     Project.rebuild_index(Experiment,Task)
+     Project.rebuild_index(Request,RequestService)
+   end
      
 end

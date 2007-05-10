@@ -47,6 +47,7 @@ class QueueItem < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
+  acts_as_ferret :fields => [ :name, :comments, :data_name ], :single_index => true, :store_class_name => true
 
   validates_presence_of   :study_parameter_id
   

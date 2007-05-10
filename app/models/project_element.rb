@@ -33,6 +33,7 @@ class ProjectElement < ActiveRecord::Base
   acts_as_tree :order => "position"  
 
   acts_as_audited :change_log
+  acts_as_ferret :fields => [ :name, :description, :path ], :single_index => true, :store_class_name => true
 
   acts_as_taggable 
   
@@ -64,6 +65,12 @@ class ProjectElement < ActiveRecord::Base
 
   def asset?
     !(attributes['asset_id'].nil?)
+  end
+  
+  def description
+    return content.body_html if content
+    return asset.title if asset
+    return path
   end
 ##
 # This has a textual? entries

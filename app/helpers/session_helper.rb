@@ -1,68 +1,59 @@
 module SessionHelper
 
    
-###
-# Display a Hit list last search user performanced 
-# This uses the session[:hits] as a cache of hits
-# 
-  def hitlist
-     @hits = session[:hits] 
-     render :partial => 'shared/hitlist', :layout => false      
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-       "Err. (no hitlist)"
-  end
-
-###
-# Display a Hit list last search user performanced 
-# This uses the session[:hits] as a cache of hits
-# 
-  def hitlist
-     @hits = session[:hits] 
-     render :partial => 'shared/hitlist', :layout => false      
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-       "Err. (no hitlist)"
-  end
+##
+# Convert a type/id reference into a url to the correct controlelr
+#    
+  def link_to_object( element, link_name=nil ,options = {:action=>'show'})
+    name = link_name
+    name ||= element.name if element.respond_to?(:name)
+    if element
+      logger.info(" link_to_object #{name} #{element.class} #{element.id}")
+      case  element
+      when ProjectElement:  link_to name , folder_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
+      when QueueItem:       link_to element.data_name, queue_item_url( options.merge({ :id=> element.id}) )
+      when ProtocolVersion: link_to name , protocol_url(   options.merge({ :id=> element.protocol.id}) )
+      when RequestService:  link_to name , request_service_url(options.merge({:id=>element.request.id}) )
+      else
+          link_to_model(element.class,element.id,name,options)
+      end
+    end
+  end   
 
 ##
 # Convert a type/id reference into a url to the correct controlelr
 #    
-  def link_to_object( element, name=nil ,options = {:action=>'show'})
-    logger.info(" link_to_object #{name} #{element.class} #{element.id}")
-    if element
-      case  element
-      when Project :        link_to name || element.name, project_url( options.merge({ :id=>element.id}) )
-      when ProjectElement:  link_to name || element.name, element_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
-      when ProjectContent:  link_to name || element.name, content_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
-      when ProjectAsset :   link_to name || element.name, asset_url(   options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
+  def link_to_model( model,id, link_name=nil ,options = {:action=>'show'})
+    name = link_name || model.to_s 
+    if model and id
+      case  model.to_s.camelcase
+      when 'Project' :        link_to  name, project_url( options.merge({ :id=>id} ) )
+      when 'ProjectElement':  link_to  name, folder_url( options.merge({ :id=>id} ) )
+      when 'ProjectFolder':   link_to  name, folder_url( options.merge({ :id=>id} ) )
       
-      when Study :          link_to name || element.name, study_url(      options.merge({ :id=>element.id}) )
-      when StudyProtocol:   link_to name || element.name, protocol_url(   options.merge({ :id=>element.id})  )
-      when StudyQueue:      link_to name || element.name, queue_url(      options.merge({ :id=>element.id})  )
-      when QueueItem:       link_to name || element.data_name, queue_item_url( options.merge({ :id=> element.id}) )
-      when ProtocolVersion: link_to name || element.name, protocol_url(   options.merge({ :id=> element.protocol.id}) )
-      when StudyParameter:  link_to name || element.name, study_parameter_url( options.merge({:id=>element.id}) )
+      when 'Study' :          link_to name , study_url(      options.merge({ :id=>id}) )
+      when 'StudyProtocol':   link_to name , protocol_url(   options.merge({ :id=>id})  )
+      when 'StudyQueue':      link_to name , queue_url(      options.merge({ :id=>id})  )
+      when 'QueueItem':       link_to name , queue_item_url( options.merge({ :id=> id}) )
+      when 'StudyParameter':  link_to name , study_parameter_url( options.merge({:id=>id}) )
   
-      when Experiment:      link_to name || element.name, experiment_url(   options.merge({:id=>element.id})  )
-      when Task:            link_to name || element.name, task_url(         options.merge({:id=>element.id})  )
-      when Report:          link_to name || element.name, report_url(       options.merge({:id=>element.id})  )
-      when Request:         link_to name || element.name, request_url(      options.merge({:id=>element.id})  )
-      when RequestService:  link_to name || element.name, request_service_url(options.merge({:id=>element.request.id}) )
+      when 'Experiment':      link_to name , experiment_url(   options.merge({:id=>id})  )
+      when 'Task':            link_to name , task_url(         options.merge({:id=>id})  )
+      when 'Report':          link_to name , report_url(       options.merge({:id=>id})  )
+      when 'Request':         link_to name , request_url(      options.merge({:id=>id})  )
+      when 'RequestService':  link_to name , request_service_url(options.merge({:id=>id}) )
 
-      when Compound:        link_to name || element.name, compound_url(       options.merge({:id=>element.id})  )
-      when Batch:           link_to name || element.name, batch_url(          options.merge({:id=>element.id})  )
-      #when Sample:          link_to name || element.name, sample_url(         options.merge({:id=>element.id})  )
-      when Plate:           link_to name || element.name, plate_url(          options.merge({:id=>element.id}) )
-      when Container:       link_to name || element.name, container_url(      options.merge({:id=>element.id})  )
-      when Specimen:        link_to name || element.name, specimen_url(       options.merge({:id=>element.id})  )
-      when TreatmentGroup:  link_to name || element.name, treatment_group_url(options.merge({:id=>element.id})  )
+      when 'Compound':        link_to name , compound_url(       options.merge({:id=>id})  )
+      when 'Batch':           link_to name , batch_url(          options.merge({:id=>id})  )
+      when 'Plate':           link_to name , plate_url(          options.merge({:id=>id}) )
+      when 'Container':       link_to name , container_url(      options.merge({:id=>id})  )
+      when 'Specimen':        link_to name , specimen_url(       options.merge({:id=>id})  )
+      when 'TreatmentGroup':  link_to name , treatment_group_url(options.merge({:id=>id})  )
       else
-         element.name if element.respond_to?(:name)
+         name
       end
     end
   end   
+
 end
 

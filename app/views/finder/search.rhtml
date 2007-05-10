@@ -1,0 +1,13 @@
+<h2> Searching for [<%=@search_text%>]</h2>
+<ol class="hitlist">
+    <% for hit in @hitlist%>
+        <li>
+        <strong>
+        <%= hit.class.to_s %> 
+        </strong>
+        <%= link_to_object(hit) %>
+        [<%=number_round(100*hit.ferret_score,3)%>  %]
+        <p><%=hit.description if hit.respond_to?(:description)%></p>
+        </li>
+    <% end %>
+</ol> 

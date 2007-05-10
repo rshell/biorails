@@ -51,7 +51,14 @@ class Project < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-
+  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
+                              :description=>{:store=>:yes,:boost=>0},
+                              :research_area=>{:boost=>1},
+                              :purpose=>{:boost=>0} }, 
+                   :default_field => [:name],           
+                   :single_index => true, 
+                   :store_class_name => true 
+#
 ##
 # Link through to users for members, and owners via memberships
 # 
@@ -134,6 +141,10 @@ class Project < ActiveRecord::Base
   def home
      Project.create_home_folder(self) unless self.home_folder
      return self.home_folder 
+  end
+  
+  def description
+    self.summary
   end
 ##
 # Get the member details
