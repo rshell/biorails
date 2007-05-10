@@ -16,7 +16,7 @@
     <% for item in folder.elements %>
       <tr id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
     	<td>
-    	    <span id='<%=item.dom_id(:current)%>' >
+    	    <span id='<%=item.dom_id(:current)%>' class='folder_element'>
     	    <%=image_tag(item.icon( {:images=>true} ) ) %>
     	    <%= link_to item.name, element_to_url(item) %>
     	               
@@ -40,7 +40,13 @@
       <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => true, :revert=> true) %>
 
       <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
+           :accept =>'folder_element',
+           :url => folder_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
+
+      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
+           :accept =>'project_element',
            :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
+
     <% end %>
   </tbody>
   <thead>
@@ -50,9 +56,11 @@
   </thead>
 </table>
       <%= drop_receiving_element('folder_top', :hoverclass => "drop-active",
-           :url => folder_url(:action=>"drop_element",:id=>folder.id )) %>
+           :accept =>'project_element',
+           :url => folder_url(:action=>"add_element",:id=>folder.id )) %>
            
       <%= drop_receiving_element('folder_bottom', :hoverclass => "drop-active",
-           :url => folder_url(:action=>"drop_element", :id=>folder.id )) %>
+           :accept =>'project_element',
+           :url => folder_url(:action=>"add_element", :id=>folder.id )) %>
 
 

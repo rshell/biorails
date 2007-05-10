@@ -113,6 +113,7 @@ class ProjectElement < ActiveRecord::Base
   
   
   def reorder_before(destination)
+     logger.info "Move #{self.id} before #{destination.id}"
      if self.parent_id ==  destination.parent_id
        ProjectElement.transaction do
          pos = destination.position 

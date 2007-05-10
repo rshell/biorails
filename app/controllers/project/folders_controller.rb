@@ -139,26 +139,54 @@ class Project::FoldersController < ApplicationController
     render :partial => 'blog',:locals=>{:folder=> @project_folder} ,:layout => false if request.xhr?
   end      
   
+  def add_element   
+    @project_folder = ProjectFolder.find(params[:id]) 
+    text = request.raw_post || request.query_string
+    case text
+    when /id=project_element_*/ 
+        @source = ProjectElement.find($')        
+        if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
+          @new_element = @project_folder.add(@source)
+         flash[:info] = "add reference to #{@source.dom_id} to #{@project_folder.dom_id}"
+        end     
+     end
+    @successful =true
+     @project_folder.reload
+    return render( :action => 'drop_element.rjs') if request.xhr?  
+  end
+
+  def move_element
+    @project_folder = ProjectFolder.find(params[:id]) 
+    @project_element =  current(ProjectElement, params[:before] ) 
+    text = request.raw_post || request.query_string
+    case text
+    when /id=current_project_element_*/
+        @source = ProjectElement.find($') 
+        if @source.parent_id == @project_folder.id and @source.id != @project_element.id
+          @source.reorder_before( @project_element )
+        end     
+    end    
+    @successful =true
+    @project_folder.reload
+    return render( :action => 'drop_element.rjs') if request.xhr?  
+  end
+  
+  
 ##
 # a element has been dropped on the folder
 #  
   def drop_element
-    @project_folder = ProjectFolder.find(params[:id]) if params[:id]
-    @project_element =  current(ProjectElement, params[:after] )  if params[:after]
-    @project_element ||= @project_folder.elements.first
+    @project_folder = ProjectFolder.find(params[:id])
+    @project_element =  current(ProjectElement, params[:before] ) 
     text = request.raw_post || request.query_string
-    items = text.split("_")
-    
-    logger.info text
-    logger.info request.raw_post
-    logger.info request.query_string
     @successful =true
     
     case text
     when /id=current_project_element_*/
         @source = ProjectElement.find($') 
-        if @source.parent_id == @project_folder and @source.id != @project_element.id
+        if  @source.id != @project_element.id
           @source.reorder_before( @project_element )
+         flash[:info] = "moved reference to #{@source.dom_id} before #{@project_element.dom_id}"
         end     
     
     when /id=project_element_*/ 
@@ -166,35 +194,13 @@ class Project::FoldersController < ApplicationController
         if allowed_move(@source,@project_element)
           @new_element = @project_folder.add(@source)
           @new_element.reorder_before( @project_element )
+         flash[:info] = "added reference to #{@source.dom_id} before #{@project_element.dom_id}"
         end     
-    
-    when /id=project_folder*/
-        @source = ProjectFolder.find($')
-        if allowed_move(@source,@project_element)
-          @new_element = @project_folder.add(@source)
-          @new_element.reorder_before( @project_element )
-        end     
-
-    when /id=task_*/
-        @source = Task.find($')
-        @new_element = @project_folder.add(@source)
-        @new_element.reorder_before( @project_element )
-        
-    when /id=study_*/
-        @source = Study.find($')
-        @new_element = @project_folder.add(@source)
-        @new_element.reorder_before( @project_element )
-        
-    when /id=experiment_*/
-        @source = Experiment.find($')
-        @new_element = @project_folder.add(@source)
-        @new_element.reorder_before( @project_element )
-        
     else
       @successful =false
       @source= @project_element
     end
-    flash[:info] = "add reference to #{@source.dom_id} to #{@project_element.dom_id}"
+     @project_folder.reload
     return render( :action => 'drop_element.rjs') if request.xhr?  
   end
   
