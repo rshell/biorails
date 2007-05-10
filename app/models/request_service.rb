@@ -56,7 +56,7 @@ class RequestService < ActiveRecord::Base
 #
   belongs_to :queue, :class_name =>'StudyQueue', :foreign_key=>'service_id'
 
-  belongs_to :request_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
+  belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
   belongs_to :assigned_to , :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
 
   

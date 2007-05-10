@@ -5,25 +5,26 @@
 
 
 <h2>Project <%= @project.name %> gnatt chart </h2>
+<!----------------------------------------------------------------->
 
 <table width="100%">
 <tr>
 <td align="left">
-<% form_tag do %>
-<p>
-<input type="text" name="months" size="2" value="<%= @months %>" />
-<%= l(:label_months_from) %>
-<%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
-<%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
-<%= hidden_field_tag 'zoom', @zoom %>
-<% for state in Task.schedule_states.keys.sort  %>
- <span class='state_<%=Task.schedule_states[state]%>'>  
- <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state.to_s] %><%=Task.schedule_states[state]%>
- </span>
-<% end %>
-  <%= submit_tag l(:button_submit), :class => "button-small" %>
-</p>
-<% end %>
+    <% form_tag do %>
+        <p>
+        <input type="text" name="months" size="2" value="<%= @months %>" />
+        <%= l(:label_months_from) %>
+        <%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
+        <%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
+        <%= hidden_field_tag 'zoom', @zoom %>
+            <% for state in Task.schedule_states.keys.sort  %>
+                 <span class='state_<%=Task.schedule_states[state]%>'>  
+                 <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state.to_s] %><%=Task.schedule_states[state]%>
+                 </span>
+            <% end %>
+          <%= submit_tag l(:button_submit), :class => "button-small" %>
+        </p>
+    <% end %>
 </td>
 <td align="right">
 <%= if @zoom < 4
@@ -40,7 +41,7 @@
 </tr>
 </table>
 <br />
-
+<!----------------------------------------------------------------->
 <% zoom = 1
 @zoom.times { zoom = zoom * 2 }
 

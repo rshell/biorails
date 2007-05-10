@@ -64,8 +64,8 @@
       <tr>
         <td><%=h queue_item.name  %></td>
         <td><%=link_to queue_item.data_name,:controller=> 'queue_items', :action => 'status', :id => queue_item %></td>
-        <td><%=h queue_item.requested_by  %></td>
-        <td><%=h queue_item.assigned_to  %></td>
+        <td><%=h queue_item.requested_by.name if queue_item.requested_by %></td>
+        <td><%=h queue_item.assigned_to.name if queue_item.assigned_to  %></td>
         <td><%=h queue_item.status  %></td>
         <td><%=h queue_item.priority  %></td>
         <td><%=short_date queue_item.started_at  %></td>

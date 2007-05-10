@@ -71,6 +71,7 @@ ActionController::Routing::Routes.draw do |map|
   map.report     'reports/:action/:id',     :controller => 'execute/reports'
   map.request    'requests/:action/:id',    :controller => 'execute/requests'
   map.service    'services/:action/:id',    :controller => 'execute/request_services'
+  map.request_service    'services/:action/:id',    :controller => 'execute/request_services'
   
   # Normal controller/action route.
   map.connect ':controller/:action/:id'

@@ -143,8 +143,9 @@ class Project::FoldersController < ApplicationController
 # a element has been dropped on the folder
 #  
   def drop_element
-    @project_element =  current(ProjectElement, params[:id] )  
-    @project_folder = @project_element.parent
+    @project_folder = ProjectFolder.find(params[:id]) if params[:id]
+    @project_element =  current(ProjectElement, params[:after] )  if params[:after]
+    @project_element ||= @project_folder.elements.first
     text = request.raw_post || request.query_string
     items = text.split("_")
     
@@ -152,10 +153,11 @@ class Project::FoldersController < ApplicationController
     logger.info request.raw_post
     logger.info request.query_string
     @successful =true
+    
     case text
     when /id=current_project_element_*/
         @source = ProjectElement.find($') 
-        if @source.parent_id == @project_element.parent_id and @source.id != @project_element.id
+        if @source.parent_id == @project_folder and @source.id != @project_element.id
           @source.reorder_before( @project_element )
         end     
     

@@ -1,5 +1,6 @@
-         <td><%=link_to request_service.request.name, service_url( :action => 'show', :id => request_service) %>  </td>
-         <td><%=request_service.queue.path%> </td>
+         <td><%=request_service.request.name if request_service.request %> </td>
+         <td><%=link_to request_service.name, service_url( :action => 'show', :id => request_service) %>  </td>
+         <td><%=short_date(request_service.expected_at) %> </td>
          <td> <%= select_tag 'status_id', 
                          options_for_select(request_service.allowed_status_list,request_service.status_id),
                           {:id=>request_service.dom_id('status_id')}  %>

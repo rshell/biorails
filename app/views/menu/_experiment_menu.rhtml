@@ -5,7 +5,7 @@
        <%= link_to 'Folder',       folder_url(:action => 'show', :id => current_project.folder(experiment) )%>
 
        <%= link_to 'Calendar', experiment_url( :action => 'calendar', :id => experiment) %>
-       <%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %>
+       <!--%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %-->
        <%= link_to 'Metrics', experiment_url( :action => 'metrics', :id => experiment) %>
        <%= link_to 'Edit',     experiment_url( :action => 'edit', :id => experiment) %>
        <%= link_to 'Delete ',  experiment_url( :action => 'destroy', :id => experiment ), 

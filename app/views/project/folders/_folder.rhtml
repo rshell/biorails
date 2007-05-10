@@ -4,7 +4,7 @@
     <tr>
         <th colspan='5'>Notes and Folders</th>    
     </tr>
-    <tr>
+    <tr  id='folder_top'>
         <th><%=l(:section) %></th>
     	<th><%=l(:defaults)%></th>
     	<th><%=l(:created) %></th>
@@ -39,11 +39,20 @@
 
       <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => true, :revert=> true) %>
 
-      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-zone",
-           :hoverclass => "drop-active",     
-           :url => folder_url(:action=>"drop_element",:id=>item.id )) %>
+      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
+           :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
     <% end %>
   </tbody>
+  <thead>
+  <tr id='folder_bottom'>
+  <th colspan='5'><th/>
+  </tr>
+  </thead>
 </table>
+      <%= drop_receiving_element('folder_top', :hoverclass => "drop-active",
+           :url => folder_url(:action=>"drop_element",:id=>folder.id )) %>
+           
+      <%= drop_receiving_element('folder_bottom', :hoverclass => "drop-active",
+           :url => folder_url(:action=>"drop_element", :id=>folder.id )) %>
 
 
