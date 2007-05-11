@@ -125,15 +125,39 @@ class ProjectElement < ActiveRecord::Base
        ProjectElement.transaction do
          pos = destination.position 
          if destination.position > self.position
-            ProjectElement.update_all("position=position-1",
-             " parent_id=#{self.parent_id} and id between #{self.id+1} and #{destination.id}")    
-         else
-            ProjectElement.update_all("position=position+1",
-             " parent_id=#{self.parent_id} and id between  #{destination.id} and #{self.id-1} ")        
+            ProjectElement.update_all("position=position-1"," parent_id=#{self.parent_id} and (position between  #{self.position+1} and #{destination.position}")    
+         elsif destination.position < self.position
+            ProjectElement.update_all("position=position+1"," parent_id=#{self.parent_id} and position between  #{destination.position} and #{self.position-1} ")        
          end 
          self.position = pos
          self.save
          end
      end
   end
+
+
+  def reorder_before_code(destination)
+     logger.info "Move #{self.id} before #{destination.id}"
+     if self.parent_id ==  destination.parent_id
+       ProjectElement.transaction do
+         i=0
+         for item in self.parent.elements.sort{|a,b|a.position<=>b.position}
+           i += 1 
+           if self.id == item.id
+           elsif destination.id == item.id
+              self.position = i 
+              self.save
+              i += 1
+              item.position = i
+              item.save
+           else
+              item.position =  i
+              item.save
+           end
+         end 
+       end
+     end
+  end
+
+
 end
