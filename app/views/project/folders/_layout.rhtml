@@ -39,6 +39,16 @@
            :url => element_url(:action=>"drop_element", :id=>folder.id, :before=>item.id)) %>
 
 <% end %>
+<div id='layout_bottom' class='panel>
+<p>
+Items can be drags from the right hand side menu to the layout to build a complete document report up.
+</p>
+</div>
+
+      <%= drop_receiving_element('layout_bottom', :hoverclass => "drop-active",
+           :accept =>'project_element',
+           :url => element_url(:action=>"add_element", :id=>folder.id )) %>
+
 
 
 

@@ -81,7 +81,7 @@ module Biorails
     return @models.sort{|a,b| a.to_s <=> b.to_s }
 
   rescue Exception => ex
-    logger.warning "Failed to find models #{ex.message}"
+    logger.error "Failed to find models #{ex.message}"
     return []
   end
     

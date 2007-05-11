@@ -27,7 +27,6 @@ class PlateFormat < ActiveRecord::Base
 #   
   acts_as_audited :change_log
   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
                    :default_field => [:name],           
