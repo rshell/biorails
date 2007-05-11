@@ -17,15 +17,19 @@
 <% for item in @hits %>
     <% if item.parent != fold %>
         <% fold = item.parent %>
-        <b><%=item.parent.path%></b>  <br/>
+        <%if item.project_id != current_project.id %>
+          <%=image_tag('action/lookup.png')%>
+        <%end %>
+        <u><b><%=item.parent.path%></b></u>
+        <br/>
     <% end %>
    <span id='<%=item.dom_id%>' class='project_element'>
     	    <%=image_tag(item.icon( {:images=>true} ) ) %>
-    	    <%= link_to_remote item.name, :url=>element_to_url(item) %>
-    	               
-            <%if item.reference?%>
-    	       <%= "["+subject_icon("model/#{item.style.downcase}")+"]"  %>
-    	    <%end %>
+            <%if item.project_id == current_project.id %>
+    	    <%= link_to_remote item.name, :url=>element_to_url(item) %> 
+    	    <%else%>
+    	    <%= item.name%>
+    	    <%end%>           
     </span>
    <br/>
    <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>
