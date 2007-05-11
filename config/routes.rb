@@ -42,8 +42,8 @@ ActionController::Routing::Routes.draw do |map|
 #
   map.project 'projects/:action/:id', :controller => 'project/projects'
   map.member  'members/:action/:id', :controller => 'project/memberships'
-  map.folder  'folders/:action/:id', :controller => 'project/folders',:mode=>'folder'
-  map.element  'element/:action/:id', :controller => 'project/folders',:mode=>'layout'
+  map.folder  'folders/:action/:id', :controller => 'project/folders',:centre=>'folder'
+  map.element  'element/:action/:id', :controller => 'project/folders',:centre=>'layout'
   map.content 'content/:action/:id', :controller => 'project/content'
   map.asset   'asserts/:action/:id', :controller => 'project/assets'
 ##
