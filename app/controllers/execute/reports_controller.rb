@@ -137,7 +137,14 @@ helper :tree
       end
     end
     flash[:notice] = 'Report was successfully updated.'
-    redirect_to :action => 'edit', :id => @report
+    respond_to do |format|
+      format.html { render :action=>'edit'}
+      format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}
+      format.js  { render :update do | page |
+           page.replace_html 'report-definition',  :partial => 'report_definition' 
+         end
+      }
+    end      
  end
 
 ##

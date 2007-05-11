@@ -72,9 +72,10 @@ class ReportColumn < ActiveRecord::Base
   def table_attribute
     attribute = self.name.split(".").pop
     if  join_model
-    return join_model.tableize.to_s + "." + attribute.to_s
+       logger.info " #{report.model.reflections[join_model.to_sym].class_name}"
+       return report.model.reflections[join_model.to_sym].class_name.tableize.to_s + "." + attribute.to_s
     else
-    return report.model.table_name.to_s + "." + attribute.to_s
+       return report.model.table_name.to_s + "." + attribute.to_s
     end
   end
 

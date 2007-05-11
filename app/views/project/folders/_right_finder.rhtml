@@ -5,7 +5,7 @@
 </ul>
 
 <div class='panel'>
-<h2>Search Content</h2>
+<h2>Search Folders</h2>
 <% form_remote_tag :url=>folder_url(:action=>'finder',   :id => folder.id) do %>
    <%= text_field_tag :query,@query,:size =>30 %>
    <%= submit_tag 'Search' %>

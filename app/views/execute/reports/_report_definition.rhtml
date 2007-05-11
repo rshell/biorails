@@ -1,4 +1,7 @@
-<% form_tag :action => 'update', :id => @report do %>
+
+<%=render :partial =>'shared/messages',:locals => { :objects => ['report']} %>
+
+<% form_remote_tag :url => report_url(:action => 'update', :id => @report) do %>
 
 <div class='dialog'>
 
@@ -31,15 +34,26 @@
         </div>
 
         <div class="row">
-<div class='panel'>
-            <div id="current_columns" class="row">
-              <%= render :partial => 'report_columns' %>    
+            <div class='panel'>
+                <div id="current_columns" class="row">
+                  <%= render :partial => 'report_columns' %>    
+                </div>
             </div>
-</div>
        </div>
 
        <%= submit_tag 'Update' %>
     </fieldset>    
 </div>
 <% end %>
+
+<%= drop_receiving_element "report-definition", 
+    :url => { :action => "add_column",:id => @report.id },
+    :accept => "column",
+    :droponempy => true %>
+              
+<%= drop_receiving_element "data_columns", 
+    :url => { :action => "remove_column",:id => @report.id },
+        :accept => "report_column",
+        :droponempy => true %>
+
     

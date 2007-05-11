@@ -1,5 +1,5 @@
-<form action="/app/report/refresh/<%= report.id %>" method="post" 
-        onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '/app/report/refresh/<%=report.id%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
+<form action="<%=report_url( :action => 'refresh',:id =>report.id, :page => nil )%>" method="post" 
+        onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '<%=report_url( :action => 'refresh',:id =>report.id, :page => nil )%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
 
 <table class="report" width='100%'>
 

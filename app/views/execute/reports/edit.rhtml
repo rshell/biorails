@@ -1,3 +1,5 @@
+
+
 <% content_for :sidemenu do%>
   <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <% end %>
@@ -20,25 +22,14 @@
 </li><li><%=image_tag("relations/boolean.png")%> Yes/No (1/0)
 </li></ul>   
 <%end%>
+
 <% content_for :centre do%>
 
 <h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
 
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['report']} %>
+<div id="report-definition">    
+    <%= render :partial => 'report_definition'%>  
+</div>
 
-    <div id="report-definition">    
-        <%= render :partial => 'report_definition'%>  
-    </div>
-
-
-<%= drop_receiving_element "report-definition", 
-    :url => { :action => "add_column",:id => @report.id },
-    :accept => "column",
-    :droponempy => true %>
-              
-<%= drop_receiving_element "data_columns", 
-    :url => { :action => "remove_column",:id => @report.id },
-        :accept => "report_column",
-        :droponempy => true %>
-<%end%>
+<%end %>
         
