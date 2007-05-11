@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
 # administration elements
 # 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
+  map.database  'admin/database/:action/:id', :controller => 'admin/database'
   map.data_format 'admin/format/:action/:id', :controller => 'admin/data_formats'
   map.data_element 'admin/element/:action/:id', :controller => 'admin/data_elements'
   map.data_system 'admin/system/:action/:id', :controller => 'admin/data_systems'
