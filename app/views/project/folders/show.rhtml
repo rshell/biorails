@@ -1,17 +1,8 @@
 <% content_for :centre do -%>
-  <%= render :partial => 'title' %>
-
-  <div id='messages'>
-  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
-  </div>
-  
-  <div id='data_view'>
-  <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
-  </div>
-  
+  <%= render :partial => @layout[:centre],:locals=>{:folder=>@project_folder} %>
 <% end %>
 
 
 <% content_for :right do -%>
-    <%= render :partial => 'right_panel',:locals=>{:folder=> @project_folder} %>   
+    <%= render :partial => @layout[:right],:locals=>{:folder=> @project_folder} %>   
 <% end %>

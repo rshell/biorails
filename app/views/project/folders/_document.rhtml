@@ -1,6 +1,12 @@
+<%= render :partial => 'title' %>
+
+<div id='messages'>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+</div>
+
 <ul class="tablist"> 
-<li>  <%= link_to_remote 'Folder',   :url =>folder_url( :action => 'show',    :folder_id => folder.id ), :class=>'current' %> </li>
-<li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
+<li>  <%= link_to_remote 'Folder',   :url =>folder_url( :action => 'show',    :folder_id => folder.id )%> </li>
+<li>  <%= link_to_remote 'Document', {:url =>folder_url( :action => 'document',:folder_id => folder.id )}, :class=>'current' %> </li>
 <li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
 <li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
 </ul>
@@ -8,9 +14,10 @@
 <% for item in folder.elements %>    
 	<% if item.asset? and item.asset.image? %>
 	<h4>Figure: <%=item.name%></h4>
-	<p>  <%=  link_to image_tag(item.asset.public_filename), element_to_url(item) %>	</p>      	  
+	<p>  <%=  link_to item.asset.image_tag, element_to_url(item) %>	</p>      	  
+	<% end %>
 
-	<% elsif item.textual? %>
+	<% if item.textual? %>
 	<h2>   <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
 	<p>     <%= item.content.body_html %>	</p>
 	<% end %>

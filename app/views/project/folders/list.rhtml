@@ -1,9 +1,0 @@
-<% content_for :centre do -%>
-  <%= render :partial => 'folder',:locals=>{:folder=>@project_folder} %>
-<% end %>
-
-<% content_for :right do -%>
-  <div class='panel' id='folder_actions'>
-    <%= render :partial => 'selector',:locals=>{:folder=> @project_folder} %>   
-  </div>
-<% end %>

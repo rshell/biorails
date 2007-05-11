@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   map.auth 'auth/:action/:id' , :controller => 'auth'
   map.audit 'audit/:action/:id' , :controller => 'audit'
   map.help 'help/:action/:id' , :controller => 'help'
+  map.finder 'finder/:action/:id' , :controller => 'finder'
+  map.dba  'dba/:action/:id' , :controller => 'admin/database'
   map.login 'login' , :controller => 'auth',:action=>'login'
   map.logoff 'logoff' , :controller => 'auth',:action=>'logout'
 ##

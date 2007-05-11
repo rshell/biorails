@@ -1,16 +1,8 @@
 <% unless folder.nil?  %>
 <div>
   <span class='menu' > <%=subject_icon('model/folder.png')%> <%= ( folder.parent_id ? folder.name : '/') %></span>
-  <%= link_to_remote 'Folder View',  
-            :url =>folder_url( :action => 'show',    :folder_id => folder.id ), 
-            :update => "centre" %> 
-  <%= link_to_remote 'Document View',
-            :url =>folder_url( :action => 'document',:folder_id => folder.id ), 
-            :update => "centre" %> 
-  <%= link_to 'Print View',folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
-  <%= link_to_remote 'Blog View',    
-            :url =>folder_url( :action => 'blog',    :folder_id => folder.id ), 
-            :update => "centre" %> 
+  <%= link_to 'Folder',folder_url( :action => 'show', :folder_id => folder.id ) %> 
+  <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
   <%= link_to_remote subject_icon('new')+'Add Folder',      
             :url =>folder_url( :action => 'new',     :folder_id => folder.id ), 
             :update => "centre" %> 

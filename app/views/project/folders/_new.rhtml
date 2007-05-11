@@ -3,7 +3,7 @@
 <h2>New Folder under <%=@parent.path%></h2>
 <!--[form:project_folder]-->
 
-<% form_remote_tag :url => folder_url(:parent_id=>@parent, :action => 'create'), :update=>:centre do %>
+<% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:centre do %>
 
 <!--[form:project_folder]-->
     <%= hidden_field 'project_folder', 'parent_id'  %>

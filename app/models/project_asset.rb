@@ -94,6 +94,15 @@ class ProjectAsset < ActiveRecord::Base
      Digest::MD5.hexdigest(data )
   end
   
+  def image_tag(max = 700)
+   return "<img src='/images/model/file.png' />"  unless image?
+   if max and max < self.width
+      "<img src=#{self.public_filename}  width='100%'/>"  
+   else
+      "<img src=#{self.public_filename} />" 
+   end
+  end
+  
   def icon( options={} )
      if image? and options[:images]
         self.public_filename(:icon)

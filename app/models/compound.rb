@@ -30,8 +30,7 @@ class Compound < ActiveRecord::Base
   acts_as_audited :change_log
   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
-                              :research_area=>{:boost=>1},
-                              :purpose=>{:boost=>0} }, 
+                               }, 
                    :default_field => [:name],           
                    :single_index => true, 
                    :store_class_name => true 

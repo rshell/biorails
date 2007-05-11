@@ -1,0 +1,37 @@
+<ul class="tablist"> 
+     <li><%= link_to_remote l('Find'), { :url=>folder_url(:action=>'finder',   :id => folder.id)},:class=>"current"  %>     </li>
+     <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),}  %>                       </li>
+     <li><%= link_to_remote l('Clip'),{ :url=> folder_url(:action=>'clipboard',:id => folder.id)}  %>                       </li>
+</ul>
+
+<div class='panel'>
+<h2>Search Content</h2>
+<% form_remote_tag :url=>folder_url(:action=>'finder',   :id => folder.id) do %>
+   <%= text_field_tag :query,@query,:size =>30 %>
+   <%= submit_tag 'Search' %>
+<% end %>
+
+<% if @hits %>
+<% fold = nil %>
+
+<% for item in @hits %>
+    <% if item.parent != fold %>
+        <% fold = item.parent %>
+        <b><%=item.parent.path%></b>  <br/>
+    <% end %>
+   <span id='<%=item.dom_id%>' class='project_element'>
+    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+    	    <%= link_to_remote item.name, :url=>element_to_url(item) %>
+    	               
+            <%if item.reference?%>
+    	       <%= "["+subject_icon("model/#{item.style.downcase}")+"]"  %>
+    	    <%end %>
+    </span>
+   <br/>
+   <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>
+   
+ <% end %>
+ <% end %>
+
+</div>
+

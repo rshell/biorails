@@ -31,7 +31,15 @@ class Project::AssetsController < ApplicationController
     @project_element =  current(ProjectElement, params[:id] )  
     @project_asset   = @project_element.asset
     @project_folder   = @project_element.parent
-    render :partial => 'asset' ,:locals=>{:asset=> @project_asset}, :layout => false if request.xhr?
+    respond_to do |format|
+      format.html { render :action=>'show'}
+      format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
+      format.js  { render :update do | page |
+           page.replace_html 'centre',  :partial=> 'asset',:locals=>{:asset=> @project_asset}
+         end
+      }
+    end  
+    
   end
 
 ##

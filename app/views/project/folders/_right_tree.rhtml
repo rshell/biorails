@@ -1,0 +1,8 @@
+<ul class="tablist"> 
+     <li><%= link_to_remote l('Find'), { :url=>folder_url(:action=>'finder',   :id => folder.id)}  %>                 </li>
+     <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),},:class=>"current"  %></li>
+     <li><%= link_to_remote l('Clip'),{ :url=> folder_url(:action=>'clipboard',:id => folder.id)}  %>                </li>
+</ul>
+<div class='panel'>
+<%= tree_for_folder(current_project, current_project.home)%> 
+</div>
