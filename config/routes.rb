@@ -46,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   map.folder  'folders/:action/:id', :controller => 'project/folders',:centre=>'folder'
   map.element  'element/:action/:id', :controller => 'project/folders',:centre=>'layout'
   map.content 'content/:action/:id', :controller => 'project/content'
-  map.asset   'asserts/:action/:id', :controller => 'project/assets'
+  map.asset   'asset/:action/:id', :controller => 'project/assets'
 ##
 # Studies
 #  

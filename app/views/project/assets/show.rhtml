@@ -3,10 +3,5 @@
 <% end %>
 
 <% content_for :right do -%>
- <div>
-  <%= render :partial => 'project/folders/guide',:locals=>{:folder=>@project_folder} %>
-  <div class='panel' id='folder_actions'>
-    <%= render :partial => 'project/folders/selector',:locals=>{:folder=> @project_folder} %>   
-  </div>
-</div>
+  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
 <% end %>
