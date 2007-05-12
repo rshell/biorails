@@ -31,7 +31,7 @@
     </div>
 <br/>
     <div>
-       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
+       <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>
     </div>
 
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>

@@ -186,6 +186,7 @@ SQL
      @done_hours = 0
      refresh
   end 
+  
 ##
 # refresh cached items array
 # 
@@ -235,7 +236,8 @@ SQL
      0
    end
  end
-##
+
+ ##
 # Create a new Context
 # 
  def add_context(parameter_context)
@@ -277,6 +279,13 @@ SQL
 # 
  def cell(row_no,column_no)
    return self.row(row_no).column(column_no)
+ end
+ 
+ def analysis(name=nil)
+    processor = Analysis.find_by_name(name)
+    processor.init(self)
+    processor.run
+    processer.done
  end
 ##
 # Export a data grid to cvs report

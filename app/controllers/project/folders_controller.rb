@@ -95,8 +95,9 @@ class Project::FoldersController < ApplicationController
     @query = params[:query]
     ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
     if @query
-       @hits = ProjectElement.find(:all,:conditions=>["project_id in (#{ids}) and name like ?","%#{@query}%"],
-                                        :order=>'project_id,parent_id,name',:limit=>100)
+       @hits = ProjectElement.find(:all,
+          :conditions=>["project_id in (#{ids}) and name like ?","#{@query}%"],
+          :order=>"abs(project_id-#{current_project.id}) asc,parent_id,name",:limit=>100)
     end
     return render_right('finder')
   end  

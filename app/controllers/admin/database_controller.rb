@@ -46,6 +46,39 @@ class Admin::DatabaseController < ApplicationController
   
 protected
 
+def import_table_fixture(table,filename)
+  success = Hash.new
+  records = YAML::load( File.open(filename))
+
+  records.sort.each do |r|
+    row = r[1]
+    columns = []
+    values = []
+  
+    row.each_pair do |column, value|
+      if column.to_sym
+        columns << ActiveRecord::Base.connection.quote_column_name(column)
+        values << ActiveRecord::Base.connection.quote(value)
+      else
+        @messages << "Column not found" + column.to_s
+      end
+    end
+    
+    insert_sql = "INSERT INTO #{table} (" + columns.join(', ') + ") VALUES (" + values.join(', ') + ")"
+
+      begin
+        if ActiveRecord::Base.connection.execute(insert_sql)
+          success[table.to_sym] = (success[table.to_sym] ? success[table.to_sym] + 1 : 1)
+        end
+      rescue
+        @messages << "#{table} failed to import: " + insert_sql
+      end
+  end
+
+  @messages << "Total of #{success[table.to_sym]} #{table} records imported successfully"
+end
+
+
  def import_model_fixture(model,filename)
    success = Hash.new
    records = YAML::load( File.open(filename))

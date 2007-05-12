@@ -103,7 +103,7 @@
     <%= link_to (subject_icon('release'))+" Release Latest", :action => 'release', :id => @study_protocol %>
 <br/>
     <div>
-       <%= render :partial => '/project/folders/folder',:locals=>{:folder=>@folder} %>
+       <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>
     </div>
 </div>
 <% end -%>
