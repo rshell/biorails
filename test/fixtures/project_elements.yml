@@ -1,2290 +1,58 @@
 --- 
-project_elements_058: 
-  name: Slides
+project_elements_324: 
+  name: ProjectContent-1
   content_id: 
-  updated_at: 2007-04-25 09:44:15
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "86"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides
-  position: "3"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-25 09:44:15
-project_elements_113: 
-  name: Study-9
-  content_id: 
-  updated_at: 2007-04-27 13:32:35
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "142"
-  reference_type: Study
-  created_by_user_id: "3"
-  reference_id: "11"
-  published_hash: 
-  path: AssayDev/Study-9
-  position: "7"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-27 13:32:35
-project_elements_086: 
-  name: DMO-001-3
-  content_id: 
-  updated_at: 2007-04-25 22:20:54
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "114"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "102"
-  published_hash: 
-  path: AssayDev/Slides/DMO-001-3
-  position: "17"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 22:20:53
-project_elements_114: 
-  name: Study-9
-  content_id: 
-  updated_at: 2007-04-27 14:24:59
+  updated_at: 2007-05-11 14:40:18
   project_id: "1"
   updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "143"
-  reference_type: Study
-  created_by_user_id: "3"
-  reference_id: "11"
-  published_hash: 
-  path: global/Study-9
-  position: "14"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-27 14:24:59
-project_elements_087: 
-  name: Sop-7
-  content_id: "19"
-  updated_at: 2007-04-25 22:24:59
-  project_id: "4"
-  updated_by_user_id: "3"
   lock_version: "1"
   type: ProjectElement
-  id: "115"
+  id: "367"
   reference_type: ProjectElement
   created_by_user_id: "3"
+  reference_id: "323"
+  published_hash: 
+  path: global/Experiment-1/Experiment-1-0/ProjectContent-1
+  position: "0"
+  parent_id: "6"
+  asset_id: 
+  created_at: 2007-05-11 14:39:53
+project_elements_243: 
+  name: Experiment-21
+  content_id: 
+  updated_at: 2007-04-30 22:45:54
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "282"
+  reference_type: Experiment
+  created_by_user_id: "7"
   reference_id: "37"
   published_hash: 
-  path: AssayDev/Slides/Sop-7
-  position: "7"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 22:24:59
-project_elements_059: 
-  name: 1.Ephaptic_activity_sm.jpg
-  content_id: 
-  updated_at: 2007-04-25 09:56:29
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "87"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/1.Ephaptic_activity_sm.jpg
-  position: "2"
-  parent_id: "86"
-  asset_id: "1"
-  created_at: 2007-04-25 09:56:29
-project_elements_115: 
-  name: Request-8
-  content_id: 
-  updated_at: 2007-04-27 16:07:34
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "144"
-  reference_type: Request
-  created_by_user_id: "2"
-  reference_id: "10"
-  published_hash: 
-  path: Assay-Dev2/Request-8
-  position: "3"
-  parent_id: "10"
-  asset_id: 
-  created_at: 2007-04-27 16:07:34
-project_elements_088: 
-  name: Hyper.1
-  content_id: "21"
-  updated_at: 2007-04-26 07:54:02
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "116"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "92"
-  published_hash: 
-  path: AssayDev/Hyper.1
-  position: "5"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-26 07:54:02
-project_elements_001: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-18 13:26:55
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "1"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  path: global
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-18 13:26:55
-project_elements_116: 
-  name: Request-12
-  content_id: 
-  updated_at: 2007-04-30 10:05:06
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "145"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "13"
-  published_hash: 
-  path: global/Request-12
-  position: "15"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-30 10:05:06
-project_elements_030: 
-  name: Sop-7
-  content_id: "19"
-  updated_at: 2007-04-20 12:53:11
-  project_id: "4"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "37"
-  reference_type: ProjectContent
-  created_by_user_id: "1"
-  reference_id: "19"
-  published_hash: 
-  path: AssayDev/Cell Assay/Sop-7
-  position: "0"
-  parent_id: "36"
-  asset_id: 
-  created_at: 2007-04-20 12:53:11
-project_elements_089: 
-  name: rshell-27
-  content_id: "38"
-  updated_at: 2007-04-26 07:55:30
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "117"
-  reference_type: Report
-  created_by_user_id: "3"
-  reference_id: "2"
-  published_hash: 
-  path: AssayDev/Biomarker And Histology/Weights/rshell-27
-  position: "0"
-  parent_id: "104"
-  asset_id: 
-  created_at: 2007-04-26 07:55:30
-project_elements_002: 
-  name: Reports
-  content_id: 
-  updated_at: 2007-04-18 13:30:23
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "2"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports
-  position: "0"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-18 13:30:23
-project_elements_117: 
-  name: Request-12
-  content_id: 
-  updated_at: 2007-04-30 12:42:15
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "146"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "13"
-  published_hash: 
-  path: Tox/Request-12
-  position: "0"
-  parent_id: "29"
-  asset_id: 
-  created_at: 2007-04-30 12:42:15
-project_elements_031: 
-  name: TH210307-1
-  content_id: 
-  updated_at: 2007-04-20 13:27:38
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "38"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  path: global/TH210307-1
-  position: "7"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-20 13:27:38
-project_elements_003: 
-  name: Screen
-  content_id: 
-  updated_at: 2007-04-18 13:32:13
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "3"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  path: global/Screen
-  position: "1"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-18 13:32:13
-project_elements_118: 
-  name: Request-13
-  content_id: 
-  updated_at: 2007-04-30 12:42:58
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "147"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "14"
-  published_hash: 
-  path: Tox/Request-13
-  position: "1"
-  parent_id: "29"
-  asset_id: 
-  created_at: 2007-04-30 12:42:58
-project_elements_032: 
-  name: TH210307-1-3
-  content_id: 
-  updated_at: 2007-04-20 13:30:17
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "40"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  path: global/TH210307-1/TH210307-1-3
-  position: "0"
-  parent_id: "38"
-  asset_id: 
-  created_at: 2007-04-20 13:30:17
-project_elements_004: 
-  name: Develop Assay
-  content_id: 
-  updated_at: 2007-04-18 13:33:12
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "4"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "16"
-  published_hash: 
-  path: global/Screen/Develop Assay
-  position: "0"
-  parent_id: "3"
-  asset_id: 
-  created_at: 2007-04-18 13:33:12
-project_elements_060: 
-  name: 1.Partial_nerve_severance.jpg
-  content_id: 
-  updated_at: 2007-04-25 21:45:39
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "88"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/1.Partial_nerve_severance.jpg
-  position: "17"
-  parent_id: "86"
-  asset_id: "6"
-  created_at: 2007-04-25 11:35:18
-project_elements_119: 
-  name: Request-1
-  content_id: 
-  updated_at: 2007-04-30 12:47:12
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "148"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "8"
-  published_hash: 
-  path: Tox/Request-1
-  position: "2"
-  parent_id: "29"
-  asset_id: 
-  created_at: 2007-04-30 12:47:12
-project_elements_033: 
-  name: TH210307-1-2
-  content_id: 
-  updated_at: 2007-04-20 13:38:39
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "41"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  path: global/TH210307-1/TH210307-1-2
-  position: "1"
-  parent_id: "38"
-  asset_id: 
-  created_at: 2007-04-20 13:38:39
-project_elements_005: 
-  name: Experiment-1
-  content_id: 
-  updated_at: 2007-04-18 13:58:43
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "5"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  path: global/Experiment-1
-  position: "2"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-18 13:58:43
-project_elements_061: 
-  name: 2.Cross_talk_sm.jpg
-  content_id: 
-  updated_at: 2007-04-25 11:38:47
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "89"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/2.Cross_talk_sm.jpg
-  position: "6"
-  parent_id: "86"
-  asset_id: "9"
-  created_at: 2007-04-25 11:38:47
-project_elements_034: 
-  name: TH210307-1-1
-  content_id: 
-  updated_at: 2007-04-20 13:39:01
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "43"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "2"
-  published_hash: 
-  path: global/TH210307-1/TH210307-1-1
-  position: "2"
-  parent_id: "38"
-  asset_id: 
-  created_at: 2007-04-20 13:39:01
-project_elements_006: 
-  name: Experiment-1-0
-  content_id: 
-  updated_at: 2007-04-18 14:12:17
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "6"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "23"
-  published_hash: 
-  path: global/Experiment-1/Experiment-1-0
-  position: "0"
-  parent_id: "5"
-  asset_id: 
-  created_at: 2007-04-18 14:12:17
-project_elements_090: 
-  name: Dev-Test2
-  content_id: 
-  updated_at: 2007-04-26 08:24:29
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "118"
-  reference_type: Study
-  created_by_user_id: "3"
-  reference_id: "6"
-  published_hash: 
-  path: global/Dev-Test2
-  position: "30"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-26 08:24:29
-project_elements_062: 
-  name: 4.Hyperexcitation.jpg
-  content_id: 
-  updated_at: 2007-04-25 11:40:55
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "90"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/4.Hyperexcitation.jpg
-  position: "9"
-  parent_id: "86"
-  asset_id: "12"
-  created_at: 2007-04-25 11:40:55
-project_elements_035: 
-  name: TH210307-1-0
-  content_id: 
-  updated_at: 2007-04-20 13:39:11
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "45"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  path: global/TH210307-1/TH210307-1-0
-  position: "3"
-  parent_id: "38"
-  asset_id: 
-  created_at: 2007-04-20 13:39:11
-project_elements_007: 
-  name: text
-  content_id: 
-  updated_at: 2007-04-18 14:31:40
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "8"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text
-  position: "0"
-  parent_id: "2"
-  asset_id: 
-  created_at: 2007-04-18 14:31:40
-project_elements_091: 
-  name: Capture Raw Data
-  content_id: 
-  updated_at: 2007-04-26 09:44:27
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "119"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "10"
-  published_hash: 
-  path: global/RES Exposure/Capture Raw Data
-  position: "1"
-  parent_id: "47"
-  asset_id: 
-  created_at: 2007-04-26 09:44:27
-project_elements_063: 
-  name: ps-1
-  content_id: "20"
-  updated_at: 2007-04-26 16:02:55
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "3"
-  type: ProjectElement
-  id: "91"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ps-1
-  position: "1"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:45:45
-project_elements_036: 
-  name: RES Exposure
-  content_id: 
-  updated_at: 2007-04-20 13:39:27
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "47"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "2"
-  published_hash: 
-  path: global/RES Exposure
-  position: "12"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-20 13:39:27
-project_elements_008: 
-  name: ProjectContent-1
-  content_id: "1"
-  updated_at: 2007-04-18 14:33:15
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "9"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text/ProjectContent-1
-  position: "0"
-  parent_id: "8"
-  asset_id: 
-  created_at: 2007-04-18 14:33:15
-project_elements_092: 
-  name: Request-8
-  content_id: 
-  updated_at: 2007-04-26 12:44:45
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "120"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "10"
-  published_hash: 
-  path: global/Request-8
-  position: "10"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-26 12:44:45
-project_elements_064: 
-  name: Hyper.1
-  content_id: "21"
-  updated_at: 2007-04-25 21:43:03
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "3"
-  type: ProjectElement
-  id: "92"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/h1
+  path: ewtest1/Experiment-21
   position: "8"
-  parent_id: "86"
+  parent_id: "261"
   asset_id: 
-  created_at: 2007-04-25 11:46:15
-project_elements_120: 
-  name: Request-2
+  created_at: 2007-04-30 22:45:54
+project_elements_029: 
+  name: Cell Assay
   content_id: 
-  updated_at: 2007-04-30 13:09:09
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "149"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "9"
-  published_hash: 
-  path: Tox/Request-2
-  position: "3"
-  parent_id: "29"
-  asset_id: 
-  created_at: 2007-04-30 13:09:09
-project_elements_037: 
-  name: Brain Plasma Assessment
-  content_id: 
-  updated_at: 2007-04-20 13:39:34
-  project_id: "1"
+  updated_at: 2007-04-20 12:51:45
+  project_id: "4"
   updated_by_user_id: "1"
   lock_version: "0"
   type: ProjectFolder
-  id: "48"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "12"
-  published_hash: 
-  path: global/RES Exposure/Brain Plasma Assessment
-  position: "0"
-  parent_id: "47"
-  asset_id: 
-  created_at: 2007-04-20 13:39:34
-project_elements_009: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-18 14:38:20
-  project_id: "3"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "10"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  path: Assay-Dev2
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-18 14:38:20
-project_elements_093: 
-  name: ProjectContent-44
-  content_id: "39"
-  updated_at: 2007-04-26 12:54:51
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectElement
-  id: "121"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/Request-8/ProjectContent-44
-  position: "0"
-  parent_id: "120"
-  asset_id: 
-  created_at: 2007-04-26 12:52:32
-project_elements_065: 
-  name: pain-1
-  content_id: "22"
-  updated_at: 2007-04-25 21:42:49
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectElement
-  id: "93"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/pain-1
-  position: "6"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:47:04
-project_elements_121: 
-  name: TestingRequest_Compounds
-  content_id: 
-  updated_at: 2007-04-30 13:09:22
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "150"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "5"
-  published_hash: 
-  path: Tox/TestingRequest_Compounds
-  position: "4"
-  parent_id: "29"
-  asset_id: 
-  created_at: 2007-04-30 13:09:22
-project_elements_094: 
-  name: Testing_Sex
-  content_id: 
-  updated_at: 2007-04-26 13:34:37
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "122"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "6"
-  published_hash: 
-  path: global/Testing_Sex
-  position: "11"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-26 13:34:37
-project_elements_066: 
-  name: pain-2
-  content_id: "23"
-  updated_at: 2007-04-25 21:42:42
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "94"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/pain-2
-  position: "4"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:47:39
-project_elements_038: 
-  name: DMO-001-0
-  content_id: 
-  updated_at: 2007-04-20 13:40:09
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "50"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  path: global/DMO-001/DMO-001-0
-  position: "1"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:09
-project_elements_122: 
-  name: ProjectContent-48
-  content_id: "41"
-  updated_at: 2007-04-30 13:15:52
-  project_id: "6"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "151"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: Tox/Request-1/ProjectContent-48
-  position: "0"
-  parent_id: "148"
-  asset_id: 
-  created_at: 2007-04-30 13:15:52
-project_elements_095: 
-  name: DMO-001-16
-  content_id: 
-  updated_at: 2007-04-26 14:08:07
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "123"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/DMO-001/DMO-001-16
-  position: "16"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-26 14:08:07
-project_elements_067: 
-  name: paf-1
-  content_id: "24"
-  updated_at: 2007-04-25 21:42:56
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "95"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/paf-1
-  position: "8"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:48:24
-project_elements_039: 
-  name: DMO-001-1
-  content_id: 
-  updated_at: 2007-04-20 13:40:11
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "52"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  path: global/DMO-001/DMO-001-1
-  position: "2"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:11
-project_elements_123: 
-  name: Request-1
-  content_id: 
-  updated_at: 2007-04-30 13:18:36
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "152"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "8"
-  published_hash: 
-  path: AssayDev/Request-1
-  position: "8"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-30 13:18:36
-project_elements_096: 
-  name: organ0.jpg
-  content_id: 
-  updated_at: 2007-04-26 14:47:19
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "125"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/DMO-001/DMO-001-15/organ0.jpg
-  position: "0"
-  parent_id: "79"
-  asset_id: "27"
-  created_at: 2007-04-26 14:47:19
-project_elements_068: 
-  name: ion-1
-  content_id: "25"
-  updated_at: 2007-04-25 11:48:56
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "96"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ion-1
-  position: "11"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:48:56
-project_elements_124: 
-  name: Request-1
-  content_id: 
-  updated_at: 2007-04-30 15:46:03
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "153"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "8"
-  published_hash: 
-  path: global/Request-1
-  position: "16"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-30 15:46:03
-project_elements_097: 
-  name: tissue1.jpg
-  content_id: 
-  updated_at: 2007-04-26 14:56:59
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "126"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/DMO-001/DMO-001-15/tissue1.jpg
-  position: "1"
-  parent_id: "79"
-  asset_id: "36"
-  created_at: 2007-04-26 14:56:59
-project_elements_010: 
-  name: Study-2
-  content_id: 
-  updated_at: 2007-04-18 21:22:39
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "11"
+  id: "36"
   reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  path: global/Study-2
-  position: "3"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-18 21:22:39
-project_elements_069: 
-  name: pain-0
-  content_id: "26"
-  updated_at: 2007-04-25 11:51:59
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "97"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/pain-0
-  position: "13"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 11:51:59
-project_elements_125: 
-  name: Study-3
-  content_id: 
-  updated_at: 2007-04-30 16:02:28
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "154"
-  reference_type: Study
-  created_by_user_id: "2"
-  reference_id: "8"
-  published_hash: 
-  path: global/Study-3
-  position: "17"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-30 16:02:28
-project_elements_098: 
-  name: DMO-001:17
-  content_id: 
-  updated_at: 2007-04-26 15:14:25
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "127"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "25"
-  published_hash: 
-  path: global/DMO-001/DMO-001:17
-  position: "17"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-26 15:14:25
-project_elements_011: 
-  name: ProjectContent-2
-  content_id: "2"
-  updated_at: 2007-04-19 10:16:28
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "12"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text/ProjectContent-2
-  position: "1"
-  parent_id: "8"
-  asset_id: 
-  created_at: 2007-04-19 10:16:28
-project_elements_126: 
-  name: Profile-1
-  content_id: 
-  updated_at: 2007-04-30 16:12:06
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "155"
-  reference_type: StudyProtocol
-  created_by_user_id: "2"
-  reference_id: "21"
-  published_hash: 
-  path: global/Screen/Profile-1
-  position: "3"
-  parent_id: "3"
-  asset_id: 
-  created_at: 2007-04-30 16:12:06
-project_elements_099: 
-  name: 1.Tissue_injury_sm.jpg
-  content_id: 
-  updated_at: 2007-04-26 15:16:10
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "128"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/DMO-001/1.Tissue_injury_sm.jpg
-  position: "18"
-  parent_id: "34"
-  asset_id: "39"
-  created_at: 2007-04-26 15:16:10
-project_elements_012: 
-  name: ProjectContent-3
-  content_id: "3"
-  updated_at: 2007-04-19 10:17:13
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "13"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text/ProjectContent-3
-  position: "2"
-  parent_id: "8"
-  asset_id: 
-  created_at: 2007-04-19 10:17:13
-project_elements_040: 
-  name: DMO-001-2
-  content_id: 
-  updated_at: 2007-04-20 13:40:12
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "54"
-  reference_type: Task
   created_by_user_id: "1"
   reference_id: "9"
   published_hash: 
-  path: global/DMO-001/DMO-001-2
+  path: AssayDev/Cell Assay
   position: "3"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:12
-project_elements_127: 
-  name: practi6.jpg
-  content_id: 
-  updated_at: 2007-04-30 19:18:03
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectElement
-  id: "156"
-  reference_type: 
-  created_by_user_id: "2"
-  reference_id: 
-  published_hash: 
-  path: global/Screen/practi6.jpg
-  position: "4"
-  parent_id: "3"
-  asset_id: "45"
-  created_at: 2007-04-30 19:18:03
-project_elements_013: 
-  name: ProjectContent-4
-  content_id: "4"
-  updated_at: 2007-04-19 10:19:28
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "14"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text/ProjectContent-4
-  position: "3"
-  parent_id: "8"
-  asset_id: 
-  created_at: 2007-04-19 10:19:28
-project_elements_041: 
-  name: DMO-001-3
-  content_id: 
-  updated_at: 2007-04-20 13:40:14
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "56"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "10"
-  published_hash: 
-  path: global/DMO-001/DMO-001-3
-  position: "4"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:14
-project_elements_128: 
-  name: practi12.jpg
-  content_id: 
-  updated_at: 2007-04-30 19:18:50
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectElement
-  id: "157"
-  reference_type: 
-  created_by_user_id: "2"
-  reference_id: 
-  published_hash: 
-  path: global/Screen/practi12.jpg
-  position: "5"
-  parent_id: "3"
-  asset_id: "48"
-  created_at: 2007-04-30 19:18:50
-project_elements_014: 
-  name: ProjectContent-5
-  content_id: "5"
-  updated_at: 2007-04-19 10:21:01
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "15"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/text/ProjectContent-5
-  position: "4"
-  parent_id: "8"
-  asset_id: 
-  created_at: 2007-04-19 10:21:01
-project_elements_070: 
-  name: 2.Pain_inflammatory_mediators_sm.jpg
-  content_id: 
-  updated_at: 2007-04-25 11:52:28
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "98"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/2.Pain_inflammatory_mediators_sm.jpg
-  position: "14"
-  parent_id: "86"
-  asset_id: "15"
-  created_at: 2007-04-25 11:52:28
-project_elements_042: 
-  name: DMO-001-9
-  content_id: 
-  updated_at: 2007-04-20 13:40:15
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "58"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "16"
-  published_hash: 
-  path: global/DMO-001/DMO-001-9
-  position: "5"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:15
-project_elements_129: 
-  name: catalogue.png
-  content_id: 
-  updated_at: 2007-04-30 19:19:31
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectElement
-  id: "158"
-  reference_type: 
-  created_by_user_id: "2"
-  reference_id: 
-  published_hash: 
-  path: global/Screen/catalogue.png
-  position: "6"
-  parent_id: "3"
-  asset_id: "51"
-  created_at: 2007-04-30 19:19:31
-project_elements_015: 
-  name: rshell-6
-  content_id: "12"
-  updated_at: 2007-04-19 16:38:05
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "19"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/rshell-6
-  position: "1"
-  parent_id: "2"
-  asset_id: 
-  created_at: 2007-04-19 16:38:05
-project_elements_071: 
-  name: ProjectContent-16
-  content_id: 
-  updated_at: 2007-04-25 13:39:46
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "99"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-16
-  position: "15"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 13:39:46
-project_elements_043: 
-  name: DMO-001-4
-  content_id: 
-  updated_at: 2007-04-20 13:40:17
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "60"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "11"
-  published_hash: 
-  path: global/DMO-001/DMO-001-4
-  position: "6"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:17
-project_elements_016: 
-  name: ProjectContent-6
-  content_id: "13"
-  updated_at: 2007-04-19 16:39:18
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "20"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/ProjectContent-6
-  position: "2"
-  parent_id: "2"
-  asset_id: 
-  created_at: 2007-04-19 16:39:18
-project_elements_072: 
-  name: rshell-22
-  content_id: "28"
-  updated_at: 2007-04-25 21:43:17
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "100"
-  reference_type: Report
-  created_by_user_id: "3"
-  reference_id: "5"
-  published_hash: 
-  path: AssayDev/Slides/rshell-22
-  position: "12"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 15:08:30
-project_elements_044: 
-  name: DMO-001-5
-  content_id: 
-  updated_at: 2007-04-20 13:40:19
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "62"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "12"
-  published_hash: 
-  path: global/DMO-001/DMO-001-5
-  position: "7"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:19
-project_elements_073: 
-  name: rshell-25
-  content_id: "29"
-  updated_at: 2007-04-25 15:39:56
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "101"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/rshell-25
-  position: "16"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 15:39:55
-project_elements_045: 
-  name: DMO-001-7
-  content_id: 
-  updated_at: 2007-04-20 13:40:22
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "65"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "14"
-  published_hash: 
-  path: global/DMO-001/DMO-001-7
-  position: "8"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:22
-project_elements_100: 
-  name: Screen Report
-  content_id: 
-  updated_at: 2007-04-26 15:19:45
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "129"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "20"
-  published_hash: 
-  path: global/Screen/Screen Report
-  position: "1"
-  parent_id: "3"
-  asset_id: 
-  created_at: 2007-04-26 15:19:45
-project_elements_017: 
-  name: rshell-14
-  content_id: "18"
-  updated_at: 2007-04-19 19:40:17
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectElement
-  id: "24"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  path: global/Reports/rshell-14
-  position: "6"
-  parent_id: "2"
-  asset_id: 
-  created_at: 2007-04-19 19:40:17
-project_elements_074: 
-  name: DMO-001-3
-  content_id: 
-  updated_at: 2007-04-25 17:29:09
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "102"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "10"
-  published_hash: 
-  path: AssayDev/DMO-001/DMO-001-3
-  position: "2"
-  parent_id: "83"
-  asset_id: 
-  created_at: 2007-04-25 17:29:09
-project_elements_046: 
-  name: DMO-001-8
-  content_id: 
-  updated_at: 2007-04-20 13:40:25
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "67"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "15"
-  published_hash: 
-  path: global/DMO-001/DMO-001-8
-  position: "9"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:25
-project_elements_101: 
-  name: Dose Response
-  content_id: 
-  updated_at: 2007-04-26 15:21:44
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "130"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "19"
-  published_hash: 
-  path: global/Screen/Dose Response
-  position: "2"
-  parent_id: "3"
-  asset_id: 
-  created_at: 2007-04-26 15:21:44
-project_elements_018: 
-  name: Biomarker And Histology
-  content_id: 
-  updated_at: 2007-04-19 21:02:37
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "25"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  path: global/Biomarker And Histology
-  position: "4"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-19 21:02:37
-project_elements_130: 
-  name: organ0.jpg
-  content_id: 
-  updated_at: 2007-04-30 19:24:33
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "1"
-  type: ProjectElement
-  id: "159"
-  reference_type: ProjectElement
-  created_by_user_id: "2"
-  reference_id: "125"
-  published_hash: 
-  path: global/Biomarker And Histology/organ0.jpg
-  position: "1"
-  parent_id: "25"
-  asset_id: "27"
-  created_at: 2007-04-30 19:24:33
-project_elements_075: 
-  name: Biomarker And Histology
-  content_id: 
-  updated_at: 2007-04-25 17:29:21
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "103"
-  reference_type: Study
-  created_by_user_id: "3"
-  reference_id: "1"
-  published_hash: 
-  path: AssayDev/Biomarker And Histology
-  position: "4"
   parent_id: "27"
   asset_id: 
-  created_at: 2007-04-25 17:29:21
-project_elements_047: 
-  name: DMO-001-10
-  content_id: 
-  updated_at: 2007-04-20 13:40:27
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "69"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "17"
-  published_hash: 
-  path: global/DMO-001/DMO-001-10
-  position: "10"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:27
-project_elements_102: 
-  name: Histological Scoring
-  content_id: 
-  updated_at: 2007-04-26 15:23:41
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "131"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "8"
-  published_hash: 
-  path: global/Biomarker And Histology/Histological Scoring
-  position: "3"
-  parent_id: "25"
-  asset_id: 
-  created_at: 2007-04-26 15:23:41
-project_elements_019: 
-  name: Weight Summary
-  content_id: 
-  updated_at: 2007-04-19 21:02:37
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "26"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  path: global/Biomarker And Histology/Weight Summary
-  position: "2"
-  parent_id: "25"
-  asset_id: 
-  created_at: 2007-04-19 21:02:37
-project_elements_131: 
-  name: tissue1.jpg
-  content_id: 
-  updated_at: 2007-04-30 19:24:38
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "1"
-  type: ProjectElement
-  id: "160"
-  reference_type: ProjectElement
-  created_by_user_id: "2"
-  reference_id: "126"
-  published_hash: 
-  path: global/Biomarker And Histology/tissue1.jpg
-  position: "2"
-  parent_id: "25"
-  asset_id: "36"
-  created_at: 2007-04-30 19:24:38
-project_elements_076: 
-  name: Weights
-  content_id: 
-  updated_at: 2007-04-25 17:29:21
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "104"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "4"
-  published_hash: 
-  path: AssayDev/Biomarker And Histology/Weights
-  position: "0"
-  parent_id: "103"
-  asset_id: 
-  created_at: 2007-04-25 17:29:21
-project_elements_048: 
-  name: DMO-001-11
-  content_id: 
-  updated_at: 2007-04-20 13:40:28
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "71"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "18"
-  published_hash: 
-  path: global/DMO-001/DMO-001-11
-  position: "11"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:28
-project_elements_103: 
-  name: Experiment-2
-  content_id: 
-  updated_at: 2007-04-26 15:24:15
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "132"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "7"
-  published_hash: 
-  path: global/Experiment-2
-  position: "12"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-26 15:24:15
-project_elements_132: 
-  name: ProjectContent-1
-  content_id: "1"
-  updated_at: 2007-04-30 19:24:47
-  project_id: "1"
-  updated_by_user_id: "2"
-  lock_version: "1"
-  type: ProjectElement
-  id: "161"
-  reference_type: ProjectElement
-  created_by_user_id: "2"
-  reference_id: "9"
-  published_hash: 
-  path: global/Biomarker And Histology/ProjectContent-1
-  position: "1"
-  parent_id: "25"
-  asset_id: 
-  created_at: 2007-04-30 19:24:47
-project_elements_077: 
-  name: Solubility
-  content_id: 
-  updated_at: 2007-04-25 19:06:32
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "105"
-  reference_type: Study
-  created_by_user_id: "3"
-  reference_id: "10"
-  published_hash: 
-  path: AssayDev/Solubility
-  position: "6"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-25 19:06:32
-project_elements_049: 
-  name: DMO-001-12
-  content_id: 
-  updated_at: 2007-04-20 13:40:30
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "73"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "19"
-  published_hash: 
-  path: global/DMO-001/DMO-001-12
-  position: "12"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:30
-project_elements_104: 
-  name: Scoring
-  content_id: 
-  updated_at: 2007-04-26 15:24:43
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "133"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "8"
-  published_hash: 
-  path: global/Scoring
-  position: "13"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-26 15:24:43
-project_elements_133: 
-  name: 5.Receptive_field_expands_sm.jpg
-  content_id: 
-  updated_at: 2007-05-01 06:57:36
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "162"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/Scoring/5.Receptive_field_expands_sm.jpg
-  position: "1"
-  parent_id: "133"
-  asset_id: "54"
-  created_at: 2007-05-01 06:57:36
-project_elements_078: 
-  name: ProjectContent-27
-  content_id: "30"
-  updated_at: 2007-04-25 21:23:28
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "106"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-27
-  position: "18"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 20:04:02
-project_elements_105: 
-  name: Scoring-0
-  content_id: 
-  updated_at: 2007-04-26 15:24:58
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "134"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/Scoring/Scoring-0
-  position: "0"
-  parent_id: "133"
-  asset_id: 
-  created_at: 2007-04-26 15:24:58
-project_elements_134: 
-  name: Experiment-5
-  content_id: 
-  updated_at: 2007-05-01 07:55:11
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "163"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "10"
-  published_hash: 
-  path: global/Experiment-5
-  position: "18"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-05-01 07:55:11
-project_elements_079: 
-  name: ProjectContent-29
-  content_id: "31"
-  updated_at: 2007-04-25 20:05:20
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "107"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-29
-  position: "19"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 20:05:20
-project_elements_106: 
-  name: Biomarker And Histology
-  content_id: 
-  updated_at: 2007-04-26 15:32:16
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "135"
-  reference_type: Study
-  created_by_user_id: "2"
-  reference_id: "1"
-  published_hash: 
-  path: Assay-Dev2/Biomarker And Histology
-  position: "0"
-  parent_id: "10"
-  asset_id: 
-  created_at: 2007-04-26 15:32:16
-project_elements_020: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-20 07:34:32
-  project_id: "4"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "27"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  path: AssayDev
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-20 07:34:32
-project_elements_135: 
-  name: Experiment-6
-  content_id: 
-  updated_at: 2007-05-01 07:56:13
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "164"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "11"
-  published_hash: 
-  path: global/Experiment-6
-  position: "19"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-05-01 07:56:13
-project_elements_107: 
-  name: Experiment-3
-  content_id: 
-  updated_at: 2007-04-26 15:32:17
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "136"
-  reference_type: Experiment
-  created_by_user_id: "2"
-  reference_id: "9"
-  published_hash: 
-  path: Assay-Dev2/Experiment-3
-  position: "1"
-  parent_id: "10"
-  asset_id: 
-  created_at: 2007-04-26 15:32:17
-project_elements_021: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-20 07:35:03
-  project_id: "5"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "28"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  path: HTS
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-20 07:35:03
-project_elements_136: 
-  name: Experiment-7
-  content_id: 
-  updated_at: 2007-05-01 07:58:16
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "165"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "12"
-  published_hash: 
-  path: global/Experiment-7
-  position: "20"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-05-01 07:58:16
-project_elements_108: 
-  name: Sacry stuff
-  content_id: 
-  updated_at: 2007-04-26 15:38:19
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "137"
-  reference_type: 
-  created_by_user_id: "2"
-  reference_id: 
-  published_hash: 
-  path: Assay-Dev2/Biomarker And Histology/Sacry stuff
-  position: "0"
-  parent_id: "135"
-  asset_id: 
-  created_at: 2007-04-26 15:38:19
-project_elements_050: 
-  name: DMO-001-13
-  content_id: 
-  updated_at: 2007-04-20 13:40:32
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "75"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "20"
-  published_hash: 
-  path: global/DMO-001/DMO-001-13
-  position: "13"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:32
-project_elements_022: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-20 07:35:25
-  project_id: "6"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "29"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  path: Tox
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-20 07:35:25
-project_elements_137: 
-  name: Scoring-1
-  content_id: 
-  updated_at: 2007-05-01 08:01:39
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "166"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: global/Scoring/Scoring-1
-  position: "2"
-  parent_id: "133"
-  asset_id: 
-  created_at: 2007-05-01 08:01:39
-project_elements_109: 
-  name: ProjectContent-47
-  content_id: "40"
-  updated_at: 2007-04-26 15:39:09
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "1"
-  type: ProjectElement
-  id: "138"
-  reference_type: 
-  created_by_user_id: "2"
-  reference_id: 
-  published_hash: 
-  path: Assay-Dev2/Biomarker And Histology/Sacry stuff/ProjectContent-47
-  position: "0"
-  parent_id: "137"
-  asset_id: 
-  created_at: 2007-04-26 15:39:09
-project_elements_051: 
-  name: DMO-001-14
-  content_id: 
-  updated_at: 2007-04-20 13:40:34
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "77"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "21"
-  published_hash: 
-  path: global/DMO-001/DMO-001-14
-  position: "14"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:34
-project_elements_023: 
-  name: Study-3
-  content_id: 
-  updated_at: 2007-04-20 08:50:00
-  project_id: "5"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "30"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  path: HTS/Study-3
-  position: "0"
-  parent_id: "28"
-  asset_id: 
-  created_at: 2007-04-20 08:50:00
-project_elements_138: 
-  name: Request-23
-  content_id: 
-  updated_at: 2007-05-01 08:31:12
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "167"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "18"
-  published_hash: 
-  path: global/Request-23
-  position: "21"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-05-01 08:31:12
-project_elements_080: 
-  name: ProjectContent-31
-  content_id: "32"
-  updated_at: 2007-04-25 20:11:17
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectElement
-  id: "108"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-31
-  position: "20"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 20:11:17
-project_elements_052: 
-  name: DMO-001-15
-  content_id: 
-  updated_at: 2007-04-20 13:40:36
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "79"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "22"
-  published_hash: 
-  path: global/DMO-001/DMO-001-15
-  position: "15"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 13:40:36
-project_elements_024: 
-  name: Experiment-1
-  content_id: 
-  updated_at: 2007-04-20 09:26:48
-  project_id: "4"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "31"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  path: AssayDev/Experiment-1
-  position: "0"
-  parent_id: "27"
-  asset_id: 
-  created_at: 2007-04-20 09:26:48
-project_elements_139: 
-  name: Request-22
-  content_id: 
-  updated_at: 2007-05-01 08:34:06
-  project_id: "1"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "168"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "19"
-  published_hash: 
-  path: global/Request-22
-  position: "22"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-05-01 08:34:06
-project_elements_053: 
-  name: /
-  content_id: 
-  updated_at: 2007-04-23 18:29:30
-  project_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "81"
-  reference_type: Project
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  path: Profiling
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-04-23 18:29:30
-project_elements_025: 
-  name: Experiment-1-0
-  content_id: 
-  updated_at: 2007-04-20 09:26:48
-  project_id: "4"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "32"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "23"
-  published_hash: 
-  path: AssayDev/Experiment-1/Experiment-1-0
-  position: "0"
-  parent_id: "31"
-  asset_id: 
-  created_at: 2007-04-20 09:26:48
-project_elements_081: 
-  name: ProjectContent-33
-  content_id: "34"
-  updated_at: 2007-04-25 20:15:01
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectElement
-  id: "109"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-33
-  position: "22"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 20:15:01
-project_elements_054: 
-  name: Solubility
-  content_id: 
-  updated_at: 2007-04-23 18:30:16
-  project_id: "7"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "82"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "10"
-  published_hash: 
-  path: Profiling/Solubility
-  position: "0"
-  parent_id: "81"
-  asset_id: 
-  created_at: 2007-04-23 18:30:16
-project_elements_026: 
-  name: Test
-  content_id: 
-  updated_at: 2007-04-20 12:31:28
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "33"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  path: global/Test
-  position: "5"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-20 12:31:28
-project_elements_082: 
-  name: ProjectContent-34
-  content_id: "35"
-  updated_at: 2007-04-25 21:20:30
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectElement
-  id: "110"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  path: AssayDev/Slides/ProjectContent-34
-  position: "23"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-25 20:17:28
+  created_at: 2007-04-20 12:51:45
 project_elements_055: 
   name: DMO-001
   content_id: 
@@ -2299,64 +67,136 @@ project_elements_055:
   reference_id: "5"
   published_hash: 
   path: AssayDev/DMO-001
-  position: "2"
+  position: "4"
   parent_id: "27"
   asset_id: 
   created_at: 2007-04-24 09:05:01
-project_elements_110: 
-  name: Request-10
-  content_id: 
-  updated_at: 2007-04-26 15:42:44
-  project_id: "3"
-  updated_by_user_id: "2"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "139"
-  reference_type: Request
-  created_by_user_id: "2"
-  reference_id: "12"
-  published_hash: 
-  path: Assay-Dev2/Request-10
-  position: "2"
-  parent_id: "10"
-  asset_id: 
-  created_at: 2007-04-26 15:42:44
-project_elements_027: 
-  name: DMO-001
-  content_id: 
-  updated_at: 2007-04-20 12:34:19
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "34"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  path: global/DMO-001
-  position: "6"
-  parent_id: "1"
-  asset_id: 
-  created_at: 2007-04-20 12:34:19
-project_elements_083: 
-  name: ProjectContent-39
-  content_id: "36"
-  updated_at: 2007-04-25 20:22:02
+project_elements_081: 
+  name: ProjectContent-33
+  content_id: "34"
+  updated_at: 2007-05-11 14:07:15
   project_id: "4"
   updated_by_user_id: "3"
-  lock_version: "1"
+  lock_version: "8"
   type: ProjectElement
-  id: "111"
+  id: "109"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
-  path: AssayDev/Slides/ProjectContent-39
-  position: "24"
+  path: AssayDev/Slides/ProjectContent-33
+  position: "21"
   parent_id: "86"
   asset_id: 
-  created_at: 2007-04-25 20:22:02
+  created_at: 2007-04-25 20:15:01
+project_elements_136: 
+  name: ProjectContent-64
+  content_id: "57"
+  updated_at: 2007-04-30 19:39:58
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: ProjectElement
+  id: "168"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTS Program/Screen Report/ProjectContent-64
+  position: "3"
+  parent_id: "163"
+  asset_id: 
+  created_at: 2007-04-30 19:39:16
+project_elements_162: 
+  name: Dose Response
+  content_id: 
+  updated_at: 2007-05-01 06:08:53
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "198"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "24"
+  published_hash: 
+  path: AssayDev/HTS Program/Dose Response
+  position: "0"
+  parent_id: "197"
+  asset_id: 
+  created_at: 2007-05-01 06:08:53
+project_elements_217: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 19:31:07
+  project_id: "10"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "256"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest0004
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 19:31:07
+project_elements_325: 
+  name: rshell-6
+  content_id: "12"
+  updated_at: 2007-05-11 14:40:01
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "368"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "19"
+  published_hash: 
+  path: global/Experiment-1/Experiment-1-0/rshell-6
+  position: "1"
+  parent_id: "6"
+  asset_id: 
+  created_at: 2007-05-11 14:40:01
+project_elements_270: 
+  name: rshell-65
+  content_id: 
+  updated_at: 2007-05-08 09:32:43
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "311"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/rshell-65
+  position: "21"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 09:32:43
+project_elements_244: 
+  name: Experiment-22
+  content_id: 
+  updated_at: 2007-04-30 22:46:29
+  project_id: "10"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "283"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "38"
+  published_hash: 
+  path: ewtest0004/Experiment-22
+  position: "1"
+  parent_id: "256"
+  asset_id: 
+  created_at: 2007-04-30 22:46:29
 project_elements_056: 
   name: DMO-001-0
   content_id: 
@@ -2375,78 +215,132 @@ project_elements_056:
   parent_id: "83"
   asset_id: 
   created_at: 2007-04-24 09:05:01
-project_elements_111: 
-  name: rshell-27
-  content_id: "38"
-  updated_at: 2007-04-26 15:54:17
+project_elements_082: 
+  name: ProjectContent-34
+  content_id: "35"
+  updated_at: 2007-05-11 14:07:16
   project_id: "4"
   updated_by_user_id: "3"
-  lock_version: "1"
+  lock_version: "9"
   type: ProjectElement
-  id: "140"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "117"
-  published_hash: 
-  path: AssayDev/Slides/rshell-27
-  position: "7"
-  parent_id: "86"
-  asset_id: 
-  created_at: 2007-04-26 15:54:17
-project_elements_028: 
-  name: DMO-001-6
-  content_id: 
-  updated_at: 2007-04-20 12:38:13
-  project_id: "1"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  type: ProjectFolder
-  id: "35"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "13"
-  published_hash: 
-  path: global/DMO-001/DMO-001-6
-  position: "0"
-  parent_id: "34"
-  asset_id: 
-  created_at: 2007-04-20 12:38:13
-project_elements_084: 
-  name: ProjectContent-43
-  content_id: "37"
-  updated_at: 2007-04-25 21:03:08
-  project_id: "4"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectElement
-  id: "112"
+  id: "110"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
-  path: AssayDev/Solubility/ProjectContent-43
-  position: "0"
-  parent_id: "105"
+  path: AssayDev/Slides/ProjectContent-34
+  position: "22"
+  parent_id: "86"
   asset_id: 
-  created_at: 2007-04-25 21:01:16
-project_elements_140: 
-  name: Request-24
+  created_at: 2007-04-25 20:17:28
+project_elements_137: 
+  name: Dose Response
   content_id: 
-  updated_at: 2007-05-01 08:57:41
-  project_id: "1"
+  updated_at: 2007-04-30 19:54:58
+  project_id: "5"
   updated_by_user_id: "3"
   lock_version: "0"
   type: ProjectFolder
   id: "169"
-  reference_type: Request
+  reference_type: StudyProtocol
   created_by_user_id: "3"
-  reference_id: "21"
+  reference_id: "24"
   published_hash: 
-  path: global/Request-24
-  position: "23"
-  parent_id: "1"
+  path: HTS/HTS Program/Dose Response
+  position: "4"
+  parent_id: "158"
   asset_id: 
-  created_at: 2007-05-01 08:57:41
+  created_at: 2007-04-30 19:54:58
+project_elements_163: 
+  name: HTSP_AD-T1
+  content_id: 
+  updated_at: 2007-05-01 09:30:06
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "199"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: AssayDev/HTSP_AD-T1
+  position: "9"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-01 09:30:06
+project_elements_218: 
+  name: ewtest0004.1
+  content_id: 
+  updated_at: 2007-04-30 19:41:19
+  project_id: "10"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "257"
+  reference_type: Study
+  created_by_user_id: "7"
+  reference_id: "15"
+  published_hash: 
+  path: ewtest0004/ewtest0004.1
+  position: "0"
+  parent_id: "256"
+  asset_id: 
+  created_at: 2007-04-30 19:41:19
+project_elements_326: 
+  name: rshell-75
+  content_id: 
+  updated_at: 2007-05-11 17:30:09
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "369"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "47"
+  published_hash: 
+  path: ArgentaPOC/rshell-75
+  position: "5"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-05-11 17:30:09
+project_elements_271: 
+  name: StudyProtocol-13
+  content_id: 
+  updated_at: 2007-05-08 11:27:12
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "312"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "51"
+  published_hash: 
+  path: AssayDev/moose1/StudyProtocol-13
+  position: "0"
+  parent_id: "298"
+  asset_id: 
+  created_at: 2007-05-08 11:27:12
+project_elements_245: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 22:47:15
+  project_id: "15"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "284"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest3
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 22:47:15
 project_elements_057: 
   name: DMO-001-15
   content_id: 
@@ -2465,49 +359,301 @@ project_elements_057:
   parent_id: "83"
   asset_id: 
   created_at: 2007-04-24 13:11:25
-project_elements_112: 
-  name: 9600.jpg
-  content_id: 
-  updated_at: 2007-04-26 21:42:37
+project_elements_083: 
+  name: ProjectContent-39
+  content_id: "36"
+  updated_at: 2007-05-11 14:07:16
   project_id: "4"
   updated_by_user_id: "3"
-  lock_version: "0"
+  lock_version: "8"
   type: ProjectElement
-  id: "141"
+  id: "111"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
-  path: AssayDev/Slides/9600.jpg
-  position: "25"
+  path: AssayDev/Slides/ProjectContent-39
+  position: "23"
   parent_id: "86"
-  asset_id: "42"
-  created_at: 2007-04-26 21:42:37
-project_elements_029: 
-  name: Cell Assay
+  asset_id: 
+  created_at: 2007-04-25 20:22:02
+project_elements_138: 
+  name: Hit Identification
   content_id: 
-  updated_at: 2007-04-20 12:51:45
-  project_id: "4"
-  updated_by_user_id: "1"
+  updated_at: 2007-04-30 20:08:31
+  project_id: "5"
+  updated_by_user_id: "3"
   lock_version: "0"
   type: ProjectFolder
-  id: "36"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "9"
+  id: "170"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "25"
   published_hash: 
-  path: AssayDev/Cell Assay
-  position: "1"
-  parent_id: "27"
+  path: HTS/HTS Program/Hit Identification
+  position: "5"
+  parent_id: "158"
   asset_id: 
-  created_at: 2007-04-20 12:51:45
-project_elements_085: 
-  name: DMO-001-15
+  created_at: 2007-04-30 20:08:31
+project_elements_164: 
+  name: HTSP_AD-T1-0
   content_id: 
-  updated_at: 2007-04-25 21:59:34
+  updated_at: 2007-05-01 09:30:06
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "200"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "27"
+  published_hash: 
+  path: AssayDev/HTSP_AD-T1/HTSP_AD-T1-0
+  position: "0"
+  parent_id: "199"
+  asset_id: 
+  created_at: 2007-05-01 09:30:06
+project_elements_190: 
+  name: Measure body mass-PostOp
+  content_id: 
+  updated_at: 2007-04-30 06:51:56
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "228"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "48"
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-PostOp
+  position: "6"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:51:56
+project_elements_219: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 19:48:44
+  project_id: "11"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "258"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest001
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 19:48:44
+project_elements_327: 
+  name: rshell-75-0
+  content_id: 
+  updated_at: 2007-05-11 17:30:09
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "370"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "59"
+  published_hash: 
+  path: ArgentaPOC/rshell-75/rshell-75-0
+  position: "0"
+  parent_id: "369"
+  asset_id: 
+  created_at: 2007-05-11 17:30:09
+project_elements_272: 
+  name: rshell-70
+  content_id: 
+  updated_at: 2007-05-08 11:56:56
   project_id: "4"
   updated_by_user_id: "3"
   lock_version: "1"
+  type: ProjectFolder
+  id: "313"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/rshell-70
+  position: "22"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 11:56:56
+project_elements_246: 
+  name: Experiment-23
+  content_id: 
+  updated_at: 2007-04-30 22:59:07
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "285"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "39"
+  published_hash: 
+  path: ewtest1/Experiment-23
+  position: "9"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:59:07
+project_elements_084: 
+  name: ProjectContent-43
+  content_id: "37"
+  updated_at: 2007-04-25 21:03:08
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: ProjectElement
+  id: "112"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Solubility/ProjectContent-43
+  position: "0"
+  parent_id: "105"
+  asset_id: 
+  created_at: 2007-04-25 21:01:16
+project_elements_139: 
+  name: MPB001
+  content_id: 
+  updated_at: 2007-04-30 20:16:17
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "171"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: MPB/MPB001
+  position: "4"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 20:16:17
+project_elements_165: 
+  name: HTSP_AD-T1-1
+  content_id: 
+  updated_at: 2007-05-01 09:36:04
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "201"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP_AD-T1/HTSP_AD-T1-1
+  position: "1"
+  parent_id: "181"
+  asset_id: 
+  created_at: 2007-05-01 09:36:04
+project_elements_191: 
+  name: StudyProtocol-9
+  content_id: 
+  updated_at: 2007-04-30 06:59:30
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "229"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "29"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/StudyProtocol-9
+  position: "3"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 06:59:30
+project_elements_058: 
+  name: Slides
+  content_id: 
+  updated_at: 2007-04-25 09:44:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "86"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides
+  position: "5"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-25 09:44:15
+project_elements_328: 
+  name: moose1
+  content_id: 
+  updated_at: 2007-05-11 17:38:15
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "371"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "22"
+  published_hash: 
+  path: ArgentaPOC/moose1
+  position: "6"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-05-11 17:38:15
+project_elements_273: 
+  name: rails.png
+  content_id: 
+  updated_at: 2007-05-08 11:57:19
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "314"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/rshell-70/rails.png
+  position: "0"
+  parent_id: "313"
+  asset_id: "52"
+  created_at: 2007-05-08 11:57:19
+project_elements_247: 
+  name: Experiment-24
+  content_id: 
+  updated_at: 2007-04-30 22:59:24
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "286"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "40"
+  published_hash: 
+  path: ewtest1/Experiment-24
+  position: "10"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:59:24
+project_elements_085: 
+  name: DMO-001-15
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
   type: ProjectElement
   id: "113"
   reference_type: ProjectElement
@@ -2515,7 +661,5389 @@ project_elements_085:
   reference_id: "85"
   published_hash: 
   path: AssayDev/Slides/DMO-001-15
-  position: "8"
+  position: "9"
   parent_id: "86"
   asset_id: 
   created_at: 2007-04-25 21:59:34
+project_elements_166: 
+  name: MPB002
+  content_id: 
+  updated_at: 2007-05-01 10:41:45
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "202"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: AssayDev/MPB002
+  position: "10"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-01 10:41:45
+project_elements_192: 
+  name: RecordBBBScale
+  content_id: 
+  updated_at: 2007-04-30 06:59:44
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "230"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "29"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/RecordBBBScale
+  position: "4"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 06:59:44
+project_elements_059: 
+  name: 1.Ephaptic_activity_sm.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "10"
+  type: ProjectElement
+  id: "87"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/1.Ephaptic_activity_sm.jpg
+  position: "8"
+  parent_id: "86"
+  asset_id: "1"
+  created_at: 2007-04-25 09:56:29
+project_elements_329: 
+  name: DataEntryTest
+  content_id: 
+  updated_at: 2007-05-11 17:38:15
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "372"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "52"
+  published_hash: 
+  path: ArgentaPOC/moose1/DataEntryTest
+  position: "0"
+  parent_id: "371"
+  asset_id: 
+  created_at: 2007-05-11 17:38:15
+project_elements_274: 
+  name: rshell-72
+  content_id: "67"
+  updated_at: 2007-05-08 13:39:04
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "315"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/DMO-001/DMO-001-11/rshell-72
+  position: "0"
+  parent_id: "71"
+  asset_id: 
+  created_at: 2007-05-08 13:39:04
+project_elements_248: 
+  name: BAL Cell Counts
+  content_id: 
+  updated_at: 2007-04-30 23:22:06
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "287"
+  reference_type: Study
+  created_by_user_id: "4"
+  reference_id: "19"
+  published_hash: 
+  path: ArgentaPOC/BAL Cell Counts
+  position: "7"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-04-30 23:22:06
+project_elements_167: 
+  name: MPB001
+  content_id: 
+  updated_at: 2007-05-01 10:45:14
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "203"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: AssayDev/MPB001
+  position: "11"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-01 10:45:14
+project_elements_193: 
+  name: ConductTSCI-1
+  content_id: 
+  updated_at: 2007-04-30 07:01:01
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "231"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/ConductTSCI/ConductTSCI-1
+  position: "2"
+  parent_id: "216"
+  asset_id: 
+  created_at: 2007-04-30 07:01:01
+project_elements_086: 
+  name: DMO-001-3
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "114"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "102"
+  published_hash: 
+  path: AssayDev/Slides/DMO-001-3
+  position: "16"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 22:20:53
+project_elements_275: 
+  name: rshell-73
+  content_id: 
+  updated_at: 2007-05-08 15:11:02
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "316"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/rshell-73
+  position: "15"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-05-08 15:11:02
+project_elements_249: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 23:31:49
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "288"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest4
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 23:31:49
+project_elements_168: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 04:35:05
+  project_id: "9"
+  updated_by_user_id: "2"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "204"
+  reference_type: 
+  created_by_user_id: "2"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 04:35:05
+project_elements_194: 
+  name: Experiment-10
+  content_id: 
+  updated_at: 2007-04-30 07:02:11
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "233"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "21"
+  published_hash: 
+  path: NeuroCRO/Experiment-10
+  position: "8"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:02:11
+project_elements_087: 
+  name: Sop-7
+  content_id: "19"
+  updated_at: 2007-05-11 14:13:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "9"
+  type: ProjectElement
+  id: "115"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "37"
+  published_hash: 
+  path: AssayDev/Slides/Sop-7
+  position: "3"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 22:24:59
+project_elements_276: 
+  name: Study-23
+  content_id: 
+  updated_at: 2007-05-08 15:42:16
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "317"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "31"
+  published_hash: 
+  path: global/Study-23
+  position: "16"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-05-08 15:42:16
+project_elements_169: 
+  name: TSCI-Rats
+  content_id: 
+  updated_at: 2007-04-30 04:37:52
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "205"
+  reference_type: Study
+  created_by_user_id: "6"
+  reference_id: "14"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats
+  position: "0"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 04:37:52
+project_elements_195: 
+  name: ConductBBB-10
+  content_id: 
+  updated_at: 2007-04-30 07:02:36
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "234"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "22"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10
+  position: "9"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:02:36
+project_elements_088: 
+  name: Hyper.1
+  content_id: "21"
+  updated_at: 2007-05-10 18:15:51
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "4"
+  type: ProjectElement
+  id: "116"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "92"
+  published_hash: 
+  path: AssayDev/Hyper.1
+  position: "5"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-26 07:54:02
+project_elements_277: 
+  name: Experiment-32-0
+  content_id: 
+  updated_at: 2007-05-08 18:53:28
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "318"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Experiment-32/Experiment-32-0
+  position: "0"
+  parent_id: "310"
+  asset_id: 
+  created_at: 2007-05-08 18:53:28
+project_elements_196: 
+  name: ConductBBB-10-0
+  content_id: 
+  updated_at: 2007-04-30 07:02:43
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "235"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-0
+  position: "0"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:02:43
+project_elements_089: 
+  name: rshell-27
+  content_id: "38"
+  updated_at: 2007-04-26 07:55:30
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "117"
+  reference_type: Report
+  created_by_user_id: "3"
+  reference_id: "2"
+  published_hash: 
+  path: AssayDev/Biomarker And Histology/Weights/rshell-27
+  position: "0"
+  parent_id: "104"
+  asset_id: 
+  created_at: 2007-04-26 07:55:30
+project_elements_278: 
+  name: Experiment-32-1
+  content_id: 
+  updated_at: 2007-05-08 18:54:08
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "319"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Experiment-32/Experiment-32-1
+  position: "1"
+  parent_id: "310"
+  asset_id: 
+  created_at: 2007-05-08 18:54:08
+project_elements_197: 
+  name: ConductBBB-10-Day1
+  content_id: 
+  updated_at: 2007-04-30 07:03:27
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "236"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "50"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-Day1
+  position: "1"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:03:27
+project_elements_279: 
+  name: TerminalProc
+  content_id: "64"
+  updated_at: 2007-05-09 10:20:04
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "5"
+  type: ProjectElement
+  id: "322"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "271"
+  published_hash: 
+  path: ArgentaPOC/TerminalProc
+  position: "1"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-05-09 10:10:31
+project_elements_198: 
+  name: ConductBBB-10-Day7
+  content_id: 
+  updated_at: 2007-04-30 07:03:50
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "237"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "51"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-Day7
+  position: "2"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:03:50
+project_elements_199: 
+  name: ConductBBB-10-Day14
+  content_id: 
+  updated_at: 2007-04-30 07:04:07
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "238"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "52"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-Day14
+  position: "3"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:04:07
+project_elements_010: 
+  name: Study-2
+  content_id: 
+  updated_at: 2007-04-18 21:22:39
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "11"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "7"
+  published_hash: 
+  path: global/Study-2
+  position: "3"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-18 21:22:39
+project_elements_011: 
+  name: ProjectContent-2
+  content_id: "2"
+  updated_at: 2007-04-19 10:16:28
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "12"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text/ProjectContent-2
+  position: "1"
+  parent_id: "8"
+  asset_id: 
+  created_at: 2007-04-19 10:16:28
+project_elements_012: 
+  name: ProjectContent-3
+  content_id: "3"
+  updated_at: 2007-04-19 10:17:13
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "13"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text/ProjectContent-3
+  position: "2"
+  parent_id: "8"
+  asset_id: 
+  created_at: 2007-04-19 10:17:13
+project_elements_200: 
+  name: ConductBBB-10-Day21
+  content_id: 
+  updated_at: 2007-04-30 07:04:32
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "239"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "53"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-Day21
+  position: "4"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:04:32
+project_elements_013: 
+  name: ProjectContent-4
+  content_id: "4"
+  updated_at: 2007-04-19 10:19:28
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "14"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text/ProjectContent-4
+  position: "3"
+  parent_id: "8"
+  asset_id: 
+  created_at: 2007-04-19 10:19:28
+project_elements_120: 
+  name: ProjectContent-55
+  content_id: "48"
+  updated_at: 2007-04-30 14:13:49
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "151"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-55
+  position: "7"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:13:49
+project_elements_201: 
+  name: ConductBBB-10-PO
+  content_id: 
+  updated_at: 2007-04-30 07:04:55
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "240"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "54"
+  published_hash: 
+  path: NeuroCRO/ConductBBB-10/ConductBBB-10-PO
+  position: "5"
+  parent_id: "234"
+  asset_id: 
+  created_at: 2007-04-30 07:04:55
+project_elements_014: 
+  name: ProjectContent-5
+  content_id: "5"
+  updated_at: 2007-04-19 10:21:01
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "15"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text/ProjectContent-5
+  position: "4"
+  parent_id: "8"
+  asset_id: 
+  created_at: 2007-04-19 10:21:01
+project_elements_040: 
+  name: DMO-001-2
+  content_id: 
+  updated_at: 2007-04-20 13:40:12
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "54"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "9"
+  published_hash: 
+  path: global/DMO-001/DMO-001-2
+  position: "3"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:12
+project_elements_121: 
+  name: ProjectContent-56
+  content_id: "49"
+  updated_at: 2007-04-30 14:14:52
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "152"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-56
+  position: "8"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:14:52
+project_elements_202: 
+  name: Experiment-11
+  content_id: 
+  updated_at: 2007-04-30 07:32:27
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "241"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "23"
+  published_hash: 
+  path: NeuroCRO/Experiment-11
+  position: "10"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:32:27
+project_elements_310: 
+  name: pain-2
+  content_id: "23"
+  updated_at: 2007-05-10 15:07:48
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "353"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "94"
+  published_hash: 
+  path: AssayDev/true/pain-2
+  position: "3"
+  parent_id: "299"
+  asset_id: 
+  created_at: 2007-05-10 15:07:48
+project_elements_015: 
+  name: rshell-6
+  content_id: "12"
+  updated_at: 2007-04-19 16:38:05
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "19"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/rshell-6
+  position: "3"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-04-19 16:38:05
+project_elements_041: 
+  name: DMO-001-3
+  content_id: 
+  updated_at: 2007-04-20 13:40:14
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "56"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "10"
+  published_hash: 
+  path: global/DMO-001/DMO-001-3
+  position: "4"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:14
+project_elements_122: 
+  name: ProjectContent-57
+  content_id: "50"
+  updated_at: 2007-04-30 14:15:43
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "153"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-57
+  position: "9"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:15:43
+project_elements_203: 
+  name: Experiment-12
+  content_id: 
+  updated_at: 2007-04-30 07:32:27
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "242"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "24"
+  published_hash: 
+  path: NeuroCRO/Experiment-12
+  position: "11"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:32:27
+project_elements_311: 
+  name: rshell-27
+  content_id: "38"
+  updated_at: 2007-05-10 15:07:52
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "354"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "140"
+  published_hash: 
+  path: AssayDev/true/rshell-27
+  position: "4"
+  parent_id: "299"
+  asset_id: 
+  created_at: 2007-05-10 15:07:52
+project_elements_230: 
+  name: Methods
+  content_id: 
+  updated_at: 2007-04-30 21:47:00
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "269"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Methods
+  position: "4"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-04-30 21:47:00
+project_elements_016: 
+  name: ProjectContent-6
+  content_id: "13"
+  updated_at: 2007-04-19 16:39:18
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "20"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/ProjectContent-6
+  position: "4"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-04-19 16:39:18
+project_elements_042: 
+  name: DMO-001-9
+  content_id: 
+  updated_at: 2007-04-20 13:40:15
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "58"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "16"
+  published_hash: 
+  path: global/DMO-001/DMO-001-9
+  position: "5"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:15
+project_elements_123: 
+  name: ProjectContent-58
+  content_id: "51"
+  updated_at: 2007-04-30 14:18:50
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: ProjectElement
+  id: "154"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-58
+  position: "10"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:17:39
+project_elements_204: 
+  name: Histology
+  content_id: 
+  updated_at: 2007-04-30 07:33:54
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "243"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "30"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/Histology
+  position: "5"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 07:33:54
+project_elements_312: 
+  name: 4.Hyperexcitation.jpg
+  content_id: 
+  updated_at: 2007-05-10 15:07:59
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "355"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "90"
+  published_hash: 
+  path: AssayDev/true/4.Hyperexcitation.jpg
+  position: "4"
+  parent_id: "299"
+  asset_id: "12"
+  created_at: 2007-05-10 15:07:59
+project_elements_231: 
+  name: SubChronicTSExposure
+  content_id: "63"
+  updated_at: 2007-04-30 22:34:16
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  type: ProjectElement
+  id: "270"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Methods/ProjectContent-72
+  position: "0"
+  parent_id: "269"
+  asset_id: 
+  created_at: 2007-04-30 21:47:49
+project_elements_017: 
+  name: rshell-14
+  content_id: "18"
+  updated_at: 2007-04-19 19:40:17
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "24"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/rshell-14
+  position: "8"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-04-19 19:40:17
+project_elements_043: 
+  name: DMO-001-4
+  content_id: 
+  updated_at: 2007-04-20 13:40:17
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "60"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "11"
+  published_hash: 
+  path: global/DMO-001/DMO-001-4
+  position: "6"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:17
+project_elements_124: 
+  name: ProjectContent-59
+  content_id: "52"
+  updated_at: 2007-04-30 14:20:40
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "155"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/ProjectContent-59
+  position: "1"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 14:20:40
+project_elements_150: 
+  name: HTSP001-T1:3
+  content_id: 
+  updated_at: 2007-04-30 23:29:03
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "186"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "31"
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1:3
+  position: "1"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-04-30 23:29:03
+project_elements_205: 
+  name: Experiment-13
+  content_id: 
+  updated_at: 2007-04-30 07:36:23
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "244"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "25"
+  published_hash: 
+  path: NeuroCRO/Experiment-13
+  position: "12"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:36:23
+project_elements_313: 
+  name: 2.Pain_inflammatory_mediators_sm.jpg
+  content_id: 
+  updated_at: 2007-05-10 15:08:04
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "356"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "98"
+  published_hash: 
+  path: AssayDev/true/2.Pain_inflammatory_mediators_sm.jpg
+  position: "3"
+  parent_id: "299"
+  asset_id: "15"
+  created_at: 2007-05-10 15:08:04
+project_elements_232: 
+  name: TerminalProc
+  content_id: "64"
+  updated_at: 2007-04-30 22:34:33
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  type: ProjectElement
+  id: "271"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Methods/ProjectContent-73
+  position: "1"
+  parent_id: "269"
+  asset_id: 
+  created_at: 2007-04-30 21:49:53
+project_elements_018: 
+  name: Biomarker And Histology
+  content_id: 
+  updated_at: 2007-04-19 21:02:37
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "25"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "1"
+  published_hash: 
+  path: global/Biomarker And Histology
+  position: "4"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-19 21:02:37
+project_elements_044: 
+  name: DMO-001-5
+  content_id: 
+  updated_at: 2007-04-20 13:40:19
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "62"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "12"
+  published_hash: 
+  path: global/DMO-001/DMO-001-5
+  position: "7"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:19
+project_elements_070: 
+  name: 2.Pain_inflammatory_mediators_sm.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "98"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/2.Pain_inflammatory_mediators_sm.jpg
+  position: "13"
+  parent_id: "86"
+  asset_id: "15"
+  created_at: 2007-04-25 11:52:28
+project_elements_125: 
+  name: ProjectContent-60
+  content_id: "53"
+  updated_at: 2007-04-30 14:37:39
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "156"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/ProjectContent-60
+  position: "2"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 14:37:39
+project_elements_151: 
+  name: HTSP001-T1:2
+  content_id: 
+  updated_at: 2007-04-30 23:29:19
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "187"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "30"
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1:2
+  position: "2"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-04-30 23:29:19
+project_elements_206: 
+  name: Histology
+  content_id: 
+  updated_at: 2007-04-30 07:36:40
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "245"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "26"
+  published_hash: 
+  path: NeuroCRO/Histology
+  position: "13"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 07:36:40
+project_elements_314: 
+  name: 1.Partial_nerve_severance.jpg
+  content_id: 
+  updated_at: 2007-05-10 15:08:11
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "357"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "88"
+  published_hash: 
+  path: AssayDev/true/1.Partial_nerve_severance.jpg
+  position: "3"
+  parent_id: "299"
+  asset_id: "6"
+  created_at: 2007-05-10 15:08:11
+project_elements_233: 
+  name: BAL Analysis
+  content_id: "65"
+  updated_at: 2007-04-30 22:36:51
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "4"
+  type: ProjectElement
+  id: "272"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Methods/ProjectContent-74
+  position: "2"
+  parent_id: "269"
+  asset_id: 
+  created_at: 2007-04-30 21:50:34
+project_elements_019: 
+  name: Weight Summary
+  content_id: 
+  updated_at: 2007-04-19 21:02:37
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "26"
+  reference_type: StudyProtocol
+  created_by_user_id: "1"
+  reference_id: "5"
+  published_hash: 
+  path: global/Biomarker And Histology/Weight Summary
+  position: "0"
+  parent_id: "25"
+  asset_id: 
+  created_at: 2007-04-19 21:02:37
+project_elements_045: 
+  name: DMO-001-7
+  content_id: 
+  updated_at: 2007-04-20 13:40:22
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "65"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "14"
+  published_hash: 
+  path: global/DMO-001/DMO-001-7
+  position: "8"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:22
+project_elements_071: 
+  name: ProjectContent-16
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "99"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ProjectContent-16
+  position: "14"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 13:39:46
+project_elements_126: 
+  name: Screen
+  content_id: 
+  updated_at: 2007-04-30 14:41:35
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "157"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "3"
+  published_hash: 
+  path: MPB/Screen
+  position: "3"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 14:41:35
+project_elements_152: 
+  name: HTSP001-T1:1
+  content_id: 
+  updated_at: 2007-04-30 23:29:34
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "188"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "29"
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1:1
+  position: "3"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-04-30 23:29:34
+project_elements_207: 
+  name: Histology-0
+  content_id: 
+  updated_at: 2007-04-30 07:36:47
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "246"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/Histology/Histology-0
+  position: "0"
+  parent_id: "245"
+  asset_id: 
+  created_at: 2007-04-30 07:36:47
+project_elements_315: 
+  name: rshell-108
+  content_id: 
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectFolder
+  id: "358"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/rshell-108
+  position: "25"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-05-11 12:45:20
+project_elements_260: 
+  name: test-protocol
+  content_id: 
+  updated_at: 2007-05-07 13:21:25
+  project_id: "6"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "301"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "35"
+  published_hash: 
+  path: Tox/QA-test/test-protocol
+  position: "0"
+  parent_id: "300"
+  asset_id: 
+  created_at: 2007-05-07 13:21:25
+project_elements_234: 
+  name: Histology
+  content_id: "66"
+  updated_at: 2007-04-30 22:35:39
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "3"
+  type: ProjectElement
+  id: "273"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Methods/ProjectContent-75
+  position: "3"
+  parent_id: "269"
+  asset_id: 
+  created_at: 2007-04-30 21:51:38
+project_elements_046: 
+  name: DMO-001-8
+  content_id: 
+  updated_at: 2007-04-20 13:40:25
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "67"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "15"
+  published_hash: 
+  path: global/DMO-001/DMO-001-8
+  position: "9"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:25
+project_elements_072: 
+  name: rshell-22
+  content_id: "28"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "100"
+  reference_type: Report
+  created_by_user_id: "3"
+  reference_id: "5"
+  published_hash: 
+  path: AssayDev/Slides/rshell-22
+  position: "11"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 15:08:30
+project_elements_127: 
+  name: HTS Program
+  content_id: 
+  updated_at: 2007-04-30 14:46:51
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "158"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "11"
+  published_hash: 
+  path: HTS/HTS Program
+  position: "1"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 14:46:51
+project_elements_153: 
+  name: HTSP001-T1:0
+  content_id: 
+  updated_at: 2007-04-30 23:39:28
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "189"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "32"
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1:0
+  position: "4"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-04-30 23:39:28
+project_elements_208: 
+  name: Cage Rats1
+  content_id: 
+  updated_at: 2007-04-30 08:26:35
+  project_id: "4"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "247"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "16"
+  published_hash: 
+  path: AssayDev/Cage Rats1
+  position: "12"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-30 08:26:35
+project_elements_316: 
+  name: rshell-111
+  content_id: "68"
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "359"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/rshell-111
+  position: "29"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-05-11 12:46:55
+project_elements_261: 
+  name: moose4
+  content_id: 
+  updated_at: 2007-05-08 07:57:46
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "302"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "27"
+  published_hash: 
+  path: AssayDev/moose4
+  position: "15"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 07:57:46
+project_elements_235: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 22:25:24
+  project_id: "14"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "274"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest2
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 22:25:24
+project_elements_047: 
+  name: DMO-001-10
+  content_id: 
+  updated_at: 2007-04-20 13:40:27
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "69"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "17"
+  published_hash: 
+  path: global/DMO-001/DMO-001-10
+  position: "10"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:27
+project_elements_073: 
+  name: rshell-25
+  content_id: "29"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "101"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/rshell-25
+  position: "15"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 15:39:55
+project_elements_128: 
+  name: ProjectContent-61
+  content_id: "54"
+  updated_at: 2007-04-30 16:01:43
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "159"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/ProjectContent-61
+  position: "2"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 16:01:43
+project_elements_154: 
+  name: Rat Locomotion
+  content_id: 
+  updated_at: 2007-05-01 05:36:17
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "190"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "12"
+  published_hash: 
+  path: MPB/Rat Locomotion
+  position: "6"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-05-01 05:36:17
+project_elements_180: 
+  name: ConductTSCI
+  content_id: 
+  updated_at: 2007-04-30 05:56:37
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "216"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "20"
+  published_hash: 
+  path: NeuroCRO/ConductTSCI
+  position: "7"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:56:37
+project_elements_209: 
+  name: Cage Rats1-0
+  content_id: 
+  updated_at: 2007-04-30 08:26:35
+  project_id: "4"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "248"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "38"
+  published_hash: 
+  path: AssayDev/Cage Rats1/Cage Rats1-0
+  position: "0"
+  parent_id: "247"
+  asset_id: 
+  created_at: 2007-04-30 08:26:35
+project_elements_317: 
+  name: paf-1
+  content_id: 
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "24"
+  type: ProjectElement
+  id: "360"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "95"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/paf-1
+  position: "11"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 12:55:23
+project_elements_262: 
+  name: test-protocol
+  content_id: 
+  updated_at: 2007-05-08 07:57:59
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "303"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "38"
+  published_hash: 
+  path: AssayDev/moose4/test-protocol
+  position: "0"
+  parent_id: "302"
+  asset_id: 
+  created_at: 2007-05-08 07:57:59
+project_elements_236: 
+  name: Experiment-16
+  content_id: 
+  updated_at: 2007-04-30 22:28:32
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "275"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "30"
+  published_hash: 
+  path: ewtest1/Experiment-16
+  position: "1"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:28:32
+project_elements_048: 
+  name: DMO-001-11
+  content_id: 
+  updated_at: 2007-04-20 13:40:28
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "71"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "18"
+  published_hash: 
+  path: global/DMO-001/DMO-001-11
+  position: "11"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:28
+project_elements_074: 
+  name: DMO-001-3
+  content_id: 
+  updated_at: 2007-04-25 17:29:09
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "102"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "10"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-3
+  position: "2"
+  parent_id: "83"
+  asset_id: 
+  created_at: 2007-04-25 17:29:09
+project_elements_129: 
+  name: Sandbox
+  content_id: 
+  updated_at: 2007-04-30 16:51:57
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "160"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "8"
+  published_hash: 
+  path: HTS/Sandbox
+  position: "3"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 16:51:57
+project_elements_155: 
+  name: WeightBioMarkerHistology
+  content_id: 
+  updated_at: 2007-05-01 05:37:37
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "191"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: MPB/WeightBioMarkerHistology
+  position: "7"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-05-01 05:37:37
+project_elements_181: 
+  name: ProjectContent-66
+  content_id: "58"
+  updated_at: 2007-04-30 06:18:04
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "1"
+  type: ProjectElement
+  id: "217"
+  reference_type: 
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/ConductTSCI/ProjectContent-66
+  position: "0"
+  parent_id: "216"
+  asset_id: 
+  created_at: 2007-04-30 06:18:03
+project_elements_318: 
+  name: 1.Ephaptic_activity_sm.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "9"
+  type: ProjectElement
+  id: "361"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "87"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/1.Ephaptic_activity_sm.jpg
+  position: "6"
+  parent_id: "325"
+  asset_id: "1"
+  created_at: 2007-05-11 12:55:30
+project_elements_263: 
+  name: moose3
+  content_id: 
+  updated_at: 2007-05-08 08:02:03
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "304"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "28"
+  published_hash: 
+  path: AssayDev/moose3
+  position: "16"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 08:02:03
+project_elements_237: 
+  name: Experiment-17
+  content_id: 
+  updated_at: 2007-04-30 22:38:37
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "276"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "31"
+  published_hash: 
+  path: ewtest1/Experiment-17
+  position: "2"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:38:37
+project_elements_049: 
+  name: DMO-001-12
+  content_id: 
+  updated_at: 2007-04-20 13:40:30
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "73"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "19"
+  published_hash: 
+  path: global/DMO-001/DMO-001-12
+  position: "12"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:30
+project_elements_075: 
+  name: Biomarker And Histology
+  content_id: 
+  updated_at: 2007-04-25 17:29:21
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "103"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "1"
+  published_hash: 
+  path: AssayDev/Biomarker And Histology
+  position: "6"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-25 17:29:21
+project_elements_156: 
+  name: HTSP001-T1-1
+  content_id: 
+  updated_at: 2007-05-01 05:38:58
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "192"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1-1
+  position: "5"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-05-01 05:38:58
+project_elements_182: 
+  name: ConductTSCI-0
+  content_id: 
+  updated_at: 2007-04-30 06:19:05
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "218"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/ConductTSCI/ConductTSCI-0
+  position: "1"
+  parent_id: "216"
+  asset_id: 
+  created_at: 2007-04-30 06:19:05
+project_elements_319: 
+  name: rshell-27
+  content_id: "38"
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "10"
+  type: ProjectElement
+  id: "362"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "140"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/rshell-27
+  position: "13"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 12:55:50
+project_elements_290: 
+  name: Dev-Tests
+  content_id: 
+  updated_at: 2007-05-09 17:53:39
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "333"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "46"
+  published_hash: 
+  path: AssayDev/Dev-Tests
+  position: "24"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-09 17:53:39
+project_elements_264: 
+  name: Secondary Screen
+  content_id: 
+  updated_at: 2007-05-08 08:02:28
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "305"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "41"
+  published_hash: 
+  path: AssayDev/moose3/Secondary Screen
+  position: "0"
+  parent_id: "304"
+  asset_id: 
+  created_at: 2007-05-08 08:02:28
+project_elements_238: 
+  name: Experiment-18
+  content_id: 
+  updated_at: 2007-04-30 22:41:55
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "277"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "32"
+  published_hash: 
+  path: ewtest1/Experiment-18
+  position: "3"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:41:55
+project_elements_076: 
+  name: Weights
+  content_id: 
+  updated_at: 2007-04-25 17:29:21
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "104"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "4"
+  published_hash: 
+  path: AssayDev/Biomarker And Histology/Weights
+  position: "0"
+  parent_id: "103"
+  asset_id: 
+  created_at: 2007-04-25 17:29:21
+project_elements_157: 
+  name: primary_screen_data_generator.xls
+  content_id: 
+  updated_at: 2007-05-01 06:01:56
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "193"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP001-T1/primary_screen_data_generator.xls
+  position: "6"
+  parent_id: "178"
+  asset_id: "50"
+  created_at: 2007-05-01 06:01:56
+project_elements_183: 
+  name: Measure body mass-0
+  content_id: 
+  updated_at: 2007-04-30 06:36:56
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "219"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-0
+  position: "0"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:36:56
+project_elements_291: 
+  name: Dev-Tests-2
+  content_id: 
+  updated_at: 2007-05-09 17:53:42
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "334"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Dev-Tests/Dev-Tests-2
+  position: "0"
+  parent_id: "333"
+  asset_id: 
+  created_at: 2007-05-09 17:53:42
+project_elements_265: 
+  name: xxxx
+  content_id: 
+  updated_at: 2007-05-08 08:12:39
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "306"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "30"
+  published_hash: 
+  path: AssayDev/xxxx
+  position: "17"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 08:12:39
+project_elements_239: 
+  name: Experiment-19
+  content_id: 
+  updated_at: 2007-04-30 22:42:15
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "278"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "33"
+  published_hash: 
+  path: ewtest1/Experiment-19
+  position: "4"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:42:15
+project_elements_077: 
+  name: Solubility
+  content_id: 
+  updated_at: 2007-04-25 19:06:32
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "105"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "10"
+  published_hash: 
+  path: AssayDev/Solubility
+  position: "8"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-25 19:06:32
+project_elements_158: 
+  name: HTSP001-T1-2
+  content_id: 
+  updated_at: 2007-05-01 06:05:25
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "194"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1-2
+  position: "7"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-05-01 06:05:25
+project_elements_184: 
+  name: WeighRats
+  content_id: 
+  updated_at: 2007-04-30 06:38:15
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "220"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "28"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/WeighRats
+  position: "2"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 06:38:15
+project_elements_292: 
+  name: Dev-Tests-3
+  content_id: 
+  updated_at: 2007-05-09 18:03:21
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "335"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Dev-Tests/Dev-Tests-3
+  position: "1"
+  parent_id: "333"
+  asset_id: 
+  created_at: 2007-05-09 18:03:21
+project_elements_266: 
+  name: Secondary Screen
+  content_id: 
+  updated_at: 2007-05-08 08:12:55
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "307"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "48"
+  published_hash: 
+  path: AssayDev/xxxx/Secondary Screen
+  position: "0"
+  parent_id: "306"
+  asset_id: 
+  created_at: 2007-05-08 08:12:55
+project_elements_078: 
+  name: ProjectContent-27
+  content_id: "30"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "106"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ProjectContent-27
+  position: "17"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 20:04:02
+project_elements_159: 
+  name: HTSP001-T1
+  content_id: 
+  updated_at: 2007-05-01 06:07:24
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "195"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "11"
+  published_hash: 
+  path: AssayDev/HTSP001-T1
+  position: "7"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-01 06:07:24
+project_elements_185: 
+  name: Measure body mass-1
+  content_id: 
+  updated_at: 2007-04-30 06:42:50
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "221"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-1
+  position: "1"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:42:50
+project_elements_293: 
+  name: Dev-Tests-4
+  content_id: 
+  updated_at: 2007-05-09 18:03:39
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "336"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Dev-Tests/Dev-Tests-4
+  position: "2"
+  parent_id: "333"
+  asset_id: 
+  created_at: 2007-05-09 18:03:39
+project_elements_267: 
+  name: moose6
+  content_id: 
+  updated_at: 2007-05-08 08:54:29
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "308"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "29"
+  published_hash: 
+  path: AssayDev/moose6
+  position: "18"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 08:54:29
+project_elements_079: 
+  name: ProjectContent-29
+  content_id: "31"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "107"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ProjectContent-29
+  position: "18"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 20:05:20
+project_elements_186: 
+  name: Measure body mass-Day1
+  content_id: 
+  updated_at: 2007-04-30 06:50:41
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "224"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "44"
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-Day1
+  position: "2"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:50:41
+project_elements_294: 
+  name: Dev-Tests-5
+  content_id: 
+  updated_at: 2007-05-09 18:04:03
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "337"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Dev-Tests/Dev-Tests-5
+  position: "3"
+  parent_id: "333"
+  asset_id: 
+  created_at: 2007-05-09 18:04:03
+project_elements_268: 
+  name: Experiment-31
+  content_id: 
+  updated_at: 2007-05-08 08:58:11
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "309"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Experiment-31
+  position: "19"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 08:58:11
+project_elements_187: 
+  name: Measure body mass-Day7
+  content_id: 
+  updated_at: 2007-04-30 06:50:59
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "225"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "45"
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-Day7
+  position: "3"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:50:59
+project_elements_295: 
+  name: TH210307-1
+  content_id: 
+  updated_at: 2007-05-09 18:04:40
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "338"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "3"
+  published_hash: 
+  path: AssayDev/TH210307-1
+  position: "25"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-09 18:04:40
+project_elements_269: 
+  name: Experiment-32
+  content_id: 
+  updated_at: 2007-05-08 09:03:36
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "310"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Experiment-32
+  position: "20"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-08 09:03:36
+project_elements_188: 
+  name: Measure body mass-Day14
+  content_id: 
+  updated_at: 2007-04-30 06:51:16
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "226"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "46"
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-Day14
+  position: "4"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:51:16
+project_elements_296: 
+  name: Experiment-32-1
+  content_id: 
+  updated_at: 2007-05-09 18:11:37
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "339"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "58"
+  published_hash: 
+  path: AssayDev/Dev-Tests/Experiment-32-1
+  position: "4"
+  parent_id: "333"
+  asset_id: 
+  created_at: 2007-05-09 18:11:37
+project_elements_189: 
+  name: Measure body mass-Day21
+  content_id: 
+  updated_at: 2007-04-30 06:51:34
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "227"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "47"
+  published_hash: 
+  path: NeuroCRO/Measure body mass/Measure body mass-Day21
+  position: "5"
+  parent_id: "213"
+  asset_id: 
+  created_at: 2007-04-30 06:51:34
+project_elements_297: 
+  name: Request-21
+  content_id: 
+  updated_at: 2007-05-09 18:21:12
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "340"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "16"
+  published_hash: 
+  path: AssayDev/Request-21
+  position: "26"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-09 18:21:12
+project_elements_298: 
+  name: Dev-Tests
+  content_id: 
+  updated_at: 2007-05-09 19:05:21
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "341"
+  reference_type: Experiment
+  created_by_user_id: "1"
+  reference_id: "46"
+  published_hash: 
+  path: global/Dev-Tests
+  position: "16"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-05-09 19:05:21
+project_elements_001: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-18 13:26:55
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "1"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "1"
+  published_hash: 
+  path: global
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-18 13:26:55
+project_elements_299: 
+  name: Experiment-32-1
+  content_id: 
+  updated_at: 2007-05-09 19:05:21
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "342"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "58"
+  published_hash: 
+  path: global/Dev-Tests/Experiment-32-1
+  position: "0"
+  parent_id: "341"
+  asset_id: 
+  created_at: 2007-05-09 19:05:21
+project_elements_002: 
+  name: Reports
+  content_id: 
+  updated_at: 2007-04-18 13:30:23
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "2"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports
+  position: "0"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-18 13:30:23
+project_elements_110: 
+  name: 9600.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "141"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/9600.jpg
+  position: "24"
+  parent_id: "86"
+  asset_id: "42"
+  created_at: 2007-04-26 21:42:37
+project_elements_003: 
+  name: Screen
+  content_id: 
+  updated_at: 2007-04-18 13:32:13
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "3"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "3"
+  published_hash: 
+  path: global/Screen
+  position: "1"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-18 13:32:13
+project_elements_111: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 14:07:16
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "142"
+  reference_type: Project
+  created_by_user_id: "3"
+  reference_id: "8"
+  published_hash: 
+  path: MPB
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 14:07:16
+project_elements_004: 
+  name: Develop Assay
+  content_id: 
+  updated_at: 2007-04-18 13:33:12
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "4"
+  reference_type: StudyProtocol
+  created_by_user_id: "1"
+  reference_id: "16"
+  published_hash: 
+  path: global/Screen/Develop Assay
+  position: "0"
+  parent_id: "3"
+  asset_id: 
+  created_at: 2007-04-18 13:33:12
+project_elements_030: 
+  name: Sop-7
+  content_id: "19"
+  updated_at: 2007-04-20 12:53:11
+  project_id: "4"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "37"
+  reference_type: ProjectContent
+  created_by_user_id: "1"
+  reference_id: "19"
+  published_hash: 
+  path: AssayDev/Cell Assay/Sop-7
+  position: "0"
+  parent_id: "36"
+  asset_id: 
+  created_at: 2007-04-20 12:53:11
+project_elements_300: 
+  name: Dev-Tests
+  content_id: 
+  updated_at: 2007-05-09 19:06:35
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "343"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "46"
+  published_hash: 
+  path: ArgentaPOC/Dev-Tests
+  position: "4"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-05-09 19:06:35
+project_elements_112: 
+  name: Treatments
+  content_id: 
+  updated_at: 2007-04-30 14:07:59
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "143"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments
+  position: "0"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 14:07:59
+project_elements_005: 
+  name: Experiment-1
+  content_id: 
+  updated_at: 2007-04-18 13:58:43
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "5"
+  reference_type: Experiment
+  created_by_user_id: "1"
+  reference_id: "6"
+  published_hash: 
+  path: global/Experiment-1
+  position: "2"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-18 13:58:43
+project_elements_031: 
+  name: TH210307-1
+  content_id: 
+  updated_at: 2007-04-20 13:27:38
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "38"
+  reference_type: Experiment
+  created_by_user_id: "1"
+  reference_id: "3"
+  published_hash: 
+  path: global/TH210307-1
+  position: "7"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-20 13:27:38
+project_elements_301: 
+  name: Dev-Tests-2
+  content_id: 
+  updated_at: 2007-05-09 19:06:35
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "344"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "60"
+  published_hash: 
+  path: ArgentaPOC/Dev-Tests/Dev-Tests-2
+  position: "0"
+  parent_id: "343"
+  asset_id: 
+  created_at: 2007-05-09 19:06:35
+project_elements_220: 
+  name: ewtest001
+  content_id: 
+  updated_at: 2007-04-30 19:49:54
+  project_id: "11"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "259"
+  reference_type: Study
+  created_by_user_id: "7"
+  reference_id: "16"
+  published_hash: 
+  path: ewtest001/ewtest001
+  position: "0"
+  parent_id: "258"
+  asset_id: 
+  created_at: 2007-04-30 19:49:54
+project_elements_006: 
+  name: Experiment-1-0
+  content_id: 
+  updated_at: 2007-04-18 14:12:17
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "6"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "23"
+  published_hash: 
+  path: global/Experiment-1/Experiment-1-0
+  position: "0"
+  parent_id: "5"
+  asset_id: 
+  created_at: 2007-04-18 14:12:17
+project_elements_032: 
+  name: TH210307-1-3
+  content_id: 
+  updated_at: 2007-04-20 13:30:17
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "40"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "5"
+  published_hash: 
+  path: global/TH210307-1/TH210307-1-3
+  position: "0"
+  parent_id: "38"
+  asset_id: 
+  created_at: 2007-04-20 13:30:17
+project_elements_113: 
+  name: ProjectContent-48
+  content_id: "41"
+  updated_at: 2007-04-30 14:09:23
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "144"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-48
+  position: "0"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:09:23
+project_elements_302: 
+  name: paf-1
+  content_id: 
+  updated_at: 2007-05-10 08:27:50
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "345"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "95"
+  published_hash: 
+  path: AssayDev/HTSP001-T1/HTSP001-T1-2/paf-1
+  position: "1"
+  parent_id: "196"
+  asset_id: 
+  created_at: 2007-05-10 08:27:50
+project_elements_140: 
+  name: MPB001
+  content_id: 
+  updated_at: 2007-04-30 20:44:10
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "174"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: HTS/MPB001
+  position: "4"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 20:44:10
+project_elements_221: 
+  name: ewtest002
+  content_id: 
+  updated_at: 2007-04-30 19:59:48
+  project_id: "11"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "260"
+  reference_type: Study
+  created_by_user_id: "7"
+  reference_id: "17"
+  published_hash: 
+  path: ewtest001/ewtest002
+  position: "1"
+  parent_id: "258"
+  asset_id: 
+  created_at: 2007-04-30 19:59:48
+project_elements_007: 
+  name: text
+  content_id: 
+  updated_at: 2007-04-18 14:31:40
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "8"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text
+  position: "0"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-04-18 14:31:40
+project_elements_033: 
+  name: TH210307-1-2
+  content_id: 
+  updated_at: 2007-04-20 13:38:39
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "41"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "4"
+  published_hash: 
+  path: global/TH210307-1/TH210307-1-2
+  position: "1"
+  parent_id: "38"
+  asset_id: 
+  created_at: 2007-04-20 13:38:39
+project_elements_114: 
+  name: ProjectContent-49
+  content_id: "42"
+  updated_at: 2007-04-30 14:10:06
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "145"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-49
+  position: "1"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:10:06
+project_elements_303: 
+  name: 1.Ephaptic_activity_sm.jpg
+  content_id: 
+  updated_at: 2007-05-10 08:28:31
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "346"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "87"
+  published_hash: 
+  path: AssayDev/HTSP001-T1/HTSP001-T1-2/1.Ephaptic_activity_sm.jpg
+  position: "3"
+  parent_id: "196"
+  asset_id: 
+  created_at: 2007-05-10 08:28:31
+project_elements_222: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 20:02:15
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "261"
+  reference_type: 
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest1
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 20:02:15
+project_elements_008: 
+  name: ProjectContent-1
+  content_id: "1"
+  updated_at: 2007-04-18 14:33:15
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectElement
+  id: "9"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  path: global/Reports/text/ProjectContent-1
+  position: "0"
+  parent_id: "8"
+  asset_id: 
+  created_at: 2007-04-18 14:33:15
+project_elements_034: 
+  name: TH210307-1-1
+  content_id: 
+  updated_at: 2007-04-20 13:39:01
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "43"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "2"
+  published_hash: 
+  path: global/TH210307-1/TH210307-1-1
+  position: "2"
+  parent_id: "38"
+  asset_id: 
+  created_at: 2007-04-20 13:39:01
+project_elements_060: 
+  name: 1.Partial_nerve_severance.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "88"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/1.Partial_nerve_severance.jpg
+  position: "20"
+  parent_id: "86"
+  asset_id: "6"
+  created_at: 2007-04-25 11:35:18
+project_elements_115: 
+  name: ProjectContent-50
+  content_id: "43"
+  updated_at: 2007-04-30 14:10:39
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "146"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-50
+  position: "2"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:10:39
+project_elements_141: 
+  name: MPB002
+  content_id: 
+  updated_at: 2007-04-30 20:51:49
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "175"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: MPB/MPB002
+  position: "5"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 20:51:49
+project_elements_330: 
+  name: TerminalProc
+  content_id: "64"
+  updated_at: 2007-05-11 17:39:42
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "374"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "271"
+  published_hash: 
+  path: ArgentaPOC/moose1/DataEntryTest/TerminalProc
+  position: "1"
+  parent_id: "372"
+  asset_id: 
+  created_at: 2007-05-11 17:39:42
+project_elements_304: 
+  name: 2.Cross_talk_sm.jpg
+  content_id: 
+  updated_at: 2007-05-10 08:32:19
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "347"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "89"
+  published_hash: 
+  path: AssayDev/HTSP001-T1/HTSP001-T1-2/2.Cross_talk_sm.jpg
+  position: "0"
+  parent_id: "196"
+  asset_id: 
+  created_at: 2007-05-10 08:30:18
+project_elements_223: 
+  name: ewtest1
+  content_id: 
+  updated_at: 2007-04-30 20:02:48
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "262"
+  reference_type: Study
+  created_by_user_id: "7"
+  reference_id: "18"
+  published_hash: 
+  path: ewtest1/ewtest1
+  position: "0"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 20:02:48
+project_elements_009: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-18 14:38:20
+  project_id: "3"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "10"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "3"
+  published_hash: 
+  path: Assay-Dev2
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-18 14:38:20
+project_elements_035: 
+  name: TH210307-1-0
+  content_id: 
+  updated_at: 2007-04-20 13:39:11
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "45"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "1"
+  published_hash: 
+  path: global/TH210307-1/TH210307-1-0
+  position: "3"
+  parent_id: "38"
+  asset_id: 
+  created_at: 2007-04-20 13:39:11
+project_elements_061: 
+  name: 2.Cross_talk_sm.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "89"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/2.Cross_talk_sm.jpg
+  position: "10"
+  parent_id: "86"
+  asset_id: "9"
+  created_at: 2007-04-25 11:38:47
+project_elements_116: 
+  name: ProjectContent-51
+  content_id: "44"
+  updated_at: 2007-04-30 14:11:07
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "147"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-51
+  position: "3"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:11:06
+project_elements_142: 
+  name: MPB002
+  content_id: 
+  updated_at: 2007-04-30 21:07:22
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "176"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: HTS/MPB002
+  position: "5"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 21:07:22
+project_elements_331: 
+  name: Aim
+  content_id: "61"
+  updated_at: 2007-05-11 17:40:22
+  project_id: "13"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "375"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "267"
+  published_hash: 
+  path: ArgentaPOC/moose1/DataEntryTest/Aim
+  position: "0"
+  parent_id: "372"
+  asset_id: 
+  created_at: 2007-05-11 17:40:22
+project_elements_305: 
+  name: ps-1
+  content_id: 
+  updated_at: 2007-05-10 08:32:14
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "348"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "91"
+  published_hash: 
+  path: AssayDev/HTSP001-T1/HTSP001-T1-2/ps-1
+  position: "1"
+  parent_id: "196"
+  asset_id: 
+  created_at: 2007-05-10 08:30:24
+project_elements_250: 
+  name: Study-21
+  content_id: 
+  updated_at: 2007-04-30 23:36:02
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "289"
+  reference_type: Study
+  created_by_user_id: "7"
+  reference_id: "20"
+  published_hash: 
+  path: ewtest4/Study-21
+  position: "0"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:36:02
+project_elements_224: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-30 20:55:11
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "263"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-30 20:55:11
+project_elements_036: 
+  name: RES Exposure
+  content_id: 
+  updated_at: 2007-04-20 13:39:27
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "47"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "2"
+  published_hash: 
+  path: global/RES Exposure
+  position: "12"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-20 13:39:27
+project_elements_062: 
+  name: 4.Hyperexcitation.jpg
+  content_id: 
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "90"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/4.Hyperexcitation.jpg
+  position: "12"
+  parent_id: "86"
+  asset_id: "12"
+  created_at: 2007-04-25 11:40:55
+project_elements_117: 
+  name: ProjectContent-52
+  content_id: "45"
+  updated_at: 2007-04-30 14:11:39
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "148"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-52
+  position: "4"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:11:39
+project_elements_143: 
+  name: HTSP001-T1
+  content_id: 
+  updated_at: 2007-04-30 21:11:54
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "178"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "11"
+  published_hash: 
+  path: HTS/HTSP001-T1
+  position: "7"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 21:11:54
+project_elements_332: 
+  name: rshell-75
+  content_id: 
+  updated_at: 2007-05-11 19:03:27
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "376"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "47"
+  published_hash: 
+  path: global/rshell-75
+  position: "17"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-05-11 19:03:27
+project_elements_306: 
+  name: Screen
+  content_id: 
+  updated_at: 2007-05-10 14:28:34
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "349"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "3"
+  published_hash: 
+  path: AssayDev/Screen
+  position: "27"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-10 14:28:34
+project_elements_251: 
+  name: Experiment-25
+  content_id: 
+  updated_at: 2007-04-30 23:36:28
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "290"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "41"
+  published_hash: 
+  path: ewtest4/Experiment-25
+  position: "1"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:36:28
+project_elements_225: 
+  name: Internal Report Template
+  content_id: 
+  updated_at: 2007-04-30 20:55:29
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "264"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Internal Report Template
+  position: "2"
+  parent_id: "263"
+  asset_id: 
+  created_at: 2007-04-30 20:55:28
+project_elements_037: 
+  name: Brain Plasma Assessment
+  content_id: 
+  updated_at: 2007-04-20 13:39:34
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "48"
+  reference_type: StudyProtocol
+  created_by_user_id: "1"
+  reference_id: "12"
+  published_hash: 
+  path: global/RES Exposure/Brain Plasma Assessment
+  position: "0"
+  parent_id: "47"
+  asset_id: 
+  created_at: 2007-04-20 13:39:34
+project_elements_063: 
+  name: ps-1
+  content_id: "20"
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "38"
+  type: ProjectElement
+  id: "91"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ps-1
+  position: "28"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:45:45
+project_elements_118: 
+  name: ProjectContent-53
+  content_id: "46"
+  updated_at: 2007-04-30 14:12:10
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "149"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-53
+  position: "5"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:12:10
+project_elements_144: 
+  name: Experiment-5
+  content_id: 
+  updated_at: 2007-04-30 21:12:14
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "179"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "12"
+  published_hash: 
+  path: HTS/Experiment-5
+  position: "8"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 21:12:14
+project_elements_170: 
+  name: TSCI-Rats
+  content_id: 
+  updated_at: 2007-04-30 04:44:21
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "206"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: MPB/TSCI-Rats
+  position: "8"
+  parent_id: "142"
+  asset_id: 
+  created_at: 2007-04-30 04:44:21
+project_elements_333: 
+  name: rshell-75-0
+  content_id: 
+  updated_at: 2007-05-11 19:03:27
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "377"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "59"
+  published_hash: 
+  path: global/rshell-75/rshell-75-0
+  position: "0"
+  parent_id: "376"
+  asset_id: 
+  created_at: 2007-05-11 19:03:27
+project_elements_307: 
+  name: paf-1
+  content_id: 
+  updated_at: 2007-05-10 15:07:36
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "350"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "95"
+  published_hash: 
+  path: AssayDev/true/paf-1
+  position: "3"
+  parent_id: "299"
+  asset_id: 
+  created_at: 2007-05-10 15:07:36
+project_elements_252: 
+  name: Experiment-26
+  content_id: 
+  updated_at: 2007-04-30 23:42:09
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "291"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "42"
+  published_hash: 
+  path: ewtest4/Experiment-26
+  position: "2"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:42:09
+project_elements_226: 
+  name: logo.jpg
+  content_id: 
+  updated_at: 2007-04-30 20:55:42
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  type: ProjectElement
+  id: "265"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Internal Report Template/logo.jpg
+  position: "0"
+  parent_id: "264"
+  asset_id: "51"
+  created_at: 2007-04-30 20:55:42
+project_elements_038: 
+  name: DMO-001-0
+  content_id: 
+  updated_at: 2007-04-20 13:40:09
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "50"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "7"
+  published_hash: 
+  path: global/DMO-001/DMO-001-0
+  position: "1"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:09
+project_elements_064: 
+  name: Hyper.1
+  content_id: "21"
+  updated_at: 2007-05-11 14:13:31
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "11"
+  type: ProjectElement
+  id: "92"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/h1
+  position: "4"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:46:15
+project_elements_090: 
+  name: Dev-Test2
+  content_id: 
+  updated_at: 2007-04-26 08:24:29
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "118"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "6"
+  published_hash: 
+  path: global/Dev-Test2
+  position: "30"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-26 08:24:29
+project_elements_119: 
+  name: ProjectContent-54
+  content_id: "47"
+  updated_at: 2007-04-30 14:12:52
+  project_id: "8"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "150"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: MPB/Treatments/ProjectContent-54
+  position: "6"
+  parent_id: "143"
+  asset_id: 
+  created_at: 2007-04-30 14:12:52
+project_elements_145: 
+  name: Experiment-6
+  content_id: 
+  updated_at: 2007-04-30 21:12:55
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "180"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: HTS/Experiment-6
+  position: "9"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 21:12:55
+project_elements_171: 
+  name: Cage Rats
+  content_id: 
+  updated_at: 2007-04-30 05:06:38
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "207"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "26"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/Cage Rats
+  position: "0"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 05:06:38
+project_elements_334: 
+  name: Dev-Test
+  content_id: 
+  updated_at: 2007-05-11 19:13:52
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "378"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "5"
+  published_hash: 
+  path: global/Dev-Test
+  position: "18"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-05-11 19:13:52
+project_elements_308: 
+  name: pain-1
+  content_id: "22"
+  updated_at: 2007-05-10 15:07:41
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "351"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "93"
+  published_hash: 
+  path: AssayDev/true/pain-1
+  position: "3"
+  parent_id: "299"
+  asset_id: 
+  created_at: 2007-05-10 15:07:41
+project_elements_253: 
+  name: Exp26
+  content_id: 
+  updated_at: 2007-04-30 23:50:52
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "294"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "45"
+  published_hash: 
+  path: ewtest4/Exp26
+  position: "3"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:50:52
+project_elements_227: 
+  name: Title
+  content_id: "60"
+  updated_at: 2007-04-30 22:12:06
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "4"
+  type: ProjectElement
+  id: "266"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Internal Report Template/ProjectContent-68
+  position: "1"
+  parent_id: "264"
+  asset_id: 
+  created_at: 2007-04-30 21:42:34
+project_elements_039: 
+  name: DMO-001-1
+  content_id: 
+  updated_at: 2007-04-20 13:40:11
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "52"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "8"
+  published_hash: 
+  path: global/DMO-001/DMO-001-1
+  position: "2"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:11
+project_elements_065: 
+  name: pain-1
+  content_id: "22"
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "36"
+  type: ProjectElement
+  id: "93"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/pain-1
+  position: "26"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:47:04
+project_elements_091: 
+  name: Capture Raw Data
+  content_id: 
+  updated_at: 2007-04-26 09:44:27
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "119"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "10"
+  published_hash: 
+  path: global/RES Exposure/Capture Raw Data
+  position: "1"
+  parent_id: "47"
+  asset_id: 
+  created_at: 2007-04-26 09:44:27
+project_elements_146: 
+  name: HTSP_AD-T1
+  content_id: 
+  updated_at: 2007-04-30 21:13:15
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "181"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "14"
+  published_hash: 
+  path: HTS/HTSP_AD-T1
+  position: "10"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-30 21:13:15
+project_elements_172: 
+  name: Experiment-7
+  content_id: 
+  updated_at: 2007-04-30 05:13:55
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "208"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "15"
+  published_hash: 
+  path: NeuroCRO/Experiment-7
+  position: "1"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:13:55
+project_elements_335: 
+  name: StudyProtocol-15
+  content_id: 
+  updated_at: 2007-05-11 19:14:09
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "379"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "53"
+  published_hash: 
+  path: global/Dev-Test/StudyProtocol-15
+  position: "0"
+  parent_id: "378"
+  asset_id: 
+  created_at: 2007-05-11 19:14:09
+project_elements_309: 
+  name: 2.Cross_talk_sm.jpg
+  content_id: 
+  updated_at: 2007-05-10 15:07:45
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "352"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "89"
+  published_hash: 
+  path: AssayDev/true/2.Cross_talk_sm.jpg
+  position: "4"
+  parent_id: "299"
+  asset_id: "9"
+  created_at: 2007-05-10 15:07:44
+project_elements_280: 
+  name: ProjectContent-1
+  content_id: "1"
+  updated_at: 2007-05-09 11:32:23
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "323"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "9"
+  published_hash: 
+  path: global/Reports/ProjectContent-1
+  position: "2"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-05-09 11:32:23
+project_elements_254: 
+  name: Experiment-29
+  content_id: 
+  updated_at: 2007-04-30 23:52:29
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "295"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "46"
+  published_hash: 
+  path: ewtest4/Experiment-29
+  position: "4"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:52:29
+project_elements_228: 
+  name: Aim
+  content_id: "61"
+  updated_at: 2007-04-30 22:10:55
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "3"
+  type: ProjectElement
+  id: "267"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Internal Report Template/ProjectContent-69
+  position: "2"
+  parent_id: "264"
+  asset_id: 
+  created_at: 2007-04-30 21:44:46
+project_elements_066: 
+  name: pain-2
+  content_id: "23"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "8"
+  type: ProjectElement
+  id: "94"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/pain-2
+  position: "5"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:47:39
+project_elements_092: 
+  name: Request-8
+  content_id: 
+  updated_at: 2007-04-26 12:44:45
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "120"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "10"
+  published_hash: 
+  path: global/Request-8
+  position: "10"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-26 12:44:45
+project_elements_147: 
+  name: HTSP_AD-T1-0
+  content_id: 
+  updated_at: 2007-04-30 21:13:29
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "182"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP_AD-T1/HTSP_AD-T1-0
+  position: "0"
+  parent_id: "181"
+  asset_id: 
+  created_at: 2007-04-30 21:13:29
+project_elements_173: 
+  name: Cage Rats1
+  content_id: 
+  updated_at: 2007-04-30 05:15:49
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "209"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "16"
+  published_hash: 
+  path: NeuroCRO/Cage Rats1
+  position: "2"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:15:49
+project_elements_336: 
+  name: Single Point 96
+  content_id: 
+  updated_at: 2007-05-11 19:15:01
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "380"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "18"
+  published_hash: 
+  path: global/Screen/Single Point 96
+  position: "3"
+  parent_id: "3"
+  asset_id: 
+  created_at: 2007-05-11 19:15:01
+project_elements_281: 
+  name: ProjectContent-3
+  content_id: "3"
+  updated_at: 2007-05-09 11:32:28
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectElement
+  id: "324"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "13"
+  published_hash: 
+  path: global/Reports/ProjectContent-3
+  position: "2"
+  parent_id: "2"
+  asset_id: 
+  created_at: 2007-05-09 11:32:28
+project_elements_255: 
+  name: Experiment-30
+  content_id: 
+  updated_at: 2007-04-30 23:56:41
+  project_id: "16"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "296"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "47"
+  published_hash: 
+  path: ewtest4/Experiment-30
+  position: "5"
+  parent_id: "288"
+  asset_id: 
+  created_at: 2007-04-30 23:56:41
+project_elements_229: 
+  name: Methods
+  content_id: "62"
+  updated_at: 2007-04-30 22:11:12
+  project_id: "13"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  type: ProjectElement
+  id: "268"
+  reference_type: 
+  created_by_user_id: "4"
+  reference_id: 
+  published_hash: 
+  path: ArgentaPOC/Internal Report Template/ProjectContent-70
+  position: "3"
+  parent_id: "264"
+  asset_id: 
+  created_at: 2007-04-30 21:46:14
+project_elements_067: 
+  name: paf-1
+  content_id: "24"
+  updated_at: 2007-05-11 14:07:16
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "43"
+  type: ProjectElement
+  id: "95"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/paf-1
+  position: "27"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:48:24
+project_elements_093: 
+  name: ProjectContent-44
+  content_id: "39"
+  updated_at: 2007-04-26 12:54:51
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: ProjectElement
+  id: "121"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/Request-8/ProjectContent-44
+  position: "0"
+  parent_id: "120"
+  asset_id: 
+  created_at: 2007-04-26 12:52:32
+project_elements_148: 
+  name: triage1.png
+  content_id: 
+  updated_at: 2007-04-30 22:01:51
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "184"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTS Program/Screen Report/triage1.png
+  position: "3"
+  parent_id: "163"
+  asset_id: "49"
+  created_at: 2007-04-30 22:01:51
+project_elements_174: 
+  name: Cage Rats1-0
+  content_id: 
+  updated_at: 2007-04-30 05:16:28
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "210"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/Cage Rats1/Cage Rats1-0
+  position: "0"
+  parent_id: "209"
+  asset_id: 
+  created_at: 2007-04-30 05:16:28
+project_elements_282: 
+  name: DMO-001-14
+  content_id: 
+  updated_at: 2007-05-09 12:44:04
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "325"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "21"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14
+  position: "3"
+  parent_id: "83"
+  asset_id: 
+  created_at: 2007-05-09 12:44:04
+project_elements_256: 
+  name: HTS Program
+  content_id: 
+  updated_at: 2007-05-05 21:19:45
+  project_id: "6"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "297"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "11"
+  published_hash: 
+  path: Tox/HTS Program
+  position: "0"
+  parent_id: "29"
+  asset_id: 
+  created_at: 2007-05-05 21:19:45
+project_elements_068: 
+  name: ion-1
+  content_id: "25"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "96"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ion-1
+  position: "1"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:48:56
+project_elements_094: 
+  name: Testing_Sex
+  content_id: 
+  updated_at: 2007-04-26 13:34:37
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "122"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "6"
+  published_hash: 
+  path: global/Testing_Sex
+  position: "11"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-26 13:34:37
+project_elements_149: 
+  name: HTSP001-T1-0
+  content_id: 
+  updated_at: 2007-04-30 22:03:05
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "185"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTSP001-T1/HTSP001-T1-0
+  position: "0"
+  parent_id: "178"
+  asset_id: 
+  created_at: 2007-04-30 22:03:05
+project_elements_175: 
+  name: Request-15
+  content_id: 
+  updated_at: 2007-04-30 05:45:48
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "211"
+  reference_type: Request
+  created_by_user_id: "6"
+  reference_id: "15"
+  published_hash: 
+  path: NeuroCRO/Request-15
+  position: "3"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:45:48
+project_elements_283: 
+  name: DataEntryTest
+  content_id: 
+  updated_at: 2007-05-09 13:03:21
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "326"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "52"
+  published_hash: 
+  path: AssayDev/moose1/DataEntryTest
+  position: "1"
+  parent_id: "298"
+  asset_id: 
+  created_at: 2007-05-09 13:03:21
+project_elements_257: 
+  name: moose1
+  content_id: 
+  updated_at: 2007-05-06 21:27:01
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "298"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "22"
+  published_hash: 
+  path: AssayDev/moose1
+  position: "13"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-06 21:27:01
+project_elements_069: 
+  name: pain-0
+  content_id: "26"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "97"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/pain-0
+  position: "6"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 11:51:59
+project_elements_095: 
+  name: DMO-001-16
+  content_id: 
+  updated_at: 2007-04-26 14:08:07
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "123"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/DMO-001/DMO-001-16
+  position: "16"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-26 14:08:07
+project_elements_176: 
+  name: Experiment-8
+  content_id: 
+  updated_at: 2007-04-30 05:52:59
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "212"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "17"
+  published_hash: 
+  path: NeuroCRO/Experiment-8
+  position: "4"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:52:59
+project_elements_284: 
+  name: rshell-75
+  content_id: 
+  updated_at: 2007-05-09 13:21:02
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "327"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/rshell-75
+  position: "23"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-09 13:21:02
+project_elements_258: 
+  name: "true"
+  content_id: 
+  updated_at: 2007-05-07 09:22:51
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "299"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/true
+  position: "14"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-07 09:22:51
+project_elements_096: 
+  name: organ0.jpg
+  content_id: 
+  updated_at: 2007-04-26 14:47:19
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "125"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/DMO-001/DMO-001-15/organ0.jpg
+  position: "0"
+  parent_id: "79"
+  asset_id: "27"
+  created_at: 2007-04-26 14:47:19
+project_elements_177: 
+  name: Measure body mass
+  content_id: 
+  updated_at: 2007-04-30 05:53:18
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "213"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "18"
+  published_hash: 
+  path: NeuroCRO/Measure body mass
+  position: "5"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:53:18
+project_elements_285: 
+  name: rshell-75-0
+  content_id: 
+  updated_at: 2007-05-09 13:21:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "328"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/rshell-75/rshell-75-0
+  position: "0"
+  parent_id: "327"
+  asset_id: 
+  created_at: 2007-05-09 13:21:15
+project_elements_259: 
+  name: QA-test
+  content_id: 
+  updated_at: 2007-05-07 13:20:21
+  project_id: "6"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "300"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "24"
+  published_hash: 
+  path: Tox/QA-test
+  position: "1"
+  parent_id: "29"
+  asset_id: 
+  created_at: 2007-05-07 13:20:21
+project_elements_097: 
+  name: tissue1.jpg
+  content_id: 
+  updated_at: 2007-04-26 14:56:59
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "126"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/DMO-001/DMO-001-15/tissue1.jpg
+  position: "1"
+  parent_id: "79"
+  asset_id: "36"
+  created_at: 2007-04-26 14:56:59
+project_elements_178: 
+  name: TSCIConfirm
+  content_id: 
+  updated_at: 2007-04-30 05:54:03
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "214"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "27"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/TSCIConfirm
+  position: "1"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 05:54:03
+project_elements_286: 
+  name: Primary Screen
+  content_id: 
+  updated_at: 2007-05-09 13:50:25
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "329"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "40"
+  published_hash: 
+  path: AssayDev/moose3/Primary Screen
+  position: "1"
+  parent_id: "304"
+  asset_id: 
+  created_at: 2007-05-09 13:50:25
+project_elements_098: 
+  name: DMO-001:17
+  content_id: 
+  updated_at: 2007-04-26 15:14:25
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "127"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "25"
+  published_hash: 
+  path: global/DMO-001/DMO-001:17
+  position: "17"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-26 15:14:25
+project_elements_179: 
+  name: Experiment-9
+  content_id: 
+  updated_at: 2007-04-30 05:56:00
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "215"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "19"
+  published_hash: 
+  path: NeuroCRO/Experiment-9
+  position: "6"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 05:56:00
+project_elements_287: 
+  name: Dose Response
+  content_id: 
+  updated_at: 2007-05-09 13:52:25
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "330"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "42"
+  published_hash: 
+  path: AssayDev/moose3/Dose Response
+  position: "2"
+  parent_id: "304"
+  asset_id: 
+  created_at: 2007-05-09 13:52:25
+project_elements_099: 
+  name: 1.Tissue_injury_sm.jpg
+  content_id: 
+  updated_at: 2007-04-26 15:16:10
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectElement
+  id: "128"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/DMO-001/1.Tissue_injury_sm.jpg
+  position: "18"
+  parent_id: "34"
+  asset_id: "39"
+  created_at: 2007-04-26 15:16:10
+project_elements_288: 
+  name: Primary Screen
+  content_id: 
+  updated_at: 2007-05-09 14:09:02
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "331"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "45"
+  published_hash: 
+  path: AssayDev/moose6/Primary Screen
+  position: "0"
+  parent_id: "308"
+  asset_id: 
+  created_at: 2007-05-09 14:09:02
+project_elements_289: 
+  name: Primary Screen
+  content_id: 
+  updated_at: 2007-05-09 14:16:46
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "332"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "47"
+  published_hash: 
+  path: AssayDev/xxxx/Primary Screen
+  position: "1"
+  parent_id: "306"
+  asset_id: 
+  created_at: 2007-05-09 14:16:46
+project_elements_100: 
+  name: Screen Report
+  content_id: 
+  updated_at: 2007-04-26 15:19:45
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "129"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "20"
+  published_hash: 
+  path: global/Screen/Screen Report
+  position: "1"
+  parent_id: "3"
+  asset_id: 
+  created_at: 2007-04-26 15:19:45
+project_elements_020: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-20 07:34:32
+  project_id: "4"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "27"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "4"
+  published_hash: 
+  path: AssayDev
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-20 07:34:32
+project_elements_101: 
+  name: Dose Response
+  content_id: 
+  updated_at: 2007-04-26 15:21:44
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "130"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "19"
+  published_hash: 
+  path: global/Screen/Dose Response
+  position: "2"
+  parent_id: "3"
+  asset_id: 
+  created_at: 2007-04-26 15:21:44
+project_elements_021: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-20 07:35:03
+  project_id: "5"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "28"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "5"
+  published_hash: 
+  path: HTS
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-20 07:35:03
+project_elements_102: 
+  name: Histological Scoring
+  content_id: 
+  updated_at: 2007-04-26 15:23:41
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "131"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "8"
+  published_hash: 
+  path: global/Biomarker And Histology/Histological Scoring
+  position: "1"
+  parent_id: "25"
+  asset_id: 
+  created_at: 2007-04-26 15:23:41
+project_elements_022: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-20 07:35:25
+  project_id: "6"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "29"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "6"
+  published_hash: 
+  path: Tox
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-20 07:35:25
+project_elements_103: 
+  name: Scoring
+  content_id: 
+  updated_at: 2007-04-26 15:24:43
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "133"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "8"
+  published_hash: 
+  path: global/Scoring
+  position: "13"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-26 15:24:43
+project_elements_210: 
+  name: PPTS
+  content_id: 
+  updated_at: 2007-04-30 08:38:19
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "249"
+  reference_type: StudyProtocol
+  created_by_user_id: "6"
+  reference_id: "31"
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/PPTS
+  position: "6"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 08:38:19
+project_elements_023: 
+  name: Study-3
+  content_id: 
+  updated_at: 2007-04-20 08:50:00
+  project_id: "5"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "30"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "8"
+  published_hash: 
+  path: HTS/Study-3
+  position: "0"
+  parent_id: "28"
+  asset_id: 
+  created_at: 2007-04-20 08:50:00
+project_elements_104: 
+  name: Scoring-0
+  content_id: 
+  updated_at: 2007-04-26 15:24:58
+  project_id: "1"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "134"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: global/Scoring/Scoring-0
+  position: "0"
+  parent_id: "133"
+  asset_id: 
+  created_at: 2007-04-26 15:24:58
+project_elements_130: 
+  name: Assay Development
+  content_id: 
+  updated_at: 2007-04-30 17:00:02
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "161"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "21"
+  published_hash: 
+  path: HTS/HTS Program/Assay Development
+  position: "0"
+  parent_id: "158"
+  asset_id: 
+  created_at: 2007-04-30 17:00:02
+project_elements_211: 
+  name: Experiment-14
+  content_id: 
+  updated_at: 2007-04-30 08:39:19
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "250"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "27"
+  published_hash: 
+  path: NeuroCRO/Experiment-14
+  position: "14"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 08:39:19
+project_elements_024: 
+  name: Experiment-1
+  content_id: 
+  updated_at: 2007-04-20 09:26:48
+  project_id: "4"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "31"
+  reference_type: Experiment
+  created_by_user_id: "1"
+  reference_id: "6"
+  published_hash: 
+  path: AssayDev/Experiment-1
+  position: "1"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-04-20 09:26:48
+project_elements_050: 
+  name: DMO-001-13
+  content_id: 
+  updated_at: 2007-04-20 13:40:32
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "75"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "20"
+  published_hash: 
+  path: global/DMO-001/DMO-001-13
+  position: "13"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:32
+project_elements_105: 
+  name: Biomarker And Histology
+  content_id: 
+  updated_at: 2007-04-26 15:32:16
+  project_id: "3"
+  updated_by_user_id: "2"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "135"
+  reference_type: Study
+  created_by_user_id: "2"
+  reference_id: "1"
+  published_hash: 
+  path: Assay-Dev2/Biomarker And Histology
+  position: "0"
+  parent_id: "10"
+  asset_id: 
+  created_at: 2007-04-26 15:32:16
+project_elements_131: 
+  name: Primary Screen
+  content_id: 
+  updated_at: 2007-04-30 17:09:54
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "162"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "22"
+  published_hash: 
+  path: HTS/HTS Program/Primary Screen
+  position: "1"
+  parent_id: "158"
+  asset_id: 
+  created_at: 2007-04-30 17:09:54
+project_elements_212: 
+  name: PPTS
+  content_id: 
+  updated_at: 2007-04-30 08:39:36
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "251"
+  reference_type: Experiment
+  created_by_user_id: "6"
+  reference_id: "28"
+  published_hash: 
+  path: NeuroCRO/PPTS
+  position: "15"
+  parent_id: "204"
+  asset_id: 
+  created_at: 2007-04-30 08:39:36
+project_elements_320: 
+  name: pain-2
+  content_id: "23"
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "17"
+  type: ProjectElement
+  id: "363"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "94"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/pain-2
+  position: "8"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 12:57:54
+project_elements_025: 
+  name: Experiment-1-0
+  content_id: 
+  updated_at: 2007-04-20 09:26:48
+  project_id: "4"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "32"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "23"
+  published_hash: 
+  path: AssayDev/Experiment-1/Experiment-1-0
+  position: "0"
+  parent_id: "31"
+  asset_id: 
+  created_at: 2007-04-20 09:26:48
+project_elements_051: 
+  name: DMO-001-14
+  content_id: 
+  updated_at: 2007-04-20 13:40:34
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "77"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "21"
+  published_hash: 
+  path: global/DMO-001/DMO-001-14
+  position: "14"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:34
+project_elements_106: 
+  name: Sacry stuff
+  content_id: 
+  updated_at: 2007-04-26 15:38:19
+  project_id: "3"
+  updated_by_user_id: "2"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "137"
+  reference_type: 
+  created_by_user_id: "2"
+  reference_id: 
+  published_hash: 
+  path: Assay-Dev2/Biomarker And Histology/Sacry stuff
+  position: "0"
+  parent_id: "135"
+  asset_id: 
+  created_at: 2007-04-26 15:38:19
+project_elements_132: 
+  name: Screen Report
+  content_id: 
+  updated_at: 2007-04-30 17:57:26
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "163"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTS Program/Screen Report
+  position: "2"
+  parent_id: "158"
+  asset_id: 
+  created_at: 2007-04-30 17:57:26
+project_elements_213: 
+  name: PPTS-0
+  content_id: 
+  updated_at: 2007-04-30 08:39:41
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "252"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/PPTS/PPTS-0
+  position: "0"
+  parent_id: "251"
+  asset_id: 
+  created_at: 2007-04-30 08:39:41
+project_elements_321: 
+  name: pain-1
+  content_id: 
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "30"
+  type: ProjectElement
+  id: "364"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "93"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/pain-1
+  position: "12"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 13:00:54
+project_elements_240: 
+  name: Exp19
+  content_id: 
+  updated_at: 2007-04-30 22:44:37
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "279"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "34"
+  published_hash: 
+  path: ewtest1/Exp19
+  position: "5"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:44:37
+project_elements_026: 
+  name: Test
+  content_id: 
+  updated_at: 2007-04-20 12:31:28
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "33"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "4"
+  published_hash: 
+  path: global/Test
+  position: "5"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-20 12:31:28
+project_elements_052: 
+  name: DMO-001-15
+  content_id: 
+  updated_at: 2007-04-20 13:40:36
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "79"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "22"
+  published_hash: 
+  path: global/DMO-001/DMO-001-15
+  position: "15"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 13:40:36
+project_elements_107: 
+  name: ProjectContent-47
+  content_id: "40"
+  updated_at: 2007-04-26 15:39:09
+  project_id: "3"
+  updated_by_user_id: "2"
+  lock_version: "1"
+  type: ProjectElement
+  id: "138"
+  reference_type: 
+  created_by_user_id: "2"
+  reference_id: 
+  published_hash: 
+  path: Assay-Dev2/Biomarker And Histology/Sacry stuff/ProjectContent-47
+  position: "0"
+  parent_id: "137"
+  asset_id: 
+  created_at: 2007-04-26 15:39:09
+project_elements_133: 
+  name: ProjectContent-62
+  content_id: "55"
+  updated_at: 2007-04-30 19:26:34
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: ProjectElement
+  id: "164"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTS Program/Screen Report/ProjectContent-62
+  position: "0"
+  parent_id: "163"
+  asset_id: 
+  created_at: 2007-04-30 18:04:01
+project_elements_214: 
+  name: PPTS-Day1
+  content_id: 
+  updated_at: 2007-04-30 08:40:20
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "253"
+  reference_type: Task
+  created_by_user_id: "6"
+  reference_id: "56"
+  published_hash: 
+  path: NeuroCRO/PPTS/PPTS-Day1
+  position: "1"
+  parent_id: "251"
+  asset_id: 
+  created_at: 2007-04-30 08:40:20
+project_elements_322: 
+  name: pain-0
+  content_id: "26"
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "9"
+  type: ProjectElement
+  id: "365"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "97"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/pain-0
+  position: "4"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 13:01:29
+project_elements_241: 
+  name: Experiment-20
+  content_id: 
+  updated_at: 2007-04-30 22:44:57
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "280"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "35"
+  published_hash: 
+  path: ewtest1/Experiment-20
+  position: "6"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:44:57
+project_elements_027: 
+  name: DMO-001
+  content_id: 
+  updated_at: 2007-04-20 12:34:19
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "34"
+  reference_type: Experiment
+  created_by_user_id: "1"
+  reference_id: "5"
+  published_hash: 
+  path: global/DMO-001
+  position: "6"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-20 12:34:19
+project_elements_053: 
+  name: /
+  content_id: 
+  updated_at: 2007-04-23 18:29:30
+  project_id: "7"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "81"
+  reference_type: Project
+  created_by_user_id: "1"
+  reference_id: "7"
+  published_hash: 
+  path: Profiling
+  position: "1"
+  parent_id: 
+  asset_id: 
+  created_at: 2007-04-23 18:29:30
+project_elements_108: 
+  name: Request-10
+  content_id: 
+  updated_at: 2007-04-26 15:42:44
+  project_id: "3"
+  updated_by_user_id: "2"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "139"
+  reference_type: Request
+  created_by_user_id: "2"
+  reference_id: "12"
+  published_hash: 
+  path: Assay-Dev2/Request-10
+  position: "2"
+  parent_id: "10"
+  asset_id: 
+  created_at: 2007-04-26 15:42:44
+project_elements_134: 
+  name: ProjectContent-63
+  content_id: "56"
+  updated_at: 2007-04-30 19:31:16
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  type: ProjectElement
+  id: "165"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: HTS/HTS Program/Screen Report/ProjectContent-63
+  position: "1"
+  parent_id: "163"
+  asset_id: 
+  created_at: 2007-04-30 18:34:38
+project_elements_160: 
+  name: HTSP001-T1-2
+  content_id: 
+  updated_at: 2007-05-01 06:07:24
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "196"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "36"
+  published_hash: 
+  path: AssayDev/HTSP001-T1/HTSP001-T1-2
+  position: "0"
+  parent_id: "195"
+  asset_id: 
+  created_at: 2007-05-01 06:07:24
+project_elements_215: 
+  name: Experiment-15
+  content_id: 
+  updated_at: 2007-04-30 19:02:20
+  project_id: "1"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "254"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: "29"
+  published_hash: 
+  path: global/Experiment-15
+  position: "14"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-04-30 19:02:20
+project_elements_323: 
+  name: Sop-7
+  content_id: "19"
+  updated_at: 2007-05-11 14:04:35
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "9"
+  type: ProjectElement
+  id: "366"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "37"
+  published_hash: 
+  path: AssayDev/DMO-001/DMO-001-14/Sop-7
+  position: "2"
+  parent_id: "325"
+  asset_id: 
+  created_at: 2007-05-11 13:47:59
+project_elements_242: 
+  name: exp20
+  content_id: 
+  updated_at: 2007-04-30 22:45:25
+  project_id: "12"
+  updated_by_user_id: "7"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "281"
+  reference_type: Experiment
+  created_by_user_id: "7"
+  reference_id: 
+  published_hash: 
+  path: ewtest1/exp20
+  position: "7"
+  parent_id: "261"
+  asset_id: 
+  created_at: 2007-04-30 22:45:25
+project_elements_028: 
+  name: DMO-001-6
+  content_id: 
+  updated_at: 2007-04-20 12:38:13
+  project_id: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "35"
+  reference_type: Task
+  created_by_user_id: "1"
+  reference_id: "13"
+  published_hash: 
+  path: global/DMO-001/DMO-001-6
+  position: "0"
+  parent_id: "34"
+  asset_id: 
+  created_at: 2007-04-20 12:38:13
+project_elements_054: 
+  name: Solubility
+  content_id: 
+  updated_at: 2007-04-23 18:30:16
+  project_id: "7"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "82"
+  reference_type: Study
+  created_by_user_id: "1"
+  reference_id: "10"
+  published_hash: 
+  path: Profiling/Solubility
+  position: "0"
+  parent_id: "81"
+  asset_id: 
+  created_at: 2007-04-23 18:30:16
+project_elements_080: 
+  name: ProjectContent-31
+  content_id: "32"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "7"
+  type: ProjectElement
+  id: "108"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  path: AssayDev/Slides/ProjectContent-31
+  position: "19"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-25 20:11:17
+project_elements_109: 
+  name: rshell-27
+  content_id: "38"
+  updated_at: 2007-05-11 14:07:15
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "11"
+  type: ProjectElement
+  id: "140"
+  reference_type: ProjectElement
+  created_by_user_id: "3"
+  reference_id: "117"
+  published_hash: 
+  path: AssayDev/Slides/rshell-27
+  position: "2"
+  parent_id: "86"
+  asset_id: 
+  created_at: 2007-04-26 15:54:17
+project_elements_135: 
+  name: Secondary Screen
+  content_id: 
+  updated_at: 2007-04-30 19:00:26
+  project_id: "5"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "166"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "23"
+  published_hash: 
+  path: HTS/HTS Program/Secondary Screen
+  position: "3"
+  parent_id: "158"
+  asset_id: 
+  created_at: 2007-04-30 19:00:26
+project_elements_161: 
+  name: HTS Program
+  content_id: 
+  updated_at: 2007-05-01 06:08:53
+  project_id: "4"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: ProjectFolder
+  id: "197"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "11"
+  published_hash: 
+  path: AssayDev/HTS Program
+  position: "8"
+  parent_id: "27"
+  asset_id: 
+  created_at: 2007-05-01 06:08:53
+project_elements_216: 
+  name: ProjectContent-67
+  content_id: "59"
+  updated_at: 2007-04-30 19:15:44
+  project_id: "9"
+  updated_by_user_id: "6"
+  lock_version: "1"
+  type: ProjectElement
+  id: "255"
+  reference_type: 
+  created_by_user_id: "6"
+  reference_id: 
+  published_hash: 
+  path: NeuroCRO/TSCI-Rats/ProjectContent-67
+  position: "7"
+  parent_id: "205"
+  asset_id: 
+  created_at: 2007-04-30 19:15:44

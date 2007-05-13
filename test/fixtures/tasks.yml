@@ -1,16 +1,66 @@
 --- 
+tasks_042: 
+  done_hours: "0"
+  experiment_id: "22"
+  name: ConductBBB-10-PO
+  project_id: "9"
+  updated_at: 2007-04-30 07:04:55
+  expected_hours: "1"
+  ended_at: 2007-06-06 00:00:00
+  protocol_version_id: "38"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "29"
+  id: "54"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductBBB-10 \r\n\
+    Post operation"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:04:55
+  started_at: 2007-06-06 00:00:00
+tasks_031: 
+  done_hours: "0"
+  experiment_id: "16"
+  name: Cage Rats1-0
+  project_id: "9"
+  updated_at: 2007-04-30 05:20:51
+  expected_hours: "1"
+  ended_at: 2007-05-14 00:00:00
+  protocol_version_id: "35"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "26"
+  id: "38"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Cage Rats1 \r\n\
+    \r\n\
+    \r\n\
+    Cage and weigh rats\r\n\
+    \r\n\
+    Set up treatment groups "
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 05:17:28
+  started_at: 2007-05-14 00:00:00
 tasks_020: 
   done_hours: "0"
   experiment_id: "5"
   name: DMO-001-14
   project_id: "1"
-  updated_at: 2007-03-30 22:37:00
+  updated_at: 2007-05-09 11:51:39
   expected_hours: "1"
   ended_at: 2007-04-03 00:00:00
   protocol_version_id: "8"
   expected_at: 
-  updated_by_user_id: "1"
-  lock_version: "1"
+  updated_by_user_id: "3"
+  lock_version: "3"
   priority_id: 
   study_protocol_id: "8"
   id: "21"
@@ -65,18 +115,65 @@ tasks_008:
   is_milestone: "0"
   created_at: 2007-03-30 20:30:46
   started_at: 2007-03-24 00:00:00
+tasks_043: 
+  done_hours: "0"
+  experiment_id: "26"
+  name: Histology-0
+  project_id: "9"
+  updated_at: 2007-04-30 07:37:41
+  expected_hours: "1"
+  ended_at: 2007-06-27 00:00:00
+  protocol_version_id: "39"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "30"
+  id: "55"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Histology \r\n\
+    \r\n\
+    \r\n\
+    Create and store histology data"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:37:41
+  started_at: 2007-06-07 00:00:00
+tasks_032: 
+  done_hours: "0"
+  experiment_id: "20"
+  name: ConductTSCI-0
+  project_id: "9"
+  updated_at: 2007-04-30 06:31:18
+  expected_hours: "1"
+  ended_at: 2007-05-15 00:00:00
+  protocol_version_id: "36"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "27"
+  id: "39"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductTSCI "
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:19:32
+  started_at: 2007-05-15 00:00:00
 tasks_021: 
   done_hours: "0"
   experiment_id: "5"
   name: DMO-001-15
   project_id: "1"
-  updated_at: 2007-04-29 21:41:18
+  updated_at: 2007-04-26 15:02:16
   expected_hours: "1"
-  ended_at: 2007-05-06 00:00:00
+  ended_at: 2007-04-03 00:00:00
   protocol_version_id: "18"
   expected_at: 
   updated_by_user_id: "3"
-  lock_version: "10"
+  lock_version: "9"
   priority_id: 
   study_protocol_id: "15"
   id: "22"
@@ -131,18 +228,65 @@ tasks_009:
   is_milestone: "0"
   created_at: 2007-03-30 20:32:24
   started_at: 2007-03-24 00:00:00
+tasks_044: 
+  done_hours: "0"
+  experiment_id: "28"
+  name: PPTS-Day1
+  project_id: "9"
+  updated_at: 2007-04-30 08:43:06
+  expected_hours: "3"
+  ended_at: 2007-05-15 00:00:00
+  protocol_version_id: "40"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "31"
+  id: "56"
+  assigned_to_user_id: "6"
+  description: " Task in experiment PPTS \r\n\
+    Day1"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 08:40:20
+  started_at: 2007-05-15 00:00:00
+tasks_033: 
+  done_hours: "0"
+  experiment_id: "18"
+  name: Measure body mass-Day1
+  project_id: "9"
+  updated_at: 2007-04-30 06:50:41
+  expected_hours: "1"
+  ended_at: 2007-05-16 00:00:00
+  protocol_version_id: "37"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "28"
+  id: "44"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Measure body mass \r\n\
+    \r\n\
+    Day 1"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:50:41
+  started_at: 2007-05-16 00:00:00
 tasks_022: 
   done_hours: "0"
   experiment_id: "6"
   name: Experiment-1-0
   project_id: "1"
-  updated_at: 2007-04-18 14:08:54
+  updated_at: 2007-05-09 11:48:17
   expected_hours: "1"
   ended_at: 2007-04-25 00:00:00
   protocol_version_id: "23"
   expected_at: 
-  updated_by_user_id: "1"
-  lock_version: "0"
+  updated_by_user_id: "3"
+  lock_version: "1"
   priority_id: 
   study_protocol_id: "20"
   id: "23"
@@ -175,6 +319,52 @@ tasks_011:
   is_milestone: "0"
   created_at: 2007-03-30 21:57:38
   started_at: 2007-03-26 00:00:00
+tasks_045: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Experiment-32-0
+  project_id: "4"
+  updated_at: 2007-05-08 18:53:52
+  expected_hours: "1"
+  ended_at: 2007-05-11 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "57"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Experiment-32 "
+  created_by_user_id: "3"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-05-08 18:53:52
+  started_at: 2007-05-08 00:00:00
+tasks_034: 
+  done_hours: "0"
+  experiment_id: "18"
+  name: Measure body mass-Day7
+  project_id: "9"
+  updated_at: 2007-04-30 06:50:58
+  expected_hours: "1"
+  ended_at: 2007-05-22 00:00:00
+  protocol_version_id: "37"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "28"
+  id: "45"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Measure body mass \r\n\
+    \r\n\
+    Day 7"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:50:58
+  started_at: 2007-05-22 00:00:00
 tasks_023: 
   done_hours: "0"
   experiment_id: "5"
@@ -241,6 +431,52 @@ tasks_001:
   is_milestone: "0"
   created_at: 2007-03-23 13:08:47
   started_at: 2007-03-22 00:00:00
+tasks_046: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Experiment-32-1
+  project_id: "4"
+  updated_at: 2007-05-09 18:11:50
+  expected_hours: "1"
+  ended_at: 2007-05-28 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "58"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Experiment-32 "
+  created_by_user_id: "3"
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-05-08 18:54:22
+  started_at: 2007-05-11 00:00:00
+tasks_035: 
+  done_hours: "0"
+  experiment_id: "18"
+  name: Measure body mass-Day14
+  project_id: "9"
+  updated_at: 2007-04-30 06:51:15
+  expected_hours: "1"
+  ended_at: 2007-05-29 00:00:00
+  protocol_version_id: "37"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "28"
+  id: "46"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Measure body mass \r\n\
+    \r\n\
+    Day 14"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:51:15
+  started_at: 2007-05-29 00:00:00
 tasks_024: 
   done_hours: "0"
   experiment_id: "5"
@@ -307,6 +543,52 @@ tasks_002:
   is_milestone: "0"
   created_at: 2007-03-23 18:03:27
   started_at: 2007-03-23 00:00:00
+tasks_047: 
+  done_hours: "0"
+  experiment_id: "47"
+  name: rshell-75-0
+  project_id: "4"
+  updated_at: 2007-05-09 13:21:58
+  expected_hours: "1"
+  ended_at: 2007-05-16 00:00:00
+  protocol_version_id: "75"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "52"
+  id: "59"
+  assigned_to_user_id: "3"
+  description: " Task in experiment rshell-75 "
+  created_by_user_id: "3"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-05-09 13:21:58
+  started_at: 2007-05-10 00:00:00
+tasks_036: 
+  done_hours: "0"
+  experiment_id: "18"
+  name: Measure body mass-Day21
+  project_id: "9"
+  updated_at: 2007-04-30 06:51:33
+  expected_hours: "1"
+  ended_at: 2007-06-05 00:00:00
+  protocol_version_id: "37"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "28"
+  id: "47"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Measure body mass \r\n\
+    \r\n\
+    Day 21"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:51:33
+  started_at: 2007-06-05 00:00:00
 tasks_025: 
   done_hours: "0"
   experiment_id: "8"
@@ -373,6 +655,74 @@ tasks_003:
   is_milestone: "0"
   created_at: 2007-03-24 16:40:28
   started_at: 2007-03-23 00:00:00
+tasks_048: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Dev-Tests-2
+  project_id: "4"
+  updated_at: 2007-05-09 18:02:47
+  expected_hours: "1"
+  ended_at: 2007-05-10 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "60"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Dev-Tests "
+  created_by_user_id: "3"
+  status_id: "0"
+  is_milestone: 
+  created_at: 2007-05-09 18:02:47
+  started_at: 2007-05-09 00:00:00
+tasks_037: 
+  done_hours: "0"
+  experiment_id: "18"
+  name: Measure body mass-PostOp
+  project_id: "9"
+  updated_at: 2007-04-30 06:51:56
+  expected_hours: "1"
+  ended_at: 2007-06-06 00:00:00
+  protocol_version_id: "37"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "28"
+  id: "48"
+  assigned_to_user_id: "6"
+  description: " Task in experiment Measure body mass \r\n\
+    \r\n\
+    Post operation"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 06:51:56
+  started_at: 2007-06-06 00:00:00
+tasks_026: 
+  done_hours: "0"
+  experiment_id: "14"
+  name: HTSP_AD-T1-0
+  project_id: "5"
+  updated_at: 2007-04-30 04:21:26
+  expected_hours: "1"
+  ended_at: 2007-04-23 00:00:00
+  protocol_version_id: "25"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "4"
+  priority_id: 
+  study_protocol_id: "21"
+  id: "27"
+  assigned_to_user_id: "3"
+  description: Develop assay for MPB project against receptor T1
+  created_by_user_id: "3"
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-04-30 21:14:38
+  started_at: 2007-03-30 00:00:00
 tasks_015: 
   done_hours: "0"
   experiment_id: "5"
@@ -417,6 +767,96 @@ tasks_004:
   is_milestone: "0"
   created_at: 2007-03-24 17:15:59
   started_at: 2007-03-26 00:00:00
+tasks_050: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Dev-Tests-4
+  project_id: "4"
+  updated_at: 2007-05-09 18:03:54
+  expected_hours: "1"
+  ended_at: 2007-05-15 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "62"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Dev-Tests "
+  created_by_user_id: "3"
+  status_id: "-1"
+  is_milestone: 
+  created_at: 2007-05-09 18:03:54
+  started_at: 2007-05-13 00:00:00
+tasks_049: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Dev-Tests-3
+  project_id: "4"
+  updated_at: 2007-05-09 18:03:34
+  expected_hours: "1"
+  ended_at: 2007-05-19 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "61"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Dev-Tests "
+  created_by_user_id: "3"
+  status_id: "1"
+  is_milestone: 
+  created_at: 2007-05-09 18:03:34
+  started_at: 2007-05-12 00:00:00
+tasks_038: 
+  done_hours: "0"
+  experiment_id: "22"
+  name: ConductBBB-10-Day1
+  project_id: "9"
+  updated_at: 2007-04-30 07:03:27
+  expected_hours: "1"
+  ended_at: 2007-05-16 00:00:00
+  protocol_version_id: "38"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "29"
+  id: "50"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductBBB-10 \r\n\
+    \r\n\
+    Day 1"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:03:27
+  started_at: 2007-05-16 00:00:00
+tasks_027: 
+  done_hours: "0"
+  experiment_id: "11"
+  name: HTSP001-T1:0
+  project_id: "5"
+  updated_at: 2007-05-01 06:13:28
+  expected_hours: "1"
+  ended_at: 2007-05-02 00:30:55
+  protocol_version_id: "26"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "3"
+  priority_id: 
+  study_protocol_id: "22"
+  id: "32"
+  assigned_to_user_id: "1"
+  description: This task is linked to external cvs file for import created called HTSP001-T1-HTSP001-T1:0.csv
+  created_by_user_id: "3"
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-04-30 23:30:55
+  started_at: 2007-05-01 00:30:55
 tasks_016: 
   done_hours: "0"
   experiment_id: "5"
@@ -461,18 +901,110 @@ tasks_005:
   is_milestone: "0"
   created_at: 2007-03-30 20:00:38
   started_at: 2007-03-29 00:00:00
+tasks_051: 
+  done_hours: "0"
+  experiment_id: "46"
+  name: Dev-Tests-5
+  project_id: "4"
+  updated_at: 2007-05-09 18:04:14
+  expected_hours: "1"
+  ended_at: 2007-05-17 00:00:00
+  protocol_version_id: "51"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "38"
+  id: "63"
+  assigned_to_user_id: "3"
+  description: " Task in experiment Dev-Tests "
+  created_by_user_id: "3"
+  status_id: "2"
+  is_milestone: 
+  created_at: 2007-05-09 18:04:14
+  started_at: 2007-05-15 00:00:00
+tasks_040: 
+  done_hours: "0"
+  experiment_id: "22"
+  name: ConductBBB-10-Day14
+  project_id: "9"
+  updated_at: 2007-04-30 07:04:07
+  expected_hours: "1"
+  ended_at: 2007-05-29 00:00:00
+  protocol_version_id: "38"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "29"
+  id: "52"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductBBB-10 \r\n\
+    \r\n\
+    Day 14"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:04:07
+  started_at: 2007-05-29 00:00:00
+tasks_039: 
+  done_hours: "0"
+  experiment_id: "22"
+  name: ConductBBB-10-Day7
+  project_id: "9"
+  updated_at: 2007-04-30 07:03:49
+  expected_hours: "1"
+  ended_at: 2007-05-22 00:00:00
+  protocol_version_id: "38"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "29"
+  id: "51"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductBBB-10 \r\n\
+    \r\n\
+    Day 7"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:03:49
+  started_at: 2007-05-22 00:00:00
+tasks_028: 
+  done_hours: "0"
+  experiment_id: "11"
+  name: HTSP001-T1-1
+  project_id: "5"
+  updated_at: 2007-05-01 06:13:56
+  expected_hours: "1"
+  ended_at: 2007-05-01 00:00:00
+  protocol_version_id: "27"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "23"
+  id: "35"
+  assigned_to_user_id: "3"
+  description: Small confirmation run
+  created_by_user_id: "3"
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-05-01 05:39:29
+  started_at: 2007-05-01 00:00:00
 tasks_017: 
   done_hours: "0"
   experiment_id: "5"
   name: DMO-001-11
   project_id: "1"
-  updated_at: 2007-04-30 15:56:50
+  updated_at: 2007-03-30 22:17:35
   expected_hours: "1"
   ended_at: 2007-03-31 00:00:00
   protocol_version_id: "5"
   expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "5"
+  updated_by_user_id: "1"
+  lock_version: "4"
   priority_id: 
   study_protocol_id: "5"
   id: "18"
@@ -505,6 +1037,74 @@ tasks_006:
   is_milestone: "0"
   created_at: 2007-03-30 20:26:03
   started_at: 2007-03-23 00:00:00
+tasks_041: 
+  done_hours: "0"
+  experiment_id: "22"
+  name: ConductBBB-10-Day21
+  project_id: "9"
+  updated_at: 2007-04-30 07:04:32
+  expected_hours: "1"
+  ended_at: 2007-06-05 00:00:00
+  protocol_version_id: "38"
+  expected_at: 
+  updated_by_user_id: "6"
+  lock_version: "0"
+  priority_id: 
+  study_protocol_id: "29"
+  id: "53"
+  assigned_to_user_id: "6"
+  description: " Task in experiment ConductBBB-10 \r\n\
+    \r\n\
+    Day 21"
+  created_by_user_id: "6"
+  status_id: "0"
+  is_milestone: "0"
+  created_at: 2007-04-30 07:04:32
+  started_at: 2007-06-05 00:00:00
+tasks_030: 
+  done_hours: "0"
+  experiment_id: "14"
+  name: HTSP_AD-T1-1
+  project_id: "5"
+  updated_at: 2007-05-01 09:41:31
+  expected_hours: "1"
+  ended_at: 2007-05-01 00:00:00
+  protocol_version_id: "31"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "24"
+  id: "37"
+  assigned_to_user_id: "3"
+  description: Another dose response
+  created_by_user_id: "3"
+  status_id: "1"
+  is_milestone: "0"
+  created_at: 2007-05-01 09:36:25
+  started_at: 2007-05-01 00:00:00
+tasks_029: 
+  done_hours: "0"
+  experiment_id: "11"
+  name: HTSP001-T1-2
+  project_id: "5"
+  updated_at: 2007-05-01 06:14:33
+  expected_hours: "1"
+  ended_at: 2007-05-01 00:00:00
+  protocol_version_id: "28"
+  expected_at: 
+  updated_by_user_id: "3"
+  lock_version: "1"
+  priority_id: 
+  study_protocol_id: "24"
+  id: "36"
+  assigned_to_user_id: "3"
+  description: Put some curves together for the confirmed actives in the MPB project
+  created_by_user_id: "3"
+  status_id: "5"
+  is_milestone: "0"
+  created_at: 2007-05-01 06:06:00
+  started_at: 2007-05-01 00:00:00
 tasks_018: 
   done_hours: "0"
   experiment_id: "5"

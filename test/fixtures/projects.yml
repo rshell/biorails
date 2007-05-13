@@ -1,4 +1,118 @@
 --- 
+projects_007: 
+  done_hours: 
+  name: MPB
+  expected_hours: 
+  updated_at: 2007-04-30 14:07:16
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "3"
+  expected_at: 
+  id: "8"
+  summary: Develop a medicinal drug to reverse the process of male pattern baldness.
+  created_by_user_id: "3"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 14:07:16
+  email: 
+projects_008: 
+  done_hours: 
+  name: NeuroCRO
+  expected_hours: 
+  updated_at: 2007-05-01 01:46:37
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "6"
+  expected_at: 
+  id: "9"
+  summary: This project represents a CNS orientated CRO running a series of studies as a service for clients.
+  created_by_user_id: "2"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 04:35:05
+  email: 
+projects_009: 
+  done_hours: 
+  name: ewtest0004
+  expected_hours: 
+  updated_at: 2007-04-30 19:31:07
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "10"
+  summary: project name isn't duplicated!
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 19:31:06
+  email: 
+projects_010: 
+  done_hours: 
+  name: ewtest001
+  expected_hours: 
+  updated_at: 2007-04-30 19:48:44
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "11"
+  summary: the purpose of this project is to test organisation parameters
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 19:48:44
+  email: 
+projects_011: 
+  done_hours: 
+  name: ewtest1
+  expected_hours: 
+  updated_at: 2007-04-30 20:02:15
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "12"
+  summary: blah blah blah blah
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 20:02:15
+  email: 
+projects_012: 
+  done_hours: 
+  name: ArgentaPOC
+  expected_hours: 
+  updated_at: 2007-04-30 20:55:11
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "4"
+  expected_at: 
+  id: "13"
+  summary: Assess the capabilities of BioRails in Argenta.  Key objective is the generation of the Study report.
+  created_by_user_id: "4"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 20:55:11
+  email: 
 projects_001: 
   done_hours: 
   name: global
@@ -17,6 +131,25 @@ projects_001:
   comment_age: 
   started_at: 
   created_at: 0000-00-00 00:00:00
+  email: 
+projects_013: 
+  done_hours: 
+  name: ewtest2
+  expected_hours: 
+  updated_at: 2007-04-30 22:25:24
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "14"
+  summary: text text text
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 22:25:24
   email: 
 projects_002: 
   done_hours: 
@@ -37,6 +170,25 @@ projects_002:
   started_at: 
   created_at: 2007-04-18 14:38:20
   email: 
+projects_014: 
+  done_hours: 
+  name: ewtest3
+  expected_hours: 
+  updated_at: 2007-04-30 22:47:15
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "15"
+  summary: this is a new project.
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 22:47:15
+  email: 
 projects_003: 
   done_hours: 
   name: AssayDev
@@ -55,6 +207,25 @@ projects_003:
   comment_age: 
   started_at: 
   created_at: 2007-04-20 07:34:32
+  email: 
+projects_015: 
+  done_hours: 
+  name: ewtest4
+  expected_hours: 
+  updated_at: 2007-04-30 23:31:49
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "7"
+  expected_at: 
+  id: "16"
+  summary: this is the summary for ewtest4
+  created_by_user_id: "7"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  created_at: 2007-04-30 23:31:49
   email: 
 projects_004: 
   done_hours: 

@@ -26,6 +26,7 @@
 #
 
 require "faster_csv"
+require 'matrix'
 
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
@@ -108,11 +109,11 @@ class Task < ActiveRecord::Base
 # Ok links to complete sets of TaskItems associated with the Task.
 # Generally for working with data a complete task is loaded into server
 # memory for processing. 
- has_many :values, :class_name=>'TaskValue', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
+ has_many :values, :class_name=>'TaskValue', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
 
- has_many :texts, :class_name=>'TaskText', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
+ has_many :texts, :class_name=>'TaskText', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
 
- has_many :references, :class_name=>'TaskReference', :order =>'task_context_id,parameter_id',:include => ['context','parameter']
+ has_many :references, :class_name=>'TaskReference', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
  
 
 ##
@@ -161,6 +162,18 @@ where tr.task_id = ?
 SQL
    QueueItem.find_by_sql([sql,self.id])
  end
+
+ ##
+ # Get the folder for this task
+ #
+  def folder(item=nil)
+    folder = self.experiment.folder(self)
+    if item
+      return folder.folder(item)
+    else
+      return folder
+    end
+  end  
 ##
 #List of reports setup to run against this task
 #
@@ -186,6 +199,42 @@ SQL
      @done_hours = 0
      refresh
   end 
+
+  def to_titles
+    titles =[]
+    data = {}  
+    titles[0] = self.name
+    process.parameters.each do |p|
+      data[p.column_no] = p.name
+    end  
+    return titles.concat(data.keys.sort.collect{|i|data[i]})
+  end
+
+  def to_rows(context=nil)
+    row_defaults =[]
+    data = {}  
+    process.parameters.each do |p|
+      row_defaults[p.column_no] = p.default_value 
+    end
+    for item in self.items
+        if (context.nil? or context.id == item.context.id or context.id == item.context.parent_id)  
+          if item.context.parent_id and data[item.context.parent.row_no.to_i] and ! data[item.context.row_no.to_i]
+              data[item.context.row_no.to_i] ||= data[item.context.parent.row_no.to_i].clone 
+          end
+          data[item.context.row_no.to_i] ||= row_defaults.clone            
+          data[item.context.row_no.to_i][0] = item.context.label
+          data[item.context.row_no.to_i][item.parameter.column_no] = item.value
+          
+        end        
+    end
+    return data 
+  end
+
+  def to_matrix(context=nil)
+    data = self.to_rows(context)
+    return Matrix.rows(data.keys.sort.collect{|i|data[i]})    
+  end
+ 
   
 ##
 # refresh cached items array
@@ -206,7 +255,10 @@ SQL
     @items.concat(values)
     @items.concat(texts)
     @items.concat(references)
+    @items = @items.sort{|a,b|a.context.row_no <=> b.context.row_no}
  end
+ 
+ 
 ##
 #copy a existing task
 # 

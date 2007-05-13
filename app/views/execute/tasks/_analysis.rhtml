@@ -1,0 +1,45 @@
+<%= form_tag  task_url(:action => 'analysis', :id => @task.id,:run=>"yes") %>
+    <div class="row">
+        <div class="form-element">
+        <label for="analysis_class_name">Analysis Method [<%=@analysis.class_name%>]:</label>
+         <%= select_tag(:method, options_for_select(AnalysisMethod.processors.collect{|i|[i,i]},@analysis.class_name), :id=>'analysis_method'  )%>
+         <%= observe_field 'analysis_method',:url => {:action=>'analysis', :id =>@task},:with =>'method' %>
+        </div>    
+    </div>
+    <div class="row">
+       <table class='list'>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Mode</th>
+          <th>Default</th>
+          <th>Parameter</th>
+        </tr>
+        <% for setting in @analysis.settings %>
+        <tr>  
+           <th><%=setting.name%></th>
+           <td><%=setting.type.name%> </td>
+           <td><%=setting.style%> </td>
+           <td><%=setting.default_value%></td>
+           <td>
+              <%if setting.level_no==0 %>
+                    <%=select_tag "setting[#{setting.name}][parameter_id]", options_for_select(@level0,setting.parameter_id) %>
+              <%elsif setting.level_no==1 %>
+                    <%=select_tag "setting[#{setting.name}][parameter_id]", options_for_select(@level1,setting.parameter_id) %>
+              <%else%>
+                    <%if setting.options %>
+                      <%=select_tag "setting[#{setting.name}][default_value]", options_for_select(setting.options, setting.default_value) %>
+                    <% else %>
+                      <%= text_field_tag "setting[#{setting.name}][default_value]",setting.default_value, :size=>40%>   
+                    <% end%>   
+              <%end %>
+           </td>
+        </tr>
+        <% end %> 
+       <table>
+    </div>
+    <div class='row'>
+      <%= submit_tag 'Run' %>
+    </div>
+ </div>
+<%= end_form_tag %>

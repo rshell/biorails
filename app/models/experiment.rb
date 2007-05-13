@@ -82,6 +82,19 @@ class Experiment < ActiveRecord::Base
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 
+#
+# Get the folder for this protocol
+#
+  def folder(item=nil)
+    folder = self.project.folder(self)
+    if item
+      return folder.folder(item)
+    else
+      return folder
+    end
+  end
+
+
 ##
 # first task to start in the experiment
 #   

@@ -22,69 +22,69 @@ class TaskTest < Test::Unit::TestCase
   def test001_status
     task = Task.new(:name=>'test')
     task.status_id = nil
-    assert task.current_state =='undefined'
+    assert task.status =='new'
 
-    task.current_state = CurrentStatus::NEW
-    assert task.status_id==CurrentStatus::NEW 
-    assert task.is_allowed_state(CurrentStatus::ACCEPTED)
-    assert task.is_allowed_state(CurrentStatus::REJECTED)
+    task.status = Alces::ScheduledItem::NEW
+    assert task.status_id==Alces::ScheduledItem::NEW 
+    assert task.is_allowed_state(Alces::ScheduledItem::ACCEPTED)
+    assert task.is_allowed_state(Alces::ScheduledItem::REJECTED)
     assert task.is_new
 
-    task.current_state = CurrentStatus::REJECTED
-    assert task.status_id==CurrentStatus::REJECTED
-    assert task.is_allowed_state(CurrentStatus::ACCEPTED)
+    task.status = Alces::ScheduledItem::REJECTED
+    assert task.status_id==Alces::ScheduledItem::REJECTED
+    assert task.is_allowed_state(Alces::ScheduledItem::ACCEPTED)
     assert task.has_failed
 
-    task.current_state = CurrentStatus::ACCEPTED
-    assert task.status_id==CurrentStatus::ACCEPTED
-    assert task.is_status(CurrentStatus::ACCEPTED)
+    task.status = Alces::ScheduledItem::ACCEPTED
+    assert task.status_id==Alces::ScheduledItem::ACCEPTED
+    assert task.is_status(Alces::ScheduledItem::ACCEPTED)
     assert task.is_status('accepted')
     assert task.is_status([1,2,3])
     assert task.allowed_status_list.size>1
-    assert task.is_allowed_state(CurrentStatus::COMPLETED)
-    assert task.is_allowed_state(CurrentStatus::WAITING)
-    assert task.is_allowed_state(CurrentStatus::PROCESSING)
-    assert task.is_allowed_state(CurrentStatus::ABORTED)
-    assert task.is_allowed_state(CurrentStatus::REJECTED)  
+    assert task.is_allowed_state(Alces::ScheduledItem::COMPLETED)
+    assert task.is_allowed_state(Alces::ScheduledItem::WAITING)
+    assert task.is_allowed_state(Alces::ScheduledItem::PROCESSING)
+    assert task.is_allowed_state(Alces::ScheduledItem::ABORTED)
+    assert task.is_allowed_state(Alces::ScheduledItem::REJECTED)  
 
-    task.current_state = 'waiting'
-    assert task.status_id==CurrentStatus::WAITING
-    assert task.is_allowed_state(CurrentStatus::COMPLETED)
-    assert task.is_allowed_state(CurrentStatus::PROCESSING)
-    assert task.is_allowed_state(CurrentStatus::ABORTED)
-    assert !task.is_allowed_state(CurrentStatus::REJECTED)  # can only abort now 
+    task.status = 'waiting'
+    assert task.status_id==Alces::ScheduledItem::WAITING
+    assert task.is_allowed_state(Alces::ScheduledItem::COMPLETED)
+    assert task.is_allowed_state(Alces::ScheduledItem::PROCESSING)
+    assert task.is_allowed_state(Alces::ScheduledItem::ABORTED)
+    assert !task.is_allowed_state(Alces::ScheduledItem::REJECTED)  # can only abort now 
 
-    task.current_state = CurrentStatus::PROCESSING
-    assert task.status_id==CurrentStatus::PROCESSING
+    task.status = Alces::ScheduledItem::PROCESSING
+    assert task.status_id==Alces::ScheduledItem::PROCESSING
     assert task.is_status('processing')
     assert task.is_active
 
-    assert task.is_allowed_state(CurrentStatus::COMPLETED)
-    assert task.is_allowed_state(CurrentStatus::WAITING)
-    assert task.is_allowed_state(CurrentStatus::PROCESSING)
-    assert task.is_allowed_state(CurrentStatus::ABORTED)
-    assert task.is_allowed_state(CurrentStatus::VALIDATION)
-    assert !task.is_allowed_state(CurrentStatus::REJECTED)  # can only abort now    
+    assert task.is_allowed_state(Alces::ScheduledItem::COMPLETED)
+    assert task.is_allowed_state(Alces::ScheduledItem::WAITING)
+    assert task.is_allowed_state(Alces::ScheduledItem::PROCESSING)
+    assert task.is_allowed_state(Alces::ScheduledItem::ABORTED)
+    assert task.is_allowed_state(Alces::ScheduledItem::VALIDATION)
+    assert !task.is_allowed_state(Alces::ScheduledItem::REJECTED)  # can only abort now    
 
      ## cant reset for accepted only active
-    task.current_state = CurrentStatus::ACCEPTED
-    assert task.status_id==CurrentStatus::PROCESSING
+    task.status = Alces::ScheduledItem::ACCEPTED
+    assert task.status_id==Alces::ScheduledItem::PROCESSING
 
-    task.current_state = CurrentStatus::REJECTED ## cant reject a active task!
-    assert task.status_id==CurrentStatus::PROCESSING
+    task.status = Alces::ScheduledItem::REJECTED ## cant reject a active task!
+    assert task.status_id==Alces::ScheduledItem::PROCESSING
 
-    task.current_state = CurrentStatus::VALIDATION
-    assert task.status_id==CurrentStatus::VALIDATION
-    assert task.is_allowed_state(CurrentStatus::COMPLETED)
-    assert task.is_allowed_state(CurrentStatus::WAITING)
-    assert task.is_allowed_state(CurrentStatus::PROCESSING)
-    assert !task.is_allowed_state(CurrentStatus::REJECTED)
-    assert task.is_allowed_state(CurrentStatus::ABORTED)
+    task.status = Alces::ScheduledItem::VALIDATION
+    assert task.status_id==Alces::ScheduledItem::VALIDATION
+    assert task.is_allowed_state(Alces::ScheduledItem::COMPLETED)
+    assert task.is_allowed_state(Alces::ScheduledItem::WAITING)
+    assert task.is_allowed_state(Alces::ScheduledItem::PROCESSING)
+    assert !task.is_allowed_state(Alces::ScheduledItem::REJECTED)
+    assert task.is_allowed_state(Alces::ScheduledItem::ABORTED)
 
-    task.current_state = CurrentStatus::COMPLETED
+    task.status = Alces::ScheduledItem::COMPLETED
     
-    assert task.status_id==CurrentStatus::COMPLETED
-    assert task.is_status(CurrentStatus::COMPLETED)
+    assert task.status_id==Alces::ScheduledItem::COMPLETED
+    assert task.is_status(Alces::ScheduledItem::COMPLETED)
     assert task.is_status('completed')
     assert task.is_status([1,2,3,4,5])
     assert task.allowed_status_list.size==1

@@ -1,3 +1,4 @@
+require 'x_y_plot'
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
@@ -58,6 +59,20 @@ class Execute::TasksController < ApplicationController
 # 
   def analysis
     set_task
+    @level1 =  @task.process.parameters.reject{|i|i.context.parent.nil?}.collect{|i|[i.name,i.id]}
+    @level0 =  @task.process.parameters.reject{|i|!i.context.parent.nil?}.collect{|i|[i.name,i.id]}
+    @analysis = AnalysisMethod.setup(params)
+    @analysis.run(@task)  if params[:run]
+    
+    respond_to do | format |
+      format.html { render :action => 'analysis'}
+      format.xml  { render :xml =>  @task.to_xml}
+      format.text  { render :xml =>  @task.to_csv}
+      format.js   { render :update do | page |
+           page.replace_html 'analysis-form',  :partial => 'analysis' 
+           page.replace_html 'analysis-run',  :inline => @analysis.report(@task) if @analysis.has_run? 
+         end }
+    end
   end
 
 ##

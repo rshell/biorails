@@ -119,6 +119,19 @@ data_concepts_003:
   created_by_user_id: "1"
   parent_id: "1"
   created_at: 2006-09-06 19:35:22
+data_concepts_026: 
+  name: LinkedElements
+  updated_at: 2007-04-30 15:12:38
+  access_control_id: 
+  updated_by_user_id: "2"
+  type: DataConcept
+  lock_version: "1"
+  data_context_id: "0"
+  id: "51"
+  description: Associate linked elements in BioRails to parameters
+  created_by_user_id: "2"
+  parent_id: "39"
+  created_at: 2007-04-30 15:12:38
 data_concepts_015: 
   name: Task
   updated_at: 2006-11-22 12:53:17

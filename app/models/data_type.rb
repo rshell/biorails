@@ -21,6 +21,14 @@
 
 class DataType < ActiveRecord::Base
   included Named
+  
+  TEXT =1
+  NUMERIC = 2
+  DATE = 3
+  TIME = 4
+  DICTIONARY = 5
+  URL =6
+  ASSET = 7
 ##
 # This record has a full audit log created for changes 
 #   

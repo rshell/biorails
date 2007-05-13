@@ -1,4 +1,64 @@
 --- 
+project_contents_056: 
+  name: ProjectContent-74
+  updated_at: 2007-04-30 22:36:51
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body>  BAL was micro-centrifuged (2,700 rpm for 5 min), the supernatant removed (for other analysis parameters) and 0.5ml PBS added to the cell pellet.&nbsp; The cell suspension was centrifuged again, the supernatant discarded and 0.1ml PBS added.&nbsp; 10ul of this cell suspension was then taken for wet cell counts. Following the wet counts cytospins were prepared for differential cell counts.<br />Mucin content was quantified using the UEA-1 Enzyme Linked Lectin Assay (ELLA). Protease activity was measured using a Molecular Probes Fluorescence &lsquo;EnzChek&rsquo; Protease Assay kit. <br />70?l of BAL was sent to Charles River for Luminex multi-analyte profiling (MAP) by Rules Based Medicine (RBM, Texas, USA).   </body> </html>
+  project_id: "13"
+  body: 
+  title: BAL Analysis
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "3"
+  type: 
+  id: "65"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:50:34
+project_contents_045: 
+  name: ProjectContent-61
+  updated_at: 2007-04-30 16:01:42
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <p><strong>High-throughput screening (HTS)</strong>, is a method for scientific <a href=\"http://en.wikipedia.org/wiki/Experiment\" title=\"Experiment\">experimentation</a> especially used in drug discovery and relevant to the fields of <a href=\"http://en.wikipedia.org/wiki/Biology\" title=\"Biology\">biology</a> and <a href=\"http://en.wikipedia.org/wiki/Chemistry\" title=\"Chemistry\">chemistry</a>.</p>   //<![CDATA[  if (window.showTocToggle) { var tocShowText = \"show\"; var tocHideText = \"hide\"; showTocToggle(); }  //]]>  <p><a id=\"Purpose_and_method\" name=\"Purpose_and_method\"></a></p> <h2><span class=\"mw-headline\">Purpose and method</span></h2> <p>Through a combination of modern <a href=\"http://en.wikipedia.org/wiki/Robotics\" title=\"Robotics\">robotics</a>, data processing and control software, liquid handling devices, and sensitive detectors, HTS allows a researcher to effectively conduct millions of biochemical, genetic or pharmacological tests in a short period of time. Through this process one can rapidly identify active compounds, antibodies or genes which modulate a particular biomolecular pathway. The results of these experiments provide starting points for drug design and for understanding the interaction or role of a particular biochemical process in biology.</p> <p>In essence, HTS uses a <a href=\"http://en.wikipedia.org/wiki/Brute_force\" title=\"Brute force\">brute-force</a> approach to collect a large amount of experimental data -- usually observations about how some biological entity reacts to exposure to various chemical compounds -- in a relatively short time. A <em>screen</em>, in this context, is the larger experiment, with a single goal (usually testing a <a href=\"http://en.wikipedia.org/wiki/Scientific_hypothesis\" title=\"Scientific hypothesis\">scientific hypothesis</a>), to which all this data may subsequently be applied.</p> <p>A key piece of HTS equipment is a <em>plate</em>: a small container, usually made of plastic, that features a grid of small, open divots called <em>wells</em>. Most of the wells contain experimentally useful matter, often a <a href=\"http://en.wikipedia.org/wiki/Solution\" title=\"Solution\">solution</a> of <a href=\"http://en.wikipedia.org/wiki/Dimethyl_sulfoxide\" title=\"Dimethyl sulfoxide\">dimethyl sulfoxide</a> (DMSO) and some other <a href=\"http://en.wikipedia.org/wiki/Chemical_compound\" title=\"Chemical compound\">chemical compound</a>, the latter of which is different for each well across the plate. (The other wells are empty, intended for use as optional experimental <a href=\"http://en.wikipedia.org/wiki/Control\" title=\"Control\">controls</a>.)</p> <p>To prepare for an assay, the researcher fills each well of the plate with some biological entity that he or she wishes to conduct the experiment upon, such as a <a href=\"http://en.wikipedia.org/wiki/Protein\" title=\"Protein\">protein</a>, some <a href=\"http://en.wikipedia.org/wiki/Cell_%28biology%29\" title=\"Cell (biology)\">cells</a>, or an animal <a href=\"http://en.wikipedia.org/wiki/Embryo\" title=\"Embryo\">embryo</a>. After some <a href=\"http://en.wikipedia.org/wiki/Incubation\" title=\"Incubation\">incubation</a> time has passed to allow the biological matter to absorb, bind to, or otherwise react (or fail to react) with the compounds in the wells, measurements are taken across all the plate&#39;s wells, either manually or by a machine. Manual measurements are often necessary when the researcher is using <a href=\"http://en.wikipedia.org/wiki/Microscopy\" title=\"Microscopy\">microscopy</a> to (for example) seek changes or defects in embryonic development caused by the wells&#39; compounds, looking for effects that a computer could not easily determine by itself. Otherwise, a specialized automated analysis machine can run a number of experiments on the wells (such as shining polarized light on them and measuring reflectivity, which can be an indication of protein binding). In this case, the machine outputs the result of each experiment as a grid of numeric values, with each number mapping to the value obtained from a single well. A high-capacity analysis machine can measure dozens of plates in the space of a few minutes like this, generating thousands of experimental datapoints very quickly.</p> <p>Depending upon the results of this first assay, the researcher can perform follow up assays within the same screen by &quot;cherrypicking&quot; liquid from the wells that gave interesting results (known as &quot;hits&quot;) into new assay plates, and then re-running the experiment to collect further data on this narrowed set, confirming and refining observations.</p> <p>A screening facility typically holds a library of <em>stock plates</em>, whose contents are carefully catalogued, and each of which may have been created by the lab or obtained from a commercial source. These stock plates themselves are not directly used in experiments; instead, separate <em>assay plates</em> are created as needed. An assay plate is simply a copy of a stock plate, created by <a href=\"http://en.wikipedia.org/wiki/Pipette\" title=\"Pipette\">pipetteing</a> a small amount of liquid (often measured in <a href=\"http://en.wikipedia.org/wiki/Nanoliter\" title=\"Nanoliter\">nanoliters</a>) from the wells of a stock plate to the corresponding wells of a completely empty plate.</p> <p><a href=\"http://en.wikipedia.org/wiki/Automation\" title=\"Automation\">Automation</a> is an important element in HTS&#39;s usefulness. A specialized <a href=\"http://en.wikipedia.org/wiki/Robot\" title=\"Robot\">robot</a> is often responsible for much of the process over the lifetime of a single assay plate, from creation through final analysis. An HTS robot can usually prepare and analyze many plates simultaneously, further speeding the data-collection process. HTS robots currently exist which can test up to 100,000 compounds per day (Hann 2004).</p> <p>HTS is a relatively recent innovation, made lately feasible through modern advances in robotics and high-speed computer technology. It still takes a highly specialized and expensive screening lab to run an HTS operation, however, so in many cases a small-to-moderately sized research institution will use the services of an existing HTS facility rather than set up one for itself.</p> <p>There is a trend in academia to be their own drug discovery enterprise. Facilities which normally only industry had can now increasingly be found as well at universities. UCLA for example features an HTS laboratory (<a rel=\"nofollow\" href=\"http://mssr.pharmacology.ucla.edu/\" title=\"http://mssr.pharmacology.ucla.edu\" class=\"external text\">Molecular Screening Shared Resources</a> (MSSR, UCLA)) which screens up to 100,000 compounds a day on a routine basis.</p> </body> </html>"
+  project_id: "5"
+  body: 
+  title: HTS definition
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "54"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 16:01:42
+project_contents_034: 
+  name: ProjectContent-50
+  updated_at: 2007-04-30 14:10:39
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <p>Revivogen is a non-FDA approved topical DHT inhibitor treatment applied to the scalp, with many ingredients, such as certain <a href=\"http://en.wikipedia.org/wiki/Fatty_acid\" title=\"Fatty acid\">fatty acids</a>, that are thought, though not proven, to inhibit DHT levels in the scalp and have a positive influence in combating hair loss. Revivogen also contains ingredients that are thought, though not proven, to function as an <a href=\"http://en.wikipedia.org/wiki/Antiandrogens\" title=\"Antiandrogens\">antiandrogen</a> (see below) that has a positive influence in combating hair loss. Clinical trials are reportedly underway.<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup></p> <p>Revivogen uses simple mixtures of fatty acids (<a href=\"http://en.wikipedia.org/wiki/Gamma-linolenic_acid\" title=\"Gamma-linolenic acid\">gamma-linolenic acid</a>, <a href=\"http://en.wikipedia.org/wiki/Alpha-linolenic_acid\" title=\"Alpha-linolenic acid\">alpha-linolenic acid</a>, and others, which are thought to be inhibitors of <a href=\"http://en.wikipedia.org/wiki/5-alpha_reductase\" title=\"5-alpha reductase\">5-alpha reductase</a>, both type I and type II <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-liang1\">[3]</a></sup> <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-liang2\">[4]</a></sup> <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-niederprum\">[5]</a></sup> ), in their free form, that come from the bulk de-<a href=\"http://en.wikipedia.org/wiki/Esterification\" title=\"Esterification\">esterification</a> of natural oils like <a href=\"http://en.wikipedia.org/wiki/Borage_seed_oil\" title=\"Borage seed oil\">borage seed oil</a> and <a href=\"http://en.wikipedia.org/wiki/Linseed_oil\" title=\"Linseed oil\">linseed oil</a>.</p> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Revivogen
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "43"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:10:39
 project_contents_023: 
   name: ProjectContent-31
   updated_at: 2007-04-25 20:11:17
@@ -59,6 +119,66 @@ project_contents_001:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-18 14:33:14
+project_contents_057: 
+  name: ProjectContent-75
+  updated_at: 2007-04-30 22:35:38
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> Left lung lobes fixed in 10% PBF were sent to Medical Solutions for histology. Lung samples were processed and embedded in paraffin wax blocks. 4&micro;m sections were cut from each lobe with one being stained for detection of mucins (ABPAS) and 3 left unstained for future use.   </body> </html>
+  project_id: "13"
+  body: 
+  title: Histology
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  type: 
+  id: "66"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:51:38
+project_contents_046: 
+  name: ProjectContent-62
+  updated_at: 2007-04-30 19:26:34
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <h1>High Throughput Screen Report</h1><h1><img src="http://www.edgesoftwareconsultancy.com/images/edgelogo.jpg" alt="The Edge" title="The Edge" width="104" height="94" align="right" /></h1> <h2>HTS Service</h2><br /><table border="1"><tbody><tr><td align="right"><em>Target:</em></td><td><strong>&nbsp;T1</strong></td></tr><tr><td align="right"><em>&nbsp;Assay Definition:<br /></em></td><td><strong>&nbsp;HTSP-Standard-T1</strong></td></tr><tr><td align="right"><em>&nbsp;Project:</em></td><td><strong>MPB&nbsp;</strong></td></tr><tr><td align="right"><em>&nbsp;Screen Manager:<br /></em></td><td><strong>Ted Hawkins&nbsp;</strong></td></tr><tr><td align="right"><em>&nbsp;Date:</em></td><td><strong>&nbsp;</strong></td></tr></tbody></table>  </body> </html>
+  project_id: "5"
+  body: 
+  title: Front Page
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: 
+  id: "55"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 18:04:01
+project_contents_035: 
+  name: ProjectContent-51
+  updated_at: 2007-04-30 14:11:06
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <a href="http://en.wikipedia.org/wiki/Ketoconazole" title="Ketoconazole">Ketoconazole</a> is a synthetic <a href="http://en.wikipedia.org/wiki/Antifungal_drug" title="Antifungal drug">antifungal drug</a> used to <a href="http://en.wikipedia.org/wiki/Prophylaxis" title="Prophylaxis">prevent</a> and treat skin and fungal infections, especially in <a href="http://en.wikipedia.org/wiki/Immune_deficiency" title="Immune deficiency">immunocompromised</a> patients such as those with <a href="http://en.wikipedia.org/wiki/AIDS" title="AIDS">AIDS</a>. Because it is both an anti-fungal and also a <a href="http://en.wikipedia.org/wiki/5-alpha_reductase" title="5-alpha reductase">5-alpha reductase</a> inhibitor, it can help to slow the balding process. <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-HugoPerez">[6]</a></sup> <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-pierard">[7]</a></sup> There has been some suggestion that ketoconazole could inhibit testosterone synthesis in utero, which could potentially inhibit genital development of a male fetus. However, this has not been documented in any controlled studies. <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-0">[8]</a></sup> </body> </html>
+  project_id: "8"
+  body: 
+  title: Ketoconazole
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "44"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:11:06
 project_contents_024: 
   name: ProjectContent-31
   updated_at: 2007-04-25 20:12:07
@@ -119,6 +239,66 @@ project_contents_002:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 10:16:27
+project_contents_058: 
+  name: rshell-72
+  updated_at: 2007-05-08 13:39:04
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> Some content </body> </html>
+  project_id: "1"
+  body: 
+  title: test
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "67"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-05-08 13:39:04
+project_contents_047: 
+  name: ProjectContent-63
+  updated_at: 2007-04-30 19:31:16
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body><h2>  Logistics</h2><table border=\"1\"><tbody><tr><td style=\"text-align: right\">&nbsp;Site:</td><td style=\"font-weight: bold\">&nbsp;Aldershot</td></tr><tr><td style=\"text-align: right\">&nbsp;Group:</td><td style=\"font-weight: bold\">The Edge&nbsp;</td></tr><tr><td style=\"text-align: right\">&nbsp;Start Date:<br /></td><td style=\"font-weight: bold\">&nbsp;</td></tr><tr><td style=\"text-align: right\">&nbsp;End Date:<br /></td><td style=\"font-weight: bold\">&nbsp;</td></tr></tbody></table><h2>&nbsp;Assay Details</h2><table border=\"1\" cellspacing=\"3\" cellpadding=\"3\"><tbody><tr><td style=\"text-align: right; font-style: italic\">Target&nbsp;</td><td style=\"font-weight: bold\">T1&nbsp;</td></tr><tr><td style=\"text-align: right; font-style: italic\">&nbsp;Reagent Information<br /></td><td style=\"font-weight: bold\">&nbsp;&lt;Add biological reagent information&gt;</td></tr><tr><td style=\"text-align: right; font-style: italic\">&nbsp;Study Design<br /></td><td style=\"font-weight: bold\">&nbsp;&lt;FullScreen&gt;</td></tr><tr><td style=\"text-align: right; font-style: italic\">&nbsp;Lab Notebook Pages<br /></td><td style=\"font-weight: bold\">&nbsp;&lt;Add lnb numbers for assay development&gt;</td></tr></tbody></table>  </body> </html>"
+  project_id: "5"
+  body: 
+  title: Executive Summary
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  type: 
+  id: "56"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 18:34:38
+project_contents_036: 
+  name: ProjectContent-52
+  updated_at: 2007-04-30 14:11:39
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <a href="http://en.wikipedia.org/wiki/Saw_palmetto" title="Saw palmetto">Saw palmetto</a> (<em>Serenoa repens</em>) is an <a href="http://en.wikipedia.org/wiki/Herbal_medicine" title="Herbal medicine">herbal</a> DHT inhibitor which is cheaper than most commercial drugs and is claimed to have fewer side effects than finasteride and dutasteride. Unlike other 5-alpha-reductase inhibitors, saw palmetto extract inhibits the conversion of testosterone to DHT without interfering with the cellular capacity to secrete <a href="http://en.wikipedia.org/wiki/Prostate_specific_antigen" title="Prostate specific antigen">PSA</a>.<sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-habib">[9]</a></sup> Saw palmetto extract has been demonstrated to inhibit both isoforms of alpha-5-reductase unlike finasteride which only inhibits the (predominant) type 2 isoenzyme of alpha-5-reductase.<sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-prager">[10]</a></sup> <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-marks">[11]</a></sup> It must be noted that DHT inhibition <a href="http://en.wikipedia.org/wiki/In_vitro" title="In vitro">in vitro</a> does not necessarily imply inhibition <a href="http://en.wikipedia.org/wiki/In_vivo" title="In vivo">in vivo</a>. A preliminary study of saw palmetto extract for treating hair loss noted improvement in six of ten subjects over a six month period. Dosages were not reported. <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-prager">[10]</a></sup> The small size of the study and its relatively short duration limit must be noted. <p>There hasn&#39;t been a single reputable study done showing that Saw Palmetto has any effect on treating hair loss. One study can be found in PubMed, but it was run by the makers of a saw palmetto product, and was publicly labeled as &quot;Bunk&quot; on 20/20 in January 2003 on nationwide television because it only included 10 participants and lasted only 6 months. <sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-marks">[11]</a></sup></p> </body> </html>
+  project_id: "8"
+  body: 
+  title: Saw palmetto
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "45"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:11:39
 project_contents_025: 
   name: ProjectContent-33
   updated_at: 2007-04-25 20:15:01
@@ -179,6 +359,66 @@ project_contents_003:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 10:17:13
+project_contents_059: 
+  name: rshell-111
+  updated_at: 2007-05-11 12:46:55
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> tyedsgsdl;hsdkl;h klkl; s;h </body> </html>
+  project_id: "4"
+  body: 
+  title: test
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "68"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-05-11 12:46:55
+project_contents_048: 
+  name: ProjectContent-64
+  updated_at: 2007-04-30 19:39:58
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <table border="1"><tbody><tr><td><strong>Stage<br /></strong></td><td><strong>&nbsp;Number progressed<br /></strong></td><td>&nbsp;<strong>Percentage of Total</strong><br /></td></tr><tr><td>&nbsp;Primary Screen<br /></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;Secondary Screen<br /></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;Dose Response<br /></td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>  </body> </html>
+  project_id: "5"
+  body: 
+  title: Progression
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: 
+  id: "57"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 19:39:16
+project_contents_037: 
+  name: ProjectContent-53
+  updated_at: 2007-04-30 14:12:10
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> Copper peptides are applied topically to the scalp, and shorten the resting phase of hairs, resulting in more hair follicles on the scalp being in the growing phase (as opposed to the resting or falling out phase) at one time. Copper peptides generally have <a href=\"http://en.wikipedia.org/wiki/Superoxide\" title=\"Superoxide\">superoxide</a> <a href=\"http://en.wikipedia.org/wiki/Dismutation\" title=\"Dismutation\">dismutation</a> activity. See <a rel=\"nofollow\" href=\"http://www.drproctor.com/patents/pro876.html\" title=\"http://www.drproctor.com/patents/pro876.html\" class=\"external text\">US patent 5,470,876, &quot;Topical SOD for treating hair loss&quot;</a>. There is a strong belief in the hair loss treatment community that SOD based treatments may reduce scalp irritation and dandruff often associated with hair loss, and other hair loss treatments. <p>SOD&#39;s likely work by destroying superoxide, the antagonist to <a href=\"http://en.wikipedia.org/wiki/Nitric_oxide\" title=\"Nitric oxide\">Nitric oxide</a> (NO), the natural form of minoxidil. Superoxide has an &quot;agonist-antagonist&quot; relationship with Nitric oxide or &quot;Endothelium-derived Relaxing Factor&quot;. See <a rel=\"nofollow\" href=\"http://www.drproctor.com/Archd.htm\" title=\"http://www.drproctor.com/Archd.htm\" class=\"external text\">&quot;Endothelium-Derived Relaxing Factor and Minoxidil: Active Mechanisms in Hair Growth&quot;, <em>Archives in Dermatology</em>, vol 125, August, 1989</a></p> <p>A product called Tricomin, released by Procyte, based on Copper Peptides was shown in FDA studies to produce results similar to 2% minoxidil. FDA studies were discontinued, according to Procyte, because of the expense. While by today&#39;s standards these results are quite sub-par, compounds based on this formula are licensed by Procyte to &quot;cosmo-ceutical&quot; makers, and have been shown in clinical studies to help hair grafts take after the transplant.<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup></p> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Copper peptides
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "46"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:12:10
 project_contents_026: 
   name: ProjectContent-34
   updated_at: 2007-04-25 21:20:30
@@ -239,6 +479,46 @@ project_contents_004:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 10:19:28
+project_contents_049: 
+  name: ProjectContent-66
+  updated_at: 2007-04-30 06:18:03
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body>   <p class=\"MsoBodyText2\"><span>The rats are anesthetized with an i.p. injection of ketamine (75 mg/kg) and xylazine (10 mg/kg). The dorsal aspect of the back is shaved and scrubbed with betadine solution. An adequate depth of anesthesia is determined by monitoring the corneal reflex. A laminectomy is performed at T9-T10 level exposing the cord without disrupting the dura mater. The spinous processes of T8 and T11 are clamped to stabilize the spine, and the exposed dorsal surface of the cord is subjected to weight drop impact using a 10 g rod (2.5 mm in diameter) and dropped at the height of 25 mm. After the injury and vehicle or drug infusion, the muscles and skin are closed in layers.</span><span></span></p>  <p class=\"MsoBodyText2\"><span>Post-operative treatment includes saline (5 ml s.c. on days 0-7 or until needed) for re-hydration. <span>Manual bladder expression is performed twice daily until reflex bladder emptying is established. Recovery of the bladder control is recorded. </span>During the first week post-injury, the bedding is changed daily.<span> </span>At the time of sacrifice, spinal cord compression is examined by inspection of the dorsal cord surface for any gross deformity.</span></p>  <h2 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620473\"></a><a name=\"_Toc152059705\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"></span><font size=\"3\"><span style=\"font-family: Arial; font-weight: normal\">Drug Delivery</span></font></span><font size=\"3\"><span style=\"font-family: Arial; font-weight: normal\"></span></font></h2>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span style=\"font-weight: normal\">Twenty minutes after SCI the femoral vein is cannulated. Vehicle or specified dosing of XXXX is infused using PE-10 tubing connected to 5 ml syringe in an infusion syringe pump (Univentor 801, TSE Systems, Germany). The infusion time is 50 min and the XXXX concentrations applied are XX (low dose), XX (medium dose) and XX (high dose) &micro;g/&micro;l. The infusion rate is 300 &micro;l/kg/min for the first 5 min, and 100 &micro;l/kg/min after that. After infusion is complete, the cannula is removed and the femoral vein occluded. The wound is closed, disinfected and the rat is allowed to recover.</span></p>   </body> </html>"
+  project_id: "9"
+  body: 
+  title: Instructions for TSCI
+  published: "0"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: 
+  id: "58"
+  lock_timeout: 
+  created_by_user_id: "6"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 06:18:03
+project_contents_038: 
+  name: ProjectContent-54
+  updated_at: 2007-04-30 14:12:51
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> In animal models, the nitroxide spin labels TEMPO and TEMPOL enhance hair regrowth following radiation. National Cancer Institute-sponsored clinical trials <a rel="nofollow" href="http://clincancerres.aacrjournals.org/cgi/content/full/10/19/6411" title="http://clincancerres.aacrjournals.org/cgi/content/full/10/19/6411" class="external text">report</a> TEMPOL is similarly effective in humans. Also see United States Patent 5,714,482 &quot;Topical spin labels and method&quot;. </body> </html>
+  project_id: "8"
+  body: 
+  title: Spin Labels
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "47"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:12:51
 project_contents_027: 
   name: ProjectContent-39
   updated_at: 2007-04-25 20:22:02
@@ -299,6 +579,46 @@ project_contents_005:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 10:21:01
+project_contents_050: 
+  name: ProjectContent-67
+  updated_at: 2007-04-30 19:15:44
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body>   <div class=\"Section1\">  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"display: none; font-weight: normal\">To get help on template, choose <em>Help</em></span><em><span style=\"font-family: Symbol; display: none; font-weight: normal\"><span>&reg;</span></span></em><em><span style=\"display: none; font-weight: normal\">Template Help</span></em><span style=\"display: none; font-weight: normal\"> or click toolbar button <!--[if gte vml 1]><v:shapetype  id=\"_x0000_t75\" coordsize=\"21600,21600\" o:spt=\"75\" o:preferrelative=\"t\"  path=\"m@4@5l@4@11@9@11@9@5xe\" filled=\"f\" stroked=\"f\">  <v:stroke joinstyle=\"miter\"/>  <v:formulas>   <v:f eqn=\"if lineDrawn pixelLineWidth 0\"/>   <v:f eqn=\"sum @0 1 0\"/>   <v:f eqn=\"sum 0 0 @1\"/>   <v:f eqn=\"prod @2 1 2\"/>   <v:f eqn=\"prod @3 21600 pixelWidth\"/>   <v:f eqn=\"prod @3 21600 pixelHeight\"/>   <v:f eqn=\"sum @0 0 1\"/>   <v:f eqn=\"prod @6 1 2\"/>   <v:f eqn=\"prod @7 21600 pixelWidth\"/>   <v:f eqn=\"sum @8 21600 0\"/>   <v:f eqn=\"prod @7 21600 pixelHeight\"/>   <v:f eqn=\"sum @10 21600 0\"/>  </v:formulas>  <v:path o:extrusionok=\"f\" gradientshapeok=\"t\" o:connecttype=\"rect\"/>  <o:lock v:ext=\"edit\" aspectratio=\"t\"/> </v:shapetype><v:shape id=\"_x0000_i1028\" type=\"#_x0000_t75\" style='width:17.25pt;  height:16.5pt' fillcolor=\"window\">  <v:imagedata src=\"file:///C:\\DOCUME~1\\alemon\\LOCALS~1\\Temp\\msohtml1\\01\\clip_image001.png\"   o:title=\"TemplateHelp\"/> </v:shape><![endif]--><!--[if !vml]--><img src=\"file:///C:/DOCUME%7E1/alemon/LOCALS%7E1/Temp/msohtml1/01/clip_image002.jpg\" alt=\"\" width=\"23\" height=\"22\" /><!--[endif]-->.</span><span style=\"font-weight: normal\"></span></p>  <p style=\"margin-right: 28.1pt; text-align: justify\" class=\"MsoNormal\"><span><!--[if gte vml 1]><v:shape id=\"_x0000_i1026\" type=\"#_x0000_t75\"  style='width:402.75pt;height:48pt' o:ole=\"\">  <v:imagedata src=\"file:///C:\\DOCUME~1\\alemon\\LOCALS~1\\Temp\\msohtml1\\01\\clip_image003.gif\"   o:title=\"\"/> </v:shape><![endif]--><!--[if !vml]--><br /><!--[endif]--><!--[if gte mso 9]><xml>  <o:OLEObject Type=\"Embed\" ProgID=\"MSPhotoEd.3\" ShapeID=\"_x0000_i1026\"   DrawAspect=\"Content\" ObjectID=\"_1239776444\">  </o:OLEObject> </xml><![endif]--></span><span style=\"font-size: 10pt\"></span></p>    <div>  <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">  <tbody><tr>   <td align=\"left\" valign=\"top\" style=\"padding: 0pt 9.35pt\">   <div style=\"border-style: solid none; border-color: silver -moz-use-text-color; border-width: 6pt medium; padding: 12pt 0pt; margin-left: 0pt; margin-right: 28.1pt\">   <p style=\"border: medium none ; padding: 0pt; margin-bottom: 0.0001pt; text-align: center\" class=\"MsoNormal\" align=\"center\"><span style=\"font-size: 20pt; color: black; font-weight: normal\">Traumatic Spinal Cord Injury in Rats</span></p>   <p style=\"border: medium none ; padding: 0pt; margin-bottom: 0.0001pt; text-align: center\" class=\"MsoNormal\" align=\"center\"><span style=\"font-size: 20pt; color: black; font-weight: normal\">- Efficacy Study with XXXX</span></p>   </div>   </td>  </tr> </tbody></table>  </div>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span>&nbsp;</span></p>  <div>  <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">  <tbody><tr>   <td align=\"left\" valign=\"top\" style=\"padding: 0pt 9.35pt\">   <p style=\"background: white none repeat scroll 0% 50%; margin-bottom: 6pt; text-align: justify; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial\" class=\"HangingText2\"><span style=\"font-weight: normal\">Author:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Partners </span>UK Ltd.</span></p>   <p style=\"background: white none repeat scroll 0% 50%; margin-bottom: 6pt; text-align: justify; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial\" class=\"HangingText2\"><span style=\"font-weight: normal\">File name:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>SCI   model &ndash; Efficacy study with XXXX</span></p>      <p style=\"background: white none repeat scroll 0% 50%; margin-bottom: 6pt; text-align: justify; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial\" class=\"HangingText2\"><span style=\"font-weight: normal\">Revision:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0.1</span></p>   <p style=\"background: white none repeat scroll 0% 50%; margin-bottom: 6pt; text-align: justify; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial\" class=\"HangingText2\"><span style=\"font-weight: normal\">Date:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><a name=\"SaveDateOnCoverPage\"></a>2007-04-24</span></p></td></tr></tbody></table></div></div><h1><strong></strong><strong></strong><a name=\"_Toc67801561\"></a><a name=\"_Toc158620467\"></a><a name=\"_Toc152059699\"></a><span><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>1 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Purpose of Study</span></span></span><span><span style=\"font-family: Arial; font-weight: normal\"></span></span></h1>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span><span style=\"font-weight: normal\">The purpose of this study is to investigate whether different doses of XXXX provides functional recovery in a rat model of </span></span><span><span style=\"font-weight: normal\">traumatic spinal cord injury (</span></span><span><span style=\"font-weight: normal\">SCI). Injury of SCI is produced by T10 contusion in Sprague-Dawley (SD) rats. XXXX is administered intravenously after the SCI, and the animals are evaluated for locomotor function and coordinated hind limb functions for 21 days. At the end of the experiment, the spinal cord is dissected, processed and histopathologically examined. The injury volume, spared white matter and viability of ventral horn motor neurons at levels adjacent to the lesion epicenter are investigated.</span></span></p>  <h1 style=\"margin-left: 0pt; text-align: justify; text-indent: 0pt\"><span><a name=\"_Toc158620468\"></a><a name=\"_Toc152059700\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>2 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Background</span></span></span><span><span style=\"font-family: Arial; font-weight: normal\"></span></span></h1>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span><span style=\"font-weight: normal\">Traumatic SCI causes permanent neurological deficits due to the loss of spinal cord neurons and axons. The central region of the spinal cord suffers critical damage by the primary mechanical stress and shows hemorrhagic necrosis. Unlike the primary trauma, which is immediate and beyond therapeutic management, the secondary injury occurs over the hours and days after SCI, further exacerbating tissue loss and neurological impairment. </span></span></p>    <h1 style=\"margin-left: 0pt; text-align: justify; text-indent: 0pt\"><a name=\"_Toc158620469\"></a><a name=\"_Toc152059701\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Materials and Methods</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h1>  <h2 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620470\"></a><a name=\"_Toc152059702\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.1 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Animals</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p class=\"MsoBodyText2\"><span>All animal experiments are carried out according to the National Institute of Health (NIH) guidelines for the care and use of laboratory animals, and approved by the Ethical Committee of the National Laboratory Animal Center, Kuopio, Finland. Altogether 48 adult female Sprague-Dawley rats (Taconic,  Denmark) weighing 200-240 g are used. Animals are housed at a standard temperature (22 &plusmn; 1</span><span>&deg;</span><span>C) and in a light-controlled environment (lights on from 7 am to 8 pm) with <em>ad libitum</em> access to food and water.</span></p>  <p class=\"MsoBodyText2\"><span>Animals are grouped as follows:</span></p>  <p style=\"margin-left: 35.7pt; text-indent: -17.85pt\" class=\"MsoBodyText2\"><!--[if !supportLists]--><span style=\"font-family: Wingdings\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span>12 rats treated with </span><span>Vehicle (i.v., xxx mg/kg, ml/kg) 20 min after SCI<em></em></span></p>  <p style=\"margin-left: 35.7pt; text-indent: -17.85pt\" class=\"MsoBodyText2\"><!--[if !supportLists]--><span style=\"font-family: Wingdings\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span>12 rats treated with low dose of XXXX </span><span>(i.v., xxx mg/kg, ml/kg) 20 min after SCI</span><em><span></span></em></p>  <p style=\"margin-left: 35.7pt; text-indent: -17.85pt\" class=\"MsoBodyText2\"><!--[if !supportLists]--><span style=\"font-family: Wingdings\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span>12 rats treated with medium dose of XXXX </span><span>(i.v., xxx mg/kg, ml/kg) 20 min after SCI</span><span> </span><em><span></span></em></p>  <p style=\"margin-left: 35.7pt; text-indent: -17.85pt\" class=\"MsoBodyText2\"><!--[if !supportLists]--><span style=\"font-family: Wingdings\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span>12 rats treated with high dose of XXXX </span><span>(i.v., xxx mg/kg, ml/kg) 20 min after SCI</span><em><span></span></em></p>  <p style=\"margin-left: 17.85pt\" class=\"MsoBodyText2\"><em><span>&nbsp;</span></em></p>  <h2 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc152059704\"></a><span><span style=\"font-family: Arial; font-weight: normal\"><span>3.3 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Schedule</span></span></h2><p>Study is done in three parts, preparation, data capture and analysis.</p><p>&nbsp;</p><h2 style=\"margin-left: 21.3pt; text-indent: -14.2pt\"><a name=\"_Toc158620471\"></a><a name=\"_Toc152059703\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"></span></span></h2><br /><h2 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620472\"></a><a name=\"_Toc152059704\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.3 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Spinal Cord Contusion</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p class=\"MsoBodyText2\"><span>The rats are anesthetized with an i.p. injection of ketamine (75 mg/kg) and xylazine (10 mg/kg). The dorsal aspect of the back is shaved and scrubbed with betadine solution. An adequate depth of anesthesia is determined by monitoring the corneal reflex. A laminectomy is performed at T9-T10 level exposing the cord without disrupting the dura mater. The spinous processes of T8 and T11 are clamped to stabilize the spine, and the exposed dorsal surface of the cord is subjected to weight drop impact using a 10 g rod (2.5 mm in diameter) and dropped at the height of 25 mm. After the injury and vehicle or drug infusion, the muscles and skin are closed in layers.</span><span></span></p>  <p class=\"MsoBodyText2\"><span>Post-operative treatment includes saline (5 ml s.c. on days 0-7 or until needed) for re-hydration. <span>Manual bladder expression is performed twice daily until reflex bladder emptying is established. Recovery of the bladder control is recorded. </span>During the first week post-injury, the bedding is changed daily.<span> </span>At the time of sacrifice, spinal cord compression is examined by inspection of the dorsal cord surface for any gross deformity.</span></p>  <h2 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620473\"></a><a name=\"_Toc152059705\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.4 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Drug Delivery</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span style=\"font-weight: normal\">Twenty minutes after SCI the femoral vein is cannulated. Vehicle or specified dosing of XXXX is infused using PE-10 tubing connected to 5 ml syringe in an infusion syringe pump (Univentor 801, TSE Systems, Germany). The infusion time is 50 min and the XXXX concentrations applied are XX (low dose), XX (medium dose) and XX (high dose) &micro;g/&micro;l. The infusion rate is 300 &micro;l/kg/min for the first 5 min, and 100 &micro;l/kg/min after that. After infusion is complete, the cannula is removed and the femoral vein occluded. The wound is closed, disinfected and the rat is allowed to recover.</span></p>  <h2 style=\"margin-left: 14.2pt; text-indent: -14.2pt\"><a name=\"_Toc158620474\"></a><a name=\"_Toc152059706\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.5 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Body Weight</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span style=\"font-weight: normal\">The body weight of the rats is measured pre-SCI and on days 1, 7, 14, and 21 after the surgery.</span></p>  <h2 style=\"margin-left: 14.2pt; text-indent: -14.2pt\"><a name=\"_Toc158620475\"></a><a name=\"_Toc152059707\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.6 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">BBB Open-Field Locomotor Function Test</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p class=\"MsoBodyText2\"><span>Open field locomotor function is evaluated using the Basso, Beattie, and Bresnahan (BBB) locomotor test (Basso et al. J. Neurotrauma 12, 1&ndash;21, 1995). The BBB scale ranges from 0 (no hindlimb movement) to 21 (normal movement-coordinated gait with parallel paw placement). Scores from 0 to 7 indicate the return of isolated movements in the three joints (hip, knee, and ankle). Scores from 8 to 13 indicate the return of paw placement and coordinated movements with the forelimbs. Scores from 14 to 21 show the return of toe clearance during stepping, predominant paw position, trunk stability, and tail position. BBB scores are measured pre-SCI (baseline) and on days 1, 7, 14, and 21 post-surgery.</span></p>  <h2 style=\"margin-left: 14.2pt; text-indent: -14.2pt\"><a name=\"_Toc158620476\"></a><a name=\"_Toc152059708\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.7 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Paw Placement and Toe Spread Tests</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p style=\"margin-left: 0pt; text-align: justify\" class=\"MsoNormalIndent\"><span style=\"font-weight: normal\">Reflexes of hind limbs are tested pre-injury and </span><span style=\"font-weight: normal\">on days 1, 7, 14, and 21 post-</span><span style=\"font-weight: normal\">injury. Reflexes of toe spread and paw placement are scored 0 = no reflex, 1 = considerably weaker than normal, 2 = slightly weaker than normal, 3 = normal.</span></p>  <h2 style=\"margin-left: 14.2pt; text-indent: -14.2pt\"><a name=\"_Toc158620477\"></a><a name=\"_Toc152059709\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.8 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Open Arena Test</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p class=\"MsoBodyText2\"><span>Behavioral response in open field arena reflects both rats&rsquo; exploratory activity and its natural neophobia. Testing is performed at pre-injury and on days 8, and 20 post-SCI in an open-field arena (square 40&times;40&times;40 cm) constructed of Plexiglas. The paths of the rats are recorded by TrueScan Photo Beam Activity system (Coulbourn Instruments). The rat is placed in the center of the arena, and the path is recorded for 10 min. The arena is divided into 16 cells and the following parameters are analyzed: 1) path length, 2) % time moving, 3) number of vertical rearings, and 4) time used for vertical rearing. </span></p>  <h2 style=\"margin-left: 14.2pt; text-indent: -14.2pt\"><a name=\"_Toc158620478\"></a><a name=\"_Toc152059710\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.9 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Histopathological Examination</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <h3 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620479\"></a><a name=\"_Toc152059711\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.9.1 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Perfusion, Cryoprotection, Freezing and Storage</span></span><span style=\"font-family: Arial; font-weight: normal\"> </span></h3>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"font-weight: normal\">On day 21 post-injury, the rats are terminally anesthetized with pentobarbital and perfused transcardially with heparinized (2.5 IU/ml) saline followed by 4% formaldehyde in phosphate buffer. Spinal cord tissue is removed from the vertebral canal, and a 2.0 cm segment centered at the injury site is excised and fixed by immersion in 4% formaldehyde in phosphate buffer </span><span style=\"font-weight: normal\">for an additional 24 h at +4&deg;C</span><span style=\"font-weight: normal\">. After cryoprotection in 30% sucrose in phosphate buffer for 2-3 days, spinal cords are frozen on liquid nitrogen, and stored at -80</span><span style=\"font-weight: normal\">&deg;C.</span><span style=\"font-weight: normal\"> </span></p>  <h3 style=\"margin-left: 0pt; text-indent: 0pt\"><a name=\"_Toc158620480\"></a><a name=\"_Toc152059712\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>3.9.2 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Cryosectioning and Histological Analysis</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h3>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"font-weight: normal\">20-&micro;m-thick sections are prepared with a cryostat and mounted sequentially on 5 Superfrost plus slides. Sections are made on 400 &micro;m intervals.<span style=\"background: red none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial\"></span></span></p>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"font-weight: normal\">One slide per series is stained with Giemsa staining and examined to identify the injury epicenter (region of maximal damage).<span>&nbsp; </span>Stained sections at the lesion epicenter and 0.8, 1.6, 2.4, 3.2 and 4 mm rostral and caudal to the epicenter are digitized and analyzed using Image Pro Plus software. Total spinal cord area, lesion area and the average area of residual white matter are determined from the sections. </span></p>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"font-weight: normal\">To examine the neuronal protective effect of compounds, motor neurons of ventral horns are counted in a series of cresyl fast violet (CFV) stained sections at the lesion epicenter and at 0.8 mm increments 4 mm both rostral and caudal to the lesion epicenter.</span></p>  <h1 style=\"margin: 0pt 0pt 12pt; text-align: justify; text-indent: 0pt\"><a name=\"_Toc158620481\"></a><a name=\"_Toc152059713\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>4 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Statistical Analysis</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h1>  <p style=\"margin-bottom: 6pt\" class=\"MsoBodyText2\"><span>Values are presented medians or mean &plusmn; standard deviation (SD) or standard error of mean (SEM), and differences are considered to be statistically significant at the P&lt;0.05 level. Statistical analysis is performed using StatsDirect software. At separate time points, the differences among means are analyzed by 1-way-ANOVA followed by Dunnet&rsquo;s test (comparison to the control (=vehicle treated SCI rats) group). Within-group comparison to the baseline is done by 2-way-ANOVA followed by Dunnet&rsquo;s test. Non-parametric data is analyzed with Kruskal-Wallis ANOVA or Friedman ANOVA, respectively.</span></p>  <h1 style=\"margin: 0pt 0pt 12pt; text-align: justify; text-indent: 0pt\"><a name=\"_Toc158620482\"></a><a name=\"_Toc152059714\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>5 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Schedule</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h1>  <p style=\"text-align: justify\" class=\"MsoBodyText\"><span style=\"font-weight: normal\">The research described is completely conducted in 3.5 months from the start of the experiment. Following is a timetable describing the detailed phases of the experiment.</span></p>  <p style=\"margin: 0pt 0pt 6pt 35.7pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoBodyText\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">XXX Experiment started</span></p>  <p style=\"margin: 0pt 0pt 6pt 35.7pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoBodyText\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">XXX Draft results reported</span></p>  <p style=\"margin: 0pt 0pt 6pt 35.7pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoBodyText\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">XXX Final report</span></p>  <h1 style=\"margin: 0pt 0pt 12pt; text-align: justify; text-indent: 0pt\"><a name=\"_Toc158620483\"></a><a name=\"_Toc152059715\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>6 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Documentation</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h1>  <p style=\"text-align: justify\" class=\"MsoNormal\"><span style=\"font-weight: normal\">Documentation will be done in English according to the OECD and FDA guidelines for non-clinical laboratory studies. The delivery of the reports to the customer is done by written (signed) and electronic (e-mail attachment) means.</span></p>  <h2 style=\"margin-left: 14.2pt; text-align: justify; text-indent: -14.2pt\"><a name=\"_Toc158620484\"></a><a name=\"_Toc152059716\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>6.1 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Draft Results</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Body weight over time</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Bladder control recovery score</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoBodyText\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">BBB score over time</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Open arena: Path length, % time moving, number of rearings, time used for vertical rearings at different time points</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Paw placement and toe spread score</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Histopathology: total spinal cord area, lesion area, residual total white matter area and average number of ventral horn neurons</span></p>  <p style=\"margin: 0pt 0pt 6pt 32.05pt; text-align: justify; text-indent: -17.85pt\" class=\"MsoNormal\"><!--[if !supportLists]--><span style=\"font-family: Wingdings; font-weight: normal\"><span>&sect;<span style=\"font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!--[endif]--><span style=\"font-weight: normal\">Statistical significance of the tests</span><span style=\"font-weight: normal\"></span></p>  <h2 style=\"margin-left: 14.2pt; text-align: justify; text-indent: -14.2pt\"><a name=\"_Toc158620485\"></a><a name=\"_Toc152059717\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"><span>6.2 </span></span><!--[endif]--><span style=\"font-family: Arial; font-weight: normal\">Final Report</span></span><span style=\"font-family: Arial; font-weight: normal\"></span></h2>  <p style=\"text-align: justify\" class=\"MsoBodyText\"><span style=\"font-weight: normal\">Final report includes summary, information of the study, materials and methods, results, and conclusions.</span></p>  <h2 style=\"margin-left: 14.2pt; text-align: justify; text-indent: -14.2pt\"><a name=\"_Toc158620486\"></a><a name=\"_Toc152059718\"></a><span><!--[if !supportLists]--><span style=\"font-family: Arial; font-weight: normal\"></span></span></h2><p style=\"text-align: justify\" class=\"MsoNormal\"><span>&nbsp;</span></p>   </body> </html>"
+  project_id: "9"
+  body: 
+  title: SCI Effacy Study
+  published: "0"
+  updated_by_user_id: "6"
+  lock_version: "0"
+  type: 
+  id: "59"
+  lock_timeout: 
+  created_by_user_id: "6"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 19:15:44
+project_contents_039: 
+  name: ProjectContent-55
+  updated_at: 2007-04-30 14:13:49
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> While there are a number of genetic factors which determine a person&#39;s susceptibility to androgenic alopecia including androgen receptor polymorphisms, 5-alpha-reductase levels in the scalp, androgen receptor density and distribution in the scalp, and other factors some of which may not have been discovered. Some speculate the increase in baldness in the population of Japan after World War II demonstrates that hair loss can be influenced by diet and lifestyle. Increased fat or caloric intake, decrease in <a href=\"http://en.wikipedia.org/wiki/Aerobic\" title=\"Aerobic\">aerobic</a> exercise and general &quot;westernization&quot; was accompanied by a dramatic increase in incidence of male pattern baldness.<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup> <p>Skeptics of this analysis believe the westernization that led to increased hair loss in Japan may have occurred in the gene pool, noting the higher propensity of hair loss in American soldiers of European descent stationed in and around Japan after the war.</p> <p>Daily, vigorous aerobic exercise (as opposed to short workout periods designed to raise androgen levels and build muscle, or more sporadic exercise) and a diet which is adequate yet more moderate in terms of fat and total calorie intake have been shown to reduce baseline insulin levels as well as baseline total and free testosterone<sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-1\">[12]</a></sup>, which would significantly lower baseline DHT.</p> <p>Lower insulin levels and reduced stress both result in raised levels of Sex Hormone Binding Globulin (<a href=\"http://en.wikipedia.org/wiki/SHBG\" title=\"SHBG\">SHBG</a>). SHBG binds to testosterone, and prevents it from circulating free in the blood. Only free testosterone is converted to DHT. It is the level of free androgens and not total androgens which is relevant to the levels of DHT in the scalp and the progression of MPB. In short, aerobic exercise is capable of significantly lowering DHT. <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-barnard1\">[13]</a></sup> <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-barnard2\">[14]</a></sup></p> <p>Androgenic alopecia has been shown to correlate with metabolic syndrome. Medically increasing androgen levels does not worsen this condition, demonstrating that androgens do not cause metabolic syndrome. Instead, high insulin levels (and possibly chronic inflammation <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-joffe\">[15]</a></sup>) seem the likely link in the demonstrated correlation between baldness and metabolic syndrome. This reinforces the notion that behaviors which help to keep insulin levels low and reduce chronic inflammation might also help to preserve hair. <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-cikim\">[16]</a></sup> <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-heald\">[17]</a></sup></p> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Diet and lifestyle
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "48"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:13:49
 project_contents_028: 
   name: ProjectContent-43
   updated_at: 2007-04-25 21:03:08
@@ -359,6 +679,46 @@ project_contents_006:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 16:38:05
+project_contents_051: 
+  name: ProjectContent-68
+  updated_at: 2007-04-30 22:12:06
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <h1>&lt;Insert Study Title&gt;</h1><table border=\"1\" style=\"border-color: #000000; border-width: 1px\"><tbody><tr><td>&nbsp;Study Number:&nbsp;</td><td>&nbsp;&lt;Insert study/experiment Number&gt;&nbsp;</td></tr><tr><td>&nbsp;Study Director:<br /></td><td>&nbsp;&lt;Insert dtudy director&gt;</td></tr><tr><td>&nbsp;Report Author:<br /></td><td>&nbsp;&lt;Insert report author&gt;</td></tr><tr><td>&nbsp;Date:</td><td>&nbsp;&lt;Insert study date&gt;</td></tr></tbody></table>    </body> </html>"
+  project_id: "13"
+  body: 
+  title: Argenta Discovery Ltd Internal Report
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "3"
+  type: 
+  id: "60"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:42:34
+project_contents_040: 
+  name: ProjectContent-56
+  updated_at: 2007-04-30 14:14:52
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <a href=\"http://en.wikipedia.org/wiki/Stem_cells\" title=\"Stem cells\">Stem cells</a> and dermal papilla cells have been discovered in hair follicles and some researchers predict research on these follicular cells may lead to successes in treating baldness through <em>hair multiplication</em>, also called <em>hair cloning,</em> within three or four years<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup>. This treatment is expected to initially work through harvesting such cells from existing follicles, multiplying them in cultures, and injecting or implanting groups of cells into the scalp. Later treatments may be able to simply signal follicle stem cells to transmit chemical signals to nearby follicle cells which have shrunk during the aging process, which respond to these signals by regenerating and once again making healthy hair. <p>Unfortunately, this new approach to treating baldness appears to be taking longer than expected. The first products are now expected to hit the market in 2009/2010. However, it remains unclear how effective they are going to be. It has been suggested that only future generations of HM will allow patients to grow as much hair as they want.</p> <p>HM is being developed by two independent companies: ARI (Aderans Research Institute, a Japanese owned company in the USA) and Intercytex, a company in Manchester(<a href=\"http://en.wikipedia.org/wiki/UK\" title=\"UK\">UK</a>).<sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-webmd\">[18]</a></sup> <sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-cbs2chicago\">[19]</a></sup></p> <p>On <a href=\"http://en.wikipedia.org/wiki/October\" title=\"October\">October</a> <a href=\"http://en.wikipedia.org/wiki/2006\" title=\"2006\">2006</a>, <a href=\"http://en.wikipedia.org/wiki/UK\" title=\"UK\">UK</a> <a href=\"http://en.wikipedia.org/wiki/Biotechnology\" title=\"Biotechnology\">biotechnology</a> firm <em>Intercytex</em> announced they have successfully tested a method of removing <a href=\"http://en.wikipedia.org/wiki/Hair_follicles\" title=\"Hair follicles\">hair follicles</a> from the back of the neck, multiplying them and then reimplanting the cells into the scalp. The initial testing resulted in 70% of male patients regrowing hair. This treatment method is expected to be available to the public by 2009 <a rel=\"nofollow\" href=\"http://news.bbc.co.uk/2/hi/health/5413382.stm\" title=\"http://news.bbc.co.uk/2/hi/health/5413382.stm\" class=\"external autonumber\">[3]</a><a rel=\"nofollow\" href=\"http://uk.news.yahoo.com/06102006/325/baldness-treating-robot-gets-funding.html\" title=\"http://uk.news.yahoo.com/06102006/325/baldness-treating-robot-gets-funding.html\" class=\"external autonumber\">[4]</a>. On October 6, 2006, the company was awarded a &pound;1.85 million ($3.63 million) grant by the UK Department of Trade and Industry (DTI) through the Technology Programme to develop an automated manufacturing process for ICX-TRC, Intercytex&rsquo;s novel hair regeneration therapy. The grant will be used primarily to develop a dedicated robotic system to support the commercial-scale production of dermal papilla (DP) cells, the main cells involved in hair regeneration and the key component of ICX-TRC.</p> <p>In January 2007, Italian stem-cell researchers say they&#39;ve come up with a new technique for curing baldness. Pierluigi Santi of a Genoa clinic said stem cells could be used to &quot;multiply&quot; hair roots. He said the clinic would be ready to perform its first hair transplants on priority patients - those who have lost their hair in fires or other accidents - within a few months. After that, he said, &quot;we&#39;ll open our doors to paying customers&quot;. Santi&#39;s approach works by splitting roots and growing new follicles.</p> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Hair multiplication
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "49"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:14:52
 project_contents_029: 
   name: rshell-27
   updated_at: 2007-04-26 07:55:30
@@ -520,6 +880,46 @@ project_contents_007:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 16:39:18
+project_contents_052: 
+  name: ProjectContent-69
+  updated_at: 2007-04-30 22:10:55
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p>&lt;Insert aim of study&gt;&nbsp;</p>   </body> </html>
+  project_id: "13"
+  body: 
+  title: Aim
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  type: 
+  id: "61"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:44:46
+project_contents_041: 
+  name: ProjectContent-57
+  updated_at: 2007-04-30 14:15:43
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body>  <ul><li><a href=\"http://en.wikipedia.org/wiki/Azelaic_acid\" title=\"Azelaic acid\">Azelaic acid</a> - A study found a 90% inhibition of 5-alpha-reductase activity <em>in vitro</em> with an azelaic acid and <a href=\"http://en.wikipedia.org/wiki/Zinc\" title=\"Zinc\">zinc</a> combination. There was an additive effect between the two compounds.<sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-azelaic\">[20]</a></sup></li><li><a href=\"http://en.wikipedia.org/wiki/Spironolactone\" title=\"Spironolactone\">Spironolactone</a></li><li><a href=\"http://en.wikipedia.org/wiki/Tretinoin\" title=\"Tretinoin\">Tretinoin</a> (aka Retinoic acid and as tradename Retin-A); chemical peel stimulation of scalp)</li><li><a href=\"http://en.wikipedia.org/w/index.php?title=Regenix&amp;action=edit\" title=\"Regenix\" class=\"new\">Regenix</a></li><li><a href=\"http://en.wikipedia.org/w/index.php?title=Avacor&amp;action=edit\" title=\"Avacor\" class=\"new\">Avacor</a></li><li>LLT or Low-level Laser Therapy - Not FDA approved for hair regrowth, but only as a cosmetic hair enhancer. Treatments are administered at either a clinic or salon (most of which are in Europe), or by the individual user via a home-based portable system (for example, &quot;The Laser Comb&quot;). No official results have been proven or published regarding hair regrowth.</li><li><a href=\"http://en.wikipedia.org/wiki/Pumpkin_seed\" title=\"Pumpkin seed\">Pumpkin seed</a> - Used to aid in the breakdown of DHT by the liver.<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup> An extract is often used, as unprocessed pumpkin seeds are high in fat which can exacerbate hair loss in susceptible patients.</li><li><a href=\"http://en.wikipedia.org/wiki/Procapil\" title=\"Procapil\">Procapil</a> manufactured by Croda International Plc</li><li><a href=\"http://en.wikipedia.org/wiki/Stinging_nettle\" title=\"Stinging nettle\">Stinging nettle</a></li><li><a href=\"http://en.wikipedia.org/wiki/Zinc\" title=\"Zinc\">Zinc</a> - While oral zinc supplementation may help prevent the conversion of testosterone to DHT, it also increases total testosterone levels<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup>.</li><li><a href=\"http://en.wikipedia.org/w/index.php?title=Capillovie&amp;action=edit\" title=\"Capillovie\" class=\"new\">Capillovie</a> - Researched and patented by Van Dung Nguyen, L.Pharm., M.A. (Industrial pharmacy), M.Sc. (Pharmacognosy), it is presently in the process of being commercialized by Biovinam Inc., an R&amp;D company based in Quebec, Canada. It is a topic lotion whose active ingredient is a single molecule extracted from a plant, thus qualifying as a natural product. Tests have shown a decline in hair loss, and hair regrowth starting after ca. 3 months on 65% of patients. Regrown hair remain in place after patients have stopped using the lotion.</li></ul> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Other treatments
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "50"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:15:43
 project_contents_030: 
   name: ProjectContent-44
   updated_at: 2007-04-26 12:54:51
@@ -957,6 +1357,46 @@ project_contents_008:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 16:40:24
+project_contents_053: 
+  name: ProjectContent-70
+  updated_at: 2007-04-30 22:11:12
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <ul><li>Refer to &lt;insert study book reference&gt; for full animal details and supplementary protocol details<br /></li></ul>  </body> </html>
+  project_id: "13"
+  body: 
+  title: Methods
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  type: 
+  id: "62"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:46:14
+project_contents_042: 
+  name: ProjectContent-58
+  updated_at: 2007-04-30 14:18:50
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <h1>The MPB Project&nbsp;<a href="http://www.edgesoftwareconsultancy.com/images/edgelogo.jpg"><img src="http://www.edgesoftwareconsultancy.com/index.htm" alt="The Edge Logo" title="The Edge Logo" align="right" /></a></h1><p>More than half of men are affected by male pattern baldness by age 50, and <strong>baldness treatments</strong> are estimated to be a US $1 billion per year industry.<sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-50percent">[1]</a></sup> Since the <a href="http://en.wikipedia.org/wiki/1980" title="1980">1980s</a>, drug therapy has increasingly become a realistic management option for <a href="http://en.wikipedia.org/wiki/Baldness" title="Baldness">baldness</a> for men and women. Increased understanding of the role of <a href="http://en.wikipedia.org/wiki/Dihydrotestosterone" title="Dihydrotestosterone">dihydrotestosterone</a> (DHT) in male and female pattern baldness has led to targeted intervention to prevent this hormone from acting on receptors in the scalp. Coupled with chance discoveries and the ever-present lure of a breakthrough involving stem cells and hair multiplication, scientifically proven baldness treatments continue to be an area of research that receives a large amount of funding.</p>  </body> </html>
+  project_id: "8"
+  body: 
+  title: Business Case
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  type: 
+  id: "51"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:17:39
 project_contents_031: 
   name: ProjectContent-47
   updated_at: 2007-04-26 15:39:09
@@ -85576,13 +86016,53 @@ project_contents_009:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-19 19:40:16
+project_contents_054: 
+  name: ProjectContent-72
+  updated_at: 2007-04-30 22:34:16
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p>C57/bl6 mice (maximum 5 per exposure chamber) were exposed to TS generated from cigarettes (Ref. 1R1, supplied by University of Kentucky). Previous pilot studies had shown this strain of mouse to be more tolerant to TS exposure. Mice were initially exposed to 4 cigarettes on day 1 and the number of cigarettes then increased daily to a maximum of 10. Once the maximum exposure level was reached, the mice were maintained at this level throughout. The control group of mice were exposed to air for an equivalent length of time on each exposure day (Sham controls).</p>    </body> </html>
+  project_id: "13"
+  body: 
+  title: Sub Chronic TS exposure
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  type: 
+  id: "63"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:47:48
+project_contents_043: 
+  name: ProjectContent-59
+  updated_at: 2007-04-30 14:20:40
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> More than half of men are affected by male pattern baldness by age 50, and <strong>baldness treatments</strong> are estimated to be a US $1 billion per year industry.<sup class="reference"><a href="http://en.wikipedia.org/wiki/Baldness_treatments#_note-50percent">[1]</a></sup> Since the <a href="http://en.wikipedia.org/wiki/1980" title="1980">1980s</a>, drug therapy has increasingly become a realistic management option for <a href="http://en.wikipedia.org/wiki/Baldness" title="Baldness">baldness</a> for men and women.  </body> </html>
+  project_id: "8"
+  body: 
+  title: Business Case
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "52"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:20:40
 project_contents_032: 
   name: ProjectContent-48
-  updated_at: 2007-04-30 13:15:52
-  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> LOts of ajax on theses forms </body> </html>
-  project_id: "6"
+  updated_at: 2007-04-30 14:09:23
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body> <p><a href="http://en.wikipedia.org/wiki/Minoxidil" title="Minoxidil">Minoxidil</a> is a <a href="http://en.wikipedia.org/wiki/Vasodilator" title="Vasodilator">vasodilator</a> and originally was exclusively used as an oral drug (Loniten&reg;) to treat <a href="http://en.wikipedia.org/wiki/Hypertension" title="Hypertension">high blood pressure</a>. It was discovered, however, to have the side effect of hair growth and reversing baldness, and in the 1980&#39;s, Upjohn Corporation received FDA approval to market a topical solution that contained 2% minoxidil to be used to treat baldness and hair loss as <a href="http://en.wikipedia.org/wiki/Rogaine_%28drug%29" title="Rogaine (drug)">Rogaine</a>. Minoxidil is applied topically to the scalp, and has been shown to promote hair growth in about 25% of men and women, though it may take several months to work. New hair is usually thinner and lighter, like baby hair, and grows mostly on the top of the head, not at the hairline. Its effects may fade with time. Skin irritation is the most commonly reported side effect. Dizziness and increased heart rate are listed side-effects on the UK patient information leaflet.</p> <p>Objective evidence now shows that minoxidil is effective in frontal areas of the scalp, and not just in the vertex area in male-pattern hair loss. At the conclusion of a 48 week study, improvements were seen in the frontal scalp regions of 51 percent of men using 5 percent minoxidil, 42 percent using 2 percent minoxidil, and 13 percent of placebo users. Among these men, moderate to great increases in hair growth were seen in the frontal scalp regions of 19 percent of men using 5 percent minoxidil, 10 percent using 2 percent minoxidil, and 3 percent of placebo users. <a rel="nofollow" href="http://www.modernmedicine.com/modernmedicine/article/articleDetail.jsp;jsessionid=GqhKXbTSppGQWLhLDmk2hbrYXGYyQD0NzWRCLBvVQLQL8YbGr8LK%212026812983?id=51115" title="http://www.modernmedicine.com/modernmedicine/article/articleDetail.jsp;jsessionid=GqhKXbTSppGQWLhLDmk2hbrYXGYyQD0NzWRCLBvVQLQL8YbGr8LK!2026812983?id=51115" class="external autonumber">[1]</a></p> </body> </html>
+  project_id: "8"
   body: 
-  title: ""
+  title: Minoxidil
   published: "0"
   updated_by_user_id: "3"
   lock_version: "0"
@@ -85595,7 +86075,7 @@ project_contents_032:
   content_hash: 
   comment_age: "0"
   author_ip: 
-  created_at: 2007-04-30 13:15:52
+  created_at: 2007-04-30 14:09:23
 project_contents_021: 
   name: ProjectContent-27
   updated_at: 2007-04-25 21:23:28
@@ -85636,6 +86116,66 @@ project_contents_010:
   comment_age: "0"
   author_ip: 
   created_at: 2007-04-20 12:53:11
+project_contents_055: 
+  name: ProjectContent-73
+  updated_at: 2007-04-30 22:34:33
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <p>Animals were killed by anaesthetic overdose (pentobarbitone Na, 100mg/kg i.p.) as follows:-</p><p>Groups E (Sham) and F (TS) were sacrificed on day 11, 6 hrs post the 11th and final exposure and groups A (Sham), B (TS), C (Bay 19-8004) and D (Dexamethasone) on day 12, 24 h post the 11th and final exposure.</p><p>Mice from each treatment group were treated as follows: - blood samples were taken from the sub clavian artery into EDTA syringes for plasma. Bronchoalveolar lavage (BAL) was performed using 0.4ml of heparinised phosphate buffered saline (PBS). Cells recovered from the BAL were used for total and differential cell counts. BAL supernatants were then stored at -40&deg;C prior to subsequent analysis.&nbsp; Following lavage, the right lobes were placed in RNAlater and stored at -80&deg;C. The left lobes were placed in 10% PBF.</p>  </body> </html>"
+  project_id: "13"
+  body: 
+  title: Terminal procedures
+  published: "0"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  type: 
+  id: "64"
+  lock_timeout: 
+  created_by_user_id: "4"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 21:49:53
+project_contents_044: 
+  name: ProjectContent-60
+  updated_at: 2007-04-30 14:37:39
+  body_html: <?xml version="1.0" encoding="utf-8"?> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> <head> 	<title>Untitled document</title> 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head> <body>  		     		 		                                                                    <font size="2">         <!-- S BO --> <!-- S IIMA --> 	 		<table border="0" cellspacing="0" cellpadding="0" width="203" align="right"> 			<tbody><tr><td> 			<div> 				<img src="http://newsimg.bbc.co.uk/media/images/39889000/jpg/_39889982_bald203.jpg" border="0" alt="" hspace="0" vspace="0" width="203" height="152" /> 				<div class="cap">The discovery could lead to new treatments for baldness</div> 			</div> 			</td></tr> 		</tbody></table> 		 	  	 <!-- E IIMA -->  	 <strong> Scientists believe they may have found a new way to reverse baldness and treat conditions like alopecia.  </strong> </font><p> <font size="2">Researchers from the University of Pennsylvania have identified stem cells or master cells in the hair follicles of mice.  </font></p><p> <font size="2">They found that these cells grow into hair follicles and produce hair when transplanted into skin.  </font></p><p> <font size="2">Writing in Nature Biotechnology, they said the discovery could lead to new treatments for humans.   </font></p><p> <font size="2"><strong>Key genes</strong> </font></p><p> <font size="2">The researchers found certain genes were activated in the stem cells that were not activated in other hair follicle or skin cells. </font></p><p> <font size="2">They are now planning further research to identify these genes in humans.  </font></p><p>    <font size="2">         <!-- S IBOX --> 	<table border="0" cellspacing="0" cellpadding="0" width="208" align="right"> 	<tbody><tr>             <td width="5"><img src="http://newsimg.bbc.co.uk/shared/img/o.gif" border="0" alt="" hspace="0" vspace="0" width="5" height="1" /></td>             <td class="sibtbg">                  		                                                            <div> 	<div class="mva"> 		<img src="http://newsimg.bbc.co.uk/nol/shared/img/v3/start_quote_rb.gif" border="0" alt="" width="24" height="13" /> 		<strong> 	These findings provide potential targets for the treatment of hair loss   </strong> 		<img src="http://newsimg.bbc.co.uk/nol/shared/img/v3/end_quote_rb.gif" border="0" alt="" vspace="0" width="23" height="13" align="right" /><br />	</div>     </div>                                                            <div class="mva"> 	<div> 	Researchers,<br />University of Pennsylvania   </div>   </div>                              </td>         </tr> 	</tbody></table> 	     <!-- E IBOX -->          	 They said developing drugs to affect these genes could lead to new ways of controlling hair growth.  </font></p><p> <font size="2">&quot;By defining these molecular markers, we will be able to isolate human stem cells from hair follicles,&quot; Dr George Cotsarelis, one of those involved in the study, told Reuters. </font></p><p> <font size="2">While the discovery could lead to new treatments for baldness and conditions like alopecia, the researchers believe it may also help burn victims. </font></p><p> <font size="2">&quot;One problem with a burn is that the wound is never covered with hair follicles,&quot; said Dr Cotsarelis.  </font></p><p> <font size="2">&quot;These cells have that capability so if we can isolate them and seed them onto a wound we can constitute skin that is more normal than currently possible.&quot; </font></p><p> <font size="2">Scientists have long-suspected that hair follicles contained stem cells. However, it has proved difficult to isolate these cells in humans. </font></p><p> <font size="2">This latest study raises hopes that they can now track these genes and identify stem cells in human hair follicles.  </font></p><p> <font size="2">&quot;Ultimately, these findings provide potential targets for the treatment of hair loss and other disorders of skin and hair,&quot; the researchers wrote. </font></p> </body> </html>
+  project_id: "8"
+  body: 
+  title: Stem cells 'can reverse baldness'
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "53"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:37:39
+project_contents_033: 
+  name: ProjectContent-49
+  updated_at: 2007-04-30 14:10:06
+  body_html: "<?xml version=\"1.0\" encoding=\"utf-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /> </head> <body> <a href=\"http://en.wikipedia.org/wiki/Finasteride\" title=\"Finasteride\">Finasteride</a>, marketed as the brand-name drug <em><a href=\"http://en.wikipedia.org/wiki/Propecia\" title=\"Propecia\">Propecia</a></em>, belongs to a class of drugs called aza-steroids. It is a &quot;<a href=\"http://en.wikipedia.org/wiki/Dihydrotestosterone\" title=\"Dihydrotestosterone\">DHT</a> <a href=\"http://en.wikipedia.org/wiki/Enzyme_inhibitor\" title=\"Enzyme inhibitor\">inhibitor</a>&quot; that is FDA approved to inhibit production of DHT through the entire body. It accomplishes this by blocking the production of <a href=\"http://en.wikipedia.org/wiki/5-alpha-reductase\" title=\"5-alpha-reductase\">5-alpha-reductase</a>, the enzyme responsible for the conversion of free testosterone to DHT. Finasteride is taken orally and has a reported 29-68% success rate (vs. 17-45% in patients receiving a <a href=\"http://en.wikipedia.org/wiki/Placebo\" title=\"Placebo\">placebo</a>). It is effective only for as long as it is taken; the hair gained or maintained is lost within 6-12 months of ceasing therapy (Rossi, 2004). In clinical studies, finasteride, like minoxodil, was shown to work on both the crown area and the hairline,<sup class=\"reference\"><a href=\"http://en.wikipedia.org/wiki/Baldness_treatments#_note-finasteride1\">[2]</a></sup> but is most successful in the crown area. <p>Finasteride has been shown to be ineffective for treating hair loss in women, and should not even be touched by pregnant or potentially pregnant women, as it has been speculated that it could cause severe birth defects in male fetuses.<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup> However, finasteride&#39;s supporters respond that the study was on post-menopausal women whose hairloss was more likely related to the loss of estrogen versus a sensitivity to testosterone. Other studies<sup class=\"noprint Template-Fact\"><a href=\"http://en.wikipedia.org/wiki/Wikipedia:Citing_sources\" title=\"Wikipedia:Citing sources\"><span style=\"white-space: nowrap\">[<em>citation needed</em>]</span></a></sup> have shown that finasteride is effective for many women with follicular sensitivity to androgens. Many doctors do prescribe it, but not without either careful birth control measures or assurance that the woman cannot become pregnant.</p> <p>Recently, Glaxo Wellcome released another aza-steroid called <a href=\"http://en.wikipedia.org/wiki/Dutasteride\" title=\"Dutasteride\">dutasteride</a> and marketed as &quot;Avodart&quot;, also for BPH. While hair count studies showed that 2.5 mg of dutasteride was about 1.5 times as effective as finasteride for hair regrowth (adding on average 108 versus 72 hair per 1&quot; diameter area), Glaxo stopped FDA hair loss studies after phase II. While the exact reason was never made public, it was leaked that the product was too similar to finasteride, which itself had not lived up to expectations commercially. As such, the 2.5 mg dosage was not released. The FDA trials for BPH continued, and Avodart became the first drug shown to shrink an enlarged prostate in a clinical study. The .5mg version of the drug (shown in the same study to add on average 92 hair to the same area) is increasingly available to hair loss sufferers via the grey-market of online prescription medication, and physicians increasingly willing to prescribe drugs &quot;off-label.&quot;</p> <p>In December 2006, <a href=\"http://en.wikipedia.org/wiki/GlaxoSmithKlein\" title=\"GlaxoSmithKlein\">GlaxoSmithKlein</a> embarked on a new Phase III, six month study in Korea to test the safety, tolerability and effectiveness of a once-daily dose of <a href=\"http://en.wikipedia.org/wiki/Dutasteride\" title=\"Dutasteride\">dutasteride</a> (0.5mg) for the treatment of <a href=\"http://en.wikipedia.org/wiki/Male_pattern_baldness\" title=\"Male pattern baldness\">male pattern baldness</a> in the vertex region of the scalp (types IIIv, IV and V on the <a href=\"http://en.wikipedia.org/wiki/Hamilton-Norwood_scale\" title=\"Hamilton-Norwood scale\">Hamilton-Norwood scale</a>). <a rel=\"nofollow\" href=\"http://clinicaltrials.gov/show/NCT00441116\" title=\"http://clinicaltrials.gov/show/NCT00441116\" class=\"external autonumber\">[2]</a> The future impact that this study will have on the <a href=\"http://en.wikipedia.org/wiki/FDA\" title=\"FDA\">FDA</a>&#39;s approval or disapproval of <a href=\"http://en.wikipedia.org/wiki/Avodart\" title=\"Avodart\">Avodart</a> for the treatment of <a href=\"http://en.wikipedia.org/wiki/Male_pattern_baldness\" title=\"Male pattern baldness\">male pattern baldness</a> in the United States is yet to be determined.</p> </body> </html>"
+  project_id: "8"
+  body: 
+  title: Finasteride
+  published: "0"
+  updated_by_user_id: "3"
+  lock_version: "0"
+  type: 
+  id: "42"
+  lock_timeout: 
+  created_by_user_id: "3"
+  comments_count: "0"
+  lock_user_id: 
+  content_hash: 
+  comment_age: "0"
+  author_ip: 
+  created_at: 2007-04-30 14:10:06
 project_contents_022: 
   name: ProjectContent-29
   updated_at: 2007-04-25 20:05:20

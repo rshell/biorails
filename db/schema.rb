@@ -2,7 +2,35 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 257) do
+ActiveRecord::Schema.define(:version => 260) do
+
+  create_table "analysis_methods", :force => true do |t|
+    t.column "name",                :string,   :limit => 128, :default => "", :null => false
+    t.column "description",         :text
+    t.column "class_name",          :string,                  :default => "", :null => false
+    t.column "protocol_version_id", :integer
+    t.column "lock_version",        :integer,                 :default => 0,  :null => false
+    t.column "created_at",          :datetime,                                :null => false
+    t.column "updated_at",          :datetime,                                :null => false
+    t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
+    t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
+  end
+
+  create_table "analysis_settings", :force => true do |t|
+    t.column "analysis_method_id", :integer
+    t.column "name",               :string,   :limit => 62
+    t.column "script_body",        :text
+    t.column "data_type_id",       :integer
+    t.column "level_no",           :integer
+    t.column "column_no",          :integer
+    t.column "mode",               :integer
+    t.column "mandatory",          :string,                 :default => "N"
+    t.column "default_value",      :string
+    t.column "created_at",         :datetime,                                :null => false
+    t.column "updated_at",         :datetime,                                :null => false
+    t.column "updated_by_user_id", :integer,                :default => 1,   :null => false
+    t.column "created_by_user_id", :integer,                :default => 1,   :null => false
+  end
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -1263,5 +1291,9 @@ ActiveRecord::Schema.define(:version => 257) do
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
+
+  add_foreign_key_constraint "task_contexts", "task_id", "tasks", "id", :name => "task_contexts_fk1", :on_update => nil, :on_delete => nil
+
+  add_foreign_key_constraint "task_values", "task_context_id", "task_contexts", "id", :name => "task_value_fk1", :on_update => nil, :on_delete => nil
 
 end

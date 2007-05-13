@@ -95,6 +95,18 @@ class StudyProtocol < ActiveRecord::Base
   return self
  end
 
+
+#
+# Get the folder for this protocol
+#
+  def folder(item=nil)
+    folder = self.study.folder(self)
+    if item
+      return folder.folder(item)
+    else
+      return folder
+    end
+  end  
 ##
 # Get a Editable version of perocess 
 # 

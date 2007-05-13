@@ -146,7 +146,9 @@ class TaskContext < ActiveRecord::Base
      end 
   end 
 
-
+  def to_matrix
+    self.task.to_matrix(self)
+  end
 
 ##
 # Parameters allowed for this context

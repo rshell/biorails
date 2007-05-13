@@ -112,13 +112,17 @@ class Study < ActiveRecord::Base
    :order => "parameter_role_id,parameter_type_id",
    :dependent => :destroy
 
-##
-# Unique types of result row for study context
-# 
-#  has_many :contexts, 
-#    :class_name => 'ParameterContext',
-#    :through =>'protocols '
-
+#
+# Get the folder for this study
+#
+  def folder(item=nil)
+    folder = self.project.folder(self)
+    if item
+      return folder.folder(item)
+    else
+      return folder
+    end
+  end  
 ##
 # Get the named protocol from the list attrached to the study
 # 

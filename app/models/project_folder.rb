@@ -50,6 +50,10 @@ class ProjectFolder < ProjectElement
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
                        :order       => 'position'  
+                       
+   def get(name)
+     elements.detect{|i|i.name == name}
+   end
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -97,13 +101,29 @@ class ProjectFolder < ProjectElement
        end       
      end       
   end
+  
+  def add_file(filename, title =nil, content_type = 'image/jpeg')
+     ProjectFolder.transaction do 
+         title ||= filename
+         asset = ProjectAsset.new(:title=>title, :filename=> filename, :project_id=>self.project_id)
+         asset.temp_path = filename
+         asset.content_type = content_type 
+         if asset.save
+           element = ProjectElement.new(:name=> asset.filename, :position => self.children.size,   :parent_id=>self.id, :project_id => self.project_id )                                       
+           element.path = self.path + "/" + asset.filename
+           element.asset = asset
+           element.save
+           return element
+         end
+     end    
+     return nil
+  end
 ##
 # Add a reference to the another database model
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
-                                      :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.reference = item       
          element.save
@@ -113,14 +133,14 @@ class ProjectFolder < ProjectElement
 
   def add_asset(name,asset)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
-                                       :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.asset = asset
          element.save
          return element
      end
   end
+  
   
   def add_content(name,title,body)
      ProjectFolder.transaction do 

@@ -96,8 +96,8 @@ class ProjectElement < ActiveRecord::Base
   end  
   
   def summary
-     return asset.summary if asset?
-     return content.summary if textual?
+     return asset.summary if asset
+     return content.summary if content
      return path
   end
 ##

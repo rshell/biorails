@@ -49,6 +49,16 @@ class Organize::StudyProtocolsController < ApplicationController
   def metrics
     find_process
   end
+  
+  def analysis
+    find_process
+    AnalysisMethod.add_processor(Alces::Processor::PlotXy)
+    @level1 =  @protocol_version.parameters.reject{|i|i.context.parent.nil?}.collect{|i|[i.name,i.id]}
+    @level0 =  @protocol_version.parameters.reject{|i|!i.context.parent.nil?}.collect{|i|[i.name,i.id]}
+    @processor = AnalysisMethod.processor("alces/processor/plot_xy")
+    @analysis = @processor.setup if @processor
+    @analysis ||= AnalysisMethod.new
+  end
 
 ##
 # Puts up the form for a new protocol, this created new Protocol, ProtocolVersion objects

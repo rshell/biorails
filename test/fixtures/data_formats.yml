@@ -69,15 +69,15 @@ data_formats_010:
   created_at: 0000-00-00 00:00:00
 data_formats_009: 
   name: Email
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
+  updated_at: 2007-05-08 18:51:14
+  default_value: ""
+  updated_by_user_id: "3"
   data_type_id: "1"
-  lock_version: "0"
+  lock_version: "1"
   id: "9"
   description: Email Address
   created_by_user_id: "1"
-  format_regex: /^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/
+  format_regex: ^[A-Z0-9._%-]*@[A-Z0-9.-]+\.[A-Z]{2,4}$
   created_at: 0000-00-00 00:00:00
 data_formats_022: 
   name: IP-Address
@@ -139,11 +139,11 @@ data_formats_012:
   created_at: 0000-00-00 00:00:00
 data_formats_001: 
   name: Text
-  updated_at: 2007-02-07 14:10:25
+  updated_at: 2007-04-30 05:02:36
   default_value: ""
-  updated_by_user_id: "1"
+  updated_by_user_id: "2"
   data_type_id: "1"
-  lock_version: "1"
+  lock_version: "2"
   id: "1"
   description: Free Format Text
   created_by_user_id: "1"
@@ -165,11 +165,11 @@ data_formats_024:
   created_at: 0000-00-00 00:00:00
 data_formats_013: 
   name: Percentage
-  updated_at: 0000-00-00 00:00:00
+  updated_at: 2007-04-30 23:26:19
   default_value: 
-  updated_by_user_id: "1"
+  updated_by_user_id: "2"
   data_type_id: "2"
-  lock_version: "0"
+  lock_version: "1"
   id: "13"
   description: |-
     Description:  	Percentage (From 0 to 100)
@@ -300,11 +300,11 @@ data_formats_006:
   created_at: 0000-00-00 00:00:00
 data_formats_018: 
   name: DayTime
-  updated_at: 0000-00-00 00:00:00
+  updated_at: 2007-04-30 05:02:05
   default_value: 
-  updated_by_user_id: "1"
+  updated_by_user_id: "2"
   data_type_id: "4"
-  lock_version: "0"
+  lock_version: "1"
   id: "18"
   description: "Description:  \tMatches a string if it is a valid time in the format of HH:MM\r\n\
     Matches: \t02:04|||16:56|||23:59\r\n\
@@ -314,11 +314,11 @@ data_formats_018:
   created_at: 0000-00-00 00:00:00
 data_formats_007: 
   name: Scientific Notation
-  updated_at: 0000-00-00 00:00:00
+  updated_at: 2007-04-30 23:12:24
   default_value: 
-  updated_by_user_id: "1"
+  updated_by_user_id: "2"
   data_type_id: "2"
-  lock_version: "0"
+  lock_version: "4"
   id: "7"
   description: Scientific Notation
   created_by_user_id: "1"
