@@ -4,6 +4,7 @@ class CreateAnalysisSettings < ActiveRecord::Migration
       t.column "analysis_method_id",   :integer
       t.column "name",                 :string,   :limit => 62
       t.column "script_body",          :text
+      t.column "options",              :text
       t.column "data_type_id",         :integer
       t.column "level_no",             :integer
       t.column "column_no",            :integer
