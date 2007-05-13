@@ -1,21 +1,29 @@
-
+<% content_for :centre do -%>
 <h2>
  <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2> 
 <ul class="tablist"> 
-     <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task) %></li>
-     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task),:class=>"current"  %></li>
-     <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task)  %>     </li>
-     <li><%= link_to l('Import'),    task_url(:action=>'import',:id=>@task)  %>     </li>
+     <li ><%= link_to l('Overview'),  task_url(:action=>'show',:id=>@task)  %></li>
+     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task),:class=>"current"   %></li>
+     <li><%= link_to l('Statistics'),    task_url(:action=>'metrics',:id=>@task) %>     </li>
 </ul>
+    <% if @task.contexts.size < 2000 %>
+       <%= task_dataview(@task,true) %>
+          
+    <% else%>
+       <p> 
+        <%=subject_icon('information')%> This display is currently optimized for ~2000 rows of data and this task has too much data to display at present.
+        Currently developing a more advanced AJAX based version with improved pagnation.
+        </p> 
+    <% end %>
 
-<% if @task.contexts.size < 2000 %>
-   <%= task_dataview(@task,true) %>
-      
-<% else%>
-   <p> 
-    <%=subject_icon('information')%> This display is currently optimized for ~2000 rows of data and this task has too much data to display at present.
-    Currently developing a more advanced AJAX based version with improved pagnation.
-    </p> 
 <% end %>
+
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
+<% end %>
+   

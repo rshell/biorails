@@ -42,6 +42,22 @@ class Project::AssetsController < ApplicationController
     
   end
 
+  def edit
+    current_project
+    @project_element =  current(ProjectElement, params[:id] )  
+    @project_asset   = @project_element.asset
+    @project_folder   = @project_element.parent
+    respond_to do |format|
+      format.html { render :action=>'edit'}
+      format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
+      format.js  { render :update do | page |
+           page.replace_html 'centre',  :partial=> 'asset',:locals=>{:asset=> @project_asset}
+         end
+      }
+    end  
+    
+  end
+
 ##
 # Display the file upload file selector
 #

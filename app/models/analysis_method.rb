@@ -21,7 +21,7 @@ class AnalysisMethod < ActiveRecord::Base
   
   def run(task)
      @process = processor.new(task,self)
-     process.run
+     @process.run
   end
   
   def has_run?
@@ -37,6 +37,7 @@ class AnalysisMethod < ActiveRecord::Base
   
   
   def self.setup(params  ={})
+    logger.info "Analysis Setup #{params.to_yaml}"
     AnalysisMethod.add_processor(Alces::Processor::PlotXy)
     AnalysisMethod.add_processor(Alces::Processor::Dummy)
     method = params['method'] ||  "alces/processor/dummy"

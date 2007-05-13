@@ -4,7 +4,6 @@
 </h2>
 <ul class="tablist"> 
      <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task) %></li>
-     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task)  %></li>
      <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task),:class=>"current"  %>     </li>
      <li><%= link_to l('Import'),    task_url(:action=>'import',:id=>@task)  %>     </li>
 </ul>

@@ -118,6 +118,7 @@ class ProjectElement < ActiveRecord::Base
     end
   end
   
+
   
   def reorder_before(destination)
      logger.info "Move #{self.id} before #{destination.id}"

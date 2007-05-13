@@ -48,7 +48,10 @@ class AnalysisSetting < ActiveRecord::Base
   def update(params={})
     params.stringify_keys!
     for item in params.keys
-       send(item.to_s + '=', params[item] ) if self.attributes[item]
+       logger.info " #{item}=  #{params[item]} "       
+       send(item.to_s + '=', params[item] ) 
     end
+    self.column_no = self.parameter.column_no if self.parameter
+   logger.info "column =  #{column_no} "           
   end
 end

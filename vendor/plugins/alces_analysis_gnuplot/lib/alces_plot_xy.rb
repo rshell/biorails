@@ -1,7 +1,7 @@
 # AlcesAnalysisGnuplot
 require("gnuplot")
-require("rbgsl")
-require("gsl/gnuplot")
+#require("rbgsl")
+#require("gsl/gnuplot")
     
 module Alces
   module Processor
@@ -66,9 +66,9 @@ module Alces
        # task => a Task object to get the data from
        # config => options AnalysisMethod instance to configure the process
        #
-       def initialize(task,config=nil)
+       def initialize(task,analysis)
          @task = task
-         @config = config || Alces::Processor::PlotXy.setup
+         @config = analysis 
        end
        
        #
@@ -129,15 +129,15 @@ module Alces
        # 
        #
        def run
-          filename = "xyplot.jpg"
+          filename = get(:filename)
           filepath = File.join(dirname,filename)
           File.delete(filepath)  if File.exists?(filepath)
           
           Gnuplot.open do |gp|
             Gnuplot::Plot.new( gp ) do |plot|        
-              plot.title  get(:title)
-              plot.xlabel get_name(:x)
-              plot.ylabel get_name(:y)
+              plot.title  get('title')
+              plot.xlabel get_name('x')
+              plot.ylabel get_name('y')
               plot.pointsize 3
               plot.terminal get(:output)
               plot.output filepath
@@ -164,7 +164,7 @@ module Alces
        #
        def to_html
           out = " <b> Plots of Data </b><br/>"
-          element = task.folder.get("xyplot.jpg")
+          element = task.folder.get(get(:filename))
           if element
             out << element.asset.image_tag
           end

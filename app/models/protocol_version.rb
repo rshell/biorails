@@ -47,19 +47,13 @@ class ProtocolVersion < ActiveRecord::Base
  has_many :contexts, :class_name=>'ParameterContext', :dependent => :destroy
 
  has_many :roots, :class_name=>'ParameterContext',:conditions => 'parent_id is null'
- 
+
+ has_many :parameters, :class_name=>'Parameter'
+
  has_many :tasks, :dependent => :destroy
  
  
 
- def parameters
-   sql = <<SQL
-  select * from parameters  
-  inner join parameter_contexts  on parameters.parameter_context_id = parameter_contexts.id
-  where parameter_contexts.protocol_version_id = ?
-SQL
-   Parameter.find_by_sql([sql,self.id])
- end
 ##
 # Test if this instance is used in any tasks
  def is_used

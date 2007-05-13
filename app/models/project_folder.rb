@@ -109,7 +109,8 @@ class ProjectFolder < ProjectElement
          asset.temp_path = filename
          asset.content_type = content_type 
          if asset.save
-           element = ProjectElement.new(:name=> asset.filename, :position => self.children.size,   :parent_id=>self.id, :project_id => self.project_id )                                       
+           element = get(filename)
+           element ||= ProjectElement.new(:name=> asset.filename, :position => self.children.size,   :parent_id=>self.id, :project_id => self.project_id )                                       
            element.path = self.path + "/" + asset.filename
            element.asset = asset
            element.save
@@ -133,7 +134,8 @@ class ProjectFolder < ProjectElement
 
   def add_asset(name,asset)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = get(filename)     
+         element ||= ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.asset = asset
          element.save
@@ -146,7 +148,8 @@ class ProjectFolder < ProjectElement
      ProjectFolder.transaction do 
          content = ProjectContent.new(:name=> name, :title=> title, :body_html=>body,:project_id=>self.project_id)
          content.save
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
+         element = get(filename)     
+         element ||= ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
                                        :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.content = content

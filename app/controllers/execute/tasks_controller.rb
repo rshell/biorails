@@ -59,11 +59,10 @@ class Execute::TasksController < ApplicationController
 # 
   def analysis
     set_task
-    @level1 =  @task.process.parameters.reject{|i|i.context.parent.nil?}.collect{|i|[i.name,i.id]}
-    @level0 =  @task.process.parameters.reject{|i|!i.context.parent.nil?}.collect{|i|[i.name,i.id]}
+    @level1 =  @task.process.parameters.reject{|i|i.context.parent.nil?}.collect{|i|["#{i.name} [#{i.data_type.name}]" ,i.id]}
+    @level0 =  @task.process.parameters.reject{|i|!i.context.parent.nil?}.collect{|i|["#{i.name} [#{i.data_type.name}]",i.id]}
     @analysis = AnalysisMethod.setup(params)
     @analysis.run(@task)  if params[:run]
-    
     respond_to do | format |
       format.html { render :action => 'analysis'}
       format.xml  { render :xml =>  @task.to_xml}
