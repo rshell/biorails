@@ -9,7 +9,7 @@ Element Path:
 
 </h2>
 <%if asset.image? %>
-<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>asset) %>
+<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>@project_element.id) %>
 <%= image_tag(asset.public_filename)  %>
 <%end %>
 <ul>

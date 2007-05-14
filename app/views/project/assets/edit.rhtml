@@ -1,0 +1,43 @@
+<% content_for :centre do -%>
+<%= error_messages_for :project_folder %>
+<%= error_messages_for :project_element %>
+<%= error_messages_for :project_asset %>
+<br/>
+<h2>
+Element Path: 
+<%= link_to "/"+ @project_element.parent.path, folder_url( :action => 'show',:id=>@project_element.parent_id) if  @project_element.parent%>
+<%= "/"+ @project_element.name %>
+
+</h2>
+<p>
+</p>
+<% if @project_asset.image? %>
+This allows simple image editing and analysis ImageJ 
+<center>
+<applet codebase="/jars" code="IJAppletTP.class" archive="ij.jar" width=400 height=50>
+  <param name='image' value="http://<%=request.env['HTTP_HOST']%><%=@project_asset.public_filename%>">
+  <param name='startAnimation' value='false'>
+  <param name='runBenchmark' value='false'>
+ </applet>
+</center>
+<% end %>
+
+<ul>
+<li><b>title: </b><%=@project_asset.title%> </li>
+<li><b>download: </b> <%= link_to @project_asset.filename, @project_asset.public_filename%></li>
+<li><b>type: </b><%=@project_asset.content_type%> </li>
+<li><b>bytes: </b> <%=@project_asset.size %>
+<% if @project_asset.width %>
+(W x H) <%=@project_asset.width%> x <%=@project_asset.height%> 
+<%end %>
+</li>
+<li><b>signature: </b><%=@project_asset.signature%> </li>
+<li><b>created: </b><%=@project_asset.created_at%> <%=@project_asset.created_by%> </li>
+<li><b>updated: </b><%=@project_asset.updated_at%> <%=@project_asset.updated_by%> </li>
+</ul>
+
+<% end %>
+
+<% content_for :right do -%>
+  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
+<% end %>

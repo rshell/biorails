@@ -54,17 +54,6 @@ class Project::AssetsController < ApplicationController
     
   end
 
-  def analysis
-    current_project
-    @project_element =  current(ProjectElement, params[:id] )  
-    @project_asset   = @project_element.asset
-    @project_folder   = @project_element.parent
-    respond_to do |format|
-      format.html { render :action=>'analysis'}
-      format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
-    end  
-    
-  end
 
 ##
 # Display the file upload file selector
