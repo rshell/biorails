@@ -1,15 +1,26 @@
 <div>  
-<h3>
     <% if @data_concept.class==DataContext%>
-      <b>Root Context [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : 
-      </b><%= @data_concept.name %>       
+    <h3>
+      <b>Root Context [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] :  </b><%= @data_concept.name %>       
+    </h3>
+        <% if @context.children.size< 5%>
+        <p>
+        The database appears to be nearly empty you may wish to <%=link_to "Import", catalogue_url(:action=>'import')%> a predefined catalogue configuration 
+        </p>
+        <%else%>
+        <p>
+        The database catalogue context can be <%=link_to "Exported", catalogue_url(:action=>'list',:format=>'xml')%> to xml to transfer to another empty systems
+        to create a copy of this namespace. 
+        </p>
+        <% end %>
     <%else%>
+<h3>
       <b>Concept [<%= link_to_remote 'Edit', :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] : 
       </b>
       <%=link_to_remote @data_concept.parent.path+'/', :url => {:action=>'show',:id => @data_concept.parent.id}  if  @data_concept.parent %>
       <%= @data_concept.name %>       
-    <%end%>
 </h3>
+    <%end%>
 <p> 
     <%= @data_concept.description %> 
 </p>

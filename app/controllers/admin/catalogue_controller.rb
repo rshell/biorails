@@ -48,7 +48,7 @@ def list
   respond_to do | format |
     format.html { render :action => 'list' }
     format.json { render :json => @data_concept.to_json }
-    format.xml  { render :xml => @data_concept.to_xml }
+    format.xml  { send_data(@context.to_xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @context.name+'.xml')    }
   end  
 end
 

@@ -58,10 +58,12 @@
         <h2><%= SystemSettings.app_subtitle %> </h2>
     </div>
     <div class='right'>
+      <%if logged_in?%>
         <% form_tag :controller=> '/finder', :action => :search  do %>
            <%= text_field_tag :query,nil,:size =>30 %>
            <%= submit_tag 'Search' %>
         <% end %>
+      <%end%>  
         <div id="busy-indicator" style="display:none;" >
            [Transfering data....]
         </div>

@@ -199,11 +199,6 @@ STUDY_MODELS = [:study,:study_parameter,:study_queue,:study_protocol, :protocol_
       options[:include] << :parameters
       options[:include] << :queues if params[:study_queue] 
       options[:include] << :protocols if params[:study_protocol]
-      
-#      options[:create] << :parameter_type if  params[:parameter_type]  
-#      options[:create] << :parameter_role if params[:parameter_role]  
-#      options[:create] << :data_format    if  params[:data_format]  
-      
       @study = Study.from_xml(params[:file]||params['File'],options)  
       @study.project = current_project
       unless @study.save 
