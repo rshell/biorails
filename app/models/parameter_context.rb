@@ -140,7 +140,8 @@ class ParameterContext < ActiveRecord::Base
 ##
 #  
   def add_queue( queue)
-    #logger.info "Queue Parameter Create [#{queue.name}] in context [#{self.label}]"
+    return nil unless queue and queue.parameter
+    logger.info "Queue Parameter Create [#{queue.name}] in context [#{self.label}]"
     parameter = add_parameter(queue.parameter)
     parameter.queue = queue
     return parameter

@@ -1,6 +1,7 @@
 
 <% content_for :sidemenu do -%>
-   <%=link_to "Close", protocol_url(:action=>'show',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
+   <%=link_to "Close", protocol_url(:action=>'show',:id=> @protocol_version.protocol, :version=>@protocol_version) %>|
+   <%=link_to "Refresh", protocol_url(:action=>'Layout',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
    <hr/>
 <% end -%>
 
