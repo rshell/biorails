@@ -50,10 +50,18 @@ class Project::AssetsController < ApplicationController
     respond_to do |format|
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
-      format.js  { render :update do | page |
-           page.replace_html 'centre',  :partial=> 'asset',:locals=>{:asset=> @project_asset}
-         end
-      }
+    end  
+    
+  end
+
+  def analysis
+    current_project
+    @project_element =  current(ProjectElement, params[:id] )  
+    @project_asset   = @project_element.asset
+    @project_folder   = @project_element.parent
+    respond_to do |format|
+      format.html { render :action=>'analysis'}
+      format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
     end  
     
   end

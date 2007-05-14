@@ -62,9 +62,9 @@ public class IPDemo extends Applet {
 			else if (label.equals("Invert"))
 				ip.invert();
 			else if (label.equals("Lighten"))
-				ip.multiply(1.1);
-			else if (label.equals("Darken"))
 				ip.multiply(0.9);
+			else if (label.equals("Darken"))
+				ip.multiply(1.1);
 			else if (label.equals("Rotate"))
 				ip.rotate(30);
 			else if (label.equals("Zoom In"))

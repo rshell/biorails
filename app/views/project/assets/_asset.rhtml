@@ -8,9 +8,10 @@ Element Path:
 <%= "/"+ @project_element.name %>
 
 </h2>
-
-<%= image_tag(asset.public_filename) if asset.image? %>
-
+<%if asset.image? %>
+<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>asset) %>
+<%= image_tag(asset.public_filename)  %>
+<%end %>
 <ul>
 <li><b>title: </b><%=asset.title%> </li>
 <li><b>download: </b> <%= link_to asset.filename, asset.public_filename%></li>
