@@ -88,7 +88,7 @@ class Organize::StudyProtocolsController < ApplicationController
       @study_protocol.save
       @parameter_context.save
       flash[:notice] = 'StudyProtocol was successfully created.'
-      redirect_to :action => 'edit', :id => @study_protocol
+      redirect_to :action => 'layout', :id => @study_protocol
       return    
     end
     render :action => 'new', :id => @study
@@ -184,6 +184,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # 
   def update_context
    @successful  = false
+   ProtocolVersion.transaction do
     text = request.raw_post || request.query_string
     @parameter_context = ParameterContext.find(params[:id])      
     @successful = @parameter_context.update_attributes(params[:parameter_context])
@@ -203,8 +204,9 @@ class Organize::StudyProtocolsController < ApplicationController
     else   
       @flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
     end
-    return render(:action => 'update_row.rjs') if request.xhr?
-    return_to_main
+   end
+   return render(:action => 'update_row.rjs') if request.xhr?
+   return_to_main
  rescue Exception => ex
     @flash[:error] =" Unexpected error in update_context for #{params[:id]}" 
     logger.error  @flash[:error], ex.message, ex.backtrace.join("\n")
@@ -239,7 +241,7 @@ class Organize::StudyProtocolsController < ApplicationController
 #
  def add_parameter
    @successful  = false
-   begin 
+   ProtocolVersion.transaction do
      @parameter_context = ParameterContext.find(params[:context])
      style, id = params[:id].split("_")
      case style
@@ -249,16 +251,24 @@ class Organize::StudyProtocolsController < ApplicationController
      if @parameter
        @successful = @parameter.save
        @parameter.process.resync_columns
-       flash[:notice] = 'Parameter '+@parameter.name+' added to Context '+@parameter_context.label+" successfully "
+       @parameter_context.reload
      else
-        flash[:error] = 'Parameter creation failed.'
+       flash[:error] = 'Parameter creation failed.'
      end
-  rescue
-      logger.warn "problem with create "+$!.to_s
-      flash[:error] = $!.to_s
-  end
-  return render( :action => 'update_row.rjs') if request.xhr?    
-  return_to_main
+    end
+    respond_to do | format |
+      format.html { render :action => 'layout',:id => @parameter_context.process.protocol,:version=> @parameter_context.process }
+      format.xml  { render :xml => @parameter_context.to_xml }
+      format.js   { render :update do | page |
+          if @successful
+            page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
+                              :locals => {:parameter_context => @parameter_context, :hidden => false }
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          end
+         end }
+    end
  end
    
 ##
@@ -266,8 +276,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # its easy to drop things in the wrong place so a simple recovery is needed. 
 #
 def move_parameter
-  @successful = false
-  begin
+  ProtocolVersion.transaction do
     @parameter_context = ParameterContext.find(params[:context])
     @protocol_version = @parameter_context.process
     @parameter = Parameter.find(params[:id].split("_")[1])
@@ -276,13 +285,22 @@ def move_parameter
        @parameter.context = @parameter_context
        @successful = @parameter.save
        flash[:notice] = "#Parameter #{@parameter.name} moved from #{@source.label} to context #{@parameter_context.label}"
+    else   
+       @parameter.column_no=99999
+       @parameter.save
+       @parameter.process.resync_columns
+       @parameter_context.reload
+       logger.info "reorder #{@parameter_context.parameters.collect{|i|i.name}.join(',')}"
     end 
-  rescue
-      logger.warn "problem with create "+$!.to_s
-      flash[:error], @successful  = $!.to_s, false
-  end
-  return render( :action => 'move_row.rjs') if request.xhr?     
-  return_to_main  
+  end 
+    respond_to do | format |
+      format.html { render :action => 'layout',:id => @parameter_context.process.protocol,:version=> @parameter_context.process }
+      format.xml  { render :xml => @parameter_context.to_xml }
+      format.js   { render :update do | page |
+            page.replace_html @protocol_version.dom_id('editor'), :partial => 'parameter_layout'
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+         end }
+    end
 end
 
 ##

@@ -74,7 +74,7 @@ class ProtocolVersion < ActiveRecord::Base
 #   
  def resync_columns
    n=0
-   for parameter in parameters
+   for parameter in parameters.sort{|a,b|a.column_no <=>b.column_no}
       n +=1
       if parameter.column_no != n
         parameter.column_no = n  
