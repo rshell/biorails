@@ -1,8 +1,9 @@
 <% unless experiment.nil? %>
     <div>
       <span class='menu'> <%=subject_icon('experiment')%>Experiment <%=experiment.name%> </span>
+      <%unless experiment.new_record? %>
        <%= link_to 'Overview',     experiment_url( :action => 'show', :id => experiment) %>
-       <%= link_to 'Folder',       folder_url(:action => 'show', :id => current_project.folder(experiment) )%>
+       <%= link_to 'Folder',       folder_url(:action => 'show', :id => experiment.folder  )%>
 
        <%= link_to 'Calendar', experiment_url( :action => 'calendar', :id => experiment) %>
        <!--%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %-->
@@ -13,6 +14,7 @@
        <%= link_to 'Copy',     experiment_url( :action => 'copy',:id => experiment.study) %>
        <%= link_to 'Import Task',   experiment_url( :action =>'import',:id => experiment) %>         
        <%= link_to subject_icon('new')+'Add Task', task_url( :action => 'new' , :id => experiment) %>
+       <%end %>
     </div>
 <%end%>
 

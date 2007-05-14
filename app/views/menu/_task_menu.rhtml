@@ -1,14 +1,18 @@
 <% unless task.nil? %>
 <div>
   <span class='menu'><%=subject_icon('task')%>Task <%= task.name %></span>
+  <% unless task.new_record? %>
   <%= link_to 'Overview', task_url( :action => 'show', :id => task) %>
   <%= link_to 'Folder',  folder_url( :action => 'show', :id => task.folder ) %>
   <%= link_to 'Edit', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Analysis', task_url( :action => 'analysis', :id => task) %>
   <%= link_to 'Report', task_url( :action => 'report', :id => task) %>
-<%if task.contexts.size==0%>
-  <%= link_to 'Delete', task_url( :action => 'destroy', :id => task ), :confirm => 'Are you sure?',:method => "post" %>
-<%end%>          
+    <%if task.contexts.size==0%>
+      <%= link_to 'Delete', task_url( :action => 'destroy', :id => task ), :confirm => 'Are you sure?',:method => "post" %>
+    <%end%>          
   <%= link_to '[Modify]',protocol_url( :action => 'edit', :version=>task.process.id, :id => task.protocol.id) if task.process.tasks.size<2  %>     
+<%end%>          
+
 </div>
+
 <%end%>
