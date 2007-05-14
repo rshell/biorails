@@ -50,6 +50,8 @@ class ProjectFolder < ProjectElement
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
                        :order       => 'position'  
+                       
+                                           
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder

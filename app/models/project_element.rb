@@ -57,6 +57,15 @@ class ProjectElement < ActiveRecord::Base
 ##
 # File assets  
   belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'asset_id', :dependent => :destroy
+
+def before_validate
+    ref = self.path
+    self.path = parent.path + "/" + self.name
+    if ref and ref != self.path
+      log.info "path has changed #{ref} tp #{self.path}"
+    end
+end
+   
 ##
 # Parent of a record is a   
   def folder

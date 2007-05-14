@@ -102,8 +102,7 @@ class Task < ActiveRecord::Base
 #  
   has_many :elements, :class_name=>'ProjectElement' ,:as => :reference, :dependent => :destroy
 
-
- belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
+  belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
  
 ##
 # Ok links to complete sets of TaskItems associated with the Task.
@@ -114,7 +113,15 @@ class Task < ActiveRecord::Base
  has_many :texts, :class_name=>'TaskText', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
 
  has_many :references, :class_name=>'TaskReference', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
+
  
+def before_update
+    ref = self.folder
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+end
 
 ##
 # Get summary stats to compare task with all runs in the process.

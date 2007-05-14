@@ -61,6 +61,8 @@ class StudyProtocol < ActiveRecord::Base
   validates_presence_of   :study_id
   validates_presence_of   :study_stage_id
 
+
+
 ##
 #Study 
  belongs_to :study
@@ -95,7 +97,13 @@ class StudyProtocol < ActiveRecord::Base
   return self
  end
 
-
+def before_update
+    ref = self.folder
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+end
 #
 # Get the folder for this protocol
 #

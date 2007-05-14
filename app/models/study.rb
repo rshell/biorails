@@ -112,6 +112,14 @@ class Study < ActiveRecord::Base
    :order => "parameter_role_id,parameter_type_id",
    :dependent => :destroy
 
+def before_update
+    ref = self.folder
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+end
+
 #
 # Get the folder for this study
 #

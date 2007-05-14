@@ -83,6 +83,13 @@ class Experiment < ActiveRecord::Base
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 
+def before_update
+    ref = self.folder
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+end
 #
 # Get the folder for this protocol
 #
