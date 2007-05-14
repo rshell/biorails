@@ -46,7 +46,7 @@ class ProjectAsset < ActiveRecord::Base
  
   attr_accessor :tag_list
 
-  validates_uniqueness_of :filename, :scope => 'project_id'
+  #validates_uniqueness_of :filename, :scope => 'project_id'
   validates_presence_of   :filename
 
 ##

@@ -32,12 +32,6 @@ class DataElement < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
 #
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>"parent_id"
@@ -195,8 +189,22 @@ class DataElement < ActiveRecord::Base
     return child
   end
 
+  def to_xml(options = {})
+      my_options = options.dup
+      my_options[:include] ||= [:system]
+      Alces::XmlSerializer.new(self, my_options  ).to_s
+  end
+
+##
+# Get DataElement from xml
+# 
+  def self.from_xml(xml,options = {})
+      my_options = options.dup
+      my_options[:include] ||= [:system]
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+  end
       
-  def DataElement.create_from_params(params={})  
+ def DataElement.create_from_params(params={})  
     case params[:style]
       when 'list'
          element = ListElement.create(params)

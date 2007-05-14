@@ -45,15 +45,11 @@
 class ProjectFolder < ProjectElement
 ##
 # Details of the order
-#   
+#   Checking studies
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
                        :order       => 'position'  
-                       
-   def get(name)
-     elements.detect{|i|i.name == name}
-   end
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -134,7 +130,7 @@ class ProjectFolder < ProjectElement
 
   def add_asset(name,asset)
      ProjectFolder.transaction do 
-         element = get(filename)     
+         element = get(name)     
          element ||= ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.asset = asset
@@ -148,7 +144,7 @@ class ProjectFolder < ProjectElement
      ProjectFolder.transaction do 
          content = ProjectContent.new(:name=> name, :title=> title, :body_html=>body,:project_id=>self.project_id)
          content.save
-         element = get(filename)     
+         element = get(name)     
          element ||= ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
                                        :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
@@ -157,12 +153,29 @@ class ProjectFolder < ProjectElement
          return element
      end
   end
+
+##
+# Get a elment in the folder 
+#                        
+   def get(item)
+      return self if item == self
+      if item.is_a?  ActiveRecord::Base
+         ProjectElement.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.to_s,item.id])
+      elsif item.respond_to?(:name)
+         ProjectElement.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
+      else
+         ProjectElement.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
+      end
+   end
+
 ##
 # Get a root folder my name 
 # 
   def folder?(item)
     return self if item == self
     if item.is_a?  ActiveRecord::Base
+       ProjectFolder.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.to_s,item.id])
+    elsif item.respond_to?(:name)
        ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
     else
        ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
@@ -211,6 +224,7 @@ class ProjectFolder < ProjectElement
           folder.path = self.path + "/" + item.to_s
        end
        self.elements << folder    
+       folder.save
     end
     return folder
   end

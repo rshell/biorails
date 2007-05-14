@@ -138,8 +138,8 @@ class Project < ActiveRecord::Base
 # get the home folder for the project creating it if none exists
 #   
   def home
-     Project.create_home_folder(self) unless self.home_folder
-     return self.home_folder 
+     return self.home_folder  if self.home_folder
+     Project.create_home_folder(self)
   end
   
   def description
@@ -189,11 +189,7 @@ class Project < ActiveRecord::Base
 # Get a root folder my name 
 # 
   def folder?(item)
-    if item.is_a?  ActiveRecord::Base
-       ProjectFolder.find(:first,:conditions=>['project_id=? and name=?',self.id,item.name.to_s])
-    else
-       ProjectFolder.find(:first,:conditions=>['project_id=? and name=?',self.id,item.to_s])
-    end
+    return self.home.folder?(item)
   end    
 ##
 # add/find a folder to the project. This  
@@ -242,6 +238,7 @@ protected
      home_folder.path = project.name
      logger.info home_folder.to_yaml
      home_folder.save
+     home_folder
   end
   
 end

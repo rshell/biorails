@@ -89,5 +89,21 @@ class DataConcept < ActiveRecord::Base
   def self.content_columns
         @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
         
-  end  
+  end
+  
+  def to_xml(options = {})
+      my_options = options.dup
+      my_options[:include] = [:children,:elements,:parameter_types]
+      Alces::XmlSerializer.new(self, my_options  ).to_s
+ end
+
+##
+# Get DataConcept from xml
+# 
+ def self.from_xml(xml,options = {})
+      my_options = options.dup
+      my_options[:include] ||= [:children,:elements,:parameter_types]
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end
+ 
 end

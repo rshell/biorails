@@ -1,6 +1,6 @@
 <div>
   <span class='menu'>System</span>
-    <%= link_to 'Catalogue',  :controller=>'catalogue', :action => 'index' %>
+    <%= link_to 'Catalogue',  catalogue_url( :action => 'list') %>
     <%= link_to 'Sources', url_for(:controller=>'admin/data_systems',:action => 'list') %>
     <%= link_to 'Formats', url_for(:controller=>'admin/data_formats',:action => 'list' )%>
     <%= link_to 'Paramert Usage',  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
@@ -8,6 +8,8 @@
     <%= link_to 'User',  :controller=>'users', :action => 'index' %>
     <%= link_to 'Access Roles' ,:controller=>'roles', :action => 'list' %>               
     <%= link_to 'System Reports' ,report_url( :action => 'internal') %>               
+    <%= link_to 'Export [xml]' ,catalogue_url( :action => 'list',:format=>'xml') %>               
+    <%= link_to 'Database Uml' ,help_url( :action => 'uml') %>               
     <%= link_to 'Database Uml' ,help_url( :action => 'uml') %>               
     <%= link_to 'Database Reindex' ,dba_url( :action => 'reindex') %>               
     <%= link_to 'Database Export' , dba_url( :action => 'backup') %>               

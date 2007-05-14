@@ -46,6 +46,7 @@ class Experiment < ActiveRecord::Base
   validates_presence_of   :study_id
   validates_presence_of   :project_id
   validates_presence_of   :study_protocol_id
+  
 
 ##
 #Owner project
@@ -95,6 +96,11 @@ class Experiment < ActiveRecord::Base
   end
 
 
+  def rename(new_name)
+    folder = self.folder
+    folder.name = new_name
+    self.name = new_name     
+  end
 ##
 # first task to start in the experiment
 #   

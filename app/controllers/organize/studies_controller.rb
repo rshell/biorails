@@ -187,7 +187,6 @@ class Organize::StudiesController < ApplicationController
  end
 
 STUDY_MODELS = [:study,:study_parameter,:study_queue,:study_protocol, :protocol_version,:parameter_context,:parameter]
-CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter_type,:parameter_role]
 
 ##
 #Import a a study xml file

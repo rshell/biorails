@@ -27,7 +27,7 @@ class Admin::CatalogueController < ApplicationController
                     :rights => :current_user
                    
   def index
-    list
+    @data_concept  = @context = DataContext.find(:first)
     render :action => 'list'
   end
 
@@ -45,8 +45,45 @@ def list
   else
     @data_concept = @context
   end
+  respond_to do | format |
+    format.html { render :action => 'list' }
+    format.json { render :json => @data_concept.to_json }
+    format.xml  { render :xml => @data_concept.to_xml }
+  end  
 end
 
+CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter_type,:parameter_role]
+
+##
+#Import a a context xml file
+#
+ def import 
+    render :action => 'import'   
+ end
+
+##
+#Import a a study xml file
+#
+ def import_file 
+   Study.transaction do
+      options = {:override=>{:name=>params[:name] },
+                 :create  => CATALOG_MODELS,
+                 :include => [:children,:elements,:parameter_types]}
+      
+      @context = DataContext.from_xml(params[:file]||params['File'],options)  
+      unless @context.save 
+        flash[:error] = "Import Failed "
+        return render( :action => 'import'  ) 
+      end 
+    end
+    flash[:info]= "Import Catalogue #{@context.name}" 
+    redirect_to( catalogue_url(:action => 'list', :id => @context))
+
+ rescue Exception => ex
+    logger.error "current error: #{ex.message}"
+    flash[:error] = "Import Failed #{ex.message}"
+    return render( :action => 'import'  ) 
+ end
 ##
 # Show details of the the current concept. This is now a usages ajax to update the 
 # current-% panels on the client with correct information for the current concept

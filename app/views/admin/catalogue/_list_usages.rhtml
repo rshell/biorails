@@ -23,7 +23,8 @@ These are actual usages of the concept as a defined volcabary for Parameter Type
        </td>
        <% end %>
        <td> 
-         <%= link_to ((subject_icon('delete')) + 'Delete',{:controller=>'parameter_types', :action => 'remove' ,:id=> row.id},
+         <%= link_to ((subject_icon('delete')) + 'Delete',
+               parameter_type_url(:action => 'destroy' ,:id=> row.id),
                :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
        </td>      
      </tr>
