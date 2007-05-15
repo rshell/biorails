@@ -51,8 +51,6 @@ class ProtocolVersion < ActiveRecord::Base
  has_many :parameters, :class_name=>'Parameter'
 
  has_many :tasks, :dependent => :destroy
- 
- 
 
 ##
 # Test if this instance is used in any tasks

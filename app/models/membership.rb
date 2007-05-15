@@ -25,9 +25,9 @@ class Membership < ActiveRecord::Base
   validates_presence_of :project
   validates_presence_of :role
   
- belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
- belongs_to :project, :class_name=>'Project', :foreign_key =>'project_id'
- belongs_to :role, :class_name=>'Role', :foreign_key =>'role_id' 
+  belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
+  belongs_to :project, :class_name=>'Project', :foreign_key =>'project_id'
+  belongs_to :role, :class_name=>'Role', :foreign_key =>'role_id' 
 ##
 # Test if this role allows this action to this subject eg.
 # 

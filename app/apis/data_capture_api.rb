@@ -8,11 +8,18 @@ class DataCaptureApi < ActionWebService::API::Base
   class StudyRef < ActionWebService::Struct
     member :id, :int
     member :name, :string
+    member :project_id, :int
   end
-  
+
+    class ProjectRef < ActionWebService::Struct
+    member :id, :int
+    member :name, :string
+  end
+
   class ExperimentRef < ActionWebService::Struct
     member :id, :int
     member :study_id, :int
+    member :project_id, :int
     member :name, :string
   end
   
@@ -21,6 +28,7 @@ class DataCaptureApi < ActionWebService::API::Base
     member :experiment_id, :int
     member :study_id, :int
     member :process_id, :int
+    member :project_id, :int
     member :name, :string
   end
   
@@ -64,6 +72,20 @@ class DataCaptureApi < ActionWebService::API::Base
   end
   
   inflect_names false
+
+    api_method  :study_count,
+                :returns => [:int]
+
+    api_method  :study_ids,
+                :returns => [[:int]]
+
+   api_method  :study_hash,
+                :returns => [[[:string]]]
+
+ 
+     api_method  :get_study,
+                :returns => [Study]
+
 
     api_method  :experiment_list,
                 :expects => [ {:study_id => :int} ],

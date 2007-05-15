@@ -32,8 +32,9 @@ class ParameterType < ActiveRecord::Base
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
-  validates_presence_of :description
   validates_uniqueness_of :name
+  validates_presence_of :description
+  validates_presence_of :data_type_id
   
   belongs_to :data_type
   belongs_to :data_concept
@@ -42,8 +43,6 @@ class ParameterType < ActiveRecord::Base
 
   has_many :study_parameters, :dependent => :destroy
 
-  validates_presence_of :data_type_id
-  validates_presence_of :description
 
 #
 # Overide context_columns to remove all the internal system columns.

@@ -1,11 +1,27 @@
 ##
 # This is the Data Capture External API for import and export of task to other systems
 # 
-class Execute::DataCaptureController < ApplicationController
+class DataCaptureController < ApplicationController
   wsdl_service_name 'DataCapture'
   web_service_api DataCaptureApi
   web_service_scaffold :invoke
   
+    def study_count
+      10  
+    end
+
+    def get_study
+      Study.find(:first)  
+    end
+
+    def study_ids
+      Study.find(:all).collect{|i|i.id}  
+    end
+
+    def study_hash
+      Study.find(:first).attributes.collect{|i|[i[0].to_s,i[1].to_s]}
+    end
+
     def study_list
        Study.find(:all)
     end

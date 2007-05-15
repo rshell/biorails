@@ -35,18 +35,26 @@
 ##
 #
 class Parameter < ActiveRecord::Base
+
+
+# validates_presence_of :protocol_version_id
+ validates_uniqueness_of :name, :scope =>"protocol_version_id"
+ validates_presence_of :parameter_type_id
+ validates_presence_of :parameter_role_id
+ validates_presence_of :study_parameter_id
+ validates_presence_of :data_type_id
+ validates_presence_of :name
+ validates_associated  :study_parameter, 
+    :if => Proc.new { | p | p.study_parameter.study == p.study},
+    :message => "Parameter is linked to a the wrong study" 
+
+ before_validation :fill_type_and_formating
+
 ##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
 
- validates_uniqueness_of :name, :scope =>"protocol_version_id"
 
  belongs_to :context, :class_name=>'ParameterContext',  :foreign_key =>'parameter_context_id'
  belongs_to :process, :class_name=>'ProtocolVersion',  :foreign_key =>'protocol_version_id'
@@ -66,18 +74,6 @@ class Parameter < ActiveRecord::Base
  has_many :task_values,     :dependent => :destroy
  has_many :task_references, :dependent => :destroy
  has_many :task_texts,      :dependent => :destroy
-
-# validates_presence_of :protocol_version_id
- validates_presence_of :parameter_type_id
- validates_presence_of :parameter_role_id
- validates_presence_of :study_parameter_id
- validates_presence_of :data_type_id
- validates_presence_of :name
- validates_associated  :study_parameter, 
-    :if => Proc.new { | p | p.study_parameter.study == p.study},
-    :message => "Parameter is linked to a the wrong study" 
-
- before_validation :fill_type_and_formating
  
  
   def mask

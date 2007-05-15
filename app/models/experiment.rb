@@ -29,6 +29,13 @@ require "faster_csv"
 class Experiment < ActiveRecord::Base
   included Named
 
+  validates_uniqueness_of :name
+  validates_presence_of   :name
+  validates_presence_of   :description
+  validates_presence_of   :study_id
+  validates_presence_of   :project_id
+  validates_presence_of   :study_protocol_id
+
 ##
 # This record has a full audit log created for changes 
 #   
@@ -40,14 +47,6 @@ class Experiment < ActiveRecord::Base
                    :single_index => true, 
                    :store_class_name => true 
  
-  validates_uniqueness_of :name
-  validates_presence_of   :name
-  validates_presence_of   :description
-  validates_presence_of   :study_id
-  validates_presence_of   :project_id
-  validates_presence_of   :study_protocol_id
-  
-
 ##
 #Owner project
 #  

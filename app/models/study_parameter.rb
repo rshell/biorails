@@ -28,21 +28,26 @@
 #  
 class StudyParameter < ActiveRecord::Base
   included Named
+#
+# Generic rules for a name and description to be present
+  validates_presence_of :name
+  validates_presence_of :description
+  validates_presence_of :study_id
+  validates_presence_of :parameter_type_id
+  validates_presence_of :parameter_role_id
+  validates_presence_of :data_type_id
+  validates_uniqueness_of :name, :scope => [:study_id]
+
 ##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
+  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
                    :default_field => [:name],           
                    :single_index => true, 
                    :store_class_name => true 
-#
-# Generic rules for a name and description to be present
-  validates_presence_of :name
-  validates_presence_of :description
-  validates_uniqueness_of :name,:scope=>'study_id'
 
   belongs_to :study   
   belongs_to :role,    :class_name =>'ParameterRole', :foreign_key=>'parameter_role_id'
@@ -59,12 +64,7 @@ class StudyParameter < ActiveRecord::Base
   # List of a unique contexts of usage for this parameter type
   has_many :contexts, :class_name =>'ParameterContext', :through => :usages
   
-  validates_uniqueness_of :name, :scope => [:study_id]
-  validates_presence_of :study_id
-  validates_presence_of :parameter_type_id
-  validates_presence_of :parameter_role_id
-  validates_presence_of :data_type_id
-  validates_presence_of :name
+
  
  def full_name
    self.name + "[" + role.name+"]"

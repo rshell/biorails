@@ -51,7 +51,7 @@ class Project < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
+  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
                    :default_field => [:name],           
@@ -62,7 +62,6 @@ class Project < ActiveRecord::Base
 # Link through to users for members, and owners via memberships
 # 
   access_control_list  :memberships , :dependent => :destroy 
-
 
   has_many :users, :through => :memberships, :source => :user
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]

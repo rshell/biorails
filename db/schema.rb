@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 262) do
     t.column "analysis_method_id", :integer
     t.column "name",               :string,   :limit => 62
     t.column "script_body",        :text
+    t.column "options",            :text
+    t.column "parameter_id",       :integer
     t.column "data_type_id",       :integer
     t.column "level_no",           :integer
     t.column "column_no",          :integer
@@ -30,8 +32,6 @@ ActiveRecord::Schema.define(:version => 262) do
     t.column "updated_at",         :datetime,                                :null => false
     t.column "updated_by_user_id", :integer,                :default => 1,   :null => false
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
-    t.column "parameter_id",       :integer
-    t.column "options",            :text
   end
 
   create_table "audit_logs", :force => true do |t|
@@ -958,17 +958,16 @@ ActiveRecord::Schema.define(:version => 262) do
   end
 
   create_table "study_statistics", :force => true do |t|
-    t.column "study_parameter_id", :integer
-    t.column "study_id",           :integer,               :default => 0, :null => false
-    t.column "parameter_role_id",  :integer
-    t.column "parameter_type_id",  :integer
-    t.column "data_type_id",       :integer
-    t.column "avg_values",         :float
-    t.column "stddev_values",      :float
-    t.column "num_values",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",         :float
-    t.column "min_values",         :float
+    t.column "study_id",          :integer,               :default => 0, :null => false
+    t.column "parameter_role_id", :integer
+    t.column "parameter_type_id", :integer
+    t.column "data_type_id",      :integer
+    t.column "avg_values",        :float
+    t.column "stddev_values",     :float
+    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
+    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
+    t.column "max_values",        :float
+    t.column "min_values",        :float
   end
 
   create_table "subscribers", :force => true do |t|
@@ -1293,9 +1292,5 @@ ActiveRecord::Schema.define(:version => 262) do
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
-
-  add_foreign_key_constraint "task_contexts", "task_id", "tasks", "id", :name => "task_contexts_fk1", :on_update => nil, :on_delete => nil
-
-  add_foreign_key_constraint "task_values", "task_context_id", "task_contexts", "id", :name => "task_value_fk1", :on_update => nil, :on_delete => nil
 
 end
