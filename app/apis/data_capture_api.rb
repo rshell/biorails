@@ -59,6 +59,7 @@ class DataCaptureApi < ActionWebService::API::Base
                 :returns => [[Parameter]]
  
     api_method  :study_list,
+                :expects => [ {:project_id => :int} ],
                 :returns => [[Study]]
     
     api_method  :task_list,
@@ -90,11 +91,11 @@ class DataCaptureApi < ActionWebService::API::Base
                :returns => [:string]
 
     api_method :task_import,
-               :expects => [{:experiment_id => :int},{:cvs => :string} ],
+               :expects => [{:session_id => :int},{:experiment_id => :int},{:cvs => :string} ],
                :returns =>  [Task]
 
     api_method :add_asset,
-               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string}, {:data =>:string} ],
+               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
                :returns =>  [:int]
 
     api_method :add_content,

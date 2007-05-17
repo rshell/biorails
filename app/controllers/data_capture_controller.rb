@@ -5,18 +5,18 @@ class DataCaptureController < ApplicationController
   wsdl_service_name 'DataCapture'
   web_service_api DataCaptureApi
   web_service_scaffold :invoke
-  
+
+  #
+  # Simple test function to see it web service API is wrong
+  #
     def study_count
       Study.count(:all)    
     end
-
-
-    def project_list(session_id)
-       user = User.find(session_id)
-       user.projects
-    end
-
-
+ #
+ # Login returning a session id (currently a little weaks as its the user record)
+ # @param username 
+ # @param password
+ #
     def login( username, password)
       user = User.authenticate(username,password)
       if user
@@ -26,13 +26,25 @@ class DataCaptureController < ApplicationController
       end
       return user
     end
-
+  #
+  # List of of projects for the current user
+  # 
+    def project_list(session_id)
+       user = User.find(session_id)
+       user.projects
+    end
+#
+# List of all project elements in order parent_id,name for 
+# easy creation of a tree structure on client (Hash and fill)
+#
     def project_element_list(id)
        Project.find(id).elements
     end
-
-
-    def study_list
+#
+#
+#
+    def study_list(project_id)
+       Project.find(project_id)
        Study.find(:all)
     end
 ##
@@ -140,12 +152,23 @@ class DataCaptureController < ApplicationController
 
     ## 
     # Import a task
-    def task_import(experiment_id,text_data)
+    def task_import(user_id,experiment_id,text_data)
+       User.current = User.find(user_id)
        experiment = Experiment.find(experiment_id)
        experiment.import_task(text_data) if experiment
     end
 
-    
 
+     def add_asset( user_id,folder_id,title,filename,mime_type, data)
+       User.current = User.find(user_id)
+       folder = ProjectFolder.find(folder_id)
+       element = folder.add_file(filename,title, mime_type)
+     end
+
+     def add_content( user_id,folder_id,title,filename, html)
+       User.current = User.find(user_id)
+       folder = ProjectFolder.find(folder_id)
+       element = folder.add_content(name,title,html)
+     end
 
 end
