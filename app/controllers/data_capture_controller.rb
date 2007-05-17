@@ -7,20 +7,30 @@ class DataCaptureController < ApplicationController
   web_service_scaffold :invoke
   
     def study_count
-      10  
+      Study.count(:all)    
     end
 
-    def get_study
-      Study.find(:first)  
+
+    def project_list(session_id)
+       user = User.find(session_id)
+       user.projects
     end
 
-    def study_ids
-      Study.find(:all).collect{|i|i.id}  
+
+    def login( username, password)
+      user = User.authenticate(username,password)
+      if user
+          logger.info "User #{username} successfully logged in"
+          set_user(user)
+          set_project(user.projects[0])    
+      end
+      return user
     end
 
-    def study_hash
-      Study.find(:first).attributes.collect{|i|[i[0].to_s,i[1].to_s]}
+    def project_element_list(id)
+       Project.find(id).elements
     end
+
 
     def study_list
        Study.find(:all)
@@ -59,7 +69,7 @@ class DataCaptureController < ApplicationController
        Task.find(:all,:conditions=>['experiment_id=?',experiment_id])
     end
     
-    def task_contexts(task_id)
+    def task_context_list(task_id)
        TaskContext.find(:all,:conditions=>['task_id=?',task_id])
     end
     
@@ -67,7 +77,7 @@ class DataCaptureController < ApplicationController
     ##
     # Get the list of value associated with a task
     # 
-    def task_values(task_id)
+    def task_value_list(task_id)
        task = Task.find(task_id)
        task.items.collect do | item |
            DataCaptureApi::TaskItem.new(

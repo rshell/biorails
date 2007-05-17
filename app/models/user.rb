@@ -109,8 +109,10 @@ class User < ActiveRecord::Base
     user = User.authorized(username, password)
     if user
        logger.info "#{username} is a known username"
+       return user
     else
        logger.info "#{username} is a not known"
+       return nil
     end
   end
 

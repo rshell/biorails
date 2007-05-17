@@ -5,53 +5,6 @@
 # 
 class DataCaptureApi < ActionWebService::API::Base 
 
-  class StudyRef < ActionWebService::Struct
-    member :id, :int
-    member :name, :string
-    member :project_id, :int
-  end
-
-    class ProjectRef < ActionWebService::Struct
-    member :id, :int
-    member :name, :string
-  end
-
-  class ExperimentRef < ActionWebService::Struct
-    member :id, :int
-    member :study_id, :int
-    member :project_id, :int
-    member :name, :string
-  end
-  
-  class TaskRef < ActionWebService::Struct
-    member :id, :int
-    member :experiment_id, :int
-    member :study_id, :int
-    member :process_id, :int
-    member :project_id, :int
-    member :name, :string
-  end
-  
-  class ProtocolRef< ActionWebService::Struct
-    member :id, :int
-    member :study_id, :int
-    member :name, :string
-  end
-
-  class ProcessRef < ActionWebService::Struct
-    member :id, :int
-    member :study_id, :int
-    member :protocol_id, :int
-    member :name, :string        
-  end 
-
-  class ParameterRef < ActionWebService::Struct
-    member :id, :int
-    member :process_id, :int
-    member :name, :string        
-    member :type, :string        
-  end 
-  
   class TaskItem < ActionWebService::Struct
      member :id , :int
      member :task_id , :int
@@ -73,20 +26,18 @@ class DataCaptureApi < ActionWebService::API::Base
   
   inflect_names false
 
-    api_method  :study_count,
-                :returns => [:int]
-
-    api_method  :study_ids,
-                :returns => [[:int]]
-
-   api_method  :study_hash,
-                :returns => [[[:string]]]
-
+    api_method  :login,
+                :expects => [ {:username => :string},{:password =>:string} ],
+                :returns => [User]
+                
+    api_method  :project_list,
+                :expects => [ {:session_id => :int} ],
+                :returns => [[Project]]
  
-     api_method  :get_study,
-                :returns => [Study]
-
-
+    api_method  :project_element_list,
+                :expects => [ {:project_id => :int} ],
+                :returns => [[ProjectElement]]
+ 
     api_method  :experiment_list,
                 :expects => [ {:study_id => :int} ],
                 :returns => [[Experiment]]
@@ -114,13 +65,13 @@ class DataCaptureApi < ActionWebService::API::Base
                 :expects => [ {:experiment_id => :int} ],
                 :returns => [[Task]]
 
-    api_method  :task_values,
-                :expects => [ {:task_id => :int}],
-                :returns => [[TaskItem]]
-
-    api_method  :task_contexts,
+    api_method  :task_context_list,
                 :expects => [ {:task_id => :int}],
                 :returns => [[TaskContext]]
+
+    api_method  :task_value_list,
+                :expects => [ {:task_id => :int}],
+                :returns => [[TaskItem]]
 
     api_method :task_create,
                :expects => [{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
@@ -141,6 +92,14 @@ class DataCaptureApi < ActionWebService::API::Base
     api_method :task_import,
                :expects => [{:experiment_id => :int},{:cvs => :string} ],
                :returns =>  [Task]
+
+    api_method :add_asset,
+               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string}, {:data =>:string} ],
+               :returns =>  [:int]
+
+    api_method :add_content,
+               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
+               :returns =>  [:int]
          
 end
 

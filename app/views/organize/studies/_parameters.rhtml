@@ -6,11 +6,11 @@
     <tr>
     <th></th>
     <th colspan='<%=roles.size%>' >
-       Usage of parameters by role as count (avg +/-2*stddev) [min..max] <%=subject_icon('parameter_role.png')%>
+       Usage of parameters by role as count (avg +/-2*stddev) [min..max] <%=subject_icon('model/parameter_role.png')%>
     </th>
     </tr>
     <tr>
-     <th><%=subject_icon('parameter_type.png')%> Parameter type</th>
+     <th><%=subject_icon('model/parameter_type.png')%> Parameter type</th>
      <% for role in roles %>
       <th><%=subject_icon(role.name)+role.name%></th>
      <% end %>  
