@@ -66,6 +66,8 @@ class Task < ActiveRecord::Base
   attr_accessor :rows
 
   validates_uniqueness_of :name, :scope =>"experiment_id"
+  validates_presence_of   :name
+  validates_presence_of   :description
   validates_presence_of :project_id
   validates_presence_of :experiment_id
   validates_presence_of :protocol_version_id
