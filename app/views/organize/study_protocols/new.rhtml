@@ -4,7 +4,6 @@
     <%=subject_icon('model/protocol.png')%> New protocol in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
 </h2>
 <div class='panel'>
-
         <%= error_messages_for 'study_protocol' %>
         <%= error_messages_for 'protocol_version' %>
     <div class='dialog'>

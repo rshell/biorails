@@ -89,9 +89,10 @@ class Organize::StudyProtocolsController < ApplicationController
       @parameter_context.save
       flash[:notice] = 'StudyProtocol was successfully created.'
       redirect_to :action => 'layout', :id => @study_protocol
-      return    
-    end
-    render :action => 'new', :id => @study
+    else  
+      flash[:warning] = 'StudyProtocol was Could not be created due to problems'
+      render :action => 'new', :id => @study
+     end
   end
 
 ###

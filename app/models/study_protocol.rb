@@ -48,10 +48,6 @@ class StudyProtocol < ActiveRecord::Base
                    :default_field => [:name],           
                    :single_index => true, 
                    :store_class_name => true 
-#
-# Generic rules for a name and description to be present
-  validates_presence_of :name
-  validates_presence_of :description
 ##
 # Protocol is identified by a unique name
 # 
