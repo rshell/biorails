@@ -17,8 +17,7 @@ module Alces # :nodoc:
         # Overwrite this method in your model to customize the filename.
         # The optional thumbnail argument will output the thumbnail's filename.
         def full_filename(thumbnail = nil)
-          file_system_path = (thumbnail ? thumbnail_class : self).attachment_options[:path_prefix].to_s
-          File.join(RAILS_ROOT, file_system_path, *partitioned_path(thumbnail_name_for(thumbnail)))
+          File.join(RAILS_ROOT,'public', self.attachment_options[:path_prefix].to_s, *partitioned_path(thumbnail_name_for(thumbnail)))
         end
       
         # Used as the base path that #public_filename strips off full_filename to create the public path
@@ -40,11 +39,12 @@ module Alces # :nodoc:
         # Generated a Cached images file in the public folder to match the database image
         # 
         def public_filename(thumbnail = nil)
-          my_filename =  full_filename(thumbnail)
-          unless File.exists?(my_filename)
-            logger.info "caching image #{my_filename} #{self.id}"
-            FileUtils.mkdir_p(File.dirname(my_filename))
-            file = File.open(my_filename,"w") do |f|
+          internal_filename = File.join( self.attachment_options[:path_prefix].to_s, *partitioned_path(thumbnail_name_for(thumbnail)))
+          full_filename =  File.join(RAILS_ROOT,'public',internal_filename)
+          unless File.exists?(full_filename)
+            logger.info "caching image #{full_filename} #{self.id}"
+            FileUtils.mkdir_p(File.dirname(full_filename))
+            file = File.open(full_filename,"w") do |f|
                 f.binmode
                 if thumbnail
                 f.write find_or_initialize_thumbnail(thumbnail).current_data
@@ -53,9 +53,9 @@ module Alces # :nodoc:
                 end
                 f.close
             end
-            File.chmod(attachment_options[:chmod] || 0644, my_filename)
+            File.chmod(attachment_options[:chmod] || 0644, full_filename)
           end  
-          my_filename.gsub(%r(^#{Regexp.escape(base_path)}) ,'')
+          return File.join("/",internal_filename)
         end
         
         # Creates a temp file with the current db data.

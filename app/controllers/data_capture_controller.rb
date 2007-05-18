@@ -172,11 +172,29 @@ class DataCaptureController < ApplicationController
     end 
 
 
-     def set_asset( user_id,folder_id,title,filename,mime_type, data)
+     def set_asset( user_id,folder_id,title,filename,mime_type, base64 )
        User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
-       binary = Base64.decode64(data)
-       element = folder.add_file(filename,title, mime_type)
+       asset = ProjectAsset.new(:title=>title, :filename=> filename, :project_id=>folder.project_id,:content_type => mime_type)
+       asset.size =0
+       asset.temp_data = Base64.decode64(base64) 
+       if asset.save 
+          logger.info " asset saved"
+          element  = folder.elements.find_by_name(filename)
+          unless element
+            logger.info " element added"
+             element = folder.add_asset(filename,asset)
+          else
+            logger.info " element updated"
+             element.asset = asset
+             element.save
+          end
+          logger.info element.to_yaml
+          return element.id
+       else 
+          logger.error " Set_asset failed Errors: #{asset.errors.full_messages.to_sentence}"
+       end
+       return 0
      end
 
      

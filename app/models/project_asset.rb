@@ -65,6 +65,7 @@ class ProjectAsset < ActiveRecord::Base
   has_attachment :max_size => 5000.kilobytes,
                  :resize_to => '3000x2000>',
                  :storage => :db_file,
+                 :path_prefix =>  File.join('project_assets'),
                  :thumbnails => {:normal=>'320x200', :icon => '48x48' }
 
   validates_as_attachment

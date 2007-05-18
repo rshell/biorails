@@ -47,6 +47,8 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options
 end
 
+PUBLIC_ROOT = "#{RAILS_ROOT}/public"
+
 require 'tzinfo'
 require 'csv'
 
