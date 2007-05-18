@@ -170,16 +170,29 @@ class DataCaptureController < ApplicationController
        return context
     end 
 
+
      def set_asset( user_id,folder_id,title,filename,mime_type, data)
        User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
+       binary = Base64.decode64(data)
        element = folder.add_file(filename,title, mime_type)
      end
+
      
      def get_asset( element_id)
-       element = ProjectElement.find(folder_id)
-       element.asset
+       element = ProjectElement.find(element_id)
+       return nil unless element and element.asset_id
+       DataCaptureApi::Asset.new(
+             :id => element.asset.id,
+             :folder_id  => element.parent_id,
+             :project_element_id  => element.id,
+             :name => element.asset.filename,
+             :title => element.asset.title,
+             :mime_type => element.asset.content_type,
+             :base64  => Base64.encode64(element.asset.db_file.data )
+             )
      end
+
 
      def set_content( user_id,folder_id,title,filename, html)
        User.current = User.find(user_id)
@@ -187,9 +200,19 @@ class DataCaptureController < ApplicationController
        element = folder.add_content(name,title,html)
      end
 
+
+
      def get_content( element_id)
-       element = ProjectElement.find(folder_id)
-       element.content
+       element = ProjectElement.find(element_id)
+       return nil unless element and element.content_id
+       DataCaptureApi::Content.new(
+             :id => element.content.id,
+             :folder_id  => element.parent_id,
+             :project_element_id  => element.id,
+             :name => element.content.name,
+             :title => element.content.title,
+             :data  =>element.content.body_html
+             )
      end
 
 end

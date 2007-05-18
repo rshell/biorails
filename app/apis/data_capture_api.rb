@@ -15,13 +15,24 @@ class DataCaptureApi < ActionWebService::API::Base
      member :row_no, :int
      member :value , :string    
   end
-  
-  class TextData < ActionWebService::Struct
-   member :content , :string
+
+  class Content < ActionWebService::Struct
+     member :id , :int
+     member :folder_id , :int
+     member :project_element_id , :int
+     member :name, :string
+     member :title, :string
+     member :data , :string    
   end
-  
-  class BinaryData < ActionWebService::Struct
-   member :content , :base64
+
+  class Asset < ActionWebService::Struct
+     member :id , :int
+     member :folder_id , :int
+     member :project_element_id , :int
+     member :name, :string
+     member :title, :string
+     member :mime_type, :string
+     member :base64 , :string    
   end
   
   inflect_names false
@@ -111,24 +122,20 @@ class DataCaptureApi < ActionWebService::API::Base
 
     api_method :get_asset,
                :expects => [ {:element_id => :int} ],
-               :returns =>  [ProjectAsset]
+               :returns =>  [Asset]
 
     api_method :get_content,
                :expects => [ {:element_id => :int} ],
-               :returns =>  [ProjectContent]
+               :returns =>  [Content]
 
 
     api_method :add_task,
-               :expects => [{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
+               :expects => [ {:session_id => :int},{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
                :returns => [Task]
     
     api_method :add_task_context,
-               :expects => [{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
+               :expects => [ {:session_id => :int},{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
                :returns => [TaskContext]
-
-    api_method :add_task_value,
-               :expects => [{:task_context_id => :int},{:parameter_id => :int},{:values => [:string]} ],
-               :returns => [TaskItem]
 
     api_method :set_asset,
                :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
