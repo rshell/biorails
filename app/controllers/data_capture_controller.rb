@@ -19,6 +19,7 @@ class DataCaptureController < ApplicationController
  #
     def login( username, password)
       user = User.authenticate(username,password)
+      User.current_user =user
       if user
           logger.info "User #{username} successfully logged in"
           set_user(user)
@@ -137,14 +138,14 @@ class DataCaptureController < ApplicationController
     ## 
     # Import a task
     def task_import(user_id,experiment_id,text_data)
-       User.current = User.find(user_id)
+       User.current_user = User.find(user_id)
        experiment = Experiment.find(experiment_id)
        experiment.import_task(text_data) if experiment
     end
 
     
     def add_task(user_id,experiment_id ,process_id ,task_name )
-       User.current = User.find(user_id)
+       User.current_user = User.find(user_id)
       experiment = Experiment.find(experiment_id)
       task = experiment.new_task
       task.name = task_name
@@ -154,7 +155,7 @@ class DataCaptureController < ApplicationController
     end
     
     def add_task_context(user_id, task_id, parameter_context_id, values)
-       User.current = User.find(user_id)
+       User.current_user = User.find(user_id)
        task = Task.find(task_id)
        return nil unless task
        context = task.new_context(ParameterContext.find(parameter_context_id))
@@ -172,7 +173,7 @@ class DataCaptureController < ApplicationController
 
 
      def set_asset( user_id,folder_id,title,filename,mime_type, data)
-       User.current = User.find(user_id)
+       User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        binary = Base64.decode64(data)
        element = folder.add_file(filename,title, mime_type)
@@ -195,7 +196,7 @@ class DataCaptureController < ApplicationController
 
 
      def set_content( user_id,folder_id,title,filename, html)
-       User.current = User.find(user_id)
+       User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
      end
