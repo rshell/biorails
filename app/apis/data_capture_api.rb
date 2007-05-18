@@ -26,6 +26,9 @@ class DataCaptureApi < ActionWebService::API::Base
   
   inflect_names false
 
+    api_method  :version,
+                :returns => [:string]
+
     api_method  :login,
                 :expects => [ {:username => :string},{:password =>:string} ],
                 :returns => [User]
@@ -74,18 +77,6 @@ class DataCaptureApi < ActionWebService::API::Base
                 :expects => [ {:task_id => :int}],
                 :returns => [[TaskItem]]
 
-    api_method :task_create,
-               :expects => [{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
-               :returns => [Task]
-    
-    api_method :task_context_create,
-               :expects => [{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
-               :returns => [TaskContext]
-
-    api_method :task_context_update,
-               :expects => [{:task_context_id => :int},{:values => [:string]} ],
-               :returns => [TaskContext]
-    
     api_method :task_export,
                :expects => [{:task_id => :int}],
                :returns => [:string]
@@ -93,14 +84,59 @@ class DataCaptureApi < ActionWebService::API::Base
     api_method :task_import,
                :expects => [{:session_id => :int},{:experiment_id => :int},{:cvs => :string} ],
                :returns =>  [Task]
+    
+    api_method :get_project,
+               :expects => [ {:project_id => :int} ],
+               :returns =>  [Project]
+    
+    api_method :get_study,
+               :expects => [ {:study_id => :int} ],
+               :returns =>  [Study]
 
-    api_method :add_asset,
+    api_method :get_study_protocol,
+               :expects => [ {:study_protocol_id => :int} ],
+               :returns =>  [Study]
+
+    api_method :get_protocol_version,
+               :expects => [ {:protocol_version_id => :int} ],
+               :returns =>  [Study]
+
+    api_method :get_experiment,
+               :expects => [ {:experiment_id => :int} ],
+               :returns =>  [Experiment]
+
+    api_method :get_task,
+               :expects => [ {:task_id => :int} ],
+               :returns =>  [Task]
+
+    api_method :get_asset,
+               :expects => [ {:element_id => :int} ],
+               :returns =>  [ProjectAsset]
+
+    api_method :get_content,
+               :expects => [ {:element_id => :int} ],
+               :returns =>  [ProjectContent]
+
+
+    api_method :add_task,
+               :expects => [{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
+               :returns => [Task]
+    
+    api_method :add_task_context,
+               :expects => [{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
+               :returns => [TaskContext]
+
+    api_method :add_task_value,
+               :expects => [{:task_context_id => :int},{:parameter_id => :int},{:values => [:string]} ],
+               :returns => [TaskItem]
+
+    api_method :set_asset,
                :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
-               :returns =>  [:int]
+               :returns =>  [ProjectElement]
 
-    api_method :add_content,
+    api_method :set_content,
                :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
-               :returns =>  [:int]
+               :returns =>  [ProjectElement]
          
 end
 

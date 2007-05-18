@@ -9,8 +9,8 @@ class DataCaptureController < ApplicationController
   #
   # Simple test function to see it web service API is wrong
   #
-    def study_count
-      Study.count(:all)    
+    def version
+      Biorails::Version::STRING    
     end
  #
  # Login returning a session id (currently a little weaks as its the user record)
@@ -103,46 +103,30 @@ class DataCaptureController < ApplicationController
            :value  => item.value )
        end
     end
-    
-    def task_create(experiment_id ,process_id ,task_name )
-      experiment = Experiment.find(experiment_id)
-      task = experiment.new_task
-      task.name = task_name
-      task.process = ProtocolVersion.find(process_id)
-      task.save 
-      return task
-    end
-    
-    def task_context_create( task_id, parameter_context_id, values)
-       task = Task.find(task_id)
-       return nil unless task
-       context = task.new_context(ParameterContext.find(parameter_context_id))
-       task_context.save
-       return nil unless context
-       return nil unless values.size == context.definition.parameters.size
-       n = 0
-       for parameter in context.definition.parameters 
-           task_item = context.add_task_item(parameter,values[n]) 
-           task_item.save
-           n +=1
-       end   
-       return context
+
+    def get_project(id)
+      Project.find(id)      
     end
 
-    def task_context_update( task_context_id, values)
-       context = TaskContext.find(task_context_id)
-       return nil unless context
-       return nil unless values.size == context.definition.parameters.size
-       n = 0
-       for parameter in context.definition.parameters 
-           task_item = context.item(parameter)
-           task_item.value = values[n] 
-           task_item.save
-           n +=1
-       end   
-       return context
+    def get_study(id)
+      Study.find(id)      
     end
-    
+
+    def get_study_protocol(id)
+      StudyProtocol.find(id)      
+    end
+
+    def get_protocol_version(id)
+      ProtocolVersion.find(id)      
+    end
+
+    def get_experiment(id)
+      Expriment.find(id)      
+    end
+
+    def get_task(id)
+      Task.find(id)      
+    end
     ##
     # Export a task 
     def task_export(task_id)
@@ -158,17 +142,54 @@ class DataCaptureController < ApplicationController
        experiment.import_task(text_data) if experiment
     end
 
+    
+    def add_task(user_id,experiment_id ,process_id ,task_name )
+       User.current = User.find(user_id)
+      experiment = Experiment.find(experiment_id)
+      task = experiment.new_task
+      task.name = task_name
+      task.process = ProtocolVersion.find(process_id)
+      task.save 
+      return task
+    end
+    
+    def add_task_context(user_id, task_id, parameter_context_id, values)
+       User.current = User.find(user_id)
+       task = Task.find(task_id)
+       return nil unless task
+       context = task.new_context(ParameterContext.find(parameter_context_id))
+       task_context.save
+       return nil unless context
+       return nil unless values.size == context.definition.parameters.size
+       n = 0
+       for parameter in context.definition.parameters 
+           task_item = context.add_task_item(parameter,values[n]) 
+           task_item.save
+           n +=1
+       end   
+       return context
+    end 
 
-     def add_asset( user_id,folder_id,title,filename,mime_type, data)
+     def set_asset( user_id,folder_id,title,filename,mime_type, data)
        User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_file(filename,title, mime_type)
      end
+     
+     def get_asset( element_id)
+       element = ProjectElement.find(folder_id)
+       element.asset
+     end
 
-     def add_content( user_id,folder_id,title,filename, html)
+     def set_content( user_id,folder_id,title,filename, html)
        User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
+     end
+
+     def get_content( element_id)
+       element = ProjectElement.find(folder_id)
+       element.content
      end
 
 end
