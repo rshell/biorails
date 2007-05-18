@@ -92,7 +92,7 @@
                 <td> <%=version.contexts.size %> </td>
                 <td> <%=version.parameters.size %> </td>
                 <td> <%=version.tasks.size %> 
-                     <%=link_to( version.tasks[0].name ,:controller=>'tasks',:action=>'show',:id=>version.tasks[0].id) if version.tasks[0]%>
+                     <%=link_to version.tasks[0].name ,task_url(:action=>'show',:id=>version.tasks[0].id) if version.tasks[0]%>
                 </td>
                 <td> <%=short_date(version.updated_at) %>   </td>
                 <td> <%=version.updated_by %>   </td>
