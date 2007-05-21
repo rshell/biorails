@@ -244,6 +244,10 @@ class GridRow
      end
   end
 
+  def task
+    self.grid.task 
+  end
+  
 ##
 #Get default logger   
   def logger
@@ -374,6 +378,10 @@ end
        "#{name}_#{row.grid.id}_#{row.id}_#{id}"
   end
 
+  def task
+    self.row.task 
+  end
+  
   def name
      self.parameter.name
   end

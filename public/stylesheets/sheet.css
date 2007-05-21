@@ -12,6 +12,7 @@ Sheet Table Style
     border: solid thin #aaa;
     background-color: #ddd;
     color:black;
+    width: 100%;
     position: relative;
     background-color:   #eee;
 }

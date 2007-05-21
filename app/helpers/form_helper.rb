@@ -282,7 +282,27 @@ module FormHelper
      end     
   end
 
-
+##
+# Handlers for specific data types
+# 
+  def my_sheet_tag(id, name, cell, options = {})
+#     logger.info "my_field_tag( #{id}, #{name}, #{parameter} ,#{options.to_s})"
+     options[:mask]    ||= cell.parameter.mask if cell.parameter.mask
+     options[:default] ||= cell.parameter.default_value  if cell.parameter.default_value  
+     options[:value]   ||= cell.parameter.default_value  if cell.parameter.default_value  
+      
+     case cell.parameter.data_type_id
+     when 1: my_regex_tag(id, name, options)
+     when 2: my_regex_tag(id, name, options)
+     when 3: my_date_field(id,name,cell.parameter.default_value,options)
+     when 4: my_regex_tag(id, name,options)
+     when 5: my_lookup_tag(id,name, cell.parameter.element,options)
+     when 6: my_regex_tag(id, name, options)
+     when 7: my_file_field(id,name,cell.task.folder,options)
+     else 
+        text_field_tag(cell.dom_id,cell.value,options)
+     end     
+  end
 ##
 # 1) Display Text field
 # 2) On change validate with regex
@@ -297,6 +317,7 @@ module FormHelper
     options[:onblur]  ||= 'FieldExit(this,event)'    
     tag :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)
   end
+
 
 ##
 # The list is long so use a ajax style auto lookup list
@@ -353,6 +374,32 @@ module FormHelper
     end
   end
 
+
+##
+# lookup cell either a combo for short list of a autocomplete for longer lists
+# 
+  def my_file_field(id,name, folder=nil ,options={})
+    return my_regex_tag(id,name,options) if folder.nil?
+    options[:mask]    ||= '.'
+    options[:value]   ||= ''
+    options[:default] ||= ''
+    options[:autocomplete]   ||= 'off'
+    options[:onfocus] ||= 'FieldEntry( this,event)'
+    options[:onkeyup] ||= 'FieldValidate( this,event)'
+    options[:onchanged]  ||= 'FieldSave(this,event)'    
+    options[:onblur]  ||= 'FieldExit(this,event)'    
+    out = String.new
+    out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
+    out << "\n"  
+    out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
+    
+    options[:url] = {:controller =>'project/folders',:action=>'choices',:id=>folder.id} 
+    options[:min_chars] =2
+    options[:after_update_element]= "FieldSave"
+
+    out << "\n"  
+    out << auto_complete_field(id, options)
+  end
 
 ##
 # Date selector cell
