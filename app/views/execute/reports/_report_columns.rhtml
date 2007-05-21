@@ -11,9 +11,9 @@
    <th> Label  </th>
    <th> Order  </th>
    <th> Show  </th>
-   <th> Allow  </th>
-   <th> Filter  </th>
-   <th> Allow  </th>
+   <th> Changable  </th>
+   <th> Initial  </th>
+   <th> Changable  </th>
    <th> Order  </th>
    <th> Dir.  </th>
    <th> Action  </th>
@@ -23,8 +23,8 @@
    <td><%=column.name%></td>
    <td><%=text_field_tag "columns[#{column.name}][label]",column.label,:size=>15 %></td>
    <td><%=text_field_tag "columns[#{column.name}][order_num]",column.order_num,:size=>2 %>
-       <%=link_to subject_icon("arrow_up"),  report_url(:action=>'move_column',:no=>"-1",:id=>column) %>
-       <%=link_to subject_icon("arrow_down"),report_url(:action=>'move_column',:no=>"1",:id=>column) %>
+       <%=link_to_remote subject_icon("arrow_up"),  :url=> report_url(:action=>'move_column',:no=>"-1",:id=>column) %>
+       <%=link_to_remote subject_icon("arrow_down"),:url=> report_url(:action=>'move_column',:no=>"1",:id=>column) %>
    </td>
    <td><%=check_box_tag  "columns[#{column.name}][is_visible]",1,column.is_visible %> </td>
    <%if column.has_many? %>

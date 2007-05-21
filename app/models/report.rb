@@ -35,7 +35,7 @@ class Report < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
 
-  has_many :columns, :class_name=>'ReportColumn', :dependent => :destroy 
+  has_many :columns, :class_name=>'ReportColumn', :order=>'order_num,name', :dependent => :destroy 
 
   belongs_to :project
 

@@ -25,32 +25,6 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #
 
-# == Schema Information
-# Schema version: 233
-#
-# Table name: task_files
-#
-#  id              :integer(11)   not null, primary key
-#  task_context_id :integer(11)   
-#  parameter_id    :integer(11)   
-#  data_uri        :string(255)   
-#  is_external     :boolean(1)    
-#  mime_type       :string(250)   
-#  data_binary     :text          
-#  lock_version    :integer(11)   default(0), not null
-#  created_by      :string(32)    default(), not null
-#  created_at      :datetime      not null
-#  updated_by      :string(32)    default(), not null
-#  updated_at      :datetime      not null
-#  task_id         :integer(11)   
-#  content_type    :string(255)   
-#  parent_id       :integer(11)   
-#  filename        :string(255)   
-#  thumbnail       :string(255)   
-#  size            :integer(11)   
-#  width           :integer(11)   
-#  height          :integer(11)   
-#
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
@@ -71,7 +45,7 @@ class TaskFile < ActiveRecord::Base
 
   has_attachment :content_type => ['application/pdf', 'application/msword', 'text/plain','image'], 
                  :max_size => 5000.kilobytes,
-				:storage => :file_system, 
+				         :storage => :file_system, 
                  :path_prefix => 'public/files',
                  :thumbnails => { :thumb => '100x100>' }
 

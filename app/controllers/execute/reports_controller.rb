@@ -295,7 +295,26 @@ def export
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
  end
- 
+
+##
+# add a column to the report
+# 
+ def move_column
+   @column = ReportColumn.find(params[:id])
+   @report = @column.report
+   no = @column.order_num + params[:no].to_i
+   logger.debug "move_column #{@column.name} from #{@column.order_num} to #{no}"
+   other = @report.columns.detect{|i|i.order_num.to_s==no.to_s}
+   if other 
+     other.order_num = @column.order_num
+     other.save
+   end
+   @column.order_num =no
+   @successful=@column.save     
+   @report.reload
+   return render(:action => 'refresh_report.rjs') if request.xhr?
+   render :action=> 'edit', :id=>@report
+ end 
 ##
 # add a column to the report
 # 
