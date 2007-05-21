@@ -51,7 +51,8 @@ class ProjectFolder < ProjectElement
                        :include => [:asset,:content],
                        :order       => 'position'  
                        
-                                           
+
+                                       
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -110,6 +111,7 @@ class ProjectFolder < ProjectElement
            element = get(filename)
            element ||= ProjectElement.new(:name=> asset.filename, :position => self.children.size,   :parent_id=>self.id, :project_id => self.project_id )                                       
            element.path = self.path + "/" + asset.filename
+           self.children_count +=1
            element.asset = asset
            element.save
            return element
@@ -125,6 +127,7 @@ class ProjectFolder < ProjectElement
          element = ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.reference = item       
+         self.children_count +=1
          element.save
          return element
      end
@@ -136,6 +139,7 @@ class ProjectFolder < ProjectElement
          element ||= ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.asset = asset
+         self.children_count +=1
          element.save
          return element
      end
@@ -151,6 +155,7 @@ class ProjectFolder < ProjectElement
                                        :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
          element.content = content
+         self.children_count +=1
          element.save
          return element
      end
@@ -202,7 +207,11 @@ class ProjectFolder < ProjectElement
   end    
   
   def summary
-     return "folder of #{elements.size} items"
+     if self.reference_id
+        return "Folder linked to a #{self.reference_type}"
+     else
+        return "Standard Folder "
+     end
   end  
 ##
 # add/find a folder to the project. This  

@@ -1,11 +1,9 @@
 
 <tr class="titles" >  
   <th rowspan='2'>
- 
     <%= link_to_function((parameter_context.label+subject_icon('down')),    "new Effect.toggle('detail_"+ parameter_context.dom_id+"','slide')") %> 
     <br/>
-    <%= parameter_context.count_string %> rows
-     
+    <%= parameter_context.count_string %> rows     
   </th>
   
   <% for parameter in parameter_context.parameters %>
@@ -32,6 +30,7 @@
   </div>
   </td>
 </tr>
+
 <tr>
   <td colspan='<%=ParameterContext.default_columns+3%>' >
       <%= link_to_remote "New Child", :url => { :action => 'new_context',:parent_id =>parameter_context.id, :id=>parameter_context.process.id} %> 

@@ -17,7 +17,7 @@
 <div class="splitcontentleft">
   <div class="box">
 	<h3><%=l('News (Recent Articles)')%></h3>
-		<% for item in @project.lastest(ProjectElement,5) %>
+		<% for item in @project.news(5) %>
 			<li>
 			<%= image_tag(item.icon) %>
 			<%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />

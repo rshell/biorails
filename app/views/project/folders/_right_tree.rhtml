@@ -3,6 +3,6 @@
      <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),},:class=>"current"  %></li>
      <li><%= link_to_remote l('Clip'),{ :url=> folder_url(:action=>'clipboard',:id => folder.id)}  %>                </li>
 </ul>
-<div class='panel'>
+<div class="panel">
 <%= tree_for_folder(current_project, current_project.home)%> 
 </div>

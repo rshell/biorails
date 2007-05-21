@@ -8,6 +8,7 @@ div.auto_complete {
     border:1px solid #888;
     margin:0;
     padding:0;
+    z-index:            1666;	
 }            
 
 div.auto_complete ul {              

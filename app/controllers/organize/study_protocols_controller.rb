@@ -90,7 +90,8 @@ class Organize::StudyProtocolsController < ApplicationController
       flash[:notice] = 'StudyProtocol was successfully created.'
       redirect_to :action => 'layout', :id => @study_protocol
     else  
-      flash[:warning] = 'StudyProtocol was Could not be created due to problems'
+      flash[:warning] = 'StudyProtocol was Could not be created due to problems' 
+      logger.info @study_protocol.to_yaml
       render :action => 'new', :id => @study
      end
   end

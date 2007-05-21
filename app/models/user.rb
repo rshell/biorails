@@ -141,6 +141,12 @@ class User < ActiveRecord::Base
         self.set_password(new_value)
       end
    end  
+   
+  
+  def news(count =5 )
+    ProjectElement.find(:all,:conditions => ['content_id is not null and updated_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)   
+  end
+     
 ###
 # Get the lastest n record of a type linked to this user   
 # 

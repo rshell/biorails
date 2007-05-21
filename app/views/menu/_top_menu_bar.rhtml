@@ -1,9 +1,8 @@
 <ul class="menu_bar"> 
 <%if logged_in?%>
-
 <div id="menuProject" class="menu" onmouseover="menuMouseover(event)">
-     <% for item in current_user.projects %>
-      <%= link_to l(item.name),  project_url(:action => 'show', :id =>item) %>         
+     <% for item in current_user.projects %>   
+        <%= link_to l(item.name),  project_url(:action => 'show', :id =>item) %>    
      <% end %>   
 </div>
 <div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
@@ -33,7 +32,6 @@
 </div>
 
  <li><%= link_to '<b>'+current_user.login+'</b>', home_url(:action=>'index') , :class => "icon icon-home" %></li>
-
 <% unless current_project.nil? %>
  <li class="submenu">
      <%= link_to image_tag("model/project.png")+"<b>"+current_project.name+"</b>", project_url(:action => 'show', :id =>current_project ),
@@ -56,13 +54,9 @@
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>
 
- <li class="right">
-   <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %>
- </li>	
+ <li class="right"><%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %> </li>	
 <%else %>
- <li class="right">
-   <%= link_to l(:login), auth_url(:action => 'login'), :class => "icon icon-user" %>
- </li>	
+ <li class="right"> <%= link_to l(:login), auth_url(:action => 'login'), :class => "icon icon-user" %> </li>	
 
 <% end %>
                        

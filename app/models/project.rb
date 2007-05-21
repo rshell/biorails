@@ -115,6 +115,13 @@ class Project < ActiveRecord::Base
 # 
   has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc', :dependent => :destroy 
 
+def before_update
+    ref = self.home
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+end
 ##
 # Unstructurted data is mapped into a set of folders for the project. For anotement of  models 
 # a folder is referenced to a model. A number of short cuts are provided to help 
@@ -155,6 +162,11 @@ class Project < ActiveRecord::Base
     member = Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
     return (member and member.owner)
   end
+  
+  def news(count =5 )
+    ProjectElement.find(:all,:conditions => ["content_id is not null"] , :order=>'updated_at desc',:limit => count)   
+  end
+  
  ###
  # Get the lastest n record of a type linked to this project. This allows simple discovery 
  # of changes to linked records   

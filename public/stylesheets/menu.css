@@ -54,7 +54,7 @@ div.menu {
   left: 0px;
   padding: 0;
   visibility: hidden;
-  z-index: 101;
+  z-index: 1066;
 }
 
 div.menu a {

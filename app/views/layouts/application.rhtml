@@ -43,7 +43,7 @@
 <%= javascript_include_tag 'tree' %>
 <%= javascript_include_tag 'application' %>
 
-<!-- page specific tags -->
+<!-- page specific tags  ======================= -->
 <%= yield :includes %>
 
 <%= yield :header_script %>
@@ -52,6 +52,9 @@
 
 <body>
 <div id="container" >
+
+<!--Start Header ======================= -->  
+
   <div id="header">
     <div class='left'>
         <h1><%= SystemSettings.app_title %></h1>
@@ -69,31 +72,35 @@
         </div>
     </div>
   </div> 
-  <%= render :partial =>'menu/top_menu_bar' %>      
-<!--Main Contents -->  
+  <div>
+    <%= render :partial =>'menu/top_menu_bar' %>      
+  </div> 
+<!--End Header ======================= -->  
+
+<!--Start Contents ======================= -->  
 <div id="content">        
 
-    <div id="left">
-    
-      <div class='sidemenu'>
-       <%= if @content_for_sidemenu
-            yield :sidemenu 
-        else    
-	       render :partial =>'menu/default_left_menu' 
-        end %>
-      </div>
+<!--Left Block =======================-->  
+<div id="left">
+  <div class='sidemenu'>
+   <%= if @content_for_sidemenu
+        yield :sidemenu 
+    else    
+       render :partial =>'menu/default_left_menu' 
+    end %>
+  </div>
 
-      <div class="left_panel">
-       <%= if @content_for_left 
-            yield :left  
-	    end %> 
-	  </div>
-      <div id="query_hitlist">
-        <%= render :partial => 'shared/hitlist' %>  
-	  </div>
+  <div class="left_panel">
+   <%= if @content_for_left 
+        yield :left  
+    end %> 
+  </div>
+  <div id="query_hitlist">
+    <%= render :partial => 'shared/hitlist' %>  
+  </div>
+</div>
 
-
-    </div>
+<!--Main Block ======================= -->  
 
   <div id="main">
       <div id="messages">
@@ -102,20 +109,23 @@
       <%= yield %>
   </div>
 
+<!--Right Block ======================= -->  
   <div id="right">
     <%= yield :right %>
   </div>
 
+<!--Centre Block ======================= -->  
   <div id="centre">         
      <%= yield :centre %>
   </div>
 
-
+<!--Footer Block ======================= -->  
   <div id="footer">
     <%= yield :footer %>
     <!--%=debug session%-->
    </div>
 </div>
+<!--End Contents ======================= -->  
 
 </body>
 </html>
