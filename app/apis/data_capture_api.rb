@@ -106,11 +106,11 @@ class DataCaptureApi < ActionWebService::API::Base
 
     api_method :get_study_protocol,
                :expects => [ {:study_protocol_id => :int} ],
-               :returns =>  [Study]
+               :returns =>  [StudyProtocol]
 
     api_method :get_protocol_version,
                :expects => [ {:protocol_version_id => :int} ],
-               :returns =>  [Study]
+               :returns =>  [ProtocolVersion]
 
     api_method :get_experiment,
                :expects => [ {:experiment_id => :int} ],

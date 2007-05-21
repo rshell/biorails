@@ -643,7 +643,7 @@ ActiveRecord::Schema.define(:version => 263) do
     t.column "asset_id",           :integer
     t.column "content_id",         :integer
     t.column "published_hash",     :string
-    t.column "children_count",     :integer,                :default => 0
+    t.column "children_count",     :integer,                :default => 0,                :null => false
   end
 
   create_table "projects", :force => true do |t|

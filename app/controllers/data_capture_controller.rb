@@ -85,7 +85,6 @@ class DataCaptureController < ApplicationController
     def task_context_list(task_id)
        TaskContext.find(:all,:conditions=>['task_id=?',task_id])
     end
-    
 
     ##
     # Get the list of value associated with a task
