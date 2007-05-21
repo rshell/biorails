@@ -227,8 +227,11 @@ SQL
    task.process = self.process
    task.protocol= self.protocol 
    task.done_hours = 0
+   task.project = self.project
    task.expected_hours = 1
    tasks << task
+   task.save
+   logger.info "New Task #{task.id}"
    return task
  end
  
@@ -330,12 +333,20 @@ protected
          task.process = task.protocol.editable              
          logger.info "editable process" + task.name   
       end
-                            
-      if name == row[4] and study.name == row[6] and name = row[2]  
-         task.grid.save
-      else
-         raise "Aborted Task is not valid for ["+name+"] "+row.join(",")                 
+
+      unless task.valid?
+         raise "Failed to create task ["+name+"] Errors:"+task.errors.full_messages().to_sentence            
       end
+      unless task.name == row[2]
+         raise "Failed to import task ["+name+"] task name does not match database "                
+      end
+      unless self.name == row[4]
+         raise "Failed to import task ["+name+"] experiment name does not match database "                
+      end
+      unless self.study.name == row[6]
+         raise "Failed to import task ["+name+"] study name does not match database "                
+      end
+      task.grid.save
       return task      
  end
   
