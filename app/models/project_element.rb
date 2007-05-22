@@ -116,16 +116,19 @@ end
 # 
   def style
     case attributes['reference_type']
+    when 'ProjectElement': "link"
     when 'ProjectContent': "note"
     when 'ProjectAsset':   "file"
     when 'Study' :         "study"
+    when 'StudyProtocol':  "protocol"
     when 'Experiment'      "experiment" 
     when 'Task':           "task"
     when 'Report' :        "report"
-    when 'StudyProtocol':  "protocol"
-    when nil :             "folder"  
     else
-      "link_go"
+       return 'asset' if asset
+       return 'content' if content
+       return 'reference' if reference
+       return 'folder'
     end
   end
   

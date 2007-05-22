@@ -16,6 +16,19 @@ class DataCaptureApi < ActionWebService::API::Base
      member :value , :string    
   end
 
+  class Element < ActionWebService::Struct
+     member :id , :int
+     member :folder_id , :int
+     member :name, :string
+     member :style, :string
+     member :icon, :string
+     member :summary, :string
+     member :asset_id , :int 
+     member :content_id , :int  
+     member :reference_id , :int  
+     member :reference_type , :string 
+  end
+
   class Content < ActionWebService::Struct
      member :id , :int
      member :folder_id , :int
@@ -50,8 +63,13 @@ class DataCaptureApi < ActionWebService::API::Base
  
     api_method  :project_element_list,
                 :expects => [ {:project_id => :int} ],
-                :returns => [[ProjectElement]]
+                :returns => [[Element]]
  
+    api_method  :project_folder_list,
+                :expects => [ {:project_id => :int} ],
+                :returns => [[ProjectFolder]]
+ 
+
     api_method  :experiment_list,
                 :expects => [ {:study_id => :int} ],
                 :returns => [[Experiment]]

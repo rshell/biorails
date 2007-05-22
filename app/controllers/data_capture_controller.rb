@@ -39,8 +39,31 @@ class DataCaptureController < ApplicationController
 # easy creation of a tree structure on client (Hash and fill)
 #
     def project_element_list(id)
-       Project.find(id).elements
+       items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+       items.collect do |item|
+           DataCaptureApi::Element.new(
+           :id => item.id,
+           :folder_id => item.parent_id,
+           :name => item.name,
+           :path => item.path,
+           :summary => item.summary,
+           :style => item.style,
+           :icon  => item.icon,
+           :asset_id => item.asset_id,
+           :content_id => item.content_id,
+           :reference_id => item.reference_id,
+           :reference_type => item.reference_type)
+       end
     end
+
+#
+# List of all project elements in order parent_id,name for 
+# easy creation of a tree structure on client (Hash and fill)
+#
+    def project_folder_list(id)
+       ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+    end
+#    
 #
 #
 #
@@ -217,7 +240,7 @@ class DataCaptureController < ApplicationController
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
      end
-
+ProjectElement
 
 
      def get_content( element_id)
