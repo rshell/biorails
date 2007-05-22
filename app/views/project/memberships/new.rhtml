@@ -7,12 +7,15 @@
   </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
+<%end%>
+
 
 <h1>Add member to project <%=current_project.name%></h1>
 <div class='panel'>
 
 <% form_tag :action => 'create' do %>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
 	<%=  hidden_field :membership, :project_id %>
 
     <!--[form:membership]-->

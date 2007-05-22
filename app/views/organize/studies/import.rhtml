@@ -1,12 +1,13 @@
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['study']}  %>
+<%end %>
+
 <%content_for :centre do%>
 <h2>
         <%= subject_icon('study.png')%> Import Study Design into Project [<strong><%=current_project.name%></strong>]
 </h2> 
 <div class='panel'>
    <%form_tag({:action =>'import_file', :id=> current_project.id} , {:multipart => true}) do %>
-
-   <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
-
    <div class="row">
      <div class="form-element">
        <label for="study_name">Study design file to import :-        

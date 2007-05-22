@@ -28,15 +28,17 @@
 # This represents a piece of textual content associated with a project
 class ProjectContent < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
-
   attr_accessor :tag_list
-
 ##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
   
   belongs_to :project
+
+  validates_presence_of   :project_id
+  validates_presence_of   :title
+  validates_presence_of   :name
 
 
   has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy

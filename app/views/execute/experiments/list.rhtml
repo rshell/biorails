@@ -1,6 +1,7 @@
-<h2> Experiment in project <%=@project.name%> </h2>
 
-<%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['project','report'] }  %>
+
+<h2> Experiment in project <%=@project.name%> </h2>
 
 <div class="panel">                              
     <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    

@@ -102,10 +102,15 @@
 
 <!--Main Block ======================= -->  
 
+   <div id="messages">
+       <%= if @content_for_messages 
+            yield :messages
+        else    
+            render :partial => 'shared/messages', :locals => { :objects => ['project'] }
+        end %> 
+   </div>
+
   <div id="main">
-      <div id="messages">
-         <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>
-      </div>
       <%= yield %>
   </div>
 

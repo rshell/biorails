@@ -9,6 +9,10 @@
 </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_parameter' ]} %>
+<%end%>
+
 <div class='main' id='maintitle'>
     <h2>
         <%=subject_icon('model/study.png')%> Import Parameters for Study [<strong><%=link_to "#{@study.name}", 
@@ -17,7 +21,6 @@
     </h2>
     <div class='dialog'>
         <%form_tag( {:action =>'import_file', :id=> @study.id }, :multipart => true) do %>
-        <%= error_messages_for("import") %>
         
           <%=file_field_tag(:file) %>  
           <%= check_box_tag 'types', 'create',checked =false %>Create Parameter types

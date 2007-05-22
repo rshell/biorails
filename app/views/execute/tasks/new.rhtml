@@ -1,11 +1,14 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
+<%end%>
+
+
 <h2>
         <%=subject_icon('model/task.png')%> New Task in Experiment [<%=subject_icon('experiment.png')%> 
         <%= link_to @experiment.name, :controller => 'experiments', 
                 :action => 'show', :id => @experiment.id  %>]
 </h2>
 <div class='panel'>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
-
  <% form_tag :action => 'create' do %>
     
     <%= hidden_field 'task','experiment_id'%>  

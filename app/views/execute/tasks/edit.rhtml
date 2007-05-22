@@ -1,3 +1,7 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
+<%end%>
+
 <h2>
     <%=subject_icon('model/task.png')%> Updating Task [<strong><%= link_to @task.name, :action => 'show', :id => @task %></strong>]
         in Experiment [<%= link_to @task.experiment.name, :controller => 'experiments', 
@@ -9,8 +13,6 @@
      <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task)  %>     </li>
      <li><%= link_to l('Import'),    task_url(:action=>'import',:id=>@task)  %>     </li>
 </ul>
-
-    <%=render :partial =>'shared/messages',:locals => { :objects => ['task']} %>
 
 <div class="panel">
     <div id="<%=@task.dom_id('overview') %>"  class='dialog'> 

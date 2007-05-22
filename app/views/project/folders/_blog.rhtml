@@ -1,10 +1,5 @@
 <%= render :partial => 'title' %>
 
-<div id='messages'>
-  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
-</div>
-  
-
 <ul class="tablist"> 
 <li>  <%= link_to_remote 'Folder',   :url =>folder_url( :action => 'show',    :folder_id => folder.id ) %> </li>
 <li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>

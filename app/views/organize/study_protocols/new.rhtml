@@ -1,12 +1,12 @@
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['study_protocol','protocol_version']}  %>
+<%end %>
 
 <% content_for :centre do%>
 <h2>
     <%=subject_icon('model/protocol.png')%> New protocol in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
 </h2>
 <div class='panel'>
-        <%= error_messages_for 'study_protocol' %>
-        <%= error_messages_for 'protocol_version' %>
-    <div class='dialog'>
 
         <% form_tag :action => 'create', :id => @study.id do %>
         <div class="row"> 
@@ -16,8 +16,6 @@
             <%= submit_tag "Save" %>
         </div>
         <% end %>
-
-    </div>
 </div>
 <%end%>
     

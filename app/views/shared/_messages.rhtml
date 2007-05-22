@@ -2,7 +2,7 @@
 <% for name in [:notice,:info, :warning, :error, :trace] %>
   <% if flash[name] %>
     <div class="<%= "flash_#{name} message" %>" >
-      <strong><%= name %>:</strong> <%= flash[name] %> 
+      <strong><%= name.to_s.capitalize  %>:</strong> <%= flash[name] %> 
     </div>
     <% flash[name] =nil %>
   <% end %>

@@ -9,12 +9,15 @@
 </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_parameter' ]} %>
+<%end%>
+
 <% content_for :centre do -%>
     <h2>
         <%=subject_icon('model/parameter.png')%> Update Parameter in Study [<strong><%=link_to "#{@study_parameter.study.name}", 
         :controller=>'studies', :action =>'show',:id =>@study_parameter.study.id %></strong>]
     </h2>
-        <%= error_messages_for 'study_parameter' %>
     <div class='dialog'>
         <% form_tag :action => 'update', :id => @study_parameter do %>
            <%= render :partial => 'form' %>

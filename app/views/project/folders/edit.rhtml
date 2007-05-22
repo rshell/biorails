@@ -1,3 +1,7 @@
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+<% end -%>
+
 <h1>Editing Folder</h1>
 
 <% form_tag :action => 'update', :id => @project_folder do %>

@@ -1,8 +1,11 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request' ]} %>
+<%end%>
+
+
+
 <% content_for :centre do -%>
 <h2>        <%=subject_icon('services')%> Edit Request  [<strong><%=h @user_request.name%></strong>]  </h2>
-
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request']} %>
-    
     <div class='dialog'>
         <% form_tag :action => 'update',:id=> @user_request.id do %>
         <%= render :partial => 'form' %>

@@ -1,7 +1,9 @@
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['study']}  %>
+<%end %>
+
 <% content_for :centre do -%>
 <h2> Editing [<strong><%=@study.name %></strong>]</h2>
-
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['study']} %>
 
     <div class="dialog">                              
         <% form_tag :action => 'update' ,:id=> @study.id do %>

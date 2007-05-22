@@ -1,6 +1,3 @@
-<%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
-<%= error_messages_for :project_element %>
-<%= error_messages_for :project_asset %>
 <br/>
 <% form_remote_tag :before => 'tinyMCE.triggerSave(false,false);', 
                    :url =>content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>

@@ -5,13 +5,14 @@
   <%= render :partial =>'/menu/process_menu' ,    :locals=>{ :process => @protocol_version} %>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study_protocol','protocol_version' ]} %>
+<%end%>
 
 <h2>
         <%=subject_icon('protocols')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
         [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
 </h2>
-        <%= error_messages_for 'study_protocol' %>
-        <%= error_messages_for 'protocol_version' %>
 <div class='panel'>
     <table class="report">
       <tr>

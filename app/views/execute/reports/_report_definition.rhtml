@@ -1,6 +1,4 @@
 
-<%=render :partial =>'shared/messages',:locals => { :objects => ['report']} %>
-
 <% form_remote_tag :url => report_url(:action => 'update', :id => @report) do %>
 
 <div class='dialog'>

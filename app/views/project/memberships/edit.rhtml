@@ -9,13 +9,14 @@
   </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
+<%end%>
 
 <h1>Editing membership  of project <%=current_project.name%> </h1>
 <div class='panel'>
 
 <% form_tag :action => 'update', :id => @membership do %>
-
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
 
 	<%=  hidden_field :membership, :project_id %>
 

@@ -1,11 +1,14 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
+<%end%>
+
+
 <% content_for :centre do -%>
 
 <h2>
    <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
         [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
 </h2>
-
-<%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
 
 <div class='panel'>
     <table class="report">

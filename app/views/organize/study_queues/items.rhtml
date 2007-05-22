@@ -11,6 +11,11 @@
 </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_queue' ]} %>
+<%end%>
+
+
 <h2><%=subject_icon('services')%> Service Queue  [<%= @study_queue.name %>] in Study [<%= @study_queue.study.name %>] </h2>
 
     <div class='panel'>

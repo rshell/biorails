@@ -9,6 +9,12 @@
   <%= link_to subject_icon('list.png')+'Report ',queue_url( :action => 'manage', :id=>@study_queue  )%> 
 </div>
 <% end -%>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_queue' ]} %>
+<%end%>
+
+
     <h2>
         <%=subject_icon('services')%> Editing Services for Study [
         <%= link_to @study.name, :controller => 'studies', 

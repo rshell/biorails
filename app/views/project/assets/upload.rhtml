@@ -1,6 +1,8 @@
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_cont']}  %>
+<% end -%>
+
 <% content_for :centre do -%>
-   <%= error_messages_for :project_assert %>
-   <%= error_messages_for :project_folder %>
    <%= render :partial => 'upload',:locals=>{:folder=>@project_folder} %>
 <% end %>
 

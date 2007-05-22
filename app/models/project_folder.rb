@@ -115,6 +115,8 @@ class ProjectFolder < ProjectElement
            element.asset = asset
            element.save
            return element
+         else
+            raise "Failed to Add File ["+filename+"] "+asset.errors.full_messages().to_sentence            
          end
      end    
      return nil
@@ -149,16 +151,20 @@ class ProjectFolder < ProjectElement
   def add_content(name,title,body)
      ProjectFolder.transaction do 
          content = ProjectContent.new(:name=> name, :title=> title, :body_html=>body,:project_id=>self.project_id)
-         content.save
-         element = get(name)     
-         element ||= ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
-                                       :parent_id=>self.id, :project_id => self.project_id )                                       
-         element.path = self.path + "/" + name
-         element.content = content
-         self.children_count +=1
-         element.save
-         return element
+         if content.save
+           element = get(name)     
+           element ||= ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
+                                         :parent_id=>self.id, :project_id => self.project_id )                                       
+           element.path = self.path + "/" + name
+           element.content = content
+           self.children_count +=1
+           element.save
+           return element
+         else
+            raise "Failed to Add  Content ["+name+"] "+content.errors.full_messages().to_sentence            
+         end
      end
+     return nil
   end
 
 ##

@@ -1,11 +1,12 @@
-<h2><%=subject_icon('model/project.png')%> New Project </h2>
-Create a new project for organization and execution of a block of work
-
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['project','user']} %>
+<% end -%>
 
 <% content_for :centre do -%>
 
-<%= error_messages_for 'project' %>
-<%= error_messages_for 'user' %>
+<h2><%=subject_icon('model/project.png')%> New Project </h2>
+Create a new project for organization and execution of a block of work
+
 
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>

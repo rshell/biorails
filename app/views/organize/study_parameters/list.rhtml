@@ -9,12 +9,15 @@
 </div>
 <% end -%>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['study' ]} %>
+<%end%>
+
+
 <h2>
     <%=subject_icon('model/parameter.png')%> Parameters in Study [<strong><%=link_to "#{@study.name}", 
             :controller=>'studies', :action =>'show',:id =>@study.id %></strong>]
 </h2>
-   <%= render :partial => '/shared/messages',  :locals => { :objects => ['study']} %>
-
    <table class="report">
       <thead>
           <tr>

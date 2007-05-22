@@ -1,9 +1,10 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task' ]} %>
+<%end%>
 
 <h2>
         <%= subject_icon('experiment.png')%> Import Data into Experiment [<strong><%=@experiment.name%></strong>]
 </h2> 
-
-<%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task'] }  %>
 
      <div class='panel'>
         <p>

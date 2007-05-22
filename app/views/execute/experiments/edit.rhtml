@@ -1,9 +1,10 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
+<%end%>
+
 <h2>
     <%= subject_icon('experiment.png')%> Edit Experiment [<strong><%=@experiment.name%></strong>]
 </h2>
-
-<%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
-
     <% form_tag :action => 'update', :id => @experiment do %>
       <%= render :partial => 'form' %>
     <div class="row">

@@ -69,7 +69,7 @@ class Project::ContentController < ApplicationController
 # 
   def create
     load_folder
-    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_content][:title],params[:project_content][:body_html])
+    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_content][:title],params[:project_content][:body_html])    
     @project_element.tag_list = params[:project_element][:tag_list]
 
     if @project_element.save
@@ -83,9 +83,14 @@ class Project::ContentController < ApplicationController
           }
         end  
     else
-        logger.warning @project_content.to_yaml
         render :action => 'new', :id => @project_folder
     end
+
+  rescue Exception => ex
+      flash[:error] = ex.message
+      logger.error ex.backtrace.join("\n")    
+      render :action => 'new', :id => @project_folder
+      
   end
 
 ##
@@ -104,9 +109,8 @@ class Project::ContentController < ApplicationController
             }
          end  
      else
-        logger.warning "problems in save on content"
-        logger.warning " Errors #{@project_content.errors.full_messages.to_sentence}"
-        logger.warning " Errors #{@project_element.errors.full_messages.to_sentence}"
+        logger.error "problems in save on content"
+        logger.error " Errors #{@project_element.errors.full_messages.to_sentence}"
         flash[:error] = "failed to save content"
         logger.info @project_content.to_yaml
         render :action => 'new', :id => @project_folder
