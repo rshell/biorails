@@ -3,7 +3,7 @@
 
 <table class="report" width='100%'>
 
-  <thead class='<%=report.dom_id("header")%>'>
+  <thead id='<%=report.dom_id("header")%>'>
     <%= render :partial => 'shared/report_header', :locals => {:report => report, :data =>data } %> 
   </thead>  
 

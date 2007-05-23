@@ -34,7 +34,8 @@
    <td><%=text_field_tag "columns[#{column.name}][filter]",column.filter,:size=>10 %> </td>
    <td><%=check_box_tag  "columns[#{column.name}][is_sortable]",1,column.is_sortable %> </td>
    <td><%=text_field_tag "columns[#{column.name}][sort_num]",column.sort_num,:size=>2 %></td>
-   <td><%=text_field_tag "columns[#{column.name}][sort_direction]",column.sort_direction,:size=>4 %> </td>
+   
+   <td><%= select_tag "columns[#{column.name}][sort_direction]", options_for_select( ['', 'asc', 'desc' ],column.sort_direction)%> </td>
    <%end%>
    <td><%=link_to_remote "remove",:url=>{:action=>'remove_column',:context=>@report.id, :id=>column.id} %></td>
    </tr>

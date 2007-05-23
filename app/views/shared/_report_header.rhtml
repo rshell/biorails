@@ -1,13 +1,7 @@
   <tr>
     <%for column in report.displayed_columns %>
     <th>
-       <% if column.is_sortable %>
-         <%= link_to_remote(column.label,:url =>
-          report_url( :action => 'refresh',:id =>report.id, :sort => "#{column.name}" , :page => nil ),
-          :update => "#{report.dom_id('body')}" ) %>
-       <%else %>
-         <%=column.label %>
-       <%end%>
+       <%= column_header(report,column) %>
     </th>
     <%end%>
     <th>Actions</th>
@@ -15,10 +9,7 @@
   <tr>
     <%for column in  report.displayed_columns %>
     <th class='filter'>
-      <%if column.is_filterible %>
-        <input id="filter_<%=column.name%>" name="filter[<%=column.name%>]"
-               size="8" value="<%=column.filter%>" type="text" />
-      <%end%>
+       <%= column_filter(report,column) %>
     </th>
     <%end%>
     <th>

@@ -47,7 +47,7 @@ class ReportColumn < ActiveRecord::Base
 #
 #
   def customize(params={})
-    logger.debug "old ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
+    logger.info "old ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
     if params.size>0
       self.is_visible = params[:is_visible]=='1'
       self.label = params[:label]                    if params[:label]
@@ -58,10 +58,15 @@ class ReportColumn < ActiveRecord::Base
       self.filter =  params[:action]                 if  params[:action] 
       
       self.is_sortable =  params[:is_sortable]=='1'
-      self.sort_num = params[:sort_num]              if params[:sort_num]
-      self.sort_direction = params[:sort_direction]  unless params[:sort_direction].nil?
+      if ['asc','desc'].any?{|i|i==params[:sort_direction]} and params[:sort_num].to_i > 0
+          self.sort_direction = params[:sort_direction] || 'asc'
+          self.sort_num ||= params[:sort_num].to_i || self.order_num+1
+      else   
+          self.sort_direction = nil
+          self.sort_num = nil
+      end   
     end
-    logger.debug "new ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
+    logger.info "new ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
   end
   
 ##

@@ -54,10 +54,23 @@ Report Table Style
     display: block;
     background: #7CB30F;
     color:              White;
-    /*background-image: url('/images/arrow_sort.gif');*/
+}
+
+.report th .desc {
+    color:              Red;
     background-position:right;
     background-repeat:no-repeat;
+    background-image: url('/images/up.png')
+
 }
+
+.report th .asc {
+    color:              Yellow;
+    background-position:right;
+    background-repeat:no-repeat;
+    background-image: url('/images/down.png');
+}
+
  
 .report  th {
     z-index: 20;

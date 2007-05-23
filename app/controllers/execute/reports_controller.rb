@@ -99,12 +99,15 @@ helper :tree
   def create
     @models = Biorails::UmlModel.models
     @report = Report.new(params[:report])    
+    @model = eval(@report.base_model)
+    @report.model = @model
+    @report.errors.clear
+    @report.errors.full_messages().each {|e| logger.info "Report #{e.to_s}"}
     if @report.save
-      @model = eval(@report.base_model)
-      @report.model = @model
       flash[:notice] = 'Report was successfully created.'
       redirect_to :action => 'edit', :id => @report
     else
+      @report.errors.full_messages().uniq.each {|e| logger.info "Report #{e.to_s}"}
       render :action => 'new'
     end
   end
@@ -161,6 +164,16 @@ helper :tree
     @columns = @report.displayed_columns
     @data = @report.run({:limit  =>  @data_pages.items_per_page,
                           :offset =>  @data_pages.current.offset })
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.json { render :json => {:report=>@report,:data=>@data}.to_json }
+      format.xml  { render :xml => {:report=>@report,:data=>@data}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
+           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+         end }
+    end
+
  end 
  
  
@@ -170,6 +183,7 @@ helper :tree
     @data = @report.run  
     render :action=>'print', :layout => false
  end 
+ 
 ###
 # Save a Run of a report to as ProjectContent for reporting
 # 
@@ -217,7 +231,16 @@ helper :tree
     @columns = @report.displayed_columns
     @data = @report.run({:limit  =>  @data_pages.items_per_page,
                           :offset =>  @data_pages.current.offset })
-    render :partial=> 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.json { render :json => {:report=>@report,:data=>@data}.to_json }
+      format.xml  { render :xml => {:report=>@report,:data=>@data}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html @report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
+           page.replace_html @report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+         end }
+    end
  end
   
 ##

@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 ##
 # Help functionailty has been divided up into a number areas to keep modules readable 
   helper :sort
+  helper Execute::ReportsHelper
   include SortHelper
   helper :pagination
   helper FormHelper    # Various Form helper and custom controllers

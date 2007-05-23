@@ -196,7 +196,7 @@ class Report < ActiveRecord::Base
       sort_columns.each{|c|c.sort_num += 1}
       c = column( item.split(":")[0])
       c.sort_num = 1
-      c.sort_direction = item.split(":")[1]||'asc'
+      c.sort_direction = item.split(":")[1]||c.next_direction
     end
  end
 #
