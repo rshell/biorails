@@ -187,18 +187,17 @@ helper :tree
 ###
 # Save a Run of a report to as ProjectContent for reporting
 # 
- def snapshot
+ def snapshot    
     @report = Report.find(params[:id])
+    @project_folder  =ProjectFolder.find(params[:folder_id])
+    params[:name] = Identifier.next_id(current_user.login) if params[:name].empty?
     @data = @report.run    
     @html = render_to_string(:action=>'print', :layout => false)
-    
-    @project_folder  =ProjectFolder.find(params[:folder_id])
     @project_element = @project_folder.add_content(params[:name], params[:title],@html)
     @project_element.reference = @report
     if @project_element.save
         redirect_to folder_url( :action =>'show',:id=>@project_folder )
     else
-        logger.warning @project_content.to_yaml
         render :inline => @html
     end
  end
