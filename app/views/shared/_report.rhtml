@@ -1,6 +1,4 @@
-<form action="<%=report_url( :action => 'refresh',:id =>report.id, :page => nil )%>" method="post" 
-        onsubmit="new Ajax.Updater('<%=report.dom_id(:body)%>', '<%=report_url( :action => 'refresh',:id =>report.id, :page => nil )%>', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
-
+<%= form_remote_tag :url => report_url( :action => 'refresh',:id =>report.id, :page => nil ) %>
 <table class="report" width='100%'>
 
   <thead id='<%=report.dom_id("header")%>'>
@@ -12,5 +10,6 @@
   </tbody>
 </table>
 
-</form>
+<%= end_form_tag %>
+
 
