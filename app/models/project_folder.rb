@@ -49,16 +49,15 @@ class ProjectFolder < ProjectElement
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
-                       :order       => 'left_limit'  
+                       :order       => 'project_elements.left_limit'  
 
   def assets(limit=100)
-    ProjectAsset.find(:all,:conditions=>['parent_id=? ',self.id],:order=>'updated_at desc',:limit=>limit) 
+    ProjectAsset.find(:all,:conditions=>['project_elements.parent_id=? ',self.id],:include => [:asset],:order=>'project_elements.updated_at desc',:limit=>limit) 
   end
 
   def contents(limit=100)
-    ProjectContent.find(:all,:conditions=>['parent_id=? ',self.id],:order=>'updated_at desc',:limit=>limit) 
+    ProjectContent.find(:all,:conditions=>['project_elements.parent_id=? ',self.id],:include => [:content],:order=>'project_elements.updated_at desc',:limit=>limit) 
   end
-
 
   def title 
     if reference and reference.respond_to?(:name)
@@ -142,7 +141,6 @@ class ProjectFolder < ProjectElement
        element.parent_id = self.id
        return element unless element.valid?
        element.save
-       logger.info element.to_yaml
        element.move_to_child_of(self)     
      end       
   end
@@ -188,10 +186,9 @@ class ProjectFolder < ProjectElement
                                       :title=> title,
                                       :position => elements.size,
                                       :parent=>self,
+                                      :title=> title,
+                                      :to_html => body,
                                       :project_id=>self.project_id)
-           element.path = self.path + "/" + name
-           element.title = title
-           element.content.body_html = body
            return add(element)
      end
      return nil

@@ -83,11 +83,8 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
   def before_validation
-    ref = self.path
-    self.path = parent.path + "/" + self.name
-    if ref and ref != self.path
-      log.info "path has changed #{ref} tp #{self.path}"
-    end
+    self.path = project.name  if  project
+    self.path = parent.path+ "/" + self.name   if  parent
   end
 
 ##

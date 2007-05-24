@@ -39,7 +39,8 @@ require 'digest/sha1'
 
 class ProjectAsset < ProjectElement
 
-  validates_associated :asset
+  validates_associated  :asset
+  validates_presence_of :asset_id
   
   def ProjectAsset.build(options ={} )
     options = options.symbolize_keys()

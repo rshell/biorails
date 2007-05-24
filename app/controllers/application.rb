@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
   def current_user
    logger.info("current_user ")
     if session[:current_user_id]
-      @current_user = User.find(session[:current_user_id])
+      @current_user ||= User.find(session[:current_user_id]) 
     else
       #@current_user = User.find(GUEST_USER_ID)
       return nil

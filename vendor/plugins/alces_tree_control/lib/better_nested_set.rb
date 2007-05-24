@@ -88,6 +88,11 @@ module Alces
                           acts_as_nested_set_options[:right_column].intern,
                           acts_as_nested_set_options[:parent_column].intern
         
+          class_eval do
+            belongs_to :parent , :class_name => options[:class].to_s, :foreign_key => options[:parent_column]
+            has_many   :children, :class_name => options[:class].to_s, :foreign_key => options[:parent_column]
+          end  
+          
           include Alces::Acts::NestedSet::InstanceMethods
           extend Alces::Acts::NestedSet::ClassMethods
         end        
@@ -108,7 +113,8 @@ module Alces
         # on creation, set automatically lft and rgt to the end of the tree
         def before_create
           maxright = acts_as_nested_set_options[:class].maximum( acts_as_nested_set_options[:right_column],
-                     :conditions => ["#{acts_as_nested_set_options[:scope]}=?",self[acts_as_nested_set_options[:scope]]])
+                     :conditions => ["#{acts_as_nested_set_options[:scope]}= ?",self[acts_as_nested_set_options[:scope]]]) if self[acts_as_nested_set_options[:scope]]
+          maxright ||= 0
           # adds the new node to the right of all existing nodes
           self[acts_as_nested_set_options[:left_column]] = maxright+1
           self[acts_as_nested_set_options[:right_column]] = maxright+2
@@ -151,10 +157,6 @@ module Alces
              :order => "#{acts_as_nested_set_options[:left_column]}")
         end
                 
-        # Returns the parent
-        def parent
-            acts_as_nested_set_options[:class].find(self[acts_as_nested_set_options[:parent_column]]) if self[acts_as_nested_set_options[:parent_column]]
-        end
         
         # Returns an array of all parents 
         # Maybe 'full_outline' would be a better name, but we prefer to mimic the Tree class
@@ -237,14 +239,6 @@ module Alces
                :order => acts_as_nested_set_options[:left_column])
           end
         end
-
-        # Returns a set of only this entry's immediate children
-        def children
-            acts_as_nested_set_options[:class].find(:all, 
-               :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND #{acts_as_nested_set_options[:parent_column]} = ? ",
-               self[acts_as_nested_set_options[:scope]],self.id], 
-               :order => acts_as_nested_set_options[:left_column])
-        end
                                       
         # Prunes a branch off of the tree, shifting all of the elements on the right
         # back to the left so the counts still work.
@@ -294,7 +288,10 @@ module Alces
           
           # load object if node is not an object
           target_left, target_right = target[acts_as_nested_set_options[:left_column]], target[acts_as_nested_set_options[:right_column]]
-
+          logger.info "==================================================================="
+          logger.info "move #{cur_left}< #{target_left} #{cur_right} < #{target_right}"
+          logger.info "==================================================================="
+          
           # detect impossible move
           if ((cur_left <= target_left) && (target_left <= cur_right)) or ((cur_left <= target_right) && (target_right <= cur_right))
             raise ActiveRecord::ActiveRecordError, "Impossible move, target node cannot be inside moved tree."

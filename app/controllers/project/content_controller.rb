@@ -29,22 +29,6 @@ class Project::ContentController < ApplicationController
   end
 
 ##
-# Edit a article 
-# 
-  def edit
-   load_contents
-   respond_to do |format|
-      format.html { render :action=>'edit'}
-      format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
-      format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'centre',  :partial=> 'edit'
-         end
-      }
-    end  
-  end
-
-##
 # Display the current clipboard 
 # 
   def new
@@ -66,11 +50,12 @@ class Project::ContentController < ApplicationController
 # Save a article
 # 
   def create
+   ProjectElement.transaction do
     load_folder
     @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:to_html])   
-    @project_element.tag_list = params[:project_element][:tag_list]
-    @content = @project_element.content
-
+    #@project_element.tag_list = params[:project_element][:tag_list]
+    @project_element.valid?
+    logger.info @project_element.to_yaml
     if @project_element.save
         respond_to do |format|
           format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
@@ -82,23 +67,43 @@ class Project::ContentController < ApplicationController
           }
         end  
     else
-        render :action => 'new', :id => @project_folder
+      flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
+      render :action => 'new', :id => @project_folder
     end
+  end      
 
   rescue Exception => ex
       flash[:error] = ex.message
       logger.error ex.backtrace.join("\n")    
       render :action => 'new', :id => @project_folder
-      
+
+  end
+
+##
+# Edit a article 
+# 
+  def edit
+   load_contents
+   respond_to do |format|
+      format.html { render :action=>'edit'}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html 'centre',  :partial=> 'edit'
+         end
+      }
+    end  
   end
 
 ##
 # Save a article
 # 
   def update
-     load_contents
-      @content = @project_element.content
-     if @project_element.update_attributes(params[:project_content])
+   ProjectElement.transaction do
+     @project_element = ProjectContent.find(params[:id], :include=>[ :parent, :content])
+     @project_folder  = @project_element.parent    
+     @project_element.update_element(params[:project_element])
+     if @project_element.save
          respond_to do |format|
             format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
             format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
@@ -112,9 +117,10 @@ class Project::ContentController < ApplicationController
         logger.error "problems in save on content"
         logger.error " Errors #{@project_element.errors.full_messages.to_sentence}"
         flash[:error] = "failed to save content"
-        logger.info @project_content.to_yaml
-        render :action => 'new', :id => @project_folder
+        logger.info @project_element.to_yaml
+        render :action => 'edit', :id => @project_folder
      end
+   end
   end
 
 
@@ -123,7 +129,6 @@ protected
 # Load the contents
 # 
   def load_contents
-     @project = current_project
      @project_element = current(ProjectElement, params[:id] )  
      @project_folder  = @project_element.parent    
   end
@@ -131,7 +136,6 @@ protected
 # Simple helpers to get the current folder from the session or params 
 #  
   def load_folder
-     @project = current_project
      @project_folder = ProjectFolder.find(params[:folder_id]||params[:id]) 
   end  
                     

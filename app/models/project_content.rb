@@ -27,14 +27,16 @@
 ##
 # This represents a piece of textual content associated with a project
 class ProjectContent < ProjectElement
-
+                
   validates_associated :content
   
-  def before_save
-    self.content.save if self.content
-  end
+#  def before_save
+#    self.content.save if self.content
+#  end
   
-  
+#
+# Build a New ProjectConent item 
+#
   def ProjectContent.build(options ={})
     options = options.symbolize_keys()
 
@@ -46,22 +48,38 @@ class ProjectContent < ProjectElement
     element.project_id= options[:project_id]
     
     element.content = Content.new
-    element.content.name =         options[:name]        
+    element.content.name =         Identifier.next_id(Content)
     element.content.title =        options[:title]      
     element.content.body      =    options[:body]        
-    element.content.project_id=    options[:project_id]    
-    element.content.body_html =    options[:body_html]   
-    
+    element.content.project_id=    options[:project_id]
+    element.content.body_html =    options[:to_html]   
     return element
+  end
+#
+# Update the content of the element added a new content
+# entry and linking it previous version
+#
+  def update_element(options)
+    Content.transaction do
+      old = Content.find(self.content_id)
+      logger.info " Old===============#{old.id} #{old.name} <#{old.left_limit}--#{old.right_limit}> =================="
+      self.content = Content.new
+      self.content.name       =  old.name || options[:name]       
+      self.content.title      =  options[:title]      
+      self.content.body       =  options[:body]        
+      self.content.project_id =  self.project_id   
+      self.content.body_html  =  options[:to_html] 
+      return self unless self.content.valid?
+      self.content.save
+      logger.info " New===============#{content.id} #{content.name} <#{content.left_limit}--#{content.right_limit}> =================="
+      self.content.move_to_child_of(old)  
+    end
   end
 
   def title
    self.content.title if content
   end
   
-  def title=(value)
-    self.content.title=value
-  end
   
   def to_html
     self.content.body_html if content
@@ -70,7 +88,7 @@ class ProjectContent < ProjectElement
 # Textual content  
 
   def description
-    returnto_html 
+    return to_html 
   end
 
   def icon( options={} )

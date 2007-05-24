@@ -13,26 +13,26 @@ Content Path: <%= link_to "/"+ @project_folder.path, folder_url( :action => 'sho
  
 <div class="row">
     <div class="form-element">
-       <label for="study_name">Name (Ref)</label>
+       <label for="name">Name (Ref)</label>
        <%= text_field 'project_element', 'name' , {:size=>20, :class=>"text-input"} %>
     </div>
 
     <div class="form-element">
-       <label for="study_name">Title (heading)</label>
+       <label for="title">Title (heading)</label>
        <%= text_field 'project_element', 'title' , {:size=>80, :class=>"text-input"} %>
     </div>
 </div>
    
   <div class="row">
     <div class="form-element">
-     <label for="study_description">Article</label>
+     <label for="text">Article</label>
      <%= text_area('project_element', 'to_html', {:rows=>40,:cols=>100})  %>
      </div>
   </div>
   
   <div class="row">
    <div class="form-element">
-         <label for="study_research_area">tags</label>
+         <label for="tags">tags</label>
          <%= text_field 'project_element', 'tag_list' , {:size=>100,:class=>"text-input"} %>
    </div>
   </div>
