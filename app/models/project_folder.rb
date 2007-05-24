@@ -49,7 +49,7 @@ class ProjectFolder < ProjectElement
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
-                       :order       => 'position'  
+                       :order       => 'left_limit'  
                        
 
                                        
@@ -66,58 +66,41 @@ class ProjectFolder < ProjectElement
 # 
   def add(item)
      ProjectElement.transaction do          
+       element = item
        case item
-       when ProjectAsset
-           element = add_reference( item.title, item )        
-           element.asset_id = item.id
-           return element       
-
-       when ProjectContent
-           element =add_reference( item.name ,item )  
-           element.content_id = item.id
-           return element       
-
-       when ProjectFolder
-           element =add_reference( item.name ,item )  
-           element.content_id = item.content_id
-           element.asset_id = item.asset_id
-           return element       
-
-       when ProjectElement
-           element =add_reference( item.name ,item )  
-           element.content_id = item.content_id
-           element.asset_id = item.asset_id
-           return element       
-
+       when ProjectAsset,ProjectContent,ProjectFolder,ProjectElement
+           element = item
        when String 
-           name = "comment-#{self.children.size}"
-           content = ProjectContent.new(:project_id=> self.project_id, :name=>name, :title=>"comments",:body=>item )
-           content.save
-           return add_reference( name, content )
+           element.name = "comment-#{self.children.size}"
+           element = ProjectContent.Build(:project_id=> self.project_id,:parent=>self, :name=>name, :title=>"comments",:body=>item )
+           return content
        else    
            name = (item.respond_to?(:name) ? item.name : item.to_s )
            return add_reference( name, item ) 
        end       
+       element.path = self.path + "/" + element.name
+       element.parent = self
+       element.project_id = self.project_id
+       element.position = self.elements.size
+       element.save
+       return item       
      end       
   end
   
   def add_file(filename, title =nil, content_type = 'image/jpeg')
      ProjectFolder.transaction do 
          title ||= filename
-         asset = ProjectAsset.new(:title=>title, :filename=> filename, :project_id=>self.project_id)
-         asset.temp_path = filename
-         asset.content_type = content_type 
-         if asset.save
-           element = get(filename)
-           element ||= ProjectElement.new(:name=> asset.filename, :position => self.children.size,   :parent_id=>self.id, :project_id => self.project_id )                                       
-           element.path = self.path + "/" + asset.filename
-           self.children_count +=1
-           element.asset = asset
-           element.save
-           return element
-         else
-            raise "Failed to Add File ["+filename+"] "+asset.errors.full_messages().to_sentence            
-         end
+         element ||= ProjectAsset.build(
+                      :name=> asset.filename, 
+                      :position => self.children.size,   
+                      :parent=>self, 
+                      :project_id => self.project_id )                                       
+         element.path = self.path + "/" + asset.filename
+         element.asset.temp_path = filename
+         element.asset.filename = filename
+         element.asset.title = title
+         element.asset.content_type = content_type 
+         return add(element)
      end    
      return nil
   end
@@ -126,43 +109,30 @@ class ProjectFolder < ProjectElement
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectReference.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.path = self.path + "/" + name
-         element.reference = item       
-         self.children_count +=1
-         element.save
-         return element
+         element.reference = item    
+         case item
+         when ProjectContent
+           element.content_id = item.content_id
+         when ProjectAsset
+           element.asset_id = item.asset_id
+         end
+         return add(element)
      end
   end
-
-  def add_asset(name,asset)
-     ProjectFolder.transaction do 
-         element = get(name)     
-         element ||= ProjectElement.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
-         element.path = self.path + "/" + name
-         element.asset = asset
-         self.children_count +=1
-         element.save
-         return element
-     end
-  end
-  
   
   def add_content(name,title,body)
      ProjectFolder.transaction do 
-         content = ProjectContent.new(:name=> name, :title=> title, :body_html=>body,:project_id=>self.project_id)
-         if content.save
-           element = get(name)     
-           element ||= ProjectElement.new(:name=> name, :position => self.children.size, :position => elements.size,
-                                         :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectContent.build(:name=> name, 
+                                      :title=> title,
+                                      :position => elements.size,
+                                      :parent=>self,
+                                      :project_id=>self.project_id)
            element.path = self.path + "/" + name
-           element.content = content
-           self.children_count +=1
-           element.save
-           return element
-         else
-            raise "Failed to Add  Content ["+name+"] "+content.errors.full_messages().to_sentence            
-         end
+           element.title = title
+           element.content.body_html = body
+           return add(element)
      end
      return nil
   end

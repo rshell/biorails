@@ -1,22 +1,19 @@
 <br/>
 <h2>
 Element Path: 
-<%= link_to "/"+ @project_element.parent.path, folder_url( :action => 'show',:id=>@project_element.parent_id) if  @project_element.parent%>
-<%= "/"+ @project_element.name %>
+<%= link_to "/"+asset.parent.path, folder_url( :action => 'show',:id=> asset.parent_id) if  asset.parent%>
+<%= "/"+ asset.filename %>
 
 </h2>
 <%if asset.image? %>
-<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>@project_element.id) %>
-<%= image_tag(asset.public_filename)  %>
+<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>asset.id) %>
+<%= image_tag(asset.url)  %>
 <%end %>
 <ul>
 <li><b>title: </b><%=asset.title%> </li>
-<li><b>download: </b> <%= link_to asset.filename, asset.public_filename%></li>
+<li><b>download: </b> <%= link_to asset.filename, asset.url %></li>
 <li><b>type: </b><%=asset.content_type%> </li>
-<li><b>bytes: </b> <%=asset.size %>
-<% if asset.width %>
-(W x H) <%=asset.width%> x <%=asset.height%> 
-<%end %>
+<li><b>Summary: </b>  <%=  asset.summary %>
 </li>
 <li><b>signature: </b><%=asset.signature%> </li>
 <li><b>created: </b><%=asset.created_at%> <%=asset.created_by%> </li>

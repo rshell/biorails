@@ -26,64 +26,62 @@
 
 ##
 # This represents a piece of textual content associated with a project
-class ProjectContent < ActiveRecord::Base
-  include ActionView::Helpers::NumberHelper
-  attr_accessor :tag_list
-##
-# This record has a full audit log created for changes 
-#   
-  acts_as_audited :change_log
+class ProjectContent < ProjectElement
+
+  validates_associated :content
   
-  belongs_to :project
+  def before_save
+    self.content.save if self.content
+  end
+  
+  
+  def ProjectContent.build(options ={})
+    options = options.symbolize_keys()
 
-  validates_presence_of   :project_id
-  validates_presence_of   :title
-  validates_presence_of   :name
+    element = ProjectContent.new
+    element.reference = options[:reference] 
+    element.name =      options[:name] || options[:title] 
+    element.path =      options[:path]
+    element.parent =    options[:parent]
+    element.position =  options[:position]
+    element.project_id= options[:project_id]
+    
+    element.content = Content.new
+    element.content.name =         options[:name]        
+    element.content.title =        options[:title]      
+    element.content.body      =    options[:body]        
+    element.content.project_id=    options[:project_id]    
+    element.content.body_html =    options[:body_html]   
+    
+    return element
+  end
 
-
-  has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
-  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'content_id',  :dependent => :destroy
-
+  def title
+   self.content.title 
+  end
+  
+  def title=(value)
+    self.content.title=value
+  end
+  
+  def body_html
+    self.content.body_html
+  end
 ##
-# The textual information is linked into a number of folders
-#   
-  has_many :folders,:through    => :elements, 
-                    :source     => :content,
-                    :conditions => "elements.reference_type = 'ProjectContent'"
+# Textual content  
 
-  def html_urls
-    urls = Array.new
-    (body_html.to_s + extended_html.to_s).gsub(/<a [^>]*>/) do |tag|
-      if(tag =~ /href="([^"]+)"/)
-        urls.push($1)
-      end
-    end
-    urls
+  def description
+    return content.body_html if content
   end
 
-
-  def icon(options={} )
-        '/images/mime/html.png'
-  end
+  def icon( options={} )
+     return content.icon(options) if content
+     '/images/model/note.png'
+  end  
   
   def summary
-     out = ' ' 
-     out << title
-     out << ' ['
-     out << number_to_human_size( body_html.size)
-     out << "]"  
-  end
-  
-##
-# calculate the signature of a record and return the result.
-# This is a MD5 checksum of the current fields in the record
-# 
-  def signature(fields =  nil )
-     fields ||= attributes.keys
-     keys = attributes.keys - ['content_hash']
-     data = keys.collect{|key| "#{key}:#{attributes[key]}"}.join(',')
-     Digest::MD5.hexdigest(data )
-  end
-  
-         
+     return content.summary if content
+     return path
+  end         
+
 end

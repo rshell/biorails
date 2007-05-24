@@ -195,7 +195,11 @@ class Project::FoldersController < ApplicationController
     @project_element =  current(ProjectElement, params[:before] ) 
     text = request.raw_post || request.query_string
     case text
-    when /id=current_project_element_*/
+    when /id=current_project_element_*/,
+         /id=current_project_folder_*/,
+         /id=current_project_reference_*/,
+         /id=current_project_content_*/,
+         /id=current_project_asset_*/
         @source = ProjectElement.find($') 
         if @source.parent_id == @project_folder.id and @source.id != @project_element.id
           @source.reorder_before( @project_element )

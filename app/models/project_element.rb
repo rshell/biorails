@@ -29,9 +29,34 @@ class ProjectElement < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_tree :order => "position"  
+# You can use:
+# * move_to_child_of
+# * move_to_right_of
+# * move_to_left_of
+# and pass them an id or an object.
+#
+# Other methods added by acts_as_nested_set are:
+# * +root+ - root item of the tree (the one that has a nil parent; should have left_column = 1 too)
+# * +roots+ - root items, in case of multiple roots (the ones that have a nil parent)
+# * +level+ - number indicating the level, a root being level 0
+# * +ancestors+ - array of all parents, with root as first item
+# * +self_and_ancestors+ - array of all parents and self
+# * +siblings+ - array of all siblings, that are the items sharing the same parent and level
+# * +self_and_siblings+ - array of itself and all siblings
+# * +children_count+ - count of all immediate children
+# * +children+ - array of all immediate childrens
+# * +all_children+ - array of all children and nested children
+# * +full_set+ - array of itself and all children and nested children
+#
+  acts_as_nested_set :parent_column => 'parent_id',
+                     :left_column => 'left_limit',
+                     :right_column => 'right_limit',
+                     :scope => 'project_id',
+                     :class => ProjectElement,
+                     :text_column => 'name'
 
   acts_as_audited :change_log
+  
   acts_as_ferret :fields => [ :name, :description, :path ], :single_index => true, :store_class_name => true
 
   acts_as_taggable 
@@ -50,24 +75,21 @@ class ProjectElement < ActiveRecord::Base
 # project membership is used to goven access rights
 #   
   belongs_to :project
+
 ##
 #All references 
   belongs_to :reference, :polymorphic => true 
-##
-# Textual content  
-  belongs_to :content, :class_name =>'ProjectContent', :foreign_key => 'content_id', :dependent => :destroy
-##
-# File assets  
-  belongs_to :asset,   :class_name =>'ProjectAsset',  :foreign_key => 'asset_id', :dependent => :destroy
+  belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
+  belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
-def before_validate
+  def before_validate
     ref = self.path
     self.path = parent.path + "/" + self.name
     if ref and ref != self.path
       log.info "path has changed #{ref} tp #{self.path}"
     end
-end
-   
+  end
+
 ##
 # Parent of a record is a   
   def folder
@@ -79,12 +101,10 @@ end
   end
   
   def description
-    return content.body_html if content
-    return asset.title if asset
     return path
   end
 ##
-# This has a textual? entries
+# This has a content? entries
 #  
   def textual?
     !(attributes['content_id'].nil?)
@@ -97,18 +117,10 @@ end
   end
 
   def icon( options={} )
-     return asset.icon(options) if asset?
-     return content.icon(options) if textual?
      return '/images/model/note.png'
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
-      '/images/model/file.png'
   end  
   
   def summary
-     return asset.summary if asset
-     return content.summary if content
      return path
   end
 ##
@@ -125,9 +137,9 @@ end
     when 'Task':           "task"
     when 'Report' :        "report"
     else
-       return 'asset' if asset
-       return 'content' if content
-       return 'reference' if reference
+       return 'asset' if asset?
+       return 'content' if textual?
+       return 'reference' if reference?
        return 'folder'
     end
   end
@@ -138,41 +150,66 @@ end
      logger.info "Move #{self.id} before #{destination.id}"
      if self.parent_id ==  destination.parent_id
        ProjectElement.transaction do
-         pos = destination.position 
-         if destination.position > self.position
-            ProjectElement.update_all("position=position-1"," parent_id=#{self.parent_id} and (position between  #{self.position+1} and #{destination.position}")    
-         elsif destination.position < self.position
-            ProjectElement.update_all("position=position+1"," parent_id=#{self.parent_id} and position between  #{destination.position} and #{self.position-1} ")        
-         end 
-         self.position = pos
-         self.save
-         end
-     end
-  end
-
-
-  def reorder_before_code(destination)
-     logger.info "Move #{self.id} before #{destination.id}"
-     if self.parent_id ==  destination.parent_id
-       ProjectElement.transaction do
-         i=0
-         for item in self.parent.elements.sort{|a,b|a.position<=>b.position}
-           i += 1 
-           if self.id == item.id
-           elsif destination.id == item.id
-              self.position = i 
-              self.save
-              i += 1
-              item.position = i
-              item.save
-           else
-              item.position =  i
-              item.save
-           end
-         end 
+         self.move_to_left_of destination
        end
      end
   end
 
 
+  # Rebuild all the set based on the parent_id and text_column name
+  #
+  def self.rebuild_sets
+    roots.each{|root|root.rebuild_set}
+  end
+        
+  def rebuild_set(parent =nil)
+    ProjectElement.transaction do    
+      if parent.nil?
+         self.left_limit = 1
+         self.right_limit = 2         
+         self.save
+      end
+      items = ProjectElement.find(:all, :conditions => ["project_id=? AND parent_id = ?",self.project_id, self.id],   :order => 'parent_id,name')                                       
+      for child in items 
+         add_child(child)             
+      end  
+      for child in items 
+         child.rebuild_set(self)
+      end  
+    end
+    self
+ end
+  
+  # Adds a child to this object in the tree.  If this object hasn't been initialized,
+  # it gets set up as a root node.  Otherwise, this method will update all of the
+  # other elements in the tree and shift them to the right, keeping everything
+  # balanced. 
+
+  def add_child( child )   
+    
+    raise ActiveRecord::ActiveRecordError, "Adding sub-tree isn\'t currently supported"  if child.root?   
+    raise ActiveRecord::ActiveRecordError, "Moving element to another sub-tree isn\'t currently supported" if child.parent_id  and child.parent_id != self.id  
+
+    ProjectElement.transaction do    
+      if ( self.left_limit == nil) || (self.right_limit == nil) 
+          # Looks like we're now the root node!  Woo
+          self.left_limit = 1
+          self.right_limit = 2         
+      end
+
+      right_bound = self.right_limit
+      # OK, we need to shift everything else to the right
+      ProjectElement.update_all( "left_limit= left_limit + 2",  ["project_id = ? AND left_limit >= ?",  self.project_id,right_bound] )            
+      ProjectElement.update_all( "right_limit = right_limit + 2",["project_id =? AND right_limit >= ?",  self.project_id,right_bound] )
+
+      # OK, add child
+      child.parent_id  = self.id
+      child.left_limit = right_bound
+      child.right_limit = right_bound + 1
+      self.right_limit += 2
+      self.save!                    
+      child.save!
+    end
+  end     
+        
 end

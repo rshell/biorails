@@ -37,95 +37,107 @@
 require 'digest/md5'
 require 'digest/sha1'
 
-class ProjectAsset < ActiveRecord::Base
-   include ActionView::Helpers::NumberHelper
-##
-# This record has a full audit log created for changes 
-#   
-  acts_as_audited :change_log
- 
-  attr_accessor :tag_list
+class ProjectAsset < ProjectElement
 
-  #validates_uniqueness_of :filename, :scope => 'project_id'
-  validates_presence_of   :filename
+  validates_associated :asset
+  
+  def ProjectAsset.build(options ={} )
+    puts "build project_asset #{options.to_s}" 
+    options = options.symbolize_keys()
+    element = ProjectAsset.new
+    element.name = options[:name] || options[:filename] 
+    element.parent = options[:parent]
+    element.project_id = options[:project_id]
+    element.position =  options[:position]
+    element.name =  options[:name]
+    element.path = options[:path]
+    
+    element.asset = Asset.new
+    element.asset.title =        options[:title]       
+    element.asset.project_id =   options[:project_id]    
+    element.asset.content_type = 'application/binary'
+    if   options[:uploaded_data] 
+      element.asset.uploaded_data  =  options[:uploaded_data]  
+      element.name = element.asset.filename
+    end
+    element.asset.content_type = options[:content_type] 
+    puts element.asset.title
+    
+    puts "project_asset #{element.to_yaml}" 
+    return element
+  end
 
-##
-# To allow for existing of previews, images and multiple derived versions of a asset child records are
-#  created. The two main use cases are thumbnail preview images and windows clipboard multiple formats ( for client application use)
-#   
-  acts_as_tree :order => "name"   
-
-##
-# binary data stored separately in id/data table to help with queries etc.   
-  belongs_to :db_file    
-##
-# The main purpose of a Project asset is is to act as a link to external raw/process data block.
-# This could be a image file, csv raw data, office document or many other thinks.
-# 
-  has_attachment :max_size => 5000.kilobytes,
-                 :resize_to => '3000x2000>',
-                 :storage => :db_file,
-                 :path_prefix =>  File.join('project_assets'),
-                 :thumbnails => {:normal=>'320x200', :icon => '48x48' }
-
-  validates_as_attachment
-
-##
-# All assets belong to a project with owns them and governs there access rights. In the system
-# a attempt to partition data by project has been used.
-#                    
-  belongs_to :project  
-
-##
-# A assert may be referenced as a element in a number of folders to allow its inclusion into 
-# reports and analysis.
-#   
-  has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
-  has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'asset_id',:dependent => :destroy
-
-##
-# calculate the signature of a record and return the result.
-# This is a MD5 checksum of the current fields in the record
-# 
-  def signature(fields =  nil )
-     fields ||= attributes.keys
-     keys = attributes.keys - ['content_hash']
-     data = keys.collect{|key| "#{key}:#{attributes[key]}"}.join(',')
-     data << 'file:' << Digest::MD5.hexdigest(File.read(self.full_filename))
-     Digest::MD5.hexdigest(data )
+  def before_save
+    self.asset.save if self.asset
   end
   
-  def image_tag(max = 700)
-   return "<img src='/images/model/file.png' />"  unless image?
-   if max and self.width and (max.to_i <= self.width.to_i )
-      "<img src=#{self.public_filename}  width='100%'/>"  
-   else
-      "<img src=#{self.public_filename} />" 
-   end
+  def url
+   self.asset.public_filename  if self.asset
   end
   
+  def title
+   asset.title 
+  end
+  
+  def title=(value)
+    asset.title=value
+  end
+
+  def content_type
+   asset.content_type 
+  end
+
+  def content_type=(value)
+   asset.content_type =value
+  end
+
+  def signature
+   asset.signature 
+  end
+
+
+  def filename
+    name  
+  end
+
+  def filename=
+    name = filename
+    filename = filename
+  end
+
+  def caption
+    asset.caption
+  end
+  
+  def caption=(value)
+    asset.caption=value
+  end
+  
+  def uploaded_data=(value)
+    asset.uploaded_data
+    name ||= asset.filename
+  end
+
+  def image?
+    asset.image?
+  end
+
+##
+# File assets  
+
+  def description
+    return asset.title if asset
+    return path
+  end
+
+
   def icon( options={} )
-     if image? and options[:images]
-        self.public_filename(:icon)
-     else
-        '/images/model/file.png'
-     end  
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
-      '/images/model/file.png'
-  end
-
+     return asset.icon(options) if asset?
+     '/images/model/file.png'
+  end  
+  
   def summary
-     out = number_to_human_size( size)
-     out << " "  << content_type 
-     if width 
-       out << " (W x H) "
-       out << " "<< width.to_s
-       out << " x "
-       out << " " << height.to_s
-     end          
-  end
-  
-  
+     return asset.summary if asset
+     return path
+  end  
 end

@@ -49,11 +49,9 @@ class Project::ContentController < ApplicationController
 # 
   def new
     load_folder
-    @project_element = ProjectElement.new(:name => Identifier.next_user_ref,      
+    @project_element = ProjectContent.build(:name => Identifier.next_user_ref,      
                                           :project_id => @project_folder.project_id)
-                                          
-    @project_content = ProjectContent.new(:name => @project_element.name,      
-                                          :project_id => @project_folder.project_id)
+    @content = @project_element.content
     respond_to do |format|
       format.html { render :action=>'new'}
       format.xml  { render :xml => @project_content.to_xml(:include=>[:project])}
@@ -69,8 +67,9 @@ class Project::ContentController < ApplicationController
 # 
   def create
     load_folder
-    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_content][:title],params[:project_content][:body_html])    
+    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:body_html])   
     @project_element.tag_list = params[:project_element][:tag_list]
+    @content = @project_element.content
 
     if @project_element.save
         respond_to do |format|
@@ -98,7 +97,8 @@ class Project::ContentController < ApplicationController
 # 
   def update
      load_contents
-     if @project_content.update_attributes(params[:project_content]) and @project_element.update_attributes(params[:project_element])
+      @content = @project_element.content
+     if @project_element.update_attributes(params[:project_content])
          respond_to do |format|
             format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
             format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
@@ -125,7 +125,6 @@ protected
   def load_contents
      @project = current_project
      @project_element = current(ProjectElement, params[:id] )  
-     @project_content   = @project_element.content
      @project_folder  = @project_element.parent    
   end
 ##

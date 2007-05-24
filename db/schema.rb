@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 263) do
+ActiveRecord::Schema.define(:version => 267) do
 
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -601,7 +601,7 @@ ActiveRecord::Schema.define(:version => 263) do
     t.column "updated_at",         :datetime,                    :null => false
     t.column "updated_by_user_id", :integer,  :default => 1,     :null => false
     t.column "created_by_user_id", :integer,  :default => 1,     :null => false
-    t.column "content_data",       :binary
+    t.column "caption",            :text
     t.column "db_file_id",         :integer
   end
 
@@ -627,23 +627,25 @@ ActiveRecord::Schema.define(:version => 263) do
   end
 
   create_table "project_elements", :force => true do |t|
-    t.column "parent_id",          :integer
-    t.column "project_id",         :integer,                                              :null => false
-    t.column "type",               :string,   :limit => 32, :default => "ProjectElement"
-    t.column "position",           :integer,                :default => 1
-    t.column "name",               :string,   :limit => 64, :default => "",               :null => false
-    t.column "path",               :string,                 :default => "",               :null => false
-    t.column "reference_id",       :integer
-    t.column "reference_type",     :string,   :limit => 20
-    t.column "lock_version",       :integer,                :default => 0,                :null => false
-    t.column "created_at",         :datetime,                                             :null => false
-    t.column "updated_at",         :datetime,                                             :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,                :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,                :null => false
-    t.column "asset_id",           :integer
-    t.column "content_id",         :integer
-    t.column "published_hash",     :string
-    t.column "children_count",     :integer,                :default => 0,                :null => false
+    t.column "parent_id",              :integer
+    t.column "project_id",             :integer,                                              :null => false
+    t.column "type",                   :string,   :limit => 32, :default => "ProjectElement"
+    t.column "position",               :integer,                :default => 1
+    t.column "name",                   :string,   :limit => 64, :default => "",               :null => false
+    t.column "path",                   :string,                 :default => "",               :null => false
+    t.column "reference_id",           :integer
+    t.column "reference_type",         :string,   :limit => 20
+    t.column "lock_version",           :integer,                :default => 0,                :null => false
+    t.column "created_at",             :datetime,                                             :null => false
+    t.column "updated_at",             :datetime,                                             :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 1,                :null => false
+    t.column "created_by_user_id",     :integer,                :default => 1,                :null => false
+    t.column "asset_id",               :integer
+    t.column "content_id",             :integer
+    t.column "published_hash",         :string
+    t.column "project_elements_count", :integer,                :default => 0,                :null => false
+    t.column "left_limit",             :integer,                :default => 0,                :null => false
+    t.column "right_limit",            :integer,                :default => 0,                :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -825,6 +827,16 @@ ActiveRecord::Schema.define(:version => 263) do
     t.column "data",       :text
     t.column "created_at", :timestamp
     t.column "updated_at", :timestamp
+  end
+
+  create_table "sitealizer", :force => true do |t|
+    t.column "path",       :string
+    t.column "ip",         :string
+    t.column "referer",    :string
+    t.column "language",   :string
+    t.column "user_agent", :string
+    t.column "created_at", :datetime
+    t.column "created_on", :date
   end
 
   create_table "specimens", :force => true do |t|
