@@ -27,8 +27,8 @@
 	    	  
 	<% elsif item.textual? %>
 	
-	<h2> Article:  <%= link_to item.content.title, content_url(:action=>'edit',:id=>item.id)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
-	<p>       <%= item.content.body_html %>	</p>
+	<h2> Article:  <%= link_to item.title, content_url(:action=>'edit',:id=>item.id)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
+	<p>       <%= item.to_html %>	</p>
 	
 	<% else %>
 	

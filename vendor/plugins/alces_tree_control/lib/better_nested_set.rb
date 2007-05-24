@@ -243,7 +243,8 @@ module Alces
         # Returns a set of only this entry's immediate children
         def children
             acts_as_nested_set_options[:class].find(:all, 
-               :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND #{acts_as_nested_set_options[:parent_column]} = ",self[acts_as_nested_set_options[:scope]],self.id], 
+               :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND #{acts_as_nested_set_options[:parent_column]} = ? ",
+               self[acts_as_nested_set_options[:scope]],self.id], 
                :order => acts_as_nested_set_options[:left_column])
         end
                                       

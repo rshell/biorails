@@ -52,7 +52,57 @@ class ProjectFolder < ProjectElement
                        :order       => 'left_limit'  
                        
 
-                                       
+  def title 
+    if reference and reference.respond_to?(:name)
+      out = " #{self.reference_type} ["
+      out << self.reference.name 
+      out << "] "
+      return out
+    end
+    return self.name
+  end
+
+  def summary
+    return "#{self.style.capitalize} folder with #{self.children_count} items"   if reference 
+    return "#{self.style.capitalize} with #{self.children_count} items"     
+  end
+
+  def description
+    if reference and reference.respond_to?(:description)
+      return self.reference.description 
+    end
+    return name
+  end
+
+  
+  def to_html
+    if reference and reference.respond_to?(:name)
+      out = "<p>"
+      out << self.reference.name
+      out << ": "
+      out << self.reference.description if reference.respond_to?(:description)
+      out << "</p>"
+      return out
+    end
+    return name
+  end
+  
+  def icon( options={} )
+     case attributes['reference_type']
+      when 'Project' :        return '/images/model/project.png'
+      when 'Study' :          return '/images/model/study.png'
+      when 'StudyParameter':  return '/images/model/parameter.png'
+      when 'StudyProtocol':   return '/images/model/protocol.png'
+      when 'Experiment':      return '/images/model/experiment.png'
+      when 'Task':            return '/images/model/task.png'
+      when 'Report':          return '/images/model/report.png'
+      when 'Request':         return '/images/model/request.png'
+      when 'Compound':        return '/images/model/compound.png'
+      else
+         return '/images/model/folder.png'
+      end 
+  end    
+
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -166,29 +216,7 @@ class ProjectFolder < ProjectElement
  
   end  
 
-  def icon( options={} )
-     case attributes['reference_type']
-      when 'Project' :        return '/images/model/project.png'
-      when 'Study' :          return '/images/model/study.png'
-      when 'StudyParameter':  return '/images/model/parameter.png'
-      when 'StudyProtocol':   return '/images/model/protocol.png'
-      when 'Experiment':      return '/images/model/experiment.png'
-      when 'Task':            return '/images/model/task.png'
-      when 'Report':          return '/images/model/report.png'
-      when 'Request':         return '/images/model/request.png'
-      when 'Compound':        return '/images/model/compound.png'
-      else
-         return '/images/model/folder.png'
-      end 
-  end    
   
-  def summary
-     if self.reference_id
-        return "Folder linked to a #{self.reference_type}"
-     else
-        return "Standard Folder "
-     end
-  end  
 ##
 # add/find a folder to the project. This  
 # 

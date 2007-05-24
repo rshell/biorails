@@ -247,12 +247,12 @@ ProjectElement
        element = ProjectElement.find(element_id)
        return nil unless element and element.content_id
        DataCaptureApi::Content.new(
-             :id => element.content.id,
+             :id => element.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
-             :name => element.content.name,
-             :title => element.content.title,
-             :data  =>element.content.body_html
+             :name => element.name,
+             :title => element.title,
+             :data  =>element.to_html
              )
      end
 

@@ -139,7 +139,7 @@ class ProjectElement < ActiveRecord::Base
     else
        return 'asset' if asset?
        return 'content' if textual?
-       return 'reference' if reference?
+       return "#{reference_type}" if reference?
        return 'folder'
     end
   end

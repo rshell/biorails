@@ -91,6 +91,10 @@ class ProjectAsset < ProjectElement
    asset.content_type =value
   end
 
+  def to_html
+    return "<img alt="#{title}" src=''#{self.url}'' />"
+  end
+  
   def signature
    asset.signature 
   end

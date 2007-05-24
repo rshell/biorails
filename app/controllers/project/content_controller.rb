@@ -67,7 +67,7 @@ class Project::ContentController < ApplicationController
 # 
   def create
     load_folder
-    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:body_html])   
+    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:to_html])   
     @project_element.tag_list = params[:project_element][:tag_list]
     @content = @project_element.content
 

@@ -92,17 +92,17 @@ class Project::FoldersController < ApplicationController
   def finder
     set_folder
     @hits = []
-    @user_query = params[:query]
-    @query = @user_query.dup
-    logger.info "query before [#{@query}]"
+    @user_query = params['query'] 
+    logger.info "query before [#{@user_query}]"
     ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
-    if @query
+    if @user_query
+       @query = "#{@user_query}"
        @hits = ProjectElement.find(:all,
           :conditions=>["project_id in (#{ids}) and name like ?","#{@query}%"],
           :order=>"abs(project_id-#{current_project.id}) asc,parent_id,name",:limit=>100)
-    end
-    if @hits.size==0
-       @hits = ProjectElement.find_by_contents(@query.to_s,:limit=>100)
+       if @hits.size==0
+         @hits = ProjectElement.find_by_contents(@query,:models=>[ProjectContent,ProjectAsset,ProjectElement,ProjectReference,ProjectFolder],:limit=>100)
+       end
     end
     logger.info "query after [#{@query}]"
     return render_right('finder')

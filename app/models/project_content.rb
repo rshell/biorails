@@ -57,21 +57,21 @@ class ProjectContent < ProjectElement
   end
 
   def title
-   self.content.title 
+   self.content.title if content
   end
   
   def title=(value)
     self.content.title=value
   end
   
-  def body_html
-    self.content.body_html
+  def to_html
+    self.content.body_html if content
   end
 ##
 # Textual content  
 
   def description
-    return content.body_html if content
+    returnto_html 
   end
 
   def icon( options={} )

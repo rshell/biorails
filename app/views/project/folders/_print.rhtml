@@ -14,7 +14,7 @@
 	<p>  <%=  link_to image_tag(item.asset.public_filename), element_to_url(item) %>	</p>      	  
 	<% elsif item.textual? %>
 	<h2> 	  <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
-	<p>       <%= item.content.body_html %>	</p>
+	<p>       <%= item.to_html %>	</p>
 	<% end %>
 <% end %>
 

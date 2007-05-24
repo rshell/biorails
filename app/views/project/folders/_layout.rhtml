@@ -10,17 +10,17 @@
 <% for item in folder.elements %>  
 
     <div id='<%=item.dom_id(:current)%>' class='box folder_element'>  
-    <%=item.position %>
 	<% if item.asset? and item.asset.image? %>
         	<h2>Figure: <%=item.name%>  <%= link_to '[Edit]', element_to_url(item)  %></h2>
         	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
 	    	  
 	<% elsif item.textual? %>
 	
-    	<h2> Article: <%=item.content.title%> <%= link_to '[Edit]', content_url(:action=>'edit',:id=>item.id)  %>  </h2>
-    	<p>       <%= item.content.body_html %>	</p>
+    	<h2> Article: <%=item.title%> <%= link_to '[Edit]', content_url(:action=>'edit',:id=>item.id)  %>  </h2>
+    	<p>       <%= item.to_html %>	</p>
 	<% else %>
-        <h4>Folder: <%=item.name%></h4>
+        <h2>Folder:<%= item.title %></h2>
+           <%=item.to_html%>
 	<% end %>
     </div>	
 
