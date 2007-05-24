@@ -90,6 +90,18 @@ class Request < ActiveRecord::Base
      end
      return nil
   end
+  
+#
+# Get the folder for this study
+#
+  def folder(item=nil)
+    folder = self.project.folder(self)
+    if item
+      return folder.folder(item)
+    else
+      return folder
+    end
+  end   
 ##
 # Transform items into a hash of hashs for a table of queue_item cell with item.name row ids
 #   

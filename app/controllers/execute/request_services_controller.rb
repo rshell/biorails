@@ -25,7 +25,7 @@ class Execute::RequestServicesController < ApplicationController
 
   def show
     @request_service = RequestService.find(params[:id])
-    @project_folder =current_project.folder(@request_service.request)
+    @project_folder =@request_service.request.folder
     
   end
 
@@ -45,7 +45,7 @@ class Execute::RequestServicesController < ApplicationController
 
   def edit
     @request_service = RequestService.find(params[:id])
-    @project_folder =current_project.folder(@request_service.request)
+    @project_folder =@request_service.request.folder
   end
 
   def update

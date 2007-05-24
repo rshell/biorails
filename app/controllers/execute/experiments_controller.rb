@@ -145,7 +145,7 @@ class Execute::ExperimentsController < ApplicationController
     end
     @experiment.project = current_project
     if @experiment.save
-      current_project.folder(@experiment)    
+      @folder = @experiment.folder  
       flash[:notice] = 'Experiment was successfully created.'
       redirect_to :action => 'show', :id => @experiment.id
     else

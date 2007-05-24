@@ -5,9 +5,9 @@
     <h4>Lastest Uploads</h4>
     <% for item in @project_folder.assets(10) %>
     	 <p>
-    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+     	    <%= link_to image_tag( item.icon( {:images=>true} )), element_to_url(item) %>    	    
     	    [<%= item.name %>] 	    <%= item.summary %> 
-            <%= link_to( image_tag('action/cancel.png')+"Remove", folder_url( :action => 'destroy', :id => item ), :class => "button") %>
+            <%= link_to( image_tag('action/cancel.png'), folder_url( :action => 'destroy', :id => item ), :class => "button") %>
     	    <br/>
         </p>    
     <% end %>

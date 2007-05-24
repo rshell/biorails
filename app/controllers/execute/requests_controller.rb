@@ -61,7 +61,7 @@ class Execute::RequestsController < ApplicationController
 # current study. eg a schedule of task data entry
   def show
     @user_request = current(Request,params[:id])
-    @project_folder =current_project.folder(@user_request)
+    @project_folder =@user_request.folder
   end
 
 ##
@@ -82,7 +82,7 @@ class Execute::RequestsController < ApplicationController
     @user_request = Request.new(params[:user_request])
     @user_request.list = RequestList.new(:name=>@user_request.name,:data_element_id=>@user_request.data_element_id)
     if @user_request.list.save and @user_request.save
-      @project_folder =current_project.folder(@user_request)
+      @project_folder =@user_request.folder
       flash[:notice] = 'Request was successfully created.'
       redirect_to :action => 'edit',:id=> @user_request.id
     else

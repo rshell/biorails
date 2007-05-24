@@ -43,7 +43,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # 
   def show
     find_process
-    @folder = set_folder(current_project.folder(@study).folder(@study_protocol))
+    @folder = set_folder(@study_protocol.folder)
   end
 
   def metrics
@@ -377,7 +377,7 @@ protected
   def find_process
     @study_protocol = StudyProtocol.find(params[:id])
     @study =@study_protocol.study
-    @project_folder = current_project.home.folder(@study).folder(@study_protocol) 
+    @project_folder = @study_protocol.folder 
     @protocol_version = ProtocolVersion.find(params[:version]) if params[:version]
     @protocol_version ||= @study_protocol.process
   end 

@@ -77,7 +77,7 @@ class Execute::TasksController < ApplicationController
 # show task notces,comments etc
   def folder
     set_task
-    @project_folder = set_folder(current_project.folder(@task.experiment).folder(@task))    
+    @project_folder = @task.folder  
   end
 ##
 # show reporting options
@@ -294,6 +294,6 @@ protected
   def set_task
     @task = current( Task, params[:id] )
     @experiment =@task.experiment
-    @folder = set_folder(current_project.folder(@task.experiment).folder(@task))  
+    @folder = @task.folder
   end
 end

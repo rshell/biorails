@@ -138,7 +138,7 @@ class Organize::StudiesController < ApplicationController
     @project.studies << @study
     @study.project = current_project
     if @study.save
-      @project_folder = current_project.folder(@study)    
+      @project_folder = @study.folder    
       flash[:notice] = 'Study was successfully created.'
       redirect_to :action => 'show', :id => @study.id
     else
@@ -245,7 +245,7 @@ protected
     @study = current( Study, params[:id] )
     if @study
       logger.info "set_study_content(#{@study.name})"
-      @folder = set_folder(current_project.folder(@study))
+      @folder = @study.folder
     end
   end
     
