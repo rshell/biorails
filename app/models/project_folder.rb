@@ -50,7 +50,15 @@ class ProjectFolder < ProjectElement
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
                        :order       => 'left_limit'  
-                       
+
+  def assets(limit=100)
+    ProjectAsset.find(:all,:conditions=>['parent_id=? ',self.id],:order=>'updated_at desc',:limit=>limit) 
+  end
+
+  def contents(limit=100)
+    ProjectContent.find(:all,:conditions=>['parent_id=? ',self.id],:order=>'updated_at desc',:limit=>limit) 
+  end
+
 
   def title 
     if reference and reference.respond_to?(:name)
@@ -129,11 +137,13 @@ class ProjectFolder < ProjectElement
            return add_reference( name, item ) 
        end       
        element.path = self.path + "/" + element.name
-       element.parent = self
        element.project_id = self.project_id
        element.position = self.elements.size
+       element.parent_id = self.id
+       return element unless element.valid?
        element.save
-       return item       
+       logger.info element.to_yaml
+       element.move_to_child_of(self)     
      end       
   end
   

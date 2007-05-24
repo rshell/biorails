@@ -2,5 +2,15 @@
 <div class="panel">
     <p>Unstructured data in the project is divided up into a number of section. Each section may work as a folder, 
     blog or a component document. </p>
+    <h4>Lastest Uploads</h4>
+    <% for item in @project_folder.assets(10) %>
+    	 <p>
+    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+    	    [<%= item.name %>] 	    <%= item.summary %> 
+            <%= link_to( image_tag('action/cancel.png')+"Remove", folder_url( :action => 'destroy', :id => item ), :class => "button") %>
+    	    <br/>
+        </p>    
+    <% end %>
+
 </div>
 

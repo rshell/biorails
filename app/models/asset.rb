@@ -36,6 +36,7 @@
 # 
 require 'digest/md5'
 require 'digest/sha1'
+require 'mime/types'
 
 class Asset < ActiveRecord::Base
    include ActionView::Helpers::NumberHelper
@@ -53,15 +54,7 @@ class Asset < ActiveRecord::Base
 # reports and analysis.
 #   
   has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
-
   has_many :elements,  :class_name  =>'ProjectElement',  :foreign_key =>'asset_id',:dependent => :destroy
-
-##
-# This record has a full audit log created for changes 
-#   
-  acts_as_audited :change_log
- 
-  attr_accessor :tag_list
 
 ##
 # To allow for existing of previews, images and multiple derived versions of a asset child records are
@@ -85,6 +78,11 @@ class Asset < ActiveRecord::Base
   #validates_uniqueness_of :filename, :scope => 'project_id'
   validates_presence_of   :filename
   validates_as_attachment
+  
+  def before_validation 
+    self.content_type =  MIME::Types.type_for(self.filename).to_s
+    logger.info "set self.content_type to #{self.content_type}"
+  end
   
 ##
 # calculate the signature of a record and return the result.
@@ -119,6 +117,11 @@ class Asset < ActiveRecord::Base
       '/images/model/file.png'
   end
 
+  def mime_type
+    MIME::Types[self.content_type]  
+  end
+  
+  
   def summary
      out = number_to_human_size( size)
      out << " "  << content_type 

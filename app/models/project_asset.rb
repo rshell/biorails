@@ -42,11 +42,9 @@ class ProjectAsset < ProjectElement
   validates_associated :asset
   
   def ProjectAsset.build(options ={} )
-    puts "build project_asset #{options.to_s}" 
     options = options.symbolize_keys()
     element = ProjectAsset.new
     element.name = options[:name] || options[:filename] 
-    element.parent = options[:parent]
     element.project_id = options[:project_id]
     element.position =  options[:position]
     element.name =  options[:name]
@@ -63,7 +61,6 @@ class ProjectAsset < ProjectElement
     element.asset.content_type = options[:content_type] 
     puts element.asset.title
     
-    puts "project_asset #{element.to_yaml}" 
     return element
   end
 

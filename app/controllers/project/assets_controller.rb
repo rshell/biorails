@@ -60,6 +60,7 @@ class Project::AssetsController < ApplicationController
     current_project
     @project_folder =current_folder
     @project_asset = ProjectAsset.build( :name=> Identifier.next_user_ref, :project_id => @project_folder.project_id )
+   
     
     respond_to do |format|
       format.html { render :action=>'upload'}
@@ -80,7 +81,7 @@ class Project::AssetsController < ApplicationController
       @project_asset = ProjectAsset.build(params['project_asset']) 
       @project_folder.add( @project_asset)
       if @project_asset.save
-          redirect_to folder_url(:action => 'show',:id => @project_folder)
+          redirect_to asset_url(:action => 'new',:id => @project_folder)
       else
           logger.warn " Errors #{@project_asset.errors.full_messages.to_sentence}"
           flash[:error] = " Errors #{@project_asset.asset.errors.full_messages.to_sentence}"

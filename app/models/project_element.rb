@@ -82,7 +82,7 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
-  def before_validate
+  def before_validation
     ref = self.path
     self.path = parent.path + "/" + self.name
     if ref and ref != self.path

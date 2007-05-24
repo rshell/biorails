@@ -3,11 +3,6 @@ class Content < ActiveRecord::Base
 
   set_table_name 'project_contents'
 
-
-##
-# This record has a full audit log created for changes 
-#   
-  acts_as_audited :change_log
   
   belongs_to :project
 
@@ -22,7 +17,7 @@ class Content < ActiveRecord::Base
 ##
 # The textual information is linked into a number of folders
 #   
-  has_many :folders,:through    => :elements,               :source     => :content
+  has_many :folders,:through    => :elements,    :source     => :content
 
   def html_urls
     urls = Array.new

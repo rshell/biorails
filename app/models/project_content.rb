@@ -42,7 +42,6 @@ class ProjectContent < ProjectElement
     element.reference = options[:reference] 
     element.name =      options[:name] || options[:title] 
     element.path =      options[:path]
-    element.parent =    options[:parent]
     element.position =  options[:position]
     element.project_id= options[:project_id]
     

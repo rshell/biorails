@@ -107,7 +107,8 @@ module Alces
 
         # on creation, set automatically lft and rgt to the end of the tree
         def before_create
-          maxright = self.class.maximum(acts_as_nested_set_options[:right_column], :conditions => ["acts_as_nested_set_options[:scope])=?",self[acts_as_nested_set_options[:scope]]])
+          maxright = acts_as_nested_set_options[:class].maximum( acts_as_nested_set_options[:right_column],
+                     :conditions => ["#{acts_as_nested_set_options[:scope]}=?",self[acts_as_nested_set_options[:scope]]])
           # adds the new node to the right of all existing nodes
           self[acts_as_nested_set_options[:left_column]] = maxright+1
           self[acts_as_nested_set_options[:right_column]] = maxright+2
@@ -205,7 +206,6 @@ module Alces
         # Pass :exclude => item, or id, or [items or id] to exclude some parts of the tree
         def full_set(special=nil)
           return [self] if new_record? or self[acts_as_nested_set_options[:right_column]]-self[acts_as_nested_set_options[:left_column]] == 1
-#          self.class.find(:all, :conditions => "#{acts_as_nested_set_options[:scope]} AND (#{acts_as_nested_set_options[:left_column]} BETWEEN #{self[acts_as_nested_set_options[:left_column]]} and #{self[acts_as_nested_set_options[:right_column]]})", :order => acts_as_nested_set_options[:left_column])
           [self] + all_children(special)
         end
                   
@@ -216,8 +216,6 @@ module Alces
             transaction do
               # exclude some items and all their children
               special[:exclude] = [special[:exclude]] if !special[:exclude].is_a?(Array)
-              # get objects for ids
-              special[:exclude].collect! {|s| s.is_a?(self.class) ? s : self.class.find(s)}
               # get all subtrees and flatten the list
               exclude_list = special[:exclude].map{|e| e.full_set.map{|ee| ee.id}}.flatten.uniq.join(',')
               if exclude_list.blank?
@@ -254,7 +252,7 @@ module Alces
           return if self[acts_as_nested_set_options[:right_column]].nil? || self[acts_as_nested_set_options[:left_column]].nil?
           dif = self[acts_as_nested_set_options[:right_column]] - self[acts_as_nested_set_options[:left_column]] + 1
 
-          self.class.transaction {
+          acts_as_nested_set_options[:class].transaction {
              acts_as_nested_set_options[:class].delete_all( ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} > ? and #{acts_as_nested_set_options[:right_column]} < ?)",
                                   self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]])
             
