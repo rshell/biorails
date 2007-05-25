@@ -40,7 +40,7 @@
     	<td align="center"><%= short_date(item.created_at) %></td>
     	<td align="center"><%= short_date(item.updated_at) %></td>
         <td align="center">
-            <%= link_to( l(:edit),  content_url( :action => 'edit', :id => item ), :class => "button") if item.textual? and !item.reference? %>
+            <%= link_to( l(:edit),  content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
             <%= link_to( l(:view),  asset_url( :action => 'show', :id => item ), :class => "button") if item.asset? %>
             <%= link_to( l(:delete), folder_url( :action => 'destroy', :id => item ), :class => "button") if item.children_count==0 %>
         </td>
@@ -53,7 +53,7 @@
            :url => folder_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
 
       <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
-           :accept =>'project_element',
+           :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
 
     <% end %>
@@ -65,11 +65,11 @@
   </thead>
 </table>
       <%= drop_receiving_element('folder_top', :hoverclass => "drop-active",
-           :accept =>'project_element',
+           :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => folder_url(:action=>"add_element",:id=>folder.id )) %>
            
       <%= drop_receiving_element('folder_bottom', :hoverclass => "drop-active",
-           :accept =>'project_element',
+           :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => folder_url(:action=>"add_element", :id=>folder.id )) %>
 
 

@@ -1,13 +1,13 @@
 <% content_for :messages do -%>
-  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_cont']}  %>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_asset']}  %>
 <% end -%>
 
 <% content_for :centre do -%>
 <br/>
 <h2>
 Element Path: 
-<%= link_to "/"+ @project_element.parent.path, folder_url( :action => 'show',:id=>@project_element.parent_id) if  @project_element.parent%>
-<%= "/"+ @project_element.name %>
+<%= link_to "/"+ @project_asset.parent.path, folder_url( :action => 'show',:id=>@project_asset.parent_id) if  @project_asset.parent%>
+<%= "/"+ @project_asset.name %>
 
 </h2>
 <p>
@@ -32,7 +32,7 @@ This allows simple image editing and analysis ImageJ
 (W x H) <%=@project_asset.width%> x <%=@project_asset.height%> 
 <%end %>
 </li>
-<li><b>signature: </b><%=@project_asset.signature%> </li>
+<li><b>signature:</b><%=@project_asset.signature%> </li>
 <li><b>created: </b><%=@project_asset.created_at%> <%=@project_asset.created_by%> </li>
 <li><b>updated: </b><%=@project_asset.updated_at%> <%=@project_asset.updated_by%> </li>
 </ul>

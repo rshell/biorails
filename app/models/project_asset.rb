@@ -51,17 +51,20 @@ class ProjectAsset < ProjectElement
     element.name =  options[:name]
     element.path = options[:path]
     
-    element.asset = Asset.new
-    element.asset.title =        options[:title]       
-    element.asset.project_id =   options[:project_id]    
-    element.asset.content_type = 'application/binary'
+    asset = Asset.new
+    asset.title =        options[:title]       
+    asset.project_id =   options[:project_id]    
+    asset.content_type = 'application/binary'
     if   options[:uploaded_data] 
-      element.asset.uploaded_data  =  options[:uploaded_data]  
-      element.name = element.asset.filename
+      asset.uploaded_data  =  options[:uploaded_data]  
+      element.name = asset.filename
     end
-    element.asset.content_type = options[:content_type] 
-    puts element.asset.title
-    
+    asset.content_type = options[:content_type] 
+    asset.save
+    logger.info "============================================"
+    logger.info  asset.errors.full_messages.to_sentence
+    element.asset_id = asset.id
+    element.asset = asset
     return element
   end
 

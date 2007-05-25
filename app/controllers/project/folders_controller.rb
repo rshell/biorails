@@ -175,21 +175,6 @@ class Project::FoldersController < ApplicationController
     redirect_to :action => 'show', :id=>element.parent_id
   end
 
-  def add_element   
-    set_folder
-    text = request.raw_post || request.query_string
-    case text
-    when /id=project_element_*/ 
-        @source = ProjectElement.find($')        
-        if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
-          @new_element = @project_folder.add(@source)
-         flash[:info] = "add reference to #{@source.dom_id} to #{@project_folder.dom_id}"
-        end     
-     end
-     @project_folder.reload
-     return render_central
-  end
-
   def move_element
     set_folder
     @project_element =  current(ProjectElement, params[:before] ) 
@@ -209,6 +194,24 @@ class Project::FoldersController < ApplicationController
     return render_central
   end
   
+  def add_element   
+    set_folder
+    text = request.raw_post || request.query_string
+    case text
+    when /id=project_element_*/,
+         /id=project_content_*/ ,
+         /id=project_asset_*/ ,
+         /id=project_reference_*/  
+        @source = ProjectElement.find($')        
+        if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
+          @new_element = @project_folder.copy(@source)
+         flash[:info] = "add reference to #{@source.dom_id} to #{@project_folder.dom_id}"
+        end     
+     end
+     @project_folder.reload
+     return render_central
+  end
+
   
 ##
 # a element has been dropped on the folder
@@ -220,17 +223,24 @@ class Project::FoldersController < ApplicationController
     @successful =true
     
     case text
-    when /id=current_project_element_*/
+    when /id=current_project_element_*/,
+         /id=current_project_folder_*/,
+         /id=current_project_reference_*/,
+         /id=current_project_content_*/,
+         /id=current_project_asset_*/
         @source = ProjectElement.find($') 
         if  @source.id != @project_element.id
           @source.reorder_before( @project_element )
          flash[:info] = "moved reference to #{@source.dom_id} before #{@project_element.dom_id}"
         end     
     
-    when /id=project_element_*/ 
+    when /id=project_element_*/,
+         /id=project_content_*/ ,
+         /id=project_asset_*/ ,
+         /id=project_reference_*/ 
         @source = ProjectElement.find($')        
         if allowed_move(@source,@project_element)
-          @new_element = @project_folder.add(@source)
+          @new_element = @project_folder.copy(@source)
           @new_element.reorder_before( @project_element )
          flash[:info] = "added reference to #{@source.dom_id} before #{@project_element.dom_id}"
         end     

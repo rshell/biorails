@@ -31,7 +31,7 @@
            :url => element_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
 
       <%= drop_receiving_element(item.dom_id(:current), :hoverclass => "drop-active",   
-           :accept =>'project_element',
+           :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => element_url(:action=>"drop_element", :id=>folder.id, :before=>item.id)) %>
 
 <% end %>
@@ -42,7 +42,7 @@ Items can be drags from the right hand side menu to the layout to build a comple
 </div>
 
       <%= drop_receiving_element('layout_bottom', :hoverclass => "drop-active",
-           :accept =>'project_element',
+           :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => element_url(:action=>"add_element", :id=>folder.id )) %>
 
 

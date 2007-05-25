@@ -1,1 +1,34 @@
-<%=@diff%>
+<br/>
+<h2>
+Content Path: 
+<%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+<%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
+
+</h2>
+<div class='box'>
+<h2> <%= @project_element.title %></h2>
+
+
+  <%= @project_element.to_html %>
+</div>
+<div class='box'>
+
+    <h4>History of this document</h4>
+    <ol>
+    <% for item in @project_element.content.ancestors %>
+      <% if item.id == @other.id%>
+      <li> <b><%=item.title %> <%=item.updated_at %> <%=item.updated_by_user.login%></b></li>
+      <div id='differences' class="box diff">
+          <%=@diff%>
+      </div>
+      <%else%>
+      <li> <%=link_to item.title, content_url(:action=>'diff',:id=>@project_element.id,:version=>item.id) %>
+            <%=item.updated_at %> <%=item.updated_by_user.login%></li>
+      
+      <% end %>
+    <% end %>
+      <li><%=link_to "[Current]", content_url(:action=>'show',:id=>@project_element.id) %>  <%= @project_element.title %> 
+      <%=@project_element.title %> <%=@project_element.updated_at %> <%=@project_element.updated_by_user.login%></li>
+
+    </ol>
+</div>

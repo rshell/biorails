@@ -1,21 +1,21 @@
 <br/>
 <h2>
 Element Path: 
-<%= link_to "/"+asset.parent.path, folder_url( :action => 'show',:id=> asset.parent_id) if  asset.parent%>
-<%= "/"+ asset.filename %>
+<%= link_to "/"+@project_asset.parent.path, folder_url( :action => 'show',:id=> @project_asset.parent_id) if  @project_asset.parent%>
+<%= "/"+ @project_asset.name %>
 
 </h2>
-<%if asset.image? %>
-<%=link_to "Analyse Image", asset_url(:action=>'edit',:id=>asset.id) %>
-<%= image_tag(asset.url)  %>
+<%if @project_asset.asset.image? %>
+<%= @project_asset.asset.image_tag  %>
 <%end %>
 <ul>
-<li><b>title: </b><%=asset.title%> </li>
-<li><b>download: </b> <%= link_to asset.filename, asset.url %></li>
-<li><b>type: </b><%=asset.content_type%> </li>
-<li><b>Summary: </b>  <%=  asset.summary %>
+<li><b>Title: </b><%=@project_asset.title%> </li>
+<li><b>Caption: </b><%=@project_asset.asset.caption%> </li>
+<li><b>Download: </b> <%= link_to @project_asset.asset.filename, @project_asset.url %></li>
+<li><b>Mime Type: </b><%=@project_asset.asset.content_type%> </li>
+<li><b>Summary: </b>  <%=  @project_asset.summary %>
 </li>
-<li><b>signature: </b><%=asset.signature%> </li>
-<li><b>created: </b><%=asset.created_at%> <%=asset.created_by%> </li>
-<li><b>updated: </b><%=asset.updated_at%> <%=asset.updated_by%> </li>
+<li><b>MD5 Signature: </b><%=@project_asset.asset.signature%> </li>
+<li><b>created: </b><%=@project_asset.created_at%> <%=@project_asset.created_by%> </li>
+<li><b>updated: </b><%=@project_asset.updated_at%> <%=@project_asset.updated_by%> </li>
 </ul>

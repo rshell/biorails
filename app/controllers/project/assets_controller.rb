@@ -28,13 +28,13 @@ class Project::AssetsController < ApplicationController
 #   
   def show
     current_project
-    @project_element =  current(ProjectElement, params[:id] )  
-    @project_folder   = @project_element.parent
+    @project_asset =  current(ProjectElement, params[:id] )  
+    @project_folder   = @project_asset.parent
     respond_to do |format|
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
       format.js  { render :update do | page |
-           page.replace_html 'centre',  :partial=> 'asset',:locals=>{:asset=> @project_asset}
+           page.replace_html 'centre',  :partial=> 'asset'
          end
       }
     end  
@@ -43,8 +43,8 @@ class Project::AssetsController < ApplicationController
 
   def edit
     current_project
-    @project_element =  current(ProjectElement, params[:id] )  
-    @project_folder   = @project_element.parent
+    @project_asset =  current(ProjectElement, params[:id] )  
+    @project_folder   = @project_asset.parent
     respond_to do |format|
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
@@ -59,8 +59,7 @@ class Project::AssetsController < ApplicationController
   def new
     current_project
     @project_folder =current_folder
-    @project_asset = ProjectAsset.build( :name=> Identifier.next_user_ref, :project_id => @project_folder.project_id )
-   
+    @project_asset = ProjectAsset.build( :name=> Identifier.next_user_ref, :project_id => @project_folder.project_id )    
     
     respond_to do |format|
       format.html { render :action=>'upload'}
@@ -79,6 +78,8 @@ class Project::AssetsController < ApplicationController
     current_folder
     ProjectFolder.transaction do
       @project_asset = ProjectAsset.build(params['project_asset']) 
+      logger.info "====================="
+      logger.info @project_asset.to_yaml
       @project_folder.add( @project_asset)
       if @project_asset.save
           redirect_to asset_url(:action => 'new',:id => @project_folder)

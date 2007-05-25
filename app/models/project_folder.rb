@@ -110,6 +110,24 @@ class ProjectFolder < ProjectElement
       end 
   end    
 
+#
+#
+#
+ def copy(item)
+   element = item.clone
+   element.reference=item
+   element.parent= self
+   logger.info "cloned element ==============================================="
+   logger.info element.to_yaml
+   element.path = self.path + "/" + element.name
+   element.project_id = self.project_id
+   element.position = self.elements.size
+   element.parent_id = self.id
+   return element unless element.valid?
+   element.save
+   element.move_to_child_of(self)        
+   return element
+ end
 ##
 # Add a file to the folder. This accepts a filename string of a assert 
 # and create reference to it in the folder
@@ -126,7 +144,7 @@ class ProjectFolder < ProjectElement
        element = item
        case item
        when ProjectAsset,ProjectContent,ProjectFolder,ProjectElement
-           element = item
+           element = item           
        when String 
            element.name = "comment-#{self.children.size}"
            element = ProjectContent.Build(:project_id=> self.project_id,:parent=>self, :name=>name, :title=>"comments",:body=>item )
@@ -144,6 +162,7 @@ class ProjectFolder < ProjectElement
        element.move_to_child_of(self)     
      end       
   end
+  
   
   def add_file(filename, title =nil, content_type = 'image/jpeg')
      ProjectFolder.transaction do 
