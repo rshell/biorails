@@ -33,11 +33,8 @@ class Project::ContentController < ApplicationController
     @project_element = ProjectContent.find(params[:id])  
     @project_folder  = @project_element.parent    
     @this = @project_element.content
-    logger.info @this.body_html
     @other = Content.find(params[:version])
-    logger.info @other.body_html
-    @diff = @other.body_html # HTMLDiff.diff(@this.body_html, @other.body_html)    
-    logger.info @diff
+    @diff = @other.body_html 
     respond_to do |format|
       format.html { render :action=>'diff'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
