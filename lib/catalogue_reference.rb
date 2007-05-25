@@ -52,14 +52,14 @@ end
    logger.debug "catalogue_reference.value= #{new_value} #{new_value.class} [:name=>#{self.data_name},:id=>#{self.data_id},type=>#{self.data_type}]"
   if new_value != @current_value
     case new_value
-      when String,NilClass
-        from_string(new_value)  
       when Fixnum
         from_named(self.reference(new_value) )
       when ListItem
         from_data(self.reference(new_value))
       when Hash
         from_named(self.reference(new_value))
+      when String,NilClass
+        from_string(new_value)  
       else       
         from_named(new_value)
      end
@@ -70,7 +70,9 @@ end
  
  def from_string(new_value)
      if !new_value.nil? and new_value.to_s.length>0
-        from_named(self.lookup(new_value.to_s))
+        item   = self.lookup(new_value.to_s)
+        item ||= self.reference(new_value)
+        from_named(item)
      else 
         clear 
      end

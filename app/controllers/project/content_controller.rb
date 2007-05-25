@@ -16,7 +16,8 @@ class Project::ContentController < ApplicationController
 # Display a article
 # 
   def show
-    load_contents
+    @project_element = ProjectContent.find(params[:id])  
+    @project_folder  = @project_element.parent    
     respond_to do |format|
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
@@ -28,6 +29,25 @@ class Project::ContentController < ApplicationController
     end  
   end
 
+  def diff
+    @project_element = ProjectContent.find(params[:id])  
+    @project_folder  = @project_element.parent    
+    @this = @project_element.content
+    logger.info @this.body_html
+    @other = Content.find(params[:version])
+    logger.info @other.body_html
+    @diff = @other.body_html # HTMLDiff.diff(@this.body_html, @other.body_html)    
+    logger.info @diff
+    respond_to do |format|
+      format.html { render :action=>'diff'}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html 'diff',  :partial=> 'diff'
+         end
+      }
+    end      
+  end
 ##
 # Display the current clipboard 
 # 
@@ -35,10 +55,9 @@ class Project::ContentController < ApplicationController
     load_folder
     @project_element = ProjectContent.build(:name => Identifier.next_user_ref,      
                                           :project_id => @project_folder.project_id)
-    @content = @project_element.content
     respond_to do |format|
       format.html { render :action=>'new'}
-      format.xml  { render :xml => @project_content.to_xml(:include=>[:project])}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
            page.replace_html 'messages', :partial=> 'messages'
            page.replace_html 'centre',  :partial=> 'new'

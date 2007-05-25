@@ -340,4 +340,22 @@ div.tooltip:hover span.tip{
 color: #cc0000;
 }
 
+/*HTML Diff highlighting */
 
+div.diff  {
+    border: 1px solid black;
+  }
+  
+pre.match { 
+}
+
+pre.only_a  {
+    background-color: #fdd;
+    color: red;
+    text-decoration: line-through;
+  }
+pre.only_b  {
+    background-color: #ddf;
+    color: blue;
+    border-left: 3px solid blue
+  }
