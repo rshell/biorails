@@ -2,8 +2,8 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 270) do
-
+class Version2Schema < ActiveRecord::Migration
+  def self.up
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
@@ -111,27 +111,6 @@ ActiveRecord::Schema.define(:version => 270) do
   add_index "catalog_logs", ["auditable_type", "auditable_id"], :name => "catalog_logs_auditable_type_index"
   add_index "catalog_logs", ["created_at"], :name => "catalog_logs_created_at_index"
 
-  create_table "compound_results", :force => true do |t|
-    t.column "row_no",                :integer,                :default => 0, :null => false
-    t.column "column_no",             :integer
-    t.column "task_id",               :integer
-    t.column "parameter_context_id",  :integer
-    t.column "task_context_id",       :integer
-    t.column "data_element_id",       :integer
-    t.column "compound_parameter_id", :integer
-    t.column "compound_id",           :integer
-    t.column "compound_name",         :string
-    t.column "protocol_version_id",   :integer
-    t.column "label",                 :string
-    t.column "row_label",             :string
-    t.column "parameter_id",          :integer
-    t.column "parameter_name",        :string,   :limit => 62
-    t.column "data_value",            :float
-    t.column "created_by_user_id",    :integer,                :default => 0, :null => false
-    t.column "created_at",            :datetime,                              :null => false
-    t.column "updated_by_user_id",    :integer,                :default => 0, :null => false
-    t.column "updated_at",            :datetime,                              :null => false
-  end
 
   create_table "compounds", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -307,19 +286,7 @@ ActiveRecord::Schema.define(:version => 270) do
   add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_auditable_type_index"
   add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
 
-  create_table "experiment_statistics", :force => true do |t|
-    t.column "experiment_id",      :integer,               :default => 0, :null => false
-    t.column "study_parameter_id", :integer
-    t.column "parameter_role_id",  :integer
-    t.column "parameter_type_id",  :integer
-    t.column "data_type_id",       :integer
-    t.column "avg_values",         :float
-    t.column "stddev_values",      :float
-    t.column "num_values",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",         :float
-    t.column "min_values",         :float
-  end
+
 
   create_table "experiments", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -395,25 +362,6 @@ ActiveRecord::Schema.define(:version => 270) do
     t.column "updated_by_user_id", :integer,  :default => 1,     :null => false
     t.column "created_by_user_id", :integer,  :default => 1,     :null => false
   end
-
-  create_table "mole_features", :force => true do |t|
-    t.column "name",       :string
-    t.column "created_at", :datetime
-    t.column "updated_at", :datetime
-  end
-
-  add_index "mole_features", ["name"], :name => "index_mole_features_on_name"
-
-  create_table "mole_logs", :force => true do |t|
-    t.column "mole_feature_id", :integer
-    t.column "user_id",         :integer
-    t.column "params",          :string
-    t.column "created_at",      :datetime
-    t.column "updated_at",      :datetime
-  end
-
-  add_index "mole_logs", ["mole_feature_id", "user_id"], :name => "index_mole_logs_on_mole_feature_id_and_user_id"
-  add_index "mole_logs", ["mole_feature_id", "created_at"], :name => "index_mole_logs_on_mole_feature_id_and_created_at"
 
   create_table "parameter_contexts", :force => true do |t|
     t.column "protocol_version_id", :integer
@@ -568,20 +516,6 @@ ActiveRecord::Schema.define(:version => 270) do
   add_index "process_instances", ["name"], :name => "process_instances_name_index"
   add_index "process_instances", ["process_definition_id"], :name => "process_instances_process_definition_id_index"
   add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
-
-  create_table "process_statistics", :force => true do |t|
-    t.column "study_parameter_id",  :integer
-    t.column "protocol_version_id", :integer
-    t.column "parameter_id",        :integer
-    t.column "parameter_role_id",   :integer
-    t.column "parameter_type_id",   :integer
-    t.column "avg_values",          :float
-    t.column "stddev_values",       :float
-    t.column "num_values",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",          :float
-    t.column "min_values",          :float
-  end
 
   create_table "project_assets", :force => true do |t|
     t.column "project_id",         :integer
@@ -832,16 +766,6 @@ ActiveRecord::Schema.define(:version => 270) do
     t.column "updated_at", :timestamp
   end
 
-  create_table "sitealizer", :force => true do |t|
-    t.column "path",       :string
-    t.column "ip",         :string
-    t.column "referer",    :string
-    t.column "language",   :string
-    t.column "user_agent", :string
-    t.column "created_at", :datetime
-    t.column "created_on", :date
-  end
-
   create_table "specimens", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "description",        :text
@@ -973,19 +897,6 @@ ActiveRecord::Schema.define(:version => 270) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
-  create_table "study_statistics", :force => true do |t|
-    t.column "study_id",          :integer,               :default => 0, :null => false
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :float
-    t.column "min_values",        :float
-  end
-
   create_table "subscribers", :force => true do |t|
     t.column "user_id",    :integer, :default => 0, :null => false
     t.column "project_id", :integer, :default => 0, :null => false
@@ -1027,27 +938,6 @@ ActiveRecord::Schema.define(:version => 270) do
   add_index "task_contexts", ["row_no"], :name => "task_contexts_row_no_index"
   add_index "task_contexts", ["label"], :name => "task_contexts_label_index"
 
-  create_table "task_files", :force => true do |t|
-    t.column "task_context_id",    :integer
-    t.column "parameter_id",       :integer
-    t.column "data_uri",           :string
-    t.column "is_external",        :boolean
-    t.column "mime_type",          :string,   :limit => 250
-    t.column "data_binary",        :text
-    t.column "lock_version",       :integer,                 :default => 0, :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-    t.column "task_id",            :integer
-    t.column "content_type",       :string
-    t.column "parent_id",          :integer
-    t.column "filename",           :string
-    t.column "thumbnail",          :string
-    t.column "size",               :integer
-    t.column "width",              :integer
-    t.column "height",             :integer
-    t.column "updated_by_user_id", :integer,                 :default => 1, :null => false
-    t.column "created_by_user_id", :integer,                 :default => 1, :null => false
-  end
 
   create_table "task_references", :force => true do |t|
     t.column "task_context_id",    :integer
@@ -1073,107 +963,6 @@ ActiveRecord::Schema.define(:version => 270) do
     t.column "to_task_id",   :integer
     t.column "from_task_id", :integer
     t.column "relation_id",  :integer
-  end
-
-  create_table "task_result_texts", :force => true do |t|
-    t.column "row_no",                 :integer,                :default => 0, :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :text
-    t.column "created_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "task_result_values", :force => true do |t|
-    t.column "row_no",                 :integer,                :default => 0, :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "task_results", :force => true do |t|
-    t.column "protocol_version_id",  :integer
-    t.column "parameter_context_id", :integer,                :default => 0, :null => false
-    t.column "label",                :string
-    t.column "row_label",            :string
-    t.column "row_no",               :integer,                :default => 0, :null => false
-    t.column "column_no",            :integer
-    t.column "task_id",              :integer
-    t.column "parameter_id",         :integer
-    t.column "parameter_name",       :string,   :limit => 62
-    t.column "data_value",           :binary
-    t.column "created_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "created_at",           :datetime,                              :null => false
-    t.column "updated_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "updated_at",           :datetime,                              :null => false
-  end
-
-  create_table "task_statistics", :force => true do |t|
-    t.column "task_id",           :integer
-    t.column "parameter_id",      :integer
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :binary
-    t.column "min_values",        :binary
-  end
-
-  create_table "task_stats1", :id => false, :force => true do |t|
-    t.column "task_id",           :integer
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :float
-    t.column "min_values",        :float
-  end
-
-  create_table "task_stats2", :id => false, :force => true do |t|
-    t.column "task_id",       :integer
-    t.column "parameter_id",  :integer
-    t.column "avg_values",    :float
-    t.column "stddev_values", :float
-    t.column "num_values",    :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",    :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",    :float
-    t.column "min_values",    :float
   end
 
   create_table "task_texts", :force => true do |t|
@@ -1308,5 +1097,5 @@ ActiveRecord::Schema.define(:version => 270) do
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
-
+ end
 end
