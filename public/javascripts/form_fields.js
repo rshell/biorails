@@ -100,7 +100,7 @@ function GridMove(element,rows,cols)
  */
 function FieldSave(element,event)
 {
-   if (current_cell_id==element.id and current_enabled==true ) 
+   if ((current_cell_id==element.id) && (current_enabled==true ))
    {
      if (element.getAttribute('save') !=null )
         new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
@@ -114,7 +114,7 @@ function FieldSave(element,event)
 */
 function FieldExit(element,event)
 {
-  if (element.value != current_cell_value and current_enabled==true )
+  if ((element.value != current_cell_value) && (current_enabled==true ))
   {
       if (FieldValidate(element,event))
       {
