@@ -1,4 +1,5 @@
-<%= form_remote_tag :url =>  {:action => 'update_context' ,  :id => parameter_context.id } %>
+<%= form_remote_tag :url =>  {:action => 'update_context', :id => parameter_context.id } ,
+                    :before=>"Effect.SlideUp('detail_#{parameter_context.dom_id}')"     %>
 
 <%=hidden_field_tag 'parameter_context[protocol_version_id]' , parameter_context.protocol_version_id %>     
 <div class="sheet">

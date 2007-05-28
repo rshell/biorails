@@ -11,6 +11,13 @@ class Organize::StudyProtocolsController < ApplicationController
 
   helper SheetHelper
   
+  in_place_edit_for :parameter_context,:label
+  in_place_edit_for :parameter_context,:default_count
+  in_place_edit_for :parameter, :name
+  in_place_edit_for :parameter, :mandatory
+  in_place_edit_for :parameter, :default_value
+  
+  
   def index
     list
     render :action => 'list'
@@ -90,8 +97,6 @@ class Organize::StudyProtocolsController < ApplicationController
       flash[:notice] = 'StudyProtocol was successfully created.'
       redirect_to :action => 'layout', :id => @study_protocol
     else  
-      flash[:warning] = 'StudyProtocol was Could not be created due to problems' 
-      logger.info @study_protocol.to_yaml
       render :action => 'new', :id => @study
      end
   end
@@ -143,29 +148,30 @@ class Organize::StudyProtocolsController < ApplicationController
 # and the allocated stage of the protocol.
 #
   def update
-    @study_protocol = StudyProtocol.find(params[:id])
-    if @successful = @study_protocol.update_attributes(params[:study_protocol])
+    find_process    
+    if @study_protocol.update_attributes(params[:study_protocol])
       if params[:version]                       
         @protocol_version = ProtocolVersion.find(params[:version])  
-        if @successful = @protocol_version.update_attributes(params[:protocol_version])
+        if @protocol_version.update_attributes(params[:protocol_version])
            flash[:info] = "Updated overview for protocol [#{@study_protocol.name}] "
         else
            logger.warn flash[:warning] = "Failed to update current protocol version [#{@study_protocol.name}] "
         end
       end
+      
     else
       logger.warn flash[:warning] = "Failed to update protocol [#{@study_protocol.name}] "
     end
-    return render( :action => 'refresh_overview.rjs') if request.xhr?
-
-    redirect_to :action => 'show'
-
-  rescue Exception => ex
-    logger.error flash[:error] =" Unexpected error in update for study_protocol #{params[:id]} exception: #{ex.message}" 
-    logger.error ex.message
-    logger.error ex.backtrace.join("\n")
-    return render( :action => 'refresh_overview.rjs') if request.xhr?
-    redirect_to :action => 'show', :id => @study_protocol
+    
+    respond_to do | format |
+       format.html { render :action => 'show'}
+       format.xml  { render :xml =>  @protocol_version.to_xml(:include=>[:protocol])}
+       format.js   { render :update do | page |
+           page.replace_html "process_overview", :partial => 'process_overview'
+           page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['study_protocol','process_version'] }
+         end 
+       }
+    end
   end
 
 ###
@@ -185,35 +191,37 @@ class Organize::StudyProtocolsController < ApplicationController
 # via params[:parameter_context]
 # 
   def update_context
-   @successful  = false
    ProtocolVersion.transaction do
-    text = request.raw_post || request.query_string
-    @parameter_context = ParameterContext.find(params[:id])      
-    @successful = @parameter_context.update_attributes(params[:parameter_context])
-    if @successful and params[:cell] and  !params[:cell].empty?     
-      for row in params[:cell]         
-         @parameter = Parameter.find(row[0])
-         @parameter.name =  row[1]['name']
-         @parameter.default_value = row[1]['default_value']
-         @parameter.mandatory = row[1]['mandatory']
-         unless @parameter.save
-           @flash[:warning] = "#{@flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
-           logger.warn @flash[:warning]
-           @successful  = false
-           break
-         end
+      text = request.raw_post || request.query_string
+      @parameter_context = ParameterContext.find(params[:id])         
+      if  @parameter_context.update_attributes(params[:parameter_context]) 
+        if params[:cell] and !params[:cell].empty?     
+          for row in params[:cell]         
+             @parameter = Parameter.find(row[0])
+             @parameter.name =  row[1]['name']
+             @parameter.default_value = row[1]['default_value']
+             @parameter.mandatory = row[1]['mandatory']
+             unless @parameter.save
+               logger.error @flash[:warning] = "#{@flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
+               break
+             end
+          end
+        end
+      else   
+        @flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
       end
-    else   
-      @flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
-    end
    end
-   return render(:action => 'update_row.rjs') if request.xhr?
-   return_to_main
- rescue Exception => ex
-    @flash[:error] =" Unexpected error in update_context for #{params[:id]}" 
-    logger.error  @flash[:error], ex.message, ex.backtrace.join("\n")
-    @successful  = false    
-    return render(:action => 'update_row.rjs') if request.xhr?
+   respond_to do | format |
+       format.html { render :action => 'layout'}
+       format.xml  { render :xml =>  @protocol_version.to_xml(:include=>[:protocol])}
+       format.js   { render :update do | page |
+          page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
+                    :locals => {:parameter_context => @parameter_context, :hidden => false }
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+          page.visual_effect :SlideDown, @parameter_context.dom_id('detail')
+         end 
+       }
+    end
  end
 
 ##
@@ -380,6 +388,7 @@ protected
     @project_folder = @study_protocol.folder 
     @protocol_version = ProtocolVersion.find(params[:version]) if params[:version]
     @protocol_version ||= @study_protocol.process
+    @folder = set_folder(@study_protocol.folder)
   end 
   
 end

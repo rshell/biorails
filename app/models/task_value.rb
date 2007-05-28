@@ -75,4 +75,10 @@ class TaskValue < ActiveRecord::Base
    return self.data_value 
  end
  
+ def to_s
+    formatter = parameter.data_format.format_printf if parameter and parameter.data_format
+    return formatter % data_value if formatter 
+    data_value.to_s
+  end
+ 
 end

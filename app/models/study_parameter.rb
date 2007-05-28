@@ -88,7 +88,14 @@ class StudyParameter < ActiveRecord::Base
    return self.parameter_type
  end
  
- 
+  def units
+    if self.parameter_type 
+       Unit.scaled_units(self.parameter_type.storage_unit)
+    else
+       Unit::UNITS_LOOKUP
+    end
+  end
+  
   def mask
     return '.' if self.data_type_id == 5
     return self.data_format.format_regex if data_format   

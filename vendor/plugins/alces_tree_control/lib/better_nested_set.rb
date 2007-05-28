@@ -200,7 +200,7 @@ module Alces
         
                                            
         # Returns the number of nested children of this object.
-        def children_count
+        def count
           return (self[acts_as_nested_set_options[:right_column]] - self[acts_as_nested_set_options[:left_column]] - 1)/2
         end
                                                                

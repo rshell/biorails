@@ -119,10 +119,14 @@ class Parameter < ActiveRecord::Base
         data_format.name if data_format
       end
   end
-  
+    
  def element
   self.data_element ||= DataElement.find(:first,:conditions=>["data_concept_id=?",type.data_concept_id])
   return self.data_element
+ end
+
+ def storage_unit
+   type.storage_unit
  end
 
 ##
@@ -157,5 +161,13 @@ class Parameter < ActiveRecord::Base
       my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end  
+
+  def units
+    if self.parameter_type 
+       Unit.Units(self.parameter_type.storage_unit)
+    else
+       Unit.UNITS_LOOKUP
+    end
+  end
      
 end

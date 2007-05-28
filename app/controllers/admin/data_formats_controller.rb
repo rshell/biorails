@@ -34,7 +34,7 @@ class Admin::DataFormatsController < ApplicationController
   end
 
   def create
-    @data_format = DataFormat.new(params[:data_formats])
+    @data_format = DataFormat.new(params[:data_format])
     if @data_format.save
       flash[:notice] = 'DataFormat was successfully created.'
       redirect_to :action => 'list'

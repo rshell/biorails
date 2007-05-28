@@ -157,11 +157,11 @@ class DataCaptureApi < ActionWebService::API::Base
 
     api_method :set_asset,
                :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
-               :returns =>  [:int]
+               :returns =>  [Asset]
 
     api_method :set_content,
                :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
-               :returns =>  [ProjectElement]
+               :returns =>  [Content]
          
 end
 

@@ -2,8 +2,10 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-class Version2Schema < ActiveRecord::Migration
+class InitialTables < ActiveRecord::Migration
+
   def self.up
+
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
@@ -1097,5 +1099,10 @@ class Version2Schema < ActiveRecord::Migration
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
+
  end
+ 
+ def self.down
+ end
+
 end

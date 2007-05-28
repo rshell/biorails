@@ -1,7 +1,6 @@
 
 <% content_for :sidemenu do -%>
-   <%=link_to "Close", protocol_url(:action=>'show',:id=> @protocol_version.protocol, :version=>@protocol_version) %>|
-   <%=link_to "Refresh", protocol_url(:action=>'Layout',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
+   <%=link_to "Close", protocol_url(:action=>'show',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
    <hr/>
 <% end -%>
 
@@ -15,6 +14,8 @@
       Drop parameters here to remove.
    </div>
 </div>
+   <hr/>
+   <%=link_to "Redraw", protocol_url(:action=>'layout',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
 <% end -%>
 
 <%= drop_receiving_element("parameter_tree", :hoverclass => "drop-active",   

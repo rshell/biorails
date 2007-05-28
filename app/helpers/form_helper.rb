@@ -344,7 +344,29 @@ module FormHelper
       options[:after_update_element]= "FieldSave"
   
       out << "\n"  
-      out << auto_complete_field(id, options)
+
+      function =  "var #{field_id}_auto_completer = new Ajax.Autocompleter("
+      function << "'#{field_id}', "
+      function << "'" + (options[:update] || "#{field_id}_auto_complete") + "', "
+      function << "'#{url_for(options[:url])}'"
+      
+      js_options = {}
+      js_options[:tokens] = array_or_string_for_javascript(options[:tokens]) if options[:tokens]
+      js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
+      js_options[:indicator]  = "'#{options[:indicator]}'" if options[:indicator]
+      js_options[:select]     = "'#{options[:select]}'" if options[:select]
+      js_options[:paramName]  = "'#{options[:param_name]}'" if options[:param_name]
+      js_options[:frequency]  = "#{options[:frequency]}" if options[:frequency]
+
+      { :after_update_element => :afterUpdateElement, 
+        :on_show => :onShow, :on_hide => :onHide, :min_chars => :minChars }.each do |k,v|
+        js_options[v] = options[k] if options[k]
+      end
+
+      function << (', ' + options_for_javascript(js_options) + ')')
+
+      out << javascript_tag(function)
+      out
     end
   end
   
@@ -438,8 +460,14 @@ module FormHelper
         </script>
       </div>
 EOS
-end
-
+  end
+ 
+  def my_in_place_editor_field(object, method, tag_options = {}, in_place_editor_options = {})
+      tag_options = {:id => "#{object.class.to_s.underscore}_#{method}_#{object.id}_in_place_editor", 
+                     :class => "in_place_editor_field"}.merge!(tag_options)
+      in_place_editor_options[:url] = in_place_editor_options[:url] || url_for({ :action => "set_#{object.class.to_s.underscore}_#{method}", :id => object.id })
+      content_tag("span",object.send(method), tag_options) +   in_place_editor(tag_options[:id], in_place_editor_options)
+  end
 
 end
   

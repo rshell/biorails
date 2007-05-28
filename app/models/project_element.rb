@@ -43,7 +43,7 @@ class ProjectElement < ActiveRecord::Base
 # * +self_and_ancestors+ - array of all parents and self
 # * +siblings+ - array of all siblings, that are the items sharing the same parent and level
 # * +self_and_siblings+ - array of itself and all siblings
-# * +children_count+ - count of all immediate children
+# * +count+ - count of all immediate children
 # * +children+ - array of all immediate childrens
 # * +all_children+ - array of all children and nested children
 # * +full_set+ - array of itself and all children and nested children
@@ -57,7 +57,7 @@ class ProjectElement < ActiveRecord::Base
 
   acts_as_audited :change_log
   
-  acts_as_ferret :fields => [ :name, :description, :path ], :single_index => true, :store_class_name => true
+  acts_as_ferret :fields => [ :name, :description,:summary ], :single_index => true, :store_class_name => true
 
   acts_as_taggable 
   
@@ -65,7 +65,6 @@ class ProjectElement < ActiveRecord::Base
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
   validates_uniqueness_of :path
   validates_presence_of   :project_id
-  validates_presence_of   :path
   validates_presence_of   :name
   validates_presence_of   :position
  
@@ -82,10 +81,6 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
-  def before_validation
-    self.path = project.name  if  project
-    self.path = parent.path+ "/" + self.name   if  parent
-  end
 
 ##
 # Parent of a record is a   
@@ -97,8 +92,14 @@ class ProjectElement < ActiveRecord::Base
     !(attributes['asset_id'].nil?)
   end
   
+  def path(root=[])
+    root.concat(self.ancestors.collect{|i|i.name})
+    root << name
+    root.join('/')
+  end
+  
   def description
-    return path
+    return name
   end
 ##
 # This has a content? entries
@@ -118,7 +119,7 @@ class ProjectElement < ActiveRecord::Base
   end  
   
   def summary
-     return path
+     return name
   end
 ##
 # Show the style of the project element

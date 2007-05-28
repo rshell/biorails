@@ -28,7 +28,7 @@
 
     <div class="form-element">
       <label for="study_default_value">Default Unit </label>
-      <%= text_field :study_parameter, :display_unit , {:size =>10,:class=>"text-input"} %>
+      <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
     </div>
 
     <div class='row'>

@@ -42,28 +42,32 @@ Cell titles
 }
 
 .sheet td {
+	width: auto;
     background-color: #fff;
     text-align:right;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     }
 /* 
 Cells 
 */
 .sheet .cell {
     margin: 0 0 0 0;
+    padding: 0 0 0 0;    
     background-color: #fff;
     color: rgb(0,0,0);
     font-weight:normal;
     font-style: normal;
-    text-decoration: none;
     font-family: Arial;
     font-size: 1.0em;
+    text-decoration: none;
     text-align: center;
-    padding: 0 0 0 0;    
 }
 /* Cell is currently active for user input */
 
 .sheet .active {
     margin: 0 0 0 0;
+    padding: 0 0 0 0;    
     background-color: rgb(255,255,140);
     color: rgb(0,0,0);
     font-weight:bold;
@@ -71,21 +75,21 @@ Cells
     font-family: Arial;
     font-size: 1.0em;
     text-align: center;
-    padding: 0 0 0 0;    
 }
 
-.sheet input {
-    width: 96%;
+.sheet select {
+    width:   100%;
+    height:  100%;
     padding: 0px 0px 0px 0px;
-    height:             auto;
-    text-align: left;
     margin: 0px 0px 0px 0px;
+    text-align: left;
 }
+
 
 .sheet input .numeric {
-    width: 96%;
+    width:   100%;
+    height:  100%;
     padding: 0px 0px 0px 0px;
-    height:             auto;
-    text-align: right;
     margin: 0px 0px 0px 0px;
+    text-align: right;
 }

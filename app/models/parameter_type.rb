@@ -43,13 +43,13 @@ class ParameterType < ActiveRecord::Base
 
   has_many :study_parameters, :dependent => :destroy
 
-
 #
 # Overide context_columns to remove all the internal system columns.
 # 
   def self.content_columns
         @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
   end
+  
   ##
 # Test usages of the parameter type
 # 

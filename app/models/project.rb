@@ -211,9 +211,7 @@ end
   
   def folder_options
      folders.collect do |folder|
-        level = folder.path.split('/').size
-        text ='+'.ljust(level+1,"-") + folder.name
-        [text,folder.id] 
+        [folder.path,folder.id] 
      end
   end
 ##
@@ -245,8 +243,7 @@ protected
 
   def Project.create_home_folder(project)
      home_folder = ProjectFolder.new(:project_id=>project.id)
-     home_folder.name = '/'
-     home_folder.path = project.name
+     home_folder.name = project.name
      logger.info home_folder.to_yaml
      home_folder.save
      home_folder

@@ -22,7 +22,7 @@ class Content < ActiveRecord::Base
 # * +self_and_ancestors+ - array of all parents and self
 # * +siblings+ - array of all siblings, that are the items sharing the same parent and level
 # * +self_and_siblings+ - array of itself and all siblings
-# * +children_count+ - count of all immediate children
+# * +count+ - count of all immediate children
 # * +children+ - array of all immediate childrens
 # * +all_children+ - array of all children and nested children
 # * +full_set+ - array of itself and all children and nested children

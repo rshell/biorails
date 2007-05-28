@@ -9,25 +9,33 @@
     
     <div class="form-element">
       <label for="data_format_name">Name</label>
-      <%= text_field 'data_format', 'name' , {:class=>"text-input"} %>
+      <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
     </div>
     
     <div class="form-element">
       <label for="data_format_default_value">Default value</label>
-      <%= text_field 'data_format', 'default_value' , {:class=>"text-input"} %>
+      <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
     </div>
 </div>
 
 <div class="row">
       <label for="data_format_description">Description</label>
-      <%= text_area 'data_format', 'description',{:rows=>2, :cols=>100}   %>
+      <%= text_area :data_format, 'description',{:rows=>2, :cols=>100}   %>
 </div>
  
 
 <div class="row">
-      <label for="data_format_format_regex">Format regex</label>
-      <%= text_area 'data_format', 'format_regex' , {:rows=>2, :cols=>100 ,
+    <div class="form-element">
+      <label for="data_format_format_regex">Input regex rule </label>
+      <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
            :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
+    </div>
+
+    <div class="form-element">
+      <label for="data_format_format_regex">Output prinf format (Numeric values)</label>
+      <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
+    </div>
+
 </div>
 
 <div class="row">
@@ -35,7 +43,7 @@
       <label for="data_format_test">Test String
             <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>       
       </label>
-      <%= text_field_tag 'test_match','',{:size=>30,:class=>"text-input",
+      <%= text_field_tag 'test_match','',{:size=>50,:class=>"text-input",
            :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"}  %>
       <br />
     </div>

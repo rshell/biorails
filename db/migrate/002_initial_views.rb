@@ -3,7 +3,7 @@
 # See license agreement for additional rights
 ##
 #
-class Version2Views < ActiveRecord::Migration
+class InitialViews < ActiveRecord::Migration
   def self.up
 
 #-----------study_statistics---------------------------------------

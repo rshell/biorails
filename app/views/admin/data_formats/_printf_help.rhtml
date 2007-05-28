@@ -1,0 +1,35 @@
+<div class="box">
+<h2> Printf Cheat Sheet </h2>
+<table cellpadding="1" cellspacing="0" border="1" bgcolor="#ffffff" bordercolor="#eeeeee" width="100%" style="FONT-SIZE:8pt">
+<tr bgcolor="#ccffcc"><td> Field </td><td>  Conversion</tr>
+ <tr><td>  b   </td><td> Convert argument as a binary number.</tr>
+ <tr><td>  c   </td><td> Argument is the numeric code for a single character.</tr>
+ <tr><td>  d   </td><td> Convert argument as a decimal number.</tr>
+ <tr><td>  E   </td><td> Equivalent to `e', but uses an uppercase E to indicate the exponent.</tr>
+ <tr><td>  e   </td><td> Convert floating point argument into exponential notation with one digit before the decimal point. 
+                         The precision determines the number of fractional digits (defaulting to six).</tr>
+ <tr><td>  f   </td><td> Convert floating point argument as [-]ddd.ddd, where the precision determines the number of digits after the decimal point.</tr>
+ <tr><td>  G   </td><td> Equivalent to `g', but use an uppercase `E' in exponent form.</tr>
+ <tr><td>  g   </td><td> Convert a floating point number using exponential form if the exponent is less than -4 or greater than or equal to the precision,
+                         or in d.dddd form otherwise.</tr>
+ <tr><td>  i   </td><td> Identical to `d'.</tr>
+ <tr><td>  o   </td><td> Convert argument as an octal number.</tr>
+ <tr><td>  p   </td><td> The valuing of argument.inspect.</tr>
+ <tr><td>  s   </td><td> Argument is a string to be substituted. If the format  sequence contains a precision, at most that many characters will be copied.</tr>
+ <tr><td>  u   </td><td> Treat argument as an unsigned decimal number.</tr>
+ <tr><td>  X   </td><td> Convert argument as a hexadecimal number using uppercase letters. Negative numbers will be displayed  with two leading periods 
+                         (representing an infinite string of leading 'FF's.</tr>
+ <tr><td>  x   </td><td> Convert argument as a hexadecimal number.   Negative numbers will be displayed with two leading periods 
+                         (representing an infinite string of leading 'ff's.</tr>   
+ <tr><td colspan=2>
+ Examples:<br/>
+   sprintf("%d %04x", 123, 123)               #=> "123 007b"<br/>
+   sprintf("%08b '%4s'", 123, 123)            #=> "01111011 ' 123'"<br/>
+   sprintf("%1$*2$s %2$d %1$s", "hello", 8)   #=> "   hello 8 hello"<br/>
+   sprintf("%1$*2$s %2$d", "hello", -8)       #=> "hello    -8"<br/>
+   sprintf("%+g:% g:%-g", 1.23, 1.23, 1.23)   #=> "+1.23: 1.23:1.23"<br/>
+ 
+ </td></tr>                        
+</table>
+
+</div>

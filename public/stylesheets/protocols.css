@@ -55,17 +55,37 @@ span.study_queue {
 }
 
 span.parameter {
-    font-family: Arial,Verdana, Helvetica, sans-serif;
-    font-style: normal;
-    font-size: 1.0em;
-    z-index:            1666;
-    color:black;
-    background-color:#E3FFA2;
-    padding: 1px 1px 1px 1px;
-    margin: 1px 1px 1px 1px;
-    border-style:outset;
-    border-width: thin;
     white-space: nowrap;
+	
+	color: #000000;
+    background-color:#E3FFA2;
+    margin: 1px 1px 1px 1px;
+	
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 10pt;
+	text-align: left;
+	margin: 1px 1px 1px 1px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #ffffff;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e4e3c9;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #ffffff;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e4e3c9;
+		
+	vertical-align: bottom;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: auto;
+
 }
 
 span.parameter_context {

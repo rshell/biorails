@@ -193,33 +193,6 @@ class DataCaptureController < ApplicationController
        return context
     end 
 
-
-     def set_asset( user_id,folder_id,title,filename,mime_type, base64 )
-       User.current_user = User.find(user_id)
-       folder = ProjectFolder.find(folder_id)
-       asset = ProjectAsset.new(:title=>title, :filename=> filename, :project_id=>folder.project_id,:content_type => mime_type)
-       asset.size =0
-       asset.temp_data = Base64.decode64(base64) 
-       if asset.save 
-          logger.info " asset saved"
-          element  = folder.elements.find_by_name(filename)
-          unless element
-            logger.info " element added"
-             element = folder.add_asset(filename,asset)
-          else
-            logger.info " element updated"
-             element.asset = asset
-             element.save
-          end
-          logger.info element.to_yaml
-          return element.id
-       else 
-          logger.error " Set_asset failed Errors: #{asset.errors.full_messages.to_sentence}"
-       end
-       return 0
-     end
-
-     
      def get_asset( element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.asset_id
@@ -235,14 +208,40 @@ class DataCaptureController < ApplicationController
      end
 
 
-     def set_content( user_id,folder_id,title,filename, html)
+     def set_asset( user_id,folder_id,title,filename,mime_type, base64 )
        User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
-       element = folder.add_content(name,title,html)
+       asset = Asset.new(:title=>title, :filename=> filename, :project_id=>folder.project_id,:content_type => mime_type)
+       asset.size =0
+       asset.temp_data = Base64.decode64(base64) 
+       if asset.save 
+          logger.info " asset saved"
+          element  = folder.elements.find_by_name(filename)
+          unless element
+            logger.info " element added"
+             element = folder.add_asset(filename,asset)
+          else
+            logger.info " element updated"
+             element.asset = asset
+             element.save
+          end
+          logger.info element.to_yaml
+          DataCaptureApi::Asset.new(
+             :id => element.asset.id,
+             :folder_id  => element.parent_id,
+             :project_element_id  => element.id,
+             :name => element.asset.filename,
+             :title => element.asset.title,
+             :mime_type => element.asset.content_type,
+             :base64  => Base64.encode64(element.asset.db_file.data )
+             )
+       else 
+          logger.error " Set_asset failed Errors: #{asset.errors.full_messages.to_sentence}"
+          nil
+       end
      end
-ProjectElement
 
-
+     
      def get_content( element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.content_id
@@ -255,5 +254,22 @@ ProjectElement
              :data  =>element.to_html
              )
      end
+     
+     def set_content( user_id,folder_id,title,filename, html)
+       User.current_user = User.find(user_id)
+       folder = ProjectFolder.find(folder_id)
+       element = folder.add_content(name,title,html)
+       DataCaptureApi::Content.new(
+             :id => element.id,
+             :folder_id  => element.parent_id,
+             :project_element_id  => element.id,
+             :name => element.name,
+             :title => element.title,
+             :data  =>element.to_html
+             )
+     end
+
+
+
 
 end

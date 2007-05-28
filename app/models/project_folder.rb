@@ -70,8 +70,8 @@ class ProjectFolder < ProjectElement
   end
 
   def summary
-    return "#{self.style.capitalize} folder with #{self.children_count} items"   if reference 
-    return "#{self.style.capitalize} with #{self.children_count} items"     
+    return "#{self.style.capitalize} folder with #{self.count} items"   if reference 
+    return "#{self.style.capitalize} with #{self.count} items"     
   end
 
   def description
@@ -119,7 +119,6 @@ class ProjectFolder < ProjectElement
    element.parent= self
    logger.info "cloned element ==============================================="
    logger.info element.to_yaml
-   element.path = self.path + "/" + element.name
    element.project_id = self.project_id
    element.position = self.elements.size
    element.parent_id = self.id
@@ -153,7 +152,6 @@ class ProjectFolder < ProjectElement
            name = (item.respond_to?(:name) ? item.name : item.to_s )
            return add_reference( name, item ) 
        end       
-       element.path = self.path + "/" + element.name
        element.project_id = self.project_id
        element.position = self.elements.size
        element.parent_id = self.id
@@ -172,7 +170,6 @@ class ProjectFolder < ProjectElement
                       :position => self.children.size,   
                       :parent=>self, 
                       :project_id => self.project_id )                                       
-         element.path = self.path + "/" + asset.filename
          element.asset.temp_path = filename
          element.asset.filename = filename
          element.asset.title = title
@@ -187,7 +184,6 @@ class ProjectFolder < ProjectElement
   def add_reference(name,item)
      ProjectFolder.transaction do 
          element = ProjectReference.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
-         element.path = self.path + "/" + name
          element.reference = item    
          case item
          when ProjectContent
@@ -256,13 +252,11 @@ class ProjectFolder < ProjectElement
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
           folder.reference =  item         
-          folder.path = self.path + "/" + item.name
        else
           folder = ProjectFolder.new(:name=> item.to_s, 
                                      :position => self.elements.size, 
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
-          folder.path = self.path + "/" + item.to_s
        end
        self.elements << folder    
        folder.save

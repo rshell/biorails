@@ -14,6 +14,7 @@ var current_cell_background = 'rgb(255,255,255) none';
 var current_cell_value = '';
 var current_cell_regex = '/./';
 var current_cell_id ='';
+var current_enabled = true;
 
 
 function FieldRestore(element) {
@@ -99,7 +100,7 @@ function GridMove(element,rows,cols)
  */
 function FieldSave(element,event)
 {
-   if (current_cell_id==element.id) 
+   if (current_cell_id==element.id and current_enabled==true ) 
    {
      if (element.getAttribute('save') !=null )
         new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
@@ -113,7 +114,7 @@ function FieldSave(element,event)
 */
 function FieldExit(element,event)
 {
-  if (element.value != current_cell_value)
+  if (element.value != current_cell_value and current_enabled==true )
   {
       if (FieldValidate(element,event))
       {

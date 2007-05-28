@@ -1,3 +1,7 @@
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['data_format']}  %>
+<% end -%>
+
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
@@ -14,3 +18,9 @@
 <% end %>
 
 <%= link_to 'Back', :action => 'list' %>
+
+<div class='panel'>
+   <%= render :partial => 'printf_help' %>
+   <%= render :partial => 'regex_help' %>
+</div>   
+

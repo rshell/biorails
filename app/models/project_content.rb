@@ -62,7 +62,6 @@ class ProjectContent < ProjectElement
   def update_element(options)
     Content.transaction do
       old = Content.find(self.content_id)
-      logger.info " Old===============#{old.id} #{old.name} <#{old.left_limit}--#{old.right_limit}> =================="
       self.content = Content.new
       self.content.name       =  old.name || options[:name]       
       self.content.title      =  options[:title]      
@@ -71,7 +70,6 @@ class ProjectContent < ProjectElement
       self.content.body_html  =  options[:to_html] 
       return self unless self.content.valid?
       self.content.save
-      logger.info " New===============#{content.id} #{content.name} <#{content.left_limit}--#{content.right_limit}> =================="
       self.content.move_to_child_of(old)  
     end
   end
@@ -92,13 +90,12 @@ class ProjectContent < ProjectElement
   end
 
   def icon( options={} )
-     return content.icon(options) if content
      '/images/model/note.png'
   end  
   
   def summary
      return content.summary if content
-     return path
+     return name
   end         
 
 end

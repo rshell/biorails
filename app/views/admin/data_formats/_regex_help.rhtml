@@ -1,0 +1,63 @@
+<div class="box">       
+<h2>RegEx Cheat Sheet</h2>
+<table cellpadding="1" cellspacing="0" border="1" bgcolor="#ffffff" bordercolor="#eeeeee" width="100%" style="FONT-SIZE:8pt">
+	<tr bgcolor="#ccffcc"><td colspan="2"><b>Metacharacters </b></td></tr>
+	<tr bgcolor="#ccffcc"><td><b>MChar</b></td><td><b>Definition</b></td></tr>
+	<tr><td>^</td><td>Start of a string.</td></tr>
+	<tr><td>$</td><td>End of a string.</td></tr>
+
+	<tr><td>.</td><td>Any character (except \n)</td></tr>
+	<tr><td>|</td><td>Alternation.</td></tr>
+	<tr><td>{...}</td><td>Explicit quantifier notation.</td></tr>
+	<tr><td>[...]</td><td>Explicit set to match.</td></tr>
+	<tr><td>(...)</td><td>Logical grouping of part of an expression.</td></tr>
+
+	<tr><td>*</td><td>0 or more of previous expression.</td></tr>
+	<tr><td>+</td><td>1 or more of previous expression.</td></tr>
+	<tr><td>?</td><td>0 or 1 of previous expression. </td></tr>
+	<tr><td>\</td><td>Preceding one of the above, it makes it a literal instead of a special character.</td></tr>
+</table>
+<table cellpadding="1" cellspacing="0" border="1" bgcolor="#ffffff" bordercolor="#eeeeee" width="100%" style="FONT-SIZE:8pt">
+		<tr bgcolor="#ccffcc"><td colspan="2"><b>Character Escapes</b> </td></tr>
+		<tr bgcolor="#ccffcc"><td><b>Escaped Char</b></td><td><b>Description</b></td></tr>
+
+		<tr><td>ordinary characters</td><td>Characters other than . $ ^ { [ ( | ) ] } * + ? \ match themselves.</td></tr>
+		<tr><td>\a</td><td>Matches a bell (alarm) \u0007.</td></tr>
+		<tr><td>\b</td><td>Matches a backspace \u0008 if in a []; otherwise matches a word boundary (between \w and \W characters).</td></tr>
+		<tr><td>\t</td><td>Matches a tab \u0009.</td></tr>
+		<tr><td>\r</td><td>Matches a carriage return \u000D.</td></tr>
+
+		<tr><td>\v</td><td>Matches a vertical tab \u000B.</td></tr>
+		<tr><td>\f</td><td>Matches a form feed \u000C.</td></tr>
+		<tr><td>\n</td><td>Matches a new line \u000A.</td></tr>
+		<tr><td>\e</td><td>Matches an escape \u001B.</td></tr>
+		<tr><td>\040</td><td>Matches an ASCII character as octal (up to three digits); numbers with no 
+		leading zero are backreferences if they have only one digit or if they correspond to a capturing group number. 
+		(For more information, see Backreferences.) For example, the character \040 represents a space.</td></tr>
+
+		<tr>
+    <td>\x20</td><td>Matches an ASCII character using hexadecimal representation (exactly two digits).</td></tr>
+		<tr><td>\cC</td><td>Matches an ASCII control character; for example \cC is control-C.</td></tr>
+		<tr><td>\u0020</td><td>Matches a Unicode character using a hexadecimal representation (exactly four digits).</td></tr>
+		<tr><td>\*</td><td>When followed by a character that is not recognized as an escaped character, matches that character. For example, 
+		<b>\*</b> is the same as <b>\x2A</b>.</td></tr>
+</table>
+	<table cellpadding="1" cellspacing="0" border="1" bgcolor="#ffffff" bordercolor="#eeeeee" width="100%" style="FONT-SIZE:8pt">
+		<tr bgcolor="#ccffcc"><td colspan="2"><b>Character Classes</b> </td></tr>
+		<tr bgcolor="#ccffcc"><td><b>Char Class</b></td><td><b>Description</b></td></tr>
+		<tr><td>.</td><td>Matches any character except \n.</td></tr>
+
+		<tr><td>[aeiou]</td><td>Matches any single character included in the specified set of characters.</td></tr>
+		<tr><td>[^aeiou]</td><td>Matches any single character not in the specified set of characters.</td></tr>
+		<tr><td>[0-9a-fA-F]</td><td>Use of a hyphen (–) allows specification of contiguous character ranges.</td></tr>
+		<tr><td>\p{name}</td><td>Matches any character in the named character class specified by {name}..</td></tr>
+		<tr><td>\P{name}</td><td>Matches text not included in groups and block ranges specified in {name}.</td></tr>
+		<tr><td>\w</td><td>Matches any word character. equivalent to [a-zA-Z_0-9].</td></tr>
+		<tr><td>\W</td><td>Matches any nonword character equivalent to [^a-zA-Z_0-9].</td></tr>
+		<tr><td>\s</td><td>Matches any white-space character is equivalent to [ \f\n\r\t\v].</td></tr>
+		<tr><td>\S</td><td>Matches any non-white-space character is equivalent to [^ \f\n\r\t\v].</td></tr>
+		<tr><td>\d</td><td>Matches any decimal digit</td></tr>
+
+		<tr><td>\D</td><td>Matches any nondigit</td></tr>
+	</table>	
+</div>

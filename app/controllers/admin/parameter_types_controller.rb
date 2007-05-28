@@ -45,7 +45,7 @@ class Admin::ParameterTypesController < ApplicationController
   end
 
   def create
-    @parameter_type = ParameterType.new(params[:parameter_types])
+    @parameter_type = ParameterType.new(params[:parameter_type])
     if @parameter_type.save
       flash[:notice] = 'ParameterType was successfully created.'
       redirect_to :action => 'list'
@@ -60,7 +60,7 @@ class Admin::ParameterTypesController < ApplicationController
 
   def update
     @parameter_type = ParameterType.find(params[:id])
-    if @parameter_type.update_attributes(params[:parameter_types])
+    if @parameter_type.update_attributes(params[:parameter_type])
       flash[:notice] = 'ParameterType was successfully updated.'
       redirect_to :action => 'show', :id => @parameter_type
     else

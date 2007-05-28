@@ -10,5 +10,8 @@
 <p><label for="parameter_type_weighing">Weighing (Governs order in forms)</label><br/>
 <%= text_field 'parameter_type', 'weighing'  %></p>
 
+<p><label for="parameter_type_weighing">Base Store Dimension to save quantity data</label><br/>
+<%= select( :parameter_type, :storage_unit, Unit::DIMENSIONS_LOOKUP)  %>
+        
 <!--[eoform:parameter_roles]-->
 
