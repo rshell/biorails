@@ -1,6 +1,29 @@
 == Welcome to BioRails
 
-PlugIn used 
+
+1) Make sure you have the correct gems installed
+
+Dependance Gems
+  gem install tzinfo
+  gem install mime-types
+  gem install gnuplot
+  gem install ruport
+  gem install scruffy
+  gem install fastercsv
+  gem install xhtmldiff
+  gem install diff-lcs
+  gem install delegate
+  gem install rexml
+  gem install builder
+  
+2) Create a initial database
+
+MYSQL:>
+
+ db/create_databases.mysql
+ 
+ 
+ 
 
 1) Foreign Key Schema Dumper?
 

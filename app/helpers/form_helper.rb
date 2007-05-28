@@ -345,9 +345,9 @@ module FormHelper
   
       out << "\n"  
 
-      function =  "var #{field_id}_auto_completer = new Ajax.Autocompleter("
-      function << "'#{field_id}', "
-      function << "'" + (options[:update] || "#{field_id}_auto_complete") + "', "
+      function =  "var #{id}_auto_completer = new Ajax.Autocompleter("
+      function << "'#{id}', "
+      function << "'" + (options[:update] || "#{id}_auto_complete") + "', "
       function << "'#{url_for(options[:url])}'"
       
       js_options = {}

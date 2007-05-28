@@ -52,7 +52,6 @@ PUBLIC_ROOT = "#{RAILS_ROOT}/public"
 require 'tzinfo'
 require 'csv'
 
-
 GLoc.set_config :default_language => :en
 GLoc.clear_strings
 GLoc.set_kcode
