@@ -81,18 +81,19 @@ class ProjectFolder < ProjectElement
     return name
   end
 
-  
   def to_html
-    if reference and reference.respond_to?(:name)
-      out = "<p>"
-      out << self.reference.name
-      out << ": "
+    if reference
+      return reference.to_html if reference.respond_to?(:to_html)
+      out = "<h4> #{self.reference_type} ["
+      out << self.reference.name if reference.respond_to?(:description)
+      out << "] </h4><p>"
       out << self.reference.description if reference.respond_to?(:description)
       out << "</p>"
       return out
     end
-    return name
+    return path
   end
+  
   
   def icon( options={} )
      case attributes['reference_type']

@@ -8,15 +8,18 @@
 <li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
 </ul>
 <br/>
-<% for item in folder.elements %>    
-	<% if item.asset? and item.asset.image? %>
-	<h4>Figure: <%=item.name%></h4>
-	<p>  <%=  link_to item.asset.image_tag, element_to_url(item) %>	</p>      	  
-	<% end %>
-
-	<% if item.textual? %>
-	<h2>   <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
-	<p>     <%= item.to_html%>	</p>
+<% for item in folder.elements %>    	
+    <% if item.asset? and item.asset.image? %>
+        	<h2>Figure: <%=item.name%>  </h2>
+        	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
+	    	 <i> <%= item.asset.caption %> </i>
+	<% elsif item.textual? %>
+	
+    	<h2><%= link_to item.content.title, element_to_url(item)  %>  </h2>
+    	<p>       <%= item.to_html %>	</p>
+	<% else %>
+        <h2>Reference:<%= item.title %></h2>
+           <%=item.to_html%>
 	<% end %>
 <% end %>
 

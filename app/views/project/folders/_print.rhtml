@@ -12,9 +12,13 @@
 	<% if item.asset? and item.asset.image? %>
 	<h4>Figure: <%=item.name%></h4>
 	<p>  <%=  link_to image_tag(item.asset.public_filename), element_to_url(item) %>	</p>      	  
+  	 <i> <%= item.asset.caption %> </i>
 	<% elsif item.textual? %>
 	<h2> 	  <%= link_to item.content.title, element_to_url(item)  %>   	</h2>
 	<p>       <%= item.to_html %>	</p>
+	<% else %>
+    <h2>Reference:<%= item.title %></h2>
+         <%=item.to_html%>
 	<% end %>
 <% end %>
 

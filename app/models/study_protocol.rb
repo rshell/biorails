@@ -204,5 +204,35 @@ end
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end
  
- 
+ #
+ # For presentation in reports
+ #
+ def to_html
+    out = " <b> Protocol: #{self.name}</b><br/> #{self.description}"
+    out << "<table class='report'>"
+    out << "<tr>"
+    out << "<th>name</th>"
+    out << "<th>Column</th>"
+    out << "<th>Context</th>"
+    out << "<th>Role</th>"
+    out << "<th>Type</th>"
+    out << "<th>Default</th>"
+    out << "<th>Unit</th>"
+    out << "</tr>"
+    for item in self.process.parameters
+       out << "<tr>"
+       out << "<td> #{item.name} </td>"
+       out << "<td> #{item.column_no} </td>"
+       out << "<td> #{item.context.label} </td>"
+       out << "<td> #{item.role.name} </td>"
+       out << "<td> #{item.type.name} </td>"
+       out << "<td> #{item.default_value} </td>"
+       out << "<td> #{item.display_unit} </td>"
+       out << "</tr>"
+    end
+    out << "</table>"
+    out << "<br/>"
+    out     
+  end
+  
 end

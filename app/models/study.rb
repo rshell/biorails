@@ -271,5 +271,26 @@ end
       my_options[:include] ||= [:parameters,:queues,:protocols]
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end
-
+ 
+ 
+ #
+ # For presentation in reports
+ #
+ def to_html
+    out = " <b> Study: #{self.name}</b><br/> #{self.description}"
+    out << "<table class='report'>"
+    out << "<tr><th>protocol</th>"
+    out << "<th>description</th>"
+    out << "</tr>"
+    for item in self.protocols
+       out << "<tr>"
+       out << "<td> #{item.name} </td>"
+       out << "<td> #{item.description} </td>"
+       out << "</tr>"
+    end
+    out << "</table>"
+    out << "<br/>"
+    out     
+  end
+  
 end

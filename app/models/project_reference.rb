@@ -29,6 +29,7 @@ class ProjectReference < ProjectElement
   
   def to_html
     if reference
+      return reference.to_html if reference.respond_to?(:to_html)
       out = "<h4> #{self.reference_type} ["
       out << self.reference.name if reference.respond_to?(:description)
       out << "] </h4><p>"

@@ -421,5 +421,27 @@ protected
      self.errors.add_base " file line [" + @line.to_s + "] import failed: " + ex.message
   end
 
+ #
+ # For presentation in reports
+ #
+ def to_html
+    out = " <b> Experment: #{self.name}</b><br/>"
+    out << "<table class='report'>"
+    out << "<tr><th>task</th>"
+    out << "<th>description</th>"
+    out << "<th>status</th>"
+    out << "</tr>"
+    for task in self.tasks
+       out << "<tr>"
+       out << "<td> #{task.name} </td>"
+       out << "<td> #{task.description} </td>"
+       out << "<td> #{task.status} </td>"
+       out << "</tr>"
+    end
+    out << "</table>"
+    out << "<br/>"
+    out     
+  end
+
 
 end

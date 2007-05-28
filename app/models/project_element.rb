@@ -117,10 +117,19 @@ class ProjectElement < ActiveRecord::Base
   def icon( options={} )
      return '/images/model/note.png'
   end  
-  
+
+  def title
+     return name
+  end  
+
   def summary
      return name
   end
+
+  def to_html
+     return name
+  end
+
 ##
 # Show the style of the project element
 # 

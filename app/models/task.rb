@@ -394,5 +394,29 @@ SQL
       end
    end
  end
+ 
+ #
+ # For presentation in reports
+ #
+ def to_html
+    matrix = self.to_matrix
+    out = " <b> Task #{self.name}</b><br/>"
+    out << "<table class='report'>"
+    out << "<tr><th>row</th>"
+    for title in self.to_titles
+       out << "<th>#{title} </th>"
+    end
+    out << "</tr>"    
+    0.upto(matrix.row_size-1) do |row|
+       out << "<tr><th>#{row}</th>"
+       0.upto(matrix.column_size-1) do |col| 
+          out << "<td>#{matrix[row,col]}</td>"
+       end
+       out << "</tr>"
+    end
+    out << "</table>"
+    out << "<br/>"
+    out     
+  end
 
 end
