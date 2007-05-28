@@ -169,6 +169,7 @@ def create_element
     @current_tab =1
     @data_concept = DataConcept.find(params[:id])
     @data_element = DataElement.create_from_params(params['data_element']) 
+    @data_element.concept = @data_concept
     if @data_element.save
       flash[:notice] = 'DataElement was successfully created.'
       return render(:action => 'show.rjs') if request.xhr?
@@ -182,7 +183,7 @@ def create_element
       flash[:error] = 'DataElement has problems:'+ ex.message
       logger.error flash[:error]
       logger.error ex.backtrace.join("\n")
-      redirect_to :action => 'list', :id => @data_element.concept
+      redirect_to :action => 'list', :id => @data_concept
 end
 
 

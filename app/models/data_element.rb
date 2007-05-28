@@ -37,6 +37,8 @@ class DataElement < ActiveRecord::Base
   validates_uniqueness_of :name, :scope =>"parent_id"
   validates_presence_of :name
   validates_presence_of :description
+  validates_format_of :name, :with => /^[A-Z,a-z,0-9,-,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,-_]'
+ 
 
   belongs_to :system,  :class_name=>'DataSystem',  :foreign_key=>'data_system_id'
   belongs_to :concept, :class_name=>'DataConcept', :foreign_key=>'data_concept_id'
@@ -60,7 +62,7 @@ class DataElement < ActiveRecord::Base
 # Test if the element is used
 #   
   def not_used
-    return (study_parameters.size==0 and parameters.size==0)
+    return (study_parameters.size==0 and parameters.size==0 )
   end 
 #
 # Allowed list of types
@@ -176,14 +178,14 @@ class DataElement < ActiveRecord::Base
 #
 # Add a child data element linked to this one as the parent
 #   
-  def add_child(name)
+  def add_child(name,description = nil)
     child = DataElement.new
     child.parent = self
     child.system = self.system
     child.concept= self.concept
     child.style = 'child'
     child.name = name
-    child.description = name
+    child.description = description || name 
     self.children << child
     self.estimated_count =self.children.size
     return child
@@ -231,8 +233,10 @@ class ListElement < DataElement
 
 protected
   def populate
-     list = eval("[#{content}]") 
-     list.each{|item| self.add_child(item)}
+     estimated_count = 0
+     FasterCSV.parse(content) do |row|
+       row.each{|item|add_child(item)}
+     end
   end
 
 end
@@ -257,6 +261,7 @@ class SqlElement < DataElement
 #  List values for this element   
   def values
    @values = self.system.connection.select_all(content) if !@values
+   estimated_count = @values.size
    return @values
   end    
 ##
@@ -310,6 +315,7 @@ class ModelElement < DataElement
 #    
   def values
    @values = self.model.find(:all) unless @values
+   estimated_count = @values.size
    return @values
   end    
 

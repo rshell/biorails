@@ -2,9 +2,11 @@
   <%= render :partial => '/menu/admin_menu'%>
     <div>
     <span class='menu'>Data Elements</span>
-       <%= link_to (subject_icon('edit.png')) + 'Edit', :action => 'edit', :id => @data_element %>
        <%= link_to  (subject_icon('list.png')) +'List', :action => 'show',
                     :controller => 'data_systems', :id => @data_element.system %>
+
+       <%= link_to ((subject_icon('delete')) + 'Delete',:url => { :action => 'destory' ,:id=> @data_element.id}, 
+                               :confirm => 'Are you sure?',:method => "post" ) if @data_element.not_used %>                       
     </div>
 <% end %>
 
@@ -20,47 +22,27 @@
         <p><b>Concept: </b><%= @data_element.concept.name %> </p>
         <p><b>System: </b><%= @data_element.system.name %> </p>
         <p><b>Name: </b><%= @data_element.name %> </p>
-        <p><b>Description: </b><%= @data_element.description %> </p>        
+        <p><b>Description: </b><%= in_place_editor_field(:data_element,:description,{},{:rows=>2,:cols=>60}) %> </p>        
    </div>
 
 <hr />
    <div class="row">
-   This is implemented with the style [<%=@data_element.style%>] and based on [<i> <%=@data_element.content%> </i>]
+   This is implemented with the style [<%=@data_element.style%>] and based on initial[<i> <%=@data_element.content%> </i>]
    </div>
    <div class="row">
      <div class="form-element">
        <label for="Lookup_Test">Values:-</label>
-         <%if @data_element.style=='child'%>
-
-           <% form_tag :action => 'add', :id => @data_element do %>
-            <table class="sheet"> 
-              <thead>
-                 <th>id </th>
-                 <th colspan="2">name</th>
-              </thead> 
-              <tbody>  
-                 <%for row in @data_element.values %>
-                 <tr>
-                   <td><%=row.id %> </td>
-                   <td colspan="2"><%=row.name%> </td>
-                 </tr>
-                 <%end %>  
-                 <tr>
-                    <td > Name:</td>
-                    <td > <%= text_field :child, :name, {:class=>"text-input"}  %></td>
-                    <td>  <%= submit_tag 'Add' %></td>
-                 </tr>
-              </tbody>
-            </table>
-          <% end %>
-        <%else%> 
-           <%= values %>
-       <%end%>       
+        <% if @data_element.children.size>0%>
+        <%=render :partial=>'child'%>
+        <% else %>
+        <%= values %>
+        <% end %>
      </div>
 <hr />
      <div class="form-element">
        <label for="Lookup_Test">Example</label>
-           <%=my_lookup_tag('test_1','test_1',@data_element) %>
+           <%=@data_element.name %>
+           <%=my_lookup_tag(:test,:name, @data_element) %>
      </div>
  
    </div>

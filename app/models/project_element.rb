@@ -185,6 +185,7 @@ class ProjectElement < ActiveRecord::Base
       end  
     end
     self
+    
  end
   
   # Adds a child to this object in the tree.  If this object hasn't been initialized,
@@ -196,7 +197,7 @@ class ProjectElement < ActiveRecord::Base
     
     raise ActiveRecord::ActiveRecordError, "Adding sub-tree isn\'t currently supported"  if child.root?   
     raise ActiveRecord::ActiveRecordError, "Moving element to another sub-tree isn\'t currently supported" if child.parent_id  and child.parent_id != self.id  
-
+    puts "Add Child #{child.id} #{child.name}"
     ProjectElement.transaction do    
       if ( self.left_limit == nil) || (self.right_limit == nil) 
           # Looks like we're now the root node!  Woo

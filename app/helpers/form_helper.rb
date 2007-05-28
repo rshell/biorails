@@ -389,7 +389,7 @@ module FormHelper
   def my_lookup_tag(id,name, data_element=nil ,options={})
     if data_element.nil?
       return my_regex_tag(id,name,options)
-    elsif data_element.estimated_count < 10
+    elsif data_element.estimated_count and data_element.estimated_count < 10
       return my_selector_tag( id,name,data_element,options)
     else
       return my_autocomplete_tag(id,name,data_element,options)

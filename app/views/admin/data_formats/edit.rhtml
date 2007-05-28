@@ -16,15 +16,21 @@
     </div>
 <% end %>
   
-<h1>Editing Data Format <%=@data_format.name%></h1>
-
-<% form_tag :action => 'update', :id => @data_format do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
+<% content_for :centre do%>
+    <h1>Editing Data Format <%=@data_format.name%></h1>
+    
+    <% form_tag :action => 'update', :id => @data_format do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Edit' %>
+    <% end %>
+    <div class='panel'>
+       <%= render :partial => 'printf_help' %>
+    </div>   
 <% end %>
 
-<div class='panel'>
-   <%= render :partial => 'printf_help' %>
+<% content_for :right do%>
    <%= render :partial => 'regex_help' %>
-</div>   
+
+<% end %>
+
   

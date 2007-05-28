@@ -36,7 +36,7 @@ module Admin::DataElementsHelper
 #  Generate table from a array of hashed records
 #  
   def table_from_array(dataset)  
-     txt ='<table class="sheet">' 
+     txt ='<table class="report">' 
      txt += '<thead class="tableHeader">'
      txt += ' <th>id</th><th>name</th>'
      txt += ' </thead> <tbody>'  

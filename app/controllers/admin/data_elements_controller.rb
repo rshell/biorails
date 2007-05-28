@@ -8,6 +8,9 @@ class Admin::DataElementsController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
 
+  in_place_edit_for :data_element,:name
+  in_place_edit_for :data_element,:description
+
 #
 # default action is list
 #
@@ -32,6 +35,7 @@ class Admin::DataElementsController < ApplicationController
 #
   def show
     @data_element =DataElement.find( params[:id] )
+    @test = DataElement.new
   end
 
 ##
@@ -57,12 +61,13 @@ class Admin::DataElementsController < ApplicationController
 # Add a Child Data Element  
   def add
      @data_element = DataElement.find( params[:id] )
-     @child = @data_element.add_child(params[:child][:name] )
+     @child = @data_element.add_child(params[:child][:name] ,params[:child][:description])
      if @child.save
         flash[:notice] = 'Child Data Element was successfully created.'
         redirect_to :action => 'show', :id => @data_element
      else
-       render :action => 'show'        
+        flash[:error] = "Child Data Element not valid #{@child.errors.full_messages.to_sentence}."
+        redirect_to :action => 'show', :id => @data_element
      end
   end
  
@@ -95,26 +100,6 @@ def create
       render( :partial => 'new_element')
     end
 end  
-
-#
-#  edit the record
-#  
-  def edit
-    @data_element = current( DataElement, params[:id] )
-  end
-
-#
-# Update a existing data element on the system
-#
-  def update
-    @data_element = current( DataElement, params[:id] )
-    if @data_element.update_attributes(params[:data_element])
-      flash[:notice] = 'DataElement was successfully updated.'
-      redirect_to :action => 'show', :id => @data_element
-    else
-      render :action => 'edit'
-    end
-  end
 
  #
  # Remove a existing data element from the system
