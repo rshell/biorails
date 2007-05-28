@@ -64,12 +64,9 @@
     <td class="cell" >      
            <%=check_box_tag row + "[mandatory]","Y", parameter.mandatory=="Y" %>
     </td>
-    <td class="cell" >      
-         <% if parameter.mask %>
-           <%=text_field_tag row+"[default_value]", parameter.default_value,   :onkeypress =>"MatchMask( this, #{parameter.mask})"          %>
-         <% else %>
-           <%=text_field_tag row+"[default_value]", parameter.default_value, :onkeypress =>'MatchMask( this,/.*/)',:style=>'text-align: left;' %>
-         <%end%>
+    <td class="cell" > 
+          <%=my_field_tag(parameter.dom_id('default_value'),row+"[default_value]",parameter,
+            {:value=> parameter.default_value, :save=> parameter_url(:action=>'test_save', :id=> parameter ) }) %>
     </td>
     <td><%= link_to_remote subject_icon('destroy.png') + 'Delete', :url => { :action => 'remove_parameter',:id =>parameter.id }%>
     </td>
