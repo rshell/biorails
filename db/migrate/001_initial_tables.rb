@@ -582,7 +582,6 @@ class InitialTables < ActiveRecord::Migration
     t.column "asset_id",               :integer
     t.column "content_id",             :integer
     t.column "published_hash",         :string
-    t.column "project_elements_count", :integer,                :default => 0,                :null => false
     t.column "left_limit",             :integer,                :default => 0,                :null => false
     t.column "right_limit",            :integer,                :default => 0,                :null => false
   end
