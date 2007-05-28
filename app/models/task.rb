@@ -125,6 +125,10 @@ def before_update
     end
 end
 
+def before_destroy
+   self.folder.destroy
+end
+
 ##
 # Get summary stats to compare task with all runs in the process.
 # This is basically a set of TaskStatistics with added details on

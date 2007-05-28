@@ -100,6 +100,11 @@ def before_update
       ref.save!
     end
 end
+
+def before_destroy
+   self.folder.destroy
+end
+
 #
 # Get the folder for this protocol
 #

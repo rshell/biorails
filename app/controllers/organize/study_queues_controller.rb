@@ -58,6 +58,7 @@ class Organize::StudyQueuesController < ApplicationController
 
   def edit
     @study_queue = StudyQueue.find(params[:id])
+    logger.info "@study_queue #{@study_queue.new_record?}"
     @study = @study_queue.study
   end
 

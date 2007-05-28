@@ -270,18 +270,26 @@ class Execute::TasksController < ApplicationController
     @dom_id = params[:element]  
     @row =@dom_id.split('_')[2].to_i
     @col = @dom_id.split('_')[3].to_i
-    @task = Task.find(params[:id])
-    @value = params[:value]     
+
+    @task = Task.find(params[:id])    
     @grid = @task.grid
     @cell = @grid.cell(@row,@col)
-    @cell.value = @value
+    @cell.value = params[:value]    
     @successful = @cell.save
-    unless @successful
-    flash[:warning] = "Failed to save value '#{@value}' into #{@cell.item.class} cell :- <ul><li>  "
-    flash[:warning] += @cell.item.errors.full_messages().join('</li><li>')
-    flash[:warning] += "</li></ul>"
-        end
-    return render(:action => 'cell_saved.rjs') if request.xhr?
+    respond_to do | format |
+      format.html { render :action => 'task'}
+      format.xml  { render :xml =>  @task.to_xml}
+      format.text  { render :xml =>  @task.to_csv}
+      format.js   { render :update do | page |
+            if  @successful 
+              page[@dom_id].value=@cell.value
+              page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
+            else
+              page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
+            end      
+         end }
+    end
+
   rescue Exception => ex
     flash[:error]="Problems with save of cell "+@dom_id
     logger.debug ex.backtrace.join("\n")  

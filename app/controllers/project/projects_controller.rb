@@ -53,7 +53,7 @@ class Project::ProjectsController < ApplicationController
       @project = current_user.create_project(params['project'])
       @project.summary = params[:project][:summary]
       if @project.save
-        flash[:notice] = 'Sample was successfully created.'
+        flash[:notice] = 'Project #{@project.name} was successfully created.'
         set_project(@project)
         redirect_to  :action => 'show',:id => @project      
       else
@@ -82,7 +82,14 @@ class Project::ProjectsController < ApplicationController
     end
   end
   
-
+##
+# Destroy a study
+#
+  def destroy
+    Project.find(params[:id]).destroy
+    set_project(Project.find(1))    
+    redirect_to home_url(:action => 'show')
+  end  
 ##
 # List of most recent experiments
 # 

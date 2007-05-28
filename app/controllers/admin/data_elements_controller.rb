@@ -66,7 +66,7 @@ class Admin::DataElementsController < ApplicationController
         flash[:notice] = 'Child Data Element was successfully created.'
         redirect_to :action => 'show', :id => @data_element
      else
-        flash[:error] = "Child Data Element not valid #{@child.errors.full_messages.to_sentence}."
+        flash[:error] = "Child Data Element not valid  as #{@child.errors.full_messages.to_sentence}."
         redirect_to :action => 'show', :id => @data_element
      end
   end
@@ -105,12 +105,10 @@ end
  # Remove a existing data element from the system
  #
   def destroy
-    item = current( DataElement, params[:id] )
-    data_system = item.data_system
-    puts item.name
-    puts 'distroy'+ item.destroy
-    
-    redirect_to :controller=>'data_systems', :action => 'show',:id=> data_system
+    @data_element = DataElement.find( params[:id] )
+    @data_system = @data_element.system
+    @data_element.destroy    
+    redirect_to :action => 'list',:id=> @data_system
   end
   
 #

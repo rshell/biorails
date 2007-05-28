@@ -2,7 +2,6 @@
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <div>
   <span class='menu'>Service <%= @study_queue.name %> </span>
-  <%= link_to subject_icon('new.png') +'New Service',  :controller=> 'requests', :action => 'new' %>
   <%= link_to subject_icon('show.png') +'Requests', :action => 'show', :id => @study_queue %>
   <%= link_to subject_icon('show.png') +'Items', :action => 'show', :id => @study_queue %>
   <%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @study_queue %>

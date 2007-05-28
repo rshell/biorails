@@ -3,7 +3,7 @@
        <label for="request_name">Name</label>
        <%= text_field :user_request, 'name' , {:class=>"text-input"} %>
    </div>
-
+<% if @user_request.new_record?%>
    <div class="form-element">
      <label for="request_for">Item Type</label>
        <%= select( :user_request, :data_element_id, @user_request.allowed_elements.collect{|c|[c.path,c.id]})  %>
@@ -13,6 +13,11 @@
      <label for="request_for"> For Project </label>
        <%= select( :user_request, :project_id, current_user.projects.collect{|c|[c.name,c.id]})  %>
    </div>
+ <% else %>
+  <%= hidden_field :user_request, :data_element_id%>
+  <%= hidden_field :user_request, :project_id%>
+ <% end %>       
+   
  </div>
    
   <div class="row">

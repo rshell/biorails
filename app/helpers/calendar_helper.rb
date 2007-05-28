@@ -78,7 +78,7 @@ module CalendarHelper
   end
  
  
-  def gnatt( items, options = {}, &block)
+  def gantt( items, options = {}, &block)
     raise ArgumentError, "No started date given" unless defined? options[:started]
     raise ArgumentError, "No ended date given" unless defined? options[:ended]
  

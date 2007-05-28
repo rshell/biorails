@@ -89,8 +89,12 @@ class StudyParameter < ActiveRecord::Base
  end
  
   def units
-    if self.parameter_type 
-       Unit.scaled_units(self.parameter_type.storage_unit)
+    if self.parameter_type
+       if self.parameter_type.storage_unit
+         Unit.scaled_units(self.parameter_type.storage_unit)
+       else 
+         []
+       end
     else
        Unit::UNITS_LOOKUP
     end

@@ -151,6 +151,10 @@ end
   def description
     self.summary
   end
+  
+  def in_use?
+    (self.elements.size>1 || self.studies.size>0)
+  end
 ##
 # Get the member details
 #  
@@ -159,12 +163,12 @@ end
   end
 
   def owner?(user)
-    member = Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
-    return (member and member.owner)
+    member_details = Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
+    return (member_details and member_details.owner)
   end
   
   def news(count =5 )
-    ProjectElement.find(:all,:conditions => ["content_id is not null"] , :order=>'updated_at desc',:limit => count)   
+    ProjectContent.find(:all,:conditions => ["project_id=? and content_id is not null",self.id] , :order=>'updated_at desc',:limit => count)   
   end
   
  ###

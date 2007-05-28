@@ -5,7 +5,6 @@
         <label for="study_queue_name">Name</label>
         <%= text_field 'study_queue', 'name' , {:size => 16,:class=>"text-input"} %>
     </div>
-
     <div class="form-element">
       <label for="study_parameter_id">Accepts Items of Type :</label>
      <%= collection_select(:study_queue, :study_parameter_id, @study.parameters_for_data_type(5), :id, :name) %>
@@ -14,7 +13,7 @@
      <div class="form-element">
         <label for="study_queue_assigned_to">Assigned to</label>
         <%= select_named 'study_queue', 'assigned_to_user_id', User  %>
-     </div>    
+     </div> 
  </div>
 
   <div class="row">

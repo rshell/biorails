@@ -10,7 +10,7 @@
     
     <div class="form-element">
       <label for="study_parameter_type">Parameter Type:</label>
-      <%= select_named(:study_parameter, :parameter_type_id, ParameterType) %>
+      <%= select_named(:study_parameter, :parameter_type_id, ParameterType,[["",nil]]) %>
       <%= observe_field 'study_parameter_parameter_type_id',:url => {:action=>'refresh_type', :id =>@study_parameter},:with =>'parameter_type_id' %>
     </div>
 </div>

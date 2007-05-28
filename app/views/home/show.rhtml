@@ -7,7 +7,7 @@
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3><%=l('News: Recent Articles ')%></h3>
+	<h3><%=link_to l('News: Recent Articles '),home_url(:action=>:news) %></h3>
 		<% for item in @user.news(5) %>
 			<li>
 			<%=image_tag(item.icon) %> 
@@ -17,7 +17,7 @@
 		<% end %>
 	</div>
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('Requested Services')%></h3>
+	<h3 class="icon icon-protocol"><%=link_to l('Requested Services'), home_url(:action=>:requests)%></h3>
 		<ul>
 		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
 			<li>
@@ -40,12 +40,13 @@
 		</ul>
 	</div>  
 	<div class="box">
-	<h3 class="icon icon-request"><%=l('My Projects')%></h3>
+	<h3 class="icon icon-request"><%=link_to l('My Projects'),home_url(:action=>:projects)%></h3>
 		<ul>
 		<% for item in @user.projects %>
 			<li>
 			<%= link_to item.name, project_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%=h item.summary %>
+			<%= link_to( subject_icon('cancel.png'), project_url( :action => 'destroy', :id => item)) unless item.in_use?  %>
 			</li>
 		<% end %>
 		</ul>
@@ -54,7 +55,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('Stuff Waiting')%> </h3>
+	<h3 class="icon icon-protocol"><%=link_to l('Stuff Todo'),home_url(:action=>:todo)%> </h3>
 		<ul>
 		<% for item in @user.lastest(QueueItem,10) %>
 			<li>

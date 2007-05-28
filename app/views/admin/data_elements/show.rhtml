@@ -5,7 +5,7 @@
        <%= link_to  (subject_icon('list.png')) +'List', :action => 'show',
                     :controller => 'data_systems', :id => @data_element.system %>
 
-       <%= link_to ((subject_icon('delete')) + 'Delete',:url => { :action => 'destory' ,:id=> @data_element.id}, 
+       <%= link_to ((subject_icon('delete')) + 'Delete', { :action => 'destroy' ,:id=> @data_element.id}, 
                                :confirm => 'Are you sure?',:method => "post" ) if @data_element.not_used %>                       
     </div>
 <% end %>
@@ -32,7 +32,7 @@
    <div class="row">
      <div class="form-element">
        <label for="Lookup_Test">Values:-</label>
-        <% if @data_element.children.size>0%>
+        <% if @data_element.style=='list'%>
         <%=render :partial=>'child'%>
         <% else %>
         <%= values %>

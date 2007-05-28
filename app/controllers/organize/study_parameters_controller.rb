@@ -200,7 +200,11 @@ class Organize::StudyParametersController < ApplicationController
     end
     text = request.raw_post || request.query_string
     parameter_type_id = text.split('=')[1]
-    @study_parameter.type = ParameterType.find(parameter_type_id)
+    if parameter_type_id
+       @study_parameter.type = ParameterType.find(parameter_type_id)
+    else
+       @study_parameter.type = ParameterType.find(:first)    
+    end
     return render(:action => 'type_changed.rjs') if request.xhr?
     render :partial => "data_type" 
   end

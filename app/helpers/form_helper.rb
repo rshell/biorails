@@ -119,12 +119,12 @@ module FormHelper
 # Return a list of the allowed Elements that can be used as specializations 
 # of the passed concept.
 # 
-  def select_named( object,method, model = nil)   
-     list = []
+  def select_named( object,method, model = nil, initial=nil)   
+     list = initial || []
      if model 
-         list = model.find(:all,:order=>'name')  
+         list.concat(model.find(:all,:order=>'name').collect{|i|[i.name,i.id]})
      end 
-     return collection_select(object, method ,list, :id, :name) 
+     return select(object, method ,list) 
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    

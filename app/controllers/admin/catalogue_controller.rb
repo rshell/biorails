@@ -166,6 +166,7 @@ end
 # Create a new DataElement for the concept to link in a list of real entities into the catalogue
 #
 def create_element 
+  DataElement.transaction do 
     @current_tab =1
     @data_concept = DataConcept.find(params[:id])
     @data_element = DataElement.create_from_params(params['data_element']) 
@@ -175,15 +176,13 @@ def create_element
       return render(:action => 'show.rjs') if request.xhr?
       redirect_to :action => 'list', :id => @data_element.concept
     else
-      flash[:warning] = 'DataElement failed  to save.'
+      raise "Failed to Save #{@data_element.errors.full_messages.to_sentence}"
+    end
+   end
+   rescue Exception => ex
+      flash[:error] = 'Failed:'+ ex.message
       return render( :action => 'new_element')   if request.xhr?
       render( :partial => 'new_element')
-    end
-   rescue Exception => ex
-      flash[:error] = 'DataElement has problems:'+ ex.message
-      logger.error flash[:error]
-      logger.error ex.backtrace.join("\n")
-      redirect_to :action => 'list', :id => @data_concept
 end
 
 

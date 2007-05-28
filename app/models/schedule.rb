@@ -251,8 +251,8 @@ def calendar(params={})
 end
 
 ##
-# Setup schedule for a gnatt
-def gnatt(params)
+# Setup schedule for a gantt
+def gantt(params)
     if options[:year] and options[:year].to_i >0
       self.year_from = options[:year].to_i
       if options[:month] and options[:month].to_i >=1 and options[:month].to_i <= 12

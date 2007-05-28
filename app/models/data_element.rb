@@ -188,6 +188,7 @@ class DataElement < ActiveRecord::Base
     child.description = description || name 
     self.children << child
     self.estimated_count =self.children.size
+    child.save
     return child
   end
 
@@ -235,7 +236,9 @@ protected
   def populate
      estimated_count = 0
      FasterCSV.parse(content) do |row|
-       row.each{|item|add_child(item)}
+       row.each do |item|
+           add_child(item)
+       end
      end
   end
 
