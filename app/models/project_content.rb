@@ -28,7 +28,7 @@
 # This represents a piece of textual content associated with a project
 class ProjectContent < ProjectElement
                 
-  validates_associated :content
+  validates_presence_of :content_id
   
 #  def before_save
 #    self.content.save if self.content
@@ -43,16 +43,19 @@ class ProjectContent < ProjectElement
     element = ProjectContent.new
     element.reference = options[:reference] 
     element.name =      options[:name] || options[:title] 
-    element.path =      options[:path]
     element.position =  options[:position]
     element.project_id= options[:project_id]
     
-    element.content = Content.new
-    element.content.name =         Identifier.next_id(Content)
-    element.content.title =        options[:title]      
-    element.content.body      =    options[:body]        
-    element.content.project_id=    options[:project_id]
-    element.content.body_html =    options[:to_html]   
+    content = Content.new
+    content.name =         Identifier.next_id(Content)
+    content.title =        options[:title]      
+    content.body      =    options[:body]        
+    content.project_id=    options[:project_id]
+    content.body_html =    options[:to_html]  
+    content.valid?
+    logger.info content.to_yaml
+    return self unless content.save
+    element.content = content
     return element
   end
 #
@@ -68,8 +71,7 @@ class ProjectContent < ProjectElement
       self.content.body       =  options[:body]        
       self.content.project_id =  self.project_id   
       self.content.body_html  =  options[:to_html] 
-      return self unless self.content.valid?
-      self.content.save
+      return self unless self.content.save      
       self.content.move_to_child_of(old)  
     end
   end

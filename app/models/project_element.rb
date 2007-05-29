@@ -51,7 +51,7 @@ class ProjectElement < ActiveRecord::Base
   acts_as_fast_nested_set :parent_column => 'parent_id',
                      :left_column => 'left_limit',
                      :right_column => 'right_limit',
-                     :scope => :project,
+                     :scope => :project_id,
                      :text_column => 'name'
 
   acts_as_audited :change_log
@@ -181,7 +181,7 @@ class ProjectElement < ActiveRecord::Base
          child.rebuild_set
       end  
     end
-    children_count
+    child_count
  end
   
  

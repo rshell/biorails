@@ -80,15 +80,14 @@ module Alces
                             :scope => "1 = 1" }         
                             
           configuration.update(options) if options.is_a?(Hash)          
-          configuration[:scope] = "#{configuration[:scope]}_id".intern if configuration[:scope].is_a?(Symbol) && configuration[:scope].to_s !~ /_id$/
-          
+
           if configuration[:scope].is_a?(Symbol)
             scope_condition_method = %(
               def scope_condition
                 if #{configuration[:scope].to_s}.nil?
                   "#{configuration[:scope].to_s} IS NULL"
                 else
-                  "#{configuration[:scope].to_s} = \#{#{configuration[:scope].to_s}}"
+                  "#{configuration[:scope].to_s} = '\#{#{configuration[:scope].to_s}}'"
                 end
               end
             )
@@ -189,7 +188,7 @@ module Alces
         end                                  
         
        # Returns the number of nested children of this object.
-        def children_count
+        def child_count
           return (self[right_col_name] - self[left_col_name] - 1)/2
         end
                                                                
@@ -355,11 +354,11 @@ protected
                                       WHEN #{right_col_name} BETWEEN #{b_left} AND #{b_right} \
                                         THEN #{right_col_name} + #{updown} \
                                       ELSE #{right_col_name} END, \
-                                  #{acts_as_nested_set_options[:parent_column]} = CASE \
+                                  #{parent_column} = CASE \
                                       WHEN #{self.class.primary_key} = #{self.id} \
                                         THEN #{new_parent} \
-                                      ELSE #{acts_as_nested_set_options[:parent_column]} END",
-                                  acts_as_nested_set_options[:scope] )
+                                      ELSE #{parent_column} END",
+                                  "#{scope_condition}" )
           self.reload
         end
         

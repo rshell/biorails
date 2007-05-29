@@ -70,8 +70,8 @@ class ProjectFolder < ProjectElement
   end
 
   def summary
-    return "#{self.style.capitalize} folder with #{self.count} items"   if reference 
-    return "#{self.style.capitalize} with #{self.count} items"     
+    return "#{self.style.capitalize} folder with #{self.child_count} items"   if reference 
+    return "#{self.style.capitalize} with #{self.child_count} items"     
   end
 
   def description
@@ -146,7 +146,7 @@ class ProjectFolder < ProjectElement
        when ProjectAsset,ProjectContent,ProjectFolder,ProjectElement
            element = item           
        when String 
-           element.name = "comment-#{self.children.size}"
+           element.name = "comment-#{self.child_count}"
            element = ProjectContent.Build(:project_id=> self.project_id,:parent=>self, :name=>name, :title=>"comments",:body=>item )
            return content
        else    
@@ -158,7 +158,7 @@ class ProjectFolder < ProjectElement
        element.parent_id = self.id
        return element unless element.valid?
        element.save
-       element.move_to_child_of(self)     
+       self.add_child(element)     
      end       
   end
   
@@ -168,7 +168,7 @@ class ProjectFolder < ProjectElement
          title ||= filename
          element ||= ProjectAsset.build(
                       :name=> asset.filename, 
-                      :position => self.children.size,   
+                      :position => self.children.child_count,   
                       :parent=>self, 
                       :project_id => self.project_id )                                       
          element.asset.temp_path = filename
@@ -184,7 +184,7 @@ class ProjectFolder < ProjectElement
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectReference.new(:name=> name, :position => self.children.size, :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectReference.new(:name=> name, :position => self.children.child_count, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.reference = item    
          case item
          when ProjectContent

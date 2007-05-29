@@ -49,7 +49,6 @@ class ProjectAsset < ProjectElement
     element.project_id = options[:project_id]
     element.position =  options[:position]
     element.name =  options[:name]
-    element.path = options[:path]
     
     asset = Asset.new
     asset.title =        options[:title]       
@@ -61,8 +60,6 @@ class ProjectAsset < ProjectElement
     end
     asset.content_type = options[:content_type] 
     asset.save
-    logger.info "============================================"
-    logger.info  asset.errors.full_messages.to_sentence
     element.asset_id = asset.id
     element.asset = asset
     return element
@@ -103,11 +100,6 @@ class ProjectAsset < ProjectElement
 
   def filename
     name  
-  end
-
-  def filename=
-    name = filename
-    filename = filename
   end
 
   def caption
