@@ -6,8 +6,18 @@
         <%= hit.class.to_s %> 
         </strong>
         <%= link_to_object(hit) %>
-        [<%=number_round(100*hit.ferret_score,3)%>  %]
-        <p><%=hit.description if hit.respond_to?(:description)%></p>
+        [ <%=number_round(100*hit.ferret_score,3)%> %  ]
+        <p>
+          <% if hit.respond_to?(:icon) %>
+          <%= image_tag(hit.icon) %>
+          <% end %>
+          
+          <% if hit.respond_to?(:summary) %>
+          <%=hit.summary %>       
+          <% elsif hit.respond_to?(:description) %>
+          <%=hit.description %>
+          <% end %>
+        </p>
         </li>
     <% end %>
 </ol> 

@@ -6,5 +6,6 @@
       <%= link_to subject_icon('show.png') +' Requests',queue_url( :action => 'show', :id => study_queue) %>
       <%= link_to subject_icon('show.png') +' Items',  queue_url(:action => 'items', :id => study_queue) %>
       <%= link_to subject_icon('list.png') +' Report ',queue_url( :action => 'manage', :id=>study_queue)  %> 
+      <%= link_to subject_icon('list.png') +' Result ',queue_url( :action => 'results', :id=>study_queue)  %> 
     <% end %>
 </div>

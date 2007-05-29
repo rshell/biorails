@@ -38,6 +38,7 @@
 # in tasks.
 # 
 class QueueItem < ActiveRecord::Base
+
   include CurrentPriority
   include CatalogueReference
 
@@ -47,7 +48,6 @@ class QueueItem < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-  acts_as_ferret :fields => [ :name, :comments, :data_name ], :single_index => true, :store_class_name => true
 
   validates_presence_of   :study_parameter_id
   
@@ -55,36 +55,32 @@ class QueueItem < ActiveRecord::Base
   validates_presence_of   :data_id
   validates_presence_of   :data_name
 
-
  belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
 
  belongs_to :assigned_to, :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
- 
-
+##
+# Results for this Item
+#
+ has_many :results, :class_name=>'QueueResult', :foreign_key=>'queue_item_id'
 ##
 # The Queue this request is linked too
 # 
  belongs_to :queue, :class_name=>'StudyQueue', :foreign_key =>'study_queue_id'
-
 ##
 #Current Request element is linked to a service provided
 #
- belongs_to :service, :class_name =>'RequestService', :foreign_key=>'request_service_id'
- 
+ belongs_to :service, :class_name =>'RequestService', :foreign_key=>'request_service_id' 
 ##
 # The task this request is currently active within
- belongs_to :task
- 
+ belongs_to :task 
 ##
 # The experiment this request is planned to be forfilled in
  belongs_to :experiment
-
 ##
 # The study parameter definition the Item is linked back.
 # Eg Compounds or Plates
 #  
  belongs_to :parameter, :class_name =>'StudyParameter',:foreign_key=>'study_parameter_id'
-
 ##
 # get the request linked to item
 #

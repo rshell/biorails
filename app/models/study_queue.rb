@@ -38,7 +38,7 @@ class StudyQueue < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
+  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
                    :default_field => [:name],           
@@ -53,7 +53,10 @@ class StudyQueue < ActiveRecord::Base
   validates_presence_of   :study_id
   validates_presence_of   :study_stage_id
   validates_presence_of   :study_parameter_id
-
+##
+# Results for this Item
+#
+ has_many :results, :class_name=>'QueueResult', :foreign_key=>'study_queue_id'
 ##
 #Study 
  belongs_to :study

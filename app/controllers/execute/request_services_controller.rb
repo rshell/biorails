@@ -23,6 +23,21 @@ class Execute::RequestServicesController < ApplicationController
     @request_service_pages, @request_services = paginate :request_services, :per_page => 10
   end
 
+
+  def results
+   @request_service = RequestService.find(params[:id])
+   @project_folder =@request_service.request.folder
+   @report = Report.internal_report("Service Request Results",QueueResult) do | report |
+      report.column('request_service_id').filter = @request_service.id.to_s
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   @data_pages = Paginator.new self, @request_service.results.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   render :action => :report
+  end
+
+
   def show
     @request_service = RequestService.find(params[:id])
     @project_folder =@request_service.request.folder

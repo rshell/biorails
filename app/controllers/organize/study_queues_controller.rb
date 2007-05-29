@@ -23,6 +23,19 @@ class Organize::StudyQueuesController < ApplicationController
     @study_queue_pages, @study_queues = paginate :study_queues, :conditions => ["study_id=?",@study.id], :per_page => 10
   end
 
+  def results
+   @study_queue = StudyQueue.find(params[:id])
+   @report = Report.internal_report("Service Queue Results",QueueResult) do | report |
+      report.column('study_queue_id').filter = @study_queue.id
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   @data_pages = Paginator.new self, @study_queue.results.size, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   render :action => :report
+  end
+  
+  
   def manage
     @study_queue = StudyQueue.find(params[:id])
     @study = @study_queue.study

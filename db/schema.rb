@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 271) do
+ActiveRecord::Schema.define(:version => 272) do
 
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -713,6 +713,34 @@ ActiveRecord::Schema.define(:version => 271) do
     t.column "created_by_user_id",   :integer,  :default => 1, :null => false
     t.column "requested_by_user_id", :integer,  :default => 1
     t.column "assigned_to_user_id",  :integer,  :default => 1
+  end
+
+  create_table "queue_results", :force => true do |t|
+    t.column "row_no",                 :integer,                :default => 0, :null => false
+    t.column "column_no",              :integer
+    t.column "task_id",                :integer
+    t.column "queue_item_id",          :integer,                :default => 0, :null => false
+    t.column "request_service_id",     :integer
+    t.column "study_queue_id",         :integer
+    t.column "requested_by_user_id",   :integer
+    t.column "assigned_to_user_id",    :integer
+    t.column "parameter_context_id",   :integer
+    t.column "task_context_id",        :integer
+    t.column "reference_parameter_id", :integer
+    t.column "data_element_id",        :integer
+    t.column "data_type",              :string
+    t.column "data_id",                :integer
+    t.column "subject",                :string
+    t.column "parameter_id",           :integer
+    t.column "protocol_version_id",    :integer
+    t.column "label",                  :string
+    t.column "row_label",              :string
+    t.column "parameter_name",         :string,   :limit => 62
+    t.column "data_value",             :binary
+    t.column "created_by_user_id",     :integer,                :default => 0, :null => false
+    t.column "created_at",             :datetime,                              :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 0, :null => false
+    t.column "updated_at",             :datetime,                              :null => false
   end
 
   create_table "report_columns", :force => true do |t|

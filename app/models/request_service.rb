@@ -55,8 +55,11 @@ class RequestService < ActiveRecord::Base
 
 ##
 #Study 
- belongs_to :request
-
+  belongs_to :request
+##
+# Results for this Item
+#
+  has_many :results, :class_name=>'QueueResult', :foreign_key=>'request_service_id'
 ##
 #Current Request element is linked to a service provided
 #
