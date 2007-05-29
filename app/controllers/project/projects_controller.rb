@@ -53,7 +53,7 @@ class Project::ProjectsController < ApplicationController
       @project = current_user.create_project(params['project'])
       @project.summary = params[:project][:summary]
       if @project.save
-        flash[:notice] = 'Project #{@project.name} was successfully created.'
+        flash[:notice] = "Project #{@project.name} was successfully created."
         set_project(@project)
         redirect_to  :action => 'show',:id => @project      
       else

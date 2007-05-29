@@ -107,12 +107,25 @@ class StudyParameter < ActiveRecord::Base
 
  
  def element
-  if self.data_element.nil?    
+  if self.data_element.nil? and type.data_concept_id  
     self.data_element = DataElement.find(:first,:conditions=>["data_concept_id=?",type.data_concept_id])
   end 
   return self.data_element
  end
  
+ 
+ def format(value)
+    if self.data_element
+       logger.info "sp formated #{value} with element"
+       return element.format(value)
+    elsif self.data_format
+       logger.info "sp formated #{value} with data format"
+       return data_format.from_s( value) 
+    end
+    logger.info "sp formated #{value} in raw"
+    return value.to_s
+ end
+  
  def concept
   if self.data_element.nil?    
      return self.type.data_concept

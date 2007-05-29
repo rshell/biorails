@@ -41,4 +41,39 @@ class DataFormat < ActiveRecord::Base
 
   belongs_to :data_type
 
+ def from_s(str)
+   value = str.to_s
+   case self.data_type.id
+   when 1 
+   # text
+     value = str.to_s
+     value = format(value)
+   when 2 
+   # numeric
+     value = str.to_f
+     value = format(value)
+   when 3 
+   # date
+     value = DateTime.parse(str,format_sprintf) if format_sprintf
+     value ||= DateTime.parse(str)
+     value = format(value)
+   when 4 
+   # time
+     value =  DateTime.parse(str)
+     value = format(value)
+   else 
+     value = str.to_s
+   end   
+ end
+ 
+  def format(value)
+     if format_sprintf
+       logger.info "formated #{value} with #{format_sprintf} as #{sprintf(format_sprintf, value)}"
+       sprintf(format_sprintf, value)
+    else
+       logger.info "formated #{value} returned in raw"
+       value
+    end
+  end
+  
 end

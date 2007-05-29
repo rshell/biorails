@@ -119,6 +119,13 @@ class DataElement < ActiveRecord::Base
     logger.info "lookup for #{self.id}  with #{name} ==> #{item}"
     return item
   end
+  
+  def format(value)
+    item = reference(value) if value.to_i >0 
+    item ||= lookup(value)
+    return item.name if item
+    nil
+  end
 ##
 # convert a id to a DataValue
 # 

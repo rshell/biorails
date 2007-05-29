@@ -274,7 +274,7 @@ class Execute::TasksController < ApplicationController
     @task = Task.find(params[:id])    
     @grid = @task.grid
     @cell = @grid.cell(@row,@col)
-    @cell.value = params[:value]    
+    @cell.value = URI.unescape(params[:value])    
     @successful = @cell.save
     respond_to do | format |
       format.html { render :action => 'task'}

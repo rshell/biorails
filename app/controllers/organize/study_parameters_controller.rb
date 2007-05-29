@@ -238,18 +238,22 @@ class Organize::StudyParametersController < ApplicationController
 # content of message is the data for the value
 # 
   def test_save
-    @successful = false 
-    parameter = StudyParameter.find(params[:id])
-    @element = "cell_#{params[:element].split('_')[1]}_3"
-    text = request.raw_post || request.query_string
-    @value = text.split("=")[1]        
-
-    return render(:action => 'test_save.rjs') if request.xhr?
-    render :action => 'show'
-  rescue 
-     flash[:error]="Problems with save of cell "+@dom_id
-     logger.error "Problem with save"+ $!.to_s
+   begin
+      @successful = false 
+      @study_parameter = StudyParameter.find(params[:id])
+      @element = "cell_#{params[:element].split('_')[1]}_3"
+      text =  request.raw_post || request.query_string 
+      @value = @study_parameter.format(URI.unescape(text.split("=")[1]))
+   rescue Exception => ex
+      logger.error "current error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      flash[:error] = "Import Failed #{ex.message}"
+   end  
+   return render(:action => 'test_save.rjs') if request.xhr?
+   render :action => 'show'
   end  
+  
+ 
 
 
 protected  
