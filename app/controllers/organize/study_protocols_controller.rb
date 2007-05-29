@@ -89,6 +89,7 @@ class Organize::StudyProtocolsController < ApplicationController
     @study = Study.find(params[:id])   
     @study_protocol = StudyProtocol.new(params[:study_protocol])
     if @study_protocol.save
+      @project_folder = @study_protocol.folder
       @study_protocol.process = @study_protocol.new_version     
       @parameter_context = @study_protocol.process.new_context
       @study_protocol.process.save

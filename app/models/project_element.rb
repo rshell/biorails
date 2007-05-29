@@ -63,7 +63,6 @@ class ProjectElement < ActiveRecord::Base
   
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
-  validates_uniqueness_of :path
   validates_presence_of   :project_id
   validates_presence_of   :name
   validates_presence_of   :position

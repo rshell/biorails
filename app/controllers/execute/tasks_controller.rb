@@ -135,6 +135,7 @@ class Execute::TasksController < ApplicationController
     @task.project = current_project
     @experiment = @task.experiment
     if @task.save
+      @project_folder = @task.folder
       session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
       redirect_to task_url(:action => 'show', :id=>@task.id)
