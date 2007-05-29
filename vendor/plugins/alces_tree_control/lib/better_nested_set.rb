@@ -70,101 +70,93 @@ module Alces
         #   (if that hasn't been already) and use that as the foreign key restriction. It's also possible 
         #   to give it an entire string that is interpolated if you need a tighter scope than just a foreign key.
         #   Example: <tt>acts_as_nested_set :scope => 'todo_list_id = #{todo_list_id} AND completed = 0'</tt>
-        def acts_as_nested_set(options = {})          
-
-          write_inheritable_attribute(:acts_as_nested_set_options,
-             { :parent_column  => (options[:parent_column] || 'parent_id'),
-               :left_column    => (options[:left_column]   || 'left_limit'),
-               :right_column   => (options[:right_column]  || 'right_limit'),
-               :scope          => (options[:scope]         || 'project_id' ),
-               :class          => (options[:class] || self),
-               :text_column    => (options[:text_column] || columns.collect{|c| (c.type == :string) ? c.name : nil }.compact.first)
-              } )
-               
-          class_inheritable_reader :acts_as_nested_set_options
-        
-          # no bulk assignment
-          attr_protected  acts_as_nested_set_options[:left_column].intern,
-                          acts_as_nested_set_options[:right_column].intern,
-                          acts_as_nested_set_options[:parent_column].intern
-        
-          class_eval do
-            belongs_to :parent , :class_name => options[:class].to_s, :foreign_key => options[:parent_column]
-            has_many   :children, :class_name => options[:class].to_s, :foreign_key => options[:parent_column]
-          end  
+        def acts_as_fast_nested_set(options = {})          
           
-          include Alces::Acts::NestedSet::InstanceMethods
-          extend Alces::Acts::NestedSet::ClassMethods
-        end        
+          configuration = { :order => nil, 
+                            :counter_cache => nil, 
+                            :parent_column => "parent_id", 
+                            :left_column => "left_limit", 
+                            :right_column => "right_limit", 
+                            :scope => "1 = 1" }         
+                            
+          configuration.update(options) if options.is_a?(Hash)          
+          configuration[:scope] = "#{configuration[:scope]}_id".intern if configuration[:scope].is_a?(Symbol) && configuration[:scope].to_s !~ /_id$/
+          
+          if configuration[:scope].is_a?(Symbol)
+            scope_condition_method = %(
+              def scope_condition
+                if #{configuration[:scope].to_s}.nil?
+                  "#{configuration[:scope].to_s} IS NULL"
+                else
+                  "#{configuration[:scope].to_s} = \#{#{configuration[:scope].to_s}}"
+                end
+              end
+            )
+          else
+            scope_condition_method = "def scope_condition() \"#{configuration[:scope]}\" end"
+          end
 
-        # Returns the single root
-        def root
-          self.find(:first, :conditions => "(#{acts_as_nested_set_options[:parent_column]} IS NULL)")
+          belongs_to :parent,  :class_name => name, :foreign_key => configuration[:parent_column], :counter_cache => configuration[:counter_cache]
+          has_many  :children, :class_name => name, :foreign_key => configuration[:parent_column], :order => configuration[:order], :dependent => :destroy
+          
+          class_eval <<-EOV
+            include Alces::Acts::NestedSet::InstanceMethods
+
+            #{scope_condition_method}
+            
+            def left_col_name() "#{configuration[:left_column]}" end
+            def right_col_name() "#{configuration[:right_column]}" end
+            def parent_column() "#{configuration[:parent_column]}" end
+
+            def self.roots
+              find(:all, :conditions => "#{configuration[:foreign_key]} IS NULL", :order => #{configuration[:order].nil? ? "nil" : %Q{"#{configuration[:order]}"}})
+            end
+
+            def self.root
+              find(:first, :conditions => "#{configuration[:foreign_key]} IS NULL", :order => #{configuration[:order].nil? ? "nil" : %Q{"#{configuration[:order]}"}})
+            end
+            
+          EOV
+
         end
-        
-        # Returns roots when multiple roots (or virtual root, which is the same)
-        def roots
-          self.find(:all, :conditions => "(#{acts_as_nested_set_options[:parent_column]} IS NULL)", :order => "#{acts_as_nested_set_options[:left_column]}")
-        end 
-      end
+      end        
 
       module InstanceMethods
 
-        # on creation, set automatically lft and rgt to the end of the tree
-        def before_create
-          maxright = acts_as_nested_set_options[:class].maximum( acts_as_nested_set_options[:right_column],
-                     :conditions => ["#{acts_as_nested_set_options[:scope]}= ?",self[acts_as_nested_set_options[:scope]]]) if self[acts_as_nested_set_options[:scope]]
-          maxright ||= 0
-          # adds the new node to the right of all existing nodes
-          self[acts_as_nested_set_options[:left_column]] = maxright+1
-          self[acts_as_nested_set_options[:right_column]] = maxright+2
-        end
-
-        # Returns true if this is a root node.
+        # Returns true is this is a root node.  
         def root?
-          parent_id = self[acts_as_nested_set_options[:parent_column]]
-          (parent_id == 0 || parent_id.nil?) && (self[acts_as_nested_set_options[:left_column]] == 1) && (self[acts_as_nested_set_options[:right_column]] > self[acts_as_nested_set_options[:left_column]])
+          parent_id = self[parent_column]
+          (parent_id == 0 || parent_id.nil?) && (self[left_col_name] == 1) && (self[right_col_name] > self[left_col_name])
         end                                                                                             
                                     
         # Returns true is this is a child node
         def child?                          
-          parent_id = self[acts_as_nested_set_options[:parent_column]]
-          !(parent_id == 0 || parent_id.nil?) && (self[acts_as_nested_set_options[:left_column]] > 1) && (self[acts_as_nested_set_options[:right_column]] > self[acts_as_nested_set_options[:left_column]])
+          parent_id = self[parent_column]
+          !(parent_id == 0 || parent_id.nil?) && (self[left_col_name] > 1) && (self[right_col_name] > self[left_col_name])
         end     
         
         # Returns true if we have no idea what this is
-        #
-        # Deprecated, will be removed in next versions
         def unknown?
           !root? && !child?
         end
         
         # order by left column
-        def <=>(x)
-          self[acts_as_nested_set_options[:left_column]] <=> x[acts_as_nested_set_options[:left_column]]
+        def <=>(other)
+          self[left_col_name] <=> other[left_col_name]
         end
 
         # Returns root
         def root
-             acts_as_nested_set_options[:class].find(:first, 
-                  :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:parent_column]} IS NULL)",self[acts_as_nested_set_options[:scope] ] ] )
+             self.class.base_class.find(:first, 
+             :conditions => "#{scope_condition} AND (#{parent_column} IS NULL)"  )
         end
-                
-        # Returns roots when multiple roots (or virtual root, which is the same)
-        def roots
-             acts_as_nested_set_options[:class].find(:all, 
-             :conditions => [ "#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:parent_column]} IS NULL)", self[acts_as_nested_set_options[:scope] ] ],
-             :order => "#{acts_as_nested_set_options[:left_column]}")
-        end
-                
-        
+                                      
         # Returns an array of all parents 
         # Maybe 'full_outline' would be a better name, but we prefer to mimic the Tree class
         def ancestors
-            acts_as_nested_set_options[:class].find(:all, 
-            :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND #{acts_as_nested_set_options[:left_column]} < ? and #{acts_as_nested_set_options[:right_column]} > ? ",
-            self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]],
-            :order => acts_as_nested_set_options[:left_column] )
+            self.class.base_class.find(:all, 
+            :conditions => ["#{scope_condition} AND #{left_col_name} < ? and #{right_col_name} > ? ",self[left_col_name],self[right_col_name] ],
+            :order => left_col_name )
         end
         
         # Returns the array of all parents and self
@@ -179,88 +171,58 @@ module Alces
         
         # Returns the array of all children of the parent, included self
         def self_and_siblings
-            if self[acts_as_nested_set_options[:parent_column]].nil? || self[acts_as_nested_set_options[:parent_column]].zero?
+            if self[parent_column].nil? || self[parent_column].zero?
                 [self]
             else
-                acts_as_nested_set_options[:class].find(:all, 
-                :conditions => ["#{acts_as_nested_set_options[:scope]}=?  and #{acts_as_nested_set_options[:parent_column]} =?",
-                self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:parent_column]]], 
-                :order => acts_as_nested_set_options[:left_column])
+                self.class.base_class.find(:all, 
+                :conditions => ["#{scope_condition}  and #{parent_column} =?", self[parent_column]], 
+                :order => left_col_name)
             end
         end
         
         # Returns the level of this object in the tree
         # root level is 0
         def level
-            return 0 if self[acts_as_nested_set_options[:parent_column]].nil?
-             acts_as_nested_set_options[:class].count(
-            :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} < ? and #{acts_as_nested_set_options[:right_column]} > ?)",
-            self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]])        
+            return 0 if self[parent_column].nil?
+             self.class.base_class.count(
+            :conditions => ["#{scope_condition} AND (#{left_col_name} < ? and #{right_col_name} > ?)", self[left_col_name], self[right_col_name]])        
         end                                  
         
-                                           
-        # Returns the number of nested children of this object.
-        def count
-          return (self[acts_as_nested_set_options[:right_column]] - self[acts_as_nested_set_options[:left_column]] - 1)/2
+       # Returns the number of nested children of this object.
+        def children_count
+          return (self[right_col_name] - self[left_col_name] - 1)/2
         end
                                                                
         # Returns a set of itself and all of its nested children
-        # Pass :exclude => item, or id, or [items or id] to exclude some parts of the tree
-        def full_set(special=nil)
-          return [self] if new_record? or self[acts_as_nested_set_options[:right_column]]-self[acts_as_nested_set_options[:left_column]] == 1
-          [self] + all_children(special)
+        def full_set
+          self.class.base_class.find(:all, :conditions => ["#{scope_condition} AND (#{left_col_name} BETWEEN ? and ?",self[left_col_name], self[right_col_name]] )
         end
                   
         # Returns a set of all of its children and nested children
-        # Pass :exclude => item, or id, or [items or id] to exclude some parts of the tree
-        def all_children(special=nil)
-          if special && special[:exclude]
-            transaction do
-              # exclude some items and all their children
-              special[:exclude] = [special[:exclude]] if !special[:exclude].is_a?(Array)
-              # get all subtrees and flatten the list
-              exclude_list = special[:exclude].map{|e| e.full_set.map{|ee| ee.id}}.flatten.uniq.join(',')
-              if exclude_list.blank?
-                 acts_as_nested_set_options[:class].find(:all, 
-                 :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} > ? and #{acts_as_nested_set_options[:right_column]} < ?)",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]],         
-                 :order => acts_as_nested_set_options[:left_column])
-              else
-                 acts_as_nested_set_options[:class].find(:all, 
-                 :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND id NOT IN (#{exclude_list}) AND (#{acts_as_nested_set_options[:left_column]} > ? and #{acts_as_nested_set_options[:right_column]} < ?)",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]],         
-                 :order => acts_as_nested_set_options[:left_column])
-              end
-            end
-          else
-             acts_as_nested_set_options[:class].find(:all, 
-               :conditions => ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} > ? and #{acts_as_nested_set_options[:right_column]} < ?)",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]],         
-               :order => acts_as_nested_set_options[:left_column])
-          end
+        def all_children
+          self.class.base_class.find(:all, :conditions => ["#{scope_condition} AND (#{left_col_name} > ?) and (#{right_col_name} < ?)",self[left_col_name],self[right_col_name]] )
         end
+                                  
+        # Returns a set of only this entry's immediate children
+        def direct_children
+          self.class.base_class.find(:all, :conditions => ["#{scope_condition} and #{parent_column} = ?",self.id] )
+        end
+
                                       
         # Prunes a branch off of the tree, shifting all of the elements on the right
         # back to the left so the counts still work.
         def before_destroy
-          return if self[acts_as_nested_set_options[:right_column]].nil? || self[acts_as_nested_set_options[:left_column]].nil?
-          dif = self[acts_as_nested_set_options[:right_column]] - self[acts_as_nested_set_options[:left_column]] + 1
+          return if self[right_col_name].nil? || self[left_col_name].nil?
+          dif = self[right_col_name] - self[left_col_name] + 1
 
-          acts_as_nested_set_options[:class].transaction {
-             acts_as_nested_set_options[:class].delete_all( ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} > ? and #{acts_as_nested_set_options[:right_column]} < ?)",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:left_column]],self[acts_as_nested_set_options[:right_column]]])
-            
-             acts_as_nested_set_options[:class].update_all( "#{acts_as_nested_set_options[:left_column]} = (#{acts_as_nested_set_options[:left_column]} - #{dif})",
-                ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:left_column]} >= ? )",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:right_column]]] )
-                                  
-             acts_as_nested_set_options[:class].update_all( "#{acts_as_nested_set_options[:right_column]} = (#{acts_as_nested_set_options[:right_column]} - #{dif} )",
-                ["#{acts_as_nested_set_options[:scope]}=? AND (#{acts_as_nested_set_options[:right_column]} >= ? )",
-                                  self[acts_as_nested_set_options[:scope] ],self[acts_as_nested_set_options[:right_column]]] )
-
-          }
+          self.class.base_class.transaction do
+            self.class.base_class.delete_all( "#{scope_condition} and #{left_col_name} > #{self[left_col_name]} and #{right_col_name} < #{self[right_col_name]}" )
+            self.class.base_class.update_all( "#{left_col_name} = (#{left_col_name} - #{dif})",  "#{scope_condition} AND #{left_col_name} >= #{self[right_col_name]}" )
+            self.class.base_class.update_all( "#{right_col_name} = (#{right_col_name} - #{dif} )",  "#{scope_condition} AND #{right_col_name} >= #{self[right_col_name]}" )
+          end
         end
-        
+
+      
         # Move the node to the left of another node (you can pass id only)
         def move_to_left_of(node)
             self.move_to node, :left
@@ -276,22 +238,59 @@ module Alces
             self.move_to node, :child
         end
         
-        protected 
+        # Adds a child to this object in the tree.  If this object hasn't been initialized,
+        # it gets set up as a root node.  Otherwise, this method will update all of the
+        # other elements in the tree and shift them to the right, keeping everything
+        # balanced. 
+        def add_child( child )     
+          self.reload
+          child.reload
+
+          if child.root?
+            raise "Adding sub-tree isn\'t currently supported"
+          else
+            if ( (self[left_col_name] == nil) || (self[right_col_name] == nil) )
+              # Looks like we're now the root node!  Woo
+              self[left_col_name] = 1
+              self[right_col_name] = 4
+              
+              # What do to do about validation?
+              return nil unless self.save
+              
+              child[parent_column] = self.id
+              child[left_col_name] = 2
+              child[right_col_name]= 3
+              return child.save
+            else
+              # OK, we need to add and shift everything else to the right
+              child[parent_column] = self.id
+              right_bound = self[right_col_name]
+              child[left_col_name] = right_bound
+              child[right_col_name] = right_bound + 1
+              self[right_col_name] += 2
+              self.class.base_class.transaction do
+                  self.class.base_class.update_all( "#{left_col_name} = (#{left_col_name} + 2)",  "#{scope_condition} AND #{left_col_name} >= #{right_bound}" )
+                  self.class.base_class.update_all( "#{right_col_name} = (#{right_col_name} + 2)",  "#{scope_condition} AND #{right_col_name} >= #{right_bound}" )
+                  self.save
+                  child.save
+              end
+            end
+          end                                   
+        end  
+
+protected 
         def move_to(target, position)
-          raise ActiveRecord::ActiveRecordError, "You cannot move a new node" if self.id.nil?
-        
+          target.add_child(self) if (  self.id.nil? || (self[left_col_name] == nil) || (self[right_col_name] == nil) )
+                  
           # use shorter names for readability: current left and right
-          cur_left, cur_right = self[acts_as_nested_set_options[:left_column]], self[acts_as_nested_set_options[:right_column]] 
+          cur_left, cur_right = self[left_col_name], self[right_col_name] 
               
           # extent is the width of the tree self and children
           extent = cur_right - cur_left + 1
           
           # load object if node is not an object
-          target_left, target_right = target[acts_as_nested_set_options[:left_column]], target[acts_as_nested_set_options[:right_column]]
-          logger.info "==================================================================="
-          logger.info "move #{cur_left}< #{target_left} #{cur_right} < #{target_right}"
-          logger.info "==================================================================="
-          
+          target_left, target_right = target[left_col_name], target[right_col_name]
+
           # detect impossible move
           if ((cur_left <= target_left) && (target_left <= cur_right)) or ((cur_left <= target_right) && (target_right <= cur_right))
             raise ActiveRecord::ActiveRecordError, "Impossible move, target node cannot be inside moved tree."
@@ -339,27 +338,28 @@ module Alces
           if position == :child
             new_parent = target.id
           else
-            new_parent = target[acts_as_nested_set_options[:parent_column]].nil? ? 'NULL' : target[acts_as_nested_set_options[:parent_column]]
+            new_parent = target[parent_column].nil? ? 'NULL' : target[parent_column]
           end
           
           # update and that rules
-           acts_as_nested_set_options[:class].update_all( "#{acts_as_nested_set_options[:left_column]} = CASE \
-                                      WHEN #{acts_as_nested_set_options[:left_column]} BETWEEN #{cur_left} AND #{cur_right} \
-                                        THEN #{acts_as_nested_set_options[:left_column]} + #{shift} \
-                                      WHEN #{acts_as_nested_set_options[:left_column]} BETWEEN #{b_left} AND #{b_right} \
-                                        THEN #{acts_as_nested_set_options[:left_column]} + #{updown} \
-                                      ELSE #{acts_as_nested_set_options[:left_column]} END, \
-                                  #{acts_as_nested_set_options[:right_column]} = CASE \
-                                      WHEN #{acts_as_nested_set_options[:right_column]} BETWEEN #{cur_left} AND #{cur_right} \
-                                        THEN #{acts_as_nested_set_options[:right_column]} + #{shift} \
-                                      WHEN #{acts_as_nested_set_options[:right_column]} BETWEEN #{b_left} AND #{b_right} \
-                                        THEN #{acts_as_nested_set_options[:right_column]} + #{updown} \
-                                      ELSE #{acts_as_nested_set_options[:right_column]} END, \
+          # update and that rules
+          self.class.base_class.update_all( "#{left_col_name} = CASE \
+                                      WHEN #{left_col_name} BETWEEN #{cur_left} AND #{cur_right} \
+                                        THEN #{left_col_name} + #{shift} \
+                                      WHEN #{left_col_name} BETWEEN #{b_left} AND #{b_right} \
+                                        THEN #{left_col_name} + #{updown} \
+                                      ELSE #{left_col_name} END, \
+                                  #{right_col_name} = CASE \
+                                      WHEN #{right_col_name} BETWEEN #{cur_left} AND #{cur_right} \
+                                        THEN #{right_col_name} + #{shift} \
+                                      WHEN #{right_col_name} BETWEEN #{b_left} AND #{b_right} \
+                                        THEN #{right_col_name} + #{updown} \
+                                      ELSE #{right_col_name} END, \
                                   #{acts_as_nested_set_options[:parent_column]} = CASE \
                                       WHEN #{self.class.primary_key} = #{self.id} \
                                         THEN #{new_parent} \
                                       ELSE #{acts_as_nested_set_options[:parent_column]} END",
-                                  ["#{acts_as_nested_set_options[:scope]}=?",self[acts_as_nested_set_options[:scope]]] )
+                                  acts_as_nested_set_options[:scope] )
           self.reload
         end
         

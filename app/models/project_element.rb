@@ -48,11 +48,10 @@ class ProjectElement < ActiveRecord::Base
 # * +all_children+ - array of all children and nested children
 # * +full_set+ - array of itself and all children and nested children
 #
-  acts_as_nested_set :parent_column => 'parent_id',
+  acts_as_fast_nested_set :parent_column => 'parent_id',
                      :left_column => 'left_limit',
                      :right_column => 'right_limit',
-                     :scope => 'project_id',
-                     :class => ProjectElement,
+                     :scope => :project,
                      :text_column => 'name'
 
   acts_as_audited :change_log
@@ -80,7 +79,6 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
-
 ##
 # Parent of a record is a   
   def folder
@@ -91,9 +89,9 @@ class ProjectElement < ActiveRecord::Base
     !(attributes['asset_id'].nil?)
   end
   
-  def path(root=[])
-    root.concat(self.ancestors.collect{|i|i.name})
-    root << name
+  def path
+    root= self.self_and_ancestors.collect{|i|i.name}
+    root[0]='.'
     root.join('/')
   end
   
@@ -165,58 +163,27 @@ class ProjectElement < ActiveRecord::Base
   # Rebuild all the set based on the parent_id and text_column name
   #
   def self.rebuild_sets
-    roots.each{|root|root.rebuild_set}
+    roots.each do |root|
+      root.left_limit = 1
+      root.right_limit = 2 
+      root.save!
+      root.rebuild_set
+    end
   end
         
-  def rebuild_set(parent =nil)
+  def rebuild_set
     ProjectElement.transaction do    
-      if parent.nil?
-         self.left_limit = 1
-         self.right_limit = 2         
-         self.save
-      end
-      items = ProjectElement.find(:all, :conditions => ["project_id=? AND parent_id = ?",self.project_id, self.id],   :order => 'parent_id,name')                                       
+      items = ProjectElement.find(:all, :conditions => ["project_id=? AND parent_id = ?",self.project_id, self.id],:order => 'parent_id,id')                                       
       for child in items 
-         add_child(child)             
+         self.add_child(child)             
       end  
       for child in items 
-         child.rebuild_set(self)
+         child.rebuild_set
       end  
     end
-    self
-    
+    children_count
  end
   
-  # Adds a child to this object in the tree.  If this object hasn't been initialized,
-  # it gets set up as a root node.  Otherwise, this method will update all of the
-  # other elements in the tree and shift them to the right, keeping everything
-  # balanced. 
-
-  def add_child( child )   
-    
-    raise ActiveRecord::ActiveRecordError, "Adding sub-tree isn\'t currently supported"  if child.root?   
-    raise ActiveRecord::ActiveRecordError, "Moving element to another sub-tree isn\'t currently supported" if child.parent_id  and child.parent_id != self.id  
-    puts "Add Child #{child.id} #{child.name}"
-    ProjectElement.transaction do    
-      if ( self.left_limit == nil) || (self.right_limit == nil) 
-          # Looks like we're now the root node!  Woo
-          self.left_limit = 1
-          self.right_limit = 2         
-      end
-
-      right_bound = self.right_limit
-      # OK, we need to shift everything else to the right
-      ProjectElement.update_all( "left_limit= left_limit + 2",  ["project_id = ? AND left_limit >= ?",  self.project_id,right_bound] )            
-      ProjectElement.update_all( "right_limit = right_limit + 2",["project_id =? AND right_limit >= ?",  self.project_id,right_bound] )
-
-      # OK, add child
-      child.parent_id  = self.id
-      child.left_limit = right_bound
-      child.right_limit = right_bound + 1
-      self.right_limit += 2
-      self.save!                    
-      child.save!
-    end
-  end     
+ 
         
 end

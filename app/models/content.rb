@@ -27,11 +27,10 @@ class Content < ActiveRecord::Base
 # * +all_children+ - array of all children and nested children
 # * +full_set+ - array of itself and all children and nested children
 #
-  acts_as_nested_set :parent_column => 'parent_id',
+  acts_as_fast_nested_set :parent_column => 'parent_id',
                      :left_column =>   'left_limit',
                      :right_column =>  'right_limit',
                      :scope => 'name',
-                     :class => Content,
                      :text_column => 'title'
      
   validates_presence_of   :project_id
