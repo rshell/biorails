@@ -1,5 +1,5 @@
 <!-- Output flash passed messages -->
-<% for name in [:notice,:info, :warning, :error, :trace] %>
+<% for name in [:error, :warning, :notice,:info, :trace] %>
   <% if flash[name] %>
     <div class="<%= "flash_#{name} message" %>" >
       <strong><%= name.to_s.capitalize  %>:</strong> <%= flash[name] %> 

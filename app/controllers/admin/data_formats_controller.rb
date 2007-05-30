@@ -5,7 +5,7 @@
 #
 class Admin::DataFormatsController < ApplicationController
   
-  use_authorization :catalogue,
+  use_authorization :data_formats,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
                      

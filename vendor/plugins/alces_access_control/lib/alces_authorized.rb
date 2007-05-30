@@ -61,7 +61,7 @@ module Alces
             class_inheritable_reader :rights_subject
             class_inheritable_reader :rights_source     
 
-            before_filter :authorization, :only => rights_actions
+            before_filter :authorization, :only => options[:rights_actions]
 
             include Alces::AccessControl::AuthorizationService::ControllerInstanceMethods
           end
@@ -74,21 +74,34 @@ module Alces
           def authorized?(action) 
             return true unless self.class.rights_actions.any?{|i| i.to_s == action.to_s}
             rights = self.send( rights_source )  
-            return ( !rights.nil? and current_user and (current_user.admin || rights.permission?(current_user, self.class.rights_subject, action )  ) )
+            if rights and current_user
+               ok =  (current_user.admin==true  || rights.permission?(current_user, self.class.rights_subject, action ) ) 
+            else
+               ok =false
+            end
+            return ok
           end   
           ##
           # authorization 
           #
           def authorization
-             logger.info "Authorization #{session[:current_username]} #{params[:controller]} #{params[:action]}"  
+             logger.info "Authorization #{session[:current_username]} #{self.class.rights_subject} #{params[:action]}"  
              unless self.authenticate  
-                  logger.warn "Authentication Failed #{session[:current_username]}"  
+                  flash[:error]= "User authentication not valid for #{session[:current_username]}"  
+                  redirect_to auth_url(:action => "login")
                   return false     
              end     
              if authorized?(params[:action])
                   return true
              end 
-             logger.warn "Authorization Failed #{params[:controller]} #{params[:action]}"  
+             if rights_source == :current_user
+               flash[:warning]= "No permission for action [#{params[:action]}] on [#{self.class.rights_subject}] with currently user #{current_username}  "  
+               flash[:info]= "See system administration if you really need to do this level of liability(rights) in the sytsem " 
+             else
+               flash[:warning]= "No permission for action [#{params[:action]}] on [#{self.class.rights_subject}] with currently project #{current_project.name} "  
+               flash[:info]= "See Project Owner if you really need to do this  " 
+             end
+             redirect_to home_url(:action => "show")             
              return false     
           end         
       end    
@@ -121,9 +134,11 @@ module Alces
           def access_control_list( rights , relation_options = {})
               has_many rights, relation_options do
                   def permission?(user,subject,action)        
-                    return RolePermission.find_by_sql( 
+                    perm =  RolePermission.find_by_sql( 
                     ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and p.action = ?",
                      user.id, proxy_owner.id, subject.to_s, action.to_s])
+                    logger.info "permission?(#{user},#{subject},#{action}) = #{perm.size>0}"
+                    return perm.size>0
                   end
               end                                                                                                                 
               write_inheritable_attribute( :access_control_list, rights )

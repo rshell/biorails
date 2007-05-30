@@ -23,7 +23,7 @@
 class Admin::CatalogueController < ApplicationController
 
   use_authorization :cataloge,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy,:new_element,:new_usage],
                     :rights => :current_user
                    
   def index

@@ -1,5 +1,9 @@
 class Admin::DatabaseController < ApplicationController
 
+  use_authorization :dba,
+                    :actions => [:backup,:recover,:initialize],
+                    :rights => :current_user
+                    
    def reindex
      Project.rebuild_index(Compound,Batch,Plate,Container)
      Project.rebuild_index(Study,StudyProtocol,StudyParameter,StudyQueue,Project,ProjectElement,Experiment,Task,Request,RequestService)
