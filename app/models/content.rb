@@ -107,36 +107,5 @@ class Content < ActiveRecord::Base
     self
  end
   
-  # Adds a child to this object in the tree.  If this object hasn't been initialized,
-  # it gets set up as a root node.  Otherwise, this method will update all of the
-  # other elements in the tree and shift them to the right, keeping everything
-  # balanced. 
-
-  def add_child( child )   
-    
-    raise ActiveRecord::ActiveRecordError, "Adding sub-tree isn\'t currently supported"  if child.root?   
-    raise ActiveRecord::ActiveRecordError, "Moving element to another sub-tree isn\'t currently supported" if child.parent_id  and child.parent_id != self.id  
-
-    Content.transaction do    
-      if ( self.left_limit == nil) || (self.right_limit == nil) 
-          # Looks like we're now the root node!  Woo
-          self.left_limit = 1
-          self.right_limit = 2         
-      end
-
-      right_bound = self.right_limit
-      # OK, we need to shift everything else to the right
-      Content.update_all( "left_limit= left_limit + 2",  ["name = ? AND left_limit >= ?",   self.name,right_bound] )            
-      Content.update_all( "right_limit = right_limit + 2",["name =? AND right_limit >= ?",  self.name,right_bound] )
-
-      # OK, add child
-      child.parent_id  = self.id
-      child.left_limit = right_bound
-      child.right_limit = right_bound + 1
-      self.right_limit += 2
-      self.save!                    
-      child.save!
-    end
-  end      
 
 end
