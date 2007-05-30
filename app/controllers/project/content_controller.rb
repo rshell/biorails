@@ -50,7 +50,7 @@ class Project::ContentController < ApplicationController
 # 
   def new
     load_folder
-    @project_element = ProjectContent.build(:name => Identifier.next_user_ref,      
+    @project_element = ProjectContent.new(:name => Identifier.next_user_ref,      
                                           :project_id => @project_folder.project_id)
     respond_to do |format|
       format.html { render :action=>'new'}
@@ -70,8 +70,8 @@ class Project::ContentController < ApplicationController
     load_folder
     @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:to_html])   
     #@project_element.tag_list = params[:project_element][:tag_list]
-    @project_element.valid?
     logger.info @project_element.to_yaml
+    @project_element.valid?
     if @project_element.save
         respond_to do |format|
           format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 

@@ -292,7 +292,11 @@ protected
 
           # detect impossible move
           if ((cur_left <= target_left) && (target_left <= cur_right)) or ((cur_left <= target_right) && (target_right <= cur_right))
-            raise ActiveRecord::ActiveRecordError, "Impossible move, target node cannot be inside moved tree."
+            logger.info "============Target========"
+            logger.info  target.to_yaml
+            logger.info "============Self========"
+            logger.info self.to_yaml
+            raise ActiveRecord::ActiveRecordError, "Impossible move, target #{target.id} node cannot be inside moved tree of #{self.id}."
           end
         
           # compute new left/right for self

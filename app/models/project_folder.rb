@@ -159,6 +159,7 @@ class ProjectFolder < ProjectElement
        return element unless element.valid?
        element.save
        self.add_child(element)     
+       return element
      end       
   end
   
