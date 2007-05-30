@@ -3,7 +3,7 @@
 ##
 # This is the basic data Capture API for Biorails to allow the discovery of task and they creation
 # 
-class DataCaptureApi < ActionWebService::API::Base 
+class BiorailsApi < ActionWebService::API::Base 
 
   class TaskItem < ActionWebService::Struct
      member :id , :int
@@ -20,6 +20,7 @@ class DataCaptureApi < ActionWebService::API::Base
      member :id , :int
      member :folder_id , :int
      member :name, :string
+     member :path, :string
      member :style, :string
      member :icon, :string
      member :summary, :string
@@ -67,7 +68,7 @@ class DataCaptureApi < ActionWebService::API::Base
  
     api_method  :project_folder_list,
                 :expects => [ {:project_id => :int} ],
-                :returns => [[ProjectFolder]]
+                :returns => [[Element]]
  
 
     api_method  :experiment_list,
@@ -145,7 +146,6 @@ class DataCaptureApi < ActionWebService::API::Base
     api_method :get_content,
                :expects => [ {:element_id => :int} ],
                :returns =>  [Content]
-
 
     api_method :add_task,
                :expects => [ {:session_id => :int},{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],

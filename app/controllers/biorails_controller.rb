@@ -1,9 +1,9 @@
 ##
 # This is the Data Capture External API for import and export of task to other systems
 # 
-class DataCaptureController < ApplicationController
-  wsdl_service_name 'DataCapture'
-  web_service_api DataCaptureApi
+class BiorailsController < ApplicationController
+  wsdl_service_name 'Biorails'
+  web_service_api BiorailsApi
   web_service_scaffold :invoke
 
   #
@@ -41,7 +41,7 @@ class DataCaptureController < ApplicationController
     def project_element_list(id)
        items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
        items.collect do |item|
-           DataCaptureApi::Element.new(
+           BiorailsApi::Element.new(
            :id => item.id,
            :folder_id => item.parent_id,
            :name => item.name,
@@ -61,7 +61,21 @@ class DataCaptureController < ApplicationController
 # easy creation of a tree structure on client (Hash and fill)
 #
     def project_folder_list(id)
-       ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+       items = ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+       items.collect do |item|
+           BiorailsApi::Element.new(
+           :id => item.id,
+           :folder_id => item.parent_id,
+           :name => item.name,
+           :path => item.path,
+           :summary => item.summary,
+           :style => item.style,
+           :icon  => item.icon,
+           :asset_id => item.asset_id,
+           :content_id => item.content_id,
+           :reference_id => item.reference_id,
+           :reference_type => item.reference_type)
+       end
     end
 #    
 #
@@ -115,7 +129,7 @@ class DataCaptureController < ApplicationController
     def task_value_list(task_id)
        task = Task.find(task_id)
        task.items.collect do | item |
-           DataCaptureApi::TaskItem.new(
+           BiorailsApi::TaskItem.new(
            :id => item.id,
            :task_id => item.task_id,
            :parameter_id => item.parameter_id,
@@ -196,7 +210,7 @@ class DataCaptureController < ApplicationController
      def get_asset( element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.asset_id
-       DataCaptureApi::Asset.new(
+       BiorailsApi::Asset.new(
              :id => element.asset.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
@@ -226,7 +240,7 @@ class DataCaptureController < ApplicationController
              element.save
           end
           logger.info element.to_yaml
-          DataCaptureApi::Asset.new(
+          BiorailsApi::Asset.new(
              :id => element.asset.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
@@ -245,7 +259,7 @@ class DataCaptureController < ApplicationController
      def get_content( element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.content_id
-       DataCaptureApi::Content.new(
+       BiorailsApi::Content.new(
              :id => element.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
@@ -259,7 +273,7 @@ class DataCaptureController < ApplicationController
        User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
-       DataCaptureApi::Content.new(
+       BiorailsApi::Content.new(
              :id => element.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
