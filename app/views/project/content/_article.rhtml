@@ -25,13 +25,6 @@ Content Path: <%= link_to "/"+ @project_folder.path, folder_url( :action => 'sho
      <%= text_area('project_element', 'to_html', {:rows=>40,:cols=>100})  %>
      </div>
   </div>
-  
-  <div class="row">
-   <div class="form-element">
-         <label for="tags">tags</label>
-         <%= text_field 'project_element', 'tag_list' , {:size=>100,:class=>"text-input"} %>
-   </div>
-  </div>
 
   <div class="row">
   <%= submit_tag "Save"  %>

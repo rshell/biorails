@@ -3,6 +3,7 @@
 <%end%>
 
 
+<% content_for :centre do -%>
 <h2>    <%=subject_icon('model/report')%> Create Report Definition </h2>
 <div class='dialog'>
  <% form_tag :action => 'create' do %> 
@@ -37,4 +38,48 @@
     </fieldset>
    <% end %> 
 </div>
+<%end%>
 
+
+<% content_for :right do -%>
+<div class='panel'>
+<h2>Guide </h2>
+<p>
+Due to the generic nature of this reporting and size of the system there are is long list of models to base reports on. 
+Basically a report may be 80+ models ,with names follow forms you see in the in system. A report is a data grid based on 
+model and linked model data. As reference are easier to use in reports then collection of many details it is often better
+to pick a detail (TaskContext) item and not the main item (Task).
+</p>
+<h4>Key Models</h4>
+For Results :-
+  <ul>
+  <li>CompoundResult</li>
+  <li>QueueResult</li>
+  <li>TaskResult</li>
+  <li>TaskContext</li>
+  </ul>
+For QA stats:-
+  <ul>
+  <li>StudyStatistics</li>
+  <li>ProcessStatistics</li>
+  <li>ExperimentStatistics</li>
+  <li>TaskStatistics</li>
+  </ul>
+For Auditing:-
+  <ul>
+  <li>Audit</li>
+  <li>StudyLog</li>
+  <li>TaskLog</li>
+  <li>CatalogLog</li>
+  </ul>
+For Organization:-
+  <ul>
+  <li>Parameter</li>
+  <li>Study</li>
+  <li>StudyProtocol</li>
+  <li>Experiment</li>
+  <li>Task</li>
+  </ul>
+   
+</div>
+<%end%>

@@ -8,7 +8,6 @@ module SessionHelper
     name = link_name
     name ||= element.name if element.respond_to?(:name)
     if element
-      logger.info(" link_to_object #{name} #{element.class} #{element.id}")
       case  element
       when ProjectElement:  link_to name , folder_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
       when QueueItem:       link_to element.data_name, queue_item_url( options.merge({ :id=> element.id}) )

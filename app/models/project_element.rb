@@ -57,8 +57,6 @@ class ProjectElement < ActiveRecord::Base
   acts_as_audited :change_log
   
   acts_as_ferret :fields => [ :name, :description,:summary ], :single_index => true, :store_class_name => true
-
-  acts_as_taggable 
   
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]

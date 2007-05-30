@@ -1,0 +1,75 @@
+<%= render :partial => 'title' %>
+
+<ul class="tablist"> 
+<li>  <%= link_to_remote 'Folder',   {:url =>folder_url( :action => 'show',    :folder_id => folder.id )}, :class=>'current' %> </li>
+<li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
+<li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
+<li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
+</ul>
+
+
+<table class="report">
+  <thead>
+    <tr>
+        <th colspan='5'>Notes and Folders</th>    
+    </tr>
+    <tr  id='folder_top'>
+        <th><%=l(:section) %></th>
+    	<th><%=l(:defaults)%></th>
+    	<th><%=l(:created) %></th>
+    	<th><%=l(:updated) %></th>
+    	<th><%=l(:action) %></th>
+    </tr>
+    </thead>
+  <tbody>  
+    <% for item in folder.elements %>
+      <tr id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
+    	<td>
+    	    <span id='<%=item.dom_id(:current)%>' class='folder_element'>
+    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+    	    <%= link_to item.name, element_to_url(item) %>
+    	               
+            <%if item.reference?%>
+    	       <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
+    	    <%end %>
+    	    </span>
+        </td>  
+    	<td>
+    	  <%= item.summary %> 
+    	</td>
+    	<td align="center"><%= short_date(item.created_at) %></td>
+    	<td align="center"><%= short_date(item.updated_at) %></td>
+        <td align="center">
+            <%= link_to( l(:edit),  content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
+            <%= link_to( l(:view),  asset_url( :action => 'show', :id => item ), :class => "button") if item.asset? %>
+            <%= link_to( l(:delete), folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
+        </td>
+      </tr>
+
+      <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => true, :revert=> true) %>
+
+      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
+           :accept =>'folder_element',
+           :url => folder_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
+
+      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
+           :accept =>['project_element','project_reference','project_content','project_asset'],
+           :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
+
+    <% end %>
+  </tbody>
+  <thead>
+  <tr id='folder_bottom'>
+  <th colspan='5'><th/>
+  </tr>
+  </thead>
+</table>
+      <%= drop_receiving_element('folder_top', :hoverclass => "drop-active",
+           :accept =>['project_element','project_reference','project_content','project_asset'],
+           :url => folder_url(:action=>"add_element",:id=>folder.id )) %>
+           
+      <%= drop_receiving_element('folder_bottom', :hoverclass => "drop-active",
+           :accept =>['project_element','project_reference','project_content','project_asset'],
+           :url => folder_url(:action=>"add_element", :id=>folder.id )) %>
+
+

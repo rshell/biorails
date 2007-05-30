@@ -4,12 +4,9 @@
 
 
 <% content_for :centre do -%>
-  <%= render :partial => 'new',:locals=>{:folder=>@project_folder} %>
+  <%= render :partial => 'new' %>
 <% end %>
 
 <% content_for :right do -%>
-  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>
-  <div class='panel' id='folder_actions'>
-    <%= render :partial => 'toc',:locals=>{:folder=> folder} %>   
-  </div>
+    <%= render :partial => @layout[:right],:locals=>{:folder=> @parent} %>   
 <% end %>

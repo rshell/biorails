@@ -30,7 +30,7 @@ class Project::FoldersController < ApplicationController
 # 
   def show
     set_folder
-    return render_central('folder')
+    return render_central('show')
   end
   
 ##
@@ -133,14 +133,12 @@ class Project::FoldersController < ApplicationController
     @project_folder = @parent.folder(params[:project_folder][:name])
     if @project_folder.save
       flash[:notice] = 'ProjectFolder was successfully created.'
-      if request.xhr?
-         render :partial => 'folder' ,:locals=>{:folder=> @parent} 
-      else
-         redirect_to :action => 'show',:id => @parent
-      end 
+      @layout[:centre]= 'show'
     else
-      render :partial => 'new' ,:locals=>{:folder=> @parent}
+      flash[:error] = 'ProjectFolder creation failed.'
+      @layout[:centre]= 'new'
     end
+    return render_central    
   end
 ##
 # Edit the current folder details
@@ -284,10 +282,11 @@ protected
   def render_central(mode =nil)
     @layout[:centre] = mode if mode
     respond_to do |format|
-      format.html { render :action=>'show'}
+      format.html { render :action=> @layout[:centre] || 'show'}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'centre',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
          end
       }
     end      
