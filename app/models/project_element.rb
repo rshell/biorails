@@ -169,6 +169,7 @@ class ProjectElement < ActiveRecord::Base
       root.save!
       root.rebuild_set
     end
+    roots.size
   end
         
   def rebuild_set
