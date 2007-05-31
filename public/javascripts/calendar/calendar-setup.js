@@ -105,7 +105,7 @@ Calendar.setup = function (params) {
 	
     function onUpdate(cal) {
 		var p = cal.params;
-        console.log("onClose %s",cal)
+        // console.log("onClose %s",cal)
 		FieldSave(p.inputField,null)
 		return null;
 	}

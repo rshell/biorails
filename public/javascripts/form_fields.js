@@ -31,7 +31,7 @@ function FieldSaved(element) {
 function FieldValidate(element)
 {
    ok = true
-   console.log("FieldValidate %s=%s",element.id,element.value)
+   // console.log("FieldValidate %s=%s",element.id,element.value)
    if (element.getAttribute('mask') !=null )
    {
         current_regex =  new RegExp(element.getAttribute('mask'));
@@ -64,7 +64,7 @@ function FieldValidate(element)
  */
 function FieldOnKeyPress(element, event) 
 {
-  console.log("FieldOnKeyPress %s=%s",element.id,element.value)
+  // console.log("FieldOnKeyPress %s=%s",element.id,element.value)
     var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if (keyCode == VK_DOWN)       { GridMove(element,1,0)  }
     else if (keyCode == VK_UP)    { GridMove(element,-1,0) }
@@ -102,7 +102,7 @@ function GridMove(element,rows,cols)
  */
 function FieldSave(element,event)
 {
-  console.log("FieldSave %s=%s",element.id,element.value)
+  // console.log("FieldSave %s=%s",element.id,element.value)
      if (element.getAttribute('save') !=null )
 	 {
         new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
@@ -116,7 +116,7 @@ function FieldSave(element,event)
 */
 function FieldExit(element,event)
 {
-  console.log("FieldExit %s=%s",element.id,element.value)
+  // console.log("FieldExit %s=%s",element.id,element.value)
   if ((element.value != current_cell_value))
   {
       if (FieldValidate(element,event))
@@ -137,7 +137,7 @@ function FieldEntry(element,event)
 {  
   if (element!=null)
   {
-    console.log("FieldEntry %s=%s",element.id,element.value)
+    // console.log("FieldEntry %s=%s",element.id,element.value)
     current_cell_background = element.style.background
     current_cell_value = element.value 
     current_cell_id = element.id  
@@ -154,7 +154,7 @@ function FieldEntry(element,event)
  */
 function DateFieldOnKeyPress(element, event) 
 {
-    console.log("DateFieldOnKeyPress %s=%s",element.id,element.value)
+    // console.log("DateFieldOnKeyPress %s=%s",element.id,element.value)
     var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if (keyCode == VK_DOWN){ 
   		DateFieldValidate(element); 
@@ -181,7 +181,7 @@ function DateFieldOnKeyPress(element, event)
 */
 function DateFieldValidate(input) {
     ok =true;   
-    console.log("DateFieldValidate %s",input.value)
+    // console.log("DateFieldValidate %s",input.value)
     FieldEntry(input);
     try {
         var d = parseDateString(input.value);
@@ -228,7 +228,7 @@ function DateFieldValidate(input) {
 */
 function DateFieldExit(element,event)
 {
-  console.log("DateFieldExit %s=%s [%s] ",element.id,element.value,current_cell_value)
+  // console.log("DateFieldExit %s=%s [%s] ",element.id,element.value,current_cell_value)
   if (DateFieldValidate(element,event))
   {
      FieldSave(element,event);
