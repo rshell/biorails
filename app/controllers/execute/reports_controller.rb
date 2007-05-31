@@ -104,7 +104,6 @@ helper :tree
     @report.errors.clear
     @report.errors.full_messages().each {|e| logger.info "Report #{e.to_s}"}
     if @report.save
-      flash[:notice] = 'Report was successfully created.'
       redirect_to :action => 'edit', :id => @report
     else
       @report.errors.full_messages().uniq.each {|e| logger.info "Report #{e.to_s}"}
@@ -130,7 +129,6 @@ helper :tree
  def update
    @report = Report.find(params[:id])
    @report.update_attributes(params[:report])
-    puts "updated report"
     map = params[:columns]
     if map
       for key in map.keys
@@ -139,7 +137,6 @@ helper :tree
         column.save
       end
     end
-    flash[:notice] = 'Report was successfully updated.'
     respond_to do |format|
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}

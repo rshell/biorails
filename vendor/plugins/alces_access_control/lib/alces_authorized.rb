@@ -87,7 +87,7 @@ module Alces
           def authorization
              logger.info "Authorization #{session[:current_username]} #{self.class.rights_subject} #{params[:action]}"  
              unless self.authenticate  
-                  flash[:error]= "User authentication not valid for #{session[:current_username]}"  
+                  flash[:error]= "User #{session[:current_username]} authentication does not appear valid "  
                   redirect_to auth_url(:action => "login")
                   return false     
              end     

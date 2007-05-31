@@ -143,15 +143,11 @@ class ApplicationController < ActionController::Base
   end   
 
 ##
-# Default authenticate i
+# Default authenticate 
 #  
   def authenticate
     session[:current_params] = params
-    unless logged_in?
-      redirect_to  login_url
-      return false
-    end
-    true
+    logged_in?
   end
   
   
