@@ -53,11 +53,6 @@
         <%= text_field 'task', 'done_hours', 'size' => 6  %>
      </div>   
      
-     <div class="form-element">
-        <label for="task_status_id">Status</label>
-        <%= select( :task, :status_id, @task.allowed_status_list)  %>
-     </div> 
-       
   </div>
 
   <div class="row">
@@ -67,9 +62,16 @@
      </div>   
 
      <div class="form-element">
-        <label for="task_ended_at">End date</label>
+        <label for="task_ended_at">Expected End date</label>
         <%= date_field 'task', 'ended_at'  %>
      </div>
+
+     <div class="form-element">
+        <label for="task_status_id">Status</label>
+        <%= select( :task, :status_id, @task.allowed_status_list)  %>
+     </div> 
+       
+
   </div>
 <!--[eoform:task]-->
 

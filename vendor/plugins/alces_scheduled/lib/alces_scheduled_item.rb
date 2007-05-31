@@ -217,9 +217,9 @@ module Alces
           return self.status unless scheduled_summary   
           out = "["
           tmp = self.send(scheduled_summary) || []
-          out << tmp.size
-          out << '/' << tmp.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}
-          out << '/' << tmp.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}
+          out << tmp.size.to_s
+          out << '| ' << tmp.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}.to_s
+          out << '| ' << tmp.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}.to_s
           out << ']'
          end
       
@@ -271,7 +271,9 @@ module Alces
            def finished_at
               return self.ended_at    if self.ended_at
               return self.expected_at if self.expected_at
-              return  Time.now+10.day
+              return DateTime.now+ 7 unless scheduled_summary   
+              tmp = self.send(scheduled_summary) || []
+              tmp.collect{|item|item.finished_at}.max
            end
 
           ##

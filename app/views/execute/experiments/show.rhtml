@@ -12,10 +12,25 @@
 
 <div class='panel'>
     <table class="report">
-      <tr><th class="label"><%=subject_icon('name.png')%> Name</th><td> <%= @experiment.name %></td></tr>
-      <tr><th class="label"><%=subject_icon('description.png')%> Description</th><td> <%= @experiment.description %></td></tr>
-      <tr><th class="label"><%=subject_icon('model/study.png')%> Study</th><td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td></tr>
-      <tr><th class="label"><%=subject_icon('model/protocol.png')%> Process [Default]</th><td> <%= @experiment.process.path %></td></tr>
+      <tr><th class="label"><%=subject_icon('name.png')%> Name</th>
+          <td colspan='3'> <%= @experiment.name %></td>
+      </tr>
+      <tr>
+         <th class="label"><%=subject_icon('description.png')%> Description</th>
+         <td colspan='3'> <%= @experiment.description %></td>
+      </tr>
+      <tr>
+        <th class="label"><%=subject_icon('model/study.png')%> Study</th>
+        <td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td>
+        <th class="label"><%=subject_icon('model/protocol.png')%> Process [Default]</th>
+        <td> <%= @experiment.process.path %></td>
+      </tr>
+      <tr>
+        <th class="label">Started</th>
+        <td><%=format_date @experiment.started_at  %></td>
+        <th class="label">Expected (End)</th>
+        <td> <%=format_date @experiment.finished_at %></td>
+      </tr>
     </table>
 
 <br/>
@@ -27,7 +42,7 @@
                 <th>Protocol</th>
                 <th>Status</th>
                 <th>Started</th>
-                <th>Ended</th>
+                <th>Expected (End)</th>
             </tr>
             <% for item in @experiment.tasks%>
             <tr>

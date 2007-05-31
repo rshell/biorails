@@ -55,7 +55,7 @@ class Experiment < ActiveRecord::Base
 ##
 # The experiment is a summary of the tasks
 #
-  acts_as_scheduled  :summary_of=>:tasks
+  acts_as_scheduled  :summary=>:tasks
 
   has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
   has_many_scheduled :queue_items,  :class_name=>'QueueItem',:foreign_key =>'experiment_id'

@@ -55,7 +55,7 @@ class Request < ActiveRecord::Base
 ##
 # Request is a summary of list of scheduled request for services
 # 
-  acts_as_scheduled :summary_of=>:services
+  acts_as_scheduled :summary=>:services
 
   has_many_scheduled :services,  :class_name=>'RequestService',:dependent => :destroy
 #

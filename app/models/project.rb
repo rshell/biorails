@@ -80,7 +80,7 @@ class Project < ActiveRecord::Base
 ##
 # The project is the main holder of schedules but in turn can be seen on a system schedule
 #   
-  acts_as_scheduled :summary_of=>:tasks
+  acts_as_scheduled :summary=>:tasks
   
   has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id', :dependent => :destroy 
   has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id', :dependent => :destroy 

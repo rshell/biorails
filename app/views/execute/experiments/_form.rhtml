@@ -26,3 +26,28 @@
      <label for="study_description">Description</label>
      <%= text_area('experiment', 'description',{:rows=>5, :cols=>100} 	) %>
   </div>
+
+<div class="row">
+
+     <div class="form-element">
+        <label for="experiment_started_at">Start date</label>
+        <%= date_field 'experiment', 'started_at'  %>
+     </div>   
+    
+     <div class="form-element">
+        <label for="experiment_ended_at">Expected End date</label>
+        <%= date_field 'experiment', 'expected_at'  %>
+     </div>
+    
+     <div class="form-element">
+        <label for="task_status_id">Status</label>
+        <%= select( :task, :status_id, @experiment.allowed_status_list)  %>
+     </div> 
+    
+     <div class="form-element">
+        <label for="task_status_id">Tasks [total | active | done ] Last </label>
+        <%= @experiment.status_summary %>
+        <%=format_date @experiment.finished_at %>
+     </div> 
+       
+</div>

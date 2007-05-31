@@ -25,4 +25,28 @@
    </div>
   </div>
 
+<div class="row">
+
+     <div class="form-element">
+        <label for="study_started_at">Start date</label>
+        <%= date_field 'study', 'started_at'  %>
+     </div>   
+    
+     <div class="form-element">
+        <label for="study_ended_at">Expected End date</label>
+        <%= date_field 'study', 'expected_at'  %>
+     </div>
+    
+     <div class="form-element">
+        <label for="task_status_id">Status</label>
+        <%= select( :task, :status_id, @study.allowed_status_list)  %>
+     </div> 
+    
+     <div class="form-element">
+        <label for="task_status_id">Experiments [total | active | done ] Last </label>
+        <%= @study.status_summary %>
+        <%=format_date @study.finished_at %>
+     </div> 
+       
+</div>
 <!--[eoform:study]-->
