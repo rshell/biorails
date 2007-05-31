@@ -1,0 +1,57 @@
+SelectAutocompleter
+===================
+
+Version:
+========
+0.1
+
+License:
+=======
+MIT License
+
+Simililar to Autocompleter functionality except it
+pops up a listbox instead of a list.
+
+Usage:
+======
+
+Sa usage as Autocompleter except the methods are prepended with select_
+SelectAutocompleter add a few options:
+
+Autocomplete option:
+:valueElement       The id of a text or hidden field to receive the value
+					corresponding to to the selection.
+:redirect_url       URL where the page will be redirected upon selection
+					in url_for format.
+					the string '??' in the URL will be replaced by the value
+					corresponding to to the selection
+:row_count			The number of row for the select element generated
+					(Defaults to 7)
+:use_cache			Cache the result sets on the client (Defaults to true)
+					
+Find options for the select_auto_complete_for method				 
+:id_field			The name of the field to place in the value attribute of
+					the select element generated (Defaults to 'id')
+Matches by default the beginning of the strings
+
+Example:
+========
+To do an incremental search on the 'name' field of the 'product' table:
+
+<< In your template: >>
+
+<%= text_field_with_select_auto_complete
+:product, :name,
+{},
+{ :row_count => 4,
+:min_chars => 2,
+:redirect_url =>  {:action => 'show', :id => '??'}} %>
+
+<< In your controller: >>
+
+select_auto_complete_for :product, :name
+
+Do not forget to include the file dtcontrols.js in the head of your pages
+as well as prototype.js and controls.js
+
+

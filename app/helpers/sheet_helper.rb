@@ -72,20 +72,26 @@ module SheetHelper
  def data_sheet(grid )
    #logger.debug "Datasheet " +grid.to_s
    out = String.new
-   out << '<table class="sheet"><tbody>' << "\n"
+   out << '<table class="sheet">' << "\n"
    old = nil
+   nrows =0
    n= 1
    for row in grid.rows
      if row.definition != old
+       out << "</tbody>" if nrows>0 
        old = row.definition
-       out << "</tbody><tbody class=#{row.definition.dom_id('head')}>\n"
+       out << "<thead class='#{row.definition.dom_id(:head)}'>\n"
        out << data_grid_headers(row) 
-       out << "</tbody><tbody id ='#{row.dom_id('body')}' class=#{row.definition.dom_id('body')}>\n"
+       out << "</thead> \n"
+       nrows =0 
      end
+     out << "<tbody id ='#{row.dom_id('body')}' class='#{row.definition.dom_id(:body)}'>\n" if nrows ==0
      out << data_grid_row(row,n)
+     nrows +=1
      n +=1
    end    
-   out << '</tbody></table>' << "\n"
+   out << "</tbody>" if nrows>0 
+   out << '</table>' << "\n"
  rescue Exception => ex
     logger.error ex.message     
     logger.error ex.backtrace.join("\n")  
@@ -97,7 +103,7 @@ module SheetHelper
  def data_grid_headers(row)
    out = String.new
    out << "<tr>"
-   out << '<th width="10%">' 
+   out << '<th>' 
    out << "<div class='data_sheet_buttons'> \n   <span id='#{row.dom_id('title')}' class='selected' >"
    out << link_to_function(row.definition.label + " x" + row.definition.default_count.to_s,
         "toggle_element('#{row.dom_id('title')}','#{row.dom_id('body')}');" )
@@ -121,7 +127,7 @@ module SheetHelper
 # 
  def data_grid_row(row,n)
    out = String.new
-   out << '<tr> <th width="10%">' << row.label 
+   out << '<tr> <th>' << row.label 
    out << '</th>' << "\n"
    for cell in row.cells
      out << '<td class="cell" id="' + cell.dom_id('cell')+'">'

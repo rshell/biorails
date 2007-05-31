@@ -48,13 +48,17 @@ class Admin::DataElementsController < ApplicationController
   def choices
     element =DataElement.find( params[:id] )
     text = request.raw_post || request.query_string
-    @value = text.split("=")[1]
+    @value =  URI.unescape(text.split("=")[1])
     @choices = element.like(@value)
     render :inline => "<%= auto_complete_result(@choices, 'name') %>"
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      render :partial =>'shared/messages',:locals => { :objects => ['data_element','data_value'] }
+  end  
+
+ def select
+    element =DataElement.find( params[:id] )
+    text = request.raw_post || request.query_string
+    @value =  URI.unescape(text.split("=")[1])
+    @choices = element.like(@value)
+    render :inline => "<%= select_auto_complete_result(@choices, 'name','id') %>"
   end  
   
 ##

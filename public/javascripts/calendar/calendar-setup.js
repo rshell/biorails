@@ -80,7 +80,7 @@ Calendar.setup = function (params) {
 	param_default("flatCallback",   null);
 	param_default("onSelect",       null);
 	param_default("onClose",        null);
-	param_default("onUpdate",       null);
+	param_default("onUpdate",       onUpdate);
 	param_default("date",           null);
 	param_default("showsTime",      false);
 	param_default("timeFormat",     "24");
@@ -101,6 +101,15 @@ Calendar.setup = function (params) {
 		alert("Calendar.setup:\n  Nothing to setup (no fields found).  Please check your code");
 		return false;
 	}
+	
+	
+    function onUpdate(cal) {
+		var p = cal.params;
+        console.log("onClose %s",cal)
+		FieldSave(p.inputField,null)
+		return null;
+	}
+
 
 	function onSelect(cal) {
 		var p = cal.params;

@@ -296,7 +296,7 @@ module FormHelper
      when 2: my_regex_tag(id, name, options)
      when 3: my_date_field(id,name,cell.parameter.default_value,options)
      when 4: my_regex_tag(id, name,options)
-     when 5: my_lookup_tag(id,name, cell.parameter.element,options)
+     when 5: my_lookup_tag(id,name,cell.parameter.element,options)
      when 6: my_regex_tag(id, name, options)
      when 7: my_file_field(id,name,cell.task.folder,options)
      else 
@@ -320,79 +320,19 @@ module FormHelper
 
 
 ##
-# The list is long so use a ajax style auto lookup list
-#   
-  def my_autocomplete_tag(id, name, data_element=nil ,options={})
-
-    options[:mask]    ||= '.'
-    options[:value]   ||= ''
-    options[:default] ||= ''
-    options[:autocomplete]   ||= 'off'
-    options[:onfocus] ||= 'FieldEntry( this,event)'
-    options[:onkeyup] ||= 'FieldValidate( this,event)'
-    options[:onchanged]  ||= 'FieldSave(this,event)'    
-    options[:onblur]  ||= 'FieldExit(this,event)'    
-    out = String.new
-
-    out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
-    out << "\n"  
-    unless data_element.nil?
-      out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
-      
-      options[:url] = {:controller =>'admin/data_elements',:action=>'choices',:id=>data_element.id} 
-      options[:min_chars] =2
-      options[:after_update_element]= "FieldSave"
-  
-      out << "\n"  
-
-      function =  "var #{id}_auto_completer = new Ajax.Autocompleter("
-      function << "'#{id}', "
-      function << "'" + (options[:update] || "#{id}_auto_complete") + "', "
-      function << "'#{url_for(options[:url])}'"
-      
-      js_options = {}
-      js_options[:tokens] = array_or_string_for_javascript(options[:tokens]) if options[:tokens]
-      js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
-      js_options[:indicator]  = "'#{options[:indicator]}'" if options[:indicator]
-      js_options[:select]     = "'#{options[:select]}'" if options[:select]
-      js_options[:paramName]  = "'#{options[:param_name]}'" if options[:param_name]
-      js_options[:frequency]  = "#{options[:frequency]}" if options[:frequency]
-
-      { :after_update_element => :afterUpdateElement, 
-        :on_show => :onShow, :on_hide => :onHide, :min_chars => :minChars }.each do |k,v|
-        js_options[v] = options[k] if options[k]
-      end
-
-      function << (', ' + options_for_javascript(js_options) + ')')
-
-      out << javascript_tag(function)
-      out
-    end
-  end
-  
-##
-# Combo selector for a cell with a list of valid values
-#   
-  def my_selector_tag(id, name, data_element = nil,options={})
-    options[:mask]    ||= '.'
-    options[:onfocus] ||= 'FieldEntry( this,event)'
-    options[:onclick]  ||= 'FieldSave(this,event)'    
-    out = String.new
-    option_tags = options_for_select(data_element.choices,options[:value])
-    content_tag :select, option_tags, { "name" => name, "id" => name }.update(options.stringify_keys)
-  end
-
-
-##
 # lookup cell either a combo for short list of a autocomplete for longer lists
 # 
   def my_lookup_tag(id,name, data_element=nil ,options={})
+    options[:mask]    ||= '.'
+    options[:onfocus] ||= 'FieldEntry( this,event)' 
+    options[:onblur]  ||= 'FieldExit(this,event)'    
     if data_element.nil?
-      return my_regex_tag(id,name,options)
+       return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10
-      return my_selector_tag( id,name,data_element,options)
+       option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
+       return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
     else
-      return my_autocomplete_tag(id,name,data_element,options)
+       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, {:useCache=>true, :row_count => 20, :min_chars => 2})
     end
   end
 
@@ -455,7 +395,7 @@ module FormHelper
       	   button         :    "#{id}_Button",  // trigger for the calendar (button ID)
       	   help           :    "#{id}_Help",    // trigger for the help menu
       	   align          :    "Br",                     // alignment (defaults to "Bl")
-      	   singleClick    :    true
+      	   singleClick    :    true,
       	  });
         </script>
       </div>
