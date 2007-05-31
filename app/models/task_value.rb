@@ -67,8 +67,21 @@ class TaskValue < ActiveRecord::Base
  
  ##
  # For generic use all TaskItem proviide get and set of a value.
- def value=(new_value)   
-   self.data_value  = new_value
+ def value=(new_value)  
+   v = new_value.to_unit
+   logger.info "value = #{v}"
+   v = Unit.new(new_value,self.parameter.display_unit)  if v.units == "" and self.parameter.display_unit 
+   if v.units==""
+      logger.info "value no unit= #{v}"
+      self.data_value  = new_value 
+      self.storage_unit =""
+      self.display_unit =""
+   else
+      logger.info "value with unit= #{v}  #{parameter.display_unit} => #{v.to_base.units}"
+      self.data_value  = v.to_base.scalar
+      self.storage_unit =v.to_base.units
+      self.display_unit =v.units     
+   end
  end 
 
  def value
@@ -76,9 +89,11 @@ class TaskValue < ActiveRecord::Base
  end
  
  def to_s
-    formatter = parameter.data_format.format_printf if parameter and parameter.data_format
-    return formatter % data_value if formatter 
-    data_value.to_s
+    formatter = self.parameter.data_format.format_sprintf if self.parameter and self.parameter.data_format
+    return formatter % data_value if formatter && formatter.size>0 
+    v = Unit.new(self.data_value,self.storage_unit)
+    v = v.to(self.display_unit) unless (v.units =="" ||  self.display_unit=="") 
+    return v.to_s
   end
  
 end

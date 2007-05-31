@@ -69,5 +69,9 @@ class TaskReference < ActiveRecord::Base
  def data_element
    parameter.data_element
  end
- 
+
+  def to_s
+   data_name.to_s
+ end
+
 end

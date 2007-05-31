@@ -376,6 +376,10 @@ class Unit < Numeric
     end    
   end
   
+  def scalar
+    @scalar
+  end
+  
   # Normally pretty prints the unit, but if you really want to see the guts of it, pass ':dump'
   def inspect(option=nil)
     return super() if option == :dump
@@ -659,44 +663,6 @@ class Unit < Numeric
             when 'tempF'  : @base_scalar * (9.0/5.0) - 459.67
             when 'tempR'  : @base_scalar * (9.0/5.0) 
           end
-        
-=begin
-      q=case start_unit
-         when /\A(temp|deg)C\Z/:
-          case target_unit
-            when 'tempC'  : @scalar
-            when 'tempK'  : @scalar + 273.15
-            when 'tempF'  : @scalar * (9.0/5.0) + 32.0
-            when 'tempR'  : @scalar * (9.0/5.0) + 491.67
-          end
-        when /\A(temp|deg)K\Z/:
-          case target_unit
-            when 'tempC'  : @scalar - 273.15
-            when 'tempK'  : @scalar 
-            when 'tempF'  : @scalar * (9.0/5.0) - 459.67
-            when 'tempR'  : @scalar * (9.0/5.0) 
-          end
-        when /\A(temp|deg)F\Z/:
-          case target_unit
-            when 'tempC'  : (@scalar-32)*(5.0/9.0)
-            when 'tempK'  : (@scalar+459.67)*(5.0/9.0)
-            when 'tempF'  : @scalar 
-            when 'tempR'  : @scalar  + 459.67
-          end
-        when /\A(temp|deg)R\Z/:
-          case target_unit
-            when 'tempC'  : @scalar*(5.0/9.0) -273.15
-            when 'tempK'  : @scalar*(5.0/9.0)
-            when 'tempF'  : @scalar - 459.67
-            when 'tempR'  : @scalar
-          end
-
-        else
-          return self.to_base.to(other) unless self.is_base?
-          #raise ArgumentError, "Unknown temperature conversion requested #{self.numerator}"
-      end
-=end
-      #target_unit =~ /temp(C|K|F|R)/
       Unit.new("#{q} #{target_unit}")
     else
        case other

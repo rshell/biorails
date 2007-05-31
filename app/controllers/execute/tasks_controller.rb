@@ -267,6 +267,7 @@ class Execute::TasksController < ApplicationController
 # content of message is the data for the value
 # 
   def cell_change
+   begin
     @successful = false 
     @dom_id = params[:element]  
     @row =@dom_id.split('_')[2].to_i
@@ -277,25 +278,25 @@ class Execute::TasksController < ApplicationController
     @cell = @grid.cell(@row,@col)
     @cell.value = URI.unescape(params[:value])    
     @successful = @cell.save
-    respond_to do | format |
-      format.html { render :action => 'task'}
-      format.xml  { render :xml =>  @task.to_xml}
-      format.text  { render :xml =>  @task.to_csv}
-      format.js   { render :update do | page |
-            if  @successful 
-              page[@dom_id].value=@cell.value
-              page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
-            else
-              page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
-            end      
-         end }
-    end
 
   rescue Exception => ex
     flash[:error]="Problems with save of cell "+@dom_id
     logger.debug ex.backtrace.join("\n")  
     logger.error "Problem with save"+ $!.to_s
-    return render(:action => 'cell_saved.rjs') if request.xhr?
+  end  
+  respond_to do | format |
+    format.html { render :action => 'task'}
+    format.xml  { render :xml =>  @task.to_xml}
+    format.text  { render :xml =>  @task.to_csv}
+    format.js   { render :update do | page |
+          if  @successful 
+            page[@dom_id].value=@cell.value
+            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
+          else
+            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
+          end      
+       end }
+  end
   end
 
 protected

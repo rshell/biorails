@@ -55,4 +55,8 @@ class TaskText < ActiveRecord::Base
    self.data_content = value if self.data_content != value 
  end
  
+ def to_s
+   data_content.to_s
+ end
+  
 end

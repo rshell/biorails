@@ -394,6 +394,13 @@ end
        @value = new_value
      end
   end
+  
+  def value
+    if @item
+      @value = @item.to_s
+    end      
+    @value
+  end
 ##
 #save a test item value to database
 #
@@ -407,7 +414,7 @@ end
     return @item.save
   rescue Exception => ex
       logger.error "failed to save cell #{self.to_s}: #{ex.message}"
-      logger.debug ex.backtrace.join("\n")  
+      return false
  end
 
 ##

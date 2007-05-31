@@ -325,14 +325,16 @@ module FormHelper
   def my_lookup_tag(id,name, data_element=nil ,options={})
     options[:mask]    ||= '.'
     options[:onfocus] ||= 'FieldEntry( this,event)' 
-    options[:onblur]  ||= 'FieldExit(this,event)'    
+    options[:onkeyup] ||= 'LookupOnKeyPress(this,event)'
+    #options[:onblur]  ||= 'FieldExit(this,event)'       
     if data_element.nil?
        return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10
        option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
        return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
     else
-       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, {:useCache=>true, :row_count => 20, :min_chars => 2})
+       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, 
+       {:after_update_element=>'FieldSave', :useCache=>true, :row_count => 20, :min_chars => 2})
     end
   end
 
