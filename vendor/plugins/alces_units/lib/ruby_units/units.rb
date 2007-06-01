@@ -1,9 +1,11 @@
-
+#
+# Current Unit management rule base. 
+# This contains all the invarient conversion ratios etc. 
+#
 
 class Unit < Numeric
 
 UNIT_PREFIX ={
-  # prefixes
   '<googol>' => [%w{googol}, 1e100, :prefix],
   '<kibi>'  =>  [%w{Ki Kibi kibi}, 2**10, :prefix],
   '<mebi>'  =>  [%w{Mi Mebi mebi}, 2**20, :prefix],
@@ -34,10 +36,15 @@ UNIT_PREFIX ={
   '<zepto>' =>  [%w{z Zepto zepto}, 1e-21, :prefix],
   '<yocto>' =>  [%w{y Yocto yocto}, 1e-24, :prefix],
   '<1>'     =>  [%w{1},1,:prefix],
+  '<dozen>' =>  [%w{doz dz dozen},12.0,:prefix_only, %w{<each>}],
+  '<percent>'=> [%w{% percent}, 0.01, :prefix_only, %w{<1>}],
+  '<ppm>' =>  [%w{ppm},1e-6,:prefix_only, %w{<1>}],
+  '<ppt>' =>  [%w{ppt},1e-9,:prefix_only, %w{<1>}],
+  '<gross>' =>  [%w{gr gross},144.0, :prefix_only, %w{<dozen> <dozen>}],
+  '<decibel>'  => [%w{dB decibel decibels}, 1.0, :logarithmic, %w{<decibel>}]
 }
 
 UNITS_LENGTH = { 
-  # length units
   '<meter>' =>  [%w{m meter meters metre metres}, 1.0, :length, %w{<meter>} ],
   '<inch>'  =>  [%w{in inch inches "}, 0.0254, :length, %w{<meter>}],
   '<foot>'  =>  [%w{ft foot feet '}, 0.3048, :length, %w{<meter>}],
@@ -61,7 +68,6 @@ UNITS_LENGTH = {
 }
 
 UNITS_MASS = { 
-  #mass
   '<kilogram>' => [%w{kg kilogram kilograms}, 1.0, :mass, %w{<kilogram>}],
   '<AMU>' => [%w{u AMU amu}, 6.0221415e26, :mass, %w{<kilogram>}],
   '<dalton>' => [%w{Da Dalton Daltons dalton daltons}, 6.0221415e26, :mass, %w{<kilogram>}],
@@ -75,14 +81,12 @@ UNITS_MASS = {
 }
 
 UNITS_AREA = { 
-  #area
   '<hectare>'=>[%w{hectare}, 10000, :area, %w{<meter> <meter>}],
   '<acre>'=>[%w(acre acres), 4046.85642, :area, %w{<meter> <meter>}],
   '<sqft>'=>[%w(sqft), 1, :area, %w{<feet> <feet>}],
 }
 
 UNITS_VOLUME = { 
-  #volume
   '<liter>' => [%w{l L liter liters litre litres}, 0.001, :volume, %w{<meter> <meter> <meter>}],
   '<gallon>'=>  [%w{gal gallon gallons}, 0.0037854118, :volume, %w{<meter> <meter> <meter>}],
   '<quart>'=>  [%w{qt quart quarts}, 0.00094635295, :volume, %w{<meter> <meter> <meter>}],
@@ -93,8 +97,26 @@ UNITS_VOLUME = {
   '<teaspoon>'=>  [%w{tsp teaspoon teaspoons}, 4.92892161e-6, :volume, %w{<meter> <meter> <meter>}],
 }
 
+UNITS_SUBSTANCE = {   
+  '<mole>'  =>  [%w{mol mole}, 1.0, :substance, %w{<mole>}],
+}
+
+UNITS_CONCENTRATION = {   
+  '<molar>' => [%w{M molar}, 1000, :concentration, %w{<mole>}, %w{<meter> <meter> <meter>}],
+  '<wtpercent>'  => [%w{wt% wtpercent}, 10, :concentration, %w{<kilogram>}, %w{<meter> <meter> <meter>}],
+}
+
+UNITS_COUNTS = {   
+  '<cell>' => [%w{cells cell}, 1, :counting, %w{<each>}],
+  '<each>' => [%w{each}, 1.0, :counting, %w{<each>}],
+  '<count>' => [%w{count}, 1.0, :counting, %w{<each>}],  
+  '<base-pair>'  => [%w{bp}, 1.0, :counting, %w{<each>}],
+  '<nucleotide>' => [%w{nt}, 1.0, :counting, %w{<each>}],
+  '<molecule>' => [%w{molecule molecules}, 1.0, :counting, %w{<1>}]
+}
+
+
 UNITS_SPEED = { 
-  #speed
   '<kph>' => [%w{kph}, 0.277777778, :speed, %w{<meter>}, %w{<second>}],
   '<mph>' => [%w{mph}, 0.44704, :speed, %w{<meter>}, %w{<second>}],
   '<knot>' => [%w{kt kn kts knot knots}, 0.514444444, :speed, %w{<meter>}, %w{<second>}],
@@ -102,12 +124,10 @@ UNITS_SPEED = {
 }
 
 UNITS_ACCELERATION = {   
-  #acceleration
   '<gee>' => [%w{gee}, 9.80655, :acceleration, %w{<meter>}, %w{<second> <second>}],
 }
 
 UNITS_TEMPERATURE = {   
-  #temperature_difference
   '<kelvin>' => [%w{degK kelvin}, 1.0, :temperature, %w{<kelvin>}],
   '<celsius>' => [%w{degC celsius celsius centigrade}, 1.0, :temperature, %w{<kelvin>}],
   '<fahrenheit>' => [%w{degF fahrenheit}, 1/1.8, :temperature, %w{<kelvin>}],
@@ -119,7 +139,6 @@ UNITS_TEMPERATURE = {
 }
 
 UNITS_TIME = {     
-  #time
   '<second>'=>  [%w{s sec second seconds}, 1.0, :time, %w{<second>}],
   '<minute>'=>  [%w{min minute minutes}, 60.0, :time, %w{<second>}],  
   '<hour>'=>  [%w{h hr hrs hour hours}, 3600.0, :time, %w{<second>}],  
@@ -132,7 +151,6 @@ UNITS_TIME = {
 }
 
 UNITS_PRESSURE = {   
-  #pressure
   '<pascal>' => [%w{Pa pascal Pascal}, 1.0, :pressure, %w{<kilogram>},%w{<meter> <second> <second>}],
   '<bar>' => [%w{bar bars}, 100000, :pressure, %w{<kilogram>},%w{<meter> <second> <second>}],
   '<mmHg>' => [%w{mmHg}, 133.322368,:pressure, %w{<kilogram>},%w{<meter> <second> <second>}],
@@ -146,65 +164,45 @@ UNITS_PRESSURE = {
 }
 
 UNITS_VISCOSITY = {     
-  #viscosity
   '<poise>'  => [%w{P poise}, 0.1, :viscosity, %w{<kilogram>},%w{<meter> <second>} ],
   '<stokes>' => [%w{St stokes}, 1e-4, :viscosity, %w{<meter> <meter>}, %w{<second>}],
 }
 
-UNITS_SUBSTANCE = {   
-   #substance
-  '<mole>'  =>  [%w{mol mole}, 1.0, :substance, %w{<mole>}],
-}
-
-UNITS_CONCENTRATION = {   
-  #concentration
-  '<molar>' => [%w{M molar}, 1000, :concentration, %w{<mole>}, %w{<meter> <meter> <meter>}],
-  '<wtpercent>'  => [%w{wt% wtpercent}, 10, :concentration, %w{<kilogram>}, %w{<meter> <meter> <meter>}],
-}
 
 UNITS_ACTIVITY = {   
-  #activity
   '<katal>' =>  [%w{kat katal Katal}, 1.0, :activity, %w{<mole>}, %w{<second>}],
   '<unit>'  =>  [%w{U enzUnit}, 16.667e-16, :activity, %w{<mole>}, %w{<second>}],
 }
 
 UNITS_CAPACITANCE = {   
-  #capacitance
   '<farad>' =>  [%w{F farad Farad}, 1.0, :capacitance, %w{<farad>}],
 }
 
 UNITS_CHARGE = {   
-  #charge
   '<coulomb>' =>  [%w{C coulomb Coulomb}, 1.0, :charge, %w{<ampere> <second>}],
 }
 
 UNITS_CURRENT = {   
-  #current
   '<ampere>'  =>  [%w{A Ampere ampere amp amps}, 1.0, :current, %w{<ampere>}],
 }
 
 UNITS_CONDUCTANCE = {   
-  #conductance
   '<siemens>' => [%w{S Siemens siemens}, 1.0, :resistance, %w{<second> <second> <second> <ampere> <ampere>}, %w{<kilogram> <meter> <meter>}],
 }
 
 UNITS_INDUCTANCE = {   
-  #inductance
   '<henry>' =>  [%w{H Henry henry}, 1.0, :inductance, %w{<meter> <meter> <kilogram>}, %w{<second> <second> <ampere> <ampere>}],
 }
 
 UNITS_POTENTIAL = {   
-  #potential
   '<volt>'  =>  [%w{V Volt volt volts}, 1.0, :potential, %w{<meter> <meter> <kilogram>}, %w{<second> <second> <second> <ampere>}],
 }
 
 UNITS_RESISTANCE = {   
-  #resistance
   '<ohm>' =>  [%w{Ohm ohm}, 1.0, :resistance, %w{<meter> <meter> <kilogram>},%w{<second> <second> <second> <ampere> <ampere>}],
 }
 
 UNITS_MAGNETISM = {   
-  #magnetism
   '<weber>' => [%w{Wb weber webers}, 1.0, :magnetism, %w{<meter> <meter> <kilogram>}, %w{<second> <second> <ampere>}],
   '<tesla>'  => [%w{T tesla teslas}, 1.0, :magnetism, %w{<kilogram>}, %w{<second> <second> <ampere>}],
   '<gauss>' => [%w{G gauss}, 1e-4, :magnetism,  %w{<kilogram>}, %w{<second> <second> <ampere>}],
@@ -213,7 +211,6 @@ UNITS_MAGNETISM = {
 }
 
 UNITS_ENERGY= {   
-  #energy
   '<joule>' =>  [%w{J joule Joule joules}, 1.0, :energy, %w{<meter> <meter> <kilogram>}, %w{<second> <second>}],
   '<erg>'   =>  [%w{erg ergs}, 1e-7, :energy, %w{<meter> <meter> <kilogram>}, %w{<second> <second>}],
   '<btu>'   =>  [%w{BTU btu BTUs}, 1055.056, :energy, %w{<meter> <meter> <kilogram>}, %w{<second> <second>}],
@@ -223,19 +220,16 @@ UNITS_ENERGY= {
 }
 
 UNITS_FORCE = {   
-  #force
   '<newton>'  => [%w{N Newton newton}, 1.0, :force, %w{<kilogram> <meter>}, %w{<second> <second>}],
   '<dyne>'  => [%w{dyn dyne}, 1e-5, :force, %w{<kilogram> <meter>}, %w{<second> <second>}],
   '<pound-force>'  => [%w{lbf pound-force}, 4.448222, :force, %w{<kilogram> <meter>}, %w{<second> <second>}],
 }
 
 UNITS_FREQUENCY = {   
-  #frequency
   '<hertz>' => [%w{Hz hertz Hertz}, 1.0, :frequency, %w{<1>}, %{<second>}],
 }
 
 UNITS_ANGLE = {   
-  #angle
   '<radian>' =>[%w{rad radian radian}, 1.0, :angle, %w{<radian>}],
   '<degree>' =>[%w{deg degree degrees}, Math::PI / 180.0, :angle, %w{<radian>}],
   '<grad>'   =>[%w{grad gradian grads}, Math::PI / 200.0, :angle, %w{<radian>}],
@@ -243,7 +237,6 @@ UNITS_ANGLE = {
 }
 
 UNITS_ROTATION = {   
-  #rotation
   '<rotation>' => [%w{rotation}, 2.0*Math::PI, :angle, %w{<radian>}],
   '<rpm>'   =>[%w{rpm}, 2.0*Math::PI / 60.0, :angular_velocity, %w{<radian>}, %w{<second>}],
 }
@@ -274,7 +267,6 @@ UNITS_POWER = {
 }
 
 UNITS_RADIATION = {   
-  #radiation
   '<gray>' => [%w{Gy gray grays}, 1.0, :radiation, %w{<meter> <meter>}, %w{<second> <second>}],
   '<roentgen>' => [%w{R roentgen}, 0.009330, :radiation, %w{<meter> <meter>}, %w{<second> <second>}],
   '<sievert>' => [%w{Sv sievert sieverts}, 1.0, :radiation, %w{<meter> <meter>}, %w{<second> <second>}],
@@ -283,7 +275,6 @@ UNITS_RADIATION = {
 }
 
 UNITS_RATE = {   
-  # rate
   '<cpm>' => [%w{cpm}, 1.0/60.0, :rate, %w{<count>},%w{<second>}],
   '<dpm>' => [%w{dpm}, 1.0/60.0, :rate, %w{<count>},%w{<second>}],
   '<bpm>' => [%w{bpm}, 1.0/60.0, :rate, %w{<count>},%w{<second>}],
@@ -291,7 +282,6 @@ UNITS_RATE = {
 
 
 UNITS_TYPOGRAPHY = {   
-  #resolution / typography
   '<dot>' => [%w{dot dots}, 1, :resolution, %w{<each>}],
   '<pixel>' => [%w{pixel px}, 1, :resolution, %w{<each>}],
   '<ppi>' => [%w{ppi}, 1, :resolution, %w{<pixel>}, %w{<inch>}],
@@ -300,22 +290,6 @@ UNITS_TYPOGRAPHY = {
   '<point>' => [%w{point pt}, 0.000352777778, :typography, %w{<meter>}],
 }
 
-
-UNITS_OTHER = {   
-  #other
-  '<cell>' => [%w{cells cell}, 1, :counting, %w{<each>}],
-  '<each>' => [%w{each}, 1.0, :counting, %w{<each>}],
-  '<count>' => [%w{count}, 1.0, :counting, %w{<each>}],  
-  '<base-pair>'  => [%w{bp}, 1.0, :counting, %w{<each>}],
-  '<nucleotide>' => [%w{nt}, 1.0, :counting, %w{<each>}],
-  '<molecule>' => [%w{molecule molecules}, 1.0, :counting, %w{<1>}],
-  '<dozen>' =>  [%w{doz dz dozen},12.0,:prefix_only, %w{<each>}],
-  '<percent>'=> [%w{% percent}, 0.01, :prefix_only, %w{<1>}],
-  '<ppm>' =>  [%w{ppm},1e-6,:prefix_only, %w{<1>}],
-  '<ppt>' =>  [%w{ppt},1e-9,:prefix_only, %w{<1>}],
-  '<gross>' =>  [%w{gr gross},144.0, :prefix_only, %w{<dozen> <dozen>}],
-  '<decibel>'  => [%w{dB decibel decibels}, 1.0, :logarithmic, %w{<decibel>}]
-} # doc
 
     @@base_units= {}
     @@base_units= @@base_units.merge(UNITS_LENGTH)
@@ -350,7 +324,7 @@ UNITS_OTHER = {
     @@base_units= @@base_units.merge(UNITS_RADIATION)
     @@base_units= @@base_units.merge(UNITS_RATE)
     @@base_units= @@base_units.merge(UNITS_TYPOGRAPHY)
-    @@base_units= @@base_units.merge(UNITS_OTHER)
+    @@base_units= @@base_units.merge(UNITS_COUNTS)
 
   UNIT_DEFINITIONS = UNIT_PREFIX.merge(@@base_units)
   UNIT_DIMENSIONS = @@base_units.values.collect{|i|i[2]}.uniq.sort{|a,b|a.to_s<=>b.to_s}
