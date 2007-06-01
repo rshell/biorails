@@ -9,6 +9,7 @@
      <li><%= link_to l('Statistics'),    task_url(:action=>'metrics',:id=>@task) %>     </li>
 </ul>
     <% if @task.contexts.size < 2000 %>
+
        <%= task_dataview(@task,true) %>
           
     <% else%>
@@ -17,7 +18,10 @@
         Currently developing a more advanced AJAX based version with improved pagnation.
         </p> 
     <% end %>
-
+<br/>
+<br/>
+<div id="audit_log">
+</div>
 <% end %>
 
 <% content_for :right do -%>
