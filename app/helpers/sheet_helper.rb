@@ -105,8 +105,7 @@ module SheetHelper
    out << "<tr>"
    out << '<th>' 
    out << "<div class='data_sheet_buttons'> \n   <span id='#{row.dom_id('title')}' class='selected' >"
-   out << link_to_function(row.definition.label + " x" + row.definition.default_count.to_s,
-        "toggle_element('#{row.dom_id('title')}','#{row.dom_id('body')}');" )
+   out << row.definition.label + " x" + row.definition.default_count.to_s
    out << "   </span></div>\n"
    out << "</th>\n"
    for parameter in row.definition.parameters
