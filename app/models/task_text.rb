@@ -55,8 +55,16 @@ class TaskText < ActiveRecord::Base
    self.data_content = value if self.data_content != value 
  end
  
- def to_s
-   data_content.to_s
+ def to_unit
+   Unit.new(data_content.to_s) 
  end
+ 
+ def to_s
+    formatter = self.parameter.data_format.format_sprintf if self.parameter and self.parameter.data_format
+    if formatter && formatter.size>0 
+       return sprintf(formatter,data_content.to_s)
+    end
+    return data_content.to_s
+ end  
   
 end

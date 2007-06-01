@@ -1,3 +1,7 @@
+##
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+##
 module SheetHelper
 
 ##
@@ -113,7 +117,9 @@ module SheetHelper
      out << subject_icon("#{parameter.data_type.name}.png")
      out << parameter.name
      out << "<br/>("
-     out << parameter.style.to_s     
+     out << parameter.style.to_s  
+     out << " "
+     out << parameter.display_unit.to_s     
      out << ")"
      out << "</th>\n" 
    end

@@ -68,31 +68,39 @@ class TaskValue < ActiveRecord::Base
  ##
  # For generic use all TaskItem proviide get and set of a value.
  def value=(new_value)  
-   v = new_value.to_unit
-   logger.info "value = #{v}"
-   v = Unit.new(new_value,self.parameter.display_unit)  if v.units == "" and self.parameter.display_unit 
-   if v.units==""
-      logger.info "value no unit= #{v}"
+   @quantity = new_value.to_unit
+   logger.info "value = #{@quantity}"
+   @quantity = Unit.new(new_value,self.parameter.display_unit)  if @quantity.units == "" and self.parameter.display_unit 
+   if @quantity.units==""
+      logger.info "value no unit= #{@quantity}"
       self.data_value  = new_value 
       self.storage_unit =""
       self.display_unit =""
    else
-      logger.info "value with unit= #{v}  #{parameter.display_unit} => #{v.to_base.units}"
-      self.data_value  = v.to_base.scalar
-      self.storage_unit =v.to_base.units
-      self.display_unit =v.units     
+      logger.info "value with unit= #{@quantity}  #{parameter.display_unit} => #{@quantity.to_base.units}"
+      self.data_value  = @quantity.to_base.scalar
+      self.storage_unit =@quantity.to_base.units
+      self.display_unit =@quantity.units     
    end
  end 
 
  def value
    return self.data_value 
  end
+
+ def to_unit
+    return @quantity if @quantity
+    @quantity = Unit.new(self.data_value,self.storage_unit)
+    @quantity = @quantity.to(self.display_unit) unless (@quantity.units =="" ||  self.display_unit=="")     
+ end
  
  def to_s
+    return "" if self.data_value.nil?  
+    v = self.to_unit
     formatter = self.parameter.data_format.format_sprintf if self.parameter and self.parameter.data_format
-    return formatter % data_value if formatter && formatter.size>0 
-    v = Unit.new(self.data_value,self.storage_unit)
-    v = v.to(self.display_unit) unless (v.units =="" ||  self.display_unit=="") 
+    if formatter && formatter.size>0 and !v.nil?
+       return sprintf(formatter,v.scalar,v.units)
+    end
     return v.to_s
   end
  

@@ -1,5 +1,9 @@
 /**
  * Function to link in colour and style changes to cell status
+ * 
+ * Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+ * See license agreement for additional rights
+ *
  */
 
 var VK_LEFT = 0x25;
@@ -158,16 +162,13 @@ function DateFieldOnKeyPress(element, event)
     var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if (keyCode == VK_DOWN){ 
   		DateFieldValidate(element); 
-        CellMove(element,1,0)   
         }
     else if (keyCode == VK_UP)    { 
   		DateFieldValidate(element);
-        CellMove(element,-1,0) 
     }
     else if (keyCode == VK_RETURN)
     { 
   		DateFieldValidate(element);
-        CellMove(element,1,0) 
     }
     else if ( keyCode == VK_TAB )
     { 
@@ -229,6 +230,7 @@ function DateFieldValidate(input) {
 function DateFieldExit(element,event)
 {
   // console.log("DateFieldExit %s=%s [%s] ",element.id,element.value,current_cell_value)
+  if (element.value != current_cell_value)
   if (DateFieldValidate(element,event))
   {
      FieldSave(element,event);

@@ -1,3 +1,7 @@
+##
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+##
 module FormHelper
 ##
 # Date field for stadard forms
@@ -326,10 +330,11 @@ module FormHelper
     options[:mask]    ||= '.'
     options[:onfocus] ||= 'FieldEntry( this,event)' 
     options[:onkeyup] ||= 'LookupOnKeyPress(this,event)'
-    #options[:onblur]  ||= 'FieldExit(this,event)'       
     if data_element.nil?
        return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10
+       options[:onchange]  ||= 'FieldSave(this,event)'   
+       #options[:onblur]  ||= 'FieldExit(this,event)'       
        option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
        return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
     else
@@ -374,7 +379,6 @@ module FormHelper
     options[:default] ||= ''
     options[:autocomplete]   ||= 'off'
     options[:onfocus] ||= 'FieldEntry( this,event)'
-    options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onkeypress]  ||= 'DateFieldOnKeyPress(this,event); return dateBocksKeyListener(event);'   
     options[:onchanged]  ||= 'FieldSave(this,event)'    
     options[:onblur]  ||= 'DateFieldExit(this,event);' 
