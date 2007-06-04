@@ -5,6 +5,7 @@
 module Alces
   module Acts #:nodoc:
     module NestedSet #:nodoc:
+    
       def self.append_features(base)
         super        
         base.extend(ClassMethods)              
@@ -237,6 +238,7 @@ module Alces
             self.move_to node, :child
         end
         
+        
         # Adds a child to this object in the tree.  If this object hasn't been initialized,
         # it gets set up as a root node.  Otherwise, this method will update all of the
         # other elements in the tree and shift them to the right, keeping everything
@@ -244,95 +246,89 @@ module Alces
         def add_child( child )     
           self.reload
           child.reload
-
           if child.root?
             raise "Adding sub-tree isn\'t currently supported"
-          else
-            if ( (self[left_col_name] == nil) || (self[right_col_name] == nil) )
-              # Looks like we're now the root node!  Woo
-              self[left_col_name] = 1
-              self[right_col_name] = 4
-              
-              # What do to do about validation?
-              return nil unless self.save
-              
-              child[parent_column] = self.id
-              child[left_col_name] = 2
-              child[right_col_name]= 3
-              return child.save
-            else
-              # OK, we need to add and shift everything else to the right
-              child[parent_column] = self.id
-              right_bound = self[right_col_name]
-              child[left_col_name] = right_bound
-              child[right_col_name] = right_bound + 1
-              self[right_col_name] += 2
-              self.class.base_class.transaction do
-                  self.class.base_class.update_all( "#{left_col_name} = (#{left_col_name} + 2)",  "#{scope_condition} AND #{left_col_name} >= #{right_bound}" )
-                  self.class.base_class.update_all( "#{right_col_name} = (#{right_col_name} + 2)",  "#{scope_condition} AND #{right_col_name} >= #{right_bound}" )
-                  self.save
-                  child.save
-              end
-            end
-          end                                   
+          end
+          
+          if ( (self[left_col_name] == nil) || (self[right_col_name] == nil) )
+            # Looks like we're now the root node!  Woo
+            self[left_col_name] = 1
+            self[right_col_name] = 2              
+            # What do to do about validation?
+            return nil unless self.save
+          end
+          
+          # OK, we need to add and shift everything else to the right
+          self.class.base_class.transaction do
+            child[parent_column] = self.id
+            right_bound = self[right_col_name]
+            child[left_col_name] = right_bound
+            child[right_col_name] = right_bound + 1
+            self.class.base_class.update_all(
+             "#{left_col_name} = CASE WHEN #{left_col_name} > #{right_bound}  THEN #{left_col_name} + 2  ELSE #{left_col_name} END, \
+              #{right_col_name} = CASE WHEN #{right_col_name} >= #{right_bound}  THEN #{right_col_name} + 2 ELSE #{right_col_name} END ",
+             "#{right_col_name} >= #{right_bound} and #{scope_condition} ")
+            child.save
+          end
         end  
 
 protected 
-        def move_to(target, position)
+       def move_to(target, position)
+          ## add as child if not already saved          
           target.add_child(self) if (  self.id.nil? || (self[left_col_name] == nil) || (self[right_col_name] == nil) )
                   
-          # use shorter names for readability: current left and right
-          cur_left, cur_right = self[left_col_name], self[right_col_name] 
+          current_left = self[left_col_name], 
+          current_right= self[right_col_name] 
               
           # extent is the width of the tree self and children
-          extent = cur_right - cur_left + 1
+          extent = current_right - current_left + 1
           
           # load object if node is not an object
-          target_left, target_right = target[left_col_name], target[right_col_name]
-
+          target_left = target[left_col_name], 
+          target_right =  target[right_col_name]
+    
           # detect impossible move
-          if ((cur_left <= target_left) && (target_left <= cur_right)) or ((cur_left <= target_right) && (target_right <= cur_right))
-            logger.info "============Target========"
-            logger.info  target.to_yaml
-            logger.info "============Self========"
-            logger.info self.to_yaml
+          if ((target_left > current_left ) && (target_left <= current_right)) or 
+             ((target_right > current_left ) && (target_right <= current_right))
+            logger.info "current[#{id}] #{current_left}:#{current_right} => target[target.id] #{target_left}:#{target_right}"
             raise ActiveRecord::ActiveRecordError, "Impossible move, target #{target.id} node cannot be inside moved tree of #{self.id}."
           end
-        
+            
           # compute new left/right for self
           if position == :child
-            if target_left < cur_left
-              new_left  = target_left + 1
-              new_right = target_left + extent
-            else
-              new_left  = target_left - extent + 1
-              new_right = target_left
-            end
+                if target_left < current_left
+                  new_left  = target_left + 1
+                  new_right = target_left + extent
+                else
+                  new_left  = target_left - extent + 1
+                  new_right = target_left
+                end
           elsif position == :left
-            if target_left < cur_left
-              new_left  = target_left
-              new_right = target_left + extent - 1
-            else
-              new_left  = target_left - extent
-              new_right = target_left - 1
-            end
+                if target_left < current_left
+                  new_left  = target_left
+                  new_right = target_left + extent - 1
+                else
+                  new_left  = target_left - extent
+                  new_right = target_left - 1
+                end
           elsif position == :right
-            if target_right < cur_right
-              new_left  = target_right + 1
-              new_right = target_right + extent 
-            else
-              new_left  = target_right - extent + 1
-              new_right = target_right
-            end
+                if target_right < current_right
+                  new_left  = target_right + 1
+                  new_right = target_right + extent 
+                else
+                  new_left  = target_right - extent + 1
+                  new_right = target_right
+                end
           else
             raise ActiveRecord::ActiveRecordError, "Position should be either left or right ('#{position}' received)."
           end
-          
+              
           # boundaries of update action
-          b_left, b_right = [cur_left, new_left].min, [cur_right, new_right].max
+          min_left=  [current_left, new_left].min
+          max_right =[current_right, new_right].max
           
           # Shift value to move self to new position
-          shift = new_left - cur_left
+          shift = new_left - current_left
           
           # Shift value to move nodes inside boundaries but not under self_and_children
           updown = (shift > 0) ? -extent : extent
@@ -343,29 +339,24 @@ protected
           else
             new_parent = target[parent_column].nil? ? 'NULL' : target[parent_column]
           end
-          
-          # update and that rules
-          # update and that rules
-          self.class.base_class.update_all( "#{left_col_name} = CASE \
-                                      WHEN #{left_col_name} BETWEEN #{cur_left} AND #{cur_right} \
-                                        THEN #{left_col_name} + #{shift} \
-                                      WHEN #{left_col_name} BETWEEN #{b_left} AND #{b_right} \
-                                        THEN #{left_col_name} + #{updown} \
-                                      ELSE #{left_col_name} END, \
-                                  #{right_col_name} = CASE \
-                                      WHEN #{right_col_name} BETWEEN #{cur_left} AND #{cur_right} \
-                                        THEN #{right_col_name} + #{shift} \
-                                      WHEN #{right_col_name} BETWEEN #{b_left} AND #{b_right} \
-                                        THEN #{right_col_name} + #{updown} \
-                                      ELSE #{right_col_name} END, \
-                                  #{parent_column} = CASE \
-                                      WHEN #{self.class.primary_key} = #{self.id} \
-                                        THEN #{new_parent} \
-                                      ELSE #{parent_column} END",
-                                  "#{scope_condition}" )
+          #
+          # Remove gap for old location and create space in new location
+          # move old new by offset #{shift} and move record between old and new by #{updown}
+          #
+          self.class.base_class.update_all( 
+          "#{left_col_name} = CASE \
+                 WHEN #{left_col_name} BETWEEN #{current_left} AND #{current_right}  THEN #{left_col_name} + #{shift} \
+                 WHEN #{left_col_name} BETWEEN #{min_left} AND #{max_right}  THEN #{left_col_name} + #{updown} \
+                 ELSE #{left_col_name} END, \
+          #{right_col_name} = CASE \
+                WHEN #{right_col_name} BETWEEN #{current_left} AND #{current_right} THEN #{right_col_name} + #{shift} \
+                WHEN #{right_col_name} BETWEEN #{min_left} AND #{max_right} THEN #{right_col_name} + #{updown} \
+                ELSE #{right_col_name} END, \
+          #{parent_column} = CASE WHEN #{self.class.primary_key} = #{self.id} THEN #{new_parent} ELSE #{parent_column} END",
+          "#{scope_condition}" )
           self.reload
         end
-        
+            
       end
       
     end

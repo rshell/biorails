@@ -14,11 +14,11 @@ parameter_types_020:
   weighing: "0"
 parameter_types_009: 
   name: Concentration
-  storage_unit: 
-  updated_at: 2007-03-20 14:16:57
-  updated_by_user_id: "1"
+  storage_unit: concentration
+  updated_at: 2007-05-27 11:37:38
+  updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "0"
+  lock_version: "1"
   id: "9"
   description: Concentration (not dose)
   data_concept_id: 
@@ -27,11 +27,11 @@ parameter_types_009:
   weighing: "0"
 parameter_types_021: 
   name: Date
-  storage_unit: 
-  updated_at: 2007-03-20 16:01:14
-  updated_by_user_id: "1"
+  storage_unit: time
+  updated_at: 2007-05-27 11:36:55
+  updated_by_user_id: "3"
   data_type_id: "3"
-  lock_version: "0"
+  lock_version: "1"
   id: "21"
   description: Date
   data_concept_id: 
@@ -40,11 +40,11 @@ parameter_types_021:
   weighing: "0"
 parameter_types_010: 
   name: Dose
-  storage_unit: 
-  updated_at: 2007-03-20 14:18:14
-  updated_by_user_id: "1"
+  storage_unit: concentration
+  updated_at: 2007-05-27 11:37:23
+  updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "0"
+  lock_version: "1"
   id: "10"
   description: Dose (Not concentration)
   data_concept_id: 
@@ -53,11 +53,11 @@ parameter_types_010:
   weighing: "0"
 parameter_types_022: 
   name: Time
-  storage_unit: 
-  updated_at: 2007-03-20 16:01:40
-  updated_by_user_id: "1"
+  storage_unit: time
+  updated_at: 2007-05-27 11:36:05
+  updated_by_user_id: "3"
   data_type_id: "4"
-  lock_version: "0"
+  lock_version: "1"
   id: "22"
   description: Time (hh:mm:ss) of observation
   data_concept_id: 
@@ -248,11 +248,11 @@ parameter_types_017:
   weighing: "0"
 parameter_types_006: 
   name: Counts
-  storage_unit: 
-  updated_at: 2007-03-20 14:15:39
-  updated_by_user_id: "1"
+  storage_unit: counting
+  updated_at: 2007-05-27 11:37:53
+  updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "0"
+  lock_version: "5"
   id: "6"
   description: CPM, Behavioral counts etc
   data_concept_id: 

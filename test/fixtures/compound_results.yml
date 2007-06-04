@@ -819,26 +819,26 @@ compound_results_1309:
   created_at: 2007-04-30 23:45:30
   data_value: "168"
 compound_results_1640: 
-  updated_at: 2007-05-01 05:45:03
+  updated_at: 2007-05-01 05:45:08
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "691"
   parameter_name: column
-  task_context_id: "2712"
-  id: "3299"
+  task_context_id: "2715"
+  id: "3302"
   parameter_id: "328"
-  row_no: "11"
+  row_no: "14"
   created_by_user_id: "3"
-  row_label: wells[11]
+  row_label: wells[14]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:03
-  data_value: "11"
+  created_at: 2007-05-01 05:45:08
+  data_value: "2"
 compound_results_155: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -903,26 +903,26 @@ compound_results_1577:
   created_at: 2007-04-30 23:45:49
   data_value: "478"
 compound_results_1641: 
-  updated_at: 2007-05-01 05:52:44
+  updated_at: 2007-05-01 05:53:39
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "691"
   parameter_name: Activity
-  task_context_id: "2712"
-  id: "3323"
+  task_context_id: "2715"
+  id: "3336"
   parameter_id: "337"
-  row_no: "11"
+  row_no: "14"
   created_by_user_id: "3"
-  row_label: wells[11]
+  row_label: wells[14]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:44
-  data_value: "69"
+  created_at: 2007-05-01 05:53:39
+  data_value: "96"
 compound_results_156: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -1071,26 +1071,26 @@ compound_results_1579:
   created_at: 2007-04-30 23:45:49
   data_value: "16"
 compound_results_1642: 
-  updated_at: 2007-05-01 05:56:03
+  updated_at: 2007-05-01 05:56:09
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "691"
   parameter_name: CPM
-  task_context_id: "2712"
-  id: "3347"
+  task_context_id: "2715"
+  id: "3350"
   parameter_id: "336"
-  row_no: "11"
+  row_no: "14"
   created_by_user_id: "3"
-  row_label: wells[11]
+  row_label: wells[14]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:03
-  data_value: "800"
+  created_at: 2007-05-01 05:56:09
+  data_value: "1288"
 compound_results_158: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -1155,7 +1155,7 @@ compound_results_221:
   created_at: 2007-04-30 23:44:17
   data_value: "596"
 compound_results_1643: 
-  updated_at: 2007-05-01 05:44:26
+  updated_at: 2007-05-01 05:44:42
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -1163,17 +1163,17 @@ compound_results_1643:
   updated_by_user_id: "3"
   compound_id: "691"
   parameter_name: row
-  task_context_id: "2715"
-  id: "3278"
+  task_context_id: "2716"
+  id: "3288"
   parameter_id: "327"
-  row_no: "14"
+  row_no: "15"
   created_by_user_id: "3"
-  row_label: wells[14]
+  row_label: wells[15]
   data_element_id: 
   label: wells
   compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:26
+  created_at: 2007-05-01 05:44:42
   data_value: "2"
 compound_results_159: 
   updated_at: 2007-04-30 23:44:13
@@ -1239,7 +1239,7 @@ compound_results_222:
   created_at: 2007-04-30 23:44:17
   data_value: "41.97369836"
 compound_results_1644: 
-  updated_at: 2007-05-01 05:45:08
+  updated_at: 2007-05-01 05:45:10
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -1247,18 +1247,18 @@ compound_results_1644:
   updated_by_user_id: "3"
   compound_id: "691"
   parameter_name: column
-  task_context_id: "2715"
-  id: "3302"
+  task_context_id: "2716"
+  id: "3303"
   parameter_id: "328"
-  row_no: "14"
+  row_no: "15"
   created_by_user_id: "3"
-  row_label: wells[14]
+  row_label: wells[15]
   data_element_id: 
   label: wells
   compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:08
-  data_value: "2"
+  created_at: 2007-05-01 05:45:10
+  data_value: "3"
 compound_results_490: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1302,7 +1302,7 @@ compound_results_223:
   created_at: 2007-04-30 23:44:17
   data_value: "2"
 compound_results_1645: 
-  updated_at: 2007-05-01 05:53:39
+  updated_at: 2007-05-01 05:53:36
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -1310,18 +1310,18 @@ compound_results_1645:
   updated_by_user_id: "3"
   compound_id: "691"
   parameter_name: Activity
-  task_context_id: "2715"
-  id: "3336"
+  task_context_id: "2716"
+  id: "3335"
   parameter_id: "337"
-  row_no: "14"
+  row_no: "15"
   created_by_user_id: "3"
-  row_label: wells[14]
+  row_label: wells[15]
   data_element_id: 
   label: wells
   compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:39
-  data_value: "96"
+  created_at: 2007-05-01 05:53:36
+  data_value: "99"
 compound_results_491: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1365,7 +1365,7 @@ compound_results_224:
   created_at: 2007-04-30 23:44:17
   data_value: "20"
 compound_results_1646: 
-  updated_at: 2007-05-01 05:56:09
+  updated_at: 2007-05-01 05:56:11
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -1373,18 +1373,18 @@ compound_results_1646:
   updated_by_user_id: "3"
   compound_id: "691"
   parameter_name: CPM
-  task_context_id: "2715"
-  id: "3350"
+  task_context_id: "2716"
+  id: "3351"
   parameter_id: "336"
-  row_no: "14"
+  row_no: "15"
   created_by_user_id: "3"
-  row_label: wells[14]
+  row_label: wells[15]
   data_element_id: 
   label: wells
   compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:09
-  data_value: "1288"
+  created_at: 2007-05-01 05:56:11
+  data_value: "1307"
 compound_results_492: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1427,26 +1427,47 @@ compound_results_225:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:17
   data_value: "242"
+compound_results_1710: 
+  updated_at: 2007-05-31 21:09:33
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "114"
+  parameter_name: Counts
+  task_context_id: "2845"
+  id: "3485"
+  parameter_id: "503"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB00114
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:38:50
+  data_value: "10.1"
 compound_results_1647: 
-  updated_at: 2007-05-01 05:44:42
+  updated_at: 2007-05-01 05:44:28
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "691"
+  compound_id: "32"
   parameter_name: row
-  task_context_id: "2716"
-  id: "3288"
+  task_context_id: "2717"
+  id: "3279"
   parameter_id: "327"
-  row_no: "15"
+  row_no: "16"
   created_by_user_id: "3"
-  row_label: wells[15]
+  row_label: wells[16]
   data_element_id: 
   label: wells
-  compound_name: AB00691
+  compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:42
+  created_at: 2007-05-01 05:44:28
   data_value: "2"
 compound_results_493: 
   updated_at: 2007-04-30 23:44:35
@@ -1490,27 +1511,48 @@ compound_results_226:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:17
   data_value: "14.39896303"
+compound_results_1711: 
+  updated_at: 2007-06-01 09:23:47
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "114"
+  parameter_name: Conc_precent
+  task_context_id: "2845"
+  id: "3504"
+  parameter_id: "504"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB00114
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:23
+  data_value: "10"
 compound_results_1648: 
-  updated_at: 2007-05-01 05:45:10
+  updated_at: 2007-05-01 05:45:11
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "691"
+  compound_id: "32"
   parameter_name: column
-  task_context_id: "2716"
-  id: "3303"
+  task_context_id: "2717"
+  id: "3304"
   parameter_id: "328"
-  row_no: "15"
+  row_no: "16"
   created_by_user_id: "3"
-  row_label: wells[15]
+  row_label: wells[16]
   data_element_id: 
   label: wells
-  compound_name: AB00691
+  compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:10
-  data_value: "3"
+  created_at: 2007-05-01 05:45:11
+  data_value: "4"
 compound_results_494: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1553,27 +1595,48 @@ compound_results_227:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:17
   data_value: "2"
+compound_results_1712: 
+  updated_at: 2007-05-31 22:10:51
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "114"
+  parameter_name: Measure
+  task_context_id: "2845"
+  id: "3505"
+  parameter_id: "509"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB00114
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:11
+  data_value: "2"
 compound_results_1649: 
-  updated_at: 2007-05-01 05:53:36
+  updated_at: 2007-05-01 05:53:33
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "691"
+  compound_id: "32"
   parameter_name: Activity
-  task_context_id: "2716"
-  id: "3335"
+  task_context_id: "2717"
+  id: "3334"
   parameter_id: "337"
-  row_no: "15"
+  row_no: "16"
   created_by_user_id: "3"
-  row_label: wells[15]
+  row_label: wells[16]
   data_element_id: 
   label: wells
-  compound_name: AB00691
+  compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:36
-  data_value: "99"
+  created_at: 2007-05-01 05:53:33
+  data_value: "95"
 compound_results_495: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1616,6 +1679,27 @@ compound_results_228:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:17
   data_value: "21"
+compound_results_1713: 
+  updated_at: 2007-06-01 09:23:27
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "114"
+  parameter_name: Concentration
+  task_context_id: "2845"
+  id: "3524"
+  parameter_id: "510"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB00114
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:26
+  data_value: "110"
 compound_results_496: 
   updated_at: 2007-04-30 23:44:35
   parameter_context_id: "51"
@@ -1658,6 +1742,27 @@ compound_results_229:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:17
   data_value: "334"
+compound_results_1714: 
+  updated_at: 2007-05-31 20:38:58
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Counts
+  task_context_id: "2846"
+  id: "3486"
+  parameter_id: "503"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: context0[1]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:38:52
+  data_value: "20"
 compound_results_560: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -1700,6 +1805,27 @@ compound_results_497:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:35
   data_value: "70"
+compound_results_1715: 
+  updated_at: 2007-06-01 11:22:21
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Conc_precent
+  task_context_id: "2846"
+  id: "3503"
+  parameter_id: "504"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: context0[1]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:20
+  data_value: "0.00166335978835979"
 compound_results_561: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -1742,6 +1868,27 @@ compound_results_498:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:35
   data_value: "1.001069024"
+compound_results_1716: 
+  updated_at: 2007-06-01 11:03:26
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Measure
+  task_context_id: "2846"
+  id: "3506"
+  parameter_id: "509"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: context0[1]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:11
+  data_value: "111"
 compound_results_562: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -1784,6 +1931,27 @@ compound_results_499:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:35
   data_value: "5"
+compound_results_1717: 
+  updated_at: 2007-05-31 23:26:03
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Concentration
+  task_context_id: "2846"
+  id: "3523"
+  parameter_id: "510"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: context0[1]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:22
+  data_value: "1.012e-05"
 compound_results_563: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -1826,6 +1994,27 @@ compound_results_1020:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:45:10
   data_value: "3"
+compound_results_1718: 
+  updated_at: 2007-05-31 20:38:59
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "113"
+  parameter_name: Counts
+  task_context_id: "2847"
+  id: "3487"
+  parameter_id: "503"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: context0[2]
+  data_element_id: 
+  label: context0
+  compound_name: AB00113
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:38:59
+  data_value: "30"
 compound_results_564: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -1868,6 +2057,27 @@ compound_results_1021:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:45:10
   data_value: "234"
+compound_results_1719: 
+  updated_at: 2007-06-01 11:05:44
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "113"
+  parameter_name: Conc_precent
+  task_context_id: "2847"
+  id: "3502"
+  parameter_id: "504"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: context0[2]
+  data_element_id: 
+  label: context0
+  compound_name: AB00113
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:20
+  data_value: 1e-06
 compound_results_565: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -3087,26 +3297,26 @@ compound_results_707:
   created_at: 2007-04-30 23:44:49
   data_value: "7"
 compound_results_010: 
-  updated_at: 2007-03-24 16:19:22
+  updated_at: 2007-03-24 16:24:40
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "1"
+  column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: DoseGroupID
-  task_context_id: "894"
-  id: "267"
-  parameter_id: "88"
-  row_no: "4"
+  compound_id: "1006"
+  parameter_name: Group Size
+  task_context_id: "890"
+  id: "258"
+  parameter_id: "94"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
-  compound_name: AB001
+  compound_name: saline
   compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:12
-  data_value: "5"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_1368: 
   updated_at: 2007-04-30 23:45:34
   parameter_context_id: "51"
@@ -3171,26 +3381,26 @@ compound_results_708:
   created_at: 2007-04-30 23:44:49
   data_value: "21"
 compound_results_011: 
-  updated_at: 2007-03-24 16:20:07
+  updated_at: 2007-03-24 16:19:11
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "5"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Concentration
-  task_context_id: "894"
-  id: "271"
-  parameter_id: "92"
-  row_no: "4"
+  compound_id: "1006"
+  parameter_name: DoseGroupID
+  task_context_id: "890"
+  id: "264"
+  parameter_id: "88"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[0]
   data_element_id: 
   label: Dose Groups
-  compound_name: AB001
+  compound_name: saline
   compound_parameter_id: "91"
-  created_at: 2007-03-24 16:20:07
-  data_value: "20"
+  created_at: 2007-03-24 16:19:11
+  data_value: "1"
 compound_results_1369: 
   updated_at: 2007-04-30 23:45:34
   parameter_context_id: "51"
@@ -3276,24 +3486,24 @@ compound_results_709:
   created_at: 2007-04-30 23:44:49
   data_value: "189"
 compound_results_012: 
-  updated_at: 2007-03-24 16:24:56
+  updated_at: 2007-03-24 16:24:44
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
   column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "1"
+  compound_id: "1005"
   parameter_name: Group Size
-  task_context_id: "895"
-  id: "263"
+  task_context_id: "891"
+  id: "259"
   parameter_id: "94"
-  row_no: "5"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
-  compound_name: AB001
-  compound_parameter_id: "91"
+  compound_name: 00749
+  compound_parameter_id: "93"
   created_at: 2007-03-24 16:19:01
   data_value: "8"
 compound_results_1434: 
@@ -3360,26 +3570,26 @@ compound_results_280:
   created_at: 2007-04-30 23:44:21
   data_value: "10"
 compound_results_013: 
-  updated_at: 2007-03-24 16:19:27
+  updated_at: 2007-03-24 16:19:12
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
   column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1"
+  compound_id: "1005"
   parameter_name: DoseGroupID
-  task_context_id: "895"
-  id: "269"
+  task_context_id: "891"
+  id: "265"
   parameter_id: "88"
-  row_no: "5"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[1]
   data_element_id: 
   label: Dose Groups
-  compound_name: AB001
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:27
-  data_value: "6"
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:19:12
+  data_value: "2"
 compound_results_1435: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -3444,26 +3654,26 @@ compound_results_281:
   created_at: 2007-04-30 23:44:21
   data_value: "258"
 compound_results_014: 
-  updated_at: 2007-03-24 16:20:10
+  updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "5"
+  column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Concentration
-  task_context_id: "895"
-  id: "272"
-  parameter_id: "92"
-  row_no: "5"
+  compound_id: "1004"
+  parameter_name: Group Size
+  task_context_id: "892"
+  id: "260"
+  parameter_id: "94"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
-  compound_name: AB001
+  compound_name: "02707"
   compound_parameter_id: "91"
-  created_at: 2007-03-24 16:20:10
-  data_value: "40"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_1436: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -3507,7 +3717,7 @@ compound_results_282:
   created_at: 2007-04-30 23:44:21
   data_value: "15.64527875"
 compound_results_015: 
-  updated_at: 2007-03-24 16:24:44
+  updated_at: 2007-03-24 16:24:45
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
@@ -3515,12 +3725,12 @@ compound_results_015:
   updated_by_user_id: "1"
   compound_id: "1005"
   parameter_name: Group Size
-  task_context_id: "891"
-  id: "259"
+  task_context_id: "892"
+  id: "260"
   parameter_id: "94"
-  row_no: "1"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[1]
+  row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
   compound_name: 00749
@@ -3591,26 +3801,26 @@ compound_results_283:
   created_at: 2007-04-30 23:44:21
   data_value: "3"
 compound_results_016: 
-  updated_at: 2007-03-24 16:19:12
+  updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
   column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1005"
+  compound_id: "1004"
   parameter_name: DoseGroupID
-  task_context_id: "891"
-  id: "265"
+  task_context_id: "892"
+  id: "266"
   parameter_id: "88"
-  row_no: "1"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[1]
+  row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
+  compound_name: "02707"
+  compound_parameter_id: "91"
   created_at: 2007-03-24 16:19:12
-  data_value: "2"
+  data_value: "3"
 compound_results_1438: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -3675,17 +3885,17 @@ compound_results_284:
   created_at: 2007-04-30 23:44:21
   data_value: "11"
 compound_results_017: 
-  updated_at: 2007-03-24 16:24:45
+  updated_at: 2007-03-24 16:19:20
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "7"
+  column_no: "1"
   updated_by_user_id: "1"
   compound_id: "1005"
-  parameter_name: Group Size
+  parameter_name: DoseGroupID
   task_context_id: "892"
-  id: "260"
-  parameter_id: "94"
+  id: "266"
+  parameter_id: "88"
   row_no: "2"
   created_by_user_id: "1"
   row_label: Dose Groups[2]
@@ -3693,8 +3903,8 @@ compound_results_017:
   label: Dose Groups
   compound_name: 00749
   compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  created_at: 2007-03-24 16:19:12
+  data_value: "3"
 compound_results_1439: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -3759,26 +3969,26 @@ compound_results_285:
   created_at: 2007-04-30 23:44:21
   data_value: "54"
 compound_results_018: 
-  updated_at: 2007-03-24 16:19:20
+  updated_at: 2007-03-24 16:20:29
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "1"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "1005"
-  parameter_name: DoseGroupID
+  compound_id: "1004"
+  parameter_name: Concentration
   task_context_id: "892"
-  id: "266"
-  parameter_id: "88"
+  id: "273"
+  parameter_id: "92"
   row_no: "2"
   created_by_user_id: "1"
   row_label: Dose Groups[2]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:12
-  data_value: "3"
+  compound_name: "02707"
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:20:29
+  data_value: "5"
 compound_results_1503: 
   updated_at: 2007-04-30 23:45:44
   parameter_context_id: "51"
@@ -6489,26 +6699,26 @@ compound_results_1566:
   created_at: 2007-04-30 23:45:48
   data_value: "25.30422559"
 compound_results_1630: 
-  updated_at: 2007-05-01 05:55:59
+  updated_at: 2007-05-01 05:56:03
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "23"
   parameter_name: CPM
-  task_context_id: "2710"
-  id: "3345"
+  task_context_id: "2712"
+  id: "3347"
   parameter_id: "336"
-  row_no: "9"
+  row_no: "11"
   created_by_user_id: "3"
-  row_label: wells[9]
+  row_label: wells[11]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:59
-  data_value: "1250"
+  created_at: 2007-05-01 05:56:03
+  data_value: "800"
 compound_results_145: 
   updated_at: 2007-04-30 23:44:12
   parameter_context_id: "51"
@@ -6636,25 +6846,25 @@ compound_results_1568:
   created_at: 2007-04-30 23:45:48
   data_value: "20"
 compound_results_1631: 
-  updated_at: 2007-05-01 05:44:20
+  updated_at: 2007-05-01 05:44:23
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "1"
   parameter_name: row
-  task_context_id: "2711"
-  id: "3274"
+  task_context_id: "2713"
+  id: "3276"
   parameter_id: "327"
-  row_no: "10"
+  row_no: "12"
   created_by_user_id: "3"
-  row_label: wells[10]
+  row_label: wells[12]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:20
+  created_at: 2007-05-01 05:44:23
   data_value: "1"
 compound_results_147: 
   updated_at: 2007-04-30 23:44:12
@@ -6741,26 +6951,26 @@ compound_results_1569:
   created_at: 2007-04-30 23:45:48
   data_value: "105"
 compound_results_1632: 
-  updated_at: 2007-05-01 05:45:01
+  updated_at: 2007-05-01 05:45:05
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "1"
   parameter_name: column
-  task_context_id: "2711"
-  id: "3298"
+  task_context_id: "2713"
+  id: "3300"
   parameter_id: "328"
-  row_no: "10"
+  row_no: "12"
   created_by_user_id: "3"
-  row_label: wells[10]
+  row_label: wells[12]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:01
-  data_value: "10"
+  created_at: 2007-05-01 05:45:05
+  data_value: "12"
 compound_results_148: 
   updated_at: 2007-04-30 23:44:12
   parameter_context_id: "51"
@@ -6825,26 +7035,26 @@ compound_results_211:
   created_at: 2007-04-30 23:44:16
   data_value: "2"
 compound_results_1633: 
-  updated_at: 2007-05-01 05:52:42
+  updated_at: 2007-05-01 05:52:48
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "1"
   parameter_name: Activity
-  task_context_id: "2711"
-  id: "3322"
+  task_context_id: "2713"
+  id: "3324"
   parameter_id: "337"
-  row_no: "10"
+  row_no: "12"
   created_by_user_id: "3"
-  row_label: wells[10]
+  row_label: wells[12]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:42
-  data_value: "68"
+  created_at: 2007-05-01 05:52:48
+  data_value: "2"
 compound_results_149: 
   updated_at: 2007-04-30 23:44:12
   parameter_context_id: "51"
@@ -6909,26 +7119,26 @@ compound_results_212:
   created_at: 2007-04-30 23:44:16
   data_value: "17"
 compound_results_1634: 
-  updated_at: 2007-05-01 05:56:01
+  updated_at: 2007-05-01 05:56:05
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "1"
   parameter_name: CPM
-  task_context_id: "2711"
-  id: "3346"
+  task_context_id: "2713"
+  id: "3348"
   parameter_id: "336"
-  row_no: "10"
+  row_no: "12"
   created_by_user_id: "3"
-  row_label: wells[10]
+  row_label: wells[12]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:01
-  data_value: "776"
+  created_at: 2007-05-01 05:56:05
+  data_value: "21"
 compound_results_480: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -6972,26 +7182,26 @@ compound_results_213:
   created_at: 2007-04-30 23:44:16
   data_value: "246"
 compound_results_1635: 
-  updated_at: 2007-05-01 05:44:16
+  updated_at: 2007-05-01 05:44:43
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "1000"
   parameter_name: row
-  task_context_id: "2709"
-  id: "3272"
+  task_context_id: "2714"
+  id: "3277"
   parameter_id: "327"
-  row_no: "8"
+  row_no: "13"
   created_by_user_id: "3"
-  row_label: wells[8]
+  row_label: wells[13]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB001000
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:16
-  data_value: "1"
+  created_at: 2007-05-01 06:44:24
+  data_value: "2"
 compound_results_481: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7035,26 +7245,26 @@ compound_results_214:
   created_at: 2007-04-30 23:44:16
   data_value: "14.71054196"
 compound_results_1636: 
-  updated_at: 2007-05-01 05:44:58
+  updated_at: 2007-05-01 05:45:06
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "1000"
   parameter_name: column
-  task_context_id: "2709"
-  id: "3296"
+  task_context_id: "2714"
+  id: "3301"
   parameter_id: "328"
-  row_no: "8"
+  row_no: "13"
   created_by_user_id: "3"
-  row_label: wells[8]
+  row_label: wells[13]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB001000
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:58
-  data_value: "8"
+  created_at: 2007-05-01 05:45:06
+  data_value: "1"
 compound_results_482: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7098,47 +7308,47 @@ compound_results_215:
   created_at: 2007-04-30 23:44:16
   data_value: "2"
 compound_results_1700: 
-  updated_at: 2007-05-08 19:19:49
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "58"
-  column_no: "1"
+  updated_at: 2007-05-28 21:49:04
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
   updated_by_user_id: "3"
-  compound_id: "10"
-  parameter_name: Count
-  task_context_id: "2897"
-  id: "3569"
-  parameter_id: "570"
-  row_no: "3"
+  compound_id: "9"
+  parameter_name: Fit Statistic
+  task_context_id: "2833"
+  id: "3470"
+  parameter_id: "468"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: row[3]
+  row_label: cmpd[6]
   data_element_id: 
-  label: row
-  compound_name: AB0010
-  compound_parameter_id: "571"
-  created_at: 2007-05-08 19:19:49
-  data_value: "4"
+  label: cmpd
+  compound_name: AB009
+  compound_parameter_id: "464"
+  created_at: 2007-05-28 21:46:32
+  data_value: "1.3"
 compound_results_1637: 
-  updated_at: 2007-05-01 05:52:35
+  updated_at: 2007-05-01 05:52:51
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "1000"
   parameter_name: Activity
-  task_context_id: "2709"
-  id: "3320"
+  task_context_id: "2714"
+  id: "3325"
   parameter_id: "337"
-  row_no: "8"
+  row_no: "13"
   created_by_user_id: "3"
-  row_label: wells[8]
+  row_label: wells[13]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB001000
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:35
-  data_value: "65"
+  created_at: 2007-05-01 05:52:51
+  data_value: "101"
 compound_results_483: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7182,47 +7392,47 @@ compound_results_216:
   created_at: 2007-04-30 23:44:16
   data_value: "18"
 compound_results_1701: 
-  updated_at: 2007-05-08 19:19:51
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "58"
-  column_no: "1"
+  updated_at: 2007-05-27 18:21:21
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
   updated_by_user_id: "3"
-  compound_id: "9"
-  parameter_name: Count
-  task_context_id: "2898"
-  id: "3570"
-  parameter_id: "570"
-  row_no: "4"
+  compound_id: "45"
+  parameter_name: Activity
+  task_context_id: "2834"
+  id: "3466"
+  parameter_id: "465"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: row[4]
+  row_label: cmpd[7]
   data_element_id: 
-  label: row
-  compound_name: AB009
-  compound_parameter_id: "571"
-  created_at: 2007-05-08 19:19:51
-  data_value: "5"
+  label: cmpd
+  compound_name: AB0045
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:21
+  data_value: "45"
 compound_results_1638: 
-  updated_at: 2007-05-01 05:55:57
+  updated_at: 2007-05-01 05:56:07
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "1000"
   parameter_name: CPM
-  task_context_id: "2709"
-  id: "3344"
+  task_context_id: "2714"
+  id: "3349"
   parameter_id: "336"
-  row_no: "8"
+  row_no: "13"
   created_by_user_id: "3"
-  row_label: wells[8]
+  row_label: wells[13]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB001000
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:57
-  data_value: "765"
+  created_at: 2007-05-01 05:56:07
+  data_value: "1318"
 compound_results_484: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7266,47 +7476,47 @@ compound_results_217:
   created_at: 2007-04-30 23:44:17
   data_value: "599"
 compound_results_1702: 
-  updated_at: 2007-05-09 11:11:57
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "57"
-  column_no: "1"
+  updated_at: 2007-05-28 21:43:01
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
   updated_by_user_id: "3"
-  compound_id: "6"
-  parameter_name: Count
-  task_context_id: "2899"
-  id: "3571"
-  parameter_id: "570"
-  row_no: "0"
+  compound_id: "45"
+  parameter_name: Fit Statistic
+  task_context_id: "2834"
+  id: "3469"
+  parameter_id: "468"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: row[0]
+  row_label: cmpd[7]
   data_element_id: 
-  label: row
-  compound_name: AB006
-  compound_parameter_id: "571"
-  created_at: 2007-05-09 11:11:57
-  data_value: "1"
+  label: cmpd
+  compound_name: AB0045
+  compound_parameter_id: "464"
+  created_at: 2007-05-28 21:43:01
+  data_value: "1.2"
 compound_results_1639: 
-  updated_at: 2007-05-01 05:44:21
+  updated_at: 2007-05-01 05:44:26
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "23"
+  compound_id: "691"
   parameter_name: row
-  task_context_id: "2712"
-  id: "3275"
+  task_context_id: "2715"
+  id: "3278"
   parameter_id: "327"
-  row_no: "11"
+  row_no: "14"
   created_by_user_id: "3"
-  row_label: wells[11]
+  row_label: wells[14]
   data_element_id: 
   label: wells
-  compound_name: AB0023
+  compound_name: AB00691
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:21
-  data_value: "1"
+  created_at: 2007-05-01 05:44:26
+  data_value: "2"
 compound_results_485: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7350,26 +7560,26 @@ compound_results_218:
   created_at: 2007-04-30 23:44:17
   data_value: "42.20738255"
 compound_results_1703: 
-  updated_at: 2007-05-09 11:11:58
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "57"
-  column_no: "1"
+  updated_at: 2007-05-27 18:21:23
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
   updated_by_user_id: "3"
-  compound_id: "10"
-  parameter_name: Count
-  task_context_id: "2900"
-  id: "3572"
-  parameter_id: "570"
-  row_no: "1"
+  compound_id: "6"
+  parameter_name: Activity
+  task_context_id: "2835"
+  id: "3467"
+  parameter_id: "465"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: row[1]
+  row_label: cmpd[8]
   data_element_id: 
-  label: row
-  compound_name: AB0010
-  compound_parameter_id: "571"
-  created_at: 2007-05-09 11:11:58
-  data_value: "2"
+  label: cmpd
+  compound_name: AB006
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:23
+  data_value: "67"
 compound_results_486: 
   updated_at: 2007-04-30 23:44:34
   parameter_context_id: "51"
@@ -7413,26 +7623,26 @@ compound_results_219:
   created_at: 2007-04-30 23:44:17
   data_value: "2"
 compound_results_1704: 
-  updated_at: 2007-05-09 11:12:00
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "57"
-  column_no: "1"
+  updated_at: 2007-05-28 21:47:27
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
   updated_by_user_id: "3"
-  compound_id: "11"
-  parameter_name: Count
-  task_context_id: "2901"
-  id: "3573"
-  parameter_id: "570"
-  row_no: "2"
+  compound_id: "6"
+  parameter_name: Fit Statistic
+  task_context_id: "2835"
+  id: "3471"
+  parameter_id: "468"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: row[2]
+  row_label: cmpd[8]
   data_element_id: 
-  label: row
-  compound_name: AB0011
-  compound_parameter_id: "571"
-  created_at: 2007-05-09 11:12:00
-  data_value: "2"
+  label: cmpd
+  compound_name: AB006
+  compound_parameter_id: "464"
+  created_at: 2007-05-28 21:47:27
+  data_value: "1.2"
 compound_results_550: 
   updated_at: 2007-04-30 23:44:38
   parameter_context_id: "51"
@@ -7476,26 +7686,26 @@ compound_results_487:
   created_at: 2007-04-30 23:44:34
   data_value: "5"
 compound_results_1705: 
-  updated_at: 2007-05-09 11:12:02
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "57"
-  column_no: "1"
+  updated_at: 2007-05-27 18:21:24
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
   updated_by_user_id: "3"
-  compound_id: "12"
-  parameter_name: Count
-  task_context_id: "2902"
-  id: "3574"
-  parameter_id: "570"
-  row_no: "3"
+  compound_id: "74"
+  parameter_name: Activity
+  task_context_id: "2836"
+  id: "3468"
+  parameter_id: "465"
+  row_no: "9"
   created_by_user_id: "3"
-  row_label: row[3]
+  row_label: cmpd[9]
   data_element_id: 
-  label: row
-  compound_name: AB0012
-  compound_parameter_id: "571"
-  created_at: 2007-05-09 11:12:02
-  data_value: "2"
+  label: cmpd
+  compound_name: AB0074
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:24
+  data_value: "56"
 compound_results_551: 
   updated_at: 2007-04-30 23:44:38
   parameter_context_id: "51"
@@ -7539,26 +7749,26 @@ compound_results_488:
   created_at: 2007-04-30 23:44:34
   data_value: "14"
 compound_results_1706: 
-  updated_at: 2007-05-09 13:48:47
-  parameter_context_id: "139"
-  protocol_version_id: "75"
-  task_id: "59"
-  column_no: "2"
+  updated_at: 2007-05-31 20:36:42
+  parameter_context_id: "76"
+  protocol_version_id: "40"
+  task_id: "45"
+  column_no: "1"
   updated_by_user_id: "3"
-  compound_id: "25"
-  parameter_name: Sum
-  task_context_id: "2905"
-  id: "3576"
-  parameter_id: "888"
+  compound_id: "11"
+  parameter_name: Counts
+  task_context_id: "2844"
+  id: "3481"
+  parameter_id: "493"
   row_no: "0"
   created_by_user_id: "3"
   row_label: context0[0]
   data_element_id: 
   label: context0
-  compound_name: AB0025
-  compound_parameter_id: "889"
-  created_at: 2007-05-09 13:22:59
-  data_value: "2.333"
+  compound_name: AB0011
+  compound_parameter_id: "497"
+  created_at: 2007-05-31 11:56:23
+  data_value: "1.22"
 compound_results_552: 
   updated_at: 2007-04-30 23:44:38
   parameter_context_id: "51"
@@ -7602,26 +7812,26 @@ compound_results_489:
   created_at: 2007-04-30 23:44:34
   data_value: "258"
 compound_results_1707: 
-  updated_at: 2007-05-09 14:35:03
-  parameter_context_id: "139"
-  protocol_version_id: "75"
-  task_id: "59"
-  column_no: "2"
+  updated_at: 2007-05-31 11:57:07
+  parameter_context_id: "76"
+  protocol_version_id: "40"
+  task_id: "45"
+  column_no: "8"
   updated_by_user_id: "3"
-  compound_id: "25"
-  parameter_name: Counts
-  task_context_id: "2905"
-  id: "3577"
-  parameter_id: "886"
+  compound_id: "11"
+  parameter_name: Concentration
+  task_context_id: "2844"
+  id: "3482"
+  parameter_id: "500"
   row_no: "0"
   created_by_user_id: "3"
   row_label: context0[0]
   data_element_id: 
   label: context0
-  compound_name: AB0025
-  compound_parameter_id: "889"
-  created_at: 2007-05-09 13:23:02
-  data_value: "1.222"
+  compound_name: AB0011
+  compound_parameter_id: "497"
+  created_at: 2007-05-31 11:57:07
+  data_value: "2.22"
 compound_results_553: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -7664,6 +7874,27 @@ compound_results_1010:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:45:10
   data_value: "-0.32314143"
+compound_results_1708: 
+  updated_at: 2007-05-31 20:36:44
+  parameter_context_id: "76"
+  protocol_version_id: "40"
+  task_id: "45"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Conc_precent
+  task_context_id: "2844"
+  id: "3483"
+  parameter_id: "494"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "497"
+  created_at: 2007-05-31 14:15:51
+  data_value: "12.11"
 compound_results_554: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -7706,6 +7937,27 @@ compound_results_1011:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:45:10
   data_value: "11"
+compound_results_1709: 
+  updated_at: 2007-05-31 20:37:11
+  parameter_context_id: "76"
+  protocol_version_id: "40"
+  task_id: "45"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Measure
+  task_context_id: "2844"
+  id: "3484"
+  parameter_id: "499"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: context0[0]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "497"
+  created_at: 2007-05-31 14:19:39
+  data_value: "2.333"
 compound_results_555: 
   updated_at: 2007-04-30 23:44:39
   parameter_context_id: "51"
@@ -8967,26 +9219,26 @@ compound_results_1358:
   created_at: 2007-04-30 23:45:34
   data_value: "28.57580435"
 compound_results_1690: 
-  updated_at: 2007-04-30 05:22:34
+  updated_at: 2007-05-27 18:21:10
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "6"
-  updated_by_user_id: "6"
-  compound_id: "1005"
-  parameter_name: Concentration
-  task_context_id: "2794"
-  id: "3509"
-  parameter_id: "459"
-  row_no: "48"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[48]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "5"
+  parameter_name: Activity
+  task_context_id: "2828"
+  id: "3462"
+  parameter_id: "465"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: cmpd[1]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: 00749
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 06:22:25
-  data_value: "0.152"
+  label: cmpd
+  compound_name: AB005
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:10
+  data_value: "9"
 compound_results_1422: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -9030,26 +9282,26 @@ compound_results_966:
   created_at: 2007-04-30 23:45:07
   data_value: "4.116858327"
 compound_results_001: 
-  updated_at: 2007-03-24 16:24:40
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "7"
+  updated_at: 2007-03-30 20:38:18
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "3"
   updated_by_user_id: "1"
-  compound_id: "1006"
-  parameter_name: Group Size
-  task_context_id: "890"
-  id: "258"
-  parameter_id: "94"
+  compound_id: "8"
+  parameter_name: Molecular Mass
+  task_context_id: "1288"
+  id: "865"
+  parameter_id: "212"
   row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[0]
+  row_label: Compounds[5]
   data_element_id: 
-  label: Dose Groups
-  compound_name: saline
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  label: Compounds
+  compound_name: AB008
+  compound_parameter_id: "210"
+  created_at: 2007-03-30 20:38:18
+  data_value: "453"
 compound_results_1359: 
   updated_at: 2007-04-30 23:45:34
   parameter_context_id: "51"
@@ -9072,26 +9324,26 @@ compound_results_1359:
   created_at: 2007-04-30 23:45:34
   data_value: "14"
 compound_results_1691: 
-  updated_at: 2007-04-30 05:20:54
+  updated_at: 2007-05-28 21:53:46
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "7"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: GroupID
-  task_context_id: "2795"
-  id: "3506"
-  parameter_id: "460"
-  row_no: "49"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[49]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
+  updated_by_user_id: "3"
+  compound_id: "5"
+  parameter_name: Fit Statistic
+  task_context_id: "2828"
+  id: "3473"
+  parameter_id: "468"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: cmpd[1]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:20:54
-  data_value: "2"
+  label: cmpd
+  compound_name: AB005
+  compound_parameter_id: "464"
+  created_at: 2007-05-28 21:53:46
+  data_value: "111"
 compound_results_1423: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -9135,47 +9387,47 @@ compound_results_967:
   created_at: 2007-04-30 23:45:07
   data_value: "10"
 compound_results_002: 
-  updated_at: 2007-03-24 16:19:11
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "1"
+  updated_at: 2007-03-30 20:38:23
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "3"
   updated_by_user_id: "1"
   compound_id: "1006"
-  parameter_name: DoseGroupID
-  task_context_id: "890"
-  id: "264"
-  parameter_id: "88"
-  row_no: "0"
+  parameter_name: Molecular Mass
+  task_context_id: "1289"
+  id: "866"
+  parameter_id: "212"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Dose Groups[0]
+  row_label: Compounds[6]
   data_element_id: 
-  label: Dose Groups
+  label: Compounds
   compound_name: saline
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:11
-  data_value: "1"
+  compound_parameter_id: "210"
+  created_at: 2007-03-30 20:38:23
+  data_value: "325"
 compound_results_1692: 
-  updated_at: 2007-04-30 05:22:39
+  updated_at: 2007-05-27 18:21:07
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "6"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: Concentration
-  task_context_id: "2795"
-  id: "3510"
-  parameter_id: "459"
-  row_no: "49"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[49]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "5"
+  parameter_name: Activity
+  task_context_id: "2829"
+  id: "3460"
+  parameter_id: "465"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: cmpd[2]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:22:39
-  data_value: "0.0502"
+  label: cmpd
+  compound_name: AB005
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:07
+  data_value: "12"
 compound_results_1424: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -9240,47 +9492,47 @@ compound_results_270:
   created_at: 2007-04-30 23:44:20
   data_value: "10.34843693"
 compound_results_003: 
-  updated_at: 2007-03-24 16:24:45
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "7"
+  updated_at: 2007-03-30 20:38:26
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "3"
   updated_by_user_id: "1"
-  compound_id: "1004"
-  parameter_name: Group Size
-  task_context_id: "892"
-  id: "260"
-  parameter_id: "94"
+  compound_id: "10"
+  parameter_name: Molecular Mass
+  task_context_id: "1290"
+  id: "867"
+  parameter_id: "212"
   row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[2]
+  row_label: Compounds[7]
   data_element_id: 
-  label: Dose Groups
-  compound_name: "02707"
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  label: Compounds
+  compound_name: AB0010
+  compound_parameter_id: "210"
+  created_at: 2007-03-30 20:38:26
+  data_value: "456"
 compound_results_1693: 
-  updated_at: 2007-04-30 05:20:54
+  updated_at: 2007-05-21 18:49:05
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "7"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: GroupID
-  task_context_id: "2796"
-  id: "3507"
-  parameter_id: "460"
-  row_no: "50"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[50]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
+  updated_by_user_id: "3"
+  compound_id: "85"
+  parameter_name: Fit Statistic
+  task_context_id: "2830"
+  id: "3457"
+  parameter_id: "468"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: cmpd[3]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:20:54
-  data_value: "3"
+  label: cmpd
+  compound_name: AB0085
+  compound_parameter_id: "464"
+  created_at: 2007-05-21 18:49:05
+  data_value: "2.3"
 compound_results_1425: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -9345,47 +9597,47 @@ compound_results_271:
   created_at: 2007-04-30 23:44:20
   data_value: "3"
 compound_results_004: 
-  updated_at: 2007-03-24 16:19:20
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "1"
+  updated_at: 2007-03-30 20:38:30
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "3"
   updated_by_user_id: "1"
-  compound_id: "1004"
-  parameter_name: DoseGroupID
-  task_context_id: "892"
-  id: "266"
-  parameter_id: "88"
-  row_no: "2"
+  compound_id: "1"
+  parameter_name: Molecular Mass
+  task_context_id: "1291"
+  id: "868"
+  parameter_id: "212"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[2]
+  row_label: Compounds[8]
   data_element_id: 
-  label: Dose Groups
-  compound_name: "02707"
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:12
-  data_value: "3"
+  label: Compounds
+  compound_name: AB001
+  compound_parameter_id: "210"
+  created_at: 2007-03-30 20:38:30
+  data_value: "125"
 compound_results_1694: 
-  updated_at: 2007-04-30 05:25:30
+  updated_at: 2007-05-27 18:21:12
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "6"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: Concentration
-  task_context_id: "2796"
-  id: "3511"
-  parameter_id: "459"
-  row_no: "50"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[50]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "85"
+  parameter_name: Activity
+  task_context_id: "2830"
+  id: "3463"
+  parameter_id: "465"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: cmpd[3]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:25:30
-  data_value: "0.1042"
+  label: cmpd
+  compound_name: AB0085
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:12
+  data_value: "23"
 compound_results_1426: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -9429,47 +9681,47 @@ compound_results_272:
   created_at: 2007-04-30 23:44:20
   data_value: "8"
 compound_results_005: 
-  updated_at: 2007-03-24 16:20:29
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "5"
+  updated_at: 2007-03-30 20:38:34
+  parameter_context_id: "1"
+  protocol_version_id: "1"
+  task_id: "7"
+  column_no: "3"
   updated_by_user_id: "1"
-  compound_id: "1004"
-  parameter_name: Concentration
-  task_context_id: "892"
-  id: "273"
-  parameter_id: "92"
-  row_no: "2"
+  compound_id: "2"
+  parameter_name: Molecular Mass
+  task_context_id: "1292"
+  id: "869"
+  parameter_id: "212"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[2]
+  row_label: Compounds[9]
   data_element_id: 
-  label: Dose Groups
-  compound_name: "02707"
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:20:29
-  data_value: "5"
+  label: Compounds
+  compound_name: AB002
+  compound_parameter_id: "210"
+  created_at: 2007-03-30 20:38:34
+  data_value: "126"
 compound_results_1695: 
-  updated_at: 2007-04-30 05:20:54
+  updated_at: 2007-05-21 18:59:18
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "7"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: GroupID
-  task_context_id: "2797"
-  id: "3508"
-  parameter_id: "460"
-  row_no: "51"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[51]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
+  updated_by_user_id: "3"
+  compound_id: "5"
+  parameter_name: Fit Statistic
+  task_context_id: "2831"
+  id: "3458"
+  parameter_id: "468"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: cmpd[4]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:20:54
-  data_value: "4"
+  label: cmpd
+  compound_name: AB005
+  compound_parameter_id: "464"
+  created_at: 2007-05-21 18:59:18
+  data_value: "1.55"
 compound_results_1427: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -9513,47 +9765,47 @@ compound_results_273:
   created_at: 2007-04-30 23:44:20
   data_value: "188"
 compound_results_006: 
-  updated_at: 2007-03-24 16:24:46
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "7"
+  updated_at: 2007-03-30 22:31:35
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "2"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Group Size
-  task_context_id: "893"
-  id: "261"
-  parameter_id: "94"
-  row_no: "3"
+  compound_id: "1006"
+  parameter_name: p
+  task_context_id: "2276"
+  id: "1706"
+  parameter_id: "65"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Dose Groups[3]
+  row_label: Group[0]
   data_element_id: 
-  label: Dose Groups
-  compound_name: AB001
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  label: Group
+  compound_name: saline
+  compound_parameter_id: "213"
+  created_at: 2007-03-30 22:31:35
+  data_value: "0"
 compound_results_1696: 
-  updated_at: 2007-04-30 05:25:31
+  updated_at: 2007-05-21 19:07:52
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "6"
-  updated_by_user_id: "6"
-  compound_id: "7"
-  parameter_name: Concentration
-  task_context_id: "2797"
-  id: "3512"
-  parameter_id: "459"
-  row_no: "51"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[51]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "5"
+  parameter_name: Activity
+  task_context_id: "2831"
+  id: "3459"
+  parameter_id: "465"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: cmpd[4]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: AB007
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:25:31
-  data_value: "0.1503"
+  label: cmpd
+  compound_name: AB005
+  compound_parameter_id: "464"
+  created_at: 2007-05-21 19:07:52
+  data_value: "2"
 compound_results_1428: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -9597,26 +9849,26 @@ compound_results_274:
   created_at: 2007-04-30 23:44:20
   data_value: "10.19264747"
 compound_results_007: 
-  updated_at: 2007-03-24 16:19:21
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "1"
+  updated_at: 2007-03-30 22:31:39
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "2"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: DoseGroupID
-  task_context_id: "893"
-  id: "268"
-  parameter_id: "88"
-  row_no: "3"
+  compound_id: "1005"
+  parameter_name: p
+  task_context_id: "2277"
+  id: "1707"
+  parameter_id: "65"
+  row_no: "1"
   created_by_user_id: "1"
-  row_label: Dose Groups[3]
+  row_label: Group[1]
   data_element_id: 
-  label: Dose Groups
-  compound_name: AB001
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:21
-  data_value: "4"
+  label: Group
+  compound_name: 00749
+  compound_parameter_id: "213"
+  created_at: 2007-03-30 22:31:39
+  data_value: "0.01"
 compound_results_1429: 
   updated_at: 2007-04-30 23:45:39
   parameter_context_id: "51"
@@ -9660,47 +9912,47 @@ compound_results_275:
   created_at: 2007-04-30 23:44:20
   data_value: "3"
 compound_results_008: 
-  updated_at: 2007-03-24 16:20:06
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "5"
+  updated_at: 2007-03-30 22:31:42
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "2"
   updated_by_user_id: "1"
   compound_id: "1"
-  parameter_name: Concentration
-  task_context_id: "893"
-  id: "270"
-  parameter_id: "92"
-  row_no: "3"
+  parameter_name: p
+  task_context_id: "2278"
+  id: "1708"
+  parameter_id: "65"
+  row_no: "2"
   created_by_user_id: "1"
-  row_label: Dose Groups[3]
+  row_label: Group[2]
   data_element_id: 
-  label: Dose Groups
+  label: Group
   compound_name: AB001
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:20:06
-  data_value: "10"
+  compound_parameter_id: "213"
+  created_at: 2007-03-30 22:31:42
+  data_value: "0.06"
 compound_results_1697: 
-  updated_at: 2007-05-08 19:19:44
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "58"
-  column_no: "1"
+  updated_at: 2007-05-27 18:21:14
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
   updated_by_user_id: "3"
-  compound_id: "7"
-  parameter_name: Count
-  task_context_id: "2894"
-  id: "3566"
-  parameter_id: "570"
-  row_no: "0"
+  compound_id: "603"
+  parameter_name: Activity
+  task_context_id: "2832"
+  id: "3464"
+  parameter_id: "465"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: row[0]
+  row_label: cmpd[5]
   data_element_id: 
-  label: row
-  compound_name: AB007
-  compound_parameter_id: "571"
-  created_at: 2007-05-08 19:19:44
-  data_value: "1"
+  label: cmpd
+  compound_name: AB00603
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:14
+  data_value: "3.4"
 compound_results_276: 
   updated_at: 2007-04-30 23:44:20
   parameter_context_id: "51"
@@ -9723,47 +9975,47 @@ compound_results_276:
   created_at: 2007-04-30 23:44:20
   data_value: "9"
 compound_results_009: 
-  updated_at: 2007-03-24 16:24:50
-  parameter_context_id: "16"
-  protocol_version_id: "9"
-  task_id: "1"
-  column_no: "7"
+  updated_at: 2007-03-30 22:31:47
+  parameter_context_id: "13"
+  protocol_version_id: "7"
+  task_id: "20"
+  column_no: "2"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Group Size
-  task_context_id: "894"
-  id: "262"
-  parameter_id: "94"
-  row_no: "4"
+  compound_id: "2"
+  parameter_name: p
+  task_context_id: "2279"
+  id: "1709"
+  parameter_id: "65"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Group[3]
   data_element_id: 
-  label: Dose Groups
-  compound_name: AB001
-  compound_parameter_id: "91"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  label: Group
+  compound_name: AB002
+  compound_parameter_id: "213"
+  created_at: 2007-03-30 22:31:47
+  data_value: "0.01"
 compound_results_1698: 
-  updated_at: 2007-05-08 19:19:46
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "58"
-  column_no: "1"
+  updated_at: 2007-05-28 21:53:38
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "5"
   updated_by_user_id: "3"
-  compound_id: "7"
-  parameter_name: Count
-  task_context_id: "2895"
-  id: "3567"
-  parameter_id: "570"
-  row_no: "1"
+  compound_id: "603"
+  parameter_name: Fit Statistic
+  task_context_id: "2832"
+  id: "3472"
+  parameter_id: "468"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: row[1]
+  row_label: cmpd[5]
   data_element_id: 
-  label: row
-  compound_name: AB007
-  compound_parameter_id: "571"
-  created_at: 2007-05-08 19:19:46
-  data_value: "2"
+  label: cmpd
+  compound_name: AB00603
+  compound_parameter_id: "464"
+  created_at: 2007-05-28 21:53:38
+  data_value: "2.3"
 compound_results_277: 
   updated_at: 2007-04-30 23:44:20
   parameter_context_id: "51"
@@ -9807,26 +10059,26 @@ compound_results_340:
   created_at: 2007-04-30 23:44:25
   data_value: "1"
 compound_results_1699: 
-  updated_at: 2007-05-08 19:19:48
-  parameter_context_id: "95"
-  protocol_version_id: "51"
-  task_id: "58"
-  column_no: "1"
+  updated_at: 2007-05-27 18:21:19
+  parameter_context_id: "70"
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
   updated_by_user_id: "3"
   compound_id: "9"
-  parameter_name: Count
-  task_context_id: "2896"
-  id: "3568"
-  parameter_id: "570"
-  row_no: "2"
+  parameter_name: Activity
+  task_context_id: "2833"
+  id: "3465"
+  parameter_id: "465"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: row[2]
+  row_label: cmpd[6]
   data_element_id: 
-  label: row
+  label: cmpd
   compound_name: AB009
-  compound_parameter_id: "571"
-  created_at: 2007-05-08 19:19:48
-  data_value: "3"
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:19
+  data_value: "12"
 compound_results_278: 
   updated_at: 2007-04-30 23:44:21
   parameter_context_id: "51"
@@ -12243,26 +12495,26 @@ compound_results_1557:
   created_at: 2007-04-30 23:45:48
   data_value: "165"
 compound_results_1620: 
-  updated_at: 2007-05-01 05:44:54
+  updated_at: 2007-05-01 05:45:00
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "123"
   parameter_name: column
-  task_context_id: "2707"
-  id: "3294"
+  task_context_id: "2710"
+  id: "3297"
   parameter_id: "328"
-  row_no: "6"
+  row_no: "9"
   created_by_user_id: "3"
-  row_label: wells[6]
+  row_label: wells[9]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:54
-  data_value: "6"
+  created_at: 2007-05-01 05:45:00
+  data_value: "9"
 compound_results_136: 
   updated_at: 2007-04-30 23:44:11
   parameter_context_id: "51"
@@ -12306,26 +12558,26 @@ compound_results_1558:
   created_at: 2007-04-30 23:45:48
   data_value: "8.401068618"
 compound_results_1621: 
-  updated_at: 2007-05-01 05:52:23
+  updated_at: 2007-05-01 05:52:37
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "123"
   parameter_name: Activity
-  task_context_id: "2707"
-  id: "3318"
+  task_context_id: "2710"
+  id: "3321"
   parameter_id: "337"
-  row_no: "6"
+  row_no: "9"
   created_by_user_id: "3"
-  row_label: wells[6]
+  row_label: wells[9]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:23
-  data_value: "45"
+  created_at: 2007-05-01 05:52:37
+  data_value: "95"
 compound_results_137: 
   updated_at: 2007-04-30 23:44:11
   parameter_context_id: "51"
@@ -12390,26 +12642,26 @@ compound_results_1559:
   created_at: 2007-04-30 23:45:48
   data_value: "16"
 compound_results_1622: 
-  updated_at: 2007-05-01 05:55:52
+  updated_at: 2007-05-01 05:55:59
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "123"
   parameter_name: CPM
-  task_context_id: "2707"
-  id: "3342"
+  task_context_id: "2710"
+  id: "3345"
   parameter_id: "336"
-  row_no: "6"
+  row_no: "9"
   created_by_user_id: "3"
-  row_label: wells[6]
+  row_label: wells[9]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:52
-  data_value: "752"
+  created_at: 2007-05-01 05:55:59
+  data_value: "1250"
 compound_results_138: 
   updated_at: 2007-04-30 23:44:11
   parameter_context_id: "51"
@@ -12453,25 +12705,25 @@ compound_results_201:
   created_at: 2007-04-30 23:44:15
   data_value: "230"
 compound_results_1623: 
-  updated_at: 2007-05-01 05:44:15
+  updated_at: 2007-05-01 05:44:20
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "23"
   parameter_name: row
-  task_context_id: "2708"
-  id: "3271"
+  task_context_id: "2711"
+  id: "3274"
   parameter_id: "327"
-  row_no: "7"
+  row_no: "10"
   created_by_user_id: "3"
-  row_label: wells[7]
+  row_label: wells[10]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:15
+  created_at: 2007-05-01 05:44:20
   data_value: "1"
 compound_results_139: 
   updated_at: 2007-04-30 23:44:11
@@ -12516,26 +12768,26 @@ compound_results_202:
   created_at: 2007-04-30 23:44:15
   data_value: "98"
 compound_results_1624: 
-  updated_at: 2007-05-01 05:44:56
+  updated_at: 2007-05-01 05:45:01
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "23"
   parameter_name: column
-  task_context_id: "2708"
-  id: "3295"
+  task_context_id: "2711"
+  id: "3298"
   parameter_id: "328"
-  row_no: "7"
+  row_no: "10"
   created_by_user_id: "3"
-  row_label: wells[7]
+  row_label: wells[10]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:56
-  data_value: "7"
+  created_at: 2007-05-01 05:45:01
+  data_value: "10"
 compound_results_470: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -12579,26 +12831,26 @@ compound_results_203:
   created_at: 2007-04-30 23:44:16
   data_value: "2"
 compound_results_1625: 
-  updated_at: 2007-05-01 05:52:28
+  updated_at: 2007-05-01 05:52:42
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "23"
   parameter_name: Activity
-  task_context_id: "2708"
-  id: "3319"
+  task_context_id: "2711"
+  id: "3322"
   parameter_id: "337"
-  row_no: "7"
+  row_no: "10"
   created_by_user_id: "3"
-  row_label: wells[7]
+  row_label: wells[10]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:28
-  data_value: "79"
+  created_at: 2007-05-01 05:52:42
+  data_value: "68"
 compound_results_471: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -12642,26 +12894,26 @@ compound_results_204:
   created_at: 2007-04-30 23:44:16
   data_value: "15"
 compound_results_1626: 
-  updated_at: 2007-05-01 05:55:55
+  updated_at: 2007-05-01 05:56:01
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "23"
   parameter_name: CPM
-  task_context_id: "2708"
-  id: "3343"
+  task_context_id: "2711"
+  id: "3346"
   parameter_id: "336"
-  row_no: "7"
+  row_no: "10"
   created_by_user_id: "3"
-  row_label: wells[7]
+  row_label: wells[10]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:55
-  data_value: "865"
+  created_at: 2007-05-01 05:56:01
+  data_value: "776"
 compound_results_472: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -12705,25 +12957,25 @@ compound_results_205:
   created_at: 2007-04-30 23:44:16
   data_value: "125"
 compound_results_1627: 
-  updated_at: 2007-05-01 05:44:18
+  updated_at: 2007-05-01 05:44:21
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "23"
   parameter_name: row
-  task_context_id: "2710"
-  id: "3273"
+  task_context_id: "2712"
+  id: "3275"
   parameter_id: "327"
-  row_no: "9"
+  row_no: "11"
   created_by_user_id: "3"
-  row_label: wells[9]
+  row_label: wells[11]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:18
+  created_at: 2007-05-01 05:44:21
   data_value: "1"
 compound_results_473: 
   updated_at: 2007-04-30 23:44:33
@@ -12768,26 +13020,26 @@ compound_results_206:
   created_at: 2007-04-30 23:44:16
   data_value: "5.285279316"
 compound_results_1628: 
-  updated_at: 2007-05-01 05:45:00
+  updated_at: 2007-05-01 05:45:03
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "23"
   parameter_name: column
-  task_context_id: "2710"
-  id: "3297"
+  task_context_id: "2712"
+  id: "3299"
   parameter_id: "328"
-  row_no: "9"
+  row_no: "11"
   created_by_user_id: "3"
-  row_label: wells[9]
+  row_label: wells[11]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:00
-  data_value: "9"
+  created_at: 2007-05-01 05:45:03
+  data_value: "11"
 compound_results_474: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -12831,26 +13083,26 @@ compound_results_207:
   created_at: 2007-04-30 23:44:16
   data_value: "2"
 compound_results_1629: 
-  updated_at: 2007-05-01 05:52:37
+  updated_at: 2007-05-01 05:52:44
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "123"
+  compound_id: "23"
   parameter_name: Activity
-  task_context_id: "2710"
-  id: "3321"
+  task_context_id: "2712"
+  id: "3323"
   parameter_id: "337"
-  row_no: "9"
+  row_no: "11"
   created_by_user_id: "3"
-  row_label: wells[9]
+  row_label: wells[11]
   data_element_id: 
   label: wells
-  compound_name: AB00123
+  compound_name: AB0023
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:37
-  data_value: "95"
+  created_at: 2007-05-01 05:52:44
+  data_value: "69"
 compound_results_475: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -14511,26 +14763,26 @@ compound_results_1348:
   created_at: 2007-04-30 23:45:33
   data_value: "13"
 compound_results_1680: 
-  updated_at: 2007-05-01 05:45:24
+  updated_at: 2007-05-01 05:45:26
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "13"
+  compound_id: "1"
   parameter_name: column
-  task_context_id: "2724"
-  id: "3311"
+  task_context_id: "2725"
+  id: "3312"
   parameter_id: "328"
-  row_no: "23"
+  row_no: "24"
   created_by_user_id: "3"
-  row_label: wells[23]
+  row_label: wells[24]
   data_element_id: 
   label: wells
-  compound_name: AB0013
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:45:23
-  data_value: "11"
+  created_at: 2007-05-01 05:45:26
+  data_value: "12"
 compound_results_1412: 
   updated_at: 2007-04-30 23:45:37
   parameter_context_id: "51"
@@ -14616,26 +14868,26 @@ compound_results_1349:
   created_at: 2007-04-30 23:45:33
   data_value: "497"
 compound_results_1681: 
-  updated_at: 2007-05-01 05:53:16
+  updated_at: 2007-05-01 05:53:05
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "13"
+  compound_id: "1"
   parameter_name: Activity
-  task_context_id: "2724"
-  id: "3327"
+  task_context_id: "2725"
+  id: "3326"
   parameter_id: "337"
-  row_no: "23"
+  row_no: "24"
   created_by_user_id: "3"
-  row_label: wells[23]
+  row_label: wells[24]
   data_element_id: 
   label: wells
-  compound_name: AB0013
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:16
-  data_value: "85"
+  created_at: 2007-05-01 06:52:59
+  data_value: "0"
 compound_results_1413: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -14700,26 +14952,26 @@ compound_results_957:
   created_at: 2007-04-30 23:45:06
   data_value: "137"
 compound_results_1682: 
-  updated_at: 2007-05-01 05:56:48
+  updated_at: 2007-05-01 05:56:51
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "13"
+  compound_id: "1"
   parameter_name: CPM
-  task_context_id: "2724"
-  id: "3359"
+  task_context_id: "2725"
+  id: "3360"
   parameter_id: "336"
-  row_no: "23"
+  row_no: "24"
   created_by_user_id: "3"
-  row_label: wells[23]
+  row_label: wells[24]
   data_element_id: 
   label: wells
-  compound_name: AB0013
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:48
-  data_value: "1215"
+  created_at: 2007-05-01 05:56:51
+  data_value: "6"
 compound_results_1414: 
   updated_at: 2007-04-30 23:45:38
   parameter_context_id: "51"
@@ -15267,26 +15519,26 @@ compound_results_330:
   created_at: 2007-04-30 23:44:24
   data_value: "9.024226479"
 compound_results_1689: 
-  updated_at: 2007-04-30 05:20:54
+  updated_at: 2007-05-27 18:21:08
   parameter_context_id: "70"
-  protocol_version_id: "35"
-  task_id: "38"
-  column_no: "7"
-  updated_by_user_id: "6"
-  compound_id: "1005"
-  parameter_name: GroupID
-  task_context_id: "2794"
-  id: "3505"
-  parameter_id: "460"
-  row_no: "48"
-  created_by_user_id: "6"
-  row_label: TreatmentGrp[48]
+  protocol_version_id: "36"
+  task_id: "41"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "8"
+  parameter_name: Activity
+  task_context_id: "2827"
+  id: "3461"
+  parameter_id: "465"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: cmpd[0]
   data_element_id: 
-  label: TreatmentGrp
-  compound_name: 00749
-  compound_parameter_id: "458"
-  created_at: 2007-04-30 05:20:54
-  data_value: "1"
+  label: cmpd
+  compound_name: AB008
+  compound_parameter_id: "464"
+  created_at: 2007-05-27 18:21:08
+  data_value: "13"
 compound_results_268: 
   updated_at: 2007-04-30 23:44:20
   parameter_context_id: "51"
@@ -17766,26 +18018,26 @@ compound_results_1547:
   created_at: 2007-04-30 23:45:47
   data_value: "16"
 compound_results_1610: 
-  updated_at: 2007-05-01 05:55:47
+  updated_at: 2007-05-01 05:55:52
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "21"
   parameter_name: CPM
-  task_context_id: "2704"
-  id: "3339"
+  task_context_id: "2707"
+  id: "3342"
   parameter_id: "336"
-  row_no: "3"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: wells[3]
+  row_label: wells[6]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:47
-  data_value: "1220"
+  created_at: 2007-05-01 05:55:52
+  data_value: "752"
 compound_results_393: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -17850,25 +18102,25 @@ compound_results_1548:
   created_at: 2007-04-30 23:45:47
   data_value: "15"
 compound_results_1611: 
-  updated_at: 2007-05-01 05:44:10
+  updated_at: 2007-05-01 05:44:15
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "21"
   parameter_name: row
-  task_context_id: "2705"
-  id: "3268"
+  task_context_id: "2708"
+  id: "3271"
   parameter_id: "327"
-  row_no: "4"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: wells[4]
+  row_label: wells[7]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:10
+  created_at: 2007-05-01 05:44:15
   data_value: "1"
 compound_results_394: 
   updated_at: 2007-04-30 23:44:28
@@ -17934,26 +18186,26 @@ compound_results_1549:
   created_at: 2007-04-30 23:45:47
   data_value: "121"
 compound_results_1612: 
-  updated_at: 2007-05-01 05:44:48
+  updated_at: 2007-05-01 05:44:56
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "21"
   parameter_name: column
-  task_context_id: "2705"
-  id: "3291"
+  task_context_id: "2708"
+  id: "3295"
   parameter_id: "328"
-  row_no: "4"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: wells[4]
+  row_label: wells[7]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:48
-  data_value: "4"
+  created_at: 2007-05-01 05:44:56
+  data_value: "7"
 compound_results_395: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -17997,26 +18249,26 @@ compound_results_128:
   created_at: 2007-04-30 23:44:11
   data_value: "20"
 compound_results_1613: 
-  updated_at: 2007-05-01 05:52:02
+  updated_at: 2007-05-01 05:52:28
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "21"
   parameter_name: Activity
-  task_context_id: "2705"
-  id: "3316"
+  task_context_id: "2708"
+  id: "3319"
   parameter_id: "337"
-  row_no: "4"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: wells[4]
+  row_label: wells[7]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:02
-  data_value: "85"
+  created_at: 2007-05-01 05:52:28
+  data_value: "79"
 compound_results_396: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -18060,26 +18312,26 @@ compound_results_129:
   created_at: 2007-04-30 23:44:11
   data_value: "177"
 compound_results_1614: 
-  updated_at: 2007-05-01 05:56:57
+  updated_at: 2007-05-01 05:55:55
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "21"
   parameter_name: CPM
-  task_context_id: "2705"
-  id: "3340"
+  task_context_id: "2708"
+  id: "3343"
   parameter_id: "336"
-  row_no: "4"
+  row_no: "7"
   created_by_user_id: "3"
-  row_label: wells[4]
+  row_label: wells[7]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:55:49
-  data_value: "1215"
+  created_at: 2007-05-01 05:55:55
+  data_value: "865"
 compound_results_397: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -18123,25 +18375,25 @@ compound_results_460:
   created_at: 2007-04-30 23:44:33
   data_value: "7"
 compound_results_1615: 
-  updated_at: 2007-05-01 05:44:12
+  updated_at: 2007-05-01 05:44:16
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "123"
   parameter_name: row
-  task_context_id: "2706"
-  id: "3269"
+  task_context_id: "2709"
+  id: "3272"
   parameter_id: "327"
-  row_no: "5"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: wells[5]
+  row_label: wells[8]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:12
+  created_at: 2007-05-01 05:44:16
   data_value: "1"
 compound_results_398: 
   updated_at: 2007-04-30 23:44:28
@@ -18186,26 +18438,26 @@ compound_results_461:
   created_at: 2007-04-30 23:44:33
   data_value: "400"
 compound_results_1616: 
-  updated_at: 2007-05-01 05:44:49
+  updated_at: 2007-05-01 05:44:58
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "123"
   parameter_name: column
-  task_context_id: "2706"
-  id: "3292"
+  task_context_id: "2709"
+  id: "3296"
   parameter_id: "328"
-  row_no: "5"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: wells[5]
+  row_label: wells[8]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:49
-  data_value: "5"
+  created_at: 2007-05-01 05:44:58
+  data_value: "8"
 compound_results_399: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -18249,26 +18501,26 @@ compound_results_462:
   created_at: 2007-04-30 23:44:33
   data_value: "26.70633077"
 compound_results_1617: 
-  updated_at: 2007-05-01 05:52:13
+  updated_at: 2007-05-01 05:52:35
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "123"
   parameter_name: Activity
-  task_context_id: "2706"
-  id: "3317"
+  task_context_id: "2709"
+  id: "3320"
   parameter_id: "337"
-  row_no: "5"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: wells[5]
+  row_label: wells[8]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:13
-  data_value: "99"
+  created_at: 2007-05-01 05:52:35
+  data_value: "65"
 compound_results_463: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -18291,26 +18543,26 @@ compound_results_463:
   created_at: 2007-04-30 23:44:33
   data_value: "5"
 compound_results_1618: 
-  updated_at: 2007-05-01 05:55:51
+  updated_at: 2007-05-01 05:55:57
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "38"
+  compound_id: "123"
   parameter_name: CPM
-  task_context_id: "2706"
-  id: "3341"
+  task_context_id: "2709"
+  id: "3344"
   parameter_id: "336"
-  row_no: "5"
+  row_no: "8"
   created_by_user_id: "3"
-  row_label: wells[5]
+  row_label: wells[8]
   data_element_id: 
   label: wells
-  compound_name: AB0038
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:51
-  data_value: "1310"
+  created_at: 2007-05-01 05:55:57
+  data_value: "765"
 compound_results_464: 
   updated_at: 2007-04-30 23:44:33
   parameter_context_id: "51"
@@ -18333,25 +18585,25 @@ compound_results_464:
   created_at: 2007-04-30 23:44:33
   data_value: "8"
 compound_results_1619: 
-  updated_at: 2007-05-01 05:44:13
+  updated_at: 2007-05-01 05:44:18
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "21"
+  compound_id: "123"
   parameter_name: row
-  task_context_id: "2707"
-  id: "3270"
+  task_context_id: "2710"
+  id: "3273"
   parameter_id: "327"
-  row_no: "6"
+  row_no: "9"
   created_by_user_id: "3"
-  row_label: wells[6]
+  row_label: wells[9]
   data_element_id: 
   label: wells
-  compound_name: AB0021
+  compound_name: AB00123
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:13
+  created_at: 2007-05-01 05:44:18
   data_value: "1"
 compound_results_465: 
   updated_at: 2007-04-30 23:44:33
@@ -19971,26 +20223,26 @@ compound_results_1338:
   created_at: 2007-04-30 23:45:32
   data_value: "2.948437338"
 compound_results_1670: 
-  updated_at: 2007-05-01 05:56:33
+  updated_at: 2007-05-01 05:56:38
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "24"
+  compound_id: "25"
   parameter_name: CPM
-  task_context_id: "2721"
-  id: "3356"
+  task_context_id: "2722"
+  id: "3357"
   parameter_id: "336"
-  row_no: "20"
+  row_no: "21"
   created_by_user_id: "3"
-  row_label: wells[20]
+  row_label: wells[21]
   data_element_id: 
   label: wells
-  compound_name: AB0024
+  compound_name: AB0025
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:33
-  data_value: "1288"
+  created_at: 2007-05-01 05:56:38
+  data_value: "1280"
 compound_results_1402: 
   updated_at: 2007-04-30 23:45:37
   parameter_context_id: "51"
@@ -20076,25 +20328,25 @@ compound_results_1339:
   created_at: 2007-04-30 23:45:32
   data_value: "14"
 compound_results_1671: 
-  updated_at: 2007-05-01 05:44:35
+  updated_at: 2007-05-01 05:44:37
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "25"
+  compound_id: "13"
   parameter_name: row
-  task_context_id: "2722"
-  id: "3284"
+  task_context_id: "2723"
+  id: "3285"
   parameter_id: "327"
-  row_no: "21"
+  row_no: "22"
   created_by_user_id: "3"
-  row_label: wells[21]
+  row_label: wells[22]
   data_element_id: 
   label: wells
-  compound_name: AB0025
+  compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:35
+  created_at: 2007-05-01 05:44:37
   data_value: "2"
 compound_results_1403: 
   updated_at: 2007-04-30 23:45:37
@@ -20160,26 +20412,26 @@ compound_results_947:
   created_at: 2007-04-30 23:45:05
   data_value: "10"
 compound_results_1672: 
-  updated_at: 2007-05-01 05:45:20
+  updated_at: 2007-05-01 05:45:21
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "25"
+  compound_id: "13"
   parameter_name: column
-  task_context_id: "2722"
-  id: "3309"
+  task_context_id: "2723"
+  id: "3310"
   parameter_id: "328"
-  row_no: "21"
+  row_no: "22"
   created_by_user_id: "3"
-  row_label: wells[21]
+  row_label: wells[22]
   data_element_id: 
   label: wells
-  compound_name: AB0025
+  compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:20
-  data_value: "9"
+  created_at: 2007-05-01 05:45:21
+  data_value: "10"
 compound_results_1404: 
   updated_at: 2007-04-30 23:45:37
   parameter_context_id: "51"
@@ -20244,25 +20496,25 @@ compound_results_250:
   created_at: 2007-04-30 23:44:19
   data_value: "29.27685695"
 compound_results_1673: 
-  updated_at: 2007-05-01 05:53:20
+  updated_at: 2007-05-01 05:53:18
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "25"
+  compound_id: "13"
   parameter_name: Activity
-  task_context_id: "2722"
-  id: "3329"
+  task_context_id: "2723"
+  id: "3328"
   parameter_id: "337"
-  row_no: "21"
+  row_no: "22"
   created_by_user_id: "3"
-  row_label: wells[21]
+  row_label: wells[22]
   data_element_id: 
   label: wells
-  compound_name: AB0025
+  compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:20
+  created_at: 2007-05-01 05:53:18
   data_value: "95"
 compound_results_1405: 
   updated_at: 2007-04-30 23:45:37
@@ -20349,25 +20601,25 @@ compound_results_251:
   created_at: 2007-04-30 23:44:19
   data_value: "3"
 compound_results_1674: 
-  updated_at: 2007-05-01 05:56:38
+  updated_at: 2007-05-01 05:56:41
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "25"
+  compound_id: "13"
   parameter_name: CPM
-  task_context_id: "2722"
-  id: "3357"
+  task_context_id: "2723"
+  id: "3358"
   parameter_id: "336"
-  row_no: "21"
+  row_no: "22"
   created_by_user_id: "3"
-  row_label: wells[21]
+  row_label: wells[22]
   data_element_id: 
   label: wells
-  compound_name: AB0025
+  compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:38
+  created_at: 2007-05-01 05:56:41
   data_value: "1280"
 compound_results_1406: 
   updated_at: 2007-04-30 23:45:37
@@ -20496,7 +20748,7 @@ compound_results_253:
   created_at: 2007-04-30 23:44:19
   data_value: "404"
 compound_results_1675: 
-  updated_at: 2007-05-01 05:44:37
+  updated_at: 2007-05-01 05:44:38
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -20504,17 +20756,17 @@ compound_results_1675:
   updated_by_user_id: "3"
   compound_id: "13"
   parameter_name: row
-  task_context_id: "2723"
-  id: "3285"
+  task_context_id: "2724"
+  id: "3286"
   parameter_id: "327"
-  row_no: "22"
+  row_no: "23"
   created_by_user_id: "3"
-  row_label: wells[22]
+  row_label: wells[23]
   data_element_id: 
   label: wells
   compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:37
+  created_at: 2007-05-01 05:44:38
   data_value: "2"
 compound_results_1408: 
   updated_at: 2007-04-30 23:45:37
@@ -20558,8 +20810,29 @@ compound_results_254:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:19
   data_value: "27.0179097"
+compound_results_1740: 
+  updated_at: 2007-05-31 22:06:12
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Measure
+  task_context_id: "2852"
+  id: "3512"
+  parameter_id: "509"
+  row_no: "7"
+  created_by_user_id: "3"
+  row_label: context0[7]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:13
+  data_value: "111"
 compound_results_1676: 
-  updated_at: 2007-05-01 05:45:21
+  updated_at: 2007-05-01 05:45:24
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -20567,18 +20840,18 @@ compound_results_1676:
   updated_by_user_id: "3"
   compound_id: "13"
   parameter_name: column
-  task_context_id: "2723"
-  id: "3310"
+  task_context_id: "2724"
+  id: "3311"
   parameter_id: "328"
-  row_no: "22"
+  row_no: "23"
   created_by_user_id: "3"
-  row_label: wells[22]
+  row_label: wells[23]
   data_element_id: 
   label: wells
   compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:21
-  data_value: "10"
+  created_at: 2007-05-01 06:45:23
+  data_value: "11"
 compound_results_1409: 
   updated_at: 2007-04-30 23:45:37
   parameter_context_id: "51"
@@ -20622,7 +20895,7 @@ compound_results_255:
   created_at: 2007-04-30 23:44:19
   data_value: "3"
 compound_results_1677: 
-  updated_at: 2007-05-01 05:53:18
+  updated_at: 2007-05-01 05:53:16
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -20630,18 +20903,18 @@ compound_results_1677:
   updated_by_user_id: "3"
   compound_id: "13"
   parameter_name: Activity
-  task_context_id: "2723"
-  id: "3328"
+  task_context_id: "2724"
+  id: "3327"
   parameter_id: "337"
-  row_no: "22"
+  row_no: "23"
   created_by_user_id: "3"
-  row_label: wells[22]
+  row_label: wells[23]
   data_element_id: 
   label: wells
   compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:18
-  data_value: "95"
+  created_at: 2007-05-01 05:53:16
+  data_value: "85"
 compound_results_256: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -20663,8 +20936,29 @@ compound_results_256:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:19
   data_value: "4"
+compound_results_1741: 
+  updated_at: 2007-06-01 09:21:41
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Concentration
+  task_context_id: "2852"
+  id: "3517"
+  parameter_id: "510"
+  row_no: "7"
+  created_by_user_id: "3"
+  row_label: context0[7]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:20
+  data_value: "1220"
 compound_results_1678: 
-  updated_at: 2007-05-01 05:56:41
+  updated_at: 2007-05-01 05:56:48
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -20672,18 +20966,18 @@ compound_results_1678:
   updated_by_user_id: "3"
   compound_id: "13"
   parameter_name: CPM
-  task_context_id: "2723"
-  id: "3358"
+  task_context_id: "2724"
+  id: "3359"
   parameter_id: "336"
-  row_no: "22"
+  row_no: "23"
   created_by_user_id: "3"
-  row_label: wells[22]
+  row_label: wells[23]
   data_element_id: 
   label: wells
   compound_name: AB0013
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:41
-  data_value: "1280"
+  created_at: 2007-05-01 05:56:48
+  data_value: "1215"
 compound_results_257: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -20726,26 +21020,47 @@ compound_results_320:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "20"
+compound_results_1742: 
+  updated_at: 2007-05-31 20:39:12
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "132"
+  parameter_name: Counts
+  task_context_id: "2853"
+  id: "3493"
+  parameter_id: "503"
+  row_no: "8"
+  created_by_user_id: "3"
+  row_label: context0[8]
+  data_element_id: 
+  label: context0
+  compound_name: AB00132
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:12
+  data_value: "90"
 compound_results_1679: 
-  updated_at: 2007-05-01 05:44:38
+  updated_at: 2007-05-01 05:44:40
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "13"
+  compound_id: "1"
   parameter_name: row
-  task_context_id: "2724"
-  id: "3286"
+  task_context_id: "2725"
+  id: "3287"
   parameter_id: "327"
-  row_no: "23"
+  row_no: "24"
   created_by_user_id: "3"
-  row_label: wells[23]
+  row_label: wells[24]
   data_element_id: 
   label: wells
-  compound_name: AB0013
+  compound_name: AB001
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:38
+  created_at: 2007-05-01 05:44:40
   data_value: "2"
 compound_results_258: 
   updated_at: 2007-04-30 23:44:19
@@ -20789,6 +21104,27 @@ compound_results_321:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "569"
+compound_results_1743: 
+  updated_at: 2007-06-01 11:13:04
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "132"
+  parameter_name: Conc_precent
+  task_context_id: "2853"
+  id: "3496"
+  parameter_id: "504"
+  row_no: "8"
+  created_by_user_id: "3"
+  row_label: context0[8]
+  data_element_id: 
+  label: context0
+  compound_name: AB00132
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:18
+  data_value: "172800"
 compound_results_259: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -20831,6 +21167,27 @@ compound_results_322:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "39.87054058"
+compound_results_1744: 
+  updated_at: 2007-06-01 09:48:42
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "132"
+  parameter_name: Measure
+  task_context_id: "2853"
+  id: "3513"
+  parameter_id: "509"
+  row_no: "8"
+  created_by_user_id: "3"
+  row_label: context0[8]
+  data_element_id: 
+  label: context0
+  compound_name: AB00132
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:13
+  data_value: "11"
 compound_results_590: 
   updated_at: 2007-04-30 23:44:41
   parameter_context_id: "51"
@@ -20873,6 +21230,27 @@ compound_results_323:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "3"
+compound_results_1745: 
+  updated_at: 2007-06-01 09:23:00
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "132"
+  parameter_name: Concentration
+  task_context_id: "2853"
+  id: "3516"
+  parameter_id: "510"
+  row_no: "8"
+  created_by_user_id: "3"
+  row_label: context0[8]
+  data_element_id: 
+  label: context0
+  compound_name: AB00132
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:18
+  data_value: 1e-09
 compound_results_591: 
   updated_at: 2007-04-30 23:44:41
   parameter_context_id: "51"
@@ -20915,6 +21293,27 @@ compound_results_324:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "21"
+compound_results_1746: 
+  updated_at: 2007-05-31 20:39:15
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Counts
+  task_context_id: "2854"
+  id: "3494"
+  parameter_id: "503"
+  row_no: "9"
+  created_by_user_id: "3"
+  row_label: context0[9]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:15
+  data_value: "100"
 compound_results_592: 
   updated_at: 2007-04-30 23:44:41
   parameter_context_id: "51"
@@ -20957,6 +21356,27 @@ compound_results_325:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "130"
+compound_results_1747: 
+  updated_at: 2007-06-01 11:09:26
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Conc_precent
+  task_context_id: "2854"
+  id: "3495"
+  parameter_id: "504"
+  row_no: "9"
+  created_by_user_id: "3"
+  row_label: context0[9]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:17
+  data_value: "10"
 compound_results_1050: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -21020,6 +21440,27 @@ compound_results_326:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "5.674752978"
+compound_results_1748: 
+  updated_at: 2007-05-31 22:09:03
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Measure
+  task_context_id: "2854"
+  id: "3514"
+  parameter_id: "509"
+  row_no: "9"
+  created_by_user_id: "3"
+  row_label: context0[9]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:15
+  data_value: "111"
 compound_results_1051: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -21083,6 +21524,27 @@ compound_results_327:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:24
   data_value: "3"
+compound_results_1749: 
+  updated_at: 2007-06-01 09:23:14
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Concentration
+  task_context_id: "2854"
+  id: "3515"
+  parameter_id: "510"
+  row_no: "9"
+  created_by_user_id: "3"
+  row_label: context0[9]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:18
+  data_value: "110"
 compound_results_1052: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -22281,26 +22743,26 @@ compound_results_738:
   created_at: 2007-04-30 23:44:51
   data_value: "41.66211943"
 compound_results_040: 
-  updated_at: 2007-03-30 22:31:39
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "2"
+  updated_at: 2007-03-24 17:31:41
+  parameter_context_id: "21"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "1005"
-  parameter_name: p
-  task_context_id: "2277"
-  id: "1707"
-  parameter_id: "65"
-  row_no: "1"
+  compound_id: "4"
+  parameter_name: Group No.
+  task_context_id: "1158"
+  id: "782"
+  parameter_id: "156"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[1]
+  row_label: Compound[0]
   data_element_id: 
-  label: Group
-  compound_name: 00749
-  compound_parameter_id: "213"
-  created_at: 2007-03-30 22:31:39
-  data_value: "0.01"
+  label: Compound
+  compound_name: AB004
+  compound_parameter_id: "136"
+  created_at: 2007-03-24 17:31:41
+  data_value: "2"
 compound_results_801: 
   updated_at: 2007-04-30 23:44:55
   parameter_context_id: "51"
@@ -22365,26 +22827,26 @@ compound_results_1463:
   created_at: 2007-04-30 23:45:41
   data_value: "15"
 compound_results_041: 
-  updated_at: 2007-03-30 22:31:42
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "2"
+  updated_at: 2007-03-24 17:32:08
+  parameter_context_id: "21"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "4"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: p
-  task_context_id: "2278"
-  id: "1708"
-  parameter_id: "65"
-  row_no: "2"
+  compound_id: "4"
+  parameter_name: sd B/P
+  task_context_id: "1158"
+  id: "783"
+  parameter_id: "155"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[2]
+  row_label: Compound[0]
   data_element_id: 
-  label: Group
-  compound_name: AB001
-  compound_parameter_id: "213"
-  created_at: 2007-03-30 22:31:42
-  data_value: "0.06"
+  label: Compound
+  compound_name: AB004
+  compound_parameter_id: "136"
+  created_at: 2007-03-24 17:31:59
+  data_value: "0.2"
 compound_results_802: 
   updated_at: 2007-04-30 23:44:56
   parameter_context_id: "51"
@@ -22449,26 +22911,26 @@ compound_results_739:
   created_at: 2007-04-30 23:44:51
   data_value: "8"
 compound_results_042: 
-  updated_at: 2007-03-30 22:31:47
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "2"
+  updated_at: 2007-03-24 17:32:04
+  parameter_context_id: "21"
+  protocol_version_id: "12"
+  task_id: "5"
+  column_no: "3"
   updated_by_user_id: "1"
-  compound_id: "2"
-  parameter_name: p
-  task_context_id: "2279"
-  id: "1709"
-  parameter_id: "65"
-  row_no: "3"
+  compound_id: "4"
+  parameter_name: mean B/P
+  task_context_id: "1158"
+  id: "784"
+  parameter_id: "154"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[3]
+  row_label: Compound[0]
   data_element_id: 
-  label: Group
-  compound_name: AB002
-  compound_parameter_id: "213"
-  created_at: 2007-03-30 22:31:47
-  data_value: "0.01"
+  label: Compound
+  compound_name: AB004
+  compound_parameter_id: "136"
+  created_at: 2007-03-24 17:32:04
+  data_value: "0.6"
 compound_results_803: 
   updated_at: 2007-04-30 23:44:56
   parameter_context_id: "51"
@@ -23226,26 +23688,26 @@ compound_results_1537:
   created_at: 2007-04-30 23:45:46
   data_value: "323"
 compound_results_1600: 
-  updated_at: 2007-05-01 05:45:05
+  updated_at: 2007-05-01 05:44:48
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "38"
   parameter_name: column
-  task_context_id: "2713"
-  id: "3300"
+  task_context_id: "2705"
+  id: "3291"
   parameter_id: "328"
-  row_no: "12"
+  row_no: "4"
   created_by_user_id: "3"
-  row_label: wells[12]
+  row_label: wells[4]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:05
-  data_value: "12"
+  created_at: 2007-05-01 05:44:48
+  data_value: "4"
 compound_results_383: 
   updated_at: 2007-04-30 23:44:27
   parameter_context_id: "51"
@@ -23310,26 +23772,26 @@ compound_results_1538:
   created_at: 2007-04-30 23:45:46
   data_value: "20.70843636"
 compound_results_1601: 
-  updated_at: 2007-05-01 05:52:48
+  updated_at: 2007-05-01 05:52:02
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "38"
   parameter_name: Activity
-  task_context_id: "2713"
-  id: "3324"
+  task_context_id: "2705"
+  id: "3316"
   parameter_id: "337"
-  row_no: "12"
+  row_no: "4"
   created_by_user_id: "3"
-  row_label: wells[12]
+  row_label: wells[4]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:48
-  data_value: "2"
+  created_at: 2007-05-01 05:52:02
+  data_value: "85"
 compound_results_384: 
   updated_at: 2007-04-30 23:44:27
   parameter_context_id: "51"
@@ -23394,26 +23856,26 @@ compound_results_1539:
   created_at: 2007-04-30 23:45:46
   data_value: "16"
 compound_results_1602: 
-  updated_at: 2007-05-01 05:56:05
+  updated_at: 2007-05-01 05:56:57
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "38"
   parameter_name: CPM
-  task_context_id: "2713"
-  id: "3348"
+  task_context_id: "2705"
+  id: "3340"
   parameter_id: "336"
-  row_no: "12"
+  row_no: "4"
   created_by_user_id: "3"
-  row_label: wells[12]
+  row_label: wells[4]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:05
-  data_value: "21"
+  created_at: 2007-05-01 06:55:49
+  data_value: "1215"
 compound_results_385: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -23457,25 +23919,25 @@ compound_results_118:
   created_at: 2007-04-30 23:44:10
   data_value: "17.28106813"
 compound_results_1603: 
-  updated_at: 2007-05-01 05:44:07
+  updated_at: 2007-05-01 05:44:12
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "38"
   parameter_name: row
-  task_context_id: "2703"
-  id: "3266"
+  task_context_id: "2706"
+  id: "3269"
   parameter_id: "327"
-  row_no: "2"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: wells[2]
+  row_label: wells[5]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:07
+  created_at: 2007-05-01 05:44:12
   data_value: "1"
 compound_results_386: 
   updated_at: 2007-04-30 23:44:28
@@ -23520,26 +23982,26 @@ compound_results_119:
   created_at: 2007-04-30 23:44:10
   data_value: "1"
 compound_results_1604: 
-  updated_at: 2007-05-01 05:44:51
+  updated_at: 2007-05-01 05:44:49
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "38"
   parameter_name: column
-  task_context_id: "2703"
-  id: "3290"
+  task_context_id: "2706"
+  id: "3292"
   parameter_id: "328"
-  row_no: "2"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: wells[2]
+  row_label: wells[5]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:44:46
-  data_value: "2"
+  created_at: 2007-05-01 05:44:49
+  data_value: "5"
 compound_results_387: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -23583,26 +24045,26 @@ compound_results_450:
   created_at: 2007-04-30 23:44:32
   data_value: "36.52106708"
 compound_results_1605: 
-  updated_at: 2007-05-01 05:51:58
+  updated_at: 2007-05-01 05:52:13
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "38"
   parameter_name: Activity
-  task_context_id: "2703"
-  id: "3314"
+  task_context_id: "2706"
+  id: "3317"
   parameter_id: "337"
-  row_no: "2"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: wells[2]
+  row_label: wells[5]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:51:58
-  data_value: "98"
+  created_at: 2007-05-01 05:52:13
+  data_value: "99"
 compound_results_388: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -23646,26 +24108,26 @@ compound_results_451:
   created_at: 2007-04-30 23:44:32
   data_value: "5"
 compound_results_1606: 
-  updated_at: 2007-05-01 05:55:45
+  updated_at: 2007-05-01 05:55:51
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "38"
   parameter_name: CPM
-  task_context_id: "2703"
-  id: "3338"
+  task_context_id: "2706"
+  id: "3341"
   parameter_id: "336"
-  row_no: "2"
+  row_no: "5"
   created_by_user_id: "3"
-  row_label: wells[2]
+  row_label: wells[5]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:55:45
-  data_value: "1300"
+  created_at: 2007-05-01 05:55:51
+  data_value: "1310"
 compound_results_389: 
   updated_at: 2007-04-30 23:44:28
   parameter_context_id: "51"
@@ -23709,25 +24171,25 @@ compound_results_452:
   created_at: 2007-04-30 23:44:32
   data_value: "5"
 compound_results_1607: 
-  updated_at: 2007-05-01 05:44:09
+  updated_at: 2007-05-01 05:44:13
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "21"
   parameter_name: row
-  task_context_id: "2704"
-  id: "3267"
+  task_context_id: "2707"
+  id: "3270"
   parameter_id: "327"
-  row_no: "3"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: wells[3]
+  row_label: wells[6]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:09
+  created_at: 2007-05-01 05:44:13
   data_value: "1"
 compound_results_453: 
   updated_at: 2007-04-30 23:44:32
@@ -23751,26 +24213,26 @@ compound_results_453:
   created_at: 2007-04-30 23:44:32
   data_value: "530"
 compound_results_1608: 
-  updated_at: 2007-05-01 05:44:53
+  updated_at: 2007-05-01 05:44:54
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "21"
   parameter_name: column
-  task_context_id: "2704"
-  id: "3293"
+  task_context_id: "2707"
+  id: "3294"
   parameter_id: "328"
-  row_no: "3"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: wells[3]
+  row_label: wells[6]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:53
-  data_value: "3"
+  created_at: 2007-05-01 05:44:54
+  data_value: "6"
 compound_results_454: 
   updated_at: 2007-04-30 23:44:32
   parameter_context_id: "51"
@@ -23793,26 +24255,26 @@ compound_results_454:
   created_at: 2007-04-30 23:44:32
   data_value: "36.83264601"
 compound_results_1609: 
-  updated_at: 2007-05-01 05:52:00
+  updated_at: 2007-05-01 05:52:23
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "12"
+  compound_id: "21"
   parameter_name: Activity
-  task_context_id: "2704"
-  id: "3315"
+  task_context_id: "2707"
+  id: "3318"
   parameter_id: "337"
-  row_no: "3"
+  row_no: "6"
   created_by_user_id: "3"
-  row_label: wells[3]
+  row_label: wells[6]
   data_element_id: 
   label: wells
-  compound_name: AB0012
+  compound_name: AB0021
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:00
-  data_value: "88"
+  created_at: 2007-05-01 05:52:23
+  data_value: "45"
 compound_results_455: 
   updated_at: 2007-04-30 23:44:32
   parameter_context_id: "51"
@@ -24990,26 +25452,26 @@ compound_results_1259:
   created_at: 2007-04-30 23:45:27
   data_value: "13"
 compound_results_1591: 
-  updated_at: 2007-05-01 05:44:43
+  updated_at: 2007-05-01 05:44:07
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "1000"
+  compound_id: "12"
   parameter_name: row
-  task_context_id: "2714"
-  id: "3277"
+  task_context_id: "2703"
+  id: "3266"
   parameter_id: "327"
-  row_no: "13"
+  row_no: "2"
   created_by_user_id: "3"
-  row_label: wells[13]
+  row_label: wells[2]
   data_element_id: 
   label: wells
-  compound_name: AB001000
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:44:24
-  data_value: "2"
+  created_at: 2007-05-01 05:44:07
+  data_value: "1"
 compound_results_1323: 
   updated_at: 2007-04-30 23:45:31
   parameter_context_id: "51"
@@ -25074,26 +25536,26 @@ compound_results_930:
   created_at: 2007-04-30 23:45:04
   data_value: "1.078963757"
 compound_results_1592: 
-  updated_at: 2007-05-01 05:45:06
+  updated_at: 2007-05-01 05:44:51
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "1000"
+  compound_id: "12"
   parameter_name: column
-  task_context_id: "2714"
-  id: "3301"
+  task_context_id: "2703"
+  id: "3290"
   parameter_id: "328"
-  row_no: "13"
+  row_no: "2"
   created_by_user_id: "3"
-  row_label: wells[13]
+  row_label: wells[2]
   data_element_id: 
   label: wells
-  compound_name: AB001000
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:06
-  data_value: "1"
+  created_at: 2007-05-01 06:44:46
+  data_value: "2"
 compound_results_1324: 
   updated_at: 2007-04-30 23:45:31
   parameter_context_id: "51"
@@ -25179,26 +25641,26 @@ compound_results_931:
   created_at: 2007-04-30 23:45:04
   data_value: "10"
 compound_results_1593: 
-  updated_at: 2007-05-01 05:52:51
+  updated_at: 2007-05-01 05:51:58
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "1000"
+  compound_id: "12"
   parameter_name: Activity
-  task_context_id: "2714"
-  id: "3325"
+  task_context_id: "2703"
+  id: "3314"
   parameter_id: "337"
-  row_no: "13"
+  row_no: "2"
   created_by_user_id: "3"
-  row_label: wells[13]
+  row_label: wells[2]
   data_element_id: 
   label: wells
-  compound_name: AB001000
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:52:51
-  data_value: "101"
+  created_at: 2007-05-01 05:51:58
+  data_value: "98"
 compound_results_1325: 
   updated_at: 2007-04-30 23:45:31
   parameter_context_id: "51"
@@ -25284,26 +25746,26 @@ compound_results_932:
   created_at: 2007-04-30 23:45:04
   data_value: "5"
 compound_results_1594: 
-  updated_at: 2007-05-01 05:56:07
+  updated_at: 2007-05-01 05:55:45
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "1000"
+  compound_id: "12"
   parameter_name: CPM
-  task_context_id: "2714"
-  id: "3349"
+  task_context_id: "2703"
+  id: "3338"
   parameter_id: "336"
-  row_no: "13"
+  row_no: "2"
   created_by_user_id: "3"
-  row_label: wells[13]
+  row_label: wells[2]
   data_element_id: 
   label: wells
-  compound_name: AB001000
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:07
-  data_value: "1318"
+  created_at: 2007-05-01 05:55:45
+  data_value: "1300"
 compound_results_1326: 
   updated_at: 2007-04-30 23:45:31
   parameter_context_id: "51"
@@ -25368,26 +25830,26 @@ compound_results_933:
   created_at: 2007-04-30 23:45:04
   data_value: "140"
 compound_results_1595: 
-  updated_at: 2007-05-01 05:44:40
+  updated_at: 2007-05-01 05:44:09
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "12"
   parameter_name: row
-  task_context_id: "2725"
-  id: "3287"
+  task_context_id: "2704"
+  id: "3267"
   parameter_id: "327"
-  row_no: "24"
+  row_no: "3"
   created_by_user_id: "3"
-  row_label: wells[24]
+  row_label: wells[3]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:40
-  data_value: "2"
+  created_at: 2007-05-01 05:44:09
+  data_value: "1"
 compound_results_1327: 
   updated_at: 2007-04-30 23:45:32
   parameter_context_id: "51"
@@ -25452,26 +25914,26 @@ compound_results_934:
   created_at: 2007-04-30 23:45:04
   data_value: "6.453700304"
 compound_results_1596: 
-  updated_at: 2007-05-01 05:45:26
+  updated_at: 2007-05-01 05:44:53
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "12"
   parameter_name: column
-  task_context_id: "2725"
-  id: "3312"
+  task_context_id: "2704"
+  id: "3293"
   parameter_id: "328"
-  row_no: "24"
+  row_no: "3"
   created_by_user_id: "3"
-  row_label: wells[24]
+  row_label: wells[3]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:26
-  data_value: "12"
+  created_at: 2007-05-01 05:44:53
+  data_value: "3"
 compound_results_1328: 
   updated_at: 2007-04-30 23:45:32
   parameter_context_id: "51"
@@ -25536,26 +25998,26 @@ compound_results_935:
   created_at: 2007-04-30 23:45:05
   data_value: "10"
 compound_results_1597: 
-  updated_at: 2007-05-01 05:53:05
+  updated_at: 2007-05-01 05:52:00
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "12"
   parameter_name: Activity
-  task_context_id: "2725"
-  id: "3326"
+  task_context_id: "2704"
+  id: "3315"
   parameter_id: "337"
-  row_no: "24"
+  row_no: "3"
   created_by_user_id: "3"
-  row_label: wells[24]
+  row_label: wells[3]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:52:59
-  data_value: "0"
+  created_at: 2007-05-01 05:52:00
+  data_value: "88"
 compound_results_1329: 
   updated_at: 2007-04-30 23:45:32
   parameter_context_id: "51"
@@ -25578,7 +26040,7 @@ compound_results_1329:
   created_at: 2007-04-30 23:45:32
   data_value: "266"
 compound_results_1660: 
-  updated_at: 2007-05-01 05:45:15
+  updated_at: 2007-05-01 05:45:16
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -25586,18 +26048,18 @@ compound_results_1660:
   updated_by_user_id: "3"
   compound_id: "433"
   parameter_name: column
-  task_context_id: "2719"
-  id: "3306"
+  task_context_id: "2720"
+  id: "3307"
   parameter_id: "328"
-  row_no: "18"
+  row_no: "19"
   created_by_user_id: "3"
-  row_label: wells[18]
+  row_label: wells[19]
   data_element_id: 
   label: wells
   compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:15
-  data_value: "6"
+  created_at: 2007-05-01 05:45:16
+  data_value: "7"
 compound_results_175: 
   updated_at: 2007-04-30 23:44:14
   parameter_context_id: "51"
@@ -25641,7 +26103,7 @@ compound_results_936:
   created_at: 2007-04-30 23:45:05
   data_value: "6"
 compound_results_1661: 
-  updated_at: 2007-05-01 05:53:29
+  updated_at: 2007-05-01 05:53:24
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -25649,18 +26111,18 @@ compound_results_1661:
   updated_by_user_id: "3"
   compound_id: "433"
   parameter_name: Activity
-  task_context_id: "2719"
-  id: "3332"
+  task_context_id: "2720"
+  id: "3331"
   parameter_id: "337"
-  row_no: "18"
+  row_no: "19"
   created_by_user_id: "3"
-  row_label: wells[18]
+  row_label: wells[19]
   data_element_id: 
   label: wells
   compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:53:26
-  data_value: "96"
+  created_at: 2007-05-01 05:53:24
+  data_value: "100"
 compound_results_176: 
   updated_at: 2007-04-30 23:44:14
   parameter_context_id: "51"
@@ -25683,28 +26145,28 @@ compound_results_176:
   created_at: 2007-04-30 23:44:14
   data_value: "8"
 compound_results_1598: 
-  updated_at: 2007-05-01 05:56:51
+  updated_at: 2007-05-01 05:55:47
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "12"
   parameter_name: CPM
-  task_context_id: "2725"
-  id: "3360"
+  task_context_id: "2704"
+  id: "3339"
   parameter_id: "336"
-  row_no: "24"
+  row_no: "3"
   created_by_user_id: "3"
-  row_label: wells[24]
+  row_label: wells[3]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0012
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:51
-  data_value: "6"
+  created_at: 2007-05-01 05:55:47
+  data_value: "1220"
 compound_results_1662: 
-  updated_at: 2007-05-01 05:56:18
+  updated_at: 2007-05-01 05:56:30
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -25712,18 +26174,18 @@ compound_results_1662:
   updated_by_user_id: "3"
   compound_id: "433"
   parameter_name: CPM
-  task_context_id: "2719"
-  id: "3354"
+  task_context_id: "2720"
+  id: "3355"
   parameter_id: "336"
-  row_no: "18"
+  row_no: "19"
   created_by_user_id: "3"
-  row_label: wells[18]
+  row_label: wells[19]
   data_element_id: 
   label: wells
   compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:18
-  data_value: "1288"
+  created_at: 2007-05-01 06:56:27
+  data_value: "1315"
 compound_results_177: 
   updated_at: 2007-04-30 23:44:14
   parameter_context_id: "51"
@@ -25788,46 +26250,46 @@ compound_results_240:
   created_at: 2007-04-30 23:44:18
   data_value: "24"
 compound_results_1599: 
-  updated_at: 2007-05-01 05:44:23
+  updated_at: 2007-05-01 05:44:10
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "1"
+  compound_id: "38"
   parameter_name: row
-  task_context_id: "2713"
-  id: "3276"
+  task_context_id: "2705"
+  id: "3268"
   parameter_id: "327"
-  row_no: "12"
+  row_no: "4"
   created_by_user_id: "3"
-  row_label: wells[12]
+  row_label: wells[4]
   data_element_id: 
   label: wells
-  compound_name: AB001
+  compound_name: AB0038
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:23
+  created_at: 2007-05-01 05:44:10
   data_value: "1"
 compound_results_1663: 
-  updated_at: 2007-05-01 05:44:32
+  updated_at: 2007-05-01 05:44:34
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "433"
+  compound_id: "24"
   parameter_name: row
-  task_context_id: "2720"
-  id: "3282"
+  task_context_id: "2721"
+  id: "3283"
   parameter_id: "327"
-  row_no: "19"
+  row_no: "20"
   created_by_user_id: "3"
-  row_label: wells[19]
+  row_label: wells[20]
   data_element_id: 
   label: wells
-  compound_name: AB00433
+  compound_name: AB0024
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:32
+  created_at: 2007-05-01 05:44:34
   data_value: "2"
 compound_results_178: 
   updated_at: 2007-04-30 23:44:14
@@ -25956,26 +26418,26 @@ compound_results_242:
   created_at: 2007-04-30 23:44:18
   data_value: "2.169490013"
 compound_results_1664: 
-  updated_at: 2007-05-01 05:45:16
+  updated_at: 2007-05-01 05:45:18
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "433"
+  compound_id: "24"
   parameter_name: column
-  task_context_id: "2720"
-  id: "3307"
+  task_context_id: "2721"
+  id: "3308"
   parameter_id: "328"
-  row_no: "19"
+  row_no: "20"
   created_by_user_id: "3"
-  row_label: wells[19]
+  row_label: wells[20]
   data_element_id: 
   label: wells
-  compound_name: AB00433
+  compound_name: AB0024
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:16
-  data_value: "7"
+  created_at: 2007-05-01 05:45:18
+  data_value: "8"
 compound_results_243: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -25998,26 +26460,26 @@ compound_results_243:
   created_at: 2007-04-30 23:44:18
   data_value: "3"
 compound_results_1665: 
-  updated_at: 2007-05-01 05:53:24
+  updated_at: 2007-05-01 05:53:22
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "433"
+  compound_id: "24"
   parameter_name: Activity
-  task_context_id: "2720"
-  id: "3331"
+  task_context_id: "2721"
+  id: "3330"
   parameter_id: "337"
-  row_no: "19"
+  row_no: "20"
   created_by_user_id: "3"
-  row_label: wells[19]
+  row_label: wells[20]
   data_element_id: 
   label: wells
-  compound_name: AB00433
+  compound_name: AB0024
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:24
-  data_value: "100"
+  created_at: 2007-05-01 05:53:22
+  data_value: "96"
 compound_results_244: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -26040,26 +26502,26 @@ compound_results_244:
   created_at: 2007-04-30 23:44:18
   data_value: "1"
 compound_results_1666: 
-  updated_at: 2007-05-01 05:56:30
+  updated_at: 2007-05-01 05:56:33
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "433"
+  compound_id: "24"
   parameter_name: CPM
-  task_context_id: "2720"
-  id: "3355"
+  task_context_id: "2721"
+  id: "3356"
   parameter_id: "336"
-  row_no: "19"
+  row_no: "20"
   created_by_user_id: "3"
-  row_label: wells[19]
+  row_label: wells[20]
   data_element_id: 
   label: wells
-  compound_name: AB00433
+  compound_name: AB0024
   compound_parameter_id: "335"
-  created_at: 2007-05-01 06:56:27
-  data_value: "1315"
+  created_at: 2007-05-01 05:56:33
+  data_value: "1288"
 compound_results_245: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -26081,26 +26543,47 @@ compound_results_245:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "1308"
+compound_results_1730: 
+  updated_at: 2007-05-31 20:39:04
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "6"
+  parameter_name: Counts
+  task_context_id: "2850"
+  id: "3490"
+  parameter_id: "503"
+  row_no: "5"
+  created_by_user_id: "3"
+  row_label: context0[5]
+  data_element_id: 
+  label: context0
+  compound_name: AB006
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:04
+  data_value: "60"
 compound_results_1667: 
-  updated_at: 2007-05-01 05:44:34
+  updated_at: 2007-05-01 05:44:35
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "24"
+  compound_id: "25"
   parameter_name: row
-  task_context_id: "2721"
-  id: "3283"
+  task_context_id: "2722"
+  id: "3284"
   parameter_id: "327"
-  row_no: "20"
+  row_no: "21"
   created_by_user_id: "3"
-  row_label: wells[20]
+  row_label: wells[21]
   data_element_id: 
   label: wells
-  compound_name: AB0024
+  compound_name: AB0025
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:34
+  created_at: 2007-05-01 05:44:35
   data_value: "2"
 compound_results_246: 
   updated_at: 2007-04-30 23:44:18
@@ -26123,27 +26606,48 @@ compound_results_246:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "97.43474795"
+compound_results_1731: 
+  updated_at: 2007-06-01 09:24:05
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "6"
+  parameter_name: Conc_precent
+  task_context_id: "2850"
+  id: "3499"
+  parameter_id: "504"
+  row_no: "5"
+  created_by_user_id: "3"
+  row_label: context0[5]
+  data_element_id: 
+  label: context0
+  compound_name: AB006
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:19
+  data_value: "33"
 compound_results_1668: 
-  updated_at: 2007-05-01 05:45:18
+  updated_at: 2007-05-01 05:45:20
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "24"
+  compound_id: "25"
   parameter_name: column
-  task_context_id: "2721"
-  id: "3308"
+  task_context_id: "2722"
+  id: "3309"
   parameter_id: "328"
-  row_no: "20"
+  row_no: "21"
   created_by_user_id: "3"
-  row_label: wells[20]
+  row_label: wells[21]
   data_element_id: 
   label: wells
-  compound_name: AB0024
+  compound_name: AB0025
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:18
-  data_value: "8"
+  created_at: 2007-05-01 05:45:20
+  data_value: "9"
 compound_results_247: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -26186,27 +26690,48 @@ compound_results_310:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "13.93159463"
+compound_results_1732: 
+  updated_at: 2007-05-31 23:26:57
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "6"
+  parameter_name: Measure
+  task_context_id: "2850"
+  id: "3510"
+  parameter_id: "509"
+  row_no: "5"
+  created_by_user_id: "3"
+  row_label: context0[5]
+  data_element_id: 
+  label: context0
+  compound_name: AB006
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:12
+  data_value: "111"
 compound_results_1669: 
-  updated_at: 2007-05-01 05:53:22
+  updated_at: 2007-05-01 05:53:20
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "24"
+  compound_id: "25"
   parameter_name: Activity
-  task_context_id: "2721"
-  id: "3330"
+  task_context_id: "2722"
+  id: "3329"
   parameter_id: "337"
-  row_no: "20"
+  row_no: "21"
   created_by_user_id: "3"
-  row_label: wells[20]
+  row_label: wells[21]
   data_element_id: 
   label: wells
-  compound_name: AB0024
+  compound_name: AB0025
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:22
-  data_value: "96"
+  created_at: 2007-05-01 05:53:20
+  data_value: "95"
 compound_results_248: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -26249,6 +26774,27 @@ compound_results_311:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "3"
+compound_results_1733: 
+  updated_at: 2007-05-31 23:24:56
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "6"
+  parameter_name: Concentration
+  task_context_id: "2850"
+  id: "3519"
+  parameter_id: "510"
+  row_no: "5"
+  created_by_user_id: "3"
+  row_label: context0[5]
+  data_element_id: 
+  label: context0
+  compound_name: AB006
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:21
+  data_value: "110"
 compound_results_249: 
   updated_at: 2007-04-30 23:44:19
   parameter_context_id: "51"
@@ -26291,6 +26837,27 @@ compound_results_312:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "18"
+compound_results_1734: 
+  updated_at: 2007-05-31 20:39:08
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Counts
+  task_context_id: "2851"
+  id: "3491"
+  parameter_id: "503"
+  row_no: "6"
+  created_by_user_id: "3"
+  row_label: context0[6]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:08
+  data_value: "70"
 compound_results_580: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -26333,6 +26900,27 @@ compound_results_313:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "564"
+compound_results_1735: 
+  updated_at: 2007-06-01 11:14:46
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Conc_precent
+  task_context_id: "2851"
+  id: "3498"
+  parameter_id: "504"
+  row_no: "6"
+  created_by_user_id: "3"
+  row_label: context0[6]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:18
+  data_value: "283.15"
 compound_results_581: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -26375,6 +26963,27 @@ compound_results_314:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "39.48106691"
+compound_results_1736: 
+  updated_at: 2007-05-31 22:06:11
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Measure
+  task_context_id: "2851"
+  id: "3511"
+  parameter_id: "509"
+  row_no: "6"
+  created_by_user_id: "3"
+  row_label: context0[6]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:12
+  data_value: "111"
 compound_results_582: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -26417,6 +27026,27 @@ compound_results_315:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "3"
+compound_results_1737: 
+  updated_at: 2007-05-31 23:20:56
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Concentration
+  task_context_id: "2851"
+  id: "3518"
+  parameter_id: "510"
+  row_no: "6"
+  created_by_user_id: "3"
+  row_label: context0[6]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:20
+  data_value: "10"
 compound_results_1040: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -26480,6 +27110,27 @@ compound_results_316:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "19"
+compound_results_1738: 
+  updated_at: 2007-05-31 20:39:10
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Counts
+  task_context_id: "2852"
+  id: "3492"
+  parameter_id: "503"
+  row_no: "7"
+  created_by_user_id: "3"
+  row_label: context0[7]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:10
+  data_value: "80"
 compound_results_1041: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -26543,6 +27194,27 @@ compound_results_317:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "482"
+compound_results_1739: 
+  updated_at: 2007-06-01 11:03:53
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "12"
+  parameter_name: Conc_precent
+  task_context_id: "2852"
+  id: "3497"
+  parameter_id: "504"
+  row_no: "7"
+  created_by_user_id: "3"
+  row_label: context0[7]
+  data_element_id: 
+  label: context0
+  compound_name: AB0012
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:18
+  data_value: "120"
 compound_results_1042: 
   updated_at: 2007-04-30 23:45:12
   parameter_context_id: "51"
@@ -27825,25 +28497,25 @@ compound_results_995:
   created_at: 2007-04-30 23:45:08
   data_value: "10"
 compound_results_030: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "19"
-  protocol_version_id: "11"
-  task_id: "4"
+  updated_at: 2007-03-24 16:20:07
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
   column_no: "5"
   updated_by_user_id: "1"
   compound_id: "1"
-  parameter_name: Max Inhibition Conc
-  task_context_id: "1151"
-  id: "761"
-  parameter_id: "118"
-  row_no: "0"
+  parameter_name: Concentration
+  task_context_id: "894"
+  id: "271"
+  parameter_id: "92"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Compound[21]
+  row_label: Dose Groups[4]
   data_element_id: 
-  label: Compound
+  label: Dose Groups
   compound_name: AB001
-  compound_parameter_id: "114"
-  created_at: 2007-03-24 17:05:07
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:20:07
   data_value: "20"
 compound_results_1453: 
   updated_at: 2007-04-30 23:45:40
@@ -27909,26 +28581,26 @@ compound_results_728:
   created_at: 2007-04-30 23:44:50
   data_value: "2"
 compound_results_031: 
-  updated_at: 2007-03-24 17:31:41
-  parameter_context_id: "21"
-  protocol_version_id: "12"
-  task_id: "5"
+  updated_at: 2007-03-24 16:20:07
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
   column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "4"
-  parameter_name: Group No.
-  task_context_id: "1158"
-  id: "782"
-  parameter_id: "156"
-  row_no: "0"
+  compound_id: "1005"
+  parameter_name: Concentration
+  task_context_id: "894"
+  id: "271"
+  parameter_id: "92"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Compound[0]
+  row_label: Dose Groups[4]
   data_element_id: 
-  label: Compound
-  compound_name: AB004
-  compound_parameter_id: "136"
-  created_at: 2007-03-24 17:31:41
-  data_value: "2"
+  label: Dose Groups
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:20:07
+  data_value: "20"
 compound_results_1389: 
   updated_at: 2007-04-30 23:45:36
   parameter_context_id: "51"
@@ -28014,26 +28686,26 @@ compound_results_729:
   created_at: 2007-04-30 23:44:51
   data_value: "368"
 compound_results_032: 
-  updated_at: 2007-03-24 17:32:08
-  parameter_context_id: "21"
-  protocol_version_id: "12"
-  task_id: "5"
-  column_no: "4"
+  updated_at: 2007-03-24 16:24:56
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "4"
-  parameter_name: sd B/P
-  task_context_id: "1158"
-  id: "783"
-  parameter_id: "155"
-  row_no: "0"
+  compound_id: "1"
+  parameter_name: Group Size
+  task_context_id: "895"
+  id: "263"
+  parameter_id: "94"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compound[0]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compound
-  compound_name: AB004
-  compound_parameter_id: "136"
-  created_at: 2007-03-24 17:31:59
-  data_value: "0.2"
+  label: Dose Groups
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_998: 
   updated_at: 2007-04-30 23:45:09
   parameter_context_id: "51"
@@ -28056,26 +28728,26 @@ compound_results_998:
   created_at: 2007-04-30 23:45:09
   data_value: "-0.011562499"
 compound_results_033: 
-  updated_at: 2007-03-24 17:32:04
-  parameter_context_id: "21"
-  protocol_version_id: "12"
-  task_id: "5"
-  column_no: "3"
+  updated_at: 2007-03-24 16:24:56
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "4"
-  parameter_name: mean B/P
-  task_context_id: "1158"
-  id: "784"
-  parameter_id: "154"
-  row_no: "0"
+  compound_id: "1005"
+  parameter_name: Group Size
+  task_context_id: "895"
+  id: "263"
+  parameter_id: "94"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compound[0]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compound
-  compound_name: AB004
-  compound_parameter_id: "136"
-  created_at: 2007-03-24 17:32:04
-  data_value: "0.6"
+  label: Dose Groups
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_1455: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -28119,26 +28791,26 @@ compound_results_999:
   created_at: 2007-04-30 23:45:09
   data_value: "10"
 compound_results_034: 
-  updated_at: 2007-03-30 20:38:23
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "3"
+  updated_at: 2007-03-24 16:19:27
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1006"
-  parameter_name: Molecular Mass
-  task_context_id: "1289"
-  id: "866"
-  parameter_id: "212"
-  row_no: "1"
+  compound_id: "1"
+  parameter_name: DoseGroupID
+  task_context_id: "895"
+  id: "269"
+  parameter_id: "88"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compounds[6]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compounds
-  compound_name: saline
-  compound_parameter_id: "210"
-  created_at: 2007-03-30 20:38:23
-  data_value: "325"
+  label: Dose Groups
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:19:27
+  data_value: "6"
 compound_results_1456: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -28182,26 +28854,26 @@ compound_results_1520:
   created_at: 2007-04-30 23:45:45
   data_value: "8"
 compound_results_035: 
-  updated_at: 2007-03-30 20:38:18
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "3"
+  updated_at: 2007-03-24 16:19:27
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "8"
-  parameter_name: Molecular Mass
-  task_context_id: "1288"
-  id: "865"
-  parameter_id: "212"
-  row_no: "0"
+  compound_id: "1005"
+  parameter_name: DoseGroupID
+  task_context_id: "895"
+  id: "269"
+  parameter_id: "88"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compounds[5]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compounds
-  compound_name: AB008
-  compound_parameter_id: "210"
-  created_at: 2007-03-30 20:38:18
-  data_value: "453"
+  label: Dose Groups
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:19:27
+  data_value: "6"
 compound_results_1457: 
   updated_at: 2007-04-30 23:45:41
   parameter_context_id: "51"
@@ -28224,26 +28896,26 @@ compound_results_1457:
   created_at: 2007-04-30 23:45:41
   data_value: "208"
 compound_results_036: 
-  updated_at: 2007-03-30 20:38:26
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "3"
+  updated_at: 2007-03-24 16:20:10
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "10"
-  parameter_name: Molecular Mass
-  task_context_id: "1290"
-  id: "867"
-  parameter_id: "212"
-  row_no: "2"
+  compound_id: "1"
+  parameter_name: Concentration
+  task_context_id: "895"
+  id: "272"
+  parameter_id: "92"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compounds[7]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compounds
-  compound_name: AB0010
-  compound_parameter_id: "210"
-  created_at: 2007-03-30 20:38:26
-  data_value: "456"
+  label: Dose Groups
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:20:10
+  data_value: "40"
 compound_results_1458: 
   updated_at: 2007-04-30 23:45:41
   parameter_context_id: "51"
@@ -28287,26 +28959,26 @@ compound_results_1521:
   created_at: 2007-04-30 23:45:45
   data_value: "304"
 compound_results_037: 
-  updated_at: 2007-03-30 20:38:30
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "3"
+  updated_at: 2007-03-24 16:20:10
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Molecular Mass
-  task_context_id: "1291"
-  id: "868"
-  parameter_id: "212"
-  row_no: "3"
+  compound_id: "1005"
+  parameter_name: Concentration
+  task_context_id: "895"
+  id: "272"
+  parameter_id: "92"
+  row_no: "5"
   created_by_user_id: "1"
-  row_label: Compounds[8]
+  row_label: Dose Groups[5]
   data_element_id: 
-  label: Compounds
-  compound_name: AB001
-  compound_parameter_id: "210"
-  created_at: 2007-03-30 20:38:30
-  data_value: "125"
+  label: Dose Groups
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:20:10
+  data_value: "40"
 compound_results_100: 
   updated_at: 2007-04-30 23:44:09
   parameter_context_id: "51"
@@ -28371,26 +29043,26 @@ compound_results_1522:
   created_at: 2007-04-30 23:45:45
   data_value: "19.22843645"
 compound_results_038: 
-  updated_at: 2007-03-30 20:38:34
-  parameter_context_id: "1"
-  protocol_version_id: "1"
-  task_id: "7"
-  column_no: "3"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "19"
+  protocol_version_id: "11"
+  task_id: "4"
+  column_no: "4"
   updated_by_user_id: "1"
-  compound_id: "2"
-  parameter_name: Molecular Mass
-  task_context_id: "1292"
-  id: "869"
-  parameter_id: "212"
-  row_no: "4"
+  compound_id: "1"
+  parameter_name: Max Inhibition
+  task_context_id: "1151"
+  id: "760"
+  parameter_id: "117"
+  row_no: "0"
   created_by_user_id: "1"
-  row_label: Compounds[9]
+  row_label: Compound[21]
   data_element_id: 
-  label: Compounds
-  compound_name: AB002
-  compound_parameter_id: "210"
-  created_at: 2007-03-30 20:38:34
-  data_value: "126"
+  label: Compound
+  compound_name: AB001
+  compound_parameter_id: "114"
+  created_at: 2007-03-24 17:05:07
+  data_value: "58"
 compound_results_101: 
   updated_at: 2007-04-30 23:44:09
   parameter_context_id: "51"
@@ -28434,26 +29106,26 @@ compound_results_1523:
   created_at: 2007-04-30 23:45:45
   data_value: "16"
 compound_results_039: 
-  updated_at: 2007-03-30 22:31:35
-  parameter_context_id: "13"
-  protocol_version_id: "7"
-  task_id: "20"
-  column_no: "2"
+  updated_at: 2007-03-24 17:05:07
+  parameter_context_id: "19"
+  protocol_version_id: "11"
+  task_id: "4"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "1006"
-  parameter_name: p
-  task_context_id: "2276"
-  id: "1706"
-  parameter_id: "65"
+  compound_id: "1"
+  parameter_name: Max Inhibition Conc
+  task_context_id: "1151"
+  id: "761"
+  parameter_id: "118"
   row_no: "0"
   created_by_user_id: "1"
-  row_label: Group[0]
+  row_label: Compound[21]
   data_element_id: 
-  label: Group
-  compound_name: saline
-  compound_parameter_id: "213"
-  created_at: 2007-03-30 22:31:35
-  data_value: "0"
+  label: Compound
+  compound_name: AB001
+  compound_parameter_id: "114"
+  created_at: 2007-03-24 17:05:07
+  data_value: "20"
 compound_results_102: 
   updated_at: 2007-04-30 23:44:09
   parameter_context_id: "51"
@@ -31017,26 +31689,26 @@ compound_results_1319:
   created_at: 2007-04-30 23:45:31
   data_value: "14"
 compound_results_1650: 
-  updated_at: 2007-05-01 05:56:11
+  updated_at: 2007-05-01 05:56:13
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "691"
+  compound_id: "32"
   parameter_name: CPM
-  task_context_id: "2716"
-  id: "3351"
+  task_context_id: "2717"
+  id: "3352"
   parameter_id: "336"
-  row_no: "15"
+  row_no: "16"
   created_by_user_id: "3"
-  row_label: wells[15]
+  row_label: wells[16]
   data_element_id: 
   label: wells
-  compound_name: AB00691
+  compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:11
-  data_value: "1307"
+  created_at: 2007-05-01 05:56:13
+  data_value: "1280"
 compound_results_165: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -31080,7 +31752,7 @@ compound_results_1587:
   created_at: 2007-05-01 05:44:06
   data_value: "1"
 compound_results_1651: 
-  updated_at: 2007-05-01 05:44:28
+  updated_at: 2007-05-01 05:44:29
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -31088,17 +31760,17 @@ compound_results_1651:
   updated_by_user_id: "3"
   compound_id: "32"
   parameter_name: row
-  task_context_id: "2717"
-  id: "3279"
+  task_context_id: "2718"
+  id: "3280"
   parameter_id: "327"
-  row_no: "16"
+  row_no: "17"
   created_by_user_id: "3"
-  row_label: wells[16]
+  row_label: wells[17]
   data_element_id: 
   label: wells
   compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:28
+  created_at: 2007-05-01 05:44:29
   data_value: "2"
 compound_results_166: 
   updated_at: 2007-04-30 23:44:13
@@ -31164,7 +31836,7 @@ compound_results_1588:
   created_at: 2007-05-01 05:44:45
   data_value: "1"
 compound_results_1652: 
-  updated_at: 2007-05-01 05:45:11
+  updated_at: 2007-05-01 05:45:13
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -31172,18 +31844,18 @@ compound_results_1652:
   updated_by_user_id: "3"
   compound_id: "32"
   parameter_name: column
-  task_context_id: "2717"
-  id: "3304"
+  task_context_id: "2718"
+  id: "3305"
   parameter_id: "328"
-  row_no: "16"
+  row_no: "17"
   created_by_user_id: "3"
-  row_label: wells[16]
+  row_label: wells[17]
   data_element_id: 
   label: wells
   compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:11
-  data_value: "4"
+  created_at: 2007-05-01 05:45:13
+  data_value: "5"
 compound_results_167: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -31332,7 +32004,7 @@ compound_results_231:
   created_at: 2007-04-30 23:44:17
   data_value: "2"
 compound_results_1653: 
-  updated_at: 2007-05-01 05:53:33
+  updated_at: 2007-05-01 05:53:31
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -31340,18 +32012,18 @@ compound_results_1653:
   updated_by_user_id: "3"
   compound_id: "32"
   parameter_name: Activity
-  task_context_id: "2717"
-  id: "3334"
+  task_context_id: "2718"
+  id: "3333"
   parameter_id: "337"
-  row_no: "16"
+  row_no: "17"
   created_by_user_id: "3"
-  row_label: wells[16]
+  row_label: wells[17]
   data_element_id: 
   label: wells
   compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:33
-  data_value: "95"
+  created_at: 2007-05-01 05:53:31
+  data_value: "96"
 compound_results_169: 
   updated_at: 2007-04-30 23:44:13
   parameter_context_id: "51"
@@ -31416,7 +32088,7 @@ compound_results_232:
   created_at: 2007-04-30 23:44:17
   data_value: "22"
 compound_results_1654: 
-  updated_at: 2007-05-01 05:56:13
+  updated_at: 2007-05-01 05:56:16
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -31424,18 +32096,18 @@ compound_results_1654:
   updated_by_user_id: "3"
   compound_id: "32"
   parameter_name: CPM
-  task_context_id: "2717"
-  id: "3352"
+  task_context_id: "2718"
+  id: "3353"
   parameter_id: "336"
-  row_no: "16"
+  row_no: "17"
   created_by_user_id: "3"
-  row_label: wells[16]
+  row_label: wells[17]
   data_element_id: 
   label: wells
   compound_name: AB0032
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:13
-  data_value: "1280"
+  created_at: 2007-05-01 05:56:16
+  data_value: "1288"
 compound_results_233: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -31458,25 +32130,25 @@ compound_results_233:
   created_at: 2007-04-30 23:44:18
   data_value: "263"
 compound_results_1655: 
-  updated_at: 2007-05-01 05:44:29
+  updated_at: 2007-05-01 05:44:31
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "12"
   updated_by_user_id: "3"
-  compound_id: "32"
+  compound_id: "433"
   parameter_name: row
-  task_context_id: "2718"
-  id: "3280"
+  task_context_id: "2719"
+  id: "3281"
   parameter_id: "327"
-  row_no: "17"
+  row_no: "18"
   created_by_user_id: "3"
-  row_label: wells[17]
+  row_label: wells[18]
   data_element_id: 
   label: wells
-  compound_name: AB0032
+  compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:29
+  created_at: 2007-05-01 05:44:31
   data_value: "2"
 compound_results_234: 
   updated_at: 2007-04-30 23:44:18
@@ -31500,26 +32172,26 @@ compound_results_234:
   created_at: 2007-04-30 23:44:18
   data_value: "16.03475241"
 compound_results_1656: 
-  updated_at: 2007-05-01 05:45:13
+  updated_at: 2007-05-01 05:45:15
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "13"
   updated_by_user_id: "3"
-  compound_id: "32"
+  compound_id: "433"
   parameter_name: column
-  task_context_id: "2718"
-  id: "3305"
+  task_context_id: "2719"
+  id: "3306"
   parameter_id: "328"
-  row_no: "17"
+  row_no: "18"
   created_by_user_id: "3"
-  row_label: wells[17]
+  row_label: wells[18]
   data_element_id: 
   label: wells
-  compound_name: AB0032
+  compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:45:13
-  data_value: "5"
+  created_at: 2007-05-01 05:45:15
+  data_value: "6"
 compound_results_235: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -31541,26 +32213,47 @@ compound_results_235:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "2"
+compound_results_1720: 
+  updated_at: 2007-06-01 11:03:35
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "113"
+  parameter_name: Measure
+  task_context_id: "2847"
+  id: "3507"
+  parameter_id: "509"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: context0[2]
+  data_element_id: 
+  label: context0
+  compound_name: AB00113
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:11
+  data_value: "11"
 compound_results_1657: 
-  updated_at: 2007-05-01 05:53:31
+  updated_at: 2007-05-01 05:53:29
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "17"
   updated_by_user_id: "3"
-  compound_id: "32"
+  compound_id: "433"
   parameter_name: Activity
-  task_context_id: "2718"
-  id: "3333"
+  task_context_id: "2719"
+  id: "3332"
   parameter_id: "337"
-  row_no: "17"
+  row_no: "18"
   created_by_user_id: "3"
-  row_label: wells[17]
+  row_label: wells[18]
   data_element_id: 
   label: wells
-  compound_name: AB0032
+  compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:53:31
+  created_at: 2007-05-01 06:53:26
   data_value: "96"
 compound_results_236: 
   updated_at: 2007-04-30 23:44:18
@@ -31583,6 +32276,27 @@ compound_results_236:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "23"
+compound_results_1721: 
+  updated_at: 2007-05-31 23:19:52
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "113"
+  parameter_name: Concentration
+  task_context_id: "2847"
+  id: "3522"
+  parameter_id: "510"
+  row_no: "2"
+  created_by_user_id: "3"
+  row_label: context0[2]
+  data_element_id: 
+  label: context0
+  compound_name: AB00113
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:22
+  data_value: "10100"
 compound_results_300: 
   updated_at: 2007-04-30 23:44:22
   parameter_context_id: "51"
@@ -31605,25 +32319,25 @@ compound_results_300:
   created_at: 2007-04-30 23:44:22
   data_value: "15"
 compound_results_1658: 
-  updated_at: 2007-05-01 05:56:16
+  updated_at: 2007-05-01 05:56:18
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
   column_no: "16"
   updated_by_user_id: "3"
-  compound_id: "32"
+  compound_id: "433"
   parameter_name: CPM
-  task_context_id: "2718"
-  id: "3353"
+  task_context_id: "2719"
+  id: "3354"
   parameter_id: "336"
-  row_no: "17"
+  row_no: "18"
   created_by_user_id: "3"
-  row_label: wells[17]
+  row_label: wells[18]
   data_element_id: 
   label: wells
-  compound_name: AB0032
+  compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:56:16
+  created_at: 2007-05-01 05:56:18
   data_value: "1288"
 compound_results_237: 
   updated_at: 2007-04-30 23:44:18
@@ -31646,6 +32360,27 @@ compound_results_237:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "594"
+compound_results_1722: 
+  updated_at: 2007-05-31 20:39:01
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Counts
+  task_context_id: "2848"
+  id: "3488"
+  parameter_id: "503"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: context0[3]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:01
+  data_value: "40"
 compound_results_301: 
   updated_at: 2007-04-30 23:44:22
   parameter_context_id: "51"
@@ -31668,7 +32403,7 @@ compound_results_301:
   created_at: 2007-04-30 23:44:22
   data_value: "351"
 compound_results_1659: 
-  updated_at: 2007-05-01 05:44:31
+  updated_at: 2007-05-01 05:44:32
   parameter_context_id: "53"
   protocol_version_id: "27"
   task_id: "35"
@@ -31676,17 +32411,17 @@ compound_results_1659:
   updated_by_user_id: "3"
   compound_id: "433"
   parameter_name: row
-  task_context_id: "2719"
-  id: "3281"
+  task_context_id: "2720"
+  id: "3282"
   parameter_id: "327"
-  row_no: "18"
+  row_no: "19"
   created_by_user_id: "3"
-  row_label: wells[18]
+  row_label: wells[19]
   data_element_id: 
   label: wells
   compound_name: AB00433
   compound_parameter_id: "335"
-  created_at: 2007-05-01 05:44:31
+  created_at: 2007-05-01 05:44:32
   data_value: "2"
 compound_results_238: 
   updated_at: 2007-04-30 23:44:18
@@ -31709,6 +32444,27 @@ compound_results_238:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:18
   data_value: "41.81790889"
+compound_results_1723: 
+  updated_at: 2007-06-01 09:23:57
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Conc_precent
+  task_context_id: "2848"
+  id: "3501"
+  parameter_id: "504"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: context0[3]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:19
+  data_value: "12"
 compound_results_239: 
   updated_at: 2007-04-30 23:44:18
   parameter_context_id: "51"
@@ -31751,6 +32507,27 @@ compound_results_302:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:22
   data_value: "22.88948888"
+compound_results_1724: 
+  updated_at: 2007-05-31 22:11:54
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Measure
+  task_context_id: "2848"
+  id: "3508"
+  parameter_id: "509"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: context0[3]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:11
+  data_value: "3333"
 compound_results_570: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -31793,6 +32570,27 @@ compound_results_303:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:22
   data_value: "3"
+compound_results_1725: 
+  updated_at: 2007-05-31 23:20:01
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "11"
+  parameter_name: Concentration
+  task_context_id: "2848"
+  id: "3521"
+  parameter_id: "510"
+  row_no: "3"
+  created_by_user_id: "3"
+  row_label: context0[3]
+  data_element_id: 
+  label: context0
+  compound_name: AB0011
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:21
+  data_value: "10"
 compound_results_571: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -31835,6 +32633,27 @@ compound_results_304:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:22
   data_value: "16"
+compound_results_1726: 
+  updated_at: 2007-05-31 20:39:03
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "1"
+  updated_by_user_id: "3"
+  compound_id: "87"
+  parameter_name: Counts
+  task_context_id: "2849"
+  id: "3489"
+  parameter_id: "503"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: context0[4]
+  data_element_id: 
+  label: context0
+  compound_name: AB0087
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:03
+  data_value: "50"
 compound_results_572: 
   updated_at: 2007-04-30 23:44:40
   parameter_context_id: "51"
@@ -31877,6 +32696,27 @@ compound_results_305:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:22
   data_value: "533"
+compound_results_1727: 
+  updated_at: 2007-06-01 11:17:49
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "2"
+  updated_by_user_id: "3"
+  compound_id: "87"
+  parameter_name: Conc_precent
+  task_context_id: "2849"
+  id: "3500"
+  parameter_id: "504"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: context0[4]
+  data_element_id: 
+  label: context0
+  compound_name: AB0087
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:39:19
+  data_value: "3.048"
 compound_results_1030: 
   updated_at: 2007-04-30 23:45:11
   parameter_context_id: "51"
@@ -31940,6 +32780,27 @@ compound_results_306:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:22
   data_value: "37.0663302"
+compound_results_1728: 
+  updated_at: 2007-05-31 22:13:13
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "7"
+  updated_by_user_id: "3"
+  compound_id: "87"
+  parameter_name: Measure
+  task_context_id: "2849"
+  id: "3509"
+  parameter_id: "509"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: context0[4]
+  data_element_id: 
+  label: context0
+  compound_name: AB0087
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:12
+  data_value: "22"
 compound_results_1031: 
   updated_at: 2007-04-30 23:45:11
   parameter_context_id: "51"
@@ -32003,6 +32864,27 @@ compound_results_307:
   compound_parameter_id: "313"
   created_at: 2007-04-30 23:44:23
   data_value: "3"
+compound_results_1729: 
+  updated_at: 2007-05-31 23:20:24
+  parameter_context_id: "77"
+  protocol_version_id: "41"
+  task_id: "46"
+  column_no: "8"
+  updated_by_user_id: "3"
+  compound_id: "87"
+  parameter_name: Concentration
+  task_context_id: "2849"
+  id: "3520"
+  parameter_id: "510"
+  row_no: "4"
+  created_by_user_id: "3"
+  row_label: context0[4]
+  data_element_id: 
+  label: context0
+  compound_name: AB0087
+  compound_parameter_id: "507"
+  created_at: 2007-05-31 20:42:21
+  data_value: 1e-09
 compound_results_1032: 
   updated_at: 2007-04-30 23:45:11
   parameter_context_id: "51"
@@ -33270,7 +34152,7 @@ compound_results_020:
   task_id: "1"
   column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "1005"
+  compound_id: "1"
   parameter_name: Group Size
   task_context_id: "893"
   id: "261"
@@ -33280,8 +34162,8 @@ compound_results_020:
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
+  compound_name: AB001
+  compound_parameter_id: "91"
   created_at: 2007-03-24 16:19:01
   data_value: "8"
 compound_results_1378: 
@@ -33369,17 +34251,17 @@ compound_results_718:
   created_at: 2007-04-30 23:44:50
   data_value: "41.58422469"
 compound_results_021: 
-  updated_at: 2007-03-24 16:19:21
+  updated_at: 2007-03-24 16:24:46
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "1"
+  column_no: "7"
   updated_by_user_id: "1"
   compound_id: "1005"
-  parameter_name: DoseGroupID
+  parameter_name: Group Size
   task_context_id: "893"
-  id: "268"
-  parameter_id: "88"
+  id: "261"
+  parameter_id: "94"
   row_no: "3"
   created_by_user_id: "1"
   row_label: Dose Groups[3]
@@ -33387,8 +34269,8 @@ compound_results_021:
   label: Dose Groups
   compound_name: 00749
   compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:21
-  data_value: "4"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_1379: 
   updated_at: 2007-04-30 23:45:35
   parameter_context_id: "51"
@@ -33453,26 +34335,26 @@ compound_results_719:
   created_at: 2007-04-30 23:44:50
   data_value: "7"
 compound_results_022: 
-  updated_at: 2007-03-24 16:20:06
+  updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "5"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1005"
-  parameter_name: Concentration
+  compound_id: "1"
+  parameter_name: DoseGroupID
   task_context_id: "893"
-  id: "270"
-  parameter_id: "92"
+  id: "268"
+  parameter_id: "88"
   row_no: "3"
   created_by_user_id: "1"
   row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
-  created_at: 2007-03-24 16:20:06
-  data_value: "10"
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:19:21
+  data_value: "4"
 compound_results_1444: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -33537,26 +34419,26 @@ compound_results_290:
   created_at: 2007-04-30 23:44:21
   data_value: "36.75475127"
 compound_results_023: 
-  updated_at: 2007-03-24 16:24:50
+  updated_at: 2007-03-24 16:19:21
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "7"
+  column_no: "1"
   updated_by_user_id: "1"
   compound_id: "1005"
-  parameter_name: Group Size
-  task_context_id: "894"
-  id: "262"
-  parameter_id: "94"
-  row_no: "4"
+  parameter_name: DoseGroupID
+  task_context_id: "893"
+  id: "268"
+  parameter_id: "88"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
   compound_name: 00749
   compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:01
-  data_value: "8"
+  created_at: 2007-03-24 16:19:21
+  data_value: "4"
 compound_results_1445: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -33621,26 +34503,26 @@ compound_results_291:
   created_at: 2007-04-30 23:44:22
   data_value: "3"
 compound_results_024: 
-  updated_at: 2007-03-24 16:19:22
+  updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "1"
+  column_no: "5"
   updated_by_user_id: "1"
-  compound_id: "1005"
-  parameter_name: DoseGroupID
-  task_context_id: "894"
-  id: "267"
-  parameter_id: "88"
-  row_no: "4"
+  compound_id: "1"
+  parameter_name: Concentration
+  task_context_id: "893"
+  id: "270"
+  parameter_id: "92"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:12
-  data_value: "5"
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:20:06
+  data_value: "10"
 compound_results_1446: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -33684,7 +34566,7 @@ compound_results_292:
   created_at: 2007-04-30 23:44:22
   data_value: "13"
 compound_results_025: 
-  updated_at: 2007-03-24 16:20:07
+  updated_at: 2007-03-24 16:20:06
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
@@ -33692,18 +34574,18 @@ compound_results_025:
   updated_by_user_id: "1"
   compound_id: "1005"
   parameter_name: Concentration
-  task_context_id: "894"
-  id: "271"
+  task_context_id: "893"
+  id: "270"
   parameter_id: "92"
-  row_no: "4"
+  row_no: "3"
   created_by_user_id: "1"
-  row_label: Dose Groups[4]
+  row_label: Dose Groups[3]
   data_element_id: 
   label: Dose Groups
   compound_name: 00749
   compound_parameter_id: "93"
-  created_at: 2007-03-24 16:20:07
-  data_value: "20"
+  created_at: 2007-03-24 16:20:06
+  data_value: "10"
 compound_results_1447: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -33768,24 +34650,24 @@ compound_results_293:
   created_at: 2007-04-30 23:44:22
   data_value: "388"
 compound_results_026: 
-  updated_at: 2007-03-24 16:24:56
+  updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
   column_no: "7"
   updated_by_user_id: "1"
-  compound_id: "1005"
+  compound_id: "1"
   parameter_name: Group Size
-  task_context_id: "895"
-  id: "263"
+  task_context_id: "894"
+  id: "262"
   parameter_id: "94"
-  row_no: "5"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
+  compound_name: AB001
+  compound_parameter_id: "91"
   created_at: 2007-03-24 16:19:01
   data_value: "8"
 compound_results_1448: 
@@ -33852,26 +34734,26 @@ compound_results_294:
   created_at: 2007-04-30 23:44:22
   data_value: "25.77159398"
 compound_results_027: 
-  updated_at: 2007-03-24 16:19:27
+  updated_at: 2007-03-24 16:24:50
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "1"
+  column_no: "7"
   updated_by_user_id: "1"
   compound_id: "1005"
-  parameter_name: DoseGroupID
-  task_context_id: "895"
-  id: "269"
-  parameter_id: "88"
-  row_no: "5"
+  parameter_name: Group Size
+  task_context_id: "894"
+  id: "262"
+  parameter_id: "94"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
   compound_name: 00749
   compound_parameter_id: "93"
-  created_at: 2007-03-24 16:19:27
-  data_value: "6"
+  created_at: 2007-03-24 16:19:01
+  data_value: "8"
 compound_results_1449: 
   updated_at: 2007-04-30 23:45:40
   parameter_context_id: "51"
@@ -33936,26 +34818,26 @@ compound_results_295:
   created_at: 2007-04-30 23:44:22
   data_value: "3"
 compound_results_028: 
-  updated_at: 2007-03-24 16:20:10
+  updated_at: 2007-03-24 16:19:22
   parameter_context_id: "16"
   protocol_version_id: "9"
   task_id: "1"
-  column_no: "5"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1005"
-  parameter_name: Concentration
-  task_context_id: "895"
-  id: "272"
-  parameter_id: "92"
-  row_no: "5"
+  compound_id: "1"
+  parameter_name: DoseGroupID
+  task_context_id: "894"
+  id: "267"
+  parameter_id: "88"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Dose Groups[5]
+  row_label: Dose Groups[4]
   data_element_id: 
   label: Dose Groups
-  compound_name: 00749
-  compound_parameter_id: "93"
-  created_at: 2007-03-24 16:20:10
-  data_value: "40"
+  compound_name: AB001
+  compound_parameter_id: "91"
+  created_at: 2007-03-24 16:19:12
+  data_value: "5"
 compound_results_1513: 
   updated_at: 2007-04-30 23:45:44
   parameter_context_id: "51"
@@ -33999,26 +34881,26 @@ compound_results_296:
   created_at: 2007-04-30 23:44:22
   data_value: "14"
 compound_results_029: 
-  updated_at: 2007-03-24 17:05:07
-  parameter_context_id: "19"
-  protocol_version_id: "11"
-  task_id: "4"
-  column_no: "4"
+  updated_at: 2007-03-24 16:19:22
+  parameter_context_id: "16"
+  protocol_version_id: "9"
+  task_id: "1"
+  column_no: "1"
   updated_by_user_id: "1"
-  compound_id: "1"
-  parameter_name: Max Inhibition
-  task_context_id: "1151"
-  id: "760"
-  parameter_id: "117"
-  row_no: "0"
+  compound_id: "1005"
+  parameter_name: DoseGroupID
+  task_context_id: "894"
+  id: "267"
+  parameter_id: "88"
+  row_no: "4"
   created_by_user_id: "1"
-  row_label: Compound[21]
+  row_label: Dose Groups[4]
   data_element_id: 
-  label: Compound
-  compound_name: AB001
-  compound_parameter_id: "114"
-  created_at: 2007-03-24 17:05:07
-  data_value: "58"
+  label: Dose Groups
+  compound_name: 00749
+  compound_parameter_id: "93"
+  created_at: 2007-03-24 16:19:12
+  data_value: "5"
 compound_results_1514: 
   updated_at: 2007-04-30 23:45:45
   parameter_context_id: "51"

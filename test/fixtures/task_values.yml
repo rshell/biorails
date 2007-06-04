@@ -1559,19 +1559,6 @@ task_values_1433:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "1.22367e-11"
-task_values_3280: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2822"
-  id: "3537"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_1321: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -1611,19 +1598,6 @@ task_values_1434:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "2.73437e-11"
-task_values_3281: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2823"
-  id: "3538"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "3"
 task_values_1322: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -1663,19 +1637,6 @@ task_values_1435:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "1.76077e-11"
-task_values_3282: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2824"
-  id: "3539"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "3"
 task_values_1323: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -1728,19 +1689,6 @@ task_values_1436:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "3.4134e-11"
-task_values_3283: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2825"
-  id: "3540"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3170: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:38
@@ -1793,19 +1741,6 @@ task_values_1437:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "1.96729e-11"
-task_values_3284: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2826"
-  id: "3541"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3171: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:40
@@ -1858,19 +1793,6 @@ task_values_1438:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "2.14534e-11"
-task_values_3285: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2827"
-  id: "3542"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3172: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:42
@@ -2014,19 +1936,6 @@ task_values_3060:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:52:13
   data_value: "99"
-task_values_3286: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2828"
-  id: "3543"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3174: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:12
@@ -2105,19 +2014,6 @@ task_values_3061:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:52:23
   data_value: "45"
-task_values_3287: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2829"
-  id: "3544"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3175: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:14
@@ -2196,19 +2092,6 @@ task_values_3062:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:52:28
   data_value: "79"
-task_values_3288: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2830"
-  id: "3545"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_1850: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:31
@@ -2274,19 +2157,6 @@ task_values_3063:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:52:35
   data_value: "65"
-task_values_3289: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2831"
-  id: "3546"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_3176: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:16
@@ -3185,18 +3055,18 @@ task_values_1639:
   created_at: 2007-04-30 23:44:17
   data_value: "2"
 task_values_3260: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2802"
+  storage_unit: mol/m^3
+  updated_at: 2007-06-01 09:21:41
+  display_unit: M
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2852"
   id: "3517"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:20
+  data_value: "1220"
 task_values_095: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -3250,18 +3120,18 @@ task_values_1414:
   created_at: 2007-03-30 22:28:31
   data_value: "6.09716e-12"
 task_values_3261: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2803"
+  storage_unit: mol/m^3
+  updated_at: 2007-05-31 23:20:56
+  display_unit: mM
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2851"
   id: "3518"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:20
+  data_value: "10"
 task_values_096: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -3315,18 +3185,18 @@ task_values_1415:
   created_at: 2007-03-30 22:28:31
   data_value: "7.87968e-12"
 task_values_3262: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2804"
+  storage_unit: kg/m^3
+  updated_at: 2007-05-31 23:24:56
+  display_unit: wt%
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2850"
   id: "3519"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:21
+  data_value: "110"
 task_values_097: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -3380,18 +3250,18 @@ task_values_1416:
   created_at: 2007-03-30 22:28:31
   data_value: "1.64286e-11"
 task_values_3263: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2805"
+  storage_unit: mol/m^3
+  updated_at: 2007-05-31 23:20:24
+  display_unit: pM
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2849"
   id: "3520"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:21
+  data_value: 1e-09
 task_values_3150: 
   storage_unit: 
   updated_at: 2007-05-01 11:45:30
@@ -3497,18 +3367,18 @@ task_values_1418:
   created_at: 2007-03-30 22:28:32
   data_value: "1.0764e-11"
 task_values_3264: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2806"
+  storage_unit: mol/m^3
+  updated_at: 2007-05-31 23:20:01
+  display_unit: mM
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2848"
   id: "3521"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:21
+  data_value: "10"
 task_values_3152: 
   storage_unit: 
   updated_at: 2007-05-01 09:37:59
@@ -3549,18 +3419,18 @@ task_values_1419:
   created_at: 2007-03-30 22:28:32
   data_value: "5.07405e-12"
 task_values_3265: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2807"
+  storage_unit: mol/m^3
+  updated_at: 2007-05-31 23:19:52
+  display_unit: M
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2847"
   id: "3522"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:22
+  data_value: "10100"
 task_values_3153: 
   storage_unit: 
   updated_at: 2007-05-01 09:38:05
@@ -3614,18 +3484,18 @@ task_values_3040:
   created_at: 2007-05-01 05:45:00
   data_value: "9"
 task_values_3266: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2808"
+  storage_unit: mol/m^3
+  updated_at: 2007-05-31 23:26:03
+  display_unit: nM
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2846"
   id: "3523"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:22
+  data_value: "1.012e-05"
 task_values_1308: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -3666,18 +3536,18 @@ task_values_3041:
   created_at: 2007-05-01 05:45:01
   data_value: "10"
 task_values_3267: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2809"
+  storage_unit: mol/m^3
+  updated_at: 2007-06-01 09:23:27
+  display_unit: M
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2845"
   id: "3524"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:26
+  data_value: "110"
 task_values_3154: 
   storage_unit: 
   updated_at: 2007-05-01 09:38:06
@@ -3730,19 +3600,6 @@ task_values_3042:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:45:03
   data_value: "11"
-task_values_3268: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2810"
-  id: "3525"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
 task_values_3155: 
   storage_unit: 
   updated_at: 2007-05-01 09:38:09
@@ -3795,19 +3652,6 @@ task_values_1830:
   created_by_user_id: "3"
   created_at: 2007-04-30 23:44:30
   data_value: "15.87896295"
-task_values_3269: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2811"
-  id: "3526"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3156: 
   storage_unit: 
   updated_at: 2007-05-01 09:38:10
@@ -4784,18 +4628,18 @@ task_values_1506:
   created_at: 2007-04-30 23:44:08
   data_value: "29.82212008"
 task_values_3240: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2786"
+  storage_unit: kg/m^3
+  updated_at: 2007-06-01 11:03:53
+  display_unit: wt%
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2852"
   id: "3497"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "217.1086372"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:18
+  data_value: "120"
 task_values_188: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:31
@@ -4836,18 +4680,18 @@ task_values_1507:
   created_at: 2007-04-30 23:44:09
   data_value: "1"
 task_values_3241: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2787"
+  storage_unit: tempK
+  updated_at: 2007-06-01 11:14:46
+  display_unit: tempC
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2851"
   id: "3498"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "216.8770141"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:18
+  data_value: "283.15"
 task_values_189: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:31
@@ -4914,18 +4758,18 @@ task_values_1509:
   created_at: 2007-04-30 23:44:09
   data_value: "317"
 task_values_3242: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2788"
+  storage_unit: kg/m^3
+  updated_at: 2007-06-01 09:24:05
+  display_unit: wt%
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2850"
   id: "3499"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "209.4059764"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:19
+  data_value: "33"
 task_values_3130: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:22
@@ -4953,18 +4797,18 @@ task_values_078:
   created_at: 2007-03-24 16:31:30
   data_value: "11"
 task_values_3243: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2789"
+  storage_unit: m
+  updated_at: 2007-06-01 11:17:49
+  display_unit: ft
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  task_context_id: "2849"
   id: "3500"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "212.6203034"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:19
+  data_value: "3.048"
 task_values_3131: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:24
@@ -4992,31 +4836,31 @@ task_values_079:
   created_at: 2007-03-24 16:31:30
   data_value: "11"
 task_values_3244: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2790"
+  storage_unit: kg/m^3
+  updated_at: 2007-06-01 09:23:57
+  display_unit: wt%
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2848"
   id: "3501"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "224.7294259"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:19
+  data_value: "12"
 task_values_3245: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2791"
+  storage_unit: ""
+  updated_at: 2007-06-01 11:05:44
+  display_unit: mg/kg
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2847"
   id: "3502"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "230.209262"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:20
+  data_value: 1e-06
 task_values_3132: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:27
@@ -5057,18 +4901,18 @@ task_values_3020:
   created_at: 2007-05-01 06:44:24
   data_value: "2"
 task_values_3246: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2792"
+  storage_unit: m/s
+  updated_at: 2007-06-01 11:22:21
+  display_unit: furlong/fortnight
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2846"
   id: "3503"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "204.2979556"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:20
+  data_value: "0.00166335978835979"
 task_values_3133: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:28
@@ -5109,18 +4953,18 @@ task_values_3021:
   created_at: 2007-05-01 05:44:26
   data_value: "2"
 task_values_3247: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2793"
+  storage_unit: kg/m^3
+  updated_at: 2007-06-01 09:23:47
+  display_unit: wt%
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2845"
   id: "3504"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "205.5008416"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:23
+  data_value: "10"
 task_values_3134: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:29
@@ -5162,17 +5006,17 @@ task_values_490:
   data_value: "186"
 task_values_3248: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: ""
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2794"
+  updated_at: 2007-05-31 22:10:51
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  task_context_id: "2845"
   id: "3505"
-  parameter_id: "460"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "1"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:11
+  data_value: "2"
 task_values_3135: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:31
@@ -5239,18 +5083,18 @@ task_values_491:
   created_at: 2007-03-24 16:31:35
   data_value: "246"
 task_values_3249: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
+  storage_unit: ""
+  updated_at: 2007-06-01 11:03:26
   display_unit: ""
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2795"
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "5"
+  task_context_id: "2846"
   id: "3506"
-  parameter_id: "460"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "2"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:11
+  data_value: "111"
 task_values_3136: 
   storage_unit: 
   updated_at: 2007-05-01 06:10:41
@@ -6280,17 +6124,17 @@ task_values_055:
   data_value: "237"
 task_values_3220: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:54
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2766"
+  task_context_id: "2840"
   id: "3477"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "230.2620357"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:54
+  data_value: "2.3"
 task_values_169: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:31
@@ -6319,17 +6163,17 @@ task_values_056:
   data_value: "17"
 task_values_3221: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:56
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2767"
+  task_context_id: "2841"
   id: "3478"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "233.6598527"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:56
+  data_value: "3.4"
 task_values_057: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -6358,17 +6202,17 @@ task_values_690:
   data_value: "222"
 task_values_3222: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:59
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2768"
+  task_context_id: "2842"
   id: "3479"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "208.2551391"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:59
+  data_value: "4.5"
 task_values_058: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -6397,17 +6241,17 @@ task_values_691:
   data_value: "23"
 task_values_3223: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:43:00
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2769"
+  task_context_id: "2843"
   id: "3480"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "218.9498975"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:43:00
+  data_value: "5.6"
 task_values_059: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -6449,17 +6293,17 @@ task_values_692:
   data_value: "47"
 task_values_3224: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2770"
+  updated_at: 2007-05-31 20:36:42
+  display_unit: count
+  task_id: "45"
+  updated_by_user_id: "3"
+  lock_version: "6"
+  task_context_id: "2844"
   id: "3481"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "220.3400015"
+  parameter_id: "493"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:56:23
+  data_value: "1.22"
 task_values_580: 
   storage_unit: 
   updated_at: 2007-03-24 17:35:42
@@ -6501,17 +6345,17 @@ task_values_693:
   data_value: "234"
 task_values_3225: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:57:07
+  display_unit: molar
+  task_id: "45"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2771"
+  task_context_id: "2844"
   id: "3482"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "237.4638936"
+  parameter_id: "500"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:57:07
+  data_value: "2.22"
 task_values_581: 
   storage_unit: 
   updated_at: 2007-03-24 17:35:51
@@ -6566,17 +6410,17 @@ task_values_1900:
   data_value: "14"
 task_values_3226: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2772"
+  updated_at: 2007-05-31 20:36:44
+  display_unit: wt%
+  task_id: "45"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2844"
   id: "3483"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "206.0134507"
+  parameter_id: "494"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 14:15:51
+  data_value: "12.11"
 task_values_582: 
   storage_unit: 
   updated_at: 2007-03-24 17:35:56
@@ -6644,17 +6488,17 @@ task_values_3000:
   data_value: "1328"
 task_values_3227: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2773"
+  updated_at: 2007-05-31 20:37:11
+  display_unit: 
+  task_id: "45"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2844"
   id: "3484"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "209.2414204"
+  parameter_id: "499"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 14:19:39
+  data_value: "2.333"
 task_values_583: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:05
@@ -6735,17 +6579,17 @@ task_values_3001:
   data_value: "75"
 task_values_3228: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:52
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2774"
+  updated_at: 2007-05-31 21:09:33
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2845"
   id: "3485"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:52
-  data_value: "228.5630422"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:38:50
+  data_value: "10.1"
 task_values_584: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:06
@@ -6826,17 +6670,17 @@ task_values_3002:
   data_value: "103"
 task_values_3229: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2775"
+  updated_at: 2007-05-31 20:38:58
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2846"
   id: "3486"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "201.7882313"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:38:52
+  data_value: "20"
 task_values_585: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:06
@@ -7643,19 +7487,6 @@ task_values_145:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "237"
-task_values_3310: 
-  storage_unit: 
-  updated_at: 2007-05-08 19:19:46
-  display_unit: 
-  task_id: "58"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2895"
-  id: "3567"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-08 19:19:46
-  data_value: "2"
 task_values_033: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -7708,19 +7539,6 @@ task_values_146:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "205"
-task_values_3311: 
-  storage_unit: 
-  updated_at: 2007-05-08 19:19:48
-  display_unit: 
-  task_id: "58"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2896"
-  id: "3568"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-08 19:19:48
-  data_value: "3"
 task_values_780: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:47
@@ -7773,19 +7591,6 @@ task_values_147:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "250"
-task_values_3312: 
-  storage_unit: 
-  updated_at: 2007-05-08 19:19:49
-  display_unit: 
-  task_id: "58"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2897"
-  id: "3569"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-08 19:19:49
-  data_value: "4"
 task_values_781: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:47
@@ -7838,32 +7643,19 @@ task_values_148:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "909"
-task_values_3313: 
-  storage_unit: 
-  updated_at: 2007-05-08 19:19:51
-  display_unit: 
-  task_id: "58"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2898"
-  id: "3570"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-08 19:19:51
-  data_value: "5"
 task_values_3200: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-21 18:49:05
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2746"
+  task_context_id: "2830"
   id: "3457"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "201.5716321"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-21 18:49:05
+  data_value: "2.3"
 task_values_782: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:48
@@ -7916,32 +7708,19 @@ task_values_149:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "14"
-task_values_3314: 
-  storage_unit: 
-  updated_at: 2007-05-09 11:11:57
-  display_unit: 
-  task_id: "57"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2899"
-  id: "3571"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 11:11:57
-  data_value: "1"
 task_values_3201: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-21 18:59:18
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2747"
+  task_context_id: "2831"
   id: "3458"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "230.461448"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-21 18:59:18
+  data_value: "1.55"
 task_values_783: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:48
@@ -7994,32 +7773,19 @@ task_values_896:
   created_by_user_id: "1"
   created_at: 2007-03-30 21:59:57
   data_value: "220"
-task_values_3315: 
-  storage_unit: 
-  updated_at: 2007-05-09 11:11:58
-  display_unit: 
-  task_id: "57"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2900"
-  id: "3572"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 11:11:58
-  data_value: "2"
 task_values_3202: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-21 19:07:52
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2748"
+  task_context_id: "2831"
   id: "3459"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "218.8975424"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-21 19:07:52
+  data_value: "2"
 task_values_784: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:48
@@ -8072,32 +7838,19 @@ task_values_897:
   created_by_user_id: "1"
   created_at: 2007-03-30 21:59:57
   data_value: "231"
-task_values_3316: 
-  storage_unit: 
-  updated_at: 2007-05-09 11:12:00
-  display_unit: 
-  task_id: "57"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2901"
-  id: "3573"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 11:12:00
-  data_value: "2"
 task_values_3203: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:07
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2749"
+  task_context_id: "2829"
   id: "3460"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "214.2882308"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:07
+  data_value: "12"
 task_values_785: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:48
@@ -8150,32 +7903,19 @@ task_values_898:
   created_by_user_id: "1"
   created_at: 2007-03-30 21:59:57
   data_value: "274"
-task_values_3317: 
-  storage_unit: 
-  updated_at: 2007-05-09 11:12:02
-  display_unit: 
-  task_id: "57"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2902"
-  id: "3574"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 11:12:02
-  data_value: "2"
 task_values_3204: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:08
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2750"
+  task_context_id: "2827"
   id: "3461"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "201.6429519"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:08
+  data_value: "13"
 task_values_786: 
   storage_unit: 
   updated_at: 2007-03-30 21:53:48
@@ -8228,32 +7968,19 @@ task_values_560:
   created_by_user_id: "1"
   created_at: 2007-03-24 17:34:27
   data_value: "7"
-task_values_3318: 
-  storage_unit: 
-  updated_at: 2007-05-09 11:12:07
-  display_unit: 
-  task_id: "57"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2903"
-  id: "3575"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 11:12:07
-  data_value: "2"
 task_values_3205: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:10
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2751"
+  task_context_id: "2828"
   id: "3462"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "222.5211968"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:10
+  data_value: "9"
 task_values_787: 
   storage_unit: 
   updated_at: 2007-03-30 21:54:04
@@ -8293,32 +8020,19 @@ task_values_561:
   created_by_user_id: "1"
   created_at: 2007-03-24 17:34:29
   data_value: "8"
-task_values_3319: 
-  storage_unit: 
-  updated_at: 2007-05-09 13:48:47
-  display_unit: 
-  task_id: "59"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  task_context_id: "2905"
-  id: "3576"
-  parameter_id: "888"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 13:22:59
-  data_value: "2.333"
 task_values_3206: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:12
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2752"
+  task_context_id: "2830"
   id: "3463"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "234.9078121"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:12
+  data_value: "23"
 task_values_788: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -8360,17 +8074,17 @@ task_values_562:
   data_value: "1.5"
 task_values_3207: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:14
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2753"
+  task_context_id: "2832"
   id: "3464"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "207.0757167"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:14
+  data_value: "3.4"
 task_values_789: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -8425,17 +8139,17 @@ task_values_563:
   data_value: "1.5"
 task_values_3208: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:19
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2754"
+  task_context_id: "2833"
   id: "3465"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "230.879513"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:19
+  data_value: "12"
 task_values_451: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:34
@@ -8477,17 +8191,17 @@ task_values_564:
   data_value: "1.5"
 task_values_3209: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:21
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2755"
+  task_context_id: "2834"
   id: "3466"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "223.1198116"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:21
+  data_value: "45"
 task_values_452: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:34
@@ -22359,19 +22073,6 @@ task_values_1556:
   created_by_user_id: "3"
   created_at: 2007-04-30 23:44:12
   data_value: "24"
-task_values_3290: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2832"
-  id: "3547"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_1444: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:32
@@ -22411,19 +22112,6 @@ task_values_1557:
   created_by_user_id: "3"
   created_at: 2007-04-30 23:44:12
   data_value: "89"
-task_values_3291: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2833"
-  id: "3548"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_1445: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:32
@@ -22463,19 +22151,6 @@ task_values_1558:
   created_by_user_id: "3"
   created_at: 2007-04-30 23:44:12
   data_value: "2.481068943"
-task_values_3292: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2834"
-  id: "3549"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "3"
 task_values_1446: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:32
@@ -22528,19 +22203,6 @@ task_values_1220:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:29
   data_value: "20.2"
-task_values_3293: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2835"
-  id: "3550"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3180: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:23
@@ -22593,19 +22255,6 @@ task_values_1221:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:29
   data_value: "20.47"
-task_values_3294: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2836"
-  id: "3551"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3181: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:24
@@ -22658,19 +22307,6 @@ task_values_1222:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:29
   data_value: "20.53"
-task_values_3295: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2837"
-  id: "3552"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3182: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:28
@@ -22736,19 +22372,6 @@ task_values_1223:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:29
   data_value: "19.72"
-task_values_3296: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2838"
-  id: "3553"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3183: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:30
@@ -22905,19 +22528,6 @@ task_values_3071:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:53:18
   data_value: "95"
-task_values_3297: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2839"
-  id: "3554"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3185: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:37
@@ -23009,19 +22619,6 @@ task_values_3072:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:53:20
   data_value: "95"
-task_values_3298: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2840"
-  id: "3555"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_3186: 
   storage_unit: 
   updated_at: 2007-05-01 09:40:39
@@ -23113,19 +22710,6 @@ task_values_3073:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:53:22
   data_value: "96"
-task_values_3299: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2841"
-  id: "3556"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_1861: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:32
@@ -24049,19 +23633,6 @@ task_values_1423:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "1.70898e-12"
-task_values_3270: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2812"
-  id: "3527"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_1311: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -24101,19 +23672,6 @@ task_values_1424:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "5.12708e-12"
-task_values_3271: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2813"
-  id: "3528"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_1312: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -24153,19 +23711,6 @@ task_values_1425:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "1.00218e-12"
-task_values_3272: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2814"
-  id: "3529"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_1313: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -24218,19 +23763,6 @@ task_values_1426:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "3.98102e-12"
-task_values_3273: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2815"
-  id: "3530"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3160: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:20
@@ -24283,19 +23815,6 @@ task_values_1427:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "6.58023e-12"
-task_values_3274: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2816"
-  id: "3531"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3161: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:21
@@ -24400,19 +23919,6 @@ task_values_1429:
   created_by_user_id: "1"
   created_at: 2007-03-30 22:28:32
   data_value: "2.014e-13"
-task_values_3275: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2817"
-  id: "3532"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3163: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:25
@@ -24478,19 +23984,6 @@ task_values_3050:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:45:16
   data_value: "7"
-task_values_3276: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2818"
-  id: "3533"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3164: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:27
@@ -24556,19 +24049,6 @@ task_values_3051:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:45:18
   data_value: "8"
-task_values_3277: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2819"
-  id: "3534"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_1319: 
   storage_unit: 
   updated_at: 2007-03-30 22:28:30
@@ -24621,19 +24101,6 @@ task_values_3052:
   created_by_user_id: "3"
   created_at: 2007-05-01 05:45:20
   data_value: "9"
-task_values_3278: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2820"
-  id: "3535"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3165: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:28
@@ -24699,19 +24166,6 @@ task_values_1840:
   created_by_user_id: "3"
   created_at: 2007-04-30 23:44:30
   data_value: "23"
-task_values_3279: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2821"
-  id: "3536"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "2"
 task_values_3166: 
   storage_unit: 
   updated_at: 2007-05-01 09:39:30
@@ -25636,18 +25090,18 @@ task_values_084:
   created_at: 2007-03-24 16:31:30
   data_value: "297"
 task_values_3250: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
+  storage_unit: ""
+  updated_at: 2007-06-01 11:03:35
   display_unit: ""
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2796"
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "6"
+  task_context_id: "2847"
   id: "3507"
-  parameter_id: "460"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "3"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:11
+  data_value: "11"
 task_values_1517: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:09
@@ -25702,17 +25156,17 @@ task_values_085:
   data_value: "154"
 task_values_3251: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: ""
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2797"
+  updated_at: 2007-05-31 22:11:54
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2848"
   id: "3508"
-  parameter_id: "460"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "4"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:11
+  data_value: "3333"
 task_values_1518: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:09
@@ -25767,17 +25221,17 @@ task_values_086:
   data_value: "31"
 task_values_3252: 
   storage_unit: 
-  updated_at: 2007-04-30 05:22:34
-  display_unit: ug/ml
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "1"
-  task_context_id: "2794"
+  updated_at: 2007-05-31 22:13:13
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  task_context_id: "2849"
   id: "3509"
-  parameter_id: "459"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:22:25
-  data_value: "0.152"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:12
+  data_value: "22"
 task_values_1519: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:09
@@ -25857,18 +25311,18 @@ task_values_088:
   created_at: 2007-03-24 16:31:30
   data_value: "12"
 task_values_3253: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:22:39
-  display_unit: ug/ml
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2795"
+  storage_unit: ""
+  updated_at: 2007-05-31 23:26:57
+  display_unit: ""
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  task_context_id: "2850"
   id: "3510"
-  parameter_id: "459"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:22:39
-  data_value: "0.0502"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:12
+  data_value: "111"
 task_values_3141: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:01
@@ -25910,17 +25364,17 @@ task_values_089:
   data_value: "12"
 task_values_3254: 
   storage_unit: 
-  updated_at: 2007-04-30 05:25:30
-  display_unit: ug/ml
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2796"
+  updated_at: 2007-05-31 22:06:11
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2851"
   id: "3511"
-  parameter_id: "459"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:25:30
-  data_value: "0.1042"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:12
+  data_value: "111"
 task_values_3142: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:05
@@ -25949,17 +25403,17 @@ task_values_1409:
   data_value: "2.48284e-14"
 task_values_3255: 
   storage_unit: 
-  updated_at: 2007-04-30 05:25:31
-  display_unit: ug/ml
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2797"
+  updated_at: 2007-05-31 22:06:12
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2852"
   id: "3512"
-  parameter_id: "459"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:25:31
-  data_value: "0.1503"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:13
+  data_value: "111"
 task_values_1930: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:36
@@ -25987,18 +25441,18 @@ task_values_3030:
   created_at: 2007-05-01 05:44:40
   data_value: "2"
 task_values_3256: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
+  storage_unit: ""
+  updated_at: 2007-06-01 09:48:42
   display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2798"
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  task_context_id: "2853"
   id: "3513"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:13
+  data_value: "11"
 task_values_3143: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:07
@@ -26040,17 +25494,17 @@ task_values_3031:
   data_value: "2"
 task_values_3257: 
   storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2799"
+  updated_at: 2007-05-31 22:09:03
+  display_unit: 
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2854"
   id: "3514"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "509"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:15
+  data_value: "111"
 task_values_3144: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:17
@@ -26091,18 +25545,18 @@ task_values_3032:
   created_at: 2007-05-01 05:44:45
   data_value: "1"
 task_values_3258: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2800"
+  storage_unit: mol/m^3
+  updated_at: 2007-06-01 09:23:14
+  display_unit: M
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2854"
   id: "3515"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:18
+  data_value: "110"
 task_values_3145: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:20
@@ -26143,18 +25597,18 @@ task_values_1820:
   created_at: 2007-04-30 23:44:29
   data_value: "18"
 task_values_3259: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:18
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2801"
+  storage_unit: mol/m^3
+  updated_at: 2007-06-01 09:23:00
+  display_unit: pM
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2853"
   id: "3516"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:18
-  data_value: "1"
+  parameter_id: "510"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:42:18
+  data_value: 1e-09
 task_values_3146: 
   storage_unit: 
   updated_at: 2007-05-01 06:11:23
@@ -27184,17 +26638,17 @@ task_values_064:
   data_value: "161"
 task_values_3230: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:38:59
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2776"
+  task_context_id: "2847"
   id: "3487"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "216.7919942"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:38:59
+  data_value: "30"
 task_values_178: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:31
@@ -27249,17 +26703,17 @@ task_values_066:
   data_value: "223"
 task_values_3231: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:01
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2777"
+  task_context_id: "2848"
   id: "3488"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "210.3156672"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:01
+  data_value: "40"
 task_values_067: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -27275,17 +26729,17 @@ task_values_067:
   data_value: "1655"
 task_values_3232: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:03
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2778"
+  task_context_id: "2849"
   id: "3489"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "218.542252"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:03
+  data_value: "50"
 task_values_068: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -27314,17 +26768,17 @@ task_values_3120:
   data_value: "2"
 task_values_3233: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:04
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2779"
+  task_context_id: "2850"
   id: "3490"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "222.7557194"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:04
+  data_value: "60"
 task_values_069: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -27340,17 +26794,17 @@ task_values_069:
   data_value: "10"
 task_values_3234: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:08
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2780"
+  task_context_id: "2851"
   id: "3491"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "210.4058154"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:08
+  data_value: "70"
 task_values_590: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:17
@@ -27379,17 +26833,17 @@ task_values_3121:
   data_value: "3"
 task_values_3235: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:53
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:10
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2781"
+  task_context_id: "2852"
   id: "3492"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:53
-  data_value: "217.0221076"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:10
+  data_value: "80"
 task_values_591: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:23
@@ -27444,17 +26898,17 @@ task_values_3010:
   data_value: "1"
 task_values_3236: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:12
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2782"
+  task_context_id: "2853"
   id: "3493"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "201.6301258"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:12
+  data_value: "90"
 task_values_592: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:26
@@ -27496,17 +26950,17 @@ task_values_1911:
   data_value: "5"
 task_values_3237: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 20:39:15
+  display_unit: count
+  task_id: "46"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2783"
+  task_context_id: "2854"
   id: "3494"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "227.9943809"
+  parameter_id: "503"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:15
+  data_value: "100"
 task_values_593: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:28
@@ -27573,18 +27027,18 @@ task_values_3011:
   created_at: 2007-05-01 05:44:10
   data_value: "1"
 task_values_3238: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2784"
+  storage_unit: m/s
+  updated_at: 2007-06-01 11:09:26
+  display_unit: m/s
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2854"
   id: "3495"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "214.6824582"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:17
+  data_value: "10"
 task_values_594: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:31
@@ -27664,18 +27118,18 @@ task_values_3012:
   created_at: 2007-05-01 05:44:12
   data_value: "1"
 task_values_3239: 
-  storage_unit: 
-  updated_at: 2007-04-30 05:20:54
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2785"
+  storage_unit: s
+  updated_at: 2007-06-01 11:13:04
+  display_unit: d
+  task_id: "46"
+  updated_by_user_id: "3"
+  lock_version: "3"
+  task_context_id: "2853"
   id: "3496"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:54
-  data_value: "236.6028513"
+  parameter_id: "504"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 20:39:18
+  data_value: "172800"
 task_values_595: 
   storage_unit: 
   updated_at: 2007-03-24 17:36:47
@@ -28547,19 +28001,6 @@ task_values_155:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:31
   data_value: "82"
-task_values_3320: 
-  storage_unit: 
-  updated_at: 2007-05-09 14:35:03
-  display_unit: 
-  task_id: "59"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  task_context_id: "2905"
-  id: "3577"
-  parameter_id: "886"
-  created_by_user_id: "3"
-  created_at: 2007-05-09 13:23:02
-  data_value: "1.222"
 task_values_043: 
   storage_unit: 
   updated_at: 2007-03-24 16:31:30
@@ -28679,17 +28120,17 @@ task_values_158:
   data_value: "280"
 task_values_3210: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:23
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2756"
+  task_context_id: "2835"
   id: "3467"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "209.3296774"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:23
+  data_value: "67"
 task_values_792: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -28731,17 +28172,17 @@ task_values_159:
   data_value: "15"
 task_values_3211: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-27 18:21:24
+  display_unit: "%"
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2757"
+  task_context_id: "2836"
   id: "3468"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "228.5542191"
+  parameter_id: "465"
+  created_by_user_id: "3"
+  created_at: 2007-05-27 18:21:24
+  data_value: "56"
 task_values_793: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -28783,17 +28224,17 @@ task_values_680:
   data_value: "47"
 task_values_3212: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-28 21:43:01
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2758"
+  task_context_id: "2834"
   id: "3469"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "206.6437408"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-28 21:43:01
+  data_value: "1.2"
 task_values_794: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -28835,17 +28276,17 @@ task_values_681:
   data_value: "203"
 task_values_3213: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2759"
+  updated_at: 2007-05-28 21:49:04
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  task_context_id: "2833"
   id: "3470"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "201.6000024"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-28 21:46:32
+  data_value: "1.3"
 task_values_795: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -28900,17 +28341,17 @@ task_values_682:
   data_value: "20"
 task_values_3214: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-28 21:47:27
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2760"
+  task_context_id: "2835"
   id: "3471"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "215.5432272"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-28 21:47:27
+  data_value: "1.2"
 task_values_570: 
   storage_unit: 
   updated_at: 2007-03-24 17:35:02
@@ -28965,17 +28406,17 @@ task_values_683:
   data_value: "44"
 task_values_3215: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-28 21:53:38
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2761"
+  task_context_id: "2832"
   id: "3472"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "202.3796248"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-28 21:53:38
+  data_value: "2.3"
 task_values_797: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -29030,17 +28471,17 @@ task_values_571:
   data_value: "294"
 task_values_3216: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-28 21:53:46
+  display_unit: ""
+  task_id: "41"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2762"
+  task_context_id: "2828"
   id: "3473"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "207.4603676"
+  parameter_id: "468"
+  created_by_user_id: "3"
+  created_at: 2007-05-28 21:53:46
+  data_value: "111"
 task_values_798: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -29095,17 +28536,17 @@ task_values_572:
   data_value: "111"
 task_values_3217: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:38
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2763"
+  task_context_id: "2837"
   id: "3474"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "223.7015114"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:38
+  data_value: "1.2"
 task_values_799: 
   storage_unit: 
   updated_at: 2007-03-30 21:56:10
@@ -29173,17 +28614,17 @@ task_values_573:
   data_value: "182"
 task_values_3218: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:46
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2764"
+  task_context_id: "2838"
   id: "3475"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "232.6044833"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:46
+  data_value: "1.2"
 task_values_3105: 
   storage_unit: 
   updated_at: 2007-05-01 06:07:51
@@ -29238,17 +28679,17 @@ task_values_574:
   data_value: "0.5"
 task_values_3219: 
   storage_unit: 
-  updated_at: 2007-04-30 05:20:51
-  display_unit: g
-  task_id: "38"
-  updated_by_user_id: "6"
+  updated_at: 2007-05-31 11:42:52
+  display_unit: molar
+  task_id: "43"
+  updated_by_user_id: "3"
   lock_version: "0"
-  task_context_id: "2765"
+  task_context_id: "2839"
   id: "3476"
-  parameter_id: "457"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:20:51
-  data_value: "205.8374237"
+  parameter_id: "491"
+  created_by_user_id: "3"
+  created_at: 2007-05-31 11:42:52
+  data_value: "1.2"
 task_values_3106: 
   storage_unit: 
   updated_at: 2007-05-01 06:07:54
@@ -29951,19 +29392,6 @@ task_values_022:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "969"
-task_values_3300: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2842"
-  id: "3557"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_995: 
   storage_unit: 
   updated_at: 2007-03-30 22:04:40
@@ -30029,19 +29457,6 @@ task_values_023:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "837"
-task_values_3301: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2843"
-  id: "3558"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_996: 
   storage_unit: 
   updated_at: 2007-03-30 22:04:40
@@ -30107,19 +29522,6 @@ task_values_024:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "244"
-task_values_3302: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2844"
-  id: "3559"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_997: 
   storage_unit: 
   updated_at: 2007-03-30 22:04:40
@@ -30185,19 +29587,6 @@ task_values_025:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "17"
-task_values_3303: 
-  storage_unit: 
-  updated_at: 2007-04-30 06:31:19
-  display_unit: ""
-  task_id: "39"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2845"
-  id: "3560"
-  parameter_id: "463"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 06:31:19
-  data_value: "4"
 task_values_998: 
   storage_unit: 
   updated_at: 2007-03-30 22:04:40
@@ -30263,19 +29652,6 @@ task_values_026:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "308"
-task_values_3304: 
-  storage_unit: 
-  updated_at: 2007-04-30 08:43:06
-  display_unit: ""
-  task_id: "56"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2846"
-  id: "3561"
-  parameter_id: "480"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 08:43:06
-  data_value: "12"
 task_values_999: 
   storage_unit: 
   updated_at: 2007-03-30 22:04:40
@@ -30341,19 +29717,6 @@ task_values_027:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "2478"
-task_values_3305: 
-  storage_unit: 
-  updated_at: 2007-04-30 08:43:06
-  display_unit: ""
-  task_id: "56"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2847"
-  id: "3562"
-  parameter_id: "480"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 08:43:06
-  data_value: "13"
 task_values_661: 
   storage_unit: 
   updated_at: 2007-03-30 21:49:28
@@ -30406,19 +29769,6 @@ task_values_028:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "2"
-task_values_3306: 
-  storage_unit: 
-  updated_at: 2007-04-30 08:43:06
-  display_unit: ""
-  task_id: "56"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2856"
-  id: "3563"
-  parameter_id: "479"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 08:43:06
-  data_value: "1"
 task_values_662: 
   storage_unit: 
   updated_at: 2007-03-30 21:49:28
@@ -30471,19 +29821,6 @@ task_values_029:
   created_by_user_id: "1"
   created_at: 2007-03-24 16:31:30
   data_value: "2"
-task_values_3307: 
-  storage_unit: 
-  updated_at: 2007-04-30 08:43:06
-  display_unit: ""
-  task_id: "56"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2857"
-  id: "3564"
-  parameter_id: "479"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 08:43:06
-  data_value: "1"
 task_values_663: 
   storage_unit: 
   updated_at: 2007-03-30 21:49:28
@@ -30536,19 +29873,6 @@ task_values_776:
   created_by_user_id: "1"
   created_at: 2007-03-30 21:53:47
   data_value: "237"
-task_values_3308: 
-  storage_unit: 
-  updated_at: 2007-04-30 08:43:06
-  display_unit: ""
-  task_id: "56"
-  updated_by_user_id: "6"
-  lock_version: "0"
-  task_context_id: "2858"
-  id: "3565"
-  parameter_id: "479"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 08:43:06
-  data_value: "1"
 task_values_664: 
   storage_unit: 
   updated_at: 2007-03-30 21:49:28
@@ -30588,19 +29912,6 @@ task_values_777:
   created_by_user_id: "1"
   created_at: 2007-03-30 21:53:47
   data_value: "216"
-task_values_3309: 
-  storage_unit: 
-  updated_at: 2007-05-08 19:19:44
-  display_unit: 
-  task_id: "58"
-  updated_by_user_id: "3"
-  lock_version: "0"
-  task_context_id: "2894"
-  id: "3566"
-  parameter_id: "570"
-  created_by_user_id: "3"
-  created_at: 2007-05-08 19:19:44
-  data_value: "1"
 task_values_665: 
   storage_unit: 
   updated_at: 2007-03-30 21:49:28
@@ -42654,17 +41965,17 @@ task_values_1782:
   data_value: "29.12106748"
 task_values_1036: 
   storage_unit: 
-  updated_at: 2007-05-09 11:30:13
+  updated_at: 2007-03-30 22:05:56
   display_unit: 
   task_id: "17"
-  updated_by_user_id: "3"
-  lock_version: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
   task_context_id: "1833"
   id: "1293"
   parameter_id: "25"
   created_by_user_id: "1"
   created_at: 2007-03-30 22:05:56
-  data_value: "232"
+  data_value: "231"
 task_values_1895: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:34
@@ -42706,17 +42017,17 @@ task_values_1783:
   data_value: "4"
 task_values_1037: 
   storage_unit: 
-  updated_at: 2007-05-09 11:30:17
+  updated_at: 2007-03-30 22:05:56
   display_unit: 
   task_id: "17"
-  updated_by_user_id: "3"
-  lock_version: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
   task_context_id: "1834"
   id: "1294"
   parameter_id: "25"
   created_by_user_id: "1"
   created_at: 2007-03-30 22:05:56
-  data_value: "212"
+  data_value: "214"
 task_values_1670: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:19
@@ -42758,17 +42069,17 @@ task_values_1784:
   data_value: "9"
 task_values_1038: 
   storage_unit: 
-  updated_at: 2007-05-09 11:30:19
+  updated_at: 2007-03-30 22:05:56
   display_unit: 
   task_id: "17"
-  updated_by_user_id: "3"
-  lock_version: "1"
+  updated_by_user_id: "1"
+  lock_version: "0"
   task_context_id: "1835"
   id: "1295"
   parameter_id: "25"
   created_by_user_id: "1"
   created_at: 2007-03-30 22:05:56
-  data_value: "231"
+  data_value: "230"
 task_values_1671: 
   storage_unit: 
   updated_at: 2007-04-30 23:44:19

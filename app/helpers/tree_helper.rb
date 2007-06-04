@@ -93,10 +93,10 @@ module TreeHelper
 # 
   def tree_for_folder(project , folder)
       tree= Alces::TreeControl::Node.create( folder ) do |node,rec|
-          node.link = link_to_remote rec.name,:url =>element_to_url(rec )
+          #node.link = link_to_remote rec.name,:url =>element_to_url(rec )
           node.icon = rec.icon
           node.id = rec.dom_id
-          node.name = nil
+          node.name = rec.name
           node.drop_url = nil
 #          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
       end    

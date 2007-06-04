@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 272) do
+ActiveRecord::Schema.define(:version => 273) do
 
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -625,8 +625,8 @@ ActiveRecord::Schema.define(:version => 272) do
     t.column "updated_at",         :datetime,                                   :null => false
     t.column "updated_by_user_id", :integer,                 :default => 1,     :null => false
     t.column "created_by_user_id", :integer,                 :default => 1,     :null => false
-    t.column "left_limit",         :integer,                 :default => 0,     :null => false
-    t.column "right_limit",        :integer,                 :default => 0,     :null => false
+    t.column "left_limit",         :integer
+    t.column "right_limit",        :integer
     t.column "parent_id",          :integer
   end
 
@@ -636,7 +636,6 @@ ActiveRecord::Schema.define(:version => 272) do
     t.column "type",                   :string,   :limit => 32, :default => "ProjectElement"
     t.column "position",               :integer,                :default => 1
     t.column "name",                   :string,   :limit => 64, :default => "",               :null => false
-    t.column "path",                   :string,                 :default => "",               :null => false
     t.column "reference_id",           :integer
     t.column "reference_type",         :string,   :limit => 20
     t.column "lock_version",           :integer,                :default => 0,                :null => false
@@ -651,6 +650,11 @@ ActiveRecord::Schema.define(:version => 272) do
     t.column "left_limit",             :integer,                :default => 0,                :null => false
     t.column "right_limit",            :integer,                :default => 0,                :null => false
   end
+
+  add_index "project_elements", ["name", "parent_id"], :name => "parent_id", :unique => true
+  add_index "project_elements", ["project_id"], :name => "project_id"
+  add_index "project_elements", ["left_limit", "project_id"], :name => "left_limit"
+  add_index "project_elements", ["right_limit", "project_id"], :name => "right_limit"
 
   create_table "projects", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "", :null => false

@@ -1,7 +1,4 @@
 --- 
-tags_019: 
-  name: methods
-  id: "19"
 tags_008: 
   name: nitroxide
   id: "8"
@@ -26,33 +23,18 @@ tags_013:
 tags_002: 
   name: b
   id: "2"
-tags_014: 
-  name: header template
-  id: "14"
 tags_003: 
   name: a b d
   id: "3"
-tags_015: 
-  name: template body
-  id: "15"
 tags_004: 
   name: ref pain
   id: "4"
-tags_016: 
-  name: body template
-  id: "16"
 tags_005: 
   name: ref
   id: "5"
-tags_017: 
-  name: kill
-  id: "17"
 tags_006: 
   name: Antiandrogens
   id: "6"
-tags_018: 
-  name: body methods
-  id: "18"
 tags_007: 
   name: peptides
   id: "7"

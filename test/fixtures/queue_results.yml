@@ -1,5 +1,379 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+--- 
+queue_results_004: 
+  updated_at: 2007-03-30 22:49:03
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "10"
+  task_id: "22"
+  column_no: "3"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Cellular Infiltration
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "1710"
+  parameter_id: "221"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:49:03
+  data_value: "0.7"
+queue_results_005: 
+  updated_at: 2007-03-30 22:49:06
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "10"
+  task_id: "22"
+  column_no: "4"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Edema
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "1711"
+  parameter_id: "222"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:49:06
+  data_value: "0.9"
+queue_results_006: 
+  updated_at: 2007-03-30 22:49:08
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "10"
+  task_id: "22"
+  column_no: "5"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Hyperplasia
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "1712"
+  parameter_id: "223"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:49:08
+  data_value: "3.1"
+queue_results_007: 
+  updated_at: 2007-03-30 22:49:13
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "10"
+  task_id: "22"
+  column_no: "6"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Macrophage
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "1713"
+  parameter_id: "224"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:49:13
+  data_value: "0.6"
+queue_results_008: 
+  updated_at: 2007-03-30 22:49:15
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "11"
+  task_id: "22"
+  column_no: "3"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Cellular Infiltration
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "1714"
+  parameter_id: "221"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:49:15
+  data_value: "1.44"
+queue_results_010: 
+  updated_at: 2007-03-30 22:49:20
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "11"
+  task_id: "22"
+  column_no: "5"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Hyperplasia
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "1716"
+  parameter_id: "223"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:49:20
+  data_value: "0.56"
+queue_results_009: 
+  updated_at: 2007-03-30 22:49:18
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "11"
+  task_id: "22"
+  column_no: "4"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Edema
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "1715"
+  parameter_id: "222"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:49:18
+  data_value: "1.11"
+queue_results_011: 
+  updated_at: 2007-03-30 22:49:24
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "11"
+  task_id: "22"
+  column_no: "6"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Macrophage
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "1717"
+  parameter_id: "224"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:49:24
+  data_value: "0.56"
+queue_results_012: 
+  updated_at: 2007-05-01 06:08:26
+  parameter_context_id: "55"
+  protocol_version_id: "28"
+  study_queue_id: "26"
+  request_service_id: "25"
+  queue_item_id: "31"
+  task_id: "36"
+  column_no: "10"
+  updated_by_user_id: "3"
+  data_type: Compound
+  parameter_name: IC50
+  subject: AB0012
+  reference_parameter_id: "347"
+  task_context_id: "2727"
+  id: "3366"
+  parameter_id: "348"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: Compounds[1]
+  data_element_id: 
+  label: Compounds
+  data_id: "12"
+  created_at: 2007-05-01 06:08:26
+  data_value: "0.0012"
+queue_results_001: 
+  updated_at: 2007-03-30 22:48:47
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "10"
+  task_id: "22"
+  column_no: "1"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Treatment Group
+  subject: AB001
+  reference_parameter_id: "218"
+  task_context_id: "2306"
+  id: "682"
+  parameter_id: "217"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "0"
+  created_by_user_id: "1"
+  row_label: Group[4]
+  data_element_id: 
+  label: Group
+  data_id: "1"
+  created_at: 2007-03-30 22:48:47
+  data_value: C
+queue_results_013: 
+  updated_at: 2007-05-01 06:08:33
+  parameter_context_id: "55"
+  protocol_version_id: "28"
+  study_queue_id: "26"
+  request_service_id: "25"
+  queue_item_id: "31"
+  task_id: "36"
+  column_no: "11"
+  updated_by_user_id: "3"
+  data_type: Compound
+  parameter_name: hill
+  subject: AB0012
+  reference_parameter_id: "347"
+  task_context_id: "2727"
+  id: "3367"
+  parameter_id: "349"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: Compounds[1]
+  data_element_id: 
+  label: Compounds
+  data_id: "12"
+  created_at: 2007-05-01 06:08:33
+  data_value: "0.96"
+queue_results_002: 
+  updated_at: 2007-03-30 22:48:50
+  parameter_context_id: "34"
+  protocol_version_id: "18"
+  study_queue_id: "15"
+  request_service_id: "9"
+  queue_item_id: "11"
+  task_id: "22"
+  column_no: "1"
+  updated_by_user_id: "1"
+  data_type: Compound
+  parameter_name: Treatment Group
+  subject: AB002
+  reference_parameter_id: "218"
+  task_context_id: "2307"
+  id: "683"
+  parameter_id: "217"
+  assigned_to_user_id: "1"
+  requested_by_user_id: "1"
+  row_no: "1"
+  created_by_user_id: "1"
+  row_label: Group[5]
+  data_element_id: 
+  label: Group
+  data_id: "2"
+  created_at: 2007-03-30 22:48:50
+  data_value: D
+queue_results_014: 
+  updated_at: 2007-05-01 06:08:37
+  parameter_context_id: "55"
+  protocol_version_id: "28"
+  study_queue_id: "26"
+  request_service_id: "25"
+  queue_item_id: "31"
+  task_id: "36"
+  column_no: "12"
+  updated_by_user_id: "3"
+  data_type: Compound
+  parameter_name: r2
+  subject: AB0012
+  reference_parameter_id: "347"
+  task_context_id: "2727"
+  id: "3368"
+  parameter_id: "350"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  row_no: "1"
+  created_by_user_id: "3"
+  row_label: Compounds[1]
+  data_element_id: 
+  label: Compounds
+  data_id: "12"
+  created_at: 2007-05-01 06:08:37
+  data_value: "0.96"
+queue_results_003: 
+  updated_at: 2007-04-30 21:17:35
+  parameter_context_id: "49"
+  protocol_version_id: "25"
+  study_queue_id: "24"
+  request_service_id: "23"
+  queue_item_id: "25"
+  task_id: "27"
+  column_no: "2"
+  updated_by_user_id: "3"
+  data_type: Hash
+  parameter_name: Assay Definition
+  subject: T1
+  reference_parameter_id: "288"
+  task_context_id: "2315"
+  id: "689"
+  parameter_id: "289"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  row_no: "0"
+  created_by_user_id: "3"
+  row_label: AssayDefinition[0]
+  data_element_id: 
+  label: AssayDefinition
+  data_id: "0"
+  created_at: 2007-04-30 21:17:35
+  data_value: HTS Program

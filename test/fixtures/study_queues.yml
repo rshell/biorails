@@ -1,20 +1,4 @@
 --- 
-study_queues_024: 
-  status: new
-  study_stage_id: "5"
-  name: Develop Assay
-  updated_at: 2007-05-08 08:09:23
-  updated_by_user_id: "3"
-  lock_version: "5"
-  priority: normal
-  study_protocol_id: 
-  id: "34"
-  assigned_to_user_id: "3"
-  study_id: "29"
-  description: Develop an assay against the validated target.  Inputs are the target id, the outputs are the study definition and an SOP.
-  study_parameter_id: "223"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:24
 study_queues_013: 
   status: new
   study_stage_id: "8"
@@ -47,22 +31,6 @@ study_queues_002:
   study_parameter_id: "175"
   created_by_user_id: "1"
   created_at: 2007-01-31 16:39:19
-study_queues_025: 
-  status: new
-  study_stage_id: "8"
-  name: Hit Identification
-  updated_at: 2007-05-08 08:09:23
-  updated_by_user_id: "3"
-  lock_version: "7"
-  priority: normal
-  study_protocol_id: 
-  id: "35"
-  assigned_to_user_id: "3"
-  study_id: "29"
-  description: Identify hits from screen
-  study_parameter_id: "223"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:52
 study_queues_014: 
   status: new
   study_stage_id: "5"
@@ -95,22 +63,6 @@ study_queues_003:
   study_parameter_id: "175"
   created_by_user_id: "1"
   created_at: 2007-01-31 16:40:25
-study_queues_026: 
-  status: new
-  study_stage_id: "6"
-  name: Fit curves
-  updated_at: 2007-05-08 08:09:23
-  updated_by_user_id: "3"
-  lock_version: "5"
-  priority: normal
-  study_protocol_id: 
-  id: "36"
-  assigned_to_user_id: "3"
-  study_id: "29"
-  description: Submit a list of compounds for a dose response assay.  This service is for informal requests for medicinal chemists who are re-iterating compound libraries based on SAR analysis
-  study_parameter_id: "222"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:55:26
 study_queues_015: 
   status: new
   study_stage_id: "8"
@@ -143,22 +95,6 @@ study_queues_004:
   study_parameter_id: "177"
   created_by_user_id: "1"
   created_at: 2007-01-31 16:44:07
-study_queues_027: 
-  status: new
-  study_stage_id: "5"
-  name: Develop Assay
-  updated_at: 2007-05-08 08:10:20
-  updated_by_user_id: "3"
-  lock_version: "4"
-  priority: normal
-  study_protocol_id: 
-  id: "37"
-  assigned_to_user_id: "3"
-  study_id: "30"
-  description: Develop an assay against the validated target.  Inputs are the target id, the outputs are the study definition and an SOP.
-  study_parameter_id: "241"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:24
 study_queues_016: 
   status: new
   study_stage_id: "8"
@@ -191,22 +127,6 @@ study_queues_005:
   study_parameter_id: "177"
   created_by_user_id: "1"
   created_at: 2007-01-31 16:44:44
-study_queues_028: 
-  status: new
-  study_stage_id: "8"
-  name: Hit Identification
-  updated_at: 2007-05-08 08:10:20
-  updated_by_user_id: "3"
-  lock_version: "6"
-  priority: normal
-  study_protocol_id: 
-  id: "38"
-  assigned_to_user_id: "3"
-  study_id: "30"
-  description: Identify hits from screen
-  study_parameter_id: "241"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:52
 study_queues_017: 
   status: new
   study_stage_id: "5"
@@ -239,22 +159,6 @@ study_queues_006:
   study_parameter_id: "177"
   created_by_user_id: "1"
   created_at: 2007-01-31 16:45:15
-study_queues_029: 
-  status: new
-  study_stage_id: "6"
-  name: Fit curves
-  updated_at: 2007-05-08 08:10:20
-  updated_by_user_id: "3"
-  lock_version: "4"
-  priority: normal
-  study_protocol_id: 
-  id: "39"
-  assigned_to_user_id: "3"
-  study_id: "30"
-  description: Submit a list of compounds for a dose response assay.  This service is for informal requests for medicinal chemists who are re-iterating compound libraries based on SAR analysis
-  study_parameter_id: "240"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:55:26
 study_queues_018: 
   status: new
   study_stage_id: "8"
@@ -322,22 +226,19 @@ study_queues_008:
 study_queues_020: 
   status: new
   study_stage_id: "5"
-  name: TSCI Rat
-  updated_at: 2007-04-30 05:44:33
-  updated_by_user_id: "6"
+  name: todo
+  updated_at: 2007-05-25 21:39:03
+  updated_by_user_id: "3"
   lock_version: "1"
   priority: normal
   study_protocol_id: 
   id: "27"
-  assigned_to_user_id: "6"
-  study_id: "14"
-  description: |-
-    This service queue offers the Traumatic Spinal Cord Injury in Rats
-    
-    This measures BBB, and other behavioural observations generating a study report.
-  study_parameter_id: "95"
-  created_by_user_id: "6"
-  created_at: 2007-04-30 05:44:33
+  assigned_to_user_id: "1"
+  study_id: "3"
+  description: dddd
+  study_parameter_id: "63"
+  created_by_user_id: "3"
+  created_at: 2007-05-25 21:39:03
 study_queues_009: 
   status: new
   study_stage_id: "6"
@@ -354,22 +255,6 @@ study_queues_009:
   study_parameter_id: "229"
   created_by_user_id: "1"
   created_at: 2007-03-08 07:19:50
-study_queues_021: 
-  status: new
-  study_stage_id: "5"
-  name: Develop Assay
-  updated_at: 2007-05-08 07:58:49
-  updated_by_user_id: "3"
-  lock_version: "5"
-  priority: normal
-  study_protocol_id: 
-  id: "31"
-  assigned_to_user_id: "3"
-  study_id: "28"
-  description: Develop an assay against the validated target.  Inputs are the target id, the outputs are the study definition and an SOP.
-  study_parameter_id: "205"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:24
 study_queues_010: 
   status: new
   study_stage_id: "8"
@@ -386,22 +271,6 @@ study_queues_010:
   study_parameter_id: "15"
   created_by_user_id: "1"
   created_at: 2007-03-20 18:59:39
-study_queues_022: 
-  status: new
-  study_stage_id: "8"
-  name: Hit Identification
-  updated_at: 2007-05-08 07:58:50
-  updated_by_user_id: "3"
-  lock_version: "7"
-  priority: normal
-  study_protocol_id: 
-  id: "32"
-  assigned_to_user_id: "3"
-  study_id: "28"
-  description: Identify hits from screen
-  study_parameter_id: "205"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:38:52
 study_queues_011: 
   status: new
   study_stage_id: "6"
@@ -418,22 +287,6 @@ study_queues_011:
   study_parameter_id: "29"
   created_by_user_id: "1"
   created_at: 2007-03-21 09:49:14
-study_queues_023: 
-  status: new
-  study_stage_id: "6"
-  name: Fit curves
-  updated_at: 2007-05-08 07:58:50
-  updated_by_user_id: "3"
-  lock_version: "5"
-  priority: normal
-  study_protocol_id: 
-  id: "33"
-  assigned_to_user_id: "3"
-  study_id: "28"
-  description: Submit a list of compounds for a dose response assay.  This service is for informal requests for medicinal chemists who are re-iterating compound libraries based on SAR analysis
-  study_parameter_id: "204"
-  created_by_user_id: "3"
-  created_at: 2007-04-30 16:55:26
 study_queues_012: 
   status: new
   study_stage_id: "5"

@@ -1,41 +1,4 @@
 --- 
-studies_020: 
-  name: Study-21
-  project_id: "16"
-  updated_at: 2007-04-30 23:36:01
-  purpose: ""
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "7"
-  lock_version: "0"
-  id: "20"
-  category_id: 
-  description: new study for project ewtest4
-  status_id: "0"
-  created_by_user_id: "7"
-  started_at: 
-  created_at: 2007-04-30 23:36:01
-  research_area: ""
-studies_019: 
-  name: BAL Cell Counts
-  project_id: "13"
-  updated_at: 2007-04-30 23:22:06
-  purpose: feasibility
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "4"
-  lock_version: "0"
-  id: "19"
-  category_id: 
-  description: |-
-    Collection of protocols to support BAL Analysis.
-    
-    A protocol has been defined for a treatment group.  Multiple tasks generated from this protocol can then be consolidated in Excel where they are summarised and a macro is run to generate graphs and stats.  A set of prism files are generated which can then be loaded as content against the experiment which in turn are used to build the final study report.
-  status_id: "0"
-  created_by_user_id: "4"
-  started_at: 
-  created_at: 2007-04-30 23:22:06
-  research_area: POC
 studies_008: 
   name: Sandbox
   project_id: "1"
@@ -53,41 +16,21 @@ studies_008:
   started_at: 
   created_at: 2007-04-20 08:50:00
   research_area: development
-studies_021: 
-  name: moose1
-  project_id: "4"
-  updated_at: 2007-05-06 21:26:59
-  purpose: feasibility
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "1"
-  id: "22"
-  category_id: 
-  description: |-
-    Collection of protocols to support BAL Analysis.
-    
-    A protocol has been defined for a treatment group.  Multiple tasks generated from this protocol can then be consolidated in Excel where they are summarised and a macro is run to generate graphs and stats.  A set of prism files are generated which can then be loaded as content against the experiment which in turn are used to build the final study report.
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-04-30 23:22:06
-  research_area: POC
 studies_010: 
   name: Solubility
   project_id: "4"
-  updated_at: 2007-04-23 18:30:16
+  updated_at: 2007-05-31 10:36:45
   purpose: ""
   ended_at: 
-  expected_at: 
-  updated_by_user_id: "1"
-  lock_version: "0"
+  expected_at: 2007-05-31 00:00:00
+  updated_by_user_id: "3"
+  lock_version: "2"
   id: "10"
   category_id: 
   description: Test Solubility
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-05-01 00:00:00
   created_at: 2007-04-23 18:30:16
   research_area: QC
 studies_009: 
@@ -104,25 +47,8 @@ studies_009:
   description: Cell Based Assay
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-05-29 00:00:00
   created_at: 2007-04-20 12:51:45
-  research_area: test
-studies_022: 
-  name: QA-test
-  project_id: "6"
-  updated_at: 2007-05-07 13:20:20
-  purpose: test
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "1"
-  id: "24"
-  category_id: 
-  description: test
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-05-07 13:20:20
   research_area: test
 studies_011: 
   name: HTS Program
@@ -138,26 +64,9 @@ studies_011:
   description: Develop an assay against a defined target, role out in production and screen the compound library creating a 'hit' list.
   status_id: "0"
   created_by_user_id: "3"
-  started_at: 
+  started_at: 2007-03-30 00:00:00
   created_at: 2007-04-30 14:46:51
   research_area: Screening
-studies_023: 
-  name: moose4
-  project_id: "4"
-  updated_at: 2007-05-08 07:57:45
-  purpose: test
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "2"
-  id: "27"
-  category_id: 
-  description: test
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-05-07 13:20:20
-  research_area: test
 studies_012: 
   name: Rat Locomotion
   project_id: "8"
@@ -189,26 +98,9 @@ studies_001:
   description: "A synchronous study covering multiple groups using different techniques and employing request fulfillment to progress the animals under investigation through the three tiers of testing: weight monitoring, taqman analysis and histological analysis."
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-03-23 00:00:00
   created_at: 2007-03-20 16:05:00
   research_area: in-vivo
-studies_024: 
-  name: moose3
-  project_id: "4"
-  updated_at: 2007-05-08 08:02:01
-  purpose: Hit Identification
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "1"
-  id: "28"
-  category_id: 
-  description: Develop an assay against a defined target, role out in production and screen the compound library creating a 'hit' list.
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-04-30 14:46:51
-  research_area: Screening
 studies_013: 
   name: WeightBioMarkerHistology
   project_id: "8"
@@ -240,47 +132,30 @@ studies_002:
   description: An example behavioural study
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-03-22 00:00:00
   created_at: 2007-03-21 09:34:46
   research_area: Behavioural
-studies_025: 
-  name: moose6
-  project_id: "4"
-  updated_at: 2007-05-08 08:09:17
-  purpose: Hit Identification
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "0"
-  id: "29"
-  category_id: 
-  description: Develop an assay against a defined target, role out in production and screen the compound library creating a 'hit' list.
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-04-30 14:46:51
-  research_area: Screening
 studies_014: 
-  name: TSCI-Rats
-  project_id: "9"
-  updated_at: 2007-04-30 04:37:51
-  purpose: In vivo CNS
+  name: Study-9
+  project_id: "12"
+  updated_at: 2007-05-30 14:21:38
+  purpose: ""
   ended_at: 
   expected_at: 
-  updated_by_user_id: "6"
-  lock_version: "0"
+  updated_by_user_id: "8"
+  lock_version: "1"
   id: "14"
   category_id: 
-  description: Traumatic Spinal Cord Injury in Rats
+  description: llllll
   status_id: "0"
-  created_by_user_id: "6"
+  created_by_user_id: "8"
   started_at: 
-  created_at: 2007-04-30 04:37:51
-  research_area: CNS
+  created_at: 2007-05-30 14:21:38
+  research_area: ""
 studies_003: 
   name: Screen
   project_id: "1"
-  updated_at: 2007-04-29 23:03:23
+  updated_at: 2007-05-21 13:48:09
   purpose: demo
   ended_at: 
   expected_at: 
@@ -288,46 +163,14 @@ studies_003:
   lock_version: "2"
   id: "3"
   category_id: 
-  description: This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report&nbsp;
+  description: |-
+    Purpose:
+    This example demostrates the running of a full screen, from the registration of mother and assay plates to the generation of the screening report
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-04-18 00:00:00
   created_at: 2007-03-21 12:49:02
   research_area: screening
-studies_026: 
-  name: xxxx
-  project_id: "4"
-  updated_at: 2007-05-08 08:12:37
-  purpose: Hit Identification
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "1"
-  id: "30"
-  category_id: 
-  description: Develop an assay against a defined target, role out in production and screen the compound library creating a 'hit' list.
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-04-30 14:46:51
-  research_area: Screening
-studies_015: 
-  name: ewtest0004.1
-  project_id: "10"
-  updated_at: 2007-04-30 19:41:19
-  purpose: ""
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "7"
-  lock_version: "0"
-  id: "15"
-  category_id: 
-  description: text text text text
-  status_id: "0"
-  created_by_user_id: "7"
-  started_at: 
-  created_at: 2007-04-30 19:41:19
-  research_area: ""
 studies_004: 
   name: Test
   project_id: "1"
@@ -342,42 +185,8 @@ studies_004:
   description: A study for testing
   status_id: "0"
   created_by_user_id: "1"
-  started_at: 
+  started_at: 2007-03-29 00:00:00
   created_at: 2007-03-26 09:44:18
-  research_area: testing
-studies_027: 
-  name: Study-23
-  project_id: "1"
-  updated_at: 2007-05-08 15:42:16
-  purpose: ""
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "3"
-  lock_version: "1"
-  id: "31"
-  category_id: 
-  description: dl;;lds;lsd
-  status_id: "0"
-  created_by_user_id: "3"
-  started_at: 
-  created_at: 2007-05-08 15:42:16
-  research_area: ""
-studies_016: 
-  name: ewtest001
-  project_id: "11"
-  updated_at: 2007-04-30 19:49:53
-  purpose: ""
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "7"
-  lock_version: "0"
-  id: "16"
-  category_id: 
-  description: text text text text
-  status_id: "0"
-  created_by_user_id: "7"
-  started_at: 
-  created_at: 2007-04-30 19:49:53
   research_area: testing
 studies_005: 
   name: Dev-Test
@@ -396,23 +205,6 @@ studies_005:
   started_at: 
   created_at: 2007-04-18 19:05:03
   research_area: ""
-studies_017: 
-  name: ewtest002
-  project_id: "11"
-  updated_at: 2007-04-30 19:59:48
-  purpose: ""
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "7"
-  lock_version: "0"
-  id: "17"
-  category_id: 
-  description: text text text text
-  status_id: "0"
-  created_by_user_id: "7"
-  started_at: 
-  created_at: 2007-04-30 19:59:48
-  research_area: testing
 studies_006: 
   name: Dev-Test2
   project_id: "1"
@@ -430,23 +222,6 @@ studies_006:
   started_at: 
   created_at: 2007-04-18 19:16:34
   research_area: kk
-studies_018: 
-  name: ewtest1
-  project_id: "12"
-  updated_at: 2007-04-30 20:02:48
-  purpose: test
-  ended_at: 
-  expected_at: 
-  updated_by_user_id: "7"
-  lock_version: "0"
-  id: "18"
-  category_id: 
-  description: blah blah blah
-  status_id: "0"
-  created_by_user_id: "7"
-  started_at: 
-  created_at: 2007-04-30 20:02:48
-  research_area: test
 studies_007: 
   name: Study-2
   project_id: "1"

@@ -18,11 +18,11 @@ list_items_002:
   list_id: "5"
   data_id: "2"
 list_items_025: 
-  data_name: AB007
+  data_name: AB001
   data_type: Compound
   id: "26"
-  list_id: "16"
-  data_id: "7"
+  list_id: "18"
+  data_id: "1"
 list_items_014: 
   data_name: female
   data_type: Hash
@@ -36,11 +36,11 @@ list_items_003:
   list_id: "5"
   data_id: "3"
 list_items_026: 
-  data_name: AB00101
+  data_name: AB0010
   data_type: Compound
   id: "27"
-  list_id: "19"
-  data_id: "101"
+  list_id: "18"
+  data_id: "10"
 list_items_015: 
   data_name: female
   data_type: Hash
@@ -54,11 +54,11 @@ list_items_004:
   list_id: "6"
   data_id: "1"
 list_items_027: 
-  data_name: AB0010
+  data_name: AB001
   data_type: Compound
   id: "28"
-  list_id: "19"
-  data_id: "10"
+  list_id: "18"
+  data_id: "1"
 list_items_016: 
   data_name: T3
   data_type: Hash
@@ -72,11 +72,11 @@ list_items_005:
   list_id: "6"
   data_id: "2"
 list_items_028: 
-  data_name: AB0011
+  data_name: AB001
   data_type: Compound
   id: "29"
-  list_id: "19"
-  data_id: "11"
+  list_id: "18"
+  data_id: "1"
 list_items_017: 
   data_name: T1
   data_type: Hash
@@ -89,12 +89,6 @@ list_items_006:
   id: "6"
   list_id: "6"
   data_id: "3"
-list_items_029: 
-  data_name: AB0023
-  data_type: Compound
-  id: "30"
-  list_id: "19"
-  data_id: "23"
 list_items_018: 
   data_name: T3
   data_type: Hash
