@@ -51,6 +51,7 @@ class ProjectElement < ActiveRecord::Base
   acts_as_fast_nested_set :parent_column => 'parent_id',
                      :left_column => 'left_limit',
                      :right_column => 'right_limit',
+                     :order => 'project_id,left_limit',
                      :scope => :project_id,
                      :text_column => 'name'
 
