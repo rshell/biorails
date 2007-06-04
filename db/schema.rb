@@ -416,6 +416,15 @@ ActiveRecord::Schema.define(:version => 273) do
   add_index "mole_logs", ["mole_feature_id", "user_id"], :name => "index_mole_logs_on_mole_feature_id_and_user_id"
   add_index "mole_logs", ["mole_feature_id", "created_at"], :name => "index_mole_logs_on_mole_feature_id_and_created_at"
 
+  create_table "neated", :force => true do |t|
+    t.column "parent_id",   :integer
+    t.column "left_limit",  :integer,               :default => 0,                :null => false
+    t.column "right_limit", :integer,               :default => 0,                :null => false
+    t.column "project_id",  :integer,               :default => 0,                :null => false
+    t.column "name",        :string,  :limit => 64, :default => "",               :null => false
+    t.column "type",        :string,  :limit => 32, :default => "ProjectElement"
+  end
+
   create_table "parameter_contexts", :force => true do |t|
     t.column "protocol_version_id", :integer
     t.column "parent_id",           :integer

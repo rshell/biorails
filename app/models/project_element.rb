@@ -184,14 +184,5 @@ class ProjectElement < ActiveRecord::Base
  end
   
  
- def right_most_sibling
-   parent.right_limit
- end
-
- def add_gap(right_of)
-  self.update_all(" left_limit = CASE WHEN left_limit > right_of  THEN left_limit + 2  ELSE left_limit END, \
-                   right_limit = CASE WHEN right_limit >= right_of THEN right_limit + 2 ELSE right_limit END ",
-                   "right_limit >= right_of and project_id = #{self.project_id}")
- end
 
 end

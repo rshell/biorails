@@ -34,8 +34,6 @@
 # 
 # 
 # 
-require 'digest/md5'
-require 'digest/sha1'
 
 class ProjectAsset < ProjectElement
 

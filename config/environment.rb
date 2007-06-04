@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   
   ## 
   # @todo memory store is causing odd problems with have 
-  #config.action_controller.session_store = :memory_store
+  config.action_controller.session_store = :active_record_store
 
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc

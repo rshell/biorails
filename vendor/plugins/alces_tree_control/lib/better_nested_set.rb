@@ -277,15 +277,15 @@ protected
           ## add as child if not already saved          
           target.add_child(self) if (  self.id.nil? || (self[left_col_name] == nil) || (self[right_col_name] == nil) )
                   
-          current_left = self[left_col_name], 
-          current_right= self[right_col_name] 
+          current_left  = self[left_col_name].to_i 
+          current_right = self[right_col_name].to_i
               
           # extent is the width of the tree self and children
           extent = current_right - current_left + 1
           
           # load object if node is not an object
-          target_left = target[left_col_name], 
-          target_right =  target[right_col_name]
+          target_left = target[left_col_name].to_i 
+          target_right =  target[right_col_name].to_i
     
           # detect impossible move
           if ((target_left > current_left ) && (target_left <= current_right)) or 

@@ -62,7 +62,7 @@ class Project::AssetsController < ApplicationController
     @project_asset = ProjectAsset.build( :name=> Identifier.next_user_ref, :project_id => @project_folder.project_id )    
     
     respond_to do |format|
-      format.html { render :action=>'upload'}
+      format.html { render :action=>'new'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
            page.replace_html 'message', :partial=> 'messages'
@@ -77,18 +77,18 @@ class Project::AssetsController < ApplicationController
   def upload
     current_folder
     ProjectFolder.transaction do
-      @project_asset = ProjectAsset.build(params['project_asset']) 
-      logger.info "====================="
+      @project_asset =  @project_folder.add( ProjectAsset.build(params['project_asset']) )
       logger.info @project_asset.to_yaml
-      @project_folder.add( @project_asset)
-      if @project_asset.save
-          redirect_to asset_url(:action => 'new',:id => @project_folder)
-      else
+      session.data[:current_params]=nil   
+      unless @project_asset.save
           logger.warn " Errors #{@project_asset.errors.full_messages.to_sentence}"
           flash[:error] = " Errors #{@project_asset.asset.errors.full_messages.to_sentence}"
-          render :action => 'upload',:id => @project_folder
+          return render( :action => 'new',:folder_id => @project_folder)
       end
     end
+    logger.info "keys #{session.data.keys.join(',')}"
+    logger.info session.to_yaml
+    redirect_to asset_url(:action => 'new',:id => @project_folder)  
   end 
 
 protected
