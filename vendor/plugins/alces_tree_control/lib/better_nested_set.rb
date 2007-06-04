@@ -150,9 +150,9 @@ module Alces
              self.class.base_class.find(:first, 
              :conditions => "#{scope_condition} AND (#{parent_column} IS NULL)"  )
         end
-                                      
-        # Returns an array of all parents 
-        # Maybe 'full_outline' would be a better name, but we prefer to mimic the Tree class
+        #                              
+        # With the nested set model, we can retrieve a single path without having multiple self-joins: 
+        #
         def ancestors
             self.class.base_class.find(:all, 
             :conditions => ["#{scope_condition} AND #{left_col_name} < ? and #{right_col_name} > ? ",self[left_col_name],self[right_col_name] ],
@@ -192,18 +192,44 @@ module Alces
         def child_count
           return (self[right_col_name] - self[left_col_name] - 1)/2
         end
-                                                               
+           
+       #
+       #Finding all leaf nodes in the nested set model even simpler than the LEFT JOIN method used in the adjacency list model. 
+       # If you look at the nested_category table, you may notice that the lft and rgt values for leaf nodes are consecutive numbers.
+       #To find the leaf nodes, we look for nodes where right = left + 1:
+       #
+        def all_leaf_node
+          self.class.base_class.find(:all, :conditions => ["#{scope_condition} AND (#{right_col_name} = #{left_col_name}+1)"] )
+        end
+        #
+        # Find all leaf node under the current node
+        #
+        def left_nodes
+          self.class.base_class.find(:all, 
+              :conditions => ["#{scope_condition} AND (#{right_col_name} = #{left_col_name}+1) AND (#{left_col_name} BETWEEN ? and ?",
+                              self[left_col_name], self[right_col_name]] )          
+        end
+        
         # Returns a set of itself and all of its nested children
         def full_set
           self.class.base_class.find(:all, :conditions => ["#{scope_condition} AND (#{left_col_name} BETWEEN ? and ?",self[left_col_name], self[right_col_name]] )
         end
                   
-        # Returns a set of all of its children and nested children
+        # Returns a set of all of its children of current node
+        #
+        # We can retrieve the full tree through the use of a self-join that links parents with nodes on the basis 
+        # that a node's left limit  value will always appear between its parent's left and right limit values
+        # 
+        # eg. select * from tree where node.left between parent.left and parent.right
+        #
         def all_children
           self.class.base_class.find(:all, :conditions => ["#{scope_condition} AND (#{left_col_name} > ?) and (#{right_col_name} < ?)",self[left_col_name],self[right_col_name]] )
         end
                                   
         # Returns a set of only this entry's immediate children
+        #
+        # eg. select * from tree where parent_id = id
+        #  
         def direct_children
           self.class.base_class.find(:all, :conditions => ["#{scope_condition} and #{parent_column} = ?",self.id] )
         end
