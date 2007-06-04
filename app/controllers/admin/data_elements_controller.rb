@@ -55,9 +55,12 @@ class Admin::DataElementsController < ApplicationController
 
  def select
     element =DataElement.find( params[:id] )
-    text = request.raw_post || request.query_string
-    @value =  URI.unescape(text.split("=")[1])
+    @value =  URI.unescape(request.raw_post || request.query_string ||"")
+    if @value =~ /=/
+    @value =  @value.split("=")[1] 
     @choices = element.like(@value)
+    else
+    end
     render :inline => "<%= select_auto_complete_result(@choices, 'name','id') %>"
   end  
   

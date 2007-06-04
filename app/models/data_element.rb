@@ -295,7 +295,7 @@ class SqlElement < DataElement
   end
 
   def like(name)
-    return data_system.connection.select_all(content+" where  name like'"+name+"%'")    
+    return data_system.connection.select_all(content+" where  name like'"+name+"%' order by name")    
   end
 
 ##
@@ -349,7 +349,11 @@ class ModelElement < DataElement
 # find values like 
 #  
   def like(name)
-    self.model.find(:all,:limit=>100,:conditions=> ['name like ?',name+"%"] )
+    if name
+       self.model.find(:all,:limit=>100,:conditions=> ['name like ?',name+"%"],:order=>'name' )
+    else
+       self.model.find(:all,:limit=>100,:order=>'name')
+    end
   end
 #
 #  List values for this element   

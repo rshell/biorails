@@ -673,7 +673,7 @@ class Unit < Numeric
           else
             raise ArgumentError, "Unknown target units"
         end
-      raise ArgumentError,  "Incompatible Units" unless self =~ target
+      raise ArgumentError,  "Incompatible Units [#{target_unit}] <=> [#{start_unit}] " unless self =~ target
       one = @numerator.map {|x| @@PREFIX_VALUES[x] ? @@PREFIX_VALUES[x] : x}.map {|i| i.kind_of?(Numeric) ? i : @@UNIT_VALUES[i][:scalar] }.compact
       two = @denominator.map {|x| @@PREFIX_VALUES[x] ? @@PREFIX_VALUES[x] : x}.map {|i| i.kind_of?(Numeric) ? i : @@UNIT_VALUES[i][:scalar] }.compact
       v = one.inject(1) {|product,n| product*n} / two.inject(1) {|product,n| product*n}

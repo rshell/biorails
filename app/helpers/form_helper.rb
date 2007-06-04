@@ -322,45 +322,25 @@ module FormHelper
     tag :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)
   end
 
-
-##
-# lookup cell either a combo for short list of a autocomplete for longer lists
-# 
-  def my_lookup_tag(id,name, data_element=nil ,options={})
-    options[:mask]    ||= '.'
-    options[:onfocus] ||= 'FieldEntry( this,event)' 
-    options[:onkeyup] ||= 'LookupOnKeyPress(this,event)'
-    if data_element.nil?
-       return my_regex_tag(id, name,options)
-    elsif data_element.estimated_count and data_element.estimated_count < 10
-       options[:onchange]  ||= 'FieldSave(this,event)'   
-       #options[:onblur]  ||= 'FieldExit(this,event)'       
-       option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
-       return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
-    else
-       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, 
-       {:after_update_element=>'FieldSave', :useCache=>true, :row_count => 20, :min_chars => 2})
-    end
-  end
-
-
 ##
 # lookup cell either a combo for short list of a autocomplete for longer lists
 # 
   def my_file_field(id,name, folder=nil ,options={})
     return my_regex_tag(id,name,options) if folder.nil?
     options[:mask]    ||= '.'
-    options[:value]   ||= ''
     options[:default] ||= ''
     options[:autocomplete]   ||= 'off'
     options[:onfocus] ||= 'FieldEntry( this,event)'
     options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onchanged]  ||= 'FieldSave(this,event)'    
-    options[:onblur]  ||= 'FieldExit(this,event)'    
-    out = String.new
+    options[:onblur]  ||= 'FieldExit(this,event)'  
+    out = "<table><tr><td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
-    out << "\n"  
     out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
+    out << "</td><td>"
+    out << hidden_field_tag("#{id}_ref")
+    out << link_to_function(subject_icon("down"), "#{id}_auto_completer.activate()") 
+    out << "</td></tr></table>\n"  
     
     options[:url] = {:controller =>'project/folders',:action=>'choices',:id=>folder.id} 
     options[:min_chars] =2
@@ -369,6 +349,8 @@ module FormHelper
     out << "\n"  
     out << auto_complete_field(id, options)
   end
+
+
 
 ##
 # Date selector cell
@@ -414,6 +396,126 @@ EOS
       in_place_editor_options[:url] = in_place_editor_options[:url] || url_for({ :action => "set_#{object.class.to_s.underscore}_#{method}", :id => object.id })
       content_tag("span",object.send(method), tag_options) +   in_place_editor(tag_options[:id], in_place_editor_options)
   end
+
+
+##
+# lookup cell either a combo for short list of a autocomplete for longer lists
+# 
+  def my_lookup_tag(id,name, data_element=nil ,options={})
+    options[:mask]    ||= '.'
+    options[:onfocus] ||= 'FieldEntry( this,event)' 
+    options[:onkeyup] ||= 'LookupOnKeyPress(this,event)'
+    if data_element.nil?
+       return my_regex_tag(id, name,options)
+    elsif data_element.estimated_count and data_element.estimated_count < 10
+       options[:onchange]  ||= 'FieldSave(this,event)'   
+       #options[:onblur]  ||= 'FieldExit(this,event)'       
+       option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
+       return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
+    else
+       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, 
+       {:after_update_element=>'FieldSave', :useCache=>true, :row_count => 20, :min_chars => 2})
+    end
+  end
+
+
+  # Use this method in your view to generate a return for the AJAX autocomplete requests.
+  #
+  # Example action:
+  #
+  #   def auto_complete_for_item_title
+  #     @items = Item.find(:all, 
+  #       :conditions => [ 'LOWER(description) LIKE ?', 
+  #       '%' + request.raw_post.downcase + '%' ])
+  #     render :inline => "<%= select_auto_complete_result(@items, 'description', id) %>"
+  #   end
+  #
+  # The select_auto_complete_result can of course also be called from a view belonging to the 
+  # auto_complete action if you need to decorate it further.
+
+  def select_auto_complete_result(entries, field, idField = "id", phrase = nil)
+    return unless entries
+    items = entries.map { |entry| content_tag("option", phrase ? highlight(entry[field], phrase) : h(entry[field]),
+    :value => entry[idField]) }
+    content_tag("select", items.uniq)
+  end
+  
+        # Wrapper for text_field with added AJAX selectAutocompletion functionality.
+        #
+        # In your controller, you'll need to define an action called
+        # select_auto_complete_for_object_method to respond the AJAX calls,
+        # 
+        # See the RDoc on ActionController::AutoComplete to learn more about this.
+        
+  def combo_box_tag_auto_complete(id,value, url, tag_options = {}, completion_options = {})
+    out = "<table><tr><td>"
+    out << text_field_tag(id, value, tag_options) 
+    out << content_tag("div", "", :id => "#{id}_select_auto_complete", :class => "select_auto_complete") 
+    out << hidden_field_tag("#{id}_ref")
+    out << "</td><td>"
+    out << link_to_function(subject_icon("down"), "#{id}_select_auto_completer.activate()") 
+    out << "</td></tr></table>"
+    out << select_auto_complete_field("#{id}", { :url => url }.update(completion_options))
+    out.to_s
+  end
+
+  # Simililar to Autocompleter functionality except it
+  # pops up a listbox instead of a list; Adds autocomplete to the text input field with the 
+  # DOM ID specified by +field_id+.
+  #
+  # This function expects that the called action returns an HTML <select> element,
+  # or nothing if no entries should be displayed for autocompletion.
+  #
+  # You'll probably want to turn the browser's built-in autocompletion off,
+  # so be sure to include an <tt>autocomplete="off"</tt> attribute with your text
+  # input field.
+  #
+  # The autocompleter object is assigned to a Javascript variable named <tt>field_id</tt>_auto_completer.
+  # This object is useful if you for example want to trigger the auto-complete suggestions through
+  # other means than user input (for that specific case, call the <tt>activate</tt> method on that object). 
+  # 
+  # Required +options+ are:
+  # <tt>:url</tt>::                  URL to call for autocompletion results
+  #                                  in url_for format.
+  # 
+  # Additional +options+ to the ones of autocompleter are:
+  # <tt>:value_element</tt>::        The id of a text or hidden field to receive the value
+  #                                  corresponding to to the selection
+  # <tt>:redirect_url</tt>::        URL where the page will be redirected upon selection
+  #                                  in url_for format.
+  #                                  the string '??' in the URL will be replace by the value
+  #                                  corresponding to to the selection 
+  # <tt>:row_count</tt>::           The number of rows in the select element.
+  # <tt>:use_cache</tt>::           Cache the result on the client side.
+  #
+  def select_auto_complete_field(field_id, options = {})
+    function =  "var #{field_id}_select_auto_completer = new Ajax.SelectAutocompleter("
+    function << "'#{field_id}', "
+    function << "'" + (options[:update] || "#{field_id}_select_auto_complete") + "', "
+    function << "'#{url_for(options[:url])}'"
+    
+    js_options = {}
+    js_options[:tokens] = array_or_string_for_javascript(options[:tokens]) if options[:tokens]
+    js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
+    js_options[:indicator]  = "'#{options[:indicator]}'" if options[:indicator]
+    js_options[:select]     = "'#{options[:select]}'" if options[:select]
+    js_options[:paramName]  = "'#{options[:param_name]}'" if options[:param_name]
+    js_options[:frequency]  = "#{options[:frequency]}" if options[:frequency]
+    js_options[:valueElement]  = "'#{options[:value_element]}'" if options[:value_element]
+    js_options[:rowCount]  = "#{options[:row_count]}" if options[:row_count]
+    js_options[:useCache]  = options[:use_cache] == false ? false : true
+    js_options[:redirect_url]  = "'#{url_for(options[:redirect_url])}'" if options[:redirect_url]
+
+    { :after_update_element => :afterUpdateElement, 
+      :on_show => :onShow, :on_hide => :onHide, :min_chars => :minChars }.each do |k,v|
+      js_options[v] = options[k] if options[k]
+    end
+
+    function << (', ' + options_for_javascript(js_options) + ')')
+
+    javascript_tag(function)
+  end
+  
 
 end
   

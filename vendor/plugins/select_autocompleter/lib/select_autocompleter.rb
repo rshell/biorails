@@ -91,9 +91,11 @@ module SelectAutocompleterMacroHelper
 
 
   def combo_box_tag_auto_complete(id,value, url, tag_options = {}, completion_options = {})
-    text_field_tag(id, value, tag_options) +
-    content_tag("div", "", :id => "#{id}_select_auto_complete", :class => "select_auto_complete") +
-    select_auto_complete_field("#{id}", { :url => url }.update(completion_options))
+    out = text_field_tag(id, value, tag_options) 
+    out << link_to_function(subject_icon("down"), "#{id}_select_auto_completer.activate()") 
+    out << content_tag("div", "", :id => "#{id}_select_auto_complete", :class => "select_auto_complete") 
+    out << select_auto_complete_field("#{id}", { :url => url }.update(completion_options))
+    out.to_s
   end
 end
 

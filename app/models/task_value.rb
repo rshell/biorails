@@ -69,7 +69,7 @@ class TaskValue < ActiveRecord::Base
  # For generic use all TaskItem proviide get and set of a value.
  def value=(new_value)  
    @quantity = new_value.to_unit
-   logger.info "value = #{@quantity}"
+   logger.info "value = #{@quantity} "
    @quantity = Unit.new(new_value,self.parameter.display_unit)  if @quantity.units == "" and self.parameter.display_unit 
    if @quantity.units==""
       logger.info "value no unit= #{@quantity}"
@@ -90,8 +90,8 @@ class TaskValue < ActiveRecord::Base
 
  def to_unit
     return @quantity if @quantity
-    @quantity = Unit.new(self.data_value,self.storage_unit)
-    @quantity = @quantity.to(self.display_unit) unless (@quantity.units ==self.display_unit ||  self.display_unit=="")     
+    @quantity = Unit.new(self.data_value,self.storage_unit||"")
+    @quantity = @quantity.to(self.display_unit||"") unless (@quantity.units=="" || self.display_unit.nil? ||  self.display_unit=="" || @quantity.units ==self.display_unit )     
  end
  
  def to_s
