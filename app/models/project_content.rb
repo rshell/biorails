@@ -27,7 +27,6 @@
 ##
 # This represents a piece of textual content associated with a project
 class ProjectContent < ProjectElement
-                
   validates_presence_of :content_id
   
 #  def before_save
@@ -75,12 +74,15 @@ class ProjectContent < ProjectElement
       self.content.move_to_child_of(old)  
     end
   end
-
+##
+# Single line title
+#
   def title
    self.content.title if content
-  end
-  
-  
+  end 
+##
+# Html report version
+#
   def to_html
     self.content.body_html if content
   end
@@ -88,16 +90,26 @@ class ProjectContent < ProjectElement
 # Textual content  
 
   def description
-    return to_html 
+     return "" unless content
+     text = ""
+     tokenizer = HTML::Tokenizer.new(to_html)
+      while token = tokenizer.next
+         node = HTML::Node.parse(nil, 0, 0, token, false)
+         text << node.to_s if node.class == HTML::Text  
+      end
+      return text.gsub(/<!--(.*?)-->[\n]?/m, "") 
   end
+##
+# Summay of the content
+
+  def summary
+     return content.summary if content
+     return name
+  end         
 
   def icon( options={} )
      '/images/model/note.png'
   end  
   
-  def summary
-     return content.summary if content
-     return name
-  end         
 
 end

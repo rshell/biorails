@@ -408,7 +408,7 @@ EOS
     if data_element.nil?
        return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10
-       options[:onchange]  ||= 'FieldSave(this,event)'   
+       #options[:onchange]  ||= 'FieldSave(this,event)'   
        #options[:onblur]  ||= 'FieldExit(this,event)'       
        option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
        return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))

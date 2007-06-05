@@ -82,7 +82,6 @@ class Organize::StudiesController < ApplicationController
     set_study_content
     @calender = Schedule.calendar(Task,params)
     @calender.find_by_user(@user.id)
-    render :layout => false if request.xhr?
     respond_to do | format |
       format.html { render :action => 'calendar' }
       format.json { render :json => {:study=> @study, :items=>@calendar.items}.to_json }

@@ -57,6 +57,7 @@ class Content < ActiveRecord::Base
   end
 
 
+
   def icon(options={} )
         '/images/mime/html.png'
   end

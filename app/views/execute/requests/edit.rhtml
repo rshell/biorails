@@ -24,8 +24,11 @@
         <tr>
           <td valign="top">   
             <% form_tag :action => 'add_service',:id =>@user_request.id do %>
+             <table width='100%'><tr><td>
              <%= select( :service, :id, @user_request.allowed_services.collect{|c|[c.path,c.id]})  %>
+             </td><td>
              <%= submit_tag "add" %>
+             </td></tr></table>
            <% end %>        
             <div id="current_services">  
             <%= render :partial => 'list_services', :locals => { :request => @user_request } %>  
@@ -33,8 +36,11 @@
           </td>
           <td valign="top">   
             <% form_tag :action => 'add_item',:id =>@user_request.id do %>
-             <%=my_lookup_tag("item","name", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
-             <%= submit_tag "add" %>
+            <table width='100%'><tr><td>
+            <%=my_lookup_tag("item","name", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
+            </td><td>
+            <%= submit_tag "add" %>
+            </td></tr></table>
            <% end %>          
             <div id="current_items">  
             <%= render :partial => 'list_items', :locals => { :request => @user_request } %>  

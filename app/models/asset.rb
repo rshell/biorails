@@ -121,6 +121,9 @@ class Asset < ActiveRecord::Base
     MIME::Types[self.content_type]  
   end
   
+  def description
+    return self.caption
+  end 
   
   def summary
      out = number_to_human_size( size)

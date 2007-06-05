@@ -148,7 +148,6 @@ class ProjectFolder < ProjectElement
        when String 
            element.name = "comment-#{self.child_count}"
            element = ProjectContent.Build(:project_id=> self.project_id,:parent=>self, :name=>name, :title=>"comments",:body=>item )
-           return content
        else    
            name = (item.respond_to?(:name) ? item.name : item.to_s )
            return add_reference( name, item ) 
@@ -179,6 +178,26 @@ class ProjectFolder < ProjectElement
          return add(element)
      end    
      return nil
+  end
+#
+# Add a encoded files as a Base64 text string
+#
+#
+  def add_asset( filename, title, mime_type, base64 )
+       element   = self.elements.find_by_name(filename)
+       element ||= ProjectAsset.new(:parent_id=>self.id, :name=> filename, :project_id=> self.project_id)
+       asset = Asset.new(:title=>title, :filename=> filename, :project_id=> self.project_id,:content_type => mime_type)
+       asset.size =0
+       asset.temp_data = Base64.decode64(base64) 
+       element.asset = asset
+       if asset.save 
+          if element.new_record?
+              self.add(element) 
+          else
+              element.save
+          end
+      end
+      return element
   end
 ##
 # Add a reference to the another database model

@@ -51,7 +51,15 @@ class Organize::StudyProtocolsController < ApplicationController
   def show
     find_process
     @folder = set_folder(@study_protocol.folder)
-  end
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.json { render :json => @study_protocol.to_json }
+      format.xml  { render :xml =>  @study_protocol.to_xml(:except=>[:study]) }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'show' 
+           page.replace_html 'messages',  :partial => 'shared/messages' 
+         end }
+    end  end
 
   def metrics
     find_process

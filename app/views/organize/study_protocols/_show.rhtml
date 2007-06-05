@@ -1,0 +1,98 @@
+
+<h2>
+    <%=subject_icon('model/protocol.png')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
+    [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
+</h2>
+<div class='panel'>
+    <table class="report">
+      <tr>
+          <th class="label"><%=subject_icon('name.png')%> Name</th>
+          <td colspan='3'> <%= @study_protocol.name %></td>
+      </tr>
+      <tr>
+          <th class="label"><%=subject_icon('description.png')%> Description</th>
+          <td colspan='3'> <%= @study_protocol.description %></td>
+      </tr>
+      <tr>
+          <th class="label"><%=subject_icon('litref')%> Lit.Ref.</th>
+          <td colspan='3'> <%= @study_protocol.literature_ref %></td>
+      </tr><br/>
+      
+      <tr>
+          <th class="label"><%=subject_icon('category')%> Catagory</th>
+          <td> <%= @study_protocol.protocol_catagory %></td>
+           <th class="label"><%=subject_icon('status')%> Status</th>
+           <td> <%= @study_protocol.protocol_status %></td>
+      </tr>
+      <tr>
+          <th class="label"><%=subject_icon('label')%> Label</th>
+          <td> <%= @protocol_version.name %> <%=" [release]" if @protocol_version == @study_protocol.process%></td>
+          <th class="label"><%=subject_icon('version')%> Version</th>
+          <td> <%= @protocol_version.version %></td>
+      </tr>
+    </table>
+<br/>
+                                        
+    <table class="report">
+        <thead>  
+            <tr haligh="left">
+            <% for role in @protocol_version.allowed_roles %>
+              <th><%=subject_icon(role.name)+role.name%></th>
+            <% end %>  
+            </tr>
+        </thead>
+        <tbody>
+          <tr id="params" valign="top">
+            <% for role in @protocol_version.allowed_roles %>
+             <TD id="parameter_<%=role.id %>">  
+                <% @list = @protocol_version.role_parameters(role) %>
+                 <%= "..." unless @list.size>0 %>
+                 <dl>
+                   <% for param in @list %>                 
+                   <dt> <%= param.name %> ( <%=param.context.label %>)</dt>
+                   <% end %>  
+                  </dl>
+              </td> 
+            <% end %>  
+           </tr>
+        </tbody>
+    </table>
+
+<br/>
+    <table class="report">
+        <thead>  
+            <tr> 
+                <th>   Label    </th>
+                <th>   Version 
+                 </th>
+                <th>   No. Contexts </th>           
+                <th>   No. Parameters </th>           
+                <th>   No. Tasks </th>
+                <th>   Date   </th>
+                <th>   User   </th>
+            </tr> 
+        </thead>
+        <tbody>
+        <% for version in @study_protocol.versions %>
+           <% classAttr = cycle("", "class=\"even\"") %>
+           <tr <%=classAttr%>  > 
+                <td>
+                 <%=link_to( version.name ,:action=>'show',:id => @study_protocol, :version=>version.id) %> </td>
+                <td> <%=version.version %> <%=" [release]" if version == @study_protocol.process%></td>
+                <td> <%=version.contexts.size %> </td>
+                <td> <%=version.parameters.size %> </td>
+                <td> <%=version.tasks.size %> 
+                     <%=link_to version.tasks[0].name ,task_url(:action=>'show',:id=>version.tasks[0].id) if version.tasks[0]%>
+                </td>
+                <td> <%=short_date(version.updated_at) %>   </td>
+                <td> <%=version.updated_by %>   </td>
+            <tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to (subject_icon('release'))+" Release Latest", :action => 'release', :id => @study_protocol %>
+<br/>
+    <div>
+       <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>
+    </div>
+</div>

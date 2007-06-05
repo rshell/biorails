@@ -10,7 +10,7 @@ Element Path:
 <%end %>
 <ul>
 <li><b>Title: </b><%=@project_asset.title%> </li>
-<li><b>Caption: </b><%=@project_asset.asset.caption%> </li>
+<li><b>Caption: </b><%=@project_asset.description %> </li>
 <li><b>Download: </b> <%= link_to @project_asset.asset.filename, @project_asset.url %></li>
 <li><b>Mime Type: </b><%=@project_asset.asset.content_type%> </li>
 <li><b>Summary: </b>  <%=  @project_asset.summary %>

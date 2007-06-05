@@ -95,16 +95,22 @@ class ProjectAsset < ProjectElement
    asset.signature 
   end
 
-
   def filename
     name  
   end
 
-  def caption
-    asset.caption
+  def summary
+     return asset.summary if asset
+     return path
   end
+
+  def description
+    return asset.caption if asset
+    return name
+  end
+
   
-  def caption=(value)
+  def description=(value)
     asset.caption=value
   end
   
@@ -120,19 +126,11 @@ class ProjectAsset < ProjectElement
 ##
 # File assets  
 
-  def description
-    return asset.title if asset
-    return path
-  end
-
+  
 
   def icon( options={} )
      return asset.icon(options) if asset?
      '/images/model/file.png'
   end  
   
-  def summary
-     return asset.summary if asset
-     return path
-  end  
 end
