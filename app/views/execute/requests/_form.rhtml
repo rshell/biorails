@@ -5,12 +5,12 @@
    </div>
 <% if @user_request.new_record?%>
    <div class="form-element">
-     <label for="request_for">Item Type</label>
+     <label for="request_data_element">Item Type</label>
        <%= select( :user_request, :data_element_id, @user_request.allowed_elements.collect{|c|[c.path,c.id]})  %>
    </div>
 
    <div class="form-element">
-     <label for="request_for"> For Project </label>
+     <label for="request_project_id"> For Project </label>
        <%= select( :user_request, :project_id, current_user.projects.collect{|c|[c.name,c.id]})  %>
    </div>
  <% else %>
@@ -30,22 +30,22 @@
   <div class="row">
 
    <div class="form-element">
-     <label for="request_by">Requested For User</label>
+     <label for="request_for_user">Requested For User</label>
       <%= select_named :user_request, 'requested_by_user_id', User  %>
    </div>
 
    <div class="form-element">
-     <label for="request_for">By Date</label>
+     <label for="request_by_date">By Date</label>
      <%= date_field 'user_request', 'expected_at'  %>
    </div>
 
    <div class="form-element">
-     <label for="request_for">Status</label>
+     <label for="request_status">Status</label>
        <%= select( :user_request, :status_id, @user_request.allowed_status_list)  %>
    </div>
 
    <div class="form-element">
-     <label for="request_for">Priority</label>
+     <label for="request_priority">Priority</label>
        <%= select( :user_request, :priority_id, @user_request.allowed_priority_list)  %>
    </div>
 

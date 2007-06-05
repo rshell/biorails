@@ -189,15 +189,15 @@ class ProjectFolder < ProjectElement
        asset = Asset.new(:title=>title, :filename=> filename, :project_id=> self.project_id,:content_type => mime_type)
        asset.size =0
        asset.temp_data = Base64.decode64(base64) 
+       asset.save 
        element.asset = asset
-       if asset.save 
-          if element.new_record?
-              self.add(element) 
-          else
-              element.save
-          end
-      end
-      return element
+       element.asset_id = asset.id
+       if element.new_record?
+            self.add(element) 
+       else
+            element.save
+       end
+       return element
   end
 ##
 # Add a reference to the another database model
