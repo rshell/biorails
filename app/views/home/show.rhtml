@@ -55,7 +55,7 @@
 
 <div class="splitcontentright">
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=link_to l('Stuff Todo'),home_url(:action=>:todo)%> </h3>
+	<h3 class="icon icon-protocol"><%=link_to l('Requests Todo'),home_url(:action=>:todo)%> </h3>
 		<ul>
 		<% for item in @user.lastest(QueueItem,10) %>
 			<li>
