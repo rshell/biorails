@@ -35,9 +35,9 @@
             </div>
           </td>
           <td valign="top">   
-            <% form_tag :action => 'add_item',:id =>@user_request.id do %>
+            <% form_remote_tag :url => request_url(:action => 'add_item',:id =>@user_request.id) do %>
             <table width='100%'><tr><td>
-            <%=my_lookup_tag("item","name", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
+            <%=my_lookup_tag("value","item", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
             </td><td>
             <%= submit_tag "add" %>
             </td></tr></table>

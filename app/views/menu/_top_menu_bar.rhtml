@@ -43,20 +43,26 @@
  <li class="submenu">
      <%= link_to l(:label_administration), catalogue_url( :action => 'list' ), 
          :class => "icon icon-admin", :onmouseover => "buttonMouseover(event, 'menuAdmin');" %>
+ </li>
 <% end %>
  <li class="submenu">
    <%= link_to l(:inventory), { :controller => 'inventory' }, 
    		                       :class => "icon icon-admin", 
    		                       :onmouseover => "buttonMouseover(event, 'menuInventory');" %>
  </li>
- <li class="submenu"><%= link_to l(:execute), { :controller => 'execute' }, 
+ <li class="submenu">
+    <%= link_to l(:execute), { :controller => 'execute' }, 
    		                                    :class => "icon icon-admin", 
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>
 
- <li class="right"><%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %> </li>	
+ <li class="right">
+    <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %> 
+ </li>	
 <%else %>
- <li class="right"> <%= link_to l(:login), auth_url(:action => 'login'), :class => "icon icon-user" %> </li>	
+ <li class="right"> 
+    <%= link_to l(:login), auth_url(:action => 'login'), :class => "icon icon-user" %> 
+ </li>	
 
 <% end %>
                        

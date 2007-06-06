@@ -96,9 +96,9 @@ class Execute::RequestsController < ApplicationController
 # 
   def add_item
     @user_request = Request.find(params[:id])
-    @item = @user_request.add_item(params[:name])
+    @item = @user_request.add_item(params[:value])
     unless @item
-      flash[:warning] = " Could not find #{@user_request.data_element.name} with name #{params[:name]} in database "
+      flash[:warning] = " Could not find '#{@user_request.data_element.name}' with name '#{params[:value]}' in database "
     end
     
     respond_to do | format |
@@ -116,7 +116,7 @@ class Execute::RequestsController < ApplicationController
 # 
   def remove_item
     @user_request = Request.find(params[:request_id])
-    @list_item = ListItem.find(params[:list_item_id])
+    @list_item = ListItem.find(params[:id])
     @user_request.remove_item(@list_item.value)
     @list_item.destroy
 
