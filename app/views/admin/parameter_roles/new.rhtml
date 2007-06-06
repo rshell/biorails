@@ -6,11 +6,21 @@
     </div>
 <% end %>
 
-<h1>New Parameter Role</h1>
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['parameter_role']} %>
+<%end%>
 
-<% form_tag :action => 'create' do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+<% content_for :centre do -%>
+    <h1>New Parameter Role</h1>
+    
+    <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Edit' %>
+      <%= link_to 'Back', :action => 'list' %>
+    <% end %>
+
 <% end %>
 
-<%= link_to 'Back', :action => 'list' %>
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

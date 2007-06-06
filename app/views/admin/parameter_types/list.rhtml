@@ -7,11 +7,14 @@
 </div>
 <% end %>
 
-<h1>Listing Parameter Roles</h1>
+<h1>Listing Parameter Types</h1>
+<p> Key data dimensions for the high level capture and organization of Data</p>
+<div class='panel'>
 <table class="report">
   <tr>
     <th>name</th>
     <th>Description</th>
+    <th>Data Type</th>
     <th>Storage Unit</th>
     <th>Studies</th>
     <th>Protocols</th>
@@ -22,6 +25,7 @@
   <tr>
     <td> <%= link_to parameter_type.name,parameter_type_url( :action => 'show', :id => parameter_type) %></td>
     <td> <%=h parameter_type.description%></td>
+    <td> <%=parameter_type.data_type.name%></td>
     <td> <%=parameter_type.storage_unit%></td>
     <td> <%=parameter_type.parameters.size%></td>
     <td> <%=parameter_type.study_parameters.size%> </td>
@@ -29,6 +33,8 @@
   </tr>
 <% end %>
 </table>
+</div>
+<%= link_to image_tag('new.png')+'New',    parameter_type_url(:action => 'new') %> 
 
 <%= link_to 'Previous page', { :page => @parameter_type_pages.current.previous } if @parameter_type_pages.current.previous %>
 <%= link_to 'Next page', { :page => @parameter_type_pages.current.next } if @parameter_type_pages.current.next %> 

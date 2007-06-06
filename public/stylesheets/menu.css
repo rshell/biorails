@@ -33,7 +33,6 @@ background-color:inherit;
 color: #ffffff;
 }
 
-ul.menu_bar li.submenu {background:url(../images/arrow_down.png) 96% 80% no-repeat;}
 ul.menu_bar li.submenu a {padding:0px 16px 0px 22px;}
 * html ul.menu_bar a {width:1%;}
 

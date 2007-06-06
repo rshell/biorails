@@ -51,7 +51,7 @@ class DataConcept < ActiveRecord::Base
 # This logical concept is implemented via a number of DataElement  which link to a external 
 # DataSystem to retreive a list of DataValues to use a  lookup
 #  
-  has_many :elements,  :class_name => 'DataElement',:conditions => "parent_id is null",  :dependent => :destroy
+  has_many :elements,  :class_name => 'DataElement',:conditions => "parent_id is null",:order=>:name,  :dependent => :destroy
 ##
 # The concept is used in the system in a number o parameter_types.
 # these define one of a key data dimensions for values
@@ -67,6 +67,10 @@ class DataConcept < ActiveRecord::Base
   def not_used
     return (parameter_types.size==0 and elements.size==0)
   end  
+  
+  def default
+    self.elements.first
+  end
 ##
 # unique path name for the concept 
 #

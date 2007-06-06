@@ -36,6 +36,7 @@ UNIT_PREFIX ={
   '<zepto>' =>  [%w{z Zepto zepto}, 1e-21, :prefix],
   '<yocto>' =>  [%w{y Yocto yocto}, 1e-24, :prefix],
   '<1>'     =>  [%w{1},1,:prefix],
+  'unity' =>  [%w{none unity},1.0,:prefix_only, %w{<1>}],
   '<dozen>' =>  [%w{doz dz dozen},12.0,:prefix_only, %w{<each>}],
   '<percent>'=> [%w{% percent}, 0.01, :prefix_only, %w{<1>}],
   '<ppm>' =>  [%w{ppm},1e-6,:prefix_only, %w{<1>}],
@@ -327,10 +328,11 @@ UNITS_TYPOGRAPHY = {
     @@base_units= @@base_units.merge(UNITS_COUNTS)
 
   UNIT_DEFINITIONS = UNIT_PREFIX.merge(@@base_units)
-  UNIT_DIMENSIONS = @@base_units.values.collect{|i|i[2]}.uniq.sort{|a,b|a.to_s<=>b.to_s}
+  UNIT_DIMENSIONS = @@base_units.values.collect{|i|i[2]}.uniq.sort{|a,b|a.to_s<=>b.to_s}.concat([""])
    
   @@units_by_dimension = {}
   Unit::UNIT_DIMENSIONS.each{| i| @@units_by_dimension[i]= Unit::UNIT_DEFINITIONS.values.collect{|j| (j[2]==i ? j[0] : nil)}.compact.flatten.uniq}
+  @@units_by_dimension[""]= UNIT_PREFIX.values.collect{|j| (j[2]==:prefix_only ? j[0] : nil)}.concat([""]).compact.flatten.uniq
   DIMENSION_DEFINITIONS = @@units_by_dimension
   
   UNITS_LIST      = @@base_units.values.collect{|i|i[0]}.flatten.sort
@@ -338,10 +340,10 @@ UNITS_TYPOGRAPHY = {
   UNITS_LOOKUP = UNITS_LIST.collect{|j| ["#{j.to_s}",j] }  
   DIMENSIONS_LOOKUP =  UNIT_DIMENSIONS.collect{ |i| ["#{i} ( #{DIMENSION_DEFINITIONS[i][0]} )",i.to_s] }
   PREFIXES_LOOKUP    = UNIT_PREFIX.keys.collect{|i|["x #{UNIT_PREFIX[i][1]} [#{UNIT_PREFIX[i][0][1]}]"] }
-  PREFIXES_COMMON = ['','k','c','m','u','n','p']
+  PREFIXES_COMMON = ['','c','m','u','n','p']
   
   def self.dimensions 
-     @@base_units.values.collect{|i|i[2]}.uniq
+     UNIT_DIMENSIONS
   end
   
   def self.bases
@@ -359,11 +361,11 @@ UNITS_TYPOGRAPHY = {
 # List of Units with common scaling kg to pg
 #
 #
-  def self.scaled_units(dimension =nil)
-    if dimensions        
-      DIMENSION_DEFINITIONS[dimension.to_sym].collect{|name|PREFIXES_COMMON.collect{|i|i+name}}.flatten.collect{|j| ["#{j.to_s}",j] }  
+  def self.scaled_units(dimension =nil )
+    if dimension.empty?
+      DIMENSION_DEFINITIONS[""].collect{|j| ["#{j.to_s}",j] }.sort  
     else
-      UNITS_LIST.collect{|name|PREFIXES_COMMON.collect{|i|i+name}}.flatten.collect{|j| ["#{j.to_s}",j] }  
+      DIMENSION_DEFINITIONS[dimension.to_sym].collect{|name|PREFIXES_COMMON.collect{|i|i+name}}.flatten.collect{|j| ["#{j.to_s}",j] }.sort      
     end
   end
 end

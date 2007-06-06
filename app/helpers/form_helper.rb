@@ -3,6 +3,11 @@
 # See license agreement for additional rights
 ##
 module FormHelper
+
+  def validated_form_tag(url_for_options = {}, options = {}, *parameters_for_url, &block)
+    options.merge(:class=>"validated")
+    return form_tag(url_for_options , options , *parameters_for_url, &block)
+  end
 ##
 # Date field for stadard forms
 # 
@@ -44,31 +49,46 @@ module FormHelper
        "Err. (no date picker)"
   end
 
-
-##
-#List of all the concepts in the system
-#
-#  * object  to build selector around
-#  * method of the object to build selector for
-#  * item [default=nil] root on tree of items to display
-#
-  def select_data_concept(object,method, root = nil) 
+  def select_values(object,method, root = nil)
      list = [[nil,nil]]
      case root
+     when String
+       concept = DataConcept.find_by_name(root)
+       list.concat(concept.default.choices)  if concept and concept.default
+     when Study
+       root.protocols.each do |item|
+          list.concat(item.elements.collect{|c|[c.name,c.id]})
+       end
+     when Experiment
+       root.protocols.each do |item|
+          list.concat(item.elements.collect{|c|[c.name,c.id]})
+       end
+     when Project
+       root.folders.each do |item|
+          list.concat(item.collect{|c|[c.path,c.id]})
+       end
+     when ProjectFolder
+       root.elements.each do |item|
+          list.concat(item.collect{|c|[c.name,c.id]})
+       end
      when DataConcept
-       for item in root.decendents
-          list.concat([item.path,item.id])
+       root.decendents.each do |item|
+          list.concat(item.elements.collect{|c|[c.path,c.id]})
        end
      when DataElement
-       list.concat([[root.concept.path,root.concept.id]])
+       root.decendents.each do |item|
+          list.concat(item.collect{|c|[c.path,c.id]})
+       end
      else
-        list.concat(DataConcept.find(:all,:order=>'parent_id,name').collect{|c|[c.path,c.id]})
+       root.each do |item|
+          list.concat(item.collect{|c|[c,c]})
+       end
      end
      return  select(object, method ,list)      
   rescue Exception => ex
       logger.error ex.message
-      logger.error ex.backtrace.join("\n") 
-      return "[No Concepts]"  << hidden_field(object,method) 
+      logger.error ex.backtrace.join("\n")    
+   
   end
 
 ##
@@ -82,6 +102,11 @@ module FormHelper
   def select_data_element(object,method, root=nil)   
      list = [[nil,nil]]
      case root
+     when String
+       element = DataElement.named(root)
+       for item in element
+          list.concat(item.elements.collect{|c|[c.path,c.id]})
+       end     
      when DataConcept
        for item in root.decendents
           list.concat(item.elements.collect{|c|[c.path,c.id]})
@@ -134,16 +159,6 @@ module FormHelper
       logger.error ex.backtrace.join("\n")    
       return "[No #{model.to_s}]"  << hidden_field(object,method) 
   end
-##
-# Selector for a study_protocol in a given context (Study,All,StudyProtocol)
-# 
-  def select_study( object,method)
-    return collection_select(object, method ,studies, :id, :name) 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      return "[No Studies]"  << hidden_field(object,method) 
-  end
 
 ##
 # Selector for a study_protocol in a given context (Study,All,StudyProtocol)
@@ -164,87 +179,7 @@ module FormHelper
       logger.error ex.backtrace.join("\n")    
       return "[No Protocols]"  << hidden_field(object,method) 
   end
-
-##
-# Selector for a study_protocol in a given context (Study,All,StudyProtocol)
-# 
-  def select_task( object,method, item = nil)
-     tasks = []
-     case item
-     when Study
-       tasks = item.tasks
-     when StudyProtocol
-       tasks == item.tasks
-     else
-       tasks = Tasks.find(:all)
-     end
-    return collection_select(object, method ,tasks, :id, :name) 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      return "[No Tasks]"  << hidden_field(object,method) 
-  end
-
-
-###
-# Generate a selector for a model in the system. 
-# 
-# Had tried a simple objectspace lookup but unluckily all classes may not be loaded to went back to dir scan
-# ObjectSpace.each_object(Class) do |obj| 
-#   choices << obj if (obj.ancestors.any?{|item|item==klass} and !obj.abstract_class)
-# end
-# 
-  def select_model(object, method, root=ActiveRecord::Base, options = {}, html_options = {})
-   unless @models
-     @models = []
-     Dir.chdir(File.join(RAILS_ROOT, "app/models")) do 
-       Dir["*.rb"].each do |m|
-         class_name = Inflector.camelize(m.sub(/\.rb$/, ''))
-         klass = Object.const_get(class_name) rescue nil
-         if klass && klass.ancestors.any?{|item|item==root} and !klass.abstract_class
-           puts "Looking at #{class_name}"
-           @models << klass
-         else
-          puts "Skipping #{class_name}"
-         end
-       end
-     end 
-     @models -= [ActiveRecord::Base, CGI::Session::ActiveRecordStore::Session]
-   end
-   choices = @models.collect{|obj|obj.to_s}.sort.collect{|obj|[obj,obj]}
-   select(object, method, choices,options,html_options) 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      return "[No Models]"  << hidden_field(object,method) 
-  end
   
-  
-##
-# For a specific data element list the value option
-# 
-# suports DataConcept,DataElement,Id or Name as item in import
-# 
-  def select_value(object, method, item, options = {}, html_options = {})
-    choices = []
-    data_element = nil
-    case item
-    when DataElement
-      data_element = item
-    when DataConcept
-      data_element = DataElement.find(:first, :conditions=>['data_concept_id=?',item.id])
-    when String
-      data_element = DataElement.find_by_name(item)
-    else
-      data_element = DataElement.find(item)
-    end
-    choices = data_element.choices if data_element
-    select(object, method, choices, options, html_options) 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-  end
-
 ##
 # select for a ProtocolVersion (eg How to do stuff)
 # 
@@ -350,8 +285,6 @@ module FormHelper
     out << auto_complete_field(id, options)
   end
 
-
-
 ##
 # Date selector cell
 #   
@@ -396,7 +329,6 @@ EOS
       in_place_editor_options[:url] = in_place_editor_options[:url] || url_for({ :action => "set_#{object.class.to_s.underscore}_#{method}", :id => object.id })
       content_tag("span",object.send(method), tag_options) +   in_place_editor(tag_options[:id], in_place_editor_options)
   end
-
 
 ##
 # lookup cell either a combo for short list of a autocomplete for longer lists

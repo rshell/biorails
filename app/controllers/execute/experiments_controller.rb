@@ -269,6 +269,7 @@ class Execute::ExperimentsController < ApplicationController
         flash[:error] ="couldn't work out where file was: {params.to_s}"
       end 
     end
+    session.data[:file]=nil
     flash[:error]=@experiment.errors
     #flash[:warning]=@experiment.messages
     flash[:info]= "import task #{@task.name}" 

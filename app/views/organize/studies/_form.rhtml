@@ -7,22 +7,20 @@
    </div>
    
   <div class="row">
-   <div class="form-element">
      <label for="study_description">Description</label>
      <%= text_area('study', 'description', {:rows=>5,:cols=>100})  %>
-   </div>
   </div>
   
   <div class="row">
    <div class="form-element">
      <label for="study_research_area">Research area</label>
-     <%= text_field 'study', 'research_area' , {:class=>"text-input"} %>
+     <%= select_values 'study', 'research_area' ,'ResearchArea' %>
    </div>
+  </div>
 
-   <div class="form-element">
+  <div class="row">
      <label for="study_purpose">Purpose</label>
-     <%= text_field 'study', 'purpose' , {:class=>"text-input"} %>
-   </div>
+     <%= text_area 'study', 'purpose' , {:rows=>3,:cols=>100} %>
   </div>
 
 <div class="row">

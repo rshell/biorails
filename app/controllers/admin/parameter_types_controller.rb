@@ -33,7 +33,7 @@ class Admin::ParameterTypesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @parameter_type_pages, @parameter_types = paginate :parameter_types, :per_page => 30
+    @parameter_type_pages, @parameter_types = paginate :parameter_types,:order=>'name', :per_page => 30
   end
 
   def show
@@ -42,6 +42,8 @@ class Admin::ParameterTypesController < ApplicationController
 
   def new
     @parameter_type = ParameterType.new
+    @parameter_type.data_type_id = 2
+    @parameter_type.storage_unit = ""
   end
 
   def create

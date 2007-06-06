@@ -7,30 +7,16 @@
     </div>
 <% end %>
 
-<%= error_messages_for :user %>
-<% form_for :user, :url => { :action => 'create' } do |f| -%>
-<div class="setgroup">
-  <dl class="setform clear">
-    <dt><label for="user_login">Name</label></dt>
-    <dd><%= f.text_field :name %></dd>
-    
-    <dt><label for="user_login">Full Name</label></dt>
-    <dd><%= f.text_field :fullname %></dd>
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['user']} %>
+<%end%>
 
-    <dt><%= f.label_for  :login %></dt>
-    <dd><%= f.text_field :login %></dd>
-
-    <dt><%= f.label_for      :password %></dt>
-    <dd><%= f.password_field :password %></dd>
-
-    <dt><label for="user_role">Access Level </label></dt>
-    <dd>
-        <%= select_named( :user, :role_id ,Role) %>
-    </dd>
-    <dt><label for="user_email">Email address</label></dt>
-    <dd><%= f.text_field :email %></dd>
-  </dl>
-</div>
-<p class="btns"><%= submit_tag('Add new user') %></p>
-
-<% end -%>
+<% content_for :centre do %>
+  <h2>Create a new User</h2>
+    <% form_for :user, :url => { :action => 'create' } do |f| -%>
+      <%= render :partial=>'form',:locals=>{:f=>f} %>
+    <% end -%>
+<%end%>
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

@@ -12,10 +12,16 @@
     </div>
 <% end %>
 
-
-<h1>Editing parameter_roles</h1>
-
-<% form_tag :action => 'update', :id => @parameter_role do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
+<% content_for :centre do%>
+    <h1>Editing parameter_roles</h1>
+    
+    <% form_tag :action => 'update', :id => @parameter_role do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Edit' %>
+    <% end %>
 <% end %>
+
+
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

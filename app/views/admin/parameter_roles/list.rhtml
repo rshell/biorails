@@ -8,6 +8,10 @@
 <% end %>
 
 <h1>Listing Parameter Roles</h1>
+<p>
+Roles for partitioning of parameter types by styles of usage in a given content.
+</p>
+<div class='panel'>
 <table class="report">
   <tr>
     <th>name</th>
@@ -24,10 +28,10 @@
 <% end %>
 <tr>
 <td colspan=2>
-<%= link_to 'New', parameter_role_url(:action => 'new')%>
 </td>
 </tr>
 </table>
-
+</div>
+<%= link_to 'New', parameter_role_url(:action => 'new')%>
 <%= link_to 'Previous page', { :page => @parameter_role_pages.current.previous } if @parameter_role_pages.current.previous %>
 <%= link_to 'Next page', { :page => @parameter_role_pages.current.next } if @parameter_role_pages.current.next %> 

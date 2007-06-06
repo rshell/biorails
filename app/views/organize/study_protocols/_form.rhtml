@@ -30,12 +30,12 @@
 <div class="row">
     <div class="form-element">
       <label for="process_definition_protocol_catagory">Protocol catagory</label>
-      <%= text_field 'study_protocol', 'protocol_catagory' , {:class=>"text-input"} %>
+      <%= select_values 'study_protocol', 'protocol_catagory'  ,'ProtocolCatagory' %>
     </div>
 
     <div class="form-element">
       <label for="process_definition_protocol_status">Protocol status</label>
-      <%= text_field 'study_protocol', 'protocol_status' , {:class=>"text-input"} %>
+      <%= select_values 'study_protocol', 'protocol_status'  ,'ProtocolStatus' %>
     </div>
 </div>
 

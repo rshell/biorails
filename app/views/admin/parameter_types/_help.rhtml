@@ -1,0 +1,21 @@
+<h4>Guide</h4>
+<div class='panel'> 
+<p>
+Parameter types defined a class of data captured in the the system. In general it should link to the long term needs for 
+warehousing and data archiving and be common across the organization. Commonly use types are items like Dose, xC50 etc. 
+</p><p>
+In use the parameter_type may be aliased as a study parameter level to allow for localized naming and specialization
+like xC50 to IC50,ED50 etc. Also as parameters in protocol must be unique there may be some futher subfixes or aliasing 
+done in each protocol. In use a parameter type is already linked to parameter role to partition data.
+</p>
+<p> A parameter type can be linked to a dimension to limit the choice of units and allow automatically 
+conversion of units on storage. Key dimension are:-
+<ul>
+<li>Substance [pmol .. mol]</li>
+<li>Concentration [pM .. M, wt%]</li>
+<li>Rate [cpm]</li>
+<li>Rate [cpm]</li>
+<li>Time [sec, min, hour, day, week, year]</li>
+<li>Temperature [tempC, tempF, tempK]</li>
+</p>
+</div>

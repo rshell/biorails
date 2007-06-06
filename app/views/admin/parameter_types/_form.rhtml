@@ -1,17 +1,16 @@
-<%= error_messages_for 'parameter_type' %>
+<!--[form:parameter_type]-->
+<p><label for="parameter_type_data_type_id">Data Type</label><br/>
+<%= select_named( :parameter_type, :data_type_id ,DataType) %></p>
 
-<!--[form:parameter_roles]-->
 <p><label for="parameter_type_name">Name</label><br/>
-<%= text_field 'parameter_type', 'name'  %></p>
+<%= text_field :parameter_type, :name,:size=>'80'  %></p>
 
 <p><label for="parameter_type_description">Description</label><br/>
-<%= text_field 'parameter_type', 'description'  %></p>
+<%= text_area :parameter_type, :description  %></p>
 
 <p><label for="parameter_type_weighing">Weighing (Governs order in forms)</label><br/>
-<%= text_field 'parameter_type', 'weighing'  %></p>
+<%= text_field :parameter_type, :weighing  %></p>
 
-<p><label for="parameter_type_weighing">Base Store Dimension to save quantity data</label><br/>
+<p><label for="parameter_type_storage_unit">Base Store Dimension to save quantity data</label><br/>
 <%= select( :parameter_type, :storage_unit, Unit::DIMENSIONS_LOOKUP)  %>
-        
-<!--[eoform:parameter_roles]-->
-
+<!--[eoform:parameter_type]-->
