@@ -10,8 +10,8 @@
   </div>
 <% end %>
 
-<% tab_ids = ['tab-children','tab-elements','tab-usage']%>   
-<% tab_names = ['Child Concepts','Implementions','Usage in parameter types']%>   
+<% tab_ids = ['tab-elements','tab-usage']%>   
+<% tab_names = ['Implementions','Usage in parameter types']%>   
 <% @current_tab = @current_tab || 0 %>
 
 <%= render :partial => 'layouts/tabpanel_js',:locals => {:div_ids => tab_ids } -%>
@@ -26,20 +26,17 @@
  <div id='<%=tab_ids[0]%>' <%= if @current_tab == 0 then 'style="display:block;"' else 'style="display:none;"' end  %> >    
     <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[0] } %>
 
+   <div id='current-elements'>    
+      <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept } %> 
+   </div> 
+
     <div id='current-children'>    
         <%= render :partial => 'list_concepts', :locals =>{:concept => @data_concept }%>  
     </div> 
- </div>
-
-  <div id='<%=tab_ids[1]%>'  <%= if @current_tab == 1 then 'style="display:block;"' else 'style="display:none;"' end  %>>
-       <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[1] } %>
-
-       <div id='current-elements'>    
-          <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept } %> 
-       </div> 
+   
   </div>
 
-  <div id='<%=tab_ids[2]%>'  <%= if @current_tab == 2 then 'style="display:block;"' else 'style="display:none;"' end  %>>
+  <div id='<%=tab_ids[1]%>'  <%= if @current_tab == 1 then 'style="display:block;"' else 'style="display:none;"' end  %>>
         <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[2] } %>
 
         <div id='current-usage'>    

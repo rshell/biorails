@@ -9,6 +9,8 @@ module SessionHelper
     name ||= element.name if element.respond_to?(:name)
     if element
       case  element
+      when ProjectAsset:    link_to name , asset_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
+      when ProjectContent:  link_to name , content_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
       when ProjectElement:  link_to name , folder_url( options.merge({ :id=>element.id ,:folder_id=>element.parent_id}) )
       when QueueItem:       link_to element.data_name, queue_item_url( options.merge({ :id=> element.id}) )
       when ProtocolVersion: link_to name , protocol_url(   options.merge({ :id=> element.protocol.id}) )

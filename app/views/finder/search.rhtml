@@ -11,11 +11,17 @@
           <% if hit.respond_to?(:icon) %>
           <%= image_tag(hit.icon) %>
           <% end %>
-          
+          <% if hit.is_a? ProjectElement %>
+          <%=link_to hit.project.name,project_url(:action=>'show',:id=> hit.project_id) %>: 
+          <%=link_to hit.path,folder_url(:action=>'show',:id=> hit.parent_id) %>  
+          </p><p>               
+          <% end %>          
           <% if hit.respond_to?(:summary) %>
           <%=hit.summary %>       
-          <% elsif hit.respond_to?(:description) %>
-          <%=hit.description %>
+          </p><p>               
+          <% end %>
+          <% if hit.respond_to?(:description) %>
+          <%=highlight(excerpt(hit.description, @search_text, radius = 400),@search_text)  %>
           <% end %>
         </p>
         </li>

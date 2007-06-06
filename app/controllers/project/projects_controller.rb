@@ -156,7 +156,7 @@ class Project::ProjectsController < ApplicationController
            page.replace_html 'centre',  :partial => 'calendar' 
            page.replace_html 'right',  :partial => 'calendar_right' 
          end }
-      #format.ical  { render :text => @schedule.to_ical}
+      format.ics  { render :text => @calendar.to_ical}
     end
   end  
 

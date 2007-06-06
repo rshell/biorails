@@ -50,7 +50,7 @@ class ProjectContent < ProjectElement
     content.title =        options[:title]      
     content.body      =    options[:body]        
     content.project_id=    options[:project_id]
-    content.body_html =    options[:to_html]  
+    element.to_html =    options[:to_html]  
     content.valid?
     logger.info content.to_yaml
     return self unless content.save
@@ -69,7 +69,7 @@ class ProjectContent < ProjectElement
       self.content.title      =  options[:title]      
       self.content.body       =  options[:body]        
       self.content.project_id =  self.project_id   
-      self.content.body_html  =  options[:to_html] 
+      self.to_html  =  options[:to_html] 
       return self unless self.content.save      
       self.content.move_to_child_of(old)  
     end
@@ -86,6 +86,10 @@ class ProjectContent < ProjectElement
   def to_html
     self.content.body_html if content
   end
+  
+  def to_html=(value)
+    self.content.body_html = value.gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "") 
+  end
 ##
 # Textual content  
 
@@ -97,7 +101,7 @@ class ProjectContent < ProjectElement
          node = HTML::Node.parse(nil, 0, 0, token, false)
          text << node.to_s if node.class == HTML::Text  
       end
-      return text.gsub(/<!--(.*?)-->[\n]?/m, "") 
+      return text.gsub(/<!--(.*?)-->[\n]?/m, "").gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")  
   end
 ##
 # Summay of the content

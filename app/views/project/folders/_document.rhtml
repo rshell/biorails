@@ -10,7 +10,7 @@
 <br/>
 <% for item in folder.elements %>    	
     <% if item.asset? and item.asset.image? %>
-        	<h2>Figure: <%=item.name%>  </h2>
+        	<h2>Figure: <%=item.title%>  </h2>
         	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
 	    	 <i> <%= item.description %> </i>
 	<% elsif item.textual? %>

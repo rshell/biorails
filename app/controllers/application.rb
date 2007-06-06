@@ -49,6 +49,7 @@ class ApplicationController < ActionController::Base
   uses_tiny_mce(:options => {
      :theme => 'advanced',
      :mode => "textareas",
+     :doctype => " ",
      :browsers => %w{msie,gecko,opera,safari},
      :theme_advanced_toolbar_location => "top",
      :theme_advanced_toolbar_align => "left",
