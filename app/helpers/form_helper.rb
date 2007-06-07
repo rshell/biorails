@@ -105,18 +105,19 @@ module FormHelper
      when String
        element = DataElement.named(root)
        for item in element
-          list.concat(item.elements.collect{|c|[c.path,c.id]})
+          list.concat(item.elements.collect{|c|[c.summary,c.id]})
        end     
      when DataConcept
+        logger.info "concept #{root}"
        for item in root.decendents
-          list.concat(item.elements.collect{|c|[c.path,c.id]})
+          list.concat(item.elements.collect{|c|[c.summary,c.id]})
        end
      when DataElement
        for item in root.decendents
-          list.concat([item.path,item.id])
+          list.concat([item.summary,item.id])
        end
      else
-         list.concat(DataElement.find(:all,:order=>'name').collect{|c|[c.path,c.id]})   
+         list.concat(DataElement.find(:all,:conditions=>'parent_id is null',:order=>'name').collect{|c|[c.summary,c.id]})   
      end
      return  select(object, method ,list)      
   rescue Exception => ex
@@ -269,7 +270,7 @@ module FormHelper
     options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onchanged]  ||= 'FieldSave(this,event)'    
     options[:onblur]  ||= 'FieldExit(this,event)'  
-    out = "<table><tr><td>"
+    out = "<table width='100%'><tr><td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
     out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
     out << "</td><td>"
@@ -302,7 +303,7 @@ module FormHelper
     out = String.new
 
     out  << '<div id="dateBocks">'
-    out  << '<table><tr> <td>'
+    out  << "<table width='100%'><tr> <td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
     out << <<EOS
           </td>
@@ -380,7 +381,7 @@ EOS
         # See the RDoc on ActionController::AutoComplete to learn more about this.
         
   def combo_box_tag_auto_complete(id,value, url, tag_options = {}, completion_options = {})
-    out = "<table><tr><td>"
+    out = "<table width='100%'><tr><td>"
     out << text_field_tag(id, value, tag_options) 
     out << content_tag("div", "", :id => "#{id}_select_auto_complete", :class => "select_auto_complete") 
     out << hidden_field_tag("#{id}_ref")

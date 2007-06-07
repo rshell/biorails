@@ -22,7 +22,7 @@
 # 
 class Admin::CatalogueController < ApplicationController
 
-  use_authorization :cataloge,
+  use_authorization :catalogue,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy,:new_element,:new_usage],
                     :rights => :current_user
                    

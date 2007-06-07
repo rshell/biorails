@@ -81,6 +81,10 @@ class DataConcept < ActiveRecord::Base
         return parent.path+"/"+name
      end 
   end 
+  
+  def summary
+    "#{name}  [#{path}] "
+  end
 #
 # Find all the children of this the concept
 #

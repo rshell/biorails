@@ -135,7 +135,7 @@ module SheetHelper
    out << '<tr> <th>' << row.label 
    out << '</th>' << "\n"
    for cell in row.cells
-     out << '<td class="cell" id="' + cell.dom_id('cell')+'">'
+     out << "<td class='cell #{cell.css_class}' id='"+ cell.dom_id('cell')+"'>"
      out << data_grid_cell(cell)
      out << '</td>' << "\n"
    end

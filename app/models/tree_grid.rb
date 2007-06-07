@@ -382,6 +382,10 @@ end
     self.row.task 
   end
   
+  def css_class
+    "type-#{parameter.data_type_id} role-#{parameter.parameter_role_id}"
+  end
+  
   def name
      self.parameter.name
   end

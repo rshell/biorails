@@ -81,12 +81,15 @@ class DataElement < ActiveRecord::Base
 #
   def path
      if parent == nil 
-        return "/"+name 
+        return name 
      else 
         return parent.path+"/"+name
      end 
   end 
 
+  def summary
+    "#{path} (#{system.name})  [#{concept.path}] "
+  end
 #
 # Find all the children of this the concept
 #

@@ -195,8 +195,7 @@ protected
     item.context = self
     item.task = self.task 
     item.parameter = parameter
-    item.data_value = value if value 
-    item.display_unit = parameter.display_unit
+    item.value = value if value 
     return item
  end 
 
