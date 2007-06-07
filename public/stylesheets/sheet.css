@@ -15,7 +15,6 @@ Sheet Table Style
     background-color: #ddd;
     color:black;
     width: 100%;
-    border-collapse: collapse;
     empty-cells: show;
 }
 .sheet table {
@@ -26,22 +25,23 @@ Sheet Table Style
 Cell titles 
 */
 .sheet th {
+    border: solid thin  #A2C5BA;
     margin: 2 2 2 2;
+	border 1 1 1 1;
     padding: 0 0 0 0;
     height: auto;
     background-color: #ddd;
     overflow: hidden;
-    border: solid thin  #A2C5BA;
 }
 
+
 .sheet tr {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
     background-color: #eee;
     height: auto;
 }
 
 .sheet td {
+    border: solid thin  #A2C5BA;
 	width: auto;
     background-color: #fff;
     background-color: #fff;
@@ -84,7 +84,6 @@ Cells
 	border: 1 1 1 1;  
     margin: 2 2 2 2;
     padding: 0 0 0 0;  
-    border: 1px solid #A2C5BA;
 }
 /* Specific rules for data_type of cells 1=text 2=numeric 3=date */
 .sheet td.type-1 input[type="text"] {
