@@ -206,7 +206,7 @@ class Execute::TasksController < ApplicationController
   def export
     set_task
     filename = "#{@task.experiment.name}-#{@task.name}.csv"
-    send_data( @task.grid.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
+    send_data( @task.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
                             :filename => filename)   
   rescue Exception => ex
       logger.error ex.message
@@ -241,8 +241,8 @@ class Execute::TasksController < ApplicationController
         flash[:error] ="couldn't work out where file was: {params.to_s}"
       end 
     end
+    session.data[:current_params]=nil    
     flash[:error]=@experiment.errors
-    #flash[:warning]=@experiment.messages
     flash[:info]= "import task #{@task.name}" 
     redirect_to  task_url( :action => 'view', :id => @task)
 

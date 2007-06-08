@@ -20,11 +20,18 @@ var current_cell_id ='';
 Ajax.Responders.register({
  onCreate: function() {
     if (Ajax.activeRequestCount > 0)
+	{
+	  document.body.style.cursor = 'wait';
       Element.show('busy-indicator');
+	}
  },
  onComplete: function() {
     if (Ajax.activeRequestCount == 0)
+    {
+	  document.body.style.cursor = 'default';
       Element.hide('busy-indicator');
+
+	}    
  }
  });
 

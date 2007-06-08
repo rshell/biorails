@@ -350,32 +350,13 @@ SQL
     processor = Analysis.find_by_name(name)
     processor.init(self)
     processor.run
-    processer.done
+    processor.done
  end
 ##
 # Export a data grid to cvs report
 # 
  def to_csv
-    return FasterCSV.generate do |csv|
-      csv << %w(start id name status experiment protocol study version)
-      csv << ['task',id, name, status, experiment.name, protocol.name,  experiment.study.name,  process.version]
-      definition = nil
-      for row_no in rows.keys.sort
-        context = row(row_no)
-        unless context.definition == definition
-          definition = context.definition
-          csv << ''
-          csv << ['context',definition.label,'Row No.'].concat(context.names)
-          csv <<  ['types',definition.label,''].concat(context.styles)           
-        end
-        csv << ['values', context.label, context.row_no].concat( context.values)
-      end
-      csv << ['end',description]      
-    end
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
-      return ex.message
+    return self.grid.to_csv
  end
 ##
 # Update all queue_items with where current task status value if they are acvtive

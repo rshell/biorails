@@ -206,10 +206,12 @@ STUDY_MODELS = [:study,:study_parameter,:study_queue,:study_protocol, :protocol_
         return render( :action => 'import'  ) 
       end 
     end
+    session.data[:current_params]=nil    
     flash[:info]= "Import Study #{@study.name}" 
     redirect_to( study_url(:action => 'show', :id => @study))
 
  rescue Exception => ex
+    session.data[:current_params]=nil    
     logger.error "current error: #{ex.message}"
     flash[:error] = "Import Failed #{ex.message}"
     return render( :action => 'import'  ) 

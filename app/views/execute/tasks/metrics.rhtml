@@ -1,4 +1,3 @@
-<% content_for :centre do -%>
 <h2>
  <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
@@ -13,13 +12,3 @@
 <%= render :partial => 'task' %>  
 <%= render :partial => 'stats' %>  
 
-
-<% end %>
-
-<% content_for :right do -%>
-   <h2>Project Tree </h2>
-   <div class="panel">
-    <%= tree_for_project(current_project)%>
-   </div>
-<% end %>
-   

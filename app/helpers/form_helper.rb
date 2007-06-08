@@ -270,7 +270,7 @@ module FormHelper
     options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onchanged]  ||= 'FieldSave(this,event)'    
     options[:onblur]  ||= 'FieldExit(this,event)'  
-    out = "<table width='100%'><tr><td>"
+    out = "<table><tr><td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
     out << content_tag("div", "", :id => "#{id}_auto_complete", :class => "auto_complete") 
     out << "</td><td>"
@@ -303,7 +303,7 @@ module FormHelper
     out = String.new
 
     out  << '<div id="dateBocks">'
-    out  << "<table width='100%'><tr> <td>"
+    out  << "<table><tr> <td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
     out << <<EOS
           </td>
@@ -381,7 +381,7 @@ EOS
         # See the RDoc on ActionController::AutoComplete to learn more about this.
         
   def combo_box_tag_auto_complete(id,value, url, tag_options = {}, completion_options = {})
-    out = "<table width='100%'><tr><td>"
+    out = "<table><tr><td>"
     out << text_field_tag(id, value, tag_options) 
     out << content_tag("div", "", :id => "#{id}_select_auto_complete", :class => "select_auto_complete") 
     out << hidden_field_tag("#{id}_ref")

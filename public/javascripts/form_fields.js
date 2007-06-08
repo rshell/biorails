@@ -111,7 +111,7 @@ function FieldSave(element,event)
 	 {
         new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
         var url = element.getAttribute('save')+'?element='+element.id;
-        new Ajax.Request(url,{asynchronous:true, evalScripts:true, parameters:'value=' + element.value} ); 
+        new Ajax.Request(url,{asynchronous:true, evalScripts:true, parameters:'value=' + escape(element.value)} ); 
 	 }
 }
 
