@@ -50,7 +50,7 @@ class ProjectContent < ProjectElement
     content.title =        options[:title]      
     content.body      =    options[:body]        
     content.project_id=    options[:project_id]
-    element.to_html =    options[:to_html]  
+    content.body_html =    options[:to_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")   
     content.valid?
     logger.info content.to_yaml
     return self unless content.save
@@ -64,14 +64,16 @@ class ProjectContent < ProjectElement
   def update_element(options)
     Content.transaction do
       old = Content.find(self.content_id)
+      self.name= options[:name] if options[:name] 
       self.content = Content.new
-      self.content.name       =  old.name || options[:name]       
-      self.content.title      =  options[:title]      
+      self.content.name       =  options[:name] ||old.name       
+      self.content.title      =  options[:title] ||old.title      
       self.content.body       =  options[:body]        
       self.content.project_id =  self.project_id   
       self.to_html  =  options[:to_html] 
       return self unless self.content.save      
       self.content.move_to_child_of(old)  
+      self.save
     end
   end
 ##
