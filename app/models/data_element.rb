@@ -139,12 +139,11 @@ class DataElement < ActiveRecord::Base
   def like(name)
     return self.values
   end
-  
 #
 #  List values for this element   
 #    
-  def choices
-     self.values.collect{|row | [ row.name, row.id]} 
+  def choices(display_field=:name,id_field=:id)
+     self.values.collect{|v|[v.send(display_field),v.send(id_field)]} 
   end    
 
 ##
@@ -300,12 +299,7 @@ class SqlElement < DataElement
   def like(name)
     return data_system.connection.select_all(content+" where  name like'"+name+"%' order by name")    
   end
-
-##
-#  List values for this element   
-  def choices
-     self.values.collect{|v|[v['name'],v['id']]} 
-  end    
+ 
 
 end
 
@@ -358,12 +352,6 @@ class ModelElement < DataElement
        self.model.find(:all,:limit=>100,:order=>'name')
     end
   end
-#
-#  List values for this element   
-#    
-  def choices
-     self.values.collect{|v|[v.name,v.id]} 
-  end    
 
 end
 

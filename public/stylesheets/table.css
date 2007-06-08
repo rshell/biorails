@@ -55,35 +55,35 @@ table.calendar-grid .today {
     width:14%;
     }
 
-.state_new {
+.state-new {
     background-color: #fffdc5;
 
     }
-.state_accepted {
+.state-accepted {
     background-color: #fffdc3;
     }
 
- .state_processing {
+ .state-processing {
     background-color: #ffbb9b;
     }
 
- .state_waiting {
+ .state-waiting {
     background-color: #c7edff;
     }
 
- .state_completed {
+ .state-completed {
     background-color: #c1ffc3;
     }
 
-.state_validation {
+.state-validation {
     background-color: #bfffd1;
     }
 
-.state_rejected {
+.state-rejected {
     background-color: #ffd3f1;
     }
 
-.state_aborted {
+.state-aborted {
      background-color: #f6d3ff;
     }
 

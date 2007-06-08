@@ -409,7 +409,7 @@ protected
      if context
        for parameter in context.parameters
           value = row[col+3]
-          #logger.info "TaskItem[#{i},#{col}] #{parameter.name} = #{value}"
+          logger.info "TaskItem[#{i},#{col}] #{parameter.name} = #{value}"
           cell = context.cell(parameter)
           cell.value = value
           col +=1

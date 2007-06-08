@@ -90,7 +90,7 @@ class Organize::StudyQueuesController < ApplicationController
 # Update the service 
 # 
   def update_service
-    logger.debug "got service status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
+    logger.info "got service status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
     
     RequestService.transaction do 
       @request_service = RequestService.find(params[:id])

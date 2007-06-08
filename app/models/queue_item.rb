@@ -93,10 +93,10 @@ class QueueItem < ActiveRecord::Base
  end
  
  def update_state(params)
-    self.state_id = params[:status_id]          if params[:status_id]
+    self.state_id = params[:status_id].to_i     if params[:status_id]
     self.priority_id = params[:priority_id]     if params[:priority_id]
     self.assigned_to_user_id = params[:user_id] if params[:user_id]
-    self.comments << params[:comments]         if params[:comments]
+    self.comments << params[:comments]          if params[:comments]
  end
 
 ##

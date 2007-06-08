@@ -165,6 +165,7 @@ module Alces
         # Change the current status_id if allowed and return the value
         # 
          def state_id=(new_id)
+            new_id = new_id.to_i 
             if is_allowed_state(new_id) and new_id != self.status_id 
               self.status_id = new_id
               if self.is_active

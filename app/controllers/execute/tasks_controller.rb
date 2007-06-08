@@ -242,11 +242,11 @@ class Execute::TasksController < ApplicationController
       end 
     end
     session.data[:current_params]=nil    
-    flash[:error]=@experiment.errors
     flash[:info]= "import task #{@task.name}" 
     redirect_to  task_url( :action => 'view', :id => @task)
 
   rescue  Exception => ex
+     session.data[:current_params]=nil
      logger.error ex.message
      logger.error ex.backtrace.join("\n") 
      flash[:error] = "Import Failed:" + ex.message

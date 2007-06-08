@@ -438,9 +438,9 @@ end
 # 
    def to_s
      if @item 
-       "cell #{@item.dom_id} #{parameter.name}[#{@row.id},#{@id}]=#{@value}"
+       @item.to_s
      else
-       "cell #{parameter.name}[#{@row.id},#{@id}]=#{@value}"
+       @value
      end       
    rescue Exception => ex
       logger.error "cell.to_s: #{ex.message}"

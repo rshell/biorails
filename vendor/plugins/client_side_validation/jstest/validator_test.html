@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Unit tests for validator.js</title>
+    <link rel="Stylesheet" type="text/css" href="test.css" />
+    <script type="text/javascript" src="../../../../public/javascripts/prototype.js"></script>
+    <script type="text/javascript" src="effects.js"></script>
+    <script type="text/javascript" src="unittest.js"></script>
+    <script type="text/javascript" src="../javascripts/validator.js"></script>
+    <script type="text/javascript" src="../javascripts/validators-en.js"></script>
+
+    <style type="text/css">
+input.invalid[type=text] {
+    border-bottom: 1px dotted #f00 !important;
+}
+    </style>
+  </head>
+  <body>
+
+    <div id="testlog"> </div>
+    <div id="result"></div>
+
+    <form id="form_invalid" action="#" class="validated">
+      <p>
+        <input type="text" id="tf_mandatory" class="mandatory" />
+	    <input type="text" id="tf_numeric" class="numeric" />
+	    <input type="text" id="tf_date" class="date" />
+
+        <input type="radio" id="radio_1" name="radio_group_1" class="mandatory" />
+        <input type="radio" id="radio_2" name="radio_group_1" class="mandatory" />
+
+        <select id="select_one" class="mandatory">
+          <option></option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+
+        <select id="select_multiple" class="mandatory" size="4">
+          <option></option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+
+        <input type="text" id="tf_diff_1" class="validate_different_1" value="same" />
+        <input type="text" id="tf_diff_2" class="validate_different_1" />
+        <input type="text" id="tf_diff_3" class="validate_different_1" value="same" />
+
+        <input type="submit" name="commit" id="commit_invalid_1" />
+        <button type="submit" name="commit" id="commit_invalid_2">Submit 2</button>
+        <input type="submit" name="dontcommit" id="dontcommit_invalid_1" />
+        <button type="submit" name="dontcommit" id="dontcommit_invalid_2">Submit 2</button>
+      </p>
+    </form>
+
+    <form id="form_empty" action="#" class="validated">
+      <p>
+        <input type="submit" name="commit" id="submit_empty_1" />
+        <button type="submit" name="commit" id="submit_empty_2">Submit 2</button>
+      </p>
+    </form>
+
+    <form id="form_valid" action="#" class="validated">
+      <p>
+        <input type="text" class="mandatory" value="valid" />
+        <input type="submit" name="commit" id="submit_valid_1" />
+        <button type="submit" name="commit" id="submit_valid_2">Submit 2</button>
+      </p>
+    </form>
+
+    <form id="form_transitions" action="#" class="validated">
+      <p>
+        <input type="text" id="tf_valid" class="mandatory" value="valid" />
+      </p>
+    </form>
+
+    <form id="form_callback" action="#" class="validated">
+     <input type="text" id="tf_callback" class="validate_testcallback" />
+    </form>
+
+
+<script type="text/javascript">
+//<![CDATA[
+  Form.Validator.installForAllValidatedForms();
+//]]>
+</script>
+
+
+    <script type="text/javascript">
+//<![CDATA[
+
+Object.prototype.assertArraysEqual = function(expected, actual) {
+  var message = arguments[2] || "assertArraysEqual";
+  try { (expected.equals(actual)) ? this.pass() :
+    this.fail(message + ': expected "' + Test.Unit.inspect(expected) +
+      '", actual "' + Test.Unit.inspect(actual) + '"'); }
+  catch(e) { this.error(e); }
+}
+
+// cat validator_test.html | sed -n 's/^.*id="\([^"]*\)".*$/\1/p' | sed "s/.*/  '&',/"
+var checkedElements = [
+  'tf_mandatory',
+  'tf_numeric',
+  'tf_date',
+  'radio_1',
+  'radio_2',
+  'tf_diff_1',
+  'tf_diff_2',
+  'tf_diff_3',
+  'tf_callback',
+  'tf_valid'
+];
+
+
+var callbackCalled;
+var errorMessages;
+
+function messageCallback(msgs) {
+  callbackCalled = true;
+  errorMessages = msgs
+}
+
+new Test.Unit.Runner({
+
+  testLoaded_validator: function() { with(this) {
+    assertNotNull(Form.Validator.Version);
+  }},
+
+  testLoaded_validators: function() { with(this) {
+    assertNotNull(Form.Validator.Validators.Version);
+  }},
+
+  test_validators_installed: function() { with(this) {
+    for (var i = 0; i < checkedElements.length; i++) {
+      var unchecked = []
+      if (!$(checkedElements[i]).__checkValidity) {
+        unchecked.push(checkedElements[i]);
+      }
+      assert('Elements without validators: ' + unchecked.join(', '),
+        unchecked.length === 0);
+    }
+  }},
+
+  test_invalid_form: function() { with(this) {
+    var v = $('form_invalid').__validator;
+    v.check();
+    assert(!v.formIsValid);
+  }},
+
+  test_valid_form: function() { with(this) {
+    var v = $('form_valid').__validator;
+    v.check();
+    assert(v.formIsValid);
+  }},
+
+  test_empty_form: function() { with(this) {
+    var v = $('form_empty').__validator;
+    v.check();
+    assert(v.formIsValid);
+  }},
+
+  test_transitions: function() { with(this) {
+    var v = $('form_transitions').__validator;
+    v.check();
+    assert(v.formIsValid);
+    $('tf_valid').value = '';
+    v.check();
+    assert(!v.formIsValid);
+    $('tf_valid').value = 'something';
+    v.check();
+    assert(v.formIsValid);
+  }},
+
+  test_commit_buttons_disabled_for_invalid_form: function() { with(this) {
+    $('form_invalid').__validator.check(); // be sure the validator has run at least once
+    assert($('commit_invalid_1').disabled);
+    assert($('commit_invalid_2').disabled);
+  }},
+
+  test_noncommit_submit_buttons_enabled_for_invalid_form: function() { with(this) {
+    $('form_invalid').__validator.check(); // be sure the validator has run at least once
+    assert(!$('dontcommit_invalid_1').disabled);
+    assert(!$('dontcommit_invalid_2').disabled);
+  }},
+
+  test_commit_buttons_enabled_for_empty_form: function() { with(this) {
+    assert(!$('submit_empty_1').disabled);
+    assert(!$('submit_empty_2').disabled);
+  }},
+
+  test_submit_buttons_enabled_for_valid_form: function() { with(this) {
+    assert(!$('submit_valid_1').disabled);
+    assert(!$('submit_valid_2').disabled);
+  }},
+
+  test_mandatory_textfield: function() { with(this) {
+    var tf = $('tf_mandatory');
+    assert(!tf.__checkValidity());
+    tf.value = 'something';
+    assert(tf.__checkValidity());
+  }},
+
+  test_mandatory_radiobuttons: function() { with(this) {
+    assert(!$('radio_1').__checkValidity());
+    assert(!$('radio_2').__checkValidity());
+    $('radio_1').checked = 'checked';
+    assert($('radio_1').__checkValidity());
+    assertNull($('radio_1').__checkValidity);
+    assertNull($('radio_2').__checkValidity);
+  }},
+
+  test_mandatory_selectone: function() { with(this) {
+    var sel = $('select_one');
+    assert(!sel.__checkValidity());
+    sel.options[1].selected = 'true';
+    assert(sel.__checkValidity());
+  }},
+
+  test_mandatory_selectmultiple: function() { with(this) {
+    var sel = $('select_multiple');
+    assert(!sel.__checkValidity());
+    sel.options[1].selected = 'true';
+    assert(sel.__checkValidity());
+  }},
+
+  test_numeric: function() { with(this) {
+    var tf = $('tf_numeric');
+    tf.value = 'abc';
+    assert(!tf.__checkValidity());
+    tf.value = '1234';
+    assert(tf.__checkValidity());
+  }},
+
+  test_date: function() { with(this) {
+    var tf = $('tf_date');
+    tf.value = 'abc';
+    assert(!tf.__checkValidity());
+    tf.value = '02/30/2004';
+    assert(!tf.__checkValidity());
+    tf.value = '12/13/2004';
+    assert(tf.__checkValidity());
+  }},
+
+  test_different: function() { with(this) {
+    var d1 = $('tf_diff_1'), d2 = $('tf_diff_2'), d3 = $('tf_diff_3');
+    var v = $('form_invalid').__validator;
+    assert(!d1.__checkValidity(v));
+    assert(d2.__checkValidity(v));
+    assert(!d3.__checkValidity(v));
+    d2.value = 'same';
+    assert(!d1.__checkValidity(v));
+    assert(!d2.__checkValidity(v));
+    assert(!d3.__checkValidity(v));
+  }}
+});
+//]]>
+    </script>
+  </body>
+</html>

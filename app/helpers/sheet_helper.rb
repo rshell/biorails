@@ -60,9 +60,9 @@ module SheetHelper
    for cell in row.cells
      out << '  <td class="cell">'
      if cell.item and auditing
-       out << link_to_remote( cell.value.to_s, :url=> audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ))
+       out << link_to_remote( cell.to_s, :url=> audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ))
      else
-       out << cell.value.to_s || ' '
+       out << cell.to_s || ' '
      end
      out << "  </td>\n"
    end

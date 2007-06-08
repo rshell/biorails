@@ -48,36 +48,36 @@ module FormHelper
       logger.error ex.backtrace.join("\n")    
        "Err. (no date picker)"
   end
-
-  def select_values(object,method, root = nil)
+  
+  def select_values(object,method, root = nil,id_field=:id)
      list = [[nil,nil]]
      case root
      when String
        concept = DataConcept.find_by_name(root)
-       list.concat(concept.default.choices)  if concept and concept.default
+       list.concat(concept.default.choices(:name,id_field))  if concept and concept.default
      when Study
        root.protocols.each do |item|
-          list.concat(item.elements.collect{|c|[c.name,c.id]})
+          list.concat(item.elements.collect{|c|[c.name,c.send(id_field)] })
        end
      when Experiment
        root.protocols.each do |item|
-          list.concat(item.elements.collect{|c|[c.name,c.id]})
+          list.concat(item.elements.collect{|c|[c.name,c.send(id_field)]})
        end
      when Project
        root.folders.each do |item|
-          list.concat(item.collect{|c|[c.path,c.id]})
+          list.concat(item.collect{|c|[c.path,c.send(id_field)]})
        end
      when ProjectFolder
        root.elements.each do |item|
-          list.concat(item.collect{|c|[c.name,c.id]})
+          list.concat(item.collect{|c|[c.name,c.send(id_field)]})
        end
      when DataConcept
        root.decendents.each do |item|
-          list.concat(item.elements.collect{|c|[c.path,c.id]})
+          list.concat(item.elements.collect{|c|[c.path,c.send(id_field)]})
        end
      when DataElement
        root.decendents.each do |item|
-          list.concat(item.collect{|c|[c.path,c.id]})
+          list.concat(item.collect{|c|[c.path,c.send(id_field)]})
        end
      else
        root.each do |item|

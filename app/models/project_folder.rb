@@ -167,8 +167,7 @@ class ProjectFolder < ProjectElement
      ProjectFolder.transaction do 
          title ||= filename
          element ||= ProjectAsset.build(
-                      :name=> asset.filename, 
-                      :position => self.children.child_count,   
+                      :name=> filename,  
                       :parent=>self, 
                       :project_id => self.project_id )                                       
          element.asset.temp_path = filename
@@ -204,7 +203,7 @@ class ProjectFolder < ProjectElement
 #   
   def add_reference(name,item)
      ProjectFolder.transaction do 
-         element = ProjectReference.new(:name=> name, :position => self.children.child_count, :parent_id=>self.id, :project_id => self.project_id )                                       
+         element = ProjectReference.new(:name=> name, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.reference = item    
          case item
          when ProjectContent

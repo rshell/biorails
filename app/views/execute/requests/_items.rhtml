@@ -11,11 +11,9 @@
     <tr>
          <td><%=item.data_name%> </td>
          <%for service in request.services %>
-             <% if  grid[item.data_name][service.name] %>
-             <td class='state-<%=grid[item.data_name][service.name].status%>' ><%=   grid[item.data_name][service.name].status    %> </td>
-             <% else %>
-             <td>not submitted </td>
-             <% end %>
+             <td class='state-<%=grid[item.data_name][service.name]||'new'%>' >
+                 <%=  grid[item.data_name][service.name] ||'not submitted '  %> 
+             </td>
          <% end %>
          <td><%= link_to 'Remove', request_url(:action => 'remove_item',:request_id=> request.id, :id => item.id ) %> </td>
     </tr>

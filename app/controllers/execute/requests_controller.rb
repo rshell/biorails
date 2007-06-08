@@ -180,19 +180,19 @@ class Execute::RequestsController < ApplicationController
 # update a item in the request
 # 
   def update
-    @user_request = Request.find(params[:id])
-    @user_request.status_id = params[:user_request][:status_id]
-    if @user_request.update_attributes(params[:user_request])
-      Request.transaction do
-        @user_request.services.each do |service|
-           service.submit 
-        end   
+    Request.transaction do
+      @user_request = Request.find(params[:id])
+      @user_request.status_id = params[:user_request][:status_id]
+      if @user_request.update_attributes(params[:user_request])
+          @user_request.services.each do |service|
+             service.submit 
+        end
+        flash[:notice] = 'QueueItem was successfully updated.'
+        redirect_to :action => 'show',:id=>@user_request.id
+      else
+        render :action => 'edit'
       end
-      flash[:notice] = 'QueueItem was successfully updated.'
-      redirect_to :action => 'show',:id=>@user_request.id
-    else
-      render :action => 'edit'
-    end
+    end   
   end
 
 ##

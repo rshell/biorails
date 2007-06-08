@@ -57,6 +57,10 @@ module Alces
          self.to_s.underscore
        end
        
+       def logger
+         @task.logger
+       end
+       
        def self.description
          'Simple X/Y Chart plotter, adding created chart to the task as a asset'
        end
@@ -94,17 +98,11 @@ module Alces
        #
        def get(name)
          param = setting(name)
-         if param.nil?
-            return nil 
-     
-          elsif param.level_no.nil? or param.column_no.nil?
-            return param.default_value
-            
-         else
-           return self.matrix.column(param.column_no.to_i).to_a if param.level_no>0
-           self.matrix[param.column_no.to_i,0]
-           
-         end
+         logger.info "matrix #{self.matrix.row_size}x#{self.matrix.column_size} #{param.name} col #{param.column_no} level #{param.column_no.to_i}" 
+         return nil  if param.nil?
+         return param.default_value   if param.level_no.nil? or param.column_no.nil?
+         return self.matrix.column(param.column_no.to_i).to_a if param.level_no>0
+         self.matrix[param.column_no.to_i,0]
        end
        #
        # The the parameter/setting name for display
