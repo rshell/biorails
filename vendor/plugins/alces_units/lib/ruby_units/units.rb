@@ -82,6 +82,8 @@ UNITS_MASS = {
 }
 
 UNITS_AREA = { 
+  '<sqm>'=>[%w{sqm}, 1, :area, %w{<meter> <meter>}],
+  '<sqmm>'=>[%w{sqmm}, 1E-6, :area, %w{<meter> <meter>}],
   '<hectare>'=>[%w{hectare}, 10000, :area, %w{<meter> <meter>}],
   '<acre>'=>[%w(acre acres), 4046.85642, :area, %w{<meter> <meter>}],
   '<sqft>'=>[%w(sqft), 1, :area, %w{<feet> <feet>}],
