@@ -1,0 +1,20 @@
+<h2> User with Roles </h2>
+
+<table class="report">
+<thead>
+<tr>
+   <th>User</th>
+   <th>Created</th>
+   <th>Updated</th>
+</tr>
+</thead>
+<tbody>
+<% for user in @role.users do %>
+    <tr>
+        <td><%= link_to user.name, user_url(:action=>'show',:id=>user.id) %></td>
+        <td><%= short_date user.created_at %></td>
+        <td><%= short_date user.updated_at %></td>
+    </tr>
+<% end -%>
+</tbody>
+</table>

@@ -40,6 +40,9 @@ module Alces
 #                     :authenticate => :current_user,
 #                     :rights => :current_user
 #
+# In cases of failure the sub system called the handle 'show_access_denied'
+# 
+#
     module AuthorizationService
     
       def self.included(base)
@@ -88,7 +91,7 @@ module Alces
              logger.info "Authorization #{session[:current_username]} #{self.class.rights_subject} #{params[:action]}"  
              unless self.authenticate  
                   flash[:error]= "User #{session[:current_username]} authentication does not appear valid "  
-                  redirect_to auth_url(:action => "login")
+                  show_login
                   return false     
              end     
              if authorized?(params[:action])
@@ -101,7 +104,7 @@ module Alces
                flash[:warning]= "No permission for action [#{params[:action]}] on [#{self.class.rights_subject}] with currently project #{current_project.name} "  
                flash[:info]= "See Project Owner if you really need to do this  " 
              end
-             redirect_to home_url(:action => "show")             
+             show_access_denied          
              return false     
           end         
       end    

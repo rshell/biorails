@@ -5,7 +5,7 @@
 #
 class Organize::StudiesController < ApplicationController
 
-  use_authorization :study,
+  use_authorization :studies,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                       

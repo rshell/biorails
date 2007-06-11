@@ -15,14 +15,15 @@ development:
   database: biorails2_development
   username: biorails 
   password: moose
-  host: 192.168.1.10
+  #host: localhost
+  socket: /var/run/mysqld/mysqld.sock
   
 demo:
   adapter: mysql
   database: biorails2_demo
   username: biorails 
   password: moose
-  host: 192.168.1.10  
+  host: localhost
 ##
 # Lite version to ship as part of checkin
 

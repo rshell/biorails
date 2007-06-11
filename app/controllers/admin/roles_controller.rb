@@ -18,7 +18,8 @@ class Admin::RolesController < ApplicationController
   end
 
   def list
-    @roles = Role.find(:all,:order => 'name')
+    @user_roles = UserRole.find(:all,:order => 'name')
+    @project_roles = ProjectRole.find(:all,:order => 'name')
   end
 
   def show
@@ -30,11 +31,14 @@ class Admin::RolesController < ApplicationController
   end
 
   def create
-    @role = Role.new(params[:role])
+    if params[:role_type]=='UserRole'
+    @role = UserRole.new(params[:role])
+    else
+    @role = ProjectRole.new(params[:role])
+    end
     if @role.save
-      @role.reset_rights(params[:allowed])
       flash[:notice] = 'Role was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to :action => 'edit',:id=>@role.id
     else
       render :action => 'new'
     end

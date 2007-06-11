@@ -15,74 +15,9 @@
 <tr><th>Updated At</th><td> <%= short_date @role.updated_at %></td></tr>
 </table>
 <hr />
-<h2> User with Roles </h2>
-
-<table class="report">
-<thead>
-<tr>
-   <th>User</th>
-   <th>Created</th>
-   <th>Updated</th>
-</tr>
-</thead>
-<tbody>
-<% for user in @role.users do %>
-    <tr>
-        <td><%= link_to user.name, user_url(:action=>'show',:id=>user.id) %></td>
-        <td><%= short_date user.created_at %></td>
-        <td><%= short_date user.updated_at %></td>
-    </tr>
-<% end -%>
-</tbody>
-</table>
-
+<%=render :partial=>'members' if @role.is_a? ProjectRole%>
+<%=render :partial=>'users' if @role.is_a? UserRole%>
 <hr/>
-<h2> Project Memberships </h2>
-<table class="report">
-<thead>
-<tr>
-   <th>User</th>
-   <th>Project</th>
-   <th>Created</th>
-   <th>Updated</th>
-</tr>
-</thead>
-<tbody>
-<% for member in @role.memberships do %>
-    <tr>
-        <td><%= member.user.name%></td>
-        <td><%= member.project.name%></td>
-        <td><%= short_date member.created_at %></td>
-        <td><%= short_date member.updated_at %></td>
-    </tr>
-<% end -%>
-</tbody>
-</table>
-<hr/>
-
-<h2> Permissions for <%= @role.name %></h2>
-
-<table class="report">
-<thead>
-    <tr>
-        <th>Subject</th>
-        <th colspan=10>Allowed Actions for Role</th>
-    </tr>
-</thead>
-<tbody>
-<% for subject in Permission.possible_subjects.keys.sort do %>
-    <tr>
-        <th><%=subject%></th>
-        <% for action in Permission.possible_actions(subject) %>
-            <%if @role.allow?(subject,action) %>
-                <td><%=action%></td>
-            <%end%>
-        <% end -%>
-    </tr>
-<% end -%>
-</tbody>
-
-</table>
-
+<%= render :partial=>'rights' %>
 <hr/>
 

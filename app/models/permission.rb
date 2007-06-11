@@ -34,6 +34,21 @@ class Permission < ActiveRecord::Base
      return Permission.reload   
   end
 
+  def Permission.subjects(rights_source)
+    subjects = {}
+    @@cached_controllers||= Permission.controllers   
+     for key in @@cached_controllers.keys
+        controller = Permission.controllers[key]
+        if controller.respond_to?(:rights_source)
+           if  controller.rights_source.to_s == rights_source.to_s
+             subjects[controller.rights_subject.to_s] ||=['*']
+             subjects[controller.rights_subject.to_s].concat(controller.rights_actions)
+             subjects[controller.rights_subject.to_s] = subjects[controller.rights_subject.to_s].uniq
+           end
+        end
+     end
+    return subjects
+  end
 ##
 # Force a reload of all the controllers,models,methods and cache infomation
 # 

@@ -1,0 +1,21 @@
+<h2> Project Memberships </h2>
+<table class="report">
+<thead>
+<tr>
+   <th>User</th>
+   <th>Project</th>
+   <th>Created</th>
+   <th>Updated</th>
+</tr>
+</thead>
+<tbody>
+<% for member in @role.memberships do %>
+    <tr>
+        <td><%= member.user.name%></td>
+        <td><%= member.project.name%></td>
+        <td><%= short_date member.created_at %></td>
+        <td><%= short_date member.updated_at %></td>
+    </tr>
+<% end -%>
+</tbody>
+</table>

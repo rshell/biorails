@@ -14,7 +14,7 @@ require "faster_csv"
 require "csv"
 class Execute::ReportsController < ApplicationController
 
-  use_authorization :report,
+  use_authorization :reports,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
                       

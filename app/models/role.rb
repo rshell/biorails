@@ -39,6 +39,11 @@ class Role < ActiveRecord::Base
  def cached?
    !cache.nil?
  end
+
+  def self.subjects
+    Permission.possible_subjects
+  end
+
 ##
 # Subjects
 # 
@@ -70,7 +75,8 @@ class Role < ActiveRecord::Base
 #   
  def allow?(subject,action)
    rebuild unless cached?
-   if  (cache[subject.to_s] and  ( cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true))
+   return false if self.cache[subject.to_s].nil?
+   if ( cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true)
        return true
    end
    return false
@@ -78,8 +84,7 @@ class Role < ActiveRecord::Base
  
  
  def permission?(user,subject,action)
-   rebuild unless cached?
-   return !( self.cache[subject.to_s].nil? or self.cache[subject.to_s][action.to_s].nil?)
+   return  allow?(subject,action)
  end
  
   
@@ -119,9 +124,9 @@ class Role < ActiveRecord::Base
 # Redo the  
  def reset_rights(rights)
    transaction do
-     for subject in Permission.possible_subjects.keys
+     for subject in self.subjects
        for action in Permission.possible_actions(subject)
-         if rights[subject] and rights[subject][action]
+         if rights[subject] and ( rights[subject][action] || rights[subject]['*'])
              grant(subject,action)
          elsif allow?(subject,action)
              deny(subject,action)

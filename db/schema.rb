@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 273) do
+ActiveRecord::Schema.define(:version => 277) do
 
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
   end
 
-  create_table "audit_logs", :force => true do |t|
-    t.column "auditable_id",   :integer
-    t.column "auditable_type", :string
-    t.column "user_id",        :integer
-    t.column "action",         :string
-    t.column "changes",        :text
-    t.column "created_by",     :string
-    t.column "created_at",     :datetime
-  end
-
   create_table "audits", :force => true do |t|
     t.column "auditable_id",   :integer
     t.column "auditable_type", :string
@@ -58,26 +48,6 @@ ActiveRecord::Schema.define(:version => 273) do
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
   add_index "audits", ["created_at"], :name => "audits_created_at_index"
-
-  create_table "authentication_systems", :force => true do |t|
-    t.column "name",               :string,   :limit => 50, :default => "",            :null => false
-    t.column "description",        :text
-    t.column "type",               :string,                 :default => "DataConcept", :null => false
-    t.column "host",               :string,   :limit => 60
-    t.column "port",               :integer
-    t.column "account",            :string,   :limit => 60
-    t.column "account_password",   :string,   :limit => 60
-    t.column "base_dn",            :string
-    t.column "attr_login",         :string,   :limit => 30
-    t.column "attr_firstname",     :string,   :limit => 30
-    t.column "attr_lastname",      :string,   :limit => 30
-    t.column "attr_mail",          :string,   :limit => 30
-    t.column "lock_version",       :integer,                :default => 0,             :null => false
-    t.column "created_at",         :datetime,                                          :null => false
-    t.column "updated_at",         :datetime,                                          :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,             :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,             :null => false
-  end
 
   create_table "batches", :force => true do |t|
     t.column "compound_id",        :integer,  :default => 0, :null => false
@@ -185,22 +155,6 @@ ActiveRecord::Schema.define(:version => 273) do
   add_index "data_concepts", ["name"], :name => "data_concepts_name_idx"
   add_index "data_concepts", ["access_control_id"], :name => "data_concepts_acl_idx"
   add_index "data_concepts", ["data_context_id"], :name => "data_concepts_fk1"
-
-  create_table "data_contexts", :force => true do |t|
-    t.column "name",               :string,   :limit => 50, :default => "", :null => false
-    t.column "description",        :text
-    t.column "access_control_id",  :integer
-    t.column "lock_version",       :integer,                :default => 0,  :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
-  end
-
-  add_index "data_contexts", ["updated_at"], :name => "data_contexts_idx2"
-  add_index "data_contexts", ["created_at"], :name => "data_contexts_idx4"
-  add_index "data_contexts", ["name"], :name => "data_contexts_name_idx"
-  add_index "data_contexts", ["access_control_id"], :name => "data_contexts_acl_idx"
 
   create_table "data_elements", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -375,17 +329,6 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  create_table "logging_events", :force => true do |t|
-    t.column "level",       :string
-    t.column "source",      :string
-    t.column "class_ref",   :string
-    t.column "id_ref",      :string
-    t.column "name",        :string
-    t.column "description", :string
-    t.column "comments",    :string
-    t.column "data",        :text
-  end
-
   create_table "memberships", :force => true do |t|
     t.column "user_id",            :integer,  :default => 0,     :null => false
     t.column "project_id",         :integer,  :default => 0,     :null => false
@@ -395,34 +338,6 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "updated_at",         :datetime,                    :null => false
     t.column "updated_by_user_id", :integer,  :default => 1,     :null => false
     t.column "created_by_user_id", :integer,  :default => 1,     :null => false
-  end
-
-  create_table "mole_features", :force => true do |t|
-    t.column "name",       :string
-    t.column "created_at", :datetime
-    t.column "updated_at", :datetime
-  end
-
-  add_index "mole_features", ["name"], :name => "index_mole_features_on_name"
-
-  create_table "mole_logs", :force => true do |t|
-    t.column "mole_feature_id", :integer
-    t.column "user_id",         :integer
-    t.column "params",          :string
-    t.column "created_at",      :datetime
-    t.column "updated_at",      :datetime
-  end
-
-  add_index "mole_logs", ["mole_feature_id", "user_id"], :name => "index_mole_logs_on_mole_feature_id_and_user_id"
-  add_index "mole_logs", ["mole_feature_id", "created_at"], :name => "index_mole_logs_on_mole_feature_id_and_created_at"
-
-  create_table "neated", :force => true do |t|
-    t.column "parent_id",   :integer
-    t.column "left_limit",  :integer,               :default => 0,                :null => false
-    t.column "right_limit", :integer,               :default => 0,                :null => false
-    t.column "project_id",  :integer,               :default => 0,                :null => false
-    t.column "name",        :string,  :limit => 64, :default => "",               :null => false
-    t.column "type",        :string,  :limit => 32, :default => "ProjectElement"
   end
 
   create_table "parameter_contexts", :force => true do |t|
@@ -859,6 +774,7 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "updated_at",         :timestamp
     t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
     t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
+    t.column "types",              :string
   end
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
@@ -872,16 +788,6 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "data",       :text
     t.column "created_at", :timestamp
     t.column "updated_at", :timestamp
-  end
-
-  create_table "sitealizer", :force => true do |t|
-    t.column "path",       :string
-    t.column "ip",         :string
-    t.column "referer",    :string
-    t.column "language",   :string
-    t.column "user_agent", :string
-    t.column "created_at", :datetime
-    t.column "created_on", :date
   end
 
   create_table "specimens", :force => true do |t|
@@ -1026,11 +932,6 @@ ActiveRecord::Schema.define(:version => 273) do
     t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
     t.column "max_values",        :float
     t.column "min_values",        :float
-  end
-
-  create_table "subscribers", :force => true do |t|
-    t.column "user_id",    :integer, :default => 0, :null => false
-    t.column "project_id", :integer, :default => 0, :null => false
   end
 
   create_table "system_settings", :force => true do |t|
@@ -1340,15 +1241,5 @@ ActiveRecord::Schema.define(:version => 273) do
   end
 
   add_index "users", ["role_id"], :name => "fk_user_role_id"
-
-  create_table "work_status", :force => true do |t|
-    t.column "name",               :string
-    t.column "description",        :string
-    t.column "lock_version",       :integer,  :default => 0, :null => false
-    t.column "created_at",         :datetime,                :null => false
-    t.column "updated_at",         :datetime,                :null => false
-    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
-    t.column "created_by_user_id", :integer,  :default => 1, :null => false
-  end
 
 end

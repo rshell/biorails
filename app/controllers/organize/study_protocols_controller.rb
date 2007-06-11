@@ -4,7 +4,7 @@
 ##
 #
 class Organize::StudyProtocolsController < ApplicationController
-  use_authorization :study,
+  use_authorization :study_protocols,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                       

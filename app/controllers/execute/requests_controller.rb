@@ -5,7 +5,7 @@
 #
 class Execute::RequestsController < ApplicationController
 
-  use_authorization :experiment,
+  use_authorization :requests,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
 ##

@@ -1,6 +1,6 @@
 class Organize::QueueItemsController < ApplicationController
 
-  use_authorization :study,
+  use_authorization :queue_items,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                       

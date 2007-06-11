@@ -7,7 +7,7 @@ require "faster_csv"
 
 class Execute::ExperimentsController < ApplicationController
 
-  use_authorization :experiment,
+  use_authorization :experiments,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                     

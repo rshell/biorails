@@ -7,7 +7,8 @@
     </div>
 <% end %>
 
-<h2>Roles</h2>
+<h2>User Roles</h2>
+Governs the users general rights on the system, basically access to home page,catalogue and other system wide its lkie inventory.
 <div class='panel'>
 <table class='report'>
   <tr>
@@ -15,7 +16,28 @@
     <th>Updated At</th>
   </tr>
   
-<% for role in @roles %>
+<% for role in @user_roles %>
+  <tr>
+    <td><%= link_to role.name, :action => 'show', :id => role %></td>
+    <td><%= role.description %></td>
+    <td><%=short_date role.created_at %></td>
+    <td><%=short_date role.updated_at %></td>
+    <!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
+  </tr>
+<% end %>
+</table>
+</div>
+<br/>
+<h2>Project Roles</h2>
+Used to govern what a user is allowed to do as a member of the project. This include study design, and data entry.
+<div class='panel'>
+<table class='report'>
+  <tr>
+    <th>Name</th><th>Description</th><th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  
+<% for role in @project_roles %>
   <tr>
     <td><%= link_to role.name, :action => 'show', :id => role %></td>
     <td><%= role.description %></td>

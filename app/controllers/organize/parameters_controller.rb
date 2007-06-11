@@ -1,6 +1,6 @@
 class Organize::ParametersController < ApplicationController
   
-  use_authorization :protocol,
+  use_authorization :study_parameters,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                     

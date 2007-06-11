@@ -203,6 +203,11 @@ protected
       return @current_folder
   end  
 
+  def show_access_denied
+    redirect_to auth_url(:action => "access_denied")    
+    return false
+  end
+
 ##
 # Test whether the user is logged_in
 #   

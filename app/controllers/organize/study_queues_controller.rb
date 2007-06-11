@@ -4,7 +4,7 @@
 ##
 #
 class Organize::StudyQueuesController < ApplicationController
-  use_authorization :study,
+  use_authorization :study_queues,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                       

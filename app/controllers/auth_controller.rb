@@ -33,5 +33,7 @@ class AuthController < ApplicationController
     redirect_to auth_url(:action=>'login')
   end
 
-
+  def access_denied
+    logger.error "User access denied"
+  end
 end

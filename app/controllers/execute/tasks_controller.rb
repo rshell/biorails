@@ -5,7 +5,7 @@
 #
 class Execute::TasksController < ApplicationController
 
-  use_authorization :experiment,
+  use_authorization :tasks,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
 
