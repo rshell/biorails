@@ -212,7 +212,7 @@ protected
 # Test whether the user is logged_in
 #   
   def show_login
-      log.info "show login form"
+      logger.info "show login form"
       redirect_to auth_url(:action => "login")
       return false
   end

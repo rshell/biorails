@@ -84,6 +84,7 @@ class Role < ActiveRecord::Base
  
  
  def permission?(user,subject,action)
+   logger.info("check permission? #{user} #{subject} #{action}")
    return  allow?(subject,action)
  end
  
@@ -91,16 +92,17 @@ class Role < ActiveRecord::Base
 #Grant access 
 # 
  def grant(subject,action)
-    rebuild unless cached?
     return true unless Permission.is_checked?(subject,action)
-    unless allow?(subject,action)
+    permission = RolePermission.find(:first,:conditions=>['role_id=? and subject=? and action=?',self.id, subject.to_s, action.to_s])
+    unless permission
        permission = self.permissions.create(:subject=>subject.to_s,:action=>action.to_s)
        self.cache ||= {}
        self.cache[subject.to_s] ||= {}
-       self.cache[subject.to_s][action.to_s] = true
+       self.cache[subject.to_s][action.to_s] = true       
        logger.debug "granted #{subject} #{action}"
        return true
     end    
+   logger.debug "had  #{subject} #{action}"
     return false
  end
 
@@ -108,7 +110,6 @@ class Role < ActiveRecord::Base
 # Deny access
 #  
  def deny(subject,action)
-    rebuild unless cached?
     item = RolePermission.find(:first,:conditions=>['role_id=? and subject=? and action=?',self.id, subject.to_s, action.to_s])
     if item
        item.destroy        
@@ -117,6 +118,7 @@ class Role < ActiveRecord::Base
        logger.debug "Denied #{subject} #{action}"
        return true
     end
+   logger.debug "didnt have  #{subject} #{action}"
     return false
  end
 
@@ -124,8 +126,11 @@ class Role < ActiveRecord::Base
 # Redo the  
  def reset_rights(rights)
    transaction do
-     for subject in self.subjects
+     for subject in Permission.possible_subjects.keys
+      logger.debug "subject #{subject}==========================================================="
+      logger.debug rights[subject].to_s
        for action in Permission.possible_actions(subject)
+      logger.debug "action #{subject}:#{action}"
          if rights[subject] and ( rights[subject][action] || rights[subject]['*'])
              grant(subject,action)
          elsif allow?(subject,action)
@@ -133,6 +138,7 @@ class Role < ActiveRecord::Base
          end
        end
      end
+     self.save
     rebuild
   end
  end

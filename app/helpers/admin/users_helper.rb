@@ -1,2 +1,2 @@
-module Admin::CatalogueHelper
+module Admin::UsersHelper
 end
