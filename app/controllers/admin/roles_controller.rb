@@ -52,8 +52,7 @@ class Admin::RolesController < ApplicationController
   def update
     @role = Role.find(params[:id])
     if @role.update_attributes(params[:role])    
-          @role.reset_rights(params[:allowed])
-          
+          @role.reset_rights(params[:allowed])          
           flash[:notice] = 'Role was successfully updated.'
           redirect_to :action => 'show', :id => @role.id
     else

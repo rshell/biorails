@@ -46,12 +46,12 @@
  </li>
 <% end %>
  <li class="submenu">
-   <%= link_to l(:inventory), { :controller => 'inventory' }, 
+   <%= link_to l(:inventory), home_url( :action => 'todo' ), 
    		                       :class => "icon icon-admin", 
    		                       :onmouseover => "buttonMouseover(event, 'menuInventory');" %>
  </li>
  <li class="submenu">
-    <%= link_to l(:execute), { :controller => 'execute' }, 
+    <%= link_to l(:execute),  home_url( :action => 'tasks' ), 
    		                                    :class => "icon icon-admin", 
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>
