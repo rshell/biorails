@@ -23,7 +23,7 @@ class Project::ContentController < ApplicationController
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'centre',  :partial=> 'show'
+           page.replace_html  @project_element.dom_id(:current), :partial=> 'show'
          end
       }
     end  
@@ -66,33 +66,25 @@ class Project::ContentController < ApplicationController
 # Save a article
 # 
   def create
-   ProjectElement.transaction do
     load_folder
-    @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],params[:project_element][:to_html])   
-    #@project_element.tag_list = params[:project_element][:tag_list]
-    logger.info @project_element.to_yaml
-    @project_element.valid?
-    if @project_element.save
-        respond_to do |format|
-          format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
-          format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
-          format.js  { render :update do | page |
-               page.replace_html 'messages', :partial=> 'messages'
-               page.replace_html 'centre',  :partial=> 'show'
-             end
-          }
-        end  
-    else
-      flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
-      render :action => 'new', :id => @project_folder
+    ProjectElement.transaction do
+      @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],
+                                                     params[:project_element][:to_html])   
+      logger.info @project_element.to_yaml
+      @project_element.valid?
+      unless @project_element.save
+        flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
+      end
     end
-  end      
-
-  rescue Exception => ex
-      flash[:error] = ex.message
-      logger.error ex.backtrace.join("\n")    
-      render :action => 'new', :id => @project_folder
-
+    respond_to do |format|
+      format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html 'centre',  :partial=> 'show'
+         end
+      }
+    end  
   end
 
 ##
@@ -105,7 +97,7 @@ class Project::ContentController < ApplicationController
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
       format.js  { render :update do | page |
            page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'centre',  :partial=> 'edit'
+           page.replace_html  @project_element.dom_id(:current), :partial=> 'edit'
          end
       }
     end  
@@ -115,28 +107,24 @@ class Project::ContentController < ApplicationController
 # Save a article
 # 
   def update
+   @project_element = current_user.element(params[:id], :include=>[ :parent, :content])
    ProjectElement.transaction do
-     @project_element = current_user.element(params[:id], :include=>[ :parent, :content])
      @project_folder  = @project_element.parent    
      @project_element.update_element(params[:project_element])
-     if @project_element.save
-         respond_to do |format|
-            format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
-            format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
-            format.js  { render :update do | page |
-                 page.replace_html 'messages', :partial=> 'messages'
-                 page.replace_html 'centre',  :partial=> 'show'
-               end
-            }
-         end  
-     else
-        logger.error "problems in save on content"
+     unless @project_element.save
         logger.error " Errors #{@project_element.errors.full_messages.to_sentence}"
         flash[:error] = "failed to save content"
-        logger.info @project_element.to_yaml
-        render :action => 'edit', :id => @project_folder
      end
    end
+   respond_to do |format|
+      format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
+      format.js  { render :update do | page |
+           page.replace_html 'messages', :partial=> 'messages'
+           page.replace_html  @project_element.dom_id(:current), :partial=> 'show'
+         end
+      }
+   end  
   end
 
 
@@ -145,7 +133,7 @@ protected
 # Load the contents
 # 
   def load_contents
-     @project_element = ccurrent_user.element(params[:id] )  
+     @project_element = current_user.element(params[:id] )  
      @project_folder  = @project_element.parent    
   end
 ##

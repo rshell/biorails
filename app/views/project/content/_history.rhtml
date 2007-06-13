@@ -1,0 +1,10 @@
+<div class='box'>
+    <h4>History of this document</h4>
+    <ol>
+    <% for item in @project_element.content.ancestors %>
+      <li> <%=link_to item.title, content_url(:action=>'diff',:id=>@project_element.id,:version=>item.id) %>
+            <%=item.updated_at %> <%=item.updated_by_user.login%></li>
+    <% end %>
+      <li> [Current] <%=@project_element.title %> <%=@project_element.updated_at %> <%=@project_element.updated_by_user.login%></li>
+    </ol>
+</div>

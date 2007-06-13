@@ -16,7 +16,9 @@
 	    	  
 	<% elsif item.textual? %>
 	
-    	<h2> Article: <%=item.title%> <%= link_to '[Edit]', content_url(:action=>'edit',:id=>item.id)  %>  </h2>
+    	<h2> Article: <%=item.title%> 
+    	<%= link_to_remote '[Edit]', :url=>content_url(:action=>'edit',:id=>item.id) ,
+    	                             :complete => " tinyMCE.execCommand('mceAddControl',true,'project_element_to_html' );"  %>  </h2>
     	<p>       <%= item.to_html %>	</p>
 	<% else %>
         <h2>Folder:<%= item.title %></h2>

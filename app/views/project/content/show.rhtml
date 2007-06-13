@@ -1,9 +1,23 @@
+<% content_for :header_script do -%>
+<%= javascript_include_tiny_mce_if_used %>
+<%= tiny_mce if using_tiny_mce? %>
+<% end %>
+
 <% content_for :messages do -%>
 <%= render :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_element']}  %>
 <%end %>
 
 <% content_for :centre do -%>
+<br/>
+<h2>
+Content Path: 
+    <%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+    <%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
+</h2>    
+    <div id='<%=@project_element.dom_id(:current)%>' class='box'>  
     <%= render :partial => 'show' %>
+    </div>
+    <%= render :partial => 'history' %>
 <% end %>
 
 <% content_for :right do -%>

@@ -1,13 +1,8 @@
-<br/>
-<h2>
-Content Path: 
-<%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
-<%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
-</h2>
-<% form_remote_tag :before => 'tinyMCE.triggerSave(false,false);', 
-                    :url => folder_url(:action => 'update_article',  :id =>@project_element), 
-                     do %>
- 
-   <%= render :partial => 'article' %>
 
+<% form_remote_tag :url=>content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder), 
+                :before => 'tinyMCE.triggerSave(false,false);'   do %>
+     
+       <%= render :partial => 'article' %>
+    
 <% end %>
+    
