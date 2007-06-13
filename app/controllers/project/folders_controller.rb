@@ -330,7 +330,7 @@ protected
   def set_folder
      @layout = {}
      @layout[:right] = params[:right] || 'right_finder'
-     @layout[:centre] = params[:centre] || 'folder'     
+     @layout[:centre] = params[:centre] || 'show'     
      @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
   
