@@ -52,6 +52,7 @@ class ProjectAsset < ProjectElement
     asset.title =        options[:title]       
     asset.project_id =   options[:project_id]    
     asset.content_type = 'application/binary'
+    asset.caption = options[:description]
     if   options[:uploaded_data] 
       asset.uploaded_data  =  options[:uploaded_data]  
       element.name = asset.filename

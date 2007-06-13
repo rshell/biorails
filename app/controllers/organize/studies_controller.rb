@@ -244,7 +244,7 @@ STUDY_MODELS = [:study,:study_parameter,:study_queue,:study_protocol, :protocol_
 protected
 
   def set_study_content
-    @study = current( Study, params[:id] )
+    @study = current_user.study(params[:id] )
     if @study
       logger.info "set_study_content(#{@study.name})"
       @folder = @study.folder

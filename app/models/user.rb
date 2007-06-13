@@ -146,7 +146,76 @@ class User < ActiveRecord::Base
   def news(count =5 )
     ProjectElement.find(:all,:conditions => ['content_id is not null and updated_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)   
   end
-     
+   
+  ##   
+  #
+  # Get a project for the current user
+  #
+  def project(*args)
+    return projects.find(*args)
+  end
+  
+  #
+  # Get a element for this user, limits to projects the user is a member of
+  #  
+  def element(*args)
+    ProjectElement.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=project_elements.project_id)',self.id]
+        })  do
+       ProjectElement.find(*args)
+    end
+  end
+  #
+  # Get a folder for this user, limits to projects the user is a member of
+  #  
+  def folder(*args)
+    ProjectFolder.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=project_elements.project_id)',self.id]
+        })  do
+       ProjectFolder.find(*args)
+    end
+  end
+  #
+  # Get a study for this user, limits to projects the user is a member of
+  #  
+  def study(*args)
+    Study.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=studies.project_id)',self.id]
+        })  do
+       Study.find(*args)
+    end
+  end
+  #
+  # Get a study for this user, limits to projects the user is a member of
+  #  
+  def protocol(*args)
+    StudyProtocol.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m,studies s where m.user_id=? and s.id=study_protocols.study_id and m.project_id=s.project_id)',self.id]
+        })  do
+       StudyProtocol.find(*args)
+    end
+  end
+
+  #
+  # Get a experiment for this user, limits to projects the user is a member of
+  #  
+  def experiment(*args)
+    Experiment.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=experiments.project_id)',self.id]
+        })  do
+       Experiment.find(*args)
+    end
+  end
+  #
+  # Get a task for this user, limits to projects the user is a member of
+  #
+  def task(*args)
+    Task.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m,experiments e where e.id = tasks.experiment_id and m.user_id=? and m.project_id=e.project_id)',self.id]
+        })  do
+       Task.find(*args)
+    end
+  end
 ###
 # Get the lastest n record of a type linked to this user   
 # 
@@ -170,6 +239,7 @@ class User < ActiveRecord::Base
       model.find(:all,:order=>'id desc',:limit => count)
     end
   end
+ 
  
 ##
 # get the role for the user in a role

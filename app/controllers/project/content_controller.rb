@@ -16,7 +16,7 @@ class Project::ContentController < ApplicationController
 # Display a article
 # 
   def show
-    @project_element = ProjectContent.find(params[:id])  
+    @project_element = current_user.element(params[:id])  
     @project_folder  = @project_element.parent    
     respond_to do |format|
       format.html { render :action=>'show'}
@@ -30,7 +30,7 @@ class Project::ContentController < ApplicationController
   end
 
   def diff
-    @project_element = ProjectContent.find(params[:id])  
+    @project_element = current_user.element(params[:id])  
     @project_folder  = @project_element.parent    
     @this = @project_element.content
     @other = Content.find(params[:version])
@@ -116,7 +116,7 @@ class Project::ContentController < ApplicationController
 # 
   def update
    ProjectElement.transaction do
-     @project_element = ProjectContent.find(params[:id], :include=>[ :parent, :content])
+     @project_element = current_user.element(params[:id], :include=>[ :parent, :content])
      @project_folder  = @project_element.parent    
      @project_element.update_element(params[:project_element])
      if @project_element.save
@@ -145,14 +145,14 @@ protected
 # Load the contents
 # 
   def load_contents
-     @project_element = current(ProjectElement, params[:id] )  
+     @project_element = ccurrent_user.element(params[:id] )  
      @project_folder  = @project_element.parent    
   end
 ##
 # Simple helpers to get the current folder from the session or params 
 #  
   def load_folder
-     @project_folder = ProjectFolder.find(params[:folder_id]||params[:id]) 
+     @project_folder = current_user.folder(params[:folder_id]||params[:id]) 
   end  
                     
 

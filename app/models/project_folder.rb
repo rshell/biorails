@@ -278,8 +278,7 @@ class ProjectFolder < ProjectElement
                                      :parent_id=>self.id, 
                                      :project_id => self.project.id ) 
        end
-       self.elements << folder    
-       folder.save
+       self.add(folder )   
     end
     return folder
   end

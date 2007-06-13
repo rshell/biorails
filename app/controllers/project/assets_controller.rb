@@ -9,6 +9,9 @@ class Project::AssetsController < ApplicationController
     render :action => 'list'
   end
 
+  in_place_edit_for :project_asset, :title
+  in_place_edit_for :project_asset, :description
+  
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
@@ -28,7 +31,7 @@ class Project::AssetsController < ApplicationController
 #   
   def show
     current_project
-    @project_asset =  current(ProjectElement, params[:id] )  
+    @project_asset =  current_user.element(params[:id] )  
     @project_folder   = @project_asset.parent
     respond_to do |format|
       format.html { render :action=>'show'}
@@ -43,7 +46,7 @@ class Project::AssetsController < ApplicationController
 
   def edit
     current_project
-    @project_asset =  current(ProjectElement, params[:id] )  
+    @project_asset =  current_user.element( params[:id] )  
     @project_folder   = @project_asset.parent
     respond_to do |format|
       format.html { render :action=>'edit'}
@@ -98,7 +101,7 @@ protected
 #  
   def current_folder
      @project = current_project
-     @project_folder = current(ProjectFolder,params[:folder_id] || params[:id]) 
+     @project_folder = current_user.folder(params[:folder_id] || params[:id]) 
   end  
                     
 

@@ -3,16 +3,17 @@
 <%end%>
 
 
+<% content_for :centre do -%>
 <h2>
         <%=subject_icon('model/task.png')%> New Task in Experiment [<%=subject_icon('experiment.png')%> 
         <%= link_to @experiment.name, :controller => 'experiments', 
                 :action => 'show', :id => @experiment.id  %>]
 </h2>
-<div class='panel'>
  <% form_tag :action => 'create' do %>
     
     <%= hidden_field 'task','experiment_id'%>  
 
+<div class='panel'>
     <div class="row">
         <div class="form-element">
             <label for="task_name">Name</label>
@@ -71,9 +72,14 @@
             <%= date_field 'task', 'ended_at'  %>
         </div>
     </div>
+</div>
 
     <div class="row">
       <%= submit_tag "Create" %>
     </div>
    <%end%> 
-</div>
+<%end%>
+
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>

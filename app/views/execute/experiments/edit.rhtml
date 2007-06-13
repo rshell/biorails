@@ -2,6 +2,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
 <%end%>
 
+<% content_for :centre do -%>
 <h2>
     <%= subject_icon('experiment.png')%> Edit Experiment [<strong><%=@experiment.name%></strong>]
 </h2>
@@ -13,3 +14,9 @@
    <% end %>
 
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+<%end%>
+
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+

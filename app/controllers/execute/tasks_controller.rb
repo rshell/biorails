@@ -39,18 +39,21 @@ class Execute::TasksController < ApplicationController
 # show statics on task
   def metrics
     set_task
+    redirect_to project_url(:action => 'show') if @task.nil?
   end
 
 ##
 # show data entry sheet readonly
   def view
     set_task
+    redirect_to project_url(:action => 'show') if @task.nil?
   end
 
 ##
 # show data entry sheet 
   def sheet
     set_task
+    redirect_to project_url(:action => 'show') if @task.nil?
   end
 
 ##
@@ -90,7 +93,7 @@ class Execute::TasksController < ApplicationController
 # If a process is linked to only a single task it can be mmodified on the fly. In this
 # case control is passed to study protocol editor otherwize a warning is presented
   def modify 
-    @task = current( Task, params[:id] )
+    @task = current_user.task( params[:id] )
     @task.updated_by = current_user.name
     session[:data_sheet] = nil
     flash[:modify] = @task.id   
@@ -107,7 +110,7 @@ class Execute::TasksController < ApplicationController
 # Create a new task in the the current experiment
 #
   def new
-    @experiment = current( Experiment, params[:id] )
+    @experiment = current_user.experiment( params[:id] )
     @task = Task.new(:name=> Identifier.next_id(Task))
     @task.reset
     @task.experiment = @experiment
@@ -179,7 +182,7 @@ class Execute::TasksController < ApplicationController
 #
   def update
     session[:data_sheet] =nil
-    @task = Task.find(params[:id])
+    @task = current_user.task(params[:id])
     if @task.update_attributes(params[:task])
       @task.update_queued_items
       flash[:notice] = 'Task was successfully updated.'
@@ -194,7 +197,7 @@ class Execute::TasksController < ApplicationController
 #
   def destroy
     session[:data_sheet] =nil
-    @task = Task.find(params[:id])
+    @task = current_user.task(params[:id])
     @experiment = @task.experiment
     @task.destroy
     redirect_to :controller =>'experiments',:action => 'show',:id => @experiment.id
@@ -302,7 +305,7 @@ class Execute::TasksController < ApplicationController
 protected
   
   def set_task
-    @task = current( Task, params[:id] )
+    @task = current_user.task( params[:id] )
     @experiment =@task.experiment
     @folder = @task.folder
   end

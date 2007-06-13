@@ -21,7 +21,7 @@ class Organize::StudyParametersController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @study = Study.find(params[:id])    
+    @study = current_user.study(params[:id])    
   end
 
   def show
@@ -33,14 +33,14 @@ class Organize::StudyParametersController < ApplicationController
   end
 
   def new
-    @study = Study.find(params[:id])    
+    @study = current_user.study(params[:id])    
     @study_parameter = StudyParameter.new
     @study_parameter.study =  @study
     #@study_parameter.type = ParameterType.find(:first)
   end
 
   def create
-    @study = Study.find(params[:id])    
+    @study = current_user.study(params[:id])    
     @study_parameter = StudyParameter.new(params[:study_parameter])
     @study.parameters << @study_parameter
     if @study_parameter.save
@@ -81,7 +81,7 @@ class Organize::StudyParametersController < ApplicationController
 #  export Report of Concepts as CVS
 #  
   def export
-    @study = Study.find(params[:id])    
+    @study = current_user.study(params[:id])    
     items = @study.parameters
     report = StringIO.new
     CSV::Writer.generate(report, ',') do |csv|
@@ -119,7 +119,7 @@ class Organize::StudyParametersController < ApplicationController
   def import_file
      flash[:warning] = nil
      flash[:error] = nil
-     @study = Study.find(params[:id])    
+     @study = current_user.study(params[:id])    
      reader = CSV::Reader.create(params[:file]) 
      header = reader.shift
      lookup = Hash.new

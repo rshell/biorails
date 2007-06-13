@@ -90,7 +90,7 @@ class BiorailsController < ApplicationController
 #     
     def protocol_list(study_id)  
        logger.warn "study_id is #{study_id.to_s}"
-       StudyProtocol.find(:all,:conditions=>['study_id=?',study_id])
+       StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
     end
 ##
 # List all the processing 
@@ -102,25 +102,25 @@ class BiorailsController < ApplicationController
 #List all parameters in a process
 #
     def parameter_list(protocol_id)  
-       Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_id])
+       Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'column_no')
     end
 ##
 #List all parameter contexts in a process
 #
     def parameter_context_list(protocol_id)  
-       ParameterContext.find(:all,:conditions=>['protocol_version_id=?',protocol_id])
+       ParameterContext.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'id')
     end
 
     def experiment_list(study_id)  
-       Experiment.find(:all,:conditions=>['study_id=?',study_id])
+       Experiment.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
     end
 
     def task_list(experiment_id)  
-       Task.find(:all,:conditions=>['experiment_id=?',experiment_id])
+       Task.find(:all,:conditions=>['experiment_id=?',experiment_id],:order=>'id')
     end
     
     def task_context_list(task_id)
-       TaskContext.find(:all,:conditions=>['task_id=?',task_id])
+       TaskContext.find(:all,:conditions=>['task_id=?',task_id],:order=>'id')
     end
 
     ##

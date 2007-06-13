@@ -455,11 +455,6 @@ ActiveRecord::Schema.define(:version => 277) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  create_table "plugin_schema_info", :id => false, :force => true do |t|
-    t.column "plugin_name", :string
-    t.column "version",     :integer
-  end
-
   create_table "process_definitions", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "", :null => false
     t.column "release",            :string,   :limit => 5,  :default => "", :null => false
@@ -774,7 +769,7 @@ ActiveRecord::Schema.define(:version => 277) do
     t.column "updated_at",         :timestamp
     t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
     t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
-    t.column "types",              :string
+    t.column "type",               :string
   end
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"

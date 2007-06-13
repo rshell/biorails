@@ -129,9 +129,9 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder created from module forparams[:project_folder]
 # 
   def create
-    @parent = set_folder
-    @project_folder = @parent.folder(params[:project_folder][:name])
-    if @project_folder.save
+    @project_folder = set_folder
+    @child_folder = @project_folder.folder(params[:project_folder][:name])
+    if @child_folder.save
       flash[:notice] = 'ProjectFolder was successfully created.'
       @layout[:centre]= 'show'
     else
@@ -310,7 +310,7 @@ protected
      @layout = {}
      @layout[:right] = params[:right] || 'right_finder'
      @layout[:centre] = params[:centre] || 'folder'     
-     @project_folder = ProjectFolder.find(params[:folder_id] || params[:id]) ||  current_project.home
+     @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
 
 end

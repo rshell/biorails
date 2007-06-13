@@ -31,7 +31,7 @@ class Organize::StudyProtocolsController < ApplicationController
 #List the protocols in the study
 #
   def list
-    @study = current( Study, params[:id] )
+    @study = current_user.study( params[:id] )
     @study_protocols = @study.protocols
   end
 
@@ -39,7 +39,7 @@ class Organize::StudyProtocolsController < ApplicationController
 #Set the release protocol version
 #
   def release
-    @study_protocol = StudyProtocol.find(params[:id])
+    @study_protocol = current_user.protocol( params[:id])
     @study_protocol.process = @study_protocol.lastest
     @study_protocol.save
     redirect_to :action => 'list', :id => @study_protocol.study
@@ -80,7 +80,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # and open the edit form all all.
 # 
   def new
-    @study = Study.find(params[:id])
+    @study = current_user.study(params[:id])
     @study_protocol = StudyProtocol.new(:study=>@study)
     @study_protocol.name = Identifier.next_id(StudyProtocol)
     @study_protocol.protocol_catagory = 'Protocol'
@@ -94,7 +94,7 @@ class Organize::StudyProtocolsController < ApplicationController
 # passed to the standard protocol editor
 #
   def create
-    @study = Study.find(params[:id])   
+    @study = current_user.study(params[:id])   
     @study_protocol = StudyProtocol.new(params[:study_protocol])
     if @study_protocol.save
       @project_folder = @study_protocol.folder
@@ -392,7 +392,7 @@ end
 protected  
 
   def find_process
-    @study_protocol = StudyProtocol.find(params[:id])
+    @study_protocol = current_user.protocol(params[:id])
     @study =@study_protocol.study
     @project_folder = @study_protocol.folder 
     @protocol_version = ProtocolVersion.find(params[:version]) if params[:version]

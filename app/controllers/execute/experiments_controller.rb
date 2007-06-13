@@ -46,15 +46,15 @@ class Execute::ExperimentsController < ApplicationController
 # show the current experiment
 # 
   def show
-    @experiment = current(Experiment,params[:id])
+    @experiment = current_user.experiment(params[:id])
   end
 
   def metrics
-    @experiment = current(Experiment,params[:id]) 
+    @experiment = current_user.experiment(params[:id]) 
   end
 
   def calendar
-    @experiment = current(Experiment,params[:id]) 
+    @experiment = current_user.experiment(params[:id]) 
     @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
                 'items'=> {'task'=>1},
@@ -85,7 +85,7 @@ class Execute::ExperimentsController < ApplicationController
 # This will need to show studies,experiments and tasks in order
 #   
   def timeline
-    @experiment = current(Experiment,params[:id]) 
+    @experiment = current_user.experiment(params[:id]) 
     @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
                 'items'=> {'task'=>1},
@@ -122,7 +122,7 @@ class Execute::ExperimentsController < ApplicationController
 ##
 # create a new experiment
   def new
-    @study = current( Study, params[:id] ) if  params[:id]
+    @study = current_user.study( params[:id] ) if  params[:id]
     @study ||= current_project.studies.find(:first)
     @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_user_ref)
     @experiment.project = current_project
@@ -130,7 +130,7 @@ class Execute::ExperimentsController < ApplicationController
   end
 
   def copy
-    @experiment = current( Experiment, params[:id] ).copy    
+    @experiment = current_user.experiment( params[:id] ).copy    
     @schedule = Schedule.tasks_in(@experiment)    
     render :action => 'show'
   end
@@ -157,14 +157,14 @@ class Execute::ExperimentsController < ApplicationController
 # Edit a experiment details
 # 
   def edit
-    @experiment = current( Experiment, params[:id] )
+    @experiment = current_user.experiment(  params[:id] )
   end
 
 ##
 # Update a existing experiment
 # 
   def update
-    @experiment = current( Experiment, params[:id] )
+    @experiment = current_user.experiment( params[:id] )
     if @experiment.update_attributes(params[:experiment])
       flash[:notice] = 'Experiment was successfully updated.'
       redirect_to :action => 'show', :id => @experiment
@@ -177,7 +177,7 @@ class Execute::ExperimentsController < ApplicationController
 # Delete the passed experiment
 # 
   def destroy
-    Experiment.find(params[:id]).destroy
+    current_user.experiment( params[:id]).destroy
     redirect_to :action => 'list'
   end
 
@@ -185,7 +185,7 @@ class Execute::ExperimentsController < ApplicationController
 # Output a timeline for the experiment
   def changes
     if params[:id]
-      @logs = current( Experiment, params[:id] ).logs
+      @logs = current_user.experiment(  params[:id] ).logs
     else  
       @logs = ExperimentLog.find(:all,:limit=>100, :order=>'id desc')
     end
@@ -208,7 +208,7 @@ class Execute::ExperimentsController < ApplicationController
 #  export Report of Elements as CVS
 #  
   def export
-    @experiment = current( Experiment, params[:id] )
+    @experiment = current_user.experiment( params[:id] )
     @study_protocol = StudyProtocol.find(params[:study_protocol_id])
     task = @experiment.new_task
     task.protocol = @study_protocol

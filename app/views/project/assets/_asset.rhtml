@@ -9,8 +9,8 @@ Element Path:
 <%= @project_asset.asset.image_tag  %>
 <%end %>
 <ul>
-<li><b>Title: </b><%=@project_asset.title%> </li>
-<li><b>Caption: </b><%=@project_asset.description %> </li>
+<li><b>Title: </b><%=in_place_editor_field :project_asset,:title,{} ,{:cols=>80}%> </li>
+<li><b>Caption: </b><%=in_place_editor_field :project_asset, :description,{},{:cols=>100,:rows=>4} %> </li>
 <li><b>Download: </b> <%= link_to @project_asset.asset.filename, @project_asset.url %></li>
 <li><b>Mime Type: </b><%=@project_asset.asset.content_type%> </li>
 <li><b>Summary: </b>  <%=  @project_asset.summary %>

@@ -33,7 +33,7 @@ class Project::ProjectsController < ApplicationController
 # Generate a index dashboard for the project 
 #  
   def show
-    @project =  current(Project,params[:id])
+    @project =  current_user.project(params[:id])
     set_project(@project)    
     respond_to do | format |
       format.html { render :action => 'show'}
@@ -63,7 +63,7 @@ class Project::ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project = current_user.project(params[:id])
     respond_to do | format |
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project.to_xml}
@@ -72,7 +72,7 @@ class Project::ProjectsController < ApplicationController
 
   def update
     Project.transaction do
-      @project = Project.find(params[:id])
+      @project = current_user.project(params[:id])
       if @project.update_attributes(params[:sample])
         flash[:notice] = 'Sample was successfully updated.'
         redirect_to :action => 'show', :id => @project
@@ -86,7 +86,7 @@ class Project::ProjectsController < ApplicationController
 # Destroy a study
 #
   def destroy
-    Project.find(params[:id]).destroy
+    current_user.project(params[:id]).destroy
     set_project(Project.find(1))    
     redirect_to home_url(:action => 'show')
   end  
@@ -94,7 +94,7 @@ class Project::ProjectsController < ApplicationController
 # List of most recent experiments
 # 
   def experiments
-     @project = current(Project,params[:id])
+     @project = current_user.project(params[:id])
      sort_init 'name'
      sort_update
      @item_pages, @items = paginate :experiments,  :order_by => sort_clause, :per_page => 20
@@ -104,7 +104,7 @@ class Project::ProjectsController < ApplicationController
 # List of the Reports Defined for use with the project
 # 
   def reports
-     @project = current(Project,params[:id])
+     @project = current_user.project(params[:id])
      sort_init 'name'
      sort_update
      @item_pages, @items = paginate :reports, :order_by => sort_clause, :per_page => 20
@@ -114,7 +114,7 @@ class Project::ProjectsController < ApplicationController
 # List of the membership of the project
 # 
   def members
-     @project = current(Project,params[:id])
+     @project = current_user.project(params[:id])
      @membership = Membership.new(:project_id=>@project)
     respond_to do | format |
       format.html { render :action => 'members'}
@@ -130,7 +130,7 @@ class Project::ProjectsController < ApplicationController
 # Show a overview calendar for the project this should list the experiments, documents etc linked into the project
 # 
   def calendar
-     @project = current(Project,params[:id])
+     @project = current_user.project(params[:id])
  
      @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
@@ -165,7 +165,7 @@ class Project::ProjectsController < ApplicationController
 # This will need to show studies,experiments and tasks in order
 #   
   def gantt
-     @project = current(Project,params[:id])
+     @project = current_user.project(params[:id])
      @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
                 'items'=> {'task'=>1},
@@ -199,14 +199,6 @@ class Project::ProjectsController < ApplicationController
       render :action => "gantt.rhtml"
     end
   end
-##
-# Delete a whole project
-# 
-  def delete
-    @project.events.find(params[:id]).destroy
-    render :update do |page|
-      page["event-#{params[:id]}"].visual_effect :drop_out
-    end
-  end 
+
 
 end
