@@ -88,9 +88,9 @@ class ProjectElement < ActiveRecord::Base
     !(attributes['asset_id'].nil?)
   end
   
-  def path
+  def path(prefix = nil)
     root= self.self_and_ancestors.collect{|i|i.name}
-    root[0]='.'
+    root[0]=prefix if prefix
     root.join('/')
   end
   
