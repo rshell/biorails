@@ -9,7 +9,7 @@ Element Path:
 <%= @project_asset.asset.image_tag  %>
 <%end %>
 
-<% form_for(:project_asset , :url=>asset_url(:action=>'edit',:id=>folder.id),  :html => { :multipart => true }) do |f| -%>
+<% form_for(:project_asset , :url=>asset_url(:action=>'update',:id=>@project_asset)) do |f| -%>
 
    <%= hidden_field 'project_asset', 'path'  %>
    <%= hidden_field 'project_asset', 'project_id'  %>
@@ -17,6 +17,12 @@ Element Path:
    <%= hidden_field 'project_asset', 'position'  %>
    
   <div class="row">
+
+    <div class="form-element">
+       <label for="project_asset_name">Name (Ref)</label>
+       <%= f.text_field 'name' , {:size=>20, :class=>"text-input"} %>
+    </div>
+
     <div class="form-element">
        <label for="project_asset_name">Title (Heading)</label>
        <%= f.text_field  'title' , {:size=>80, :class=>"text-input"} %>
