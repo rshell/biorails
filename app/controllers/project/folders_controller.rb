@@ -83,8 +83,29 @@ class Project::FoldersController < ApplicationController
 # 
   def clipboard
     set_folder
+    @clipboard = session[:clipboard] 
+    @clipboard ||= Clipboard.new
+    case request.raw_post || request.query_string
+    when /id=current_project_element_*/,
+         /id=current_project_reference_*/,
+         /id=current_project_content_*/,
+         /id=current_project_asset_*/,
+         /id=project_content_*/ ,
+         /id=project_asset_*/ ,
+         /id=project_reference_*/
+        @source = ProjectElement.find($') 
+        @clipboard.add(@source)
+    end    
+    session[:clipboard] = @clipboard
     return render_right('clipboard')
   end  
+  
+  def clear_clipboard
+    set_folder
+    @clipboard =Clipboard.new
+    session[:clipboard] = @clipboard
+    return render_right('clipboard')        
+  end
 
 ##
 # Display the current clipboard 
@@ -312,5 +333,6 @@ protected
      @layout[:centre] = params[:centre] || 'folder'     
      @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
+  
 
 end

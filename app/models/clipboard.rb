@@ -7,31 +7,76 @@
 # 
 # 
 class Clipboard
+  include Enumerable
   attr_reader :elements
+  attr_reader :cache
 ##
 # Initialize clipboard object, with the @elements as empty
 #
   def initialize
-    @elements = []
+    @elements =[]
+    @cache = []
   end
+
+  def each
+    initialize_cache
+    @cache.each do |item|
+      yield item
+    end
+  end
+  
+  def cache
+    initialize_cache
+    @cache
+  end
+#
+# Dump elements to store
+#
+  def marshal_dump
+    if @cache
+      @elements = @cache.collect{|i|i.id}
+    end
+    @elements
+  end
+#
+# Load elements from store
+#
+  def marshal_load(variables)
+    initialize_cache
+    @elements = variables
+  end
+  
 ##
 # Add given element on clipboard unless it's already there
 # 
   def add(element)
-    @elements << element unless @elements.find{ |f| f.id == element.id }
+    initialize_cache
+    if element and !@elements.find{|i|i.id == element.id}
+      @elements << element.id 
+      @cache << element 
+    end
   end
 
 ##
 # Remove given element from clipboard
 # 
   def remove(element)
-    @elements.delete(element)
+    initialize_cache
+    @cache.delete(element)
   end
 
 ##
 # filtered list of items
 # 
   def filter(model)
-    @elements.collect{ |f| f if f['reference_type'] == model.class }.uniq
+    initialize_cache
+    @cache.collect{ |f| f if f['reference_type'] == model.class }.uniq
   end
+  
+  def initialize_cache
+    if @elements
+      @cache = @elements.collect{|i| ProjectElement.find(i) }
+    end
+  end
+
 end

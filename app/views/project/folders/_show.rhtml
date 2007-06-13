@@ -41,8 +41,8 @@
     	<td align="center"><%= short_date(item.updated_at) %></td>
         <td align="center">
 
-            <%= link_to( l(:edit),  content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
-            <%= link_to( l(:edit),  asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
+            <%= link_to( l(:edit),   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
+            <%= link_to( l(:edit),   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
             <%= link_to( l(:delete), folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
         </td>
       </tr>

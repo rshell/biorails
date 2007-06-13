@@ -3,10 +3,25 @@
      <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),}  %>                   </li>
      <li><%= link_to_remote l('Clip'),{ :url=> folder_url(:action=>'clipboard',:id => folder.id)},:class=>"current"  %> </li>
 </ul>
-
-<h2>Folder <%=folder.name%></h2>
+<div id='clipboard'>
+<h2>Clipboard for <%=current_user.name%></h2>
+<i>Drop items to add</i>
+<% if @clipboard %>
 <ol>
-    <% for item in folder.children %>
-      <li> <%= link_to item.name, element_to_url(item) %></li>
-    <% end %>
+  <% for item in @clipboard %>
+   <li>
+    <span id='<%=item.dom_id%>' class='project_element'>
+   	    <%=image_tag(item.icon( {:images=>true} ) ) %> <%= item.name%>
+    </span>
+   </li>
+   <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>   
+  <% end %>
 </ol>
+<%end%>
+
+<%=link_to_remote 'Clear Clipboard',:url => folder_url(:action=>"clear_clipboard",:id=>folder.id )%>
+
+</div>
+<%= drop_receiving_element('clipboard', :hoverclass => "drop-active",   
+           :accept =>'folder_element',
+           :url => folder_url(:action=>"clipboard",:id=>folder.id )) %>
