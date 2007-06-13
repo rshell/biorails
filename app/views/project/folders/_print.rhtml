@@ -24,9 +24,9 @@
 
 <h2> References to source materials </h2>
  <% for item in folder.children %>
-  <ol>
+  <ul>
     <li><%=subject_icon(item.style) %><%= link_to item.name, element_to_url(item) %></li>
-  </ol>
+  </ul>
  <% end %>	
 	
 
