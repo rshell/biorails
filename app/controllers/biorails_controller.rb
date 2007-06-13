@@ -158,7 +158,7 @@ class BiorailsController < ApplicationController
     end
 
     def get_experiment(id)
-      Expriment.find(id)      
+      Experiment.find(id)      
     end
 
     def get_task(id)
