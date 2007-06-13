@@ -58,8 +58,10 @@ function RegExMatchCheck(mask,subject) {
 
    re = new RegExp(mask);
      if (re.test(subject.value)) {
+		subject.style.background = "#99FF99";
        alert("passed mask matches: "+subject.value );
      } else {
+		subject.style.background = "#FFAAAA";
        alert("failed");
     }
 }
@@ -70,8 +72,8 @@ function RegExMatchCheck(mask,subject) {
 function RegExMatchOnKey(mask,subject) {
    re = new RegExp(mask);
     if (re.test(subject.value)) {
-       new Effect.Highlight(subject.id,{endcolor:'#99FF99', restorecolor:'#99FF99'} );
+		subject.style.background = "#99FF99";
     } else {
-       new Effect.Highlight(subject.id,{endcolor:'#FFAAAA', restorecolor:'#FFAAAA'} );
+		subject.style.background = "#FFAAAA";
     }
 }

@@ -28,6 +28,7 @@
     <div class="form-element">
       <label for="data_format_format_regex">Input regex rule </label>
       <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
+           :onblur => "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )",
            :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
     </div>
 
