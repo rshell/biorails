@@ -2,10 +2,16 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task' ]} %>
 <%end%>
 
+<% content_for :centre do -%>
 <h2>
         <%= subject_icon('experiment.png')%> Import Data into Experiment [<strong><%=@experiment.name%></strong>]
 </h2> 
-
+<ul class="tablist"> 
+     <li ><%= link_to l('Overview'),  experiment_url(:action=>'show',:id=>@experiment)  %></li>
+     <li ><%= link_to l('Import'),    experiment_url(:action=>'import',:id=>@experiment),:class=>"current"  %> </li>
+     <li><%= link_to l('Statistics'), experiment_url(:action=>'metrics',:id=>@experiment)  %>     </li>
+</ul>
+    
      <div class='panel'>
         <p>
             This is a simple cvs file importer for getting larger blocks of data into the system. 
@@ -34,4 +40,12 @@
         <% end %>
         
     </div> 
+<%end%>
+
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
+<% end %>
 

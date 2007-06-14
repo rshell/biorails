@@ -2,16 +2,19 @@
 <div>
   <span class='menu'><%=subject_icon('task')%>Task <%= task.name %></span>
   <% unless task.new_record? %>
-  <%= link_to 'Show', task_url( :action => 'show', :id => task) %>
+  <%= link_to 'Overview', task_url( :action => 'show', :id => task) %>
   <%= link_to 'Folder',  folder_url( :action => 'show', :id => task.folder ) %>
-  <%= link_to 'Update', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Data Entry', task_url( :action => 'sheet', :id => task) %>
+  <%= link_to 'Update', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Analysis', task_url( :action => 'analysis', :id => task) %>
   <%= link_to 'Report', task_url( :action => 'report', :id => task) %>
     <%if task.contexts.size==0%>
       <%= link_to 'Delete', task_url( :action => 'destroy', :id => task ), :confirm => 'Are you sure?',:method => "post" %>
     <%end%>          
-  <%= link_to( '[Modify]',protocol_url( :action => 'edit', :version=>task.protocol_version_id, :id => task.study_protocol_id)) if task.is_modifiable  %>     
+  <%= link_to( '[Modify]',protocol_url( :action => 'edit', :version=>task.protocol_version_id, :id => task.study_protocol_id)) if task.is_modifiable  %>  
+  <%= link_to subject_icon('new')+'Add Asset', asset_url( :action => 'new' , :id => task.folder  ) %>
+  <%= link_to subject_icon('new')+'Add Article', content_url( :action => 'new' , :id => task.folder  ) %>
+     
 <%end%>          
 
 </div>

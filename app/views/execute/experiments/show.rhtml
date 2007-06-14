@@ -9,7 +9,12 @@
    <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
         [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
 </h2>
-
+<ul class="tablist"> 
+     <li ><%= link_to l('Overview'),  experiment_url(:action=>'show',:id=>@experiment),:class=>"current"  %></li>
+     <li ><%= link_to l('Import'),    experiment_url(:action=>'import',:id=>@experiment)  %></li>
+     <li><%= link_to l('Statistics'), experiment_url(:action=>'metrics',:id=>@experiment)  %>     </li>
+</ul>
+    
 <div class='panel'>
     <table class="report">
       <tr><th class="label"><%=subject_icon('name.png')%> Name</th>

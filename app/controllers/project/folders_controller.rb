@@ -140,7 +140,13 @@ class Project::FoldersController < ApplicationController
     @project_folder = ProjectFolder.new(:name=> Identifier.next_user_ref, 
                                         :parent_id=>@parent.id,
                                         :project_id=>@parent.project_id)
-    render :partial => 'new' ,:layout => false if request.xhr?
+    respond_to do |format|
+      format.html { render :action => 'new'}
+      format.js  { render :update do | page |
+           page.replace_html 'centre',  :partial => 'new' ,:locals=>{:folder=>@parent}
+         end
+      }
+    end  
   end
 ##
 # Create a new child folder
@@ -330,9 +336,9 @@ protected
      @layout = {}
      @layout[:right] = params[:right] || 'right_finder'
      @layout[:centre] = params[:centre] || 'show'     
-     @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
      @clipboard = session[:clipboard] 
      @clipboard ||= Clipboard.new
+     @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
   
 

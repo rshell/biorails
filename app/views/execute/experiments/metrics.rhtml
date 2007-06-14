@@ -1,10 +1,16 @@
 
+<% content_for :centre do -%>
 <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
 
 <h2>
    <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
         [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
 </h2>
+<ul class="tablist"> 
+     <li ><%= link_to l('Overview'),  experiment_url(:action=>'show',:id=>@experiment)  %></li>
+     <li ><%= link_to l('Import'),    experiment_url(:action=>'import',:id=>@experiment) %> </li>
+     <li><%= link_to l('Statistics'), experiment_url(:action=>'metrics',:id=>@experiment),:class=>"current"   %>     </li>
+</ul>
 
 <div class='panel'>
     <table class="report">
@@ -19,5 +25,12 @@
 </div>
 
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+<%end%>
 
+<% content_for :right do -%>
+   <h2>Project Tree </h2>
+   <div class="panel">
+    <%= tree_for_project(current_project)%>
+   </div>
+<% end %>
 
