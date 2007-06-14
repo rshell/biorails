@@ -1,14 +1,37 @@
+<a href="#" onclick="divwin=dhtmlwindow.open('divbox', 'div', 'snapshot-dialog', 'Save to Folders', 'width=450px,height=200px,left=200px,top=150px scrolling=1'); return false">
+<b>Snapshot</b></a>
+<div id="snapshot-dialog" style="display: none;" >
+
 <% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
-<div class="panel">
-  <label for="membership_owner">Ref.</label><br/>
-   <%= text_field_tag :name , @snapshot_name,     {:size=>20, :class=>"text-input"} %><br/>
-  <label for="membership_owner">Title</label><br/>
-   <%= text_field_tag :title ,@report.name, {:size=>20, :class=>"text-input"} %><br/>
-  <label for="folder">Folder</label><br/>
-  <%= select_tag 'folder_id', options_for_select(current_project.folder_options) %><br/>
-  <label for="membership_owner">Published</label><br/>
-  <%= check_box_tag :published  %><br/>
+
+    <div class="row">
+      <div class="form-element">
+      <label for="folder">Folder</label>
+      <%= select_tag 'folder_id', options_for_select(current_project.folder_options) %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-element">
+      <label for="membership_owner">Ref.</label>
+       <%= text_field_tag :name , @snapshot_name,     {:size=>20, :class=>"text-input"} %>
+      </div>
+    
+      <div class="form-element">
+      <label for="membership_owner">Title</label
+       <%= text_field_tag :title ,@report.name, {:size=>80, :class=>"text-input"} %>
+      </div>
+    </div>
+<br/>
+<div class="row">
+<br/>
 </div>
-<%= submit_tag 'Save' %>
+<div class="row">
+  <div class="form-element">
+     <%= submit_tag 'Save' %>
+  </div>
+</div>
 
 <% end %>
+
+</div>

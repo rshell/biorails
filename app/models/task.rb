@@ -73,7 +73,14 @@ class Task < ActiveRecord::Base
   validates_presence_of :protocol_version_id
   validates_presence_of :started_at
   validates_presence_of :ended_at
+  
   validates_presence_of :status_id
+
+  def validate 
+    if ended_at < started_at
+      errors.add(:started_at,"Should be less then end date")
+    end
+  end
 ##
 # Link to view for summary stats for study
 # 
@@ -162,6 +169,21 @@ SQL
    TaskStatistics.find_by_sql([sql,self.id])
  end
  
+ def process_name
+   return process.name if process
+ end
+
+ def protocol_name
+   return protocol.name if protocol
+ end
+
+ def experiment_name
+   return experiment.name if experiment
+ end
+
+ def is_modifiable
+   return ( !process.nil?  and process.tasks.size<2 )
+ end
 ##
 # List of all the queue Items associated with the task
 #  

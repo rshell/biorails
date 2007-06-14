@@ -26,6 +26,7 @@
 <%= stylesheet_link_tag "print", :media => "print" %>
 <%= stylesheet_link_tag 'tree' %>
 <%= stylesheet_link_tag 'calendar-green' %>
+<%= stylesheet_link_tag 'dialog' %>
 <%= stylesheet_link_tag 'datebocks_engine' %>
 
 <!--%= javascript_include_tag "tiny_mce/tiny_mce" %-->
@@ -45,8 +46,8 @@
 <%= javascript_include_tag 'menu' %>
 <%= javascript_include_tag 'sidemenu' %>
 <%= javascript_include_tag 'tree' %>
+<%= javascript_include_tag 'dhtmlwindow' %>
 <%= javascript_include_tag 'application' %>
- <%= javascript_include_tag 'validators-en' %>
  
 <!-- page specific tags  ======================= -->
 <%= yield :includes %>

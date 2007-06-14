@@ -2,12 +2,9 @@
   <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <div>
   <span class='menu'>To Folder</span>
+  <%=render :partial => 'snapshot' %>
 </div>
 
-<% end %>
-
-<% content_for :left do%>
-<%=render :partial => 'snapshot' %>
 <% end %>
 
 

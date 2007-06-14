@@ -215,7 +215,7 @@ end
   
   def folder_options
      folders.collect do |folder|
-        [folder.path('.'),folder.id] 
+        [folder.path,folder.id] 
      end
   end
 ##

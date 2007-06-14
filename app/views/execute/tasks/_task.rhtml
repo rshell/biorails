@@ -8,14 +8,14 @@
       </tr>
       <tr>
         <th class="label"><%=subject_icon('study.png')%> Study       </th><td><%= link_to @task.experiment.study.name, study_url(:action => 'show', :id => @task.experiment.study.id)  %></td>
-        <th class="label"><%=subject_icon('experiment.png')%> Experiment  </th><td><%= link_to @task.experiment.name, experiment_url( :action => 'show', :id => @task.experiment.id ) %></td>
+        <th class="label"><%=subject_icon('experiment.png')%> Experiment  </th><td><%= link_to @task.experiment_name, experiment_url( :action => 'show', :id => @task.experiment_id ) %></td>
       </tr>
       <tr>
-        <th class="label"><%=subject_icon('model/protocol.png')%> Protocol  </th><td><%= link_to @task.protocol.name, protocol_url( :action => 'show', :id => @task.protocol.id )  %></td>
+        <th class="label"><%=subject_icon('model/protocol.png')%> Protocol  </th><td><%= link_to @task.protocol_name, protocol_url( :action => 'show', :id => @task.study_protocol_id )  %></td>
         <th class="label"><%=subject_icon('model/protocol.png')%> Process  </th>
         <td>
-        <%=link_to @task.process.name ,protocol_url(:action=>'show',:id => @task.protocol, :version=>@task.process.id) %> 
-        <%= link_to '[Modify]', protocol_url( :action => 'edit', :version=>@task.process.id, :id => @task.protocol.id) if @task.process.tasks.size<2  %>
+        <%=link_to @task.process_name ,protocol_url(:action=>'show',:id => @task.protocol, :version=>@task.protocol_version_id) %> 
+        <%= link_to '[Modify]', protocol_url( :action => 'edit', :version=>@task.protocol_version_id, :id => @task.study_protocol_id) if @task.process.tasks.size<2  %>
         </td>
       </tr>
       <tr>
