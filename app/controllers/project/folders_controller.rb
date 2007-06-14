@@ -83,8 +83,6 @@ class Project::FoldersController < ApplicationController
 # 
   def clipboard
     set_folder
-    @clipboard = session[:clipboard] 
-    @clipboard ||= Clipboard.new
     case request.raw_post || request.query_string
     when /id=current_project_element_*/,
          /id=current_project_reference_*/,
@@ -97,14 +95,14 @@ class Project::FoldersController < ApplicationController
         @clipboard.add(@source)
     end    
     session[:clipboard] = @clipboard
-    return render_right('clipboard')
+    return render_right('finder')
   end  
   
   def clear_clipboard
     set_folder
     @clipboard =Clipboard.new
     session[:clipboard] = @clipboard
-    return render_right('clipboard')        
+    return render_right('finder')        
   end
 
 ##
@@ -113,6 +111,7 @@ class Project::FoldersController < ApplicationController
   def finder
     set_folder
     @hits = []
+    @clipboard = session[:clipboard] 
     @user_query = params['query'] 
     logger.info "query before [#{@user_query}]"
     ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
@@ -332,6 +331,8 @@ protected
      @layout[:right] = params[:right] || 'right_finder'
      @layout[:centre] = params[:centre] || 'show'     
      @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
+     @clipboard = session[:clipboard] 
+     @clipboard ||= Clipboard.new
   end  
   
 

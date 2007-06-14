@@ -5,6 +5,8 @@ Report Table Style
 */
 .report {
    width: 100%;
+    background-color: white;
+	z-index: 5;
 }
 
 .report td {

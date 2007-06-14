@@ -1,11 +1,37 @@
 <ul class="tablist"> 
      <li><%= link_to_remote l('Find'), { :url=>folder_url(:action=>'finder',   :id => folder.id)},:class=>"current"  %>     </li>
      <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),}  %>                       </li>
-     <li><%= link_to_remote l('Clip'),{ :url=> folder_url(:action=>'clipboard',:id => folder.id)}  %>                       </li>
 </ul>
+<div id='clipboard' class='panel'>
+<h4>Clipboard for <%=current_user.name%>
 
+<%=link_to_remote '[Clear]',:url => folder_url(:action=>"clear_clipboard",:id=>folder.id )%>
+
+</h4>
+<% if @clipboard %>
+<ol>
+  <% for item in @clipboard %>
+   <li>
+    <span id='<%=item.dom_id%>' class='project_element'>
+   	    <%=image_tag(item.icon( {:images=>true} ) ) %> <%= item.name%>
+    </span>
+   </li>
+   <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>   
+  <% end %>
+</ol>
+<%end%>
+
+</div>
+<%= drop_receiving_element('clipboard', :hoverclass => "drop-active",   
+           :accept =>'folder_element',
+           :url => folder_url(:action=>"clipboard",:id=>folder.id )) %>
+
+<%= drop_receiving_element('clipboard', :hoverclass => "drop-active",   
+           :accept =>'project_element',
+           :url => folder_url(:action=>"clipboard",:id=>folder.id )) %>
+           
 <div class='panel'>
-<h2>Search Folders</h2>
+<h4>Search Folders</h4>
 <% form_remote_tag :url=>folder_url(:action=>'finder',   :id => folder.id) do %>
    <%= text_field_tag :query,@user_query,:size =>30 %>
    <%= submit_tag 'Search' %>
