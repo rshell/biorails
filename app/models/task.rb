@@ -28,10 +28,10 @@
 require "faster_csv"
 require 'matrix'
 
-##
+#
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 # This is a Task recording data from running of a process instance.  The task  is 
 # the basic unit of work for data capture in a experiment/study/project. All tasks
 # have a start , end date and status values.
@@ -39,13 +39,13 @@ require 'matrix'
 # Most of timeline and calender use tasks a the basic useds.
 # 
 class Task < ActiveRecord::Base
-##
+#
 # Moved Priority and Status enumeriation code to /lib modules
 #
   include  CurrentPriority
   
   acts_as_scheduled 
-##
+#
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
@@ -172,15 +172,21 @@ SQL
  def process_name
    return process.name if process
  end
-
+#
+# get the study protocol name or null is null is currently linked in
+#
  def protocol_name
    return protocol.name if protocol
  end
-
+#
+# get experiment name or null is null is currently linked in
+#
  def experiment_name
    return experiment.name if experiment
  end
-
+#
+# test if this the the only task dependent on this protocol definition
+#
  def is_modifiable
    return ( !process.nil?  and process.tasks.size<2 )
  end
@@ -197,8 +203,7 @@ where tr.task_id = ?
 SQL
    QueueItem.find_by_sql([sql,self.id])
  end
-
- ##
+ #
  # Get the folder for this task
  #
   def folder(item=nil)
@@ -209,21 +214,18 @@ SQL
       return folder
     end
   end  
-##
+#
 #List of reports setup to run against this task
 #
  def reports
     unless @reports
          @reports= []
-         @reports.concat(Report.contains_column('task.id').each{|report|
-         report.column('task.id').filter = self.id})
-         @reports.concat(Report.contains_column('task_id').each{|report|
-         report.column('task_id').filter = self.id } )
+         @reports.concat(Report.contains_column('task.id').each{|report| report.column('task.id').filter = self.id} )
+         @reports.concat(Report.contains_column('task_id').each{|report| report.column('task_id').filter = self.id} )
     end
     return @reports
- end
- 
-##
+ end 
+#
 # Clear current date and work done and setup for 1 day from  now
 #  
   def reset
@@ -234,7 +236,9 @@ SQL
      @done_hours = 0
      refresh
   end 
-
+#
+# the the column titles as array of strings
+#
   def to_titles
     titles =[]
     data = {}  
@@ -244,7 +248,9 @@ SQL
     end  
     return titles.concat(data.keys.sort.collect{|i|data[i]})
   end
-
+#
+# get all rows for a known context
+#
   def to_rows(context=nil)
     row_defaults =[]
     data = {}  
@@ -264,14 +270,14 @@ SQL
     end
     return data 
   end
-
+#
+# Convert task to a simple matrix for easy analysis use
+#
   def to_matrix(context=nil)
     data = self.to_rows(context)
     return Matrix.rows(data.keys.sort.collect{|i|data[i]})    
-  end
- 
-  
-##
+  end  
+#
 # refresh cached items array
 # 
  def refresh
@@ -281,7 +287,7 @@ SQL
    rows
    return @items
  end
-##
+#
 # combined array of all TaskItems and cache in memory
 # 
  def items
@@ -291,10 +297,8 @@ SQL
     @items.concat(texts)
     @items.concat(references)
     @items = @items.sort{|a,b|a.context.row_no <=> b.context.row_no}
- end
- 
- 
-##
+ end  
+#
 #copy a existing task
 # 
  def copy
@@ -306,14 +310,13 @@ SQL
    task.initial
    return task
  end
-##
+#
 #  This created as hashed data structure of [task_context][parameter_id]
 #
  def grid
     @grid ||=TreeGrid.from_task(self)
  end
-
-##
+#
 # Fraction of work done  
 # 
  def done
@@ -324,7 +327,7 @@ SQL
    end
  end
 
- ##
+#
 # Create a new Context
 # 
  def add_context(parameter_context)
@@ -340,7 +343,7 @@ SQL
    return context
  end
  
-###
+#
 # Build a in memory two way hash(rows/cols) of all the values in the task 
 # 
  def rows
@@ -355,32 +358,34 @@ SQL
    end
    return @rows
  end
-##
+#
 # Get a Row (TaskContext) my position in int 
 # 
  def row(row_no)
   return self.rows[row_no]
  end 
-##
+#
 # Get a Cell position 
 # 
  def cell(row_no,column_no)
    return self.row(row_no).column(column_no)
  end
- 
+#
+# Run a named analyse method to the data in this taks
+#
  def analysis(name=nil)
     processor = Analysis.find_by_name(name)
     processor.init(self)
     processor.run
     processor.done
  end
-##
+#
 # Export a data grid to cvs report
 # 
  def to_csv
     return self.grid.to_csv
  end
-##
+#
 # Update all queue_items with where current task status value if they are acvtive
 # 
 # 1) Only update active items
@@ -401,7 +406,6 @@ SQL
       end
    end
  end
- 
  #
  # For presentation in reports
  #

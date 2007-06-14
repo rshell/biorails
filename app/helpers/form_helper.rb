@@ -49,8 +49,8 @@ module FormHelper
        "Err. (no date picker)"
   end
   
-  def select_values(object,method, root = nil,id_field=:id)
-     list = [[nil,nil]]
+  def select_values(object,method, root = nil,id_field=:id,initial_list=nil)
+     list = initial_list || [[nil,nil]]
      case root
      when String
        concept = DataConcept.find_by_name(root)
@@ -81,7 +81,7 @@ module FormHelper
        end
      else
        root.each do |item|
-          list.concat(item.collect{|c|[c,c]})
+          list << [item.send(:name),item.send(id_field)]
        end
      end
      return  select(object, method ,list)      

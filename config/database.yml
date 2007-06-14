@@ -15,8 +15,7 @@ development:
   database: biorails2_development
   username: biorails 
   password: moose
-  #host: localhost
-  socket: /var/run/mysqld/mysqld.sock
+  host: 192.168.1.10
   
 demo:
   adapter: mysql

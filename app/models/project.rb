@@ -23,7 +23,7 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #
 
-##
+#
 # This is the only web root path and investigation log for project.
 # The Projects is build of organizational elements (Studies/Protocols/Services)
 # execution elements covering the capture of data (experiments/tasks)
@@ -47,10 +47,13 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :summary
   validates_presence_of :status_id 
-##
+#
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
+ #
+ # Add name and description to free text indexing systems
+ #
   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
@@ -58,40 +61,42 @@ class Project < ActiveRecord::Base
                    :single_index => true, 
                    :store_class_name => true 
 #
-##
 # Link through to users for members, and owners via memberships
 # 
   access_control_list  :memberships , :dependent => :destroy 
 
   has_many :users, :through => :memberships, :source => :user
+#
+# People to share the ownership of project and so govern the membership
+#
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
-##
+#
 # home folders
 # 
   has_one :home_folder, :class_name=>'ProjectFolder', :conditions => 'parent_id is null'
-##
+#
 # list of all folders in the project 
 # 
   has_many :reports, :class_name=>'Report',:foreign_key =>'project_id',:order=>'name', :dependent => :destroy 
+#
+# List of all the folders in the project
+#
+  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'left_limit,parent_id,name', :dependent => :destroy 
+#
+# List of all the elements 
+#
+  has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'left_limit,parent_id,name', :dependent => :destroy 
 
-  has_many :folders, :class_name=>'ProjectFolder',:foreign_key =>'project_id',:order=>'parent_id,name', :dependent => :destroy 
-  has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'parent_id,name', :dependent => :destroy 
-
-##
+#
 # The project is the main holder of schedules but in turn can be seen on a system schedule
 #   
   acts_as_scheduled :summary=>:tasks
-  
+
   has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id', :dependent => :destroy 
   has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id', :dependent => :destroy 
   has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id', :dependent => :destroy 
 
-##
-# Create a project root folder after create of project
-# 
-  after_create do  |project| 
-     create_home_folder(project)
-  end
+  has_many :protocols, :through => :studies, :source => :protocols
 
 ##
 # List of assets associated with the the project in reverse order
@@ -114,7 +119,15 @@ class Project < ActiveRecord::Base
 # List of all articles associated with a the project in reverse order
 # 
   has_many  :articles, :class_name=>'ProjectContent', :order => 'created_at desc', :dependent => :destroy 
-
+#
+# Create a project root folder after create of project
+# 
+  after_create do  |project| 
+     create_home_folder(project)
+  end
+#
+# On rename of the project change the folder name
+#
 def before_update
     ref = self.home
     if ref.name !=self.name
@@ -122,19 +135,7 @@ def before_update
       ref.save!
     end
 end
-##
-# Unstructurted data is mapped into a set of folders for the project. For anotement of  models 
-# a folder is referenced to a model. A number of short cuts are provided to help 
-# 
-#  * project.folders.notes(object) => folder for unstructed information linked to the object
-#  * project.folders.linked_to(model) => array of folders linked to a model type
-#  * project.folders.studies
-#  * project.folders.experiments
-#  * project.folders.tasks
-#  
 #
-
-##
 # List of all the users who are not a member of the project
 # 
   def non_members
@@ -147,7 +148,9 @@ end
      return self.home_folder  if self.home_folder
      Project.create_home_folder(self)
   end
-  
+#
+# Summary description of the project
+#
   def description
     self.summary
   end
@@ -155,13 +158,15 @@ end
   def in_use?
     (self.elements.size>1 || self.studies.size>0)
   end
-##
+#
 # Get the member details
 #  
   def member(user)
     Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
   end
-
+#
+# test wheather is the the owner of the project
+#
   def owner?(user)
     member_details = Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
     return (member_details and member_details.owner)
@@ -171,7 +176,7 @@ end
     ProjectContent.find(:all,:conditions => ["project_id=? and content_id is not null",self.id] , :order=>'updated_at desc',:limit => count)   
   end
   
- ###
+ #
  # Get the lastest n record of a type linked to this project. This allows simple discovery 
  # of changes to linked records   
  # 
@@ -189,58 +194,71 @@ end
     end
   end
 
-  ##
-  # Get all Tags used in the project
-  # 
-  def tags
-    Tag.find(:all, :select      => "DISTINCT tags.name",
-                   :joins       => "INNER JOIN taggings ON taggings.tag_id = tags.id INNER JOIN contents ON (taggings.taggable_id = contents.id AND 
-                                    taggings.taggable_type = 'Content')",
-                   :conditions  => ['contents.type = ? AND contents.project_id = ?', 'Article', id],
-                   :order       => 'tags.name')
-  end
-
-##
+#
 # Get a root folder my name 
 # 
   def folder?(item)
     return self.home.folder?(item)
   end    
-##
-# add/find a folder to the project. This  
+#
+# Add/find a folder to the project. This  is delegated down to the root folder now
 # 
   def folder(item)
     return home.folder(item)    
   end
-  
+#
+# folders a options list for html forms
+#
   def folder_options
      folders.collect do |folder|
         [folder.path,folder.id] 
      end
   end
-##
+#
 #Get a folder by path
 #
   def path?(path)
     ProjectElement.find(:first,:conditions=>['project_id=? and path=?',self.id,path.to_s])
   end
-##
+#
 # Get a list of a folders linked to a model
 # 
   def folders_for(model)
     ProjectFolder.find(:all, :conditions=>["project_id= ? and reference_type=?",self.id, model.to_s] )
   end
-
-
-  def accept_comments?
-    comment_age.to_i > -1
-  end
-
-##
+#
 # Helper to return the current active project 
 # 
   def Project.current
     Project.current_project || Project.find(DEFAULT_PROJECT_ID)
+  end
+#
+# Get a study for this user, limits to projects the user is a member of
+#  
+  def study(*args)
+    studies.find(*args)
+  end
+#
+# Get a study for this user, limits to projects the user is a member of
+#  
+  def protocol(*args)
+    StudyProtocol.with_scope( :find => {
+         :conditions=> ['exists (select 1 from studies s where s.id=study_protocols.study_id and s.project_id=?)',self.id]
+        })  do
+       StudyProtocol.find(*args)
+    end
+  end
+#
+# Get a experiment for this user, limits to projects the user is a member of
+#  
+  def experiment(*args)
+     experiments.find(*args)
+  end
+#
+# Get a task for this user, limits to projects the user is a member of
+#
+  def task(*args)
+     tasks.find(*args)
   end
   
 protected 

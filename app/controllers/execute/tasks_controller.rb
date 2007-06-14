@@ -110,8 +110,8 @@ class Execute::TasksController < ApplicationController
 # Create a new task in the the current experiment
 #
   def new
-    @experiment = current_user.experiment( params[:id] )
-    @task = Task.new(:name=> Identifier.next_id(Task))
+   set_experiment(params[:id])
+    @task = Task.new
     @task.reset
     @task.experiment = @experiment
     @task.protocol = @experiment.protocol
@@ -120,23 +120,19 @@ class Execute::TasksController < ApplicationController
     @task.assigned_to_user_id = current_user.id
     @task.expected_hours =1
     @task.done_hours = 0
-    @task.name =  @experiment.name+"-"+@experiment.tasks.size.to_s 
+    @task.name = Identifier.next_id(Task)
     @task.description = " Task in experiment #{@experiment.name} "      
   end
 
-  def refresh_instances
-    text = request.raw_post || request.query_string
-    puts text
-    @source = StudyProtocol.find(text)
-    render :partial => 'select_process', :layout => false      
-  end
+
 ##
 # Post of new to task back to the database
 #
   def create
     @task = Task.new(params[:task])
+    @task.protocol = @task.process.protocol
     @task.project = current_project
-    @experiment = @task.experiment
+    set_experiment(@task.experiment_id)
     if @task.save
       @project_folder = @task.folder
       session[:task_id] = @task.id
@@ -308,5 +304,20 @@ protected
     @task = current_user.task( params[:id] )
     @experiment =@task.experiment
     @folder = @task.folder
+  end
+  
+  def set_experiment(experiment_id)
+    if experiment_id
+      @experiment = current_user.experiment(experiment_id )
+    else
+      @experiment = current_project.experiments.last    
+    end
+    @protocol_options= []
+    @current_project.protocols.each do |item|
+      @protocol_options << ["#{item.study.name}/#{item.process.name} [release]",item.process.id]
+      unless item.process.id == item.lastest.id
+         @protocol_options << ["#{item.study.name}/#{item.lastest.name} [lastest]",item.lastest.id]
+      end
+    end
   end
 end
