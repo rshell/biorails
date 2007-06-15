@@ -1,8 +1,12 @@
 <% unless folder.nil?  %>
 <div>
   <span class='menu' > <%=subject_icon('model/folder.png')%> <%= ( folder.parent_id ? folder.name : '/') %></span>
+<% if  @project_folder.reference? and @project_folder.reference %>
+<%= link_to  image_tag("/images/model/link.png")+ " "+ image_tag("/images/model/#{@project_folder.style}.png")+" Linked "+@project_folder.style , reference_to_url(@project_folder)%>
+<% end %>
   <%= link_to 'Folder',folder_url( :action => 'show', :folder_id => folder.id ) %> 
   <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
+
   <%= link_to_remote subject_icon('new')+'Add Folder',   :url =>folder_url( :action => 'new',     :folder_id => folder.id ) %> 
   <%= link_to subject_icon('new')+'Add Article',    
             content_url( :action => 'new',:folder_id => folder.id ), 

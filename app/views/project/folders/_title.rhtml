@@ -10,7 +10,7 @@
 
 <span class="right">
 <% if  @project_folder.reference? and @project_folder.reference %>
-This folder is referenced to the following  
-<%= link_to  "#{@project_folder.style}: #{@project_folder.reference.name}", reference_to_url(@project_folder) %>
+This folder is referenced to a <%=@project_folder.style %>  
+<%= link_to  "go to "+image_tag("/images/model/#{@project_folder.style}.png")+@project_folder.reference.name , reference_to_url(@project_folder) %>
 <% end %>
 </span>

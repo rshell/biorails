@@ -286,8 +286,8 @@ class Project::FoldersController < ApplicationController
   def choices
     text = request.raw_post || request.query_string
     @value = text.split("=")[1]
-    @choices = ProjectElement.find(:all,
-                                :conditions=>['(asset_id is not null or content_id is not null) and project_id=? and name like ? ', current_project.id, "#{@value}%"],
+    @choices = ProjectAsset.find(:all,
+                                :conditions=>['project_id=? and name like ? ', current_project.id, "#{@value}%"],
                                 :order=>"abs(#{params[:id]} - parent_id) asc,parent_id,name",
                                 :limit=>10)
     render :partial=>'choices',:layout=>false

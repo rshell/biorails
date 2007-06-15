@@ -139,6 +139,7 @@ class ProjectElement < ActiveRecord::Base
     when 'Experiment'      "experiment" 
     when 'Task':           "task"
     when 'Report' :        "report"
+    when 'Request' :       "request"
     else
        return 'asset' if asset?
        return 'content' if textual?
