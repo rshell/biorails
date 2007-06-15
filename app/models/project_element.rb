@@ -130,21 +130,19 @@ class ProjectElement < ActiveRecord::Base
 # Show the style of the project element
 # 
   def style
-    case attributes['reference_type']
-    when 'ProjectElement': "link"
-    when 'ProjectContent': "note"
-    when 'ProjectAsset':   "file"
-    when 'Study' :         "study"
-    when 'StudyProtocol':  "protocol"
-    when 'Experiment'      "experiment" 
-    when 'Task':           "task"
-    when 'Report' :        "report"
-    when 'Request' :       "request"
+    if attributes['reference_type']
+      case attributes['reference_type']
+      when 'ProjectElement': "link"
+      when 'ProjectContent': "note"
+      when 'ProjectAsset':   "file"
+      when 'StudyProtocol':  "protocol"
+      else
+       attributes['reference_type'].downcase
+      end
     else
-       return 'asset' if asset?
-       return 'content' if textual?
-       return "#{reference_type}" if reference?
-       return 'folder'
+      return 'asset' if  self.asset? 
+      return 'content' if  self.textual?
+     'folder'
     end
   end
   

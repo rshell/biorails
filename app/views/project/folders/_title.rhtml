@@ -1,5 +1,6 @@
 <h2>
     <% if @project_folder.parent %>
+    <%=image_tag("/images/model/#{@project_folder.style}.png")%>
     Folder: 
     <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
     <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
@@ -11,6 +12,6 @@
 <span class="right">
 <% if  @project_folder.reference? and @project_folder.reference %>
 This folder is referenced to a <%=@project_folder.style %>  
-<%= link_to  "go to "+image_tag("/images/model/#{@project_folder.style}.png")+@project_folder.reference.name , reference_to_url(@project_folder) %>
+<%= link_to  @project_folder.reference.name , reference_to_url(@project_folder) %>
 <% end %>
 </span>
