@@ -22,16 +22,28 @@ class Organize::StudyParametersController < ApplicationController
 
   def list
     @study = current_user.study(params[:id])    
+    respond_to do | format |
+      format.html { render :action => 'list'}
+      format.xml  { render :xml =>  @study.to_xml}
+    end    
   end
-
+#
+# show the details of a current parameter with usage statisticsts etc
+#
   def show
     @study_parameter = StudyParameter.find(params[:id])
     @study =@study_parameter.study
     protocol_list
     protocol_metrics
     experiment_metrics
+    respond_to do | format |
+      format.html { render :action => 'show'}
+      format.xml  { render :xml =>  @study_parameter.to_xml}
+    end    
   end
-
+#
+# Create a new study Parameter
+#
   def new
     @study = current_user.study(params[:id])    
     @study_parameter = StudyParameter.new
@@ -240,17 +252,38 @@ class Organize::StudyParametersController < ApplicationController
   def test_save
    begin
       @successful = false 
+      @dom_id = params[:element]
       @study_parameter = StudyParameter.find(params[:id])
-      @element = "cell_#{params[:element].split('_')[1]}_3"
-      text =  request.raw_post || request.query_string 
-      @value = @study_parameter.format(URI.unescape(text.split("=")[1]))
+      @study = @study_parameter.study
+      tmp = request.raw_post || request.query_string
+      @value =  @study_parameter.parse(URI.unescape(tmp.split("=")[1]))
+      @text =   @study_parameter.format(@value)
+      @successful = true 
    rescue Exception => ex
       logger.error "current error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      flash[:error] = "Import Failed #{ex.message}"
+      logger.error ex.backtrace.join("\n") 
+      @successful = false
    end  
-   return render(:action => 'test_save.rjs') if request.xhr?
-   render :action => 'show'
+    respond_to do | format |
+      format.html { render :action => 'list'}
+      format.xml  { render :xml =>  @study_parameter.to_xml}
+      format.js   {
+       render :update do | page |
+         if  @successful 
+            page[@dom_id].value = @text
+            case @value
+            when Unit :    page.replace_html "result_#{@study_parameter.id}", "#{@value.class} #{@value.to_base}"
+            when ActiveRecord::Base : page.replace_html "result_#{@study_parameter.id}", "#{@value.class}##{@value.id}"
+            else
+              page.replace_html "result_#{@study_parameter.id}", "#{@value.class} #{@value.to_s}"
+            end
+            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
+          else
+            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
+          end        
+       end
+      }
+    end
   end  
   
  

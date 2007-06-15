@@ -37,7 +37,7 @@
       <% for usage in @study.parameters %>
       <% classAttr = cycle("", "class=\"even\"") %>
       <tr <%=classAttr%>> 
-         <td><%=link_to subject_icon(usage.role.name) + usage.name,parameter_url( :action => 'show', :id => usage) %></td>
+         <td><%=link_to subject_icon(usage.role.name) + usage.name,parameter_url( :action => 'edit', :id => usage) %></td>
          <td><%=usage.display_unit %></td>
          <td><%=usage.role.name if usage.role%></td>
          <td><%=usage.type.name if usage.type %></td>
@@ -51,8 +51,8 @@
          </td>
          <td><%=usage.default_value%></td>
          <td>
-         <%=my_field_tag("test_#{usage.id}","test_#{usage.id}",usage,{ :save=> parameter_url(:action=>'test_save', :id=>usage) }) %>
-         <span id='<%="cell_#{usage.id}_3"%>'></span>
+         <%=my_field_tag("cell_#{usage.id}_3","test_#{usage.id}",usage,{ :save=> parameter_url(:action=>'test_save', :id=>usage) }) %>
+         <span id="result_<%=usage.id%>"></span>
          </td>
          <td>
             <%= link_to (subject_icon('destroy.png'))+" Delete", {:controller =>'study_parameters', :action => 'destroy', :id => usage }, 

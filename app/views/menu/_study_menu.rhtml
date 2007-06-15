@@ -8,7 +8,6 @@
       <%= link_to 'Parameters'+" [#{study.parameters.size}]",  parameter_url(:action => 'list' , :id => study)%>
       <%= link_to 'Service Queues'  +" [#{study.queues.size}]",    queue_url(:action => 'list', :id => study )%>
       <%= link_to 'Protocols' +" [#{study.protocols.size}]",   protocol_url(:action => 'list' , :id => study)%>
-      <%= link_to 'Experiments'+" [#{study.experiments.size}]", study_url(:action => 'experiments', :id => study )%>
       <%= link_to 'Metrics',     study_url(:action => 'metrics', :id => study )%>
       <%= link_to 'Export'+subject_icon('xml'),      study_url( :action =>'export',:id => study) %>
      <%end %>

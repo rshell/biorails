@@ -5,7 +5,7 @@
   <%= link_to 'Overview', task_url( :action => 'show', :id => task) %>
   <%= link_to 'Folder',  folder_url( :action => 'show', :id => task.folder ) %>
   <%= link_to 'Data Entry', task_url( :action => 'sheet', :id => task) %>
-  <%= link_to 'Update', task_url( :action => 'edit', :id => task) %>
+  <%= link_to 'Edit', task_url( :action => 'edit', :id => task) %>
   <%= link_to 'Analysis', task_url( :action => 'analysis', :id => task) %>
   <%= link_to 'Report', task_url( :action => 'report', :id => task) %>
     <%if task.contexts.size==0%>

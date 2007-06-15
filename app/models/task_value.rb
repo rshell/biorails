@@ -98,9 +98,9 @@ class TaskValue < ActiveRecord::Base
  def to_s
     return "" if self.data_value.nil?  
     v = self.to_unit
-    formatter = self.parameter.data_format.format_sprintf if self.parameter and self.parameter.data_format
-    if formatter && formatter.size>0 and !v.nil?
-       return sprintf(formatter,v.scalar,v.units)
+    if self.parameter and self.parameter.data_format
+       formatter = self.parameter.data_format 
+       return formatter.format(v) 
     end
     return v.to_s
   end

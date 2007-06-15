@@ -105,6 +105,29 @@ class StudyParameter < ActiveRecord::Base
     return self.data_format.format_regex if data_format   
   end
 
+
+ 
+ def parse(new_value)  
+   value = new_value
+   case self.data_type.id
+   
+   when DataType::DATE
+     value =  DateTime.strptime(new_value,"%Y-%m-%d")
+     
+   when DataType::NUMERIC
+     value = Unit.new(new_value)
+     value = Unit.new(new_value,self.display_unit)  if value.units == "" and self.display_unit 
+
+   when DataType::TIME
+     value =  DateTime.strptime(new_value,"%Y-%m-%d %H:%M:%S")
+
+   when DataType::DICTIONARY
+    value = element.lookup(new_value)
+   end
+   logger.info "parsed #{new_value} => #{value}"
+   return value
+ end 
+
  
  def element
   if self.data_element.nil? and type.data_concept_id  
@@ -113,16 +136,9 @@ class StudyParameter < ActiveRecord::Base
   return self.data_element
  end
  
- 
  def format(value)
-    if self.data_element
-       logger.info "sp formated #{value} with element"
-       return element.format(value)
-    elsif self.data_format
-       logger.info "sp formated #{value} with data format"
-       return data_format.from_s( value) 
-    end
-    logger.info "sp formated #{value} in raw"
+    return data_format.format( value)  if self.data_format
+    return value.name if value.respond_to?(:name)
     return value.to_s
  end
   

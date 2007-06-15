@@ -280,6 +280,7 @@ module FormHelper
     
     options[:url] = {:controller =>'project/folders',:action=>'choices',:id=>folder.id} 
     options[:min_chars] =2
+    options[:select] ='element-name'
     options[:after_update_element]= "FieldSave"
 
     out << "\n"  
