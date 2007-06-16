@@ -75,14 +75,15 @@ module Alces
           # Get the list of rights for the controller
           # 
           def authorized?(action) 
-            return true unless self.class.rights_actions.any?{|i| i.to_s == action.to_s}
-            rights = self.send( rights_source )  
-            if rights and current_user
-               ok =  (current_user.admin==true  || rights.permission?(current_user, self.class.rights_subject, action ) ) 
-            else
-               ok =false
+            if self.class.rights_actions.any?{|i| i.to_s == action.to_s} and current_user.admin!=true
+              rights = self.send( rights_source )  
+              if rights 
+                 return rights.permission?(current_user, self.class.rights_subject, action )  
+              else
+                 logger.error "No Rights source found for this controller"
+              end
             end
-            return ok
+            return true
           end   
           ##
           # authorization 
@@ -138,7 +139,7 @@ module Alces
               has_many rights, relation_options do
                   def permission?(user,subject,action)        
                     perm =  RolePermission.find_by_sql( 
-                    ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and p.action = ?",
+                    ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and (p.action = ? or p.action='*')",
                      user.id, proxy_owner.id, subject.to_s, action.to_s])
                     logger.info "permission?(#{user},#{subject},#{action}) = #{perm.size>0}"
                     return perm.size>0

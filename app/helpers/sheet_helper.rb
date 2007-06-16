@@ -62,7 +62,7 @@ module SheetHelper
      if cell.item and auditing
        out << link_to_remote( cell.to_s, :url=> audit_url(:action=>'show', :auditable_type=> cell.item.class.to_s, :id => cell.item.id ))
      else
-       out << cell.to_s || ' '
+       out << cell.to_html 
      end
      out << "  </td>\n"
    end
