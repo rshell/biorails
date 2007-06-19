@@ -237,7 +237,7 @@ class DataElement < ActiveRecord::Base
   def error_messages
     messages = []
     if errors.on :children
-      messages << children.collect{|item|" [#{item.name}] #{item.errors.full_messages.to_sentence||'ok'} " }
+      messages << children.collect{|item|" [#{item.name}] #{ item.valid? ? 'ok' : item.errors.full_messages.to_sentence } " }
      errors.each do |item|  
         unless item[0].to_s =='children'
           messages <<  "#{item[0]} #{item[1]}" 

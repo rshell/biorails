@@ -36,7 +36,8 @@
       </div>
  </div>
 <% else %>
-<%= @data_element.style %> based lookup
+   <%= hidden_field(:data_element, :style) %>
+   <%= @data_element.style %> based lookup
 <% end %>
 
 <div class="row">

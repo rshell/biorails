@@ -176,7 +176,7 @@ def create_element
       return render(:action => 'show.rjs') if request.xhr?
       redirect_to :action => 'list', :id => @data_element.concept
     else
-      raise "Failed to save element <br/th> #{@data_element.error_messages}"
+      raise "Could not save element <br/th> #{@data_element.error_messages}"
     end
    end
    rescue Exception => ex

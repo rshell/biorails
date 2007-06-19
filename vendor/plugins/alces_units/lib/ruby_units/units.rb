@@ -330,26 +330,28 @@ UNITS_TYPOGRAPHY = {
     @@base_units= @@base_units.merge(UNITS_COUNTS)
 
   UNIT_DEFINITIONS = UNIT_PREFIX.merge(@@base_units)
-  UNIT_DIMENSIONS = @@base_units.values.collect{|i|i[2]}.uniq.sort{|a,b|a.to_s<=>b.to_s}.concat([""])
+  UNIT_DIMENSIONS = @@base_units.values.collect{|i|i[2]}.uniq.sort{|a,b|a.to_s<=>b.to_s}.concat(["1"])
    
   @@units_by_dimension = {}
-  Unit::UNIT_DIMENSIONS.each{| i| @@units_by_dimension[i]= Unit::UNIT_DEFINITIONS.values.collect{|j| (j[2]==i ? j[0] : nil)}.compact.flatten.uniq}
-  @@units_by_dimension[""]= UNIT_PREFIX.values.collect{|j| (j[2]==:prefix_only ? j[0] : nil)}.concat([""]).compact.flatten.uniq
+  Unit::UNIT_DIMENSIONS.each{| i| @@units_by_dimension[i]= Unit::UNIT_DEFINITIONS.values.collect{|j| (j[2]==i ? j[0].first : nil)}.compact.flatten.uniq}
+  @@units_by_dimension['1']= UNIT_PREFIX.values.collect{|j| (j[2]==:prefix_only ? j[0] : nil)}.concat([""]).compact.flatten.uniq
+  @@dimension_lookup = UNIT_DIMENSIONS.collect{ |i| ["#{i}  (#{@@units_by_dimension[i].sort.join(',')})",i.to_s] }
   DIMENSION_DEFINITIONS = @@units_by_dimension
   
   UNITS_LIST      = @@base_units.values.collect{|i|i[0]}.flatten.sort
   
   UNITS_LOOKUP = UNITS_LIST.collect{|j| ["#{j.to_s}",j] }  
-  DIMENSIONS_LOOKUP =  UNIT_DIMENSIONS.collect{ |i| ["#{i} ( #{DIMENSION_DEFINITIONS[i][0]} )",i.to_s] }
+  @@dimension_lookup << ["<none> No Set dimension ",'']
+  DIMENSIONS_LOOKUP =  @@dimension_lookup
   PREFIXES_LOOKUP    = UNIT_PREFIX.keys.collect{|i|["x #{UNIT_PREFIX[i][1]} [#{UNIT_PREFIX[i][0][1]}]"] }
-  PREFIXES_COMMON = ['','c','m','u','n','p']
+  PREFIXES_COMMON = ['','c','m','u','n']
   
   def self.dimensions 
      UNIT_DIMENSIONS
   end
   
   def self.bases
-    @@base_units.values.collect{|i|i[0]}.flatten
+    @@base_units.values.collect{|i|i[0].first}.flatten
   end 
   
   def self.units(dimension = nil)
@@ -364,10 +366,10 @@ UNITS_TYPOGRAPHY = {
 #
 #
   def self.scaled_units(dimension =nil )
-    if dimension.empty?
-      DIMENSION_DEFINITIONS[""].collect{|j| ["#{j.to_s}",j] }.sort  
-    else
-      DIMENSION_DEFINITIONS[dimension.to_sym].collect{|name|PREFIXES_COMMON.collect{|i|i+name}}.flatten.collect{|j| ["#{j.to_s}",j] }.sort      
+    if dimension.nil? || dimension.empty?
+      ["<none>",""].concat(UNITS_LIST.collect{|j| ["#{j.to_s}",j] })
+    else  
+      ["<none>",""].concat(DIMENSION_DEFINITIONS[dimension.to_sym].collect{|name|PREFIXES_COMMON.collect{|i|i+name}}.flatten.collect{|j| ["#{j.to_s}",j] })     
     end
   end
 end
