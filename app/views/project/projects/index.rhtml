@@ -1,58 +1,22 @@
-<% content_for :action_nav do %>
-<!-- begin action nav -->
-<div id="page-nav">
-  <ul id="act-nav" class="clear">
-    <li><%= link_to "Create new article", :controller => 'articles', :action => "new" %></li>
-  <% if admin? -%>
-    <li><%= link_to "Create new section", :controller => 'sections' %></li>
-  <% end -%>
-    <li><%= link_to "Upload asset", SystemSettings.asset_path %></li>
-    
-  <% if @articles.any? -%>
-    <li><%= link_to "Moderate Comments",  :controller => 'comments' %></li>
-  <% end -%>
-  </ul>
-</div>
-<!-- /end action nav -->
+<table class='report'>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Description</th>
+<th>x Members</th>
+<th>x Studies</th>
+<th>x Folders</th>
+<th>x Tasks</th>
+</tr>
+<% for project in @projects %>
+<tr>
+	<td><%=project.name%></td>
+	<td><%=project.status%></td>
+	<td><%=project.description%></td>
+	<td><%=project.memberships.size%></td>
+	<td><%=project.studies.size%></td>
+	<td><%=project.folders.size%></td>
+	<td><%=project.tasks.size%></td>
+</tr>
 <% end %>
-
-
-<% content_for :centre do %>
-<!-- begin overview -->
-<div id="overview">
-  <%= link_to 'Subscribe', project_url( :class => 'feed right') %>
-  
-  <h4>Today <%= todays_short_date %></h4>
-  <%= render_events @todays_events %>
-  
-  <h4>Yesterday <%= yesterdays_short_date %></h4>
-  <%= render_events @yesterdays_events %>
-  
-  <h4>Before <%= yesterdays_short_date %></h4>
-  <%= render_events @events, true %>
-  
-</div>
-<!-- /end overview -->
-<% end %>
-
-<% content_for :sidebar do %>
-  <% if @articles.any? -%>
-  <div class="sgroup">
-    <h3>Comments awaiting your approval</h3>
-    <ul class="slist">
-    <% @articles.each do |article, count| -%>
-      <li><%= link_to "<strong>(#{count})</strong> #{h(article.title)}", article_url(:action => 'comments', :id => article.id, :filter => :unapproved) %></li>
-    <% end -%>
-    </ul>
-  </div>
-  <% end -%>
-
-  <div class="sgroup">
-    <h3>Recent activity</h3>
-    <ul class="slist" id="activity">
-      <% @users.each do |user| -%>
-        <li style="clear:right;"><%= link_to who(user.login), user_url( :action => 'show', :id => user) %><br /> showed up <%= user.updated_at %> ago</li>
-      <% end -%>
-    </ul>
-  </div>
-<% end %>
+</table>

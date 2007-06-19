@@ -41,7 +41,7 @@ class Project < ActiveRecord::Base
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
 #
-  cattr_accessor :current_project
+  cattr_accessor :current
 
   validates_uniqueness_of :name
   validates_presence_of :name
@@ -230,7 +230,7 @@ end
 # Helper to return the current active project 
 # 
   def Project.current
-    Project.current_project || Project.find(DEFAULT_PROJECT_ID)
+    @current || Project.find(DEFAULT_PROJECT_ID)
   end
 #
 # Get a study for this user, limits to projects the user is a member of

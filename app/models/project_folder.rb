@@ -43,6 +43,8 @@
 #  * Page of all items in the folder in order 
 # 
 class ProjectFolder < ProjectElement
+
+  cattr_accessor :current
 ##
 # Details of the order
 #   Checking studies
@@ -289,5 +291,11 @@ class ProjectFolder < ProjectElement
       query_options = { :conditions=>['parent_id=?',self.id],:order=>"updated_at desc",:limit=>10}      
       ProjectElement.find(:all,query_options.merge(option))
   end
-
+#
+# Helper to return the current active project 
+# 
+  def self.current
+    @current || Project.current.folder
+  end
+  
 end

@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
 #
-  cattr_accessor :current_user
+  cattr_accessor :current
 ##
 # Do user authorization and authentication has been moded to a plugin
 # 
@@ -261,7 +261,7 @@ class User < ActiveRecord::Base
   end 	  
   
   def User.current
-    User.current_user || User.find(DEFAULT_GUEST_USER_ID)
+    @current || User.find(DEFAULT_GUEST_USER_ID)
   end
 
   def User.selector

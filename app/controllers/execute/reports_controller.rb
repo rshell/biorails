@@ -59,7 +59,7 @@ helper :tree
       report.column('name').customize(:order_num=>1)
       report.column('name').is_visible = true
       report.column('name').action = :show
-      report.column('style').filter = 'System'
+      report.column('internal').filter = '1'
       report.column('custom_sql').is_visible=false 
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]

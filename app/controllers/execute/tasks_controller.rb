@@ -303,7 +303,7 @@ protected
   def set_task
     @task = current_user.task( params[:id] )
     @experiment =@task.experiment
-    @folder = @task.folder
+    ProjectFolder.current = @folder = @task.folder
   end
   
   def set_experiment(experiment_id)

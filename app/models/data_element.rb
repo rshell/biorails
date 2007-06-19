@@ -288,10 +288,20 @@ class SqlElement < DataElement
 ##
 #  List values for this element   
   def values
-   @values = self.system.connection.select_all(content) if !@values
+   @values = self.system.connection.select_all(sql_select) if !@values
    estimated_count = @values.size
    return @values
   end    
+  
+  def sql_select
+    sql = self.content
+    sql = sql.gsub(/:user_id/,User.current.id.to_s)
+    sql = sql.gsub(/:user_name/,User.current.login)
+    sql = sql.gsub(/:projectid/,Project.current.id.to_s)
+    sql = sql.gsub(/:project_name/,Project.current.name)
+    sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
+    sql = sql.gsub(/:folder_name/,ProjectFolder.current.name)
+  end
 ##
 # Count the number of records returned with a select count(*) from (select ....)
 # 

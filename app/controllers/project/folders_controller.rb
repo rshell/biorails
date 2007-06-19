@@ -337,7 +337,7 @@ protected
      @layout[:centre] = params[:centre] || 'show'     
      @clipboard = session[:clipboard] 
      @clipboard ||= Clipboard.new
-     @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
+     ProjectFolder.current = @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
   
 

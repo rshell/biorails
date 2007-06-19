@@ -12,21 +12,7 @@ class Project::ProjectsController < ApplicationController
 # Generate a index dashboard for the project 
 #   
   def index
-    @users = User.find(:all)
-    @project = Project.find(params[:id])
-    @events, @todays_events, @yesterdays_events = [], [], []
-    today, yesterday = Time.now.utc.to_date, 1.day.ago.utc.to_date
-    @articles = @project.unapproved_comments.count :all, :group => :article, :order => '1 desc'
-    @project.events.find(:all, :order => 'events.created_at DESC', :include => [:article, :user], :limit => 50).each do |event|
-      event_date = event.created_at.to_date
-      if event_date >= today
-        @todays_events
-      elsif event_date == yesterday
-        @yesterdays_events
-      else
-        @events
-      end << event
-    end
+    @projects = User.current.projects
   end
 
 ##
@@ -90,26 +76,7 @@ class Project::ProjectsController < ApplicationController
     set_project(Project.find(1))    
     redirect_to home_url(:action => 'show')
   end  
-##
-# List of most recent experiments
-# 
-  def experiments
-     @project = current_user.project(params[:id])
-     sort_init 'name'
-     sort_update
-     @item_pages, @items = paginate :experiments,  :order_by => sort_clause, :per_page => 20
-     render :action => "experiments", :layout => false if request.xhr?
-  end
-##
-# List of the Reports Defined for use with the project
-# 
-  def reports
-     @project = current_user.project(params[:id])
-     sort_init 'name'
-     sort_update
-     @item_pages, @items = paginate :reports, :order_by => sort_clause, :per_page => 20
-     render :action => "reports", :layout => false if request.xhr?
-  end
+
 ##
 # List of the membership of the project
 # 
@@ -120,11 +87,6 @@ class Project::ProjectsController < ApplicationController
       format.html { render :action => 'members'}
       format.xml {render :xml =>  @project.to_xml(:include =>[:memberships,:owners,:users])}
     end
-  end
-##
-# add a  
-  def add_member
-  
   end
 ##
 # Show a overview calendar for the project this should list the experiments, documents etc linked into the project

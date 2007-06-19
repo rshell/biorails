@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
   helper TreeHelper # Tree display helpers
-  include SessionHelper # Various session/parameter cache and lookup function
   include TinyMCE
  
 
@@ -36,12 +35,6 @@ class ApplicationController < ActionController::Base
   session :session_key => '_Biorails2_session_id'
 
   before_filter :setup_context
-
-#  cattr_accessor :project_count
-#  before_filter  :set_cache_root
-#  helper_method  :project
-#  attr_reader    :project
-
 
 #set norfello style layout
 # layout 'norfello'
@@ -67,6 +60,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_project
   helper_method :current_username
+  helper_method :current_folder
   helper_method :current 
 
 ##
@@ -75,50 +69,7 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !session[:current_user_id].nil?
   end
-##
-# Reference to the current User
-#       
-  def current_user
-    if session[:current_user_id]
-      logger.info("current_user #{session[:current_user_id]}")
-      @current_user ||= User.find(session[:current_user_id]) 
-    else
-      logger.info("NO current_user #{session[:current_user_id]}")
-      #@current_user = User.find(GUEST_USER_ID)
-      return nil
-    end
-  end
-##
-# Current username
-#   
-  def current_username
-     session[:current_username]
-  end
 
-##
-# Reference to the current project
-# 1st checks for a pass parameter of project_id
-# 2nd checks for a session project_id
-# 3rd find the object
-#   
-  def current_project
-    if session[:current_project_id]  
-       @current_project ||= Project.find(session[:current_project_id])
-    else
-       @current_project ||= Project.find(PUBLIC_PROJECT_ID)
-    end
-     logger.info("current_project #{@current_project.name}")
-     return @current_project
-  end
-
-
-  def current_folder
-    if session[:current_folder_id]  
-       @current_folder ||= ProjectFolder.find(session[:current_folder_id])
-    end
-     logger.info("current_folder #{@current_folder.name}")
-     return @current_project
-  end
 
 ##
 # Get current version of this model passed on param[:id] and
@@ -153,23 +104,15 @@ class ApplicationController < ActionController::Base
   
   
 protected   
-
+#
+# Read the session and setup the context for user,project and folder
+#
   def setup_context
-    User.current_user = @current_user = User.find(session[:current_user_id]) unless session[:current_user_id].nil? 
-    Project.current_project = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
+    User.current    = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].nil? 
+    Project.current = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
+    ProjectFolder.current = @current_folder = Project.find(session[:current_folder_id]) unless session[:current_folder_id].nil? 
   end  
-##
-# Set the Current user
-# 
-  def set_user(user)
-      logger.info("set_user #{user.name}")
-    if user  
-      session[:current_user_id] = user.id    
-      session[:current_username] = user.login
-      @current_user = user
-    end      
-  end
-  
+
   def clear_session
     logger.info("clear_session ")
     session[:current_user_id] = nil
@@ -180,7 +123,61 @@ protected
     @current_user = nil
   end
 
+#
+# Current username
+#   
+  def current_username
+     session[:current_username]
+  end
+##
+# Reference to the current User
+#       
+  def current_user
+    if session[:current_user_id]
+      @current_user ||= User.find(session[:current_user_id]) 
+    else
+      @current_user = User.find(GUEST_USER_ID)
+      return nil
+    end
+    User.current = @current_user
+  end
+##
+# Reference to the current project
+# 1st checks for a pass parameter of project_id
+# 2nd checks for a session project_id
+# 3rd find the object
+#   
+  def current_project
+    if session[:current_project_id]  
+       @current_project ||= Project.find(session[:current_project_id])
+    else
+       @current_project ||= Project.find(PUBLIC_PROJECT_ID)
+    end
+     Project.current = @current_project
+  end
 
+
+  def current_folder
+    if session[:current_folder_id]  
+       @current_folder ||= ProjectFolder.find(session[:current_folder_id])
+    end
+    logger.info("current_folder #{@current_folder.name}")
+    ProjectFolder.current = @current_folder
+  end
+#
+# Change the Current user in session
+# 
+  def set_user(user)
+      logger.info("set_user #{user.name}")
+    if user  
+      session[:current_user_id] = user.id    
+      session[:current_username] = user.login
+      User.current = @current_user = user
+    end      
+  end 
+#
+# Change the Current project in session
+# 
   def set_project(project)
       logger.info("set_project #{project.name}")
       if project.member(current_user)
@@ -191,33 +188,39 @@ protected
       end
       return @current_project
   end  
-
+#
+# Change the Current folder in session
+# 
   def set_folder(folder)
       logger.info("set_folder #{folder.name} ")
       if folder.project.member(current_user)
          session[:current_folder_id] = folder.id
          @current_folder = folder
+         ProjectFolder.current = @current_folder
       else
          show_access_denied      
       end
-      return @current_folder
   end  
-
+#
+# General error page for access control problems in the system
+# 
   def show_access_denied
     redirect_to auth_url(:action => "access_denied")    
     return false
   end
-
-##
+#
 # Test whether the user is logged_in
 #   
   def show_login
-      logger.info "show login form"
+      clear_session
       redirect_to auth_url(:action => "login")
       return false
   end
-  
+#
+# Clear the session and show the logout form
+#  
   def show_logout
+      clear_session
       redirect_to auth_url(:action => "logout")
       return false
   end
