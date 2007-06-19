@@ -36,9 +36,11 @@ class DataElement < ActiveRecord::Base
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>"parent_id"
   validates_presence_of :name
+  validates_presence_of :style
+  validates_presence_of :data_system_id
+  validates_presence_of :data_concept_id
   validates_presence_of :description
   validates_format_of :name, :with => /^[A-Z,a-z,0-9,-,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,-_]'
- 
 
   belongs_to :system,  :class_name=>'DataSystem',  :foreign_key=>'data_system_id'
   belongs_to :concept, :class_name=>'DataConcept', :foreign_key=>'data_concept_id'
@@ -193,7 +195,7 @@ class DataElement < ActiveRecord::Base
     child.system = self.system
     child.concept= self.concept
     child.style = 'child'
-    child.name = name
+    child.name = name.strip
     child.description = description || name 
     self.children << child
     self.estimated_count =self.children.size
@@ -232,6 +234,20 @@ class DataElement < ActiveRecord::Base
     end   
   end  
 
+  def error_messages
+    messages = []
+    if errors.on :children
+      messages << children.collect{|item|" [#{item.name}] #{item.errors.full_messages.to_sentence||'ok'} " }
+     errors.each do |item|  
+        unless item[0].to_s =='children'
+          messages <<  "#{item[0]} #{item[1]}" 
+        end
+     end
+     messages.join("<br/>") 
+    else
+      errors.full_messages.to_sentence
+    end
+  end
     
 end
 

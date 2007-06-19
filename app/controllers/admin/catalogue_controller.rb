@@ -153,7 +153,7 @@ end
 def new_element
     @data_concept = DataConcept.find(params[:id])    
     @data_element = DataElement.new
-    @data_element.style=='list'
+    @data_element.style ='list'
     @data_element.concept = @data_concept
     @data_element.name = @data_concept.name
     @data_element.system = DataSystem.find(:first)  
@@ -176,10 +176,11 @@ def create_element
       return render(:action => 'show.rjs') if request.xhr?
       redirect_to :action => 'list', :id => @data_element.concept
     else
-      raise "Failed to Save #{@data_element.errors.full_messages.to_sentence}"
+      raise "Failed to save element <br/th> #{@data_element.error_messages}"
     end
    end
    rescue Exception => ex
+      @data_element.style ||='list'
       flash[:error] = 'Failed:'+ ex.message
       return render( :action => 'new_element')   if request.xhr?
       render( :partial => 'new_element')
