@@ -44,10 +44,10 @@ module Alces
        def self.setup
          defaults = AnalysisMethod.new(:name=>'xyplot',:class_name=>self.name)
          defaults.settings << AnalysisSetting.new(:name=>'filename', :data_type_id=>DataType::TEXT, :mode=>1, :default_value=>'plot_xy.jpg')
-         defaults.settings << AnalysisSetting.new(:name=>'title',    :level_no=>0, :data_type_id=>DataType::TEXT, :mode=>1, :default_value=>'x/y plot')
-         defaults.settings << AnalysisSetting.new(:name=>'label',    :level_no=>0, :data_type_id=>DataType::TEXT, :mode=>1, :column_no=>0,:mandatory=>false)
-         defaults.settings << AnalysisSetting.new(:name=>'x',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>2,:mandatory=>true)
-         defaults.settings << AnalysisSetting.new(:name=>'y',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>1,:mandatory=>true)
+         defaults.settings << AnalysisSetting.new(:name=>'title',    :data_type_id=>DataType::TEXT, :mode=>1, :default_value=>'x/y plot')
+         defaults.settings << AnalysisSetting.new(:name=>'label',    :level_no=>0, :data_type_id=>DataType::TEXT, :mode=>1, :column_no=>1,:mandatory=>false)
+         defaults.settings << AnalysisSetting.new(:name=>'x',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>3,:mandatory=>true)
+         defaults.settings << AnalysisSetting.new(:name=>'y',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>2,:mandatory=>true)
          defaults.settings << AnalysisSetting.new(:name=>'output',   :data_type_id=>DataType::NUMERIC, :mode=>1, 
                                                   :default_value=>'jpeg', :options => ['jpeg','pdf','png','svg'], :mandatory => true)
          defaults
@@ -97,21 +97,28 @@ module Alces
        # This may return a single item of a array of values depending of the level of the setting 
        #
        def get(name)
-         param = setting(name)
+         param = setting(name.to_s)
          logger.info "matrix #{self.matrix.row_size}x#{self.matrix.column_size} #{param.name} col #{param.column_no} level #{param.column_no.to_i}" 
          return nil  if param.nil?
          return param.default_value   if param.level_no.nil? or param.column_no.nil?
          return self.matrix.column(param.column_no.to_i).to_a if param.level_no>0
-         self.matrix[param.column_no.to_i,0]
+         self.matrix[0,param.column_no.to_i]
+      rescue  Exception => ex
+         logger.error " failed to find #{name} #{ex.message}"
+         return nil
        end
        #
        # The the parameter/setting name for display
        #
        def get_name(name)
-         param = setting(name)
+         param = setting(name.to_s)
          return nil  if param.nil?
          return param.parameter.name if param.parameter
          param.name
+      rescue  Exception => ex
+         logger.error ex.message
+         logger.error ex.backtrace.join("\n") 
+         return nil
        end
        #
        # Create a directory for files used in this processing operation  
@@ -141,21 +148,23 @@ module Alces
               plot.output filepath
               plot.data = []
               task.roots.each do |context|
-                  @matrix = context.to_matrix
-                  x = get(:x) 
-                  y = get(:y)
-      
-                  plot.data <<
-                    Gnuplot::DataSet.new( [x, y] ) { |ds|
-                      ds.with = "linespoints"
-                      ds.title = get(:label) || "#{context}"
-                    }
-                  
+                  if context.parameter(get_name('label'))
+                    @matrix = context.to_matrix
+                    logger.info " context #{context.id} #{context.label}"
+                    x = get(:x) 
+                    y = get(:y)
+        
+                    plot.data <<
+                      Gnuplot::DataSet.new( [x, y] ) { |ds|
+                        ds.with = "linespoints"
+                        ds.title = get('label') 
+                      }
+                  end
               end
               
             end
           end
-          return task.folder.add_file(filepath,filename,'image/jpeg')
+          return task.folder.add_asset(filepath,filename,'image/jpeg')
        end
        #
        # Rport on the analysis
@@ -168,6 +177,10 @@ module Alces
           end
           out << "<br/>"
           out     
+      rescue  Exception => ex
+         logger.error ex.message
+         logger.error ex.backtrace.join("\n") 
+         return "analysis output failed, #{ex.message}"
        end
          
     end

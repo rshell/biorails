@@ -269,6 +269,7 @@ module FormHelper
     options[:onfocus] ||= 'FieldEntry( this,event)'
     options[:onkeyup] ||= 'FieldValidate( this,event)'
     options[:onchanged]  ||= 'FieldSave(this,event)'    
+    options[:onkeypress] ||= "magicDateOnlyOnSubmit('#{id}', event); return dateBocksKeyListener(event);"
     options[:onblur]  ||= 'FieldExit(this,event)'  
     out = "<table><tr><td>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
@@ -304,19 +305,20 @@ module FormHelper
     out = String.new
 
     out  << '<div id="dateBocks">'
-    out  << "<table><tr> <td>"
+    out  << "<ul><LI>"
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
     out << <<EOS
-          </td>
-          <td>#{image_tag('icon-calendar.gif', :alt => 'Calendar', :id => id + '_Button', :style => 'cursor: pointer;' ) }</td>
-          <td>#{image_tag('icon-help.gif', :alt => 'Help', :id => id+ '_Help' ) }</td>
-        </tr></table>
-        <script type="text/javascript">          
+          </li>
+          <li>#{image_tag('icon-calendar.gif', :alt => 'Calendar', :id => id + '_Button', :style => 'cursor: pointer;' ) }</li>
+          <li>#{image_tag('icon-help.gif', :alt => 'Help', :id => id+ '_Help' ) }</li>
+        </ul>
+        </div>
+        <script type="text/javascript">   
           Calendar.setup({
       	   inputField     :    "#{id}",        // id of the input field
       	   ifFormat       :    calendarIfFormat,         // format of the input field
-      	   button         :    "#{id}_Button",  // trigger for the calendar (button ID)
-      	   help           :    "#{id}_Help",    // trigger for the help menu
+      	   button         :    "#{id}Button",  // trigger for the calendar (button ID)
+      	   help           :    "#{id}Help",    // trigger for the help menu
       	   align          :    "Br",                     // alignment (defaults to "Bl")
       	   singleClick    :    true,
       	  });

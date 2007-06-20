@@ -71,57 +71,6 @@ class TaskContext < ActiveRecord::Base
 
  has_many :references, :class_name=>'TaskReference', :dependent => :destroy,:order =>'parameter_id'
 
-
-###
-# Get the columns for this row context 
-# 
- def columns
-   unless @columns
-     @columns = []
-     @columns.concat(values )
-     @columns.concat(files )
-     @columns.concat(texts )
-     @columns.concat(references )
-     @columns.sort{|a,b| a.column_no <=> b.column_no}
-   end
-   return @columns
- end
-
-##
-# Get the values of the the cells in the row
-# 
- def values
-  return columns.collect{|item|item.value}
- end
-
- def names
-  return columns.collect{|item|item.parameter.name}
- end
-
- def styles
-  return columns.collect{|item|item.parameter.style}
- end
-
-
- def column(no)
-   self.columns[no]
- end
- 
- def row_no=(value)
-   logger.debug "TaskContext[#{self.id}].row_no #{@attributes['row_no']} = #{value}"
-   @attributes["row_no"]=value
- end
-
- def row_no
-   @attributes["row_no"] if @attributes
- end
-  
- def add_column(value)
-   @columns ||= []
-   @columns << value
-   @columns.sort{|a,b| a.column_no <=> b.column_no}
- end
-
 ##
 # combined array of all TaskItems
 # 
@@ -157,23 +106,23 @@ class TaskContext < ActiveRecord::Base
     return definition.parameters
  end
  
+ def parameter(name)
+    return definition.parameter(name)  
+ end
  
 ##
 # get existing TaskItem values for the context   
  def item(parameter)
-   value = values.detect{|item|item.parameter_id==parameter.id} if values.size>0
-   return value if value 
-   
-   value = texts.detect{|item|item.parameter==parameter} if texts.size>0
-   return value if value
-    
-   value = references.detect{|item|item.parameter==parameter} if references.size>0
-   return value if value 
-
-   value = files.detect{|item|item.parameter==parameter} if files.size>0
-   return value if value
-   
-   return add_task_item(parameter,nil)
+    case parameter.data_type_id
+    when 2 
+      value = values.find(:conditions=>["parameter_id=?",parameter.id])
+    when 5
+      value = references.find(:conditions=>["parameter_id=?",parameter.id])
+    else
+      value = texts.find(:conditions=>["parameter_id=?",parameter.id])
+    end 
+    return value if value   
+    return add_task_item(parameter,nil)
  end
  
  

@@ -42,6 +42,7 @@
 #  * Folder directory style view
 #  * Page of all items in the folder in order 
 # 
+require 'pathname'
 class ProjectFolder < ProjectElement
 
   cattr_accessor :current
@@ -142,6 +143,7 @@ class ProjectFolder < ProjectElement
 #  * ProjectAsset
 # 
   def add(item)
+     logger.info "add(#{item.path})"
      ProjectElement.transaction do          
        element = item
        case item
@@ -157,39 +159,34 @@ class ProjectFolder < ProjectElement
        element.project_id = self.project_id
        element.position = self.elements.size
        element.parent_id = self.id
-       return element unless element.valid?
-       element.save
-       self.add_child(element)     
+       unless element.valid?
+         logger.error("Failed to save element in add(#{item.path}) "+ element.errors.full_messages.to_sentence)
+       else    
+         element.save
+         self.add_child(element)     
+       end
        return element
      end       
   end
   
-  
-  def add_file(filename, title =nil, content_type = 'image/jpeg')
-     ProjectFolder.transaction do 
-         title ||= filename
-         element ||= ProjectAsset.build(
-                      :name=> filename,  
-                      :parent=>self, 
-                      :project_id => self.project_id )                                       
-         element.asset.temp_path = filename
-         element.asset.filename = filename
-         element.asset.title = title
-         element.asset.content_type = content_type 
-         return add(element)
-     end    
-     return nil
-  end
 #
 # Add a encoded files as a Base64 text string
 #
 #
-  def add_asset( filename, title, mime_type, base64 )
+  def add_asset( filepath, title =nil, mime_type = 'image/jpeg', data =nil )
+     logger.info "add_asset(#{filepath}, #{title}, #{mime_type})"
+     ProjectElement.transaction do 
+       filename = File.basename(filepath)
+       title ||= filename
        element   = self.elements.find_by_name(filename)
        element ||= ProjectAsset.new(:parent_id=>self.id, :name=> filename, :project_id=> self.project_id)
        asset = Asset.new(:title=>title, :filename=> filename, :project_id=> self.project_id,:content_type => mime_type)
        asset.size =0
-       asset.temp_data = Base64.decode64(base64) 
+       if data
+         asset.temp_data = data
+       else
+         asset.temp_path = filepath
+       end
        asset.save 
        element.asset = asset
        element.asset_id = asset.id
@@ -199,12 +196,15 @@ class ProjectFolder < ProjectElement
             element.save
        end
        return element
+     end
+     return nil
   end
 ##
 # Add a reference to the another database model
 #   
   def add_reference(name,item)
-     ProjectFolder.transaction do 
+     logger.info "add_reference(#{name}, #{item.class}:#{item.id})"
+     ProjectElement.transaction do 
          element = ProjectReference.new(:name=> name, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.reference = item    
          case item
@@ -218,7 +218,8 @@ class ProjectFolder < ProjectElement
   end
   
   def add_content(name,title,body)
-     ProjectFolder.transaction do 
+     logger.info "add_reference(#{name}, #{title})"
+     ProjectElement.transaction do 
          element = ProjectContent.build(:name=> name, 
                                       :title=> title,
                                       :position => elements.size,

@@ -108,6 +108,15 @@ class ProtocolVersion < ActiveRecord::Base
     return n
  end
   
+ def parameter(name)
+    case name
+    when Fixnum
+      return parameters.detect{|item|item.id == name}   
+    else
+      return parameters.detect{|item|item.name == name.to_s}   
+    end
+ end
+  
 ##
 # Create a new context in this process 
  def new_context( parent  = nil)

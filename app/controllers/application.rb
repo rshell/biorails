@@ -110,7 +110,7 @@ protected
   def setup_context
     User.current    = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].nil? 
     Project.current = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
-    ProjectFolder.current = @current_folder = Project.find(session[:current_folder_id]) unless session[:current_folder_id].nil? 
+  #  ProjectFolder.current = @current_folder = ProjectFolder.find(session[:current_folder_id]) unless session[:current_folder_id].nil? 
   end  
 
   def clear_session

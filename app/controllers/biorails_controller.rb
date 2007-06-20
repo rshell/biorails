@@ -225,7 +225,7 @@ class BiorailsController < ApplicationController
      def set_asset( user_id, folder_id, title, filename, mime_type, base64 )
        User.current_user = User.find(user_id)
        folder = ProjectFolder.find(folder_id)    
-       element = folder.add_asset( filename, title, mime_type, base64 )
+       element = folder.add_asset( filename, title, mime_type, Base64.decode64(base64) )
         logger.info element.to_yaml
         BiorailsApi::Asset.new(
            :id => element.asset.id,

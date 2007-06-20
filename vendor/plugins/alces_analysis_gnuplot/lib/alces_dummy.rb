@@ -11,6 +11,7 @@ module Alces
        attr_accessor :dirname
        attr_accessor :config
        attr_accessor :matrix
+       
     
        #
        # Setup should return a default close to working configuration for the plugin this is build of a AnalysisMethod definition with a collection
@@ -41,7 +42,7 @@ module Alces
        #
        def self.setup
          defaults = AnalysisMethod.new(:name=>'csv-export',:class_name=>self.name)
-         defaults.settings << AnalysisSetting.new(:name=>'filename',  :data_type_id=>DataType::TEXT, :mode=>3, :default_value=>'grid.csv')
+         defaults.settings << AnalysisSetting.new(:name=> 'filename',  :data_type_id=>DataType::TEXT, :mode=>3, :default_value=>'grid.csv')
          defaults
        end
        
@@ -121,14 +122,12 @@ module Alces
        # 
        #
        def run
-          filename = "snapshot.csv"
-          filepath = File.join(dirname,filename)
-          File.delete(filepath)  if File.exists?(filepath)
-          FasterCSV.open(filepath, "w") do |csv|
+          filename = get('filename') || "snapshot.csv"
+          data = FasterCSV.generate do |csv|
               csv << task.to_titles
               task.to_matrix.row_vectors.each{|row| csv << row.to_a}
           end          
-          return task.folder.add_file(filepath,filename,'text/csv')
+          return task.folder.add_asset(filename,filename,'text/csv',data.to_s)
        end
        #
        # Rport on the analysis

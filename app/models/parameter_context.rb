@@ -83,6 +83,16 @@ class ParameterContext < ActiveRecord::Base
      end
      return list
  end
+ 
+ 
+ def parameter(name)
+    case name
+    when Fixnum
+      return parameters.detect{|item|item.id == name}   
+    else
+      return parameters.detect{|item|item.name == name.to_s}   
+    end
+ end
 ##
 # desendants summed up
 # 

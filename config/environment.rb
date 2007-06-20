@@ -52,10 +52,10 @@ PUBLIC_ROOT = "#{RAILS_ROOT}/public"
 require 'tzinfo'
 require 'csv'
 
-Mime::Type.register "application/msword", :doc, %w( text/html )
-Mime::Type.register "application/msexcel", :xls
-Mime::Type.register "text/richtext", :rtf
-Mime::Type.register "image/svg+xml", :svg
+#Mime::Type.register "application/msword", :doc, %w( text/html )
+#Mime::Type.register "application/msexcel", :xls
+#Mime::Type.register "text/richtext", :rtf
+#Mime::Type.register "image/svg+xml", :svg
 
 GLoc.set_config :default_language => :en
 GLoc.clear_strings

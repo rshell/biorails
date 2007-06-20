@@ -46,9 +46,11 @@ class AnalysisMethod < ActiveRecord::Base
     @analysis ||= AnalysisMethod.new
     if params['setting']
       params['setting'].keys.each do |key|
+        logger.info "Parameter #{key} = #{params['setting'][key]}"
         @analysis.setting(key).update(params['setting'][key])
       end
     end
+    @analysis.save
     return @analysis
   end
   
