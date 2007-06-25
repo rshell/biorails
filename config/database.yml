@@ -16,20 +16,6 @@ development:
   username: biorails 
   password: moose
   host: localhost
-  
-demo:
-  adapter: mysql
-  database: biorails2_demo
-  username: biorails 
-  password: moose
-  host: localhost
-##
-# Lite version to ship as part of checkin
-
-lite:
-  adapter: sqlite3
-  dbfile: db/biorails.db
-  
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -47,3 +33,17 @@ production:
   username: biorails
   password: moose
   host: localhost
+  
+demo:
+  adapter: mysql
+  database: biorails2_demo
+  username: biorails 
+  password: moose
+  host: localhost
+##
+# Lite version to ship as part of checkin
+
+lite:
+  adapter: sqlite3
+  dbfile: db/biorails.db
+  

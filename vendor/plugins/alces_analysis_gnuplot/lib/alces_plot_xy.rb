@@ -48,8 +48,8 @@ module Alces
          defaults.settings << AnalysisSetting.new(:name=>'label',    :level_no=>0, :data_type_id=>DataType::TEXT, :mode=>1, :column_no=>1,:mandatory=>false)
          defaults.settings << AnalysisSetting.new(:name=>'x',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>3,:mandatory=>true)
          defaults.settings << AnalysisSetting.new(:name=>'y',        :level_no=>1, :data_type_id=>DataType::NUMERIC, :mode=>1, :column_no=>2,:mandatory=>true)
-         defaults.settings << AnalysisSetting.new(:name=>'output',   :data_type_id=>DataType::NUMERIC, :mode=>1, 
-                                                  :default_value=>'jpeg', :options => ['jpeg','pdf','png','svg'], :mandatory => true)
+#         defaults.settings << AnalysisSetting.new(:name=>'output',   :data_type_id=>DataType::NUMERIC, :mode=>1, 
+#                                                  :default_value=>'jpeg', :options => ['jpeg','pdf','png','svg'], :mandatory => true)
          defaults
        end
        
@@ -144,7 +144,7 @@ module Alces
               plot.xlabel get_name('x')
               plot.ylabel get_name('y')
               plot.pointsize 3
-              plot.terminal get(:output)
+              plot.terminal get('output')
               plot.output filepath
               plot.data = []
               task.roots.each do |context|
@@ -155,7 +155,7 @@ module Alces
                     y = get(:y)
         
                     plot.data <<
-                      Gnuplot::DataSet.new( [x, y] ) { |ds|
+                    Gnuplot::DataSet.new( [x, y] ) { |ds|
                         ds.with = "linespoints"
                         ds.title = get('label') 
                       }

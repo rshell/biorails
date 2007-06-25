@@ -55,7 +55,11 @@
    		                                    :class => "icon icon-admin", 
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>
-
+ <li class="right">
+   <%= link_to l(:help), help_url( :controller => 'help', :ctrl => params[:controller], 
+                       :page => params[:action] ),
+                       :onclick => "window.open(this.href); return false;", :class => "icon icon-help" %>
+ </li>
  <li class="right">
     <%= link_to l(:logout)+" [#{current_username}]", auth_url(:action => 'logout'), :class => "icon icon-user" %> 
  </li>	
@@ -66,10 +70,5 @@
 
 <% end %>
                        
- <li class="right">
-   <%= link_to l(:help), help_url( :controller => 'help', :ctrl => params[:controller], 
-                       :page => params[:action] ),
-                       :onclick => "window.open(this.href); return false;", :class => "icon icon-help" %>
- </li>
 </ul>		
 

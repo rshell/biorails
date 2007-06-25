@@ -1,5 +1,5 @@
 production:
-  host: ferret.yourdomain.com
+  host: localhost
   port: 9010
   pid_file: log/ferret.pid
 development:

@@ -19,7 +19,6 @@ class BiorailsController < ApplicationController
  #
     def login( username, password)
       user = User.authenticate(username,password)
-      User.current_user =user
       if user
           logger.info "User #{username} successfully logged in"
           set_user(user)
