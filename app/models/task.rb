@@ -72,12 +72,11 @@ class Task < ActiveRecord::Base
   validates_presence_of :experiment_id
   validates_presence_of :protocol_version_id
   validates_presence_of :started_at
-  validates_presence_of :ended_at
-  
+  validates_presence_of :ended_at  
   validates_presence_of :status_id
 
   def validate 
-    if ended_at < started_at
+    if ended_at and ended_at > started_at
       errors.add(:started_at,"Should be less then end date")
     end
   end
