@@ -136,7 +136,9 @@ class BiorailsController < ApplicationController
            :task_context_id => item.task_context_id,
            :column_no => item.parameter.column_no,
            :row_no =>item.context.row_no,
-           :value  => item.value )
+           :value  => item.value,
+           :unit   => (item.respond_to?(:storage_unit) ? item.storage_unit : nil), 
+           :text   => item.to_s )
        end
     end
 
@@ -173,14 +175,14 @@ class BiorailsController < ApplicationController
     ## 
     # Import a task
     def task_import(user_id,experiment_id,text_data)
-       User.current_user = User.find(user_id)
+       User.current = User.find(user_id)
        experiment = Experiment.find(experiment_id)
        experiment.import_task(text_data) if experiment
     end
 
     
     def add_task(user_id,experiment_id ,process_id ,task_name )
-       User.current_user = User.find(user_id)
+      User.current = User.find(user_id)
       experiment = Experiment.find(experiment_id)
       task = experiment.new_task
       task.name = task_name
@@ -190,7 +192,7 @@ class BiorailsController < ApplicationController
     end
     
     def add_task_context(user_id, task_id, parameter_context_id, values)
-       User.current_user = User.find(user_id)
+       User.current = User.find(user_id)
        task = Task.find(task_id)
        return nil unless task
        context = task.new_context(ParameterContext.find(parameter_context_id))
@@ -222,7 +224,7 @@ class BiorailsController < ApplicationController
 
 
      def set_asset( user_id, folder_id, title, filename, mime_type, base64 )
-       User.current_user = User.find(user_id)
+       User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)    
        element = folder.add_asset( filename, title, mime_type, Base64.decode64(base64) )
         logger.info element.to_yaml
@@ -252,7 +254,7 @@ class BiorailsController < ApplicationController
      end
      
      def set_content( user_id,folder_id,title,filename, html)
-       User.current_user = User.find(user_id)
+       User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
        BiorailsApi::Content.new(

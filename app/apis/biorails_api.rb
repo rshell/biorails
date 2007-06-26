@@ -14,6 +14,8 @@ class BiorailsApi < ActionWebService::API::Base
      member :column_no, :int
      member :row_no, :int
      member :value , :string    
+     member :unit , :string    
+     member :text , :string    
   end
 
   class Element < ActionWebService::Struct
