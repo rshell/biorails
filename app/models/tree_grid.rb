@@ -199,10 +199,10 @@ end
       for row in self.rows
         unless row.definition == definition
           definition = row.definition
-          csv << ['context',definition.label,'Row No.'].concat(row.names)
-          csv << ['types',definition.label,''].concat(row.styles)           
+          csv << ['context',"'#{definition.label}'",'Row No.'].concat(row.names)
+          csv << ['types',"'#{definition.label}'",''].concat(row.styles)           
         end
-        csv << ['values', row.label, row.id].concat( row.values)
+        csv << ['values', "'#{row.label}'", row.id].concat( row.values.collect{|i|"'#{i}'"})
       end
       csv << ['end']      
     end
