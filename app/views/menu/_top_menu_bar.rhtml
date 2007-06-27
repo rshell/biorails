@@ -6,29 +6,29 @@
      <% end %>   
 </div>
 <div id="menuAdmin" class="menu" onmouseover="menuMouseover(event)">
-     <%= link_to l(:catalogue),        catalogue_url(:action=>'list') %>  
-     <%= link_to l(:data_systems),     data_system_url(:action=>'list') %>  
-     <%= link_to l(:data_types),       data_type_url(:action=>'list') %>  
-     <%= link_to l(:data_formats),     data_format_url(:action=>'list') %>  
-     <%= link_to l(:parameter_roles),  parameter_role_url(:action=>'list') %>  
-     <%= link_to l(:parameter_types),  parameter_type_url(:action=>'list') %>  
-     <%= link_to l(:System_Reports),   report_url(:action=>'internal') %>  
-     <%= link_to l(:roles),            role_url(:action=>'list') %>  
-     <%= link_to l(:users),             user_url(:action=>'index') %>  
+     <%= link_to l('Catalogue'),        catalogue_url(:action=>'list') %>  
+     <%= link_to l('Data Sources'),     data_system_url(:action=>'list') %>  
+     <%= link_to l('Data Types'),       data_type_url(:action=>'list') %>  
+     <%= link_to l('Data Formats'),     data_format_url(:action=>'list') %>  
+     <%= link_to l('Parameter Roles'),  parameter_role_url(:action=>'list') %>  
+     <%= link_to l('Parameter Types'),  parameter_type_url(:action=>'list') %>  
+     <%= link_to l('System Reports'),   report_url(:action=>'internal') %>  
+     <%= link_to l('Access Roles'),            role_url(:action=>'list') %>  
+     <%= link_to l('Users'),             user_url(:action=>'index') %>  
 </div>
 <div id="menuInventory" class="menu" onmouseover="menuMouseover(event)">
-     <%= link_to l(:compounds), compound_url( :action=>'list') %>  
-     <%= link_to l(:batches),   batch_url(:action=>'list') %>  
-     <%= link_to l(:plates),    plate_url( :action=>'list') %>  
-     <%= link_to l(:containers),container_url( :action=>'list') %>  
-     <%= link_to l(:specimens), specimen_url( :action=>'list') %>  
+     <%= link_to l('Compounds'), compound_url( :action=>'list') %>  
+     <%= link_to l('Batches'),   batch_url(:action=>'list') %>  
+     <%= link_to l('Plates'),    plate_url( :action=>'list') %>  
+     <%= link_to l('Containers'),container_url( :action=>'list') %>  
+     <%= link_to l('Specimens'), specimen_url( :action=>'list') %>  
      <%= link_to l('Treatment Groups'), treatment_group_url( :action=>'list') %>  
 </div>
 <div id="menuExecute" class="menu" onmouseover="menuMouseover(event)">
-     <%= link_to l(:experiment), experiment_url( :action=>'list') %>  
-     <%= link_to l(:request),    request_url( :action=>'list') %>  
-     <%= link_to l(:reports),    report_url( :action=>'list') %>  
-     <%= link_to l(:uml),      help_url( :action=>'uml') %>  
+     <%= link_to l('Experiment'), experiment_url( :action=>'list') %>  
+     <%= link_to l('Request'),    request_url( :action=>'list') %>  
+     <%= link_to l('Reports'),    report_url( :action=>'list') %>  
+     <%= link_to l('UML'),      help_url( :action=>'uml') %>  
 </div>
 
  <li><%= link_to '<b>'+current_user.login+'</b>', home_url(:action=>'index') , :class => "icon icon-home" %></li>
@@ -46,12 +46,12 @@
  </li>
 <% end %>
  <li class="submenu">
-   <%= link_to l(:inventory), home_url( :action => 'todo' ), 
+   <%= link_to l('Inventory'), home_url( :action => 'todo' ), 
    		                       :class => "icon icon-admin", 
    		                       :onmouseover => "buttonMouseover(event, 'menuInventory');" %>
  </li>
  <li class="submenu">
-    <%= link_to l(:execute),  home_url( :action => 'tasks' ), 
+    <%= link_to l('Execution'),  home_url( :action => 'tasks' ), 
    		                                    :class => "icon icon-admin", 
    		                                    :onmouseover => "buttonMouseover(event, 'menuExecute');" %>
  </li>

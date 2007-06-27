@@ -9,7 +9,7 @@
 
 
 <h1>
-    <%= subject_icon('systems')%> Data Systems
+    <%= subject_icon('systems')%> Data Sources
 </h1>
 <p>
 Mapping paramerters to other data systems for internal and remote data dictionaries and other lookups. 
@@ -26,9 +26,10 @@ Mapping paramerters to other data systems for internal and remote data dictionar
                :locals => {:pages => @data_system_pages} %>    
 </div>
 <p>
-    This describe all the data systems linked into this instance of biorails. For each systems a number 
-    number of Data Element can be defined to link in lookup list of values for display and use in data entry.
-    For example there could be a link to the internal compounds model and separate external enterprise level 
+    This describes all the <i>data systems</i> linked into this instance of BioRails. For each system a
+    number of <i>data elements</i> can be defined.  These elements then provide a lookup-list of values 
+	for display and use in data entry sheets.
+    For example, there could be a link to the internal compounds model and separate external enterprise level 
     compound registration systems. 
 </p>
 
