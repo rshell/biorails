@@ -8,45 +8,52 @@
 <% end %>
 
 <h2>User Roles</h2>
-Governs the users general rights on the system, basically access to home page,catalogue and other system wide its lkie inventory.
+<p>
+	Governs the user's default access rights on the system. Basic access is to the user's and global <i>home pages</i>, 
+	<i>catalogue</i> and other system-wide concepts such as <i>inventory</i>.  
+</p>
+<p>
+	<strong>Note:</strong>Users have project roles which override access at the project level)
+</p>
 <div class='panel'>
-<table class='report'>
-  <tr>
-    <th>Name</th><th>Description</th><th>Created At</th>
-    <th>Updated At</th>
-  </tr>
-  
-<% for role in @user_roles %>
-  <tr>
-    <td><%= link_to role.name, :action => 'show', :id => role %></td>
-    <td><%= role.description %></td>
-    <td><%=short_date role.created_at %></td>
-    <td><%=short_date role.updated_at %></td>
-    <!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
-  </tr>
-<% end %>
-</table>
+	<table class='report'>
+	  <tr>
+		<th>Name</th><th>Description</th><th>Created At</th>
+		<th>Updated At</th>
+	  </tr>
+	<% for role in @user_roles %>
+	  <tr>
+		<td><%= link_to role.name, :action => 'show', :id => role %></td>
+		<td><%= role.description %></td>
+		<td><%=short_date role.created_at %></td>
+		<td><%=short_date role.updated_at %></td>
+		<!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
+	  </tr>
+	<% end %>
+	</table>
 </div>
-<br/>
+<br />
 <h2>Project Roles</h2>
-Used to govern what a user is allowed to do as a member of the project. This include study design, and data entry.
+<p>
+	Governs what a user is allowed to do as a member of the project, their project access rights. 
+	This includes operations such as <i>study design</i>, and <i>data entry</i>.
+</p>
 <div class='panel'>
-<table class='report'>
-  <tr>
-    <th>Name</th><th>Description</th><th>Created At</th>
-    <th>Updated At</th>
-  </tr>
-  
-<% for role in @project_roles %>
-  <tr>
-    <td><%= link_to role.name, :action => 'show', :id => role %></td>
-    <td><%= role.description %></td>
-    <td><%=short_date role.created_at %></td>
-    <td><%=short_date role.updated_at %></td>
-    <!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
-  </tr>
-<% end %>
-</table>
-
+	<table class='report'>
+	  <tr>
+		<th>Name</th><th>Description</th><th>Created At</th>
+		<th>Updated At</th>
+	  </tr>
+	  
+	<% for role in @project_roles %>
+	  <tr>
+		<td><%= link_to role.name, :action => 'show', :id => role %></td>
+		<td><%= role.description %></td>
+		<td><%=short_date role.created_at %></td>
+		<td><%=short_date role.updated_at %></td>
+		<!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
+	  </tr>
+	<% end %>
+	</table>
 </div>
 <p><%= link_to 'New role', :action => 'new' %></p>

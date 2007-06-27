@@ -1,21 +1,27 @@
 <h4>Guide</h4>
 <div class='panel'> 
-<p>
-Parameter types defined a class of data captured in the the system. In general it should link to the long term needs for 
-warehousing and data archiving and be common across the organization. Commonly use types are items like Dose, xC50 etc. 
-</p><p>
-In use the parameter_type may be aliased as a study parameter level to allow for localized naming and specialization
-like xC50 to IC50,ED50 etc. Also as parameters in protocol must be unique there may be some futher subfixes or aliasing 
-done in each protocol. In use a parameter type is already linked to parameter role to partition data.
-</p>
-<p> A parameter type can be linked to a dimension to limit the choice of units and allow automatically 
-conversion of units on storage. Key dimension are:-
-<ul>
-<li>Substance [pmol .. mol]</li>
-<li>Concentration [pM .. M, wt%]</li>
-<li>Rate [cpm]</li>
-<li>Rate [cpm]</li>
-<li>Time [sec, min, hour, day, week, year]</li>
-<li>Temperature [tempC, tempF, tempK]</li>
-</p>
+	<p>
+		Parameter types defined a <i>class</i> of data captured in the the system. 
+		Defininition of a parameter type should be considered with the long term needs for 
+		warehousing and data archiving and be standardised across the organization. 
+		Commonly use types are items like Dose, xC50 etc. 
+	</p>
+	<h5>Parameters and Study Parameters</h5>
+	<p>
+	The parameter type may be <i>aliased</i> as a <i>study parameter</i> level to allow for localized naming and specialisation
+	like xC50 to IC50,ED50 etc. Also as parameters in protocol must be unique there may be some futher subfixes or aliasing 
+	done in each protocol. In use as a <i>study paramater</i>, a parameter type is linked to parameter role to facilitate the partitioning data.
+	</p>
+	<p> 
+		When allocated to a <i>study design</i>, a parameter type can be also be linked to a <i>dimension</i> to limit the 
+		choice of units and allow automatically conversion of scalar units on storage. Key dimensions are:-
+	</p>
+	<ul>
+		<li>Substance [pmol .. mol]</li>
+		<li>Concentration [pM .. M, wt%]</li>
+		<li>Rate [cpm]</li>
+		<li>Rate [cpm]</li>
+		<li>Time [sec, min, hour, day, week, year]</li>
+		<li>Temperature [tempC, tempF, tempK]</li>
+	</ul>
 </div>

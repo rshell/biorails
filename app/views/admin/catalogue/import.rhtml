@@ -23,11 +23,11 @@
    </div>        
 
   <div class="row">
-    <h1> BACKUP YOUR DATABASE NOW BEFORE ATTEMPTING THIS</h1>
+    <h2 style="color:red"> BACKUP YOUR DATABASE NOW BEFORE ATTEMPTING THIS OPERATION</h2>
     <p>
-    This operation will attempt to load a complete catalogue of terms into the system. 
-    In a loaded systems there is the greate likilyhood of clashes or problems as the load 
-    is done in a single database transaction so its all or nothing operation. 
+    This operation will attempt to load a complete catalogue of terms into the system and 
+	is designed as a method of <strong>seeding</strong> new systems rather than extending
+	existing catalogues.  The load is done in a single database transaction so its all or nothing operation. 
    </p>
     
     <br />
@@ -41,9 +41,13 @@
 <% content_for :right do%>
 <h2>Guide</h2>
 <div class='panel'>
-This allows the import of the study design into a project. This can include all the protocols,parameters and queues
-in the study. For this to work the central catalogue most be consistent with the source database. In the cases of 
-the same systems this is easy. In the case of a new database then you may need to include catalogue references. 
-This whole process needs to be done with care. 
+	<p>
+		Importing a catalogue of terms into the BioRails context is also a simple mothod of setting up a <i>standard</i> system. 
+		populating or seeding a new database that is not managed centrally.  
+	</p>
+	<p>
+		A more advanced method of dictionary management is to have a central catalogue with <i>slave</i> operational instances.  This can be achieved through standard 
+		catalogue integration methods.  Contact the <a href="info@edgesoftwareconsultancy.com">The Edge</a> for consultancy on this matter.
+	</p>
 </div>
 <% end %>
