@@ -98,7 +98,7 @@ img.right{
 }
 
 #header h2{
-    margin:3px 0 0 40px;
+    margin: 0.1em 0 0 40px;
     font-size:1.5em;
     background-color:inherit;
     color:#f0f2f4;
@@ -120,7 +120,7 @@ html>body #content {
     height:600px;
     font-size:0.9em;
     padding:10px 10px 10px 10px;
-    margin-left: 155px;
+    margin-left: 18.5%;
     border-left: 1px dashed #c0c0c0;
     z-index: 10;
 }
@@ -129,7 +129,7 @@ html>body #content {
     position: absolute;
     font-size: 12px;
     left: 5px;
-    width: 150px;
+    width: 18%;
     background-color: #F0F0F0;
     border: 1px solid #c0c0c0;
     z-index: 10;
@@ -170,7 +170,7 @@ html>body #content {
 
 #main h2{
     display:block;
-    margin:0 0 16px 0;
+    margin: 0.1em 0.1em 0.8em 0.1em;
     font-size:1.7em;
     font-weight:normal;
     letter-spacing:-1px;

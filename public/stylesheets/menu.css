@@ -85,7 +85,7 @@ div.menu a.menuItem span.menuItemArrow {
 /*========== Side Menu Bar  ==============*/
 
 div.sidemenu {
-	width: 150px;
+	width: 100%;
 	font-family: Arial, sans-serif;
 	font-size: 12px;
 	padding-bottom: 10px;
