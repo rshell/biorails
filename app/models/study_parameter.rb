@@ -99,12 +99,17 @@ class StudyParameter < ActiveRecord::Base
        Unit::UNITS_LOOKUP
     end
   end
+  #
+  # is custom unless has display_unit and this matches parameter_type storage_unit
+  #
+  def custom?
+     self.parameter_type.storage_unit.nil? || self.parameter_type.storage_unit.empty?
+  end
   
   def mask
     return '.' if self.data_type_id == 5
     return self.data_format.format_regex if data_format   
   end
-
 
  
  def parse(new_value)  
