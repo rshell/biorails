@@ -76,8 +76,8 @@ class Task < ActiveRecord::Base
   validates_presence_of :status_id
 
   def validate 
-    if ended_at and ended_at > started_at
-      errors.add(:started_at,"Should be less then end date")
+    if ended_at and started_at and ended_at < started_at
+      errors.add(:started_at,"Should be #{started_at}  less then end date #{ended_at}")
     end
   end
 ##
