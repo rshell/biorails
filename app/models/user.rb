@@ -261,7 +261,7 @@ class User < ActiveRecord::Base
   end 	  
   
   def User.current
-    @current || User.find(DEFAULT_GUEST_USER_ID)
+    @@current || User.find(DEFAULT_GUEST_USER_ID)
   end
 
   def User.selector
