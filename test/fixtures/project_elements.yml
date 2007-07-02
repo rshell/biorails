@@ -1,796 +1,216 @@
 --- 
-project_elements_141: 
-  name: rshell-241
-  content_id: "121"
-  updated_at: 2007-05-30 12:35:28
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "55"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectContent
-  id: "374"
-  right_limit: "56"
-  reference_type: Report
-  created_by_user_id: "3"
-  reference_id: "40"
-  published_hash: 
-  position: "17"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-30 12:35:27
-project_elements_058: 
-  name: DMO-001-3
+project_elements_019: 
+  name: Prot-20
   content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "81"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "261"
-  right_limit: "82"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "10"
-  published_hash: 
-  position: "3"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_113: 
-  name: micropgraph.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "33"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectAsset
-  id: "337"
-  right_limit: "34"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "321"
-  published_hash: 
-  position: "8"
-  parent_id: "331"
-  asset_id: "1"
-  created_at: 2007-05-23 16:40:34
-project_elements_086: 
-  name: temppilates_blue.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:48
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "146"
-  updated_by_user_id: "1"
-  lock_version: "22"
-  type: ProjectAsset
-  id: "289"
-  right_limit: "147"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "14"
-  parent_id: "204"
-  asset_id: "73"
-  created_at: 2007-05-18 16:42:03
-project_elements_142: 
-  name: rshell-248
-  content_id: "122"
-  updated_at: 2007-05-30 13:44:29
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "70"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectContent
-  id: "375"
-  right_limit: "71"
-  reference_type: Report
-  created_by_user_id: "3"
-  reference_id: "27"
-  published_hash: 
-  position: "8"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-30 13:44:29
-project_elements_114: 
-  name: rshell-120
-  content_id: "76"
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "35"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectContent
-  id: "338"
-  right_limit: "36"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "320"
-  published_hash: 
-  position: "7"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-23 08:30:28
-project_elements_087: 
-  name: rshell-58
-  content_id: 
-  updated_at: 2007-05-30 09:16:48
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "148"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "290"
-  right_limit: "149"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "15"
-  published_hash: 
-  position: "15"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-18 19:30:46
-project_elements_059: 
-  name: DMO-001-4
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "83"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "262"
-  right_limit: "84"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "11"
-  published_hash: 
-  position: "4"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_143: 
-  name: rshell-250
-  content_id: 
-  updated_at: 2007-05-30 13:47:57
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectFolder
-  id: "376"
-  right_limit: "0"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "9"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-30 13:47:57
-project_elements_115: 
-  name: rshell-59
-  content_id: "59"
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
+  updated_at: 2007-06-11 11:44:56
+  project_id: "13"
   project_elements_count: "0"
   left_limit: "37"
   updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectContent
-  id: "339"
-  right_limit: "38"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "297"
-  published_hash: 
-  position: "8"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-21 12:47:37
-project_elements_088: 
-  name: Experiment-1-1
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "115"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "291"
-  right_limit: "116"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "38"
-  published_hash: 
-  position: "1"
-  parent_id: "249"
-  asset_id: 
-  created_at: 2007-05-21 09:24:51
-project_elements_001: 
-  name: global
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "16"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "464"
-  type: ProjectFolder
-  id: "204"
-  right_limit: "164"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_144: 
-  name: sssss
-  content_id: 
-  updated_at: 2007-05-30 14:06:21
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "3"
-  type: ProjectFolder
-  id: "377"
-  right_limit: "0"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "10"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-30 14:04:10
-project_elements_116: 
-  name: rshell-182
-  content_id: "104"
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "39"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectContent
-  id: "340"
-  right_limit: "40"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "9"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-25 16:34:37
-project_elements_030: 
-  name: Test_Compounds
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "47"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "233"
-  right_limit: "48"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "13"
-  published_hash: 
-  position: "0"
-  parent_id: "208"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_089: 
-  name: Lookup-Test
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "43"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "292"
-  right_limit: "44"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "26"
-  published_hash: 
-  position: "5"
-  parent_id: "207"
-  asset_id: 
-  created_at: 2007-05-21 09:26:43
-project_elements_002: 
-  name: Biomarker And Histology
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "9"
-  left_limit: "2"
-  updated_by_user_id: "1"
-  lock_version: "245"
-  type: ProjectFolder
-  id: "205"
-  right_limit: "21"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  position: "0"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_145: 
-  name: ffffff
-  content_id: 
-  updated_at: 2007-05-30 14:06:42
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
   lock_version: "2"
   type: ProjectFolder
-  id: "378"
-  right_limit: "0"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "377"
-  asset_id: 
-  created_at: 2007-05-30 14:06:41
-project_elements_117: 
-  name: rshell-183
-  content_id: "105"
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "41"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectContent
-  id: "341"
-  right_limit: "42"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "10"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-25 16:35:37
-project_elements_031: 
-  name: Test_Sex
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "49"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "234"
-  right_limit: "50"
+  id: "19"
+  right_limit: "38"
   reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "14"
+  created_by_user_id: "3"
+  reference_id: "5"
   published_hash: 
   position: "1"
-  parent_id: "208"
+  parent_id: "17"
   asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_003: 
-  name: RES Exposure
+  created_at: 2007-06-08 15:46:38
+project_elements_008: 
+  name: Prot-20
   content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "4"
-  left_limit: "22"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "5"
   updated_by_user_id: "1"
-  lock_version: "123"
+  lock_version: "2"
   type: ProjectFolder
-  id: "206"
-  right_limit: "31"
-  reference_type: Study
-  created_by_user_id: "1"
+  id: "8"
+  right_limit: "6"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
   reference_id: "2"
   published_hash: 
   position: "1"
-  parent_id: "204"
+  parent_id: "6"
   asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_146: 
-  name: moosex
+  created_at: 2007-06-06 22:17:24
+project_elements_020: 
+  name: Req-21
   content_id: 
-  updated_at: 2007-05-30 14:21:17
-  project_id: "12"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "8"
-  lock_version: "0"
+  left_limit: "40"
+  updated_by_user_id: "1"
+  lock_version: "2"
   type: ProjectFolder
-  id: "379"
-  right_limit: "0"
-  reference_type: 
-  created_by_user_id: "8"
-  reference_id: 
+  id: "20"
+  right_limit: "41"
+  reference_type: Request
+  created_by_user_id: "3"
+  reference_id: "1"
+  published_hash: 
+  position: "4"
+  parent_id: "5"
+  asset_id: 
+  created_at: 2007-06-08 20:01:59
+project_elements_009: 
+  name: Profiling
+  content_id: 
+  updated_at: 2007-06-11 11:44:53
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "8"
+  updated_by_user_id: "1"
+  lock_version: "3"
+  type: ProjectFolder
+  id: "9"
+  right_limit: "11"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "1"
   published_hash: 
   position: "1"
-  parent_id: 
+  parent_id: "5"
   asset_id: 
-  created_at: 2007-05-30 14:21:17
-project_elements_118: 
-  name: microexambm43.jpg
+  created_at: 2007-06-07 14:37:26
+project_elements_021: 
+  name: Clinical
   content_id: 
-  updated_at: 2007-05-30 09:17:02
-  project_id: "4"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "42"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "21"
+  right_limit: "47"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "4"
+  published_hash: 
+  position: "5"
+  parent_id: "5"
+  asset_id: 
+  created_at: 2007-06-08 21:17:02
+project_elements_010: 
+  name: Prot-21
+  content_id: 
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "9"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "10"
+  right_limit: "10"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "3"
+  published_hash: 
+  position: "0"
+  parent_id: "9"
+  asset_id: 
+  created_at: 2007-06-07 15:10:30
+project_elements_022: 
+  name: Prot-25
+  content_id: 
+  updated_at: 2007-06-11 11:44:56
+  project_id: "13"
   project_elements_count: "0"
   left_limit: "43"
   updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectAsset
-  id: "342"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "22"
   right_limit: "44"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "11"
-  parent_id: "331"
-  asset_id: "124"
-  created_at: 2007-05-25 17:31:53
-project_elements_032: 
-  name: Histology Summary
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "19"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "235"
-  right_limit: "20"
   reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "15"
-  published_hash: 
-  position: "8"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_004: 
-  name: Screen
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "6"
-  left_limit: "32"
-  updated_by_user_id: "1"
-  lock_version: "171"
-  type: ProjectFolder
-  id: "207"
-  right_limit: "45"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  position: "2"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_060: 
-  name: DMO-001-5
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "85"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "263"
-  right_limit: "86"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "12"
-  published_hash: 
-  position: "5"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_147: 
-  name: Study-9
-  content_id: 
-  updated_at: 2007-05-30 14:21:38
-  project_id: "12"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "8"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "380"
-  right_limit: "0"
-  reference_type: Study
-  created_by_user_id: "8"
-  reference_id: "14"
+  created_by_user_id: "3"
+  reference_id: "6"
   published_hash: 
   position: "0"
-  parent_id: "379"
+  parent_id: "21"
   asset_id: 
-  created_at: 2007-05-30 14:21:38
-project_elements_119: 
-  name: microexambm44.jpg
+  created_at: 2007-06-08 21:28:01
+project_elements_011: 
+  name: rjs-296
   content_id: 
-  updated_at: 2007-05-30 09:17:02
-  project_id: "4"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "12"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "11"
+  right_limit: "33"
+  reference_type: Experiment
+  created_by_user_id: "3"
+  reference_id: "1"
+  published_hash: 
+  position: "2"
+  parent_id: "5"
+  asset_id: 
+  created_at: 2007-06-07 15:16:26
+project_elements_023: 
+  name: moose
+  content_id: "3"
+  updated_at: 2007-06-11 11:44:56
+  project_id: "13"
   project_elements_count: "0"
   left_limit: "45"
   updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectAsset
-  id: "343"
+  lock_version: "6"
+  type: ProjectContent
+  id: "23"
   right_limit: "46"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
-  position: "12"
-  parent_id: "331"
-  asset_id: "130"
-  created_at: 2007-05-25 17:33:54
-project_elements_033: 
-  name: Develop Assay
+  position: "1"
+  parent_id: "21"
+  asset_id: 
+  created_at: 2007-06-08 21:39:23
+project_elements_012: 
+  name: rjs-296-0
   content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "33"
+  left_limit: "13"
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "2"
   type: ProjectFolder
-  id: "236"
-  right_limit: "34"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "16"
+  id: "12"
+  right_limit: "14"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "1"
   published_hash: 
   position: "0"
-  parent_id: "207"
+  parent_id: "11"
   asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_005: 
-  name: Test
+  created_at: 2007-06-07 15:16:59
+project_elements_001: 
+  name: global
   content_id: 
-  updated_at: 2007-05-30 09:16:51
+  updated_at: 2007-06-11 11:44:52
   project_id: "1"
-  project_elements_count: "2"
-  left_limit: "46"
-  updated_by_user_id: "1"
-  lock_version: "75"
-  type: ProjectFolder
-  id: "208"
-  right_limit: "51"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  position: "3"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_061: 
-  name: DMO-001-6
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "87"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "264"
-  right_limit: "88"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "13"
-  published_hash: 
-  position: "6"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_148: 
-  name: Request-17
-  content_id: 
-  updated_at: 2007-05-31 11:30:03
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "381"
-  right_limit: "0"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "16"
-  published_hash: 
-  position: "11"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-31 11:30:02
-project_elements_034: 
-  name: Single Point 384
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "35"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "237"
-  right_limit: "36"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "17"
-  published_hash: 
-  position: "1"
-  parent_id: "207"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_006: 
-  name: Dev-Test
-  content_id: 
-  updated_at: 2007-05-30 09:16:45
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "52"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "209"
-  right_limit: "53"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  position: "4"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_090: 
-  name: Experiment-1-2
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "117"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "293"
-  right_limit: "118"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "39"
-  published_hash: 
-  position: "2"
-  parent_id: "249"
-  asset_id: 
-  created_at: 2007-05-21 09:29:32
-project_elements_062: 
-  name: DMO-001-7
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "89"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "265"
-  right_limit: "90"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "14"
-  published_hash: 
-  position: "7"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_149: 
-  name: typetest
-  content_id: 
-  updated_at: 2007-05-31 11:51:34
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "382"
-  right_limit: "0"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "28"
-  published_hash: 
-  position: "1"
-  parent_id: "214"
-  asset_id: 
-  created_at: 2007-05-31 11:51:34
-project_elements_035: 
-  name: Single Point 96
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "37"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "238"
-  right_limit: "38"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "18"
-  published_hash: 
-  position: "2"
-  parent_id: "207"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_007: 
-  name: Dev-Test2
-  content_id: 
-  updated_at: 2007-05-30 09:16:45
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "54"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "210"
-  right_limit: "55"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  position: "5"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_091: 
-  name: Profile
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "6"
   project_elements_count: "0"
   left_limit: "1"
   updated_by_user_id: "1"
-  lock_version: "12"
+  lock_version: "1"
   type: ProjectFolder
-  id: "296"
-  right_limit: "2"
+  id: "1"
+  right_limit: "8"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
@@ -798,2284 +218,344 @@ project_elements_091:
   position: "1"
   parent_id: 
   asset_id: 
-  created_at: 2007-05-21 09:39:51
-project_elements_063: 
-  name: DMO-001-8
+  created_at: 2007-06-06 18:16:48
+project_elements_024: 
+  name: snapshot.csv
   content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
+  updated_at: 2007-06-20 11:32:17
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "91"
+  left_limit: "16"
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "5"
+  type: ProjectAsset
+  id: "24"
+  right_limit: "17"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  position: "0"
+  parent_id: "13"
+  asset_id: "11"
+  created_at: 2007-06-20 11:29:58
+project_elements_013: 
+  name: rjs-296-1
+  content_id: 
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "15"
+  updated_by_user_id: "1"
+  lock_version: "2"
   type: ProjectFolder
-  id: "266"
-  right_limit: "92"
+  id: "13"
+  right_limit: "26"
   reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "15"
+  created_by_user_id: "3"
+  reference_id: "2"
   published_hash: 
-  position: "8"
-  parent_id: "248"
+  position: "1"
+  parent_id: "11"
   asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_036: 
-  name: Dose Response
+  created_at: 2007-06-08 10:59:16
+project_elements_002: 
+  name: Clipart
   content_id: 
-  updated_at: 2007-05-30 09:16:51
+  updated_at: 2007-06-11 11:44:53
   project_id: "1"
   project_elements_count: "0"
-  left_limit: "39"
+  left_limit: "2"
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "3"
   type: ProjectFolder
-  id: "239"
-  right_limit: "40"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "19"
-  published_hash: 
-  position: "3"
-  parent_id: "207"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_008: 
-  name: Study-2
-  content_id: 
-  updated_at: 2007-05-30 09:16:45
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "56"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "211"
-  right_limit: "57"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  position: "6"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:20
-project_elements_092: 
-  name: rshell-59
-  content_id: "59"
-  updated_at: 2007-05-30 09:16:58
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "13"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectContent
-  id: "297"
-  right_limit: "14"
+  id: "2"
+  right_limit: "3"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
   position: "0"
-  parent_id: "298"
+  parent_id: "1"
   asset_id: 
-  created_at: 2007-05-21 12:47:37
-project_elements_064: 
-  name: DMO-001-9
+  created_at: 2007-06-06 18:17:22
+project_elements_025: 
+  name: grid.csv
   content_id: 
-  updated_at: 2007-05-30 09:16:52
+  updated_at: 2007-06-20 14:05:21
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "18"
+  updated_by_user_id: "1"
+  lock_version: "3"
+  type: ProjectAsset
+  id: "25"
+  right_limit: "19"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  position: "1"
+  parent_id: "13"
+  asset_id: "33"
+  created_at: 2007-06-20 11:44:13
+project_elements_014: 
+  name: rjs-296-2
+  content_id: 
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "27"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "14"
+  right_limit: "32"
+  reference_type: Task
+  created_by_user_id: "3"
+  reference_id: "3"
+  published_hash: 
+  position: "2"
+  parent_id: "11"
+  asset_id: 
+  created_at: 2007-06-08 11:04:29
+project_elements_003: 
+  name: Templates
+  content_id: 
+  updated_at: 2007-06-11 11:44:53
   project_id: "1"
   project_elements_count: "0"
-  left_limit: "93"
+  left_limit: "4"
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "3"
   type: ProjectFolder
-  id: "267"
-  right_limit: "94"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "16"
+  id: "3"
+  right_limit: "5"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
   published_hash: 
-  position: "9"
-  parent_id: "248"
+  position: "1"
+  parent_id: "1"
   asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_120: 
-  name: microexambm42.jpg
+  created_at: 2007-06-06 18:17:49
+project_elements_026: 
+  name: moose..csv
   content_id: 
-  updated_at: 2007-05-30 09:17:03
-  project_id: "4"
+  updated_at: 2007-06-20 11:44:43
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "47"
+  left_limit: "20"
   updated_by_user_id: "1"
-  lock_version: "14"
+  lock_version: "1"
   type: ProjectAsset
-  id: "344"
+  id: "26"
+  right_limit: "21"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  position: "2"
+  parent_id: "13"
+  asset_id: "13"
+  created_at: 2007-06-20 11:44:42
+project_elements_015: 
+  name: 1.Ephaptic_activity_sm.jpg
+  content_id: 
+  updated_at: 2007-06-11 11:44:55
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "28"
+  updated_by_user_id: "1"
+  lock_version: "3"
+  type: ProjectAsset
+  id: "15"
+  right_limit: "29"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  position: "0"
+  parent_id: "14"
+  asset_id: "1"
+  created_at: 2007-06-08 11:05:12
+project_elements_004: 
+  name: Demo-Study
+  content_id: 
+  updated_at: 2007-06-11 11:44:53
+  project_id: "1"
+  project_elements_count: "0"
+  left_limit: "6"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "4"
+  right_limit: "7"
+  reference_type: Study
+  created_by_user_id: "3"
+  reference_id: "1"
+  published_hash: 
+  position: "2"
+  parent_id: "1"
+  asset_id: 
+  created_at: 2007-06-06 18:18:49
+project_elements_027: 
+  name: script/../config/../public/project_13/task_2/plot_xy.jpg
+  content_id: 
+  updated_at: 2007-06-20 13:21:53
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "22"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  type: ProjectAsset
+  id: "27"
+  right_limit: "23"
+  reference_type: 
+  created_by_user_id: "1"
+  reference_id: 
+  published_hash: 
+  position: "3"
+  parent_id: "13"
+  asset_id: "21"
+  created_at: 2007-06-20 13:21:53
+project_elements_016: 
+  name: 1.Tissue_injury_nerve_damage_sm.jpg
+  content_id: 
+  updated_at: 2007-06-11 11:44:56
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "30"
+  updated_by_user_id: "1"
+  lock_version: "3"
+  type: ProjectAsset
+  id: "16"
+  right_limit: "31"
+  reference_type: 
+  created_by_user_id: "3"
+  reference_id: 
+  published_hash: 
+  position: "1"
+  parent_id: "14"
+  asset_id: "4"
+  created_at: 2007-06-08 11:05:47
+project_elements_005: 
+  name: Demo
+  content_id: 
+  updated_at: 2007-06-11 11:44:53
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "1"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  type: ProjectFolder
+  id: "5"
   right_limit: "48"
   reference_type: 
   created_by_user_id: "3"
   reference_id: 
   published_hash: 
-  position: "13"
-  parent_id: "331"
-  asset_id: "133"
-  created_at: 2007-05-25 17:34:17
-project_elements_037: 
-  name: Screen Report
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "41"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "240"
-  right_limit: "42"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "20"
-  published_hash: 
-  position: "4"
-  parent_id: "207"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_009: 
-  name: Sandbox
-  content_id: 
-  updated_at: 2007-05-30 09:16:45
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "58"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "212"
-  right_limit: "59"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  position: "7"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_093: 
-  name: rshell-60
-  content_id: 
-  updated_at: 2007-05-30 09:16:58
-  project_id: "4"
-  project_elements_count: "2"
-  left_limit: "8"
-  updated_by_user_id: "1"
-  lock_version: "86"
-  type: ProjectFolder
-  id: "298"
-  right_limit: "19"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "7"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-21 12:49:30
-project_elements_065: 
-  name: DMO-001-10
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "95"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "268"
-  right_limit: "96"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "17"
-  published_hash: 
-  position: "10"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_121: 
-  name: H_E_Stained.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:04
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "49"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectAsset
-  id: "345"
-  right_limit: "50"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "14"
-  parent_id: "331"
-  asset_id: "136"
-  created_at: 2007-05-25 17:34:44
-project_elements_094: 
-  name: rshell-67
-  content_id: "68"
-  updated_at: 2007-05-30 09:16:48
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "150"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectContent
-  id: "306"
-  right_limit: "151"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "16"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-21 14:48:02
-project_elements_066: 
-  name: DMO-001-11
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "97"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "269"
-  right_limit: "98"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "18"
-  published_hash: 
-  position: "11"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_038: 
-  name: Assay Development
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "3"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "241"
-  right_limit: "4"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "21"
-  published_hash: 
-  position: "0"
-  parent_id: "217"
-  asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_150: 
-  name: datagrid1
-  content_id: 
-  updated_at: 2007-05-31 11:54:50
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "383"
-  right_limit: "0"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "19"
-  published_hash: 
-  position: "12"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-31 11:54:50
-project_elements_122: 
-  name: CarboxyMethyl.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:09
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "51"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectAsset
-  id: "346"
-  right_limit: "52"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "15"
-  parent_id: "331"
-  asset_id: "139"
-  created_at: 2007-05-25 17:35:06
-project_elements_095: 
-  name: xxxx
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "119"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "307"
-  right_limit: "120"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "40"
-  published_hash: 
-  position: "3"
-  parent_id: "249"
-  asset_id: 
-  created_at: 2007-05-21 15:18:20
-project_elements_067: 
-  name: DMO-001-12
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "99"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "270"
-  right_limit: "100"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "19"
-  published_hash: 
-  position: "12"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_039: 
-  name: Primary Screen
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "5"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "242"
-  right_limit: "6"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "22"
-  published_hash: 
-  position: "1"
-  parent_id: "217"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_151: 
-  name: datagrid1-0
-  content_id: 
-  updated_at: 2007-05-31 11:55:15
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "384"
-  right_limit: "0"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "45"
-  published_hash: 
-  position: "0"
-  parent_id: "383"
-  asset_id: 
-  created_at: 2007-05-31 11:55:15
-project_elements_123: 
-  name: loose__areolar__connective_tissue.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:09
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "53"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectAsset
-  id: "347"
-  right_limit: "54"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "16"
-  parent_id: "331"
-  asset_id: "142"
-  created_at: 2007-05-25 17:35:33
-project_elements_096: 
-  name: sss
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "121"
-  updated_by_user_id: "1"
-  lock_version: "123"
-  type: ProjectFolder
-  id: "308"
-  right_limit: "134"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "41"
-  published_hash: 
-  position: "4"
-  parent_id: "249"
-  asset_id: 
-  created_at: 2007-05-21 17:49:34
-project_elements_068: 
-  name: DMO-001-13
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "101"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "271"
-  right_limit: "102"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "20"
-  published_hash: 
-  position: "13"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_152: 
-  name: datagrid1-1
-  content_id: 
-  updated_at: 2007-05-31 20:38:18
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "385"
-  right_limit: "0"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "46"
-  published_hash: 
-  position: "1"
-  parent_id: "383"
-  asset_id: 
-  created_at: 2007-05-31 20:38:18
-project_elements_124: 
-  name: moose33
-  content_id: 
-  updated_at: 2007-05-30 09:16:56
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "3"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  type: ProjectFolder
-  id: "349"
-  right_limit: "4"
-  reference_type: StudyProtocol
-  created_by_user_id: "3"
-  reference_id: "27"
-  published_hash: 
-  position: "0"
-  parent_id: "214"
-  asset_id: 
-  created_at: 2007-05-27 12:11:53
-project_elements_097: 
-  name: microexambm42.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "122"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "309"
-  right_limit: "123"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "76"
-  created_at: 2007-05-21 17:57:16
-project_elements_010: 
-  name: AssayDev2
-  content_id: 
-  updated_at: 2007-05-30 13:44:29
-  project_id: "4"
-  project_elements_count: "10"
-  left_limit: "1"
-  updated_by_user_id: "3"
-  lock_version: "156"
-  type: ProjectFolder
-  id: "213"
-  right_limit: "72"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
   position: "1"
   parent_id: 
   asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_069: 
-  name: DMO-001-14
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "103"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "272"
-  right_limit: "104"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "21"
-  published_hash: 
-  position: "14"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_153: 
-  name: datagrid1-2
-  content_id: 
-  updated_at: 2007-05-31 21:14:27
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "386"
-  right_limit: "0"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "47"
-  published_hash: 
-  position: "2"
-  parent_id: "383"
-  asset_id: 
-  created_at: 2007-05-31 21:14:27
-project_elements_125: 
-  name: Request-15
-  content_id: 
-  updated_at: 2007-05-30 09:16:55
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "58"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectFolder
-  id: "353"
-  right_limit: "59"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "15"
-  published_hash: 
-  position: "4"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-28 21:11:59
-project_elements_098: 
-  name: microexambm44.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "124"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "310"
-  right_limit: "125"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "79"
-  created_at: 2007-05-21 17:57:42
-project_elements_011: 
-  name: Cell Assay
-  content_id: 
-  updated_at: 2007-05-30 09:16:56
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "2"
-  updated_by_user_id: "1"
-  lock_version: "34"
-  type: ProjectFolder
-  id: "214"
-  right_limit: "5"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "9"
-  published_hash: 
-  position: "0"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_154: 
-  name: datagrid1-3
-  content_id: 
-  updated_at: 2007-05-31 21:15:10
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "0"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  type: ProjectFolder
-  id: "387"
-  right_limit: "0"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "48"
-  published_hash: 
-  position: "3"
-  parent_id: "383"
-  asset_id: 
-  created_at: 2007-05-31 21:15:10
-project_elements_126: 
-  name: MPB002
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "8"
-  project_elements_count: "0"
-  left_limit: "6"
-  updated_by_user_id: "1"
-  lock_version: "8"
-  type: ProjectFolder
-  id: "354"
-  right_limit: "7"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "14"
-  published_hash: 
-  position: "2"
-  parent_id: "218"
-  asset_id: 
-  created_at: 2007-05-29 11:27:42
-project_elements_099: 
-  name: microexambm43.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "126"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "311"
-  right_limit: "127"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "82"
-  created_at: 2007-05-21 17:58:04
-project_elements_012: 
-  name: Solubility
-  content_id: 
-  updated_at: 2007-05-30 09:16:55
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "6"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectFolder
-  id: "215"
-  right_limit: "7"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "10"
-  published_hash: 
-  position: "1"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_040: 
-  name: Secondary Screen
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "7"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "243"
-  right_limit: "8"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "23"
-  published_hash: 
-  position: "2"
-  parent_id: "217"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_127: 
-  name: Request-10
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "156"
-  updated_by_user_id: "1"
-  lock_version: "8"
-  type: ProjectFolder
-  id: "355"
-  right_limit: "157"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "12"
-  published_hash: 
-  position: "19"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-29 11:40:41
-project_elements_013: 
-  name: HTS
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "3"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "43"
-  type: ProjectFolder
-  id: "216"
-  right_limit: "28"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_041: 
-  name: Dose Response
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "9"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "244"
-  right_limit: "10"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "24"
-  published_hash: 
-  position: "3"
-  parent_id: "217"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_128: 
-  name: llll
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "10"
-  project_elements_count: "0"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "6"
-  type: ProjectFolder
-  id: "356"
-  right_limit: "2"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-29 14:28:27
-project_elements_014: 
-  name: HTS Program
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "5"
-  left_limit: "2"
-  updated_by_user_id: "1"
-  lock_version: "67"
-  type: ProjectFolder
-  id: "217"
-  right_limit: "13"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "11"
-  published_hash: 
-  position: "0"
-  parent_id: "216"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_070: 
-  name: DMO-001-15
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "105"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "273"
-  right_limit: "106"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "22"
-  published_hash: 
-  position: "15"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_042: 
-  name: Hit Identification
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "11"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "245"
-  right_limit: "12"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "25"
-  published_hash: 
-  position: "4"
-  parent_id: "217"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_129: 
-  name: moose5
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "11"
-  project_elements_count: "0"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "357"
-  right_limit: "4"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-29 14:34:20
-project_elements_015: 
-  name: MPB
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "8"
-  project_elements_count: "2"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "39"
-  type: ProjectFolder
-  id: "218"
-  right_limit: "8"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_071: 
-  name: Experiment-1-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "113"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "274"
-  right_limit: "114"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "23"
-  published_hash: 
-  position: "0"
-  parent_id: "249"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_043: 
-  name: TH210307-1
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "4"
-  left_limit: "60"
-  updated_by_user_id: "1"
-  lock_version: "123"
-  type: ProjectFolder
-  id: "246"
-  right_limit: "69"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  position: "8"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_016: 
-  name: Rat Locomotion
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "8"
-  project_elements_count: "0"
-  left_limit: "2"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "219"
-  right_limit: "3"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "12"
-  published_hash: 
-  position: "0"
-  parent_id: "218"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_072: 
-  name: DMO-001-16
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "107"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "275"
-  right_limit: "108"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "24"
-  published_hash: 
-  position: "16"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:27
-project_elements_044: 
-  name: Test-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "1"
-  left_limit: "70"
-  updated_by_user_id: "1"
-  lock_version: "51"
-  type: ProjectFolder
-  id: "247"
-  right_limit: "73"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  position: "9"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_073: 
-  name: DMO-001:17
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "109"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "276"
-  right_limit: "110"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "25"
-  published_hash: 
-  position: "17"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_045: 
-  name: DMO-001
-  content_id: 
-  updated_at: 2007-05-30 09:16:53
-  project_id: "1"
-  project_elements_count: "18"
-  left_limit: "74"
-  updated_by_user_id: "1"
-  lock_version: "459"
-  type: ProjectFolder
-  id: "248"
-  right_limit: "111"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  position: "10"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_100: 
-  name: hwang1HR.sm.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "128"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "312"
-  right_limit: "129"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "85"
-  created_at: 2007-05-21 17:58:28
-project_elements_017: 
-  name: WeightBioMarkerHistology
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "8"
-  project_elements_count: "0"
-  left_limit: "4"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "220"
-  right_limit: "5"
-  reference_type: Study
-  created_by_user_id: "1"
-  reference_id: "13"
-  published_hash: 
-  position: "1"
-  parent_id: "218"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_074: 
-  name: Scoring-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "137"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "277"
-  right_limit: "138"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "26"
-  published_hash: 
-  position: "0"
-  parent_id: "250"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_046: 
-  name: Experiment-1
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "3"
-  left_limit: "112"
-  updated_by_user_id: "1"
-  lock_version: "147"
-  type: ProjectFolder
-  id: "249"
-  right_limit: "135"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  position: "11"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_101: 
-  name: adipocytes_of_adipose_tissue.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "130"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "313"
-  right_limit: "131"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "88"
-  created_at: 2007-05-21 17:58:55
-project_elements_018: 
-  name: Materials
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "3"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "221"
-  right_limit: "4"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  position: "0"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_130: 
-  name: Request-2
-  content_id: 
-  updated_at: 2007-05-30 09:17:12
-  project_id: "11"
-  project_elements_count: "0"
-  left_limit: "2"
-  updated_by_user_id: "1"
-  lock_version: "7"
-  type: ProjectFolder
-  id: "358"
-  right_limit: "3"
-  reference_type: Request
-  created_by_user_id: "3"
-  reference_id: "9"
-  published_hash: 
-  position: "0"
-  parent_id: "357"
-  asset_id: 
-  created_at: 2007-05-29 14:37:20
-project_elements_075: 
-  name: HTSP_AD-T1-0
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "23"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "278"
-  right_limit: "24"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "27"
-  published_hash: 
-  position: "0"
-  parent_id: "252"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_047: 
-  name: Scoring
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "1"
-  left_limit: "136"
-  updated_by_user_id: "1"
-  lock_version: "51"
-  type: ProjectFolder
-  id: "250"
-  right_limit: "139"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  position: "12"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-14 16:25:24
-project_elements_102: 
-  name: dense_regular_collagenous_connective_tissue.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "132"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "314"
-  right_limit: "133"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "308"
-  asset_id: "91"
-  created_at: 2007-05-21 17:59:18
-project_elements_019: 
-  name: Animals
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "5"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "222"
-  right_limit: "6"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "2"
-  published_hash: 
-  position: "1"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:21
-project_elements_131: 
-  name: rshell-209
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "60"
-  updated_by_user_id: "1"
-  lock_version: "40"
-  type: ProjectFolder
-  id: "359"
-  right_limit: "65"
-  reference_type: Experiment
-  created_by_user_id: "3"
-  reference_id: "18"
-  published_hash: 
-  position: "5"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-29 16:33:55
-project_elements_076: 
-  name: HTSP001-T1:0
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "15"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "279"
-  right_limit: "16"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "32"
-  published_hash: 
-  position: "0"
-  parent_id: "251"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_048: 
-  name: HTSP001-T1
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "3"
-  left_limit: "14"
-  updated_by_user_id: "1"
-  lock_version: "45"
-  type: ProjectFolder
-  id: "251"
-  right_limit: "21"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "11"
-  published_hash: 
-  position: "1"
-  parent_id: "216"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_103: 
-  name: rshell-78
-  content_id: 
-  updated_at: 2007-05-30 09:16:48
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "152"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectElement
-  id: "318"
-  right_limit: "153"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "17"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-21 21:00:02
-project_elements_132: 
-  name: rshell-209-0
-  content_id: 
-  updated_at: 2007-05-30 09:17:09
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "61"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectFolder
-  id: "360"
-  right_limit: "62"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "43"
-  published_hash: 
-  position: "0"
-  parent_id: "359"
-  asset_id: 
-  created_at: 2007-05-29 16:34:14
-project_elements_077: 
-  name: HTSP001-T1-1
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "17"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "280"
-  right_limit: "18"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "35"
-  published_hash: 
-  position: "1"
-  parent_id: "251"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_049: 
-  name: HTSP_AD-T1
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "2"
-  left_limit: "22"
-  updated_by_user_id: "1"
-  lock_version: "34"
-  type: ProjectFolder
-  id: "252"
-  right_limit: "27"
-  reference_type: Experiment
-  created_by_user_id: "1"
-  reference_id: "14"
-  published_hash: 
-  position: "2"
-  parent_id: "216"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_104: 
-  name: rshell-85
-  content_id: 
-  updated_at: 2007-05-30 09:16:48
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "154"
-  updated_by_user_id: "1"
-  lock_version: "28"
-  type: ProjectFolder
-  id: "319"
-  right_limit: "155"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "18"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-22 08:10:35
-project_elements_133: 
-  name: rshell-209-1
-  content_id: 
-  updated_at: 2007-05-30 09:17:10
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "63"
-  updated_by_user_id: "1"
-  lock_version: "14"
-  type: ProjectFolder
-  id: "361"
-  right_limit: "64"
-  reference_type: Task
-  created_by_user_id: "3"
-  reference_id: "44"
-  published_hash: 
-  position: "1"
-  parent_id: "359"
-  asset_id: 
-  created_at: 2007-05-29 16:34:40
-project_elements_078: 
-  name: HTSP001-T1-2
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "19"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "281"
-  right_limit: "20"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "36"
-  published_hash: 
-  position: "2"
-  parent_id: "251"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_105: 
-  name: rshell-120
-  content_id: "76"
-  updated_at: 2007-05-30 09:16:58
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "15"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectContent
-  id: "320"
-  right_limit: "16"
-  reference_type: Report
-  created_by_user_id: "3"
-  reference_id: "26"
-  published_hash: 
-  position: "4"
-  parent_id: "298"
-  asset_id: 
-  created_at: 2007-05-23 08:30:28
-project_elements_134: 
-  name: Assay-Dev2
-  content_id: 
-  updated_at: 2007-05-30 09:17:12
-  project_id: "3"
-  project_elements_count: "0"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "2"
-  type: ProjectFolder
-  id: "362"
-  right_limit: "2"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-29 21:35:42
-project_elements_079: 
-  name: HTSP_AD-T1-1
-  content_id: 
-  updated_at: 2007-05-30 09:17:11
-  project_id: "5"
-  project_elements_count: "0"
-  left_limit: "25"
-  updated_by_user_id: "1"
-  lock_version: "12"
-  type: ProjectFolder
-  id: "282"
-  right_limit: "26"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "37"
-  published_hash: 
-  position: "1"
-  parent_id: "252"
-  asset_id: 
-  created_at: 2007-05-14 16:25:28
-project_elements_106: 
-  name: micropgraph.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:58
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "17"
-  updated_by_user_id: "1"
-  lock_version: "20"
-  type: ProjectAsset
-  id: "321"
-  right_limit: "18"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "5"
-  parent_id: "298"
-  asset_id: "1"
-  created_at: 2007-05-23 16:40:34
-project_elements_020: 
-  name: Treatments
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "7"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "223"
-  right_limit: "8"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "3"
-  published_hash: 
-  position: "2"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_135: 
-  name: Profiling
-  content_id: 
-  updated_at: 2007-05-30 09:17:12
-  project_id: "7"
-  project_elements_count: "0"
-  left_limit: "1"
-  updated_by_user_id: "1"
-  lock_version: "2"
-  type: ProjectFolder
-  id: "363"
-  right_limit: "2"
-  reference_type: 
-  created_by_user_id: "1"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: 
-  asset_id: 
-  created_at: 2007-05-29 21:35:43
-project_elements_107: 
-  name: jkjkljk
-  content_id: "77"
-  updated_at: 2007-05-30 09:16:59
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "23"
-  updated_by_user_id: "1"
-  lock_version: "21"
-  type: ProjectContent
-  id: "322"
-  right_limit: "24"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "3"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-23 17:20:25
-project_elements_021: 
-  name: Weights
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "9"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "224"
-  right_limit: "10"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  position: "3"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_136: 
-  name: dsjkl;gjkl;sdj
-  content_id: "113"
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "158"
-  updated_by_user_id: "1"
-  lock_version: "3"
-  type: ProjectContent
-  id: "364"
-  right_limit: "159"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "20"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-29 22:21:32
-project_elements_108: 
-  name: rshell-178
-  content_id: "102"
-  updated_at: 2007-05-30 09:16:59
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "25"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectContent
-  id: "329"
-  right_limit: "26"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "2"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-24 22:22:05
-project_elements_050: 
-  name: TH210307-1-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "61"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "253"
-  right_limit: "62"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "1"
-  published_hash: 
-  position: "0"
-  parent_id: "246"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_022: 
-  name: Weight Summary
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "11"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "225"
-  right_limit: "12"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  position: "4"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_137: 
-  name: 2.Cross_talk_sm.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "160"
-  updated_by_user_id: "1"
-  lock_version: "4"
-  type: ProjectAsset
-  id: "366"
-  right_limit: "161"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "21"
-  parent_id: "204"
-  asset_id: "152"
-  created_at: 2007-05-29 22:35:53
-project_elements_109: 
-  name: rshell-179
-  content_id: "101"
-  updated_at: 2007-05-30 09:16:59
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "27"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectContent
-  id: "330"
-  right_limit: "28"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-24 22:43:20
-project_elements_051: 
-  name: TH210307-1-1
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "63"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "254"
-  right_limit: "64"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "2"
-  published_hash: 
-  position: "1"
-  parent_id: "246"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_023: 
-  name: Taqman Readings
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "13"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "226"
-  right_limit: "14"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  position: "5"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_138: 
-  name: 3.Hyperexcitability_sm.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:49
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "162"
-  updated_by_user_id: "1"
-  lock_version: "4"
-  type: ProjectAsset
-  id: "367"
-  right_limit: "163"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "22"
-  parent_id: "204"
-  asset_id: "155"
-  created_at: 2007-05-29 22:36:31
-project_elements_080: 
-  name: 1.Partial_nerve_severance.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:57
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "9"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectAsset
-  id: "283"
-  right_limit: "10"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "1"
-  parent_id: "298"
-  asset_id: "51"
-  created_at: 2007-05-17 11:00:13
-project_elements_052: 
-  name: TH210307-1-2
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "65"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "255"
-  right_limit: "66"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "4"
-  published_hash: 
-  position: "2"
-  parent_id: "246"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_024: 
-  name: Taqman Analysis
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "15"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "227"
-  right_limit: "16"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  position: "6"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_139: 
-  name: rshell-236
-  content_id: "118"
-  updated_at: 2007-05-30 11:01:43
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "66"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  type: ProjectContent
-  id: "372"
-  right_limit: "67"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "6"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-30 11:01:43
-project_elements_053: 
-  name: TH210307-1-3
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "67"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "256"
-  right_limit: "68"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "5"
-  published_hash: 
-  position: "3"
-  parent_id: "246"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_025: 
-  name: Histological Scoring
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "17"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "228"
-  right_limit: "18"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  position: "7"
-  parent_id: "205"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_081: 
-  name: rshell-54
-  content_id: "58"
-  updated_at: 2007-05-30 09:16:59
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "21"
-  updated_by_user_id: "1"
-  lock_version: "21"
-  type: ProjectContent
-  id: "284"
-  right_limit: "22"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "0"
-  parent_id: "331"
-  asset_id: 
-  created_at: 2007-05-18 13:59:58
-project_elements_054: 
-  name: Test-0-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "71"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "257"
-  right_limit: "72"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "6"
-  published_hash: 
-  position: "0"
-  parent_id: "247"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_026: 
-  name: Setup Materials and Groups
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "23"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "229"
-  right_limit: "24"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "9"
-  published_hash: 
-  position: "0"
-  parent_id: "206"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_082: 
-  name: imported_asset.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:16:58
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "11"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectAsset
-  id: "285"
-  right_limit: "12"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "2"
-  parent_id: "298"
-  asset_id: "54"
-  created_at: 2007-05-18 15:51:43
-project_elements_055: 
-  name: DMO-001-0
-  content_id: 
-  updated_at: 2007-05-30 09:16:51
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "75"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "258"
-  right_limit: "76"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "7"
-  published_hash: 
-  position: "0"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_110: 
-  name: stuff
-  content_id: 
-  updated_at: 2007-05-30 12:35:28
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "20"
-  updated_by_user_id: "3"
-  lock_version: "237"
-  type: ProjectFolder
-  id: "331"
-  right_limit: "57"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "3"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-25 15:31:44
-project_elements_027: 
-  name: Capture Raw Data
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "25"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "230"
-  right_limit: "26"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "10"
-  published_hash: 
-  position: "1"
-  parent_id: "206"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_083: 
-  name: rshell-55
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "2"
-  left_limit: "140"
-  updated_by_user_id: "1"
-  lock_version: "60"
-  type: ProjectFolder
-  id: "286"
-  right_limit: "145"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "13"
-  parent_id: "204"
-  asset_id: 
-  created_at: 2007-05-18 16:26:21
-project_elements_056: 
-  name: DMO-001-1
-  content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "77"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "259"
-  right_limit: "78"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "8"
-  published_hash: 
-  position: "1"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:25
-project_elements_111: 
-  name: imported_asset.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:00
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "29"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectAsset
-  id: "334"
-  right_limit: "30"
-  reference_type: ProjectElement
-  created_by_user_id: "3"
-  reference_id: "285"
-  published_hash: 
-  position: "6"
-  parent_id: "331"
-  asset_id: "54"
-  created_at: 2007-05-18 15:51:43
+  created_at: 2007-06-06 22:06:30
 project_elements_028: 
-  name: ED50 Calculation
+  name: plot_xy.jpg
   content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
+  updated_at: 2007-06-20 14:14:12
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "27"
+  left_limit: "24"
   updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "231"
-  right_limit: "28"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "11"
-  published_hash: 
-  position: "2"
-  parent_id: "206"
-  asset_id: 
-  created_at: 2007-05-14 16:25:22
-project_elements_084: 
-  name: 5900dft.doc
-  content_id: 
-  updated_at: 2007-05-30 09:16:54
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "141"
-  updated_by_user_id: "1"
-  lock_version: "18"
+  lock_version: "5"
   type: ProjectAsset
-  id: "287"
-  right_limit: "142"
+  id: "28"
+  right_limit: "25"
   reference_type: 
-  created_by_user_id: "3"
+  created_by_user_id: "1"
   reference_id: 
   published_hash: 
-  position: "0"
-  parent_id: "286"
-  asset_id: "57"
-  created_at: 2007-05-18 16:26:45
-project_elements_140: 
-  name: rshell-237
-  content_id: "120"
-  updated_at: 2007-05-30 11:16:15
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "68"
-  updated_by_user_id: "3"
-  lock_version: "3"
-  type: ProjectContent
-  id: "373"
-  right_limit: "69"
-  reference_type: 
-  created_by_user_id: "3"
-  reference_id: 
-  published_hash: 
-  position: "7"
-  parent_id: "213"
-  asset_id: 
-  created_at: 2007-05-30 11:02:05
-project_elements_057: 
-  name: DMO-001-2
+  position: "4"
+  parent_id: "13"
+  asset_id: "37"
+  created_at: 2007-06-20 13:59:01
+project_elements_017: 
+  name: Screening
   content_id: 
-  updated_at: 2007-05-30 09:16:52
-  project_id: "1"
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "79"
+  left_limit: "34"
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "2"
   type: ProjectFolder
-  id: "260"
-  right_limit: "80"
-  reference_type: Task
-  created_by_user_id: "1"
-  reference_id: "9"
-  published_hash: 
-  position: "2"
-  parent_id: "248"
-  asset_id: 
-  created_at: 2007-05-14 16:25:26
-project_elements_112: 
-  name: 1.Partial_nerve_severance.jpg
-  content_id: 
-  updated_at: 2007-05-30 09:17:01
-  project_id: "4"
-  project_elements_count: "0"
-  left_limit: "31"
-  updated_by_user_id: "1"
-  lock_version: "19"
-  type: ProjectAsset
-  id: "335"
-  right_limit: "32"
-  reference_type: ProjectElement
+  id: "17"
+  right_limit: "39"
+  reference_type: Study
   created_by_user_id: "3"
-  reference_id: "283"
-  published_hash: 
-  position: "7"
-  parent_id: "331"
-  asset_id: "51"
-  created_at: 2007-05-17 11:00:13
-project_elements_029: 
-  name: Brain Plasma Assessment
-  content_id: 
-  updated_at: 2007-05-30 09:16:50
-  project_id: "1"
-  project_elements_count: "0"
-  left_limit: "29"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  type: ProjectFolder
-  id: "232"
-  right_limit: "30"
-  reference_type: StudyProtocol
-  created_by_user_id: "1"
-  reference_id: "12"
+  reference_id: "3"
   published_hash: 
   position: "3"
-  parent_id: "206"
+  parent_id: "5"
   asset_id: 
-  created_at: 2007-05-14 16:25:23
-project_elements_085: 
-  name: rails.png
+  created_at: 2007-06-08 15:46:37
+project_elements_006: 
+  name: Demo_Study
   content_id: 
-  updated_at: 2007-05-30 09:16:55
-  project_id: "1"
+  updated_at: 2007-06-11 11:44:53
+  project_id: "13"
   project_elements_count: "0"
-  left_limit: "143"
+  left_limit: "2"
   updated_by_user_id: "1"
-  lock_version: "18"
-  type: ProjectAsset
-  id: "288"
-  right_limit: "144"
-  reference_type: 
+  lock_version: "2"
+  type: ProjectFolder
+  id: "6"
+  right_limit: "7"
+  reference_type: Study
   created_by_user_id: "3"
-  reference_id: 
+  reference_id: "2"
   published_hash: 
-  position: "1"
-  parent_id: "286"
-  asset_id: "58"
-  created_at: 2007-05-18 16:27:41
+  position: "0"
+  parent_id: "5"
+  asset_id: 
+  created_at: 2007-06-06 22:07:51
+project_elements_018: 
+  name: Prot-19
+  content_id: 
+  updated_at: 2007-06-11 11:44:56
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "35"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "18"
+  right_limit: "36"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "4"
+  published_hash: 
+  position: "0"
+  parent_id: "17"
+  asset_id: 
+  created_at: 2007-06-08 15:46:37
+project_elements_007: 
+  name: Prot-19
+  content_id: 
+  updated_at: 2007-06-11 11:44:54
+  project_id: "13"
+  project_elements_count: "0"
+  left_limit: "3"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  type: ProjectFolder
+  id: "7"
+  right_limit: "4"
+  reference_type: StudyProtocol
+  created_by_user_id: "3"
+  reference_id: "1"
+  published_hash: 
+  position: "0"
+  parent_id: "6"
+  asset_id: 
+  created_at: 2007-06-06 22:14:07

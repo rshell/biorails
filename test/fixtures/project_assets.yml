@@ -1,427 +1,70 @@
 --- 
-project_assets_047: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:49
-  thumbnails_count: "0"
-  size: "41535"
-  thumbnail: 
-  project_id: "1"
-  title: cross tak
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "5"
-  id: "152"
-  caption: 
-  db_file_id: "155"
-  height: "150"
-  filename: 2.Cross_talk_sm.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-29 22:35:51
-  width: "200"
 project_assets_036: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:04
+  updated_at: 2007-06-20 14:08:21
   thumbnails_count: "0"
-  size: "44074"
+  size: "30730"
   thumbnail: normal
   project_id: 
   title: 
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "13"
-  id: "138"
+  lock_version: "0"
+  id: "36"
   caption: 
-  db_file_id: "138"
-  height: "171"
-  filename: H_E_Stained_normal.jpg
+  db_file_id: "35"
+  height: "200"
+  filename: plot_xy_normal.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: "136"
-  created_at: 2007-05-25 17:34:44
-  width: "320"
+  parent_id: "34"
+  created_at: 2007-06-20 14:08:21
+  width: "267"
 project_assets_025: 
   content_type: image/jpeg
-  updated_at: 2007-05-25 17:33:08
+  updated_at: 2007-06-20 13:59:01
   thumbnails_count: "0"
-  size: "13388"
-  thumbnail: 
-  project_id: "4"
-  title: kljljklkjlk
+  size: "31363"
+  thumbnail: normal
+  project_id: 
+  title: 
   published: "0"
   updated_by_user_id: "1"
   lock_version: "0"
-  id: "127"
+  id: "25"
   caption: 
-  db_file_id: "130"
-  height: "332"
-  filename: microexambm43.jpg
+  db_file_id: "24"
+  height: "200"
+  filename: plot_xy_normal.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:33:08
-  width: "500"
+  parent_id: "24"
+  created_at: 2007-06-20 13:59:01
+  width: "267"
 project_assets_014: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:01
+  updated_at: 2007-06-20 12:28:54
   thumbnails_count: "0"
-  size: "221683"
-  thumbnail: normal
-  project_id: 
-  title: 
+  size: "35718"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "27"
-  id: "116"
+  lock_version: "0"
+  id: "14"
   caption: 
-  db_file_id: "117"
-  height: "200"
-  filename: 1.Partial_nerve_severance_normal.jpg
+  db_file_id: "16"
+  height: "480"
+  filename: plot_xy.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: "51"
-  created_at: 2007-05-25 15:07:06
-  width: "267"
+  parent_id: 
+  created_at: 2007-06-20 12:28:54
+  width: "640"
 project_assets_003: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:59
-  thumbnails_count: "0"
-  size: "221683"
-  thumbnail: 
-  project_id: "4"
-  title: An imported asset by ted
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "33"
-  id: "54"
-  caption: 
-  db_file_id: "57"
-  height: "576"
-  filename: imported_asset.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-18 15:51:43
-  width: "768"
-project_assets_048: 
-  content_type: image/jpeg
-  updated_at: 2007-05-29 22:35:52
-  thumbnails_count: "0"
-  size: "41427"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "153"
-  caption: 
-  db_file_id: "153"
-  height: "200"
-  filename: 2.Cross_talk_sm_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "152"
-  created_at: 2007-05-29 22:35:52
-  width: "267"
-project_assets_037: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:08
-  thumbnails_count: "0"
-  size: "44978"
-  thumbnail: 
-  project_id: "4"
-  title: CarboxyMethyl
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "139"
-  caption: 
-  db_file_id: "142"
-  height: "814"
-  filename: CarboxyMethyl.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:35:06
-  width: "1175"
-project_assets_026: 
-  content_type: image/jpeg
-  updated_at: 2007-05-25 17:33:08
-  thumbnails_count: "0"
-  size: "12510"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "128"
-  caption: 
-  db_file_id: "128"
-  height: "32"
-  filename: microexambm43_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "127"
-  created_at: 2007-05-25 17:33:08
-  width: "48"
-project_assets_015: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:00
-  thumbnails_count: "0"
-  size: "221491"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  id: "117"
-  caption: 
-  db_file_id: "118"
-  height: "36"
-  filename: imported_asset_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "54"
-  created_at: 2007-05-25 15:07:20
-  width: "48"
-project_assets_004: 
-  content_type: application/mswordtext/plainapplication/word
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "130048"
-  thumbnail: 
-  project_id: 
-  title: rshell-56
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "57"
-  caption: 
-  db_file_id: "58"
-  height: 
-  filename: 5900dft.doc
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-18 16:26:45
-  width: 
-project_assets_049: 
-  content_type: image/jpeg
-  updated_at: 2007-05-29 22:35:53
-  thumbnails_count: "0"
-  size: "41427"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "154"
-  caption: 
-  db_file_id: "154"
-  height: "36"
-  filename: 2.Cross_talk_sm_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "152"
-  created_at: 2007-05-29 22:35:53
-  width: "48"
-project_assets_038: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:09
-  thumbnails_count: "0"
-  size: "44978"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "140"
-  caption: 
-  db_file_id: "140"
-  height: "33"
-  filename: CarboxyMethyl_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "139"
-  created_at: 2007-05-25 17:35:06
-  width: "48"
-project_assets_027: 
-  content_type: image/jpeg
-  updated_at: 2007-05-25 17:33:08
-  thumbnails_count: "0"
-  size: "12510"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "129"
-  caption: 
-  db_file_id: "129"
-  height: "200"
-  filename: microexambm43_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "127"
-  created_at: 2007-05-25 17:33:08
-  width: "301"
-project_assets_016: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:00
-  thumbnails_count: "0"
-  size: "221491"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  id: "118"
-  caption: 
-  db_file_id: "119"
-  height: "200"
-  filename: imported_asset_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "54"
-  created_at: 2007-05-25 15:07:20
-  width: "267"
-project_assets_005: 
-  content_type: image/png
-  updated_at: 2007-05-30 09:16:55
-  thumbnails_count: "0"
-  size: "1814"
-  thumbnail: 
-  project_id: 
-  title: rshell-57
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "58"
-  caption: 
-  db_file_id: "61"
-  height: "64"
-  filename: rails.png
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-18 16:27:40
-  width: "50"
-project_assets_050: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:49
-  thumbnails_count: "0"
-  size: "48719"
-  thumbnail: 
-  project_id: "1"
-  title: Hyperexcitability
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "5"
-  id: "155"
-  caption: 
-  db_file_id: "158"
-  height: "150"
-  filename: 3.Hyperexcitability_sm.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-29 22:36:30
-  width: "200"
-project_assets_051: 
-  content_type: image/jpeg
-  updated_at: 2007-05-29 22:36:30
-  thumbnails_count: "0"
-  size: "48678"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "156"
-  caption: 
-  db_file_id: "156"
-  height: "200"
-  filename: 3.Hyperexcitability_sm_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "155"
-  created_at: 2007-05-29 22:36:30
-  width: "267"
-project_assets_040: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:09
-  thumbnails_count: "0"
-  size: "57941"
-  thumbnail: 
-  project_id: "4"
-  title: (areolar) connective
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "142"
-  caption: 
-  db_file_id: "145"
-  height: "724"
-  filename: loose__areolar__connective_tissue.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:35:33
-  width: "468"
-project_assets_039: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:08
-  thumbnails_count: "0"
-  size: "44978"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "141"
-  caption: 
-  db_file_id: "141"
-  height: "200"
-  filename: CarboxyMethyl_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "139"
-  created_at: 2007-05-25 17:35:06
-  width: "289"
-project_assets_028: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
-  thumbnails_count: "0"
-  size: "11253"
-  thumbnail: 
-  project_id: "4"
-  title: microexambm44
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "130"
-  caption: 
-  db_file_id: "133"
-  height: "328"
-  filename: microexambm44.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:33:54
-  width: "500"
-project_assets_017: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:01
+  updated_at: 2007-06-11 11:44:55
   thumbnails_count: "0"
   size: "22953"
   thumbnail: icon
@@ -429,125 +72,761 @@ project_assets_017:
   title: 
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "28"
-  id: "119"
-  caption: 
-  db_file_id: "120"
+  lock_version: "2"
+  id: "3"
+  caption: |-
+    "In a decision that could have far-reaching implications, a federal court in 
+    Pennsylvania has held that the California arbitration clause in the 'take it
+     or leave it' clickwrap agreement on the Second Life website is unconscionable, 
+    and therefore unenforceable. In its decision (pdf) in Bragg v. Linden Research,
+     Inc., No. 06-4925 (E.D. Pa. May 30, 2007), the Court concluded that the Second 
+    Life 'terms of service' seek to impose a one-sided dispute resolution scheme that 
+    tilts unfairly, 'in almost all situations,' in Second Life's favor. As a result, 
+    the case will stay in Pennsylvania federal court, instead of being transferred to
+     an arbitration forum in Californi
+  db_file_id: "2"
   height: "36"
   filename: 1.Ephaptic_activity_sm_icon.jpg
   created_by_user_id: "1"
   content_hash: 
   parent_id: "1"
-  created_at: 2007-05-25 15:12:20
+  created_at: 2007-06-08 11:05:12
   width: "48"
-project_assets_006: 
+project_assets_037: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:47
+  updated_at: 2007-06-20 14:14:12
   thumbnails_count: "0"
-  size: "10941"
+  size: "33765"
   thumbnail: 
-  project_id: "1"
-  title: Blue Pilates
+  project_id: "13"
+  title: plot_xy.jpg
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "18"
-  id: "73"
+  lock_version: "1"
+  id: "37"
   caption: 
-  db_file_id: "76"
-  height: "216"
-  filename: temppilates_blue.jpg
-  created_by_user_id: "3"
+  db_file_id: "39"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
   content_hash: 
   parent_id: 
-  created_at: 2007-05-18 17:04:35
-  width: "423"
-project_assets_052: 
+  created_at: 2007-06-20 14:14:12
+  width: "640"
+project_assets_026: 
   content_type: image/jpeg
-  updated_at: 2007-05-29 22:36:31
+  updated_at: 2007-06-20 13:59:01
   thumbnails_count: "0"
-  size: "48678"
+  size: "31363"
   thumbnail: icon
   project_id: 
   title: 
   published: "0"
   updated_by_user_id: "1"
   lock_version: "0"
-  id: "157"
+  id: "26"
   caption: 
-  db_file_id: "157"
+  db_file_id: "25"
   height: "36"
-  filename: 3.Hyperexcitability_sm_icon.jpg
+  filename: plot_xy_icon.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: "155"
-  created_at: 2007-05-29 22:36:31
+  parent_id: "24"
+  created_at: 2007-06-20 13:59:01
   width: "48"
-project_assets_041: 
+project_assets_015: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:09
+  updated_at: 2007-06-20 12:28:54
   thumbnails_count: "0"
-  size: "57946"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "143"
-  caption: 
-  db_file_id: "143"
-  height: "48"
-  filename: loose__areolar__connective_tissue_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "142"
-  created_at: 2007-05-25 17:35:33
-  width: "31"
-project_assets_030: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
-  thumbnails_count: "0"
-  size: "11253"
+  size: "31371"
   thumbnail: normal
   project_id: 
   title: 
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "13"
-  id: "132"
+  lock_version: "0"
+  id: "15"
   caption: 
-  db_file_id: "132"
+  db_file_id: "14"
   height: "200"
-  filename: microexambm44_normal.jpg
+  filename: plot_xy_normal.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: "130"
-  created_at: 2007-05-25 17:33:54
-  width: "305"
-project_assets_029: 
+  parent_id: "14"
+  created_at: 2007-06-20 12:28:54
+  width: "267"
+project_assets_004: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
+  updated_at: 2007-06-11 11:44:55
   thumbnails_count: "0"
-  size: "11253"
+  size: "43187"
+  thumbnail: 
+  project_id: "13"
+  title: Tissue injury nerve damage
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "4"
+  id: "4"
+  caption: |-
+    "In a decision that could have far-reaching implications, a federal court in 
+    Pennsylvania has held that the California arbitration clause in the 'take it
+     or leave it' clickwrap agreement on the Second Life website is unconscionable, 
+    and therefore unenforceable. In its decision (pdf) in Bragg v. Linden Research,
+     Inc., No. 06-4925 (E.D. Pa. May 30, 2007), the Court concluded that the Second 
+    Life 'terms of service' seek to impose a one-sided dispute resolution scheme that 
+    tilts unfairly, 'in almost all situations,' in Second Life's favor. As a result, 
+    the case will stay in Pennsylvania federal court, instead of being transferred to
+     an arbitration forum in Californi
+  db_file_id: "6"
+  height: "150"
+  filename: 1.Tissue_injury_nerve_damage_sm.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-08 11:05:47
+  width: "200"
+project_assets_038: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:14:12
+  thumbnails_count: "0"
+  size: "29480"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "38"
+  caption: 
+  db_file_id: "37"
+  height: "200"
+  filename: plot_xy_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "37"
+  created_at: 2007-06-20 14:14:12
+  width: "267"
+project_assets_027: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:12
+  thumbnails_count: "0"
+  size: "35141"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "27"
+  caption: 
+  db_file_id: "29"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 14:04:12
+  width: "640"
+project_assets_016: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 12:28:54
+  thumbnails_count: "0"
+  size: "31371"
   thumbnail: icon
   project_id: 
   title: 
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "13"
-  id: "131"
+  lock_version: "0"
+  id: "16"
   caption: 
-  db_file_id: "131"
-  height: "31"
-  filename: microexambm44_icon.jpg
+  db_file_id: "15"
+  height: "36"
+  filename: plot_xy_icon.jpg
   created_by_user_id: "1"
   content_hash: 
-  parent_id: "130"
-  created_at: 2007-05-25 17:33:54
+  parent_id: "14"
+  created_at: 2007-06-20 12:28:54
+  width: "48"
+project_assets_005: 
+  content_type: image/jpeg
+  updated_at: 2007-06-11 11:44:55
+  thumbnails_count: "0"
+  size: "43287"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "5"
+  caption: 
+  db_file_id: "4"
+  height: "200"
+  filename: 1.Tissue_injury_nerve_damage_sm_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "4"
+  created_at: 2007-06-08 11:05:47
+  width: "267"
+project_assets_039: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:14:12
+  thumbnails_count: "0"
+  size: "29480"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "39"
+  caption: 
+  db_file_id: "38"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "37"
+  created_at: 2007-06-20 14:14:12
+  width: "48"
+project_assets_028: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:12
+  thumbnails_count: "0"
+  size: "30698"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "28"
+  caption: 
+  db_file_id: "27"
+  height: "200"
+  filename: plot_xy_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "27"
+  created_at: 2007-06-20 14:04:12
+  width: "267"
+project_assets_017: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 12:29:23
+  thumbnails_count: "0"
+  size: "35718"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "17"
+  caption: 
+  db_file_id: "19"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 12:29:23
+  width: "640"
+project_assets_006: 
+  content_type: image/jpeg
+  updated_at: 2007-06-11 11:44:55
+  thumbnails_count: "0"
+  size: "43287"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "6"
+  caption: 
+  db_file_id: "5"
+  height: "36"
+  filename: 1.Tissue_injury_nerve_damage_sm_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "4"
+  created_at: 2007-06-08 11:05:47
+  width: "48"
+project_assets_030: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:38
+  thumbnails_count: "0"
+  size: "35156"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "30"
+  caption: 
+  db_file_id: "32"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 14:04:38
+  width: "640"
+project_assets_029: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:12
+  thumbnails_count: "0"
+  size: "30698"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "29"
+  caption: 
+  db_file_id: "28"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "27"
+  created_at: 2007-06-20 14:04:12
   width: "48"
 project_assets_018: 
   content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:01
+  updated_at: 2007-06-20 12:29:23
+  thumbnails_count: "0"
+  size: "31371"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "18"
+  caption: 
+  db_file_id: "17"
+  height: "200"
+  filename: plot_xy_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "17"
+  created_at: 2007-06-20 12:29:23
+  width: "267"
+project_assets_007: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:29:58
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: snapshot.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  id: "7"
+  caption: 
+  db_file_id: "7"
+  height: 
+  filename: snapshot.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:29:58
+  width: 
+project_assets_031: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:38
+  thumbnails_count: "0"
+  size: "30710"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "31"
+  caption: 
+  db_file_id: "30"
+  height: "200"
+  filename: plot_xy_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "30"
+  created_at: 2007-06-20 14:04:38
+  width: "267"
+project_assets_020: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 13:21:35
+  thumbnails_count: "0"
+  size: "1393"
+  thumbnail: 
+  project_id: "13"
+  title: grid.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "20"
+  caption: 
+  db_file_id: "20"
+  height: 
+  filename: grid.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 13:21:35
+  width: 
+project_assets_019: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 12:29:24
+  thumbnails_count: "0"
+  size: "31371"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "19"
+  caption: 
+  db_file_id: "18"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "17"
+  created_at: 2007-06-20 12:29:24
+  width: "48"
+project_assets_008: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:30:35
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: snapshot.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "8"
+  caption: 
+  db_file_id: "8"
+  height: 
+  filename: snapshot.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:30:35
+  width: 
+project_assets_032: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:04:38
+  thumbnails_count: "0"
+  size: "30710"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "32"
+  caption: 
+  db_file_id: "31"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "30"
+  created_at: 2007-06-20 14:04:38
+  width: "48"
+project_assets_021: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 13:21:53
+  thumbnails_count: "0"
+  size: "30137"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  id: "21"
+  caption: 
+  db_file_id: "23"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 13:21:52
+  width: "640"
+project_assets_010: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:32:11
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: snapshot.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "10"
+  caption: 
+  db_file_id: "10"
+  height: 
+  filename: snapshot.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:32:11
+  width: 
+project_assets_009: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:30:59
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: snapshot.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "9"
+  caption: 
+  db_file_id: "9"
+  height: 
+  filename: snapshot.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:30:59
+  width: 
+project_assets_033: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 14:05:21
+  thumbnails_count: "0"
+  size: "1498"
+  thumbnail: 
+  project_id: "13"
+  title: grid.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "33"
+  caption: 
+  db_file_id: "33"
+  height: 
+  filename: grid.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 14:05:21
+  width: 
+project_assets_022: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 13:21:52
+  thumbnails_count: "0"
+  size: "25812"
+  thumbnail: normal
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "22"
+  caption: 
+  db_file_id: "21"
+  height: "200"
+  filename: plot_xy_normal.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "21"
+  created_at: 2007-06-20 13:21:52
+  width: "267"
+project_assets_011: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:32:17
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: snapshot.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "11"
+  caption: 
+  db_file_id: "11"
+  height: 
+  filename: snapshot.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:32:17
+  width: 
+project_assets_034: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:08:21
+  thumbnails_count: "0"
+  size: "35179"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "34"
+  caption: 
+  db_file_id: "36"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 14:08:21
+  width: "640"
+project_assets_023: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 13:21:53
+  thumbnails_count: "0"
+  size: "25812"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "23"
+  caption: 
+  db_file_id: "22"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "21"
+  created_at: 2007-06-20 13:21:53
+  width: "48"
+project_assets_012: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:44:13
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: grid.csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  id: "12"
+  caption: 
+  db_file_id: "12"
+  height: 
+  filename: grid.csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:44:13
+  width: 
+project_assets_001: 
+  content_type: image/jpeg
+  updated_at: 2007-06-11 11:44:55
+  thumbnails_count: "0"
+  size: "22959"
+  thumbnail: 
+  project_id: "13"
+  title: Ephaptic activity
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "4"
+  id: "1"
+  caption: |-
+    "In a decision that could have far-reaching implications, a federal court in 
+    Pennsylvania has held that the California arbitration clause in the 'take it
+     or leave it' clickwrap agreement on the Second Life website is unconscionable, 
+    and therefore unenforceable. In its decision (pdf) in Bragg v. Linden Research,
+     Inc., No. 06-4925 (E.D. Pa. May 30, 2007), the Court concluded that the Second 
+    Life 'terms of service' seek to impose a one-sided dispute resolution scheme that 
+    tilts unfairly, 'in almost all situations,' in Second Life's favor. As a result, 
+    the case will stay in Pennsylvania federal court, instead of being transferred to
+     an arbitration forum in Californi
+  db_file_id: "3"
+  height: "150"
+  filename: 1.Ephaptic_activity_sm.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-08 11:05:12
+  width: "200"
+project_assets_035: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 14:08:21
+  thumbnails_count: "0"
+  size: "30730"
+  thumbnail: icon
+  project_id: 
+  title: 
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "35"
+  caption: 
+  db_file_id: "34"
+  height: "36"
+  filename: plot_xy_icon.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: "34"
+  created_at: 2007-06-20 14:08:21
+  width: "48"
+project_assets_024: 
+  content_type: image/jpeg
+  updated_at: 2007-06-20 13:59:02
+  thumbnails_count: "0"
+  size: "35735"
+  thumbnail: 
+  project_id: "13"
+  title: plot_xy.jpg
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  id: "24"
+  caption: 
+  db_file_id: "26"
+  height: "480"
+  filename: plot_xy.jpg
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 13:59:01
+  width: "640"
+project_assets_013: 
+  content_type: text/csvtext/comma-separated-values
+  updated_at: 2007-06-20 11:44:43
+  thumbnails_count: "0"
+  size: "1069"
+  thumbnail: 
+  project_id: "13"
+  title: moose..csv
+  published: "0"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  id: "13"
+  caption: 
+  db_file_id: "13"
+  height: 
+  filename: moose..csv
+  created_by_user_id: "1"
+  content_hash: 
+  parent_id: 
+  created_at: 2007-06-20 11:44:42
+  width: 
+project_assets_002: 
+  content_type: image/jpeg
+  updated_at: 2007-06-11 11:44:55
   thumbnails_count: "0"
   size: "22953"
   thumbnail: normal
@@ -555,539 +834,23 @@ project_assets_018:
   title: 
   published: "0"
   updated_by_user_id: "1"
-  lock_version: "28"
-  id: "120"
-  caption: 
-  db_file_id: "121"
+  lock_version: "2"
+  id: "2"
+  caption: |-
+    "In a decision that could have far-reaching implications, a federal court in 
+    Pennsylvania has held that the California arbitration clause in the 'take it
+     or leave it' clickwrap agreement on the Second Life website is unconscionable, 
+    and therefore unenforceable. In its decision (pdf) in Bragg v. Linden Research,
+     Inc., No. 06-4925 (E.D. Pa. May 30, 2007), the Court concluded that the Second 
+    Life 'terms of service' seek to impose a one-sided dispute resolution scheme that 
+    tilts unfairly, 'in almost all situations,' in Second Life's favor. As a result, 
+    the case will stay in Pennsylvania federal court, instead of being transferred to
+     an arbitration forum in Californi
+  db_file_id: "1"
   height: "200"
   filename: 1.Ephaptic_activity_sm_normal.jpg
   created_by_user_id: "1"
   content_hash: 
   parent_id: "1"
-  created_at: 2007-05-25 15:12:20
+  created_at: 2007-06-08 11:05:12
   width: "267"
-project_assets_007: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "14004"
-  thumbnail: 
-  project_id: 
-  title: microexambm42.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "76"
-  caption: 
-  db_file_id: "79"
-  height: "331"
-  filename: microexambm42.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:57:16
-  width: "500"
-project_assets_042: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:09
-  thumbnails_count: "0"
-  size: "57946"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "144"
-  caption: 
-  db_file_id: "144"
-  height: "200"
-  filename: loose__areolar__connective_tissue_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "142"
-  created_at: 2007-05-25 17:35:33
-  width: "129"
-project_assets_031: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:03
-  thumbnails_count: "0"
-  size: "13182"
-  thumbnail: 
-  project_id: "4"
-  title: microexambm42
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "133"
-  caption: 
-  db_file_id: "136"
-  height: "331"
-  filename: microexambm42.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:34:16
-  width: "500"
-project_assets_020: 
-  content_type: image/jpeg
-  updated_at: 2007-05-25 17:28:37
-  thumbnails_count: "0"
-  size: "12510"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "122"
-  caption: 
-  db_file_id: "122"
-  height: "32"
-  filename: microexambm43_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "121"
-  created_at: 2007-05-25 17:28:37
-  width: "48"
-project_assets_019: 
-  content_type: image/jpeg
-  updated_at: 2007-05-25 17:28:37
-  thumbnails_count: "0"
-  size: "13388"
-  thumbnail: 
-  project_id: "4"
-  title: kljljklkjlk
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "121"
-  caption: 
-  db_file_id: "124"
-  height: "332"
-  filename: microexambm43.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:28:37
-  width: "500"
-project_assets_008: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "12190"
-  thumbnail: 
-  project_id: 
-  title: microexambm44.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "79"
-  caption: 
-  db_file_id: "82"
-  height: "328"
-  filename: microexambm44.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:57:42
-  width: "500"
-project_assets_043: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:48
-  thumbnails_count: "0"
-  size: "10902"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "6"
-  id: "145"
-  caption: 
-  db_file_id: "146"
-  height: "163"
-  filename: temppilates_blue_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "73"
-  created_at: 2007-05-29 17:56:21
-  width: "320"
-project_assets_032: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:03
-  thumbnails_count: "0"
-  size: "13183"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "134"
-  caption: 
-  db_file_id: "134"
-  height: "32"
-  filename: microexambm42_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "133"
-  created_at: 2007-05-25 17:34:16
-  width: "48"
-project_assets_021: 
-  content_type: image/jpeg
-  updated_at: 2007-05-25 17:28:37
-  thumbnails_count: "0"
-  size: "12510"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "123"
-  caption: 
-  db_file_id: "123"
-  height: "200"
-  filename: microexambm43_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "121"
-  created_at: 2007-05-25 17:28:37
-  width: "301"
-project_assets_010: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "1381466"
-  thumbnail: 
-  project_id: 
-  title: hwang1HR.sm.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "85"
-  caption: 
-  db_file_id: "88"
-  height: "836"
-  filename: hwang1HR.sm.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:58:26
-  width: "1500"
-project_assets_009: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "13388"
-  thumbnail: 
-  project_id: 
-  title: microexambm43.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "82"
-  caption: 
-  db_file_id: "85"
-  height: "332"
-  filename: microexambm43.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:58:03
-  width: "500"
-project_assets_044: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:48
-  thumbnails_count: "0"
-  size: "10902"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "6"
-  id: "146"
-  caption: 
-  db_file_id: "147"
-  height: "25"
-  filename: temppilates_blue_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "73"
-  created_at: 2007-05-29 17:56:21
-  width: "48"
-project_assets_033: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:03
-  thumbnails_count: "0"
-  size: "13183"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "135"
-  caption: 
-  db_file_id: "135"
-  height: "200"
-  filename: microexambm42_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "133"
-  created_at: 2007-05-25 17:34:16
-  width: "302"
-project_assets_022: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
-  thumbnails_count: "0"
-  size: "12513"
-  thumbnail: 
-  project_id: "4"
-  title: kljljklkjlk
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "124"
-  caption: 
-  db_file_id: "127"
-  height: "332"
-  filename: microexambm43.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:31:53
-  width: "500"
-project_assets_011: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "29452"
-  thumbnail: 
-  project_id: 
-  title: adipocytes of adipose tissue.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "88"
-  caption: 
-  db_file_id: "91"
-  height: "488"
-  filename: adipocytes_of_adipose_tissue.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:58:55
-  width: "319"
-project_assets_045: 
-  content_type: image/png
-  updated_at: 2007-05-30 09:16:55
-  thumbnails_count: "0"
-  size: "1814"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "6"
-  id: "147"
-  caption: 
-  db_file_id: "148"
-  height: "200"
-  filename: rails_normal.png
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "58"
-  created_at: 2007-05-29 17:56:26
-  width: "156"
-project_assets_034: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:04
-  thumbnails_count: "0"
-  size: "44074"
-  thumbnail: 
-  project_id: "4"
-  title: H&E Stained
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "15"
-  id: "136"
-  caption: 
-  db_file_id: "139"
-  height: "621"
-  filename: H_E_Stained.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-25 17:34:43
-  width: "1159"
-project_assets_023: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
-  thumbnails_count: "0"
-  size: "12502"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "125"
-  caption: 
-  db_file_id: "125"
-  height: "32"
-  filename: microexambm43_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "124"
-  created_at: 2007-05-25 17:31:53
-  width: "48"
-project_assets_012: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:16:54
-  thumbnails_count: "0"
-  size: "28736"
-  thumbnail: 
-  project_id: 
-  title: dense regular collagenous connective tissue.jpg
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "18"
-  id: "91"
-  caption: 
-  db_file_id: "94"
-  height: "516"
-  filename: dense_regular_collagenous_connective_tissue.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-21 17:59:18
-  width: "350"
-project_assets_001: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:01
-  thumbnails_count: "0"
-  size: "22959"
-  thumbnail: 
-  project_id: 
-  title: ProjectAsset-3
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "31"
-  id: "1"
-  caption: 
-  db_file_id: "6"
-  height: "150"
-  filename: 1.Ephaptic_activity_sm.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-04-25 09:56:28
-  width: "200"
-project_assets_046: 
-  content_type: image/png
-  updated_at: 2007-05-30 09:16:55
-  thumbnails_count: "0"
-  size: "1814"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "6"
-  id: "148"
-  caption: 
-  db_file_id: "149"
-  height: "48"
-  filename: rails_icon.png
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "58"
-  created_at: 2007-05-29 17:56:26
-  width: "38"
-project_assets_035: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:04
-  thumbnails_count: "0"
-  size: "44074"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "137"
-  caption: 
-  db_file_id: "137"
-  height: "26"
-  filename: H_E_Stained_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "136"
-  created_at: 2007-05-25 17:34:43
-  width: "48"
-project_assets_024: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:02
-  thumbnails_count: "0"
-  size: "12502"
-  thumbnail: normal
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "13"
-  id: "126"
-  caption: 
-  db_file_id: "126"
-  height: "200"
-  filename: microexambm43_normal.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "124"
-  created_at: 2007-05-25 17:31:53
-  width: "301"
-project_assets_013: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:01
-  thumbnails_count: "0"
-  size: "221683"
-  thumbnail: icon
-  project_id: 
-  title: 
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "27"
-  id: "115"
-  caption: 
-  db_file_id: "116"
-  height: "36"
-  filename: 1.Partial_nerve_severance_icon.jpg
-  created_by_user_id: "1"
-  content_hash: 
-  parent_id: "51"
-  created_at: 2007-05-25 15:07:06
-  width: "48"
-project_assets_002: 
-  content_type: image/jpeg
-  updated_at: 2007-05-30 09:17:00
-  thumbnails_count: "0"
-  size: "221669"
-  thumbnail: 
-  project_id: 
-  title: rshell-53
-  published: "0"
-  updated_by_user_id: "1"
-  lock_version: "33"
-  id: "51"
-  caption: 
-  db_file_id: "54"
-  height: "576"
-  filename: 1.Partial_nerve_severance.jpg
-  created_by_user_id: "3"
-  content_hash: 
-  parent_id: 
-  created_at: 2007-05-17 11:00:13
-  width: "768"

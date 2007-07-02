@@ -53,7 +53,7 @@ class ProjectContent < ProjectElement
     content.body_html =    options[:to_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")   
     content.valid?
     logger.info content.to_yaml
-    return self unless content.save
+    content.save
     element.content = content
     return element
   end

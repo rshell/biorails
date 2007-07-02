@@ -1,313 +1,238 @@
 --- 
-parameter_types_020: 
-  name: Score
-  storage_unit: 
-  updated_at: 2007-03-20 16:00:58
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "0"
-  id: "20"
-  description: Scored values 1..10
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 16:00:58
-  weighing: "0"
 parameter_types_009: 
-  name: Concentration
-  storage_unit: concentration
-  updated_at: 2007-05-27 11:37:38
+  name: Duration
+  storage_unit: time
+  updated_at: 2007-06-06 17:09:57
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "1"
+  lock_version: "0"
   id: "9"
-  description: Concentration (not dose)
+  description: Duration for managemenrt of delta times and other time points as numeric values.
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:16:57
-  weighing: "0"
-parameter_types_021: 
-  name: Date
-  storage_unit: time
-  updated_at: 2007-05-27 11:36:55
-  updated_by_user_id: "3"
-  data_type_id: "3"
-  lock_version: "1"
-  id: "21"
-  description: Date
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 16:01:14
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:09:57
   weighing: "0"
 parameter_types_010: 
-  name: Dose
-  storage_unit: concentration
-  updated_at: 2007-05-27 11:37:23
+  name: Length
+  storage_unit: length
+  updated_at: 2007-06-06 17:12:28
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "1"
+  lock_version: "0"
   id: "10"
-  description: Dose (Not concentration)
+  description: "Length "
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:18:14
-  weighing: "0"
-parameter_types_022: 
-  name: Time
-  storage_unit: time
-  updated_at: 2007-05-27 11:36:05
-  updated_by_user_id: "3"
-  data_type_id: "4"
-  lock_version: "1"
-  id: "22"
-  description: Time (hh:mm:ss) of observation
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 16:01:40
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:12:28
   weighing: "0"
 parameter_types_011: 
-  name: Correction Factor
-  storage_unit: 
-  updated_at: 2007-03-20 14:18:36
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
+  name: URL
+  storage_unit: ""
+  updated_at: 2007-06-06 17:13:42
+  updated_by_user_id: "3"
+  data_type_id: "6"
+  lock_version: "1"
   id: "11"
-  description: Numeric facture used to adjust data
+  description: Reference url for futher information in external context
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:18:36
-  weighing: "0"
-parameter_types_023: 
-  name: Compound
-  storage_unit: 
-  updated_at: 2007-03-20 16:23:42
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "0"
-  id: "23"
-  description: Compound under investigation
-  data_concept_id: "4"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 16:23:42
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:13:05
   weighing: "0"
 parameter_types_012: 
-  name: Sample Size
-  storage_unit: 
-  updated_at: 2007-03-20 14:19:04
-  updated_by_user_id: "1"
+  name: IC50
+  storage_unit: concentration
+  updated_at: 2007-06-06 22:22:07
+  updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
   id: "12"
-  description: Integer - size of treatment group, number of obs etc
+  description: IC50 is a measure of concentration used in pharmacological research. IC50, or the half maximal inhibitory concentration, represents the concentration of an inhibitor that is required for 50% inhibition of its target (i.e. an enzyme, cell, cell receptor or
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:19:04
+  created_by_user_id: "3"
+  created_at: 2007-06-06 22:22:07
   weighing: "0"
 parameter_types_001: 
-  name: Label
-  storage_unit: 
-  updated_at: 2007-03-20 14:13:11
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "1"
-  description: Text - used for labels, well ref etc
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:13:11
-  weighing: "0"
-parameter_types_024: 
-  name: Target
-  storage_unit: 
-  updated_at: 2007-04-03 16:56:22
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "0"
-  id: "25"
-  description: Target
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  created_at: 2007-04-03 16:56:22
-  weighing: "0"
-parameter_types_013: 
-  name: Link
-  storage_unit: 
-  updated_at: 2007-03-20 14:59:55
-  updated_by_user_id: "1"
-  data_type_id: "6"
-  lock_version: "0"
-  id: "13"
-  description: Link, URL pathname
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:59:55
-  weighing: "0"
-parameter_types_002: 
-  name: Note
-  storage_unit: 
-  updated_at: 2007-03-20 14:13:50
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "2"
-  description: Textual note
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:13:50
-  weighing: "0"
-parameter_types_014: 
-  name: Calculation
-  storage_unit: 
-  updated_at: 2007-03-20 15:00:50
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "14"
-  description: Calculated Value
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 15:00:50
-  weighing: "0"
-parameter_types_003: 
-  name: Activity
-  storage_unit: 
-  updated_at: 2007-03-20 14:14:31
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "3"
-  description: Normalised data used in screening for example
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:14:31
-  weighing: "0"
-parameter_types_015: 
-  name: Sex
-  storage_unit: 
-  updated_at: 2007-03-20 15:01:35
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "0"
-  id: "15"
-  description: Sex - dictionary (lookup)
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 15:01:35
-  weighing: "0"
-parameter_types_004: 
-  name: Statistic
-  storage_unit: 
-  updated_at: 2007-03-20 14:14:55
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "4"
-  description: Derived numerical statistic
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:14:55
-  weighing: "0"
-parameter_types_016: 
-  name: Route of Administration
-  storage_unit: 
-  updated_at: 2007-03-20 15:02:13
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "0"
-  id: "16"
-  description: Route of administration - dictionary
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 15:02:13
-  weighing: "0"
-parameter_types_005: 
-  name: Index
-  storage_unit: 
-  updated_at: 2007-03-20 14:15:12
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "5"
-  description: Used as a key in tables
-  data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:15:12
-  weighing: "0"
-parameter_types_017: 
-  name: Species
-  storage_unit: 
-  updated_at: 2007-03-20 15:58:56
-  updated_by_user_id: "1"
-  data_type_id: "5"
-  lock_version: "1"
-  id: "17"
-  description: Species - dictionary (lookup)
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 15:02:41
-  weighing: "0"
-parameter_types_006: 
-  name: Counts
-  storage_unit: counting
-  updated_at: 2007-05-27 11:37:53
+  name: Dose
+  storage_unit: ""
+  updated_at: 2007-06-06 16:56:20
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "5"
-  id: "6"
-  description: CPM, Behavioral counts etc
+  lock_version: "0"
+  id: "1"
+  description: "Dosage "
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:15:39
+  created_by_user_id: "3"
+  created_at: 2007-06-06 16:56:20
   weighing: "0"
-parameter_types_018: 
-  name: Flag
-  storage_unit: 
-  updated_at: 2007-03-20 15:59:28
-  updated_by_user_id: "1"
+parameter_types_013: 
+  name: Enzyme
+  storage_unit: ""
+  updated_at: 2007-06-06 22:27:29
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "13"
+  description: Enzymes are proteins that catalyze (i.e. accelerate) chemical reactions.[1] In enzymatic reactions, the molecules at the beginning of the process are called substrates, and the enzyme converts them into different molecules, the products. Almost all proces
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 22:27:29
+  weighing: "0"
+parameter_types_002: 
+  name: Count
+  storage_unit: counting
+  updated_at: 2007-06-06 17:02:49
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "1"
+  id: "2"
+  description: This is generic parameter type for animal counts and other such totals
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 16:59:17
+  weighing: "0"
+parameter_types_014: 
+  name: organism
+  storage_unit: ""
+  updated_at: 2007-06-06 22:29:09
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "14"
+  description: |-
+    n biology and ecology, an organism (in Greek organon = instrument) is a living complex adaptive system of organs that influence each other in such a way that they function in some way as a stable whole.
+    
+    The origin of life on Earth and the relationships
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 22:29:09
+  weighing: "0"
+parameter_types_003: 
+  name: Inhibition
+  storage_unit: ""
+  updated_at: 2007-06-08 10:45:01
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "1"
+  id: "3"
+  description: A good example of usage would be the competitive inhibition, the inhibitor binds to the same active site as the normal enzyme substrate, without undergoing a reaction. The substrate molecule cannot enter the active site while the inhibitor is there, and t
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:01:06
+  weighing: "0"
+parameter_types_015: 
+  name: Location
+  storage_unit: ""
+  updated_at: 2007-06-06 22:29:40
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "15"
+  description: Location of a object
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 22:29:40
+  weighing: "0"
+parameter_types_004: 
+  name: Identifier
+  storage_unit: ""
+  updated_at: 2007-06-06 17:04:24
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "4"
+  description: In the case of non managed inventories this provide a reference text or barcode used for identification
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:04:24
+  weighing: "0"
+parameter_types_016: 
+  name: Date
+  storage_unit: ""
+  updated_at: 2007-06-08 10:49:26
+  updated_by_user_id: "3"
+  data_type_id: "3"
+  lock_version: "0"
+  id: "16"
+  description: Date
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-08 10:49:26
+  weighing: "0"
+parameter_types_005: 
+  name: Compound
+  storage_unit: ""
+  updated_at: 2007-06-06 17:05:07
+  updated_by_user_id: "3"
   data_type_id: "5"
   lock_version: "0"
-  id: "18"
-  description: QC, progression and KO flags
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 15:59:28
+  id: "5"
+  description: Lookup of a compound reference, dictionary driven
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:05:07
   weighing: "0"
-parameter_types_007: 
-  name: Measure
-  storage_unit: 
-  updated_at: 2007-03-20 14:16:03
-  updated_by_user_id: "1"
+parameter_types_017: 
+  name: Time
+  storage_unit: time
+  updated_at: 2007-06-08 10:49:50
+  updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
-  id: "7"
-  description: A double, physical measurement
+  id: "17"
+  description: Time
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:16:03
+  created_by_user_id: "3"
+  created_at: 2007-06-08 10:49:50
   weighing: "0"
-parameter_types_019: 
-  name: Treatment Role
-  storage_unit: 
-  updated_at: 2007-03-20 16:00:18
-  updated_by_user_id: "1"
+parameter_types_006: 
+  name: Plate
+  storage_unit: ""
+  updated_at: 2007-06-06 17:05:46
+  updated_by_user_id: "3"
   data_type_id: "5"
   lock_version: "0"
-  id: "19"
-  description: Role of treatment - vehicle, subject etc
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  created_at: 2007-03-20 16:00:18
+  id: "6"
+  description: "Plate reference, lookup based Plate Id "
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:05:46
+  weighing: "0"
+parameter_types_018: 
+  name: Temperature
+  storage_unit: temperature
+  updated_at: 2007-06-08 10:51:11
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "18"
+  description: Temperature
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-08 10:51:11
+  weighing: "0"
+parameter_types_007: 
+  name: Subject
+  storage_unit: ""
+  updated_at: 2007-06-06 17:07:05
+  updated_by_user_id: "3"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "7"
+  description: Generic lookup for the subject of a experiment may be a compound, tissue , treadment group in use depending on the study.
+  data_concept_id: 
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:07:05
   weighing: "0"
 parameter_types_008: 
-  name: Fit Statistic
-  storage_unit: 
-  updated_at: 2007-03-20 14:16:30
-  updated_by_user_id: "1"
+  name: Rate
+  storage_unit: rate
+  updated_at: 2007-06-06 17:08:52
+  updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
   id: "8"
-  description: Statistics generated from fitting activities
+  description: Rate for radisotope used and other places with are managing counts per min etc.
   data_concept_id: 
-  created_by_user_id: "1"
-  created_at: 2007-03-20 14:16:30
+  created_by_user_id: "3"
+  created_at: 2007-06-06 17:08:52
   weighing: "0"

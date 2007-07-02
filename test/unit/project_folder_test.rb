@@ -26,15 +26,7 @@ class ProjectFolderTest < Test::Unit::TestCase
     assert folder.name =='xxx'
   end
 
-  def test_create_folder
-    project = Project.find(1)
-    study = Study.find(:first)
-    folder  = project.folder(study)
-    assert_ok folder
 
-    assert folder.name ==study.name
-    assert folder.reference.id == study.id
-  end
 
   def test_child_create_folder
     project = Project.find(1)
@@ -57,7 +49,7 @@ class ProjectFolderTest < Test::Unit::TestCase
 
     study = Study.find(:first)
 
-    element = folder.add(study)
+    element = folder.add_reference(study.name,study)
     assert_ok element
 
     assert element.reference.name == study.name
@@ -72,7 +64,7 @@ class ProjectFolderTest < Test::Unit::TestCase
     folder  = project.folder('xxx3')
     assert_ok folder
     
-    element = folder.add_text('title','abstract','body')
+    element = folder.add_content('title','abstract','body')
     assert_ok element
 
     assert element.content.title == 'title'

@@ -20,65 +20,9 @@ class RoleTest < Test::Unit::TestCase
      assert item.size>1
   end
   
-  def test003_possible_subjects
-     item = Role.possible_subjects
+  def test003_subjects
+     item = Role.subjects
      assert item.size>1
-  end
-
-  def test004_get_controllers
-     item = Role.controllers
-     assert item.size>1
-  end
-
-  def test005_reload
-     item = Role.reload
-     assert item.size>1
-  end
-  
-  def test006_possible_actions
-     assert Role.is_checked?('study','show')
-  end
-  
-  def test007_actions
-     item = Role.methods(FinderController)
-     assert item.size>0
-  end
-  
-  def test008_possible_actions
-    assert_not_nil Role.possible_actions('study')   # study
-    assert_not_nil Role.possible_actions('task')     # execute
-    assert_not_nil Role.possible_actions('project')  # projects
-    assert_not_nil Role.possible_actions('user')     # admin
-    assert_not_nil Role.possible_actions('inventory') # inventory
-  end
-
-
-  def test010_possible
-     assert Role.is_checked?('study','show')
-     assert !Role.is_checked?('studies','xxxxx')
-  end
-
-  def test011_invalid
-    item = Role.new
-    assert !item.valid?
-    assert item.errors.invalid?(:name)
-    assert item.errors.invalid?(:description)
-  end
-
-  def test012_valid
-    item = Role.new
-    item.name='xyxy'
-    item.description ='dfdfdf'
-    assert item.valid?
-    assert !item.errors.invalid?(:name)
-    assert !item.errors.invalid?(:description)
-  end
-
-  def test013_duplicate
-    role = Role.find(:first)
-    item = Role.new(:name=> role.name, :description=>'xxxxx' )
-    assert !item.save
-    
   end
   
   def test014_crud
@@ -100,14 +44,8 @@ class RoleTest < Test::Unit::TestCase
     puts "test016"
     role = Role.find_by_name('Public')
     role.rebuild
-    assert Role.is_checked?("study","show")
     assert !role.allow?("study","show")
     assert role.grant("study","show")
-    assert_not_nil role.cache["study"], "check subject in cache"
-    puts   " subjects= #{role.cache.keys.join(',')}"
-    puts   " actions=  #{role.cache["study"].keys.join(',')}"
-    assert role.cache["study"]["show"]==true, "check action in cache"
-    assert role.allow?("study","show"), "check now passes allow?"  
   end 
   
     def test017_allow?
@@ -125,7 +63,7 @@ class RoleTest < Test::Unit::TestCase
     role = Role.find_by_name('Public')
     assert role.id==1
     assert role.grant('study','show')
-    assert role.deny('study','show')
+    assert !role.deny('study','show')
   end
 
 

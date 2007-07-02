@@ -1,80 +1,4 @@
 --- 
-projects_007: 
-  done_hours: 
-  name: MPB
-  expected_hours: 
-  updated_at: 2007-04-30 14:07:16
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "3"
-  expected_at: 
-  id: "8"
-  summary: Develop a medicinal drug to reverse the process of male pattern baldness.
-  created_by_user_id: "3"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-04-30 14:07:16
-  email: 
-projects_008: 
-  done_hours: 
-  name: llll
-  expected_hours: 
-  updated_at: 2007-05-29 14:28:27
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "3"
-  expected_at: 
-  id: "10"
-  summary: llll
-  created_by_user_id: "3"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-05-29 14:28:26
-  email: 
-projects_009: 
-  done_hours: 
-  name: moose5
-  expected_hours: 
-  updated_at: 2007-05-29 14:34:21
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "3"
-  expected_at: 
-  id: "11"
-  summary: moose5
-  created_by_user_id: "3"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-05-29 14:34:20
-  email: 
-projects_010: 
-  done_hours: 
-  name: moosex
-  expected_hours: 
-  updated_at: 2007-05-30 14:21:18
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "8"
-  expected_at: 
-  id: "12"
-  summary: lmooses
-  created_by_user_id: "8"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-05-30 14:21:17
-  email: 
 projects_001: 
   done_hours: 
   name: global
@@ -96,96 +20,20 @@ projects_001:
   email: 
 projects_002: 
   done_hours: 
-  name: Assay-Dev2
+  name: Demo
   expected_hours: 
-  updated_at: 2007-04-18 14:38:20
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "1"
-  expected_at: 
-  id: "3"
-  summary: Assay Development
-  created_by_user_id: "1"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-04-18 14:38:20
-  email: 
-projects_003: 
-  done_hours: 
-  name: AssayDev2
-  expected_hours: 
-  updated_at: 2007-05-25 17:44:49
+  updated_at: 2007-06-06 22:06:30
   ended_at: 
   title: 
   timezone: 
   updated_by_user_id: "3"
   expected_at: 
-  id: "4"
-  summary: Assay Development Area
-  created_by_user_id: "1"
+  id: "13"
+  summary: This is a demo production for training and playing
+  created_by_user_id: "3"
   host: 
   status_id: "0"
   comment_age: 
   started_at: 
-  created_at: 2007-04-20 07:34:32
-  email: 
-projects_004: 
-  done_hours: 
-  name: HTS
-  expected_hours: 
-  updated_at: 2007-04-20 07:35:03
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "1"
-  expected_at: 
-  id: "5"
-  summary: High Throughput Screening
-  created_by_user_id: "1"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-04-20 07:35:03
-  email: 
-projects_005: 
-  done_hours: 
-  name: Profile
-  expected_hours: 
-  updated_at: 2007-05-21 09:41:36
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "3"
-  expected_at: 
-  id: "6"
-  summary: Tox Profile
-  created_by_user_id: "1"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-04-20 07:35:25
-  email: 
-projects_006: 
-  done_hours: 
-  name: Profiling
-  expected_hours: 
-  updated_at: 2007-04-23 18:29:30
-  ended_at: 
-  title: 
-  timezone: 
-  updated_by_user_id: "1"
-  expected_at: 
-  id: "7"
-  summary: Profiling
-  created_by_user_id: "1"
-  host: 
-  status_id: "0"
-  comment_age: 
-  started_at: 
-  created_at: 2007-04-23 18:29:30
+  created_at: 2007-06-06 22:06:30
   email: 

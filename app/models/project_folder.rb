@@ -143,7 +143,6 @@ class ProjectFolder < ProjectElement
 #  * ProjectAsset
 # 
   def add(item)
-     logger.info "add(#{item.path})"
      ProjectElement.transaction do          
        element = item
        case item

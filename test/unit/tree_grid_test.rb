@@ -30,11 +30,11 @@ class TreeGridTest < Test::Unit::TestCase
 
 
   def test_create
-     task = Task.find(:first)
+     task = Task.find( :first )
      assert_not_nil task
      
-     grid = TreeGrid.from_task(task)  
-     assert_not_nil grid.to_csv
+     assert_not_nil task.grid
+     assert_not_nil task.to_csv
   end
 
 end

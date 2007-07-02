@@ -1,841 +1,145 @@
 --- 
-queue_items_030: 
-  data_name: T5
-  experiment_id: 
-  name: T5
-  updated_at: 2007-04-30 20:50:21
-  ended_at: 
-  study_queue_id: "25"
-  comments: From RS-13-25
-  request_service_id: "24"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "2"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "30"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "75"
-  created_by_user_id: "3"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 
-queue_items_019: 
-  data_name: AB004
-  experiment_id: 
-  name: AB004
-  updated_at: 2007-04-19 20:52:30
-  ended_at: 
-  study_queue_id: "19"
-  comments: From RS-8-19
-  request_service_id: "16"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "1"
-  lock_version: "1"
-  expected_at: 2007-04-20 00:00:00
-  data_type: Compound
-  id: "19"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "1"
-  study_parameter_id: "48"
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: "4"
-  created_at: 2007-04-19 20:52:30
-  started_at: 
-queue_items_008: 
-  data_name: AB0060
-  experiment_id: 
-  name: r8
-  updated_at: 2007-01-09 13:39:00
-  ended_at: 
-  study_queue_id: "4"
-  comments: ""
-  request_service_id: 
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "0"
-  expected_at: 2007-01-15 00:00:00
-  data_type: 
-  id: "8"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 13:39:00
-  started_at: 
-queue_items_031: 
-  data_name: AB0012
-  experiment_id: "11"
-  name: AB0012
-  updated_at: 2007-05-01 06:14:33
-  ended_at: 
-  study_queue_id: "26"
-  comments: From RS-14-26
-  request_service_id: "25"
-  task_id: "36"
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "4"
-  expected_at: 2007-05-07 00:00:00
-  data_type: Compound
-  id: "31"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "81"
-  created_by_user_id: "3"
-  status_id: "5"
-  data_id: "12"
-  created_at: 2007-04-30 20:53:33
-  started_at: 2007-04-30 22:09:11
-queue_items_020: 
-  data_name: female
-  experiment_id: 
-  name: female
-  updated_at: 2007-04-26 12:39:50
-  ended_at: 2007-04-26 13:39:50
-  study_queue_id: "20"
-  comments: From RS-10-20
-  request_service_id: "19"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "2"
-  expected_at: 2007-05-03 00:00:00
-  data_type: Hash
-  id: "20"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "49"
-  created_by_user_id: "3"
-  status_id: "5"
-  data_id: "0"
-  created_at: 2007-04-26 12:02:08
-  started_at: 
-queue_items_009: 
-  data_name: AB00121
-  experiment_id: 
-  name: r8
-  updated_at: 2007-01-09 13:39:19
-  ended_at: 
-  study_queue_id: "4"
-  comments: ""
-  request_service_id: 
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "0"
-  expected_at: 2007-01-15 00:00:00
-  data_type: 
-  id: "9"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 13:39:19
-  started_at: 
-queue_items_032: 
-  data_name: AB001
-  experiment_id: 
-  name: AB001
-  updated_at: 2007-04-30 21:09:11
-  ended_at: 
-  study_queue_id: "26"
-  comments: From RS-14-26
-  request_service_id: "25"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "3"
-  expected_at: 2007-05-07 00:00:00
-  data_type: Compound
-  id: "32"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "81"
-  created_by_user_id: "3"
-  status_id: "1"
-  data_id: "1"
-  created_at: 2007-04-30 20:53:33
-  started_at: 2007-04-30 22:09:11
-queue_items_021: 
-  data_name: male
-  experiment_id: 
-  name: male
-  updated_at: 2007-04-26 13:33:10
-  ended_at: 2007-04-26 14:33:10
-  study_queue_id: "20"
-  comments: From RS-10-20
-  request_service_id: "19"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "2"
-  expected_at: 2007-05-03 00:00:00
-  data_type: Hash
-  id: "21"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "49"
-  created_by_user_id: "3"
-  status_id: "-1"
-  data_id: "0"
-  created_at: 2007-04-26 12:02:08
-  started_at: 
-queue_items_010: 
-  data_name: AB001
-  experiment_id: "5"
-  name: AB001
-  updated_at: 2007-04-26 15:02:16
-  ended_at: 
-  study_queue_id: "15"
-  comments: From RS-4-15
-  request_service_id: "9"
-  task_id: "22"
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "8"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "10"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "15"
-  created_by_user_id: "1"
-  status_id: "3"
-  data_id: "1"
-  created_at: 2007-03-21 13:30:23
-  started_at: 2007-03-21 13:31:49
-queue_items_033: 
-  data_name: AB0038
-  experiment_id: 
-  name: AB0038
-  updated_at: 2007-04-30 21:09:11
-  ended_at: 
-  study_queue_id: "26"
-  comments: From RS-14-26
-  request_service_id: "25"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "2"
-  lock_version: "3"
-  expected_at: 2007-05-07 00:00:00
-  data_type: Compound
-  id: "33"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "81"
-  created_by_user_id: "3"
-  status_id: "1"
-  data_id: "38"
-  created_at: 2007-04-30 20:53:33
-  started_at: 2007-04-30 22:07:41
-queue_items_022: 
-  data_name: female
-  experiment_id: 
-  name: female
-  updated_at: 2007-04-26 13:35:56
-  ended_at: 
-  study_queue_id: "20"
-  comments: From RS-6-20
-  request_service_id: "12"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "2"
-  lock_version: "1"
-  expected_at: 2007-04-30 00:00:00
-  data_type: Hash
-  id: "22"
-  assigned_to_user_id: "4"
-  requested_by_user_id: "1"
-  study_parameter_id: "49"
-  created_by_user_id: "3"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-26 13:35:56
-  started_at: 
-queue_items_011: 
-  data_name: AB002
-  experiment_id: "5"
-  name: AB002
-  updated_at: 2007-04-26 15:02:16
-  ended_at: 
-  study_queue_id: "15"
-  comments: From RS-4-15
-  request_service_id: "9"
-  task_id: "22"
-  updated_by_user_id: "3"
-  priority_id: "0"
-  lock_version: "8"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "11"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "15"
-  created_by_user_id: "1"
-  status_id: "3"
-  data_id: "2"
-  created_at: 2007-03-21 13:30:23
-  started_at: 2007-03-21 13:31:52
-queue_items_034: 
-  data_name: AB00433
-  experiment_id: 
-  name: AB00433
-  updated_at: 2007-04-30 21:09:11
-  ended_at: 
-  study_queue_id: "26"
-  comments: From RS-14-26
-  request_service_id: "25"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "0"
-  lock_version: "3"
-  expected_at: 2007-05-07 00:00:00
-  data_type: Compound
-  id: "34"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "81"
-  created_by_user_id: "3"
-  status_id: "1"
-  data_id: "433"
-  created_at: 2007-04-30 20:53:33
-  started_at: 2007-04-30 22:09:11
-queue_items_023: 
-  data_name: female
-  experiment_id: 
-  name: female
-  updated_at: 2007-04-26 13:35:56
-  ended_at: 
-  study_queue_id: "20"
-  comments: From RS-6-20
-  request_service_id: "12"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "2"
-  lock_version: "1"
-  expected_at: 2007-04-30 00:00:00
-  data_type: Hash
-  id: "23"
-  assigned_to_user_id: "4"
-  requested_by_user_id: "1"
-  study_parameter_id: "49"
-  created_by_user_id: "3"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-26 13:35:56
-  started_at: 
-queue_items_012: 
-  data_name: AB003
-  experiment_id: 
-  name: AB003
-  updated_at: 2007-03-21 13:32:03
-  ended_at: 
-  study_queue_id: "15"
-  comments: From RS-4-15
-  request_service_id: "9"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "1"
-  lock_version: "3"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "12"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "15"
-  created_by_user_id: "1"
-  status_id: "1"
-  data_id: "3"
-  created_at: 2007-03-21 13:30:23
-  started_at: 2007-03-21 13:31:56
 queue_items_001: 
-  data_name: AB0061
+  data_name: AB001000
   experiment_id: 
-  name: req/1
-  updated_at: 2007-01-09 12:44:59
-  ended_at: 2007-02-09 00:00:00
+  name: AB001000
+  updated_at: 2007-06-18 22:10:51
+  ended_at: 
   study_queue_id: "1"
-  comments: OK
-  request_service_id: 
-  task_id: "95"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "2"
-  expected_at: 2007-01-16 00:00:00
-  data_type: 
-  id: "1"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 09:37:32
-  started_at: 
-queue_items_035: 
-  data_name: AB00691
-  experiment_id: 
-  name: AB00691
-  updated_at: 2007-04-30 21:09:20
-  ended_at: 2007-04-30 22:09:20
-  study_queue_id: "26"
-  comments: From RS-14-26
-  request_service_id: "25"
+  comments: From RS-1-1
+  request_service_id: "1"
   task_id: 
   updated_by_user_id: "3"
-  priority_id: "0"
-  lock_version: "4"
-  expected_at: 2007-05-07 00:00:00
+  priority_id: "1"
+  lock_version: "2"
+  expected_at: 2007-06-29 00:00:00
   data_type: Compound
-  id: "35"
+  id: "1"
   assigned_to_user_id: "3"
   requested_by_user_id: "3"
-  study_parameter_id: "81"
+  study_parameter_id: "6"
   created_by_user_id: "3"
-  status_id: "-1"
-  data_id: "691"
-  created_at: 2007-04-30 20:53:33
-  started_at: 2007-04-30 22:09:11
-queue_items_024: 
-  data_name: T3
-  experiment_id: 
-  name: T3
-  updated_at: 2007-04-26 15:44:13
-  ended_at: 
-  study_queue_id: "21"
-  comments: From RS-12-21
-  request_service_id: "21"
-  task_id: 
-  updated_by_user_id: "2"
-  priority_id: "0"
-  lock_version: "1"
-  expected_at: 2007-05-26 00:00:00
-  data_type: Hash
-  id: "24"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "4"
-  study_parameter_id: "58"
-  created_by_user_id: "2"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-26 15:44:13
-  started_at: 
-queue_items_013: 
-  data_name: AB001
-  experiment_id: 
-  name: AB001
-  updated_at: 2007-03-25 16:55:47
-  ended_at: 2007-03-25 16:55:47
-  study_queue_id: "18"
-  comments: From RS-4-18
-  request_service_id: "10"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "1"
-  lock_version: "3"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "13"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "29"
-  created_by_user_id: "1"
-  status_id: "5"
-  data_id: "1"
-  created_at: 2007-03-21 13:30:24
+  status_id: "1"
+  data_id: "1000"
+  created_at: 2007-06-08 20:03:33
   started_at: 
 queue_items_002: 
-  data_name: AB0064
+  data_name: AB00101
   experiment_id: 
-  name: req/2
-  updated_at: 2007-01-09 10:03:36
-  ended_at: 2007-01-16 00:00:00
+  name: AB00101
+  updated_at: 2007-06-18 22:10:51
+  ended_at: 
   study_queue_id: "1"
-  comments: ""
-  request_service_id: 
-  task_id: "95"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-01-16 00:00:00
-  data_type: 
-  id: "2"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 09:37:46
-  started_at: 
-queue_items_025: 
-  data_name: T1
-  experiment_id: "14"
-  name: T1
-  updated_at: 2007-04-30 21:20:06
-  ended_at: 
-  study_queue_id: "24"
-  comments: From RS-13-24
-  request_service_id: "23"
-  task_id: "27"
-  updated_by_user_id: "3"
-  priority_id: "0"
-  lock_version: "6"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "25"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "75"
-  created_by_user_id: "3"
-  status_id: "5"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 2007-04-30 22:08:21
-queue_items_014: 
-  data_name: AB002
-  experiment_id: 
-  name: AB002
-  updated_at: 2007-03-25 16:56:06
-  ended_at: 
-  study_queue_id: "18"
-  comments: From RS-4-18
-  request_service_id: "10"
+  comments: From RS-1-1
+  request_service_id: "1"
   task_id: 
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "2"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "14"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "29"
-  created_by_user_id: "1"
-  status_id: "2"
-  data_id: "2"
-  created_at: 2007-03-21 13:30:24
-  started_at: 
-queue_items_003: 
-  data_name: AB00111
-  experiment_id: 
-  name: rea/3
-  updated_at: 2007-01-09 10:02:39
-  ended_at: 2007-01-09 00:00:00
-  study_queue_id: "2"
-  comments: Cannot do this assay in 1 day!
-  request_service_id: 
-  task_id: "123"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-01-10 00:00:00
-  data_type: 
-  id: "3"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 09:38:52
-  started_at: 
-queue_items_026: 
-  data_name: T3
-  experiment_id: "14"
-  name: T3
-  updated_at: 2007-05-01 09:17:17
-  ended_at: 
-  study_queue_id: "24"
-  comments: From RS-13-24
-  request_service_id: "23"
-  task_id: "27"
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "6"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "26"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "75"
-  created_by_user_id: "3"
-  status_id: "3"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 2007-04-30 22:08:21
-queue_items_015: 
-  data_name: AB003
-  experiment_id: 
-  name: AB003
-  updated_at: 2007-03-21 13:30:24
-  ended_at: 
-  study_queue_id: "18"
-  comments: From RS-4-18
-  request_service_id: "10"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-03-28 00:00:00
-  data_type: Compound
-  id: "15"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: "29"
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: "3"
-  created_at: 2007-03-21 13:30:24
-  started_at: 
-queue_items_004: 
-  data_name: AB00111
-  experiment_id: 
-  name: r/4
-  updated_at: 2007-01-09 10:04:11
-  ended_at: 2007-02-09 00:00:00
-  study_queue_id: "2"
-  comments: v.v.\important
-  request_service_id: 
-  task_id: "123"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-01-15 00:00:00
-  data_type: 
-  id: "4"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 09:39:54
-  started_at: 
-queue_items_027: 
-  data_name: T5
-  experiment_id: "14"
-  name: T5
-  updated_at: 2007-05-01 09:17:21
-  ended_at: 
-  study_queue_id: "24"
-  comments: From RS-13-24
-  request_service_id: "23"
-  task_id: "27"
   updated_by_user_id: "3"
   priority_id: "2"
-  lock_version: "7"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "27"
+  lock_version: "4"
+  expected_at: 2007-06-29 00:00:00
+  data_type: Compound
+  id: "2"
   assigned_to_user_id: "3"
   requested_by_user_id: "3"
-  study_parameter_id: "75"
+  study_parameter_id: "6"
   created_by_user_id: "3"
-  status_id: "3"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 2007-04-30 22:08:21
-queue_items_016: 
-  data_name: AB003
-  experiment_id: 
-  name: AB003
-  updated_at: 2007-04-23 15:32:01
-  ended_at: 
-  study_queue_id: "15"
-  comments: From RS-8-15
-  request_service_id: "15"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "0"
-  lock_version: "3"
-  expected_at: 2007-04-20 00:00:00
-  data_type: Compound
-  id: "16"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "1"
-  study_parameter_id: "15"
-  created_by_user_id: "1"
   status_id: "1"
-  data_id: "3"
-  created_at: 2007-04-19 20:52:29
-  started_at: 2007-04-23 16:31:54
-queue_items_005: 
-  data_name: AB009
-  experiment_id: 
-  name: r/5
-  updated_at: 2007-01-09 10:30:39
-  ended_at: 2007-01-16 00:00:00
-  study_queue_id: "2"
-  comments: ""
-  request_service_id: 
-  task_id: "125"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-01-09 00:00:00
-  data_type: 
-  id: "5"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 10:28:00
+  data_id: "101"
+  created_at: 2007-06-08 20:03:33
   started_at: 
-queue_items_028: 
-  data_name: T1
+queue_items_003: 
+  data_name: AB00103
   experiment_id: 
-  name: T1
-  updated_at: 2007-04-30 20:50:21
-  ended_at: 
-  study_queue_id: "25"
-  comments: From RS-13-25
-  request_service_id: "24"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "2"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "28"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "75"
-  created_by_user_id: "3"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 
-queue_items_017: 
-  data_name: AB004
-  experiment_id: 
-  name: AB004
-  updated_at: 2007-04-23 15:32:04
-  ended_at: 
-  study_queue_id: "15"
-  comments: From RS-8-15
-  request_service_id: "15"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "0"
-  lock_version: "3"
-  expected_at: 2007-04-20 00:00:00
-  data_type: Compound
-  id: "17"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "1"
-  study_parameter_id: "15"
-  created_by_user_id: "1"
-  status_id: "1"
-  data_id: "4"
-  created_at: 2007-04-19 20:52:29
-  started_at: 2007-04-23 16:31:57
-queue_items_006: 
-  data_name: AB009
-  experiment_id: 
-  name: r/6
-  updated_at: 2007-01-09 13:41:39
-  ended_at: 2007-02-09 00:00:00
-  study_queue_id: "2"
-  comments: Finished
-  request_service_id: 
-  task_id: "129"
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "1"
-  expected_at: 2007-01-09 00:00:00
-  data_type: 
-  id: "6"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 10:28:03
-  started_at: 
-queue_items_029: 
-  data_name: T3
-  experiment_id: 
-  name: T3
-  updated_at: 2007-04-30 20:50:21
-  ended_at: 
-  study_queue_id: "25"
-  comments: From RS-13-25
-  request_service_id: "24"
-  task_id: 
-  updated_by_user_id: "3"
-  priority_id: "1"
-  lock_version: "2"
-  expected_at: 2007-08-30 00:00:00
-  data_type: Hash
-  id: "29"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "3"
-  study_parameter_id: "75"
-  created_by_user_id: "3"
-  status_id: "0"
-  data_id: "0"
-  created_at: 2007-04-30 20:18:05
-  started_at: 
-queue_items_018: 
-  data_name: AB003
-  experiment_id: 
-  name: AB003
-  updated_at: 2007-04-19 20:52:30
-  ended_at: 
-  study_queue_id: "19"
-  comments: From RS-8-19
-  request_service_id: "16"
-  task_id: 
-  updated_by_user_id: "1"
-  priority_id: "1"
-  lock_version: "1"
-  expected_at: 2007-04-20 00:00:00
-  data_type: Compound
-  id: "18"
-  assigned_to_user_id: "3"
-  requested_by_user_id: "1"
-  study_parameter_id: "48"
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: "3"
-  created_at: 2007-04-19 20:52:30
-  started_at: 
-queue_items_007: 
-  data_name: AB0063
-  experiment_id: 
-  name: r6
-  updated_at: 2007-01-09 10:28:56
+  name: AB00103
+  updated_at: 2007-06-18 22:10:51
   ended_at: 
   study_queue_id: "1"
-  comments: ""
-  request_service_id: 
+  comments: From RS-1-1
+  request_service_id: "1"
   task_id: 
-  updated_by_user_id: "1"
-  priority_id: 
-  lock_version: "0"
-  expected_at: 2007-01-10 00:00:00
-  data_type: 
-  id: "7"
-  assigned_to_user_id: "1"
-  requested_by_user_id: "1"
-  study_parameter_id: 
-  created_by_user_id: "1"
-  status_id: "0"
-  data_id: 
-  created_at: 2007-01-09 10:28:56
+  updated_by_user_id: "3"
+  priority_id: "1"
+  lock_version: "2"
+  expected_at: 2007-06-29 00:00:00
+  data_type: Compound
+  id: "3"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  study_parameter_id: "6"
+  created_by_user_id: "3"
+  status_id: "1"
+  data_id: "103"
+  created_at: 2007-06-08 20:03:33
   started_at: 
+queue_items_004: 
+  data_name: AB001000
+  experiment_id: 
+  name: AB001000
+  updated_at: 2007-06-09 08:31:39
+  ended_at: 
+  study_queue_id: "2"
+  comments: From RS-1-2
+  request_service_id: "2"
+  task_id: 
+  updated_by_user_id: "3"
+  priority_id: "0"
+  lock_version: "7"
+  expected_at: 2007-06-29 00:00:00
+  data_type: Compound
+  id: "4"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  study_parameter_id: "14"
+  created_by_user_id: "3"
+  status_id: "2"
+  data_id: "1000"
+  created_at: 2007-06-08 20:03:33
+  started_at: 2007-06-08 21:51:16
+queue_items_005: 
+  data_name: AB00101
+  experiment_id: 
+  name: AB00101
+  updated_at: 2007-06-09 08:31:39
+  ended_at: 2007-06-08 21:44:01
+  study_queue_id: "2"
+  comments: From RS-1-2
+  request_service_id: "2"
+  task_id: 
+  updated_by_user_id: "3"
+  priority_id: "0"
+  lock_version: "13"
+  expected_at: 2007-06-29 00:00:00
+  data_type: Compound
+  id: "5"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  study_parameter_id: "14"
+  created_by_user_id: "3"
+  status_id: "4"
+  data_id: "101"
+  created_at: 2007-06-08 20:03:33
+  started_at: 2007-06-08 21:40:26
+queue_items_006: 
+  data_name: AB00103
+  experiment_id: 
+  name: AB00103
+  updated_at: 2007-06-09 08:31:39
+  ended_at: 2007-06-08 21:44:20
+  study_queue_id: "2"
+  comments: From RS-1-2
+  request_service_id: "2"
+  task_id: 
+  updated_by_user_id: "3"
+  priority_id: "0"
+  lock_version: "11"
+  expected_at: 2007-06-29 00:00:00
+  data_type: Compound
+  id: "6"
+  assigned_to_user_id: "3"
+  requested_by_user_id: "3"
+  study_parameter_id: "14"
+  created_by_user_id: "3"
+  status_id: "2"
+  data_id: "103"
+  created_at: 2007-06-08 20:03:33
+  started_at: 2007-06-08 21:40:29

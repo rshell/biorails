@@ -1,144 +1,18 @@
 --- 
 data_formats_008: 
-  name: Integer
-  updated_at: 2007-05-26 12:21:37
+  name: Decimal5.2
+  updated_at: 2007-06-06 20:13:07
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "2"
-  id: "8"
-  description: Integer Value
-  format_sprintf: "%9d"
-  created_by_user_id: "1"
-  format_regex: "[-+]?\\b\\d+\\b"
-  created_at: 0000-00-00 00:00:00
-data_formats_010: 
-  name: Date
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "3"
-  lock_version: "0"
-  id: "10"
-  description: Date yyyy-mm-dd
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: (19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])
-  created_at: 0000-00-00 00:00:00
-data_formats_009: 
-  name: Email
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "9"
-  description: Email Address
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: ^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$
-  created_at: 0000-00-00 00:00:00
-data_formats_011: 
-  name: Positive
-  updated_at: 2007-05-31 14:18:52
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "1"
-  id: "11"
-  description: |-
-    Description:  	Positive integer value.
-    Matches: 	123|||10|||54
-    Non-Matches: 	-54|||54.234|||abc
-  format_sprintf: ""
-  created_by_user_id: "1"
-  format_regex: ^[0-9,.]*$
-  created_at: 0000-00-00 00:00:00
-data_formats_012: 
-  name: Decimal5.2
-  updated_at: 2007-05-26 12:22:03
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "1"
   id: "12"
-  description: |-
-    Description:  	validates to 5 digits and 2 decimal places but not allowing zero
-    Matches: 	12345.12|||0.5
-    Non-Matches: 	123456.12|||1.234|||.1
+  description: "Description:  \tvalidates to 5 digits and 2 decimal places but not allowing zero"
   format_sprintf: "%5.2d"
   created_by_user_id: "1"
   format_regex: (?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$
   created_at: 0000-00-00 00:00:00
-data_formats_001: 
-  name: Text
-  updated_at: 2007-02-07 14:10:25
-  default_value: ""
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "1"
-  id: "1"
-  description: Free Format Text
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: .
-  created_at: 0000-00-00 00:00:00
-data_formats_013: 
-  name: Percentage
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "13"
-  description: |-
-    Description:  	Percentage (From 0 to 100)
-    Matches: 	100%|||100|||52.65%
-    Non-Matches: 	-1|||-1%|||100.1%
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: .
-  created_at: 0000-00-00 00:00:00
-data_formats_002: 
-  name: Alpha
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "2"
-  description: A-Z
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: 
-  created_at: 0000-00-00 00:00:00
-data_formats_014: 
-  name: Time
-  updated_at: 2007-05-29 12:23:24
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "4"
-  lock_version: "2"
-  id: "20"
-  description: TIme as integer and unit  1 sec, 1 min
-  format_sprintf: ""
-  created_by_user_id: "1"
-  format_regex: "[0-9]* [(sec)(min)(hour)(week)(year)]"
-  created_at: 0000-00-00 00:00:00
-data_formats_003: 
-  name: Line
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "3"
-  description: Single Line of Text
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: "[^\"\\r\\n]*"
-  created_at: 0000-00-00 00:00:00
-data_formats_015: 
+data_formats_010: 
   name: URL
   updated_at: 2007-05-25 19:08:50
   default_value: ""
@@ -153,21 +27,23 @@ data_formats_015:
   created_by_user_id: "1"
   format_regex: (http://)[a..Z]*
   created_at: 0000-00-00 00:00:00
-data_formats_004: 
-  name: Double
-  updated_at: 2007-06-01 11:05:23
-  default_value: "0.0"
+data_formats_009: 
+  name: Percentage
+  updated_at: 2007-06-06 20:26:16
+  default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "5"
-  id: "4"
-  description: Standard Number format +/-nnn.nnnnn with units
-  format_sprintf: ""
+  lock_version: "1"
+  id: "13"
+  description: |
+    Description:  	Percentage (From 0 to 100)
+
+  format_sprintf: "%d"
   created_by_user_id: "1"
-  format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
-  created_at: 2006-11-27 11:59:22
-data_formats_016: 
-  name: name
+  format_regex: "[-+]?[0-9]*\\.?[0-9]"
+  created_at: 0000-00-00 00:00:00
+data_formats_011: 
+  name: Name
   updated_at: 2007-05-28 15:02:59
   default_value: ""
   updated_by_user_id: "3"
@@ -179,33 +55,98 @@ data_formats_016:
   created_by_user_id: "3"
   format_regex: ^[A-Z,a-z,0-9]*$
   created_at: 2007-05-25 21:07:28
-data_formats_005: 
-  name: Hex
+data_formats_012: 
+  name: Quantiy
+  updated_at: 2007-06-06 20:15:15
+  default_value: ""
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "26"
+  description: Basic numeric value followed by a unit
+  format_sprintf: "%d %s"
+  created_by_user_id: "3"
+  format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
+  created_at: 2007-06-06 20:15:15
+data_formats_001: 
+  name: Text
+  updated_at: 2007-02-07 14:10:25
+  default_value: ""
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "1"
+  id: "1"
+  description: Free Format Text
+  format_sprintf: 
+  created_by_user_id: "1"
+  format_regex: .
+  created_at: 0000-00-00 00:00:00
+data_formats_013: 
+  name: Concentration
+  updated_at: 2007-06-08 11:24:56
+  default_value: ""
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "1"
+  id: "27"
+  description: Concentration in molar units
+  format_sprintf: "%d %s"
+  created_by_user_id: "3"
+  format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
+  created_at: 2007-06-06 20:20:26
+data_formats_002: 
+  name: Alpha
   updated_at: 0000-00-00 00:00:00
   default_value: 
   updated_by_user_id: "1"
   data_type_id: "1"
   lock_version: "0"
-  id: "5"
-  description: Nex values
+  id: "2"
+  description: A-Z
   format_sprintf: 
   created_by_user_id: "1"
-  format_regex: \b0[xX][0-9a-fA-F]+\b
+  format_regex: 
   created_at: 0000-00-00 00:00:00
-data_formats_006: 
-  name: Float
+data_formats_014: 
+  name: Amount
+  updated_at: 2007-06-06 20:22:12
+  default_value: ""
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "28"
+  description: "Mols of stuff "
+  format_sprintf: "%d %s"
+  created_by_user_id: "3"
+  format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
+  created_at: 2007-06-06 20:22:12
+data_formats_003: 
+  name: Line
   updated_at: 0000-00-00 00:00:00
   default_value: 
   updated_by_user_id: "1"
-  data_type_id: "2"
+  data_type_id: "1"
   lock_version: "0"
-  id: "6"
-  description: Floating Point number
+  id: "3"
+  description: Single Line of Text
   format_sprintf: 
   created_by_user_id: "1"
-  format_regex: ((\b[0-9]+)?\.)?[0-9]+\b
+  format_regex: "[^\"\\r\\n]*"
   created_at: 0000-00-00 00:00:00
-data_formats_007: 
+data_formats_004: 
+  name: Double
+  updated_at: 2007-06-07 21:45:34
+  default_value: "0.0"
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "6"
+  id: "4"
+  description: Standard Number format +/-nnn.nnnnn with units
+  format_sprintf: "%d %s"
+  created_by_user_id: "1"
+  format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
+  created_at: 2006-11-27 11:59:22
+data_formats_005: 
   name: Scientific Notation
   updated_at: 0000-00-00 00:00:00
   default_value: 
@@ -217,4 +158,33 @@ data_formats_007:
   format_sprintf: 
   created_by_user_id: "1"
   format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
+  created_at: 0000-00-00 00:00:00
+data_formats_006: 
+  name: Integer
+  updated_at: 2007-06-07 21:45:05
+  default_value: ""
+  updated_by_user_id: "3"
+  data_type_id: "2"
+  lock_version: "3"
+  id: "8"
+  description: Integer Value
+  format_sprintf: "%d"
+  created_by_user_id: "1"
+  format_regex: "[-+]?\\b\\d+\\b"
+  created_at: 0000-00-00 00:00:00
+data_formats_007: 
+  name: Positive
+  updated_at: 2007-06-20 10:07:04
+  default_value: ""
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "11"
+  description: |-
+    Description:  	Positive integer value.
+    Matches: 	123|||10|||54
+    Non-Matches: 	-54|||54.234|||abc
+  format_sprintf: "%d %s"
+  created_by_user_id: "1"
+  format_regex: ^[0-9,.]*$
   created_at: 0000-00-00 00:00:00

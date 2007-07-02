@@ -73,18 +73,28 @@ class Project::ContentController < ApplicationController
       logger.info @project_element.to_yaml
       @project_element.valid?
       unless @project_element.save
-        flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
-      end
+           flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
+           respond_to do |format|
+            format.html { render :action=>'new'}
+            format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
+            format.js  { render :update do | page |
+                 page.replace_html 'messages', :partial=> 'messages'
+                 page.replace_html 'centre',  :partial=> 'new'
+               end
+            }
+          end 
+     else   
+          respond_to do |format|
+            format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
+            format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
+            format.js  { render :update do | page |
+                 page.replace_html 'messages', :partial=> 'messages'
+                 page.replace_html 'centre',  :partial=> 'show'
+               end
+            }
+          end  
+     end
     end
-    respond_to do |format|
-      format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
-      format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
-      format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'centre',  :partial=> 'show'
-         end
-      }
-    end  
   end
 
 ##

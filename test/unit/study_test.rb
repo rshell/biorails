@@ -102,7 +102,7 @@ class StudyTest < Test::Unit::TestCase
       study = Study.from_xml(STUDY1_XML)
       assert_not_nil study
       assert study.id==3
-      assert !study.valid?, "record not valid #{study.errors.full_messages().join('\n')}"
+      assert study.valid?, "record not valid #{study.errors.full_messages().join('\n')}"
     end
     
     def test_from_xml_with_attibute
@@ -157,7 +157,7 @@ class StudyTest < Test::Unit::TestCase
     puts "====================test_xml_study_copy==============================="
       study = Study.find(:first)
       assert_not_nil study
-      study.name= "test_xml_study_copy"
+      study.name= "test_xml_study_copy2"
       study.description="ssdddsdgfsd"
       xml = study.to_xml()
       study = Study.from_xml(xml, :create=>[:study ,:study_protocol,:study_parameter,:process,

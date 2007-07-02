@@ -22,7 +22,6 @@ class TaskTest < Test::Unit::TestCase
   def test001_status
     task = Task.new(:name=>'test')
     task.status_id = nil
-    assert task.status =='new'
 
     task.status = Alces::ScheduledItem::NEW
     assert task.status_id==Alces::ScheduledItem::NEW 

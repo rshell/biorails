@@ -341,7 +341,7 @@ UNITS_TYPOGRAPHY = {
   UNITS_LIST      = @@base_units.values.collect{|i|i[0]}.flatten.sort
   
   UNITS_LOOKUP = UNITS_LIST.collect{|j| ["#{j.to_s}",j] }  
-  @@dimension_lookup << ["<none> No Set dimension ",'']
+  @@dimension_lookup << ["<none> No preset dimension ",'']
   DIMENSIONS_LOOKUP =  @@dimension_lookup
   PREFIXES_LOOKUP    = UNIT_PREFIX.keys.collect{|i|["x #{UNIT_PREFIX[i][1]} [#{UNIT_PREFIX[i][0][1]}]"] }
   PREFIXES_COMMON = ['','c','m','u','n']

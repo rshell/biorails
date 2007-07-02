@@ -1,526 +1,106 @@
 --- 
-parameter_contexts_003: 
-  protocol_version_id: "2"
-  id: "3"
-  default_count: "40"
-  level_no: "0"
-  label: Animals
-  parent_id: "2"
-parameter_contexts_024: 
-  protocol_version_id: "13"
-  id: "25"
-  default_count: "6"
-  level_no: "0"
-  label: Dose Group
-  parent_id: "24"
-parameter_contexts_045: 
-  protocol_version_id: "24"
-  id: "48"
-  default_count: "1"
-  level_no: "0"
-  label: report
-  parent_id: 
-parameter_contexts_066: 
-  protocol_version_id: "35"
-  id: "69"
-  default_count: "10"
-  level_no: "0"
-  label: cmpd
-  parent_id: 
-parameter_contexts_067: 
-  protocol_version_id: "36"
-  id: "70"
-  default_count: "10"
-  level_no: "0"
-  label: cmpd
-  parent_id: 
-parameter_contexts_004: 
-  protocol_version_id: "3"
-  id: "5"
-  default_count: "4"
-  level_no: "0"
-  label: Treatment Groups
-  parent_id: 
-parameter_contexts_025: 
-  protocol_version_id: "13"
-  id: "26"
-  default_count: "4"
-  level_no: "0"
-  label: Animals
-  parent_id: "25"
-parameter_contexts_046: 
-  protocol_version_id: "25"
-  id: "49"
-  default_count: "1"
-  level_no: "0"
-  label: AssayDefinition
-  parent_id: 
-parameter_contexts_068: 
-  protocol_version_id: "37"
-  id: "71"
-  default_count: "1"
-  level_no: "0"
-  label: plate
-  parent_id: 
-parameter_contexts_005: 
-  protocol_version_id: "3"
-  id: "6"
-  default_count: "3"
-  level_no: "0"
-  label: Treatments
-  parent_id: "5"
-parameter_contexts_026: 
-  protocol_version_id: "14"
-  id: "27"
-  default_count: "1"
-  level_no: "0"
-  label: Compound
-  parent_id: 
-parameter_contexts_047: 
-  protocol_version_id: "26"
-  id: "50"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_070: 
-  protocol_version_id: "38"
-  id: "73"
-  default_count: "10"
-  level_no: "0"
-  label: cmpd
-  parent_id: 
-parameter_contexts_069: 
-  protocol_version_id: "37"
-  id: "72"
-  default_count: "96"
-  level_no: "0"
-  label: wells
-  parent_id: "71"
-parameter_contexts_006: 
-  protocol_version_id: "4"
-  id: "7"
-  default_count: "1"
-  level_no: "0"
-  label: Day
-  parent_id: 
-parameter_contexts_027: 
-  protocol_version_id: "14"
-  id: "28"
-  default_count: "6"
-  level_no: "0"
-  label: Dose Groups
-  parent_id: "27"
-parameter_contexts_048: 
-  protocol_version_id: "26"
-  id: "51"
-  default_count: "384"
-  level_no: "0"
-  label: wells
-  parent_id: "50"
-parameter_contexts_071: 
-  protocol_version_id: "39"
-  id: "74"
-  default_count: "10"
-  level_no: "0"
-  label: Moose
-  parent_id: 
-parameter_contexts_028: 
-  protocol_version_id: "15"
-  id: "29"
-  default_count: "6"
-  level_no: "0"
-  label: Groups
-  parent_id: 
-parameter_contexts_050: 
-  protocol_version_id: "27"
-  id: "53"
-  default_count: "96"
-  level_no: "0"
-  label: wells
-  parent_id: "52"
-parameter_contexts_049: 
-  protocol_version_id: "27"
-  id: "52"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
 parameter_contexts_007: 
   protocol_version_id: "4"
-  id: "8"
-  default_count: "40"
-  level_no: "0"
-  label: Animals
-  parent_id: "7"
-parameter_contexts_072: 
-  protocol_version_id: "39"
-  id: "75"
-  default_count: "1"
-  level_no: "0"
-  label: wwww
-  parent_id: 
-parameter_contexts_008: 
-  protocol_version_id: "5"
-  id: "9"
-  default_count: "4"
-  level_no: "0"
-  label: Treatment Groups
-  parent_id: 
-parameter_contexts_030: 
-  protocol_version_id: "16"
-  id: "31"
-  default_count: "3"
-  level_no: "0"
-  label: stuff
-  parent_id: 
-parameter_contexts_029: 
-  protocol_version_id: "15"
-  id: "30"
+  id: "7"
   default_count: "8"
   level_no: "0"
-  label: Animals
-  parent_id: "29"
-parameter_contexts_051: 
-  protocol_version_id: "28"
-  id: "54"
+  label: well
+  parent_id: "6"
+parameter_contexts_008: 
+  protocol_version_id: "4"
+  id: "8"
   default_count: "1"
   level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_073: 
-  protocol_version_id: "40"
-  id: "76"
-  default_count: "1"
-  level_no: "0"
-  label: context0
-  parent_id: 
-parameter_contexts_010: 
-  protocol_version_id: "6"
-  id: "11"
-  default_count: "4"
-  level_no: "0"
-  label: Gene
+  label: context2
   parent_id: 
 parameter_contexts_009: 
   protocol_version_id: "5"
-  id: "10"
-  default_count: "8"
-  level_no: "0"
-  label: Day
-  parent_id: "9"
-parameter_contexts_031: 
-  protocol_version_id: "16"
-  id: "32"
-  default_count: "3"
-  level_no: "0"
-  label: morestuff
-  parent_id: "31"
-parameter_contexts_052: 
-  protocol_version_id: "28"
-  id: "55"
-  default_count: "1"
-  level_no: "0"
-  label: Compounds
-  parent_id: "54"
-parameter_contexts_074: 
-  protocol_version_id: "41"
-  id: "77"
-  default_count: "10"
-  level_no: "0"
-  label: context0
-  parent_id: 
-parameter_contexts_011: 
-  protocol_version_id: "6"
-  id: "12"
-  default_count: "40"
-  level_no: "0"
-  label: Animals
-  parent_id: "11"
-parameter_contexts_032: 
-  protocol_version_id: "17"
-  id: "33"
+  id: "9"
   default_count: "2"
   level_no: "0"
-  label: Animals
+  label: cmpd
   parent_id: 
-parameter_contexts_053: 
-  protocol_version_id: "28"
-  id: "56"
-  default_count: "8"
+parameter_contexts_010: 
+  protocol_version_id: "5"
+  id: "10"
+  default_count: "16"
   level_no: "0"
-  label: wells
-  parent_id: "55"
-parameter_contexts_075: 
-  protocol_version_id: "42"
-  id: "78"
+  label: well
+  parent_id: "9"
+parameter_contexts_011: 
+  protocol_version_id: "5"
+  id: "11"
   default_count: "1"
   level_no: "0"
-  label: context0
+  label: context2
   parent_id: 
 parameter_contexts_012: 
-  protocol_version_id: "7"
-  id: "13"
-  default_count: "4"
-  level_no: "0"
-  label: Group
-  parent_id: 
-parameter_contexts_033: 
-  protocol_version_id: "18"
-  id: "34"
-  default_count: "4"
-  level_no: "0"
-  label: Group
-  parent_id: 
-parameter_contexts_054: 
-  protocol_version_id: "29"
-  id: "57"
-  default_count: "50"
-  level_no: "0"
-  label: Compounds
-  parent_id: 
-parameter_contexts_013: 
-  protocol_version_id: "8"
-  id: "14"
-  default_count: "1"
-  level_no: "0"
-  label: Group
-  parent_id: 
-parameter_contexts_034: 
-  protocol_version_id: "19"
-  id: "35"
-  default_count: "1"
-  level_no: "0"
-  label: AssayDefinition
-  parent_id: 
-parameter_contexts_055: 
-  protocol_version_id: "30"
-  id: "58"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_014: 
-  protocol_version_id: "8"
-  id: "15"
+  protocol_version_id: "6"
+  id: "12"
   default_count: "10"
   level_no: "0"
-  label: Animals
-  parent_id: "14"
-parameter_contexts_035: 
-  protocol_version_id: "20"
-  id: "36"
-  default_count: "1"
-  level_no: "0"
-  label: plate
-  parent_id: 
-parameter_contexts_056: 
-  protocol_version_id: "30"
-  id: "59"
-  default_count: "96"
-  level_no: "0"
-  label: wells
-  parent_id: "58"
-parameter_contexts_015: 
-  protocol_version_id: "9"
-  id: "16"
-  default_count: "6"
-  level_no: "0"
-  label: Dose Groups
-  parent_id: 
-parameter_contexts_036: 
-  protocol_version_id: "20"
-  id: "37"
-  default_count: "384"
-  level_no: "0"
-  label: wells
-  parent_id: "36"
-parameter_contexts_057: 
-  protocol_version_id: "31"
-  id: "60"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_016: 
-  protocol_version_id: "10"
-  id: "17"
-  default_count: "6"
-  level_no: "0"
-  label: Groups
-  parent_id: 
-parameter_contexts_037: 
-  protocol_version_id: "21"
-  id: "38"
-  default_count: "1"
-  level_no: "0"
-  label: plate
-  parent_id: 
-parameter_contexts_058: 
-  protocol_version_id: "31"
-  id: "61"
-  default_count: "1"
-  level_no: "0"
-  label: Compounds
-  parent_id: "60"
-parameter_contexts_017: 
-  protocol_version_id: "10"
-  id: "18"
-  default_count: "8"
-  level_no: "0"
-  label: Animal
-  parent_id: "17"
-parameter_contexts_038: 
-  protocol_version_id: "21"
-  id: "39"
-  default_count: "96"
-  level_no: "0"
-  label: wells
-  parent_id: "38"
-parameter_contexts_060: 
-  protocol_version_id: "32"
-  id: "63"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_059: 
-  protocol_version_id: "31"
-  id: "62"
-  default_count: "8"
-  level_no: "0"
-  label: wells
-  parent_id: "61"
-parameter_contexts_039: 
-  protocol_version_id: "22"
-  id: "40"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
-  parent_id: 
-parameter_contexts_061: 
-  protocol_version_id: "32"
-  id: "64"
-  default_count: "12"
-  level_no: "0"
-  label: Compounds
-  parent_id: "63"
-parameter_contexts_018: 
-  protocol_version_id: "11"
-  id: "19"
-  default_count: "1"
-  level_no: "0"
-  label: Compound
-  parent_id: 
-parameter_contexts_040: 
-  protocol_version_id: "22"
-  id: "41"
-  default_count: "8"
-  level_no: "0"
-  label: Compounds
-  parent_id: "40"
-parameter_contexts_020: 
-  protocol_version_id: "12"
-  id: "21"
-  default_count: "1"
-  level_no: "0"
-  label: Compound
-  parent_id: 
-parameter_contexts_019: 
-  protocol_version_id: "11"
-  id: "20"
-  default_count: "6"
-  level_no: "0"
-  label: Dose Groups
-  parent_id: "19"
-parameter_contexts_041: 
-  protocol_version_id: "22"
-  id: "42"
-  default_count: "10"
-  level_no: "0"
-  label: wells
-  parent_id: "41"
-parameter_contexts_062: 
-  protocol_version_id: "32"
-  id: "65"
-  default_count: "6"
-  level_no: "0"
-  label: wells
-  parent_id: "64"
-parameter_contexts_021: 
-  protocol_version_id: "12"
-  id: "22"
-  default_count: "3"
-  level_no: "0"
-  label: Dose Group
-  parent_id: "21"
-parameter_contexts_042: 
-  protocol_version_id: "22"
-  id: "44"
-  default_count: "2"
-  level_no: "0"
-  label: Controls
-  parent_id: "40"
-parameter_contexts_063: 
-  protocol_version_id: "33"
-  id: "66"
-  default_count: "1"
-  level_no: "0"
-  label: Plate
+  label: context0
   parent_id: 
 parameter_contexts_001: 
   protocol_version_id: "1"
   id: "1"
-  default_count: "5"
+  default_count: "10"
   level_no: "0"
-  label: Compounds
+  label: context0
   parent_id: 
-parameter_contexts_022: 
-  protocol_version_id: "12"
-  id: "23"
-  default_count: "4"
+parameter_contexts_013: 
+  protocol_version_id: "7"
+  id: "13"
+  default_count: "1"
   level_no: "0"
-  label: Animals
-  parent_id: "22"
-parameter_contexts_043: 
-  protocol_version_id: "22"
-  id: "46"
-  default_count: "8"
-  level_no: "0"
-  label: ctrl_wells
-  parent_id: "44"
-parameter_contexts_064: 
-  protocol_version_id: "33"
-  id: "67"
-  default_count: "384"
-  level_no: "0"
-  label: wells
-  parent_id: "66"
+  label: context0
+  parent_id: 
 parameter_contexts_002: 
   protocol_version_id: "2"
   id: "2"
-  default_count: "1"
+  default_count: "10"
   level_no: "0"
-  label: Settings
+  label: Moose
   parent_id: 
-parameter_contexts_023: 
-  protocol_version_id: "13"
-  id: "24"
+parameter_contexts_014: 
+  protocol_version_id: "8"
+  id: "14"
   default_count: "1"
   level_no: "0"
-  label: Compound
+  label: context0
   parent_id: 
-parameter_contexts_044: 
-  protocol_version_id: "23"
-  id: "47"
-  default_count: "1"
+parameter_contexts_003: 
+  protocol_version_id: "3"
+  id: "3"
+  default_count: "2"
   level_no: "0"
-  label: report
+  label: cmpd
   parent_id: 
-parameter_contexts_065: 
-  protocol_version_id: "34"
-  id: "68"
+parameter_contexts_015: 
+  protocol_version_id: "2"
+  id: "15"
+  default_count: "3"
+  level_no: "0"
+  label: aaaa
+  parent_id: 
+parameter_contexts_004: 
+  protocol_version_id: "3"
+  id: "4"
+  default_count: "8"
+  level_no: "0"
+  label: well
+  parent_id: "3"
+parameter_contexts_005: 
+  protocol_version_id: "3"
+  id: "5"
   default_count: "1"
   level_no: "0"
-  label: AssayDefinition
+  label: context2
+  parent_id: 
+parameter_contexts_006: 
+  protocol_version_id: "4"
+  id: "6"
+  default_count: "2"
+  level_no: "0"
+  label: cmpd
   parent_id: 
