@@ -135,14 +135,14 @@ data_formats_003:
   created_at: 0000-00-00 00:00:00
 data_formats_004: 
   name: Double
-  updated_at: 2007-06-07 21:45:34
+  updated_at: 2007-06-26 11:38:38
   default_value: "0.0"
-  updated_by_user_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
-  lock_version: "6"
+  lock_version: "8"
   id: "4"
   description: Standard Number format +/-nnn.nnnnn with units
-  format_sprintf: "%d %s"
+  format_sprintf: "%g %s"
   created_by_user_id: "1"
   format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
   created_at: 2006-11-27 11:59:22
@@ -161,30 +161,30 @@ data_formats_005:
   created_at: 0000-00-00 00:00:00
 data_formats_006: 
   name: Integer
-  updated_at: 2007-06-07 21:45:05
+  updated_at: 2007-06-12 16:33:51
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "3"
+  lock_version: "4"
   id: "8"
   description: Integer Value
   format_sprintf: "%d"
   created_by_user_id: "1"
-  format_regex: "[-+]?\\b\\d+\\b"
+  format_regex: ^[-+]?[0-9]*$
   created_at: 0000-00-00 00:00:00
 data_formats_007: 
   name: Positive
-  updated_at: 2007-06-20 10:07:04
+  updated_at: 2007-05-31 14:18:52
   default_value: ""
-  updated_by_user_id: "1"
+  updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "2"
+  lock_version: "1"
   id: "11"
   description: |-
     Description:  	Positive integer value.
     Matches: 	123|||10|||54
     Non-Matches: 	-54|||54.234|||abc
-  format_sprintf: "%d %s"
+  format_sprintf: ""
   created_by_user_id: "1"
   format_regex: ^[0-9,.]*$
   created_at: 0000-00-00 00:00:00

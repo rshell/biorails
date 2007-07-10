@@ -1,4 +1,17 @@
 --- 
+parameter_types_020: 
+  name: cmd2
+  storage_unit: 
+  updated_at: 2007-06-20 16:33:34
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "20"
+  description: cmpd
+  data_concept_id: "6"
+  created_by_user_id: "1"
+  created_at: 2007-06-20 16:33:34
+  weighing: "0"
 parameter_types_009: 
   name: Duration
   storage_unit: time
@@ -12,6 +25,19 @@ parameter_types_009:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:09:57
   weighing: "0"
+parameter_types_021: 
+  name: Mass
+  storage_unit: mass
+  updated_at: 2007-06-21 12:31:55
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "21"
+  description: Mass
+  data_concept_id: 
+  created_by_user_id: "1"
+  created_at: 2007-06-21 12:31:55
+  weighing: "0"
 parameter_types_010: 
   name: Length
   storage_unit: length
@@ -24,6 +50,19 @@ parameter_types_010:
   data_concept_id: 
   created_by_user_id: "3"
   created_at: 2007-06-06 17:12:28
+  weighing: "0"
+parameter_types_022: 
+  name: TreatmentGroup
+  storage_unit: 
+  updated_at: 2007-06-21 12:44:11
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "22"
+  description: Treatment Group
+  data_concept_id: "9"
+  created_by_user_id: "1"
+  created_at: 2007-06-21 12:44:11
   weighing: "0"
 parameter_types_011: 
   name: URL
@@ -222,6 +261,19 @@ parameter_types_007:
   data_concept_id: 
   created_by_user_id: "3"
   created_at: 2007-06-06 17:07:05
+  weighing: "0"
+parameter_types_019: 
+  name: ClinScore
+  storage_unit: 
+  updated_at: 2007-06-13 11:59:30
+  updated_by_user_id: "4"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "19"
+  description: Clinical Score
+  data_concept_id: "55"
+  created_by_user_id: "4"
+  created_at: 2007-06-13 11:59:30
   weighing: "0"
 parameter_types_008: 
   name: Rate

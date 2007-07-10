@@ -27,12 +27,8 @@
     </div>
 
     <div class="form-element">
-      <label for="study_default_value">Default Unit (<%=@study_parameter.parameter_type.storage_unit%>) </label>
-	  <%if @study_parameter.custom? %>
-        <%= text_field( :study_parameter, :display_unit, {:size =>10, :class=>"text-input"})  %>
-	  <%else%>
-        <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
-	  <%end%>
+      <label for="study_default_value">Default Unit </label>
+      <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
     </div>
 
     <div class='row'>

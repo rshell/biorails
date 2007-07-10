@@ -1,4 +1,14 @@
 --- 
+memberships_015: 
+  updated_at: 2007-06-27 15:08:50
+  project_id: "16"
+  updated_by_user_id: "1"
+  role_id: "1"
+  id: "44"
+  created_by_user_id: "1"
+  owner: "1"
+  user_id: "4"
+  created_at: 2007-06-27 15:08:50
 memberships_004: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"
@@ -119,6 +129,16 @@ memberships_002:
   owner: "1"
   user_id: "2"
   created_at: 0000-00-00 00:00:00
+memberships_014: 
+  updated_at: 2007-06-19 09:06:34
+  project_id: "14"
+  updated_by_user_id: "6"
+  role_id: "1"
+  id: "39"
+  created_by_user_id: "6"
+  owner: "1"
+  user_id: "6"
+  created_at: 2007-06-19 09:06:34
 memberships_003: 
   updated_at: 0000-00-00 00:00:00
   project_id: "1"

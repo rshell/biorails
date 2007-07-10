@@ -11,17 +11,41 @@ require 'tasks/rails'
 
 namespace :biorails do
 
-  desc "Install the the needed gem dependencies (may need sudo)"
+  desc "Install the the needed gem dependencies (will need root rights)"
   task :gems do   
-    system('gem install rails')
-    system('gem install tzinfo')
-    system('gem install mime-types ')
-    system('gem install builder')
-    system('gem install rmagick')
-    system('gem install ruport')
+    system('gem install rails -y')
+    system('gem install tzinfo -y')
+    system('gem install gnuplot -y')
+    system('gem install mongrel -y')
+    system('gem install mongrel_cluster -y')
+    system('gem install icalendar -y')
+    system('gem install mime-types -y ')
+    system('gem install builder -y')
+    system('gem install rmagick -y')
+    system('gem install ruport -y')
   end
 
-  
+  desc "Create database (using database.yml config as source of connection information)"
+  task :create => :environment do
+      database, user, password = retrieve_db_info
+    
+      sql = "CREATE DATABASE #{database};"
+      sql += "GRANT ALL PRIVILEGES ON #{database}.* TO #{user}@localhost IDENTIFIED BY '#{password}';"
+      mysql_execute(user, password, sql)
+  end
+
+  desc "setup tables and load initials data set into the database "
+  task :setup => :environment do
+      file = ENV['SCHEMA'] || "db/schema.rb"
+      load(file)
+      require 'active_record/fixtures'
+      ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
+      (ENV['FIXTURES'] ? ENV['FIXTURES'].split(/,/) : Dir.glob(File.join(RAILS_ROOT, 'db', 'bootstrap', '*.{yml,csv}'))).each do |fixture_file|
+        Fixtures.create_fixtures('db/bootstrap', File.basename(fixture_file, '.*'))
+      end
+  end
+
+
   desc "Rebuild all indexes"
   task :reindex => :environment do
       puts "Resorting folder..."
@@ -48,8 +72,8 @@ namespace :biorails do
       result = system(cmd)
     end
   
-    desc "Load schema and data from an SQL file (/db/restore.sql)"
-    task :restore => :environment do
+  desc "Load schema and data from an SQL file (/db/restore.sql)"
+  task :restore => :environment do
       base_path = ENV["DIR"] || "db" 
       backup_folder = File.join(base_path, 'backup')   
       archive = "#{RAILS_ROOT}/db/restore.sql"
@@ -59,17 +83,23 @@ namespace :biorails do
       puts cmd + "... [password filtered]"
       cmd += " -p'#{password}'"
       result = system(cmd)
-    end
+  end
   
-    desc "Create database (using database.yml config)"
-    task :create => :environment do
-      database, user, password = retrieve_db_info
-    
-      sql = "CREATE DATABASE #{database};"
-      sql += "GRANT ALL PRIVILEGES ON #{database}.* TO #{user}@localhost IDENTIFIED BY '#{password}';"
-      mysql_execute(user, password, sql)
-    end
-  
+  desc "Start Mongrel cluster"
+  task :start => :environment do
+    system('mongrel_rails cluster::start')  
+  end
+
+  desc "Restart Mongrel cluster"
+  task :restart => :environment do
+    system('mongrel_rails cluster::restart')  
+  end
+
+  desc "Stop Mongrel cluster"
+  task :stop => :environment do
+    system('mongrel_rails cluster::stop')  
+  end
+
   desc "Purge the Database of old data"
   task :purge => :environment do
       puts "Remove unlinked assets"
@@ -93,6 +123,40 @@ private
   def mysql_execute(username, password, sql)
     system("/usr/bin/env mysql -u #{username} -p'#{password}' --execute=\"#{sql}\"")
   end
+
+  def import_model_fixture(model)
+    filename = File.join(RAILS_ROOT,'test','fixtures',model.tableize + '.yml')
+    success = Hash.new
+	records = YAML::load( File.open(filename))
+	@model = Class.const_get(model)
+	@model.transaction do
+	records.sort.each do |r|
+		row = r[1]
+		@new_model = @model.new
+	
+		row.each_pair do |column, value|
+			if column.to_sym
+				@new_model.send(column + '=', value)
+			else
+				p "Column not found" + column.to_s
+			end
+		end
+	
+	
+		begin
+		if @new_model.save
+			success[model.to_sym] = (success[model.to_sym] ? success[model.to_sym] + 1 : 1)
+		end
+		rescue
+			p "#{@new_model.class.to_s} failed to import: " + r.inspect
+			p @new_model.errors.inspect
+	   end
+	end
+	
+	p "Total of #{success[model.to_sym]} #{@new_model.class.to_s} records imported successfully"
+	end
+    end
+
 end
 
 

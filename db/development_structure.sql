@@ -32,18 +32,6 @@ CREATE TABLE `analysis_settings` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `audit_logs` (
-  `id` int(11) NOT NULL auto_increment,
-  `auditable_id` int(11) default NULL,
-  `auditable_type` varchar(255) default NULL,
-  `user_id` int(11) default NULL,
-  `action` varchar(255) default NULL,
-  `changes` text,
-  `created_by` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `audits` (
   `id` int(11) NOT NULL auto_increment,
   `auditable_id` int(11) default NULL,
@@ -231,6 +219,7 @@ CREATE TABLE `data_formats` (
   `data_type_id` int(11) default NULL,
   `updated_by_user_id` int(11) NOT NULL default '1',
   `created_by_user_id` int(11) NOT NULL default '1',
+  `format_sprintf` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -395,27 +384,6 @@ CREATE TABLE `memberships` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `mole_features` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
-  KEY `index_mole_features_on_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `mole_logs` (
-  `id` int(11) NOT NULL auto_increment,
-  `mole_feature_id` int(11) default NULL,
-  `user_id` int(11) default NULL,
-  `params` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`),
-  KEY `index_mole_logs_on_mole_feature_id_and_user_id` (`mole_feature_id`,`user_id`),
-  KEY `index_mole_logs_on_mole_feature_id_and_created_at` (`mole_feature_id`,`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `parameter_contexts` (
   `id` int(11) NOT NULL auto_increment,
   `protocol_version_id` int(11) default NULL,
@@ -498,7 +466,7 @@ CREATE TABLE `permissions` (
   `subject` varchar(255) NOT NULL default '',
   `action` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=475 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `plate_formats` (
   `id` int(11) NOT NULL auto_increment,
@@ -630,8 +598,8 @@ CREATE TABLE `project_contents` (
   `updated_at` datetime NOT NULL,
   `updated_by_user_id` int(11) NOT NULL default '1',
   `created_by_user_id` int(11) NOT NULL default '1',
-  `left_limit` int(11) NOT NULL default '0',
-  `right_limit` int(11) NOT NULL default '0',
+  `left_limit` int(11) default NULL,
+  `right_limit` int(11) default NULL,
   `parent_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -643,7 +611,6 @@ CREATE TABLE `project_elements` (
   `type` varchar(32) default 'ProjectElement',
   `position` int(11) default '1',
   `name` varchar(64) NOT NULL,
-  `path` varchar(255) NOT NULL,
   `reference_id` int(11) default NULL,
   `reference_type` varchar(20) default NULL,
   `lock_version` int(11) NOT NULL default '0',
@@ -657,7 +624,11 @@ CREATE TABLE `project_elements` (
   `project_elements_count` int(11) NOT NULL default '0',
   `left_limit` int(11) NOT NULL default '0',
   `right_limit` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `parent_id` (`name`,`parent_id`),
+  KEY `project_id` (`project_id`),
+  KEY `left_limit` (`left_limit`,`project_id`),
+  KEY `right_limit` (`right_limit`,`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `projects` (
@@ -843,6 +814,7 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NOT NULL default '0000-00-00 00:00:00',
   `created_by_user_id` int(11) NOT NULL default '1',
   `updated_by_user_id` int(11) NOT NULL default '1',
+  `type` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   KEY `fk_role_parent_id` (`parent_id`),
   KEY `fk_role_default_page_id` (`default_page_id`)
@@ -863,18 +835,6 @@ CREATE TABLE `sessions` (
   `data` longtext,
   `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL default '0000-00-00 00:00:00',
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `sitealizer` (
-  `id` int(11) NOT NULL auto_increment,
-  `path` varchar(255) default NULL,
-  `ip` varchar(255) default NULL,
-  `referer` varchar(255) default NULL,
-  `language` varchar(255) default NULL,
-  `user_agent` varchar(255) default NULL,
-  `created_at` datetime default NULL,
-  `created_on` date default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1172,8 +1132,8 @@ CREATE TABLE `tasks` (
   `priority_id` int(11) default NULL,
   `started_at` datetime default NULL,
   `ended_at` datetime default NULL,
-  `expected_hours` double default NULL,
-  `done_hours` double default NULL,
+  `expected_hours` float default NULL,
+  `done_hours` float default NULL,
   `lock_version` int(11) NOT NULL default '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1269,4 +1229,4 @@ CREATE TABLE `work_status` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO schema_info (version) VALUES (270)
+INSERT INTO schema_info (version) VALUES (277)

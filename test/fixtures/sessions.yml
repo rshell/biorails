@@ -1,2 +1,13 @@
---- {}
+--- 
+sessions_001: 
+  updated_at: 2007-07-02 14:48:29
+  session_id: c439522a09379c9651f5ccf0b992332a
+  id: "1"
+  created_at: 2007-07-02 14:48:12
+  data: |
+    BAh7CjoVY3VycmVudF91c2VybmFtZSILcnNoZWxsOhdjdXJyZW50X3Byb2pl
+    Y3RfaWRpEjoUY3VycmVudF91c2VyX2lkaQg6E2N1cnJlbnRfcGFyYW1zQzoe
+    SGFzaFdpdGhJbmRpZmZlcmVudEFjY2Vzc3sHIgthY3Rpb24iCWxpc3QiD2Nv
+    bnRyb2xsZXIiFmludmVudG9yeS9iYXRjaGVzIgpmbGFzaElDOidBY3Rpb25D
+    b250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA
 

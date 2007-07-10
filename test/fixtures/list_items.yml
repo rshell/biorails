@@ -1,19 +1,2 @@
---- 
-list_items_002: 
-  data_name: AB00101
-  data_type: Compound
-  id: "4"
-  list_id: "1"
-  data_id: "101"
-list_items_003: 
-  data_name: AB00103
-  data_type: Compound
-  id: "5"
-  list_id: "1"
-  data_id: "103"
-list_items_001: 
-  data_name: AB001000
-  data_type: Compound
-  id: "3"
-  list_id: "1"
-  data_id: "1000"
+--- {}
+
