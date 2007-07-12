@@ -166,7 +166,7 @@ class ReportColumn < ActiveRecord::Base
 # the string for a '%' or '?' in string to set a like operator
 #
   def filter= (value)
-    puts "filter= #{value}"
+    logger.debug "filter= #{value}"
     case value 
     when /^=/
        self.filter_operation = "="

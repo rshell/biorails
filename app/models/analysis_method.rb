@@ -55,7 +55,7 @@ class AnalysisMethod < ActiveRecord::Base
   end
   
   def self.add_processor(  klass)
-    puts "add analysis processor #{klass}"
+    logger.debug "add analysis processor #{klass}"
     @@processors_plugins ||= {}
     @@processors_plugins[klass.name] = klass
   end

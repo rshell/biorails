@@ -236,7 +236,6 @@ end
    out = []
    for item in  self.columns
      unless  item.join_model.nil?
-        puts item.join_model
         out << item.join_model unless item.join_name=="has_many"
      end
    end

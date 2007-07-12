@@ -11,11 +11,11 @@ class Organize::StudiesControllerTest < Test::Unit::TestCase
 	REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect
 
 	def setup
-		@controller = StudiesController.new
-		@request    = ActionController::TestRequest.new
+		@controller = Organize::StudiesController.new
+		@request    =ActionController::TestRequest.new
 		@response   = ActionController::TestResponse.new
-		# Retrieve fixtures via their name
-		# @first = studies(:first)
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
 		@first = Study.find_first
 	end
 

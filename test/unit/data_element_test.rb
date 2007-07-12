@@ -5,6 +5,9 @@ class DataElementsTest < Test::Unit::TestCase
   fixtures :data_concepts
   fixtures :data_systems
   fixtures :data_elements
+  fixtures :data_formats    # Used as ModelElement
+  fixtures :users           # Used as SqlElement
+  fixtures :studies         # Used as test_create_model_element
 
   # Replace this with your real tests.
   def test_truth
@@ -12,14 +15,13 @@ class DataElementsTest < Test::Unit::TestCase
   end
   
   def test_ModelElement
-     cmpd = ModelElement.find(:first)
+     cmpd = ModelElement.find(1)
      assert_not_nil cmpd
- #    assert cmpd.model === Compound, "cmpd.model=#{cmpd.model}"
      assert cmpd.values.size > 0,"has values "
   end
 
   def test_SqlElement
-     cmpd = SqlElement.find(:first)
+     cmpd = SqlElement.find(29)
      assert_not_nil cmpd
  #    assert  cmpd.values.size > 0  ,"has values "
   end
@@ -33,6 +35,7 @@ class DataElementsTest < Test::Unit::TestCase
   def test_create_list_element_text
      element = ListElement.new
      element.name = 'xxxx'
+     element.style = 'list'
      element.description = 'test'
      element.concept = DataConcept.find(2)
      element.system = DataSystem.find(:first)
@@ -46,6 +49,7 @@ class DataElementsTest < Test::Unit::TestCase
   def test_create_list_element_integer
      element = ListElement.new
      element.name = 'xxx2'
+     element.style = 'list'
      element.description = 'test'
      element.concept = DataConcept.find(2)
      element.system = DataSystem.find(:first)
@@ -58,6 +62,7 @@ class DataElementsTest < Test::Unit::TestCase
   def test_create_model_element
      element = ModelElement.new
      element.name = 'xxx3'
+     element.style = 'model'
      element.description = 'test'
      element.concept = DataConcept.find(2)
      element.system = DataSystem.find(:first)

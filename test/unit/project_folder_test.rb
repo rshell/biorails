@@ -2,8 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class ProjectFolderTest < Test::Unit::TestCase
   fixtures :projects
-  fixtures :studies
-  fixtures :experiments
+  fixtures :users
   fixtures :project_elements
 
   def assert_ok(object)
@@ -14,11 +13,11 @@ class ProjectFolderTest < Test::Unit::TestCase
   end
   
 # Replace this with your real tests.
-  def test_truth
+  def test001_truth
     assert true
   end
   
-  def test_create_folder
+  def test002_create_folder
     project = Project.find(1)
     folder  = project.folder('xxx')
     assert_ok folder
@@ -28,7 +27,7 @@ class ProjectFolderTest < Test::Unit::TestCase
 
 
 
-  def test_child_create_folder
+  def test003_child_create_folder
     project = Project.find(1)
     folder  = project.folder('level1')
     assert_ok folder
@@ -42,34 +41,34 @@ class ProjectFolderTest < Test::Unit::TestCase
   end
   
     
-  def test_add_model
+  def test004_add_model
     project = Project.find(1)
     folder  = project.folder('xxx2')
     assert_ok folder
 
-    study = Study.find(:first)
+    user = User.find(:first)
 
-    element = folder.add_reference(study.name,study)
-    assert_ok element
+    element = folder.add_reference(user.name,user)
+    assert element
 
-    assert element.reference.name == study.name
-    assert element.reference.id == study.id
+    assert element.reference.name == user.name
+    assert element.reference.id == user.id
     
   end
 
-  def test_add_text
+  def test005_add_text
     project = Project.find(1)
     assert_ok project
     
     folder  = project.folder('xxx3')
     assert_ok folder
     
-    element = folder.add_content('title','abstract','body')
+    element = folder.add_content('name','title','body')
     assert_ok element
 
     assert element.content.title == 'title'
-    assert element.content.excerpt == 'abstract'
-    assert element.content.body == 'body'    
+    assert element.name == 'name'
+    assert element.to_html == 'body'    
   end
   
 end

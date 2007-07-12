@@ -75,8 +75,8 @@ end
         cell.changed = false
       end
    rescue Exception => ex
-      puts ex.message
-      puts ex.backtrace.join("\n")
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")
    end   
    return grid
  end
@@ -96,8 +96,8 @@ end
        end           
      end
    rescue Exception => ex
-      puts ex.message
-      puts ex.backtrace.join("\n")
+       logger.error  ex.message
+       logger.error  ex.backtrace.join("\n")
    end   
    return grid
  end

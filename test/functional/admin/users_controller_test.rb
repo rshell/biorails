@@ -16,9 +16,10 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
 
   def setup
     @controller = Admin::UsersController.new
-    @request    = ActionController::TestRequest.new(nil,nil,{:current_user_id => 3,:current_project_id => 1 })
+    @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    @session    = @request.session
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
   end
 
   # Replace this with your real tests.

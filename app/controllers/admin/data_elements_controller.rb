@@ -15,8 +15,8 @@ class Admin::DataElementsController < ApplicationController
 # default action is list
 #
   def index
-    list
-    render :action => 'list'
+    data_system = DataSystem.find(:first)
+    redirect_to :controller=>'data_systems',:action => 'show', :id => data_system
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
@@ -104,7 +104,7 @@ def create
     else
       flash[:warning] = 'DataElement failed  to save.'
       return render( :action => 'new_element')   if request.xhr?
-      render( :partial => 'new_element')
+      render( :action => 'new')
     end
 end  
 

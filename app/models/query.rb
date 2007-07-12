@@ -246,7 +246,6 @@ class QueryColumn
     @direction = "" 
     @action = nil
     self.customize(params)
-    #puts "added #{@name} #{@prefix} #{@model} #{@show}"
   end
 
   def customize(params={})
@@ -290,7 +289,7 @@ class QueryColumn
       @value.to_s
     end    
   rescue Exception => ex
-      puts ex.message,@name,@action
+      logger.debug ex.message,@name,@action
       logger.error ex.message
       logger.error ex.backtrace.join("\n")  
       return " "  

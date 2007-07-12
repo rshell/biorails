@@ -9,6 +9,8 @@ class AuditControllerTest < Test::Unit::TestCase
     @controller = AuditController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
   end
 
   # Replace this with your real tests.

@@ -8,9 +8,11 @@ class Organize::StudyParametersControllerTest < Test::Unit::TestCase
   fixtures :study_parameters
 
   def setup
-    @controller = StudyParametersController.new
+    @controller = Organize::StudyParametersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
   end
 
   def test_index

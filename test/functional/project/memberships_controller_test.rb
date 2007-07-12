@@ -11,6 +11,8 @@ class MembershipsControllerTest < Test::Unit::TestCase
     @controller = Project::MembershipsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
 
     @first_id = memberships(:first).id
   end

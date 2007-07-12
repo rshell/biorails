@@ -40,6 +40,10 @@ class ProjectAsset < ProjectElement
   validates_associated  :asset
   validates_presence_of :asset_id
   
+  def initialize
+    self.asset = Asset.new
+  end
+
   def ProjectAsset.build(options ={} )
     options = options.symbolize_keys()
     element = ProjectAsset.new
@@ -63,6 +67,7 @@ class ProjectAsset < ProjectElement
     element.asset = asset
     return element
   end
+  
 
   def before_save
     self.asset.save if self.asset
@@ -116,7 +121,7 @@ class ProjectAsset < ProjectElement
   end
   
   def uploaded_data=(value)
-    asset.uploaded_data
+    asset.uploaded_data=value
     name ||= asset.filename
   end
 

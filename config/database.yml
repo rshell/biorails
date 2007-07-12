@@ -33,13 +33,12 @@ production:
   username: biorails
   password: moose
   host: localhost
-  
+###
+# This is a demostraction database which appears with te application
+#  
 demo:
-  adapter: mysql
-  database: biorails2_demo
-  username: biorails 
-  password: moose
-  host: localhost
+  adapter: sqlite3
+  dbfile: db/demo.db
 ##
 # Lite version to ship as part of checkin
 

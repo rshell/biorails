@@ -6,30 +6,34 @@ class Admin::DataElementsController; def rescue_action(e) raise e end; end
 
 class Admin::DataElementsControllerTest < Test::Unit::TestCase
   fixtures :data_elements
+  fixtures :data_concepts
+  fixtures :data_systems
+  fixtures :data_formats
+  fixtures :users
+  fixtures :projects
+  fixtures :roles
+  fixtures :role_permissions
 
   def setup
-    @controller = DataElementsController.new
+    @controller = Admin::DataElementsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
+    @first = DataElement.find(:first)
+    @data_system = DataSystem.find(:first)
+    @data_concept = DataConcept.find(:first)
   end
 
-  def test_index
-    get :index
-    assert_response :success
-    assert_template 'list'
-  end
 
   def test_list
-    get :list
+    get :list,:id => @data_system.id
 
-    assert_response :success
-    assert_template 'list'
-
-    assert_not_nil assigns(:data_elements)
+    assert_response :redirect
   end
 
   def test_show
-    get :show, :id => 1
+    get :show, :id => @first.id
 
     assert_response :success
     assert_template 'show'
@@ -39,7 +43,7 @@ class Admin::DataElementsControllerTest < Test::Unit::TestCase
   end
 
   def test_new
-    get :new
+    get :new, :id => @data_concept.id
 
     assert_response :success
     assert_template 'new'
@@ -50,28 +54,12 @@ class Admin::DataElementsControllerTest < Test::Unit::TestCase
   def test_create
     num_data_elements = DataElement.count
 
-    post :create, :data_element => {}
+    post :create,:id => @data_concept.id, :data_element => {}
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_equal num_data_elements + 1, DataElement.count
-  end
-
-  def test_edit
-    get :edit, :id => 1
-
-    assert_response :success
-    assert_template 'edit'
-
-    assert_not_nil assigns(:data_element)
-    assert assigns(:data_element).valid?
-  end
-
-  def test_update
-    post :update, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
   end
 
   def test_destroy

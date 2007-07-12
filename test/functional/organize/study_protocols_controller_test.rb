@@ -8,9 +8,11 @@ class Organize::StudyProtocolsControllerTest < Test::Unit::TestCase
   fixtures :study_protocols
 
   def setup
-    @controller = StudyProtocolsController.new
+    @controller = Organize::StudyProtocolsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
   end
 
   def test_index

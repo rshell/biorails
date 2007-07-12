@@ -41,7 +41,6 @@ class RoleTest < Test::Unit::TestCase
   end
 
   def test016_grant
-    puts "test016"
     role = Role.find_by_name('Public')
     role.rebuild
     assert !role.allow?("study","show")
@@ -49,7 +48,6 @@ class RoleTest < Test::Unit::TestCase
   end 
   
     def test017_allow?
-    puts "test017"
     assert_nil Role.find_by_name('test2')
     item = Role.new(:name=>'test2',:description=>'xxxxx')
     item.rebuild

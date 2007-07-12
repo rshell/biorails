@@ -15,11 +15,11 @@ class Inventory::ContainersControllerTest < Test::Unit::TestCase
   fixtures :role_permissions
 
   def setup
-    @controller = Inventory::CompoundsController.new
+    @controller = Inventory::ContainersController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:project_id] = Project.find(:first)
-    @request.session[:user_id] = User.find(:first)
     @response   = ActionController::TestResponse.new
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
   end
 
 

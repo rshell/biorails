@@ -8,10 +8,12 @@ class Organize::StudyQueuesControllerTest < Test::Unit::TestCase
   fixtures :study_queues
 
   def setup
-    @controller = StudyQueuesController.new
+    @controller = Organize::StudyQueuesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-  end
+    @request.session[:current_project_id] = 1
+    @request.session[:current_user_id] = 3
+ end
 
   def test_index
     get :index

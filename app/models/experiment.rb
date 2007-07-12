@@ -267,7 +267,7 @@ SQL
     end    
 
     for row in @lines
-       puts row.to_s
+       logger.debug row.to_s
        @line +=1
        logger.info row.join(",")
        case row[0]
