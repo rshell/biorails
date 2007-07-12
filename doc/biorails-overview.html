@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="rshell">
+	<META NAME="CREATED" CONTENT="20070712;16353400">
+	<META NAME="CHANGEDBY" CONTENT="rshell">
+	<META NAME="CHANGED" CONTENT="20070712;18025700">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		H2 { margin-bottom: 0.21cm }
+		H2.western { font-family: "Helvetica"; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-size: 14pt; font-style: italic }
+		H3 { margin-bottom: 0.21cm }
+		H3.western { font-family: "Helvetica" }
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "Helvetica"; font-size: 16pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 16pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 16pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-GB" DIR="LTR">
+<H1 CLASS="western">Overview</H1>
+<P STYLE="margin-bottom: 0cm">Biorails is aimed as helping in the
+management of projects with data capture of structured data ,linked
+to a stong set of content management features to enable the anonation
+of captured data and presentation of texual and image data. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">As a systems is really splits down into
+a number of separate parts.</P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0cm">Catalogue</P>
+	<LI><P STYLE="margin-bottom: 0cm">Project Folders</P>
+	<LI><P STYLE="margin-bottom: 0cm">Inventory of materials</P>
+	<LI><P STYLE="margin-bottom: 0cm">Orgnization of data 
+	</P>
+	<LI><P STYLE="margin-bottom: 0cm">Execution of tasks</P>
+</OL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">In version 1.0 the focus was simple web
+based data capture, in the current version 2.0 management of projects
+and unstructured data was added to round out the product. Now is is
+based seen a project folder based data capture front-end. 
+</P>
+<H2 CLASS="western">Catalogue</H2>
+<P>This is the system administrator workstop.  The key change there
+is the management of lookups and links to remove systems. The system
+is built with integration in mind and the catalogue is the key point
+for definition of read only references to other systems. It is
+expected that most inventory and some other key lookups will be
+defined in other systems.</P>
+<H3 CLASS="western">Data Concept 
+</H3>
+<P>This namespace represents a tree of concepts describing the
+business data. By default a initial Biorails namespace is provided to
+work in.  This Conceptual namespace is used to define the general
+framework for catagorization of data. Concepts would be items like :-</P>
+<UL>
+	<LI><P>Colour</P>
+	<LI><P>Compound</P>
+</UL>
+<P>Concepts are linked to parameter types defined by the
+administrator to limit the list of lookup the user can use for a
+parameter. 
+</P>
+<H3 CLASS="western">Data Element</H3>
+<P>This is  actual implementation of these concepts has been
+separated out as Data element. These provide simple lookup list
+implementation of concept. The separation may initially seem like
+overkill, but is aimed at address the key problem multiple
+implementation. For the example of same samples, there may be
+implementation my compounds, external compound, natural products. 
+nitially the following styles of lookup list can be defined as a Data
+Element</P>
+<UL>
+	<LI><P>lists (simple 1,2,3,4 style lists managed internally)</P>
+	<LI><P>models ( in Coded Ruby models)</P>
+	<LI><P>SQL Views (Named table or views in systems)</P>
+	<LI><P>SQL select (Hand crafted SQL selects)</P>
+</UL>
+<P>In use these would be thinks</P>
+<UL>
+	<LI><P>Colours in english</P>
+	<LI><P>Internal registered compounds</P>
+</UL>
+<H3 CLASS="western">Data System</H3>
+<P>The implementation of any Data Element is based on the rules
+defined in Data System. This defines how to connect and talk to the
+system. In concept there is a Initial internal systems (biorails this
+self) then other remote database schema can be registered for use as
+read only lookup. Currenlty this supports
+Oracle,MySql,Postgres,Sqlite databases.</P>
+<P><BR><BR>
+</P>
+<P>Parameter Type</P>
+<P>These are global data dimesnion for structured data entered by the
+scientist. At this level the administration can define key metrics
+for transfer to long term data warehouse and</P>
+<P>For a sceening operation this would be something like the
+followig:-</P>
+<UL>
+	<LI><P>IC50</P>
+	<LI><P>Inhibition</P>
+	<LI><P>Dose</P>
+	<LI><P>Compound</P>
+	<LI><P>Plate</P>
+	<LI><P>Identifer</P>
+	<LI><P>RawData</P>
+	<P>On the plus side comparied to may other systems is scientists can
+	alias these at the study level. So say display and use ABS and not
+	RawData in the UI.</P>
+	<P>Parameter Roles</P>
+</UL>
+<P>These are used to partition the parameters be used so a subset can
+be easliet picked up for further use. As present the systems comes
+with a default list of :-</P>
+<UL>
+	<LI><P>Results</P>
+	<LI><P>Setting</P>
+	<LI><P>Condition</P>
+	<LI><P>Measure</P>
+</UL>
+<H2 CLASS="western">Project</H2>
+<P STYLE="margin-bottom: 0cm">This deals wiith the general
+partitioning of work and access control. Access to a project is
+controlled via membership, only members see or know a project exists
+in the front end. The project is moduled on the idea of a folders to
+match how many people organization there. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">The system automatically created
+folders for each study design and experiment run as part of the
+project. People can also create other folder to hold notes, files and
+links to specific items in biorails. 
+</P>
+<P STYLE="margin-bottom: 0cm">Folders can contains the following:-</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Articles, html texual content</P>
+	<LI><P STYLE="margin-bottom: 0cm">Asserts, external images, files
+	etc</P>
+	<LI><P STYLE="margin-bottom: 0cm">References, these are links to
+	other items in biorails (like tasks, reports etc)</P>
+	<LI><P STYLE="margin-bottom: 0cm">sub Folders 
+	</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">As a general rule articles/assets  are
+versioned to changes over time can be tasked. This is a general
+approach taken throughout the application.  Folders can be used in a
+number of ways:-</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Directories like file system</P>
+	<LI><P STYLE="margin-bottom: 0cm">Component Documents with each
+	element chained together</P>
+	<LI><P STYLE="margin-bottom: 0cm">Blogs where items are display in
+	reverse order of time</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+</UL>
+<P STYLE="margin-bottom: 0cm">One of the aims of the folder was to
+allow easy reuse of blocks of text in report. With this aim the
+systems allow simple drag and drop of items into a folder and there
+reordering to create a long document or report.   
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Items like studies, experiments,task as
+automatic rendering so they can be simply dropped on into a folder to
+get a summary of there details in the document. Also the inbuilt
+simple report builder/runner allows the saving of a report to as a
+article. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Inventory</P>
+<P STYLE="margin-bottom: 0cm">At present this areas is filled by
+simple default implementation for common inventories. In most cases
+there is likily to be some customization to integrate with other
+systems here unless you only need simple compounds, batch etc. In
+fact implimentation of new inventory types is possibilty the best
+intoduction to rails coding in biorails.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"> 
+</P>
+<P STYLE="margin-bottom: 0cm">Ogranization</P>
+<P STYLE="margin-bottom: 0cm">This deals with study designs and can
+be split into three parts as follows:- 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Parameter space</P>
+	<LI><P STYLE="margin-bottom: 0cm">Services provided</P>
+	<LI><P STYLE="margin-bottom: 0cm">Protocol Definitions</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Parameters</P>
+<P STYLE="margin-bottom: 0cm">This is the usage of a parameter type
+with a predefined Lookup or Format. In the study design the scientist
+gets to define the list of parameters they use, based on the
+catalogue. This is a process of selecting and parameter type,
+chosening the format , default units and lookup to use and finally
+alias if  needed.  The allow a parameter type like RawData to be
+converted into a more defined definition like   like rate in unit of
+cpm with format double 5.2.  This add validation rules and units to
+data.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Services</P>
+<P STYLE="margin-bottom: 0cm">This is basically a named queue for a
+type of data element acepted into the study. Examples could be a
+queue of plates or samples. This is the forefilement side of
+requesting and allows the external services provided my a study to be
+defined in terms of stuff that is sent to it.  For items on a service
+queue can then be mantained (accepted,rejected etc) by a member of
+the project with the correct rights.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Protocols</P>
+<P STYLE="margin-bottom: 0cm">This is basically a number of linked
+grouping of parameters (contexts in biorails tems). The context a
+linked in a tree to generate more complex parent/child trees if
+needed.  This allows the system to easily build complex data entry
+tree / grid like plate-&gt;compound-&gt;well. 
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">For people more used to older more
+limited systems like excel templates this can be simply viewed  in
+terms a context as a  row and parameter as a  column in sheet and to
+define them parameters are dragged from a tree to column headering.</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">This is a extra important link to
+queues here. As in a queue linked parameter is used in a column then
+as items are added as the protocol in run in a task then the
+queue_items are linked and automatically updated to match the task
+status. This is aimed a getting the software do to the hard work of
+maintaining the current status of all requested items</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm">Execution</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+</BODY>
+</HTML>
