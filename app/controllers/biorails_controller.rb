@@ -253,7 +253,7 @@ class BiorailsController < ApplicationController
              )
      end
      
-     def set_content( user_id,folder_id,title,filename, html)
+     def set_content( user_id,folder_id, title,name, html)
        User.current = User.find(user_id)
        folder = ProjectFolder.find(folder_id)
        element = folder.add_content(name,title,html)
