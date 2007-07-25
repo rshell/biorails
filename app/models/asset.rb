@@ -80,7 +80,8 @@ class Asset < ActiveRecord::Base
   validates_as_attachment
   
   def before_validation 
-    self.content_type =  MIME::Types.type_for(filename).to_s if filename
+    self.content_type ||=  MIME::Types.type_for(filename).to_s if filename
+    self.content_type = 'application/binary'  if self.content_type.empty?   
     logger.info "set self.content_type to #{self.content_type}"
   end
   
