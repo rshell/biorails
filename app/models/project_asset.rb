@@ -40,17 +40,15 @@ class ProjectAsset < ProjectElement
   validates_associated  :asset
   validates_presence_of :asset_id
   
-  def initialize
-    self.asset = Asset.new
-  end
 
-  def ProjectAsset.build(options ={} )
+  def ProjectAsset.build( options ={} )
     options = options.symbolize_keys()
-    element = ProjectAsset.new
-    element.name = options[:name] || options[:filename] 
-    element.project_id = options[:project_id]
-    element.position =  options[:position]
-    element.name =  options[:name]
+    my_element = ProjectAsset.new
+    my_element.name   = options[:name] 
+    my_element.name ||= options[:filename] 
+    my_element.project_id = options[:project_id]
+    my_element.position =  options[:position]
+    my_element.name =  options[:name]
     
     asset = Asset.new
     asset.title =        options[:title]       
@@ -59,13 +57,13 @@ class ProjectAsset < ProjectElement
     asset.caption = options[:description]
     if   options[:uploaded_data] 
       asset.uploaded_data  =  options[:uploaded_data]  
-      element.name = asset.filename
+      my_element.name = asset.filename
     end
     asset.content_type = options[:content_type] 
     asset.save
-    element.asset_id = asset.id
-    element.asset = asset
-    return element
+    my_element.asset_id = asset.id
+    my_element.asset = asset
+    return my_element
   end
   
 
@@ -77,19 +75,21 @@ class ProjectAsset < ProjectElement
    self.asset.public_filename  if self.asset
   end
   
-  def title
-   asset.title 
+  def title   
+   asset.title if asset
   end
   
   def title=(value)
+    asset ||= Asset.new 
     asset.title=value
   end
 
   def content_type
-   asset.content_type 
+   asset.content_type if asset
   end
 
   def content_type=(value)
+   asset ||= Asset.new 
    asset.content_type =value
   end
 
@@ -98,7 +98,7 @@ class ProjectAsset < ProjectElement
   end
   
   def signature
-   asset.signature 
+   asset.signature if asset
   end
 
   def filename
@@ -117,16 +117,18 @@ class ProjectAsset < ProjectElement
 
   
   def description=(value)
+    asset ||= Asset.new 
     asset.caption=value
   end
   
   def uploaded_data=(value)
+    asset ||= Asset.new 
     asset.uploaded_data=value
     name ||= asset.filename
   end
 
   def image?
-    asset.image?
+    asset.image? if asset
   end
 
 ##
