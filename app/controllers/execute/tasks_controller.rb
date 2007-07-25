@@ -230,19 +230,20 @@ class Execute::TasksController < ApplicationController
 # 
   def import_file
     set_task
-    Experiment.transaction do 
-      @experiment = @task.experiment
-      if params[:file] # Firefox style
-         @task = @experiment.import_task(params[:file])  
-      elsif params['File'] # IE6 style tmp/file
-         @task = @experiment.import_task(params['File'])  
-      else
-        flash[:error] ="couldn't work out where file was: {params.to_s}"
-      end 
-    end
-    session.data[:current_params]=nil    
-    flash[:info]= "import task #{@task.name}" 
-    redirect_to  task_url( :action => 'view', :id => @task)
+    file = params[:file] || params['File']
+    if file.is_a? StringIO or file.is_a? File
+      Experiment.transaction do 
+        @experiment = @task.experiment
+        @task = @experiment.import_task(file)  
+      end
+      session.data[:current_params]=nil    
+      flash[:info]= "import task #{@task.name}" 
+      redirect_to  task_url( :action => 'view', :id => @task)
+    else
+      session.data[:current_params]=nil    
+      flash[:error] ="Appears that there was to file selected. "
+      render :action => 'import'   
+    end 
 
   rescue  Exception => ex
      session.data[:current_params]=nil
