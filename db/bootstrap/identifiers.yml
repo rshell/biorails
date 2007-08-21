@@ -1,0 +1,171 @@
+--- 
+identifiers_001: 
+  current_step: "1"
+  current_counter: "12"
+  prefix: Folder-
+  name: ProjectFolder
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "1"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_002: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Expt-
+  name: Experiment
+  
+  updated_by_user_id: "1"
+  lock_version: "32"
+  mask: 
+  id: "2"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_003: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Task-
+  name: Task
+  
+  updated_by_user_id: "1"
+  lock_version: "42"
+  mask: 
+  id: "3"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_004: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Txt-
+  name: ProjectContent
+  
+  updated_by_user_id: "1"
+  lock_version: "75"
+  mask: 
+  id: "4"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_005: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Study-
+  name: Study
+  
+  updated_by_user_id: "1"
+  lock_version: "24"
+  mask: 
+  id: "5"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_006: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Report-
+  name: Report
+  
+  updated_by_user_id: "1"
+  lock_version: "35"
+  mask: 
+  id: "6"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_007: 
+  current_step: "1"
+  current_counter: "3"
+  prefix: "-"
+  name: ""
+  
+  updated_by_user_id: "1"
+  lock_version: "3"
+  mask: 
+  id: "7"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_008: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: rjs-
+  name: rshell
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "8"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_010: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: file-
+  name: ProjectAsset
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "10"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_009: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: req-
+  name: Request
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "9"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_011: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: Protocol-
+  name: StudyProtocol
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "11"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_012: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: alemon-
+  name: alemon
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "12"
+  created_by_user_id: "1"
+  
+  postfix: ""
+identifiers_013: 
+  current_step: "1"
+  current_counter: "1"
+  prefix: thawkins-
+  name: thawkins
+  
+  updated_by_user_id: "1"
+  lock_version: "1"
+  mask: 
+  id: "13"
+  created_by_user_id: "1"
+  
+  postfix: ""
+  

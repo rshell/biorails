@@ -23,7 +23,7 @@ class CatalogObserver < ActiveRecord::Observer
   end
   
  def create_log(record,mode)   
-   log = CatalogLog.new( :comment => " #{mode} of #{record.class} with with #{record.id}" )
+   log = CatalogLog.new( :comments => " #{mode} of #{record.class} with with #{record.id}" )
    if record.attributes['name']
       log.name = record.attributes['name']
    else

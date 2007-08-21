@@ -1,0 +1,106 @@
+users_001: 
+  name: guest
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: 
+  password_salt: 
+  role_id: "2"
+  id: "1"
+  filter: 
+  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  created_by_user_id: "1"
+  state_id: 
+  login: guest
+  
+  email: 
+users_002: 
+  name: admin
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: 
+  password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
+  role_id: "3"
+  id: "2"
+  filter: 
+  password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
+  created_by_user_id: "1"
+  state_id: 
+  login: admin
+  
+  email: 
+users_003: 
+  name: rshell
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "2"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: Robert Shell
+  password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
+  role_id: "3"
+  id: "3"
+  filter: 
+  password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+  created_by_user_id: "1"
+  state_id: 
+  login: rshell
+  
+  email: bob@edgesoftwareconsultancy.com
+users_004: 
+  name: thawkins
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "2"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: Ted Hawkins
+  password_salt: d7fb60397a921cf1aa12304252bbabb8a8a79a9e
+  role_id: "3"
+  id: "4"
+  filter: 
+  password_hash: 31be1da723076e2b4597e574555f21be16879362
+  created_by_user_id: "1"
+  state_id: 
+  login: thawkins
+  
+  email: ted@edgesoftwareconsultancy.com
+users_005: 
+  name: alemon
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "2"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: Andrew Lemon
+  password_salt: 0f2145ee44a1c300054892dc2e60919be8095614
+  role_id: "3"
+  id: "6"
+  filter: 
+  password_hash: c82458f747413edae8dc8a0113ff81c4d4437c5c
+  created_by_user_id: "1"
+  state_id: 
+  login: alemon
+  
+  email: andrew@edgesoftwareconsultancy.com
+---

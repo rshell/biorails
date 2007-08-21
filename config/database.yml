@@ -33,6 +33,20 @@ production:
   username: biorails
   password: moose
   host: localhost
+
+oracle:
+  adapter: oracle
+  database: //192.168.1.50/orcl
+  username: biorails
+  password: moose
+
+postgres:
+    adapter: postgresql
+    database: biorails
+    username: biorails
+    password: moose
+    host: localhost
+   
 ###
 # This is a demostraction database which appears with te application
 #  

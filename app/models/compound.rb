@@ -35,12 +35,14 @@ class Compound < ActiveRecord::Base
                    :single_index => true, 
                    :store_class_name => true 
                    
-  has_many :batches, :dependent => :destroy
+  has_many   :batches, :dependent => :destroy
+  
   validates_uniqueness_of :name
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :registration_date
 
+  
 #
 # Overide context_columns to remove all the internal system columns.
 # 

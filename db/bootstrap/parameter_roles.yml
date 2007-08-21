@@ -1,0 +1,61 @@
+--- 
+parameter_roles_001: 
+  name: observation
+  
+  updated_by_user_id: "1"
+  lock_version: "3"
+  id: "1"
+  description: Measurement of the system under investigation
+  created_by_user_id: "1"
+  
+  weighing: "1"
+parameter_roles_002: 
+  name: result
+  
+  updated_by_user_id: "1"
+  lock_version: "4"
+  id: "2"
+  description: Summary data generated from the observations and other inputs
+  created_by_user_id: "1"
+  
+  weighing: "2"
+parameter_roles_003: 
+  name: setting
+  
+  updated_by_user_id: "1"
+  lock_version: "4"
+  id: "3"
+  description: Prefixed Setting
+  created_by_user_id: "1"
+  
+  weighing: "1"
+parameter_roles_004: 
+  name: subject
+  
+  updated_by_user_id: "1"
+  lock_version: "3"
+  id: "4"
+  description: Subject of Experiment
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_roles_005: 
+  name: condition
+  
+  updated_by_user_id: "1"
+  lock_version: "3"
+  id: "6"
+  description: Conditions under which the data is collected
+  created_by_user_id: "1"
+  
+  weighing: "1"
+parameter_roles_006: 
+  name: note
+  
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "7"
+  description: annotation
+  created_by_user_id: "1"
+  
+  weighing: "0"

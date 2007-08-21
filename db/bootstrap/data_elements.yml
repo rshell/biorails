@@ -1,0 +1,2143 @@
+--- 
+data_elements_104: 
+  name: "***"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "161"
+  description: "***"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "83"
+  style: child
+  
+data_elements_078: 
+  name: vehicle
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "135"
+  description: vehicle
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "76"
+  style: child
+  
+data_elements_049: 
+  name: Tox - serum
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "106"
+  description: Tox - serum
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "65"
+  style: child
+  
+data_elements_105: 
+  name: "****"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "162"
+  description: "****"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "83"
+  style: child
+  
+data_elements_020: 
+  name: hours
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "6"
+  id: "74"
+  description: hours
+  content: "1,2,6,12,24,48"
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_079: 
+  name: negative
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "136"
+  description: negative
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "76"
+  style: child
+  
+data_elements_021: 
+  name: Concentration
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "6"
+  id: "75"
+  description: Simple Concentrations
+  content: "'Mol','mMol','uMol','nMol','pMol','mg/kg'"
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_106: 
+  name: "True"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "163"
+  description: "True"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "84"
+  style: child
+  
+data_elements_050: 
+  name: AB ELISA + serum
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "107"
+  description: AB ELISA + serum
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "65"
+  style: child
+  
+data_elements_022: 
+  name: Compound Role
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "76"
+  description: What role does each compound take within an experiment
+  content: "'vehicle','negative','positive','challenge','interest'"
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_107: 
+  name: "False"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "164"
+  description: "False"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "84"
+  style: child
+  
+data_elements_023: 
+  name: Score
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "6"
+  data_system_id: "1"
+  estimated_count: "9"
+  id: "77"
+  description: Score
+  content: 0,1,2,3,4,5,6,7,8,9
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_108: 
+  name: T011
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "165"
+  description: T011
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_051: 
+  name: Tox + serum
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "108"
+  description: Tox + serum
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "65"
+  style: child
+  
+data_elements_024: 
+  name: QC
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "3"
+  id: "80"
+  description: pass, fail, retest
+  content: "'pass','fail','retest'"
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_080: 
+  name: positive
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "137"
+  description: positive
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "76"
+  style: child
+  
+data_elements_109: 
+  name: T012
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "166"
+  description: T012
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_052: 
+  name: "0"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "109"
+  description: "0"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_081: 
+  name: challenge
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "138"
+  description: challenge
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "76"
+  style: child
+  
+data_elements_053: 
+  name: "1"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "110"
+  description: "1"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_025: 
+  name: Progresssion
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "3"
+  id: "81"
+  description: hit, miss, retest
+  content: "'hit','miss','retest'"
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_082: 
+  name: interest
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "139"
+  description: interest
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "76"
+  style: child
+  
+data_elements_054: 
+  name: "2"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "111"
+  description: "2"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_026: 
+  name: KO
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "2"
+  id: "82"
+  description: Concept 'knocked-out' out is true
+  content: "'True','False'"
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_083: 
+  name: "0"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "140"
+  description: "0"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_055: 
+  name: "3"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "112"
+  description: "3"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_110: 
+  name: T014
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "167"
+  description: T014
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_027: 
+  name: significance
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "83"
+  description: NS to ****
+  content: "'NS','*','**','***','****'"
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_084: 
+  name: "1"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "141"
+  description: "1"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_056: 
+  name: "4"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "113"
+  description: "4"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_111: 
+  name: T015
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "168"
+  description: T015
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_085: 
+  name: "2"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "142"
+  description: "2"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_057: 
+  name: "5"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "114"
+  description: "5"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_112: 
+  name: T0016
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "169"
+  description: T0016
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_028: 
+  name: Boolean
+  
+  access_control_id: 
+  updated_by_user_id: "2"
+  type: ListElement
+  lock_version: "2"
+  data_system_id: "1"
+  estimated_count: "2"
+  id: "84"
+  description: true or false
+  content: "'True','False'"
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_086: 
+  name: "3"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "143"
+  description: "3"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_029: 
+  name: TargetID
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "7"
+  id: "85"
+  description: Internal ID of the targets used in the projects
+  content: "'T011','T012','T014','T015','T0016','T0017','T008'"
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_087: 
+  name: "4"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "144"
+  description: "4"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_058: 
+  name: "10"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "115"
+  description: "10"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_113: 
+  name: T0017
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "170"
+  description: T0017
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_088: 
+  name: "5"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "145"
+  description: "5"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_001: 
+  name: Compound
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "7"
+  data_system_id: "1"
+  estimated_count: "1000"
+  id: "1"
+  description: Compound
+  content: Compound
+  data_concept_id: "4"
+  created_by_user_id: "1"
+  parent_id: 
+  style: sql
+  
+data_elements_059: 
+  name: "15"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "116"
+  description: "15"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_114: 
+  name: T008
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "171"
+  description: T008
+  content: ""
+  data_concept_id: "1"
+  created_by_user_id: "1"
+  parent_id: "85"
+  style: child
+  
+data_elements_115: 
+  name: T1
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "172"
+  description: T1
+  content: ""
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: "86"
+  style: child
+  
+data_elements_089: 
+  name: "6"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "146"
+  description: "6"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_002: 
+  name: Batch
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: SqlElement
+  lock_version: "6"
+  data_system_id: "1"
+  estimated_count: "12222"
+  id: "2"
+  description: Batch
+  content: Select * from batches
+  data_concept_id: "5"
+  created_by_user_id: "1"
+  parent_id: 
+  style: sql
+  
+data_elements_030: 
+  name: Target
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "86"
+  description: Targets
+  content: "'T1','T2','T3','T4','T5'"
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_116: 
+  name: T2
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "173"
+  description: T2
+  content: ""
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: "86"
+  style: child
+  
+data_elements_031: 
+  name: AssayDefinitions
+  
+  access_control_id: 
+  updated_by_user_id: "2"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "526"
+  id: "88"
+  description: Study Designs
+  content: Audit
+  data_concept_id: "51"
+  created_by_user_id: "2"
+  parent_id: 
+  style: model
+  
+data_elements_117: 
+  name: T3
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "174"
+  description: T3
+  content: ""
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: "86"
+  style: child
+  
+data_elements_003: 
+  name: Plate
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ViewElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "12"
+  id: "8"
+  description: Plates
+  content: plates
+  data_concept_id: "8"
+  created_by_user_id: "1"
+  parent_id: 
+  style: sql
+  
+data_elements_060: 
+  name: "20"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "117"
+  description: "20"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_032: 
+  name: im
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "89"
+  description: im
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "56"
+  style: child
+  
+data_elements_118: 
+  name: T4
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "175"
+  description: T4
+  content: ""
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: "86"
+  style: child
+  
+data_elements_004: 
+  name: Studies
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "4"
+  id: "45"
+  description: Studies on system
+  content: Study
+  data_concept_id: "3"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_061: 
+  name: "25"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "118"
+  description: "25"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_033: 
+  name: iv
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "90"
+  description: iv
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "56"
+  style: child
+  
+data_elements_119: 
+  name: T5
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "176"
+  description: T5
+  content: ""
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  parent_id: "86"
+  style: child
+  
+data_elements_005: 
+  name: Requests
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "9"
+  id: "46"
+  description: Requests
+  content: QueueItem
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_090: 
+  name: "7"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "147"
+  description: "7"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_062: 
+  name: "30"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "119"
+  description: "30"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_034: 
+  name: ip
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "91"
+  description: ip
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "56"
+  style: child
+  
+data_elements_006: 
+  name: Plates
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: SqlElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "0"
+  id: "48"
+  description: List of Plates defined on the system
+  content: select * from plates
+  data_concept_id: "7"
+  created_by_user_id: "1"
+  parent_id: 
+  style: sql
+  
+data_elements_091: 
+  name: "8"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "148"
+  description: "8"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_063: 
+  name: "40"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "120"
+  description: "40"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_035: 
+  name: po
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "92"
+  description: po
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "56"
+  style: child
+  
+data_elements_092: 
+  name: "9"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "149"
+  description: "9"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "77"
+  style: child
+  
+data_elements_064: 
+  name: "50"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "121"
+  description: "50"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_007: 
+  name: COmpounds
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: SqlElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "1000"
+  id: "49"
+  description: Compounds Id as Sample Identifiers
+  content: select * from compounds
+  data_concept_id: "7"
+  created_by_user_id: "1"
+  parent_id: 
+  style: sql
+  
+data_elements_120: 
+  name: BAL or Tissue
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: ListElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "177"
+  description: BAL or Tissue
+  content: "'BAL','Tissue'"
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: 
+  style: list
+  
+data_elements_065: 
+  name: "100"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "122"
+  description: "100"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "73"
+  style: child
+  
+data_elements_036: 
+  name: sc
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "93"
+  description: sc
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "56"
+  style: child
+  
+data_elements_008: 
+  name: Route of Administration
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "56"
+  description: Route of Administration
+  content: "'im','iv', 'ip', 'po', 'sc'"
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_093: 
+  name: pass
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "150"
+  description: pass
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "80"
+  style: child
+  
+data_elements_121: 
+  name: BAL
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "178"
+  description: BAL
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: "177"
+  style: child
+  
+data_elements_066: 
+  name: "1"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "123"
+  description: "1"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_037: 
+  name: male
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "94"
+  description: male
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "57"
+  style: child
+  
+data_elements_009: 
+  name: Sex
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "2"
+  id: "57"
+  description: Male or female (not frequency!)
+  content: "'male', 'female'"
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_094: 
+  name: fail
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "151"
+  description: fail
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "80"
+  style: child
+  
+data_elements_122: 
+  name: Tissue
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "179"
+  description: Tissue
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: "177"
+  style: child
+  
+data_elements_067: 
+  name: "2"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "124"
+  description: "2"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_038: 
+  name: female
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "95"
+  description: female
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "57"
+  style: child
+  
+data_elements_095: 
+  name: retest
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "152"
+  description: retest
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "80"
+  style: child
+  
+data_elements_123: 
+  name: Modifiers
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: ListElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "180"
+  description: "> (greater than), < less then, ~ (approximate)"
+  content: "'>', '<', '~'"
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: 
+  style: list
+  
+data_elements_068: 
+  name: "6"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "125"
+  description: "6"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_039: 
+  name: rat
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "96"
+  description: rat
+  content: ""
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  parent_id: "63"
+  style: child
+  
+data_elements_096: 
+  name: hit
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "153"
+  description: hit
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "81"
+  style: child
+  
+data_elements_097: 
+  name: miss
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "154"
+  description: miss
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "81"
+  style: child
+  
+data_elements_010: 
+  name: Mammals
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "3"
+  data_system_id: "1"
+  estimated_count: "4"
+  id: "63"
+  description: Small Mammals
+  content: "'rat', 'mouse', 'guinea pig', 'moose'"
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_124: 
+  name: ">"
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "181"
+  description: ">"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: "180"
+  style: child
+  
+data_elements_069: 
+  name: "12"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "126"
+  description: "12"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_098: 
+  name: retest
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "155"
+  description: retest
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "81"
+  style: child
+  
+data_elements_011: 
+  name: "serum species "
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "64"
+  description: Serum species used in DR-ELIZA study
+  content: "'Human', 'Bovine', 'Rat', 'Mouse', 'Guinea Pig'"
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_125: 
+  name: <
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "182"
+  description: <
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: "180"
+  style: child
+  
+data_elements_040: 
+  name: mouse
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "97"
+  description: mouse
+  content: ""
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  parent_id: "63"
+  style: child
+  
+data_elements_099: 
+  name: "True"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "156"
+  description: "True"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "82"
+  style: child
+  
+data_elements_012: 
+  name: Eliza Treatments
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "4"
+  id: "65"
+  description: Eliza treamtments
+  content: "'AB ELISA - serum', 'Tox - serum', 'AB ELISA + serum', 'Tox + serum'"
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_126: 
+  name: "~"
+  
+  access_control_id: 
+  updated_by_user_id: "4"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "183"
+  description: "~"
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "4"
+  parent_id: "180"
+  style: child
+  
+data_elements_041: 
+  name: guinea pig
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "98"
+  description: guinea pig
+  content: ""
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  parent_id: "63"
+  style: child
+  
+data_elements_013: 
+  name: Protocol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "9"
+  id: "66"
+  description: Protocols
+  content: StudyProtocol
+  data_concept_id: "25"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_070: 
+  name: "24"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "127"
+  description: "24"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_042: 
+  name: moose
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "99"
+  description: moose
+  content: ""
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  parent_id: "63"
+  style: child
+  
+data_elements_071: 
+  name: "48"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "128"
+  description: "48"
+  content: ""
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: "74"
+  style: child
+  
+data_elements_043: 
+  name: Human
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "100"
+  description: Human
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "64"
+  style: child
+  
+data_elements_014: 
+  name: Users
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "5"
+  id: "67"
+  description: Internal users for the biorails systems
+  content: User
+  data_concept_id: "48"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_044: 
+  name: Bovine
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "101"
+  description: Bovine
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "64"
+  style: child
+  
+data_elements_015: 
+  name: ParameterRoles
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "6"
+  id: "69"
+  description: Parameter Usage Roles for extra classication of a data collected. This allow important results to be easily&nbsp; separated from&nbsp; setting, configuration and raw data saved back to the database.
+  content: ParameterRole
+  data_concept_id: "31"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_072: 
+  name: Mol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "129"
+  description: Mol
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  
+data_elements_045: 
+  name: Rat
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "102"
+  description: Rat
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "64"
+  style: child
+  
+data_elements_100: 
+  name: "False"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "157"
+  description: "False"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "82"
+  style: child
+  
+data_elements_016: 
+  name: ParameterTypes
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "31"
+  id: "70"
+  description: Internal Types of data managed
+  content: ParameterType
+  data_concept_id: "30"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_073: 
+  name: mMol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "130"
+  description: mMol
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  
+data_elements_046: 
+  name: Mouse
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "103"
+  description: Mouse
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "64"
+  style: child
+  
+data_elements_101: 
+  name: NS
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "158"
+  description: NS
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "83"
+  style: child
+  
+data_elements_017: 
+  name: Compounds
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "1002"
+  id: "71"
+  description: Compounds as sample id
+  content: Compound
+  data_concept_id: "6"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_074: 
+  name: uMol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "131"
+  description: uMol
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  
+data_elements_018: 
+  name: Tasks
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ModelElement
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: "19"
+  id: "72"
+  description: List of Tasks in the system
+  content: Task
+  data_concept_id: "27"
+  created_by_user_id: "1"
+  parent_id: 
+  style: model
+  
+data_elements_075: 
+  name: nMol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "132"
+  description: nMol
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  
+data_elements_047: 
+  name: Guinea Pig
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "104"
+  description: Guinea Pig
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "64"
+  style: child
+  
+data_elements_102: 
+  name: "*"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "159"
+  description: "*"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "83"
+  style: child
+  
+data_elements_019: 
+  name: Times
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: ListElement
+  lock_version: "1"
+  data_system_id: "1"
+  estimated_count: "14"
+  id: "73"
+  description: Times
+  content: "0,1,2,3,4,5,10,15,20,25,30,40,50,100"
+  data_concept_id: "33"
+  created_by_user_id: "1"
+  parent_id: 
+  style: list
+  
+data_elements_076: 
+  name: pMol
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "133"
+  description: pMol
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  
+data_elements_048: 
+  name: AB ELISA - serum
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "105"
+  description: AB ELISA - serum
+  content: ""
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  parent_id: "65"
+  style: child
+  
+data_elements_103: 
+  name: "**"
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "160"
+  description: "**"
+  content: ""
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  parent_id: "83"
+  style: child
+  
+data_elements_077: 
+  name: mg/kg
+  
+  access_control_id: 
+  updated_by_user_id: "1"
+  type: 
+  lock_version: "0"
+  data_system_id: "1"
+  estimated_count: 
+  id: "134"
+  description: mg/kg
+  content: ""
+  data_concept_id: "26"
+  created_by_user_id: "1"
+  parent_id: "75"
+  style: child
+  

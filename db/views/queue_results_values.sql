@@ -1,4 +1,4 @@
-  create view queue_result as
+  create view queue_result_values as
   select ti.id id,
          tc.row_no,
          p.column_no,

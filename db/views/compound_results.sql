@@ -1,4 +1,4 @@
-  create view compound_results as
+ create view compound_results as
   select ti.id id,
          tc.row_no,
          p.column_no,
@@ -15,9 +15,9 @@
          ti.parameter_id,
          p.name parameter_name,
          ti.data_value,
-         ti.created_by,
+         ti.created_by_user_id,
          ti.created_at,
-         ti.updated_by,
+         ti.updated_by_user_id,
          ti.updated_at
   from parameter_contexts pc,
        parameters p,

@@ -23,11 +23,9 @@ class ExperimentObserver < ActiveRecord::Observer
  def create_log(record,mode)   
    case record
    when Experiment
-     log = record.logs.create(:experiment_id => record.id, :name => record.name,
-        :comment => " #{mode} study #{record.name}" )
+     log = record.logs.create(:experiment_id => record.id, :name => record.name, :comments => " #{mode} study #{record.name}" )
    when Task
-     log = record.experiment.logs.create(:experiment_id => record.experiment_id, :name => record.name,
-        :comment => " #{mode} task #{record.name} in experiment #{record.name}"
+     log = record.experiment.logs.create(:experiment_id => record.experiment_id, :name => record.name,  :comments => " #{mode} task #{record.name} in experiment #{record.name}"
      )
    else 
      return

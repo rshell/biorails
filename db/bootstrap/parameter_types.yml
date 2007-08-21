@@ -1,0 +1,313 @@
+--- 
+parameter_types_020: 
+  name: Score
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "20"
+  description: Scored values 1..10
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_009: 
+  name: Concentration
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "9"
+  description: Concentration (not dose)
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_021: 
+  name: Date
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "3"
+  lock_version: "0"
+  id: "21"
+  description: Date
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_010: 
+  name: Dose
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "10"
+  description: Dose (Not concentration)
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_022: 
+  name: Time
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "4"
+  lock_version: "0"
+  id: "22"
+  description: Time (hh:mm:ss) of observation
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_011: 
+  name: Correction Factor
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "11"
+  description: Numeric facture used to adjust data
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_023: 
+  name: Compound
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "23"
+  description: Compound under investigation
+  data_concept_id: "4"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_012: 
+  name: Sample Size
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "12"
+  description: Integer - size of treatment group, number of obs etc
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_001: 
+  name: Label
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "1"
+  description: Text - used for labels, well ref etc
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_024: 
+  name: Target
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "25"
+  description: Target
+  data_concept_id: "50"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_013: 
+  name: Link
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "6"
+  lock_version: "0"
+  id: "13"
+  description: Link, URL pathname
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_002: 
+  name: Note
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "2"
+  description: Textual note
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_014: 
+  name: Calculation
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "14"
+  description: Calculated Value
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_003: 
+  name: Activity
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "3"
+  description: Normalised data used in screening for example
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_015: 
+  name: Sex
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "15"
+  description: Sex - dictionary (lookup)
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_004: 
+  name: Statistic
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "4"
+  description: Derived numerical statistic
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_016: 
+  name: Route of Administration
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "16"
+  description: Route of administration - dictionary
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_005: 
+  name: Index
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "5"
+  description: Used as a key in tables
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_017: 
+  name: Species
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "1"
+  id: "17"
+  description: Species - dictionary (lookup)
+  data_concept_id: "47"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_006: 
+  name: Counts
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "6"
+  description: CPM, Behavioral counts etc
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_018: 
+  name: Flag
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "18"
+  description: QC, progression and KO flags
+  data_concept_id: "49"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_007: 
+  name: Measure
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "7"
+  description: A double, physical measurement
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_019: 
+  name: Treatment Role
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "19"
+  description: Role of treatment - vehicle, subject etc
+  data_concept_id: "39"
+  created_by_user_id: "1"
+  
+  weighing: "0"
+parameter_types_008: 
+  name: Fit Statistic
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "8"
+  description: Statistics generated from fitting activities
+  data_concept_id: 
+  created_by_user_id: "1"
+  
+  weighing: "0"

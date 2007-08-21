@@ -1,0 +1,326 @@
+--- 
+data_formats_020: 
+  name: Time
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "4"
+  lock_version: "0"
+  id: "20"
+  description: |-
+    Description:  	Validates Microsoft Project-type duration entries. Accepts a number and a unit. The number part can be integer or decimal. The unit can be several variations of weeks, days, and hours: e.g., w, wk, week, ws, wks, weeks are all valid. Whitespace between the number and the unit is optional: e.g., 1d, 2 days, 3.5w are all valid. Captures the number value in a group named num and the unit string in a group named 'unit'.
+    Matches: 	1 day|||3.5 w|||6hrs
+    Non-Matches: 	1|||6. days|||1 week 2 d
+  created_by_user_id: "1"
+  format_regex: ^\s*(?'num'\d+(\.\d+)?)\s*(?'unit'((w(eek)?)|(wk)|(d(ay)?)|(h(our)?)|(hr))s?)(\s*$)
+  
+data_formats_019: 
+  name: EngDate
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "3"
+  lock_version: "0"
+  id: "19"
+  description: "Description:  \tvalid date base on Month\r\n\
+    Matches: \t01 Jan 2003\r\n\
+    Non-Matches: \t01 01 2003\r\n "
+  created_by_user_id: "1"
+  format_regex: /^\d{2}\s{1}(Jan|Feb|Mar|Apr|May|Jun|Jul|Apr|Sep|Oct|Nov|Dec)\s{1}\d{4}$/
+  
+data_formats_008: 
+  name: Integer
+  
+  default_value: ""
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "1"
+  id: "8"
+  description: Integer Value
+  created_by_user_id: "1"
+  format_regex: "[-+]?\\b\\d+\\b"
+  
+data_formats_021: 
+  name: US-Phone
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "21"
+  description: |-
+    Description:  	US Phone Number: This regular expression for US phone numbers conforms to NANP A-digit and D-digit requirments (ANN-DNN-NNNN). Area Codes 001-199 are not permitted; Central Office Codes 001-199 are not permitted. Format validation accepts 10-digits without delimiters, optional parens on area code, and optional spaces or dashes between area code, central office code and station code. Acceptable formats include 2225551212, 222 555 1212, 222-555-1212, (222) 555 1212, (222) 555-1212, etc. You can add/remove formatting options to meet your needs.
+    Matches: 	5305551212|||(530) 555-1212|||530-555-1212
+    Non-Matches: 	0010011212|||1991991212|||123) not-good
+  created_by_user_id: "1"
+  format_regex: /^(?:\([2-9]\d{2}\)\ ?|[2-9]\d{2}(?:\-?|\ ?))[2-9]\d{2}[- ]?\d{4}$/
+  
+data_formats_010: 
+  name: Date
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "3"
+  lock_version: "0"
+  id: "10"
+  description: Date yyyy-mm-dd
+  created_by_user_id: "1"
+  format_regex: /(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])/
+  
+data_formats_009: 
+  name: Email
+  
+  default_value: ""
+  updated_by_user_id: "3"
+  data_type_id: "1"
+  lock_version: "1"
+  id: "9"
+  description: Email Address
+  created_by_user_id: "1"
+  format_regex: ^[A-Z0-9._%-]*@[A-Z0-9.-]+\.[A-Z]{2,4}$
+  
+data_formats_022: 
+  name: IP-Address
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "22"
+  description: "Description:  \tRegExp for validating the format of IP Addresses. This works great with the ASP.NET RegularExpressionValidator server control.\r\n\
+    Matches: \t127.0.0.1|||255.255.255.0|||192.168.0.1\r\n\
+    Non-Matches: \t1200.5.4.3|||abc.def.ghi.jkl|||255.foo.bar.1\r\n "
+  created_by_user_id: "1"
+  format_regex: /^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9]
+  
+data_formats_011: 
+  name: Positive
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "11"
+  description: |-
+    Description:  	Positive integer value.
+    Matches: 	123|||10|||54
+    Non-Matches: 	-54|||54.234|||abc
+  created_by_user_id: "1"
+  format_regex: /^d$/
+  
+data_formats_023: 
+  name: URL-UK
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: 
+  lock_version: "0"
+  id: "23"
+  description: "Description:  \tUK http/https/ftp URI. Based on my previous expression, this one takes an optional port number and optional trailing slash.\r\n\
+    Matches: \thttp://www.zeropanic.co.uk/|||http://www.zeropanic.co.uk:81/|||http://www.zeropanic.co.uk:81\r\n\
+    Non-Matches: \thttp://www.zeropanic.com:81/\r\n "
+  created_by_user_id: "1"
+  format_regex: /^(ht|f)tp((?<=http)s)?://((?<=http://)www|(?<=https://)www|(?<=ftp://)ftp)\.(([a-z][0-9])|([0-9][a-z])|([a-z0-9][a-z0-9\-]{1,2}[a-z0-9])|([a-z0-9][a-z0-9\-](([a-z0-9\-][a-z0-9])|([a-z0-9][a-z0-9\-]))[a-z0-9\-]*[a-z0-9]))\.(co|me|org|ltd|plc|net|sch|ac|mo
+  
+data_formats_012: 
+  name: Decimal5.2
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "12"
+  description: |-
+    Description:  	validates to 5 digits and 2 decimal places but not allowing zero
+    Matches: 	12345.12|||0.5
+    Non-Matches: 	123456.12|||1.234|||.1
+  created_by_user_id: "1"
+  format_regex: /(?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$/
+  
+data_formats_001: 
+  name: Text
+  
+  default_value: ""
+  updated_by_user_id: "2"
+  data_type_id: "1"
+  lock_version: "2"
+  id: "1"
+  description: Free Format Text
+  created_by_user_id: "1"
+  format_regex: .
+  
+data_formats_024: 
+  name: URL
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "6"
+  lock_version: "0"
+  id: "24"
+  description: "Description:  \tI wrote this after I couldn't find an expression that would search for valid URLs, whether they had HTTP in front or not. This will find those that don't have hyphens anywhere in them (except for after the domain).\r\n\
+    Matches: \thttp://www.google.com|||www.123google.com|||www.google.com/help/me\r\n\
+    Non-Matches: \t-123google.com|||http://-123.123google.com\r\n "
+  created_by_user_id: "1"
+  format_regex: /^(?<link>((?<prot>http:\/\/)*(?<subdomain>(www|[^\-\n]*)*)(\.)*(?<domain>[^\-\n]+)\.(?<after>[a-zA-Z]{2,3}[^>\n]*)))$/
+  
+data_formats_013: 
+  name: Percentage
+  
+  default_value: 
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "1"
+  id: "13"
+  description: |-
+    Description:  	Percentage (From 0 to 100)
+    Matches: 	100%|||100|||52.65%
+    Non-Matches: 	-1|||-1%|||100.1%
+  created_by_user_id: "1"
+  format_regex: /(0*100{1,1}\.?((?<=\.)0*)?%?$)|(^0*\d{0,2}\.?((?<=\.)\d*)?%?)$/
+  
+data_formats_002: 
+  name: Alpha
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "2"
+  description: A-Z
+  created_by_user_id: "1"
+  format_regex: 
+  
+data_formats_014: 
+  name: Dollars
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "14"
+  description: |-
+    Description:  	Regular expression for validating a US currency string field. Matches an unlimited number of digits to the left of an optional decimal point. Digits to the left of the decimal point can optionally be formatted with commas, in standard US currency format. If the decimal point is present, it must be followed by exactly two digits to the right. Matches an optional preceding dollar sign. Uses regex lookahead to preclude leading zeros and to match the optional formatting comma.
+    Matches: 	$3,023,123.34|||9,876|||123456.78
+    Non-Matches: 	0.002|||$01.00|||###1.00
+  created_by_user_id: "1"
+  format_regex: (?n:(^\$?(?!0,?\d)\d{1,3}(?=(?<1>,)|(?<1>))(\k<1>\d{3})*(\.\d\d)?)$)
+  
+data_formats_003: 
+  name: Line
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "3"
+  description: Single Line of Text
+  created_by_user_id: "1"
+  format_regex: /[^"\r\n]*/
+  
+data_formats_015: 
+  name: SSN
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "15"
+  description: |-
+    Description:  	This regular expression will match a hyphen-separated Social Security Number (SSN) in the format NNN-NN-NNNN.
+    Matches: 	333-22-4444|||123-45-6789
+    Non-Matches: 	123456789|||SSN
+  created_by_user_id: "1"
+  format_regex: /^\d{3}-\d{2}-\d{4}$/
+  
+data_formats_004: 
+  name: Double
+  
+  default_value: "0.0"
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "2"
+  id: "4"
+  description: Standard Number format +/-nnn.nnnnn
+  created_by_user_id: "1"
+  format_regex: ^[-+]?[0-9]*\.?[0-9]+$
+  
+data_formats_016: 
+  name: CreditCard
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "16"
+  description: |-
+    Description:  	Updated on 7 Jun 2005 -- Matches major credit cards including: Visa (length 16, prefix 4); Mastercard (length 16, prefix 51-55); Diners Club/Carte Blanche (length 14, prefix 36, 38, or 300-305); Discover (length 16, prefix 6011); American Express (length 15, prefix 34 or 37). Saves the card type as a named group to facilitate further validation against a &quot;card type&quot; checkbox in a program. All 16 digit formats are grouped 4-4-4-4 with an optional hyphen or space between each group of 4 digits. The American Express format is grouped 4-6-5 with an optional hyphen or space between each group of digits. Formatting characters must be consistant, i.e. if two groups are separated by a hyphen, all groups must be separated by a hyphen for a match to occur.
+    Matches: 	4111-2222-3333-4444|||3411 222222 33333|||5111222233334444
+    Non-Matches: 	4111-2222-3333-444|||3411-2222-3333-4444|||Visa
+  created_by_user_id: "1"
+  format_regex: /^(?:(?<Visa>4\d{3})|(?<Mastercard>5[1-5]\d{2})|(?<Discover>6011)|(?<DinersClub>(?:3[68]\d{2})|(?:30[0-5]\d))|(?<AmericanExpress>3[47]\d{2}))([ -]?)(?(DinersClub)(?:\d{6}\1\d{4})|(?(AmericanExpress)(?:\d{6}\1\d{5})|(?:\d{4}\1\d{4}\1\d{4})))$/
+  
+data_formats_005: 
+  name: Hex
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "5"
+  description: Nex values
+  created_by_user_id: "1"
+  format_regex: /\b0[xX][0-9a-fA-F]+\b/
+  
+data_formats_017: 
+  name: FullName
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "1"
+  lock_version: "0"
+  id: "17"
+  description: |-
+    Description:  	Regular expression for validating a person's full name. Matches on two general formats: 1) first second third last (where first, second, and third names are optional and all present are separated by a space); 2) last, first second third (where second and third are optional, last is followed immediately by a comma and a space, and second, and third, if present, are separated by a space from each other and from first). First corresponds to surname and last corresponds to family name. Each name part is captured to a named group to facilitate program manipulation. Each name part must begin with an uppercase letter, followed by zero or more lowercase letters, except for the last name. Last name must begin with an uppercase letter, followed by one or more lowercase letters, but will match exceptions formatted like the following: McD..., MacD..., O'R... Only format is validated, not spelling. NOTE: This regular expression uses positive and negative regex lookahead to determine the general format of the name, i.e. the presence or the absence of the comma determines the general format that will match. Furthermore, this initial version is not designed to accommodate titles and things like &quot;3rd&quot;.
+    Matches: 	John Paul Jones|||Jones, John P|||Jones
+    Non-Matches: 	Paul Jones, John|||John J|||Mr. John Paul Jones 3rd
+  created_by_user_id: "1"
+  format_regex: (?n:(^(?(?![^,]+?,)((?<first>[A-Z][a-z]*?) )?((?<second>[A-Z][a-z]*?) )?((?<third>[A-Z][a-z]*?) )?)(?<last>[A-Z](('|[a-z]{1,2})[A-Z])?[a-z]+))(?(?=,)(, (?<first>[A-Z][a-z]*?))?( (?<second>[A-Z][a-z]*?))?( (?<third>[A-Z][a-z]*?))?)$)
+  
+data_formats_006: 
+  name: Float
+  
+  default_value: 
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "6"
+  description: Floating Point number
+  created_by_user_id: "1"
+  format_regex: /((\b[0-9]+)?\.)?[0-9]+\b/
+  
+data_formats_018: 
+  name: DayTime
+  
+  default_value: 
+  updated_by_user_id: "2"
+  data_type_id: "4"
+  lock_version: "1"
+  id: "18"
+  description: "Description:  \tMatches a string if it is a valid time in the format of HH:MM\r\n\
+    Matches: \t02:04|||16:56|||23:59\r\n\
+    Non-Matches: \t02:00 PM|||PM2:00|||24:00\r\n "
+  created_by_user_id: "1"
+  format_regex: /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/
+  
+data_formats_007: 
+  name: Scientific Notation
+  
+  default_value: 
+  updated_by_user_id: "2"
+  data_type_id: "2"
+  lock_version: "4"
+  id: "7"
+  description: Scientific Notation
+  created_by_user_id: "1"
+  format_regex: /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?/
+  

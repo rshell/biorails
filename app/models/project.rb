@@ -69,7 +69,7 @@ class Project < ActiveRecord::Base
 #
 # People to share the ownership of project and so govern the membership
 #
-  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.owner = ? or users.admin = ?', true, true]
+  has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.is_owner = ? or users.admin = ?', true, true]
 #
 # home folders
 # 
@@ -169,7 +169,7 @@ end
 #
   def owner?(user)
     member_details = Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
-    return (member_details and member_details.owner)
+    return (member_details and member_details.is_owner)
   end
   
   def news(count =5 )

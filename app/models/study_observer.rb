@@ -25,18 +25,18 @@ class StudyObserver < ActiveRecord::Observer
    case record
    when Study
      log = record.logs.create(:study_id => record.id, :name => record.name,
-        :comment => " #{mode} study #{record.name}" )
+        :comments => " #{mode} study #{record.name}" )
    when StudyProtocol
      log = record.study.logs.create(:study_id => record.study_id, :name => record.name,
-        :comment => " #{mode} protocol #{record.name} in study #{record.study.name}"
+        :comments => " #{mode} protocol #{record.name} in study #{record.study.name}"
      )
    when StudyParameter
      log = record.study.logs.create(:study_id => record.study_id, :name => record.name,
-        :comment => " #{mode} parameter #{record.name} in study #{record.study.name}"
+        :comments => " #{mode} parameter #{record.name} in study #{record.study.name}"
      )
    when Experiment
      log =  record.study.logs.create(:study_id => record.study_id, :name => record.name,
-        :comment => " #{mode} experiment #{record.name} in study #{record.study.name}"
+        :comments => " #{mode} experiment #{record.name} in study #{record.study.name}"
      )
    else 
      return

@@ -168,7 +168,7 @@ module Alces
               node.model = object
               hash[object.id] = node
               if object.parent_id
-                  if hash[object.parent_id].children.size>0
+                  if  hash[object.parent_id] && hash[object.parent_id].children.size>0
                     old = hash[object.parent_id].children.last
                     node.previous = old
                     old.successor = node

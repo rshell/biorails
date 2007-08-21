@@ -13,15 +13,23 @@ class AnalysisSetting < ActiveRecord::Base
  serialize :options
 
   def input?
-    ((mode && 1) == 1)
+    ((io_mode && 1) == 1)
   end
 
   def output?
-    ((mode && 2) == 2)
+    ((io_mode && 2) == 2)
   end
 
+  def mode
+   self.io_mode  
+  end
+  
+  def mode=(value)
+    self.io_mode = value
+  end
+  
   def io_style
-   case mode
+   case io_mode
    when 1 : '[in]'
    when 2 : '[out]'
    when 3 : '[in/out]'

@@ -16,9 +16,9 @@
          tc.label row_label,
          p.name parameter_name,
          ti.data_content data_value,
-         ti.created_by,
+         ti.created_by_user_id,
          ti.created_at,
-         ti.updated_by,
+         ti.updated_by_user_id,
          ti.updated_at
   from parameter_contexts pc,
        parameters p,

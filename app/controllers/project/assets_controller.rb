@@ -84,7 +84,8 @@ class Project::AssetsController < ApplicationController
   def new
     current_project
     @project_folder =current_folder
-    @project_asset = ProjectAsset.build( :name=> Identifier.next_user_ref, :project_id => @project_folder.project_id )    
+    @project_asset = ProjectAsset.build({ :name=> Identifier.next_user_ref, 
+                                          :project_id => @project_folder.project_id} )    
     
     respond_to do |format|
       format.html { render :action=>'new'}

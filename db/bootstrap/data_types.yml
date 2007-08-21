@@ -1,0 +1,71 @@
+--- 
+data_types_001: 
+  name: text
+  
+  value_class: String
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "1"
+  description: Text
+  created_by_user_id: "1"
+  
+data_types_002: 
+  name: numeric
+  
+  value_class: Numeric
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "2"
+  description: Numeric
+  created_by_user_id: "1"
+  
+data_types_003: 
+  name: date
+  
+  value_class: Date
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "3"
+  description: Date
+  created_by_user_id: "1"
+  
+data_types_004: 
+  name: time
+  
+  value_class: DateTime
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "4"
+  description: Time
+  created_by_user_id: "1"
+  
+data_types_005: 
+  name: dictionary
+  
+  value_class: DataConcept
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "5"
+  description: Look up on catalogue
+  created_by_user_id: "1"
+  
+data_types_006: 
+  name: url
+  
+  value_class: String
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "6"
+  description: Reference
+  created_by_user_id: "1"
+  
+data_types_007: 
+  name: file
+  
+  value_class: File
+  updated_by_user_id: "1"
+  lock_version: "1"
+  id: "7"
+  description: File
+  created_by_user_id: "1"
+  

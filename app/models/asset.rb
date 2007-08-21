@@ -119,6 +119,14 @@ class Asset < ActiveRecord::Base
       '/images/model/file.png'
   end
 
+  def size
+    self.size_bytes
+  end
+
+  def size=(value)
+    self.size_bytes=value
+  end
+
   def mime_type
     MIME::Types[self.content_type]  
   end

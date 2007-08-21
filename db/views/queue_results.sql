@@ -61,7 +61,7 @@ union
          pc.label,
          tc.label row_label,
          p.name parameter_name,
-         ti.data_value,
+         to_char(ti.data_value),
          ti.created_by_user_id,
          ti.created_at,
          ti.updated_by_user_id,

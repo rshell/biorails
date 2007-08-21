@@ -14,4 +14,3 @@
 <hr/>    
     <%= link_to 'Previous page', { :page => @data_pages.current.previous } if @data_pages.current.previous %>
     <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
-    <%=link_to (subject_icon('new.png'))+'New', :action=>'new' %>

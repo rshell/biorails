@@ -26,4 +26,5 @@ class Audit < ActiveRecord::Base
   
   cattr_accessor :audited_classes
   self.audited_classes = []
+  
 end
