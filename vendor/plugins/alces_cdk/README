@@ -1,0 +1,64 @@
+AlcesCdk
+========
+ Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+ See license agreement for additional rights
+
+This is licenced under GNU 2.0 lience to match the CDK library it is dependent upon
+
+The initial idea for this code came from http://rubyforge.org/projects/rcdk 
+and pieces on http://depth-first.com . In the end ended up with a reimplementation the code
+for CDK 1.0.1 and changes to create generate for rails models based for 
+chemical aware objects. 
+
+Big change withthis library v.s. RCK is focus on rails model and coverage basic
+structure operaitons SSS, Match, Fingerprint so a simple example registration
+system can be built with it.  
+
+I have attempt provide the standard features needed for registration as best as possible with 
+open source libraries. So taht peiople can  built to allow basic inventory management 
+in a chemical aware way in rails.
+
+Overview of functions in Alces::Chemistrt:CDK :-
+
+ Searching
+     sss     true is this is subgraph
+     match   true is molecules are then same
+
+ Fingerprints
+     fingerprint  generate finderprint
+     subset       fingerprint screen passed for sss
+     tanimoto     how simular are molecules
+
+ Calculation
+     formula
+     canonical_mass
+     natural_mass
+     exact_mass
+
+ Layout
+    Layout_2d
+    Layout_3d
+
+Conversions
+     to_smiles
+     from_smiles
+     to_molfile
+     from_molecule
+     read(data,format)
+     write(format)
+     to_png
+     to_jpg
+     to_svg
+     
+The chemical seraching will be a little slow as SSS and match are only implemented 
+in the client codeand not linked to database functions. Also depictions from smiles 
+may not be as good and some of the commerial offering. If you want nice depictions
+your have to save coordinates in the database via MolFile. 
+
+On the plus side this is release under GNU license is open for enhancement. Also
+for commerial biorails.com offering will be implementing same API in better $$
+chemistry tools.
+
+
+
+     

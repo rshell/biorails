@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  cd_smiles: c1ccccc1
+  cd_id: 1
+  compound_ref: BR1
+  comments: A
+two:
+  id: 2
+  cd_smiles: c1c(N)cc(O)cc1
+  cd_id: 2
+  compound_ref: BR1
+  comments: B
