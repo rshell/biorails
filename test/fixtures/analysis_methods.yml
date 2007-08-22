@@ -1,2 +1,45 @@
---- {}
-
+--- 
+analysis_methods_001: 
+  class_name: alces/processor/dummy
+  name: csv-export
+  updated_at: 2007-07-03 14:11:41
+  protocol_version_id: 
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "1"
+  description: 
+  created_by_user_id: "1"
+  created_at: 2007-07-03 14:11:41
+analysis_methods_002: 
+  class_name: alces/processor/plot_xy
+  name: xyplot
+  updated_at: 2007-07-03 14:11:46
+  protocol_version_id: 
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "2"
+  description: 
+  created_by_user_id: "1"
+  created_at: 2007-07-03 14:11:46
+analysis_methods_003: 
+  class_name: alces/processor/plot_xy
+  name: xyplot
+  updated_at: 2007-07-03 14:12:29
+  protocol_version_id: 
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "3"
+  description: 
+  created_by_user_id: "1"
+  created_at: 2007-07-03 14:12:29
+analysis_methods_004: 
+  class_name: alces/processor/plot_xy
+  name: xyplot
+  updated_at: 2007-07-03 14:12:35
+  protocol_version_id: 
+  updated_by_user_id: "1"
+  lock_version: "0"
+  id: "4"
+  description: 
+  created_by_user_id: "1"
+  created_at: 2007-07-03 14:12:35

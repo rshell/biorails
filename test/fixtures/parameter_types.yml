@@ -1,21 +1,21 @@
 --- 
 parameter_types_020: 
-  name: cmd2
+  name: Route
   storage_unit: 
-  updated_at: 2007-06-20 16:33:34
+  
   updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
   id: "20"
-  description: cmpd
-  data_concept_id: "6"
+  description: Route of administration
+  data_concept_id: "55"
   created_by_user_id: "1"
-  created_at: 2007-06-20 16:33:34
+  created_at: 2007-06-28 12:52:09
   weighing: "0"
 parameter_types_009: 
   name: Duration
   storage_unit: time
-  updated_at: 2007-06-06 17:09:57
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -26,22 +26,22 @@ parameter_types_009:
   created_at: 2007-06-06 17:09:57
   weighing: "0"
 parameter_types_021: 
-  name: Mass
-  storage_unit: mass
-  updated_at: 2007-06-21 12:31:55
+  name: Asset
+  storage_unit: ""
+  
   updated_by_user_id: "1"
-  data_type_id: "2"
+  data_type_id: "7"
   lock_version: "0"
   id: "21"
-  description: Mass
+  description: Charts, documents, images
   data_concept_id: 
   created_by_user_id: "1"
-  created_at: 2007-06-21 12:31:55
+  created_at: 2007-06-28 12:57:49
   weighing: "0"
 parameter_types_010: 
   name: Length
   storage_unit: length
-  updated_at: 2007-06-06 17:12:28
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -52,22 +52,22 @@ parameter_types_010:
   created_at: 2007-06-06 17:12:28
   weighing: "0"
 parameter_types_022: 
-  name: TreatmentGroup
-  storage_unit: 
-  updated_at: 2007-06-21 12:44:11
+  name: File
+  storage_unit: ""
+  
   updated_by_user_id: "1"
-  data_type_id: "5"
+  data_type_id: "7"
   lock_version: "0"
   id: "22"
-  description: Treatment Group
-  data_concept_id: "9"
+  description: File, document, image, spectra, chromatograph, ole objects
+  data_concept_id: 
   created_by_user_id: "1"
-  created_at: 2007-06-21 12:44:11
+  created_at: 2007-06-28 13:02:23
   weighing: "0"
 parameter_types_011: 
   name: URL
   storage_unit: ""
-  updated_at: 2007-06-06 17:13:42
+  
   updated_by_user_id: "3"
   data_type_id: "6"
   lock_version: "1"
@@ -77,10 +77,23 @@ parameter_types_011:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:13:05
   weighing: "0"
+parameter_types_023: 
+  name: Mass
+  storage_unit: mass
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "23"
+  description: Mass, weight
+  data_concept_id: 
+  created_by_user_id: "1"
+  created_at: 2007-06-28 13:12:11
+  weighing: "0"
 parameter_types_012: 
   name: IC50
   storage_unit: concentration
-  updated_at: 2007-06-06 22:22:07
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -93,7 +106,7 @@ parameter_types_012:
 parameter_types_001: 
   name: Dose
   storage_unit: ""
-  updated_at: 2007-06-06 16:56:20
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -103,10 +116,23 @@ parameter_types_001:
   created_by_user_id: "3"
   created_at: 2007-06-06 16:56:20
   weighing: "0"
+parameter_types_024: 
+  name: Probablity
+  storage_unit: ""
+  
+  updated_by_user_id: "1"
+  data_type_id: "2"
+  lock_version: "0"
+  id: "24"
+  description: Probablilty
+  data_concept_id: 
+  created_by_user_id: "1"
+  created_at: 2007-06-28 13:36:52
+  weighing: "0"
 parameter_types_013: 
   name: Enzyme
   storage_unit: ""
-  updated_at: 2007-06-06 22:27:29
+  
   updated_by_user_id: "3"
   data_type_id: "1"
   lock_version: "0"
@@ -119,7 +145,7 @@ parameter_types_013:
 parameter_types_002: 
   name: Count
   storage_unit: counting
-  updated_at: 2007-06-06 17:02:49
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "1"
@@ -129,10 +155,23 @@ parameter_types_002:
   created_by_user_id: "3"
   created_at: 2007-06-06 16:59:17
   weighing: "0"
+parameter_types_025: 
+  name: PvalueMarker
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "25"
+  description: P value marker
+  data_concept_id: "57"
+  created_by_user_id: "1"
+  created_at: 2007-06-28 13:39:06
+  weighing: "1"
 parameter_types_014: 
   name: organism
   storage_unit: ""
-  updated_at: 2007-06-06 22:29:09
+  
   updated_by_user_id: "3"
   data_type_id: "1"
   lock_version: "0"
@@ -148,7 +187,7 @@ parameter_types_014:
 parameter_types_003: 
   name: Inhibition
   storage_unit: ""
-  updated_at: 2007-06-08 10:45:01
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "1"
@@ -158,10 +197,23 @@ parameter_types_003:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:01:06
   weighing: "0"
+parameter_types_026: 
+  name: Role
+  storage_unit: 
+  
+  updated_by_user_id: "1"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "27"
+  description: Compound Role
+  data_concept_id: "58"
+  created_by_user_id: "1"
+  created_at: 2007-06-28 14:20:32
+  weighing: "0"
 parameter_types_015: 
   name: Location
   storage_unit: ""
-  updated_at: 2007-06-06 22:29:40
+  
   updated_by_user_id: "3"
   data_type_id: "1"
   lock_version: "0"
@@ -174,7 +226,7 @@ parameter_types_015:
 parameter_types_004: 
   name: Identifier
   storage_unit: ""
-  updated_at: 2007-06-06 17:04:24
+  
   updated_by_user_id: "3"
   data_type_id: "1"
   lock_version: "0"
@@ -184,10 +236,23 @@ parameter_types_004:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:04:24
   weighing: "0"
+parameter_types_027: 
+  name: Target
+  storage_unit: 
+  
+  updated_by_user_id: "4"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "28"
+  description: Dummy target database
+  data_concept_id: "1"
+  created_by_user_id: "4"
+  created_at: 2007-07-04 13:00:05
+  weighing: "0"
 parameter_types_016: 
   name: Date
   storage_unit: ""
-  updated_at: 2007-06-08 10:49:26
+  
   updated_by_user_id: "3"
   data_type_id: "3"
   lock_version: "0"
@@ -200,7 +265,7 @@ parameter_types_016:
 parameter_types_005: 
   name: Compound
   storage_unit: ""
-  updated_at: 2007-06-06 17:05:07
+  
   updated_by_user_id: "3"
   data_type_id: "5"
   lock_version: "0"
@@ -210,10 +275,23 @@ parameter_types_005:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:05:07
   weighing: "0"
+parameter_types_028: 
+  name: Hit
+  storage_unit: 
+  
+  updated_by_user_id: "4"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "29"
+  description: Is this a hit?
+  data_concept_id: "60"
+  created_by_user_id: "4"
+  created_at: 2007-07-04 14:04:10
+  weighing: "10"
 parameter_types_017: 
   name: Time
   storage_unit: time
-  updated_at: 2007-06-08 10:49:50
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -226,7 +304,7 @@ parameter_types_017:
 parameter_types_006: 
   name: Plate
   storage_unit: ""
-  updated_at: 2007-06-06 17:05:46
+  
   updated_by_user_id: "3"
   data_type_id: "5"
   lock_version: "0"
@@ -236,10 +314,23 @@ parameter_types_006:
   created_by_user_id: "3"
   created_at: 2007-06-06 17:05:46
   weighing: "0"
+parameter_types_029: 
+  name: QC
+  storage_unit: 
+  
+  updated_by_user_id: "4"
+  data_type_id: "5"
+  lock_version: "0"
+  id: "30"
+  description: QC Parameters
+  data_concept_id: "61"
+  created_by_user_id: "4"
+  created_at: 2007-07-04 14:05:48
+  weighing: "0"
 parameter_types_018: 
   name: Temperature
   storage_unit: temperature
-  updated_at: 2007-06-08 10:51:11
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"
@@ -252,7 +343,7 @@ parameter_types_018:
 parameter_types_007: 
   name: Subject
   storage_unit: ""
-  updated_at: 2007-06-06 17:07:05
+  
   updated_by_user_id: "3"
   data_type_id: "5"
   lock_version: "0"
@@ -263,22 +354,22 @@ parameter_types_007:
   created_at: 2007-06-06 17:07:05
   weighing: "0"
 parameter_types_019: 
-  name: ClinScore
+  name: Sex
   storage_unit: 
-  updated_at: 2007-06-13 11:59:30
-  updated_by_user_id: "4"
+  
+  updated_by_user_id: "1"
   data_type_id: "5"
   lock_version: "0"
   id: "19"
-  description: Clinical Score
-  data_concept_id: "55"
-  created_by_user_id: "4"
-  created_at: 2007-06-13 11:59:30
+  description: Sex
+  data_concept_id: "56"
+  created_by_user_id: "1"
+  created_at: 2007-06-28 12:51:52
   weighing: "0"
 parameter_types_008: 
   name: Rate
   storage_unit: rate
-  updated_at: 2007-06-06 17:08:52
+  
   updated_by_user_id: "3"
   data_type_id: "2"
   lock_version: "0"

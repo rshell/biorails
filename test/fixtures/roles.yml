@@ -1,7 +1,7 @@
 --- 
 roles_004: 
   name: Owner
-  updated_at: 2007-06-11 12:41:08
+  
   cache: |+
     --- 
     memberships: {}
@@ -68,7 +68,6 @@ roles_004:
       "*": true
     inventory: {}
     
-  default_page_id: 
   type: ProjectRole
   updated_by_user_id: "3"
   id: "5"
@@ -78,7 +77,7 @@ roles_004:
   created_at: 2007-06-11 12:05:52
 roles_005: 
   name: manager
-  updated_at: 2007-06-11 12:27:59
+  
   cache: |
     --- 
     memberships: {}
@@ -124,7 +123,6 @@ roles_005:
     inventory: 
       "*": true
 
-  default_page_id: 
   type: UserRole
   updated_by_user_id: "3"
   id: "6"
@@ -134,7 +132,7 @@ roles_005:
   created_at: 2007-06-11 12:06:50
 roles_006: 
   name: User
-  updated_at: 2007-06-11 12:48:39
+  
   cache: |
     --- 
     studies: {}
@@ -193,7 +191,6 @@ roles_006:
     inventory: 
       "*": true
 
-  default_page_id: 
   type: UserRole
   updated_by_user_id: "3"
   id: "7"
@@ -203,7 +200,7 @@ roles_006:
   created_at: 2007-06-11 12:48:05
 roles_001: 
   name: Public
-  updated_at: 2007-06-11 12:46:18
+  
   cache: |+
     --- 
     studies: 
@@ -266,7 +263,6 @@ roles_001:
       show: true
     inventory: {}
     
-  default_page_id: 
   type: ProjectRole
   updated_by_user_id: "3"
   id: "1"
@@ -276,7 +272,7 @@ roles_001:
   created_at: 2006-06-23 12:03:49
 roles_002: 
   name: Member
-  updated_at: 2007-06-11 12:44:25
+  
   cache: |+
     --- 
     studies: 
@@ -373,7 +369,6 @@ roles_002:
       "*": true
     inventory: {}
     
-  default_page_id: 
   type: ProjectRole
   updated_by_user_id: "3"
   id: "2"
@@ -383,7 +378,7 @@ roles_002:
   created_at: 2006-06-23 12:03:50
 roles_003: 
   name: Administrator
-  updated_at: 2007-06-11 12:47:32
+  
   cache: |
     --- 
     studies: {}
@@ -518,7 +513,6 @@ roles_003:
       update: true
       "*": true
 
-  default_page_id: 
   type: UserRole
   updated_by_user_id: "3"
   id: "3"

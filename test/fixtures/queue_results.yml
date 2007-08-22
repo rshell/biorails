@@ -1,2 +1,55 @@
---- {}
-
+--- 
+queue_results_001: 
+  updated_at: 2007-07-06 09:06:03
+  parameter_context_id: "40"
+  protocol_version_id: "23"
+  study_queue_id: "6"
+  request_service_id: "6"
+  queue_item_id: "13"
+  task_id: "40"
+  column_no: "6"
+  updated_by_user_id: "4"
+  data_type: Compound
+  parameter_name: Max Inhibition
+  subject: ESC-00000001:01
+  reference_parameter_id: "151"
+  task_context_id: "4910"
+  id: "35713"
+  parameter_id: "160"
+  assigned_to_user_id: "6"
+  requested_by_user_id: "4"
+  row_no: "0"
+  created_by_user_id: "4"
+  row_label: compound[0]
+  data_element_id: 
+  label: compound
+  data_id: "1"
+  created_at: 2007-07-06 09:06:03
+  data_value: "0.75"
+queue_results_002: 
+  updated_at: 2007-07-06 09:06:03
+  parameter_context_id: "40"
+  protocol_version_id: "23"
+  study_queue_id: "6"
+  request_service_id: "6"
+  queue_item_id: "13"
+  task_id: "40"
+  column_no: "7"
+  updated_by_user_id: "4"
+  data_type: Compound
+  parameter_name: Dose Max Inhibition
+  subject: ESC-00000001:01
+  reference_parameter_id: "151"
+  task_context_id: "4910"
+  id: "35714"
+  parameter_id: "161"
+  assigned_to_user_id: "6"
+  requested_by_user_id: "4"
+  row_no: "0"
+  created_by_user_id: "4"
+  row_label: compound[0]
+  data_element_id: 
+  label: compound
+  data_id: "1"
+  created_at: 2007-07-06 09:06:03
+  data_value: "1"

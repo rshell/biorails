@@ -1,7 +1,7 @@
 --- 
 parameter_roles_001: 
   name: observation
-  updated_at: 2006-12-13 16:43:21
+  
   updated_by_user_id: "1"
   lock_version: "3"
   id: "1"
@@ -11,7 +11,7 @@ parameter_roles_001:
   weighing: "1"
 parameter_roles_002: 
   name: result
-  updated_at: 2006-12-13 16:43:32
+  
   updated_by_user_id: "1"
   lock_version: "4"
   id: "2"
@@ -21,7 +21,7 @@ parameter_roles_002:
   weighing: "2"
 parameter_roles_003: 
   name: setting
-  updated_at: 2006-12-13 16:43:39
+  
   updated_by_user_id: "1"
   lock_version: "4"
   id: "3"
@@ -31,7 +31,7 @@ parameter_roles_003:
   weighing: "1"
 parameter_roles_004: 
   name: subject
-  updated_at: 2006-12-13 16:43:47
+  
   updated_by_user_id: "1"
   lock_version: "3"
   id: "4"
@@ -41,7 +41,7 @@ parameter_roles_004:
   weighing: "0"
 parameter_roles_005: 
   name: condition
-  updated_at: 2006-12-13 19:38:06
+  
   updated_by_user_id: "1"
   lock_version: "3"
   id: "6"

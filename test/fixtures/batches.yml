@@ -1,2 +1,125 @@
---- {}
-
+--- 
+batches_004: 
+  quantity_value: 
+  name: AB004
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "2"
+  url: ""
+  compound_id: "4"
+  id: "4"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: ""
+batches_005: 
+  quantity_value: 
+  name: BB004
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "3"
+  id: "5"
+  description: Desc
+  created_by_user_id: "1"
+  external_ref: ""
+batches_006: 
+  quantity_value: 
+  name: BB005
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "31"
+  id: "6"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: ""
+batches_007: 
+  quantity_value: 
+  name: BB006
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "3"
+  id: "7"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: BB006
+batches_008: 
+  quantity_value: 
+  name: BB007
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  id: "8"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: AB001-3
+batches_010: 
+  quantity_value: 
+  name: BB9
+  
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  id: "10"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: AB001-4
+  
+batches_009: 
+  quantity_value: 
+  name: BB008
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  id: "9"
+  description: deasc
+  created_by_user_id: "1"
+  external_ref: AB001-4
+  
+batches_001: 
+  quantity_value: 
+  name: BB002
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "4"
+  url: ""
+  compound_id: "1"
+  id: "1"
+  description: desc
+  created_by_user_id: "1"
+  external_ref: ""
+  
+batches_002: 
+  quantity_value: 
+  name: B02
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "1"
+  id: "2"
+  description: another batch
+  created_by_user_id: "1"
+  external_ref: ""
+batches_003: 
+  quantity_value: 
+  name: BB003
+  quantity_unit: ""
+  updated_by_user_id: "1"
+  lock_version: "1"
+  url: ""
+  compound_id: "2"
+  id: "3"
+  description: Desc
+  created_by_user_id: "1"
+  external_ref: ""

@@ -3,7 +3,7 @@ projects_001:
   done_hours: 
   name: global
   expected_hours: 
-  updated_at: 0000-00-00 00:00:00
+  
   ended_at: 
   title: Global
   timezone: 
@@ -16,13 +16,13 @@ projects_001:
   status_id: "0"
   comment_age: 
   started_at: 
-  created_at: 0000-00-00 00:00:00
+  
   email: 
 projects_002: 
   done_hours: 
   name: Demo
   expected_hours: 
-  updated_at: 2007-06-06 22:06:30
+  
   ended_at: 
   title: 
   timezone: 
@@ -35,5 +35,62 @@ projects_002:
   status_id: "0"
   comment_age: 
   started_at: 
-  created_at: 2007-06-06 22:06:30
+  
+  email: 
+projects_003: 
+  done_hours: 
+  name: In Vivo
+  expected_hours: 
+  
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "1"
+  expected_at: 
+  id: "14"
+  summary: Example project focused on in vivo studies
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  
+  email: 
+projects_004: 
+  done_hours: 
+  name: Part 11
+  expected_hours: 
+  
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "1"
+  expected_at: 
+  id: "15"
+  summary: Electronic signature notes
+  created_by_user_id: "1"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  
+  email: 
+projects_005: 
+  done_hours: 
+  name: HTS
+  expected_hours: 
+  
+  ended_at: 
+  title: 
+  timezone: 
+  updated_by_user_id: "4"
+  expected_at: 
+  id: "16"
+  summary: Screening Examples
+  created_by_user_id: "4"
+  host: 
+  status_id: "0"
+  comment_age: 
+  started_at: 
+  
   email: 

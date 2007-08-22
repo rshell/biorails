@@ -1,7 +1,7 @@
 --- 
 data_systems_001: 
   name: Internal
-  updated_at: 2007-01-13 21:46:14
+  
   access_control_id: 
   updated_by_user_id: "1"
   username: biorails

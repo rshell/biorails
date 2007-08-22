@@ -1,20 +1,20 @@
 --- 
 users_004: 
   name: thawkins
-  updated_at: 2007-06-12 10:45:18
+  
   activated_at: 
   deleted_at: 
   token: 
-  updated_by_user_id: "2"
+  updated_by_user_id: "1"
   admin: "1"
   token_expires_at: 
   activation_code: 
-  fullname: baldy
-  password_salt: 1b3835585efd38ba368553cc451459b194b0520f
+  fullname: baldyhawkins
+  password_salt: 37d5f65a85d0582ef849a5c3edd63df61e2ca3b5
   role_id: "3"
   id: "4"
   filter: 
-  password_hash: af4c83e204c25f752e8132f3a0939b2553282450
+  password_hash: e27ea9bbaea03c3cef1342b7b37c54690e1af6d7
   created_by_user_id: "1"
   state_id: 
   login: thawkins
@@ -22,28 +22,49 @@ users_004:
   email: ted@edgesoftwareconsultancy.com
 users_005: 
   name: alemon
-  updated_at: 2007-06-19 09:08:38
+  
   activated_at: 
   deleted_at: 
   token: 
-  updated_by_user_id: "6"
-  admin: "1"
+  updated_by_user_id: "4"
+  admin: "0"
   token_expires_at: 
   activation_code: 
-  fullname: Andrew Lemon
-  password_salt: e5d83eeadb7eeb4cff02d9694ebe692eeea04e41
+  fullname: JIf
+  password_salt: d46395dfc589ac52b8b6a7b3e09cf7a3fa89a3b1
   role_id: "3"
   id: "6"
   filter: 
-  password_hash: 6a07417e6ce8ffffd9d6a2d4894b929bc5592091
+  password_hash: a8541974b75638a2c2f43a116be3caa941479485
   created_by_user_id: "1"
   state_id: 
   login: alemon
   created_at: 
   email: andrew@edgesoftwareconsultancy.com
 users_006: 
+  name: ewallace
+  
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: Emma Wallace
+  password_salt: 745025c931ef3349548997790985f0b2cf4f6dd4
+  role_id: "3"
+  id: "7"
+  filter: 
+  password_hash: cdfcc3ace3be12baddddf8ace44be64f992d3887
+  created_by_user_id: "1"
+  state_id: 
+  login: ewallace
+  created_at: 2007-04-18 15:30:13
+  email: test@test
+users_007: 
   name: amember
-  updated_at: 2007-05-30 14:17:29
+  
   activated_at: 
   deleted_at: 
   token: 
@@ -62,9 +83,9 @@ users_006:
   login: member
   created_at: 2007-05-30 14:17:29
   email: dddd
-users_007: 
+users_008: 
   name: demo1
-  updated_at: 2007-06-06 18:16:18
+  
   activated_at: 
   deleted_at: 
   token: 
@@ -85,7 +106,7 @@ users_007:
   email: demo1@localhost
 users_001: 
   name: guest
-  updated_at: 
+  
   activated_at: 
   deleted_at: 
   token: 
@@ -106,7 +127,7 @@ users_001:
   email: 
 users_002: 
   name: admin
-  updated_at: 2007-04-18 12:54:44
+  
   activated_at: 
   deleted_at: 
   token: 
@@ -127,7 +148,7 @@ users_002:
   email: 
 users_003: 
   name: rshell
-  updated_at: 2007-05-26 10:13:38
+  
   activated_at: 
   deleted_at: 
   token: 

@@ -1,2 +1,365 @@
---- {}
-
+--- 
+protocol_versions_025: 
+  name: Normalisation:2
+  analysis_id: 
+  updated_at: "00:01:23"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  study_protocol_id: "16"
+  id: "25"
+  report_id: 
+  version: "2"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "00:01:23"
+protocol_versions_014: 
+  name: Comparison of Means:1
+  analysis_id: 
+  updated_at: "15:29:57"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  study_protocol_id: "12"
+  id: "14"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "15:11:38"
+protocol_versions_003: 
+  name: Prot-21:1
+  analysis_id: 
+  updated_at: "15:10:30"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "3"
+  id: "3"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "15:10:30"
+protocol_versions_026: 
+  name: DoseResponse:2
+  analysis_id: 
+  updated_at: "09:08:57"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  study_protocol_id: "17"
+  id: "26"
+  report_id: 
+  version: "2"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "09:08:57"
+protocol_versions_015: 
+  name: Anova:1
+  analysis_id: 
+  updated_at: "15:30:27"
+  updated_by_user_id: "1"
+  lock_version: "2"
+  study_protocol_id: "13"
+  id: "15"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "15:20:07"
+protocol_versions_004: 
+  name: Prot-21:2
+  analysis_id: 
+  updated_at: "10:57:19"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "3"
+  id: "4"
+  report_id: 
+  version: "2"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "10:57:07"
+protocol_versions_027: 
+  name: Materials:4
+  analysis_id: 
+  updated_at: "18:19:27"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  study_protocol_id: "7"
+  id: "27"
+  report_id: 
+  version: "4"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "18:19:27"
+protocol_versions_016: 
+  name: Materials:2
+  analysis_id: 
+  updated_at: "19:26:46"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  study_protocol_id: "7"
+  id: "16"
+  report_id: 
+  version: "2"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "19:26:46"
+protocol_versions_005: 
+  name: Prot-21:3
+  analysis_id: 
+  updated_at: "11:00:51"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "3"
+  id: "5"
+  report_id: 
+  version: "3"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "11:00:39"
+protocol_versions_028: 
+  name: Comparison of Means:2
+  analysis_id: 
+  updated_at: "20:02:37"
+  updated_by_user_id: "4"
+  lock_version: "0"
+  study_protocol_id: "12"
+  id: "28"
+  report_id: 
+  version: "2"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "20:02:37"
+protocol_versions_017: 
+  name: Worklist:2
+  analysis_id: 
+  updated_at: "19:46:52"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  study_protocol_id: "9"
+  id: "17"
+  report_id: 
+  version: "2"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "19:46:52"
+protocol_versions_006: 
+  name: Prot-19:1
+  analysis_id: 
+  updated_at: "15:46:36"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  study_protocol_id: "4"
+  id: "6"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "22:14:07"
+protocol_versions_018: 
+  name: Materials:3
+  analysis_id: 
+  updated_at: "07:53:09"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  study_protocol_id: "7"
+  id: "18"
+  report_id: 
+  version: "3"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "07:53:09"
+protocol_versions_007: 
+  name: Prot-20:1
+  analysis_id: 
+  updated_at: "15:46:38"
+  updated_by_user_id: "3"
+  lock_version: "2"
+  study_protocol_id: "5"
+  id: "7"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "22:17:24"
+protocol_versions_019: 
+  name: Bin Analysis:2
+  analysis_id: 
+  updated_at: "09:29:58"
+  updated_by_user_id: "1"
+  lock_version: "0"
+  study_protocol_id: "11"
+  id: "19"
+  report_id: 
+  version: "2"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "09:29:58"
+protocol_versions_008: 
+  name: Prot-25:1
+  analysis_id: 
+  updated_at: "21:28:01"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "6"
+  id: "8"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "21:28:01"
+protocol_versions_020: 
+  name: AssayPlateRegistration:1
+  analysis_id: 
+  updated_at: "13:33:47"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  study_protocol_id: "14"
+  id: "20"
+  report_id: 
+  version: "1"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "13:33:47"
+protocol_versions_009: 
+  name: Materials:1
+  analysis_id: 
+  updated_at: "14:15:33"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  study_protocol_id: "7"
+  id: "9"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "14:15:33"
+protocol_versions_021: 
+  name: ReaderOutput:1
+  analysis_id: 
+  updated_at: "13:42:27"
+  updated_by_user_id: "4"
+  lock_version: "2"
+  study_protocol_id: "15"
+  id: "21"
+  report_id: 
+  version: "1"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "13:36:51"
+protocol_versions_010: 
+  name: Rat Information:1
+  analysis_id: 
+  updated_at: "14:29:01"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  study_protocol_id: "8"
+  id: "10"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "14:29:01"
+protocol_versions_022: 
+  name: Normalisation:1
+  analysis_id: 
+  updated_at: "13:43:24"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  study_protocol_id: "16"
+  id: "22"
+  report_id: 
+  version: "1"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "13:43:24"
+protocol_versions_011: 
+  name: Worklist:1
+  analysis_id: 
+  updated_at: "14:35:27"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  study_protocol_id: "9"
+  id: "11"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "14:35:27"
+protocol_versions_023: 
+  name: DoseResonse:1
+  analysis_id: 
+  updated_at: "18:48:36"
+  updated_by_user_id: "4"
+  lock_version: "3"
+  study_protocol_id: "17"
+  id: "23"
+  report_id: 
+  version: "1"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "13:53:04"
+protocol_versions_012: 
+  name: Readings:1
+  analysis_id: 
+  updated_at: "14:49:45"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  study_protocol_id: "10"
+  id: "12"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "14:49:45"
+protocol_versions_001: 
+  name: Prot-19:1
+  analysis_id: 
+  updated_at: "22:14:07"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "1"
+  id: "1"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "22:14:07"
+protocol_versions_024: 
+  name: HitList:1
+  analysis_id: 
+  updated_at: "15:19:56"
+  updated_by_user_id: "4"
+  lock_version: "1"
+  study_protocol_id: "18"
+  id: "24"
+  report_id: 
+  version: "1"
+  created_by_user_id: "4"
+  how_to: 
+  created_at: "15:19:56"
+protocol_versions_013: 
+  name: Bin Analysis:1
+  analysis_id: 
+  updated_at: "15:04:41"
+  updated_by_user_id: "1"
+  lock_version: "1"
+  study_protocol_id: "11"
+  id: "13"
+  report_id: 
+  version: "1"
+  created_by_user_id: "1"
+  how_to: 
+  created_at: "15:04:41"
+protocol_versions_002: 
+  name: Prot-20:1
+  analysis_id: 
+  updated_at: "22:17:24"
+  updated_by_user_id: "3"
+  lock_version: "1"
+  study_protocol_id: "2"
+  id: "2"
+  report_id: 
+  version: "1"
+  created_by_user_id: "3"
+  how_to: 
+  created_at: "22:17:24"

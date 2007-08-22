@@ -1,7 +1,7 @@
 --- 
 data_formats_008: 
   name: Decimal5.2
-  updated_at: 2007-06-06 20:13:07
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
@@ -14,7 +14,7 @@ data_formats_008:
   created_at: 0000-00-00 00:00:00
 data_formats_010: 
   name: URL
-  updated_at: 2007-05-25 19:08:50
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "6"
@@ -29,7 +29,7 @@ data_formats_010:
   created_at: 0000-00-00 00:00:00
 data_formats_009: 
   name: Percentage
-  updated_at: 2007-06-06 20:26:16
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
@@ -44,7 +44,7 @@ data_formats_009:
   created_at: 0000-00-00 00:00:00
 data_formats_011: 
   name: Name
-  updated_at: 2007-05-28 15:02:59
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "3"
@@ -57,7 +57,7 @@ data_formats_011:
   created_at: 2007-05-25 21:07:28
 data_formats_012: 
   name: Quantiy
-  updated_at: 2007-06-06 20:15:15
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
@@ -70,7 +70,7 @@ data_formats_012:
   created_at: 2007-06-06 20:15:15
 data_formats_001: 
   name: Text
-  updated_at: 2007-02-07 14:10:25
+  
   default_value: ""
   updated_by_user_id: "1"
   data_type_id: "1"
@@ -83,33 +83,33 @@ data_formats_001:
   created_at: 0000-00-00 00:00:00
 data_formats_013: 
   name: Concentration
-  updated_at: 2007-06-08 11:24:56
+  
   default_value: ""
-  updated_by_user_id: "3"
+  updated_by_user_id: "1"
   data_type_id: "2"
-  lock_version: "1"
+  lock_version: "2"
   id: "27"
   description: Concentration in molar units
-  format_sprintf: "%d %s"
+  format_sprintf: "%g %s"
   created_by_user_id: "3"
   format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
   created_at: 2007-06-06 20:20:26
 data_formats_002: 
   name: Alpha
-  updated_at: 0000-00-00 00:00:00
-  default_value: 
-  updated_by_user_id: "1"
+  
+  default_value: ""
+  updated_by_user_id: "4"
   data_type_id: "1"
-  lock_version: "0"
+  lock_version: "5"
   id: "2"
   description: A-Z
-  format_sprintf: 
+  format_sprintf: ""
   created_by_user_id: "1"
-  format_regex: 
+  format_regex: ^[A-Z]*$
   created_at: 0000-00-00 00:00:00
 data_formats_014: 
   name: Amount
-  updated_at: 2007-06-06 20:22:12
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
@@ -122,7 +122,7 @@ data_formats_014:
   created_at: 2007-06-06 20:22:12
 data_formats_003: 
   name: Line
-  updated_at: 0000-00-00 00:00:00
+  
   default_value: 
   updated_by_user_id: "1"
   data_type_id: "1"
@@ -135,11 +135,11 @@ data_formats_003:
   created_at: 0000-00-00 00:00:00
 data_formats_004: 
   name: Double
-  updated_at: 2007-06-26 11:38:38
+  
   default_value: "0.0"
   updated_by_user_id: "1"
   data_type_id: "2"
-  lock_version: "8"
+  lock_version: "7"
   id: "4"
   description: Standard Number format +/-nnn.nnnnn with units
   format_sprintf: "%g %s"
@@ -148,7 +148,7 @@ data_formats_004:
   created_at: 2006-11-27 11:59:22
 data_formats_005: 
   name: Scientific Notation
-  updated_at: 0000-00-00 00:00:00
+  
   default_value: 
   updated_by_user_id: "1"
   data_type_id: "2"
@@ -161,20 +161,20 @@ data_formats_005:
   created_at: 0000-00-00 00:00:00
 data_formats_006: 
   name: Integer
-  updated_at: 2007-06-12 16:33:51
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"
-  lock_version: "4"
+  lock_version: "3"
   id: "8"
   description: Integer Value
   format_sprintf: "%d"
   created_by_user_id: "1"
-  format_regex: ^[-+]?[0-9]*$
+  format_regex: "[-+]?\\b\\d+\\b"
   created_at: 0000-00-00 00:00:00
 data_formats_007: 
   name: Positive
-  updated_at: 2007-05-31 14:18:52
+  
   default_value: ""
   updated_by_user_id: "3"
   data_type_id: "2"

@@ -4,7 +4,7 @@ identifiers_013:
   current_counter: "3"
   prefix: m-
   name: member
-  updated_at: 2007-05-30 15:43:45
+  
   updated_by_user_id: "1"
   lock_version: "3"
   mask: 
@@ -17,7 +17,7 @@ identifiers_002:
   current_counter: "6"
   prefix: Expt-
   name: Experiment
-  updated_at: 2007-04-30 21:12:55
+  
   updated_by_user_id: "1"
   lock_version: "6"
   mask: 
@@ -30,7 +30,7 @@ identifiers_014:
   current_counter: "9"
   prefix: Role-
   name: Role
-  updated_at: 2007-06-11 12:47:48
+  
   updated_by_user_id: "1"
   lock_version: "9"
   mask: 
@@ -40,12 +40,12 @@ identifiers_014:
   postfix: ""
 identifiers_003: 
   current_step: "1"
-  current_counter: "35"
+  current_counter: "71"
   prefix: Task-
   name: Task
-  updated_at: 2007-06-28 22:18:56
+  
   updated_by_user_id: "1"
-  lock_version: "35"
+  lock_version: "71"
   mask: 
   id: "3"
   created_by_user_id: "1"
@@ -53,23 +53,23 @@ identifiers_003:
   postfix: ""
 identifiers_015: 
   current_step: "1"
-  current_counter: "1"
-  prefix: admin-
-  name: admin
-  updated_at: 2007-06-12 12:31:26
+  current_counter: "39"
+  prefix: guest-
+  name: guest
+  
   updated_by_user_id: "1"
-  lock_version: "1"
+  lock_version: "39"
   mask: 
   id: "15"
   created_by_user_id: "1"
-  created_at: 2007-06-12 12:31:26
+  created_at: 2007-06-28 08:52:56
   postfix: ""
 identifiers_004: 
   current_step: "1"
   current_counter: "65"
   prefix: Note-
   name: ProjectContent
-  updated_at: 2007-04-30 20:39:13
+  
   updated_by_user_id: "1"
   lock_version: "65"
   mask: 
@@ -79,23 +79,23 @@ identifiers_004:
   postfix: ""
 identifiers_016: 
   current_step: "1"
-  current_counter: "4"
+  current_counter: "47"
   prefix: thawkins-
   name: thawkins
-  updated_at: 2007-06-27 15:11:49
+  
   updated_by_user_id: "1"
-  lock_version: "4"
+  lock_version: "47"
   mask: 
   id: "16"
   created_by_user_id: "1"
-  created_at: 2007-06-13 01:09:17
+  created_at: 2007-06-29 10:48:44
   postfix: ""
 identifiers_005: 
   current_step: "1"
   current_counter: "47"
   prefix: S-
   name: Study
-  updated_at: 2007-06-19 09:08:56
+  
   updated_by_user_id: "1"
   lock_version: "47"
   mask: 
@@ -103,25 +103,12 @@ identifiers_005:
   created_by_user_id: "1"
   created_at: 2007-04-18 19:04:32
   postfix: ""
-identifiers_017: 
-  current_step: "1"
-  current_counter: "19"
-  prefix: guest-
-  name: guest
-  updated_at: 2007-06-29 11:37:45
-  updated_by_user_id: "1"
-  lock_version: "19"
-  mask: 
-  id: "17"
-  created_by_user_id: "1"
-  created_at: 2007-06-21 12:53:28
-  postfix: ""
 identifiers_006: 
   current_step: "1"
   current_counter: "45"
   prefix: R-
   name: Report
-  updated_at: 2007-06-29 15:07:12
+  
   updated_by_user_id: "1"
   lock_version: "45"
   mask: 
@@ -134,7 +121,7 @@ identifiers_007:
   current_counter: "3"
   prefix: "-"
   name: ""
-  updated_at: 2007-04-19 16:32:39
+  
   updated_by_user_id: "1"
   lock_version: "3"
   mask: 
@@ -144,12 +131,12 @@ identifiers_007:
   postfix: ""
 identifiers_008: 
   current_step: "1"
-  current_counter: "352"
+  current_counter: "330"
   prefix: rjs-
   name: rshell
-  updated_at: 2007-07-02 14:31:31
+  
   updated_by_user_id: "1"
-  lock_version: "352"
+  lock_version: "330"
   mask: 
   id: "8"
   created_by_user_id: "1"
@@ -160,7 +147,7 @@ identifiers_010:
   current_counter: "31"
   prefix: File-
   name: ProjectAsset
-  updated_at: 2007-05-01 06:01:34
+  
   updated_by_user_id: "1"
   lock_version: "31"
   mask: 
@@ -173,7 +160,7 @@ identifiers_009:
   current_counter: "25"
   prefix: Req-
   name: Request
-  updated_at: 2007-06-27 14:55:30
+  
   updated_by_user_id: "1"
   lock_version: "25"
   mask: 
@@ -183,12 +170,12 @@ identifiers_009:
   postfix: ""
 identifiers_011: 
   current_step: "1"
-  current_counter: "27"
+  current_counter: "38"
   prefix: Prot-
   name: StudyProtocol
-  updated_at: 2007-06-21 12:50:56
+  
   updated_by_user_id: "1"
-  lock_version: "27"
+  lock_version: "38"
   mask: 
   id: "11"
   created_by_user_id: "1"
@@ -196,12 +183,12 @@ identifiers_011:
   postfix: ""
 identifiers_012: 
   current_step: "1"
-  current_counter: "48"
+  current_counter: "53"
   prefix: Art-
   name: Content
-  updated_at: 2007-07-02 14:31:37
+  
   updated_by_user_id: "1"
-  lock_version: "48"
+  lock_version: "53"
   mask: 
   id: "12"
   created_by_user_id: "1"
@@ -212,7 +199,7 @@ identifiers_001:
   current_counter: "9"
   prefix: Fold-
   name: ProjectFolder
-  updated_at: 2007-04-30 17:57:03
+  
   updated_by_user_id: "1"
   lock_version: "9"
   mask: 
