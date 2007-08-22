@@ -14,7 +14,8 @@
 		    <td><b><label>Compound Structure</label></b>
 		    <div>
 		    <!-- <img src="<%= url_for :action => "marvin_image_for", :smiles => @compound.smiles %>"></img>-->
-            <%=smiles_view_field 'compound','smiles' %>
+            <!--%=structure_view_field 'compound','smiles' %-->
+            <%=chemistry_png(compound,500,300) %>
             </div>
             <div>
             <label><%= @compound.send("smiles") %>

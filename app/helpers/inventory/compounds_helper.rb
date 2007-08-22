@@ -19,7 +19,7 @@ module Inventory::CompoundsHelper
 #  
 #  Currently can only have 1 editor per page as name preset to MSketch
 #  
-def smiles_edit_field(object,method)
+def structure_edit_field(object,method)
   smiles = eval("@#{object}.#{method}")
   js = <<END_OF_STATEMENT
   var item = null;
@@ -60,7 +60,7 @@ end
 # In this mode  the structure us unchangable as old value will
 # away be returned in forms.
 #  
-def smiles_view_field(object, method)
+def structure_view_field(object, method)
   smiles = eval("@#{object}.#{method}")
   js = <<END_OF_STATEMENT
   mview_mayscript = true;
@@ -110,6 +110,24 @@ def smiles_depict_field(object, method)
 
     smiles = eval("@#{object}.#{method}")
     out = '<img src="<%= url_for :action => "image_for", :smiles => @smiles %>"></img>'
+end
+
+
+def chemistry_png(compound,x=100,y=100)
+  filename = "#{compound.dom_id}_#{x}_#{y}.png"
+  public_filename = 'public/images/compound/'+filename
+  unless File.exists? public_filename
+     filename =compound.to_png("#{compound.dom_id}_#{x}_#{y}.png",x,y)
+     File.rename(filename, public_filename)
+  end 
+  if File.exists? public_filename
+    return "<img src='/images/compound/#{filename}'></img>"
+  else
+    ""
+  end
+rescue Exception => ex
+      logger.error "Failed to depict compound: #{compound.id}"  
+      "#Cant Draw"      
 end
 
 end
