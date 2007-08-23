@@ -3,7 +3,8 @@
 # See license agreement for additional rights
 ##
 module  Named 
-#
+
+##
 # Overide context_columns to remove all the internal system columns.
 # 
   def self.content_columns
