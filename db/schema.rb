@@ -4,79 +4,6 @@
 
 ActiveRecord::Schema.define(:version => 279) do
 
-  create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",    :string, :limit => 32,  :default => "", :null => false
-    t.column "INFO_TYPE",  :string, :limit => 32,  :default => "", :null => false
-    t.column "EXTRA_1",    :string, :limit => 100
-    t.column "EXTRA_2",    :string, :limit => 100
-    t.column "EXTRA_3",    :string, :limit => 100
-    t.column "EXTRA_4",    :string, :limit => 100
-    t.column "INFO_VALUE", :text
-  end
-
-  create_table "IJC_ITEM_USER", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",     :string,   :limit => 32, :default => "", :null => false
-    t.column "ITEM_ID",       :string,   :limit => 32, :default => "", :null => false
-    t.column "USERNAME",      :string,   :limit => 32, :default => "", :null => false
-    t.column "TYPE",          :string,   :limit => 32, :default => "", :null => false
-    t.column "CREATION_TIME", :datetime,                               :null => false
-    t.column "INFO",          :text
-  end
-
-  add_index "IJC_ITEM_USER", ["SCHEMA_ID", "USERNAME"], :name => "FK_IJC_ITEM_USER_USER"
-
-  create_table "IJC_SCHEMA", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",    :string,  :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",      :string,  :limit => 32,  :default => "", :null => false
-    t.column "ITEM_INDEX",   :integer, :limit => 6,                   :null => false
-    t.column "GENERIC_TYPE", :string,  :limit => 200, :default => "", :null => false
-    t.column "IMPL_TYPE",    :string,  :limit => 200, :default => "", :null => false
-    t.column "PARENT_ID",    :string,  :limit => 32
-    t.column "ITEM_VALUE",   :text
-  end
-
-  add_index "IJC_SCHEMA", ["SCHEMA_ID", "PARENT_ID"], :name => "FK_IJC_SCHEMA_SCHEMA"
-
-  create_table "IJC_SECURITY_INFO", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",    :string, :limit => 32,  :default => "", :null => false
-    t.column "INFO_TYPE",  :string, :limit => 32,  :default => "", :null => false
-    t.column "EXTRA_1",    :string, :limit => 100
-    t.column "EXTRA_2",    :string, :limit => 100
-    t.column "EXTRA_3",    :string, :limit => 100
-    t.column "EXTRA_4",    :string, :limit => 100
-    t.column "INFO_VALUE", :text
-  end
-
-  create_table "IJC_USER", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string,   :limit => 32, :default => "", :null => false
-    t.column "USERNAME",   :string,   :limit => 32, :default => "", :null => false
-    t.column "LOGIN_TIME", :datetime
-    t.column "HEARTBEAT",  :datetime
-  end
-
-  create_table "IJC_VIEWS", :id => false, :force => true do |t|
-    t.column "ID",          :integer,                                :null => false
-    t.column "SCHEMA_ID",   :string,  :limit => 32,  :default => "", :null => false
-    t.column "DATATREE_ID", :string,  :limit => 32,  :default => "", :null => false
-    t.column "USERNAME",    :string,  :limit => 32,  :default => "", :null => false
-    t.column "VIEW_ID",     :string,  :limit => 32,  :default => "", :null => false
-    t.column "VIEW_NAME",   :string,  :limit => 100, :default => "", :null => false
-    t.column "VIEW_INDEX",  :integer, :limit => 6,                   :null => false
-    t.column "IMPL_TYPE",   :string,  :limit => 200, :default => "", :null => false
-    t.column "VIEW_CONFIG", :text
-  end
-
-  add_index "IJC_VIEWS", ["SCHEMA_ID", "DATATREE_ID", "USERNAME", "VIEW_ID"], :name => "UQ_IJC_VIEWS", :unique => true
-  add_index "IJC_VIEWS", ["SCHEMA_ID", "USERNAME"], :name => "FK_IJC_VIEWS_USER"
-
-  create_table "JCHEMPROPERTIES", :id => false, :force => true do |t|
-    t.column "prop_name",      :string, :limit => 200, :default => "", :null => false
-    t.column "prop_value",     :string, :limit => 200
-    t.column "prop_value_ext", :binary
-  end
-
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
@@ -177,18 +104,18 @@ ActiveRecord::Schema.define(:version => 279) do
   end
 
   create_table "compounds", :force => true do |t|
-    t.column "name",              :string,   :limit => 50, :default => "",    :null => false
-    t.column "description",       :text
-    t.column "formula",           :string,   :limit => 50
-    t.column "mass",              :float
-    t.column "smiles",            :string
-    t.column "lock_version",      :integer,                :default => 0,     :null => false
-    t.column "created_by",        :string,   :limit => 32, :default => "sys", :null => false
-    t.column "created_at",        :datetime,                                  :null => false
-    t.column "updated_by",        :string,   :limit => 32, :default => "sys", :null => false
-    t.column "updated_at",        :datetime,                                  :null => false
-    t.column "registration_date", :datetime
-    t.column "iupacname",         :string,                 :default => ""
+    t.column "name",               :string,   :limit => 50, :default => "", :null => false
+    t.column "description",        :text
+    t.column "formula",            :string,   :limit => 50
+    t.column "mass",               :float
+    t.column "smiles",             :string
+    t.column "lock_version",       :integer,                :default => 0,  :null => false
+    t.column "created_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
+    t.column "created_at",         :datetime,                               :null => false
+    t.column "updated_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
+    t.column "updated_at",         :datetime,                               :null => false
+    t.column "registration_date",  :datetime
+    t.column "iupacname",          :string,                 :default => ""
   end
 
   create_table "container_items", :force => true do |t|
@@ -335,20 +262,6 @@ ActiveRecord::Schema.define(:version => 279) do
   add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_auditable_type_index"
   add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
 
-  create_table "experiment_statistics", :force => true do |t|
-    t.column "experiment_id",      :integer,               :default => 0, :null => false
-    t.column "study_parameter_id", :integer
-    t.column "parameter_role_id",  :integer
-    t.column "parameter_type_id",  :integer
-    t.column "data_type_id",       :integer
-    t.column "avg_values",         :float
-    t.column "stddev_values",      :float
-    t.column "num_values",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",         :float
-    t.column "min_values",         :float
-  end
-
   create_table "experiments", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
@@ -411,44 +324,6 @@ ActiveRecord::Schema.define(:version => 279) do
     t.column "updated_at",         :datetime,                :null => false
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
-  end
-
-  create_table "molecules", :id => false, :force => true do |t|
-    t.column "compound_ref", :string,   :limit => 50
-    t.column "iupac_name",   :string
-    t.column "comments",     :string,   :limit => 50
-    t.column "cd_id",        :integer,                                 :null => false
-    t.column "cd_structure", :binary,                  :default => "", :null => false
-    t.column "cd_mol_file",  :text
-    t.column "cd_smiles",    :text
-    t.column "cd_formula",   :string,   :limit => 100
-    t.column "cd_molweight", :float
-    t.column "cd_hash",      :integer,                                 :null => false
-    t.column "cd_flags",     :string,   :limit => 20
-    t.column "cd_timestamp", :datetime,                                :null => false
-    t.column "cd_fp1",       :integer,                                 :null => false
-    t.column "cd_fp2",       :integer,                                 :null => false
-    t.column "cd_fp3",       :integer,                                 :null => false
-    t.column "cd_fp4",       :integer,                                 :null => false
-    t.column "cd_fp5",       :integer,                                 :null => false
-    t.column "cd_fp6",       :integer,                                 :null => false
-    t.column "cd_fp7",       :integer,                                 :null => false
-    t.column "cd_fp8",       :integer,                                 :null => false
-    t.column "cd_fp9",       :integer,                                 :null => false
-    t.column "cd_fp10",      :integer,                                 :null => false
-    t.column "cd_fp11",      :integer,                                 :null => false
-    t.column "cd_fp12",      :integer,                                 :null => false
-    t.column "cd_fp13",      :integer,                                 :null => false
-    t.column "cd_fp14",      :integer,                                 :null => false
-    t.column "cd_fp15",      :integer,                                 :null => false
-    t.column "cd_fp16",      :integer,                                 :null => false
-  end
-
-  add_index "molecules", ["cd_hash"], :name => "molecules_hx"
-
-  create_table "molecules_UL", :id => false, :force => true do |t|
-    t.column "update_id",   :integer,                               :null => false
-    t.column "update_info", :string,  :limit => 20, :default => "", :null => false
   end
 
   create_table "parameter_contexts", :force => true do |t|
@@ -569,54 +444,6 @@ ActiveRecord::Schema.define(:version => 279) do
   create_table "plugin_schema_info", :id => false, :force => true do |t|
     t.column "plugin_name", :string
     t.column "version",     :integer
-  end
-
-  create_table "process_definitions", :force => true do |t|
-    t.column "name",               :string,   :limit => 30, :default => "", :null => false
-    t.column "release",            :string,   :limit => 5,  :default => "", :null => false
-    t.column "description",        :text
-    t.column "protocol_catagory",  :string,   :limit => 20
-    t.column "protocol_status",    :string,   :limit => 20
-    t.column "literature_ref",     :string
-    t.column "access_control_id",  :integer,                :default => 0,  :null => false
-    t.column "lock_version",       :integer,                :default => 0,  :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
-  end
-
-  add_index "process_definitions", ["name"], :name => "process_definitions_name_index"
-  add_index "process_definitions", ["updated_at"], :name => "process_definitions_updated_at_index"
-
-  create_table "process_instances", :force => true do |t|
-    t.column "process_definition_id", :integer,                              :null => false
-    t.column "name",                  :string,  :limit => 77
-    t.column "version",               :integer, :limit => 6,                 :null => false
-    t.column "lock_version",          :integer,               :default => 0, :null => false
-    t.column "created_at",            :time
-    t.column "updated_at",            :time
-    t.column "how_to",                :text
-    t.column "updated_by_user_id",    :integer,               :default => 1, :null => false
-    t.column "created_by_user_id",    :integer,               :default => 1, :null => false
-  end
-
-  add_index "process_instances", ["name"], :name => "process_instances_name_index"
-  add_index "process_instances", ["process_definition_id"], :name => "process_instances_process_definition_id_index"
-  add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
-
-  create_table "process_statistics", :force => true do |t|
-    t.column "study_parameter_id",  :integer
-    t.column "protocol_version_id", :integer
-    t.column "parameter_id",        :integer
-    t.column "parameter_role_id",   :integer
-    t.column "parameter_type_id",   :integer
-    t.column "avg_values",          :float
-    t.column "stddev_values",       :float
-    t.column "num_values",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",          :float
-    t.column "min_values",          :float
   end
 
   create_table "project_assets", :force => true do |t|
@@ -754,193 +581,6 @@ ActiveRecord::Schema.define(:version => 279) do
     t.column "assigned_to_user_id",  :integer,  :default => 1
   end
 
-  create_table "queue_result", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "queue_result_texts", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :text
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "queue_result_values", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "queue_results", :force => true do |t|
-    t.column "row_no",                 :integer,                :default => 0, :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "requested_by_user_id",   :integer
-    t.column "assigned_to_user_id",    :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :binary
-    t.column "created_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "reactions", :id => false, :force => true do |t|
-    t.column "cd_id",        :integer,                                 :null => false
-    t.column "cd_structure", :binary,                  :default => "", :null => false
-    t.column "cd_smiles",    :text
-    t.column "cd_formula",   :string,   :limit => 100
-    t.column "cd_molweight", :float
-    t.column "cd_hash",      :integer,                                 :null => false
-    t.column "cd_flags",     :string,   :limit => 20
-    t.column "cd_timestamp", :datetime,                                :null => false
-    t.column "cd_fp1",       :integer,                                 :null => false
-    t.column "cd_fp2",       :integer,                                 :null => false
-    t.column "cd_fp3",       :integer,                                 :null => false
-    t.column "cd_fp4",       :integer,                                 :null => false
-    t.column "cd_fp5",       :integer,                                 :null => false
-    t.column "cd_fp6",       :integer,                                 :null => false
-    t.column "cd_fp7",       :integer,                                 :null => false
-    t.column "cd_fp8",       :integer,                                 :null => false
-    t.column "cd_fp9",       :integer,                                 :null => false
-    t.column "cd_fp10",      :integer,                                 :null => false
-    t.column "cd_fp11",      :integer,                                 :null => false
-    t.column "cd_fp12",      :integer,                                 :null => false
-    t.column "cd_fp13",      :integer,                                 :null => false
-    t.column "cd_fp14",      :integer,                                 :null => false
-    t.column "cd_fp15",      :integer,                                 :null => false
-    t.column "cd_fp16",      :integer,                                 :null => false
-    t.column "cd_fp17",      :integer,                                 :null => false
-    t.column "cd_fp18",      :integer,                                 :null => false
-    t.column "cd_fp19",      :integer,                                 :null => false
-    t.column "cd_fp20",      :integer,                                 :null => false
-    t.column "cd_fp21",      :integer,                                 :null => false
-    t.column "cd_fp22",      :integer,                                 :null => false
-    t.column "cd_fp23",      :integer,                                 :null => false
-    t.column "cd_fp24",      :integer,                                 :null => false
-    t.column "cd_fp25",      :integer,                                 :null => false
-    t.column "cd_fp26",      :integer,                                 :null => false
-    t.column "cd_fp27",      :integer,                                 :null => false
-    t.column "cd_fp28",      :integer,                                 :null => false
-    t.column "cd_fp29",      :integer,                                 :null => false
-    t.column "cd_fp30",      :integer,                                 :null => false
-    t.column "cd_fp31",      :integer,                                 :null => false
-    t.column "cd_fp32",      :integer,                                 :null => false
-    t.column "cd_fp33",      :integer,                                 :null => false
-    t.column "cd_fp34",      :integer,                                 :null => false
-    t.column "cd_fp35",      :integer,                                 :null => false
-    t.column "cd_fp36",      :integer,                                 :null => false
-    t.column "cd_fp37",      :integer,                                 :null => false
-    t.column "cd_fp38",      :integer,                                 :null => false
-    t.column "cd_fp39",      :integer,                                 :null => false
-    t.column "cd_fp40",      :integer,                                 :null => false
-    t.column "cd_fp41",      :integer,                                 :null => false
-    t.column "cd_fp42",      :integer,                                 :null => false
-    t.column "cd_fp43",      :integer,                                 :null => false
-    t.column "cd_fp44",      :integer,                                 :null => false
-    t.column "cd_fp45",      :integer,                                 :null => false
-    t.column "cd_fp46",      :integer,                                 :null => false
-    t.column "cd_fp47",      :integer,                                 :null => false
-    t.column "cd_fp48",      :integer,                                 :null => false
-    t.column "cd_fp49",      :integer,                                 :null => false
-    t.column "cd_fp50",      :integer,                                 :null => false
-    t.column "cd_fp51",      :integer,                                 :null => false
-    t.column "cd_fp52",      :integer,                                 :null => false
-    t.column "cd_fp53",      :integer,                                 :null => false
-    t.column "cd_fp54",      :integer,                                 :null => false
-    t.column "cd_fp55",      :integer,                                 :null => false
-    t.column "cd_fp56",      :integer,                                 :null => false
-    t.column "cd_fp57",      :integer,                                 :null => false
-    t.column "cd_fp58",      :integer,                                 :null => false
-    t.column "cd_fp59",      :integer,                                 :null => false
-    t.column "cd_fp60",      :integer,                                 :null => false
-    t.column "cd_fp61",      :integer,                                 :null => false
-    t.column "cd_fp62",      :integer,                                 :null => false
-    t.column "cd_fp63",      :integer,                                 :null => false
-    t.column "cd_fp64",      :integer,                                 :null => false
-  end
-
-  add_index "reactions", ["cd_hash"], :name => "reactions_hx"
-
-  create_table "reactions_UL", :id => false, :force => true do |t|
-    t.column "update_id",   :integer,                               :null => false
-    t.column "update_info", :string,  :limit => 20, :default => "", :null => false
-  end
 
   create_table "report_columns", :force => true do |t|
     t.column "report_id",          :integer,                                   :null => false
@@ -982,9 +622,6 @@ ActiveRecord::Schema.define(:version => 279) do
     t.column "internal",           :boolean
     t.column "project_id",         :integer
     t.column "action",             :string
-  end
-
-  create_table "request_lists", :force => true do |t|
   end
 
   create_table "request_services", :force => true do |t|
@@ -1048,9 +685,6 @@ ActiveRecord::Schema.define(:version => 279) do
   end
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
-
-  create_table "samples", :force => true do |t|
-  end
 
   create_table "sessions", :force => true do |t|
     t.column "session_id", :string,    :default => "", :null => false
@@ -1190,19 +824,6 @@ ActiveRecord::Schema.define(:version => 279) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
-  create_table "study_statistics", :force => true do |t|
-    t.column "study_id",          :integer,               :default => 0, :null => false
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :float
-    t.column "min_values",        :float
-  end
-
   create_table "system_settings", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "",  :null => false
     t.column "description",        :string,                 :default => "",  :null => false
@@ -1263,83 +884,6 @@ ActiveRecord::Schema.define(:version => 279) do
     t.column "to_task_id",   :integer
     t.column "from_task_id", :integer
     t.column "relation_id",  :integer
-  end
-
-  create_table "task_result_texts", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :text
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "task_result_values", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
-
-  create_table "task_results", :force => true do |t|
-    t.column "protocol_version_id",  :integer
-    t.column "parameter_context_id", :integer,                :default => 0, :null => false
-    t.column "label",                :string
-    t.column "row_label",            :string
-    t.column "row_no",               :integer,                :default => 0, :null => false
-    t.column "column_no",            :integer
-    t.column "task_id",              :integer
-    t.column "parameter_id",         :integer
-    t.column "parameter_name",       :string,   :limit => 62
-    t.column "data_value",           :binary
-    t.column "created_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "created_at",           :datetime,                              :null => false
-    t.column "updated_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "updated_at",           :datetime,                              :null => false
-  end
-
-  create_table "task_statistics", :force => true do |t|
-    t.column "task_id",           :integer
-    t.column "parameter_id",      :integer
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :binary
-    t.column "min_values",        :binary
   end
 
   create_table "task_texts", :force => true do |t|
