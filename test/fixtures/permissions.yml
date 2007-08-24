@@ -1,3281 +1,7509 @@
 --- 
-permissions_320: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: catalogue
-  id: "320"
-permissions_130: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: study
-  id: "130"
-permissions_321: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: project
-  id: "321"
-permissions_131: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: study
-  id: "131"
-permissions_322: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: project
-  id: "322"
-permissions_132: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: catalogue
-  id: "132"
-permissions_370: 
-  checked: "1"
-  action: |
-    --- :index
-
-  subject: home
-  id: "370"
-permissions_180: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: users
-  id: "180"
-permissions_323: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: project
-  id: "323"
-permissions_133: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: catalogue
-  id: "133"
-permissions_371: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: home
-  id: "371"
-permissions_181: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: report
-  id: "181"
-permissions_324: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: project
-  id: "324"
-permissions_134: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: catalogue
-  id: "134"
-permissions_372: 
-  checked: "1"
-  action: |
-    --- :projects
-
-  subject: home
-  id: "372"
-permissions_182: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: report
-  id: "182"
-permissions_325: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: project
-  id: "325"
-permissions_135: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: catalogue
-  id: "135"
-permissions_373: 
-  checked: "1"
-  action: |
-    --- :calendar
-
-  subject: home
-  id: "373"
-permissions_183: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: report
-  id: "183"
-permissions_326: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: project
-  id: "326"
-permissions_136: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: catalogue
-  id: "136"
-permissions_374: 
-  checked: "1"
-  action: |
-    --- :timeline
-
-  subject: home
-  id: "374"
-permissions_184: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: report
-  id: "184"
-permissions_327: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: project
-  id: "327"
-permissions_137: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: catalogue
-  id: "137"
-permissions_375: 
-  checked: "1"
-  action: |
-    --- :blog
-
-  subject: home
-  id: "375"
-permissions_185: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: report
-  id: "185"
-permissions_328: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: system
-  id: "328"
-permissions_138: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: catalogue
-  id: "138"
-permissions_376: 
-  checked: "1"
-  action: |
-    --- :destroy
-
-  subject: home
-  id: "376"
-permissions_186: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: report
-  id: "186"
-permissions_329: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: system
-  id: "329"
-permissions_139: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: project
-  id: "139"
-permissions_377: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: inventory
-  id: "377"
-permissions_187: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: report
-  id: "187"
-permissions_378: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: inventory
-  id: "378"
-permissions_188: 
-  checked: "1"
-  action: |
-    --- :index
-
-  subject: home
-  id: "188"
-permissions_001: 
-  checked: "1"
-  action: "*"
-  subject: user
-  id: "1"
-permissions_379: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: inventory
-  id: "379"
-permissions_189: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: home
-  id: "189"
-permissions_002: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: user
-  id: "2"
-permissions_430: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: cataloge
-  id: "430"
-permissions_240: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: system
-  id: "240"
-permissions_050: 
-  checked: "1"
-  action: "*"
-  subject: cataloge
-  id: "50"
-permissions_003: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: user
-  id: "3"
-permissions_431: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: cataloge
-  id: "431"
-permissions_241: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: system
-  id: "241"
-permissions_051: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: cataloge
-  id: "51"
-permissions_004: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: user
-  id: "4"
-permissions_432: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: cataloge
-  id: "432"
-permissions_242: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: system
-  id: "242"
-permissions_052: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: cataloge
-  id: "52"
-permissions_005: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: user
-  id: "5"
-permissions_433: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: experiment
-  id: "433"
-permissions_290: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: inventory
-  id: "290"
-permissions_243: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: system
-  id: "243"
-permissions_053: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: cataloge
-  id: "53"
-permissions_006: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: user
-  id: "6"
-permissions_434: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: experiment
-  id: "434"
-permissions_291: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: inventory
-  id: "291"
-permissions_244: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: cataloge
-  id: "244"
-permissions_054: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: cataloge
-  id: "54"
-permissions_007: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: user
-  id: "7"
-permissions_435: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: experiment
-  id: "435"
-permissions_292: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: inventory
-  id: "292"
-permissions_245: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: cataloge
-  id: "245"
-permissions_055: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: cataloge
-  id: "55"
-permissions_008: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: user
-  id: "8"
-permissions_436: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: experiment
-  id: "436"
-permissions_293: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: user
-  id: "293"
-permissions_246: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: cataloge
-  id: "246"
-permissions_056: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: cataloge
-  id: "56"
-permissions_009: 
-  checked: "1"
-  action: "*"
-  subject: auth
-  id: "9"
-permissions_437: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: experiment
-  id: "437"
-permissions_294: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: user
-  id: "294"
-permissions_247: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: cataloge
-  id: "247"
-permissions_057: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: cataloge
-  id: "57"
-permissions_438: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: experiment
-  id: "438"
-permissions_295: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: user
-  id: "295"
-permissions_248: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: cataloge
-  id: "248"
-permissions_058: 
-  checked: "1"
-  action: "*"
-  subject: data_capture
-  id: "58"
-permissions_439: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: experiment
-  id: "439"
-permissions_296: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: user
-  id: "296"
-permissions_249: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: cataloge
-  id: "249"
-permissions_059: 
-  checked: "1"
-  action: "*"
-  subject: articles
-  id: "59"
-permissions_297: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: user
-  id: "297"
-permissions_298: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: user
-  id: "298"
-permissions_300: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: protocol
-  id: "300"
-permissions_110: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: inventory
-  id: "110"
-permissions_301: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: protocol
-  id: "301"
-permissions_111: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: user
-  id: "111"
-permissions_299: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: user
-  id: "299"
-permissions_302: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: protocol
-  id: "302"
-permissions_112: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: user
-  id: "112"
-permissions_350: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: request
-  id: "350"
-permissions_160: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: experiment
-  id: "160"
-permissions_303: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: protocol
-  id: "303"
-permissions_113: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: user
-  id: "113"
-permissions_351: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: request
-  id: "351"
-permissions_161: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: experiment
-  id: "161"
-permissions_304: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: protocol
-  id: "304"
-permissions_114: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: user
-  id: "114"
-permissions_352: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: request
-  id: "352"
-permissions_162: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: experiment
-  id: "162"
-permissions_305: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: protocol
-  id: "305"
-permissions_115: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: user
-  id: "115"
-permissions_353: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: request
-  id: "353"
-permissions_163: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: experiment
-  id: "163"
-permissions_306: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: protocol
-  id: "306"
-permissions_116: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: user
-  id: "116"
-permissions_354: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: request
-  id: "354"
-permissions_164: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: experiment
-  id: "164"
-permissions_307: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: study
-  id: "307"
-permissions_117: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: user
-  id: "117"
-permissions_355: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: request
-  id: "355"
-permissions_165: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: experiment
-  id: "165"
-permissions_118: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: protocol
-  id: "118"
-permissions_356: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: users
-  id: "356"
-permissions_166: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: experiment
-  id: "166"
-permissions_308: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: study
-  id: "308"
-permissions_119: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: protocol
-  id: "119"
-permissions_357: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: users
-  id: "357"
-permissions_167: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: request
-  id: "167"
-permissions_309: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: study
-  id: "309"
-permissions_358: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: users
-  id: "358"
-permissions_168: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: request
-  id: "168"
-permissions_359: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: users
-  id: "359"
-permissions_169: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: request
-  id: "169"
-permissions_410: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: catalogue
-  id: "410"
-permissions_220: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: study
-  id: "220"
-permissions_030: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: catalogue
-  id: "30"
-permissions_411: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: catalogue
-  id: "411"
-permissions_221: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: study
-  id: "221"
-permissions_031: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: catalogue
-  id: "31"
-permissions_412: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: project
-  id: "412"
-permissions_222: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: study
-  id: "222"
-permissions_032: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: catalogue
-  id: "32"
-permissions_460: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: report
-  id: "460"
-permissions_413: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: project
-  id: "413"
-permissions_270: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: users
-  id: "270"
-permissions_080: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: users
-  id: "80"
-permissions_223: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: catalogue
-  id: "223"
-permissions_033: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: catalogue
-  id: "33"
-permissions_461: 
-  checked: "1"
-  action: |
-    --- :index
-
-  subject: home
-  id: "461"
-permissions_414: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: project
-  id: "414"
-permissions_271: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: users
-  id: "271"
-permissions_081: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: users
-  id: "81"
-permissions_224: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: catalogue
-  id: "224"
-permissions_034: 
-  checked: "1"
-  action: "*"
-  subject: project
-  id: "34"
-permissions_462: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: home
-  id: "462"
-permissions_415: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: project
-  id: "415"
-permissions_272: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: report
-  id: "272"
-permissions_082: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: users
-  id: "82"
-permissions_225: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: catalogue
-  id: "225"
-permissions_035: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: project
-  id: "35"
-permissions_463: 
-  checked: "1"
-  action: |
-    --- :projects
-
-  subject: home
-  id: "463"
-permissions_416: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: project
-  id: "416"
-permissions_273: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: report
-  id: "273"
-permissions_083: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: users
-  id: "83"
-permissions_226: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: catalogue
-  id: "226"
-permissions_036: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: project
-  id: "36"
-permissions_464: 
-  checked: "1"
-  action: |
-    --- :calendar
-
-  subject: home
-  id: "464"
-permissions_417: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: project
-  id: "417"
-permissions_274: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: report
-  id: "274"
-permissions_084: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: users
-  id: "84"
-permissions_227: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: catalogue
-  id: "227"
-permissions_037: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: project
-  id: "37"
-permissions_465: 
-  checked: "1"
-  action: |
-    --- :timeline
-
-  subject: home
-  id: "465"
-permissions_275: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: report
-  id: "275"
-permissions_085: 
-  checked: "1"
-  action: "*"
-  subject: report
-  id: "85"
-permissions_228: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: catalogue
-  id: "228"
-permissions_038: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: project
-  id: "38"
-permissions_466: 
-  checked: "1"
-  action: |
-    --- :blog
-
-  subject: home
-  id: "466"
-permissions_418: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: project
-  id: "418"
-permissions_276: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: report
-  id: "276"
-permissions_086: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: report
-  id: "86"
-permissions_229: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: catalogue
-  id: "229"
-permissions_039: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: project
-  id: "39"
-permissions_467: 
-  checked: "1"
-  action: |
-    --- :destroy
-
-  subject: home
-  id: "467"
-permissions_419: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: system
-  id: "419"
-permissions_277: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: report
-  id: "277"
-permissions_087: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: report
-  id: "87"
-permissions_468: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: inventory
-  id: "468"
-permissions_278: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: report
-  id: "278"
-permissions_088: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: report
-  id: "88"
-permissions_469: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: inventory
-  id: "469"
-permissions_279: 
-  checked: "1"
-  action: |
-    --- :index
-
-  subject: home
-  id: "279"
-permissions_089: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: report
-  id: "89"
-permissions_330: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: system
-  id: "330"
-permissions_140: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: project
-  id: "140"
-permissions_331: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: system
-  id: "331"
-permissions_141: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: project
-  id: "141"
-permissions_332: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: system
-  id: "332"
-permissions_142: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: project
-  id: "142"
-permissions_380: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: inventory
-  id: "380"
-permissions_190: 
-  checked: "1"
-  action: |
-    --- :projects
-
-  subject: home
-  id: "190"
-permissions_333: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: system
-  id: "333"
-permissions_143: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: project
-  id: "143"
-permissions_381: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: inventory
-  id: "381"
-permissions_191: 
-  checked: "1"
-  action: |
-    --- :calendar
-
-  subject: home
-  id: "191"
-permissions_334: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: system
-  id: "334"
-permissions_144: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: project
-  id: "144"
-permissions_382: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: inventory
-  id: "382"
-permissions_192: 
-  checked: "1"
-  action: |
-    --- :timeline
-
-  subject: home
-  id: "192"
-permissions_335: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: cataloge
-  id: "335"
-permissions_145: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: project
-  id: "145"
-permissions_383: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: inventory
-  id: "383"
-permissions_193: 
-  checked: "1"
-  action: |
-    --- :blog
-
-  subject: home
-  id: "193"
-permissions_336: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: cataloge
-  id: "336"
-permissions_146: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: system
-  id: "146"
-permissions_384: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: user
-  id: "384"
-permissions_194: 
-  checked: "1"
-  action: |
-    --- :destroy
-
-  subject: home
-  id: "194"
-permissions_337: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: cataloge
-  id: "337"
-permissions_147: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: system
-  id: "147"
-permissions_385: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: user
-  id: "385"
-permissions_195: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: inventory
-  id: "195"
-permissions_338: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: cataloge
-  id: "338"
-permissions_148: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: system
-  id: "148"
-permissions_386: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: user
-  id: "386"
-permissions_196: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: inventory
-  id: "196"
-permissions_339: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: cataloge
-  id: "339"
-permissions_149: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: system
-  id: "149"
-permissions_387: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: user
-  id: "387"
-permissions_197: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: inventory
-  id: "197"
-permissions_200: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: inventory
-  id: "200"
-permissions_010: 
-  checked: "1"
-  action: "*"
-  subject: protocol
-  id: "10"
-permissions_388: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: user
-  id: "388"
-permissions_198: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: inventory
-  id: "198"
-permissions_201: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: inventory
-  id: "201"
-permissions_011: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: protocol
-  id: "11"
-permissions_389: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: user
-  id: "389"
-permissions_199: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: inventory
-  id: "199"
-permissions_202: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: user
-  id: "202"
-permissions_012: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: protocol
-  id: "12"
-permissions_440: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: request
-  id: "440"
-permissions_203: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: user
-  id: "203"
-permissions_013: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: protocol
-  id: "13"
-permissions_250: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: cataloge
-  id: "250"
-permissions_060: 
-  checked: "1"
-  action: "*"
-  subject: experiment
-  id: "60"
-permissions_441: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: request
-  id: "441"
-permissions_204: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: user
-  id: "204"
-permissions_014: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: protocol
-  id: "14"
-permissions_251: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: experiment
-  id: "251"
-permissions_061: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: experiment
-  id: "61"
-permissions_442: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: request
-  id: "442"
-permissions_205: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: user
-  id: "205"
-permissions_015: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: protocol
-  id: "15"
-permissions_252: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: experiment
-  id: "252"
-permissions_062: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: experiment
-  id: "62"
-permissions_443: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: request
-  id: "443"
-permissions_206: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: user
-  id: "206"
-permissions_016: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: protocol
-  id: "16"
-permissions_253: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: experiment
-  id: "253"
-permissions_063: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: experiment
-  id: "63"
-permissions_444: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: request
-  id: "444"
-permissions_207: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: user
-  id: "207"
-permissions_017: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: protocol
-  id: "17"
-permissions_254: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: experiment
-  id: "254"
-permissions_064: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: experiment
-  id: "64"
-permissions_445: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: request
-  id: "445"
-permissions_208: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: user
-  id: "208"
-permissions_018: 
-  checked: "1"
-  action: "*"
-  subject: study
-  id: "18"
-permissions_255: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: experiment
-  id: "255"
-permissions_065: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: experiment
-  id: "65"
-permissions_446: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: request
-  id: "446"
-permissions_019: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: study
-  id: "19"
-permissions_256: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: experiment
-  id: "256"
-permissions_066: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: experiment
-  id: "66"
-permissions_447: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: users
-  id: "447"
-permissions_209: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: protocol
-  id: "209"
-permissions_257: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: experiment
-  id: "257"
-permissions_067: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: experiment
-  id: "67"
-permissions_448: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: users
-  id: "448"
-permissions_258: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: request
-  id: "258"
-permissions_068: 
-  checked: "1"
-  action: "*"
-  subject: page
-  id: "68"
-permissions_449: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: users
-  id: "449"
-permissions_259: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: request
-  id: "259"
-permissions_069: 
-  checked: "1"
-  action: "*"
-  subject: request
-  id: "69"
-permissions_310: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: study
-  id: "310"
-permissions_120: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: protocol
-  id: "120"
-permissions_311: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: study
-  id: "311"
-permissions_121: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: protocol
-  id: "121"
-permissions_312: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: study
-  id: "312"
-permissions_122: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: protocol
-  id: "122"
-permissions_313: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: study
-  id: "313"
-permissions_123: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: protocol
-  id: "123"
-permissions_360: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: users
-  id: "360"
-permissions_170: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: request
-  id: "170"
-permissions_314: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: catalogue
-  id: "314"
-permissions_124: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: protocol
-  id: "124"
-permissions_361: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: users
-  id: "361"
-permissions_171: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: request
-  id: "171"
-permissions_315: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: catalogue
-  id: "315"
-permissions_125: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: study
-  id: "125"
-permissions_362: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: users
-  id: "362"
-permissions_172: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: request
-  id: "172"
-permissions_316: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: catalogue
-  id: "316"
-permissions_126: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: study
-  id: "126"
-permissions_363: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: report
-  id: "363"
-permissions_173: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: request
-  id: "173"
-permissions_317: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: catalogue
-  id: "317"
-permissions_127: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: study
-  id: "127"
-permissions_364: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: report
-  id: "364"
-permissions_174: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: users
-  id: "174"
-permissions_318: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: catalogue
-  id: "318"
-permissions_128: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: study
-  id: "128"
-permissions_365: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: report
-  id: "365"
-permissions_175: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: users
-  id: "175"
-permissions_129: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: study
-  id: "129"
-permissions_366: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: report
-  id: "366"
-permissions_176: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: users
-  id: "176"
-permissions_319: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: catalogue
-  id: "319"
-permissions_367: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: report
-  id: "367"
-permissions_177: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: users
-  id: "177"
-permissions_368: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: report
-  id: "368"
-permissions_178: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: users
-  id: "178"
-permissions_369: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: report
-  id: "369"
-permissions_179: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: users
-  id: "179"
-permissions_420: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: system
-  id: "420"
-permissions_230: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: project
-  id: "230"
-permissions_040: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: project
-  id: "40"
-permissions_421: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: system
-  id: "421"
-permissions_231: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: project
-  id: "231"
-permissions_041: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: project
-  id: "41"
-permissions_422: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: system
-  id: "422"
-permissions_232: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: project
-  id: "232"
-permissions_042: 
-  checked: "1"
-  action: "*"
-  subject: system
-  id: "42"
-permissions_470: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: inventory
-  id: "470"
-permissions_423: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: system
-  id: "423"
-permissions_233: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: project
-  id: "233"
-permissions_043: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: system
-  id: "43"
-permissions_280: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: home
-  id: "280"
-permissions_090: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: report
-  id: "90"
-permissions_471: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: inventory
-  id: "471"
-permissions_424: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: system
-  id: "424"
-permissions_234: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: project
-  id: "234"
-permissions_044: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: system
-  id: "44"
-permissions_281: 
-  checked: "1"
-  action: |
-    --- :projects
-
-  subject: home
-  id: "281"
-permissions_091: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: report
-  id: "91"
-permissions_472: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: inventory
-  id: "472"
-permissions_425: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: system
-  id: "425"
-permissions_235: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: project
-  id: "235"
-permissions_045: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: system
-  id: "45"
-permissions_282: 
-  checked: "1"
-  action: |
-    --- :calendar
-
-  subject: home
-  id: "282"
-permissions_092: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: report
-  id: "92"
-permissions_473: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: inventory
-  id: "473"
-permissions_426: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: cataloge
-  id: "426"
-permissions_236: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: project
-  id: "236"
-permissions_046: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: system
-  id: "46"
-permissions_283: 
-  checked: "1"
-  action: |
-    --- :timeline
-
-  subject: home
-  id: "283"
-permissions_093: 
-  checked: "1"
-  action: "*"
-  subject: home
-  id: "93"
-permissions_474: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: inventory
-  id: "474"
-permissions_427: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: cataloge
-  id: "427"
-permissions_237: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: system
-  id: "237"
-permissions_047: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: system
-  id: "47"
-permissions_284: 
-  checked: "1"
-  action: |
-    --- :blog
-
-  subject: home
-  id: "284"
-permissions_094: 
-  checked: "1"
-  action: |
-    --- :index
-
-  subject: home
-  id: "94"
-permissions_428: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: cataloge
-  id: "428"
-permissions_238: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: system
-  id: "238"
-permissions_048: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: system
-  id: "48"
-permissions_285: 
-  checked: "1"
-  action: |
-    --- :destroy
-
-  subject: home
-  id: "285"
-permissions_095: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: home
-  id: "95"
-permissions_239: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: system
-  id: "239"
-permissions_049: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: system
-  id: "49"
-permissions_286: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: inventory
-  id: "286"
-permissions_096: 
-  checked: "1"
-  action: |
-    --- :projects
-
-  subject: home
-  id: "96"
-permissions_429: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: cataloge
-  id: "429"
-permissions_287: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: inventory
-  id: "287"
-permissions_097: 
-  checked: "1"
-  action: |
-    --- :calendar
-
-  subject: home
-  id: "97"
-permissions_100: 
-  checked: "1"
-  action: |
-    --- :destroy
-
-  subject: home
-  id: "100"
-permissions_288: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: inventory
-  id: "288"
-permissions_098: 
-  checked: "1"
-  action: |
-    --- :timeline
-
-  subject: home
-  id: "98"
-permissions_101: 
-  checked: "1"
-  action: "*"
-  subject: finder
-  id: "101"
-permissions_289: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: inventory
-  id: "289"
-permissions_099: 
-  checked: "1"
-  action: |
-    --- :blog
-
-  subject: home
-  id: "99"
-permissions_102: 
-  checked: "1"
-  action: "*"
-  subject: charts
-  id: "102"
-permissions_340: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: cataloge
-  id: "340"
-permissions_150: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: system
-  id: "150"
-permissions_103: 
-  checked: "1"
-  action: "*"
-  subject: inventory
-  id: "103"
-permissions_341: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: cataloge
-  id: "341"
-permissions_151: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: system
-  id: "151"
-permissions_104: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: inventory
-  id: "104"
-permissions_342: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: experiment
-  id: "342"
-permissions_152: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: system
-  id: "152"
-permissions_105: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: inventory
-  id: "105"
-permissions_343: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: experiment
-  id: "343"
-permissions_153: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: cataloge
-  id: "153"
-permissions_106: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: inventory
-  id: "106"
-permissions_390: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: user
-  id: "390"
-permissions_344: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: experiment
-  id: "344"
-permissions_154: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: cataloge
-  id: "154"
-permissions_107: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: inventory
-  id: "107"
-permissions_391: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: protocol
-  id: "391"
-permissions_345: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: experiment
-  id: "345"
-permissions_155: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: cataloge
-  id: "155"
-permissions_108: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: inventory
-  id: "108"
-permissions_392: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: protocol
-  id: "392"
-permissions_346: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: experiment
-  id: "346"
-permissions_156: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: cataloge
-  id: "156"
-permissions_109: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: inventory
-  id: "109"
-permissions_393: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: protocol
-  id: "393"
-permissions_347: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: experiment
-  id: "347"
-permissions_157: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: cataloge
-  id: "157"
-permissions_394: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: protocol
-  id: "394"
-permissions_348: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: experiment
-  id: "348"
-permissions_158: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: cataloge
-  id: "158"
-permissions_395: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: protocol
-  id: "395"
-permissions_349: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: request
-  id: "349"
-permissions_159: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: cataloge
-  id: "159"
-permissions_396: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: protocol
-  id: "396"
-permissions_397: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: protocol
-  id: "397"
-permissions_400: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: study
-  id: "400"
-permissions_210: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: protocol
-  id: "210"
-permissions_020: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: study
-  id: "20"
-permissions_398: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: study
-  id: "398"
-permissions_401: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: study
-  id: "401"
-permissions_211: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: protocol
-  id: "211"
-permissions_021: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: study
-  id: "21"
-permissions_399: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: study
-  id: "399"
-permissions_402: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: study
-  id: "402"
-permissions_212: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: protocol
-  id: "212"
-permissions_022: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: study
-  id: "22"
-permissions_450: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: users
-  id: "450"
-permissions_403: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: study
-  id: "403"
-permissions_260: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: request
-  id: "260"
-permissions_070: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: request
-  id: "70"
-permissions_213: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: protocol
-  id: "213"
-permissions_023: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: study
-  id: "23"
-permissions_451: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: users
-  id: "451"
-permissions_404: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: study
-  id: "404"
-permissions_261: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: request
-  id: "261"
-permissions_071: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: request
-  id: "71"
-permissions_214: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: protocol
-  id: "214"
-permissions_024: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: study
-  id: "24"
-permissions_452: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: users
-  id: "452"
-permissions_405: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: catalogue
-  id: "405"
-permissions_262: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: request
-  id: "262"
-permissions_072: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: request
-  id: "72"
-permissions_215: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: protocol
-  id: "215"
-permissions_025: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: study
-  id: "25"
-permissions_453: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: users
-  id: "453"
-permissions_406: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: catalogue
-  id: "406"
-permissions_263: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: request
-  id: "263"
-permissions_073: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: request
-  id: "73"
-permissions_216: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: study
-  id: "216"
-permissions_026: 
-  checked: "1"
-  action: "*"
-  subject: catalogue
-  id: "26"
-permissions_454: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: report
-  id: "454"
-permissions_264: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: request
-  id: "264"
-permissions_074: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: request
-  id: "74"
-permissions_217: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: study
-  id: "217"
-permissions_027: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: catalogue
-  id: "27"
-permissions_455: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: report
-  id: "455"
-permissions_407: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: catalogue
-  id: "407"
-permissions_265: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: users
-  id: "265"
-permissions_075: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: request
-  id: "75"
-permissions_218: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: study
-  id: "218"
-permissions_028: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: catalogue
-  id: "28"
-permissions_456: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: report
-  id: "456"
-permissions_408: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: catalogue
-  id: "408"
-permissions_266: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: users
-  id: "266"
-permissions_076: 
-  checked: "1"
-  action: |
-    --- :desrroy
-
-  subject: request
-  id: "76"
-permissions_219: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: study
-  id: "219"
-permissions_029: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: catalogue
-  id: "29"
-permissions_457: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: report
-  id: "457"
-permissions_409: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: catalogue
-  id: "409"
-permissions_267: 
-  checked: "1"
-  action: |
-    --- :new
-
-  subject: users
-  id: "267"
-permissions_077: 
-  checked: "1"
-  action: "*"
-  subject: users
-  id: "77"
-permissions_458: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: report
-  id: "458"
-permissions_268: 
-  checked: "1"
-  action: |
-    --- :create
-
-  subject: users
-  id: "268"
-permissions_078: 
-  checked: "1"
-  action: |
-    --- :list
-
-  subject: users
-  id: "78"
-permissions_459: 
-  checked: "1"
-  action: |
-    --- :update
-
-  subject: report
-  id: "459"
-permissions_269: 
-  checked: "1"
-  action: |
-    --- :edit
-
-  subject: users
-  id: "269"
-permissions_079: 
-  checked: "1"
-  action: |
-    --- :show
-
-  subject: users
-  id: "79"
+permission_438: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "438"
+permission_306: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "306"
+permission_570: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "570"
+permission_307: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "307"
+permission_439: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "439"
+permission_571: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: report
+    id: "571"
+permission_308: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "308"
+permission_309: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "309"
+permission_440: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "440"
+permission_572: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "572"
+permission_441: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "441"
+permission_573: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "573"
+permission_310: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "310"
+permission_442: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "442"
+permission_574: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "574"
+permission_311: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "311"
+permission_443: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "443"
+permission_575: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "575"
+permission_312: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "312"
+permission_444: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "444"
+permission_576: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "576"
+permission_313: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "313"
+permission_445: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "445"
+permission_577: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "577"
+permission_314: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "314"
+permission_446: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "446"
+permission_578: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "578"
+permission_315: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "315"
+permission_447: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "447"
+permission_579: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "579"
+permission_316: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "316"
+permission_448: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "448"
+permission_580: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "580"
+permission_317: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "317"
+permission_449: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "449"
+permission_581: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "581"
+permission_318: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "318"
+permission_450: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "450"
+permission_582: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "582"
+permission_319: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "319"
+permission_451: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "451"
+permission_583: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "583"
+permission_320: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "320"
+permission_452: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "452"
+permission_584: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "584"
+permission_321: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "321"
+permission_453: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "453"
+permission_585: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "585"
+permission_322: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "322"
+permission_454: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "454"
+permission_586: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "586"
+permission_323: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "323"
+permission_455: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "455"
+permission_587: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "587"
+permission_324: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "324"
+permission_456: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "456"
+permission_588: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "588"
+permission_325: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "325"
+permission_457: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "457"
+permission_589: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "589"
+permission_326: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "326"
+permission_458: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "458"
+permission_327: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "327"
+permission_459: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "459"
+permission_590: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "590"
+permission_328: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "328"
+permission_591: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "591"
+permission_329: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "329"
+permission_460: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "460"
+permission_592: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "592"
+permission_461: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "461"
+permission_593: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "593"
+permission_330: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "330"
+permission_462: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "462"
+permission_594: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "594"
+permission_331: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "331"
+permission_463: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "463"
+permission_595: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "595"
+permission_200: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "200"
+permission_332: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "332"
+permission_464: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "464"
+permission_596: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "596"
+permission_201: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "201"
+permission_333: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "333"
+permission_465: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "465"
+permission_597: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "597"
+permission_202: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "202"
+permission_334: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "334"
+permission_466: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "466"
+permission_598: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "598"
+permission_203: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "203"
+permission_335: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "335"
+permission_467: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "467"
+permission_599: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "599"
+permission_204: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "204"
+permission_336: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "336"
+permission_468: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "468"
+permission_205: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "205"
+permission_337: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "337"
+permission_469: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "469"
+permission_206: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "206"
+permission_338: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "338"
+permission_470: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "470"
+permission_207: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "207"
+permission_339: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "339"
+permission_471: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "471"
+permission_208: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "208"
+permission_340: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "340"
+permission_472: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "472"
+permission_209: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "209"
+permission_341: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "341"
+permission_473: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "473"
+permission_210: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "210"
+permission_342: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "342"
+permission_474: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "474"
+permission_211: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "211"
+permission_343: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "343"
+permission_475: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "475"
+permission_212: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "212"
+permission_344: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "344"
+permission_476: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "476"
+permission_213: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "213"
+permission_345: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "345"
+permission_477: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "477"
+permission_214: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "214"
+permission_346: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "346"
+permission_478: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: data_capture
+    id: "478"
+permission_900: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "900"
+permission_215: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "215"
+permission_347: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "347"
+permission_479: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "479"
+permission_901: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "901"
+permission_216: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "216"
+permission_348: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "348"
+permission_902: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "902"
+permission_480: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: articles
+    id: "480"
+permission_217: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "217"
+permission_349: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "349"
+permission_903: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "903"
+permission_481: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "481"
+permission_218: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "218"
+permission_904: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "904"
+permission_482: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "482"
+permission_219: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "219"
+permission_350: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "350"
+permission_905: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "905"
+permission_483: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "483"
+permission_351: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "351"
+permission_906: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "906"
+permission_907: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "907"
+permission_484: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "484"
+permission_220: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "220"
+permission_352: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "352"
+permission_908: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "908"
+permission_485: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "485"
+permission_221: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "221"
+permission_353: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "353"
+permission_909: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "909"
+permission_222: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "222"
+permission_354: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "354"
+permission_486: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "486"
+permission_223: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "223"
+permission_355: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "355"
+permission_487: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "487"
+permission_224: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "224"
+permission_356: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "356"
+permission_488: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "488"
+permission_910: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "910"
+permission_225: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "225"
+permission_357: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "357"
+permission_489: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "489"
+permission_911: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "911"
+permission_226: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "226"
+permission_358: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "358"
+permission_912: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "912"
+permission_490: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "490"
+permission_227: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "227"
+permission_359: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "359"
+permission_913: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "913"
+permission_491: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "491"
+permission_228: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "228"
+permission_914: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "914"
+permission_360: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "360"
+permission_492: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "492"
+permission_229: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "229"
+permission_915: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "915"
+permission_361: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "361"
+permission_493: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "493"
+permission_916: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "916"
+permission_230: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "230"
+permission_362: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "362"
+permission_494: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "494"
+permission_917: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "917"
+permission_918: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "918"
+permission_231: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "231"
+permission_363: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "363"
+permission_495: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "495"
+permission_919: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "919"
+permission_100: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "100"
+permission_232: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "232"
+permission_364: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "364"
+permission_496: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "496"
+permission_101: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: finder
+    id: "101"
+permission_233: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "233"
+permission_365: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "365"
+permission_497: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "497"
+permission_102: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: charts
+    id: "102"
+permission_234: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "234"
+permission_366: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "366"
+permission_498: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "498"
+permission_920: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "920"
+permission_103: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: inventory
+    id: "103"
+permission_235: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "235"
+permission_367: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "367"
+permission_499: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "499"
+permission_921: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "921"
+permission_104: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "104"
+permission_236: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "236"
+permission_368: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "368"
+permission_922: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "922"
+permission_105: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "105"
+permission_237: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "237"
+permission_369: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "369"
+permission_923: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: cataloge
+    id: "923"
+permission_106: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "106"
+permission_238: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "238"
+permission_924: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "924"
+permission_370: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "370"
+permission_107: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "107"
+permission_239: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "239"
+permission_925: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "925"
+permission_371: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "371"
+permission_108: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "108"
+permission_926: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "926"
+permission_240: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "240"
+permission_372: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "372"
+permission_109: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "109"
+permission_927: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "927"
+permission_241: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "241"
+permission_373: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "373"
+permission_928: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "928"
+permission_929: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "929"
+permission_242: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "242"
+permission_374: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "374"
+permission_110: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "110"
+permission_243: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "243"
+permission_375: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "375"
+permission_111: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "111"
+permission_244: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "244"
+permission_376: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "376"
+permission_112: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "112"
+permission_930: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "930"
+permission_245: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "245"
+permission_377: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "377"
+permission_113: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "113"
+permission_931: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "931"
+permission_246: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "246"
+permission_378: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "378"
+permission_114: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "114"
+permission_932: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "932"
+permission_800: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "800"
+permission_247: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "247"
+permission_379: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "379"
+permission_115: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "115"
+permission_933: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "933"
+permission_801: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "801"
+permission_248: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "248"
+permission_116: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "116"
+permission_934: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "934"
+permission_802: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "802"
+permission_380: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "380"
+permission_117: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "117"
+permission_249: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "249"
+permission_935: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "935"
+permission_803: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "803"
+permission_381: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "381"
+permission_118: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "118"
+permission_936: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "936"
+permission_804: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "804"
+permission_250: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "250"
+permission_382: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "382"
+permission_119: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "119"
+permission_937: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "937"
+permission_805: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "805"
+permission_251: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "251"
+permission_383: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "383"
+permission_938: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "938"
+permission_806: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "806"
+permission_120: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "120"
+permission_252: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "252"
+permission_384: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "384"
+permission_939: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "939"
+permission_807: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "807"
+permission_808: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "808"
+permission_121: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "121"
+permission_253: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "253"
+permission_385: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "385"
+permission_809: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "809"
+permission_122: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "122"
+permission_254: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "254"
+permission_386: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "386"
+permission_940: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "940"
+permission_123: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "123"
+permission_255: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "255"
+permission_387: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "387"
+permission_941: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "941"
+permission_124: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "124"
+permission_256: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "256"
+permission_388: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "388"
+permission_942: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "942"
+permission_810: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "810"
+permission_125: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "125"
+permission_257: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "257"
+permission_389: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "389"
+permission_943: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "943"
+permission_811: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "811"
+permission_126: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "126"
+permission_258: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "258"
+permission_944: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "944"
+permission_812: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "812"
+permission_390: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "390"
+permission_127: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "127"
+permission_259: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "259"
+permission_945: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "945"
+permission_813: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "813"
+permission_391: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "391"
+permission_128: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "128"
+permission_946: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "946"
+permission_814: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "814"
+permission_260: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "260"
+permission_392: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "392"
+permission_129: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "129"
+permission_947: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "947"
+permission_815: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "815"
+permission_261: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "261"
+permission_393: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "393"
+permission_948: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "948"
+permission_816: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "816"
+permission_130: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "130"
+permission_262: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "262"
+permission_394: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "394"
+permission_817: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "817"
+permission_131: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "131"
+permission_263: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "263"
+permission_395: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "395"
+permission_818: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "818"
+permission_819: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "819"
+permission_132: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "132"
+permission_264: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "264"
+permission_396: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "396"
+permission_133: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "133"
+permission_265: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "265"
+permission_397: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "397"
+permission_134: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "134"
+permission_266: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "266"
+permission_398: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "398"
+permission_820: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "820"
+permission_135: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "135"
+permission_267: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "267"
+permission_399: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "399"
+permission_821: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "821"
+permission_136: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "136"
+permission_268: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "268"
+permission_822: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "822"
+permission_137: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "137"
+permission_269: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "269"
+permission_823: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "823"
+permission_138: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "138"
+permission_824: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "824"
+permission_139: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "139"
+permission_270: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "270"
+permission_825: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "825"
+permission_271: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "271"
+permission_826: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "826"
+permission_140: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "140"
+permission_272: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "272"
+permission_827: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "827"
+permission_141: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "141"
+permission_273: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "273"
+permission_828: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "828"
+permission_142: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "142"
+permission_274: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "274"
+permission_829: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "829"
+permission_143: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "143"
+permission_275: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "275"
+permission_144: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "144"
+permission_276: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "276"
+permission_830: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "830"
+permission_145: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "145"
+permission_277: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "277"
+permission_831: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "831"
+permission_146: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "146"
+permission_278: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "278"
+permission_832: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "832"
+permission_700: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "700"
+permission_147: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "147"
+permission_279: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "279"
+permission_833: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "833"
+permission_701: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "701"
+permission_148: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "148"
+permission_834: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "834"
+permission_702: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "702"
+permission_280: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "280"
+permission_149: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "149"
+permission_835: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "835"
+permission_703: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "703"
+permission_281: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "281"
+permission_836: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "836"
+permission_704: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "704"
+permission_150: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "150"
+permission_282: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "282"
+permission_837: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "837"
+permission_705: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "705"
+permission_151: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "151"
+permission_283: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "283"
+permission_838: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "838"
+permission_706: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "706"
+permission_152: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "152"
+permission_284: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "284"
+permission_839: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "839"
+permission_707: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "707"
+permission_153: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "153"
+permission_285: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "285"
+permission_708: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "708"
+permission_709: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "709"
+permission_154: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "154"
+permission_286: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "286"
+permission_840: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "840"
+permission_155: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "155"
+permission_287: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "287"
+permission_841: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "841"
+permission_156: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "156"
+permission_288: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "288"
+permission_842: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "842"
+permission_157: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "157"
+permission_289: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "289"
+permission_710: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "710"
+permission_843: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "843"
+permission_158: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "158"
+permission_711: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "711"
+permission_844: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "844"
+permission_290: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "290"
+permission_159: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "159"
+permission_712: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "712"
+permission_845: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "845"
+permission_291: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "291"
+permission_713: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "713"
+permission_846: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "846"
+permission_292: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "292"
+permission_714: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "714"
+permission_160: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "160"
+permission_847: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "847"
+permission_293: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "293"
+permission_715: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "715"
+permission_161: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "161"
+permission_848: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "848"
+permission_294: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "294"
+permission_716: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "716"
+permission_162: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "162"
+permission_849: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "849"
+permission_295: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "295"
+permission_717: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "717"
+permission_163: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "163"
+permission_296: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "296"
+permission_718: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "718"
+permission_164: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "164"
+permission_719: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "719"
+permission_850: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "850"
+permission_165: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "165"
+permission_297: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "297"
+permission_851: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "851"
+permission_166: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "166"
+permission_298: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "298"
+permission_852: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "852"
+permission_720: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "720"
+permission_167: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "167"
+permission_299: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "299"
+permission_853: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: catalogue
+    id: "853"
+permission_721: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "721"
+permission_168: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "168"
+permission_854: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "854"
+permission_722: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "722"
+permission_169: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "169"
+permission_855: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "855"
+permission_723: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "723"
+permission_856: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "856"
+permission_724: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "724"
+permission_170: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "170"
+permission_857: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "857"
+permission_725: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "725"
+permission_171: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "171"
+permission_858: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "858"
+permission_726: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "726"
+permission_172: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "172"
+permission_859: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "859"
+permission_727: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: system
+    id: "727"
+permission_173: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "173"
+permission_728: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "728"
+permission_174: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "174"
+permission_729: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "729"
+permission_175: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "175"
+permission_860: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "860"
+permission_861: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "861"
+permission_176: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "176"
+permission_862: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "862"
+permission_177: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "177"
+permission_730: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "730"
+permission_863: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "863"
+permission_178: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "178"
+permission_731: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "731"
+permission_864: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "864"
+permission_179: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "179"
+permission_600: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "600"
+permission_732: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "732"
+permission_865: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "865"
+permission_601: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "601"
+permission_733: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "733"
+permission_866: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "866"
+permission_180: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "180"
+permission_602: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "602"
+permission_734: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "734"
+permission_867: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "867"
+permission_181: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "181"
+permission_603: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "603"
+permission_735: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "735"
+permission_868: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "868"
+permission_182: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "182"
+permission_604: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "604"
+permission_736: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "736"
+permission_869: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "869"
+permission_183: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "183"
+permission_605: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "605"
+permission_737: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "737"
+permission_184: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "184"
+permission_606: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "606"
+permission_738: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "738"
+permission_185: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "185"
+permission_1: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: user
+    id: "1"
+permission_607: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "607"
+permission_739: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "739"
+permission_870: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "870"
+permission_186: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "186"
+permission_2: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "2"
+permission_608: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "608"
+permission_871: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "871"
+permission_3: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "3"
+permission_609: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "609"
+permission_872: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "872"
+permission_187: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "187"
+permission_4: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "4"
+permission_740: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "740"
+permission_873: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: users
+    id: "873"
+permission_188: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "188"
+permission_5: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "5"
+permission_741: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "741"
+permission_10: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: protocol
+    id: "10"
+permission_874: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "874"
+permission_189: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "189"
+permission_6: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "6"
+permission_610: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "610"
+permission_742: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "742"
+permission_11: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "11"
+permission_875: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "875"
+permission_7: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "7"
+permission_611: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "611"
+permission_743: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "743"
+permission_12: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "12"
+permission_876: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "876"
+permission_8: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "8"
+permission_612: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "612"
+permission_744: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "744"
+permission_13: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "13"
+permission_190: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "190"
+permission_877: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "877"
+permission_9: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: auth
+    id: "9"
+permission_613: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "613"
+permission_745: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "745"
+permission_14: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "14"
+permission_191: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "191"
+permission_878: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "878"
+permission_614: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "614"
+permission_746: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "746"
+permission_15: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "15"
+permission_192: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "192"
+permission_879: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "879"
+permission_615: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "615"
+permission_747: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "747"
+permission_16: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "16"
+permission_193: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "193"
+permission_616: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "616"
+permission_748: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "748"
+permission_17: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "17"
+permission_194: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "194"
+permission_617: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "617"
+permission_749: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: home
+    id: "749"
+permission_18: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: study
+    id: "18"
+permission_195: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "195"
+permission_880: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "880"
+permission_618: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "618"
+permission_19: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "19"
+permission_196: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "196"
+permission_881: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "881"
+permission_619: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: "619"
+permission_197: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "197"
+permission_882: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "882"
+permission_750: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "750"
+permission_883: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "883"
+permission_751: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "751"
+permission_20: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "20"
+permission_198: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "198"
+permission_884: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "884"
+permission_620: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "620"
+permission_752: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "752"
+permission_21: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "21"
+permission_199: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "199"
+permission_885: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "885"
+permission_621: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "621"
+permission_753: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "753"
+permission_22: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "22"
+permission_886: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "886"
+permission_622: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: inventory
+    id: "622"
+permission_754: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "754"
+permission_23: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "23"
+permission_887: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "887"
+permission_623: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "623"
+permission_755: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "755"
+permission_24: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "24"
+permission_888: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "888"
+permission_624: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "624"
+permission_756: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "756"
+permission_25: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "25"
+permission_889: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "889"
+permission_625: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: protocol
+    id: "625"
+permission_757: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "757"
+permission_26: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: catalogue
+    id: "26"
+permission_626: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "626"
+permission_758: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "758"
+permission_27: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "27"
+permission_890: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "890"
+permission_627: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "627"
+permission_759: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "759"
+permission_28: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "28"
+permission_628: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "628"
+permission_29: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "29"
+permission_891: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "891"
+permission_629: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "629"
+permission_892: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "892"
+permission_760: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: user
+    id: "760"
+permission_893: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "893"
+permission_761: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "761"
+permission_30: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "30"
+permission_894: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "894"
+permission_630: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "630"
+permission_762: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "762"
+permission_31: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "31"
+permission_895: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "895"
+permission_631: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "631"
+permission_763: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "763"
+permission_32: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "32"
+permission_896: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "896"
+permission_500: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "500"
+permission_632: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "632"
+permission_764: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "764"
+permission_33: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "33"
+permission_897: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "897"
+permission_501: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "501"
+permission_633: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "633"
+permission_765: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: user
+    id: "765"
+permission_34: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: project
+    id: "34"
+permission_898: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "898"
+permission_502: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "502"
+permission_634: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "634"
+permission_766: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "766"
+permission_35: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "35"
+permission_899: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "899"
+permission_503: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "503"
+permission_635: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "635"
+permission_767: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: finder
+    id: "767"
+permission_36: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "36"
+permission_504: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "504"
+permission_636: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "636"
+permission_768: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "768"
+permission_37: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "37"
+permission_505: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "505"
+permission_637: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "637"
+permission_769: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "769"
+permission_38: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "38"
+permission_506: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "506"
+permission_638: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "638"
+permission_39: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "39"
+permission_507: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "507"
+permission_639: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: experiment
+    id: "639"
+permission_770: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: user
+    id: "770"
+permission_508: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "508"
+permission_771: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "771"
+permission_40: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "40"
+permission_509: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "509"
+permission_640: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "640"
+permission_772: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "772"
+permission_41: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "41"
+permission_641: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "641"
+permission_773: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: charts
+    id: "773"
+permission_42: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: system
+    id: "42"
+permission_510: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "510"
+permission_642: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "642"
+permission_774: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "774"
+permission_43: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "43"
+permission_511: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "511"
+permission_643: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "643"
+permission_775: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: user
+    id: "775"
+permission_44: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "44"
+permission_512: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "512"
+permission_644: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "644"
+permission_776: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "776"
+permission_45: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "45"
+permission_513: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "513"
+permission_645: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "645"
+permission_777: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: inventory
+    id: "777"
+permission_46: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "46"
+permission_514: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "514"
+permission_646: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "646"
+permission_778: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "778"
+permission_47: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "47"
+permission_515: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "515"
+permission_647: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "647"
+permission_779: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: user
+    id: "779"
+permission_48: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "48"
+permission_516: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "516"
+permission_648: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "648"
+permission_49: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "49"
+permission_517: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "517"
+permission_649: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "649"
+permission_780: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "780"
+permission_518: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "518"
+permission_50: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: cataloge
+    id: "50"
+permission_519: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "519"
+permission_781: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "781"
+permission_51: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "51"
+permission_650: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "650"
+permission_782: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: inventory
+    id: "782"
+permission_52: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "52"
+permission_651: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "651"
+permission_783: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: user
+    id: "783"
+permission_53: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "53"
+permission_520: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "520"
+permission_652: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "652"
+permission_784: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "784"
+permission_54: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "54"
+permission_521: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "521"
+permission_653: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "653"
+permission_785: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: "785"
+permission_55: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "55"
+permission_522: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "522"
+permission_654: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "654"
+permission_786: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: user
+    id: "786"
+permission_787: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "787"
+permission_56: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "56"
+permission_523: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "523"
+permission_655: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "655"
+permission_788: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "788"
+permission_524: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "524"
+permission_656: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "656"
+permission_57: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "57"
+permission_789: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "789"
+permission_525: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "525"
+permission_657: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "657"
+permission_58: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: data_capture
+    id: "58"
+permission_526: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "526"
+permission_658: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "658"
+permission_59: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: articles
+    id: "59"
+permission_790: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: user
+    id: "790"
+permission_527: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "527"
+permission_659: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "659"
+permission_791: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "791"
+permission_528: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "528"
+permission_60: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: experiment
+    id: "60"
+permission_529: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "529"
+permission_792: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "792"
+permission_660: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "660"
+permission_61: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "61"
+permission_793: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: inventory
+    id: "793"
+permission_661: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "661"
+permission_62: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "62"
+permission_794: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: auth
+    id: "794"
+permission_530: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "530"
+permission_662: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "662"
+permission_63: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "63"
+permission_795: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "795"
+permission_531: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "531"
+permission_663: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: study
+    id: "663"
+permission_64: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "64"
+permission_796: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "796"
+permission_400: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "400"
+permission_532: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "532"
+permission_664: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "664"
+permission_65: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "65"
+permission_797: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "797"
+permission_401: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "401"
+permission_533: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "533"
+permission_665: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "665"
+permission_66: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiment
+    id: "66"
+permission_798: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: "798"
+permission_402: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "402"
+permission_534: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "534"
+permission_666: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "666"
+permission_67: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "67"
+permission_799: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "799"
+permission_403: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "403"
+permission_535: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "535"
+permission_667: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "667"
+permission_68: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: page
+    id: "68"
+permission_404: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "404"
+permission_536: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "536"
+permission_668: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "668"
+permission_69: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: request
+    id: "69"
+permission_405: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "405"
+permission_537: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "537"
+permission_669: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: experiment
+    id: "669"
+permission_406: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "406"
+permission_538: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "538"
+permission_670: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "670"
+permission_407: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "407"
+permission_70: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: request
+    id: "70"
+permission_539: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "539"
+permission_408: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "408"
+permission_71: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: request
+    id: "71"
+permission_671: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "671"
+permission_409: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "409"
+permission_72: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: request
+    id: "72"
+permission_672: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: page
+    id: "672"
+permission_73: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "73"
+permission_540: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "540"
+permission_673: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study
+    id: "673"
+permission_74: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "74"
+permission_541: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "541"
+permission_674: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: request
+    id: "674"
+permission_75: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "75"
+permission_410: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "410"
+permission_542: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "542"
+permission_675: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study
+    id: "675"
+permission_76: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "76"
+permission_411: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "411"
+permission_543: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "543"
+permission_77: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: users
+    id: "77"
+permission_412: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "412"
+permission_544: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "544"
+permission_676: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "676"
+permission_78: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "78"
+permission_413: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "413"
+permission_545: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "545"
+permission_677: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study
+    id: "677"
+permission_79: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "79"
+permission_414: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "414"
+permission_546: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "546"
+permission_678: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "678"
+permission_415: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "415"
+permission_547: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "547"
+permission_679: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "679"
+permission_416: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "416"
+permission_548: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "548"
+permission_680: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: request
+    id: "680"
+permission_417: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "417"
+permission_80: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "80"
+permission_549: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "549"
+permission_681: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: study
+    id: "681"
+permission_418: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "418"
+permission_81: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "81"
+permission_419: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "419"
+permission_82: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "82"
+permission_550: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: "550"
+permission_682: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "682"
+permission_83: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "83"
+permission_551: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: project
+    id: "551"
+permission_683: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "683"
+permission_84: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "84"
+permission_420: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: system
+    id: "420"
+permission_552: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "552"
+permission_684: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: request
+    id: "684"
+permission_85: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: report
+    id: "85"
+permission_421: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: system
+    id: "421"
+permission_553: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "553"
+permission_685: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: "685"
+permission_86: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "86"
+permission_422: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: system
+    id: "422"
+permission_554: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: "554"
+permission_686: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: protocol
+    id: "686"
+permission_87: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "87"
+permission_423: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: system
+    id: "423"
+permission_555: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "555"
+permission_687: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "687"
+permission_88: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: report
+    id: "88"
+permission_424: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: system
+    id: "424"
+permission_556: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "556"
+permission_688: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: request
+    id: "688"
+permission_89: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "89"
+permission_425: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: system
+    id: "425"
+permission_557: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "557"
+permission_689: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "689"
+permission_426: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: cataloge
+    id: "426"
+permission_558: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "558"
+permission_690: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study
+    id: "690"
+permission_427: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: cataloge
+    id: "427"
+permission_90: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "90"
+permission_559: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: users
+    id: "559"
+permission_691: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: request
+    id: "691"
+permission_428: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: cataloge
+    id: "428"
+permission_91: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: report
+    id: "91"
+permission_560: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: report
+    id: "560"
+permission_692: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study
+    id: "692"
+permission_429: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: cataloge
+    id: "429"
+permission_92: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: report
+    id: "92"
+permission_93: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: home
+    id: "93"
+permission_561: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: project
+    id: "561"
+permission_693: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: report
+    id: "693"
+permission_94: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: "94"
+permission_430: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: cataloge
+    id: "430"
+permission_562: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: "562"
+permission_694: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "694"
+permission_95: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: home
+    id: "95"
+permission_431: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: cataloge
+    id: "431"
+permission_563: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "563"
+permission_695: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "695"
+permission_96: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "96"
+permission_432: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: cataloge
+    id: "432"
+permission_564: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "564"
+permission_696: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study
+    id: "696"
+permission_97: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: "97"
+permission_300: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: protocol
+    id: "300"
+permission_433: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: experiment
+    id: "433"
+permission_565: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: users
+    id: "565"
+permission_697: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: report
+    id: "697"
+permission_98: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: "98"
+permission_301: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: protocol
+    id: "301"
+permission_434: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiment
+    id: "434"
+permission_566: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: report
+    id: "566"
+permission_698: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "698"
+permission_99: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: "99"
+permission_302: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: protocol
+    id: "302"
+permission_435: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiment
+    id: "435"
+permission_567: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: system
+    id: "567"
+permission_699: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "699"
+permission_303: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: protocol
+    id: "303"
+permission_436: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiment
+    id: "436"
+permission_568: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: "568"
+permission_304: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: protocol
+    id: "304"
+permission_437: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiment
+    id: "437"
+permission_569: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :desrroy
+
+    subject: catalogue
+    id: "569"
+permission_305: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: protocol
+    id: "305"

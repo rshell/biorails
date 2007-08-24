@@ -38,7 +38,7 @@ oracle:
   adapter: oracle
   database: //192.168.1.50/orcl
   username: biorails
-  password: moose
+  password: biorails
 
 postgres:
     adapter: postgresql

@@ -185,6 +185,21 @@ class Role < ActiveRecord::Base
      self.save
  end
 
+end
 
+class UserRole < Role
+
+  def self.subjects
+    Permission.subjects(:current_user)
+  end
 
 end
+
+class ProjectRole < Role
+
+  def self.subjects
+    Permission.subjects(:current_project)
+  end
+
+end
+

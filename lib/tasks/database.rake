@@ -1,4 +1,3 @@
- 
 namespace :biorails do
  
   desc "Create database (using database.yml config as source of connection information)"
@@ -17,7 +16,7 @@ namespace :biorails do
   task :setup => :environment do
       file = ENV['SCHEMA'] || "db/schema.rb"
       load(file)
-      require 'active_record/fixtures'
+      require 'active_record/fixtures' 
       ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)
       (ENV['FIXTURES'] ? ENV['FIXTURES'].split(/,/) : Dir.glob(File.join(RAILS_ROOT, 'db', 'bootstrap', '*.{yml,csv}'))).each do |fixture_file|
         Fixtures.create_fixtures('db/bootstrap', File.basename(fixture_file, '.*'))
@@ -28,9 +27,10 @@ namespace :biorails do
   task :bootstrap => :environment do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'db','bootstrap') )
     ActiveRecord::Base.establish_connection 
+    ActiveRecord::Base.connection.
     Biorails::TEMPLATE_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
-       import_model_fixture(model,filename) if File.exists? filename
+       import_model(model,filename) if File.exists? filename
     end 
   end
 
@@ -40,7 +40,7 @@ namespace :biorails do
     ActiveRecord::Base.establish_connection 
     Biorails::CATALOG_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
-       import_model_fixture(model,filename) if File.exists? filename
+       import_model(model,filename) if File.exists? filename
     end 
   end 
 
@@ -50,17 +50,18 @@ namespace :biorails do
     ActiveRecord::Base.establish_connection 
     Biorails::CATALOG_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
-       export_model_fixture(model,filename)
+       export_model(model,filename)
     end 
   end 
 
   desc 'Import Database Template (Structure without confedential data) DIR=directory for set source' 
   task :import_template => :environment do 
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
-    ActiveRecord::Base.establish_connection 
+    
+    DataContext.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
-       import_model_fixture(model,filename) if File.exists? filename
+       import_model(model,filename) if File.exists? filename
     end 
   end 
 
@@ -70,7 +71,7 @@ namespace :biorails do
     ActiveRecord::Base.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
-       export_model_fixture(model,filename)
+       export_model(model,filename)
     end 
   end 
   
@@ -146,48 +147,43 @@ private
       end
   end
   
-  def export_model_fixture(model,filename=nil)
-    i = "000000"
+  def export_model(model,filename=nil)
+    
     filename ||= File.join(RAILS_ROOT,'test','fixtures',model.table_name + '.yml')
     File.open(filename, 'w' ) do |file|
       data = model.find(:all)
       file.write data.inject({}) { |hash, record|
-        hash["#{model}_#{i.succ!}"] = record
+        hash["#{record.dom_id}"] = record
         hash
       }.to_yaml
     end
-   p "Writen #{i} #{model.to_s} records exported to #{filename}"
+   p "Writen #{model.count} #{model.to_s} records exported to #{filename}"
   end
 
-  def import_model_fixture(model,filename=nil)
-    filename ||= File.join(RAILS_ROOT,'test','fixtures',model.table_name + '.yml')
-    success = Hash.new
-    records = YAML::load( File.open(filename))
-    @model = Class.const_get(model)
-    records.sort.each do |r|
-        row = r[1]
-        @new_model = @model.new
-      
-        row.each_pair do |column, value|
-          if column.to_sym
-            @new_model.send(column + '=', value)
-          else
-            p "Column not found" + column.to_s
-          end
-        end
-      
-  
+  def import_model(model,filename=nil)
+   filename ||= File.join(RAILS_ROOT,'test','fixtures',model.tableize + '.yml')
+   success =0
+   records = YAML::load( File.open(filename))
+    model.transaction do
+      records.values.each do |row|
         begin
-            if @new_model.save
-              success[model.to_sym] = (success[model.to_sym] ? success[model.to_sym] + 1 : 1)
-            end
-        rescue
-          p "#{@new_model.class.to_s} failed to import: " + r.inspect
-          p @new_model.errors.inspect
+          if row.is_a?(Hash)
+            @new_item = model.new(row)
+            @new_item.id = row['id']
+          else # is mapped to model object
+            @new_item = row.class.new(row.attributes)
+            @new_item.id = row.id
+          end
+          if @new_item.save
+             success =  success + 1
+          end
+        rescue Exception => ex
+            p "Error for [#{row.class}.#{row.id}] #{ex.message} " 
         end
       end
-  
-     p "Total of #{success[model.to_sym]} #{@new_model.class.to_s} records imported successfully"
+     p "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"
+    end
+
    end
 end
 

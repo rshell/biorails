@@ -1,20 +1,18 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('compounds')%> Editing Compound [<%=@compound.name %>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => @compound %></li>
-                <li><%= link_to (subject_icon('arrow_left')) + 'Back', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
-    <div class='panel'>
-        <div class="dialog">                              
-            <% form_tag :action => 'update', :id => @compound do %>
-              <%= render :partial => 'form' %>
-              <%= submit_tag 'Save' %>
-            <% end %>
-        </div>
+<% content_for :sidemenu do%>
+  <%=   render :partial =>'menu/default_left_menu' %>    
+   <div>
+    <span class='menu'>Compound </span>
+    <%= link_to subject_icon('show.png')  + 'Show',   :action => 'show' %>
+    <%= link_to subject_icon('list.png') + 'List',  :action => 'list' %>
+  </div>
+<% end %>
+
+<div class='panel'>
+    <div class="dialog">                              
+        <% form_tag :action => 'update', :id => @compound do %>
+          <%= render :partial => 'form' %>
+          <%= submit_tag 'Save' %>
+        <% end %>
     </div>
 </div>
    

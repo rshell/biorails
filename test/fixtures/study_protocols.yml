@@ -1,307 +1,325 @@
 --- 
-study_protocols_018: 
-  name: HitList
-  study_stage_id: "8"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "4"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "18"
-  description: Hist from screen
-  study_id: "6"
-  created_by_user_id: "4"
-  literature_ref: ""
-  created_at: 2007-07-04 15:19:55
-  current_process_id: "24"
-study_protocols_007: 
-  name: Materials
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "4"
-  lock_version: "3"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "7"
-  description: Set up of materials
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 14:15:33
-  current_process_id: "27"
-study_protocols_008: 
-  name: Rat Information
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "8"
-  description: Enter animal information such as weight and age
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 14:29:01
-  current_process_id: "10"
-study_protocols_009: 
-  name: Worklist
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "2"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "9"
-  description: Allocation of animals, treatment group and cages
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 14:35:27
-  current_process_id: "17"
-study_protocols_010: 
-  name: Readings
-  study_stage_id: "6"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "10"
-  description: Capture of locomotion readings
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 14:49:45
-  current_process_id: "12"
-study_protocols_011: 
-  name: Bin Analysis
-  study_stage_id: "8"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "11"
-  description: Analysis of binned sample data
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 15:04:41
-  current_process_id: "13"
-study_protocols_012: 
-  name: Comparison of Means
-  study_stage_id: "8"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "2"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "12"
-  description: Day and treatment
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 15:11:38
-  current_process_id: "14"
-study_protocols_001: 
-  name: Prot-19
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: "44"
-  updated_by_user_id: "3"
-  lock_version: "1"
-  protocol_catagory: "48"
-  process_definition_id: 
-  id: "1"
-  description: new protocol created for study Demo_Study
-  study_id: "2"
-  created_by_user_id: "3"
-  literature_ref: ""
-  created_at: 2007-06-06 22:14:07
-  current_process_id: "1"
-study_protocols_013: 
-  name: Anova
-  study_stage_id: "8"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "1"
-  lock_version: "2"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "13"
-  description: Anova results
-  study_id: "5"
-  created_by_user_id: "1"
-  literature_ref: ""
-  created_at: 2007-06-28 15:20:06
-  current_process_id: "15"
-study_protocols_002: 
-  name: Prot-20
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: "44"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  protocol_catagory: "49"
-  process_definition_id: 
-  id: "2"
-  description: new protocol created for study Demo_Study
-  study_id: "2"
-  created_by_user_id: "3"
-  literature_ref: ""
-  created_at: 2007-06-06 22:17:23
-  current_process_id: "2"
-study_protocols_014: 
-  name: AssayPlateRegistration
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "4"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "14"
-  description: Register the compounds on the plate.  In this example we handle plates as a task rather than creating a specific inventory object.  Even then, this may be a better way to populate a Plate, with only the primary record being populated.
-  study_id: "6"
-  created_by_user_id: "4"
-  literature_ref: ""
-  created_at: 2007-07-04 13:33:47
-  current_process_id: "20"
-study_protocols_003: 
-  name: Prot-21
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: "44"
-  updated_by_user_id: "3"
-  lock_version: "3"
-  protocol_catagory: "49"
-  process_definition_id: 
-  id: "3"
-  description: new protocol created for study Demo1
-  study_id: "1"
-  created_by_user_id: "3"
-  literature_ref: guessed
-  created_at: 2007-06-07 15:10:29
-  current_process_id: "3"
-study_protocols_015: 
-  name: ReaderOutputMatrix
-  study_stage_id: "6"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "4"
-  lock_version: "2"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "15"
-  description: Capture reader output and normalise data
-  study_id: "6"
-  created_by_user_id: "4"
-  literature_ref: ""
-  created_at: 2007-07-04 13:36:51
-  current_process_id: "21"
-study_protocols_004: 
-  name: Prot-19
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: "44"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  protocol_catagory: "48"
-  process_definition_id: 
-  id: "4"
-  description: new protocol created for study Demo_Study
-  study_id: "3"
-  created_by_user_id: "3"
-  literature_ref: 
-  created_at: 2007-06-06 22:14:07
-  current_process_id: "1"
-study_protocols_016: 
-  name: Normalisation
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Active
-  updated_by_user_id: "4"
-  lock_version: "1"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "16"
-  description: Normalisation of reader output
-  study_id: "6"
-  created_by_user_id: "4"
-  literature_ref: ""
-  created_at: 2007-07-04 13:43:24
-  current_process_id: "22"
-study_protocols_005: 
-  name: Prot-20
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: "44"
-  updated_by_user_id: "3"
-  lock_version: "2"
-  protocol_catagory: "49"
-  process_definition_id: 
-  id: "5"
-  description: new protocol created for study Demo_Study
-  study_id: "3"
-  created_by_user_id: "3"
-  literature_ref: 
-  created_at: 2007-06-06 22:17:23
-  current_process_id: "2"
-study_protocols_017: 
-  name: DoseResponse
-  study_stage_id: "6"
-  
-  process_style: Entry
-  protocol_status: Finished
-  updated_by_user_id: "4"
-  lock_version: "3"
-  protocol_catagory: Screen
-  process_definition_id: 
-  id: "17"
-  description: Dose response assay...per compound
-  study_id: "6"
-  created_by_user_id: "4"
-  literature_ref: ""
-  created_at: 2007-07-04 13:53:04
-  current_process_id: "23"
-study_protocols_006: 
-  name: Prot-25
-  study_stage_id: "5"
-  
-  process_style: Entry
-  protocol_status: Finished
-  updated_by_user_id: "3"
-  lock_version: "1"
-  protocol_catagory: Profile
-  process_definition_id: 
-  id: "6"
-  description: new protocol created for study Clinical
-  study_id: "4"
-  created_by_user_id: "3"
-  literature_ref: moose
-  created_at: 2007-06-08 21:28:01
-  current_process_id: "8"
+study_protocol_12: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Comparison of Means
+    study_stage_id: "8"
+    updated_at: 2007-06-28 15:29:56
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "12"
+    description: Day and treatment
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 15:11:38
+    current_process_id: "14"
+study_protocol_1: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-19
+    study_stage_id: "5"
+    updated_at: 2007-06-06 22:14:07
+    process_style: Entry
+    protocol_status: "44"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: "48"
+    process_definition_id: 
+    id: "1"
+    description: new protocol created for study Demo_Study
+    study_id: "2"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-06 22:14:07
+    current_process_id: "1"
+study_protocol_13: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Anova
+    study_stage_id: "8"
+    updated_at: 2007-06-28 15:30:26
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "13"
+    description: Anova results
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 15:20:06
+    current_process_id: "15"
+study_protocol_2: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-20
+    study_stage_id: "5"
+    updated_at: 2007-06-08 16:25:25
+    process_style: Entry
+    protocol_status: "44"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: "49"
+    process_definition_id: 
+    id: "2"
+    description: new protocol created for study Demo_Study
+    study_id: "2"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-06 22:17:23
+    current_process_id: "2"
+study_protocol_14: !ruby/object:StudyProtocol 
+  attributes: 
+    name: AssayPlateRegistration
+    study_stage_id: "5"
+    updated_at: 2007-07-04 13:33:47
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "14"
+    description: Register the compounds on the plate.  In this example we handle plates as a task rather than creating a specific inventory object.  Even then, this may be a better way to populate a Plate, with only the primary record being populated.
+    study_id: "6"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-07-04 13:33:47
+    current_process_id: "20"
+study_protocol_3: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-21
+    study_stage_id: "5"
+    updated_at: 2007-06-08 11:00:51
+    process_style: Entry
+    protocol_status: "44"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    protocol_catagory: "49"
+    process_definition_id: 
+    id: "3"
+    description: new protocol created for study Demo1
+    study_id: "1"
+    created_by_user_id: "1"
+    literature_ref: guessed
+    created_at: 2007-06-07 15:10:29
+    current_process_id: "3"
+study_protocol_15: !ruby/object:StudyProtocol 
+  attributes: 
+    name: ReaderOutputMatrix
+    study_stage_id: "6"
+    updated_at: 2007-07-04 13:42:27
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "15"
+    description: Capture reader output and normalise data
+    study_id: "6"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-07-04 13:36:51
+    current_process_id: "21"
+study_protocol_4: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-19
+    study_stage_id: "5"
+    updated_at: 2007-06-08 15:46:36
+    process_style: Entry
+    protocol_status: "44"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: "48"
+    process_definition_id: 
+    id: "4"
+    description: new protocol created for study Demo_Study
+    study_id: "3"
+    created_by_user_id: "1"
+    literature_ref: 
+    created_at: 2007-06-06 22:14:07
+    current_process_id: "1"
+study_protocol_16: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Normalisation
+    study_stage_id: "5"
+    updated_at: 2007-07-04 13:43:24
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "16"
+    description: Normalisation of reader output
+    study_id: "6"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-07-04 13:43:24
+    current_process_id: "22"
+study_protocol_5: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-20
+    study_stage_id: "5"
+    updated_at: 2007-06-08 15:46:38
+    process_style: Entry
+    protocol_status: "44"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: "49"
+    process_definition_id: 
+    id: "5"
+    description: new protocol created for study Demo_Study
+    study_id: "3"
+    created_by_user_id: "1"
+    literature_ref: 
+    created_at: 2007-06-06 22:17:23
+    current_process_id: "2"
+study_protocol_17: !ruby/object:StudyProtocol 
+  attributes: 
+    name: DoseResponse
+    study_stage_id: "6"
+    updated_at: 2007-07-05 18:48:36
+    process_style: Entry
+    protocol_status: Finished
+    updated_by_user_id: "1"
+    lock_version: "3"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "17"
+    description: Dose response assay...per compound
+    study_id: "6"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-07-04 13:53:04
+    current_process_id: "23"
+study_protocol_6: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Prot-25
+    study_stage_id: "5"
+    updated_at: 2007-06-08 21:28:01
+    process_style: Entry
+    protocol_status: Finished
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Profile
+    process_definition_id: 
+    id: "6"
+    description: new protocol created for study Clinical
+    study_id: "4"
+    created_by_user_id: "1"
+    literature_ref: moose
+    created_at: 2007-06-08 21:28:01
+    current_process_id: "8"
+study_protocol_18: !ruby/object:StudyProtocol 
+  attributes: 
+    name: HitList
+    study_stage_id: "8"
+    updated_at: 2007-07-04 15:19:56
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "18"
+    description: Hist from screen
+    study_id: "6"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-07-04 15:19:55
+    current_process_id: "24"
+study_protocol_7: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Materials
+    study_stage_id: "5"
+    updated_at: 2007-07-09 18:22:37
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "3"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "7"
+    description: Set up of materials
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 14:15:33
+    current_process_id: "27"
+study_protocol_8: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Rat Information
+    study_stage_id: "5"
+    updated_at: 2007-06-28 14:29:01
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "8"
+    description: Enter animal information such as weight and age
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 14:29:01
+    current_process_id: "10"
+study_protocol_9: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Worklist
+    study_stage_id: "5"
+    updated_at: 2007-06-28 19:50:36
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "2"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "9"
+    description: Allocation of animals, treatment group and cages
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 14:35:27
+    current_process_id: "17"
+study_protocol_10: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Readings
+    study_stage_id: "6"
+    updated_at: 2007-06-28 14:49:45
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "10"
+    description: Capture of locomotion readings
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 14:49:45
+    current_process_id: "12"
+study_protocol_11: !ruby/object:StudyProtocol 
+  attributes: 
+    name: Bin Analysis
+    study_stage_id: "8"
+    updated_at: 2007-06-28 15:04:41
+    process_style: Entry
+    protocol_status: Active
+    updated_by_user_id: "1"
+    lock_version: "1"
+    protocol_catagory: Screen
+    process_definition_id: 
+    id: "11"
+    description: Analysis of binned sample data
+    study_id: "5"
+    created_by_user_id: "1"
+    literature_ref: ""
+    created_at: 2007-06-28 15:04:41
+    current_process_id: "13"

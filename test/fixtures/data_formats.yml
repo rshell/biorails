@@ -1,190 +1,204 @@
 --- 
-data_formats_008: 
-  name: Decimal5.2
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "2"
-  id: "12"
-  description: "Description:  \tvalidates to 5 digits and 2 decimal places but not allowing zero"
-  format_sprintf: "%5.2d"
-  created_by_user_id: "1"
-  format_regex: (?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$
-  created_at: 0000-00-00 00:00:00
-data_formats_010: 
-  name: URL
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "6"
-  lock_version: "1"
-  id: "24"
-  description: "Description:  \tI wrote this after I couldn't find an expression that would search for valid URLs, whether they had HTTP in front or not. This will find those that don't have hyphens anywhere in them (except for after the domain).\r\n\
-    Matches: \thttp://www.google.com|||www.123google.com|||www.google.com/help/me\r\n\
-    Non-Matches: \t-123google.com|||http://-123.123google.com\r\n "
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: (http://)[a..Z]*
-  created_at: 0000-00-00 00:00:00
-data_formats_009: 
-  name: Percentage
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "1"
-  id: "13"
-  description: |
-    Description:  	Percentage (From 0 to 100)
+data_format_25: !ruby/object:DataFormat 
+  attributes: 
+    name: Name
+    updated_at: 2007-05-28 15:02:59
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "3"
+    lock_version: "1"
+    id: "25"
+    description: Name without spaces
+    format_sprintf: ""
+    created_by_user_id: "3"
+    format_regex: ^[A-Z,a-z,0-9]*$
+    created_at: 2007-05-25 21:07:28
+data_format_3: !ruby/object:DataFormat 
+  attributes: 
+    name: Line
+    updated_at: 0000-00-00 00:00:00
+    default_value: 
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    lock_version: "0"
+    id: "3"
+    description: Single Line of Text
+    format_sprintf: 
+    created_by_user_id: "1"
+    format_regex: "[^\"\\r\\n]*"
+    created_at: 0000-00-00 00:00:00
+data_format_26: !ruby/object:DataFormat 
+  attributes: 
+    name: Quantiy
+    updated_at: 2007-06-06 20:15:15
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "26"
+    description: Basic numeric value followed by a unit
+    format_sprintf: "%d %s"
+    created_by_user_id: "3"
+    format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
+    created_at: 2007-06-06 20:15:15
+data_format_4: !ruby/object:DataFormat 
+  attributes: 
+    name: Double
+    updated_at: 2007-06-28 17:32:31
+    default_value: "0.0"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "7"
+    id: "4"
+    description: Standard Number format +/-nnn.nnnnn with units
+    format_sprintf: "%g %s"
+    created_by_user_id: "1"
+    format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
+    created_at: 2006-11-27 11:59:22
+data_format_27: !ruby/object:DataFormat 
+  attributes: 
+    name: Concentration
+    updated_at: 2007-06-28 17:35:05
+    default_value: ""
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "27"
+    description: Concentration in molar units
+    format_sprintf: "%g %s"
+    created_by_user_id: "3"
+    format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
+    created_at: 2007-06-06 20:20:26
+data_format_28: !ruby/object:DataFormat 
+  attributes: 
+    name: Amount
+    updated_at: 2007-06-06 20:22:12
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "28"
+    description: "Mols of stuff "
+    format_sprintf: "%d %s"
+    created_by_user_id: "3"
+    format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
+    created_at: 2007-06-06 20:22:12
+data_format_7: !ruby/object:DataFormat 
+  attributes: 
+    name: Scientific Notation
+    updated_at: 0000-00-00 00:00:00
+    default_value: 
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "7"
+    description: Scientific Notation
+    format_sprintf: 
+    created_by_user_id: "1"
+    format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
+    created_at: 0000-00-00 00:00:00
+data_format_8: !ruby/object:DataFormat 
+  attributes: 
+    name: Integer
+    updated_at: 2007-06-07 21:45:05
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "3"
+    id: "8"
+    description: Integer Value
+    format_sprintf: "%d"
+    created_by_user_id: "1"
+    format_regex: "[-+]?\\b\\d+\\b"
+    created_at: 0000-00-00 00:00:00
+data_format_11: !ruby/object:DataFormat 
+  attributes: 
+    name: Positive
+    updated_at: 2007-05-31 14:18:52
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "1"
+    id: "11"
+    description: |-
+      Description:  	Positive integer value.
+      Matches: 	123|||10|||54
+      Non-Matches: 	-54|||54.234|||abc
+    format_sprintf: ""
+    created_by_user_id: "1"
+    format_regex: ^[0-9,.]*$
+    created_at: 0000-00-00 00:00:00
+data_format_1: !ruby/object:DataFormat 
+  attributes: 
+    name: Text
+    updated_at: 2007-02-07 14:10:25
+    default_value: ""
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    lock_version: "1"
+    id: "1"
+    description: Free Format Text
+    format_sprintf: 
+    created_by_user_id: "1"
+    format_regex: .
+    created_at: 0000-00-00 00:00:00
+data_format_12: !ruby/object:DataFormat 
+  attributes: 
+    name: Decimal5.2
+    updated_at: 2007-06-06 20:13:07
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "12"
+    description: "Description:  \tvalidates to 5 digits and 2 decimal places but not allowing zero"
+    format_sprintf: "%5.2d"
+    created_by_user_id: "1"
+    format_regex: (?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$
+    created_at: 0000-00-00 00:00:00
+data_format_2: !ruby/object:DataFormat 
+  attributes: 
+    name: Alpha
+    updated_at: 2007-07-04 13:24:36
+    default_value: ""
+    updated_by_user_id: "4"
+    data_type_id: "1"
+    lock_version: "5"
+    id: "2"
+    description: A-Z
+    format_sprintf: ""
+    created_by_user_id: "1"
+    format_regex: ^[A-Z]*$
+    created_at: 0000-00-00 00:00:00
+data_format_24: !ruby/object:DataFormat 
+  attributes: 
+    name: URL
+    updated_at: 2007-05-25 19:08:50
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "6"
+    lock_version: "1"
+    id: "24"
+    description: "Description:  \tI wrote this after I couldn't find an expression that would search for valid URLs, whether they had HTTP in front or not. This will find those that don't have hyphens anywhere in them (except for after the domain).\r\n\
+      Matches: \thttp://www.google.com|||www.123google.com|||www.google.com/help/me\r\n\
+      Non-Matches: \t-123google.com|||http://-123.123google.com\r\n "
+    format_sprintf: 
+    created_by_user_id: "1"
+    format_regex: (http://)[a..Z]*
+    created_at: 0000-00-00 00:00:00
+data_format_13: !ruby/object:DataFormat 
+  attributes: 
+    name: Percentage
+    updated_at: 2007-06-06 20:26:16
+    default_value: ""
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "1"
+    id: "13"
+    description: |
+      Description:  	Percentage (From 0 to 100)
 
-  format_sprintf: "%d"
-  created_by_user_id: "1"
-  format_regex: "[-+]?[0-9]*\\.?[0-9]"
-  created_at: 0000-00-00 00:00:00
-data_formats_011: 
-  name: Name
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "3"
-  lock_version: "1"
-  id: "25"
-  description: Name without spaces
-  format_sprintf: ""
-  created_by_user_id: "3"
-  format_regex: ^[A-Z,a-z,0-9]*$
-  created_at: 2007-05-25 21:07:28
-data_formats_012: 
-  name: Quantiy
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "26"
-  description: Basic numeric value followed by a unit
-  format_sprintf: "%d %s"
-  created_by_user_id: "3"
-  format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
-  created_at: 2007-06-06 20:15:15
-data_formats_001: 
-  name: Text
-  
-  default_value: ""
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "1"
-  id: "1"
-  description: Free Format Text
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: .
-  created_at: 0000-00-00 00:00:00
-data_formats_013: 
-  name: Concentration
-  
-  default_value: ""
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "2"
-  id: "27"
-  description: Concentration in molar units
-  format_sprintf: "%g %s"
-  created_by_user_id: "3"
-  format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
-  created_at: 2007-06-06 20:20:26
-data_formats_002: 
-  name: Alpha
-  
-  default_value: ""
-  updated_by_user_id: "4"
-  data_type_id: "1"
-  lock_version: "5"
-  id: "2"
-  description: A-Z
-  format_sprintf: ""
-  created_by_user_id: "1"
-  format_regex: ^[A-Z]*$
-  created_at: 0000-00-00 00:00:00
-data_formats_014: 
-  name: Amount
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "28"
-  description: "Mols of stuff "
-  format_sprintf: "%d %s"
-  created_by_user_id: "3"
-  format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
-  created_at: 2007-06-06 20:22:12
-data_formats_003: 
-  name: Line
-  
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  lock_version: "0"
-  id: "3"
-  description: Single Line of Text
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: "[^\"\\r\\n]*"
-  created_at: 0000-00-00 00:00:00
-data_formats_004: 
-  name: Double
-  
-  default_value: "0.0"
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "7"
-  id: "4"
-  description: Standard Number format +/-nnn.nnnnn with units
-  format_sprintf: "%g %s"
-  created_by_user_id: "1"
-  format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
-  created_at: 2006-11-27 11:59:22
-data_formats_005: 
-  name: Scientific Notation
-  
-  default_value: 
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  lock_version: "0"
-  id: "7"
-  description: Scientific Notation
-  format_sprintf: 
-  created_by_user_id: "1"
-  format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
-  created_at: 0000-00-00 00:00:00
-data_formats_006: 
-  name: Integer
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "3"
-  id: "8"
-  description: Integer Value
-  format_sprintf: "%d"
-  created_by_user_id: "1"
-  format_regex: "[-+]?\\b\\d+\\b"
-  created_at: 0000-00-00 00:00:00
-data_formats_007: 
-  name: Positive
-  
-  default_value: ""
-  updated_by_user_id: "3"
-  data_type_id: "2"
-  lock_version: "1"
-  id: "11"
-  description: |-
-    Description:  	Positive integer value.
-    Matches: 	123|||10|||54
-    Non-Matches: 	-54|||54.234|||abc
-  format_sprintf: ""
-  created_by_user_id: "1"
-  format_regex: ^[0-9,.]*$
-  created_at: 0000-00-00 00:00:00
+    format_sprintf: "%d"
+    created_by_user_id: "1"
+    format_regex: "[-+]?[0-9]*\\.?[0-9]"
+    created_at: 0000-00-00 00:00:00

@@ -115,3 +115,4 @@ class DataConcept < ActiveRecord::Base
  end
  
 end
+

@@ -1,522 +1,528 @@
 --- 
-roles_004: 
-  name: Owner
-  
-  cache: |+
-    --- 
-    memberships: {}
-    
-    studies: 
-      "*": true
-    experiments: 
-      "*": true
-    auth: {}
-    
-    help: {}
-    
-    project_queues: 
-      list: true
-      show: true
-      "*": true
-    project_studies: 
-      list: true
-      show: true
-      "*": true
-    catalogue: {}
-    
-    dba: {}
-    
-    project: 
-      list: true
-      show: true
-      "*": true
-    study_parameters: 
-      "*": true
-    audit: {}
-    
-    project_experiments: 
-      list: true
-      show: true
-      "*": true
-    study_queues: 
-      "*": true
-    queue_items: 
-      "*": true
-    tasks: 
-      "*": true
-    biorails: {}
-    
-    page: {}
-    
-    requests: 
-      "*": true
-    users: {}
-    
-    reports: {}
-    
-    study_protocols: 
-      "*": true
-    home: {}
-    
-    charts: {}
-    
-    finder: {}
-    
-    project_requests: 
-      list: true
-      show: true
-      "*": true
-    inventory: {}
-    
-  type: ProjectRole
-  updated_by_user_id: "3"
-  id: "5"
-  description: Project owner with full rights
-  created_by_user_id: "3"
-  parent_id: 
-  created_at: 2007-06-11 12:05:52
-roles_005: 
-  name: manager
-  
-  cache: |
-    --- 
-    memberships: {}
-    
-    user: 
-      "*": true
-    project_queues: {}
-    
-    auth: {}
-    
-    help: {}
-    
-    project_studies: {}
-    
-    catalogue: 
-      list: true
-      show: true
-    dba: {}
-    
-    project: {}
-    
-    audit: {}
-    
-    project_experiments: {}
-    
-    biorails: {}
-    
-    page: {}
-    
-    users: 
-      list: true
-      show: true
-    report: 
-      "*": true
-    home: 
-      "*": true
-    finder: {}
-    
-    charts: {}
-    
-    project_requests: {}
-    
-    inventory: 
-      "*": true
+user_role_6: !ruby/object:UserRole 
+  attributes: 
+    name: manager
+    updated_at: 2007-06-11 12:27:59
+    cache: |
+      --- 
+      memberships: {}
+      
+      user: 
+        "*": true
+      project_queues: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      project_studies: {}
+      
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: {}
+      
+      audit: {}
+      
+      project_experiments: {}
+      
+      biorails: {}
+      
+      page: {}
+      
+      users: 
+        list: true
+        show: true
+      report: 
+        "*": true
+      home: 
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        "*": true
 
-  type: UserRole
-  updated_by_user_id: "3"
-  id: "6"
-  description: General Power user role with delete rights
-  created_by_user_id: "3"
-  parent_id: 
-  created_at: 2007-06-11 12:06:50
-roles_006: 
-  name: User
-  
-  cache: |
-    --- 
-    studies: {}
-    
-    memberships: {}
-    
-    experiments: {}
-    
-    auth: {}
-    
-    help: {}
-    
-    catalogue: 
-      list: true
-      show: true
-    dba: {}
-    
-    project: {}
-    
-    study_parameters: {}
-    
-    audit: {}
-    
-    study_queues: {}
-    
-    biorails: {}
-    
-    tasks: {}
-    
-    queue_items: {}
-    
-    page: {}
-    
-    requests: {}
-    
-    users: 
-      list: true
-      show: true
-    study_protocols: {}
-    
-    reports: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    home: 
-      "*": true
-    finder: {}
-    
-    charts: {}
-    
-    project_requests: {}
-    
-    inventory: 
-      "*": true
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "6"
+    description: General Power user role with delete rights
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:06:50
+user_role_7: !ruby/object:UserRole 
+  attributes: 
+    name: User
+    updated_at: 2007-06-11 12:48:39
+    cache: |
+      --- 
+      studies: {}
+      
+      memberships: {}
+      
+      experiments: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: {}
+      
+      study_parameters: {}
+      
+      audit: {}
+      
+      study_queues: {}
+      
+      biorails: {}
+      
+      tasks: {}
+      
+      queue_items: {}
+      
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        list: true
+        show: true
+      study_protocols: {}
+      
+      reports: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      home: 
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        "*": true
 
-  type: UserRole
-  updated_by_user_id: "3"
-  id: "7"
-  description: "Standard User "
-  created_by_user_id: "3"
-  parent_id: 
-  created_at: 2007-06-11 12:48:05
-roles_001: 
-  name: Public
-  
-  cache: |+
-    --- 
-    studies: 
-      list: true
-      show: true
-    experiments: 
-      list: true
-      show: true
-    memberships: {}
-    
-    auth: {}
-    
-    help: {}
-    
-    catalogue: {}
-    
-    dba: {}
-    
-    project: 
-      list: true
-      show: true
-    study_parameters: 
-      list: true
-      show: true
-    ~: 
-      ~: true
-    audit: {}
-    
-    study_queues: 
-      list: true
-      show: true
-    queue_items: 
-      list: true
-      show: true
-    tasks: 
-      list: true
-      show: true
-    biorails: {}
-    
-    page: {}
-    
-    requests: 
-      list: true
-      show: true
-    users: {}
-    
-    reports: {}
-    
-    study_protocols: 
-      list: true
-      show: true
-    home: {}
-    
-    charts: {}
-    
-    finder: {}
-    
-    project_requests: 
-      list: true
-      show: true
-    inventory: {}
-    
-  type: ProjectRole
-  updated_by_user_id: "3"
-  id: "1"
-  description: Members of the public who are not logged in.
-  created_by_user_id: "1"
-  parent_id: 
-  created_at: 2006-06-23 12:03:49
-roles_002: 
-  name: Member
-  
-  cache: |+
-    --- 
-    studies: 
-      list: true
-      show: true
-    memberships: {}
-    
-    experiments: 
-      "*": true
-    user: 
-      list: true
-      show: true
-    auth: {}
-    
-    help: {}
-    
-    catalogue: {}
-    
-    protocol: 
-      list: true
-      show: true
-    study: 
-      list: true
-      show: true
-    dba: {}
-    
-    project: 
-      list: true
-      show: true
-      "*": true
-    study_parameters: 
-      list: true
-      show: true
-    ~: 
-      ~: true
-    system: 
-      list: true
-      show: true
-    audit: {}
-    
-    cataloge: 
-      list: true
-      show: true
-    study_queues: 
-      list: true
-      show: true
-    biorails: {}
-    
-    tasks: 
-      "*": true
-    queue_items: 
-      list: true
-      "*": true
-    experiment: 
-      new: true
-      list: true
-      create: true
-      show: true
-      update: true
-    page: {}
-    
-    requests: 
-      list: true
-      "*": true
-    users: {}
-    
-    request: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    study_protocols: 
-      list: true
-      show: true
-    home: {}
-    
-    reports: {}
-    
-    report: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    charts: {}
-    
-    finder: {}
-    
-    project_requests: 
-      list: true
-      "*": true
-    inventory: {}
-    
-  type: ProjectRole
-  updated_by_user_id: "3"
-  id: "2"
-  description: Project Member
-  created_by_user_id: "1"
-  parent_id: "1"
-  created_at: 2006-06-23 12:03:50
-roles_003: 
-  name: Administrator
-  
-  cache: |
-    --- 
-    studies: {}
-    
-    experiments: {}
-    
-    memberships: {}
-    
-    user: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    auth: {}
-    
-    help: {}
-    
-    catalogue: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-      "*": true
-    protocol: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    study: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    dba: 
-      "*": true
-    project: {}
-    
-    study_parameters: {}
-    
-    ~: 
-      ~: true
-    system: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    audit: {}
-    
-    cataloge: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    study_queues: {}
-    
-    queue_items: {}
-    
-    tasks: {}
-    
-    biorails: {}
-    
-    experiment: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    page: {}
-    
-    requests: {}
-    
-    users: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-      "*": true
-    request: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    reports: 
-      "*": true
-    study_protocols: {}
-    
-    home: 
-      calendar: true
-      blog: true
-      projects: true
-      timeline: true
-      show: true
-      index: true
-      "*": true
-    report: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-      "*": true
-    finder: {}
-    
-    charts: {}
-    
-    project_requests: {}
-    
-    inventory: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-      "*": true
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "7"
+    description: "Standard User "
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:48:05
+project_role_1: !ruby/object:ProjectRole 
+  attributes: 
+    name: Public
+    updated_at: 2007-06-11 12:46:18
+    cache: |+
+      --- 
+      studies: 
+        list: true
+        show: true
+      experiments: 
+        list: true
+        show: true
+      memberships: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+      study_parameters: 
+        list: true
+        show: true
+      ~: 
+        ~: true
+      audit: {}
+      
+      study_queues: 
+        list: true
+        show: true
+      queue_items: 
+        list: true
+        show: true
+      tasks: 
+        list: true
+        show: true
+      biorails: {}
+      
+      page: {}
+      
+      requests: 
+        list: true
+        show: true
+      users: {}
+      
+      reports: {}
+      
+      study_protocols: 
+        list: true
+        show: true
+      home: {}
+      
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        show: true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "1"
+    description: Members of the public who are not logged in.
+    created_by_user_id: "1"
+    parent_id: 
+    created_at: 2006-06-23 12:03:49
+project_role_2: !ruby/object:ProjectRole 
+  attributes: 
+    name: Member
+    updated_at: 2007-06-11 12:44:25
+    cache: |+
+      --- 
+      studies: 
+        list: true
+        show: true
+      memberships: {}
+      
+      experiments: 
+        "*": true
+      user: 
+        list: true
+        show: true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      protocol: 
+        list: true
+        show: true
+      study: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+        "*": true
+      study_parameters: 
+        list: true
+        show: true
+      ~: 
+        ~: true
+      system: 
+        list: true
+        show: true
+      audit: {}
+      
+      cataloge: 
+        list: true
+        show: true
+      study_queues: 
+        list: true
+        show: true
+      biorails: {}
+      
+      tasks: 
+        "*": true
+      queue_items: 
+        list: true
+        "*": true
+      experiment: 
+        new: true
+        list: true
+        create: true
+        show: true
+        update: true
+      page: {}
+      
+      requests: 
+        list: true
+        "*": true
+      users: {}
+      
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_protocols: 
+        list: true
+        show: true
+      home: {}
+      
+      reports: {}
+      
+      report: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        "*": true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "2"
+    description: Project Member
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2006-06-23 12:03:50
+project_role_5: !ruby/object:ProjectRole 
+  attributes: 
+    name: Owner
+    updated_at: 2007-06-11 12:41:08
+    cache: |+
+      --- 
+      memberships: {}
+      
+      studies: 
+        "*": true
+      experiments: 
+        "*": true
+      auth: {}
+      
+      help: {}
+      
+      project_queues: 
+        list: true
+        show: true
+        "*": true
+      project_studies: 
+        list: true
+        show: true
+        "*": true
+      catalogue: {}
+      
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+        "*": true
+      study_parameters: 
+        "*": true
+      audit: {}
+      
+      project_experiments: 
+        list: true
+        show: true
+        "*": true
+      study_queues: 
+        "*": true
+      queue_items: 
+        "*": true
+      tasks: 
+        "*": true
+      biorails: {}
+      
+      page: {}
+      
+      requests: 
+        "*": true
+      users: {}
+      
+      reports: {}
+      
+      study_protocols: 
+        "*": true
+      home: {}
+      
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        show: true
+        "*": true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "5"
+    description: Project owner with full rights
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:05:52
+user_role_3: !ruby/object:UserRole 
+  attributes: 
+    name: Administrator
+    updated_at: 2007-06-11 12:47:32
+    cache: |
+      --- 
+      studies: {}
+      
+      experiments: {}
+      
+      memberships: {}
+      
+      user: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      protocol: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      dba: 
+        "*": true
+      project: {}
+      
+      study_parameters: {}
+      
+      ~: 
+        ~: true
+      system: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      audit: {}
+      
+      cataloge: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_queues: {}
+      
+      queue_items: {}
+      
+      tasks: {}
+      
+      biorails: {}
+      
+      experiment: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      reports: 
+        "*": true
+      study_protocols: {}
+      
+      home: 
+        calendar: true
+        blog: true
+        projects: true
+        timeline: true
+        show: true
+        index: true
+        "*": true
+      report: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
 
-  type: UserRole
-  updated_by_user_id: "3"
-  id: "3"
-  description: Systems Catalogue Administrator
-  created_by_user_id: "1"
-  parent_id: "2"
-  created_at: 2006-06-23 12:03:48
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "3"
+    description: Systems Catalogue Administrator
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2006-06-23 12:03:48

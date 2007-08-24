@@ -1,97 +1,103 @@
 --- 
-study_queues_002: 
-  status: new
-  study_stage_id: "5"
-  name: Todo
-  
-  updated_by_user_id: "3"
-  lock_version: "2"
-  priority: normal
-  study_protocol_id: 
-  id: "2"
-  assigned_to_user_id: "3"
-  study_id: "2"
-  description: Compounds to process
-  study_parameter_id: "14"
-  created_by_user_id: "3"
-  created_at: 2007-06-06 20:31:48
-study_queues_003: 
-  status: new
-  study_stage_id: "5"
-  name: Todo
-  
-  updated_by_user_id: "3"
-  lock_version: "3"
-  priority: normal
-  study_protocol_id: 
-  id: "3"
-  assigned_to_user_id: "3"
-  study_id: "3"
-  description: Compounds to process
-  study_parameter_id: "31"
-  created_by_user_id: "3"
-  created_at: 2007-06-06 20:31:48
-study_queues_004: 
-  status: new
-  study_stage_id: "8"
-  name: Locomotor Activity
-  
-  updated_by_user_id: "1"
-  lock_version: "1"
-  priority: normal
-  study_protocol_id: 
-  id: "4"
-  assigned_to_user_id: "4"
-  study_id: "5"
-  description: Investigation of the effects on spontaneous locomotor activity in the rat
-  study_parameter_id: "36"
-  created_by_user_id: "1"
-  created_at: 2007-06-28 13:43:47
-study_queues_005: 
-  status: new
-  study_stage_id: "5"
-  name: Develop Assay
-  
-  updated_by_user_id: "4"
-  lock_version: "1"
-  priority: normal
-  study_protocol_id: 
-  id: "5"
-  assigned_to_user_id: "4"
-  study_id: "6"
-  description: "Develop the assay and deploy into production "
-  study_parameter_id: "60"
-  created_by_user_id: "4"
-  created_at: 2007-07-04 13:28:38
-study_queues_006: 
-  status: new
-  study_stage_id: "6"
-  name: Dose Response
-  
-  updated_by_user_id: "4"
-  lock_version: "1"
-  priority: normal
-  study_protocol_id: 
-  id: "6"
-  assigned_to_user_id: "4"
-  study_id: "6"
-  description: Determine the dose response profile for a compound
-  study_parameter_id: "57"
-  created_by_user_id: "4"
-  created_at: 2007-07-04 13:29:13
-study_queues_001: 
-  status: new
-  study_stage_id: "5"
-  name: PrimaryScreen
-  
-  updated_by_user_id: "3"
-  lock_version: "2"
-  priority: normal
-  study_protocol_id: 
-  id: "1"
-  assigned_to_user_id: "3"
-  study_id: "1"
-  description: Compounds to process
-  study_parameter_id: "6"
-  created_by_user_id: "3"
-  created_at: 2007-06-06 20:31:48
+study_queue_1: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "5"
+    name: PrimaryScreen
+    updated_at: 2007-06-07 14:38:20
+    updated_by_user_id: "1"
+    lock_version: "2"
+    priority: normal
+    study_protocol_id: 
+    id: "1"
+    assigned_to_user_id: "3"
+    study_id: "1"
+    description: Compounds to process
+    study_parameter_id: "6"
+    created_by_user_id: "1"
+    created_at: 2007-06-06 20:31:48
+study_queue_2: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "5"
+    name: Todo
+    updated_at: 2007-06-06 22:07:50
+    updated_by_user_id: "1"
+    lock_version: "2"
+    priority: normal
+    study_protocol_id: 
+    id: "2"
+    assigned_to_user_id: "3"
+    study_id: "2"
+    description: Compounds to process
+    study_parameter_id: "14"
+    created_by_user_id: "1"
+    created_at: 2007-06-06 20:31:48
+study_queue_3: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "5"
+    name: Todo
+    updated_at: 2007-06-08 15:46:33
+    updated_by_user_id: "1"
+    lock_version: "3"
+    priority: normal
+    study_protocol_id: 
+    id: "3"
+    assigned_to_user_id: "3"
+    study_id: "3"
+    description: Compounds to process
+    study_parameter_id: "31"
+    created_by_user_id: "1"
+    created_at: 2007-06-06 20:31:48
+study_queue_4: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "8"
+    name: Locomotor Activity
+    updated_at: 2007-06-28 13:43:47
+    updated_by_user_id: "1"
+    lock_version: "1"
+    priority: normal
+    study_protocol_id: 
+    id: "4"
+    assigned_to_user_id: "4"
+    study_id: "5"
+    description: Investigation of the effects on spontaneous locomotor activity in the rat
+    study_parameter_id: "36"
+    created_by_user_id: "1"
+    created_at: 2007-06-28 13:43:47
+study_queue_5: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "5"
+    name: Develop Assay
+    updated_at: 2007-07-04 13:28:38
+    updated_by_user_id: "1"
+    lock_version: "1"
+    priority: normal
+    study_protocol_id: 
+    id: "5"
+    assigned_to_user_id: "4"
+    study_id: "6"
+    description: "Develop the assay and deploy into production "
+    study_parameter_id: "60"
+    created_by_user_id: "1"
+    created_at: 2007-07-04 13:28:38
+study_queue_6: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: "6"
+    name: Dose Response
+    updated_at: 2007-07-04 13:29:13
+    updated_by_user_id: "1"
+    lock_version: "1"
+    priority: normal
+    study_protocol_id: 
+    id: "6"
+    assigned_to_user_id: "4"
+    study_id: "6"
+    description: Determine the dose response profile for a compound
+    study_parameter_id: "57"
+    created_by_user_id: "1"
+    created_at: 2007-07-04 13:29:13

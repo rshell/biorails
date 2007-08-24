@@ -1,18 +1,16 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('compounds')%> Compound <%=@compound.name %>
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('edit.png'))+" Edit", :action => 'edit', :id => @compound %></li>
-                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
+<% content_for :sidemenu do%>
+  <%=   render :partial =>'menu/default_left_menu' %>    
+<div>
+  <span class='menu'>Compound </span>
+   <%= link_to subject_icon('list.png') +'List', :action => 'list' %>
+   <%= link_to subject_icon('edit.png')+" Edit", :action => 'edit', :id => @compound %>
+   <%= link_to subject_icon('destroy.png')+" Delete", { :action => 'destroy', :id => @compound }, :confirm => 'Are you sure?',:method => "post" %>
+</div>
+<% end %>
 
-    <div class='panel'>
-        <script SRC="/javascripts/marvin/marvin.js"></script>
-        <%= render :partial => 'compound', :locals => { :compound => @compound } %>  
-        <%= render :partial => 'batches', :locals => { :compound => @compound } %>
-        <%= render :partial => 'samples', :locals => { :compound => @compound } %>  
-    </div>
+<div class='panel'>
+    <script SRC="/javascripts/marvin/marvin.js"></script>
+    <%= render :partial => 'compound', :locals => { :compound => @compound } %>  
+    <%= render :partial => 'batches', :locals => { :compound => @compound } %>
+    <%= render :partial => 'samples', :locals => { :compound => @compound } %>  
 </div>
