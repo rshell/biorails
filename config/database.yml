@@ -36,7 +36,7 @@ production:
 
 oracle:
   adapter: oracle
-  database: //192.168.1.50/orcl
+  database: //192.168.1.129/xe
   username: biorails
   password: biorails
 

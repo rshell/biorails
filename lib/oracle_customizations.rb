@@ -28,7 +28,6 @@ module ActiveRecord
           }
         end
 
-
         # Returns the next sequence value from a sequence generator. Not generally
         # called directly; used by ActiveRecord to get the next primary key value
         # when inserting a new database record (see #prefetch_primary_key?).

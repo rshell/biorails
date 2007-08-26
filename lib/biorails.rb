@@ -22,13 +22,17 @@ module Biorails
   CATALOG_MODELS = [DataConcept,DataSystem,DataElement,DataType,DataFormat,ParameterType,ParameterRole]
 
   ALL_MODELS = [Role,User,Identifier,Permission,RolePermission,
-    DataConcept,DataSystem,DataElement,DataType,DataFormat,ParameterType,ParameterRole,
-    Compound,Batch,Plate,Container,
+    UserSetting,SystemSetting,
+    DataConcept,DataSystem,DataElement,DataType,DataFormat,
+    ParameterType,ParameterRole,
+    Compound,Batch,Plate,Container,PlateFormat,PlateWell,
+    Specimen,TreatmentGroup,TreatmentItem,
     Project,Membership,
     ProjectElement,Asset,Content,DbFile,
-    Study,StudyParameter,StudyQueue,StudyProtocol,
+    Study,StudyParameter,StudyQueue,StudyProtocol,StudyStage,
     ProtocolVersion,ParameterContext,Parameter,
     Request,RequestService,QueueItem,
+    List,ListItem,
     Report,ReportColumn,
     Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
 ##
@@ -136,6 +140,7 @@ module Biorails
                 @new_item = row.class.new(row.attributes)
                 @new_item.id = row.id
               end
+              
               p "Save #{row}  "
               if @new_item.save
                  success =  success + 1

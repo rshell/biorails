@@ -19,6 +19,7 @@ namespace :biorails do
       end
   end
 
+
   desc 'Loads the database schema and the initial content'
   task :bootstrap => :environment do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'db','bootstrap') )
@@ -36,6 +37,36 @@ namespace :biorails do
     Biorails::CATALOG_MODELS.each do |model| 
        filename = File.join(path,model.table_name + '.yml')
        Biorails::Dba.import_model(model,filename) if File.exists? filename
+    end 
+  end 
+
+  desc 'Export all models for move another schema  DIR=directory to set destination' 
+  task :dbsize => :environment do 
+    path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
+    ActiveRecord::Base.establish_connection 
+    database, user, password = Biorails::Dba.retrieve_db_info
+    p "For [#{RAILS_ENV}] database #{database} as user #{user}"
+    p "=================================================="
+    Biorails::ALL_MODELS.each do |model| 
+       p "   #{model} has #{model.count} records"
+    end 
+  end 
+
+  desc 'Export all models for move another schema  DIR=directory to set destination' 
+  task :check => :environment do 
+    path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
+    ActiveRecord::Base.establish_connection 
+    database, user, password = Biorails::Dba.retrieve_db_info
+    p "For [#{RAILS_ENV}] database #{database} as user #{user}"
+    p "=================================================="
+    Biorails::ALL_MODELS.each do |model| 
+       o = model.find(:first)
+       if o
+         model.columns.each{|c| v = o.send(c.name) }
+         p "   #{model} appears ok"
+       else
+         p "   #{model} appears empty"
+       end
     end 
   end 
 
