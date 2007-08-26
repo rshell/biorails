@@ -29,14 +29,6 @@ module ActiveRecord
         end
 
 
-        def quoted_true
-            "Y"
-        end
-
-        def quoted_false
-            "N"
-        end
-
         # Returns the next sequence value from a sequence generator. Not generally
         # called directly; used by ActiveRecord to get the next primary key value
         # when inserting a new database record (see #prefetch_primary_key?).
