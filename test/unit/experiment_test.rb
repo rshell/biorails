@@ -7,4 +7,11 @@ class ExperimentTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+  
+  def test_copy
+    exp = Experiment.find(:first)
+    assert !exp.nil?,"No Experiment fixture found"
+    exp2 = exp.copy
+    
+  end
 end

@@ -1,6 +1,5 @@
 # This manages the creation of Roles
 #
-# @TODO needs to be be rewritten now goldberg is removed
 
 class Admin::RolesController < ApplicationController
 

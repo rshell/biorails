@@ -72,7 +72,7 @@ class Task < ActiveRecord::Base
   validates_presence_of :experiment_id
   validates_presence_of :protocol_version_id
   validates_presence_of :started_at
-  validates_presence_of :ended_at  
+  validates_presence_of :expected_at  
   validates_presence_of :status_id
 
   def validate 
@@ -229,8 +229,8 @@ SQL
 #  
   def reset
      @is_milestone = false
-     @started_at = Date.new
-     @ended_at = Date.new + 1.day
+     @started_at = Time.new
+     @ended_at = Time.new + 1.day
      @expected_hours = 1
      @done_hours = 0
      refresh
@@ -300,13 +300,23 @@ SQL
 #
 #copy a existing task
 # 
- def copy
-   task = self.clone
-   task.id = nil
-   task.started_at = Time.new
-   task.ended_at = task.started_at + self.period
+ def copy(delta_time=0)
+   task = self.class.new
+   task.name = self.name
+   task.description = self.description
+   task.process = self.process
+   task.protocol= self.protocol 
+   task.project = self.project
+   task.priority_id = self.priority_id
+   task.assigned_to_user_id = self.assigned_to_user_id
    task.done_hours = 0
-   task.initial
+   task.expected_hours = self.expected_hours
+   if task.is_finished
+     task.expected_hours =  self.period / (24*60*60)
+   end
+   task.started_at =  (self.started_at.to_time + delta_time)
+   task.expected_at = (self.finished_at.to_time + delta_time)
+   puts "[#{delta_time}] #{self.started_at} #{self.finished_at} => #{task.started_at} #{task.finished_at}"
    return task
  end
 #

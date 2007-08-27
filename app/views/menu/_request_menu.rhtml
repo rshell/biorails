@@ -6,6 +6,7 @@
     
     <%= link_to subject_icon('new.png')+ 'New',request_url(  :action => 'new') %>
     <%= link_to subject_icon('show.png')+ 'Show',request_url(  :action => 'show',:id => request ) %>
+    <%= link_to subject_icon('show.png')+ 'Results',request_url(  :action => 'results',:id => request ) %>
     <%= link_to subject_icon('edit.png')+ 'Edit',request_url(  :action => 'edit',:id => request ) %>
     <%= link_to subject_icon('destroy.png')+'Delete', request_url( :action => 'destroy',:id => request ), :confirm => 'Are you sure?',:method => "post" %>
     <%end%>

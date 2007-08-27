@@ -173,9 +173,9 @@ top = headers_heigth + 10
  @gantt.items.each do |i| %>
 	<%
 	i_started_at = (i.started_at.to_date >= @gantt.date_from ? i.started_at.to_date : @gantt.date_from )
-	i_ended_at = (i.ended_at.to_date <= @gantt.date_to ? i.ended_at.to_date : @gantt.date_to )
+	i_ended_at = (i.finished_at.to_date <= @gantt.date_to ? i.finished_at.to_date : @gantt.date_to )
 	
-	i_done_date = i.started_at.to_date + ((i.ended_at.to_date - i.started_at.to_date+1)*i.done).floor
+	i_done_date = i.started_at.to_date + ((i.finished_at.to_date - i.started_at.to_date+1)*i.done).floor
 	i_done_date = (i_done_date <= @gantt.date_from ? @gantt.date_from : i_done_date )
 	i_done_date = (i_done_date >= @gantt.date_to ? @gantt.date_to : i_done_date )
 	

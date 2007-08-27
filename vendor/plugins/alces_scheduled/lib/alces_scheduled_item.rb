@@ -272,7 +272,7 @@ module Alces
            def finished_at
               return self.ended_at    if self.ended_at
               return self.expected_at if self.expected_at
-              return DateTime.now+ 7 unless scheduled_summary   
+              return Time.new+ 7.days unless scheduled_summary   
               tmp = self.send(scheduled_summary) || []
               tmp.collect{|item|item.finished_at}.max
            end
@@ -281,10 +281,10 @@ module Alces
           #get the default period of time for a task
           #
            def period 
-             if expected_at > started_at 
-                expected_at - started_at 
+             if finished_at > started_at 
+                (finished_at.to_time - started_at.to_time) 
              else
-                1.day
+                1
              end
            end
            

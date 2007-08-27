@@ -178,9 +178,9 @@ top = headers_heigth + 10
 @tasks.each do |i| %>
 	<%
 	i_started_at = (i.started_at.to_date >= @date_from ? i.started_at.to_date : @date_from )
-	i_ended_at = (i.ended_at.to_date <= @date_to ? i.ended_at.to_date : @date_to )
+	i_ended_at = (i.finished_at.to_date <= @date_to ? i.finished_at.to_date : @date_to )
 	
-	i_done_date = i.started_at.to_date + ((i.ended_at.to_date - i.started_at.to_date+1)*i.done).floor
+	i_done_date = i.started_at.to_date + ((i.finished_at.to_date - i.started_at.to_date+1)*i.done).floor
 	i_done_date = (i_done_date <= @date_from ? @date_from : i_done_date )
 	i_done_date = (i_done_date >= @date_to ? @date_to : i_done_date )
 	

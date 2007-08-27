@@ -35,6 +35,8 @@ class Experiment < ActiveRecord::Base
   validates_presence_of   :study_id
   validates_presence_of   :project_id
   validates_presence_of   :study_protocol_id
+#  validates_presence_of   :started_at
+#  validates_presence_of   :expected_at  
 
 ##
 # This record has a full audit log created for changes 
@@ -201,21 +203,25 @@ SQL
 ##
 # Copy the experiment and create a new persistent copy
 # 
- def copy
-   expt = self.clone
-   expt.id = nil
-   expt.name += '-'+(self.study.experiments.size+1).to_s
-   expt.save    
+ def copy(name = nil, start = nil)
+   start ||= Time.now
+   expt = Experiment.new(:started_at => start, :expected_at=>(start + self.period ))
+   expt.name = name || Identifier.next_user_ref
+   expt.description = self.description
+   expt.study = self.study
+   expt.project = self.project
+   expt.process = self.process
+   expt.protocol= self.protocol    
+   expt.save!  
+   delta_time = expt.started_at - self.started_at
+   puts "Experiment #{expt.started_at} #{expt.finished_at}"
    
-   new_start = Time.new
-   old_start = self.started_at
    for old_task in self.tasks
-      task = old_task.copy
-      task.experiment = nil
-      task.started_at = new_start + (task.started_at-old_start)
-      task.ended_at = new_start + (task.ended_at)
+      task = old_task.copy(delta_time)
+      task.experiment = expt
+      task.name = expt.name+":"+expt.tasks.size.to_s
       expt.tasks << task
-      task.save
+      puts "#{task.started_at} #{task.finished_at}"
    end
    return expt
  end

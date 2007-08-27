@@ -4,6 +4,64 @@ class QueueResult < ActiveRecord::Base
    super
    @readonly == true
  end
+ 
+#
+# Results for a request
+#
+ def self.find_for(item)
+   case item
+   when QueueItem
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
+                    :conditions=>['request_services.id=? and queue_results.data_id=?',item.request_service_id,item.data_id])
+   when StudyQueue
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
+                    :conditions=>['queue_results.study_queue_id=?',item.id])
+   when RequestService
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
+                    :conditions=>['request_services.id=?',item.id])
+   when Request
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
+                    :conditions=>['request_services.request_id=?',item.id])
+   when String,Fixnum
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
+                    :conditions=>['request_services.request_id=?',item])
+   else
+     return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name'],
+                    :conditions=>[queue_results.data_id=?',item.id])
+     
+   end   
+ end
+#
+# Results for a specific item in a queue
+#
+ def self.find_for_request_subject(request_id, subject)
+   subject_id = nil
+   case subject
+   when QueueItem,ListItem
+     subject_id = subject.data_id
+   when String,Fixnum
+     subject_id = subject
+   else
+     subject_id = subject.id
+   end
+   return QueueResult.find(:all,
+                    :include=>:service,
+                    :order=>['request_services.name'],
+                    :conditions=>['request_services.request_id=? and queue_results.data_id=?',request_id,subject_id])
+ end
+
 ##
 # The task this context belongs too
  belongs_to :task

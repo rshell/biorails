@@ -131,8 +131,7 @@ class Execute::ExperimentsController < ApplicationController
 
   def copy
     @experiment = current_user.experiment( params[:id] ).copy    
-    @schedule = Schedule.tasks_in(@experiment)    
-    render :action => 'show'
+    redirect_to :action => 'show', :id => @experiment.id
   end
 ##
 # Return from new to create a Experiment record

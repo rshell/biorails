@@ -64,6 +64,35 @@ class Execute::RequestsController < ApplicationController
     @project_folder =@user_request.folder
   end
 
+
+##
+# Show the status of a request item with a history of testing of the requested item in the 
+# current study. eg a schedule of task data entry
+  def results
+    @user_request = current(Request,params[:id])
+    @project_folder =@user_request.folder
+  end
+
+  def results
+   @user_request = current(Request,params[:id])
+   @project_folder =@user_request.folder
+
+   @report = Report.internal_report("Request Results",QueueResult) do | report |
+      report.column('service.request_id').filter = @user_request.id.to_s
+      report.column('service.name').is_filterible = true
+      report.column('queue.name').is_filterible = true
+      report.column('subject').is_filterible = true
+      report.column('label').is_filterible = true
+      report.column('parameter_name').is_filterible = true
+      report.column('data_value').is_visible = true
+      report.column('id').is_visible = false
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+   end
+   @data_pages = Paginator.new self, 1000, 20, params[:page]
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   render :action => :report
+  end
 ##
 # Display form for a new request item
   def new
