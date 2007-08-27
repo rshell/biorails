@@ -23,7 +23,7 @@ class Role < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+#  acts_as_audited :change_log
 
   validates_uniqueness_of :name
   validates_presence_of :name

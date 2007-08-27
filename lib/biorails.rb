@@ -141,9 +141,10 @@ module Biorails
                 @new_item.id = row.id
               end
               
-              p "Save #{row}  "
               if @new_item.save
                  success =  success + 1
+	      else
+	         p "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
               end
             rescue Exception => ex
                 p "Error for [#{row.class}.#{row.id}] #{ex.message} " 

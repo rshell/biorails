@@ -40,4 +40,8 @@ class Membership < ActiveRecord::Base
    self.is_owner
  end
  
+ def owner=(value)
+   self.is_owner = value 
+ end
+ 
 end

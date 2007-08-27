@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+#  acts_as_audited :change_log
   
 #  acts_as_paranoid
 ##

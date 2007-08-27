@@ -994,7 +994,7 @@ ActiveRecord::Schema.define(:version => 279) do
   create_table "users", :force => true do |t|
     t.column "name",               :string,                 :default => "",    :null => false
     t.column "password_hash",      :string,   :limit => 40
-    t.column "role_id",            :integer,                                   :null => false
+    t.column "role_id",            :integer,  :default => 1 ,   :null => false
     t.column "password_salt",      :string
     t.column "fullname",           :string
     t.column "email",              :string
