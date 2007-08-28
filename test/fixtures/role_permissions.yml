@@ -1,2703 +1,2703 @@
 --- 
-role_permission_385: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "385"
-role_permission_359: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: experiments
-    id: "359"
-role_permission_278: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "278"
 role_permission_197: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: queue_items
-    id: "197"
-role_permission_386: !ruby/object:RolePermission 
+    id: 197
+role_permission_278: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 3
+    subject: user
+    id: 278
+role_permission_359: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
-    subject: tasks
-    id: "386"
-role_permission_279: !ruby/object:RolePermission 
+    role_id: 5
+    subject: experiments
+    id: 359
+role_permission_385: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
+    action: list
     permission_id: 
-    role_id: "6"
+    role_id: 3
     subject: inventory
-    id: "279"
+    id: 385
 role_permission_198: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: queue_items
-    id: "198"
+    id: 198
+role_permission_279: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 6
+    subject: inventory
+    id: 279
+role_permission_386: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 5
+    subject: tasks
+    id: 386
 role_permission_387: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_queues
-    id: "387"
+    id: 387
 role_permission_199: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: requests
-    id: "199"
+    id: 199
 role_permission_388: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "388"
+    id: 388
 role_permission_389: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "389"
+    id: 389
 role_permission_200: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: requests
-    id: "200"
+    id: 200
 role_permission_120: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "120"
+    id: 120
 role_permission_201: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_protocols
-    id: "201"
+    id: 201
 role_permission_121: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "121"
+    id: 121
 role_permission_202: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_protocols
-    id: "202"
+    id: 202
 role_permission_30: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "30"
-role_permission_310: !ruby/object:RolePermission 
-  attributes: 
-    action: calendar
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "310"
+    id: 30
 role_permission_203: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project_requests
-    id: "203"
+    id: 203
+role_permission_310: !ruby/object:RolePermission 
+  attributes: 
+    action: calendar
+    permission_id: 
+    role_id: 3
+    subject: home
+    id: 310
 role_permission_31: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "31"
-role_permission_311: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "311"
+    id: 31
 role_permission_204: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project_requests
-    id: "204"
+    id: 204
 role_permission_230: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "230"
+    id: 230
+role_permission_311: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 3
+    subject: users
+    id: 311
 role_permission_32: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "32"
-role_permission_312: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "7"
-    subject: home
-    id: "312"
+    id: 32
 role_permission_150: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: inventory
-    id: "150"
+    id: 150
 role_permission_205: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: dba
-    id: "205"
+    id: 205
 role_permission_231: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_parameters
-    id: "231"
+    id: 231
+role_permission_312: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 7
+    subject: home
+    id: 312
 role_permission_33: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "33"
-role_permission_313: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "313"
+    id: 33
 role_permission_151: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: catalogue
-    id: "151"
+    id: 151
 role_permission_206: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: reports
-    id: "206"
+    id: 206
 role_permission_232: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "232"
+    id: 232
+role_permission_313: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 3
+    subject: system
+    id: 313
 role_permission_34: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "34"
+    id: 34
 role_permission_60: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "60"
-role_permission_340: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: project
-    id: "340"
-role_permission_314: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "314"
+    id: 60
 role_permission_152: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: catalogue
-    id: "152"
+    id: 152
 role_permission_207: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: catalogue
-    id: "207"
+    id: 207
 role_permission_233: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_experiments
-    id: "233"
+    id: 233
+role_permission_314: !ruby/object:RolePermission 
+  attributes: 
+    action: new
+    permission_id: 
+    role_id: 3
+    subject: protocol
+    id: 314
+role_permission_340: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 1
+    subject: project
+    id: 340
 role_permission_61: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "61"
-role_permission_341: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "341"
-role_permission_315: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: experiments
-    id: "315"
-role_permission_260: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: study_protocols
-    id: "260"
+    id: 61
 role_permission_153: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: users
-    id: "153"
+    id: 153
 role_permission_208: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: catalogue
-    id: "208"
+    id: 208
 role_permission_234: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "234"
+    id: 234
+role_permission_260: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: study_protocols
+    id: 260
+role_permission_315: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 1
+    subject: experiments
+    id: 315
+role_permission_341: !ruby/object:RolePermission 
+  attributes: 
+    action: edit
+    permission_id: 
+    role_id: 7
+    subject: reports
+    id: 341
 role_permission_62: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "62"
-role_permission_342: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "5"
-    subject: project_queues
-    id: "342"
-role_permission_316: !ruby/object:RolePermission 
-  attributes: 
-    action: timeline
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "316"
-role_permission_261: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "261"
+    id: 62
 role_permission_4: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "1"
-    role_id: "3"
+    permission_id: 1
+    role_id: 3
     subject: 
-    id: "4"
+    id: 4
 role_permission_154: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: users
-    id: "154"
+    id: 154
 role_permission_180: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project_requests
-    id: "180"
+    id: 180
 role_permission_209: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: users
-    id: "209"
+    id: 209
 role_permission_235: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: user
-    id: "235"
+    id: 235
+role_permission_261: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 3
+    subject: users
+    id: 261
+role_permission_316: !ruby/object:RolePermission 
+  attributes: 
+    action: timeline
+    permission_id: 
+    role_id: 3
+    subject: home
+    id: 316
+role_permission_342: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 5
+    subject: project_queues
+    id: 342
 role_permission_63: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "63"
+    id: 63
 role_permission_90: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: user
-    id: "90"
-role_permission_343: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "3"
-    role_id: "1"
-    subject: 
-    id: "343"
-role_permission_317: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "317"
-role_permission_262: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "6"
-    subject: report
-    id: "262"
+    id: 90
 role_permission_155: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "155"
+    id: 155
 role_permission_181: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: studies
-    id: "181"
+    id: 181
 role_permission_236: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_queues
-    id: "236"
+    id: 236
+role_permission_262: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 6
+    subject: report
+    id: 262
+role_permission_317: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 3
+    subject: report
+    id: 317
+role_permission_343: !ruby/object:RolePermission 
+  attributes: 
+    action: 
+    permission_id: 3
+    role_id: 1
+    subject: 
+    id: 343
 role_permission_64: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "64"
+    id: 64
 role_permission_91: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: protocol
-    id: "91"
-role_permission_370: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "370"
-role_permission_344: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "344"
-role_permission_318: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "318"
-role_permission_263: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: project_requests
-    id: "263"
+    id: 91
 role_permission_6: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "3"
-    role_id: "1"
+    permission_id: 3
+    role_id: 1
     subject: 
-    id: "6"
+    id: 6
 role_permission_156: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "156"
+    id: 156
 role_permission_182: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_parameters
-    id: "182"
+    id: 182
 role_permission_237: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "237"
+    id: 237
+role_permission_263: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 1
+    subject: project_requests
+    id: 263
+role_permission_318: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 7
+    subject: reports
+    id: 318
+role_permission_344: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: experiment
+    id: 344
 role_permission_65: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "65"
-role_permission_371: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "371"
-role_permission_345: !ruby/object:RolePermission 
+    id: 65
+role_permission_370: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "345"
-role_permission_319: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "319"
-role_permission_290: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "290"
-role_permission_264: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: project_requests
-    id: "264"
+    role_id: 3
+    subject: report
+    id: 370
 role_permission_7: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "2"
-    role_id: "3"
+    permission_id: 2
+    role_id: 3
     subject: 
-    id: "7"
+    id: 7
 role_permission_157: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "157"
+    id: 157
 role_permission_183: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_queues
-    id: "183"
+    id: 183
 role_permission_238: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "238"
+    id: 238
+role_permission_264: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: project_requests
+    id: 264
+role_permission_290: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 3
+    subject: users
+    id: 290
+role_permission_319: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 3
+    subject: cataloge
+    id: 319
 role_permission_66: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "66"
+    id: 66
+role_permission_345: !ruby/object:RolePermission 
+  attributes: 
+    action: edit
+    permission_id: 
+    role_id: 3
+    subject: protocol
+    id: 345
+role_permission_371: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 2
+    subject: experiment
+    id: 371
 role_permission_92: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: protocol
-    id: "92"
-role_permission_372: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: study_queues
-    id: "372"
-role_permission_346: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "346"
-role_permission_291: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "6"
-    subject: catalogue
-    id: "291"
-role_permission_265: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "265"
+    id: 92
 role_permission_158: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "158"
+    id: 158
 role_permission_184: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_protocols
-    id: "184"
+    id: 184
 role_permission_239: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "239"
+    id: 239
+role_permission_265: !ruby/object:RolePermission 
+  attributes: 
+    action: new
+    permission_id: 
+    role_id: 3
+    subject: users
+    id: 265
+role_permission_291: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 6
+    subject: catalogue
+    id: 291
 role_permission_67: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "67"
+    id: 67
+role_permission_346: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 7
+    subject: reports
+    id: 346
+role_permission_372: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 5
+    subject: study_queues
+    id: 372
 role_permission_93: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study
-    id: "93"
-role_permission_373: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: study_parameters
-    id: "373"
-role_permission_347: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_studies
-    id: "347"
-role_permission_292: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "292"
-role_permission_266: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: dba
-    id: "266"
+    id: 93
 role_permission_9: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "4"
-    role_id: "1"
+    permission_id: 4
+    role_id: 1
     subject: 
-    id: "9"
+    id: 9
 role_permission_159: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "159"
+    id: 159
 role_permission_185: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: experiments
-    id: "185"
+    id: 185
+role_permission_266: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 3
+    subject: dba
+    id: 266
+role_permission_292: !ruby/object:RolePermission 
+  attributes: 
+    action: new
+    permission_id: 
+    role_id: 3
+    subject: system
+    id: 292
 role_permission_68: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "68"
+    id: 68
+role_permission_347: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 5
+    subject: project_studies
+    id: 347
+role_permission_373: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 1
+    subject: study_parameters
+    id: 373
 role_permission_94: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study
-    id: "94"
-role_permission_374: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "374"
-role_permission_348: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "348"
-role_permission_293: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "293"
-role_permission_267: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: queue_items
-    id: "267"
+    id: 94
 role_permission_186: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: experiments
-    id: "186"
+    id: 186
+role_permission_267: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 2
+    subject: queue_items
+    id: 267
+role_permission_293: !ruby/object:RolePermission 
+  attributes: 
+    action: edit
+    permission_id: 
+    role_id: 3
+    subject: user
+    id: 293
 role_permission_69: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "69"
-role_permission_375: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_experiments
-    id: "375"
-role_permission_349: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "2"
-    role_id: "3"
-    subject: 
-    id: "349"
-role_permission_294: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: studies
-    id: "294"
-role_permission_268: !ruby/object:RolePermission 
+    id: 69
+role_permission_348: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
-    subject: users
-    id: "268"
+    role_id: 3
+    subject: cataloge
+    id: 348
+role_permission_374: !ruby/object:RolePermission 
+  attributes: 
+    action: create
+    permission_id: 
+    role_id: 3
+    subject: catalogue
+    id: 374
 role_permission_187: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: studies
-    id: "187"
-role_permission_376: !ruby/object:RolePermission 
+    id: 187
+role_permission_268: !ruby/object:RolePermission 
+  attributes: 
+    action: create
+    permission_id: 
+    role_id: 3
+    subject: users
+    id: 268
+role_permission_294: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "376"
-role_permission_295: !ruby/object:RolePermission 
+    role_id: 2
+    subject: studies
+    id: 294
+role_permission_349: !ruby/object:RolePermission 
   attributes: 
-    action: index
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "295"
-role_permission_269: !ruby/object:RolePermission 
+    action: 
+    permission_id: 2
+    role_id: 3
+    subject: 
+    id: 349
+role_permission_375: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
+    action: list
     permission_id: 
-    role_id: "3"
-    subject: reports
-    id: "269"
+    role_id: 5
+    subject: project_experiments
+    id: 375
 role_permission_188: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: studies
-    id: "188"
+    id: 188
+role_permission_269: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 3
+    subject: reports
+    id: 269
+role_permission_295: !ruby/object:RolePermission 
+  attributes: 
+    action: index
+    permission_id: 
+    role_id: 3
+    subject: home
+    id: 295
+role_permission_376: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 3
+    subject: experiment
+    id: 376
 role_permission_97: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "97"
-role_permission_377: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "377"
-role_permission_296: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "6"
-    subject: users
-    id: "296"
+    id: 97
 role_permission_189: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project
-    id: "189"
+    id: 189
+role_permission_296: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 6
+    subject: users
+    id: 296
+role_permission_377: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 3
+    subject: report
+    id: 377
 role_permission_98: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "98"
-role_permission_378: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "378"
+    id: 98
 role_permission_297: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "297"
+    id: 297
+role_permission_378: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: request
+    id: 378
 role_permission_99: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: system
-    id: "99"
-role_permission_379: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: queue_items
-    id: "379"
+    id: 99
 role_permission_298: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "298"
+    id: 298
+role_permission_379: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 5
+    subject: queue_items
+    id: 379
 role_permission_299: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_parameters
-    id: "299"
+    id: 299
 role_permission_110: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "110"
+    id: 110
 role_permission_111: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "111"
+    id: 111
 role_permission_20: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "20"
+    id: 20
 role_permission_300: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "300"
+    id: 300
 role_permission_21: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "21"
+    id: 21
 role_permission_112: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "112"
-role_permission_301: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "6"
-    subject: users
-    id: "301"
+    id: 112
 role_permission_220: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "220"
+    id: 220
+role_permission_301: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 6
+    subject: users
+    id: 301
 role_permission_22: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "22"
+    id: 22
 role_permission_113: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "113"
-role_permission_302: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "302"
+    id: 113
 role_permission_221: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: requests
-    id: "221"
+    id: 221
+role_permission_302: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 3
+    subject: protocol
+    id: 302
 role_permission_23: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "23"
+    id: 23
 role_permission_140: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_studies
-    id: "140"
-role_permission_410: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "410"
-role_permission_303: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: study_queues
-    id: "303"
+    id: 140
 role_permission_222: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "222"
+    id: 222
+role_permission_303: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 2
+    subject: study_queues
+    id: 303
 role_permission_24: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "24"
+    id: 24
 role_permission_50: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "50"
+    id: 50
+role_permission_410: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 3
+    subject: inventory
+    id: 410
 role_permission_141: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_queues
-    id: "141"
-role_permission_411: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: queue_items
-    id: "411"
-role_permission_330: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "330"
-role_permission_304: !ruby/object:RolePermission 
-  attributes: 
-    action: projects
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "304"
+    id: 141
 role_permission_223: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: user
-    id: "223"
+    id: 223
+role_permission_304: !ruby/object:RolePermission 
+  attributes: 
+    action: projects
+    permission_id: 
+    role_id: 3
+    subject: home
+    id: 304
 role_permission_25: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "25"
+    id: 25
+role_permission_330: !ruby/object:RolePermission 
+  attributes: 
+    action: new
+    permission_id: 
+    role_id: 3
+    subject: cataloge
+    id: 330
 role_permission_51: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "51"
+    id: 51
+role_permission_411: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 1
+    subject: queue_items
+    id: 411
 role_permission_116: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "116"
+    id: 116
 role_permission_142: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project
-    id: "142"
-role_permission_331: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "1"
-    role_id: "3"
-    subject: 
-    id: "331"
-role_permission_305: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "305"
-role_permission_250: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: protocol
-    id: "250"
+    id: 142
 role_permission_224: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_queues
-    id: "224"
+    id: 224
+role_permission_250: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 2
+    subject: protocol
+    id: 250
+role_permission_305: !ruby/object:RolePermission 
+  attributes: 
+    action: "*"
+    permission_id: 
+    role_id: 3
+    subject: catalogue
+    id: 305
 role_permission_26: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "26"
+    id: 26
+role_permission_331: !ruby/object:RolePermission 
+  attributes: 
+    action: 
+    permission_id: 1
+    role_id: 3
+    subject: 
+    id: 331
 role_permission_52: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "52"
+    id: 52
 role_permission_117: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "117"
+    id: 117
 role_permission_143: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_experiments
-    id: "143"
-role_permission_332: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: cataloge
-    id: "332"
-role_permission_306: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "7"
-    subject: users
-    id: "306"
-role_permission_251: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: queue_items
-    id: "251"
+    id: 143
 role_permission_225: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "225"
+    id: 225
+role_permission_251: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: queue_items
+    id: 251
+role_permission_306: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 7
+    subject: users
+    id: 306
 role_permission_27: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "27"
+    id: 27
+role_permission_332: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: cataloge
+    id: 332
 role_permission_53: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "53"
+    id: 53
 role_permission_80: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "80"
+    id: 80
 role_permission_118: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "118"
+    id: 118
 role_permission_144: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "144"
+    id: 144
 role_permission_170: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "170"
-role_permission_333: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "333"
-role_permission_307: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "307"
+    id: 170
 role_permission_252: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "252"
+    id: 252
+role_permission_307: !ruby/object:RolePermission 
+  attributes: 
+    action: edit
+    permission_id: 
+    role_id: 3
+    subject: system
+    id: 307
 role_permission_28: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "28"
+    id: 28
+role_permission_333: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 3
+    subject: report
+    id: 333
 role_permission_54: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "54"
+    id: 54
 role_permission_119: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "119"
+    id: 119
 role_permission_145: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: user
-    id: "145"
+    id: 145
 role_permission_171: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_parameters
-    id: "171"
+    id: 171
 role_permission_226: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "226"
-role_permission_360: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "360"
-role_permission_334: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: studies
-    id: "334"
-role_permission_308: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "308"
+    id: 226
 role_permission_253: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_protocols
-    id: "253"
+    id: 253
+role_permission_308: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 3
+    subject: protocol
+    id: 308
 role_permission_29: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "29"
+    id: 29
+role_permission_334: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 1
+    subject: studies
+    id: 334
 role_permission_55: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "55"
+    id: 55
+role_permission_360: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 3
+    subject: catalogue
+    id: 360
 role_permission_81: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "81"
+    id: 81
 role_permission_172: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_queues
-    id: "172"
+    id: 172
 role_permission_227: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "227"
-role_permission_361: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project
-    id: "361"
-role_permission_335: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "335"
-role_permission_309: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: study_protocols
-    id: "309"
+    id: 227
 role_permission_280: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: system
-    id: "280"
-role_permission_254: !ruby/object:RolePermission 
+    id: 280
+role_permission_309: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 2
+    subject: study_protocols
+    id: 309
+role_permission_335: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
-    subject: report
-    id: "254"
+    role_id: 7
+    subject: reports
+    id: 335
 role_permission_56: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "56"
+    id: 56
+role_permission_361: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 5
+    subject: project
+    id: 361
 role_permission_82: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "82"
+    id: 82
 role_permission_173: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: tasks
-    id: "173"
+    id: 173
 role_permission_228: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "228"
-role_permission_362: !ruby/object:RolePermission 
+    id: 228
+role_permission_254: !ruby/object:RolePermission 
   attributes: 
-    action: update
+    action: create
     permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "362"
-role_permission_336: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: cataloge
-    id: "336"
+    role_id: 2
+    subject: report
+    id: 254
 role_permission_281: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "281"
-role_permission_255: !ruby/object:RolePermission 
+    id: 281
+role_permission_336: !ruby/object:RolePermission 
   attributes: 
-    action: list
+    action: show
     permission_id: 
-    role_id: "2"
-    subject: study
-    id: "255"
+    role_id: 2
+    subject: cataloge
+    id: 336
 role_permission_57: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "57"
+    id: 57
+role_permission_362: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: 3
+    subject: cataloge
+    id: 362
 role_permission_83: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "83"
+    id: 83
 role_permission_148: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: home
-    id: "148"
+    id: 148
 role_permission_174: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: queue_items
-    id: "174"
+    id: 174
 role_permission_229: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project
-    id: "229"
-role_permission_363: !ruby/object:RolePermission 
+    id: 229
+role_permission_255: !ruby/object:RolePermission 
   attributes: 
-    action: 
-    permission_id: "4"
-    role_id: "1"
-    subject: 
-    id: "363"
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: study
+    id: 255
 role_permission_337: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "337"
-role_permission_282: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "7"
-    subject: catalogue
-    id: "282"
-role_permission_256: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: requests
-    id: "256"
+    id: 337
 role_permission_58: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "58"
+    id: 58
+role_permission_363: !ruby/object:RolePermission 
+  attributes: 
+    action: 
+    permission_id: 4
+    role_id: 1
+    subject: 
+    id: 363
 role_permission_84: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "84"
+    id: 84
 role_permission_149: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: report
-    id: "149"
+    id: 149
 role_permission_175: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: requests
-    id: "175"
+    id: 175
+role_permission_256: !ruby/object:RolePermission 
+  attributes: 
+    action: list
+    permission_id: 
+    role_id: 2
+    subject: requests
+    id: 256
+role_permission_282: !ruby/object:RolePermission 
+  attributes: 
+    action: show
+    permission_id: 
+    role_id: 7
+    subject: catalogue
+    id: 282
 role_permission_390: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "390"
+    id: 390
 role_permission_364: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "364"
+    id: 364
 role_permission_338: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "338"
+    id: 338
 role_permission_283: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: catalogue
-    id: "283"
+    id: 283
 role_permission_257: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: home
-    id: "257"
+    id: 257
 role_permission_59: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "59"
+    id: 59
 role_permission_85: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "85"
+    id: 85
 role_permission_176: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study_protocols
-    id: "176"
+    id: 176
 role_permission_391: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "391"
+    id: 391
 role_permission_365: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: study_parameters
-    id: "365"
+    id: 365
 role_permission_339: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_queues
-    id: "339"
+    id: 339
 role_permission_284: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "284"
+    id: 284
 role_permission_258: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project_requests
-    id: "258"
+    id: 258
 role_permission_86: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "86"
+    id: 86
 role_permission_177: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project_requests
-    id: "177"
+    id: 177
 role_permission_392: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: requests
-    id: "392"
+    id: 392
 role_permission_366: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project
-    id: "366"
+    id: 366
 role_permission_285: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "285"
+    id: 285
 role_permission_259: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: study
-    id: "259"
+    id: 259
 role_permission_87: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "87"
+    id: 87
 role_permission_178: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: queue_items
-    id: "178"
+    id: 178
 role_permission_393: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_queues
-    id: "393"
+    id: 393
 role_permission_367: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "367"
+    id: 367
 role_permission_286: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: users
-    id: "286"
+    id: 286
 role_permission_88: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "88"
+    id: 88
 role_permission_179: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: requests
-    id: "179"
+    id: 179
 role_permission_394: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: study
-    id: "394"
+    id: 394
 role_permission_368: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project
-    id: "368"
+    id: 368
 role_permission_287: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "287"
+    id: 287
 role_permission_89: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: user
-    id: "89"
+    id: 89
 role_permission_395: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "395"
+    id: 395
 role_permission_369: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "369"
+    id: 369
 role_permission_288: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "288"
+    id: 288
 role_permission_396: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "396"
+    id: 396
 role_permission_289: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project_requests
-    id: "289"
+    id: 289
 role_permission_397: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "397"
+    id: 397
 role_permission_100: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: system
-    id: "100"
+    id: 100
 role_permission_398: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: study_protocols
-    id: "398"
+    id: 398
 role_permission_101: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: cataloge
-    id: "101"
+    id: 101
 role_permission_10: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "5"
-    role_id: "2"
+    permission_id: 5
+    role_id: 2
     subject: 
-    id: "10"
+    id: 10
 role_permission_399: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: tasks
-    id: "399"
+    id: 399
 role_permission_102: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: cataloge
-    id: "102"
+    id: 102
 role_permission_11: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "11"
+    id: 11
 role_permission_103: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "103"
+    id: 103
 role_permission_210: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: users
-    id: "210"
+    id: 210
 role_permission_12: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "12"
+    id: 12
 role_permission_104: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "104"
+    id: 104
 role_permission_130: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_queues
-    id: "130"
+    id: 130
 role_permission_211: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: home
-    id: "211"
+    id: 211
 role_permission_13: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "13"
+    id: 13
 role_permission_400: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "400"
+    id: 400
 role_permission_105: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "105"
+    id: 105
 role_permission_131: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_queues
-    id: "131"
+    id: 131
 role_permission_212: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "212"
+    id: 212
 role_permission_14: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "14"
+    id: 14
 role_permission_401: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "401"
+    id: 401
 role_permission_320: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: experiments
-    id: "320"
+    id: 320
 role_permission_106: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "106"
+    id: 106
 role_permission_132: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_studies
-    id: "132"
+    id: 132
 role_permission_213: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "213"
+    id: 213
 role_permission_15: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "15"
+    id: 15
 role_permission_41: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "41"
+    id: 41
 role_permission_402: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiments
-    id: "402"
+    id: 402
 role_permission_321: !ruby/object:RolePermission 
   attributes: 
     action: blog
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "321"
+    id: 321
 role_permission_107: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "107"
+    id: 107
 role_permission_133: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_studies
-    id: "133"
+    id: 133
 role_permission_214: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "214"
+    id: 214
 role_permission_240: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "240"
+    id: 240
 role_permission_16: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: user
-    id: "16"
+    id: 16
 role_permission_42: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "42"
+    id: 42
 role_permission_403: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: tasks
-    id: "403"
+    id: 403
 role_permission_322: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "322"
+    id: 322
 role_permission_108: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "108"
+    id: 108
 role_permission_134: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project
-    id: "134"
+    id: 134
 role_permission_160: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: studies
-    id: "160"
+    id: 160
 role_permission_215: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "215"
+    id: 215
 role_permission_241: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: protocol
-    id: "241"
+    id: 241
 role_permission_17: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "17"
+    id: 17
 role_permission_43: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "43"
+    id: 43
 role_permission_404: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "404"
+    id: 404
 role_permission_323: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "323"
+    id: 323
 role_permission_109: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "109"
+    id: 109
 role_permission_135: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project
-    id: "135"
+    id: 135
 role_permission_161: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: experiments
-    id: "161"
+    id: 161
 role_permission_216: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "216"
+    id: 216
 role_permission_242: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "242"
+    id: 242
 role_permission_18: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "18"
+    id: 18
 role_permission_44: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "44"
+    id: 44
 role_permission_70: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "70"
+    id: 70
 role_permission_405: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "405"
+    id: 405
 role_permission_350: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "350"
+    id: 350
 role_permission_324: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "324"
+    id: 324
 role_permission_136: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_experiments
-    id: "136"
+    id: 136
 role_permission_162: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: study_parameters
-    id: "162"
+    id: 162
 role_permission_217: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "217"
+    id: 217
 role_permission_243: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "6"
+    role_id: 6
     subject: user
-    id: "243"
+    id: 243
 role_permission_19: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "19"
+    id: 19
 role_permission_45: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "45"
+    id: 45
 role_permission_71: !ruby/object:RolePermission 
   attributes: 
     action: index
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "71"
+    id: 71
 role_permission_406: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "406"
+    id: 406
 role_permission_351: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: protocol
-    id: "351"
+    id: 351
 role_permission_325: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: studies
-    id: "325"
+    id: 325
 role_permission_270: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "270"
+    id: 270
 role_permission_137: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_experiments
-    id: "137"
+    id: 137
 role_permission_163: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: study_queues
-    id: "163"
+    id: 163
 role_permission_218: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: inventory
-    id: "218"
+    id: 218
 role_permission_244: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: requests
-    id: "244"
+    id: 244
 role_permission_46: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: system
-    id: "46"
+    id: 46
 role_permission_72: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "72"
+    id: 72
 role_permission_407: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: studies
-    id: "407"
+    id: 407
 role_permission_352: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: studies
-    id: "352"
+    id: 352
 role_permission_326: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "326"
+    id: 326
 role_permission_271: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "271"
+    id: 271
 role_permission_138: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "138"
+    id: 138
 role_permission_164: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: queue_items
-    id: "164"
+    id: 164
 role_permission_190: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: project
-    id: "190"
+    id: 190
 role_permission_219: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_studies
-    id: "219"
+    id: 219
 role_permission_245: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "245"
+    id: 245
 role_permission_47: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "47"
+    id: 47
 role_permission_73: !ruby/object:RolePermission 
   attributes: 
     action: projects
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "73"
+    id: 73
 role_permission_408: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: queue_items
-    id: "408"
+    id: 408
 role_permission_353: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: inventory
-    id: "353"
+    id: 353
 role_permission_327: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: system
-    id: "327"
+    id: 327
 role_permission_272: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: requests
-    id: "272"
+    id: 272
 role_permission_139: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_requests
-    id: "139"
+    id: 139
 role_permission_165: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: tasks
-    id: "165"
+    id: 165
 role_permission_191: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_parameters
-    id: "191"
+    id: 191
 role_permission_246: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: tasks
-    id: "246"
+    id: 246
 role_permission_48: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "48"
+    id: 48
 role_permission_74: !ruby/object:RolePermission 
   attributes: 
     action: calendar
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "74"
+    id: 74
 role_permission_409: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "409"
+    id: 409
 role_permission_380: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_parameters
-    id: "380"
+    id: 380
 role_permission_354: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_studies
-    id: "354"
+    id: 354
 role_permission_328: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: inventory
-    id: "328"
+    id: 328
 role_permission_273: !ruby/object:RolePermission 
   attributes: 
     action: 
-    permission_id: "5"
-    role_id: "2"
+    permission_id: 5
+    role_id: 2
     subject: 
-    id: "273"
+    id: 273
 role_permission_166: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: requests
-    id: "166"
+    id: 166
 role_permission_192: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_parameters
-    id: "192"
+    id: 192
 role_permission_247: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: request
-    id: "247"
+    id: 247
 role_permission_49: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "49"
+    id: 49
 role_permission_75: !ruby/object:RolePermission 
   attributes: 
     action: timeline
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "75"
+    id: 75
 role_permission_381: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: request
-    id: "381"
+    id: 381
 role_permission_355: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: cataloge
-    id: "355"
+    id: 355
 role_permission_329: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: reports
-    id: "329"
+    id: 329
 role_permission_274: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: users
-    id: "274"
+    id: 274
 role_permission_248: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_protocols
-    id: "248"
+    id: 248
 role_permission_167: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: study_protocols
-    id: "167"
+    id: 167
 role_permission_193: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_queues
-    id: "193"
+    id: 193
 role_permission_76: !ruby/object:RolePermission 
   attributes: 
     action: blog
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: home
-    id: "76"
+    id: 76
 role_permission_382: !ruby/object:RolePermission 
   attributes: 
     action: edit
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "382"
+    id: 382
 role_permission_356: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "356"
+    id: 356
 role_permission_275: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "7"
+    role_id: 7
     subject: catalogue
-    id: "275"
+    id: 275
 role_permission_249: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "249"
+    id: 249
 role_permission_168: !ruby/object:RolePermission 
   attributes: 
     action: "*"
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiments
-    id: "168"
+    id: 168
 role_permission_194: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: study_queues
-    id: "194"
+    id: 194
 role_permission_77: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "77"
+    id: 77
 role_permission_383: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "5"
+    role_id: 5
     subject: project_experiments
-    id: "383"
+    id: 383
 role_permission_357: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: experiment
-    id: "357"
+    id: 357
 role_permission_276: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: report
-    id: "276"
+    id: 276
 role_permission_169: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: studies
-    id: "169"
+    id: 169
 role_permission_195: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: tasks
-    id: "195"
+    id: 195
 role_permission_78: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "78"
+    id: 78
 role_permission_384: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: experiment
-    id: "384"
+    id: 384
 role_permission_358: !ruby/object:RolePermission 
   attributes: 
     action: list
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: catalogue
-    id: "358"
+    id: 358
 role_permission_277: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "2"
+    role_id: 2
     subject: project
-    id: "277"
+    id: 277
 role_permission_196: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
-    role_id: "1"
+    role_id: 1
     subject: tasks
-    id: "196"
+    id: 196
 role_permission_79: !ruby/object:RolePermission 
   attributes: 
     action: new
     permission_id: 
-    role_id: "3"
+    role_id: 3
     subject: report
-    id: "79"
+    id: 79

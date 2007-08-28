@@ -1,4 +1,4 @@
---- 
+---
 memberships_001: 
   
   id: "1"
@@ -7,7 +7,7 @@ memberships_001:
   role_id: "1"
   updated_by_user_id: "1"
   created_by_user_id: "1"
-  owner: "0"
+  is_owner: "0"
   
 memberships_002: 
   
@@ -17,7 +17,7 @@ memberships_002:
   role_id: "3"
   updated_by_user_id: "1"
   created_by_user_id: "1"
-  owner: "1"
+  is_owner: "1"
   
 memberships_003: 
   
@@ -27,7 +27,7 @@ memberships_003:
   role_id: "3"
   updated_by_user_id: "1"
   created_by_user_id: "1"
-  owner: "1"
+  is_owner: "1"
   
 memberships_004: 
   
@@ -37,7 +37,7 @@ memberships_004:
   role_id: "3"
   updated_by_user_id: "1"
   created_by_user_id: "1"
-  owner: "1"
+  is_owner: "1"
   
 memberships_005: 
   
@@ -47,6 +47,5 @@ memberships_005:
   role_id: "3"
   updated_by_user_id: "1"
   created_by_user_id: "1"
-  owner: "1"
-  
+  is_owner: "1"
   

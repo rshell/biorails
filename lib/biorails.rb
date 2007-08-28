@@ -10,7 +10,9 @@
 module Biorails
   
   TEMPLATE_MODELS = [Role,User,Identifier,Permission,RolePermission,
-    DataConcept,DataSystem,DataElement,DataType,DataFormat,ParameterType,ParameterRole,
+    DataConcept,DataSystem,
+    ListElement,ModelElement,SqlElement,ViewElement,DataType,
+    DataFormat,ParameterType,ParameterRole,
     Project,Membership,
     Study,StudyParameter,StudyQueue,StudyProtocol,
     ProtocolVersion,ParameterContext,Parameter]
@@ -19,11 +21,15 @@ module Biorails
 
   RESULTS_MODELS = [Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
 
-  CATALOG_MODELS = [DataConcept,DataSystem,DataElement,DataType,DataFormat,ParameterType,ParameterRole]
+  CATALOG_MODELS = [DataConcept,DataSystem,
+        ListElement,ModelElement,SqlElement,ViewElement,
+        DataType,DataFormat,ParameterType,ParameterRole]
 
   ALL_MODELS = [Role,User,Identifier,Permission,RolePermission,
     UserSetting,SystemSetting,
-    DataConcept,DataSystem,DataElement,DataType,DataFormat,
+    DataConcept,DataSystem,
+    ListElement,ModelElement,SqlElement,ViewElement,    
+    DataType,DataFormat,
     ParameterType,ParameterRole,
     Compound,Batch,Plate,Container,PlateFormat,PlateWell,
     Specimen,TreatmentGroup,TreatmentItem,
@@ -115,7 +121,7 @@ module Biorails
 
       def self.export_model(model,filename=nil)
 
-        filename ||= File.join(RAILS_ROOT,'test','fixtures',model.table_name + '.yml')
+        filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tablize + '.yml')
         File.open(filename, 'w' ) do |file|
           data = model.find(:all)
           file.write data.inject({}) { |hash, record|
@@ -127,7 +133,7 @@ module Biorails
       end
 
       def self.import_model(model,filename=nil)
-       filename ||= File.join(RAILS_ROOT,'test','fixtures',model.table_name + '.yml')
+       filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tablize + '.yml')
        success =0
        records = YAML::load( File.open(filename))
         model.transaction do

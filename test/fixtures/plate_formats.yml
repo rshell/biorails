@@ -1,12 +1,13 @@
 --- 
-plate_formats_001: 
-  num_rows: "1"
-  name: 12 Vial Rack
-  
-  updated_by_user_id: "1"
-  lock_version: "0"
-  num_columns: "12"
-  id: "1"
-  description: A rack to hold 12 test tubes
-  created_by_user_id: "1"
-  created_at: 2007-01-10 10:37:19
+plate_format_1: !ruby/object:PlateFormat 
+  attributes: 
+    num_rows: 1
+    name: 12 Vial Rack
+    updated_at: 2007-08-28 13:34:32 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    num_columns: 12
+    id: 1
+    description: A rack to hold 12 test tubes
+    created_by_user_id: 1
+    created_at: 2007-01-10 10:37:19 +00:00

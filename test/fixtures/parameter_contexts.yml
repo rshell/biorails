@@ -1,385 +1,385 @@
 --- 
 parameter_context_49: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "28"
-    id: "49"
-    default_count: "5"
-    level_no: "0"
+    protocol_version_id: 28
+    id: 49
+    default_count: 5
+    level_no: 0
     label: Comparison
-    parent_id: "48"
+    parent_id: 48
 parameter_context_38: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "22"
-    id: "38"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 22
+    id: 38
+    default_count: 1
+    level_no: 0
     label: plate
     parent_id: 
 parameter_context_27: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "15"
-    id: "27"
-    default_count: "4"
-    level_no: "0"
+    protocol_version_id: 15
+    id: 27
+    default_count: 4
+    level_no: 0
     label: Source
-    parent_id: "26"
+    parent_id: 26
 parameter_context_16: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "10"
-    id: "16"
-    default_count: "42"
-    level_no: "0"
+    protocol_version_id: 10
+    id: 16
+    default_count: 42
+    level_no: 0
     label: Animal
     parent_id: 
 parameter_context_8: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "4"
-    id: "8"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 4
+    id: 8
+    default_count: 1
+    level_no: 0
     label: context2
     parent_id: 
 parameter_context_39: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "22"
-    id: "39"
-    default_count: "96"
-    level_no: "0"
+    protocol_version_id: 22
+    id: 39
+    default_count: 96
+    level_no: 0
     label: row
-    parent_id: "38"
+    parent_id: 38
 parameter_context_28: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "16"
-    id: "28"
-    default_count: "6"
-    level_no: "0"
+    protocol_version_id: 16
+    id: 28
+    default_count: 6
+    level_no: 0
     label: Group
     parent_id: 
 parameter_context_17: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "11"
-    id: "17"
-    default_count: "3"
-    level_no: "0"
+    protocol_version_id: 11
+    id: 17
+    default_count: 3
+    level_no: 0
     label: Experiment
     parent_id: 
 parameter_context_9: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "5"
-    id: "9"
-    default_count: "2"
-    level_no: "0"
+    protocol_version_id: 5
+    id: 9
+    default_count: 2
+    level_no: 0
     label: cmpd
     parent_id: 
 parameter_context_40: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "23"
-    id: "40"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 23
+    id: 40
+    default_count: 1
+    level_no: 0
     label: compound
     parent_id: 
 parameter_context_29: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "17"
-    id: "29"
-    default_count: "3"
-    level_no: "0"
+    protocol_version_id: 17
+    id: 29
+    default_count: 3
+    level_no: 0
     label: Experiment
     parent_id: 
 parameter_context_18: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "11"
-    id: "18"
-    default_count: "14"
-    level_no: "0"
+    protocol_version_id: 11
+    id: 18
+    default_count: 14
+    level_no: 0
     label: Animal
-    parent_id: "17"
+    parent_id: 17
 parameter_context_41: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "23"
-    id: "41"
-    default_count: "8"
-    level_no: "0"
+    protocol_version_id: 23
+    id: 41
+    default_count: 8
+    level_no: 0
     label: dose
-    parent_id: "40"
+    parent_id: 40
 parameter_context_30: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "17"
-    id: "30"
-    default_count: "14"
-    level_no: "0"
+    protocol_version_id: 17
+    id: 30
+    default_count: 14
+    level_no: 0
     label: Animal
-    parent_id: "29"
+    parent_id: 29
 parameter_context_19: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "12"
-    id: "19"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 12
+    id: 19
+    default_count: 1
+    level_no: 0
     label: Cage
     parent_id: 
 parameter_context_42: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "24"
-    id: "42"
-    default_count: "25"
-    level_no: "0"
+    protocol_version_id: 24
+    id: 42
+    default_count: 25
+    level_no: 0
     label: compound
     parent_id: 
 parameter_context_31: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "18"
-    id: "31"
-    default_count: "6"
-    level_no: "0"
+    protocol_version_id: 18
+    id: 31
+    default_count: 6
+    level_no: 0
     label: Group
     parent_id: 
 parameter_context_20: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "12"
-    id: "20"
-    default_count: "270"
-    level_no: "0"
+    protocol_version_id: 12
+    id: 20
+    default_count: 270
+    level_no: 0
     label: Sample
-    parent_id: "19"
+    parent_id: 19
 parameter_context_1: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "1"
-    id: "1"
-    default_count: "10"
-    level_no: "0"
+    protocol_version_id: 1
+    id: 1
+    default_count: 10
+    level_no: 0
     label: context0
     parent_id: 
 parameter_context_43: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "25"
-    id: "43"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 25
+    id: 43
+    default_count: 1
+    level_no: 0
     label: plate
     parent_id: 
 parameter_context_32: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "19"
-    id: "32"
-    default_count: "2"
-    level_no: "0"
+    protocol_version_id: 19
+    id: 32
+    default_count: 2
+    level_no: 0
     label: Bin
     parent_id: 
 parameter_context_21: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "13"
-    id: "21"
-    default_count: "2"
-    level_no: "0"
+    protocol_version_id: 13
+    id: 21
+    default_count: 2
+    level_no: 0
     label: Bin
     parent_id: 
 parameter_context_10: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "5"
-    id: "10"
-    default_count: "16"
-    level_no: "0"
+    protocol_version_id: 5
+    id: 10
+    default_count: 16
+    level_no: 0
     label: well
-    parent_id: "9"
+    parent_id: 9
 parameter_context_2: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "2"
-    id: "2"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 2
+    id: 2
+    default_count: 1
+    level_no: 0
     label: context0
     parent_id: 
 parameter_context_44: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "25"
-    id: "44"
-    default_count: "96"
-    level_no: "0"
+    protocol_version_id: 25
+    id: 44
+    default_count: 96
+    level_no: 0
     label: row
-    parent_id: "43"
+    parent_id: 43
 parameter_context_33: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "19"
-    id: "33"
-    default_count: "6"
-    level_no: "0"
+    protocol_version_id: 19
+    id: 33
+    default_count: 6
+    level_no: 0
     label: Group
-    parent_id: "32"
+    parent_id: 32
 parameter_context_22: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "13"
-    id: "22"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 13
+    id: 22
+    default_count: 1
+    level_no: 0
     label: Group
-    parent_id: "21"
+    parent_id: 21
 parameter_context_11: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "5"
-    id: "11"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 5
+    id: 11
+    default_count: 1
+    level_no: 0
     label: context2
     parent_id: 
 parameter_context_3: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "3"
-    id: "3"
-    default_count: "2"
-    level_no: "0"
+    protocol_version_id: 3
+    id: 3
+    default_count: 2
+    level_no: 0
     label: cmpd
     parent_id: 
 parameter_context_45: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "26"
-    id: "45"
-    default_count: "10"
-    level_no: "0"
+    protocol_version_id: 26
+    id: 45
+    default_count: 10
+    level_no: 0
     label: compound
     parent_id: 
 parameter_context_34: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "20"
-    id: "34"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 20
+    id: 34
+    default_count: 1
+    level_no: 0
     label: plate
     parent_id: 
 parameter_context_12: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "6"
-    id: "12"
-    default_count: "10"
-    level_no: "0"
+    protocol_version_id: 6
+    id: 12
+    default_count: 10
+    level_no: 0
     label: context0
     parent_id: 
 parameter_context_4: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "3"
-    id: "4"
-    default_count: "8"
-    level_no: "0"
+    protocol_version_id: 3
+    id: 4
+    default_count: 8
+    level_no: 0
     label: well
-    parent_id: "3"
+    parent_id: 3
 parameter_context_46: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "26"
-    id: "46"
-    default_count: "8"
-    level_no: "0"
+    protocol_version_id: 26
+    id: 46
+    default_count: 8
+    level_no: 0
     label: dose
-    parent_id: "45"
+    parent_id: 45
 parameter_context_35: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "20"
-    id: "35"
-    default_count: "96"
-    level_no: "0"
+    protocol_version_id: 20
+    id: 35
+    default_count: 96
+    level_no: 0
     label: row
-    parent_id: "34"
+    parent_id: 34
 parameter_context_24: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "14"
-    id: "24"
-    default_count: "3"
-    level_no: "0"
+    protocol_version_id: 14
+    id: 24
+    default_count: 3
+    level_no: 0
     label: Bin
     parent_id: 
 parameter_context_13: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "7"
-    id: "13"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 7
+    id: 13
+    default_count: 1
+    level_no: 0
     label: context0
     parent_id: 
 parameter_context_5: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "3"
-    id: "5"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 3
+    id: 5
+    default_count: 1
+    level_no: 0
     label: context2
     parent_id: 
 parameter_context_47: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "27"
-    id: "47"
-    default_count: "6"
-    level_no: "0"
+    protocol_version_id: 27
+    id: 47
+    default_count: 6
+    level_no: 0
     label: Group
     parent_id: 
 parameter_context_36: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "21"
-    id: "36"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 21
+    id: 36
+    default_count: 1
+    level_no: 0
     label: plate
     parent_id: 
 parameter_context_25: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "14"
-    id: "25"
-    default_count: "5"
-    level_no: "0"
+    protocol_version_id: 14
+    id: 25
+    default_count: 5
+    level_no: 0
     label: Comparison
-    parent_id: "24"
+    parent_id: 24
 parameter_context_14: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "8"
-    id: "14"
-    default_count: "1"
-    level_no: "0"
+    protocol_version_id: 8
+    id: 14
+    default_count: 1
+    level_no: 0
     label: context0
     parent_id: 
 parameter_context_6: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "4"
-    id: "6"
-    default_count: "2"
-    level_no: "0"
+    protocol_version_id: 4
+    id: 6
+    default_count: 2
+    level_no: 0
     label: cmpd
     parent_id: 
 parameter_context_48: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "28"
-    id: "48"
-    default_count: "3"
-    level_no: "0"
+    protocol_version_id: 28
+    id: 48
+    default_count: 3
+    level_no: 0
     label: Bin
     parent_id: 
 parameter_context_37: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "21"
-    id: "37"
-    default_count: "8"
-    level_no: "0"
+    protocol_version_id: 21
+    id: 37
+    default_count: 8
+    level_no: 0
     label: row
-    parent_id: "36"
+    parent_id: 36
 parameter_context_26: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "15"
-    id: "26"
-    default_count: "3"
-    level_no: "0"
+    protocol_version_id: 15
+    id: 26
+    default_count: 3
+    level_no: 0
     label: Bin
     parent_id: 
 parameter_context_15: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "9"
-    id: "15"
-    default_count: "6"
-    level_no: "0"
+    protocol_version_id: 9
+    id: 15
+    default_count: 6
+    level_no: 0
     label: Group
     parent_id: 
 parameter_context_7: !ruby/object:ParameterContext 
   attributes: 
-    protocol_version_id: "4"
-    id: "7"
-    default_count: "8"
-    level_no: "0"
+    protocol_version_id: 4
+    id: 7
+    default_count: 8
+    level_no: 0
     label: well
-    parent_id: "6"
+    parent_id: 6

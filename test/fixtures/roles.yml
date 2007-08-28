@@ -1,82 +1,81 @@
 --- 
 user_role_6: !ruby/object:UserRole 
   attributes: 
-    name: manager
-    updated_at: 2007-06-11 12:27:59
-    cache: |
+    name: Power
+    updated_at: 2007-08-24 12:36:43 +01:00
+    cache: |+
       --- 
-      memberships: {}
-      
       user: 
         "*": true
-      project_queues: {}
+      memberships: {}
       
-      auth: {}
+      project_studies: {}
       
       help: {}
       
-      project_studies: {}
+      auth: {}
+      
+      project_queues: {}
       
       catalogue: 
         list: true
         show: true
-      dba: {}
-      
       project: {}
       
-      audit: {}
+      dba: {}
       
       project_experiments: {}
       
-      biorails: {}
+      audit: {}
       
-      page: {}
+      biorails: {}
       
       users: 
         list: true
         show: true
-      report: 
-        "*": true
+      page: {}
+      
       home: 
         "*": true
-      finder: {}
+      report: 
+        "*": true
+      inventory: 
+        "*": true
+      project_requests: {}
       
       charts: {}
       
-      project_requests: {}
+      finder: {}
       
-      inventory: 
-        "*": true
-
     type: UserRole
-    updated_by_user_id: "3"
-    id: "6"
+    updated_by_user_id: 1
+    id: 6
     description: General Power user role with delete rights
-    created_by_user_id: "3"
+    created_by_user_id: 1
     parent_id: 
-    created_at: 2007-06-11 12:06:50
+    created_at: 2007-06-11 12:06:50 +01:00
 user_role_7: !ruby/object:UserRole 
   attributes: 
     name: User
-    updated_at: 2007-06-11 12:48:39
-    cache: |
+    updated_at: 2007-08-24 12:36:44 +01:00
+    cache: |+
       --- 
-      studies: {}
+      experiments: {}
       
       memberships: {}
       
-      experiments: {}
-      
-      auth: {}
+      studies: {}
       
       help: {}
+      
+      auth: {}
       
       catalogue: 
         list: true
         show: true
-      dba: {}
-      
       project: {}
+      
+      dba: {}
       
       study_parameters: {}
       
@@ -84,21 +83,21 @@ user_role_7: !ruby/object:UserRole
       
       study_queues: {}
       
-      biorails: {}
+      queue_items: {}
       
       tasks: {}
       
-      queue_items: {}
-      
-      page: {}
-      
-      requests: {}
+      biorails: {}
       
       users: 
         list: true
         show: true
-      study_protocols: {}
+      requests: {}
       
+      page: {}
+      
+      home: 
+        "*": true
       reports: 
         new: true
         list: true
@@ -106,166 +105,158 @@ user_role_7: !ruby/object:UserRole
         create: true
         show: true
         update: true
-      home: 
-        "*": true
-      finder: {}
-      
-      charts: {}
-      
-      project_requests: {}
+      study_protocols: {}
       
       inventory: 
         "*": true
-
+      project_requests: {}
+      
+      charts: {}
+      
+      finder: {}
+      
     type: UserRole
-    updated_by_user_id: "3"
-    id: "7"
+    updated_by_user_id: 1
+    id: 7
     description: "Standard User "
-    created_by_user_id: "3"
+    created_by_user_id: 1
     parent_id: 
-    created_at: 2007-06-11 12:48:05
+    created_at: 2007-06-11 12:48:05 +01:00
 project_role_1: !ruby/object:ProjectRole 
   attributes: 
     name: Public
-    updated_at: 2007-06-11 12:46:18
+    updated_at: 2007-08-24 09:55:06 +01:00
     cache: |+
       --- 
-      studies: 
-        list: true
-        show: true
+      memberships: {}
+      
       experiments: 
         list: true
         show: true
-      memberships: {}
+      studies: 
+        list: true
+        show: true
+      help: {}
       
       auth: {}
       
-      help: {}
-      
       catalogue: {}
-      
-      dba: {}
       
       project: 
         list: true
         show: true
+      dba: {}
+      
+      ~: 
+        ~: true
       study_parameters: 
         list: true
         show: true
-      ~: 
-        ~: true
       audit: {}
       
       study_queues: 
         list: true
         show: true
-      queue_items: 
-        list: true
-        show: true
+      biorails: {}
+      
       tasks: 
         list: true
         show: true
-      biorails: {}
-      
-      page: {}
-      
-      requests: 
+      queue_items: 
         list: true
         show: true
       users: {}
       
-      reports: {}
+      requests: 
+        list: true
+        show: true
+      page: {}
+      
+      home: {}
       
       study_protocols: 
         list: true
         show: true
-      home: {}
+      reports: {}
       
-      charts: {}
-      
-      finder: {}
+      inventory: {}
       
       project_requests: 
         list: true
         show: true
-      inventory: {}
+      finder: {}
+      
+      charts: {}
       
     type: ProjectRole
-    updated_by_user_id: "3"
-    id: "1"
+    updated_by_user_id: 1
+    id: 1
     description: Members of the public who are not logged in.
-    created_by_user_id: "1"
+    created_by_user_id: 1
     parent_id: 
-    created_at: 2006-06-23 12:03:49
+    created_at: 2006-06-23 12:03:49 +01:00
 project_role_2: !ruby/object:ProjectRole 
   attributes: 
     name: Member
-    updated_at: 2007-06-11 12:44:25
+    updated_at: 2007-08-24 12:36:44 +01:00
     cache: |+
       --- 
-      studies: 
-        list: true
-        show: true
-      memberships: {}
-      
-      experiments: 
-        "*": true
       user: 
         list: true
         show: true
-      auth: {}
+      experiments: 
+        "*": true
+      memberships: {}
       
-      help: {}
-      
-      catalogue: {}
-      
-      protocol: 
+      studies: 
         list: true
         show: true
+      help: {}
+      
+      auth: {}
+      
       study: 
         list: true
         show: true
-      dba: {}
+      protocol: 
+        list: true
+        show: true
+      catalogue: {}
       
       project: 
         list: true
         show: true
         "*": true
-      study_parameters: 
+      dba: {}
+      
+      system: 
         list: true
         show: true
       ~: 
         ~: true
-      system: 
+      study_parameters: 
+        list: true
+        show: true
+      cataloge: 
         list: true
         show: true
       audit: {}
       
-      cataloge: 
-        list: true
-        show: true
       study_queues: 
         list: true
         show: true
-      biorails: {}
-      
-      tasks: 
-        "*": true
-      queue_items: 
-        list: true
-        "*": true
       experiment: 
         new: true
         list: true
         create: true
         show: true
         update: true
-      page: {}
-      
-      requests: 
+      queue_items: 
         list: true
         "*": true
-      users: {}
+      tasks: 
+        "*": true
+      biorails: {}
       
       request: 
         new: true
@@ -274,12 +265,12 @@ project_role_2: !ruby/object:ProjectRole
         create: true
         show: true
         update: true
-      study_protocols: 
-        list: true
-        show: true
-      home: {}
+      users: {}
       
-      reports: {}
+      requests: 
+        list: true
+        "*": true
+      page: {}
       
       report: 
         new: true
@@ -288,111 +279,112 @@ project_role_2: !ruby/object:ProjectRole
         create: true
         show: true
         update: true
-      charts: {}
+      reports: {}
       
-      finder: {}
+      home: {}
+      
+      study_protocols: 
+        list: true
+        show: true
+      inventory: {}
       
       project_requests: 
         list: true
         "*": true
-      inventory: {}
+      finder: {}
+      
+      charts: {}
       
     type: ProjectRole
-    updated_by_user_id: "3"
-    id: "2"
+    updated_by_user_id: 1
+    id: 2
     description: Project Member
-    created_by_user_id: "1"
-    parent_id: "1"
-    created_at: 2006-06-23 12:03:50
+    created_by_user_id: 1
+    parent_id: 1
+    created_at: 2006-06-23 12:03:50 +01:00
 project_role_5: !ruby/object:ProjectRole 
   attributes: 
-    name: Owner
-    updated_at: 2007-06-11 12:41:08
+    name: Manager
+    updated_at: 2007-08-24 12:36:44 +01:00
     cache: |+
       --- 
-      memberships: {}
-      
-      studies: 
-        "*": true
       experiments: 
         "*": true
-      auth: {}
-      
-      help: {}
-      
-      project_queues: 
-        list: true
-        show: true
+      studies: 
         "*": true
+      memberships: {}
+      
       project_studies: 
         list: true
         show: true
         "*": true
-      catalogue: {}
+      project_queues: 
+        list: true
+        show: true
+        "*": true
+      help: {}
       
-      dba: {}
+      auth: {}
+      
+      catalogue: {}
       
       project: 
         list: true
         show: true
         "*": true
+      dba: {}
+      
       study_parameters: 
         "*": true
-      audit: {}
-      
       project_experiments: 
         list: true
         show: true
         "*": true
+      audit: {}
+      
       study_queues: 
-        "*": true
-      queue_items: 
-        "*": true
-      tasks: 
         "*": true
       biorails: {}
       
-      page: {}
-      
-      requests: 
+      tasks: 
+        "*": true
+      queue_items: 
         "*": true
       users: {}
       
-      reports: {}
+      requests: 
+        "*": true
+      page: {}
+      
+      home: {}
       
       study_protocols: 
         "*": true
-      home: {}
+      reports: {}
       
-      charts: {}
-      
-      finder: {}
+      inventory: {}
       
       project_requests: 
         list: true
         show: true
         "*": true
-      inventory: {}
+      finder: {}
+      
+      charts: {}
       
     type: ProjectRole
-    updated_by_user_id: "3"
-    id: "5"
+    updated_by_user_id: 1
+    id: 5
     description: Project owner with full rights
-    created_by_user_id: "3"
+    created_by_user_id: 1
     parent_id: 
-    created_at: 2007-06-11 12:05:52
+    created_at: 2007-06-11 12:05:52 +01:00
 user_role_3: !ruby/object:UserRole 
   attributes: 
     name: Administrator
-    updated_at: 2007-06-11 12:47:32
-    cache: |
+    updated_at: 2007-08-24 12:36:44 +01:00
+    cache: |+
       --- 
-      studies: {}
-      
-      experiments: {}
-      
-      memberships: {}
-      
       user: 
         new: true
         list: true
@@ -400,10 +392,30 @@ user_role_3: !ruby/object:UserRole
         create: true
         show: true
         update: true
-      auth: {}
+      memberships: {}
+      
+      experiments: {}
+      
+      studies: {}
       
       help: {}
       
+      auth: {}
+      
+      study: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      protocol: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
       catalogue: 
         new: true
         list: true
@@ -412,28 +424,10 @@ user_role_3: !ruby/object:UserRole
         show: true
         update: true
         "*": true
-      protocol: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      study: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      dba: 
-        "*": true
       project: {}
       
-      study_parameters: {}
-      
-      ~: 
-        ~: true
+      dba: 
+        "*": true
       system: 
         new: true
         list: true
@@ -441,7 +435,9 @@ user_role_3: !ruby/object:UserRole
         create: true
         show: true
         update: true
-      audit: {}
+      ~: 
+        ~: true
+      study_parameters: {}
       
       cataloge: 
         new: true
@@ -450,13 +446,9 @@ user_role_3: !ruby/object:UserRole
         create: true
         show: true
         update: true
+      audit: {}
+      
       study_queues: {}
-      
-      queue_items: {}
-      
-      tasks: {}
-      
-      biorails: {}
       
       experiment: 
         new: true
@@ -465,10 +457,19 @@ user_role_3: !ruby/object:UserRole
         create: true
         show: true
         update: true
-      page: {}
+      biorails: {}
       
-      requests: {}
+      tasks: {}
       
+      queue_items: {}
+      
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
       users: 
         new: true
         list: true
@@ -477,39 +478,30 @@ user_role_3: !ruby/object:UserRole
         show: true
         update: true
         "*": true
-      request: 
+      requests: {}
+      
+      page: {}
+      
+      report: 
         new: true
         list: true
         edit: true
         create: true
         show: true
         update: true
-      reports: 
         "*": true
-      study_protocols: {}
-      
       home: 
         calendar: true
         blog: true
         projects: true
         timeline: true
-        show: true
         index: true
-        "*": true
-      report: 
-        new: true
-        list: true
-        edit: true
-        create: true
         show: true
-        update: true
         "*": true
-      finder: {}
+      study_protocols: {}
       
-      charts: {}
-      
-      project_requests: {}
-      
+      reports: 
+        "*": true
       inventory: 
         new: true
         list: true
@@ -518,11 +510,16 @@ user_role_3: !ruby/object:UserRole
         show: true
         update: true
         "*": true
-
+      project_requests: {}
+      
+      charts: {}
+      
+      finder: {}
+      
     type: UserRole
-    updated_by_user_id: "3"
-    id: "3"
+    updated_by_user_id: 1
+    id: 3
     description: Systems Catalogue Administrator
-    created_by_user_id: "1"
-    parent_id: "2"
-    created_at: 2006-06-23 12:03:48
+    created_by_user_id: 1
+    parent_id: 2
+    created_at: 2006-06-23 12:03:48 +01:00

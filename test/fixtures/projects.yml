@@ -4,98 +4,98 @@ project_16: !ruby/object:Project
     done_hours: 
     name: HTS
     expected_hours: 
-    updated_at: 2007-07-04 12:49:49
+    updated_at: 2007-08-24 12:37:04 +01:00
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: "4"
+    updated_by_user_id: 1
     expected_at: 
-    id: "16"
+    id: 16
     summary: Screening Examples
-    created_by_user_id: "4"
+    created_by_user_id: 1
     host: 
-    status_id: "0"
+    status_id: 0
     comment_age: 
     started_at: 
-    created_at: 2007-07-04 12:49:49
+    created_at: 2007-07-04 12:49:49 +01:00
     email: 
 project_1: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: global
     expected_hours: 
-    updated_at: 0000-00-00 00:00:00
+    updated_at: 2007-08-24 09:55:23 +01:00
     ended_at: 
     title: Global
     timezone: 
-    updated_by_user_id: "1"
+    updated_by_user_id: 1
     expected_at: 
-    id: "1"
+    id: 1
     summary: Public Area for open work everyone allowed to see!
-    created_by_user_id: "1"
+    created_by_user_id: 1
     host: 
-    status_id: "0"
+    status_id: 0
     comment_age: 
     started_at: 
-    created_at: 0000-00-00 00:00:00
+    created_at: 2007-08-24 09:55:23 +01:00
     email: 
 project_13: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: Demo
     expected_hours: 
-    updated_at: 2007-06-06 22:06:30
+    updated_at: 2007-08-24 12:37:04 +01:00
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: "3"
+    updated_by_user_id: 1
     expected_at: 
-    id: "13"
+    id: 13
     summary: This is a demo production for training and playing
-    created_by_user_id: "3"
+    created_by_user_id: 1
     host: 
-    status_id: "0"
+    status_id: 0
     comment_age: 
     started_at: 
-    created_at: 2007-06-06 22:06:30
+    created_at: 2007-06-06 22:06:30 +01:00
     email: 
 project_14: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: In Vivo
     expected_hours: 
-    updated_at: 2007-06-28 08:47:08
+    updated_at: 2007-08-24 12:37:05 +01:00
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: "1"
+    updated_by_user_id: 1
     expected_at: 
-    id: "14"
+    id: 14
     summary: Example project focused on in vivo studies
-    created_by_user_id: "1"
+    created_by_user_id: 1
     host: 
-    status_id: "0"
+    status_id: 0
     comment_age: 
     started_at: 
-    created_at: 2007-06-28 08:47:07
+    created_at: 2007-06-28 08:47:07 +01:00
     email: 
 project_15: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: Part 11
     expected_hours: 
-    updated_at: 2007-06-29 14:46:24
+    updated_at: 2007-08-24 12:37:05 +01:00
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: "1"
+    updated_by_user_id: 1
     expected_at: 
-    id: "15"
+    id: 15
     summary: Electronic signature notes
-    created_by_user_id: "1"
+    created_by_user_id: 1
     host: 
-    status_id: "0"
+    status_id: 0
     comment_age: 
     started_at: 
-    created_at: 2007-06-29 14:46:23
+    created_at: 2007-06-29 14:46:23 +01:00
     email: 

@@ -2,110 +2,110 @@
 study_3: !ruby/object:Study 
   attributes: 
     name: Screening
-    project_id: "13"
-    updated_at: 2007-06-08 15:46:38
+    project_id: 13
+    updated_at: 2007-08-24 12:37:06 +01:00
     purpose: demo
     ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "3"
-    id: "3"
+    expected_at: 2007-06-30
+    updated_by_user_id: 1
+    lock_version: 3
+    id: 3
     category_id: 
     description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-06
+    created_at: 2007-06-06 18:18:49 +01:00
     research_area: demo
 study_4: !ruby/object:Study 
   attributes: 
     name: Clinical
-    project_id: "13"
-    updated_at: 2007-06-08 21:17:02
-    purpose: ""
+    project_id: 13
+    updated_at: 2007-08-24 12:37:06 +01:00
+    purpose: 
     ended_at: 
-    expected_at: 2007-06-22 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "1"
-    id: "4"
+    expected_at: 2007-06-22
+    updated_by_user_id: 1
+    lock_version: 1
+    id: 4
     category_id: 
     description: "The world of complex results contexts "
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-08 00:00:00
-    created_at: 2007-06-08 21:17:02
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-08
+    created_at: 2007-06-08 21:17:02 +01:00
     research_area: "42"
 study_5: !ruby/object:Study 
   attributes: 
     name: Rat Locomotion
-    project_id: "14"
-    updated_at: 2007-06-28 08:52:39
+    project_id: 14
+    updated_at: 2007-08-24 12:37:07 +01:00
     purpose: Safety pharmacology
     ended_at: 
-    expected_at: 2007-07-28 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "1"
-    id: "5"
+    expected_at: 2007-07-28
+    updated_by_user_id: 1
+    lock_version: 1
+    id: 5
     category_id: 
     description: |
       Investigation of the effects on spontaneous locomotor activity in the rat
 
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-21 00:00:00
-    created_at: 2007-06-28 08:52:39
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-21
+    created_at: 2007-06-28 08:52:39 +01:00
     research_area: "39"
 study_6: !ruby/object:Study 
   attributes: 
     name: HTS Screen
-    project_id: "16"
-    updated_at: 2007-07-04 12:52:31
+    project_id: 16
+    updated_at: 2007-08-24 12:37:07 +01:00
     purpose: Proof of concept
     ended_at: 
-    expected_at: 2008-07-04 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "1"
-    id: "6"
+    expected_at: 2008-07-04
+    updated_by_user_id: 1
+    lock_version: 1
+    id: 6
     category_id: 
     description: An example of how plate management and screening operations can be handled in BioRails with the use of external applications such as MS Excel or plug-ins such for fitting and normalisation
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-07-04 00:00:00
-    created_at: 2007-07-04 12:52:31
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-07-04
+    created_at: 2007-07-04 12:52:31 +01:00
     research_area: "39"
 study_1: !ruby/object:Study 
   attributes: 
     name: Profiling
-    project_id: "13"
-    updated_at: 2007-06-08 15:47:29
+    project_id: 13
+    updated_at: 2007-08-24 12:37:07 +01:00
     purpose: demo
     ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "3"
-    id: "1"
+    expected_at: 2007-06-30
+    updated_by_user_id: 1
+    lock_version: 3
+    id: 1
     category_id: 
     description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
-    research_area: ""
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-06
+    created_at: 2007-06-06 18:18:49 +01:00
+    research_area: 
 study_2: !ruby/object:Study 
   attributes: 
     name: Demo2
-    project_id: "13"
-    updated_at: 2007-06-06 22:07:50
+    project_id: 13
+    updated_at: 2007-08-24 12:37:07 +01:00
     purpose: demo
     ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "2"
-    id: "2"
+    expected_at: 2007-06-30
+    updated_by_user_id: 1
+    lock_version: 2
+    id: 2
     category_id: 
     description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-06
+    created_at: 2007-06-06 18:18:49 +01:00
     research_area: demo

@@ -1,23 +1,25 @@
 --- 
-treatment_groups_001: 
-  experiment_id: 
-  name: GroupA
-  
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "1"
-  study_id: 
-  description: Grtopu
-  created_by_user_id: "1"
-  created_at: 2006-12-18 22:44:04
-treatment_groups_002: 
-  experiment_id: 
-  name: GroupB
-  
-  updated_by_user_id: "1"
-  lock_version: "0"
-  id: "2"
-  study_id: 
-  description: B
-  created_by_user_id: "1"
-  created_at: 2006-12-18 22:44:22
+treatment_group_2: !ruby/object:TreatmentGroup 
+  attributes: 
+    experiment_id: 
+    name: GroupB
+    updated_at: 2007-08-28 13:34:33 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    id: 2
+    study_id: 
+    description: B
+    created_by_user_id: 1
+    created_at: 2006-12-18 22:44:22 +00:00
+treatment_group_1: !ruby/object:TreatmentGroup 
+  attributes: 
+    experiment_id: 
+    name: GroupA
+    updated_at: 2007-08-28 13:34:33 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    id: 1
+    study_id: 
+    description: Grtopu
+    created_by_user_id: 1
+    created_at: 2006-12-18 22:44:04 +00:00

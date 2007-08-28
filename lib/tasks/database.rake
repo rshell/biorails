@@ -25,7 +25,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'db','bootstrap') )
     ActiveRecord::Base.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.import_model(model,filename) if File.exists? filename
     end 
   end
@@ -35,7 +35,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
     ActiveRecord::Base.establish_connection 
     Biorails::CATALOG_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.import_model(model,filename) if File.exists? filename
     end 
   end 
@@ -75,7 +75,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
     ActiveRecord::Base.establish_connection 
     Biorails::ALL_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.export_model(model,filename)
     end 
   end 
@@ -85,7 +85,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
     ActiveRecord::Base.establish_connection 
     Biorails::ALL_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.import_model(model,filename) if File.exists? filename
     end 
   end 
@@ -95,7 +95,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
     ActiveRecord::Base.establish_connection 
     Biorails::CATALOG_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.export_model(model,filename)
     end 
   end 
@@ -106,7 +106,7 @@ namespace :biorails do
     
     DataContext.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
-       filename = File.join(path,model.table_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.import_model(model,filename) if File.exists? filename
     end 
   end 
@@ -116,7 +116,7 @@ namespace :biorails do
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'test','fixtures') )
     ActiveRecord::Base.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
-       filename = File.join(path,model.tabBiorails::Dba.le_name + '.yml')
+       filename = File.join(path,model.to_s.tableize + '.yml')
        Biorails::Dba.export_model(model,filename)
     end 
   end 
