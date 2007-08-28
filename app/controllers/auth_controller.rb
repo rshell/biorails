@@ -8,7 +8,7 @@ class AuthController < ApplicationController
       render :action=>'login'
     else
       user = User.authenticate(params[:login],params[:password])
-      if user
+      if user and user.enabled?
         logger.info "User #{params[:login][:name]} successfully logged in"
         set_user(user)
         set_project(user.projects[0])

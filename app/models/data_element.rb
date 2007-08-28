@@ -177,13 +177,7 @@ class DataElement < ActiveRecord::Base
 #  List of data systems this element can be linked to
 #  
   def allowed_systems
-     if system
-       allowed = [self.system]
-     elsif parent
-       allowed = parent.allowed_systems
-     else
-       allowed = DataSystem.find(:all)
-     end
+    DataSystem.find(:all)
   end
   
 #
@@ -297,10 +291,13 @@ class SqlElement < DataElement
     sql = self.content
     sql = sql.gsub(/:user_id/,User.current.id.to_s)
     sql = sql.gsub(/:user_name/,User.current.login)
-    sql = sql.gsub(/:projectid/,Project.current.id.to_s)
+    sql = sql.gsub(/:project_id/,Project.current.id.to_s)
     sql = sql.gsub(/:project_name/,Project.current.name)
-    sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
-    sql = sql.gsub(/:folder_name/,ProjectFolder.current.name)
+    return sql
+#    if ProjectFolder.current
+#      sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
+#      sql = sql.gsub(/:folder_name/,ProjectFolder.current.name)
+#    end 
   end
 ##
 # Count the number of records returned with a select count(*) from (select ....)
@@ -323,7 +320,7 @@ class SqlElement < DataElement
   end
 
   def like(name)
-    return data_system.connection.select_all(content+" where  name like'"+name+"%' order by name")    
+    return self.system.connection.select_all(content+" where  name like'"+name+"%' order by name")    
   end
  
 

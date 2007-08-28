@@ -240,9 +240,27 @@ class User < ActiveRecord::Base
     end
   end
  
+ def disabled?
+   self.is_disabled.to_s == self.connection.quoted_true
+ end
+
+ def enabled?
+    !disabled?
+ end
+
  def admin?
-    self.admin == "1"
+    self.admin.to_s  == self.connection.quoted_true
 end  
+
+def style
+  if self.disabled?
+      "Disabled"
+   elsif self.admin? 
+     "Administrator"
+   else
+     "Normal"
+   end
+end
 ##
 # get the role for the user in a role
 #  

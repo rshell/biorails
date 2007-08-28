@@ -39,7 +39,7 @@ class QueueResult < ActiveRecord::Base
      return QueueResult.find(:all,
                     :include=>:service,
                     :order=>['request_services.name'],
-                    :conditions=>[queue_results.data_id=?',item.id])
+                    :conditions=>['queue_results.data_id=?',item.id])
      
    end   
  end

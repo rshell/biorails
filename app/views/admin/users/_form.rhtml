@@ -32,7 +32,12 @@
       <%= f.check_box :admin %>
     </p>
 
-<p>
+    <p>
+      <%= f.label_for  'User is disabled from logging in' %><br/>
+      <%= f.check_box :is_disabled %>
+    </p>
+    
+    <p>
    <label for="user_email">Email address</label>
    <br/><%= f.text_field :email,:size=>100 %>
 </p>
