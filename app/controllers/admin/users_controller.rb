@@ -51,6 +51,7 @@ class Admin::UsersController < ApplicationController
     if  @user.update_attributes(params[:user])
       @user.set_password( params[:user][:password])   
       @user.save!
+ 
       flash[:notice] ='Profile updated.'
       redirect_to :action => 'index'
     else

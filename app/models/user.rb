@@ -240,7 +240,9 @@ class User < ActiveRecord::Base
     end
   end
  
- 
+ def admin?
+    self.admin == "1"
+end  
 ##
 # get the role for the user in a role
 #  
@@ -254,7 +256,7 @@ class User < ActiveRecord::Base
   def authorized?(subject,action)
     membership = membership(project)
     if membership.nil?
-       return self.admin  # Your not a member
+       return self.admin?  # Your not a member
     else
        return membership.allow?(subject,action)
     end

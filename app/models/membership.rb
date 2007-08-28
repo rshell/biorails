@@ -37,11 +37,15 @@ class Membership < ActiveRecord::Base
  end
  
  def owner?
-   self.is_owner
+   self.is_owner == "1"
  end
  
  def owner=(value)
    self.is_owner = value 
  end
- 
+
+ def owner
+   self.is_owner == "1"
+ end
+
 end
