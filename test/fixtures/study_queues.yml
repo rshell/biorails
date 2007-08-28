@@ -1,90 +1,5 @@
 --- 
-study_queue_1: !ruby/object:StudyQueue 
-  attributes: 
-    status: new
-    study_stage_id: 5
-    name: PrimaryScreen
-    updated_at: 2007-08-24 12:37:16 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    priority: normal
-    study_protocol_id: 
-    id: 1
-    assigned_to_user_id: 3
-    study_id: 1
-    description: Compounds to process
-    study_parameter_id: 6
-    created_by_user_id: 1
-    created_at: 2007-06-06 20:31:48 +01:00
-study_queue_2: !ruby/object:StudyQueue 
-  attributes: 
-    status: new
-    study_stage_id: 5
-    name: Todo
-    updated_at: 2007-08-24 12:37:16 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    priority: normal
-    study_protocol_id: 
-    id: 2
-    assigned_to_user_id: 3
-    study_id: 2
-    description: Compounds to process
-    study_parameter_id: 14
-    created_by_user_id: 1
-    created_at: 2007-06-06 20:31:48 +01:00
-study_queue_3: !ruby/object:StudyQueue 
-  attributes: 
-    status: new
-    study_stage_id: 5
-    name: Todo
-    updated_at: 2007-08-24 12:37:16 +01:00
-    updated_by_user_id: 1
-    lock_version: 3
-    priority: normal
-    study_protocol_id: 
-    id: 3
-    assigned_to_user_id: 3
-    study_id: 3
-    description: Compounds to process
-    study_parameter_id: 31
-    created_by_user_id: 1
-    created_at: 2007-06-06 20:31:48 +01:00
-study_queue_4: !ruby/object:StudyQueue 
-  attributes: 
-    status: new
-    study_stage_id: 8
-    name: Locomotor Activity
-    updated_at: 2007-08-24 12:37:16 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    priority: normal
-    study_protocol_id: 
-    id: 4
-    assigned_to_user_id: 4
-    study_id: 5
-    description: Investigation of the effects on spontaneous locomotor activity in the rat
-    study_parameter_id: 36
-    created_by_user_id: 1
-    created_at: 2007-06-28 13:43:47 +01:00
-study_queue_5: !ruby/object:StudyQueue 
-  attributes: 
-    status: new
-    study_stage_id: 5
-    name: Develop Assay
-    updated_at: 2007-08-24 12:37:16 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    priority: normal
-    study_protocol_id: 
-    id: 5
-    assigned_to_user_id: 4
-    study_id: 6
-    description: "Develop the assay and deploy into production "
-    study_parameter_id: 60
-    created_by_user_id: 1
-    created_at: 2007-07-04 13:28:38 +01:00
-study_queue_6: !ruby/object:StudyQueue 
+00000000006_study_queue: !ruby/object:StudyQueue 
   attributes: 
     status: new
     study_stage_id: 6
@@ -101,3 +16,88 @@ study_queue_6: !ruby/object:StudyQueue
     study_parameter_id: 57
     created_by_user_id: 1
     created_at: 2007-07-04 13:29:13 +01:00
+00000000004_study_queue: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: 8
+    name: Locomotor Activity
+    updated_at: 2007-08-24 12:37:16 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    priority: normal
+    study_protocol_id: 
+    id: 4
+    assigned_to_user_id: 4
+    study_id: 5
+    description: Investigation of the effects on spontaneous locomotor activity in the rat
+    study_parameter_id: 36
+    created_by_user_id: 1
+    created_at: 2007-06-28 13:43:47 +01:00
+00000000005_study_queue: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: 5
+    name: Develop Assay
+    updated_at: 2007-08-24 12:37:16 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    priority: normal
+    study_protocol_id: 
+    id: 5
+    assigned_to_user_id: 4
+    study_id: 6
+    description: "Develop the assay and deploy into production "
+    study_parameter_id: 60
+    created_by_user_id: 1
+    created_at: 2007-07-04 13:28:38 +01:00
+00000000001_study_queue: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: 5
+    name: PrimaryScreen
+    updated_at: 2007-08-24 12:37:16 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    priority: normal
+    study_protocol_id: 
+    id: 1
+    assigned_to_user_id: 3
+    study_id: 1
+    description: Compounds to process
+    study_parameter_id: 6
+    created_by_user_id: 1
+    created_at: 2007-06-06 20:31:48 +01:00
+00000000002_study_queue: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: 5
+    name: Todo
+    updated_at: 2007-08-24 12:37:16 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    priority: normal
+    study_protocol_id: 
+    id: 2
+    assigned_to_user_id: 3
+    study_id: 2
+    description: Compounds to process
+    study_parameter_id: 14
+    created_by_user_id: 1
+    created_at: 2007-06-06 20:31:48 +01:00
+00000000003_study_queue: !ruby/object:StudyQueue 
+  attributes: 
+    status: new
+    study_stage_id: 5
+    name: Todo
+    updated_at: 2007-08-24 12:37:16 +01:00
+    updated_by_user_id: 1
+    lock_version: 3
+    priority: normal
+    study_protocol_id: 
+    id: 3
+    assigned_to_user_id: 3
+    study_id: 3
+    description: Compounds to process
+    study_parameter_id: 31
+    created_by_user_id: 1
+    created_at: 2007-06-06 20:31:48 +01:00

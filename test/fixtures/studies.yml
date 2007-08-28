@@ -1,41 +1,5 @@
 --- 
-study_3: !ruby/object:Study 
-  attributes: 
-    name: Screening
-    project_id: 13
-    updated_at: 2007-08-24 12:37:06 +01:00
-    purpose: demo
-    ended_at: 
-    expected_at: 2007-06-30
-    updated_by_user_id: 1
-    lock_version: 3
-    id: 3
-    category_id: 
-    description: Demo Study
-    status_id: 0
-    created_by_user_id: 1
-    started_at: 2007-06-06
-    created_at: 2007-06-06 18:18:49 +01:00
-    research_area: demo
-study_4: !ruby/object:Study 
-  attributes: 
-    name: Clinical
-    project_id: 13
-    updated_at: 2007-08-24 12:37:06 +01:00
-    purpose: 
-    ended_at: 
-    expected_at: 2007-06-22
-    updated_by_user_id: 1
-    lock_version: 1
-    id: 4
-    category_id: 
-    description: "The world of complex results contexts "
-    status_id: 0
-    created_by_user_id: 1
-    started_at: 2007-06-08
-    created_at: 2007-06-08 21:17:02 +01:00
-    research_area: "42"
-study_5: !ruby/object:Study 
+00000000005_study: !ruby/object:Study 
   attributes: 
     name: Rat Locomotion
     project_id: 14
@@ -55,7 +19,7 @@ study_5: !ruby/object:Study
     started_at: 2007-06-21
     created_at: 2007-06-28 08:52:39 +01:00
     research_area: "39"
-study_6: !ruby/object:Study 
+00000000006_study: !ruby/object:Study 
   attributes: 
     name: HTS Screen
     project_id: 16
@@ -73,25 +37,7 @@ study_6: !ruby/object:Study
     started_at: 2007-07-04
     created_at: 2007-07-04 12:52:31 +01:00
     research_area: "39"
-study_1: !ruby/object:Study 
-  attributes: 
-    name: Profiling
-    project_id: 13
-    updated_at: 2007-08-24 12:37:07 +01:00
-    purpose: demo
-    ended_at: 
-    expected_at: 2007-06-30
-    updated_by_user_id: 1
-    lock_version: 3
-    id: 1
-    category_id: 
-    description: Demo Study
-    status_id: 0
-    created_by_user_id: 1
-    started_at: 2007-06-06
-    created_at: 2007-06-06 18:18:49 +01:00
-    research_area: 
-study_2: !ruby/object:Study 
+00000000002_study: !ruby/object:Study 
   attributes: 
     name: Demo2
     project_id: 13
@@ -109,3 +55,57 @@ study_2: !ruby/object:Study
     started_at: 2007-06-06
     created_at: 2007-06-06 18:18:49 +01:00
     research_area: demo
+00000000003_study: !ruby/object:Study 
+  attributes: 
+    name: Screening
+    project_id: 13
+    updated_at: 2007-08-24 12:37:06 +01:00
+    purpose: demo
+    ended_at: 
+    expected_at: 2007-06-30
+    updated_by_user_id: 1
+    lock_version: 3
+    id: 3
+    category_id: 
+    description: Demo Study
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-06
+    created_at: 2007-06-06 18:18:49 +01:00
+    research_area: demo
+00000000004_study: !ruby/object:Study 
+  attributes: 
+    name: Clinical
+    project_id: 13
+    updated_at: 2007-08-24 12:37:06 +01:00
+    purpose: 
+    ended_at: 
+    expected_at: 2007-06-22
+    updated_by_user_id: 1
+    lock_version: 1
+    id: 4
+    category_id: 
+    description: "The world of complex results contexts "
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-08
+    created_at: 2007-06-08 21:17:02 +01:00
+    research_area: "42"
+00000000001_study: !ruby/object:Study 
+  attributes: 
+    name: Profiling
+    project_id: 13
+    updated_at: 2007-08-24 12:37:07 +01:00
+    purpose: demo
+    ended_at: 
+    expected_at: 2007-06-30
+    updated_by_user_id: 1
+    lock_version: 3
+    id: 1
+    category_id: 
+    description: Demo Study
+    status_id: 0
+    created_by_user_id: 1
+    started_at: 2007-06-06
+    created_at: 2007-06-06 18:18:49 +01:00
+    research_area: 

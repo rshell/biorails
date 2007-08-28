@@ -1,19 +1,5 @@
 --- 
-data_format_25: !ruby/object:DataFormat 
-  attributes: 
-    name: Name
-    updated_at: 2007-08-24 12:37:02 +01:00
-    default_value: 
-    updated_by_user_id: 1
-    data_type_id: 3
-    lock_version: 1
-    id: 25
-    description: Name without spaces
-    format_sprintf: 
-    created_by_user_id: 1
-    format_regex: ^[A-Z,a-z,0-9]*$
-    created_at: 2007-05-25 21:07:28 +01:00
-data_format_3: !ruby/object:DataFormat 
+00000000003_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Line
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -27,21 +13,7 @@ data_format_3: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: "[^\"\\r\\n]*"
     created_at: 2007-08-24 12:37:02 +01:00
-data_format_26: !ruby/object:DataFormat 
-  attributes: 
-    name: Quantiy
-    updated_at: 2007-08-24 12:37:02 +01:00
-    default_value: 
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 26
-    description: Basic numeric value followed by a unit
-    format_sprintf: "%d %s"
-    created_by_user_id: 1
-    format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
-    created_at: 2007-06-06 20:15:15 +01:00
-data_format_4: !ruby/object:DataFormat 
+00000000004_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Double
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -55,21 +27,51 @@ data_format_4: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
     created_at: 2006-11-27 11:59:22 +00:00
-data_format_27: !ruby/object:DataFormat 
+00000000001_data_format: !ruby/object:DataFormat 
   attributes: 
-    name: Concentration
+    name: Text
+    updated_at: 2007-08-24 12:37:02 +01:00
+    default_value: 
+    updated_by_user_id: 1
+    data_type_id: 1
+    lock_version: 1
+    id: 1
+    description: Free Format Text
+    format_sprintf: 
+    created_by_user_id: 1
+    format_regex: .
+    created_at: 2007-08-24 12:37:02 +01:00
+00000000013_data_format: !ruby/object:DataFormat 
+  attributes: 
+    name: Percentage
     updated_at: 2007-08-24 12:37:02 +01:00
     default_value: 
     updated_by_user_id: 1
     data_type_id: 2
-    lock_version: 2
-    id: 27
-    description: Concentration in molar units
-    format_sprintf: "%g %s"
+    lock_version: 1
+    id: 13
+    description: |
+      Description:  	Percentage (From 0 to 100)
+
+    format_sprintf: "%d"
     created_by_user_id: 1
-    format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
-    created_at: 2007-06-06 20:20:26 +01:00
-data_format_28: !ruby/object:DataFormat 
+    format_regex: "[-+]?[0-9]*\\.?[0-9]"
+    created_at: 2007-08-24 12:37:02 +01:00
+00000000002_data_format: !ruby/object:DataFormat 
+  attributes: 
+    name: Alpha
+    updated_at: 2007-08-24 12:37:02 +01:00
+    default_value: 
+    updated_by_user_id: 1
+    data_type_id: 1
+    lock_version: 5
+    id: 2
+    description: A-Z
+    format_sprintf: 
+    created_by_user_id: 1
+    format_regex: ^[A-Z]*$
+    created_at: 2007-08-24 12:37:02 +01:00
+00000000028_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Amount
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -83,21 +85,35 @@ data_format_28: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
     created_at: 2007-06-06 20:22:12 +01:00
-data_format_7: !ruby/object:DataFormat 
+00000000025_data_format: !ruby/object:DataFormat 
   attributes: 
-    name: Scientific Notation
+    name: Name
+    updated_at: 2007-08-24 12:37:02 +01:00
+    default_value: 
+    updated_by_user_id: 1
+    data_type_id: 3
+    lock_version: 1
+    id: 25
+    description: Name without spaces
+    format_sprintf: 
+    created_by_user_id: 1
+    format_regex: ^[A-Z,a-z,0-9]*$
+    created_at: 2007-05-25 21:07:28 +01:00
+00000000026_data_format: !ruby/object:DataFormat 
+  attributes: 
+    name: Quantiy
     updated_at: 2007-08-24 12:37:02 +01:00
     default_value: 
     updated_by_user_id: 1
     data_type_id: 2
     lock_version: 0
-    id: 7
-    description: Scientific Notation
-    format_sprintf: 
+    id: 26
+    description: Basic numeric value followed by a unit
+    format_sprintf: "%d %s"
     created_by_user_id: 1
-    format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
-    created_at: 2007-08-24 12:37:02 +01:00
-data_format_8: !ruby/object:DataFormat 
+    format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
+    created_at: 2007-06-06 20:15:15 +01:00
+00000000008_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Integer
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -111,7 +127,21 @@ data_format_8: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: "[-+]?\\b\\d+\\b"
     created_at: 2007-08-24 12:37:02 +01:00
-data_format_11: !ruby/object:DataFormat 
+00000000027_data_format: !ruby/object:DataFormat 
+  attributes: 
+    name: Concentration
+    updated_at: 2007-08-24 12:37:02 +01:00
+    default_value: 
+    updated_by_user_id: 1
+    data_type_id: 2
+    lock_version: 2
+    id: 27
+    description: Concentration in molar units
+    format_sprintf: "%g %s"
+    created_by_user_id: 1
+    format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
+    created_at: 2007-06-06 20:20:26 +01:00
+00000000011_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Positive
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -128,21 +158,7 @@ data_format_11: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: ^[0-9,.]*$
     created_at: 2007-08-24 12:37:02 +01:00
-data_format_1: !ruby/object:DataFormat 
-  attributes: 
-    name: Text
-    updated_at: 2007-08-24 12:37:02 +01:00
-    default_value: 
-    updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 1
-    id: 1
-    description: Free Format Text
-    format_sprintf: 
-    created_by_user_id: 1
-    format_regex: .
-    created_at: 2007-08-24 12:37:02 +01:00
-data_format_12: !ruby/object:DataFormat 
+00000000012_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Decimal5.2
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -156,21 +172,21 @@ data_format_12: !ruby/object:DataFormat
     created_by_user_id: 1
     format_regex: (?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$
     created_at: 2007-08-24 12:37:02 +01:00
-data_format_2: !ruby/object:DataFormat 
+00000000007_data_format: !ruby/object:DataFormat 
   attributes: 
-    name: Alpha
+    name: Scientific Notation
     updated_at: 2007-08-24 12:37:02 +01:00
     default_value: 
     updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 5
-    id: 2
-    description: A-Z
+    data_type_id: 2
+    lock_version: 0
+    id: 7
+    description: Scientific Notation
     format_sprintf: 
     created_by_user_id: 1
-    format_regex: ^[A-Z]*$
+    format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
     created_at: 2007-08-24 12:37:02 +01:00
-data_format_24: !ruby/object:DataFormat 
+00000000024_data_format: !ruby/object:DataFormat 
   attributes: 
     name: URL
     updated_at: 2007-08-24 12:37:02 +01:00
@@ -185,20 +201,4 @@ data_format_24: !ruby/object:DataFormat
     format_sprintf: 
     created_by_user_id: 1
     format_regex: (http://)[a..Z]*
-    created_at: 2007-08-24 12:37:02 +01:00
-data_format_13: !ruby/object:DataFormat 
-  attributes: 
-    name: Percentage
-    updated_at: 2007-08-24 12:37:02 +01:00
-    default_value: 
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 1
-    id: 13
-    description: |
-      Description:  	Percentage (From 0 to 100)
-
-    format_sprintf: "%d"
-    created_by_user_id: 1
-    format_regex: "[-+]?[0-9]*\\.?[0-9]"
     created_at: 2007-08-24 12:37:02 +01:00

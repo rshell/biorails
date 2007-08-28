@@ -1,5 +1,5 @@
 --- 
-data_system_1: !ruby/object:DataSystem 
+00000000001_data_system: !ruby/object:DataSystem 
   attributes: 
     name: Internal
     updated_at: 2007-08-24 12:36:51 +01:00

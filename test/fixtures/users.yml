@@ -1,5 +1,5 @@
 --- 
-user_4: !ruby/object:User 
+00000000004_user: !ruby/object:User 
   attributes: 
     name: thawkins
     updated_at: 2007-08-24 12:36:44 +01:00
@@ -22,30 +22,30 @@ user_4: !ruby/object:User
     login: thawkins
     created_at: 2007-08-24 12:36:44 +01:00
     email: ted@edgesoftwareconsultancy.com
-user_1: !ruby/object:User 
+00000000003_user: !ruby/object:User 
   attributes: 
-    name: guest
-    updated_at: 2007-08-23 23:09:35 +01:00
+    name: rshell
+    updated_at: 2007-08-24 12:36:44 +01:00
     activated_at: 
     deleted_at: 
     token: 
     updated_by_user_id: 1
-    admin: "0"
+    admin: "1"
     token_expires_at: 
     activation_code: 
     fullname: 
-    password_salt: 
-    role_id: 1
-    id: 1
+    password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
+    role_id: 3
+    id: 3
     is_disabled: "0"
     filter: 
-    password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+    password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
     created_by_user_id: 1
     state_id: 
-    login: guest
-    created_at: 
+    login: rshell
+    created_at: 2007-08-24 12:36:44 +01:00
     email: 
-user_2: !ruby/object:User 
+00000000002_user: !ruby/object:User 
   attributes: 
     name: admin
     updated_at: 2007-08-24 12:36:44 +01:00
@@ -68,26 +68,26 @@ user_2: !ruby/object:User
     login: admin
     created_at: 2007-08-24 12:36:44 +01:00
     email: 
-user_3: !ruby/object:User 
+00000000001_user: !ruby/object:User 
   attributes: 
-    name: rshell
-    updated_at: 2007-08-24 12:36:44 +01:00
+    name: guest
+    updated_at: 2007-08-23 23:09:35 +01:00
     activated_at: 
     deleted_at: 
     token: 
     updated_by_user_id: 1
-    admin: "1"
+    admin: "0"
     token_expires_at: 
     activation_code: 
     fullname: 
-    password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
-    role_id: 3
-    id: 3
+    password_salt: 
+    role_id: 1
+    id: 1
     is_disabled: "0"
     filter: 
-    password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+    password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
     created_by_user_id: 1
     state_id: 
-    login: rshell
-    created_at: 2007-08-24 12:36:44 +01:00
+    login: guest
+    created_at: 
     email: 

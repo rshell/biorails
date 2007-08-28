@@ -31,7 +31,7 @@
      <%= link_to l('UML'),      help_url( :action=>'uml') %>  
 </div>
 
- <li> <%= link_to '<b>'+ '&nbsp' + '&nbsp'+ current_user.login+'</b>', home_url(:action=>'index') , :class => "icon icon-home" %></li>
+ <li> <%= link_to image_tag("home.png")+"<b>"+current_user.login+"</b>", home_url(:action=>'index') , :class => "icon" %></li>
 <% unless current_project.nil? %>
  <li class="submenu">
      <%= link_to image_tag("model/project.png")+"<b>"+current_project.name+"</b>", project_url(:action => 'show', :id =>current_project ),

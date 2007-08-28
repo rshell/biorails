@@ -1,719 +1,5 @@
 --- 
-protocol_version_48: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-20:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 2
-    id: 48
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_37: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Comparison of Means:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 12
-    id: 37
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_26: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: DoseResponse:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 17
-    id: 26
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_15: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Anova:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 13
-    id: 15
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_5: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-21:3
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 3
-    id: 5
-    report_id: 
-    version: 3
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_49: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Readings:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 10
-    id: 49
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_38: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-25:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 6
-    id: 38
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_27: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:4
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 27
-    report_id: 
-    version: 4
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_16: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 16
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_6: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-19:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 4
-    id: 6
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_50: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: DoseResonse:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 3
-    study_protocol_id: 17
-    id: 50
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_39: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:3
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 39
-    report_id: 
-    version: 3
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_28: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Comparison of Means:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 12
-    id: 28
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_17: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Worklist:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 9
-    id: 17
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_7: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-20:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 5
-    id: 7
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_51: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-21:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 3
-    id: 51
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_40: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 7
-    id: 40
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_29: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-21:3
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 3
-    id: 29
-    report_id: 
-    version: 3
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_18: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:3
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 18
-    report_id: 
-    version: 3
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_8: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-25:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:19 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 6
-    id: 8
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:19 +01:00
-protocol_version_52: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Bin Analysis:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 11
-    id: 52
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_41: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Bin Analysis:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 11
-    id: 41
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_30: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Anova:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 13
-    id: 30
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_19: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Bin Analysis:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 11
-    id: 19
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_9: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 7
-    id: 9
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_53: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: HitList:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 18
-    id: 53
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_42: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: AssayPlateRegistration:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 14
-    id: 42
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_31: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: DoseResponse:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 17
-    id: 31
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_20: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: AssayPlateRegistration:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 14
-    id: 20
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_54: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-21:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 3
-    id: 54
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_43: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Rat Information:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 8
-    id: 43
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_32: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-19:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 4
-    id: 32
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_21: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: ReaderOutput:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 15
-    id: 21
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_10: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Rat Information:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 8
-    id: 10
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_55: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Comparison of Means:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 12
-    id: 55
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_44: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: ReaderOutput:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 15
-    id: 44
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_33: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 33
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_22: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Normalisation:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 16
-    id: 22
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_11: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Worklist:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 9
-    id: 11
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_1: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-19:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 1
-    id: 1
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_56: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Normalisation:2
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 16
-    id: 56
-    report_id: 
-    version: 2
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_45: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-19:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 1
-    id: 45
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_34: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Materials:4
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    study_protocol_id: 7
-    id: 34
-    report_id: 
-    version: 4
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_23: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: DoseResonse:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 3
-    study_protocol_id: 17
-    id: 23
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_12: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Readings:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 10
-    id: 12
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_2: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-20:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:20 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 2
-    id: 2
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:20 +01:00
-protocol_version_46: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Worklist:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 9
-    id: 46
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_35: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-20:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 2
-    study_protocol_id: 5
-    id: 35
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_24: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: HitList:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 18
-    id: 24
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_13: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Bin Analysis:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 11
-    id: 13
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_3: !ruby/object:ProtocolVersion 
-  attributes: 
-    name: Prot-21:1
-    analysis_id: 
-    updated_at: 2007-08-24 12:37:21 +01:00
-    updated_by_user_id: 1
-    lock_version: 1
-    study_protocol_id: 3
-    id: 3
-    report_id: 
-    version: 1
-    created_by_user_id: 1
-    how_to: 
-    created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_47: !ruby/object:ProtocolVersion 
+00000000047_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Normalisation:1
     analysis_id: 
@@ -727,7 +13,483 @@ protocol_version_47: !ruby/object:ProtocolVersion
     created_by_user_id: 1
     how_to: 
     created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_36: !ruby/object:ProtocolVersion 
+00000000033_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 33
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000022_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Normalisation:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 16
+    id: 22
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000011_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Worklist:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 9
+    id: 11
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000003_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-21:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 3
+    id: 3
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000046_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Worklist:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 9
+    id: 46
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000032_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-19:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 4
+    id: 32
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000021_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: ReaderOutput:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 15
+    id: 21
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000010_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Rat Information:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 8
+    id: 10
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000002_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-20:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 2
+    id: 2
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000056_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Normalisation:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 16
+    id: 56
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000045_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-19:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 1
+    id: 45
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000020_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: AssayPlateRegistration:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 14
+    id: 20
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000001_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-19:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 1
+    id: 1
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000029_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-21:3
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 3
+    id: 29
+    report_id: 
+    version: 3
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000055_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Comparison of Means:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 12
+    id: 55
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000044_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: ReaderOutput:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 15
+    id: 44
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000039_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:3
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 39
+    report_id: 
+    version: 3
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000028_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Comparison of Means:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 12
+    id: 28
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000054_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-21:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 3
+    id: 54
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000043_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Rat Information:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 8
+    id: 43
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000038_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-25:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 6
+    id: 38
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000027_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:4
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 27
+    report_id: 
+    version: 4
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000016_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 16
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000009_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 7
+    id: 9
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000053_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: HitList:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 18
+    id: 53
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000042_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: AssayPlateRegistration:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 14
+    id: 42
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000037_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Comparison of Means:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 12
+    id: 37
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000031_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: DoseResponse:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 17
+    id: 31
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000026_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: DoseResponse:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 17
+    id: 26
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000019_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Bin Analysis:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 11
+    id: 19
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000015_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Anova:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 13
+    id: 15
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000008_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-25:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 6
+    id: 8
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000052_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Bin Analysis:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 11
+    id: 52
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000041_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Bin Analysis:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 11
+    id: 41
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000036_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Worklist:2
     analysis_id: 
@@ -741,7 +503,21 @@ protocol_version_36: !ruby/object:ProtocolVersion
     created_by_user_id: 1
     how_to: 
     created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_25: !ruby/object:ProtocolVersion 
+00000000030_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Anova:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 13
+    id: 30
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000025_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Normalisation:2
     analysis_id: 
@@ -755,7 +531,21 @@ protocol_version_25: !ruby/object:ProtocolVersion
     created_by_user_id: 1
     how_to: 
     created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_14: !ruby/object:ProtocolVersion 
+00000000018_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:3
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 18
+    report_id: 
+    version: 3
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000014_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Comparison of Means:1
     analysis_id: 
@@ -769,7 +559,217 @@ protocol_version_14: !ruby/object:ProtocolVersion
     created_by_user_id: 1
     how_to: 
     created_at: 2007-08-24 12:37:21 +01:00
-protocol_version_4: !ruby/object:ProtocolVersion 
+00000000007_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-20:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 5
+    id: 7
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000051_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-21:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 3
+    id: 51
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000040_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 7
+    id: 40
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000035_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-20:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 5
+    id: 35
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000024_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: HitList:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 18
+    id: 24
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000017_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Worklist:2
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 9
+    id: 17
+    report_id: 
+    version: 2
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000013_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Bin Analysis:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:21 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 11
+    id: 13
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:21 +01:00
+00000000006_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-19:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 2
+    study_protocol_id: 4
+    id: 6
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000050_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: DoseResonse:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 3
+    study_protocol_id: 17
+    id: 50
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000049_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Readings:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 10
+    id: 49
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000034_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Materials:4
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 0
+    study_protocol_id: 7
+    id: 34
+    report_id: 
+    version: 4
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000023_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: DoseResonse:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 3
+    study_protocol_id: 17
+    id: 23
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000012_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Readings:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:20 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 10
+    id: 12
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:20 +01:00
+00000000005_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-21:3
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 3
+    id: 5
+    report_id: 
+    version: 3
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000048_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Prot-20:1
+    analysis_id: 
+    updated_at: 2007-08-24 12:37:19 +01:00
+    updated_by_user_id: 1
+    lock_version: 1
+    study_protocol_id: 2
+    id: 48
+    report_id: 
+    version: 1
+    created_by_user_id: 1
+    how_to: 
+    created_at: 2007-08-24 12:37:19 +01:00
+00000000004_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Prot-21:2
     analysis_id: 

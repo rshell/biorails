@@ -1,46 +1,21 @@
---- 
-user_4: !ruby/object:User 
-  attributes: 
-    name: thawkins
-    updated_at: 2007-08-24 12:36:44 +01:00
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: 1
-    admin: "1"
-    token_expires_at: 
-    activation_code: 
-    fullname: baldyhawkins
-    password_salt: 37d5f65a85d0582ef849a5c3edd63df61e2ca3b5
-    role_id: 3
-    id: 4
-    is_disabled: "0"
-    filter: 
-    password_hash: e27ea9bbaea03c3cef1342b7b37c54690e1af6d7
-    created_by_user_id: 1
-    state_id: 
-    login: thawkins
-    created_at: 2007-08-24 12:36:44 +01:00
-    email: ted@edgesoftwareconsultancy.com
 user_1: !ruby/object:User 
   attributes: 
     name: guest
-    updated_at: 2007-08-23 23:09:35 +01:00
+    updated_at: 2007-08-23 22:25:03
     activated_at: 
     deleted_at: 
     token: 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     admin: "0"
     token_expires_at: 
     activation_code: 
     fullname: 
     password_salt: 
-    role_id: 1
-    id: 1
-    is_disabled: "0"
+    role_id: "7"
+    id: "1"
     filter: 
     password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
-    created_by_user_id: 1
+    created_by_user_id: "1"
     state_id: 
     login: guest
     created_at: 
@@ -48,46 +23,44 @@ user_1: !ruby/object:User
 user_2: !ruby/object:User 
   attributes: 
     name: admin
-    updated_at: 2007-08-24 12:36:44 +01:00
+    updated_at: 2007-08-23 22:25:04
     activated_at: 
     deleted_at: 
     token: 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     admin: "1"
     token_expires_at: 
     activation_code: 
     fullname: 
     password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
-    role_id: 3
-    id: 2
-    is_disabled: "0"
+    role_id: "3"
+    id: "2"
     filter: 
     password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
-    created_by_user_id: 1
+    created_by_user_id: "1"
     state_id: 
     login: admin
-    created_at: 2007-08-24 12:36:44 +01:00
+    created_at: 
     email: 
 user_3: !ruby/object:User 
   attributes: 
     name: rshell
-    updated_at: 2007-08-24 12:36:44 +01:00
+    updated_at: 2007-08-23 22:25:04
     activated_at: 
     deleted_at: 
     token: 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     admin: "1"
     token_expires_at: 
     activation_code: 
-    fullname: 
+    fullname: ""
     password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
-    role_id: 3
-    id: 3
-    is_disabled: "0"
+    role_id: "3"
+    id: "3"
     filter: 
     password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
-    created_by_user_id: 1
+    created_by_user_id: "1"
     state_id: 
     login: rshell
-    created_at: 2007-08-24 12:36:44 +01:00
-    email: 
+    created_at: 
+    email: ""

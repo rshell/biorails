@@ -5,4 +5,16 @@
       <%= link_to 'Forgotten password',  auth_url(:action => 'forgotten') %>
   </div>
 <%end %>
+<%if User.count <2  %>
+<div class="<%= "flash_warning message" %>" >
+<strong>No User defined in System</strong>
+<p>
+Looks like installation has not been completed. There is only guest user setup
+in the system. expect the administrator needs to add bootstrap data with:-
+</p>
+<p>
+rake biorails:bootstrap 
+</p>
+</div>
+<% end %>
 <%=render :partial=>'login' %>

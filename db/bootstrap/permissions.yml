@@ -1,583 +1,5 @@
 --- 
-permission_33: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: experiments
-    id: 33
-permission_165: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: requests
-    id: 165
-permission_137: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: tasks
-    id: 137
-permission_61: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :backup
-
-    subject: dba
-    id: 61
-permission_109: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: study_queues
-    id: 109
-permission_9: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: studies
-    id: 9
-permission_221: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: study_protocols
-    id: 221
-permission_195: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: 195
-permission_251: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: inventory
-    id: 251
-permission_35: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: auth
-    id: 35
-permission_167: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: requests
-    id: 167
-permission_91: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: study_parameters
-    id: 91
-permission_139: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: tasks
-    id: 139
-permission_63: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :recover
-
-    subject: dba
-    id: 63
-permission_223: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: study_protocols
-    id: 223
-permission_197: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :blog
-
-    subject: home
-    id: 197
-permission_37: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: help
-    id: 37
-permission_169: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: users
-    id: 169
-permission_93: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: study_parameters
-    id: 93
-permission_65: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :initialize
-
-    subject: dba
-    id: 65
-permission_225: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: study_protocols
-    id: 225
-permission_111: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: study_queues
-    id: 111
-permission_95: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: study_parameters
-    id: 95
-permission_141: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: tasks
-    id: 141
-permission_67: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: project
-    id: 67
-permission_199: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: home
-    id: 199
-permission_39: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: catalogue
-    id: 39
-permission_227: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: study_protocols
-    id: 227
-permission_113: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: study_queues
-    id: 113
-permission_171: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: 171
-permission_97: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: study_parameters
-    id: 97
-permission_69: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: 69
-permission_11: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: studies
-    id: 11
-permission_143: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: tasks
-    id: 143
-permission_115: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: study_queues
-    id: 115
-permission_229: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: study_protocols
-    id: 229
-permission_99: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: audit
-    id: 99
-permission_173: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: users
-    id: 173
-permission_13: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: studies
-    id: 13
-permission_145: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: tasks
-    id: 145
-permission_117: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: queue_items
-    id: 117
-permission_41: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: catalogue
-    id: 41
-permission_201: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: reports
-    id: 201
-permission_175: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: 175
-permission_15: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: studies
-    id: 15
-permission_147: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: tasks
-    id: 147
-permission_71: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: 71
-permission_119: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: queue_items
-    id: 119
-permission_43: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: catalogue
-    id: 43
-permission_203: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: reports
-    id: 203
-permission_231: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: study_protocols
-    id: 231
-permission_149: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: tasks
-    id: 149
-permission_73: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: project
-    id: 73
-permission_45: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: 45
-permission_177: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: 177
-permission_17: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: memberships
-    id: 17
-permission_233: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: charts
-    id: 233
-permission_205: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: reports
-    id: 205
-permission_75: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: 75
-permission_47: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: 47
-permission_179: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: 179
-permission_19: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: experiments
-    id: 19
-permission_235: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: finder
-    id: 235
-permission_121: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: queue_items
-    id: 121
-permission_207: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: reports
-    id: 207
-permission_151: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: page
-    id: 151
-permission_77: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: project
-    id: 77
-permission_49: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: 49
-permission_237: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: inventory
-    id: 237
-permission_123: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: queue_items
-    id: 123
-permission_209: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: reports
-    id: 209
-permission_79: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: 79
-permission_181: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: users
-    id: 181
-permission_153: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: requests
-    id: 153
-permission_239: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: inventory
-    id: 239
-permission_125: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: queue_items
-    id: 125
-permission_21: !ruby/object:Permission 
+00000000021_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
@@ -585,223 +7,83 @@ permission_21: !ruby/object:Permission
 
     subject: experiments
     id: 21
-permission_183: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: users
-    id: 183
-permission_127: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: queue_items
-    id: 127
-permission_51: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: catalogue
-    id: 51
-permission_23: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: experiments
-    id: 23
-permission_155: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: requests
-    id: 155
-permission_185: !ruby/object:Permission 
+00000000201_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: "*"
-    subject: home
-    id: 185
-permission_211: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
     subject: reports
-    id: 211
-permission_241: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: 241
-permission_53: !ruby/object:Permission 
+    id: 201
+00000000167_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :destroy
-
-    subject: catalogue
-    id: 53
-permission_25: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiments
-    id: 25
-permission_157: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
 
     subject: requests
-    id: 157
-permission_81: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: project
-    id: 81
-permission_129: !ruby/object:Permission 
+    id: 167
+00000000181_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :update
 
-    subject: queue_items
-    id: 129
-permission_213: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: reports
-    id: 213
-permission_55: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new_element
-
-    subject: catalogue
-    id: 55
-permission_187: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :index
-
-    subject: home
-    id: 187
-permission_27: !ruby/object:Permission 
+    subject: users
+    id: 181
+00000000009_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :create
 
-    subject: experiments
-    id: 27
-permission_159: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: requests
-    id: 159
-permission_83: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: study_parameters
-    id: 83
-permission_243: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: 243
-permission_101: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: study_queues
-    id: 101
-permission_215: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: reports
-    id: 215
-permission_1: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
     subject: studies
-    id: 1
-permission_57: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new_usage
-
-    subject: catalogue
-    id: 57
-permission_189: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: home
-    id: 189
-permission_29: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiments
-    id: 29
-permission_85: !ruby/object:Permission 
+    id: 9
+00000000239_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :list
 
-    subject: study_parameters
-    id: 85
-permission_131: !ruby/object:Permission 
+    subject: inventory
+    id: 239
+00000000121_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :destroy
+      --- :show
 
     subject: queue_items
-    id: 131
-permission_245: !ruby/object:Permission 
+    id: 121
+00000000073_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: project
+    id: 73
+00000000145_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: tasks
+    id: 145
+00000000037_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: help
+    id: 37
+00000000197_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :blog
+
+    subject: home
+    id: 197
+00000000245_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
@@ -809,105 +91,7 @@ permission_245: !ruby/object:Permission
 
     subject: inventory
     id: 245
-permission_103: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: study_queues
-    id: 103
-permission_217: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: study_protocols
-    id: 217
-permission_3: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: studies
-    id: 3
-permission_161: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: requests
-    id: 161
-permission_87: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: study_parameters
-    id: 87
-permission_59: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: dba
-    id: 59
-permission_247: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: 247
-permission_105: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: study_queues
-    id: 105
-permission_219: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: study_protocols
-    id: 219
-permission_133: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: biorails
-    id: 133
-permission_191: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: 191
-permission_163: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: requests
-    id: 163
-permission_5: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: studies
-    id: 5
-permission_89: !ruby/object:Permission 
+00000000089_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
@@ -915,45 +99,93 @@ permission_89: !ruby/object:Permission
 
     subject: study_parameters
     id: 89
-permission_249: !ruby/object:Permission 
+00000000109_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :update
-
-    subject: inventory
-    id: 249
-permission_107: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
+      --- :create
 
     subject: study_queues
-    id: 107
-permission_31: !ruby/object:Permission 
+    id: 109
+00000000065_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :update
+      --- :initialize
 
-    subject: experiments
-    id: 31
-permission_135: !ruby/object:Permission 
+    subject: dba
+    id: 65
+00000000173_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: 173
+00000000043_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: 43
+00000000137_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: tasks
+    id: 137
+00000000151_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: "*"
-    subject: tasks
-    id: 135
-permission_193: !ruby/object:Permission 
+    subject: page
+    id: 151
+00000000221_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :calendar
+      --- :show
+
+    subject: study_protocols
+    id: 221
+00000000115_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: study_queues
+    id: 115
+00000000209_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: reports
+    id: 209
+00000000029_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiments
+    id: 29
+00000000189_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
 
     subject: home
-    id: 193
-permission_7: !ruby/object:Permission 
+    id: 189
+00000000007_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
@@ -961,3 +193,771 @@ permission_7: !ruby/object:Permission
 
     subject: studies
     id: 7
+00000000095_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study_parameters
+    id: 95
+00000000251_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: inventory
+    id: 251
+00000000237_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: inventory
+    id: 237
+00000000059_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: dba
+    id: 59
+00000000071_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: project
+    id: 71
+00000000143_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: tasks
+    id: 143
+00000000035_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: auth
+    id: 35
+00000000215_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: reports
+    id: 215
+00000000243_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: 243
+00000000171_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: 171
+00000000087_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study_parameters
+    id: 87
+00000000195_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
+    subject: home
+    id: 195
+00000000107_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study_queues
+    id: 107
+00000000013_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: studies
+    id: 13
+00000000135_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: tasks
+    id: 135
+00000000159_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: requests
+    id: 159
+00000000041_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: catalogue
+    id: 41
+00000000187_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :index
+
+    subject: home
+    id: 187
+00000000113_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study_queues
+    id: 113
+00000000207_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: reports
+    id: 207
+00000000093_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study_parameters
+    id: 93
+00000000005_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: studies
+    id: 5
+00000000165_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: requests
+    id: 165
+00000000079_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: 79
+00000000235_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: finder
+    id: 235
+00000000057_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new_usage
+
+    subject: catalogue
+    id: 57
+00000000129_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: queue_items
+    id: 129
+00000000033_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: experiments
+    id: 33
+00000000141_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: tasks
+    id: 141
+00000000213_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: reports
+    id: 213
+00000000241_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: inventory
+    id: 241
+00000000193_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :calendar
+
+    subject: home
+    id: 193
+00000000011_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: studies
+    id: 11
+00000000105_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: study_queues
+    id: 105
+00000000085_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study_parameters
+    id: 85
+00000000157_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: requests
+    id: 157
+00000000229_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: study_protocols
+    id: 229
+00000000049_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: 49
+00000000111_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study_queues
+    id: 111
+00000000205_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: reports
+    id: 205
+00000000063_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :recover
+
+    subject: dba
+    id: 63
+00000000091_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study_parameters
+    id: 91
+00000000185_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: home
+    id: 185
+00000000003_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: studies
+    id: 3
+00000000027_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: experiments
+    id: 27
+00000000055_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new_element
+
+    subject: catalogue
+    id: 55
+00000000149_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: tasks
+    id: 149
+00000000163_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: requests
+    id: 163
+00000000211_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: reports
+    id: 211
+00000000127_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: queue_items
+    id: 127
+00000000019_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: experiments
+    id: 19
+00000000179_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: users
+    id: 179
+00000000191_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: 191
+00000000103_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study_queues
+    id: 103
+00000000249_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: inventory
+    id: 249
+00000000083_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: study_parameters
+    id: 83
+00000000155_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: requests
+    id: 155
+00000000133_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: biorails
+    id: 133
+00000000227_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: study_protocols
+    id: 227
+00000000047_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: 47
+00000000203_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: reports
+    id: 203
+00000000061_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :backup
+
+    subject: dba
+    id: 61
+00000000001_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: studies
+    id: 1
+00000000099_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: audit
+    id: 99
+00000000119_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: queue_items
+    id: 119
+00000000025_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiments
+    id: 25
+00000000233_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: charts
+    id: 233
+00000000161_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: requests
+    id: 161
+00000000077_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: project
+    id: 77
+00000000053_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: catalogue
+    id: 53
+00000000199_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: 199
+00000000125_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: queue_items
+    id: 125
+00000000219_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: study_protocols
+    id: 219
+00000000017_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: memberships
+    id: 17
+00000000031_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiments
+    id: 31
+00000000177_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: 177
+00000000069_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: 69
+00000000153_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: requests
+    id: 153
+00000000131_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: queue_items
+    id: 131
+00000000225_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: study_protocols
+    id: 225
+00000000023_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiments
+    id: 23
+00000000117_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: queue_items
+    id: 117
+00000000231_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: study_protocols
+    id: 231
+00000000183_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: users
+    id: 183
+00000000097_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: study_parameters
+    id: 97
+00000000169_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: users
+    id: 169
+00000000147_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: tasks
+    id: 147
+00000000051_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: 51
+00000000123_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: queue_items
+    id: 123
+00000000217_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: study_protocols
+    id: 217
+00000000075_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: 75
+00000000039_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: catalogue
+    id: 39
+00000000101_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: study_queues
+    id: 101
+00000000015_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: studies
+    id: 15
+00000000175_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: 175
+00000000247_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: inventory
+    id: 247
+00000000067_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: project
+    id: 67
+00000000081_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: project
+    id: 81
+00000000223_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: study_protocols
+    id: 223
+00000000045_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: 45
+00000000139_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: tasks
+    id: 139

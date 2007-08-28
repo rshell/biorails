@@ -123,9 +123,9 @@ module Biorails
 
         filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tablize + '.yml')
         File.open(filename, 'w' ) do |file|
-          data = model.find(:all)
+          data = model.find(:all,:order => :id)
           file.write data.inject({}) { |hash, record|
-            hash["#{record.dom_id}"] = record
+            hash["%011d_#{record.class.name.underscore}" % record.id] = record
             hash
           }.to_yaml
         end
@@ -137,8 +137,9 @@ module Biorails
        success =0
        records = YAML::load( File.open(filename))
         model.transaction do
-          records.values.each do |row|
+          records.keys.sort.each do |key|
             begin
+              row = records[key]
               if row.is_a?(Hash)
                 @new_item = model.new(row)
                 @new_item.id = row['id']

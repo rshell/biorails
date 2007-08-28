@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
 # 
   # Returns the user that matches provided login and password, or nil
   def self.login(username, password)
-    user = User.authorized(username, password)
+    user = User.authenticate(username, password)
     if user
        logger.info "#{username} is a known username"
        return user
