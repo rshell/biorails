@@ -24,7 +24,7 @@
        <%= collection_select(:membership, :user_id ,current_project.non_members, :id, :name)  %>
     </p>
     <p><label for="membership_owner">Owner</label>
-      <%= check_box    :membership, :owner  %>
+      <%= check_box    :membership, :is_owner  %>
     </p>
     <p><label for="membership_owner">Role</label>
       <%= select_named :membership, :role_id ,ProjectRole %>

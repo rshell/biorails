@@ -21,6 +21,10 @@
    <label for="user_role">Access Level </label>
    <br/><%= select_named( :user, :role_id ,UserRole) %>
 </p>
+<p>
+   <label for="project_role">Root Project Role </label>
+   <br/><%= select_named( :project, :role_id ,ProjectRole) %>
+</p>
     <p>
       <%= f.label_for  'Adminstrator Rights [Full System Liability]' %><br/>
       <%= f.check_box :admin %>
