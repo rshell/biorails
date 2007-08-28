@@ -1,106 +1,177 @@
-users_001: 
-  name: guest
-  
-  activated_at: 
-  deleted_at: 
-  token: 
-  updated_by_user_id: "1"
-  admin: "0"
-  token_expires_at: 
-  activation_code: 
-  fullname: 
-  password_salt: 
-  role_id: "2"
-  id: "1"
-  filter: 
-  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
-  created_by_user_id: "1"
-  state_id: 
-  login: guest
-  
-  email: 
-users_002: 
-  name: admin
-  
-  activated_at: 
-  deleted_at: 
-  token: 
-  updated_by_user_id: "1"
-  admin: "1"
-  token_expires_at: 
-  activation_code: 
-  fullname: 
-  password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
-  role_id: "3"
-  id: "2"
-  filter: 
-  password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
-  created_by_user_id: "1"
-  state_id: 
-  login: admin
-  
-  email: 
-users_003: 
-  name: rshell
-  
-  activated_at: 
-  deleted_at: 
-  token: 
-  updated_by_user_id: "2"
-  admin: "1"
-  token_expires_at: 
-  activation_code: 
-  fullname: Robert Shell
-  password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
-  role_id: "3"
-  id: "3"
-  filter: 
-  password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
-  created_by_user_id: "1"
-  state_id: 
-  login: rshell
-  
-  email: bob@edgesoftwareconsultancy.com
-users_004: 
-  name: thawkins
-  
-  activated_at: 
-  deleted_at: 
-  token: 
-  updated_by_user_id: "2"
-  admin: "1"
-  token_expires_at: 
-  activation_code: 
-  fullname: Ted Hawkins
-  password_salt: d7fb60397a921cf1aa12304252bbabb8a8a79a9e
-  role_id: "3"
-  id: "4"
-  filter: 
-  password_hash: 31be1da723076e2b4597e574555f21be16879362
-  created_by_user_id: "1"
-  state_id: 
-  login: thawkins
-  
-  email: ted@edgesoftwareconsultancy.com
-users_005: 
-  name: alemon
-  
-  activated_at: 
-  deleted_at: 
-  token: 
-  updated_by_user_id: "2"
-  admin: "0"
-  token_expires_at: 
-  activation_code: 
-  fullname: Andrew Lemon
-  password_salt: 0f2145ee44a1c300054892dc2e60919be8095614
-  role_id: "3"
-  id: "6"
-  filter: 
-  password_hash: c82458f747413edae8dc8a0113ff81c4d4437c5c
-  created_by_user_id: "1"
-  state_id: 
-  login: alemon
-  
-  email: andrew@edgesoftwareconsultancy.com
----
+--- 
+user_4: !ruby/object:User 
+  attributes: 
+    name: thawkins
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "1"
+    token_expires_at: 
+    activation_code: 
+    fullname: baldyhawkins
+    password_salt: 37d5f65a85d0582ef849a5c3edd63df61e2ca3b5
+    role_id: "3"
+    id: "4"
+    filter: 
+    password_hash: e27ea9bbaea03c3cef1342b7b37c54690e1af6d7
+    created_by_user_id: "1"
+    state_id: 
+    login: thawkins
+    created_at: 
+    email: ted@edgesoftwareconsultancy.com
+user_6: !ruby/object:User 
+  attributes: 
+    name: alemon
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: JIf
+    password_salt: d46395dfc589ac52b8b6a7b3e09cf7a3fa89a3b1
+    role_id: "3"
+    id: "6"
+    filter: 
+    password_hash: a8541974b75638a2c2f43a116be3caa941479485
+    created_by_user_id: "1"
+    state_id: 
+    login: alemon
+    created_at: 
+    email: andrew@edgesoftwareconsultancy.com
+user_7: !ruby/object:User 
+  attributes: 
+    name: ewallace
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: Emma Wallace
+    password_salt: 745025c931ef3349548997790985f0b2cf4f6dd4
+    role_id: "3"
+    id: "7"
+    filter: 
+    password_hash: cdfcc3ace3be12baddddf8ace44be64f992d3887
+    created_by_user_id: "1"
+    state_id: 
+    login: ewallace
+    created_at: 2007-04-18 15:30:13
+    email: test@test
+user_8: !ruby/object:User 
+  attributes: 
+    name: amember
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: A.Member
+    password_salt: 9c432e83097c4c00014fa3b1e31026cd6040132b
+    role_id: "7"
+    id: "8"
+    filter: 
+    password_hash: e71497f06f6dba6a3f50932146732c510fab17ed
+    created_by_user_id: "3"
+    state_id: 
+    login: member
+    created_at: 2007-05-30 14:17:29
+    email: dddd
+user_9: !ruby/object:User 
+  attributes: 
+    name: demo1
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: Demo1 user a simple member
+    password_salt: fd5fc858572324f3aef01fb01492f113dec1707f
+    role_id: "7"
+    id: "9"
+    filter: 
+    password_hash: 4b2e6eed98f2af38184a5986144c39650abe907a
+    created_by_user_id: "3"
+    state_id: 
+    login: demo1
+    created_at: 2007-06-06 18:16:18
+    email: demo1@localhost
+user_1: !ruby/object:User 
+  attributes: 
+    name: guest
+    updated_at: 2007-08-23 22:25:03
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: 
+    password_salt: 
+    role_id: "7"
+    id: "1"
+    filter: 
+    password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+    created_by_user_id: "1"
+    state_id: 
+    login: guest
+    created_at: 
+    email: 
+user_2: !ruby/object:User 
+  attributes: 
+    name: admin
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "1"
+    token_expires_at: 
+    activation_code: 
+    fullname: 
+    password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
+    role_id: "3"
+    id: "2"
+    filter: 
+    password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
+    created_by_user_id: "1"
+    state_id: 
+    login: admin
+    created_at: 
+    email: 
+user_3: !ruby/object:User 
+  attributes: 
+    name: rshell
+    updated_at: 2007-08-23 22:25:04
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "1"
+    token_expires_at: 
+    activation_code: 
+    fullname: ""
+    password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
+    role_id: "3"
+    id: "3"
+    filter: 
+    password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+    created_by_user_id: "1"
+    state_id: 
+    login: rshell
+    created_at: 
+    email: ""

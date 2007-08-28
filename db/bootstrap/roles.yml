@@ -1,1253 +1,528 @@
 --- 
-roles_001: 
-  name: Public
-  
-  cache: |
-    --- 
-    :credentials: !ruby/object:Credentials 
-      actions: 
-        specimens: 
-          list: false
-        containers: 
-          list: false
-        experiments: 
-          import_file: true
-          new: false
-          list: false
-          edit: false
-          timeline: false
-          show: false
-          reports: false
-        study_stages: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        studies: 
-          new: false
-          list: false
-          parameters: false
-          edit: false
-          timeline: false
-          reports: false
-          protocols: false
-        parameter_roles: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        data_concepts: 
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          create_child: false
-          show: false
-          export: false
-          update: false
-        menu_items: 
-          list: false
-          link: true
-        roles: 
-          list: false
-        auth: 
-          logout: true
-          login_failed: true
-          forgotten: true
-          login: true
-        catalogue: 
-          new: false
-          add: false
-          list: false
-          edit: false
-          destroy: false
-          show: false
-          remove: false
-        site_controllers: 
-          list: false
-        parameters: 
-          list: false
-          show: false
-        study_parameters: 
-          new: false
-          list: false
-          edit: false
-        data_systems: 
-          new: false
-          list: false
-          edit: false
-          create: false
-          show: false
-          update: false
-        data_elements: 
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          create_child: false
-          show: false
-          export: false
-        study_queues: 
-          new: false
-          list: false
-          edit: false
-          show: false
-        data_formats: 
-          new: false
-          list: false
-          update: false
-        tasks: 
-          new: false
-          list: false
-          sheet: false
-          edit: false
-          destroy: false
-          create: false
-          show: false
-          update: false
-        parameter_types: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        plates: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        data_contexts: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          show: false
-          export: false
-          update: false
-        requests: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        plate_formats: 
-          list: false
-          show: false
-        batches: 
-          list: false
-        compounds: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-        data_types: 
-          new: false
-          list: false
-          edit: false
-        users: 
-          list: false
-        system_settings: 
-          list: false
-        controller_actions: 
-          list: false
-        permissions: 
-          list: false
-        content_pages: 
-          list: false
-          view_default: true
-          view: true
-        reports: 
-          list: false
-          builder: false
-        samples: 
-          list: false
-        study_protocols: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          update: false
-        finder: 
-          query: false
-      controllers: 
-        containers: false
-        specimens: false
-        experiments: false
-        study_stages: false
-        studies: false
-        parameter_roles: false
-        data_concepts: false
-        roles: false
-        menu_items: false
-        auth: false
-        catalogue: false
-        site_controllers: false
-        request_services: false
-        parameters: false
-        markup_styles: false
-        study_parameters: false
-        data_systems: false
-        treatment_groups: false
-        data_elements: false
-        data_capture: true
-        study_queues: false
-        roles_permissions: false
-        data_formats: false
-        tasks: false
-        parameter_types: false
-        plates: false
-        data_contexts: false
-        requests: false
-        plate_formats: false
-        batches: false
-        compounds: false
-        data_types: false
-        users: false
-        system_settings: false
-        permissions: false
-        controller_actions: false
-        content_pages: false
-        reports: false
-        samples: false
-        study_protocols: false
-        charts: false
-        finder: false
-      pages: 
-        TBD: true
-        CannedReports: true
-        Catalogue: true
-        notfound: true
-        site_admin: false
-        Execution: true
-        Inventory: true
-        Analysis_Introduction: true
-        contact_us: true
-        Organisation: false
-        credits: true
-        Requirements: false
-        denied: true
-        expired: true
-        home: true
-        Study_Report: true
-      permission_ids: 
-      - 4
-      - 3
-      role_id: 1
-      role_ids: 
-      - 1
+user_role_6: !ruby/object:UserRole 
+  attributes: 
+    name: manager
+    updated_at: 2007-06-11 12:27:59
+    cache: |
+      --- 
+      memberships: {}
       
-    :menu: !ruby/object:Menu 
-      by_id: 
-        49: &id006 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 49
-          label: Timeline
-          name: inv/time
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        38: &id002 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 38
-          label: Notes
-          name: inv/notes
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        16: &id007 !ruby/object:Menu::Node 
-          children: 
-          - 36
-          - 47
-          - 38
-          - 50
-          - 49
-          content_page_id: 12
-          controller_action_id: 
-          id: 16
-          label: Inventory
-          name: Inventory
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Inventory
-        50: &id012 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 50
-          label: Reports
-          name: reports
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        1: &id014 !ruby/object:Menu::Node 
-          children: 
-          - 64
-          content_page_id: 1
-          controller_action_id: 
-          id: 1
-          label: Home
-          name: home
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /home
-        62: &id004 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 62
-          label: Notes
-          name: exp/notes
-          parent: 
-          parent_id: 18
-          site_controller_id: 
-          url: /TBD
-        18: &id008 !ruby/object:Menu::Node 
-          children: 
-          - 62
-          content_page_id: 16
-          controller_action_id: 
-          id: 18
-          label: Experiment
-          name: Execution
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Execution
-        2: &id009 !ruby/object:Menu::Node 
-          content_page_id: 6
-          controller_action_id: 
-          id: 2
-          label: Contact Us
-          name: contact_us
-          parent: 
-          parent_id: 9
-          site_controller_id: 
-          url: /contact_us
-        47: &id003 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 47
-          label: Libraries
-          name: libraries
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        36: &id013 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 36
-          label: Overview
-          name: inv/show
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        14: &id010 !ruby/object:Menu::Node 
-          content_page_id: 10
-          controller_action_id: 
-          id: 14
-          label: Credits
-          name: credits
-          parent: 
-          parent_id: 9
-          site_controller_id: 
-          url: /credits
-        42: &id005 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 42
-          label: Notes
-          name: org/notes
-          parent: 
-          parent_id: 17
-          site_controller_id: 
-          url: /TBD
-        64: &id011 !ruby/object:Menu::Node 
-          content_page_id: 21
-          controller_action_id: 
-          id: 64
-          label: My Reports
-          name: MyReports
-          parent: 
-          parent_id: 1
-          site_controller_id: 
-          url: /CannedReports
-        15: &id001 !ruby/object:Menu::Node 
-          content_page_id: 11
-          controller_action_id: 
-          id: 15
-          label: Catalogue
-          name: Catalogue
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Catalogue
-      by_name: 
-        Catalogue: *id001
-        inv/notes: *id002
-        libraries: *id003
-        exp/notes: *id004
-        org/notes: *id005
-        inv/time: *id006
-        Inventory: *id007
-        Execution: *id008
-        contact_us: *id009
-        credits: *id010
-        MyReports: *id011
-        reports: *id012
-        inv/show: *id013
-        home: *id014
-      crumbs: 
-      - 1
-      root: &id015 !ruby/object:Menu::Node 
-        children: 
-        - 1
-        - 18
-        - 16
-        - 15
-        parent: 
-      selected: 
-        1: *id014
-      vector: 
-      - *id015
-      - *id014
-
-  default_page_id: 
-  updated_by_user_id: "1"
-  id: "1"
-  description: Members of the public who are not logged in.
-  created_by_user_id: "1"
-  parent_id: 
-  
-roles_002: 
-  name: Member
-  
-  cache: |
-    --- 
-    :credentials: !ruby/object:Credentials 
-      actions: 
-        specimens: 
-          list: true
-        containers: 
-          list: true
-        experiments: 
-          import_file: true
-          new: true
-          list: true
-          edit: true
-          timeline: true
-          show: true
-          reports: true
-        study_stages: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-        studies: 
-          new: true
-          list: true
-          parameters: true
-          edit: true
-          timeline: true
-          reports: true
-          protocols: true
-        parameter_roles: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-        data_concepts: 
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          create_child: false
-          show: false
-          export: false
-          update: false
-        menu_items: 
-          list: false
-          link: true
-        roles: 
-          list: false
-        auth: 
-          logout: true
-          login_failed: true
-          forgotten: true
-          login: true
-        catalogue: 
-          new: true
-          add: true
-          list: true
-          edit: true
-          destroy: true
-          show: true
-          remove: true
-        site_controllers: 
-          list: false
-        parameters: 
-          list: true
-          show: true
-        study_parameters: 
-          new: true
-          list: true
-          edit: true
-        data_systems: 
-          new: true
-          list: true
-          edit: true
-          create: true
-          show: true
-          update: true
-        data_elements: 
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          create_child: false
-          show: false
-          export: false
-        study_queues: 
-          new: true
-          list: true
-          edit: true
-          show: true
-        data_formats: 
-          new: true
-          list: true
-          update: true
-        tasks: 
-          new: true
-          list: true
-          sheet: true
-          edit: true
-          destroy: true
-          create: true
-          show: true
-          update: true
-        parameter_types: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-        plates: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-        data_contexts: 
-          new: false
-          list: false
-          edit: false
-          destroy: false
-          create: false
-          show: false
-          export: false
-          update: false
-        requests: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-        plate_formats: 
-          list: true
-          show: true
-        batches: 
-          list: true
-        compounds: 
-          new: true
-          list: true
-          edit: true
-          destroy: false
-        data_types: 
-          new: true
-          list: true
-          edit: true
-        users: 
-          list: false
-        system_settings: 
-          list: false
-        controller_actions: 
-          list: false
-        permissions: 
-          list: false
-        content_pages: 
-          list: false
-          view_default: true
-          view: true
-        reports: 
-          list: true
-          builder: true
-        samples: 
-          list: true
-        study_protocols: 
-          new: true
-          list: true
-          edit: true
-          destroy: true
-          create: true
-          update: true
-        finder: 
-          query: true
-      controllers: 
-        containers: true
-        specimens: true
-        experiments: true
-        study_stages: true
-        studies: true
-        parameter_roles: true
-        data_concepts: false
-        roles: false
-        menu_items: false
-        auth: false
-        catalogue: true
-        site_controllers: false
-        request_services: true
-        parameters: true
-        markup_styles: false
-        study_parameters: true
-        data_systems: true
-        treatment_groups: true
-        data_elements: false
-        data_capture: true
-        study_queues: true
-        roles_permissions: false
-        data_formats: true
-        tasks: true
-        parameter_types: true
-        plates: true
-        data_contexts: false
-        requests: true
-        plate_formats: true
-        batches: true
-        compounds: true
-        data_types: true
-        users: false
-        system_settings: false
-        permissions: false
-        controller_actions: false
-        content_pages: false
-        reports: true
-        samples: true
-        study_protocols: true
-        charts: true
-        finder: true
-      pages: 
-        TBD: true
-        CannedReports: true
-        Catalogue: true
-        notfound: true
-        site_admin: false
-        Execution: true
-        Inventory: true
-        Analysis_Introduction: true
-        contact_us: true
-        Organisation: false
-        credits: true
-        Requirements: true
-        denied: true
-        expired: true
-        home: true
-        Study_Report: true
-      permission_ids: 
-      - 5
-      - 4
-      - 3
-      role_id: 2
-      role_ids: 
-      - 2
-      - 1
+      user: 
+        "*": true
+      project_queues: {}
       
-    :menu: !ruby/object:Menu 
-      by_id: 
-        49: &id015 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 49
-          label: Timeline
-          name: inv/time
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        38: &id010 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 38
-          label: Notes
-          name: inv/notes
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        27: &id019 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 69
-          id: 27
-          label: Parameter Types
-          name: catalog/parameter_types
-          parent: 
-          parent_id: 15
-          site_controller_id: 21
-          url: /parameter_types/list
-        16: &id020 !ruby/object:Menu::Node 
-          children: 
-          - 36
-          - 45
-          - 47
-          - 46
-          - 48
-          - 38
-          - 50
-          - 49
-          content_page_id: 12
-          controller_action_id: 
-          id: 16
-          label: Inventory
-          name: Inventory
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Inventory
-        44: &id022 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 106
-          id: 44
-          label: Data Entry
-          name: exe/data
-          parent: 
-          parent_id: 18
-          site_controller_id: 32
-          url: /tasks/edit
-        22: &id027 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 114
-          id: 22
-          label: Data Types
-          name: catalog/datatype
-          parent: 
-          parent_id: 15
-          site_controller_id: 33
-          url: /data_types/list
-        61: &id005 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 156
-          id: 61
-          label: Reports
-          name: exp/reports
-          parent: 
-          parent_id: 18
-          site_controller_id: 31
-          url: /experiments/reports
-        28: &id023 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 117
-          id: 28
-          label: Protocols
-          name: org/protocol
-          parent: 
-          parent_id: 17
-          site_controller_id: 26
-          url: /studies/protocols
-        50: &id032 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 50
-          label: Reports
-          name: reports
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        39: &id004 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 65
-          id: 39
-          label: Parameter Roles
-          name: catalog/role
-          parent: 
-          parent_id: 15
-          site_controller_id: 22
-          url: /parameter_roles/list
-        45: &id033 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 123
-          id: 45
-          label: Compounds
-          name: inv/compound
-          parent: 
-          parent_id: 16
-          site_controller_id: 35
-          url: /compounds/list
-        1: &id036 !ruby/object:Menu::Node 
-          children: 
-          - 59
-          - 58
-          - 64
-          content_page_id: 1
-          controller_action_id: 
-          id: 1
-          label: Home
-          name: home
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /home
-        51: &id030 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 134
-          id: 51
-          label: Timeline
-          name: experimentr/timeline
-          parent: 
-          parent_id: 18
-          site_controller_id: 31
-          url: /experiments/timeline
-        62: &id013 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 62
-          label: Notes
-          name: exp/notes
-          parent: 
-          parent_id: 18
-          site_controller_id: 
-          url: /TBD
-        40: &id017 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 128
-          id: 40
-          label: Timeline
-          name: org/time
-          parent: 
-          parent_id: 17
-          site_controller_id: 26
-          url: /studies/timeline
-        18: &id021 !ruby/object:Menu::Node 
-          children: 
-          - 35
-          - 43
-          - 44
-          - 62
-          - 61
-          - 51
-          content_page_id: 16
-          controller_action_id: 
-          id: 18
-          label: Experiment
-          name: Execution
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Execution
-        35: &id031 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 102
-          id: 35
-          label: Overview
-          name: exec/experiment
-          parent: 
-          parent_id: 18
-          site_controller_id: 31
-          url: /experiments/list
-        46: &id011 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 127
-          id: 46
-          label: Batches
-          name: inv/batches
-          parent: 
-          parent_id: 16
-          site_controller_id: 36
-          url: /batches/list
-        2: &id025 !ruby/object:Menu::Node 
-          content_page_id: 6
-          controller_action_id: 
-          id: 2
-          label: Contact Us
-          name: contact_us
-          parent: 
-          parent_id: 9
-          site_controller_id: 
-          url: /contact_us
-        41: &id006 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 148
-          id: 41
-          label: Reports
-          name: org/reports
-          parent: 
-          parent_id: 17
-          site_controller_id: 26
-          url: /studies/reports
-        30: &id026 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 85
-          id: 30
-          label: Overview
-          name: org/study
-          parent: 
-          parent_id: 17
-          site_controller_id: 26
-          url: /studies/list
-        63: &id007 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 146
-          id: 63
-          label: Report Builder
-          name: catalog/reports
-          parent: 
-          parent_id: 15
-          site_controller_id: 48
-          url: /reports/list
-        19: &id035 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 150
-          id: 19
-          label: Data Dictionary
-          name: catalog/list
-          parent: 
-          parent_id: 15
-          site_controller_id: 49
-          url: /catalogue/list
-        47: &id012 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 47
-          label: Libraries
-          name: libraries
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        36: &id034 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 36
-          label: Overview
-          name: inv/show
-          parent: 
-          parent_id: 16
-          site_controller_id: 
-          url: /TBD
-        14: &id028 !ruby/object:Menu::Node 
-          content_page_id: 10
-          controller_action_id: 
-          id: 14
-          label: Credits
-          name: credits
-          parent: 
-          parent_id: 9
-          site_controller_id: 
-          url: /credits
-        58: &id008 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 143
-          id: 58
-          label: Requests
-          name: Home/Requests
-          parent: 
-          parent_id: 1
-          site_controller_id: 47
-          url: /requests/list
-        42: &id014 !ruby/object:Menu::Node 
-          content_page_id: 19
-          controller_action_id: 
-          id: 42
-          label: Notes
-          name: org/notes
-          parent: 
-          parent_id: 17
-          site_controller_id: 
-          url: /TBD
-        31: &id003 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 92
-          id: 31
-          label: Study Stages
-          name: catalog/stages
-          parent: 
-          parent_id: 15
-          site_controller_id: 27
-          url: /study_stages/list
-        20: &id037 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 120
-          id: 20
-          label: Data Formats
-          name: catalog/formats
-          parent: 
-          parent_id: 15
-          site_controller_id: 34
-          url: /data_formats/list
-        64: &id029 !ruby/object:Menu::Node 
-          content_page_id: 21
-          controller_action_id: 
-          id: 64
-          label: My Reports
-          name: MyReports
-          parent: 
-          parent_id: 1
-          site_controller_id: 
-          url: /CannedReports
-        26: &id018 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 118
-          id: 26
-          label: Parameters
-          name: org/params
-          parent: 
-          parent_id: 17
-          site_controller_id: 26
-          url: /studies/parameters
-        48: &id002 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 61
-          id: 48
-          label: Plates & Samples
-          name: containers
-          parent: 
-          parent_id: 16
-          site_controller_id: 20
-          url: /plates/list
-        59: &id016 !ruby/object:Menu::Node 
-          content_page_id: 20
-          controller_action_id: 
-          id: 59
-          label: Requirements
-          name: home/Requirements
-          parent: 
-          parent_id: 1
-          site_controller_id: 
-          url: /Requirements
-        15: &id009 !ruby/object:Menu::Node 
-          children: 
-          - 19
-          - 21
-          - 27
-          - 39
-          - 22
-          - 20
-          - 31
-          - 63
-          content_page_id: 11
-          controller_action_id: 
-          id: 15
-          label: Catalogue
-          name: Catalogue
-          parent: 
-          parent_id: 
-          site_controller_id: 
-          url: /Catalogue
-        43: &id001 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 119
-          id: 43
-          label: Schedule
-          name: exe/setup
-          parent: 
-          parent_id: 18
-          site_controller_id: 31
-          url: /experiments/show
-        21: &id024 !ruby/object:Menu::Node 
-          content_page_id: 
-          controller_action_id: 44
-          id: 21
-          label: Data Systems
-          name: catalog/systems
-          parent: 
-          parent_id: 15
-          site_controller_id: 17
-          url: /data_systems/list
-      by_name: 
-        exe/setup: *id001
-        containers: *id002
-        catalog/stages: *id003
-        catalog/role: *id004
-        exp/reports: *id005
-        org/reports: *id006
-        catalog/reports: *id007
-        Home/Requests: *id008
-        Catalogue: *id009
-        inv/notes: *id010
-        inv/batches: *id011
-        libraries: *id012
-        exp/notes: *id013
-        org/notes: *id014
-        inv/time: *id015
-        home/Requirements: *id016
-        org/time: *id017
-        org/params: *id018
-        catalog/parameter_types: *id019
-        Inventory: *id020
-        Execution: *id021
-        exe/data: *id022
-        org/protocol: *id023
-        catalog/systems: *id024
-        contact_us: *id025
-        org/study: *id026
-        catalog/datatype: *id027
-        credits: *id028
-        MyReports: *id029
-        experimentr/timeline: *id030
-        exec/experiment: *id031
-        reports: *id032
-        inv/compound: *id033
-        inv/show: *id034
-        catalog/list: *id035
-        home: *id036
-        catalog/formats: *id037
-      crumbs: 
-      - 1
-      root: &id038 !ruby/object:Menu::Node 
-        children: 
-        - 1
-        - 18
-        - 16
-        - 15
-        parent: 
-      selected: 
-        1: *id036
-      vector: 
-      - *id038
-      - *id036
+      auth: {}
+      
+      help: {}
+      
+      project_studies: {}
+      
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: {}
+      
+      audit: {}
+      
+      project_experiments: {}
+      
+      biorails: {}
+      
+      page: {}
+      
+      users: 
+        list: true
+        show: true
+      report: 
+        "*": true
+      home: 
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        "*": true
 
-  default_page_id: 
-  updated_by_user_id: "1"
-  id: "2"
-  description: ""
-  created_by_user_id: "1"
-  parent_id: "1"
-  
-roles_003: 
-  name: Administrator
-  
-  cache: |
-    --- 
-    user: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    memberships: {}
-    
-    auth: {}
-    
-    help: {}
-    
-    protocol: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    study: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    catalogue: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    project: 
-      new: true
-      list: true
-      edit: true
-      destroy: true
-      create: true
-      show: true
-      update: true
-    system: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    ~: 
-      ~: true
-    audit: {}
-    
-    cataloge: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    data_capture: {}
-    
-    experiment: 
-      new: true
-      list: true
-      edit: true
-      destroy: true
-      create: true
-      show: true
-      update: true
-    page: {}
-    
-    request: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    users: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    report: 
-      new: true
-      list: true
-      edit: true
-      create: true
-      show: true
-      update: true
-    home: 
-      calendar: true
-      blog: true
-      destroy: true
-      projects: true
-      timeline: true
-      show: true
-      index: true
-    charts: {}
-    
-    finder: {}
-    
-    inventory: 
-      new: true
-      list: true
-      edit: true
-      destroy: true
-      create: true
-      show: true
-      update: true
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "6"
+    description: General Power user role with delete rights
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:06:50
+user_role_7: !ruby/object:UserRole 
+  attributes: 
+    name: User
+    updated_at: 2007-06-11 12:48:39
+    cache: |
+      --- 
+      studies: {}
+      
+      memberships: {}
+      
+      experiments: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: {}
+      
+      study_parameters: {}
+      
+      audit: {}
+      
+      study_queues: {}
+      
+      biorails: {}
+      
+      tasks: {}
+      
+      queue_items: {}
+      
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        list: true
+        show: true
+      study_protocols: {}
+      
+      reports: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      home: 
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        "*": true
 
-  default_page_id: "8"
-  updated_by_user_id: "3"
-  id: "3"
-  description: Do anything
-  created_by_user_id: "1"
-  parent_id: "2"
-  
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "7"
+    description: "Standard User "
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:48:05
+project_role_1: !ruby/object:ProjectRole 
+  attributes: 
+    name: Public
+    updated_at: 2007-06-11 12:46:18
+    cache: |+
+      --- 
+      studies: 
+        list: true
+        show: true
+      experiments: 
+        list: true
+        show: true
+      memberships: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+      study_parameters: 
+        list: true
+        show: true
+      ~: 
+        ~: true
+      audit: {}
+      
+      study_queues: 
+        list: true
+        show: true
+      queue_items: 
+        list: true
+        show: true
+      tasks: 
+        list: true
+        show: true
+      biorails: {}
+      
+      page: {}
+      
+      requests: 
+        list: true
+        show: true
+      users: {}
+      
+      reports: {}
+      
+      study_protocols: 
+        list: true
+        show: true
+      home: {}
+      
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        show: true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "1"
+    description: Members of the public who are not logged in.
+    created_by_user_id: "1"
+    parent_id: 
+    created_at: 2006-06-23 12:03:49
+project_role_2: !ruby/object:ProjectRole 
+  attributes: 
+    name: Member
+    updated_at: 2007-06-11 12:44:25
+    cache: |+
+      --- 
+      studies: 
+        list: true
+        show: true
+      memberships: {}
+      
+      experiments: 
+        "*": true
+      user: 
+        list: true
+        show: true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      protocol: 
+        list: true
+        show: true
+      study: 
+        list: true
+        show: true
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+        "*": true
+      study_parameters: 
+        list: true
+        show: true
+      ~: 
+        ~: true
+      system: 
+        list: true
+        show: true
+      audit: {}
+      
+      cataloge: 
+        list: true
+        show: true
+      study_queues: 
+        list: true
+        show: true
+      biorails: {}
+      
+      tasks: 
+        "*": true
+      queue_items: 
+        list: true
+        "*": true
+      experiment: 
+        new: true
+        list: true
+        create: true
+        show: true
+        update: true
+      page: {}
+      
+      requests: 
+        list: true
+        "*": true
+      users: {}
+      
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_protocols: 
+        list: true
+        show: true
+      home: {}
+      
+      reports: {}
+      
+      report: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        "*": true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "2"
+    description: Project Member
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2006-06-23 12:03:50
+project_role_5: !ruby/object:ProjectRole 
+  attributes: 
+    name: Owner
+    updated_at: 2007-06-11 12:41:08
+    cache: |+
+      --- 
+      memberships: {}
+      
+      studies: 
+        "*": true
+      experiments: 
+        "*": true
+      auth: {}
+      
+      help: {}
+      
+      project_queues: 
+        list: true
+        show: true
+        "*": true
+      project_studies: 
+        list: true
+        show: true
+        "*": true
+      catalogue: {}
+      
+      dba: {}
+      
+      project: 
+        list: true
+        show: true
+        "*": true
+      study_parameters: 
+        "*": true
+      audit: {}
+      
+      project_experiments: 
+        list: true
+        show: true
+        "*": true
+      study_queues: 
+        "*": true
+      queue_items: 
+        "*": true
+      tasks: 
+        "*": true
+      biorails: {}
+      
+      page: {}
+      
+      requests: 
+        "*": true
+      users: {}
+      
+      reports: {}
+      
+      study_protocols: 
+        "*": true
+      home: {}
+      
+      charts: {}
+      
+      finder: {}
+      
+      project_requests: 
+        list: true
+        show: true
+        "*": true
+      inventory: {}
+      
+    type: ProjectRole
+    updated_by_user_id: "3"
+    id: "5"
+    description: Project owner with full rights
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:05:52
+user_role_3: !ruby/object:UserRole 
+  attributes: 
+    name: Administrator
+    updated_at: 2007-06-11 12:47:32
+    cache: |
+      --- 
+      studies: {}
+      
+      experiments: {}
+      
+      memberships: {}
+      
+      user: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      protocol: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      dba: 
+        "*": true
+      project: {}
+      
+      study_parameters: {}
+      
+      ~: 
+        ~: true
+      system: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      audit: {}
+      
+      cataloge: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_queues: {}
+      
+      queue_items: {}
+      
+      tasks: {}
+      
+      biorails: {}
+      
+      experiment: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      reports: 
+        "*": true
+      study_protocols: {}
+      
+      home: 
+        calendar: true
+        blog: true
+        projects: true
+        timeline: true
+        show: true
+        index: true
+        "*": true
+      report: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      finder: {}
+      
+      charts: {}
+      
+      project_requests: {}
+      
+      inventory: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "3"
+    description: Systems Catalogue Administrator
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2006-06-23 12:03:48

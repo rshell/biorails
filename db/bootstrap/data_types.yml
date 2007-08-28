@@ -1,71 +1,155 @@
 --- 
-data_types_001: 
-  name: text
-  
-  value_class: String
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "1"
-  description: Text
-  created_by_user_id: "1"
-  
-data_types_002: 
-  name: numeric
-  
-  value_class: Numeric
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "2"
-  description: Numeric
-  created_by_user_id: "1"
-  
-data_types_003: 
-  name: date
-  
-  value_class: Date
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "3"
-  description: Date
-  created_by_user_id: "1"
-  
-data_types_004: 
-  name: time
-  
-  value_class: DateTime
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "4"
-  description: Time
-  created_by_user_id: "1"
-  
-data_types_005: 
-  name: dictionary
-  
-  value_class: DataConcept
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "5"
-  description: Look up on catalogue
-  created_by_user_id: "1"
-  
-data_types_006: 
-  name: url
-  
-  value_class: String
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "6"
-  description: Reference
-  created_by_user_id: "1"
-  
-data_types_007: 
-  name: file
-  
-  value_class: File
-  updated_by_user_id: "1"
-  lock_version: "1"
-  id: "7"
-  description: File
-  created_by_user_id: "1"
-  
+data_type_13: !ruby/object:DataType 
+  attributes: 
+    name: dictionary
+    updated_at: 2007-08-24 08:55:22
+    value_class: DataConcept
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "13"
+    description: Look up on catalogue
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_7: !ruby/object:DataType 
+  attributes: 
+    name: file
+    updated_at: 2006-12-13 16:45:26
+    value_class: File
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "7"
+    description: File
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_14: !ruby/object:DataType 
+  attributes: 
+    name: url
+    updated_at: 2007-08-24 08:55:22
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "14"
+    description: Reference
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_8: !ruby/object:DataType 
+  attributes: 
+    name: file
+    updated_at: 2007-08-24 08:55:22
+    value_class: File
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "8"
+    description: File
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_9: !ruby/object:DataType 
+  attributes: 
+    name: text
+    updated_at: 2007-08-24 08:55:22
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "9"
+    description: Text
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_1: !ruby/object:DataType 
+  attributes: 
+    name: text
+    updated_at: 2006-12-13 16:44:12
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "1"
+    description: Text
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_2: !ruby/object:DataType 
+  attributes: 
+    name: numeric
+    updated_at: 2006-12-13 16:44:21
+    value_class: Numeric
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "2"
+    description: Numeric
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_3: !ruby/object:DataType 
+  attributes: 
+    name: date
+    updated_at: 2006-12-13 16:44:28
+    value_class: Date
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "3"
+    description: Date
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_10: !ruby/object:DataType 
+  attributes: 
+    name: numeric
+    updated_at: 2007-08-24 08:55:22
+    value_class: Numeric
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "10"
+    description: Numeric
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_4: !ruby/object:DataType 
+  attributes: 
+    name: time
+    updated_at: 2006-12-13 16:44:35
+    value_class: DateTime
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "4"
+    description: Time
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_11: !ruby/object:DataType 
+  attributes: 
+    name: date
+    updated_at: 2007-08-24 08:55:22
+    value_class: Date
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "11"
+    description: Date
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_5: !ruby/object:DataType 
+  attributes: 
+    name: dictionary
+    updated_at: 2006-12-13 16:44:41
+    value_class: DataConcept
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "5"
+    description: Look up on catalogue
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00
+data_type_12: !ruby/object:DataType 
+  attributes: 
+    name: time
+    updated_at: 2007-08-24 08:55:22
+    value_class: DateTime
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "12"
+    description: Time
+    created_by_user_id: "1"
+    created_at: 2007-08-24 08:55:22
+data_type_6: !ruby/object:DataType 
+  attributes: 
+    name: url
+    updated_at: 2006-12-13 16:44:50
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "6"
+    description: Reference
+    created_by_user_id: "1"
+    created_at: 0000-00-00 00:00:00

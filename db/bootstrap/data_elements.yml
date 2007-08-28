@@ -1,2143 +1,1783 @@
 --- 
-data_elements_104: 
-  name: "***"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "161"
-  description: "***"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "83"
-  style: child
-  
-data_elements_078: 
-  name: vehicle
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "135"
-  description: vehicle
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "76"
-  style: child
-  
-data_elements_049: 
-  name: Tox - serum
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "106"
-  description: Tox - serum
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "65"
-  style: child
-  
-data_elements_105: 
-  name: "****"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "162"
-  description: "****"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "83"
-  style: child
-  
-data_elements_020: 
-  name: hours
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "6"
-  id: "74"
-  description: hours
-  content: "1,2,6,12,24,48"
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_079: 
-  name: negative
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "136"
-  description: negative
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "76"
-  style: child
-  
-data_elements_021: 
-  name: Concentration
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "6"
-  id: "75"
-  description: Simple Concentrations
-  content: "'Mol','mMol','uMol','nMol','pMol','mg/kg'"
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_106: 
-  name: "True"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "163"
-  description: "True"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "84"
-  style: child
-  
-data_elements_050: 
-  name: AB ELISA + serum
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "107"
-  description: AB ELISA + serum
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "65"
-  style: child
-  
-data_elements_022: 
-  name: Compound Role
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "76"
-  description: What role does each compound take within an experiment
-  content: "'vehicle','negative','positive','challenge','interest'"
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_107: 
-  name: "False"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "164"
-  description: "False"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "84"
-  style: child
-  
-data_elements_023: 
-  name: Score
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "6"
-  data_system_id: "1"
-  estimated_count: "9"
-  id: "77"
-  description: Score
-  content: 0,1,2,3,4,5,6,7,8,9
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_108: 
-  name: T011
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "165"
-  description: T011
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_051: 
-  name: Tox + serum
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "108"
-  description: Tox + serum
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "65"
-  style: child
-  
-data_elements_024: 
-  name: QC
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "3"
-  id: "80"
-  description: pass, fail, retest
-  content: "'pass','fail','retest'"
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_080: 
-  name: positive
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "137"
-  description: positive
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "76"
-  style: child
-  
-data_elements_109: 
-  name: T012
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "166"
-  description: T012
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_052: 
-  name: "0"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "109"
-  description: "0"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_081: 
-  name: challenge
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "138"
-  description: challenge
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "76"
-  style: child
-  
-data_elements_053: 
-  name: "1"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "110"
-  description: "1"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_025: 
-  name: Progresssion
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "3"
-  id: "81"
-  description: hit, miss, retest
-  content: "'hit','miss','retest'"
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_082: 
-  name: interest
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "139"
-  description: interest
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "76"
-  style: child
-  
-data_elements_054: 
-  name: "2"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "111"
-  description: "2"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_026: 
-  name: KO
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "2"
-  id: "82"
-  description: Concept 'knocked-out' out is true
-  content: "'True','False'"
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_083: 
-  name: "0"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "140"
-  description: "0"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_055: 
-  name: "3"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "112"
-  description: "3"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_110: 
-  name: T014
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "167"
-  description: T014
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_027: 
-  name: significance
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "83"
-  description: NS to ****
-  content: "'NS','*','**','***','****'"
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_084: 
-  name: "1"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "141"
-  description: "1"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_056: 
-  name: "4"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "113"
-  description: "4"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_111: 
-  name: T015
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "168"
-  description: T015
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_085: 
-  name: "2"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "142"
-  description: "2"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_057: 
-  name: "5"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "114"
-  description: "5"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_112: 
-  name: T0016
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "169"
-  description: T0016
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_028: 
-  name: Boolean
-  
-  access_control_id: 
-  updated_by_user_id: "2"
-  type: ListElement
-  lock_version: "2"
-  data_system_id: "1"
-  estimated_count: "2"
-  id: "84"
-  description: true or false
-  content: "'True','False'"
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_086: 
-  name: "3"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "143"
-  description: "3"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_029: 
-  name: TargetID
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "7"
-  id: "85"
-  description: Internal ID of the targets used in the projects
-  content: "'T011','T012','T014','T015','T0016','T0017','T008'"
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_087: 
-  name: "4"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "144"
-  description: "4"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_058: 
-  name: "10"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "115"
-  description: "10"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_113: 
-  name: T0017
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "170"
-  description: T0017
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_088: 
-  name: "5"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "145"
-  description: "5"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_001: 
-  name: Compound
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "7"
-  data_system_id: "1"
-  estimated_count: "1000"
-  id: "1"
-  description: Compound
-  content: Compound
-  data_concept_id: "4"
-  created_by_user_id: "1"
-  parent_id: 
-  style: sql
-  
-data_elements_059: 
-  name: "15"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "116"
-  description: "15"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_114: 
-  name: T008
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "171"
-  description: T008
-  content: ""
-  data_concept_id: "1"
-  created_by_user_id: "1"
-  parent_id: "85"
-  style: child
-  
-data_elements_115: 
-  name: T1
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "172"
-  description: T1
-  content: ""
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: "86"
-  style: child
-  
-data_elements_089: 
-  name: "6"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "146"
-  description: "6"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_002: 
-  name: Batch
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: SqlElement
-  lock_version: "6"
-  data_system_id: "1"
-  estimated_count: "12222"
-  id: "2"
-  description: Batch
-  content: Select * from batches
-  data_concept_id: "5"
-  created_by_user_id: "1"
-  parent_id: 
-  style: sql
-  
-data_elements_030: 
-  name: Target
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "86"
-  description: Targets
-  content: "'T1','T2','T3','T4','T5'"
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_116: 
-  name: T2
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "173"
-  description: T2
-  content: ""
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: "86"
-  style: child
-  
-data_elements_031: 
-  name: AssayDefinitions
-  
-  access_control_id: 
-  updated_by_user_id: "2"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "526"
-  id: "88"
-  description: Study Designs
-  content: Audit
-  data_concept_id: "51"
-  created_by_user_id: "2"
-  parent_id: 
-  style: model
-  
-data_elements_117: 
-  name: T3
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "174"
-  description: T3
-  content: ""
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: "86"
-  style: child
-  
-data_elements_003: 
-  name: Plate
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ViewElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "12"
-  id: "8"
-  description: Plates
-  content: plates
-  data_concept_id: "8"
-  created_by_user_id: "1"
-  parent_id: 
-  style: sql
-  
-data_elements_060: 
-  name: "20"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "117"
-  description: "20"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_032: 
-  name: im
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "89"
-  description: im
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "56"
-  style: child
-  
-data_elements_118: 
-  name: T4
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "175"
-  description: T4
-  content: ""
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: "86"
-  style: child
-  
-data_elements_004: 
-  name: Studies
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "4"
-  id: "45"
-  description: Studies on system
-  content: Study
-  data_concept_id: "3"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_061: 
-  name: "25"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "118"
-  description: "25"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_033: 
-  name: iv
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "90"
-  description: iv
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "56"
-  style: child
-  
-data_elements_119: 
-  name: T5
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "176"
-  description: T5
-  content: ""
-  data_concept_id: "50"
-  created_by_user_id: "1"
-  parent_id: "86"
-  style: child
-  
-data_elements_005: 
-  name: Requests
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "9"
-  id: "46"
-  description: Requests
-  content: QueueItem
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_090: 
-  name: "7"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "147"
-  description: "7"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_062: 
-  name: "30"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "119"
-  description: "30"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_034: 
-  name: ip
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "91"
-  description: ip
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "56"
-  style: child
-  
-data_elements_006: 
-  name: Plates
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: SqlElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "0"
-  id: "48"
-  description: List of Plates defined on the system
-  content: select * from plates
-  data_concept_id: "7"
-  created_by_user_id: "1"
-  parent_id: 
-  style: sql
-  
-data_elements_091: 
-  name: "8"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "148"
-  description: "8"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_063: 
-  name: "40"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "120"
-  description: "40"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_035: 
-  name: po
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "92"
-  description: po
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "56"
-  style: child
-  
-data_elements_092: 
-  name: "9"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "149"
-  description: "9"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "77"
-  style: child
-  
-data_elements_064: 
-  name: "50"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "121"
-  description: "50"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_007: 
-  name: COmpounds
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: SqlElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "1000"
-  id: "49"
-  description: Compounds Id as Sample Identifiers
-  content: select * from compounds
-  data_concept_id: "7"
-  created_by_user_id: "1"
-  parent_id: 
-  style: sql
-  
-data_elements_120: 
-  name: BAL or Tissue
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: ListElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "177"
-  description: BAL or Tissue
-  content: "'BAL','Tissue'"
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: 
-  style: list
-  
-data_elements_065: 
-  name: "100"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "122"
-  description: "100"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "73"
-  style: child
-  
-data_elements_036: 
-  name: sc
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "93"
-  description: sc
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "56"
-  style: child
-  
-data_elements_008: 
-  name: Route of Administration
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "56"
-  description: Route of Administration
-  content: "'im','iv', 'ip', 'po', 'sc'"
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_093: 
-  name: pass
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "150"
-  description: pass
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "80"
-  style: child
-  
-data_elements_121: 
-  name: BAL
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "178"
-  description: BAL
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: "177"
-  style: child
-  
-data_elements_066: 
-  name: "1"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "123"
-  description: "1"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_037: 
-  name: male
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "94"
-  description: male
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "57"
-  style: child
-  
-data_elements_009: 
-  name: Sex
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "2"
-  id: "57"
-  description: Male or female (not frequency!)
-  content: "'male', 'female'"
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_094: 
-  name: fail
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "151"
-  description: fail
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "80"
-  style: child
-  
-data_elements_122: 
-  name: Tissue
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "179"
-  description: Tissue
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: "177"
-  style: child
-  
-data_elements_067: 
-  name: "2"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "124"
-  description: "2"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_038: 
-  name: female
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "95"
-  description: female
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "57"
-  style: child
-  
-data_elements_095: 
-  name: retest
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "152"
-  description: retest
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "80"
-  style: child
-  
-data_elements_123: 
-  name: Modifiers
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: ListElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "180"
-  description: "> (greater than), < less then, ~ (approximate)"
-  content: "'>', '<', '~'"
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: 
-  style: list
-  
-data_elements_068: 
-  name: "6"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "125"
-  description: "6"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_039: 
-  name: rat
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "96"
-  description: rat
-  content: ""
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  parent_id: "63"
-  style: child
-  
-data_elements_096: 
-  name: hit
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "153"
-  description: hit
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "81"
-  style: child
-  
-data_elements_097: 
-  name: miss
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "154"
-  description: miss
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "81"
-  style: child
-  
-data_elements_010: 
-  name: Mammals
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "3"
-  data_system_id: "1"
-  estimated_count: "4"
-  id: "63"
-  description: Small Mammals
-  content: "'rat', 'mouse', 'guinea pig', 'moose'"
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_124: 
-  name: ">"
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "181"
-  description: ">"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: "180"
-  style: child
-  
-data_elements_069: 
-  name: "12"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "126"
-  description: "12"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_098: 
-  name: retest
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "155"
-  description: retest
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "81"
-  style: child
-  
-data_elements_011: 
-  name: "serum species "
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "64"
-  description: Serum species used in DR-ELIZA study
-  content: "'Human', 'Bovine', 'Rat', 'Mouse', 'Guinea Pig'"
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_125: 
-  name: <
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "182"
-  description: <
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: "180"
-  style: child
-  
-data_elements_040: 
-  name: mouse
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "97"
-  description: mouse
-  content: ""
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  parent_id: "63"
-  style: child
-  
-data_elements_099: 
-  name: "True"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "156"
-  description: "True"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "82"
-  style: child
-  
-data_elements_012: 
-  name: Eliza Treatments
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "4"
-  id: "65"
-  description: Eliza treamtments
-  content: "'AB ELISA - serum', 'Tox - serum', 'AB ELISA + serum', 'Tox + serum'"
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_126: 
-  name: "~"
-  
-  access_control_id: 
-  updated_by_user_id: "4"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "183"
-  description: "~"
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "4"
-  parent_id: "180"
-  style: child
-  
-data_elements_041: 
-  name: guinea pig
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "98"
-  description: guinea pig
-  content: ""
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  parent_id: "63"
-  style: child
-  
-data_elements_013: 
-  name: Protocol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "9"
-  id: "66"
-  description: Protocols
-  content: StudyProtocol
-  data_concept_id: "25"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_070: 
-  name: "24"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "127"
-  description: "24"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_042: 
-  name: moose
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "99"
-  description: moose
-  content: ""
-  data_concept_id: "47"
-  created_by_user_id: "1"
-  parent_id: "63"
-  style: child
-  
-data_elements_071: 
-  name: "48"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "128"
-  description: "48"
-  content: ""
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: "74"
-  style: child
-  
-data_elements_043: 
-  name: Human
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "100"
-  description: Human
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "64"
-  style: child
-  
-data_elements_014: 
-  name: Users
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "5"
-  id: "67"
-  description: Internal users for the biorails systems
-  content: User
-  data_concept_id: "48"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_044: 
-  name: Bovine
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "101"
-  description: Bovine
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "64"
-  style: child
-  
-data_elements_015: 
-  name: ParameterRoles
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "6"
-  id: "69"
-  description: Parameter Usage Roles for extra classication of a data collected. This allow important results to be easily&nbsp; separated from&nbsp; setting, configuration and raw data saved back to the database.
-  content: ParameterRole
-  data_concept_id: "31"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_072: 
-  name: Mol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "129"
-  description: Mol
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
-data_elements_045: 
-  name: Rat
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "102"
-  description: Rat
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "64"
-  style: child
-  
-data_elements_100: 
-  name: "False"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "157"
-  description: "False"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "82"
-  style: child
-  
-data_elements_016: 
-  name: ParameterTypes
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "31"
-  id: "70"
-  description: Internal Types of data managed
-  content: ParameterType
-  data_concept_id: "30"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_073: 
-  name: mMol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "130"
-  description: mMol
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
-data_elements_046: 
-  name: Mouse
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "103"
-  description: Mouse
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "64"
-  style: child
-  
-data_elements_101: 
-  name: NS
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "158"
-  description: NS
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "83"
-  style: child
-  
-data_elements_017: 
-  name: Compounds
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "1002"
-  id: "71"
-  description: Compounds as sample id
-  content: Compound
-  data_concept_id: "6"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_074: 
-  name: uMol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "131"
-  description: uMol
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
-data_elements_018: 
-  name: Tasks
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ModelElement
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: "19"
-  id: "72"
-  description: List of Tasks in the system
-  content: Task
-  data_concept_id: "27"
-  created_by_user_id: "1"
-  parent_id: 
-  style: model
-  
-data_elements_075: 
-  name: nMol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "132"
-  description: nMol
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
-data_elements_047: 
-  name: Guinea Pig
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "104"
-  description: Guinea Pig
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "64"
-  style: child
-  
-data_elements_102: 
-  name: "*"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "159"
-  description: "*"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "83"
-  style: child
-  
-data_elements_019: 
-  name: Times
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: ListElement
-  lock_version: "1"
-  data_system_id: "1"
-  estimated_count: "14"
-  id: "73"
-  description: Times
-  content: "0,1,2,3,4,5,10,15,20,25,30,40,50,100"
-  data_concept_id: "33"
-  created_by_user_id: "1"
-  parent_id: 
-  style: list
-  
-data_elements_076: 
-  name: pMol
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "133"
-  description: pMol
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
-data_elements_048: 
-  name: AB ELISA - serum
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "105"
-  description: AB ELISA - serum
-  content: ""
-  data_concept_id: "39"
-  created_by_user_id: "1"
-  parent_id: "65"
-  style: child
-  
-data_elements_103: 
-  name: "**"
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "160"
-  description: "**"
-  content: ""
-  data_concept_id: "49"
-  created_by_user_id: "1"
-  parent_id: "83"
-  style: child
-  
-data_elements_077: 
-  name: mg/kg
-  
-  access_control_id: 
-  updated_by_user_id: "1"
-  type: 
-  lock_version: "0"
-  data_system_id: "1"
-  estimated_count: 
-  id: "134"
-  description: mg/kg
-  content: ""
-  data_concept_id: "26"
-  created_by_user_id: "1"
-  parent_id: "75"
-  style: child
-  
+data_element_118: !ruby/object:DataElement 
+  attributes: 
+    name: Fail
+    updated_at: 2007-07-04 14:05:36
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "118"
+    description: " Fail"
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "116"
+    style: child
+    created_at: 2007-07-04 14:05:36
+list_element_112: !ruby/object:ListElement 
+  attributes: 
+    name: Verified
+    updated_at: 2007-07-04 14:05:13
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "112"
+    description: Verification status, used by many legacy systems
+    content: Verified, Rejected, Unverified
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-07-04 14:05:13
+list_element_52: !ruby/object:ListElement 
+  attributes: 
+    name: Route
+    updated_at: 2007-06-28 12:43:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "8"
+    id: "52"
+    description: Rout of administration
+    content: "ia, ic, ii, im, ip, iv, po, sc "
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-28 12:43:41
+model_element_1: !ruby/object:ModelElement 
+  attributes: 
+    name: DataFormat
+    updated_at: 2007-06-06 14:31:27
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "1"
+    description: Data Format List for the system
+    content: DataFormat
+    data_concept_id: "29"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:31:27
+data_element_22: !ruby/object:DataElement 
+  attributes: 
+    name: g
+    updated_at: 2007-06-06 14:47:17
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "22"
+    description: g
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:17
+data_element_64: !ruby/object:DataElement 
+  attributes: 
+    name: female
+    updated_at: 2007-06-28 12:50:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "64"
+    description: " female"
+    content: ""
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: "62"
+    style: child
+    created_at: 2007-06-28 12:50:22
+data_element_119: !ruby/object:DataElement 
+  attributes: 
+    name: Retest
+    updated_at: 2007-07-04 14:05:36
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "119"
+    description: " Retest"
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "116"
+    style: child
+    created_at: 2007-07-04 14:05:36
+data_element_100: !ruby/object:DataElement 
+  attributes: 
+    name: T004
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "100"
+    description: T004
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+model_element_2: !ruby/object:ModelElement 
+  attributes: 
+    name: DataType
+    updated_at: 2007-06-06 14:37:38
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "2"
+    description: Data Type implemented in the biorails site
+    content: DataType
+    data_concept_id: "28"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:37:38
+data_element_23: !ruby/object:DataElement 
+  attributes: 
+    name: kg
+    updated_at: 2007-06-06 14:47:17
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "23"
+    description: kg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:17
+data_element_44: !ruby/object:DataElement 
+  attributes: 
+    name: New
+    updated_at: 2007-06-06 21:15:55
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "44"
+    description: New
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "43"
+    style: child
+    created_at: 2007-06-06 21:15:55
+data_element_101: !ruby/object:DataElement 
+  attributes: 
+    name: T005
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "101"
+    description: T005
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+list_element_96: !ruby/object:ListElement 
+  attributes: 
+    name: Target
+    updated_at: 2007-07-04 12:58:48
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "11"
+    id: "96"
+    description: An internal list of Targets
+    content: T001,T002,T003,T004,T005,T006,T007,T008,T009,T010,T888
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-07-04 12:58:47
+model_element_3: !ruby/object:ModelElement 
+  attributes: 
+    name: Groups
+    updated_at: 2007-06-06 14:38:15
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "3"
+    description: User Groups registered on the current system
+    content: Group
+    data_concept_id: "33"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:38:15
+data_element_24: !ruby/object:DataElement 
+  attributes: 
+    name: mg
+    updated_at: 2007-06-06 14:47:18
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "24"
+    description: mg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:18
+data_element_45: !ruby/object:DataElement 
+  attributes: 
+    name: Active
+    updated_at: 2007-06-06 21:15:55
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "45"
+    description: Active
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "43"
+    style: child
+    created_at: 2007-06-06 21:15:55
+data_element_102: !ruby/object:DataElement 
+  attributes: 
+    name: T006
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "102"
+    description: T006
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+list_element_13: !ruby/object:ListElement 
+  attributes: 
+    name: Length
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "7"
+    id: "13"
+    description: Length Units
+    content: m,km,cm,mm,um,nm,pm
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 14:46:42
+model_element_4: !ruby/object:ModelElement 
+  attributes: 
+    name: ParameterRole
+    updated_at: 2007-06-06 14:41:09
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "4"
+    description: Parameter Roles lookup to allow separation of data into a number of bin for fruther use.
+    content: ParameterRole
+    data_concept_id: "31"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:41:08
+data_element_25: !ruby/object:DataElement 
+  attributes: 
+    name: ug
+    updated_at: 2007-06-06 14:47:18
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "25"
+    description: ug
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:18
+data_element_46: !ruby/object:DataElement 
+  attributes: 
+    name: Finished
+    updated_at: 2007-06-06 21:15:56
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "46"
+    description: Finished
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "43"
+    style: child
+    created_at: 2007-06-06 21:15:56
+list_element_116: !ruby/object:ListElement 
+  attributes: 
+    name: Pass
+    updated_at: 2007-07-04 14:05:36
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "116"
+    description: Pass, Fail, Retest
+    content: Pass, Fail, Retest
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-07-04 14:05:35
+data_element_103: !ruby/object:DataElement 
+  attributes: 
+    name: T007
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "103"
+    description: T007
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+model_element_5: !ruby/object:ModelElement 
+  attributes: 
+    name: ParameterType
+    updated_at: 2007-06-06 14:42:41
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "5"
+    description: Parameter Types , A little recursive as parameter types are defined with data elements
+    content: ParameterType
+    data_concept_id: "30"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:42:41
+data_element_26: !ruby/object:DataElement 
+  attributes: 
+    name: ng
+    updated_at: 2007-08-23 22:27:19
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "26"
+    description: ng
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:18
+data_element_104: !ruby/object:DataElement 
+  attributes: 
+    name: T008
+    updated_at: 2007-07-04 12:58:48
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "104"
+    description: T008
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+list_element_78: !ruby/object:ListElement 
+  attributes: 
+    name: CompoundRole
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "5"
+    id: "78"
+    description: Role the compound takes in an experiment
+    content: Vehicle, Compound, PosControl, NegControl, Standard
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-28 14:18:49
+model_element_6: !ruby/object:ModelElement 
+  attributes: 
+    name: Roles
+    updated_at: 2007-06-06 14:43:10
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "6"
+    description: Roles a user can take in the system
+    content: Role
+    data_concept_id: "39"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:43:10
+data_element_27: !ruby/object:DataElement 
+  attributes: 
+    name: pg
+    updated_at: 2007-06-06 14:47:18
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "27"
+    description: pg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "21"
+    style: child
+    created_at: 2007-06-06 14:47:18
+data_element_48: !ruby/object:DataElement 
+  attributes: 
+    name: Screen
+    updated_at: 2007-06-06 21:17:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "48"
+    description: Screen
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "47"
+    style: child
+    created_at: 2007-06-06 21:17:22
+data_element_105: !ruby/object:DataElement 
+  attributes: 
+    name: T009
+    updated_at: 2007-07-04 12:58:48
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "105"
+    description: T009
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:48
+model_element_28: !ruby/object:ModelElement 
+  attributes: 
+    name: Users
+    updated_at: 2007-06-06 14:49:09
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "28"
+    description: User
+    content: User
+    data_concept_id: "48"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:49:09
+data_element_50: !ruby/object:DataElement 
+  attributes: 
+    name: Profile
+    updated_at: 2007-06-06 21:17:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "50"
+    description: Profile
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "47"
+    style: child
+    created_at: 2007-06-06 21:17:22
+data_element_49: !ruby/object:DataElement 
+  attributes: 
+    name: Dose
+    updated_at: 2007-06-06 21:17:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "49"
+    description: Dose
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "47"
+    style: child
+    created_at: 2007-06-06 21:17:22
+data_element_71: !ruby/object:DataElement 
+  attributes: 
+    name: "*"
+    updated_at: 2007-06-28 13:32:23
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "3"
+    data_system_id: "1"
+    estimated_count: 
+    id: "71"
+    description: <0.02 probability
+    content: ""
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2007-06-28 13:30:41
+data_element_106: !ruby/object:DataElement 
+  attributes: 
+    name: T010
+    updated_at: 2007-07-04 12:58:48
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "106"
+    description: T010
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:48
+data_element_72: !ruby/object:DataElement 
+  attributes: 
+    name: "**"
+    updated_at: 2007-06-28 13:32:33
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "3"
+    data_system_id: "1"
+    estimated_count: 
+    id: "72"
+    description: <0.01 probability
+    content: ""
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2007-06-28 13:30:41
+data_element_51: !ruby/object:DataElement 
+  attributes: 
+    name: Tox
+    updated_at: 2007-06-06 21:17:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "51"
+    description: Tox
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "47"
+    style: child
+    created_at: 2007-06-06 21:17:22
+list_element_7: !ruby/object:ListElement 
+  attributes: 
+    name: Molar
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "5"
+    id: "7"
+    description: Molar Units
+    content: M,mM,uM,pM,nM
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 14:45:45
+list_element_38: !ruby/object:ListElement 
+  attributes: 
+    name: Area
+    updated_at: 2007-06-06 20:42:43
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "38"
+    description: Research Areas
+    content: A,B,C,D
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 20:42:42
+model_element_30: !ruby/object:ModelElement 
+  attributes: 
+    name: Experiment
+    updated_at: 2007-06-06 14:52:44
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "30"
+    description: Experiments
+    content: Experiment
+    data_concept_id: "24"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:52:43
+data_element_73: !ruby/object:DataElement 
+  attributes: 
+    name: "***"
+    updated_at: 2007-06-28 13:32:54
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "4"
+    data_system_id: "1"
+    estimated_count: 
+    id: "73"
+    description: <0.001 probability
+    content: ""
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2007-06-28 13:30:42
+data_element_10: !ruby/object:DataElement 
+  attributes: 
+    name: uM
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "10"
+    description: uM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "7"
+    style: child
+    created_at: 2007-06-06 14:45:45
+model_element_31: !ruby/object:ModelElement 
+  attributes: 
+    name: Folder
+    updated_at: 2007-06-06 14:53:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "31"
+    description: Project Folder
+    content: ProjectFolder
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:53:42
+data_element_107: !ruby/object:DataElement 
+  attributes: 
+    name: T888
+    updated_at: 2007-07-04 12:58:48
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "107"
+    description: T888
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:48
+data_element_74: !ruby/object:DataElement 
+  attributes: 
+    name: NS
+    updated_at: 2007-06-28 13:32:05
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "74"
+    description: not significant
+    content: ""
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2007-06-28 13:30:42
+list_element_62: !ruby/object:ListElement 
+  attributes: 
+    name: Sex
+    updated_at: 2007-06-28 12:50:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "2"
+    id: "62"
+    description: male, female
+    content: male, female
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-28 12:50:22
+data_element_11: !ruby/object:DataElement 
+  attributes: 
+    name: pM
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "11"
+    description: pM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "7"
+    style: child
+    created_at: 2007-06-06 14:45:45
+model_element_32: !ruby/object:ModelElement 
+  attributes: 
+    name: Project
+    updated_at: 2007-06-06 14:55:25
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "32"
+    description: "List of all projects on the systems "
+    content: Project
+    data_concept_id: "49"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:55:25
+data_element_53: !ruby/object:DataElement 
+  attributes: 
+    name: ia
+    updated_at: 2007-06-28 12:45:09
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "53"
+    description: intraarterial, (into an artery), e.g. vasodilator drugs in the treatment of vasospasm and thrombolytic drugs for treatment of embolism
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_110: !ruby/object:DataElement 
+  attributes: 
+    name: Miss
+    updated_at: 2007-08-23 22:26:08
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "110"
+    description: " Miss"
+    content: ""
+    data_concept_id: "60"
+    created_by_user_id: "1"
+    parent_id: "108"
+    style: child
+    created_at: 2007-07-04 14:03:51
+list_element_21: !ruby/object:ListElement 
+  attributes: 
+    name: weight
+    updated_at: 2007-06-06 14:47:18
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "6"
+    id: "21"
+    description: Weight
+    content: g,kg,mg,ug,ng,pg
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 14:47:17
+data_element_12: !ruby/object:DataElement 
+  attributes: 
+    name: nM
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "12"
+    description: nM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "7"
+    style: child
+    created_at: 2007-06-06 14:45:45
+model_element_33: !ruby/object:ModelElement 
+  attributes: 
+    name: Task
+    updated_at: 2007-06-06 14:55:53
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "33"
+    description: Task in the system
+    content: Task
+    data_concept_id: "27"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:55:53
+data_element_54: !ruby/object:DataElement 
+  attributes: 
+    name: ic
+    updated_at: 2007-06-28 12:45:38
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "54"
+    description: " icintracardiac (into the heart), e.g. adrenaline during cardiopulmonary resuscitation (no longer commonly performed)"
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_111: !ruby/object:DataElement 
+  attributes: 
+    name: Retest
+    updated_at: 2007-07-04 14:03:52
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "111"
+    description: " Retest"
+    content: ""
+    data_concept_id: "60"
+    created_by_user_id: "1"
+    parent_id: "108"
+    style: child
+    created_at: 2007-07-04 14:03:51
+data_element_109: !ruby/object:DataElement 
+  attributes: 
+    name: Hit
+    updated_at: 2007-07-04 14:03:51
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "109"
+    description: Hit
+    content: ""
+    data_concept_id: "60"
+    created_by_user_id: "1"
+    parent_id: "108"
+    style: child
+    created_at: 2007-07-04 14:03:51
+data_element_97: !ruby/object:DataElement 
+  attributes: 
+    name: T001
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "97"
+    description: T001
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+list_element_43: !ruby/object:ListElement 
+  attributes: 
+    name: Status
+    updated_at: 2007-06-06 21:15:56
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "43"
+    description: Protocol Status
+    content: New,Active,Finished
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:15:55
+model_element_34: !ruby/object:ModelElement 
+  attributes: 
+    name: Batches
+    updated_at: 2007-06-06 14:56:31
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "34"
+    description: "Batches of a compound "
+    content: Batch
+    data_concept_id: "7"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:56:31
+data_element_55: !ruby/object:DataElement 
+  attributes: 
+    name: it
+    updated_at: 2007-06-28 12:49:02
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "3"
+    data_system_id: "1"
+    estimated_count: 
+    id: "55"
+    description: intrathecal (into the spinal canal) is most commonly used for spinal anesthesia and chemotherapy
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_98: !ruby/object:DataElement 
+  attributes: 
+    name: T002
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "98"
+    description: T002
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+data_element_14: !ruby/object:DataElement 
+  attributes: 
+    name: m
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "14"
+    description: m
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+model_element_35: !ruby/object:ModelElement 
+  attributes: 
+    name: Compounds
+    updated_at: 2007-06-06 14:56:50
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "35"
+    description: Compounds
+    content: Compound
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:56:50
+data_element_56: !ruby/object:DataElement 
+  attributes: 
+    name: im
+    updated_at: 2007-06-28 12:45:26
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "56"
+    description: intramuscular (into a muscle), e.g. many vaccines, antibiotics, and long-term psychoactive agents
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_113: !ruby/object:DataElement 
+  attributes: 
+    name: Verified
+    updated_at: 2007-07-04 14:05:13
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "113"
+    description: Verified
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "112"
+    style: child
+    created_at: 2007-07-04 14:05:13
+data_element_99: !ruby/object:DataElement 
+  attributes: 
+    name: T003
+    updated_at: 2007-07-04 12:58:47
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "99"
+    description: T003
+    content: ""
+    data_concept_id: "50"
+    created_by_user_id: "1"
+    parent_id: "96"
+    style: child
+    created_at: 2007-07-04 12:58:47
+data_element_15: !ruby/object:DataElement 
+  attributes: 
+    name: km
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "15"
+    description: km
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+model_element_36: !ruby/object:ModelElement 
+  attributes: 
+    name: Request
+    updated_at: 2007-06-06 14:58:11
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "36"
+    description: List of subjects associated with a request
+    content: RequestList
+    data_concept_id: "11"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:58:11
+data_element_8: !ruby/object:DataElement 
+  attributes: 
+    name: M
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "8"
+    description: M
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "7"
+    style: child
+    created_at: 2007-06-06 14:45:45
+data_element_57: !ruby/object:DataElement 
+  attributes: 
+    name: ip
+    updated_at: 2007-06-28 12:47:23
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "57"
+    description: intraperitoneal, (infusion or injection into the peritoneum) e.g. peritoneal dialysis is predominantly used in veterinary medicine and animal testing for the administration
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_114: !ruby/object:DataElement 
+  attributes: 
+    name: Rejected
+    updated_at: 2007-07-04 14:05:13
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "114"
+    description: " Rejected"
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "112"
+    style: child
+    created_at: 2007-07-04 14:05:13
+data_element_80: !ruby/object:DataElement 
+  attributes: 
+    name: Compound
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "80"
+    description: " Compound"
+    content: ""
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: "78"
+    style: child
+    created_at: 2007-06-28 14:18:49
+data_element_79: !ruby/object:DataElement 
+  attributes: 
+    name: Vehicle
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "79"
+    description: Vehicle
+    content: ""
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: "78"
+    style: child
+    created_at: 2007-06-28 14:18:49
+data_element_16: !ruby/object:DataElement 
+  attributes: 
+    name: cm
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "16"
+    description: cm
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+model_element_37: !ruby/object:ModelElement 
+  attributes: 
+    name: Plate
+    updated_at: 2007-06-06 14:59:01
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "37"
+    description: Plate containers
+    content: Container
+    data_concept_id: "8"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:59:01
+data_element_9: !ruby/object:DataElement 
+  attributes: 
+    name: mM
+    updated_at: 2007-06-06 14:45:45
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "9"
+    description: mM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "7"
+    style: child
+    created_at: 2007-06-06 14:45:45
+data_element_58: !ruby/object:DataElement 
+  attributes: 
+    name: iv
+    updated_at: 2007-06-28 12:45:59
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "58"
+    description: intravenous (into a vein), e.g. many drugs, total parenteral nutrition
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_115: !ruby/object:DataElement 
+  attributes: 
+    name: Unverified
+    updated_at: 2007-07-04 14:05:13
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "115"
+    description: " Unverified"
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "112"
+    style: child
+    created_at: 2007-07-04 14:05:13
+data_element_81: !ruby/object:DataElement 
+  attributes: 
+    name: PosControl
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "81"
+    description: " PosControl"
+    content: ""
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: "78"
+    style: child
+    created_at: 2007-06-28 14:18:49
+data_element_17: !ruby/object:DataElement 
+  attributes: 
+    name: mm
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "17"
+    description: mm
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+data_element_60: !ruby/object:DataElement 
+  attributes: 
+    name: sc
+    updated_at: 2007-06-28 12:46:52
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "3"
+    data_system_id: "1"
+    estimated_count: 
+    id: "60"
+    description: subcutaneous (under the skin), e.g. insulin
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+data_element_59: !ruby/object:DataElement 
+  attributes: 
+    name: po
+    updated_at: 2007-06-28 12:47:51
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "59"
+    description: by mouth (orally), many drugs as tablets, capsules, or drops
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:43:41
+list_element_47: !ruby/object:ListElement 
+  attributes: 
+    name: Catagory
+    updated_at: 2007-06-06 21:17:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "47"
+    description: Protocol Catagory
+    content: Screen,Dose,Profile,Tox
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:17:22
+list_element_70: !ruby/object:ListElement 
+  attributes: 
+    name: Pvalues
+    updated_at: 2007-06-28 13:30:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "70"
+    description: p values representing levels of significance in a statistical test
+    content: x,xx,xxx,NS
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-28 13:30:41
+list_element_108: !ruby/object:ListElement 
+  attributes: 
+    name: Progression
+    updated_at: 2007-07-04 14:03:52
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "108"
+    description: Hit, Miss, Retest
+    content: Hit, Miss, Retest
+    data_concept_id: "60"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-07-04 14:03:51
+data_element_82: !ruby/object:DataElement 
+  attributes: 
+    name: NegControl
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "82"
+    description: " NegControl"
+    content: ""
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: "78"
+    style: child
+    created_at: 2007-06-28 14:18:49
+data_element_18: !ruby/object:DataElement 
+  attributes: 
+    name: um
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "18"
+    description: um
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+data_element_40: !ruby/object:DataElement 
+  attributes: 
+    name: B
+    updated_at: 2007-06-06 20:42:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "40"
+    description: B
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "38"
+    style: child
+    created_at: 2007-06-06 20:42:42
+data_element_39: !ruby/object:DataElement 
+  attributes: 
+    name: A
+    updated_at: 2007-06-06 20:42:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "39"
+    description: A
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "38"
+    style: child
+    created_at: 2007-06-06 20:42:42
+data_element_61: !ruby/object:DataElement 
+  attributes: 
+    name: io
+    updated_at: 2007-06-28 12:46:44
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "2"
+    data_system_id: "1"
+    estimated_count: 
+    id: "61"
+    description: intraosseous infusion (into the bone marrow) is, in effect, an indirect intravenous access because the bone marrow drains directly into the venous system. This route is occasionally used for drugs and fluids in emergency medicine and paediatrics when intravenous access is difficult.
+    content: ""
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    parent_id: "52"
+    style: child
+    created_at: 2007-06-28 12:46:44
+data_element_117: !ruby/object:DataElement 
+  attributes: 
+    name: Pass
+    updated_at: 2007-07-04 14:05:36
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "117"
+    description: Pass
+    content: ""
+    data_concept_id: "61"
+    created_by_user_id: "1"
+    parent_id: "116"
+    style: child
+    created_at: 2007-07-04 14:05:36
+data_element_83: !ruby/object:DataElement 
+  attributes: 
+    name: Standard
+    updated_at: 2007-06-28 14:18:49
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "83"
+    description: " Standard"
+    content: ""
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    parent_id: "78"
+    style: child
+    created_at: 2007-06-28 14:18:49
+data_element_41: !ruby/object:DataElement 
+  attributes: 
+    name: C
+    updated_at: 2007-06-06 20:42:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "41"
+    description: C
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "38"
+    style: child
+    created_at: 2007-06-06 20:42:42
+data_element_20: !ruby/object:DataElement 
+  attributes: 
+    name: pm
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "20"
+    description: pm
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+data_element_63: !ruby/object:DataElement 
+  attributes: 
+    name: male
+    updated_at: 2007-06-28 12:50:22
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "63"
+    description: male
+    content: ""
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: "62"
+    style: child
+    created_at: 2007-06-28 12:50:22
+sql_element_29: !ruby/object:SqlElement 
+  attributes: 
+    name: Administrators
+    updated_at: 2007-06-06 14:51:30
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: SqlElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "29"
+    description: Users with full Administration role
+    content: select * from users where role_id=3
+    data_concept_id: "48"
+    created_by_user_id: "1"
+    parent_id: 
+    style: sql
+    created_at: 2007-06-06 14:51:30
+data_element_19: !ruby/object:DataElement 
+  attributes: 
+    name: nm
+    updated_at: 2007-06-06 14:46:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "19"
+    description: nm
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "13"
+    style: child
+    created_at: 2007-06-06 14:46:42
+data_element_42: !ruby/object:DataElement 
+  attributes: 
+    name: D
+    updated_at: 2007-06-06 20:42:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "42"
+    description: D
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "38"
+    style: child
+    created_at: 2007-06-06 20:42:42
