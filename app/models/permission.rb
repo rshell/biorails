@@ -83,7 +83,7 @@ class Permission < ActiveRecord::Base
           logger.debug "Couldn't load file '#{file}' (already loaded?)"
         end
       end
-      @@cached_controllers = Hash.new    
+      @@cached_cexitontrollers = Hash.new    
       ObjectSpace.each_object(Class) do |klass|
         if klass.respond_to? :controller_name
             if klass.superclass.to_s == ApplicationController.to_s

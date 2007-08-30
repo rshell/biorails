@@ -12,8 +12,10 @@
     <div id='<%=item.dom_id(:current)%>' class='box folder_element'>  
 	<% if item.asset? and item.asset.image? %>
         	<h2>Figure: <%=item.name%>  <%= link_to '[Edit]', element_to_url(item)  %></h2>
-        	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
-	    	  
+        	<p>  
+                  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	
+                </p>  
+                      
 	<% elsif item.textual? %>
 	
     	<h2> Article: <%=item.title%> 

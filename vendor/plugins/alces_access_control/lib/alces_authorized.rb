@@ -110,7 +110,8 @@ module Alces
           end         
       end    
     end #AuthorizedService
-###
+
+####
 # The implements a rights model
 #  
 #  * access_control_via for simple global models
@@ -137,13 +138,14 @@ module Alces
 
           def access_control_list( rights , relation_options = {})
               has_many rights, relation_options do
-                  def permission?(user,subject,action)        
-                    perm =  RolePermission.find_by_sql( 
-                    ["select p.* from role_permissions p inner join memberships m on m.role_id = p.role_id where m.user_id=?  and m.project_id= ? and p.subject = ?  and (p.action = ? or p.action='*')",
-                     user.id, proxy_owner.id, subject.to_s, action.to_s])
-                    logger.info "permission?(#{user},#{subject},#{action}) = #{perm.size>0}"
-                    return perm.size>0
-                  end
+
+                def permission?(user,subject,action)   
+                    member = Membership.find(:first,
+                       :conditions=>['project_id = ? and user_id = ?',proxy_owner.id,user.id])
+                    ok = member.owner? || member.allows?(subject,action)
+                    logger.info "permission?(#{user},#{subject},#{action}) = #{ok}"
+                    return ok
+                end
               end                                                                                                                 
               write_inheritable_attribute( :access_control_list, rights )
               class_inheritable_reader :access_control_list

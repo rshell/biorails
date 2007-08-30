@@ -32,8 +32,8 @@ class Role < ActiveRecord::Base
   has_many :permissions, :class_name=>'RolePermission',:include=>'permission'
   has_many :users
   has_many :memberships, :include=>[:user,:project]
- 
-##
+
+###
 # Test if the role permissions is cached?
 # 
  def cached?
@@ -186,20 +186,3 @@ class Role < ActiveRecord::Base
  end
 
 end
-
-class UserRole < Role
-
-  def self.subjects
-    Permission.subjects(:current_user)
-  end
-
-end
-
-class ProjectRole < Role
-
-  def self.subjects
-    Permission.subjects(:current_project)
-  end
-
-end
-

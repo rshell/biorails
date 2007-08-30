@@ -130,6 +130,7 @@ class ParameterContext < ActiveRecord::Base
     parameter.study_parameter = definition
     parameter.sequence_num    =  0 
     parameter.context = self
+    parameter.name = definition.name
     parameter.fill_type_and_formating
     while Parameter.find(:first, :conditions => 
             ["protocol_version_id=? and name=?", self.process.id, parameter.name])

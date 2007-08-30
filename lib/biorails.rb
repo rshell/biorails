@@ -10,7 +10,7 @@
 module Biorails
   
   TEMPLATE_MODELS = [Role,User,Identifier,Permission,RolePermission,
-    DataConcept,DataSystem,
+    DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,DataType,
     DataFormat,ParameterType,ParameterRole,
     Project,Membership,
@@ -21,13 +21,13 @@ module Biorails
 
   RESULTS_MODELS = [Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
 
-  CATALOG_MODELS = [DataConcept,DataSystem,
+  CATALOG_MODELS = [DataContext,DataConcept,DataSystem,
         ListElement,ModelElement,SqlElement,ViewElement,
         DataType,DataFormat,ParameterType,ParameterRole]
 
   ALL_MODELS = [Role,User,Identifier,Permission,RolePermission,
     UserSetting,SystemSetting,
-    DataConcept,DataSystem,
+    DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,    
     DataType,DataFormat,
     ParameterType,ParameterRole,

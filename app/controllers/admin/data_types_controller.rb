@@ -5,7 +5,7 @@
 #
 class Admin::DataTypesController < ApplicationController
   
-  use_authorization :catalogue,
+  use_authorization :dba,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
                      

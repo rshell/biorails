@@ -120,6 +120,8 @@ class Execute::TasksController < ApplicationController
     @task.assigned_to_user_id = current_user.id
     @task.expected_hours =1
     @task.done_hours = 0
+    @task.started_at = Time.new
+    @task.expected_at = Time.new+1.day
     @task.name = Identifier.next_id(Task)
     @task.description = " Task in experiment #{@experiment.name} "      
   end

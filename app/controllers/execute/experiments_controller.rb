@@ -126,6 +126,8 @@ class Execute::ExperimentsController < ApplicationController
     @study ||= current_project.studies.find(:first)
     @experiment = Experiment.new(:study_id=>@study.id, :name=> Identifier.next_user_ref)
     @experiment.project = current_project
+    @experiment.started_at = Time.new
+    @experiment.expected_at = Time.new+7.day
     @experiment.description = " Experiment in project #{current_project.name} "  
   end
 

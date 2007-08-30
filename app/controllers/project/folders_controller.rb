@@ -1,6 +1,6 @@
 class Project::FoldersController < ApplicationController
  
-  use_authorization :project,
+  use_authorization :folders,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
                     

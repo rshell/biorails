@@ -194,7 +194,7 @@ SQL
 # 
  def period
      if tasks.size>0
-       return last_task.ended_at - first_task.started_at 
+       return last_task.finished_at - first_task.started_at 
      else
        return 1.week
      end   
@@ -288,7 +288,7 @@ SQL
            @context = read_values(@task,@definition,row) 
        when 'end'
           @task.save
-          @task.grid.save 
+          @task.gr@valueid.save 
           logger.info "Saved task #{@task.name}"
           
        else # url etc

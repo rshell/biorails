@@ -1,5 +1,10 @@
 class Project::MembershipsController < ApplicationController
-  def index
+
+  use_authorization :membership,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
+                    :rights =>  :current_project  
+
+def index
     list
     render :action => 'list'
   end

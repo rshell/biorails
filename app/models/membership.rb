@@ -33,11 +33,11 @@ class Membership < ActiveRecord::Base
 # 
 #  allows?('study','new')
  def allows?(subject,action)  
-   return (self.is_owner or self.role.allow?(subject,action))
+   return (self.owner? or self.role.allow?(subject,action))
  end
  
  def owner?
-   self.is_owner == "1"
+   self.is_owner.to_s  == self.connection.quoted_true
  end
  
  def owner=(value)
@@ -45,7 +45,7 @@ class Membership < ActiveRecord::Base
  end
 
  def owner
-   self.is_owner == "1"
+   self.is_owner.to_s  == self.connection.quoted_true
  end
 
 end

@@ -450,8 +450,10 @@ end
    def to_html
      if @item 
        @item.to_s
+     elsif @value
+       @value.to_s
      else
-       @value
+       ''       
      end       
    rescue Exception => ex
       logger.error "cell.to_s: #{ex.message}"

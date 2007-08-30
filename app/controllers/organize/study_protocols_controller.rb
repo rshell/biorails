@@ -267,6 +267,7 @@ class Organize::StudyProtocolsController < ApplicationController
        when 'sp' : @parameter = @parameter_context.add_parameter( StudyParameter.find(id) )
        when 'sq' : @parameter = @parameter_context.add_queue( StudyQueue.find(id) )
      end
+     puts @parameter.to_yaml
      if @parameter
        @successful = @parameter.save
        @parameter.process.resync_columns

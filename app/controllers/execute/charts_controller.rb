@@ -6,6 +6,11 @@
 
 class Execute::ChartsController < ApplicationController
 
+ use_authorization :reports,
+                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
+                    :rights => :current_user
+                      
+                      
 require 'scruffy'
 
 ##

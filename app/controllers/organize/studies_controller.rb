@@ -127,6 +127,8 @@ class Organize::StudiesController < ApplicationController
 # 
   def new
     @study = Study.new(:name=> Identifier.next_id(Study))
+    @study.started_at =Time.new
+    @study.expected_at = Time.new + 3.months
   end
   
 ##
