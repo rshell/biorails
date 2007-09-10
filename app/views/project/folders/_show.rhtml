@@ -57,6 +57,7 @@
            :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
 
+          <% last = item.id%>
     <% end %>
   </tbody>
   <thead>

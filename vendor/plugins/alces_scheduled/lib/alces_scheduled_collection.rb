@@ -80,7 +80,7 @@ SQL
                 # 
                 def overdue(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['ended_at < ? and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>['expected_at < ? and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
                   end  
                 end
                 ##
@@ -90,7 +90,7 @@ SQL
                 #
                 def current(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['? between started_at and ended_at and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>['? between started_at and expected_at and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
                   end
                 end
 
@@ -102,7 +102,7 @@ SQL
                 def range(date_from,date_to, limit=10, options={})
                   with_scope :find => options do
                     find(:all, :order => "started_at, ended_at", 
-                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
+                          :conditions => ["( (started_at between  ? and  ? ) or (expected_at between  ? and  ? ) ) ",
                                            date_from, date_to, date_from, date_to] )
                   end                 
                 end
@@ -113,8 +113,8 @@ SQL
                 def calendar(data_from,months=1, options={})
                    calendar = CalendarData.new(data_from,months)
                    with_scope :find => options do
-                     calendar.fill(find(:all, :order => "started_at, ended_at", 
-                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
+                     calendar.fill(find(:all, :order => "started_at, expected_at", 
+                          :conditions => ["( (started_at between  ? and  ? ) or (expected_at between  ? and  ? ) ) ",
                                  calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
                   end                 
                   return calendar 
