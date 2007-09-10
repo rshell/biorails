@@ -34,7 +34,7 @@ class Admin::StudyStagesController < ApplicationController
   end
 
   def create
-    @study_stage = StudyStage.new(params[:study_stages])
+    @study_stage = StudyStage.new(params[:study_stage])
     if @study_stage.save
       flash[:notice] = 'StudyStage was successfully created.'
       redirect_to :action => 'list'
@@ -49,7 +49,7 @@ class Admin::StudyStagesController < ApplicationController
 
   def update
     @study_stage = StudyStage.find(params[:id])
-    if @study_stage.update_attributes(params[:study_stages])
+    if @study_stage.update_attributes(params[:study_stage])
       flash[:notice] = 'StudyStage was successfully updated.'
       redirect_to :action => 'show', :id => @study_stage
     else

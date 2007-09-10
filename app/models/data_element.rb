@@ -70,7 +70,7 @@ class DataElement < ActiveRecord::Base
 # Allowed list of types
 # 
   def allowed_styles
-    return ['list','model','view','sql']
+    return ['list','model','sql']
   end   
 ##
 # convert content to a Array
@@ -282,9 +282,10 @@ class SqlElement < DataElement
 ##
 #  List values for this element   
   def values
-   @values = self.system.connection.select_all(sql_select) if !@values
-   estimated_count = @values.size
-   return @values
+   self.system.reset_connection(DataValue)
+   @values = DataValue.find_by_sql(sql_select) if !@values
+   self.estimated_count = @values.size   
+   return @values;  
   end    
   
   def sql_select

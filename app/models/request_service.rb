@@ -47,6 +47,14 @@ class RequestService < ActiveRecord::Base
 
   has_many_scheduled :items, :class_name => "QueueItem" ,:dependent => :destroy
 
+  validates_uniqueness_of :name
+  validates_presence_of :name 
+
+  validates_presence_of :started_at
+  validates_presence_of :request_id
+  validates_presence_of :service_id 
+  validates_presence_of :status_id
+
  
 ##
 # This record has a full audit log created for changes 

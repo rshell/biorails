@@ -248,8 +248,9 @@ class Organize::StudyProtocolsController < ApplicationController
       logger.warn $!.to_s
       flash[:error]= $!.to_s
    end
-   return render(:action => 'new_row.rjs') if request.xhr?
-   return_to_main
+    redirect_to :action => 'layout', 
+          :id => @parameter_context.process.protocol,
+          :version=> @parameter_context.process 
   end
   
 ##
@@ -262,6 +263,7 @@ class Organize::StudyProtocolsController < ApplicationController
    @successful  = false
    ProtocolVersion.transaction do
      @parameter_context = ParameterContext.find(params[:context])
+     @protocol_version = @parameter_context.process
      style, id = params[:id].split("_")
      case style
        when 'sp' : @parameter = @parameter_context.add_parameter( StudyParameter.find(id) )
@@ -284,6 +286,7 @@ class Organize::StudyProtocolsController < ApplicationController
             page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
                               :locals => {:parameter_context => @parameter_context, :hidden => false }
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+            page<< protocol_drag_and_drop(@protocol_version.contexts)
           else
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
           end
@@ -319,6 +322,7 @@ def move_parameter
       format.js   { render :update do | page |
             page.replace_html @protocol_version.dom_id('editor'), :partial => 'parameter_layout'
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+            page<< protocol_drag_and_drop(@protocol_version.contexts)
          end }
     end
 end

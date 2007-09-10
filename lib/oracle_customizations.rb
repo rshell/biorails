@@ -5,6 +5,30 @@
 #
 module ActiveRecord
   module ConnectionAdapters
+      
+      class OracleColumn < Column #:nodoc:
+
+        def type_cast(value)
+          return guess_date_or_time(value) if type == :datetime && OracleAdapter.emulate_dates
+          super
+        end
+
+        private
+        def simplified_type(field_type)
+          return :boolean if OracleAdapter.emulate_booleans && field_type == 'NUMBER(1)'
+          return :boolean if OracleAdapter.emulate_booleans && field_type == 'CHAR(1)'
+          case field_type
+            when  'NUMBER' then :float
+            when /date|time/i then :datetime
+            else super
+          end
+        end
+
+        def guess_date_or_time(value)
+          (value.hour == 0 and value.min == 0 and value.sec == 0) ?
+            Date.new(value.year, value.month, value.day) : value
+        end
+      end
 
     class OracleAdapter
 

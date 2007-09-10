@@ -38,7 +38,7 @@ class BiorailsController < ApplicationController
 # easy creation of a tree structure on client (Hash and fill)
 #
     def project_element_list(id)
-       items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+       items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
        items.collect do |item|
            BiorailsApi::Element.new(
            :id => item.id,
@@ -60,7 +60,7 @@ class BiorailsController < ApplicationController
 # easy creation of a tree structure on client (Hash and fill)
 #
     def project_folder_list(id)
-       items = ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'parent_id,id')
+       items = ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
        items.collect do |item|
            BiorailsApi::Element.new(
            :id => item.id,

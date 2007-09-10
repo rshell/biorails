@@ -97,9 +97,6 @@ class Execute::RequestsController < ApplicationController
 # Display form for a new request item
   def new
     @user_request = Request.new(:name=> Identifier.next_id(Request))
-    @user_request.project_id = current_project.id
-    @user_request.requested_by_user_id = current_user.id
-    @user_request.status_id = 0
   end
 
 ##
@@ -108,15 +105,14 @@ class Execute::RequestsController < ApplicationController
 #
   def create
     ok = true
-    @user_request = Request.new(params[:user_request])
-    @user_request.list = RequestList.new(:name=>@user_request.name,:data_element_id=>@user_request.data_element_id)
-    if @user_request.list.save and @user_request.save
-      @project_folder =@user_request.folder
-      flash[:notice] = 'Request was successfully created.'
-      redirect_to :action => 'edit',:id=> @user_request.id
+    @user_request = Request.create(params[:user_request])
+    if @user_request.valid?
+       @project_folder =@user_request.folder
+       flash[:notice] = 'Request was successfully created.'
+       redirect_to :action => 'edit',:id=> @user_request.id
     else
-      flash[:warning] = " Failed to create request "
-      render :action => 'new'
+       flash[:warning] = " Failed to create request "
+       render :action => 'new'
     end
   end
 
@@ -207,7 +203,7 @@ class Execute::RequestsController < ApplicationController
 
 ##
 # update a item in the request
-# 
+# <Merge Conflict>
   def update
     Request.transaction do
       @user_request = Request.find(params[:id])

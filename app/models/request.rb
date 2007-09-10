@@ -60,10 +60,16 @@ class Request < ActiveRecord::Base
   has_many_scheduled :services,  :class_name=>'RequestService',:dependent => :destroy
 #
 # Generic rules for a name and description to be present
+  validates_uniqueness_of :name
+
   validates_presence_of :name
   validates_presence_of :description
-  validates_uniqueness_of :name
-##
+  validates_presence_of :started_at 
+  validates_presence_of :data_element_id
+  validates_presence_of :project_id
+
+
+###
 #Owner project
 #  
   belongs_to :project  
@@ -78,17 +84,33 @@ class Request < ActiveRecord::Base
   
   belongs_to :list , :dependent => :destroy
   
+ has_one :request, :class_name => 'Request', :foreign_key => 'list_id'
+ 
+  def initialize(params= {})
+      super(params)      
+      self.status_id    ||= 0
+      self.started_at   ||= Time.new
+      self.requested_by ||= User.current
+      self.project      ||= Project.current
+      self.priority_id  ||= CurrentPriority::LOW    
+  end
+  
 ##
 # Create a List and its linked RequestList   
   def self.create(params)
-     list = RequestList.create(params)
-     request = list.request if list
-     if request
-       request.status_id = 0
-       request.priority_id = CurrentPriority::LOW
-       return request
+     user_request = Request.new(params)
+     if  user_request
+        user_request.status_id    ||= 0
+        user_request.started_at   ||= Time.new
+        user_request.requested_by ||= User.current
+        user_request.project      ||= Project.current
+        user_request.priority_id  ||= CurrentPriority::LOW
      end
-     return nil
+     user_request.list = RequestList.create(:name=>user_request.name,:data_element_id=>user_request.data_element_id)
+     if user_request.list
+        user_request.save
+     end
+     return user_request
   end
   
 #
@@ -188,11 +210,14 @@ SQL
       request_service = RequestService.new
       request_service.request = self
       request_service.queue = queue
-      request_service.name = "RS-#{self.id}-#{queue.id}"    
+      request_service.name = "#{self.name}-#{queue.id}" 
+      request_service.started_at = self.started_at
       request_service.expected_at = self.expected_at
       request_service.requested_by_user_id = self.requested_by_user_id
       request_service.assigned_to_user_id = queue.assigned_to_user_id
-      services << request_service
+      self.services << request_service
+      request_service.save
+      return request_service
     end
   end
 
@@ -200,7 +225,7 @@ SQL
 # has this queue already been added to the request
 # 
   def has_service(queue)
-    services.detect{|item|item.queue == queue}
+    self.services.detect{|item|item.queue == queue}
   end
   
 ##

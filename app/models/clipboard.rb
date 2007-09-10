@@ -29,6 +29,10 @@ class Clipboard
     initialize_cache
     @cache
   end
+  
+  def size
+    @elements.size
+  end
 #
 # Dump elements to store
 #

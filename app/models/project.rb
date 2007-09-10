@@ -94,7 +94,29 @@ class Project < ActiveRecord::Base
 
   has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id', :dependent => :destroy 
   has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id', :dependent => :destroy 
+
   has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id', :dependent => :destroy 
+#
+# Scheduled requests 
+#
+  has_many_scheduled :requests ,    :class_name=>'Request', :foreign_key=> 'project_id'   
+                                      
+#
+# Schedule of all the services requested from the current project (eg. stuff other want me to do)
+#
+  has_many_scheduled :requested_services ,:class_name=>'RequestService',
+                                          :include =>{:queue =>:study} ,
+                                          :foreign_key=> 'studies.project_id', 
+                                          :order =>'request_services.started_at desc'                                        
+#
+# Schedule of all the queued_items in the current project 
+#
+  has_many_scheduled :queue_items, :class_name=>'QueueItem', 
+                                   :include =>{:queue => :study},
+                                   :foreign_key=> 'studies.project_id', 
+                                   :order =>'queue_items.started_at desc'   
+     
+
 
   has_many :protocols, :through => :studies, :source => :protocols
 
@@ -148,11 +170,20 @@ end
      return self.home_folder  if self.home_folder
      Project.create_home_folder(self)
   end
+  
 #
 # Summary description of the project
 #
   def description
     self.summary
+  end
+  
+
+#
+# Is there a runnable study linked to this project
+#
+  def runnable?
+    !StudyProtocol.find(:first,:include=>[:study],:conditions=>['studies.project_id= ?',self.id]).nil?  
   end
   
   def in_use?

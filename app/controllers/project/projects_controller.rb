@@ -109,6 +109,9 @@ class Project::ProjectsController < ApplicationController
     @project.tasks.add_into(@calendar,find_options)               if @options['items']['task']
     @project.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
     @project.studies.add_into(@calendar,find_options)             if @options['items']['study']
+    @project.requests.add_into(@calendar,find_options)            if @options['items']['request']
+    @project.requested_services.add_into(@calendar,find_options)     if @options['items']['service']
+    @project.queue_items.add_into(@calendar,find_options)         if @options['items']['queue']
 
     respond_to do | format |
       format.html { render :action => 'calendar' }

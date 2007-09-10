@@ -22,23 +22,5 @@
 # 
 
 class RequestList < List
- has_one :request, :class_name => 'Request', :foreign_key => 'list_id'
- 
-  def self.create(params)
-     request = Request.new(params)
-     return nil unless request.save
-     list = RequestList.new
-     list.name = params[:name]
-     list.description = "Request #{params[:name]}"
-     if params[:data_element_id]
-        list.data_element_id =  params[:data_element_id]
-     end            
-     list.request = request
-     if list.save
-       return list
-     else
-       request.detroy
-     end
-     return nil
-  end
+
 end

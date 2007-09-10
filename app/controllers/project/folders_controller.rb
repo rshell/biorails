@@ -3,7 +3,7 @@ class Project::FoldersController < ApplicationController
   use_authorization :folders,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
-                    
+  
   def index
     list
     render :action => 'list'
@@ -200,38 +200,53 @@ class Project::FoldersController < ApplicationController
   end
 
   def move_element
-    set_folder
     @project_element =  current(ProjectElement, params[:before] ) 
+    set_folder @project_element.parent_id
     text = request.raw_post || request.query_string
     case text
-    when /id=current_project_element_*/,
-         /id=current_project_folder_*/,
-         /id=current_project_reference_*/,
-         /id=current_project_content_*/,
-         /id=current_project_asset_*/
+    when /id=(header|current)_project_(element|folder|content|reference|asset)_*/
         @source = ProjectElement.find($') 
-        if @source.parent_id == @project_folder.id and @source.id != @project_element.id
-          @source.reorder_before( @project_element )
-        end     
     end    
+    if @source.parent_id == @project_folder.id and @source.id != @project_element.id
+      @source.reorder_before( @project_element )
+    end     
     @project_folder.reload
     return render_central
   end
-  
+
+  def reorder_element
+     @source =  current(ProjectElement, params[:id] ) 
+     set_folder(@source.parent_id)
+     if params[:after]
+        @project_element =  current(ProjectElement, params[:after] ) 
+        @source.reorder_after( @project_element )
+     elsif params[:before]
+        @project_element =  current(ProjectElement, params[:before] ) 
+        @source.reorder_before( @project_element )
+     end
+     @project_folder.reload
+     return render_central
+  end
+
   def add_element   
     set_folder
-    text = request.raw_post || request.query_string
-    case text
-    when /id=project_element_*/,
-         /id=project_content_*/ ,
-         /id=project_asset_*/ ,
-         /id=project_reference_*/  
-        @source = ProjectElement.find($')        
-        if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
-          @new_element = @project_folder.copy(@source)
-         flash[:info] = "add reference to #{@source.dom_id} to #{@project_folder.dom_id}"
-        end     
+    @source = ProjectElement.find(params[:element])
+    unless @source
+      text = request.raw_post || request.query_string
+      case text
+      when /id=project_element_*/,
+           /id=project_content_*/ ,
+           /id=project_asset_*/ ,
+           /id=project_reference_*/  
+          @source = ProjectElement.find($')        
+       end
      end
+     if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
+        @new_element = @project_folder.copy(@source)
+       flash[:info] = "add reference to #{@source.name} to #{@project_folder.name}"
+     else  
+       flash[:warning] = "can not add to #{@source.name} to #{@project_folder.name}"
+     end     
      @project_folder.reload
      return render_central
   end
@@ -307,12 +322,12 @@ protected
   def render_central(mode =nil)
     @layout[:centre] = mode if mode
     respond_to do |format|
-      format.html { render :action=> @layout[:centre] || 'show'}
+      format.html {render :action => @layout[:centre] || 'show'}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'centre',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
            page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-         end
+        end
       }
     end      
   end
@@ -320,7 +335,7 @@ protected
   def render_right(mode = nil)
     @layout[:right] ="right_#{mode}" if mode
     respond_to do |format|
-      format.html { render :action=>'show'}
+      format.html {render :action => @layout[:centre] || 'show'}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'right',  :partial => @layout[:right] ,:locals=>{:folder=>@project_folder}
@@ -331,13 +346,14 @@ protected
 ##
 # Simple helpers to get the current folder from the session or params 
 #  
-  def set_folder
+  def set_folder(id = nil)
+     id ||= params[:folder_id] || params[:id]
+     ProjectFolder.current = @project_folder = current_user.folder(id) ||  current_project.home
      @layout = {}
      @layout[:right] = params[:right] || 'right_finder'
      @layout[:centre] = params[:centre] || 'show'     
      @clipboard = session[:clipboard] 
      @clipboard ||= Clipboard.new
-     ProjectFolder.current = @project_folder = current_user.folder(params[:folder_id] || params[:id]) ||  current_project.home
   end  
   
 

@@ -41,6 +41,7 @@ SQL
           end, ended_at
 SQL
 
+          
       def self.included(base) # :nodoc:
         base.extend ClassMethods
       end
@@ -61,7 +62,7 @@ SQL
           # don't allow multiple calls
           class_eval do
 
-            has_many scheduled_collection ,{:order =>'started_at desc'}.merge(options) do
+            has_many scheduled_collection ,{:order =>"started_at desc"}.merge(options) do
                 ##
                 # Important schedule items linked to this object with optional limit count (default=10)
                 # The important is done via overdue ,future, aborted then completed items
@@ -80,7 +81,7 @@ SQL
                 # 
                 def overdue(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['expected_at < ? and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>["#{self.proxy_reflection.klass.table_name}.expected_at < ? and #{self.proxy_reflection.klass.table_name}.status_id in (0,1,2,3,4) ",Time.now],:limit=>limit  )
                   end  
                 end
                 ##
@@ -90,7 +91,7 @@ SQL
                 #
                 def current(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>['? between started_at and expected_at and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit  )
+                    find(:all,:conditions=>["? between #{self.proxy_reflection.klass.table_name}.started_at and #{self.proxy_reflection.klass.table_name}.expected_at and #{self.proxy_reflection.klass.table_name}.status_id in (0,1,2,3,4) ",Time.now],:limit=>limit  )
                   end
                 end
 
@@ -101,8 +102,8 @@ SQL
                 #
                 def range(date_from,date_to, limit=10, options={})
                   with_scope :find => options do
-                    find(:all, :order => "started_at, ended_at", 
-                          :conditions => ["( (started_at between  ? and  ? ) or (expected_at between  ? and  ? ) ) ",
+                    find(:all, :order => "#{self.proxy_reflection.klass.table_name}.started_at, #{self.proxy_reflection.klass.table_name}.ended_at", 
+                          :conditions => ["( (#{self.proxy_reflection.klass.table_name}.started_at between  ? and  ? ) or (#{self.proxy_reflection.klass.table_name}.expected_at between  ? and  ? ) ) ",
                                            date_from, date_to, date_from, date_to] )
                   end                 
                 end
@@ -113,8 +114,9 @@ SQL
                 def calendar(data_from,months=1, options={})
                    calendar = CalendarData.new(data_from,months)
                    with_scope :find => options do
-                     calendar.fill(find(:all, :order => "started_at, expected_at", 
-                          :conditions => ["( (started_at between  ? and  ? ) or (expected_at between  ? and  ? ) ) ",
+                     calendar.fill(find(:all, 
+                      :order => "#{self.proxy_reflection.klass.table_name}.started_at, #{self.proxy_reflection.klass.table_name}.expected_at", 
+                      :conditions => ["( (#{self.proxy_reflection.klass.table_name}.started_at between  ? and  ? ) or (#{self.proxy_reflection.klass.table_name}.expected_at between  ? and  ? ) ) ",
                                  calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
                   end                 
                   return calendar 
@@ -126,9 +128,10 @@ SQL
                 # 
                 def add_into(calendar, options={})
                    with_scope :find => options do
-                     calendar.fill(find(:all, :order => "started_at, ended_at", 
-                          :conditions => ["( (started_at between  ? and  ? ) or (ended_at between  ? and  ? ) ) ",
-                                   calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
+                     calendar.fill(find(:all, 
+                       :order => "#{self.proxy_reflection.klass.table_name}.started_at, #{self.proxy_reflection.klass.table_name}.ended_at", 
+                       :conditions => ["( (#{self.proxy_reflection.klass.table_name}.started_at between  ? and  ? ) or (#{self.proxy_reflection.klass.table_name}.ended_at between  ? and  ? ) ) ",
+                       calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
                   end                 
                   return calendar 
                 end
@@ -142,9 +145,9 @@ SQL
                 def count_status(object)
                    case object
                    when Array
-                      count(:conditions=>"status_id in (#{object.join(',')})" )
+                      count(:conditions=>"#{self.proxy_reflection.klass.table_name}.status_id in (#{object.join(',')})" )
                    else
-                      count(:conditions=>['status_id=?',object])
+                      count(:conditions=>["#{self.proxy_reflection.klass.table_name}.status_id=?",object])
                    end 
                 end
 
@@ -155,7 +158,9 @@ SQL
                 #
                 def future(limit=10,options={})
                   with_scope :find => options do
-                    find(:all,:conditions=>[' started_at > ?  and status_id in (0,1,2,3,4) ',Time.now],:limit=>limit )
+                    find(:all,
+                         :conditions=>[" #{self.proxy_reflection.klass.table_name}.started_at > ?  and #{self.proxy_reflection.klass.table_name}.status_id in (0,1,2,3,4) ",Time.now],
+                         :limit=>limit )
                   end
                 end
                                 
@@ -167,15 +172,14 @@ SQL
                 # ==> [num_item,first_date,Last_date,state]
                 # 
                 #
-                def summary_list(options={}) 
-                  with_scope :find => options do
-                    find(:all,:select => "count(*) num_items ,min(started_at) first_date,max(ended_at) last_date, #{DEFAULT_SCHEDULE_SUMMARY} state ",
-                              :group => DEFAULT_SCHEDULE_SUMMARY )
-                  end
-                end
                 
                 def status_summary
-                   summary_list.collect{|i|"#{i.state}:#{i.num_items}"}.join("/")
+                   out =""
+                   out << "/overdue:#{count(:conditions=>['status_id in (0,1,2,3,4) and expected_at < ?',Time.new])}"
+                   out << "/todo:#{count(:conditions=>['status_id in (0,1,2,3,4) and expected_at >= ?',Time.new])}"
+                   out << "/failed:#{count(:conditions=>['status_id  < 0'])}"
+                   out << "/done:#{count(:conditions=>['status_id  > 4'])}"
+                   return out                   
                 end
                 
                 def summary

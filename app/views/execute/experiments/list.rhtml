@@ -1,3 +1,7 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
+<% end -%>
 
 <%=render :partial =>'shared/messages',:locals => { :objects => ['project','report'] }  %>
 
@@ -9,4 +13,3 @@
     <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
 </div>
 
-<%=link_to (subject_icon('new.png'))+'New', :action=>'new' %>

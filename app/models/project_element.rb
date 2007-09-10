@@ -157,6 +157,15 @@ class ProjectElement < ActiveRecord::Base
      end
   end
 
+  def reorder_after(destination)
+     logger.info "Move #{self.id} before #{destination.id}"
+     if self.parent_id ==  destination.parent_id
+       ProjectElement.transaction do
+         self.move_to_right_of destination
+       end
+     end
+  end
+
 
   # Rebuild all the set based on the parent_id and text_column name
   #

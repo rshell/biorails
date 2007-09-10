@@ -7,11 +7,12 @@
 <h2>
      <%=subject_icon('model/task.png')%> New Task 
 </h2>
+<div class='panel'>
  <% form_tag :action => 'create' do %>   
 
-<div class='panel'>
-    <div class="row">
-        <div class="form-element">
+    
+     <div class="row">
+          <div class="form-element">
             <label for="task_name">Task Name</label>
             <%= text_field 'task', 'name' , {:class=>"text-input"} %>
         </div>        
@@ -31,11 +32,9 @@
         <label for="study_description">Description</label>
         <%= text_area('task', 'description', {:rows=>5, :cols=>100} )%>
     </div>
-<div>    
-<div class='panel'>
-    <div class="row">
 
-        <div class="form-element">
+    <div class="row">
+          <div class="form-element">
             <label for="task_assigned_to">Assigned to</label>
             <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
         </div>
@@ -61,7 +60,7 @@
         </div>   
 
         <div class="form-element">
-            <label for="task_ended_at">ExpectedEnd date</label>
+            <label for="task_ended_at">Expected End date</label>
             <%= date_field 'task', 'expected_at'  %>
         </div>
     </div>
@@ -69,8 +68,9 @@
     <div class="row">
       <%= submit_tag "Create" %>
     </div>
-</div>
    <%end%> 
+</div>
+
 <%end%>
 
 <% content_for :right do -%>

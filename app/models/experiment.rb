@@ -117,9 +117,14 @@ end
 # first task to start in the experiment
 #   
  def first_task    
-    if tasks.size>0 
+    if self.tasks.size>1 
        self.tasks.min{|i,j|i.started_at <=> j.started_at}
-    end
+    else   
+       return self.tasks.first
+    end    
+ rescue
+   logger.warn("problem finding first item?")
+   return self.created_at       
  end
 ##
 # last task to end in the experiment
@@ -231,14 +236,16 @@ SQL
 #  
  def new_task
    task = Task.new
-   task.name = self.name+":"+self.tasks.size.to_s
-   task.started_at = Time.new
-   task.ended_at = Time.new + 1.day
+   task.name = Identifier.next_id(Task)
    task.process = self.process
    task.protocol= self.protocol 
-   task.done_hours = 0
    task.project = self.project
-   task.expected_hours = 1
+   task.assigned_to_user_id = User.current.id
+   task.expected_hours =1
+   task.done_hours = 0
+   task.started_at = Time.new
+   task.expected_at = Time.new+1.day
+   task.description = " Task in experiment #{self.name} "      
    tasks << task
    task.save
    logger.info "New Task #{task.id}"
@@ -288,7 +295,7 @@ SQL
            @context = read_values(@task,@definition,row) 
        when 'end'
           @task.save
-          @task.gr@valueid.save 
+          @task.grid.save 
           logger.info "Saved task #{@task.name}"
           
        else # url etc

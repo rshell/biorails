@@ -212,7 +212,15 @@ SQL
     else
       return folder
     end
-  end  
+  end 
+
+ def milestone?
+   self.is_milestone==1
+ end
+ 
+ def is_milestone=(value)
+   write_attribute(:is_milestone,1) if value
+ end
 #
 #List of reports setup to run against this task
 #
@@ -235,6 +243,7 @@ SQL
      @done_hours = 0
      refresh
   end 
+  
 #
 # the the column titles as array of strings
 #

@@ -169,7 +169,6 @@ protected
     item.task = self.task 
     item.parameter = parameter
     item.data_content = value if value 
-    item.markup_style_id = nil 
     return item
  end 
  

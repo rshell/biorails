@@ -39,18 +39,18 @@ class ProtocolVersion < ActiveRecord::Base
 ##
 # Link to view for summary stats for study
 # 
-  has_many :stats, :class_name => "ProcessStatistics"
+  has_many :stats, :class_name => "ProcessStatistics", :order => :id
 
 ##
 # In the Process sets of parameters are grouped into a context of usages
 # 
- has_many :contexts, :class_name=>'ParameterContext', :dependent => :destroy
+ has_many :contexts, :class_name=>'ParameterContext', :dependent => :destroy, :order => :id
 
- has_many :roots, :class_name=>'ParameterContext',:conditions => 'parent_id is null'
+ has_many :roots, :class_name=>'ParameterContext',:conditions => 'parent_id is null', :order => :id
 
- has_many :parameters, :class_name=>'Parameter'
+ has_many :parameters, :class_name=>'Parameter', :order => :id
 
- has_many :tasks, :dependent => :destroy
+ has_many :tasks, :dependent => :destroy, :order => :id
 
 ##
 # Test if this instance is used in any tasks

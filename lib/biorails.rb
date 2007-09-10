@@ -9,10 +9,10 @@
 
 module Biorails
   
-  TEMPLATE_MODELS = [Role,User,Identifier,Permission,RolePermission,
+  TEMPLATE_MODELS = [UserRole,ProjectRole,User,Identifier,Permission,RolePermission,
     DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,DataType,
-    DataFormat,ParameterType,ParameterRole,
+    DataFormat,ParameterType,ParameterRole,StudyStage,
     Project,Membership,
     Study,StudyParameter,StudyQueue,StudyProtocol,
     ProtocolVersion,ParameterContext,Parameter]
@@ -23,14 +23,14 @@ module Biorails
 
   CATALOG_MODELS = [DataContext,DataConcept,DataSystem,
         ListElement,ModelElement,SqlElement,ViewElement,
-        DataType,DataFormat,ParameterType,ParameterRole]
+        DataType,DataFormat,ParameterType,ParameterRole,StudyStage]
 
-  ALL_MODELS = [Role,User,Identifier,Permission,RolePermission,
+  ALL_MODELS = [UserRole,ProjectRole,User,Identifier,Permission,RolePermission,
     UserSetting,SystemSetting,
     DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,    
     DataType,DataFormat,
-    ParameterType,ParameterRole,
+    ParameterType,ParameterRole,StudyStage,
     Compound,Batch,Plate,Container,PlateFormat,PlateWell,
     Specimen,TreatmentGroup,TreatmentItem,
     Project,Membership,

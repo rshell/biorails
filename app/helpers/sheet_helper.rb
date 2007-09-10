@@ -155,4 +155,34 @@ module SheetHelper
      my_sheet_tag( cell.dom_id('item'), cell.dom_id('item'), cell, options)
   end
 
+  def protocol_drag_and_drop(contexts)
+    return '' unless contexts
+     out = String.new
+     out << 'Droppables.drops = [];'
+     out <<  drop_receiving_element_js("parameter_tree", :hoverclass => "drop-active",   
+           :accept =>'parameter',
+           :url => protocol_url(:action=> "remove_parameter"))
+         
+     for parameter_context in contexts
+          out<< drop_receiving_element_js(  parameter_context.dom_id, 
+            :url => { :action => "add_parameter" ,:context=>parameter_context},
+            :hoverclass => "drop-active",
+            :accept => "study_parameter",
+            :droponempy => true )
+
+          out<< drop_receiving_element_js( parameter_context.dom_id, 
+            :url => { :action => "add_parameter" ,:context=>parameter_context},
+            :hoverclass => "drop-active",
+            :accept => "study_queue",
+            :droponempy => true )
+
+          out<< drop_receiving_element_js(parameter_context.dom_id,  
+            :url => { :action => "move_parameter" ,:context=>parameter_context },
+            :hoverclass => "drop-active",
+            :accept => "parameter",
+            :droponempy => true  )
+      end
+      return out;
+  end
 end
+

@@ -32,7 +32,7 @@ class DataSystem < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+   acts_as_audited :change_log
    acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
@@ -44,7 +44,14 @@ class DataSystem < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   validates_uniqueness_of :name
-  has_many :data_elements, :conditions => "parent_id is null", :dependent => :destroy 
+
+def validate 
+    unless self.can_connect?
+      self.errors.add_to_base("Cant connect to target system")
+    end
+  end
+
+has_many :data_elements, :conditions => "parent_id is null", :dependent => :destroy 
   belongs_to :data_context
 
 #
@@ -82,10 +89,16 @@ class DataSystem < ActiveRecord::Base
     )    
   end
 #
+# Test whether connection information is valid
+#
+  def can_connect?
+    (self.adapter.to_s=='local') || !self.remote_connection.nil?
+  end
+#
 #  Get a connection to remote systems
 #    
-  def connection
-     return DataSystem.connection if adapter=='local'
+  def remote_connection
+     return DataSystem.connection if self.adapter=='local'
      # Reset DataValue to remote system and test ok! 
      # test_object the item to search for in remote system for validation
      DataValue.table_name = test_object
@@ -93,7 +106,7 @@ class DataSystem < ActiveRecord::Base
      item = DataValue.find(:first)
      DataValue.connection
    rescue
-     DataSystem.connection
+     nil
   end  
 #
 #  allowed data contexts for the current system
