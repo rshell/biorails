@@ -71,7 +71,6 @@ class HelpController < ApplicationController
     model = eval(params[:id])
     @models = Biorails::UmlModel.models
     @image_file =  Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
-    puts @image_file
     send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png')
   end 
 

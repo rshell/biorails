@@ -197,7 +197,6 @@ class Execute::ExperimentsController < ApplicationController
 #
   def refresh_allowed_protocols
      text = request.raw_post || request.query_string
-     puts text
      study = Study.find(text)
      @items = study.protocols
      @experiment = Experiment.new

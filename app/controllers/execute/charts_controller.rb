@@ -63,13 +63,11 @@ end
 #
 def test
  logger.info "plot #{params[:id]}"
- puts "tests"
  graph = Scruffy::Graph.new
  graph.value_formatter = Scruffy::Formatters::Number.new(:precision => 0)
 
  plots = (1...100).collect{|row|[row,row*2]}
  vals = (1...100).collect{|row|[row,row]}
- puts vals.to_s
   graph.title = "test"
   graph.add :plot, "mins ", plots  
   graph.add :plot, "avg ", vals  

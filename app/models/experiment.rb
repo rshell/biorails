@@ -219,14 +219,13 @@ SQL
    expt.protocol= self.protocol    
    expt.save!  
    delta_time = expt.started_at - self.started_at
-   puts "Experiment #{expt.started_at} #{expt.finished_at}"
+   logger.info "Experiment #{expt.started_at} #{expt.finished_at}"
    
    for old_task in self.tasks
       task = old_task.copy(delta_time)
       task.experiment = expt
       task.name = expt.name+":"+expt.tasks.size.to_s
       expt.tasks << task
-      puts "#{task.started_at} #{task.finished_at}"
    end
    return expt
  end

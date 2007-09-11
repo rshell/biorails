@@ -37,7 +37,6 @@ class AnalysisMethod < ActiveRecord::Base
   
   
   def self.setup(params  ={})
-    logger.info "Analysis Setup #{params.to_yaml}"
     AnalysisMethod.add_processor(Alces::Processor::PlotXy)
     AnalysisMethod.add_processor(Alces::Processor::Dummy)
     method = params['method'] ||  "alces/processor/dummy"
@@ -46,7 +45,6 @@ class AnalysisMethod < ActiveRecord::Base
     @analysis ||= AnalysisMethod.new
     if params['setting']
       params['setting'].keys.each do |key|
-        logger.info "Parameter #{key} = #{params['setting'][key]}"
         @analysis.setting(key).update(params['setting'][key])
       end
     end
@@ -55,7 +53,6 @@ class AnalysisMethod < ActiveRecord::Base
   end
   
   def self.add_processor(  klass)
-    logger.debug "add analysis processor #{klass}"
     @@processors_plugins ||= {}
     @@processors_plugins[klass.name] = klass
   end

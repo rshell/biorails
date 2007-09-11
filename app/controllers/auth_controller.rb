@@ -28,7 +28,7 @@ class AuthController < ApplicationController
   end
 
   def logout
-    puts "logout #{session[:user_id]}"
+    logger.info "logout #{session[:user_id]}"
     clear_session
     redirect_to auth_url(:action=>'login')
   end

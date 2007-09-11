@@ -325,7 +325,7 @@ SQL
    end
    task.started_at =  (self.started_at.to_time + delta_time)
    task.expected_at = (self.finished_at.to_time + delta_time)
-   puts "[#{delta_time}] #{self.started_at} #{self.finished_at} => #{task.started_at} #{task.finished_at}"
+   logger.info "[#{delta_time}] #{self.started_at} #{self.finished_at} => #{task.started_at} #{task.finished_at}"
    return task
  end
 #

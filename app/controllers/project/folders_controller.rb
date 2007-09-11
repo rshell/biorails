@@ -354,6 +354,7 @@ protected
      @layout[:centre] = params[:centre] || 'show'     
      @clipboard = session[:clipboard] 
      @clipboard ||= Clipboard.new
+     @project_folder
   end  
   
 

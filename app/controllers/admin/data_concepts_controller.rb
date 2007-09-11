@@ -69,12 +69,10 @@ class Admin::DataConceptsController < ApplicationController
 # Create a new root concept for the current context
 #
   def create
-    @data_concept = DataConcept.new(params[:data_concept]) 
-    puts @data_concept     
+    @data_concept = DataConcept.new(params[:data_concept])    
     if params[:data_concept][:parent_id]
       @parent = DataConcept.find(params[:data_concept][:parent_id])
       @parent.children <<@data_concept
-      puts @parent
     end
 
     if @data_concept.save

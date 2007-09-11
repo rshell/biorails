@@ -24,7 +24,6 @@ module Admin::DataElementsHelper
                    :edit => 'edit', 
                    :show => 'show' }
        txt +='</table>' 
-       puts txt
        return txt
   rescue Exception => ex
       logger.error ex.message
