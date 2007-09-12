@@ -14,14 +14,14 @@ Object.extend(Object.extend(SelectAutocompleter.Base.prototype,
       
     onBlur: function(event) {
       // needed to make click events working
-      blurTimer = setTimeout(this.hide.bind(this), 250);
+      this.blurTimer = setTimeout(this.hide.bind(this), 250);
       this.hasFocus = false;
       this.active = false;     
     },
 
     onSelectFocus: function(event) {
-	    if (blurTimer ) { 
-                clearTimeout(blurTimer);
+	    if (this.blurTimer ) { 
+                clearTimeout(this.blurTimer);
             }
     },
 
