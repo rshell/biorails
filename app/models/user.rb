@@ -241,7 +241,7 @@ class User < ActiveRecord::Base
   end
  
  def disabled?
-   self.is_disabled.to_s == self.connection.quoted_true
+   self.is_disabled
  end
 
  def enabled?
@@ -249,7 +249,7 @@ class User < ActiveRecord::Base
  end
 
  def admin?
-    self.admin.to_s  == self.connection.quoted_true
+    self.admin
 end  
 
 def style

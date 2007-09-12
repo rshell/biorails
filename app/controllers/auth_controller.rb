@@ -12,7 +12,11 @@ class AuthController < ApplicationController
         logger.info "User #{params[:login][:name]} successfully logged in"
         set_user(user)
         set_project(user.projects[0])
-        redirect_to home_url(:action=>'show')
+        if session[:current_url]
+          redirect_to session[:current_url]
+        else
+           redirect_to home_url(:action=>'show')          
+        end
       else
         login_failed
       end
@@ -30,7 +34,7 @@ class AuthController < ApplicationController
   def logout
     logger.info "logout #{session[:user_id]}"
     clear_session
-    redirect_to auth_url(:action=>'login')
+    render :action=>'login'
   end
 
   def access_denied

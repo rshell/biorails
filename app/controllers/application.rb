@@ -36,13 +36,16 @@ class ApplicationController < ActionController::Base
 
   before_filter :setup_context
 
-#set norfello style layout
-# layout 'norfello'
+#
+# Global look and feel ofr MCE Rich text editor
+#
 
   uses_tiny_mce(:options => {
      :theme => 'advanced',
      :mode => "textareas",
      :doctype => " ",
+     :width => '100%',
+     :height => '300px',
      :browsers => %w{msie,gecko,opera,safari},
      :theme_advanced_toolbar_location => "top",
      :theme_advanced_toolbar_align => "left",
@@ -63,13 +66,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_folder
   helper_method :current 
 
-##
-# is there a user logged in
-#   
-  def logged_in?
-    !session[:current_user_id].nil?
-  end
-
 
 ##
 # Get current version of this model passed on param[:id] and
@@ -88,17 +84,27 @@ class ApplicationController < ActionController::Base
   end
 
 ##
-# Default authorization function allow anything
+# Default authorization function allow anything generally overridden in
+# controllers via use_authorization definition
 #  
   def authorize
     return true
   end   
 
 ##
-# Default authenticate 
+# is there a user logged in, tests whether there is a current user set
+#   
+  def logged_in?
+    !session[:current_user_id].nil?
+  end
+
+
+##
+# Default authenticate called before all authorization activity to make
+# sure the user is logged
 #  
   def authenticate
-    session[:current_params] = params
+    session[:current_url] = url_for(params)
     logged_in?
   end
   

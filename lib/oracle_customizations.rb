@@ -14,9 +14,24 @@ module ActiveRecord
         end
 
         private
-        def simplified_type(field_type)
+
+# convert something to a boolean
+# Allow 1 T and Y to be mapped as a true
+#
+        def self.value_to_boolean(value)
+          if value == true || value == false
+            value
+          else
+            %w(true t 1 y).include?(value.to_s.downcase)
+          end
+        end
+
+#
+# Assume all CHAR fields are mapped to boolean and VAR
+#
+       def simplified_type(field_type)
           return :boolean if OracleAdapter.emulate_booleans && field_type == 'NUMBER(1)'
-          return :boolean if OracleAdapter.emulate_booleans && field_type == 'CHAR(1)'
+          return :boolean if OracleAdapter.emulate_booleans && field_type == 'CHAR'
           case field_type
             when  'NUMBER' then :float
             when /date|time/i then :datetime
@@ -24,6 +39,7 @@ module ActiveRecord
           end
         end
 
+      
         def guess_date_or_time(value)
           (value.hour == 0 and value.min == 0 and value.sec == 0) ?
             Date.new(value.year, value.month, value.day) : value
@@ -48,8 +64,17 @@ module ActiveRecord
             :time        => { :name => "DATE" },
             :date        => { :name => "DATE" },
             :binary      => { :name => "BLOB" },
-            :boolean     => { :name => "CHAR", :limit => 1 }
+            :boolean     => { :name => "CHAR" }
           }
+        end
+        
+
+        def quoted_true
+          "1"
+        end
+
+        def quoted_false
+          "0"
         end
 
         # Returns the next sequence value from a sequence generator. Not generally

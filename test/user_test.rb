@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  fixtures :permissions
+  fixtures :role_permissions
   fixtures :roles
   fixtures :users
 

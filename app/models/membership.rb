@@ -37,7 +37,7 @@ class Membership < ActiveRecord::Base
  end
  
  def owner?
-   self.is_owner.to_s  == self.connection.quoted_true
+   self.is_owner
  end
  
  def owner=(value)

@@ -12,6 +12,5 @@ require 'alces_dummy'
 #
 # Registor as a processing methods into Biorails
 # 
-puts "add GNU-Plot plugin"
 AnalysisMethod.add_processor(Alces::Processor::PlotXy)
 AnalysisMethod.add_processor(Alces::Processor::Dummy)

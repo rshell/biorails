@@ -27,6 +27,7 @@ module SexyMigrations
     alias :auto_dates  :timestamps
     alias :auto_dates! :timestamps
 
+    
     def polymorphic(name)
       integer "#{name}_id"
       string  "#{name}_type"
@@ -58,6 +59,18 @@ module SexyMigrations
   end
 
   module Schema
+    def rename_column_if_needed(table_name, column_name, new_column_name)
+      rename_column(table_name, column_name, new_column_name)
+    rescue 
+      puts "Failed to find #{table_name}.#{column_name}"      
+    end
+
+    def drop_table_if_exists(table_name)
+      drop_table_if_exists(table_name)
+    rescue 
+      puts "Failed to drop #{table_name} "      
+    end
+
     def create_table(name, options = {}, &block)
       table_definition = ActiveRecord::ConnectionAdapters::TableDefinition.new(self)
       table_definition.primary_key(options[:primary_key] || "id") unless options[:id] == false
