@@ -18,22 +18,30 @@
    <%=link_to "Redraw", protocol_url(:action=>'layout',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
 <% end -%>
 
-<%= drop_receiving_element("parameter_tree", :hoverclass => "drop-active",   
-           :accept =>'parameter',
-           :url => protocol_url(:action=> "remove_parameter")) %>
-
 <div class='panel'>
    <h2>
         <%=subject_icon('model/protocol.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
         in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
     </h2> 
  
-<div class="sheet">
-        <%= render :partial => 'process_layout' %>
-</div>    
+    <%= render :partial => 'process_layout' %>
 
 <div class='box'>
 This form is build to work with drag and drop of parameters from the list of available types for the study design to column positions in a set of contexts.
 In a simple excel like sheet there would only be a single context. For more complex example there may be a number of level like plate/compounds/well for screen 
 of treatment group/subject/time for clienical example. The idea of context is save re-entering the same value multiple time.
 </div>
+
+<SCRIPT TYPE="text/javascript">
+ function initialize_dropzones()  
+ {
+  <%= protocol_drag_and_drop(@protocol_version.contexts) %>
+ }
+if (window.addEventListener) //DOM method for binding an event
+   window.addEventListener("load", initialize_dropzones, false)
+else if (window.attachEvent) //IE exclusive method for binding an event
+  window.attachEvent("onload", initialize_dropzones)
+else if (document.getElementById) //support older modern browsers
+  window.onload=initialize_dropzones()
+
+</script>

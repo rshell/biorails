@@ -11,23 +11,27 @@
     </style>
 <![endif]-->
 
+
 <%= stylesheet_link_tag "layout" %>
 <%= stylesheet_link_tag "icons" %>
 <%= stylesheet_link_tag "forms" %>
 <%= stylesheet_link_tag "table" %>
 <%= stylesheet_link_tag "gantt" %>
-<%= stylesheet_link_tag "report" %>
 <%= stylesheet_link_tag "errors" %>
-<%= stylesheet_link_tag "protocols" %>
-<%= stylesheet_link_tag "sheet" %>
+<%= stylesheet_link_tag "menu" %>
 <%= stylesheet_link_tag "autocomplete" %>
 <%= stylesheet_link_tag "tabs" %>
-<%= stylesheet_link_tag "menu" %>
 <%= stylesheet_link_tag "print", :media => "print" %>
 <%= stylesheet_link_tag 'tree' %>
 <%= stylesheet_link_tag 'calendar-green' %>
 <%= stylesheet_link_tag 'dialog' %>
 <%= stylesheet_link_tag 'datebocks_engine' %>
+
+<% if browser_is? :ie  %>
+  <%= stylesheet_link_tag "ie" %>
+<%  else %>
+  <%= stylesheet_link_tag "standard" %>
+<% end %>
 
 <!--%= javascript_include_tag "tiny_mce/tiny_mce" %-->
 <%= javascript_include_tag :defaults %>
@@ -58,13 +62,12 @@
 
 <body>
 <div id="container" >
-
+ <div id="header">
 <!--Start Header ======================= -->  
 
-  <div id="header">
     <div class='left'>
-        <h1><%= SystemSettings.app_title %></h1>
-        <h2><%= SystemSettings.app_subtitle %> </h2>
+      <h1><%= SystemSettings.app_title %></h1>
+      <h2><%= SystemSettings.app_subtitle %> </h2>
     </div>
     <div class='right'>
       <%if logged_in?%>
@@ -73,61 +76,60 @@
            <%= submit_tag 'Search' %>
         <% end %>
       <%end%>  
-        <div id="busy-indicator" style="display:none;" >
+      <div id="busy-indicator" style="display:none;" >
            [Transfering data....]
-        </div>
+      </div>
     </div>
-  </div> 
-  <div>
+ </div> 
+  
+ <div>
     <%= render :partial =>'menu/top_menu_bar' %>      
-  </div> 
 <!--End Header ======================= -->  
+ </div> 
 
+ <div id="content">        
 <!--Start Contents ======================= -->  
-<div id="content">        
 
 <!--Left Block =======================-->  
-<div id="left">
-  <div class='sidemenu'>
-   <%= if @content_for_sidemenu
-        yield :sidemenu 
-    else    
-       render :partial =>'menu/default_left_menu' 
-    end %>
+  <div id="left">
+    <div class='sidemenu'>
+     <%= if @content_for_sidemenu
+          yield :sidemenu 
+      else    
+         render :partial =>'menu/default_left_menu' 
+      end %>
+    </div>
+
+    <div class="left_panel">
+     <%= if @content_for_left 
+          yield :left  
+      end %> 
+    </div>
   </div>
 
-  <div class="left_panel">
-   <%= if @content_for_left 
-        yield :left  
-    end %> 
-  </div>
-  <div id="query_hitlist">
-    <%= render :partial => 'shared/hitlist' %>  
-  </div>
-</div>
+  
+  <!--Main Block ======================= -->  
 
-<!--Main Block ======================= -->  
+  <!--Right Block ======================= -->  
 
-   <div id="messages">
+  <div id="messages">
        <%= if @content_for_messages 
             yield :messages
         else    
             render :partial => 'shared/messages', :locals => { :objects => ['project'] }
         end %> 
-   </div>
+  </div>
 
   <div id="main">
       <%= yield %>
   </div>
-
-<!--Right Block ======================= -->  
-  <div id="right">
-    <%= yield :right %>
-  </div>
-
 <!--Centre Block ======================= -->  
   <div id="centre">         
      <%= yield :centre %>
+  </div>
+
+  <div id="right">
+    <%= yield :right %>
   </div>
 
 <!--Footer Block ======================= -->  
@@ -135,9 +137,11 @@
     <%= yield :footer %>
     <!--%=debug session%-->
    </div>
-</div>
 <!--End Contents ======================= -->  
+ </div>
+</div>
 
 </body>
+
 </html>
 

@@ -11,6 +11,6 @@
   <%= link_to subject_icon('new')+'Add Article',    
             content_url( :action => 'new',:folder_id => folder.id ), 
             :complete => " tinyMCE.execCommand('mceAddControl',true,'project_content_body_html' );"  %> 
-  <%= link_to subject_icon('new')+'Add Asset',  asset_url( :action => 'new',:folder_id => folder.id ) %> 
+  <%= link_to subject_icon('new')+'Add File',  asset_url( :action => 'new',:folder_id => folder.id ) %> 
 </div>
 <% end %>

@@ -1,10 +1,10 @@
 <% unless user.nil?  %>
 <div>
   <span class='menu' > <%=subject_icon('model/user')%>User: <%=  user.name %> </span>
-    <%= link_to l('Home'),        home_url( :action => 'show',      :id => user) %>
-	<%= link_to l('Calendar'),    home_url( :action => 'calendar',  :id => user) %>
-	<%= link_to l('Timeline'),    home_url( :action => 'timeline', :id => user) %>
-	<%= link_to l('Todo'),        home_url( :action => 'todo', :id => user) %>
+    <%= link_to l('Home'),        home_url( :action => 'show') %>
+	<%= link_to l('Calendar'),    home_url( :action => 'calendar') %>
+	<%= link_to l('Timeline'),    home_url( :action => 'gantt') %>
+	<%= link_to l('Todo'),        home_url( :action => 'todo') %>
 
 </div>
 <div>

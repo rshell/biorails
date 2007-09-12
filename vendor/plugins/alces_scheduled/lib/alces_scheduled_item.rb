@@ -169,13 +169,13 @@ module Alces
             if is_allowed_state(new_id) and new_id != self.status_id 
               self.status_id = new_id
               if self.is_active
-                 self.started_at ||= DateTime.now 
+                 self.started_at ||= Time.new  
               end
               if self.is_finished
-                 self.started_at ||= DateTime.now 
-                 self.ended_at = DateTime.now 
+                 self.started_at ||= Time.new 
+                 self.ended_at = Time.new 
               end
-              self.updated_at = DateTime.now if self.respond_to?(:updated_at)
+              self.updated_at = Time.new  if self.respond_to?(:updated_at)
             end
             ##
             #update dependent items with overall progress
@@ -288,20 +288,20 @@ module Alces
              end
            end
            
-           def starting?(day = DateTime.now)
+           def starting?(day = Time.new )
              return  (!started_at.nil? and  day.to_date == started_at.to_date)
            end
            
-           def ending?(day = DateTime.now)
+           def ending?(day = Time.new )
              return (!finished_at.nil? and day.to_date == finished_at.to_date)
            end
            
-           def current?(day = DateTime.now)
+           def current?(day = Time.new )
               return (self.start_at < day and (self.ended_at.nil? or self.ended_at>day ))
            end
            
            def overdue?
-              return (self.start_at < DateTime.now and (!self.expected_at.nil? and self.expected_at<DateTime.now ))
+              return (self.start_at < Time.new  and (!self.expected_at.nil? and self.expected_at<Time.new  ))
            end
       end    
     end

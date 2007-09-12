@@ -2,8 +2,7 @@
                     :before=>"Effect.SlideUp('detail_#{parameter_context.dom_id}')"     %>
 
 <%=hidden_field_tag 'parameter_context[protocol_version_id]' , parameter_context.protocol_version_id %>     
-<div class="sheet">
-<table class="report">
+<table class="details">
   <thead>
    <tr>
     <td colspan='1'> <strong><%=parameter_context.label %> x <%=parameter_context.default_count %> </strong></td>
@@ -77,6 +76,5 @@
   <%end%> 
 </table>
 
-</div> 
 
 <%= end_form_tag %>  

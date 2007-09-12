@@ -7,28 +7,41 @@
 <li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
 </ul>
 
-<% for item in folder.elements %>  
+  <% elements = folder.elements %>
+  <% if elements and elements.size>0 %>
+    <% (0..elements.size-1).each do |i| %>
+      <% item = elements[i] %>      
 
-    <div id='<%=item.dom_id(:current)%>' class='box folder_element'>  
-	<% if item.asset? and item.asset.image? %>
-        	<h2>Figure: <%=item.name%>  <%= link_to '[Edit]', element_to_url(item)  %></h2>
-        	<p>  
-                  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	
-                </p>  
-                      
-	<% elsif item.textual? %>
-	
-    	<h2> Article: <%=item.title%> 
-    	<%= link_to_remote '[Edit]', :url=>content_url(:action=>'edit',:id=>item.id) ,
-    	                             :complete => " tinyMCE.execCommand('mceAddControl',true,'project_element_to_html' );"  %>  </h2>
-    	<p>       <%= item.to_html %>	</p>
-	<% else %>
-        <h2>Folder:<%= item.title %></h2>
-           <%=item.to_html%>
-	<% end %>
-    </div>	
+<div id='<%=item.dom_id(:current)%>' class='box folder_element'> 
+  <div id='<%=item.dom_id(:header)%>' class='folder_element reverse'> 
+     <%=link_to_remote( subject_icon("arrow_up"),   
+                :url =>element_url(:action=>"reorder_element",:id=>item.id, :before=>elements[i-1].id )) if i>0 %>
+     
+     <%=link_to_remote( subject_icon("arrow_down"), 
+                :url =>element_url(:action=>"reorder_element",:id=>item.id, :after=>elements[i+1].id )) if i>0 and elements[i+1] %>
+     <%= link_to( "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item) ) if item.reference? %>
 
-      <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => false, :revert=> true) %>
+     <%= link_to_remote "["+subject_icon("edit")+"]", :url=>content_url(:action=>'edit',:id=>item.id) ,
+             :complete => " tinyMCE.execCommand('mceAddControl',true,'project_element_to_html' );" if item.is_a? ProjectContent %>
+
+    <%= link_to( "["+subject_icon("edit")+"]",   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
+                     
+                                 
+     <%= link_to( "["+subject_icon("edit")+"]",   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
+
+     <%= link_to( "["+ subject_icon("delete")+"]", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
+     &nbsp;
+     <strong>
+     <%=item.name%>
+     </strong>
+     <%= item.summary %> 
+     <%= short_date(item.updated_at) %>
+    </div>
+    <h2><%=item.title%> </h2>
+    <p>  <%= item.to_html %>	</p>
+</div>	
+
+      <%= draggable_element(item.dom_id(:header) ,:scroll=> true,:ghosting => false, :revert=> true) %>
 
       <%= drop_receiving_element(item.dom_id(:current), :hoverclass => "drop-active",   
            :accept =>'folder_element',
@@ -38,7 +51,8 @@
            :accept =>['project_element','project_reference','project_content','project_asset'],
            :url => element_url(:action=>"drop_element", :id=>folder.id, :before=>item.id)) %>
 
-<% end %>
+    <% end %>
+  <% end %>
 <div id='layout_bottom' class='panel>
 <p>
 Items can be drags from the right hand side menu to the layout to build a complete document report up.

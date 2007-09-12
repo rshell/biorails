@@ -7,18 +7,23 @@
 <% end %>
 
 
-<h2>
-    <%= subject_icon('systems')%> New Data System
-</h2>
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['data_system']} %>
+<%end%>
 
-<div class='panel'>
-    <div class='dialog'>
-        <% form_tag :action => 'create' do %>
-          <%= render :partial => 'form' %>
-        <div class="row"><br />
-          <%= submit_tag "Create" %>
-        </div>
-       <% end %>
-    </div>
-</div>
+<% content_for :centre do %>
+    <h1>New Data Source </h1>    
+    <% validated_form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <br />
+      <%= submit_tag "Create" %>
+      <%= link_to 'Back', :action => 'list' %>
+    <% end %>
+<% end %>
+
+
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>
+
 

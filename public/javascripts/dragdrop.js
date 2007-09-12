@@ -17,6 +17,8 @@ var Droppables = {
   },
 
   add: function(element) {
+    if (element!=null)
+    {      
     element = $(element);
     var options = Object.extend({
       greedy:     true,
@@ -42,6 +44,7 @@ var Droppables = {
     options.element = element;
 
     this.drops.push(options);
+    }
   },
   
   findDeepestChild: function(drops) {

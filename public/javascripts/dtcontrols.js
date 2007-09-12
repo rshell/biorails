@@ -9,7 +9,7 @@ Object.extend(Object.extend(SelectAutocompleter.Base.prototype,
     	this.cache = [];
 		
         this.options["rowCount"] = this.options["rowCount"] || 7;
-		this.options["useCache"] = !(this.options["useCache"] == false)
+	this.options["useCache"] = !(this.options["useCache"] == false)
     },
       
     onBlur: function(event) {
@@ -20,7 +20,9 @@ Object.extend(Object.extend(SelectAutocompleter.Base.prototype,
     },
 
     onSelectFocus: function(event) {
-	    clearTimeout(blurTimer);
+	    if (blurTimer ) { 
+                clearTimeout(blurTimer);
+            }
     },
 
     updateChoices: function(choices) {

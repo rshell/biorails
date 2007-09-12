@@ -1,77 +1,50 @@
 <%= render :partial => 'title' %>
 
 <ul class="tablist"> 
-<li>  <%= link_to_remote 'Folder',   {:url =>folder_url( :action => 'show',    :folder_id => folder.id )}, :class=>'current' %> </li>
-<li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
-<li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
-<li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
+  <li>  <%= link_to_remote 'Folder',   {:url =>folder_url( :action => 'show',    :folder_id => folder.id )}, :class=>'current' %> </li>
+  <li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
+  <li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
+  <li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
 </ul>
 
+<div id='folder_top' class='reverse'>
+    Folder <%=folder.name%> has <%=folder.elements.size%> items (drop here to add to start)
+</div>
 
-<table class="report">
-  <thead>
-    <tr>
-        <th colspan='5'>Notes and Folders</th>    
-    </tr>
-    <tr  id='folder_top'>
-        <th><%=l(:section) %></th>
-    	<th><%=l(:defaults)%></th>
-    	<th><%=l(:created) %></th>
-    	<th><%=l(:updated) %></th>
-    	<th><%=l(:action) %></th>
-    </tr>
-    </thead>
-  <tbody>  
-    <% for item in folder.elements %>
-      <tr id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
-    	<td>
-    	    <span id='<%=item.dom_id(:current)%>' class='folder_element'>
-    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
-    	    <%= link_to item.name, element_to_url(item) %>
-    	               
-            <%if item.reference?%>
-    	       <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
-    	    <%end %>
-    	    </span>
-        </td>  
-    	<td>
-    	  <%= item.summary %> 
-    	</td>
-    	<td align="center"><%= short_date(item.created_at) %></td>
-    	<td align="center"><%= short_date(item.updated_at) %></td>
-        <td align="center">
-
-            <%= link_to( l(:edit),   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
-            <%= link_to( l(:edit),   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
-            <%= link_to( l(:delete), folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
-        </td>
-      </tr>
-
-      <%= draggable_element(item.dom_id(:current) ,:scroll=> true,:ghosting => true, :revert=> true) %>
-
-      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
-           :accept =>'folder_element',
-           :url => folder_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
-
-      <%= drop_receiving_element(item.dom_id(:element), :hoverclass => "drop-active",   
-           :accept =>['project_element','project_reference','project_content','project_asset'],
-           :url => folder_url(:action=>"drop_element",:id=>folder.id, :before=>item.id )) %>
-
-          <% last = item.id%>
+<div id='<%=folder.dom_id%>' class='folder-list'>
+<ol >  
+  <% elements = folder.elements %>
+  <% if elements and elements.size>0 %>
+    <% (0..elements.size-1).each do |i| %>
+      <% item = elements[i] %>      
+       <li id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
+ 	 <span id='<%=item.dom_id(:current)%>' class='folder_element textleft'>
+           <%=image_tag(item.icon( {:images=>true} ) ) %>
+           <strong>
+              <%= link_to  item.name, element_to_url(item) %>
+           </strong>           
+           <%= item.summary %> 
+           <%= short_date(item.updated_at) %>
+         </span>
+         <span class='textright'>
+           <%=link_to_remote( subject_icon("arrow_up"),   :url =>folder_url(:action=>"reorder_element",:id=>item.id, :before=>elements[i-1].id )) if i>0 %>
+           <%=link_to_remote( subject_icon("arrow_down"), :url =>folder_url(:action=>"reorder_element",:id=>item.id, :after=>elements[i+1].id )) if elements[i+1] %>
+           <%if item.reference?%>
+    	      <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
+  	   <%end %>
+           <%= link_to(  "["+subject_icon("edit")+"]",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
+           <%= link_to( "["+subject_icon("edit")+"]",   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
+           <%= link_to( "["+ subject_icon("delete")+"]", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
+          </span>  
+        </li>  
     <% end %>
-  </tbody>
-  <thead>
-  <tr id='folder_bottom'>
-  <th colspan='4'><th/>
-  </tr>
-  </thead>
-</table>
-      <%= drop_receiving_element('folder_top', :hoverclass => "drop-active",
-           :accept =>['project_element','project_reference','project_content','project_asset'],
-           :url => folder_url(:action=>"add_element",:id=>folder.id )) %>
-           
-      <%= drop_receiving_element('folder_bottom', :hoverclass => "drop-active",
-           :accept =>['project_element','project_reference','project_content','project_asset'],
-           :url => folder_url(:action=>"add_element", :id=>folder.id )) %>
+    <% end %>
+</ol>
+</div>
+      
+<SCRIPT TYPE="text/javascript">
+    <%= folder_drag_and_drop(@project_folder) %>
+</script>
 
-
+             
+      

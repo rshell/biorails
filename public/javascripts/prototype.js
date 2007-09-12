@@ -1,4 +1,4 @@
-/*  Prototype JavaScript framework, version 1.5.1
+/*  Prototype JavaScript framework, version 1.5.1.1
  *  (c) 2005-2007 Sam Stephenson
  *
  *  Prototype is freely distributable under the terms of an MIT-style license.
@@ -7,7 +7,7 @@
 /*--------------------------------------------------------------------------*/
 
 var Prototype = {
-  Version: '1.5.1',
+  Version: '1.5.1.1',
 
   Browser: {
     IE:     !!(window.attachEvent && !window.opera),
@@ -24,8 +24,8 @@ var Prototype = {
        document.createElement('form').__proto__)
   },
 
-  ScriptFragment: '<script[^>]*>([\u0001-\uFFFF]*?)</script>',
-  JSONFilter: /^\/\*-secure-\s*(.*)\s*\*\/\s*$/,
+  ScriptFragment: '<script[^>]*>([\\S\\s]*?)<\/script>',
+  JSONFilter: /^\/\*-secure-([\s\S]*)\*\/\s*$/,
 
   emptyFunction: function() { },
   K: function(x) { return x }
@@ -364,11 +364,15 @@ Object.extend(String.prototype, {
     return this.sub(filter || Prototype.JSONFilter, '#{1}');
   },
 
+  isJSON: function() {
+    var str = this.replace(/\\./g, '@').replace(/"[^"\\\n\r]*"/g, '');
+    return (/^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/).test(str);
+  },
+
   evalJSON: function(sanitize) {
     var json = this.unfilterJSON();
     try {
-      if (!sanitize || (/^("(\\.|[^"\\\n\r])*?"|[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t])+?$/.test(json)))
-        return eval('(' + json + ')');
+      if (!sanitize || json.isJSON()) return eval('(' + json + ')');
     } catch (e) { }
     throw new SyntaxError('Badly formed JSON string: ' + this.inspect());
   },
@@ -1270,10 +1274,12 @@ if (Prototype.BrowserFeatures.XPath) {
 
 } else document.getElementsByClassName = function(className, parentElement) {
   var children = ($(parentElement) || document.body).getElementsByTagName('*');
-  var elements = [], child;
+  var elements = [], child, pattern = new RegExp("(^|\\s)" + className + "(\\s|$)");
   for (var i = 0, length = children.length; i < length; i++) {
     child = children[i];
-    if (Element.hasClassName(child, className))
+    var elementClassName = child.className;
+    if (elementClassName.length == 0) continue;
+    if (elementClassName == className || elementClassName.match(pattern))
       elements.push(Element.extend(child));
   }
   return elements;
@@ -1566,13 +1572,17 @@ Element.Methods = {
   getStyle: function(element, style) {
     element = $(element);
     style = style == 'float' ? 'cssFloat' : style.camelize();
+    if (element)
+    {    
     var value = element.style[style];
     if (!value) {
       var css = document.defaultView.getComputedStyle(element, null);
       value = css ? css[style] : null;
     }
     if (style == 'opacity') return value ? parseFloat(value) : 1.0;
+    }
     return value == 'auto' ? null : value;
+    
   },
 
   getOpacity: function(element) {
@@ -2043,7 +2053,7 @@ Element.ClassNames.prototype = {
 };
 
 Object.extend(Element.ClassNames.prototype, Enumerable);
-/* Portions of the Selector class are derived from Jack Slocum’s DomQuery,
+/* Portions of the Selector class are derived from Jack Slocumâ€™s DomQuery,
  * part of YUI-Ext version 0.40, distributed under the terms of an MIT-style
  * license.  Please see http://www.yui-ext.com/ for more information. */
 
@@ -3192,13 +3202,11 @@ var Position = {
     var parent = null;
     // delta [0,0] will do fine with position: fixed elements,
     // position:absolute needs offsetParent deltas
-	if (!Prototype.Browser.Gecko)
-	{
-	    if (Element.getStyle(target,'position') == 'absolute') {
-	      parent = Position.offsetParent(target);
-	      delta = Position.page(parent);
-	    }
+    if (Element.getStyle(target,'position') == 'absolute') {
+      parent = Position.offsetParent(target);
+      delta = Position.page(parent);
     }
+
     // correct by body offsets (fixes Safari)
     if (parent == document.body) {
       delta[0] -= document.body.offsetLeft;

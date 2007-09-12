@@ -5,55 +5,66 @@
 
 
 <% content_for :centre do -%>
-<h2>        <%=subject_icon('services')%> Edit Request  [<strong><%=h @user_request.name%></strong>]  </h2>
-    <div class='dialog'>
-        <% form_tag :action => 'update',:id=> @user_request.id do %>
-        <%= render :partial => 'form' %>
-        <div class="row">
-            <%= submit_tag "Submit" %>
-        </div>      
-       <% end %>
-    </div>    
+<h2>        
+  <%=subject_icon('services')%> Edit Request  [<strong><%=h @user_request.name%></strong>]  
+</h2>
+<div class='dialog'>
+      <% form_tag :action => 'update',:id=> @user_request.id do %>
+      <%= render :partial => 'form' %>
+      <div class="row">
+          <%= submit_tag "Submit" %>
+      </div>      
+     <% end %>
+</div>    
      
-    <div class='report panel'>
-    <table width='100%'>
-        <tr>
-          <th> Services </th>
-          <th> Items </th>
-        </tr>
-        <tr>
-          <td valign="top">   
-            <% form_tag :action => 'add_service',:id =>@user_request.id do %>
-             <table width='100%'><tr><td>
-             <%= select( :service, :id, @user_request.allowed_services.collect{|c|[c.path,c.id]})  %>
-             </td><td>
-             <%= submit_tag "add" %>
-             </td></tr></table>
-           <% end %>        
-            <div id="current_services">  
-            <%= render :partial => 'list_services', :locals => { :request => @user_request } %>  
-            </div>
-          </td>
-          <td valign="top">   
-            <% form_remote_tag :url => request_url(:action => 'add_item',:id =>@user_request.id) do %>
-            <table width='100%'><tr><td>
-            <%=my_lookup_tag("value","item", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
-            </td><td>
-            <%= submit_tag "add" %>
-            </td></tr></table>
-           <% end %>          
-            <div id="current_items">  
-            <%= render :partial => 'list_items', :locals => { :request => @user_request } %>  
-            </div>
-          </td>
-        </tr>
-    </table>
-    </div>
+<div class='report panel'>
+  <table width='100%'>
+    <tr>
+      <th> Services </th>
+      <th> Items </th>
+    </tr>
+    <tr>
+      <td valign="top">   
+        <% form_tag :action => 'add_service',:id =>@user_request.id do %>
+        <table width='100%'>
+          <tr>
+            <td>
+               <%= select( :service, :id, @user_request.allowed_services.collect{|c|[c.path,c.id]})  %>
+           </td>
+           <td>
+               <%= submit_tag "add" %>
+           </td>
+         </tr>
+        </table>
+        <% end %>   
+
+        <div id="current_services">  
+        <%= render :partial => 'list_services', :locals => { :request => @user_request } %>  
+        </div>
+      </td>
+      <td valign="top">   
+       <% form_remote_tag :url => request_url(:action => 'add_item',:id =>@user_request.id) do %>
+        <table width='100%'>
+          <tr>
+             <td>
+               <%=my_lookup_tag("value","item", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
+            </td>
+            <td>
+                  <%= submit_tag "add" %>
+            </td>
+          </tr>
+        </table>
+       <% end %>          
+        <div id="current_items">  
+          <%= render :partial => 'list_items', :locals => { :request => @user_request } %>  
+        </div>
+      </td>
+    </tr>
+  </table>
+ </div>
     
-    <div class='panel'>
-        <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
-    </div>
-</div>
+ <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
+
 <%end %>
 
 <% content_for :right do %>

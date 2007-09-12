@@ -9,7 +9,7 @@
   
   <% for parameter in parameter_context.parameters %>
   <th>
-   <span id="<%=parameter.dom_id%>" width='100%' class='parameter'>
+   <span style='width: 80px;' class='parameter' id="<%=parameter.dom_id%>">
       <%=subject_icon(parameter.role.name)%>
       <%= parameter.name %>
    </span>
@@ -35,7 +35,7 @@
 
 <tr>
   <td colspan='<%=ParameterContext.default_columns+3%>' >
-      <%= link_to_remote "New Child", :url => { :action => 'new_context',:parent_id =>parameter_context.id, :id=>parameter_context.process.id} %> 
+      <%= link_to "New Child", { :action => 'new_context',:parent_id =>parameter_context.id, :id=>parameter_context.process.id} %> 
       of <%= parameter_context.path %>            
   </td>
 </tr>
