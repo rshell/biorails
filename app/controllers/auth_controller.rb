@@ -15,7 +15,7 @@ class AuthController < ApplicationController
         if session[:current_url]
           redirect_to session[:current_url]
         else
-           redirect_to home_url(:action=>'show')          
+          redirect_to home_url(:action=>'show')          
         end
       else
         login_failed

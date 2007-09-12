@@ -85,6 +85,10 @@ class StudyQueue < ActiveRecord::Base
 #  
   has_many_scheduled :requests, :class_name=> "RequestService",:foreign_key=>'service_id',:dependent => :destroy
 
+  def initialize(params= {})
+      super(params)      
+      self.assigned_to = User.current
+  end
 ##
 # Add a object to the queue
 #   
