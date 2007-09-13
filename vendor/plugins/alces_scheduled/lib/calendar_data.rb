@@ -48,11 +48,14 @@ require 'date'
     # Fill the calendar with items
     #  
     def fill(items)
-      for item in items
-         self.items << item         
-         add_item(item.started_at, item)
-         add_item(item.finished_at, item)
+      if items
+        for item in items
+           self.items << item         
+           self.add_item(item.started_at, item)
+           self.add_item(item.finished_at, item)
+        end
       end
+      return items
     end
     
     def next_month

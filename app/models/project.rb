@@ -105,17 +105,25 @@ class Project < ActiveRecord::Base
 # Schedule of all the services requested from the current project (eg. stuff other want me to do)
 #
   has_many_scheduled :requested_services ,:class_name=>'RequestService',
-                                          :include =>{:queue =>:study} ,
-                                          :foreign_key=> 'studies.project_id', 
+                                   :finder_sql =>
+         'SELECT request_services.*,studies.project_id
+          FROM request_services  
+          LEFT OUTER JOIN study_queues ON study_queues.id = request_services.service_id  
+          LEFT OUTER JOIN studies ON studies.id = study_queues.study_id 
+          WHERE studies.project_id =  #{id}',                                 
                                           :order =>'request_services.started_at desc'                                        
 #
 # Schedule of all the queued_items in the current project 
 #
-  has_many_scheduled :queue_items, :class_name=>'QueueItem', 
-                                   :include =>{:queue => :study},
-                                   :foreign_key=> 'studies.project_id', 
+  has_many_scheduled :queue_items, :class_name=>'QueueItem',  
+                                   :finder_sql =>
+         'SELECT queue_items.*,studies.project_id FROM queue_items  
+          LEFT OUTER JOIN study_queues ON study_queues.id = queue_items.study_queue_id  
+          LEFT OUTER JOIN studies ON studies.id = study_queues.study_id  
+          WHERE studies.project_id =  #{id}',                                 
                                    :order =>'queue_items.started_at desc'   
-     
+
+  
 
 
   has_many :protocols, :through => :studies, :source => :protocols
