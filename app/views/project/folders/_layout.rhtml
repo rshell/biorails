@@ -38,7 +38,7 @@
      <%= short_date(item.updated_at) %>
     </div>
     <h2><%=item.title%> </h2>
-    <p>  <%= item.to_html %>	</p>
+    <p>  <%=item.to_html %>	</p>
 </div>	
 
       <%= draggable_element(item.dom_id(:header) ,:scroll=> true,:ghosting => false, :revert=> true) %>

@@ -94,7 +94,7 @@ class ProjectAsset < ProjectElement
   end
 
   def to_html
-    return "<img alt="#{title}" src=''#{self.url}'' />"
+    return "<img alt='#{title}' src='#{self.url}' />"
   end
   
   def signature
