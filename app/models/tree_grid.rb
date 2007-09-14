@@ -409,11 +409,16 @@ end
 #save a test item value to database
 #
  def save 
-    @row.save
+    if  @value.empty?
+        @item.destroy if @item
+        @item = nil
+        return true
+    end;
     if @item
-      @item.value = @value 
+       @item.value = @value 
     else
-      @item = @row.context.add_task_item(self.parameter, @value)
+       @row.save
+       @item = @row.context.add_task_item(self.parameter, @value)
     end  
     return @item.save
   rescue Exception => ex

@@ -39,7 +39,11 @@ function FieldValidate(element)
    if (element.getAttribute('mask') !=null )
    {
         current_regex =  new RegExp(element.getAttribute('mask'));
-		ok = current_regex.test(element.value);
+	ok = current_regex.test(element.value);
+   }
+   if (element.value ==null || element.value =="" )
+   {
+	ok = true;
    }
    if (ok && element.min !=null && element.value > element.min )  
    {
