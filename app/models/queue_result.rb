@@ -1,3 +1,36 @@
+# == Schema Information
+# Schema version: 280
+#
+# Table name: queue_results
+#
+#  id                     :integer(11)   default(0), not null, primary key
+#  row_no                 :integer(11)   default(0), not null
+#  column_no              :integer(11)   
+#  task_id                :integer(11)   
+#  queue_item_id          :integer(11)   default(0), not null
+#  request_service_id     :integer(11)   
+#  study_queue_id         :integer(11)   
+#  requested_by_user_id   :integer(11)   
+#  assigned_to_user_id    :integer(11)   
+#  parameter_context_id   :integer(11)   
+#  task_context_id        :integer(11)   
+#  reference_parameter_id :integer(11)   
+#  data_element_id        :integer(11)   
+#  data_type              :string(255)   
+#  data_id                :integer(11)   
+#  subject                :string(255)   
+#  parameter_id           :integer(11)   
+#  protocol_version_id    :integer(11)   
+#  label                  :string(255)   
+#  row_label              :string(255)   
+#  parameter_name         :string(62)    
+#  data_value             :binary        
+#  created_by_user_id     :integer(11)   default(0), not null
+#  created_at             :datetime      not null
+#  updated_by_user_id     :integer(11)   default(0), not null
+#  updated_at             :datetime      not null
+#
+
 class QueueResult < ActiveRecord::Base
 
  def initialize

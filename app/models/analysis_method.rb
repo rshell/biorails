@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 280
+#
+# Table name: analysis_methods
+#
+#  id                  :integer(11)   not null, primary key
+#  name                :string(128)   default(), not null
+#  description         :text          
+#  class_name          :string(255)   default(), not null
+#  protocol_version_id :integer(11)   
+#  lock_version        :integer(11)   default(0), not null
+#  created_at          :datetime      not null
+#  updated_at          :datetime      not null
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
+#
+
 
 class AnalysisMethod < ActiveRecord::Base
   cattr_accessor :processors_plugins

@@ -122,5 +122,90 @@ EOS
         'gecko'
       end
     end
+  end
+
+def setup_toolbar(div_name = 'top-toolbar')
+  script = <<JS
+MainMenu = function(){
+    var toolbar;
+
+return {	
+    init : function(){
+       toolbar = new Ext.Toolbar('#{div_name}');
+
+       toolbar.addButton({
+               cls: 'x-btn-text-icon bmenu', 
+  	       text:'Home',
+               menu: new Ext.menu.Menu({
+                             id: 'menuHome',
+                             items: #{home_items.to_json} })
+                         });
+
+       toolbar.addButton({
+               cls: 'x-btn-text-icon bmenu', 
+  	       text:'Project [#{current_project.name}]',
+               menu: new Ext.menu.Menu({
+                             id: 'menuProject',
+                             items: #{project_items.to_json} })
+                         });
+
+       toolbar.addButton({
+               cls: 'x-btn-text-icon bmenu', 
+  	       text:'Administration',
+               menu: new Ext.menu.Menu({
+                             id: 'menuAdmin',
+                             items: #{admin_items.to_json} })
+                         });
+    
+       toolbar.addFill();
+
+       toolbar.addField(
+                   new Ext.form.TextField({
+                    fieldLabel: 'search',
+                    name: 'first',
+                    width:175,
+                    allowBlank:false
+                }));
+       toolbar.addButton({text: 'search'})          
+       }
+     };       
+}();
+
+
+Ext.EventManager.onDocumentReady(MainMenu.init, MainMenu, true);
+ 
+JS
+  javascript_tag(script)
+end  
+
+protected 
+  def home_items
+     @items = [
+       {:href=>home_url(:id=>User.current.id),:text=>'home'},
+       {:href=>home_url(:action=>'calendar',:id=>User.current.id),:text=>'Schedule'},
+       {:href=>home_url(:action=>'projects',:id=>User.current.id),:text=>'Projects'}       
+     ]
   end  
+
+  def admin_items
+     @items = [
+       {:href=>home_url(:id=>User.current.id),:text=>'home'},
+       {:href=>catalogue_url(:action=>'list'),:text=>'Catalogue'},
+       {:href=>data_type_url(:action=>'list'),:text=>'Data Types'},       
+       {:href=>data_format_url(:action=>'list'),:text=>'Data Formats'},       
+       {:href=>parameter_type_url(:action=>'list'),:text=>'Parameter Types'},       
+       {:href=>parameter_role_url(:action=>'list'),:text=>'Parameter Roles'},       
+       {:href=>study_stage_url(:action=>'list'),:text=>'Study Stages'},       
+       {:href=>user_url(:action=>'list'),:text=>'User'},       
+       {:href=>role_url(:action=>'list'),:text=>'Roles'},       
+       {:href=>data_system_url(:action=>'list'),:text=>'Systems'}       
+     ]
+  end  
+
+  def project_items
+    @items = User.current.projects.collect do |project|
+      {:href=>project_url(:action=>'show',:id=>project),:text=>project.name}
+    end
+  end  
+
 end

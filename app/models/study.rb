@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: studies
 #
@@ -12,20 +12,14 @@
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  project_id         :integer(11)   
+#  project_id         :integer(11)   not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
+#  started_at         :datetime      
+#  ended_at           :datetime      
+#  expected_at        :datetime      
+#  status_id          :integer(11)   default(0), not null
 #
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-#
-###
-# Studies manage the logical organization and tracking of work for reporting. A study may 
-# have a number of protocols (linked Processed) associated with it and a large number of 
-# experiments run containing tasked used to managed data collected by running the protocols.
-#   
 
 class Study < ActiveRecord::Base
   included Named

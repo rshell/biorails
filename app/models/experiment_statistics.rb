@@ -1,10 +1,10 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: experiment_statistics
 #
 #  id                 :integer(20)   primary key
-#  experiment_id      :integer(11)   
+#  experiment_id      :integer(11)   default(0), not null
 #  study_parameter_id :integer(11)   
 #  parameter_role_id  :integer(11)   
 #  parameter_type_id  :integer(11)   

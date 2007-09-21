@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: memberships
 #
@@ -7,7 +7,7 @@
 #  user_id            :integer(11)   default(0), not null
 #  project_id         :integer(11)   default(0), not null
 #  role_id            :integer(11)   default(0), not null
-#  owner              :boolean(1)    
+#  is_owner           :boolean(1)    
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null

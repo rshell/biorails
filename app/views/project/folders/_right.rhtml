@@ -1,0 +1,109 @@
+<%#
+# right.rhtml.rhtml
+# 
+# Created on 18-Sep-2007, 13:57:59
+# 
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<div id="right-accordion">
+  <div id="panel-find">
+    <div>Search</div>
+    <div>
+      <div class="text-content">
+<% form_remote_tag :url=>folder_url(:action=>'finder',   :id => folder.id) do %>
+   <%= text_field_tag :query,@user_query %>
+   <%= submit_tag 'Search' %>
+<% end %>
+
+<% if @hits %>
+<% fold = nil %>
+
+<% for item in @hits %>
+    <% if item.parent != fold %>
+        <% fold = item.parent %>
+        <%if item.project_id != current_project.id %>
+          <%=image_tag('action/lookup.png')%>
+        <%end %>
+        <u><b><%=item.parent.path%></b></u>
+        <br/>
+    <% end %>
+   <span id='<%=item.dom_id%>' class='project_element'>
+    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+            <%if item.project_id == current_project.id %>
+    	    <%= link_to_remote item.name, :url=>element_to_url(item) %> 
+    	    <%else%>
+    	    <%= item.name%>
+    	    <%end%>           
+    </span>
+    <%=link_to_remote subject_icon("add.gif"),
+       :url => folder_url(:action=>'add_element',:id=>@project_folder,:element=>item.id )
+     %>             
+
+    <br/>
+   <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>
+   
+ <% end %>
+ <% end %>
+
+ 
+      </div>
+    </div>
+  </div>
+  <div id="panel-clip">
+    <div>Clipboard</div>
+    <div>
+      <div class="text-content">
+
+        <%=link_to_remote '[Clear]',:url => folder_url(:action=>"clear_clipboard",:id=>folder.id )%>
+          
+          </h4>
+          <% if @clipboard and @clipboard.size>0%>
+          <ol>
+            <% for item in @clipboard %>
+             <li>
+              <span id='<%=item.dom_id%>' class='project_element'>
+                      <%=image_tag(item.icon( {:images=>true} ) ) %> <%= item.name%>
+              </span>
+              <%=link_to_remote subject_icon("add.gif"),
+                 :url => folder_url(:action=>'add_element',:id=>@project_folder,:element=>item.id )
+               %>             
+             </li>
+             <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>   
+            <% end %>
+          </ol>
+          <%end%>
+      </div>
+    </div>
+  </div>
+  <div id="panel-tree">
+    <div>Tree</div>
+    <div>
+      <%= tree_for_folder(current_project, current_project.home)%> 
+    </div>
+  </div>
+  <div id="panel-notes">
+    <div>Notes</div>
+    <div>
+      <div class="text-content">
+        Folder are used to provide a simple approach for the organization of information
+      </div>
+  </div>
+</div>
+<script>
+  Ext.onReady(function() {
+  // create accordion
+  var acc = new Ext.ux.Accordion('right-accordion', { fitHeight: false, hideOtherOnExpand: false })
+
+  // create panel 1
+  var panel1 = acc.add(new Ext.ux.InfoPanel('panel-find', {hideOtherOnExpand: false  }));
+  
+  // create panel 1
+  var panel2 = acc.add(new Ext.ux.InfoPanel('panel-clip', {hideOtherOnExpand: false  }));
+  
+  // create panel 2
+  var panel3 = acc.add(new Ext.ux.InfoPanel('panel-tree', {hideOtherOnExpand: false  }));
+  var panel4 = acc.add(new Ext.ux.InfoPanel('panel-notes',{hideOtherOnExpand: false  }));
+});
+</script>

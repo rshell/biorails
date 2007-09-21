@@ -1,11 +1,12 @@
 class AuthController < ApplicationController
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
+
+# GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
 
   def login
     clear_session
     if request.get?
-      render :action=>'login'
+      render :action=>'login',:layout=> 'simple'
     else
       user = User.authenticate(params[:login],params[:password])
       if user and user.enabled?
@@ -28,13 +29,13 @@ class AuthController < ApplicationController
 
   def login_failed
     flash.now[:error] = "Incorrect Name/Password"
-    render :action => 'forgotten'
+    render :action => 'forgotten',:layout=> 'simple'
   end
 
   def logout
     logger.info "logout #{session[:user_id]}"
     clear_session
-    render :action=>'login'
+    render :action=>'login',:layout=> 'simple'
   end
 
   def access_denied

@@ -8,10 +8,40 @@
 <% end -%>
 
 <% content_for :centre do -%>
-  <%= render :partial => @layout[:centre],:locals=>{:folder=>@project_folder} %>
+<div id='tabs1'>
+    <div id="tab-folder" class="tab-content">
+       <%= render :partial => 'show',:locals=>{:folder=>@project_folder} %>
+    </div>
+    <div id="tab-document" class="tab-content">
+       <%= render :partial => 'document',:locals=>{:folder=>@project_folder} %>
+    </div>
+    <div id="tab-outline" class="tab-content">
+       <%= render :partial => 'layout',:locals=>{:folder=>@project_folder} %>
+    </div>
+    <div id="tab-blog" class="tab-content">
+       <%= render :partial => 'blog',:locals=>{:folder=>@project_folder} %>
+    </div>
+</div>      
 <% end %>
   
 
 <% content_for :right do -%>
-    <%= render :partial => @layout[:right],:locals=>{:folder=> @project_folder} %>   
+    <%= render :partial => 'right',:locals=>{:folder=> @project_folder} %>   
 <% end %>
+
+<SCRIPT TYPE="text/javascript"> 
+Ext.onReady(function(){
+        var tabs = new Ext.TabPanel('tabs1');
+        var tab1 = tabs.addTab('tab-folder', "Folder");        
+        var tab2 = tabs.addTab('tab-document', "Document");
+        var tab3 = tabs.addTab('tab-outline', "Outline");
+        var tab4 = tabs.addTab('tab-blog', "Timeline");
+        tabs.activate('tab-folder');
+//
+//        tab1.setUrl('<%=folder_url( :action => 'folder', :folder_id => @project_folder.id )%>', null, false);
+//        tab2.setUrl('<%=folder_url( :action => 'document', :folder_id => @project_folder.id )%>', null, false);
+//        tab3.setUrl('<%=folder_url( :action => 'layout', :folder_id => @project_folder.id )%>', null, false);
+//        tab4.setUrl('<%=folder_url( :action => 'blog', :folder_id => @project_folder.id )%>', null, false);
+//        
+ });
+</script>

@@ -1,10 +1,5 @@
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
-
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: reports
 #
@@ -21,7 +16,13 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #  internal           :boolean(1)    
 #  project_id         :integer(11)   
+#  action             :string(255)   
 #
+
+##
+# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+# 
 
 class Report < ActiveRecord::Base
   included Named

@@ -9,3 +9,14 @@
 </h2>
 
 <%= render :partial => 'parameters', :locals => {  :study => @study } %> 
+
+<% content_for :right do%>
+      <h3>Guidance</h3>
+      <p>
+        This is simple QA report on what values have been associated with the global parameter types
+        in the system. Its returns the average +/ error and min/max values for each parameter
+        type in each role.
+        
+        
+      </p>    
+<%end%>   

@@ -1,23 +1,25 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: requests
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  requested_by       :string(255)   
-#  expected_at      :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  list_id            :integer(11)   
-#  data_element_id    :integer(11)   
-#  status_id          :integer(11)   
-#  priority_id        :integer(11)   
-#  project_id         :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                   :integer(11)   not null, primary key
+#  name                 :string(128)   default(), not null
+#  description          :text          
+#  expected_at          :string(255)   
+#  lock_version         :integer(11)   default(0), not null
+#  created_at           :datetime      not null
+#  updated_at           :datetime      not null
+#  list_id              :integer(11)   
+#  data_element_id      :integer(11)   
+#  status_id            :integer(11)   default(0), not null
+#  priority_id          :integer(11)   
+#  project_id           :integer(11)   
+#  updated_by_user_id   :integer(11)   default(1), not null
+#  created_by_user_id   :integer(11)   default(1), not null
+#  requested_by_user_id :integer(11)   default(1)
+#  started_at           :datetime      
+#  ended_at             :datetime      
 #
 
 ##

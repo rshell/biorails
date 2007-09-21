@@ -1,5 +1,7 @@
 <%= form_remote_tag :url => report_url( :action => 'refresh',:id =>report.id, :page => nil ) %>
-<table class="report" width='100%'>
+<table class="report" 
+       url="<%=report_url( :action => 'refresh',:id =>report.id)%>" 
+	   width='100%'>
 
   <thead id='<%=report.dom_id("header")%>'>
     <%= render :partial => 'shared/report_header', :locals => {:report => report, :data =>data } %> 

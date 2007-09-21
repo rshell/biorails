@@ -1,11 +1,3 @@
-<%= render :partial => 'title' %>
-
-<ul class="tablist"> 
-  <li>  <%= link_to_remote 'Folder',   {:url =>folder_url( :action => 'show',    :folder_id => folder.id )}, :class=>'current' %> </li>
-  <li>  <%= link_to_remote 'Document', :url =>folder_url( :action => 'document',:folder_id => folder.id )%> </li>
-  <li>  <%= link_to_remote 'Layout',   :url =>folder_url( :action => 'layout',:folder_id => folder.id ) %> </li>
-  <li>  <%= link_to_remote 'Blog',     :url =>folder_url( :action => 'blog',    :folder_id => folder.id )%> </li>
-</ul>
 
 <div id='folder_top' class='reverse'>
     Folder <%=folder.name%> has <%=folder.elements.size%> items (drop here to add to start)
@@ -41,10 +33,7 @@
     <% end %>
 </ol>
 </div>
-      
+
 <SCRIPT TYPE="text/javascript">
     <%= folder_drag_and_drop(@project_folder) %>
 </script>
-
-             
-      

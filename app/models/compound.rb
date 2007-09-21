@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: compounds
 #
@@ -10,12 +10,12 @@
 #  mass               :float         
 #  smiles             :string(255)   
 #  lock_version       :integer(11)   default(0), not null
+#  created_by_user_id :integer(32)   default(1), not null
 #  created_at         :datetime      not null
+#  updated_by_user_id :integer(32)   default(1), not null
 #  updated_at         :datetime      not null
 #  registration_date  :datetime      
 #  iupacname          :string(255)   default()
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
 #
 
 ##

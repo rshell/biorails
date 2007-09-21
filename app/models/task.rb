@@ -1,16 +1,15 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: tasks
 #
 #  id                  :integer(11)   not null, primary key
 #  name                :string(128)   default(), not null
 #  description         :text          
-#  experiment_id       :integer(11)   
-#  protocol_version_id :integer(11)   
-#  status_id           :integer(11)   
+#  experiment_id       :integer(11)   not null
+#  protocol_version_id :integer(11)   not null
+#  status_id           :integer(11)   default(0), not null
 #  is_milestone        :boolean(1)    
-#  assigned_to         :string(60)    
 #  priority_id         :integer(11)   
 #  started_at          :datetime      
 #  ended_at            :datetime      
@@ -20,9 +19,11 @@
 #  created_at          :datetime      not null
 #  updated_at          :datetime      not null
 #  study_protocol_id   :integer(11)   
-#  project_id          :integer(11)   
+#  project_id          :integer(11)   not null
 #  updated_by_user_id  :integer(11)   default(1), not null
 #  created_by_user_id  :integer(11)   default(1), not null
+#  assigned_to_user_id :integer(11)   default(1)
+#  expected_at         :datetime      
 #
 
 require "faster_csv"

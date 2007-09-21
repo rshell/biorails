@@ -5,7 +5,6 @@ class HomeController < ApplicationController
                     :rights => :current_user  
 
   helper :calendar
-  
   DEFAULT_CALENDAR_OPTIONS = {  'month' => Date.today.month,
                                 'year'=> Date.today.year,
                                 'items'=> {'task'=>1},

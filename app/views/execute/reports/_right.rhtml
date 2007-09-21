@@ -1,0 +1,52 @@
+<%#
+# _right.rhtml.rhtml
+# 
+# Created on 20-Sep-2007, 21:33:06
+# 
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<div id="right-accordion">
+  
+  <div id="panel-tree">
+    <div> Columns    </div>
+    <div>
+      <div class="text-content">
+        <%= tree_for_report_columns(@report) %>
+      </div>
+    </div>
+  </div>
+  
+  <div id="panel-help">
+    <div>Help</div>
+    <div>
+      <div class="text-content">
+        <ul>
+        <li><%=image_tag("relations/belongs_to.png")%> Reference 
+        </li><li><%=image_tag("relations/has_many.png")%> Collection 
+        </li><li><%=image_tag("relations/text.png")%> Long Text 
+        </li><li><%=image_tag("relations/string.png")%> Short Text
+        </li><li><%=image_tag("relations/float.png")%> Numeric
+        </li><li><%=image_tag("relations/date.png")%> Date
+        </li><li><%=image_tag("relations/binary.png")%> Binary (Unreadable)
+        </li><li><%=image_tag("relations/boolean.png")%> Yes/No (1/0)
+        </li>
+        </ul>         
+        Select columns for report from this tree of columns and related models
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  Ext.onReady(function() {
+  // create accordion
+  var acc = new Ext.ux.Accordion('right-accordion', { fitHeight: true, autoScroll:true, hideOtherOnExpand: false })
+
+  // create panel 1
+  var panel1 = acc.add(new Ext.ux.InfoPanel('panel-tree', {autoScroll:true, hideOtherOnExpand: false  }));
+  var panel2 = acc.add(new Ext.ux.InfoPanel('panel-help', {hideOtherOnExpand: false  }));
+});
+</script>

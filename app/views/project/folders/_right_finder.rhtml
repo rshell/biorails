@@ -2,8 +2,9 @@
      <li><%= link_to_remote l('Find'), { :url=>folder_url(:action=>'finder',   :id => folder.id)},:class=>"current"  %>     </li>
      <li><%= link_to_remote l('Tree'),{ :url=>folder_url(:action=>'selector', :id => folder.id),}  %>                       </li>
 </ul>
+
 <div>
-<div id='clipboard'>
+  <div id='clipboard'>
 <h4>Clipboard for <%=current_user.name%>
 
 <%=link_to_remote '[Clear]',:url => folder_url(:action=>"clear_clipboard",:id=>folder.id )%>

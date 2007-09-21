@@ -57,6 +57,22 @@ module Alces
         def logger
           ActionController::Base.logger rescue nil
         end 
+        
+        def to_tree(&block)
+          item = {:text => self.name,
+                  :id=>self.id,
+                  :icon=>self.icon,
+                  :qtip => self.tooltip,
+                  :expanded => self.open,
+                  :leaf=> true,
+                  :cls=>'file'}
+          if self.children.size>0
+           item[:leaf] = false
+           item[:children] = self.children.collect{|i|i.to_tree(&block)}   
+         end
+         yield item,self  if block_given? 
+         return item
+       end
       ##
       # id for node 
       #   

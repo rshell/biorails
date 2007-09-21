@@ -44,14 +44,60 @@
 </div>
 <% end %>
 
-<%= drop_receiving_element "report-definition", 
+<script type="text/javascript">
+      // reference local blank image
+Ext.BLANK_IMAGE_URL = '/images/s.gif';
+Ext.namespace('Biorails','Biorails.Report','Biorails.Report.dd');
+ 
+// create application
+Biorails.Report.dd = function() {
+
+var columnDropZone;
+
+    // public space
+return {
+        // public methods
+   init: function() {
+	columnDropZone = new Biorails.Report.dd.MyDropTarget('report-definition', {
+            ddGroup:'ColumnDD',
+            overClass: 'dd-over'
+        });
+      
+     }
+   };
+}(); // end of app
+ console.log("Starting ");
+
+Biorails.Report.dd.MyDropTarget =function(el,config) {
+   Biorails.Report.dd.MyDropTarget.superclass.constructor.call(this,el,config);   
+};
+
+Ext.extend(Biorails.Report.dd.MyDropTarget,Ext.dd.DropTarget,{
+
+  notifyDrop: function (source,e,data) {
+     console.log("notifyDrop"+encodeURIComponent(data.node.id));
+    new Ajax.Request('/reports/add_column/<%=@report.id%>',
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'id='+encodeURIComponent(data.node.id) }); 
+    return false;
+
+     }
+});      
+
+Ext.onReady(Biorails.Report.dd.init, Biorails.Report.dd);
+ 
+</script>
+
+    
+<!--%= drop_receiving_element "report-definition", 
     :url => { :action => "add_column",:id => @report.id },
     :accept => "column",
-    :droponempy => true %>
+    :droponempy => true %-->
               
-<%= drop_receiving_element "data_columns", 
+<!--%= drop_receiving_element "data_columns", 
     :url => { :action => "remove_column",:id => @report.id },
         :accept => "report_column",
-        :droponempy => true %>
+        :droponempy => true %-->
 
     

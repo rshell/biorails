@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: project_assets
 #
@@ -10,7 +10,7 @@
 #  content_type       :string(255)   
 #  filename           :string(255)   
 #  thumbnail          :string(255)   
-#  size               :integer(11)   
+#  size_bytes         :integer(11)   
 #  width              :integer(11)   
 #  height             :integer(11)   
 #  thumbnails_count   :integer(11)   default(0)
@@ -21,6 +21,8 @@
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
+#  caption            :text          
+#  db_file_id         :integer(11)   
 #
 
 ##
@@ -121,6 +123,9 @@ class Asset < ActiveRecord::Base
 
   def size
     self.size_bytes
+  rescue Exception => ex
+      logger.error ex.message
+    return 0           
   end
 
   def size=(value)

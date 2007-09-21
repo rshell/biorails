@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: reports
 #
@@ -16,6 +16,7 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #  internal           :boolean(1)    
 #  project_id         :integer(11)   
+#  action             :string(255)   
 #
 
 ##

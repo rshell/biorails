@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>biorails</name>
+	<name>trunk</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>com.codegear.rails.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.dltk.core.scriptbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.common.project.facet.core.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 		<buildCommand>
 			<name>org.rubypeople.rdt.core.rubybuilder</name>
 			<arguments>
@@ -12,6 +32,10 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>com.codegear.rails.nature</nature>
+		<nature>org.eclipse.dltk.ruby.core.nature</nature>
+		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.radrails.rails.ui.railsnature</nature>
 		<nature>org.rubypeople.rdt.core.rubynature</nature>
 		<nature>org.radrails.rails.core.railsnature</nature>

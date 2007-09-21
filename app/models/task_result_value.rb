@@ -1,10 +1,10 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: task_result_values
 #
 #  id                     :integer(11)   default(0), not null, primary key
-#  row_no                 :integer(11)   default(0), not null
+#  row_no                 :integer(11)   not null
 #  column_no              :integer(11)   
 #  task_id                :integer(11)   
 #  parameter_context_id   :integer(11)   
@@ -20,9 +20,9 @@
 #  row_label              :string(255)   
 #  parameter_name         :string(62)    
 #  data_value             :float         
-#  created_by_user_id     :integer(11)   default(0), not null
+#  created_by_user_id     :integer(11)   default(1), not null
 #  created_at             :datetime      not null
-#  updated_by_user_id     :integer(11)   default(0), not null
+#  updated_by_user_id     :integer(11)   default(1), not null
 #  updated_at             :datetime      not null
 #
 

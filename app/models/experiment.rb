@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: experiments
 #
@@ -7,16 +7,19 @@
 #  name                :string(128)   default(), not null
 #  description         :text          
 #  category_id         :integer(11)   
-#  status_id           :string(255)   
-#  study_id            :integer(11)   
+#  status_id           :integer(11)   default(0), not null
+#  study_id            :integer(11)   not null
 #  protocol_version_id :integer(11)   
 #  lock_version        :integer(11)   default(0), not null
 #  created_at          :datetime      not null
 #  updated_at          :datetime      not null
-#  study_protocol_id   :integer(11)   
-#  project_id          :integer(11)   
+#  study_protocol_id   :integer(11)   not null
+#  project_id          :integer(11)   not null
 #  updated_by_user_id  :integer(11)   default(1), not null
 #  created_by_user_id  :integer(11)   default(1), not null
+#  started_at          :datetime      
+#  ended_at            :datetime      
+#  expected_at         :datetime      
 #
 
 require "faster_csv"

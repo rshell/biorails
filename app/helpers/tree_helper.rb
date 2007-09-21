@@ -8,20 +8,18 @@ module TreeHelper
 
   include Alces::TreeControl
 
-
 ##
 # Build tree structure as a nested set of lists
 # 
- def build_column_tree(report,model,path="",level=0,max=2)
+ def build_column_tree(report,model,path="",level=0,max=4)
     old = nil
     tree = Alces::TreeControl::Node.create(model,:content_columns) do |node,rec|
          #logger.info "Node(#{model},#{path},#{level})  #{rec.name}"
          node.id = "#{report.model}~#{path}#{rec.name}"
          node.icon = "/images/relations/#{rec.type}.png" 
-         node.name = ""
-         node.link =  link_to_remote rec.name + subject_icon("add.gif"),
-                        :url=>{ :action =>'add_column',:id=>report.id, :column=>node.id }
-  	     node.previous = old
+         node.name = rec.name
+         #node.link =  reports_url({ :action =>'add_column',:id=>report.id, :column=>node.id })
+  	 node.previous = old
     	 node.successor = node unless old.nil?
     	 old = node
      end  
@@ -48,10 +46,54 @@ module TreeHelper
       return tree
  end    
 
+          
+  def tree_for_report_columns(report) 
+      tree= build_column_tree(report, report.model)
+      out = ""
+      out << "<div id='#{report.dom_id(:tree)}'>"
+      out << '</div>'
+      script = <<JS
+Ext.onReady( function(){  
+      
+      var tree = new Ext.tree.TreePanel('#{report.dom_id(:tree)}', {
+                                      animate:true,
+                                      autoScroll:true,
+                                      loader: new Ext.tree.TreeLoader(), 
+                                      lines: true,
+                                      enableDrag: true,
+                                      containerScroll: true,
+                                      singleExpand: true,
+                                      ddGroup: 'ColumnDD',
+                                      selModel: new Ext.tree.MultiSelectionModel(),
+                                      containerScroll: false  });
+
+      var root = new Ext.tree.AsyncTreeNode(#{tree.to_tree.to_json});
+      tree.setRootNode(root);
+      tree.render();
+      root.expand();
+      tree.on('dblclick',function(node,e){
+        console.log("double click");
+        new Ajax.Request('/reports/add_column/#{report.id}',
+                    {asynchronous:true,
+                     evalScripts:true,
+                     parameters:'id='+encodeURIComponent(node.id) }); 
+        return false;
+      
+      });
+});
+    
+JS
+      out << javascript_tag(script)
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end
 ##
 # Tree of report columns
 # 
-  def tree_for_report_columns(report)
+  def tree_for_report_columns2(report)
       tree= build_column_tree(report, report.model)
       out = ""
       out << "<div id='#{report.dom_id(:tree)}' class='dtree'>"
@@ -63,47 +105,35 @@ module TreeHelper
       logger.error ex.backtrace.join("\n")    
       return "Error in tree_for_report_columns:  #{ex.message}"
    end
+
           
-##
-# Generate a Tree for a project
-#
-  def tree_for_project(project)
-      tree= Alces::TreeControl::Node.build(project.folders) do |node,rec|
-          node.link = link_to rec.name,reference_to_url(rec )
-          node.icon = rec.icon
-          node.id = rec.dom_id
-          node.name = nil
-          node.drop_url = nil
-#          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
-      end    
+  def tree_for_project(project) 
+      items = project.home.to_tree do |node,rec|   
+         node[:href] = reference_to_url(rec)
+         node[:icon] = rec.icon
+      end   
       out = ""
-      out << "<div id='#{project.dom_id(:tree)}' class='dtree'>"
-      out <<  node_html(tree, 0 )
+      out << "<div id='#{project.dom_id(:tree)}'>"
       out << '</div>'
-      return out
-  rescue Exception => ex
-      logger.error "error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      return  "error: #{ex.message}"
-  end
- 
- 
-##
-# Tree for a folder and children  
-# 
-  def tree_for_folder(project , folder)
-      tree= Alces::TreeControl::Node.create( folder ) do |node,rec|
-          #node.link = link_to_remote rec.name,:url =>element_to_url(rec )
-          node.icon = rec.icon
-          node.id = rec.dom_id
-          node.name = rec.name
-          node.drop_url = nil
-#          node.drop_url = folder_url(:action =>"drop_element",:id => rec.id)
-      end    
-      out = ""
-      out << "<div id='#{project.dom_id(:tree)}' class='dtree'>"
-      out << node_html(tree, 0 )
-      out << '</div>'
+      script = <<JS
+Ext.onReady( function(){  
+      
+      var tree = new Ext.tree.TreePanel('#{project.dom_id(:tree)}', {
+                                      animate:true,
+                                      enableDD:false,
+                                      loader: new Ext.tree.TreeLoader(), 
+                                      lines: true,
+                                      selModel: new Ext.tree.MultiSelectionModel(),
+                                      containerScroll: false });
+
+      var root = new Ext.tree.AsyncTreeNode(#{items.to_json});
+      tree.setRootNode(root);
+      tree.render();
+      root.expand()
+});
+    
+JS
+      out << javascript_tag(script)
       return out
   rescue Exception => ex
       logger.error "error: #{ex.message}"
@@ -111,6 +141,39 @@ module TreeHelper
       return  "error: #{ex.message}"
   end
   
+ 
+   def  tree_for_folder(project , folder)
+      items =folder.to_tree do |node,rec|   
+         node[:href] = element_to_url(rec)
+         node[:icon] = rec.icon
+      end   
+      out = ""
+      out << "<div id='#{folder.dom_id(:tree)}'>"
+      out << '</div>'
+      script = <<JS
+Ext.onReady( function(){       
+      var tree = new Ext.tree.TreePanel('#{folder.dom_id(:tree)}', {
+                                      animate:true,
+                                      enableDD:false,
+                                      loader: new Ext.tree.TreeLoader(), 
+                                      lines: true,
+                                      selModel: new Ext.tree.MultiSelectionModel(),
+                                      containerScroll: false });
+
+      var root = new Ext.tree.AsyncTreeNode(#{items.to_json});
+      tree.setRootNode(root);
+      tree.render();
+      root.expand()
+});
+    
+JS
+      out << javascript_tag(script)
+      return out
+  rescue Exception => ex
+      logger.error "error: #{ex.message}"
+      logger.error ex.backtrace.join("\n")    
+      return  "error: #{ex.message}"
+  end
   
  
 

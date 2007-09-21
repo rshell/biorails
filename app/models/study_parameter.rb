@@ -1,19 +1,21 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: study_parameters
 #
-#  id                :integer(11)   not null, primary key
-#  parameter_type_id :integer(11)   
-#  parameter_role_id :integer(11)   
-#  study_id          :integer(11)   default(1)
-#  name              :string(255)   
-#  default_value     :string(255)   
-#  data_element_id   :integer(11)   
-#  data_type_id      :integer(11)   
-#  data_format_id    :integer(11)   
-#  description       :string(1024)  default(), not null
-#  display_unit      :string(255)   
+#  id                 :integer(11)   not null, primary key
+#  parameter_type_id  :integer(11)   
+#  parameter_role_id  :integer(11)   
+#  study_id           :integer(11)   default(1)
+#  name               :string(255)   
+#  default_value      :string(255)   
+#  data_element_id    :integer(11)   
+#  data_type_id       :integer(11)   
+#  data_format_id     :integer(11)   
+#  description        :string(1024)  default(), not null
+#  display_unit       :string(255)   
+#  created_by_user_id :integer(11)   default(1), not null
+#  updated_by_user_id :integer(11)   default(1), not null
 #
 
 ##

@@ -1,3 +1,26 @@
+# == Schema Information
+# Schema version: 280
+#
+# Table name: analysis_settings
+#
+#  id                 :integer(11)   not null, primary key
+#  analysis_method_id :integer(11)   
+#  name               :string(62)    
+#  script_body        :text          
+#  options            :text          
+#  parameter_id       :integer(11)   
+#  data_type_id       :integer(11)   
+#  level_no           :integer(11)   
+#  column_no          :integer(11)   
+#  io_mode            :integer(11)   
+#  mandatory          :string(255)   default(N)
+#  default_value      :string(255)   
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 ##
 # Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
 # See license agreement for additional rights

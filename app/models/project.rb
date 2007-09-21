@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: projects
 #
@@ -16,7 +16,7 @@
 #  updated_at         :datetime      not null
 #  started_at         :datetime      
 #  ended_at           :datetime      
-#  expected_date      :datetime      
+#  expected_at        :datetime      
 #  done_hours         :float         
 #  expected_hours     :float         
 #  updated_by_user_id :integer(11)   default(1), not null

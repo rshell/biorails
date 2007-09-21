@@ -1,4 +1,4 @@
-    <td><%=link_to(queue_item.service.name,  request_services_url(  :action => 'show', :id => queue_item.service)) if queue_item.service %></td>
+    <td><%=link_to(queue_item.service.name, service_url(  :action => 'show', :id => queue_item.service)) if queue_item.service %></td>
     <td><%=queue_item.name %></td>
     <td>
            <%= select_tag 'status_id', 

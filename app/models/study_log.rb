@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: study_logs
 #
@@ -10,7 +10,7 @@
 #  auditable_type :string(255)   
 #  action         :string(255)   
 #  name           :string(255)   
-#  comment        :string(255)   
+#  comments       :string(255)   
 #  changes        :text          
 #  created_by     :string(255)   
 #  created_at     :datetime      

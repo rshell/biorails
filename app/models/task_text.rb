@@ -1,12 +1,11 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: task_texts
 #
 #  id                 :integer(11)   not null, primary key
 #  task_context_id    :integer(11)   
 #  parameter_id       :integer(11)   
-#  markup_style_id    :integer(11)   
 #  data_content       :text          
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null

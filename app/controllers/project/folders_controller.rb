@@ -30,15 +30,44 @@ class Project::FoldersController < ApplicationController
 # 
   def show
     set_folder
-    return render_central('show')
+    respond_to do |format|
+      format.html {render :action => 'show'}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
+        end
+      }
+    end 
   end
-  
+
+  def folder
+    set_folder
+    respond_to do |format|
+      format.html {render :partial => 'show',:locals=>{:folder=>@project_folder}}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
+        end
+      }
+    end 
+  end
+
 ##
 # Display the current clipboard 
 # 
   def document
     set_folder
-    return render_central('document')
+    respond_to do |format|
+      format.html {render :partial => 'document',:locals=>{:folder=>@project_folder}}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'tab-document',  :partial => 'document' ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
+        end
+      }
+    end 
   end    
 
 ##
@@ -46,9 +75,32 @@ class Project::FoldersController < ApplicationController
 # 
   def layout
     set_folder
-    return render_central('layout')
+    respond_to do |format|
+      format.html {render :partial => 'layout',:locals=>{:folder=>@project_folder}}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'tab-outline',  :partial => 'layout' ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
+        end
+      }
+    end 
   end
 ##
+# Display the current clipboard 
+# 
+  def blog
+    set_folder
+    respond_to do |format|
+      format.html {render :partial => 'blog',:locals=>{:folder=>@project_folder}}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.js  { render :update do | page |
+           page.replace_html 'tab-blog',  :partial => 'blog' ,:locals=>{:folder=>@project_folder}
+           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
+        end
+      }
+    end 
+  end  
+###
 ##
 # Display the current clipboard 
 # 
@@ -63,13 +115,7 @@ class Project::FoldersController < ApplicationController
       }
     end  
   end
-##
-# Display the current clipboard 
-# 
-  def blog
-    set_folder
-    return render_central('blog')
-  end    
+  
 
 ##
 # Display the selector
@@ -320,10 +366,10 @@ protected
   end
 
   def render_central(mode =nil)
-    @layout[:centre] = mode if mode
+    @layout[:centre] = mode || 'show'
     respond_to do |format|
-      format.html {render :action => @layout[:centre] || 'show'}
-      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+      format.html{ render :action => @layout[:centre] }
+      format.xml { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'centre',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
            page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
@@ -333,7 +379,7 @@ protected
   end
 
   def render_right(mode = nil)
-    @layout[:right] ="right_#{mode}" if mode
+    @layout[:right] ="right_#{mode}" || 'right'
     respond_to do |format|
       format.html {render :action => @layout[:centre] || 'show'}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}

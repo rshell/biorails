@@ -1,3 +1,26 @@
+# == Schema Information
+# Schema version: 280
+#
+# Table name: study_protocols
+#
+#  id                    :integer(11)   not null, primary key
+#  study_id              :integer(11)   not null
+#  study_stage_id        :integer(11)   default(1), not null
+#  current_process_id    :integer(11)   
+#  process_definition_id :integer(11)   
+#  process_style         :string(128)   default(Entry), not null
+#  name                  :string(128)   default(), not null
+#  description           :text          
+#  literature_ref        :text          
+#  protocol_catagory     :string(20)    
+#  protocol_status       :string(20)    
+#  lock_version          :integer(11)   default(0), not null
+#  created_at            :datetime      not null
+#  updated_at            :datetime      not null
+#  updated_by_user_id    :integer(11)   default(1), not null
+#  created_by_user_id    :integer(11)   default(1), not null
+#
+
 --- 
 00000000011_study_protocol: !ruby/object:StudyProtocol 
   attributes: 

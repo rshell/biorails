@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: data_formats
 #
@@ -14,6 +14,7 @@
 #  data_type_id       :integer(11)   
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
+#  format_sprintf     :string(255)   
 #
 
 ##

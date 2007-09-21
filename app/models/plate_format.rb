@@ -1,13 +1,13 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: plate_formats
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(128)   default(), not null
 #  description        :text          
-#  rows               :integer(11)   
-#  columns            :integer(11)   
+#  num_rows           :integer(11)   
+#  num_columns        :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null

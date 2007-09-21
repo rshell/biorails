@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
  
  PUBLIC_PROJECT_ID = 1
  GUEST_USER_ID = 1
- 
+
+ layout 'biorails3'
+
  #audit DataConcept,DataContext,DataSystem,DataElement,DataFormat,DataType,
  #      Study,StudyProtocol,StudyParameter,
  #      ProtocolVersion,ParameterContext,Parameter,
@@ -22,14 +24,11 @@ class ApplicationController < ActionController::Base
 # Help functionailty has been divided up into a number areas to keep modules readable 
   helper :sort
   helper Execute::ReportsHelper
-  include SortHelper
   helper :pagination
   helper FormHelper    # Various Form helper and custom controllers
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
   helper TreeHelper # Tree display helpers
-  include TinyMCE
- 
 
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_Biorails2_session_id'

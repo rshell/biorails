@@ -1,25 +1,25 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: request_services
 #
-#  id                 :integer(11)   not null, primary key
-#  request_id         :integer(11)   not null
-#  service_id         :integer(11)   not null
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  requested_by       :string(60)    
-#  expected_at      :datetime      
-#  assigned_to        :string(60)    
-#  started_at        :datetime      
-#  ended_at       :datetime      
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  status_id          :integer(11)   
-#  priority_id        :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                   :integer(11)   not null, primary key
+#  request_id           :integer(11)   not null
+#  service_id           :integer(11)   not null
+#  name                 :string(128)   default(), not null
+#  description          :text          
+#  expected_at          :datetime      
+#  started_at           :datetime      
+#  ended_at             :datetime      
+#  lock_version         :integer(11)   default(0), not null
+#  created_at           :datetime      not null
+#  updated_at           :datetime      not null
+#  status_id            :integer(11)   default(0), not null
+#  priority_id          :integer(11)   
+#  updated_by_user_id   :integer(11)   default(1), not null
+#  created_by_user_id   :integer(11)   default(1), not null
+#  requested_by_user_id :integer(11)   default(1)
+#  assigned_to_user_id  :integer(11)   default(1)
 #
 
 

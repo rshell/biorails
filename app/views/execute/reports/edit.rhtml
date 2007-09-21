@@ -5,22 +5,7 @@
 <% end %>
 
 <% content_for :right do%>
-<div class="tree panel">
-<h2><%=@report.model.to_s%> Model </h2>
-<p> Select columns for report from this tree of columns and related models </p>
-<%= tree_for_report_columns(@report) %>
-</div>
-<h4> Key</h>
-<ul>
-<li><%=image_tag("relations/belongs_to.png")%> Reference to
-</li><li><%=image_tag("relations/has_many.png")%> Collection of 
-</li><li><%=image_tag("relations/text.png")%> Long Text 
-</li><li><%=image_tag("relations/string.png")%> Short Text
-</li><li><%=image_tag("relations/float.png")%> Numeric
-</li><li><%=image_tag("relations/date.png")%> Date
-</li><li><%=image_tag("relations/binary.png")%> Binary (Unreadable)
-</li><li><%=image_tag("relations/boolean.png")%> Yes/No (1/0)
-</li></ul>   
+  <%= render :partial =>'right' if @report %>
 <%end%>
 
 <% content_for :centre do%>

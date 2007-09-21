@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 239
+# Schema version: 280
 #
 # Table name: audits
 #
@@ -8,7 +8,7 @@
 #  auditable_type :string(255)   
 #  user_id        :integer(11)   
 #  user_type      :string(255)   
-#  session        :string(255)   
+#  session_id     :string(255)   
 #  action         :string(255)   
 #  changes        :text          
 #  created_at     :datetime      

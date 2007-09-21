@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%#
+# biorails3.rhtml
+# 
+# Created on 12-Sep-2007, 16:38:32
+
+%>
+<html>
+ <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Bio Rails 3.0</title>
+    <%= stylesheet_link_tag "ext-all" %>
+    <%= stylesheet_link_tag "main" %>
+    <%= stylesheet_link_tag "biorails3" %>
+    <%= stylesheet_link_tag 'gantt' %>
+    <%= stylesheet_link_tag 'table' %>
+    <%= stylesheet_link_tag 'forms' %>
+    <%= stylesheet_link_tag "autocomplete" %>
+    <%= stylesheet_link_tag 'calendar-green' %>
+    <%= stylesheet_link_tag 'datebocks_engine' %>
+ 
+    <!-- GC --> 
+	<!-- LIBS -->     
+    <%= javascript_include_tag 'prototype/prototype' %>
+    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
+    <%= javascript_include_tag 'scriptaculous/effects' %>
+    <%= javascript_include_tag 'scriptaculous/dragdrop' %>
+    <%= javascript_include_tag 'scriptaculous/controls' %>
+    <%= javascript_include_tag 'scriptaculous/sound' %>
+    <%= javascript_include_tag 'scriptaculous/slider' %>
+    <%= javascript_include_tag 'validator' %>
+    <%= javascript_include_tag 'validators-en' %>
+    <%= javascript_include_tag 'form_fields' %>
+    <%= javascript_include_tag 'calendar/calendar' %>
+    <%= javascript_include_tag 'calendar/calendar-setup' %>
+    <%= javascript_include_tag 'calendar/lang/calendar-en' %>
+    <%= javascript_include_tag 'datebocks_engine' %>
+    <%= javascript_include_tag 'ext/adapter/prototype/ext-prototype-adapter' %>
+    <%= javascript_include_tag 'ext/ext-all' %>
+    <%= javascript_include_tag 'ext/accordion' %>
+    <%= javascript_include_tag 'ext/info_panel' %>
+    <%= javascript_include_tag 'ext/upload_form' %>
+    <%= javascript_include_tag 'main_layout' %>
+    <%= javascript_include_tag 'application' %>
+
+    <!-- ENDLIBS -->
+ 
+<!-- page specific tags  ======================= -->
+	<%= yield :includes %>
+	
+	<%= yield :header_script %>
+   <%=setup_toolbar('top-toolbar')%>
+   <!--
+   <%= javascript_include_tag 'main_menu' %>
+   -->
+</head>
+
+<body>
+	
+<div id="container" >
+<!--Top Header ======================= -->  
+  <div id="header" class="x-layout-inactive-content">
+	  <div id='top-toolbar'>
+	  </div>
+ </div>
+
+<!--Left Block =======================-->  
+  <div id="left" class="x-layout-inactive-content">
+    <div class='sidemenu'>
+     <%= if @content_for_sidemenu
+          yield :sidemenu 
+      else    
+         render :partial =>'menu/default_left_menu' 
+      end %>
+    </div>
+    <%= if @content_for_left 
+           yield :left  
+    end %> 
+  </div>
+  
+<!-- East Side tabs  -->
+  <div id="right" class="x-layout-inactive-content">
+	   <div id="messages">
+	       <%= if @content_for_messages 
+	            yield :messages
+	        end %> 
+	   </div>
+      <%= yield :right %>
+  </div>
+  
+  
+<!-- Main area  -->
+  <div id="home" class="x-layout-inactive-content">
+		<div id="grid-panel" style="width:600px;height:300px;">
+		<div id="grid-example"></div>
+		</div>
+  </div>
+  <div id="center" class="x-layout-inactive-content">
+     <%= yield :centre %>
+      <%= yield %>
+  </div>
+
+
+<!-- Bottom  -->
+  <div id="footer" class="x-layout-inactive-content">
+      <%= yield :footer %>
+  </div>
+  
+</div>
+
+
+</body>
+</html>
+
