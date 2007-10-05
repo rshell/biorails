@@ -1,10 +1,12 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-      <span class='menu' > Roles</span>
-       <%= link_to 'list', role_url( :action => 'list') %>
-       <%= link_to 'new', role_url( :action => 'new') %>
-    </div>
+  <%= render :partial => 'menu'%>
+<% end %>
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['role']} %>
+<%end%>
+
+<% content_for :right do%>
+  <%= render :partial => 'help'%>
 <% end %>
 
 <h2>User Roles</h2>
@@ -56,4 +58,3 @@
 	<% end %>
 	</table>
 </div>
-<p><%= link_to 'New role', :action => 'new' %></p>

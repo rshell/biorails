@@ -6,6 +6,7 @@
 <% end %>
   <%= link_to 'Folder',folder_url( :action => 'show', :folder_id => folder.id ) %> 
   <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
+  <%= link_to 'Save As '+image_tag('mime/pdf.gif'),folder_url( :action => 'print',:format=>:pdf,:folder_id => folder.id ),:popup => true %> 
 
   <%= link_to_remote subject_icon('new')+'Add Folder',   :url =>folder_url( :action => 'new',     :folder_id => folder.id ) %> 
   <%= link_to subject_icon('new')+'Add Article',    

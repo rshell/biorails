@@ -26,8 +26,6 @@
     <%= javascript_include_tag 'scriptaculous/effects' %>
     <%= javascript_include_tag 'scriptaculous/dragdrop' %>
     <%= javascript_include_tag 'scriptaculous/controls' %>
-    <%= javascript_include_tag 'scriptaculous/sound' %>
-    <%= javascript_include_tag 'scriptaculous/slider' %>
     <%= javascript_include_tag 'validator' %>
     <%= javascript_include_tag 'validators-en' %>
     <%= javascript_include_tag 'form_fields' %>
@@ -50,9 +48,6 @@
 	
 	<%= yield :header_script %>
    <%=setup_toolbar('top-toolbar')%>
-   <!--
-   <%= javascript_include_tag 'main_menu' %>
-   -->
 </head>
 
 <body>
@@ -80,21 +75,11 @@
   
 <!-- East Side tabs  -->
   <div id="right" class="x-layout-inactive-content">
-	   <div id="messages">
-	       <%= if @content_for_messages 
-	            yield :messages
-	        end %> 
-	   </div>
       <%= yield :right %>
   </div>
   
   
 <!-- Main area  -->
-  <div id="home" class="x-layout-inactive-content">
-		<div id="grid-panel" style="width:600px;height:300px;">
-		<div id="grid-example"></div>
-		</div>
-  </div>
   <div id="center" class="x-layout-inactive-content">
      <%= yield :centre %>
       <%= yield %>
@@ -103,7 +88,12 @@
 
 <!-- Bottom  -->
   <div id="footer" class="x-layout-inactive-content">
-      <%= yield :footer %>
+     <div id="messages">
+	   <%= if @content_for_messages 
+	            yield :messages
+	    end %> 
+     </div>
+     <%= yield :footer %>
   </div>
   
 </div>

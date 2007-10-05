@@ -1,12 +1,5 @@
 <% content_for :sidemenu do -%>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
-<div>
-  <span  class='menu'> <%=subject_icon('model/parameter')%>Parameters</span>
-  <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
-  <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
-</div>
+    <%= render :partial =>'menu'%>
 <% end -%>
 
 <% content_for :messages do -%>
@@ -14,28 +7,16 @@
 <%end%>
 
 <% content_for :centre do -%>
-    <h2>
-        <%=subject_icon('model/parameter.png')%> Update Parameter in Study [<strong><%=link_to "#{@study_parameter.study.name}", 
-        :controller=>'studies', :action =>'show',:id =>@study_parameter.study.id %></strong>]
-    </h2>
-    <div class='dialog'>
+    <% dialog subject_icon('model/parameter.png')+"Edit Parameter #{@study_parameter.name}" do %>
         <% form_tag :action => 'update', :id => @study_parameter do %>
            <%= render :partial => 'form' %>
         <% end %>
-    </div>
+	<%end%>
 <%end%>
            
 
 <% content_for :right do -%>
 <div class="panel">
-<h3> 
-Guidance
-</h3>
-<p>
-It is important to maintain consistency in data type between 
-parameter types and study parameters.  If the types are mixed it
-will be difficult to build comprehensive reports ovaer all 
-parameter types.
-</p>
+    <%= render :partial =>'help'%>
 </div>
 <% end -%>

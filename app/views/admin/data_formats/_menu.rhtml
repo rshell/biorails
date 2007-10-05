@@ -1,0 +1,10 @@
+<%= render :partial => '/menu/admin_menu'%>
+<div>
+<span class='menu'>Data Format</span>
+    <%= link_to 'List',    data_format_url(:action => 'list') %>
+    <%= link_to 'New',    data_format_url(:action => 'new') %> 
+	<% if @data_elment && !@data_elment.new_record? %>
+    <%= link_to 'Edit',    data_format_url(:action => 'edit', :id => @data_format) %> 
+    <%= link_to 'Show',    data_format_url(:action => 'show',:id => @data_format) %>
+	<% end %>
+</div>

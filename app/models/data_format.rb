@@ -36,12 +36,21 @@ class DataFormat < ActiveRecord::Base
   has_many :parameters, :dependent => :destroy
   has_many :study_parameters, :dependent => :destroy
 
+  belongs_to :data_type
+
   def self.content_columns
         @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
   end
 
-  belongs_to :data_type
-
+#
+# Test Whether this is in used in the database
+#  
+  def used?
+    return (study_parameters.size > 0 or  parameters.size>0)
+  end 
+#
+# Format a value with the current printf rules
+#
   def format(value)
       return "" if value.nil?  
       logger.info "format #{value.class} #{value}"

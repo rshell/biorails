@@ -1,0 +1,10 @@
+  <%= render :partial => '/menu/admin_menu'%>
+<div>
+<span class='menu'>Parameter Type</span>
+<%= link_to 'List',    parameter_type_url(:action => 'list') %>
+<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
+<% if @parameter_type && !@parameter_type.new_record?%>
+<%= link_to 'Edit',    parameter_type_url(:action => 'edit', :id => @parameter_type) %> 
+<%= link_to 'Show',    parameter_type_url(:action => 'show',:id => @parameter_type) %>
+<% end %>
+</div>

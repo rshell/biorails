@@ -1,34 +1,43 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
- <div>
- <span class='menu'> Data Source </span>
-   <%= link_to (subject_icon('new.png'))+'New', :action => 'new' %>
-   <%= link_to (subject_icon('xls.png'))+'Export', :action => 'export' %>
- </div>
+  <%= render :partial => 'menu'%>
+<% end %>
+
+<% content_for :right do%>
+  <%= render :partial => 'help'%>
 <% end %>
 
 
+<% content_for :centre do%>
 <h1>
     <%= subject_icon('systems')%>Data Sources
 </h1>
 <p>
 	The data sources contain the mappings of parameters to other data systems for internal and remote data dictionaries and other lookups. 
 </p>
-<div class='panel'>
-    <table class="report" >
-    <%= render :partial => 'shared/table_of_named',:locals =>
-       {:items => @data_systems, 
-        :controller => 'data_systems',
-        :edit => 'edit', 
-        :show => 'show' } %>    
-    </table>
+<table class="report">
+  <tr>
+    <th>name</th>
+    <th>Description</th>
+    <th>Adapter </th>
+    <th>Username</th>
+    <th>Database</th>
+    <th>Test Object</th>
+    <th>Action</th>
+  </tr>  
+<% for item in @data_systems %>
+  <tr>
+    <td><%= link_to item.name,data_system_url( :action => 'show', :id => item) %></td>
+    <td><%=h item.description %></td>
+    <td><%=h item.adapter %></td>
+    <td><%=h item.username %></td>
+    <td><%=h item.database %></td>
+    <td><%=h item.test_object %></td>
+    <td><%= link_to 'edit',data_system_url( :action => 'edit', :id => item) %></td>
+  </tr>
+<% end %>
+</table>
     <%= render :partial => 'shared/paginate',
                :locals => {:pages => @data_system_pages} %>    
-</div>
-<p>
-    Describes all the <i>data systems</i> linked into this instance of BioRails. For each system a
-    number of <i>data elements</i> can be defined.  These elements then provide a lookup-list of values 
-	for display and use in data entry sheets. For example, there could be a link to the internal compounds model and separate external enterprise level 
-    compound registration systems. 
-</p>
+<%end%>
+
 

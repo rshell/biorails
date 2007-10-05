@@ -55,9 +55,10 @@ require 'oracle_customizations'
 
 
 #Mime::Type.register "application/msword", :doc, %w( text/html )
-#Mime::Type.register "application/msexcel", :xls
-#Mime::Type.register "text/richtext", :rtf
-#Mime::Type.register "image/svg+xml", :svg
+Mime::Type.register "application/msexcel", :xls
+Mime::Type.register "application/pdf", :pdf
+Mime::Type.register "text/richtext", :rtf
+Mime::Type.register "image/svg+xml", :svg
 
 GLoc.set_config :default_language => :en
 GLoc.clear_strings

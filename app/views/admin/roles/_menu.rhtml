@@ -1,0 +1,10 @@
+<%= render :partial => '/menu/admin_menu'%>
+<div>
+  <span class='menu' > Role Access</span>
+   <%= link_to 'list', role_url( :action => 'list') %>
+   <%= link_to 'new',  role_url( :action => 'new') %>
+   <%if @role && !@role.new_record?%>
+   <%= link_to 'show', role_url( :action => 'show',:id=>@role.id) %>
+   <%= link_to 'edit', role_url( :action => 'edit',:id=>@role.id) %>
+   <%end%>
+</div>

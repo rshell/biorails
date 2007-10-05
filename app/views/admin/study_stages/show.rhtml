@@ -6,13 +6,11 @@
 <%= link_to 'New',    study_stage_url(:action => 'new') %> 
 <%= link_to 'Edit',    study_stage_url(:action => 'edit', :id => @study_stage) %> 
 <%= link_to 'Show',    study_stage_url(:action => 'show',:id => @study_stage) %>
-<% if @study_stage.parameters.size==0 %>
+<% if @study_stage.protocols.size==0 %>
 <%= link_to 'Destroy', study_stage_url(:action => 'destroy', :id => @study_stage ), :confirm => 'Are you sure?', :method => :post %><
 <% end %>
 </div>
 <% end %>
-
-
 
 <h1><%=@study_stage.name%></h1>
 

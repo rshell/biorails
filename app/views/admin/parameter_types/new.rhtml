@@ -1,9 +1,5 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-<div>
-<span class='menu'>Parameter Type</span>
-<%= link_to 'List', :action => 'list' %>
-</div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
 <% content_for :messages do -%>
@@ -11,13 +7,15 @@
 <%end%>
 
 <% content_for :centre do %>
-    <h1>New Parameter Role</h1>    
+
+  <%dialog 'New Parameter Type' do %>    
     <% validated_form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
       <br />
       <%= submit_tag "Create" %>
       <%= link_to 'Back', :action => 'list' %>
     <% end %>
+  <% end %>
 <% end %>
 
 

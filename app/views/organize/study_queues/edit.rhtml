@@ -13,23 +13,17 @@
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_queue' ]} %>
 <%end%>
+<% content_for :footer do -%>
+    <%= render :partial => 'shared/audit',:locals =>{ :item => @study_queue} %>
+<%end%>
 
 
-    <h2>
-        <%=subject_icon('services')%> Editing Services for Study [
-        <%= link_to @study.name, :controller => 'studies', 
-                :action => 'show', :id => @study.id  %>]
-
-    </h2>
-    <div class='dialog'>
+<% dialog subject_icon('services')+"New Service in #{@study.name}" do %>
         <% form_tag :action => 'update', :id => @study_queue do %>
         <%= render :partial => 'form' %>
-        <div class="row">
-             <div class="form-element">
+<br />
                 <%= submit_tag 'Save' %>
-             </div>
-        </div>
+<br />
         <% end %>
-        <br />
-    </div>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @study_queue} %>
+  <% end %>
+

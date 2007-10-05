@@ -1,58 +1,42 @@
 
-  <fieldset>
-  <div class="row">
     <!--[form:data_format]-->
-    <div class="form-element">
       <label for="data_format_data_type">Data type</label>
+      <br />
       <%= select_named( :data_format, :data_type_id ,DataType) %>
-    </div>
+      <br />
     
-    <div class="form-element">
       <label for="data_format_name">Name</label>
+      <br />
       <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
-    </div>
+      <br />
     
-    <div class="form-element">
       <label for="data_format_default_value">Default value</label>
+      <br />
       <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
-    </div>
-</div>
+      <br />
 
-<div class="row">
       <label for="data_format_description">Description</label>
+      <br />
       <%= text_area :data_format, 'description',{:rows=>2, :cols=>100}   %>
-</div>
- 
-
-<div class="row">
-    <div class="form-element">
+      <br />
       <label for="data_format_format_regex">Input regex rule </label>
+      <br />
       <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
            :onblur => "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )",
            :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
-    </div>
+      <br />
 
-    <div class="form-element">
       <label for="data_format_format_regex">Output prinf format (Numeric values)</label>
+      <br />
       <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
-    </div>
-
-</div>
-
-<div class="row">
-    <div class="form-element">
+      <br />
       <label for="data_format_test">Test String
             <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>       
       </label>
+      <br />
       <%= text_field_tag 'test_match','',{:size=>50,:class=>"text-input",
            :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"}  %>
       <br />
-    </div>
-
-</div>
-
 
 <!--[eoform:data_format]-->
 
-  </div>
-</fieldset>

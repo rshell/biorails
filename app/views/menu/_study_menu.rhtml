@@ -1,7 +1,8 @@
-<% unless study.nil?  %>
-    <div>
-      <span class='menu'> <%=subject_icon('study')%><%= study.name %> </span>
-    <% unless study.new_record? %>
+<div>
+    <span class='menu'> <%=subject_icon('study')%>Study Design </span>
+    <%= link_to 'List',  study_url( :action => 'list', :project_id => current_project) %>
+    <%= link_to 'New',   study_url(     :action => 'new', :project_id=>current_project.id) %>
+    <% unless study.nil? || @study.new_record? %>
       <%= link_to 'Overview',    study_url(:action => 'show',  :id => study)%>
       <%= link_to 'Folder',       folder_url(:action => 'show', :id => study.folder )%>
       <%= link_to 'Edit',        study_url(:action => 'edit', :id => study) %>
@@ -11,5 +12,4 @@
       <%= link_to 'Metrics',     study_url(:action => 'metrics', :id => study )%>
       <%= link_to 'Export'+subject_icon('xml'),      study_url( :action =>'export',:id => study) %>
      <%end %>
-  </div>
-<%end%>
+</div>

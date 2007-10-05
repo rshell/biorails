@@ -2,70 +2,9 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
 <%end%>
 
-
-<% content_for :centre do -%>
-
-<h2>
-   <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
-        [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
-</h2>
-<ul class="tablist"> 
-     <li ><%= link_to l('Overview'),  experiment_url(:action=>'show',:id=>@experiment),:class=>"current"  %></li>
-     <li ><%= link_to l('Import'),    experiment_url(:action=>'import',:id=>@experiment)  %></li>
-     <li><%= link_to l('Statistics'), experiment_url(:action=>'metrics',:id=>@experiment)  %>     </li>
-</ul>
-    
-<div class='panel'>
-    <table class="report">
-      <tr><th class="label"><%=subject_icon('name.png')%> Name</th>
-          <td colspan='3'> <%= @experiment.name %></td>
-      </tr>
-      <tr>
-         <th class="label"><%=subject_icon('description.png')%> Description</th>
-         <td colspan='3'> <%= @experiment.description %></td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('model/study.png')%> Study</th>
-        <td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td>
-        <th class="label"><%=subject_icon('model/protocol.png')%> Process [Default]</th>
-        <td> <%= @experiment.process.path  %></td>
-      </tr>
-      <tr>
-        <th class="label">Started</th>
-        <td><%=format_date @experiment.started_at  %></td>
-        <th class="label">Expected (End)</th>
-        <td> <%=format_date @experiment.expected_at %></td>
-      </tr>
-    </table>
-
-<br/>
-    
-    <div id="tab-parameters">   
-        <table class="report">
-            <tr>
-                <th>Task</th>
-                <th>Protocol</th>
-                <th>Status</th>
-                <th>Started</th>
-                <th>Expected (End)</th>
-            </tr>
-            <% for item in @experiment.tasks%>
-            <tr>
-                <td><%= link_to item.name, task_url( :action => 'show', :id => item.id) %></td>
-                <td><%= item.protocol_name%></td>
-                <td><%= item.status%></td>
-                <td><%=short_date item.started_at%></td>
-                <td><%=short_date item.ended_at%></td>
-            </tr>
-            <%end%>
-        </table>
-    </div>  
-</div>
-
-<br/>
-    
+<% content_for :footer do -%>
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
-<%end%>
+<% end %>
 
 <% content_for :right do -%>
    <h2>Project Tree </h2>
@@ -74,3 +13,32 @@
    </div>
 <% end %>
 
+<% content_for :centre do -%>
+<div id='tabs1'>
+    <div id="tab-show" class="tab-content">
+       <%=render :partial =>'show' %>
+    </div>
+    <div id="tab-import" class="tab-content">
+       <%=render :partial =>'import' %>
+    </div>
+    <div id="tab-matrics" class="tab-content">
+    </div>
+    <div id="tab-xxx" class="tab-content">
+    </div>
+</div>    
+<%end%>
+
+
+<SCRIPT TYPE="text/javascript"> 
+Ext.onReady(function(){
+        var tabs = new Ext.TabPanel('tabs1');
+        var tab1 = tabs.addTab('tab-show', "Overview");        
+        var tab2 = tabs.addTab('tab-import', "Import");
+        var tab3 = tabs.addTab('tab-matrics', "Metrics");
+        tabs.activate('tab-show');
+
+        //tab1.setUrl("<%=experiment_url(:action=>'show',:id=>@experiment)%>", null, false);
+        //tab2.setUrl("<%=experiment_url(:action=>'import',:id=>@experiment)%>", null, false);
+        tab3.setUrl("<%=experiment_url(:action=>'metrics',:format=>:html,:id=>@experiment)%>", null, false);
+ });
+</script>    

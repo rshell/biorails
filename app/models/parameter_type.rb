@@ -56,7 +56,15 @@ class ParameterType < ActiveRecord::Base
   def not_used
     return (study_parameters.size==0 and parameters.size==0)
   end 
-  
+
+#
+# Test Whether this is in used in the database
+#  
+  def used?
+    return (study_parameters.size > 0 or  parameters.size>0)
+  end 
+
+
   def ParameterType.find_by_role(role)
     ParameterType.find_by_sql(
     ['select t.* from parameter_types t, study_parameters s '+

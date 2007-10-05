@@ -1,18 +1,14 @@
 <% content_for :messages do -%>
 <%= render :partial => 'shared/messages', :locals => { :objects => ['study']}  %>
 <%end %>
+
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study' ]} %>
 <%end%>
 
-<div class='main' id='maintitle'>
+<% content_for :centre do -%>
     <div class="title">
         <%=subject_icon('study.png')%> Parameters
-        <!--div class="actions">
-            <ul>
-                <li><%=link_to (subject_icon('new.png'))+'New', :action=>'new' %></li>
-            </ul>
-        </div-->
     </div>
 
     <div class='panel'>
@@ -21,5 +17,5 @@
         <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
     </div>
 
-</div>
+<%end%>
               

@@ -10,17 +10,16 @@
     </div>
 <% end %>
 
-<h1>New Data Format</h1>
-
-<% form_tag :action => 'create' do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+<% dialog 'Data Format' do%>
+	<% form_tag :action => 'create' do %>
+	  <%= render :partial => 'form' %>
+	  <%= submit_tag "Create" %>
+	<% end %>
 <% end %>
 
-<%= link_to 'Back', :action => 'list' %>
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>
 
-<div class='panel'>
-   <%= render :partial => 'printf_help' %>
-   <%= render :partial => 'regex_help' %>
-</div>   
+
 

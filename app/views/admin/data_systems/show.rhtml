@@ -1,12 +1,5 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
- <div>
-     <span class='menu'>Data Source</span>
-         <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
-                                :confirm => 'Are you sure?',:method => "post" %>
-         <%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %>
-         <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
- </div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
     <h2>
@@ -28,23 +21,19 @@
             <th>Content</th>
             <th>Parameters</th>
             <th>Processes</th>
-            <th>Results</th>
-            <th>Actions </th>
           </tr>
         </thead>  
            
         <tbody>
         <% for item in @data_system.data_elements %>
           <tr>
-            <td><%= link_to item.name, :controller=>'data_elements',:action=>'show',:id=>item.id %></td>
+            <td><%= link_to item.name, data_element_url(:action=>'show',:id=>item.id) %></td>
             <td> <%=item.description %>   </td>
             <td> <%=item.concept.path %>   </td>
             <td><%= item.style %></td>
             <td> <%=item.content %>   </td>
             <td> <%=item.study_parameters.size  %>  </td>
             <td> <%=item.parameters.size %>   </td>
-            <td> <%=item.task_references.size%>    </td>
-            <td><%= link_to (subject_icon('destroy.png'))+' delete',:controller=>'data_elements', :action => 'destroy', :id => item if item.study_parameters.size==0%></td>
           </tr>
         <% end %>
         </tbody>
@@ -55,3 +44,5 @@
     </div>
 
 </div>
+ <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
+                        :confirm => 'Are you sure?',:method => "post" %>

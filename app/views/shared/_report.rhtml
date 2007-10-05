@@ -1,5 +1,7 @@
+<div id='form-filter'></div>
 <%= form_remote_tag :url => report_url( :action => 'refresh',:id =>report.id, :page => nil ) %>
-<table class="report" 
+<%= end_form_tag %>  
+  <table id='<%=report.dom_id%>' class="report" 
        url="<%=report_url( :action => 'refresh',:id =>report.id)%>" 
 	   width='100%'>
 
@@ -12,6 +14,5 @@
   </tbody>
 </table>
 
-<%= end_form_tag %>
 
-
+  

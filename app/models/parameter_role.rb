@@ -35,4 +35,12 @@ class ParameterRole < ActiveRecord::Base
   has_many :parameters, :dependent => :destroy
   has_many :study_parameters, :dependent => :destroy
 
+#
+# Test Whether this is in used in the database
+#  
+  def used?
+    return (study_parameters.size > 0 or  parameters.size>0)
+  end 
+
+  
 end

@@ -4,6 +4,28 @@
 ##
 module FormHelper
 
+  OPEN_DIALOG = <<-EOL
+<div class="x-box-tl"><div class="x-box-tr"><div class="x-box-tc"></div></div></div>
+    <div class="x-box-ml"><div class="x-box-mr"><div class="x-box-mc">        
+EOL
+
+  END_DIALOG = <<-EOL
+    </div></div></div>
+<div class="x-box-bl"><div class="x-box-br"><div class="x-box-bc"></div></div></div>
+EOL
+  
+  
+  def dialog(name, &block)
+    if block_given?
+      content = capture(&block)
+      concat( OPEN_DIALOG , block.binding)
+      concat("<h3 style='margin-bottom:5px;'> #{name}</h3>", block.binding) 
+      concat(content,block.binding)
+      concat( END_DIALOG , block.binding)
+    end
+  end
+
+
   def validated_form_tag(url_for_options = {}, options = {}, *parameters_for_url, &block)
     options.merge(:class=>"validated")
     return form_tag(url_for_options , options , *parameters_for_url, &block)

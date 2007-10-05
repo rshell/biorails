@@ -1,9 +1,9 @@
 <!--[form:role]-->
-<p><label for="role_name">Name</label><br/>
-<%= @role.name %></p>
+<p><label for="role_name">Name:</label><br/>
+<%= text_field 'role', 'name' %> </p>
 
-<p><label for="role_description">Description</label><br/>
-<%= text_area 'role', 'description', :rows => 3 %> </p>
+<p><label for="role_description">Description:</label><br/>
+<%= text_area 'role', 'description', :rows => 2 %> </p>
 
 
 <h2> Permissions for <%= @role.name %></h2>
@@ -34,3 +34,4 @@
 <% end -%>
 </tbody>
 </table>
+<br />

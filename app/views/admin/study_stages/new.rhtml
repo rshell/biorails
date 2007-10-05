@@ -6,11 +6,9 @@
   </div>
 <% end %>
 
-<h1>Study Stage</h1>
-
-<% form_tag :action => 'create' do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+<% dialog 'Editing Study Stage' do %>		
+	<% form_tag :action => 'create' do %>
+	  <%= render :partial => 'form' %>
+	  <%= submit_tag "Create" %>
+	<% end %>
 <% end %>
-
-<%= link_to 'Back', :action => 'list' %>

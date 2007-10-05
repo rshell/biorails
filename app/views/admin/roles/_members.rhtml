@@ -11,8 +11,8 @@
 <tbody>
 <% for member in @role.memberships do %>
     <tr>
-        <td><%= member.user.name%></td>
-        <td><%= member.project.name%></td>
+        <td><%= link_to member.user.name,user_url(:action=>:show,:id=>member.user) %></td>
+        <td><%= link_to member.project.name,project_url(:action=>:show,:id=>member.project) %></td>
         <td><%= short_date member.created_at %></td>
         <td><%= short_date member.updated_at %></td>
     </tr>

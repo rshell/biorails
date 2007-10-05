@@ -1,3 +1,5 @@
+require 'htmldoc'
+
 class Project::FoldersController < ApplicationController
  
   use_authorization :folders,
@@ -108,6 +110,7 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html { render :action => 'print', :layout => "layouts/printout.rhtml"}
+      format.pdf {render_pdf("#{@project_folder.name}.pdf",{:action => 'print', :layout => "layouts/printout.rhtml"})}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'create',  :partial => 'print' ,:locals=>{:folder=>@project_folder}
@@ -116,6 +119,7 @@ class Project::FoldersController < ApplicationController
     end  
   end
   
+
 
 ##
 # Display the selector

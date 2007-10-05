@@ -1,23 +1,18 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-    <span class='menu'>Data Formats</span>
-        <%= link_to 'List',    data_format_url(:action => 'list') %>
-        <%= link_to 'New',    data_format_url(:action => 'new') %> 
-    </div>
+    <%= render :partial => 'menu'%>
 <% end %>
 
+
+<% content_for :centre do%>
 <h1>Data Formating Rules</h1>
 Data Formatting rules based on regular wxpression mask for input filtering and printf mask for output layout of data.  
-<div class='panel'>
 <table class="report">
   <tr>
     <th>name</th>
     <th>Test Field</th>
     <th>Regex Rule </th>
     <th>Action</th>
-  </tr>
-  
+  </tr>  
 <% for data_format in @data_formats %>
   <tr>
     <td><%= link_to data_format.name,data_format_url( :action => 'show', :id => data_format) %></td>
@@ -27,12 +22,7 @@ Data Formatting rules based on regular wxpression mask for input filtering and p
     <td><%= link_to 'edit',data_format_url( :action => 'edit', :id => data_format) %></td>
   </tr>
 <% end %>
-<tr>
-<td colspan=2>
-<%= link_to 'New', data_format_url(:action => 'new')%>
-</td>
-</tr>
 </table>
-</div>
 <%= link_to 'Previous page', { :page => @data_format_pages.current.previous } if @data_format_pages.current.previous %>
 <%= link_to 'Next page', { :page => @data_format_pages.current.next } if @data_format_pages.current.next %> 
+<%end%>

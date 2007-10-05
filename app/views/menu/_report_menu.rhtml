@@ -3,6 +3,7 @@
   <%= link_to (subject_icon('action/list.png')) + 'List', :action => 'list' %>
   <%= link_to (subject_icon('action/show.png')) + 'Run', :action => 'show', :id => report %>
   <%= link_to (subject_icon('action/print.png')) + 'Print', :action => 'print', :id => report %>
+  <%= link_to (subject_icon('mime/pdf.gif')) + 'Save As', :action => 'print',:format=>:pdf, :id => report %>
   <%= link_to (subject_icon('action/show.png')) + 'Visualize', :action => 'visualize', :id => report %>
   <%= link_to (subject_icon('action/edit.png')) + 'Edit', :action => 'edit', :id => report %>
   <%= link_to (subject_icon('action/new.png'))  + 'New', :action => 'new' %>

@@ -1,6 +1,6 @@
 
-<div id="<%=@study_parameter.dom_id('data_type')%>" >
   <% if @study_parameter.type %>
+  <div class="row" id="<%=@study_parameter.dom_id('data_type')%>" >
     <div class="form-element">
           <label for="study_parameter_data_type_id">Data_Type</label>
           <%= select_named( :study_parameter, :data_type_id ,DataType) %>
@@ -34,7 +34,10 @@
         <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
 	  <%end%>
     </div>
-
+  </div>
+  <br />
+  <br />
+  <br />
     <div class='row'>
         <div class="form-element">
              <%= submit_tag 'Save' %>
@@ -42,10 +45,12 @@
     </div>
     
  <% else %>
+  <div class="row" id="<%=@study_parameter.dom_id('data_type')%>" >
    <p>
     Please select the parameter type this usages is derived from. A Study parameter is a aliased version of a centrally managed 
     parameter type with a given parameter role. 
    </p>   
+ </div>
  <% end %>
  
-</div>
+

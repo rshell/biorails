@@ -1,12 +1,8 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-      <span class='menu' > user <%=@user.name%></span>
-       <%= link_to 'list', user_url( :action => 'list') %>
-       <%= link_to 'new',  user_url( :action => 'new') %>
-       <%= link_to 'edit', user_url( :action => 'edit',:id=>@user.id) %>
-    </div>
+  <%= render :partial => 'menu'%>
 <% end %>
+
+
 <h2> Current profile for User <%= @user.name %> </h2>
 <table>
 <tr><th>Login</th><td> <%= @user.login %></td></tr>
@@ -15,7 +11,7 @@
 <tr><th>Created At</th><td> <%= short_date @user.created_at %></td></tr>
 <tr><th>Updated At</th><td> <%= short_date @user.updated_at %></td></tr>
 </table>
-<hr />
+<br />
 <h2> Project Memberships </h2>
 <table class="report">
 <thead>
@@ -29,15 +25,15 @@
 <tbody>
 <% for member in @user.memberships do %>
     <tr>
-        <td><%= member.project.name%></td>
-        <td><%= member.role.name%></td>
+        <td><%= link_to member.project.name, project_url(:action=>'show',:id=>member.project) %></td>
+        <td><%= link_to member.role.name,role_url(:action=>'show',:id=>member.role) %></td>
         <td><%= short_date member.created_at %></td>
         <td><%= short_date member.updated_at %></td>
     </tr>
 <% end -%>
 </tbody>
 </table>
-<hr/>
+<br/>
 
 <h2> User Permissions </h2>
 
@@ -45,11 +41,12 @@
 <thead>
     <tr>
         <th>Subject</th>
-        <th colspan=10>Allowed Actions for Role</th>
+        <th colspan=16>Allowed Actions for Role</th>
     </tr>
 </thead>
 <tbody>
-<% for subject in Permission.possible_subjects.keys.sort do %>
+<%if @user.role %>	
+<% for subject in UserRole.subjects.keys.sort do %>
     <tr>
         <th><%=subject%></th>
         <% for action in Permission.possible_actions(subject) %>
@@ -58,6 +55,7 @@
             <%end%>
         <% end -%>
     </tr>
+<% end -%>
 <% end -%>
 </tbody>
 

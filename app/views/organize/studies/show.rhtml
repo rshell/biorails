@@ -34,6 +34,9 @@
        <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>
     </div>
 
+<% end %>
+
+<% content_for :footer do -%>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
 <% end %>
 

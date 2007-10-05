@@ -1,10 +1,5 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-      <span class='menu' > user <%=@user.name%></span>
-       <%= link_to 'list', user_url( :action => 'list') %>
-       <%= link_to 'new',  user_url( :action => 'new') %>
-    </div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
 <% content_for :messages do -%>
@@ -12,10 +7,11 @@
 <%end%>
 
 <% content_for :centre do %>
-  <h2>Create a new User</h2>
+  <%dialog 'User' do %>
     <% form_for :user, :url => { :action => 'create' } do |f| -%>
       <%= render :partial=>'form',:locals=>{:f=>f} %>
-    <% end -%>
+    <% end %>
+  <% end %>
 <%end%>
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

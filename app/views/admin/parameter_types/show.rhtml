@@ -1,15 +1,5 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-<div>
-<span class='menu'>Parameter Type</span>
-<%= link_to 'List',    parameter_type_url(:action => 'list') %>
-<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
-<%= link_to 'Edit',    parameter_type_url(:action => 'edit', :id => @parameter_type) %> 
-<%= link_to 'Show',    parameter_type_url(:action => 'show',:id => @parameter_type) %>
-<% if @parameter_type.parameters.size==0 %>
-<%= link_to 'Destroy', parameter_type_url(:action => 'destroy', :id => @parameter_type ), :confirm => 'Are you sure?', :method => :post %><
-<% end %>
-</div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
 
@@ -18,23 +8,35 @@
 
 <p><%=@parameter_type.description%>
 </p>
-<table class="report">
-<tr>
-<th>Study Name</th>
-<th>Parameter Name </th>
-<th>Parameter Role</th>
-<th>Data Type</th>
-<th>Data Format</th>
-<th>Data Lookup</th>
-</tr>
-<%for item in  @parameter_type.study_parameters %>
-<tr>
-<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
-<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
-<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
-<td><%=item.data_type.name%></td>
-<td><%=item.data_format.name if item.data_format_id %></td>
-<td><%=item.data_element.name if item.data_element_id %></td>
-</tr>
+<%if @parameter_type.used? %>
+	<table class="report">
+	<tr>
+	<th>Study Name</th>
+	<th>Parameter Name </th>
+	<th>Parameter Role</th>
+	<th>Data Type</th>
+	<th>Data Format</th>
+	<th>Data Lookup</th>
+	</tr>
+	<%for item in  @parameter_type.study_parameters %>
+		<tr>
+		<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
+		<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
+		<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
+		<td><%=item.data_type.name%></td>
+		<td><%=item.data_format.name if item.data_format_id %></td>
+		<td><%=item.data_element.name if item.data_element_id %></td>
+		</tr>
+	<%end%>
+	</table>
+<%else%>
+ <i>This parameter type is not currently in use with existing studies or protocols.</i>
+ [
+ <%= link_to (subject_icon('destroy.png')) +'Delete', { :action => 'remove', :id =>  @data_format },                                
+                            :confirm => 'Are you sure?',:method => "post" %> ]
+	
 <%end%>
-</table>
+
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

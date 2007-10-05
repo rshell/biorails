@@ -47,10 +47,22 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def show
     @experiment = current_user.experiment(params[:id])
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.pdf  { render_pdf :action => 'show',:layout=>false }
+      format.json { render :json => @experiment.to_xml }
+      format.xml  { render :xml => @experiment.to_xml }
+     end
   end
 
   def metrics
     @experiment = current_user.experiment(params[:id]) 
+    respond_to do | format |
+      format.html { render :action => 'metrics',:layout=>false }
+      format.pdf  { render_pdf :action => 'metrics',:layout=>false }
+      format.json { render :json => @experiment.to_xml }
+      format.xml  { render :xml => @experiment.to_xml }
+    end
   end
 
   def calendar

@@ -155,6 +155,7 @@ class User < ActiveRecord::Base
   # Get a project for the current user
   #
   def project(*args)
+    return Project.find(*args) if self.admin?
     return projects.find(*args)
   end
   

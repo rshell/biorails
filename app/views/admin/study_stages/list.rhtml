@@ -22,11 +22,6 @@
     <td><%= link_to 'edit',study_stage_url( :action => 'edit', :id => study_stage) %></td>
   </tr>
 <% end %>
-<tr>
-<td colspan=2>
-<%= link_to 'New', study_stage_url(:action => 'new')%>
-</td>
-</tr>
 </table>
 
 <%= link_to 'Previous page', { :page => @study_stage_pages.current.previous } if @study_stage_pages.current.previous %>

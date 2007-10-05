@@ -12,18 +12,11 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_queue' ]} %>
 <%end%>
 
-<h2>
-        <%=subject_icon('services')%> New Service for Study [<%=@study.name%>]  </h2>
-    <div class='dialog'>
-        <fieldset>
+<% dialog subject_icon('services')+"New Service in #{@study.name}" do %>
         <% form_tag :action => 'create' do %>
           <%= render :partial => 'form' %>
-          <div class="row">
-             <div class="form-element">
+<br />
                 <%= submit_tag "Create" %>
-             </div>
-         </div>
+<br />
          <% end %>
-        </feildset>
-    </div>
-
+ <% end %>

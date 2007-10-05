@@ -62,4 +62,6 @@ class Admin::StudyStagesController < ApplicationController
     redirect_to :action => 'list'
   end
 
+
+      
 end

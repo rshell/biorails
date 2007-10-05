@@ -1,28 +1,20 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
- <div>
- <span class='menu'>Data Source</span>
- <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
-                        :confirm => 'Are you sure?',:method => "post" %>
- <%= link_to (subject_icon('show.png')) + ' Show ', :action => 'show', :id =>  @data_system %>
- <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
- </div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['data_system']} %>
+<%end%>
 
-<h2>
-    <%= subject_icon('systems')%> Editing System [<strong><%=@data_system.name%></strong>]
-</h2>
+<% content_for :centre do%>
+<%dialog subject_icon('systems')+'Data System' do%>
+    <% form_tag :action => 'update', :id => @data_system do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Save' %>
+    <% end %>
+<% end %>
+<% end %>
 
-<div class="panel">
-    <div class='dialog'>
-        <% form_tag :action => 'update', :id => @data_system do %>
-          <%= render :partial => 'form' %>
-        <div class="row">
-            <%= submit_tag 'Save' %>
-        <div>
-        <% end %>
-    </div>
-        <%= render :partial => 'shared/audit', :locals=> { :item => @dataconcept }%>
-</div>
-
+<% content_for :right do%>
+  <%= render :partial => 'help'%>
+<% end %>

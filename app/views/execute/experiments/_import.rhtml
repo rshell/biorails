@@ -1,0 +1,26 @@
+ <%dialog 'Import Tasks' do%>
+    Once is is filled it can be re-imported via the following file selector:-
+    <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
+    <%= error_messages_for("import") %>
+      <%=file_field_tag(:file, :size=>64) %>  
+    <br />
+    <%= submit_tag("Import")%>
+    <% end %>    
+<% end%> 
+
+<p>
+    This is a simple cvs file importer for getting larger blocks of data into the system. 
+    For a template to fill in click on following links to get a CVS sheet fill in. These can be build by hand but 
+    life should not be made any more difficult then needed.
+</p>
+<ul>
+ <%for protocol in @experiment.study.protocols %>
+  <li>
+    <%= link_to (subject_icon('xls.png'))+' Template for [' + protocol.name + ']',
+        :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
+    <%= protocol.definition.description %>    
+  </li>
+ <%end%>
+ </ul>
+
+

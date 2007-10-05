@@ -367,6 +367,17 @@ end
    return report
   end
 
+  def to_ext
+    item = {:name => self.name,
+            :id=>self.id,
+            :description => self.description}
+    if self.columns.size>0
+       item[:columns] = self.columns.collect{|i|i.to_ext}   
+    end
+    yield item,self  if block_given? 
+    return item
+  end
 
+ 
 end
 

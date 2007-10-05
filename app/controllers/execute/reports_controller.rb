@@ -48,9 +48,56 @@ helper :tree
    end
    
    @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })      
+   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })  
+   @hash = {   :report => @report.to_ext,
+               :rows  => @data.collect{|i|i.attributes},
+               :id => @report.id,
+               :total => @data_pages.item_count      ,
+               :limit => @data_pages.items_per_page,
+               :offset =>  @data_pages.current.offset }
+   respond_to do | format |
+      format.html { render :action => 'list' }
+      format.json { render :json => @hash.to_json }
+      format.xml  { render :xml => @hash.to_xml }
+    end
+
  end
 
+##
+# Show a report based on saved definition. This accepts further filters and sort details 
+# 
+#  * params[:id] id of the report to show
+#  * params[:filter] is used as map parameter to filter {:status => 'low',:label => 'AB%'} 
+#  * params[:sort] this is used to change the sort order for the columns e eg "name,label:desc"
+# 
+ def show
+    @report = Report.find(params[:id])
+    
+    @snapshot_name = Identifier.next_id(current_user.login)
+    
+    @data_pages = Paginator.new self, @report.model.count, 20, params[:page]
+    @columns = @report.displayed_columns
+    @data = @report.run({:limit  =>  @data_pages.items_per_page,
+                          :offset =>  @data_pages.current.offset })
+   @hash = {   :report => @report.to_ext,
+               :rows  => @data.collect{|i|i.attributes},
+               :id => @report.id,
+               :total => @data_pages.item_count      ,
+               :limit => @data_pages.items_per_page,
+               :offset =>  @data_pages.current.offset }
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.json { render :json => @hash.to_json }
+      format.xml  { render :xml => @hash.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
+           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+         end }
+    end
+
+ end 
+ 
+ 
  def internal
    @project = current_project
    @report = Report.internal_report("ReportList",Report) do | report |
@@ -67,7 +114,11 @@ helper :tree
    
    @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
    @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset }) 
-   render :action=>'list'     
+   respond_to do | format |
+      format.html { render :action => 'list' }
+      format.json { render :json => @data.to_json }
+      format.xml  { render :xml => @data.to_xml }
+    end
  end
 
 ##
@@ -147,38 +198,14 @@ helper :tree
     end      
  end
 
-##
-# Show a report based on saved definition. This accepts further filters and sort details 
-# 
-#  * params[:id] id of the report to show
-#  * params[:filter] is used as map parameter to filter {:status => 'low',:label => 'AB%'} 
-#  * params[:sort] this is used to change the sort order for the columns e eg "name,label:desc"
-# 
- def show
-    @report = Report.find(params[:id])
-    @snapshot_name = Identifier.next_id(current_user.login)
-    @data_pages = Paginator.new self, 1000, 100, params[:page]
-    @columns = @report.displayed_columns
-    @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                          :offset =>  @data_pages.current.offset })
-    respond_to do | format |
-      format.html { render :action => 'show' }
-      format.json { render :json => {:report=>@report,:data=>@data}.to_json }
-      format.xml  { render :xml => {:report=>@report,:data=>@data}.to_xml }
-      format.js   { render :update do | page |
-           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
-           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
-         end }
-    end
-
- end 
- 
- 
 
  def print
     @report = Report.find(params[:id])
     @data = @report.run  
-    render :action=>'print', :layout => false
+    respond_to do |format|
+      format.html { render :action=>'print', :layout => false}
+      format.pdf { render_pdf( "#{@report.name}.pdf", :action => 'print', :layout => false) }
+    end      
  end 
  
 ###
@@ -223,20 +250,27 @@ helper :tree
     @report.set_filter(params[:filter])if params[:filter] 
     @report.add_sort(params[:sort]) if params[:sort]
 
-    @data_pages = Paginator.new self, 1000, 100, params[:page]
+    @data_pages = Paginator.new self, 1000, 20, params[:page]
     @columns = @report.displayed_columns
     @data = @report.run({:limit  =>  @data_pages.items_per_page,
                           :offset =>  @data_pages.current.offset })
 
+   @hash = {   :rows  => @data.collect{|i|i.attributes},
+               :id => @report.id,
+               :total => @data_pages.item_count      ,
+               :limit => @data_pages.items_per_page,
+               :offset =>  @data_pages.current.offset }
+               
     respond_to do | format |
       format.html { render :action => 'show' }
-      format.json { render :json => {:report=>@report,:data=>@data}.to_json }
-      format.xml  { render :xml => {:report=>@report,:data=>@data}.to_xml }
+      format.json { render :json => @hash.to_json }
+      format.xml  { render :xml => @hash.to_xml }
       format.js   { render :update do | page |
-           page.replace_html @report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
-           page.replace_html @report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
+           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
          end }
     end
+
  end
   
 ##

@@ -1,54 +1,19 @@
 <% content_for :sidemenu do -%>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-    <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
-<div>
-  <span  class='menu'> <%=subject_icon('model/parameter.png')%>Parameters</span>
-  <%= link_to 'Export ',:controller =>'study_parameters', :action => 'export', :id=>@study %></li>
-  <%= link_to 'Import ',:controller =>'study_parameters', :action => 'import', :id=>@study %></li>
-  <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
-</div>
-<% end -%>
+    <%= render :partial =>'menu' %>
+<% end %>
 
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_parameter' ]} %>
 <%end%>
 
 <% content_for :centre do -%>
-    <h2>
-        <%=subject_icon('model/parameter.png')%> New Parameter in Study [<strong><%=link_to "#{@study.name}", :controller=>'studies', 
-            :action =>'show',:id =>@study.id %></strong>]
-    </h2>          
-    <div class='dialog'>
-        <fieldset>
+    <% dialog subject_icon('model/parameter.png')+'New Parameter in Study' do %>
           <% form_tag :action => 'create', :id => @study_parameter.study.id do %>
               <%= render :partial => 'form' %>
           <% end %>
-        </fieldset>
-    </div>
-<% end -%>
+  <% end %>
+<% end %>
 
 <% content_for :right do -%>
-<div class="panel">
-	<h3> 
-	Guidance
-	</h3>
-	<p>
-		Study parameters are the dimensions of a study design and the <i>building-blocks</i>
-		for the protocols.  It is these parameters that will map to external systems such as warehouses.
-	</p>
-	<p>
-		Parameters can be <i>aliased</i> at the protocol level which provides a method of dealing with the issue of
-		<i><a href="http://nida.se/patterns/poeaa/introduction.html">conceptual dissonance</a></i>
-	</p>
-	<p>
-		The parameter role defines how the parameter type will be used in the 
-		protocols.  Once the parameter type is selected this can be further refined.
-	</p>
-	<p>
-		Changing the default Data Type is <strong>inadvisable</strong>
-		as it will make it difficult to build comprehensive reports can be run over that 
-		parameter. For example, if the parameter type is implemented as text in one instance,
-		and a number in another then means and variance cannot be calculated.
-	</p>
-</div>
+    <%= render :partial =>'help' %>
 <% end -%>

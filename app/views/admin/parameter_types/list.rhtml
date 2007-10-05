@@ -1,10 +1,5 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-<div>
-<span class='menu'>Parameter Types</span>
-<%= link_to 'List',    parameter_type_url(:action => 'list') %>
-<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
-</div>
+  <%= render :partial => 'menu'%>
 <% end %>
 
 <h1>Listing Parameter Types</h1>
@@ -34,7 +29,10 @@
 <% end %>
 </table>
 </div>
-<%= link_to image_tag('new.png')+'New',    parameter_type_url(:action => 'new') %> 
 
 <%= link_to 'Previous page', { :page => @parameter_type_pages.current.previous } if @parameter_type_pages.current.previous %>
 <%= link_to 'Next page', { :page => @parameter_type_pages.current.next } if @parameter_type_pages.current.next %> 
+
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

@@ -229,7 +229,15 @@ protected
       return false
   end
 
-
+  def render_pdf(filename,options={})
+    @html = render_to_string(options)
+    pdf = PDF::HTMLDoc.new
+    pdf.set_option :webpage, true
+    pdf.set_option :toc, false
+    pdf.set_option :links, true
+    pdf << @html
+    send_data(  pdf.generate,  :type => 'application/pdf',    :filename => filename)
+  end
 
   def rescue_action_in_public(exception)
       logger.debug "#{exception.class.name}: #{exception.to_s}"

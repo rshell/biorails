@@ -15,7 +15,7 @@ development:
   database: biorails2_development
   username: biorails 
   password: moose
-  host: localhost
+  host: 192.168.1.20
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -28,17 +28,16 @@ test:
   host: localhost
 
 production:
-  adapter: mysql
-  database: biorails2_production
+  adapter: oracle
+  database: //localhost/xe
   username: biorails
   password: moose
-  host: localhost
 
 oracle:
   adapter: oracle
-  database: //192.168.1.50/orcl
+  database: //localhost/xe
   username: biorails
-  password: biorails
+  password: moose
 
 postgres:
     adapter: postgresql

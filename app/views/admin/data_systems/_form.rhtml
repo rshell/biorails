@@ -1,58 +1,45 @@
 
 <!--[form:data_system]-->
 
-<div class="row">
-    <div class="form-element">
-      <label for="data_system_data_context_id">Namespace:</label>
-      <%= collection_select(:data_system, :data_context_id, @data_system.allowed_contexts, :id, :name) %>
-    </div>
-    
-    <div class="form-element">
-        <label for="data_system_name">Name</label>
-        <%= text_field :data_system, 'name', :size=> 50 , :class=>"text-input"  %>
-    </div>
-</div>
+<label for="data_system_data_context_id">Namespace:</label>
+<br />
+<%= collection_select(:data_system, :data_context_id, @data_system.allowed_contexts, :id, :name) %>
+<br />
 
-<div class="row">
-    <div class="form-element">
-        <label for="data_system_description">Description</label>
+<label for="data_system_name">Name</label>
+<br />
+<%= text_field :data_system, 'name',  :class=>"text-input"  %>
+<br />
+  <label for="data_system_description">Description:</label>
+<br />
           <%= text_area( 'data_system', 'description') %>
-    </div>
-</div>
+<br />
 
-<div class="row">
-  <div class="form-element">
-    <label for="data_system_adapter">Adaptor</label>
+  <label for="data_system_adapter">Adaptor:</label>
+<br />
     <%= select(:data_system, :adapter, @data_system.allowed_adapters {|p| p})%>
-  </div>
+<br />
   
-  <div class="form-element">
-    <label for="data_system_host">Host</label>
-    <%= text_field :data_system, 'host', :size=> 16 , :class=>"text-input"  %>
-  </div>
+  <label for="data_system_host">Host:</label>
+<br />
+    <%= text_field :data_system, 'host', :size=> 32 , :class=>"text-input"  %>
+<br />
 
-  <div class="form-element">
-    <label for="data_system_database">Database</label>
-    <%= text_field :data_system, 'database', :size=> 16, :class=>"text-input"   %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="form-element">
-    <label for="data_system_username">Username</label>
-    <%= text_field :data_system, 'username', :size=> 16, :class=>"text-input"   %>
-  </div>
-
-  <div class="form-element">
-    <label for="data_system_password">Password</label>
-    <%= text_field :data_system, 'password', :size=> 16, :class=>"text-input"   %>
-  </div>
-
-  <div class="form-element">
-    <label for="data_system_test_object">Table to test existence of </label>
-    <%= text_field :data_system, 'test_object', :size=> 16, :class=>"text-input"   %>
-  </div>
-</div>
-<br/><br/>
+  <label for="data_system_database">Database:</label>
+<br />
+    <%= text_field :data_system, 'database', :size=> 32, :class=>"text-input"   %>
+<br />
+    <label for="data_system_username">Username:</label>
+<br />
+    <%= text_field :data_system, 'username', :size=> 32, :class=>"text-input"   %>
+<br />
+    <label for="data_system_password">Password:</label>
+<br />
+    <%= text_field :data_system, 'password', :size=> 32, :class=>"text-input"   %>
+<br />
+    <label for="data_system_test_object">Table to test existence of: </label>
+<br />
+    <%= text_field :data_system, 'test_object', :size=> 32, :class=>"text-input"   %>
+<br />
 <!--[eoform:data_system]-->
 

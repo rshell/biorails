@@ -1,11 +1,11 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-    <span class='menu'>Data Types</span>
-        <%= link_to 'List',    data_type_url(:action => 'list') %>
-        <%= link_to 'New',    data_type_url(:action => 'new') %> 
-    </div>
+  <%= render :partial => 'menu'%>
 <% end %>
+
+<% content_for :right do%>
+  <%= render :partial => 'help'%>
+<% end %>
+
 
 <h1>Listing Data Types</h1>
 <table class="report">
@@ -15,18 +15,13 @@
     <th>Action</th>
   </tr>
   
-<% for data_type in @data_types %>
-  <tr>
-    <td><%= link_to data_type.name,data_type_url( :action => 'show', :id => data_type) %></td>
-    <td><%=h data_type.description%></td>
-    <td><%= link_to 'edit',data_type_url( :action => 'edit', :id => data_type) %></td>
-  </tr>
-<% end %>
-<tr>
-<td colspan=2>
-<%= link_to 'New', data_type_url(:action => 'new')%>
-</td>
-</tr>
+	<% for data_type in @data_types %>
+	  <tr>
+	    <td><%= link_to data_type.name,data_type_url( :action => 'show', :id => data_type) %></td>
+	    <td><%=h data_type.description%></td>
+	    <td><%= link_to 'edit',data_type_url( :action => 'edit', :id => data_type) %></td>
+	  </tr>
+	<% end %>
 </table>
 
 <%= link_to 'Previous page', { :page => @data_type_pages.current.previous } if @data_type_pages.current.previous %>

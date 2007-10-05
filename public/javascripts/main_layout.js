@@ -34,7 +34,7 @@ return {
             },
             south: {
                 split:true,
-                initialSize: 50,
+                initialSize: 100,
                 minSize: 50,
                 maxSize: 200,
                 titlebar: true,
@@ -50,13 +50,13 @@ return {
 
         layout.beginUpdate();
         layout.add('north', new Ext.ContentPanel('header', 'North'));
-        layout.add('south', new Ext.ContentPanel('footer', {title: 'Historic Log', closable: false}));
+        layout.add('south', new Ext.ContentPanel('footer', {title: 'Message', closable: false}));
 
         layout.add('west', new Ext.ContentPanel('left', {title: 'Menu', closable: false}));
 
-        layout.add('east', new Ext.ContentPanel('right', {title: 'Context', closable: false}));
+        layout.add('east', new Ext.ContentPanel('right', {title: 'Help', closable: false}));
 
-        layout.add('center', new Ext.ContentPanel('center', {title: 'Main', closable: false}));
+        layout.add('center', new Ext.ContentPanel('center', { closable: false}));
 
         layout.getRegion('center').show();
         layout.getRegion('west').show();

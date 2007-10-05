@@ -4,7 +4,7 @@
 
 <% content_for :centre do -%>
 
-<h2><%=subject_icon('study.png')%> New Study </h2>
+<%dialog subject_icon('study.png')+'New Study' do %>
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
@@ -12,6 +12,7 @@
         <%= link_to 'Cancel', :action => 'list' %>
     </div>
     <% end %>
+  <% end %>
 <% end %>
 
 <% content_for :right do -%>

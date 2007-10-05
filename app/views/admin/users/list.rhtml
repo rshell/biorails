@@ -1,11 +1,7 @@
 <% content_for :sidemenu do%>
-  <%= render :partial => '/menu/admin_menu'%>
-    <div>
-      <span class='menu' > Users </span>
-       <%= link_to 'list', user_url( :action => 'list') %>
-       <%= link_to 'new',  user_url( :action => 'new') %>
-    </div>
+  <%= render :partial => 'menu'%>
 <% end %>
+
 
 <h2>Users</h2>
 <div class='panel'>
@@ -16,7 +12,6 @@
   <th>Style</th>
   <th>Email Address</th>
   <th>Role</th>
-  <th>Created</th>
   <th>Updated</th>
 <% for user in @users %>
   <tr>
@@ -26,10 +21,12 @@
     <td><%= user.style %>   </td>
     <td><%= user.email %></td>
     <td><%= link_to( user.role.name, :controller => 'roles', :action => 'show', :id => user.role_id) if user.role_id %></td>
-    <td><%= short_date user.created_at %></td>
     <td><%= short_date user.updated_at %></td>
   </tr>
 <% end -%>
 </table>
 </div>
-<p><%= link_to 'New User', :action => 'new' %></p>
+
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end%>

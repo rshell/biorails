@@ -1,20 +1,12 @@
   <tr class='header'>
     <%for column in report.displayed_columns %>
-    <th>
-       <%= column_header(report,column) %>
+    <th tooltip='<%=column.description%>'
+      sortable='<%=column.is_sortable%>'
+	  dataIndex='<%=column.id%>'	>
+       <%=column.name %>
     </th>
     <%end%>
     <th>Actions</th>
-  </tr>
-  <tr>
-    <%for column in  report.displayed_columns %>
-    <th class='filter'>
-       <%= column_filter(report,column) %>
-    </th>
-    <%end%>
-    <th>
-        <input name="commit" value="Filter" type="submit"/>
-    </th>
   </tr>
 
   

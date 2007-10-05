@@ -4,18 +4,30 @@
 1) Make sure you have the correct gems installed
 
 Dependance Gems
+  gem install rails
+  gem install rake
   gem install tzinfo
   gem install mime-types
   gem install gnuplot
+  gem install builder
   gem install ruport
   gem install scruffy
   gem install fastercsv
-  gem install diff-lcs
   gem install delegate
   gem install rexml
   gem install builder
-  gem install mysql
   gem install ferret
+  gem install htmldoc
+
+Options gems needed based configration:-
+
+  gem install mini_magick
+  gem install rmagick
+  gem install mongrel
+  gem install mongrel_cluster  
+  gem install mysql
+  gem install postgres
+  gem install rjb
 
 The command  [ rake biorails:gems ] will load all the gems
   

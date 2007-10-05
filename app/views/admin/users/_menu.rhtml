@@ -1,0 +1,10 @@
+<%= render :partial => '/menu/admin_menu'%>
+<div>
+  <span class='menu' > Users </span>
+   <%= link_to 'list', user_url( :action => 'list') %>
+   <%= link_to 'new',  user_url( :action => 'new') %>
+ <% if @user && !@user.new_record?%>  
+   <%= link_to 'edit', user_url( :action => 'edit',:id=>@user.id) %>
+   <%= link_to 'show', user_url( :action => 'show',:id=>@user.id) %>
+ <%end%>  
+</div>

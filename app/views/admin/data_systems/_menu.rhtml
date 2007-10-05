@@ -1,0 +1,10 @@
+ <%= render :partial => '/menu/admin_menu'%>
+ <div>
+ <span class='menu'>Data System</span>
+ <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+ <%= link_to (subject_icon('new.png'))+'New', :action => 'new' %>
+ <%if @data_system && !@data_system.new_record? %>
+ <%= link_to (subject_icon('show.png')) + ' Show ', :action => 'show', :id =>  @data_system %>
+ <%= link_to (subject_icon('edit.png')) + ' Edit ', :action => 'edit', :id =>  @data_system %>
+ <% end%>
+ </div>
