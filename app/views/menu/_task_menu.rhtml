@@ -6,6 +6,7 @@
   <%= link_to 'Folder',  folder_url( :action => 'show', :id => task.folder ) %>
   <%= link_to 'Data Entry', task_url( :action => 'sheet', :id => task) %>
   <%= link_to 'Edit', task_url( :action => 'edit', :id => task) %>
+  <%= link_to l('Import/Export'),    task_url(:action=>'import',:id=>@task) %>
   <%= link_to 'Analysis', task_url( :action => 'analysis', :id => task) %>
   <%= link_to 'Report', task_url( :action => 'report', :id => task) %>
     <%if task.contexts.size==0%>

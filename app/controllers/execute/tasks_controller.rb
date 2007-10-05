@@ -25,6 +25,13 @@ class Execute::TasksController < ApplicationController
 # 
   def list
     @task_pages, @tasks = paginate :tasks, :per_page => 10
+    respond_to do | format |
+      format.html { render :action => 'list' }
+      format.ext { render :action => 'list',:layout=>false }
+      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.json { render :json => @tasks.to_json}
+      format.xml  { render :xml => @tasks.to_xml }
+     end
   end
 
 ##
@@ -32,28 +39,57 @@ class Execute::TasksController < ApplicationController
 # 
   def show
     set_task
-    redirect_to project_url(:action => 'show') if @task.nil?
+    respond_to do | format |
+      format.html { render :action => 'show' }
+      format.ext { render :partial => 'show',:layout=>false }
+      format.pdf  { render_pdf "#{@task.name}.pdf", :partial => 'show',:layout=>false }
+      format.csv { render :text => @task.to_csv}
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
+    
   end
 
 ##
 # show statics on task
   def metrics
     set_task
-    redirect_to project_url(:action => 'show') if @task.nil?
+    respond_to do | format |
+      format.html { render :action => 'metrics' }
+      format.ext { render :action => 'metrics',:layout=>false }
+      format.pdf  { render_pdf :action => 'metrics',:layout=>false }
+      format.csv { render :json => @task.grid.to_csv}
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
   end
 
 ##
 # show data entry sheet readonly
   def view
     set_task
-    redirect_to project_url(:action => 'show') if @task.nil?
+    respond_to do | format |
+      format.html { render :action => 'view' }
+      format.ext { render :action => 'view',:layout=>false }
+      format.pdf  { render_pdf :action => 'view',:layout=>false }
+      format.csv { render :json => @task.grid.to_csv}
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
   end
 
 ##
 # show data entry sheet 
   def sheet
     set_task
-    redirect_to project_url(:action => 'show') if @task.nil?
+    respond_to do | format |
+      format.html { render :action => 'sheet' }
+      format.ext { render :action => 'sheet',:layout=>false }
+      format.pdf  { render_pdf :action => 'sheet',:layout=>false }
+      format.csv { render :json => @task.grid.to_csv}
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
   end
 
 ##
@@ -67,6 +103,7 @@ class Execute::TasksController < ApplicationController
     @analysis.run(@task)  if params[:run]
     respond_to do | format |
       format.html { render :action => 'analysis'}
+      format.ext { render :action => 'analysis',:layout=>false }
       format.xml  { render :xml =>  @task.to_xml}
       format.text  { render :xml =>  @task.to_csv}
       format.js   { render :update do | page |
@@ -152,7 +189,13 @@ class Execute::TasksController < ApplicationController
 # 
   def edit
     set_task
-    session[:data_sheet] = @data_sheet
+    respond_to do | format |
+      format.html { render :action => 'edit' }
+      format.ext { render :action => 'edit',:layout=>false }
+      format.pdf  { render_pdf :action => 'edit',:layout=>false }
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
   end
 
 ##
@@ -219,6 +262,10 @@ class Execute::TasksController < ApplicationController
 # Import form
   def import
     set_task
+    respond_to do | format |
+      format.html { render :action => 'import' }
+      format.ext { render :action => 'import',:layout=>false }
+     end
   end
 
 ##

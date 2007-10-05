@@ -4,10 +4,8 @@
 
 
 <% content_for :centre do -%>
-<h2>
-     <%=subject_icon('model/task.png')%> New Task 
-</h2>
-<div class='panel'>
+
+<% dialog subject_icon('model/task.png')+'New Task' do %> 
  <% form_tag :action => 'create' do %>   
 
     
@@ -67,12 +65,7 @@
 
     <div class="row">
       <%= submit_tag "Create" %>
-    </div>
    <%end%> 
-</div>
+ <%end%> 
 
 <%end%>
-
-<% content_for :right do -%>
-    <%= render :partial => 'help' %>
-<% end %>

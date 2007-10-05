@@ -3,12 +3,6 @@
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2>
 
-<ul class="tablist"> 
-     <li ><%= link_to l('Overview'),  task_url(:action=>'show',:id=>@task)  %></li>
-     <li ><%= link_to l('Data View'),  task_url(:action=>'view',:id=>@task)  %></li>
-     <li><%= link_to l('Statistics'),    task_url(:action=>'metrics',:id=>@task),:class=>"current"  %>     </li>
-</ul>
-
 <%= render :partial => 'task' %>  
 <%= render :partial => 'stats' %>  
 

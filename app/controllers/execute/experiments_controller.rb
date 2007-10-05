@@ -40,6 +40,13 @@ class Execute::ExperimentsController < ApplicationController
    @data_pages = Paginator.new self, @project.experiments.size, 20, params[:page]
    @data = @report.run({:limit  =>  @data_pages.items_per_page,
                         :offset =>  @data_pages.current.offset })
+    respond_to do | format |
+      format.html { render :action => 'list' }
+      format.ext { render :action => 'list',:layout=>false }
+      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.json { render :json => @data.to_json }
+      format.xml  { render :xml => @data.to_xml }
+    end
   end
 
 ##
@@ -49,22 +56,26 @@ class Execute::ExperimentsController < ApplicationController
     @experiment = current_user.experiment(params[:id])
     respond_to do | format |
       format.html { render :action => 'show' }
+      format.ext { render :action => 'show',:layout=>false }
       format.pdf  { render_pdf :action => 'show',:layout=>false }
       format.json { render :json => @experiment.to_xml }
       format.xml  { render :xml => @experiment.to_xml }
      end
   end
-
+#
+# Generate a display Statistics on data collected in this taks
+#
   def metrics
     @experiment = current_user.experiment(params[:id]) 
     respond_to do | format |
       format.html { render :action => 'metrics',:layout=>false }
       format.pdf  { render_pdf :action => 'metrics',:layout=>false }
-      format.json { render :json => @experiment.to_xml }
-      format.xml  { render :xml => @experiment.to_xml }
+      format.json { render :json => @task.statistics.to_json }
+      format.xml  { render :xml => @task.statistics.to_xml }
     end
   end
-
+#
+#
   def calendar
     @experiment = current_user.experiment(params[:id]) 
     @options ={ 'month' => Date.today.month,
@@ -259,6 +270,13 @@ class Execute::ExperimentsController < ApplicationController
 # Import form
   def import
     @experiment = current( Experiment, params[:id] )
+   respond_to do | format |
+      format.html { render :action => 'import'import}
+      format.pdf  { render_pdf :action => 'import',:layout=>false }
+      format.json { render :json => @task.statistics.to_json }
+      format.xml  { render :xml => @task.statistics.to_xml }
+    end
+
   end
 
 ##

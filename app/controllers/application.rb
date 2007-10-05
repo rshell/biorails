@@ -7,6 +7,7 @@
 # Main Application controller with a log of the key application aspects for
 # user authorization, authentatations etc.
 # 
+require 'htmldoc'
 class ApplicationController < ActionController::Base
  # observer :study_observer,:experiment_observer, :catalog_observer
  

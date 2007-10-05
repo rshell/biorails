@@ -1,0 +1,26 @@
+<%#
+# _show.rhtml
+# 
+# Created on 05-Oct-2007, 10:46:35
+# 
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+
+<h2>
+     <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
+     [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
+</h2>
+  
+<%= render :partial => 'task' %>      
+
+<h4> Requests Fulfilled </h2>
+    <div class="box">
+       <%= render :partial => '/organize/study_queues/queue_items',:locals=>{:queue_items=>@task.queue_items} %>
+    </div>
+<h4> Content </h2>
+    <div class="box">
+       <%= render :partial => '/shared/folder',:locals=>{:folder=>@task.folder} %>
+    </div>

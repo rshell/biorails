@@ -5,12 +5,8 @@
 <h2>
         <%= subject_icon('experiment.png')%> Import Data into Task [<strong><%=@task.name%></strong>]
 </h2> 
-<ul class="tablist"> 
-     <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task) %></li>
-     <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task)  %>     </li>
-     <li><%= link_to l('Import/Export'),    task_url(:action=>'import',:id=>@task),:class=>"current"  %>     </li>
-</ul>
-<div class='panel'>
+
+<%dialog 'Import Task Data' do%>
 
         <p>
             This is a simple cvs file importer for getting larger blocks of data into the system. 
@@ -20,16 +16,14 @@
         <%= link_to subject_icon('xls')+' Export Current Data ', task_url(:action => 'export', :id => @task ) %>
 
 
-
-     <div class='dialog'>
+<p>
         Once is is filled it can be re-imported via the following file selector:-
+        </p>
         <%form_tag( task_url(:action =>'import_file', :id=> @task.id) , {:multipart => true}) do %>
         <%= error_messages_for("import") %>
           <%=file_field_tag(:file) %>  
         <br />
         <%= submit_tag("Import")%>
         <% end %>
-        
-    </div> 
-</div> 
+ <% end %>
 

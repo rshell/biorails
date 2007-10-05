@@ -2,36 +2,25 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
 <%end%>
 
-<h2>
-    <%=subject_icon('model/task.png')%> Updating Task [<strong><%= link_to @task.name, :action => 'show', :id => @task %></strong>]
-        in Experiment [<%= link_to @task.experiment.name, :controller => 'experiments', 
-        :action => 'show', :id => @task.experiment.id  %>]
-
-</h2>
-<ul class="tablist"> 
-     <li ><%= link_to l('Edit'),  task_url(:action=>'edit',:id=>@task),:class=>"current"  %></li>
-     <li><%= link_to l('Data Entry'),    task_url(:action=>'sheet',:id=>@task)  %>     </li>
-     <li><%= link_to l('Import/Export'),    task_url(:action=>'import',:id=>@task)  %>     </li>
-</ul>
-
-<div class="panel">
-    <div id="<%=@task.dom_id('overview') %>"  class='dialog'> 
-              <% form_tag :action => 'update', :id => @task do %>
-              <%= render :partial => 'form' %>
-              <div class="row">
-                <%= submit_tag 'Save' %>
-              </div>
-             <% end %>
+<% content_for :centre do -%>
+  <% dialog subject_icon('model/task.png')+'Edit Task' do %> 
+    <% form_tag :action => 'update', :id => @task do %>
+    <%= render :partial => 'form' %>
+    <div class="row">
+      <%= submit_tag 'Save' %>
     </div>
-    <h3>
-        Note:
-    </h3>
-    <p>
-        Changing the task <em>status</em> will automatically update
-        any associated request items
-    </p>
-</div>
-    
+   <% end %>
+  <%end%>
+<%end%>
+ 
 
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :footer do -%>
 <%= render :partial => 'shared/audit',:locals =>{ :item => @task} %>
+<% end %>
+
+
     

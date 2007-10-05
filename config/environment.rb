@@ -59,6 +59,8 @@ Mime::Type.register "application/msexcel", :xls
 Mime::Type.register "application/pdf", :pdf
 Mime::Type.register "text/richtext", :rtf
 Mime::Type.register "image/svg+xml", :svg
+Mime::Type.register "text/html", :ext
+Mime::Type.register 'text/csv', :csv, %w('text/comma-separated-values')
 
 GLoc.set_config :default_language => :en
 GLoc.clear_strings
