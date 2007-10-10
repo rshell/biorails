@@ -1,7 +1,5 @@
-<% content_for :header_script do -%>
-<%= javascript_include_tiny_mce_if_used %>
-<%= tiny_mce if using_tiny_mce? %>
-<% end %>
+
+
 
 <% content_for :messages do -%>
   <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
@@ -9,39 +7,29 @@
 
 <% content_for :centre do -%>
 <div id='tabs1'>
-    <div id="tab-folder" class="tab-content">
-       <%= render :partial => 'show',:locals=>{:folder=>@project_folder} %>
+    <div id="tab-show" class="tab-content">
+        Folder <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
+<!--%= render :partial => 'show',:locals=>{:folder=>@project_folder} %-->
+      <div id='grid-document'></div>
+    </div>
+    <div id="tab-layout" class="tab-content">
+        Outline of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
+        <!--%= render :partial => 'layout',:locals=>{:folder=>@project_folder} %-->
     </div>
     <div id="tab-document" class="tab-content">
-       <%= render :partial => 'document',:locals=>{:folder=>@project_folder} %>
-    </div>
-    <div id="tab-outline" class="tab-content">
-       <%= render :partial => 'layout',:locals=>{:folder=>@project_folder} %>
-    </div>
-    <div id="tab-blog" class="tab-content">
-       <%= render :partial => 'blog',:locals=>{:folder=>@project_folder} %>
+        Preview of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
+        <!--%= render :partial => 'document',:locals=>{:folder=>@project_folder} %-->
     </div>
 </div>      
-<% end %>
-  
+ <div id='grid-folder' style="width:100%;"></div>
+<% end %>    
 
 <% content_for :right do -%>
     <%= render :partial => 'right',:locals=>{:folder=> @project_folder} %>   
 <% end %>
 
-<SCRIPT TYPE="text/javascript"> 
-Ext.onReady(function(){
-        var tabs = new Ext.TabPanel('tabs1');
-        var tab1 = tabs.addTab('tab-folder', "Folder");        
-        var tab2 = tabs.addTab('tab-document', "Document");
-        var tab3 = tabs.addTab('tab-outline', "Outline");
-        var tab4 = tabs.addTab('tab-blog', "Timeline");
-        tabs.activate('tab-folder');
-//
-//        tab1.setUrl('<%=folder_url( :action => 'folder', :folder_id => @project_folder.id )%>', null, false);
-//        tab2.setUrl('<%=folder_url( :action => 'document', :folder_id => @project_folder.id )%>', null, false);
-//        tab3.setUrl('<%=folder_url( :action => 'layout', :folder_id => @project_folder.id )%>', null, false);
-//        tab4.setUrl('<%=folder_url( :action => 'blog', :folder_id => @project_folder.id )%>', null, false);
-//        
- });
+<script>
+
+Ext.onReady(Biorails.folder( <%=folder_to_json(@project_folder)%> ), Biorails);
+
 </script>

@@ -8,10 +8,11 @@
 <div id='<%=item.dom_id(:current)%>' class='box folder_element'> 
   <div id='<%=item.dom_id(:header)%>' class='folder_element reverse'> 
      <%=link_to_remote( subject_icon("arrow_up"),   
-                :url =>element_url(:action=>"reorder_element",:id=>item.id, :before=>elements[i-1].id )) if i>0 %>
+                :url =>element_url({:action=>"reorder_element",:id=>item.id,:before=>elements[i-1].id })) if i>0 %>
      
      <%=link_to_remote( subject_icon("arrow_down"), 
-                :url =>element_url(:action=>"reorder_element",:id=>item.id, :after=>elements[i+1].id )) if i>0 and elements[i+1] %>
+                :url =>element_url(:action=>"reorder_element",:id=>item.id, :after=>elements[i+1].id, :draw=>'layout' )) if i>0 and elements[i+1] %>
+				
      <%= link_to( "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item) ) if item.reference? %>
 
      <%= link_to_remote "["+subject_icon("edit")+"]", :url=>content_url(:action=>'edit',:id=>item.id) ,

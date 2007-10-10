@@ -1,15 +1,10 @@
-<div id='new-folder-dialog'>
-<h2>New Folder under <%=@parent.path%></h2>
-<!--[form:project_folder]-->
+<% dialog "New Folder under #{@project_folder.path} " do %>
 
 <% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:centre do %>
-
-<!--[form:project_folder]-->
     <%= hidden_field 'project_folder', 'parent_id'  %>
     <%= hidden_field 'project_folder', 'project_id'  %>
 
   <div class="row">
-    <!--[form:study]-->
     <div class="form-element">
        <label for="study_name">Name</label>
        <%= text_field 'project_folder', 'name' , {:size=>40, :class=>"text-input"} %>
@@ -19,5 +14,5 @@
   <div class="row">
     <%= submit_tag "Create" %>
   </div>
+ <% end %>
 <% end %>
-</div>

@@ -1,8 +1,3 @@
-<% content_for :header_script do -%>
-<%= javascript_include_tiny_mce_if_used %>
-<%= tiny_mce if using_tiny_mce? %>
-
-<% end %>
 
 <% content_for :messages do -%>
 <%= render :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_element']}  %>

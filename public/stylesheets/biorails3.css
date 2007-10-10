@@ -107,58 +107,50 @@ div.tooltip:hover span.tip{
 /*========== Side Menu Bar  ==============*/
 
 div.sidemenu {
-	width: 100%;
-	font-family: Arial, sans-serif;
-	font-size: 12px;
-	padding-bottom: 10px;
-	color: #fff;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding-bottom: 5px;
+    color: black;
     z-index: 10; 	
 }
 div.sidemenu div {
     background:#98c0f4;
-	overflow: hidden;
+    overflow: hidden;
     z-index: 10; 
     }
 
-div.sidemenu div.collapsed {
-	height: 25px;
-    background:#6593cf;
-    z-index: 10; 
-}
 
 div.sidemenu div span.menu {
-	display: block;
-	padding: 5px 22px;
-	font-weight: bold;
-	color: white;
-	cursor: default;
-	border-bottom: 1px solid #ddd;
-	background: url(/images/arrow_up.gif) no-repeat right center;
-    z-index: 10; 
-}
-
-div.sidemenu div.collapsed span.menu {
-	background: url(/images/arrow_down.gif) no-repeat right center;
+    display: block;
+    padding: 2px 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    cursor: default;
+    border-bottom: 1px solid #ddd;
+    background-color: #c3daf9;
     z-index: 10; 
 }
 
 div.sidemenu div  a {
-	padding: 1px 5px;
-	background: #eee;
-	display: block;
-	border-bottom: 1px solid #ddd;
-	color: #0000ee;
+    padding: 1px 5px;
+    background: white;
+    display: block;
+    color: #0000ee;
     z-index: 10; 
+    background-color: white;
 }
+
 div.sidemenu div  a.current {
-	background : #ccc;
+    background : #ccc;
     z-index: 10; 
 }
 
 div.sidemenu div a:hover {
-	background : #6593cf url(/images/arrow_right.png) no-repeat right center;
-	color: #fff;
-	text-decoration: none;
+    background : #6593cf url(/images/arrow_right.png) no-repeat right center;
+    color: #fff;
+    text-decoration: none;
     z-index: 10; 
 }
 
@@ -449,8 +441,7 @@ div.folder-list {
 
 div.reverse {
     width: 100%;
-    color: #f0f0f0;
-    background-color: #7cb30f;
+    background-color: #6593cf;
     float:left;
     position:relative;
 }

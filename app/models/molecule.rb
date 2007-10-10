@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'rcdk'
 
 jrequire 'java.io.StringReader'
 jrequire 'java.io.StringWriter'

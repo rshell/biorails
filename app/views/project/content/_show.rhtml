@@ -1,5 +1,5 @@
 <h2> Article: <%= @project_element.title%> 
-<%= link_to_remote '[Edit]', :url=>content_url(:action=>'edit',:id=> @project_element.id) ,
+<%= link_to '[Edit]', content_url(:action=>'edit',:id=> @project_element.id) ,
       :complete => " tinyMCE.execCommand('mceAddControl',true,'project_element_to_html' );"  %>  
 </h2>
 <p>       

@@ -12,10 +12,8 @@
 <%end%>
 
 
-<h1>Add member to project <%=current_project.name%></h1>
-<div class='panel'>
-
-<% form_tag :action => 'create' do %>
+<% dialog "Add member to project #{current_project.name} " do %>
+ <% form_tag :action => 'create' do %>
 	<%=  hidden_field :membership, :project_id %>
 
     <!--[form:membership]-->
@@ -33,5 +31,5 @@
     <!--[eoform:membership]-->
         
   <%= submit_tag "Create" %>
+ <% end %>
 <% end %>
-</div>

@@ -34,6 +34,8 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :action => 'show'}
+      format.ext {render :action => 'show',:layout => false}
+      format.pdf {render_pdf :action => 'show',:layout => false}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
@@ -47,6 +49,8 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :partial => 'show',:locals=>{:folder=>@project_folder}}
+      format.ext {render :partial => 'show',:locals=>{:folder=>@project_folder}}
+      format.pdf {render_pdf :partial => 'show',:locals=>{:folder=>@project_folder}}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
@@ -63,6 +67,8 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :partial => 'document',:locals=>{:folder=>@project_folder}}
+      format.ext {render :partial => 'document',:locals=>{:folder=>@project_folder}}
+      format.pdf {render_pdf :partial => 'document',:locals=>{:folder=>@project_folder}}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'tab-document',  :partial => 'document' ,:locals=>{:folder=>@project_folder}
@@ -79,6 +85,8 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :partial => 'layout',:locals=>{:folder=>@project_folder}}
+      format.ext {render :partial => 'layout',:locals=>{:folder=>@project_folder}}
+      format.pdf {render_pdf :partial => 'layout',:locals=>{:folder=>@project_folder}}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'tab-outline',  :partial => 'layout' ,:locals=>{:folder=>@project_folder}
@@ -94,6 +102,8 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :partial => 'blog',:locals=>{:folder=>@project_folder}}
+      format.ext {render :partial => 'blog',:locals=>{:folder=>@project_folder}}
+      format.pdf {render_pdf :partial => 'blog',:locals=>{:folder=>@project_folder}}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
            page.replace_html 'tab-blog',  :partial => 'blog' ,:locals=>{:folder=>@project_folder}
@@ -264,41 +274,48 @@ class Project::FoldersController < ApplicationController
     return render_central
   end
 
+
+#
+#  AJAX called method to reorder the elements in folder before a set element
+#
+#   :id = source
+#   :before = element to place element before
+#
   def reorder_element
      @source =  current(ProjectElement, params[:id] ) 
+     @project_element =  current(ProjectElement, params[:before] ) 
      set_folder(@source.parent_id)
-     if params[:after]
-        @project_element =  current(ProjectElement, params[:after] ) 
-        @source.reorder_after( @project_element )
-     elsif params[:before]
-        @project_element =  current(ProjectElement, params[:before] ) 
-        @source.reorder_before( @project_element )
+     if @source.parent_id ==  @project_element.parent_id
+        @source.reorder_before( @project_element )       
+        @project_folder.reload
      end
-     @project_folder.reload
-     return render_central
+     
+    respond_to do |format|
+      format.html { render :action => 'show'}
+      format.json { render :partial => "reorder"};
+    end  
   end
-
+#
+#  AJAX called method to add a element to a folder before a set element
+#
+#   :id = source
+#   :before = element to place element before
+#
   def add_element   
-    set_folder
-    @source = ProjectElement.find(params[:element])
-    unless @source
-      text = request.raw_post || request.query_string
-      case text
-      when /id=project_element_*/,
-           /id=project_content_*/ ,
-           /id=project_asset_*/ ,
-           /id=project_reference_*/  
-          @source = ProjectElement.find($')        
-       end
-     end
-     if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
+    @source =  current(ProjectElement, params[:id] ) 
+    @project_element =  current(ProjectElement, params[:before] ) 
+    set_folder(@project_element.parent_id)
+    if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
         @new_element = @project_folder.copy(@source)
        flash[:info] = "add reference to #{@source.name} to #{@project_folder.name}"
-     else  
+    else  
        flash[:warning] = "can not add to #{@source.name} to #{@project_folder.name}"
-     end     
-     @project_folder.reload
-     return render_central
+    end     
+    @project_folder.reload
+    respond_to do |format|
+      format.html { render :action => 'show'}
+      format.json { render :partial => "reorder"};
+    end  
   end
 
   
@@ -309,8 +326,9 @@ class Project::FoldersController < ApplicationController
     set_folder
     @project_element =  current(ProjectElement, params[:before] ) 
     text = request.raw_post || request.query_string
+    @source = ProjectElement.find(param[:element]) 
     @successful =true
-    
+        
     case text
     when /id=current_project_element_*/,
          /id=current_project_folder_*/,
@@ -369,13 +387,13 @@ protected
      return !(source.id == dest.id or source.id == dest.parent_id or  source.parent_id == dest.id  or source.parent_id == dest.parent_id)
   end
 
-  def render_central(mode =nil)
-    @layout[:centre] = mode || 'show'
+  def render_central(mode =nil )
+    @layout[:centre] ||= mode 
     respond_to do |format|
       format.html{ render :action => @layout[:centre] }
       format.xml { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
-           page.replace_html 'centre',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
+           page.replace_html "tab-#{@layout[:centre]}",  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
            page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
         end
       }
@@ -407,5 +425,4 @@ protected
      return @project_folder
   end  
   
-
 end

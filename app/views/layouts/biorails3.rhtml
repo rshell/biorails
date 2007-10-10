@@ -16,7 +16,7 @@
     <%= stylesheet_link_tag 'table' %>
     <%= stylesheet_link_tag 'forms' %>
     <%= stylesheet_link_tag "autocomplete" %>
-    <%= stylesheet_link_tag 'calendar-green' %>
+    <%= stylesheet_link_tag 'calendar-blue' %>
     <%= stylesheet_link_tag 'datebocks_engine' %>
  
     <!-- GC --> 
@@ -33,22 +33,23 @@
     <%= javascript_include_tag 'calendar/calendar-setup' %>
     <%= javascript_include_tag 'calendar/lang/calendar-en' %>
     <%= javascript_include_tag 'datebocks_engine' %>
-    <%= javascript_include_tag 'ext/adapter/prototype/ext-prototype-adapter' %>
-    <%= javascript_include_tag 'ext/ext-all' %>
+    <%= javascript_include_tag 'tiny_mce/tiny_mce' %>
+    <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
+    <%= javascript_include_tag 'ext/ext-all-debug' %>
     <%= javascript_include_tag 'ext/accordion' %>
     <%= javascript_include_tag 'ext/info_panel' %>
     <%= javascript_include_tag 'ext/upload_form' %>
-    <%= javascript_include_tag 'main_layout' %>
+    <%= javascript_include_tag 'biorails_app' %>
     <%= javascript_include_tag 'application' %>
-
+ 
     <!-- ENDLIBS -->
  
 <!-- page specific tags  ======================= -->
 	<%= yield :includes %>
+	<%= yield :header_script %>	
 	
-	<%= yield :header_script %>
-   <%=setup_toolbar('top-toolbar')%>
-</head>
+    <!--%=setup_toolbar('top-toolbar')%-->
+  </head>
 
 <body>
 	
@@ -78,8 +79,9 @@
       <%= yield :right %>
   </div>
   
-  
-<!-- Main area  -->
+
+   
+   <!-- Main area  -->
   <div id="center" class="x-layout-inactive-content">
      <%= yield :centre %>
       <%= yield %>
@@ -97,8 +99,13 @@
   </div>
   
 </div>
-
-
+  <script>
+     Ext.onReady(Biorails.init('header','<%=current_project.name%>',
+     <%=home_items.to_json%>,
+     <%=project_items.to_json%>,
+     <%=admin_items.to_json%>
+     ));
+   </script>
 </body>
 </html>
 

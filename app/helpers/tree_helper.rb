@@ -154,11 +154,15 @@ JS
 Ext.onReady( function(){       
       var tree = new Ext.tree.TreePanel('#{folder.dom_id(:tree)}', {
                                       animate:true,
-                                      enableDD:false,
+                                      autoScroll:true,
                                       loader: new Ext.tree.TreeLoader(), 
                                       lines: true,
+                                      enableDrag: true,
+                                      containerScroll: true,
+                                      singleExpand: true,
+                                      ddGroup: 'ColumnDD',
                                       selModel: new Ext.tree.MultiSelectionModel(),
-                                      containerScroll: false });
+                                      containerScroll: false  });
 
       var root = new Ext.tree.AsyncTreeNode(#{items.to_json});
       tree.setRootNode(root);

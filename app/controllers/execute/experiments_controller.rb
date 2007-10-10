@@ -271,7 +271,7 @@ class Execute::ExperimentsController < ApplicationController
   def import
     @experiment = current( Experiment, params[:id] )
    respond_to do | format |
-      format.html { render :action => 'import'import}
+      format.html { render :action => 'import'}
       format.pdf  { render_pdf :action => 'import',:layout=>false }
       format.json { render :json => @task.statistics.to_json }
       format.xml  { render :xml => @task.statistics.to_xml }

@@ -178,7 +178,6 @@ JS
   javascript_tag(script)
 end  
 
-protected 
   def home_items
      @items = [
        {:href=>home_url(:id=>User.current.id),:text=>'home'},

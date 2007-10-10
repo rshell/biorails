@@ -13,26 +13,26 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_parameter' ]} %>
 <%end%>
 
-<div class='main' id='maintitle'>
-    <h2>
-        <%=subject_icon('model/study.png')%> Import Parameters for Study [<strong><%=link_to "#{@study.name}", 
-            :controller=>'studies', 
-            :action =>'show',:id =>@study.id %></strong>]
-    </h2>
-    <div class='dialog'>
+  <%dialog " Import Parameters for Study #{@study.name}" do %>
         <%form_tag( {:action =>'import_file', :id=> @study.id }, :multipart => true) do %>
         
-          <%=file_field_tag(:file) %>  
+          <%=file_field_tag(:file,:size=>64) %>  
+          <br />
+          <br />
           <%= check_box_tag 'types', 'create',checked =false %>Create Parameter types
+          <br />
           <%= check_box_tag 'roles', 'create',checked =false %>Create Parameter roles
+          <br />
+          <br />
         <%= submit_tag("Import")%>
         <% end %>
-        <hr />
-        <h3>Guidance</h3>
-        <p>
-            Import expects a CVS file with following column titles :-
-            type_id,	type_name,	role_id,	role_name,	Alias,	Default.
-        </p>
-    </div>
-</div>
+  <% end %>
+
+<% content_for :right do -%>
+    <h3>Guidance</h3>
+    <p>
+        Import expects a CVS file with following column titles :-
+        type_id,	type_name,	role_id,	role_name,	Alias,	Default.
+    </p>
+<%end%>
          

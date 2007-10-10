@@ -91,5 +91,4 @@ ActionController::Routing::Routes.draw do |map|
 # 
   map.home    'home/:action/:id' , :controller => 'home'
   map.connect ':*path', :controller => "page", :action => "locate"
-  
 end

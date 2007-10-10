@@ -2,18 +2,15 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
 <%end%>
 
-<% content_for :centre do -%>
-<h2>
-    <%=subject_icon('experiment.png')%> New Experiment in study [<%=subject_icon('study.png')%>
-       <%= link_to @experiment.study.name, :controller => 'studies', :action => 'show', :id => @experiment.study.id  %>]
-</h2>
-
-    <% form_tag :action => 'create' do %>
+<% content_for :centre do %>
+ <% dialog 'New Experiment' do %>
+   <% form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
-        <div class="row">
-            <%= submit_tag "Create" %>
-        </div>
-    <% end %>
+      <div class="row">
+          <%= submit_tag "Create" %>
+      </div>
+   <% end %>
+ <% end %>
 <%end%>
 
 <% content_for :right do -%>

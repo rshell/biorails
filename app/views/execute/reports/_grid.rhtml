@@ -1,0 +1,53 @@
+<div id='xxxxx'></div>
+<script>
+/**
+ * @class Ext.grid.TableGrid
+ * @extends Ext.grid.Grid
+ * A Grid which creates itself from an existing HTML table element.
+ * @constructor
+ * @param {String/HTMLElement/Ext.Element} table The table element from which this grid will be created - 
+ * The table MUST have some type of size defined for the grid to fill. The container will be 
+ * automatically set to position relative if it isn't already.
+ * @param {Object} config A config object that sets properties on this grid and has two additional (optional)
+ * properties: fields and columns which allow for customizing data fields and columns for this grid.
+ * @history
+ * 
+ * 2007-03-01 Original version by Nige "Animal" White
+ * 2007-03-10 jvs Slightly refactored to reuse existing classes
+ */
+  Ext.grid.ReportGrid = function(table, report, config) {
+    config = config || { 'sm': new Ext.grid.RowSelectionModel(),   autoHeight:true, autoWidth:true};
+	config.cm =  new Ext.grid.ColumnModel(report.columns);
+	var fields =[];
+	report.columns.each(function(column){
+	  fields.push({ name: column.dataIndex})	
+	});
+	
+    config.ds = new Ext.data.Store({
+ 	    proxy: new Ext.data.HttpProxy({url: '/reports/refresh/<%=report.id%>?format=json'}),
+ 
+        reader: new Ext.data.JsonReader({
+            root: 'rows',
+            totalProperty: 'total',
+            id: 'id'
+        }, [
+            {name: 'name'},
+            {name: 'description'},
+            {name: 'style'}
+        ]),        
+        // turn on remote sorting
+        remoteSort: true	
+    });
+	config.ds.load();
+
+    Ext.grid.ReportGrid.superclass.constructor.call(this, table, config  );
+  };
+
+Ext.extend(Ext.grid.ReportGrid, Ext.grid.Grid);
+
+ 
+ Ext.onReady( function() {	 
+    var report = new Ext.grid.ReportGrid('xxxxx', <%=report.to_ext.to_json%> );
+    report.render();
+  });
+</script>

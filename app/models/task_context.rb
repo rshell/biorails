@@ -65,8 +65,6 @@ class TaskContext < ActiveRecord::Base
 # 
  has_many :values, :class_name=>'TaskValue', :dependent => :destroy, :order =>'parameter_id'
 
- has_many :files, :class_name=>'TaskFile', :dependent => :destroy,:order =>'parameter_id'
-
  has_many :texts, :class_name=>'TaskText', :dependent => :destroy,:order =>'parameter_id'
 
  has_many :references, :class_name=>'TaskReference', :dependent => :destroy,:order =>'parameter_id'

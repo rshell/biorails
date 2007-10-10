@@ -1,3 +1,87 @@
+CREATE TABLE `IJC_ITEM_INFO` (
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `ITEM_ID` varchar(32) NOT NULL,
+  `INFO_TYPE` varchar(32) NOT NULL,
+  `EXTRA_1` varchar(100) default NULL,
+  `EXTRA_2` varchar(100) default NULL,
+  `EXTRA_3` varchar(100) default NULL,
+  `EXTRA_4` varchar(100) default NULL,
+  `INFO_VALUE` text,
+  PRIMARY KEY  (`SCHEMA_ID`,`ITEM_ID`,`INFO_TYPE`),
+  CONSTRAINT `FK_IJC_ITEM_INFO_SCHEMA` FOREIGN KEY (`SCHEMA_ID`, `ITEM_ID`) REFERENCES `IJC_SCHEMA` (`SCHEMA_ID`, `ITEM_ID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `IJC_ITEM_USER` (
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `ITEM_ID` varchar(32) NOT NULL,
+  `USERNAME` varchar(32) NOT NULL,
+  `TYPE` varchar(32) NOT NULL,
+  `CREATION_TIME` datetime NOT NULL,
+  `INFO` text,
+  PRIMARY KEY  (`SCHEMA_ID`,`ITEM_ID`,`USERNAME`,`TYPE`),
+  KEY `FK_IJC_ITEM_USER_USER` (`SCHEMA_ID`,`USERNAME`),
+  CONSTRAINT `FK_IJC_ITEM_USER_ITEM` FOREIGN KEY (`SCHEMA_ID`, `ITEM_ID`) REFERENCES `IJC_SCHEMA` (`SCHEMA_ID`, `ITEM_ID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_IJC_ITEM_USER_USER` FOREIGN KEY (`SCHEMA_ID`, `USERNAME`) REFERENCES `IJC_USER` (`SCHEMA_ID`, `USERNAME`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `IJC_SCHEMA` (
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `ITEM_ID` varchar(32) NOT NULL,
+  `ITEM_INDEX` smallint(6) NOT NULL,
+  `GENERIC_TYPE` varchar(200) NOT NULL,
+  `IMPL_TYPE` varchar(200) NOT NULL,
+  `PARENT_ID` varchar(32) default NULL,
+  `ITEM_VALUE` text,
+  PRIMARY KEY  (`SCHEMA_ID`,`ITEM_ID`),
+  KEY `FK_IJC_SCHEMA_SCHEMA` (`SCHEMA_ID`,`PARENT_ID`),
+  CONSTRAINT `FK_IJC_SCHEMA_SCHEMA` FOREIGN KEY (`SCHEMA_ID`, `PARENT_ID`) REFERENCES `IJC_SCHEMA` (`SCHEMA_ID`, `ITEM_ID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `IJC_SECURITY_INFO` (
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `ITEM_ID` varchar(32) NOT NULL,
+  `INFO_TYPE` varchar(32) NOT NULL,
+  `EXTRA_1` varchar(100) default NULL,
+  `EXTRA_2` varchar(100) default NULL,
+  `EXTRA_3` varchar(100) default NULL,
+  `EXTRA_4` varchar(100) default NULL,
+  `INFO_VALUE` text,
+  PRIMARY KEY  (`SCHEMA_ID`,`ITEM_ID`,`INFO_TYPE`),
+  CONSTRAINT `FK_IJC_SECURITY_INFO_SCHEMA` FOREIGN KEY (`SCHEMA_ID`, `ITEM_ID`) REFERENCES `IJC_SCHEMA` (`SCHEMA_ID`, `ITEM_ID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `IJC_USER` (
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `USERNAME` varchar(32) NOT NULL,
+  `LOGIN_TIME` datetime default NULL,
+  `HEARTBEAT` datetime default NULL,
+  PRIMARY KEY  (`SCHEMA_ID`,`USERNAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `IJC_VIEWS` (
+  `ID` int(11) NOT NULL auto_increment,
+  `SCHEMA_ID` varchar(32) NOT NULL,
+  `DATATREE_ID` varchar(32) NOT NULL,
+  `USERNAME` varchar(32) NOT NULL,
+  `VIEW_ID` varchar(32) NOT NULL,
+  `VIEW_NAME` varchar(100) NOT NULL,
+  `VIEW_INDEX` smallint(6) NOT NULL,
+  `IMPL_TYPE` varchar(200) NOT NULL,
+  `VIEW_CONFIG` mediumtext,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `UQ_IJC_VIEWS` (`SCHEMA_ID`,`DATATREE_ID`,`USERNAME`,`VIEW_ID`),
+  KEY `FK_IJC_VIEWS_USER` (`SCHEMA_ID`,`USERNAME`),
+  CONSTRAINT `FK_IJC_VIEWS_SCHEMA` FOREIGN KEY (`SCHEMA_ID`, `DATATREE_ID`) REFERENCES `IJC_SCHEMA` (`SCHEMA_ID`, `ITEM_ID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_IJC_VIEWS_USER` FOREIGN KEY (`SCHEMA_ID`, `USERNAME`) REFERENCES `IJC_USER` (`SCHEMA_ID`, `USERNAME`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `JCHEMPROPERTIES` (
+  `prop_name` varchar(200) NOT NULL,
+  `prop_value` varchar(200) default NULL,
+  `prop_value_ext` mediumblob,
+  PRIMARY KEY  (`prop_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 CREATE TABLE `analysis_methods` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(128) NOT NULL default '',
@@ -22,7 +106,7 @@ CREATE TABLE `analysis_settings` (
   `data_type_id` int(11) default NULL,
   `level_no` int(11) default NULL,
   `column_no` int(11) default NULL,
-  `mode` int(11) default NULL,
+  `io_mode` int(11) default NULL,
   `mandatory` varchar(255) default 'N',
   `default_value` varchar(255) default NULL,
   `created_at` datetime NOT NULL,
@@ -32,13 +116,25 @@ CREATE TABLE `analysis_settings` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `audit_logs` (
+  `id` int(11) NOT NULL auto_increment,
+  `auditable_id` int(11) default NULL,
+  `auditable_type` varchar(255) default NULL,
+  `user_id` int(11) default NULL,
+  `action` varchar(255) default NULL,
+  `changes` text,
+  `created_by` varchar(255) default NULL,
+  `created_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `audits` (
   `id` int(11) NOT NULL auto_increment,
   `auditable_id` int(11) default NULL,
   `auditable_type` varchar(255) default NULL,
   `user_id` int(11) default NULL,
   `user_type` varchar(255) default NULL,
-  `session` varchar(255) default NULL,
+  `session_id` varchar(255) default NULL,
   `action` varchar(255) default NULL,
   `changes` text,
   `created_at` datetime default NULL,
@@ -46,28 +142,6 @@ CREATE TABLE `audits` (
   KEY `auditable_index` (`auditable_id`,`auditable_type`),
   KEY `user_index` (`user_id`,`user_type`),
   KEY `audits_created_at_index` (`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `authentication_systems` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(50) NOT NULL default '',
-  `description` text,
-  `type` varchar(255) NOT NULL default 'DataConcept',
-  `host` varchar(60) default NULL,
-  `port` int(11) default NULL,
-  `account` varchar(60) default NULL,
-  `account_password` varchar(60) default NULL,
-  `base_dn` varchar(255) default NULL,
-  `attr_login` varchar(30) default NULL,
-  `attr_firstname` varchar(30) default NULL,
-  `attr_lastname` varchar(30) default NULL,
-  `attr_mail` varchar(30) default NULL,
-  `lock_version` int(11) NOT NULL default '0',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
-  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `batches` (
@@ -95,7 +169,7 @@ CREATE TABLE `catalog_logs` (
   `auditable_type` varchar(255) default NULL,
   `action` varchar(255) default NULL,
   `name` varchar(255) default NULL,
-  `comment` varchar(255) default NULL,
+  `comments` varchar(255) default NULL,
   `created_by` varchar(255) default NULL,
   `created_at` datetime default NULL,
   PRIMARY KEY  (`id`),
@@ -112,12 +186,12 @@ CREATE TABLE `compounds` (
   `mass` float default NULL,
   `smiles` varchar(255) default NULL,
   `lock_version` int(11) NOT NULL default '0',
+  `created_by_user_id` int(32) NOT NULL default '1',
   `created_at` datetime NOT NULL,
+  `updated_by_user_id` int(32) NOT NULL default '1',
   `updated_at` datetime NOT NULL,
   `registration_date` datetime default NULL,
   `iupacname` varchar(255) default '',
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,6 +215,34 @@ CREATE TABLE `containers` (
   `updated_by_user_id` int(11) NOT NULL default '1',
   `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `content_pages` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `name` varchar(255) NOT NULL,
+  `markup_style_id` int(11) default NULL,
+  `content` text,
+  `permission_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`),
+  KEY `fk_content_page_permission_id` (`permission_id`),
+  KEY `fk_content_page_markup_style_id` (`markup_style_id`),
+  CONSTRAINT `fk_content_page_markup_style_id` FOREIGN KEY (`markup_style_id`) REFERENCES `markup_styles` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_content_page_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `controller_actions` (
+  `id` int(11) NOT NULL auto_increment,
+  `site_controller_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `permission_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_controller_action_permission_id` (`permission_id`),
+  KEY `fk_controller_action_site_controller_id` (`site_controller_id`),
+  CONSTRAINT `fk_controller_action_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_controller_action_site_controller_id` FOREIGN KEY (`site_controller_id`) REFERENCES `site_controllers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `data_concepts` (
@@ -170,12 +272,14 @@ CREATE TABLE `data_contexts` (
   `description` text,
   `access_control_id` int(11) default NULL,
   `lock_version` int(11) NOT NULL default '0',
+  `created_by` varchar(32) NOT NULL default 'sys',
   `created_at` datetime NOT NULL,
+  `updated_by` varchar(32) NOT NULL default 'sys',
   `updated_at` datetime NOT NULL,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`),
+  KEY `data_contexts_idx1` (`updated_by`),
   KEY `data_contexts_idx2` (`updated_at`),
+  KEY `data_contexts_idx3` (`created_by`),
   KEY `data_contexts_idx4` (`created_at`),
   KEY `data_contexts_name_idx` (`name`),
   KEY `data_contexts_acl_idx` (`access_control_id`)
@@ -278,6 +382,11 @@ CREATE TABLE `db_files` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `engine_schema_info` (
+  `engine_name` varchar(255) default NULL,
+  `version` int(11) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `experiment_logs` (
   `id` int(11) NOT NULL auto_increment,
   `experiment_id` int(11) default NULL,
@@ -287,7 +396,7 @@ CREATE TABLE `experiment_logs` (
   `auditable_type` varchar(255) default NULL,
   `action` varchar(255) default NULL,
   `name` varchar(255) default NULL,
-  `comment` varchar(255) default NULL,
+  `comments` varchar(255) default NULL,
   `created_by` varchar(255) default NULL,
   `created_at` datetime default NULL,
   PRIMARY KEY  (`id`),
@@ -371,18 +480,80 @@ CREATE TABLE `logging_events` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `markup_styles` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `memberships` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL default '0',
   `project_id` int(11) NOT NULL default '0',
   `role_id` int(11) NOT NULL default '0',
-  `owner` tinyint(1) default '0',
+  `is_owner` tinyint(1) default NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `updated_by_user_id` int(11) NOT NULL default '1',
   `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `menu_items` (
+  `id` int(11) NOT NULL auto_increment,
+  `parent_id` int(11) default NULL,
+  `name` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `seq` int(11) default NULL,
+  `controller_action_id` int(11) default NULL,
+  `content_page_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_menu_item_controller_action_id` (`controller_action_id`),
+  KEY `fk_menu_item_content_page_id` (`content_page_id`),
+  KEY `fk_menu_item_parent_id` (`parent_id`),
+  CONSTRAINT `fk_menu_item_content_page_id` FOREIGN KEY (`content_page_id`) REFERENCES `content_pages` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_menu_item_controller_action_id` FOREIGN KEY (`controller_action_id`) REFERENCES `controller_actions` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_menu_item_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `menu_items` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `molecules` (
+  `compound_ref` varchar(50) default NULL,
+  `iupac_name` varchar(255) default NULL,
+  `comments` varchar(50) default NULL,
+  `cd_id` int(11) NOT NULL auto_increment,
+  `cd_structure` mediumblob NOT NULL,
+  `cd_mol_file` text,
+  `cd_smiles` text,
+  `cd_formula` varchar(100) default NULL,
+  `cd_molweight` double default NULL,
+  `cd_hash` int(11) NOT NULL,
+  `cd_flags` varchar(20) default NULL,
+  `cd_timestamp` datetime NOT NULL,
+  `cd_fp1` int(11) NOT NULL,
+  `cd_fp2` int(11) NOT NULL,
+  `cd_fp3` int(11) NOT NULL,
+  `cd_fp4` int(11) NOT NULL,
+  `cd_fp5` int(11) NOT NULL,
+  `cd_fp6` int(11) NOT NULL,
+  `cd_fp7` int(11) NOT NULL,
+  `cd_fp8` int(11) NOT NULL,
+  `cd_fp9` int(11) NOT NULL,
+  `cd_fp10` int(11) NOT NULL,
+  `cd_fp11` int(11) NOT NULL,
+  `cd_fp12` int(11) NOT NULL,
+  `cd_fp13` int(11) NOT NULL,
+  `cd_fp14` int(11) NOT NULL,
+  `cd_fp15` int(11) NOT NULL,
+  `cd_fp16` int(11) NOT NULL,
+  PRIMARY KEY  (`cd_id`),
+  KEY `molecules_hx` (`cd_hash`)
+) ENGINE=MyISAM AUTO_INCREMENT=3001 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `molecules_UL` (
+  `update_id` int(11) NOT NULL auto_increment,
+  `update_info` varchar(20) NOT NULL,
+  PRIMARY KEY  (`update_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `parameter_contexts` (
   `id` int(11) NOT NULL auto_increment,
@@ -466,14 +637,14 @@ CREATE TABLE `permissions` (
   `subject` varchar(255) NOT NULL default '',
   `action` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=475 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=949 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `plate_formats` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(128) NOT NULL default '',
   `description` text,
-  `rows` int(11) default NULL,
-  `columns` int(11) default NULL,
+  `num_rows` int(11) default NULL,
+  `num_columns` int(11) default NULL,
   `lock_version` int(11) NOT NULL default '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -518,42 +689,6 @@ CREATE TABLE `plugin_schema_info` (
   `version` int(11) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `process_definitions` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(30) NOT NULL,
-  `release` varchar(5) NOT NULL,
-  `description` text,
-  `protocol_catagory` varchar(20) default NULL,
-  `protocol_status` varchar(20) default NULL,
-  `literature_ref` varchar(255) default NULL,
-  `access_control_id` int(11) NOT NULL default '0',
-  `lock_version` int(11) NOT NULL default '0',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
-  PRIMARY KEY  (`id`),
-  KEY `process_definitions_name_index` (`name`),
-  KEY `process_definitions_updated_at_index` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `process_instances` (
-  `id` int(11) NOT NULL auto_increment,
-  `process_definition_id` int(11) NOT NULL,
-  `name` varchar(77) default NULL,
-  `version` int(6) NOT NULL,
-  `lock_version` int(11) NOT NULL default '0',
-  `created_at` time default NULL,
-  `updated_at` time default NULL,
-  `how_to` text,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
-  PRIMARY KEY  (`id`),
-  KEY `process_instances_name_index` (`name`),
-  KEY `process_instances_process_definition_id_index` (`process_definition_id`),
-  KEY `process_instances_updated_at_index` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `project_assets` (
   `id` int(11) NOT NULL auto_increment,
   `project_id` int(11) default NULL,
@@ -562,7 +697,7 @@ CREATE TABLE `project_assets` (
   `content_type` varchar(255) default NULL,
   `filename` varchar(255) default NULL,
   `thumbnail` varchar(255) default NULL,
-  `size` int(11) default NULL,
+  `size_bytes` int(11) default NULL,
   `width` int(11) default NULL,
   `height` int(11) default NULL,
   `thumbnails_count` int(11) default '0',
@@ -699,6 +834,89 @@ CREATE TABLE `queue_items` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `reactions` (
+  `cd_id` int(11) NOT NULL auto_increment,
+  `cd_structure` mediumblob NOT NULL,
+  `cd_smiles` text,
+  `cd_formula` varchar(100) default NULL,
+  `cd_molweight` double default NULL,
+  `cd_hash` int(11) NOT NULL,
+  `cd_flags` varchar(20) default NULL,
+  `cd_timestamp` datetime NOT NULL,
+  `cd_fp1` int(11) NOT NULL,
+  `cd_fp2` int(11) NOT NULL,
+  `cd_fp3` int(11) NOT NULL,
+  `cd_fp4` int(11) NOT NULL,
+  `cd_fp5` int(11) NOT NULL,
+  `cd_fp6` int(11) NOT NULL,
+  `cd_fp7` int(11) NOT NULL,
+  `cd_fp8` int(11) NOT NULL,
+  `cd_fp9` int(11) NOT NULL,
+  `cd_fp10` int(11) NOT NULL,
+  `cd_fp11` int(11) NOT NULL,
+  `cd_fp12` int(11) NOT NULL,
+  `cd_fp13` int(11) NOT NULL,
+  `cd_fp14` int(11) NOT NULL,
+  `cd_fp15` int(11) NOT NULL,
+  `cd_fp16` int(11) NOT NULL,
+  `cd_fp17` int(11) NOT NULL,
+  `cd_fp18` int(11) NOT NULL,
+  `cd_fp19` int(11) NOT NULL,
+  `cd_fp20` int(11) NOT NULL,
+  `cd_fp21` int(11) NOT NULL,
+  `cd_fp22` int(11) NOT NULL,
+  `cd_fp23` int(11) NOT NULL,
+  `cd_fp24` int(11) NOT NULL,
+  `cd_fp25` int(11) NOT NULL,
+  `cd_fp26` int(11) NOT NULL,
+  `cd_fp27` int(11) NOT NULL,
+  `cd_fp28` int(11) NOT NULL,
+  `cd_fp29` int(11) NOT NULL,
+  `cd_fp30` int(11) NOT NULL,
+  `cd_fp31` int(11) NOT NULL,
+  `cd_fp32` int(11) NOT NULL,
+  `cd_fp33` int(11) NOT NULL,
+  `cd_fp34` int(11) NOT NULL,
+  `cd_fp35` int(11) NOT NULL,
+  `cd_fp36` int(11) NOT NULL,
+  `cd_fp37` int(11) NOT NULL,
+  `cd_fp38` int(11) NOT NULL,
+  `cd_fp39` int(11) NOT NULL,
+  `cd_fp40` int(11) NOT NULL,
+  `cd_fp41` int(11) NOT NULL,
+  `cd_fp42` int(11) NOT NULL,
+  `cd_fp43` int(11) NOT NULL,
+  `cd_fp44` int(11) NOT NULL,
+  `cd_fp45` int(11) NOT NULL,
+  `cd_fp46` int(11) NOT NULL,
+  `cd_fp47` int(11) NOT NULL,
+  `cd_fp48` int(11) NOT NULL,
+  `cd_fp49` int(11) NOT NULL,
+  `cd_fp50` int(11) NOT NULL,
+  `cd_fp51` int(11) NOT NULL,
+  `cd_fp52` int(11) NOT NULL,
+  `cd_fp53` int(11) NOT NULL,
+  `cd_fp54` int(11) NOT NULL,
+  `cd_fp55` int(11) NOT NULL,
+  `cd_fp56` int(11) NOT NULL,
+  `cd_fp57` int(11) NOT NULL,
+  `cd_fp58` int(11) NOT NULL,
+  `cd_fp59` int(11) NOT NULL,
+  `cd_fp60` int(11) NOT NULL,
+  `cd_fp61` int(11) NOT NULL,
+  `cd_fp62` int(11) NOT NULL,
+  `cd_fp63` int(11) NOT NULL,
+  `cd_fp64` int(11) NOT NULL,
+  PRIMARY KEY  (`cd_id`),
+  KEY `reactions_hx` (`cd_hash`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `reactions_UL` (
+  `update_id` int(11) NOT NULL auto_increment,
+  `update_info` varchar(20) NOT NULL,
+  PRIMARY KEY  (`update_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 CREATE TABLE `report_columns` (
   `id` int(11) NOT NULL auto_increment,
   `report_id` int(11) NOT NULL,
@@ -808,7 +1026,6 @@ CREATE TABLE `roles` (
   `name` varchar(255) NOT NULL,
   `parent_id` int(11) default NULL,
   `description` varchar(1024) NOT NULL,
-  `default_page_id` int(11) default NULL,
   `cache` longtext,
   `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL default '0000-00-00 00:00:00',
@@ -816,8 +1033,18 @@ CREATE TABLE `roles` (
   `updated_by_user_id` int(11) NOT NULL default '1',
   `type` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
-  KEY `fk_role_parent_id` (`parent_id`),
-  KEY `fk_role_default_page_id` (`default_page_id`)
+  KEY `fk_role_parent_id` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `roles_permissions` (
+  `id` int(11) NOT NULL auto_increment,
+  `role_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_roles_permission_role_id` (`role_id`),
+  KEY `fk_roles_permission_permission_id` (`permission_id`),
+  CONSTRAINT `fk_roles_permission_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_roles_permission_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `samples` (
@@ -836,6 +1063,16 @@ CREATE TABLE `sessions` (
   `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `site_controllers` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  `builtin` int(10) unsigned default '0',
+  PRIMARY KEY  (`id`),
+  KEY `fk_site_controller_permission_id` (`permission_id`),
+  CONSTRAINT `fk_site_controller_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `specimens` (
@@ -893,7 +1130,7 @@ CREATE TABLE `study_logs` (
   `auditable_type` varchar(255) default NULL,
   `action` varchar(255) default NULL,
   `name` varchar(255) default NULL,
-  `comment` varchar(255) default NULL,
+  `comments` varchar(255) default NULL,
   `changes` text,
   `created_by` varchar(255) default NULL,
   `created_at` datetime default NULL,
@@ -979,13 +1216,6 @@ CREATE TABLE `study_stages` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `subscribers` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL default '0',
-  `project_id` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `system_settings` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(30) NOT NULL default '',
@@ -1038,18 +1268,11 @@ CREATE TABLE `task_files` (
   `mime_type` varchar(250) default NULL,
   `data_binary` text,
   `lock_version` int(11) NOT NULL default '0',
+  `created_by` varchar(32) NOT NULL default '',
   `created_at` datetime NOT NULL,
+  `updated_by` varchar(32) NOT NULL default '',
   `updated_at` datetime NOT NULL,
   `task_id` int(11) default NULL,
-  `content_type` varchar(255) default NULL,
-  `parent_id` int(11) default NULL,
-  `filename` varchar(255) default NULL,
-  `thumbnail` varchar(255) default NULL,
-  `size` int(11) default NULL,
-  `width` int(11) default NULL,
-  `height` int(11) default NULL,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1086,7 +1309,6 @@ CREATE TABLE `task_texts` (
   `id` int(11) NOT NULL auto_increment,
   `task_context_id` int(11) default NULL,
   `parameter_id` int(11) default NULL,
-  `markup_style_id` int(11) default NULL,
   `data_content` text,
   `lock_version` int(11) NOT NULL default '0',
   `created_at` datetime NOT NULL,
@@ -1213,6 +1435,7 @@ CREATE TABLE `users` (
   `deleted_at` datetime default NULL,
   `created_by_user_id` int(11) NOT NULL default '1',
   `updated_by_user_id` int(11) NOT NULL default '1',
+  `is_disabled` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `fk_user_role_id` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1222,11 +1445,11 @@ CREATE TABLE `work_status` (
   `name` varchar(255) default NULL,
   `description` varchar(255) default NULL,
   `lock_version` int(11) NOT NULL default '0',
+  `created_by` varchar(32) NOT NULL default '',
   `created_at` datetime NOT NULL,
+  `updated_by` varchar(32) NOT NULL default '',
   `updated_at` datetime NOT NULL,
-  `updated_by_user_id` int(11) NOT NULL default '1',
-  `created_by_user_id` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO schema_info (version) VALUES (277)
+INSERT INTO schema_info (version) VALUES (280)
