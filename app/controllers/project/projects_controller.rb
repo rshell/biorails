@@ -155,13 +155,18 @@ class Project::ProjectsController < ApplicationController
     @date_from = Date.civil(@year_from, @month_from, 1)
     @date_to = (@date_from >> @months) - 1
     @tasks = @project.tasks.range( @date_from, @date_to,50,find_options)  
-
-    if params[:output]=='pdf'
-      @options_for_rfpdf ||= {}
-      @options_for_rfpdf[:file_name] = "gantt.pdf"
-      render :action => "gantt.rfpdf", :layout => false
-    else
-      render :action => "gantt.rhtml"
+    
+    @options_for_rfpdf ||= {}
+    @options_for_rfpdf[:file_name] = "gantt.pdf"
+    respond_to do | format |
+      format.html { render :action => 'gantt' }
+      format.ext { render :action => 'gantt', :layout => "layouts/printout.rhtml" }
+      format.pdf { render :action => "gantt_print.rfpdf", :layout => false }
+      format.json { render :json => {:project=> @project, :items=>@tasks}.to_json }
+      format.xml  { render :xml =>  {:project=> @project,:items=>@tasks}.to_xml }
+      format.js   { render :update do | page |
+           page.replace_html 'centre',  :partial => 'gantt' 
+         end }
     end
   end
 
