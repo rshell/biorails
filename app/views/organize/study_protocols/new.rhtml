@@ -3,20 +3,16 @@
 <%end %>
 
 <% content_for :centre do%>
-<h2>
-    <%=subject_icon('model/protocol.png')%> New protocol in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
-</h2>
-<div class='panel'>
-
-        <% form_tag :action => 'create', :id => @study.id do %>
+  <%dialog subject_icon('model/protocol.png')+'New protocol in Study'+@study.name do %>
+     <% form_tag :action => 'create', :id => @study.id do %>
         <div class="row"> 
           <%= render :partial => 'form' %>
         </div>  
         <div class="row"> 
             <%= submit_tag "Save" %>
         </div>
-        <% end %>
-</div>
+     <% end %>
+  <%end%>
 <%end%>
     
 <% content_for :right do%>

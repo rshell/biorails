@@ -142,7 +142,7 @@
                 split:true,
                 initialSize: 100,
                 minSize: 50,
-                maxSize: 200,
+                maxSize: 400,
                 titlebar: true,
                 collapsible: true,
                 animate: true

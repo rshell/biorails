@@ -47,12 +47,12 @@ Ext.onReady(function(){
         var tab7 = tabs.addTab('tab-matrics', "Metrics");
         tabs.activate('tab-show');
         
-        tab2.setUrl("<%=task_url(:action=>'import',:id=>@task)%>", null, false);
-        tab3.setUrl("<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>", null, false);
-        tab4.setUrl("<%=task_url(:action=>'view',:format=>:ext,:id=>@task)%>", null, false);
-        tab5.setUrl("<%=task_url(:action=>'analysis',:format=>:ext,:id=>@task)%>", null, false);
-        tab6.setUrl("<%=task_url(:action=>'report',:format=>:ext,:id=>@task)%>", null, false);
-        tab7.setUrl("<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>", null, false);
+        tab2.setUrl({url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true},null, false);
+        tab3.setUrl({url:"<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
+        tab4.setUrl({url:"<%=task_url(:action=>'view',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
+        tab5.setUrl({url:"<%=task_url(:action=>'analysis',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
+        tab6.setUrl({url:"<%=task_url(:action=>'report',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
+        tab7.setUrl({url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
  });
 </script>    
 

@@ -1,5 +1,5 @@
 <%
-pdf=IfpdfHelper::IFPDF.new
+pdf=FPDF.new
 pdf.SetTitle("#{@project.name} - #{l(:label_gantt)}")
 pdf.AliasNbPages
 pdf.footer_date = format_date(Date.today)

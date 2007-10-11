@@ -3,20 +3,23 @@
 <%end%>
 
 <% content_for :centre do -%>
-<h2>
-    <%= subject_icon('experiment.png')%> Edit Experiment [<strong><%=@experiment.name%></strong>]
-</h2>
-    <% form_tag :action => 'update', :id => @experiment do %>
-      <%= render :partial => 'form' %>
+
+ <% dialog subject_icon('experiment.png')+'Edit Experiment' do %>
+   <% form_tag :action => 'update', :id => @experiment do %>
+    <%= render :partial => 'form' %>
     <div class="row">
     <%= submit_tag 'Edit' %>
     </div>
-   <% end %>
+  <% end %>
+<% end %>
 
-<%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
 <%end%>
 
 <% content_for :right do -%>
     <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :footer do -%>
+   <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
 <% end %>
 

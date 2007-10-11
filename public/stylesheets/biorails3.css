@@ -6,18 +6,29 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
-h2 a{
-    font-weight:normal;
+h1 {
+    margin:0 0 12px 0; 
+    font-size:1.6em;
+    color:#707070;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
-
-h3{
+h2 {
     margin:0 0 12px 0; 
     font-size:1.4em;
     color:#707070;
     font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
 }
-h4{
+h2 a{
+    font-weight:normal;
+}
+
+h3 {
+    margin:0 0 12px 0; 
+    font-size:1.2em;
+    color:#707070;
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+}
+h4 {
     font-size: 1em; 
     margin-bottom: 12px; 
     margin-top: 20px; 
@@ -378,36 +389,38 @@ Edit, Delete
 }
 
 h3.reversed {
-    background:#7CB30F;
+    background:#c3daf9;
 }
 
 span.study_parameter {
     z-index:            1666;
     color:black;
-    background-color:#E3FFA2;
+    background-color:#98c0f4;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
     border-width: thin;
     white-space: nowrap;
+    width: 12em;
 }
 
 span.study_queue {
     z-index:            1666;
     color:black;
-    background-color:#FFFFA2;
+    background-color:#d0def0;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
     border-width: thin;
     white-space: nowrap;
+    width: 12em;
 }
 
 span.parameter {
     white-space: nowrap;
     z-index:   1666;
     color:black;
-    background-color:#E3FFA2;
+    background-color:#98c0f4;
     padding: 1px 1px 1px 1px;
     margin: 1px 1px 1px 1px;
     border-style:outset;
@@ -416,7 +429,7 @@ span.parameter {
     vertical-align: bottom;
     overflow-x: hidden;
     overflow-y: hidden;
-    width: auto;
+    width: 12em;
 }
 
 span.parameter_context {

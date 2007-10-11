@@ -160,7 +160,7 @@ class Project::ProjectsController < ApplicationController
     @options_for_rfpdf[:file_name] = "gantt.pdf"
     respond_to do | format |
       format.html { render :action => 'gantt' }
-      format.ext { render :action => 'gantt', :layout => "layouts/printout.rhtml" }
+      format.ext { render :action => 'gantt', :layout => false }
       format.pdf { render :action => "gantt_print.rfpdf", :layout => false }
       format.json { render :json => {:project=> @project, :items=>@tasks}.to_json }
       format.xml  { render :xml =>  {:project=> @project,:items=>@tasks}.to_xml }

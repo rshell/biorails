@@ -4,9 +4,8 @@
 
 
 <% content_for :centre do -%>
-<h2>    <%=subject_icon('model/report')%> Create Report Definition </h2>
-<div class='dialog'>
- <% form_tag :action => 'create' do %> 
+ <% dialog 'New Report Definition' do %>
+  <% form_tag :action => 'create' do %> 
     <fieldset>
      <%= hidden_field :report,:style %>
      <%= hidden_field :report,:project_id %>
@@ -37,7 +36,7 @@
     </div>
     </fieldset>
    <% end %> 
-</div>
+ <% end %> 
 <%end%>
 
 
