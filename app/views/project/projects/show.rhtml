@@ -84,43 +84,86 @@
     </ul>
   </div>  
     
-  <div class="box">
-    <h3 class="icon icon-task"><%=l('Tasks')%> Todo</h3>
-    <ul>
-    <% for item in @project.tasks.current(8) %>
-      <li>
-      <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-      <%= item.description %>
-      </li>
-    <% end %>
-    </ul>
-    <h3 class="icon icon-task"><%=l('Tasks')%> Overdue</h3>
-    <ul>
-    <% for item in @project.tasks.overdue(8) %>
-            <li>
-            <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-            <%= item.description %>
-            </li>
-    <% end %>
-    </ul>
-    <h3 class="icon icon-task"><%=l('Tasks')%> Soon</h3>
-    <ul>
-    <% for item in @project.tasks.future(8) %>
-            <li>
-            <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-            <%= item.description %>
-            </li>
-    <% end %>
-    </ul>
-  </div>  
 </div>  
 <% end %>
 
-
 <% content_for :right do -%>
-   <h2>Project Tree </h2>
-   <div id='project-tree' class="panel">
-    <%= tree_for_project(@project)%>
-   </div>
+<H2><%=l('Tasks')%> Waiting</H2>
+    <h3 class="reverse""> Today </h3>
+    <ul>
+    <% for item in @project.tasks.current(8) %>
+     <li>
+      	<div class="tooltip">
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+		 
+  	     <span class="tip"> 
+		     Task: <%= item.name %>
+		     <br />
+		     Expt: <%= item.experiment.name %>
+		     <br />
+		     Status: <%= item.status %>
+		     <br />
+		     By: <%= item.updated_by %>
+		     <br />
+		     On: <%= format_time(item.updated_at) %>
+		     <br />
+			 <%= item.description %>
+	     </span>
+	  </div>
+      </li>
+    <% end %>
+    </ul>
+    <h3 class="reverse""> Overdue</h3>
+    <ul>
+    <% for item in @project.tasks.overdue(8) %>
+     <li>
+      	<div class="tooltip">
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+		 
+  	     <span class="tip"> 
+		     Task: <%= item.name %>
+		     <br />
+		     Expt: <%= item.experiment.name %>
+		     <br />
+		     Status: <%= item.status %>
+		     <br />
+		     By: <%= item.updated_by %>
+		     <br />
+		     On: <%= format_time(item.updated_at) %>
+		     <br />
+			 <%= item.description %>
+	     </span>
+	  </div>
+      </li>
+    <% end %>
+    </ul>
+    <h3 class="reverse">Expected Soon</h3>
+    <ul>
+    <% for item in @project.tasks.future(8) %>
+      <li>
+      	<div class="tooltip">
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+		 
+  	     <span class="tip"> 
+		     Task: <%= item.name %>
+		     <br />
+		     Expt: <%= item.experiment.name %>
+		     <br />
+		     Status: <%= item.status %>
+		     <br />
+		     By: <%= item.updated_by %>
+		     <br />
+		     On: <%= format_time(item.updated_at) %>
+		     <br />
+			 <%= item.description %>
+	     </span>
+	  </div>
+      </li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% content_for :tree do -%>
+<%= tree_for_project(@project) %>
 <% end %>
 

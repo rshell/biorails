@@ -6,23 +6,24 @@
 <% end -%>
 
 <% content_for :centre do -%>
-<div id='tabs1'>
+  <div id='tabs1'>
     <div id="tab-show" class="tab-content">
         Folder <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
-<!--%= render :partial => 'show',:locals=>{:folder=>@project_folder} %-->
       <div id='grid-document'></div>
     </div>
     <div id="tab-layout" class="tab-content">
         Outline of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
-        <!--%= render :partial => 'layout',:locals=>{:folder=>@project_folder} %-->
     </div>
     <div id="tab-document" class="tab-content">
         Preview of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
-        <!--%= render :partial => 'document',:locals=>{:folder=>@project_folder} %-->
     </div>
-</div>      
- <div id='grid-folder' style="width:100%;"></div>
+  </div>      
+  <div id='grid-folder' style="width:100%;"></div>
 <% end %>    
+
+<% content_for :tree do -%>
+    <%= tree_for_folder(current_project, current_project.home)%> 
+<% end %>
 
 <% content_for :right do -%>
     <%= render :partial => 'right',:locals=>{:folder=> @project_folder} %>   

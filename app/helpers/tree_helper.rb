@@ -106,6 +106,34 @@ JS
       return "Error in tree_for_report_columns:  #{ex.message}"
    end
 
+def folder_to_json(folder) 
+    list = [] 
+    if folder 
+      folder.elements.each do |item| 
+         actions = " "
+         actions << link_to( "Edit",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent
+         actions << link_to( "Edit",     asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset
+         actions << link_to( "Delete", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 
+         list <<   [item.id,
+                     item.icon( {:images=>true} ),
+                     link_to(item.name, element_to_url(item)),
+                     item.summary,
+                     item.updated_by,
+                     item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
+                     actions,
+                     item.to_html  ]
+      end
+     end
+     list.to_json      
+  end
+  
+  def tree_to_json(folder)
+    items = folder.to_tree do |node,rec|   
+         node[:href] = reference_to_url(rec)
+         node[:icon] = rec.icon
+    end 
+    items.to_json      
+  end
           
   def tree_for_project(project) 
       items = project.home.to_tree do |node,rec|   

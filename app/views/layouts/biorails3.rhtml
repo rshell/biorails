@@ -77,7 +77,19 @@
   
 <!-- East Side tabs  -->
   <div id="right" class="x-layout-inactive-content">
+  	 
       <%= yield :right %>
+  </div>
+  
+  <div id="tree" class="x-layout-inactive-content">
+	<div id='tree-root'>
+      <%= yield :tree %>
+    </div>
+  </div>
+  
+  <div id="context" class="x-layout-inactive-content">
+  	 
+      <%= yield :context %>
   </div>
   
 

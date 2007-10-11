@@ -1,16 +1,53 @@
 /**
- * @author rshell
+ * Core Javascript Application Framework for Biorails 3.0
+ * 
+ * This is licenced on the same GNU 2.0 licence as the rest of biorails.
+ * It manages the overall border layout of frames and the folder grid, and folder tree.
+ * Other call return data into the centre panel
+ * 
+ * @author rshell@biorails.org
  */
  Ext.namespace('Biorails');
  
  Biorails = function(){
+// 
+// Private state values
+//    
     var layout;
+	var tree_panel;
+	var help_panel;
+	var context_panel;
+	var centre_panel;
+	
     var toolbar;
+
     var folder_data;
     var folder_ds;
+
     var root;	
     var grid;
-    
+	var tree;
+
+    var folderRecord = Ext.data.Record.create([
+               {name: 'id', type: 'int'},
+               {name: 'icon'},
+               {name: 'name'},
+               {name: 'description'},
+               {name: 'updated_by'},
+               {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
+               {name: 'actions'},
+               {name: 'html'}]);
+// 
+// Key search field from the toolbar
+//    	
+	var searchField = new Ext.form.TextField({
+                    fieldLabel: 'search',
+                    name: 'first',
+                    width:175,
+                    allowBlank:false});
+// 
+// Private Rendering functions for the Grid
+//    
     function renderIcon(val){
         return '<img src="' + val + '" />';
     };
@@ -27,6 +64,16 @@
         return record.get('html');
     };
 
+    function onSearchClick(btn){
+		layout.getRegion('east').showPanel('context');   
+		Ext.get("context").load({
+		        url: "/finder/search?text="+searchField.getValue(),
+		        text: "Searching..."
+		   });
+    }
+//
+// Column formats for the Grid display
+//	
     var cmFolder = new Ext.grid.ColumnModel([
         {header: "Icon", width: 32, sortable: true, renderer: renderIcon,   dataIndex: 'icon'},
         {header: "Name", width: 100, sortable: true,  dataIndex: 'name'},
@@ -48,21 +95,14 @@
         {header: "Actions", width: 75, sortable: true,  dataIndex: 'actions'}
     ]);
 
-    var folderRecord = Ext.data.Record.create([
-               {name: 'id', type: 'int'},
-               {name: 'icon'},
-               {name: 'name'},
-               {name: 'description'},
-               {name: 'updated_by'},
-               {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
-               {name: 'actions'},
-               {name: 'html'}]);
-
+//
+// Private builder functions to create UI
 //
 // Builder the standard toolbar with menus and search functions
 //    
     function buildToolbar(container,title,home_items,project_items,admin_items){
        toolbar = new Ext.Toolbar(container);
+       toolbar.addText("<a href='http:/auth/logout'><image src='/images/icon_exit.png'/></a>")          
 
        toolbar.addButton({
                cls: 'x-btn-text-icon bmenu', 
@@ -90,19 +130,12 @@
     
        toolbar.addFill();
 
-       toolbar.addField(
-                   new Ext.form.TextField({
-                    fieldLabel: 'search',
-                    name: 'first',
-                    width:175,
-                    allowBlank:false
-                }));
-       toolbar.addButton({text: 'search'})          
-     };   
+       toolbar.addField(searchField);
+       toolbar.addButton({text: 'search',handler: onSearchClick})          
+     }; 
 //
 // Builder the Layout
-//    
-    
+//        
     function buildLayout(title){
        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
        
@@ -117,26 +150,26 @@
                 initialSize: 150,
                 minSize: 100,
                 maxSize: 400,
-                titlebar: true,
+                autoScroll:false,
+				titlebar: true,
                 collapsible: true,
                 animate: true,
-                autoScroll:false,
                 useShim:true,
-                collapsed:true,
-                cmargins: {top:0,bottom:2,right:2,left:2},
-                collapsedTitle: 'Menu'
-                
+                cmargins: {top:2,bottom:2,right:2,left:2}           
             },
             east: {
                 split:true,
-                initialSize: 200,
+                initialSize: 220,
                 minSize: 100,
                 maxSize: 400,
                 titlebar: true,
                 collapsed: true,
                 collapsible: true,
                 autoScroll: true,
-                animate: true
+                animate: true,
+				tabPosition: 'bottom',
+                alwaysShowTabs: true,
+                resizeTabs: true
             },
             south: {
                 split:true,
@@ -149,37 +182,66 @@
             },
             center: {
                 titlebar: true,
-                autoScroll:true,
-                closeOnTab: true
+                autoScroll:true
             }
         });
 
         layout.beginUpdate();
-        layout.add('north', new Ext.ContentPanel('header', 'North'));
-        layout.add('south', new Ext.ContentPanel('footer', {title: 'Message', closable: false}));
+        layout.add('north', new Ext.ContentPanel('header'));
+        layout.add('south', new Ext.ContentPanel('footer', {title: 'Message', fitToFrame:true, closable: false}));
 
-        layout.add('west', new Ext.ContentPanel('left', {title: 'Menu', closable: false}));
+        layout.add('west', new Ext.ContentPanel('left', {title: 'Menu',fitToFrame:true, closable: false}));
+        
+		tree_panel   = new Ext.ContentPanel('tree',{  autoCreate:true, title: 'Tree', closable: true});
+	    help_panel   = new Ext.ContentPanel('right', {title: 'Help',fitToFrame:true, closable: false});
+	    context_panel= new Ext.ContentPanel('context',{autoCreate:true, title: 'Context', closable: true});
+	    centre_panel = new Ext.ContentPanel('center', {title: title,fitToFrame:true, closable: false});
+        
+		//tree_panel.on('activate', function(){
+		//	new Ajax.Request("/projects/tree?format=json",
+        //        {asynchronous:true, 
+        //         onComplete: function(req){
+		//		 	console.log("got data");
+		//			console.log(req.responseText);
+		//		 	Biorails.resyncTree(eval(req.responseText));
+		//	     } }); 
+		//      });
+		
+		layout.add('east', tree_panel);
+        layout.add('east', context_panel);
+        layout.add('east', help_panel);
+        layout.add('center', centre_panel);
 
-        layout.add('east', new Ext.ContentPanel('right', {title: 'Help', collapsedTitle: 'Help', closable: false}));
-
-        layout.add('center', new Ext.ContentPanel('center', {title: title, closable: false}));
-
-        layout.getRegion('center').show();
-        layout.getRegion('west').show();
         layout.restoreState();
         layout.endUpdate();        
     };
+//
+// Public functions for the module
+//	
 return {
-    getLayout: function() { return layout},
-    
+//
+// Get the overall arrangement of the application
+//	
+    getLayout: function() { return layout},	
+//
+// Get the right hand tree control of the application
+//	
+    getTree: function() { return tree},
+//
+// Get the top toolbar of the application
+//	
     getToolbar: function() { return toolbar},
-    
+//
+// Initialize the Application
+//    
     init: function(container,title,home_items,project_items,admin_items) { 
         buildLayout(title);
         buildToolbar(container,title,home_items,project_items,admin_items);
     },
-    
-    resync: function(data){
+//
+// Resync the current grid data 
+//    
+    resyncGrid: function(data){
 		try {
         folder_ds = new Ext.data.Store({
             proxy: new Ext.data.MemoryProxy(data),
@@ -193,9 +255,35 @@ return {
 		  console.log(e);
 	   };
     },
-    
-    // Setup a folder Data source
-    // data = json for folder
+//
+// Builder a Tree from the given json data
+//	 
+    resyncTree: function(json){
+		try {
+		  	
+		  if (tree == null)
+		  {
+             tree = new Ext.tree.TreePanel('tree-root', {
+                  animate:true,
+                  enableDD:false,
+                  loader: new Ext.tree.TreeLoader(), 
+                  lines: true,
+                  selModel: new Ext.tree.MultiSelectionModel(),
+                  containerScroll: false });
+		  };
+	      var root = new Ext.tree.AsyncTreeNode(json);		  
+	      tree.setRootNode(root);
+	      tree.render();
+	      root.expand();		  	
+	   } catch (e) {
+	   	  console.log('Problem with resync ')
+		  console.log(e);
+	   };
+    },	
+//
+// Setup a folder Data source
+// data = json for folder
+//
     folder: function(data) {
         folder_ds = new Ext.data.Store({
             proxy: new Ext.data.MemoryProxy(data),
@@ -213,16 +301,15 @@ return {
             autoExpandColumn: 'id',
             autoSizeColumns: true,
             autoWidth: false,
-	    enableDragDrop: true,
+	    	enableDragDrop: true,
             ddGroup:"GridDD"
         });
 
-        
-         var dropZone = new Ext.dd.DropTarget(grid.container, {
+          var dropZone = new Ext.dd.DropTarget(grid.container, {
              ddGroup:"GridDD",
              copy:false,
              notifyDrop : function(dd, e, data){
-			 	   try {
+			   try {
                    console.log('notifyDrop');
                    var sm=grid.getSelectionModel();
                    var rows=sm.getSelections();
@@ -235,7 +322,7 @@ return {
                      new Ajax.Request("/folders/reorder_element/"+
                           source.id+"?before="+ dest.id+'&format=json',
                         {asynchronous:true, 
-                         onComplete: function(req){Biorails.resync(eval(req.responseText))} }); 
+                         onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
                       
                    } else if (data.node) {
                      console.log("src node="+data.node.id);
@@ -245,14 +332,14 @@ return {
                      new Ajax.Request("/folders/add_element/"+
                           data.node.id+"?before="+ dest.id+'&format=json',
                         {asynchronous:true, 
-                         onComplete: function(req){Biorails.resync(eval(req.responseText))} }); 
+                         onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
                    };
-				   } catch (e) {
+				} catch (e) {
 				   	  console.log('Problem with drop ')
 					  console.log(e);
-				   };
-                   return true;
-                }
+				};
+                return true;
+             }
          });
         dropZone.addToGroup("ColumnDD"); 
         
@@ -267,7 +354,6 @@ return {
         tab3.on('activate', function(){  cm = cmDocument; grid.reconfigure(folder_ds,cmDocument)    });
         grid.render();
         var dragZone = new Ext.grid.GridDragZone(grid, {containerScroll:true, ddGroup: 'GridDD'});        
-
     }
  };       
 }();

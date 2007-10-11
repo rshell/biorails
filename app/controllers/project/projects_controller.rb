@@ -170,5 +170,15 @@ class Project::ProjectsController < ApplicationController
     end
   end
 
+  def tree
+    @project =  current_project
+    set_project(@project)    
+    
+    respond_to do | format |
+      format.html { render :partial => 'tree'}
+      format.json { render :partial => 'tree'}
+    end
+
+  end
 
 end

@@ -142,20 +142,14 @@ class Project::FoldersController < ApplicationController
 # Display the current clipboard 
 # 
   def clipboard
-    set_folder
-    case request.raw_post || request.query_string
-    when /id=current_project_element_*/,
-         /id=current_project_reference_*/,
-         /id=current_project_content_*/,
-         /id=current_project_asset_*/,
-         /id=project_content_*/ ,
-         /id=project_asset_*/ ,
-         /id=project_reference_*/
-        @source = ProjectElement.find($') 
-        @clipboard.add(@source)
-    end    
+    @source = ProjectElement.find(params[:id]) 
+    @clipboard.add(@source)
     session[:clipboard] = @clipboard
-    return render_right('finder')
+    respond_to do |format|
+      format.html {render :partial => 'right'}
+      format.xml  { render :xml => @clipboard.to_xml}
+      
+    end  
   end  
   
   def clear_clipboard
