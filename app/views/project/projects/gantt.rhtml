@@ -3,6 +3,9 @@
   <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
 <% end -%>
 
+<% content_for :right do -%>
+       <%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@project.home} %>
+<% end %>
 
 <h2>Project <%= @project.name %> gantt chart </h2>
 <!----------------------------------------------------------------->

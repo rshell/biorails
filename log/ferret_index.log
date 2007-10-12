@@ -57,3 +57,5 @@ query: id:hits class_name:hits purpose:hits name:hits description:hits title:hit
 stored_fields: 
 query: id:ic50 class_name:ic50 purpose:ic50 name:ic50 description:ic50 title:ic50 research_area:ic50 summary:ic50
 stored_fields: 
+query: id:moose class_name:moose purpose:moose name:moose description:moose title:moose research_area:moose summary:moose
+stored_fields: 

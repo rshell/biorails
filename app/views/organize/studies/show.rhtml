@@ -29,10 +29,7 @@
     <div class='panel'>
         <%= render :partial => 'queues', :locals => { :study => @study } %>  
     </div>
-<br/>
-    <div>
-       <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>
-    </div>
+
 
 <% end %>
 
@@ -41,8 +38,10 @@
 <% end %>
 
 <% content_for :right do -%>
+       <%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@folder} %>
+<% end %>
+
+<% content_for :tree do -%>
    <h2>Project Tree </h2>
-   <div class="panel">
     <%= tree_for_project(current_project)%>
-   </div>
 <% end %>

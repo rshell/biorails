@@ -193,8 +193,8 @@
         layout.add('west', new Ext.ContentPanel('left', {title: 'Menu',fitToFrame:true, closable: false}));
         
 		tree_panel   = new Ext.ContentPanel('tree',{  autoCreate:true, title: 'Tree', closable: true});
-	    help_panel   = new Ext.ContentPanel('right', {title: 'Help',fitToFrame:true, closable: false});
-	    context_panel= new Ext.ContentPanel('context',{autoCreate:true, title: 'Context', closable: true});
+	    help_panel   = new Ext.ContentPanel('right', {title: 'Info',fitToFrame:true, closable: false});
+	    context_panel= new Ext.ContentPanel('context',{autoCreate:true, title: 'Work', closable: true});
 	    centre_panel = new Ext.ContentPanel('center', {title: title,fitToFrame:true, closable: false});
         
 		//tree_panel.on('activate', function(){

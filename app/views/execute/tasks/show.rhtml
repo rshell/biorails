@@ -7,11 +7,13 @@
 <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
 <% end %>
 
-<% content_for :right do -%>
+<% content_for :right do %>
+   <%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@task.folder} %>
+<% end %>
+
+<% content_for :tree do -%>
    <h2>Project Tree </h2>
-   <div class="panel">
     <%= tree_for_project(current_project)%>
-   </div>
 <% end %>
 
 <% content_for :centre do -%>
