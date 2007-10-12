@@ -10,39 +10,41 @@
   </div>
 <% end %>
 
-<% tab_ids = ['tab-elements','tab-usage']%>   
-<% tab_names = ['Implementions','Usage in parameter types']%>   
-<% @current_tab = @current_tab || 0 %>
-
-<%= render :partial => 'layouts/tabpanel_js',:locals => {:div_ids => tab_ids } -%>
-
-<h2> <%=subject_icon('context')%> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>
-
-<div class="panel">
- <div id="current-concept">
+<% content_for :centre do%>
+  <h2> <%=subject_icon('context')%> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>
+  <div id="current-concept">
    <%= render :partial => 'show', :locals => { :concept =>  @data_concept } %>
- </div>
-
- <div id='<%=tab_ids[0]%>' <%= if @current_tab == 0 then 'style="display:block;"' else 'style="display:none;"' end  %> >    
-    <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[0] } %>
-
-   <div id='current-elements'>    
-      <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept } %> 
-   </div> 
-
-    <div id='current-children'>    
-        <%= render :partial => 'list_concepts', :locals =>{:concept => @data_concept }%>  
-    </div> 
-   
   </div>
 
-  <div id='<%=tab_ids[1]%>'  <%= if @current_tab == 1 then 'style="display:block;"' else 'style="display:none;"' end  %>>
-        <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[2] } %>
+  <div id='tabs1'>
+    <div id="tab-children" class="tab-content">
+	    <div id='current-children'>    
+	        <%= render :partial => 'list_concepts', :locals =>{:concept => @data_concept }%>  
+	    </div> 
+    </div>
 
+    <div id="tab-element" class="tab-content">
+	    <div id='current-elements'>    
+	        <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept }%>  
+	    </div> 
+    </div>
+	
+    <div id="tab-parameter" class="tab-content">
         <div id='current-usage'>    
            <%= render :partial => 'list_usages', :locals =>{:concept => @data_concept } %>  
         </div>
-  </div>
-</div>
+    </div>
+  </div>    
+<% end %>
+
         
+<SCRIPT TYPE="text/javascript"> 
+Ext.onReady(function(){
+        var tabs = new Ext.TabPanel('tabs1');
+        var tab1 = tabs.addTab('tab-element',  "Implementation (lookup)");        
+        var tab2 = tabs.addTab('tab-parameter',"Usage (parameter types)");
+        var tab3 = tabs.addTab('tab-children', "Children (specializations)");
+        tabs.activate('tab-element');        
+ });
+</script>    
 

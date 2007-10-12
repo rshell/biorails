@@ -1,9 +1,10 @@
 <p>  
 Enter the usage for the  concept [<%=@data_concept.path%>] below:-
 </p>
-<%= form_remote_tag :url => { :action => 'create_usage', :id => @data_concept} %>
-  <fieldset class='form'>                              
+<% dialog 'New Parameter' do%>
+
+	<%= form_remote_tag :url => { :action => 'create_usage', :id => @data_concept} %>
       <%= render :partial =>'form_parameter_type' %>
-  </fieldset>   
-  <%= submit_tag 'Save' %>
-<%= end_form_tag %>
+	  <%= submit_tag 'Save' %>
+	<%= end_form_tag %>
+<% end%>

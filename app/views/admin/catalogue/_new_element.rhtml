@@ -1,11 +1,12 @@
 <p>  
 Enter the implementation for the  concept [<%=@data_concept.path%>] below:-
 </p>
-<%= form_remote_tag :url => {:action =>'create_element', :id => @data_concept} %>
-  <fieldset class='form'>                              
-      <%= render :partial =>'form_element' %>
-  </fieldset>   
-  <%= submit_tag 'Save' %>
-  <%=link_to_remote "Cancel", :url =>{:action=>'show',:id => @data_concept.id} %>
-<%= end_form_tag %>
-
+<% dialog 'New Parameter' do%>
+	<%= form_remote_tag :url => {:action =>'create_element', :id => @data_concept} %>
+	  <fieldset class='form'>                              
+	      <%= render :partial =>'form_element' %>
+	  </fieldset>   
+	  <%= submit_tag 'Save' %>
+	  <%=link_to_remote "Cancel", :url =>{:action=>'show',:id => @data_concept.id} %>
+	<%= end_form_tag %>
+<% end %>

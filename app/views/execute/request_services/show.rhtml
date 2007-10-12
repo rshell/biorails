@@ -5,25 +5,25 @@
         <br/>
         <%= render :partial => 'items', :locals => { :request_service => @request_service } %>  
     </div>
-    <div class='box'>
-       <% for item in @project_folder.elements %>
-			<li>
-			<%= image_tag(item.icon) %>
-			<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.summary %>
-			</li>
-	   <% end %>
-    </div>
     
-    <div class='panel'>
+<%end%>
+
+<% content_for :footer do %>
         <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
-    </div>
 <%end%>
     
 <% content_for :right do %>
-    <h2><%=l(:Instructions)%></h2>
+    <h2><%=l(:Request)%></h2>
+    <p>Actual request for service provided in a project </p>
     <div class="panel">
-        <p>Actual request for a service </p>
+	<p>Notes:-</p>
+   <% for item in @project_folder.elements %>
+		<li>
+		<%= image_tag(item.icon) %>
+		<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+		<%= item.summary %>
+		</li>
+   <% end %>
     </div>
 <%end %>    
 
