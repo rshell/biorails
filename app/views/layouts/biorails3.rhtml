@@ -1,9 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%#
-# biorails3.rhtml
-# 
-# Created on 12-Sep-2007, 16:38:32
-
+  # biorails3.rhtml
+  # 
+  # Created on 12-Sep-2007, 16:38:32
 %>
 <html>
  <head>
@@ -44,12 +43,8 @@
     <%= javascript_include_tag 'application' %>
  
     <!-- ENDLIBS -->
- 
-<!-- page specific tags  ======================= -->
 	<%= yield :includes %>
 	<%= yield :header_script %>	
-	
-    <!--%=setup_toolbar('top-toolbar')%-->
   </head>
 
 <body>
@@ -77,7 +72,6 @@
   
 <!-- East Side tabs  -->
   <div id="right" class="x-layout-inactive-content">
-  	 
       <%= yield :right %>
   </div>
   
@@ -88,16 +82,14 @@
   </div>
   
   <div id="context" class="x-layout-inactive-content">
-  	 
       <%= yield :context %>
   </div>
-  
-
+ 
    
    <!-- Main area  -->
   <div id="center" class="x-layout-inactive-content">
      <%= yield :centre %>
-      <%= yield %>
+     <%= yield %>
   </div>
 
 
@@ -114,13 +106,20 @@
   </div>
   
 </div>
-  <script>
+<script type="text/javascript">
+//<![CDATA[
+  	try {
      Ext.onReady(Biorails.init('header','<%=current_project.name%>',
      <%=home_items.to_json%>,
      <%=project_items.to_json%>,
      <%=admin_items.to_json%>
      ));
-   </script>
+ 	} catch (e) {
+	   	  console.log('Problem with main javascript ');
+		  console.log(e);
+	};
+//]]>
+</script>
 </body>
 </html>
 

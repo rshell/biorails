@@ -1,24 +1,26 @@
-
-
-
 <% content_for :messages do -%>
   <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
 <% end -%>
 
 <% content_for :centre do -%>
-  <div id='tabs1'>
+  <div id='tabs-folders'>
+  	
     <div id="tab-show" class="tab-content">
         Folder <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
-      <div id='grid-document'></div>
     </div>
+
     <div id="tab-layout" class="tab-content">
         Outline of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
     </div>
+
     <div id="tab-document" class="tab-content">
         Preview of <%=@project_folder.path%> has <%=@project_folder.elements.size%> items (drop here to add to start)
     </div>
+
   </div>      
-  <div id='grid-folder' style="width:100%;"></div>
+
+  <div id='grid-folder' style="width:100%;">
+  </div>
 <% end %>    
 
 <% content_for :tree do -%>
@@ -29,8 +31,8 @@
     <%= render :partial => 'right',:locals=>{:folder=> @project_folder} %>   
 <% end %>
 
-<script>
-
-Ext.onReady(Biorails.folder( <%=folder_to_json(@project_folder)%> ), Biorails);
-
+<script type="text/javascript">
+//<![CDATA[
+  Ext.onReady(Biorails.folder( <%=folder_to_json(@project_folder)%> ), Biorails);
+//]]>
 </script>

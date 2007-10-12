@@ -352,7 +352,7 @@ Edit, Delete
     margin: 0 0 0 0;
     padding: 0 0 0 0;  
     background-color:#eee;
-    border: solid thin grey;
+    border: solid thin black;
     background-color: #ddd;
     color:black;
     empty-cells: show;
@@ -363,7 +363,7 @@ Edit, Delete
 .protocol table  {
     margin: 0 0 0 0;
     padding: 0 0 0 0;  
-    border: solid thin grey;
+    border: solid thin black;
     width: 100%;
     empty-cells: show;
 }
@@ -487,8 +487,6 @@ Cell titles
 */
 .sheet th {
     border: solid thin  #A2C5BA;
-    margin: 2 2 2 2;
-    border: 1 1 1 1;
     padding: 0 0 0 0;
     height: auto;
     background-color: #aaaaaa;
@@ -543,8 +541,6 @@ Cells
 .sheet input[type="text"], .sheet select {
     width:   100%;
     height:  100%;
-	border: 1 1 1 1;  
-    margin: 2 2 2 2;
     padding: 0 0 0 0;  
 }
 /* Specific rules for data_type of cells 1=text 2=numeric 3=date */
@@ -557,7 +553,7 @@ Cells
 }
 
 .sheet td.type-3 input[type="text"] {
-    text-align: centre;	
+    text-align: center;	
 }
   
   

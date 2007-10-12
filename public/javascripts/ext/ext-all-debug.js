@@ -1360,7 +1360,7 @@ Ext.util.Observable.releaseCapture = function(o){
                 var args = Array.prototype.slice.call(arguments, 0);
                 for(var i = 0; i < len; i++){
                     var l = ls[i];
-                    if(l.fireFn.apply(l.scope||this.obj||window, arguments) === false){
+                    if(l.fireFn && l.fireFn.apply(l.scope||this.obj||window, arguments) === false){
                         this.firing = false;
                         return false;
                     }
@@ -28505,7 +28505,13 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
 
     
     getColumnWidth : function(col){
+		try {
         return this.config[col].width || this.defaultWidth;
+		} catch (e)
+		{
+		  console.log("Problem with width ")
+		}
+		return this.defaultWidth;
     },
 
     

@@ -86,12 +86,12 @@
     var cm = cmFolder;
 
     var cmDocument = new Ext.grid.ColumnModel([
-        {header: "Elements", width: 700, sortable: true, renderer: renderDocument, locked: false,  dataIndex: 'id'}
+        {header: "Elements", width: 700, sortable: true, renderer: renderDocument, locked: false,  dataIndex: 'description'}
     ]);
 
     var cmOutline = new Ext.grid.ColumnModel([
         {header: "Icon", width: 75, sortable: true, renderer: renderIcon,   dataIndex: 'icon'},
-        {header: "Element", width: 500, sortable: true, renderer: renderOutline , locked: false,  dataIndex: 'id'},
+        {header: "Element", width: 500, sortable: true, renderer: renderOutline , locked: false,  dataIndex: 'description'},
         {header: "Actions", width: 75, sortable: true,  dataIndex: 'actions'}
     ]);
 
@@ -235,8 +235,14 @@ return {
 // Initialize the Application
 //    
     init: function(container,title,home_items,project_items,admin_items) { 
+	  try {
         buildLayout(title);
         buildToolbar(container,title,home_items,project_items,admin_items);
+	} catch (e) {
+   	  console.log('Problem with initialization ');
+	  console.log(e);
+	};
+
     },
 //
 // Resync the current grid data 
@@ -298,7 +304,6 @@ return {
             ds: folder_ds,
             cm: cm,
             selModel: mySelectionModel,
-            autoExpandColumn: 'id',
             autoSizeColumns: true,
             autoWidth: false,
 	    	enableDragDrop: true,
@@ -335,7 +340,7 @@ return {
                          onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
                    };
 				} catch (e) {
-				   	  console.log('Problem with drop ')
+				   	  console.log('Problem with drop ');
 					  console.log(e);
 				};
                 return true;
@@ -343,7 +348,7 @@ return {
          });
         dropZone.addToGroup("ColumnDD"); 
         
-        var tabs = new Ext.TabPanel('tabs1');
+        var tabs = new Ext.TabPanel('tabs-folders');
         var tab1 = tabs.addTab('tab-show', "Folder");        
         var tab2 = tabs.addTab('tab-layout', "Outline");
         var tab3 = tabs.addTab('tab-document', "Preview");
