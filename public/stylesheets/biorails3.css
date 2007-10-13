@@ -479,6 +479,8 @@ Sheet Table Style
     width: 98%;
 	height: 98%;
     empty-cells: show;
+	min-height:20em;
+	
 }
 .sheet table {
     margin: 0 0 0 0;
