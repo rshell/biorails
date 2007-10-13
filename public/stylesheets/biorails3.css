@@ -468,6 +468,7 @@ div.reverse {
 Sheet Table Style
 -----------------------------------------------
 */
+
 .sheet {
     margin: 0 0 0 0;
     padding: 0 0 0 0;  
@@ -476,6 +477,7 @@ Sheet Table Style
     background-color: #ddd;
     color:black;
     width: 98%;
+	height: 98%;
     empty-cells: show;
 }
 .sheet table {
@@ -491,8 +493,7 @@ Cell titles
     height: auto;
 	color: #15428b;
 	overflow: hidden;
-	background-color: #fafafa;
-	background-image: url(../images/default/grid/grid-hrow.gif);
+	background-color: #c0c0c0;
 	background-repeat: repeat-x;
 	background-attachment: scroll;
 	padding-bottom: 1px;

@@ -103,7 +103,7 @@ class Asset < ActiveRecord::Base
   def image_tag(max = 700)
    return "<img src='/images/model/file.png' />"  unless image?
    if max and self.width and (max.to_i <= self.width.to_i )
-      "<img src=#{self.public_filename}  width='100%'/>"  
+      "<img src=#{self.public_filename}  width='98%'/>"  
    else
       "<img src=#{self.public_filename} />" 
    end
