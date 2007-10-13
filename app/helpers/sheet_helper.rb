@@ -116,7 +116,7 @@ module SheetHelper
      out << '<th>'
      out << subject_icon("#{parameter.data_type.name}.png")
      out << parameter.name
-     out << "<br/>("
+     out << " ("
      out << parameter.style.to_s  
      out << " "
      out << parameter.display_unit.to_s     

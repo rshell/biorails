@@ -475,7 +475,7 @@ Sheet Table Style
     border: solid thin black;
     background-color: #ddd;
     color:black;
-    width: 100%;
+    width: 98%;
     empty-cells: show;
 }
 .sheet table {
@@ -486,30 +486,47 @@ Sheet Table Style
 Cell titles 
 */
 .sheet th {
-    border: solid thin  #A2C5BA;
-    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;  
     height: auto;
-    background-color: #aaaaaa;
-    color:              White;
+	color: #15428b;
 	overflow: hidden;
+	background-color: #fafafa;
+	background-image: url(../images/default/grid/grid-hrow.gif);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	padding-bottom: 1px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #b3cae9;
 }
 
 
 .sheet tr {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;  
     background-color: #eee;
     height: auto;
 }
 
 .sheet td {
-    border: solid thin  #A2C5BA;
-	width: auto;
-    background-color: #fff;
-    background-color: #fff;
-    text-align:right;
-    margin: 0;
-    padding: 0 2px 0 2px;
-    text-decoration: none;
-    color: black;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;  
+	font-family: arial,tahoma,helvetica,sans-serif;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 11px;
+	font-size-adjust: none;
+	font-stretch: normal;
+	line-height: 13px;
+	white-space: nowrap;
+	vertical-align: top;
+	outline-color: invert;
+	outline-style: none;
+	outline-width: medium;
+	color: black;
+	background-color: white;
     }
 /* 
 Cells 
@@ -541,19 +558,26 @@ Cells
 .sheet input[type="text"], .sheet select {
     width:   100%;
     height:  100%;
-    padding: 0 0 0 0;  
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;    
 }
 /* Specific rules for data_type of cells 1=text 2=numeric 3=date */
 .sheet td.type-1 input[type="text"] {
     text-align: left;	
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;    
 }
 
 .sheet td.type-2 input[type="text"] {
     text-align: right;	
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;    
 }
 
 .sheet td.type-3 input[type="text"] {
     text-align: center;	
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;    
 }
   
   

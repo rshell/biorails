@@ -3,12 +3,10 @@
  [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
 </h2>
 <div id="<%=@task.dom_id('entry') %>" >
-   <div id="SheetPanel" class="datasheet">
-     <% form_tag :action => 'update', :id => @task do %>
-                <!-- start data sheet -->  
-                
-                 <%= data_sheet(@task.grid) %>
-                <!-- end data sheet -->  
-    <% end %>
-   </div>
+ <% form_tag :action => 'update', :id => @task do %>
+            <!-- start data sheet -->  
+            
+             <%= data_sheet(@task.grid) %>
+            <!-- end data sheet -->  
+ <% end %>
 </div>

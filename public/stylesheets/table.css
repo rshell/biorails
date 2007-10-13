@@ -2,7 +2,7 @@
 /********** Table used to display lists of things ***********/
 
 table.calendar-grid {
-    width:100%;
+    width:98%;
     border-collapse: collapse;
     border: 1px dotted #d0d0d0;
     margin-bottom: 6px;

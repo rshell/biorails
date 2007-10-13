@@ -118,7 +118,7 @@ class Project::ProjectsController < ApplicationController
       format.json { render :json => {:project=> @project, :items=>@calendar.items}.to_json }
       format.xml  { render :xml => {:project=> @project,:items=>@calendar.items}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'calendar',  :partial => 'calendar' 
            page.replace_html 'right',  :partial => 'calendar_right' 
          end }
       format.ics  { render :text => @calendar.to_ical}
