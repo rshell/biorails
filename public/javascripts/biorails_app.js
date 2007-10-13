@@ -100,7 +100,7 @@
 //
 // Builder the standard toolbar with menus and search functions
 //    
-    function buildToolbar(container,title,home_items,project_items,admin_items){
+    function buildToolbar(container,title,home_items,project_items,inventory_items,admin_items){
        toolbar = new Ext.Toolbar(container);
        toolbar.addText("<a href='http:/auth/logout'><image src='/images/icon_exit.png'/></a>")          
 
@@ -122,7 +122,17 @@
 
        toolbar.addButton({
                cls: 'x-btn-text-icon bmenu', 
-  	       text:'Administration',
+  	       text:'Inventory',
+               menu: new Ext.menu.Menu({
+                             id: 'menuInventory',
+                             items: inventory_items })
+                         });
+						 
+						 
+ 
+        toolbar.addButton({
+               cls: 'x-btn-text-icon bmenu', 
+  	       text:'System',
                menu: new Ext.menu.Menu({
                              id: 'menuAdmin',
                              items: admin_items })
@@ -234,10 +244,10 @@ return {
 //
 // Initialize the Application
 //    
-    init: function(container,title,home_items,project_items,admin_items) { 
+    init: function(container,title,home_items,project_items,inventory_items,admin_items) { 
 	  try {
         buildLayout(title);
-        buildToolbar(container,title,home_items,project_items,admin_items);
+        buildToolbar(container,title,home_items,project_items,inventory_items,admin_items);
 	} catch (e) {
    	  console.log('Problem with initialization ');
 	  console.log(e);

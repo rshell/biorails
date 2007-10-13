@@ -1,5 +1,5 @@
-<fieldset>
-<div class="form-title"><%=subject_icon('container')%> Containers</div>
+<h2><%=subject_icon('container')%> Sample Containers</h2>
+
 <table class="report">
   <tr>
   <% for column in Container.content_columns %>
@@ -19,10 +19,8 @@
 <% end %>
 </table>
 
+<div class='panel'>
+<%= link_to 'New ', :action => 'new' %>
 <%= link_to 'Previous page', { :page => @container_pages.current.previous } if @container_pages.current.previous %>
-<%= link_to 'Next page', { :page => @container_pages.current.next } if @container_pages.current.next %> 
-
-<br />
-
-<%= link_to 'New container', :action => 'new' %>
-</fieldset>
+<%= link_to 'Next page', { :page => @container_pages.current.next } if @container_pages.current.next %> 	
+</div>

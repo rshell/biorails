@@ -124,65 +124,22 @@ EOS
     end
   end
 
-def setup_toolbar(div_name = 'top-toolbar')
-  script = <<JS
-MainMenu = function(){
-    var toolbar;
-
-return {	
-    init : function(){
-       toolbar = new Ext.Toolbar('#{div_name}');
-
-       toolbar.addButton({
-               cls: 'x-btn-text-icon bmenu', 
-  	       text:'Home',
-               menu: new Ext.menu.Menu({
-                             id: 'menuHome',
-                             items: #{home_items.to_json} })
-                         });
-
-       toolbar.addButton({
-               cls: 'x-btn-text-icon bmenu', 
-  	       text:'Project [#{current_project.name}]',
-               menu: new Ext.menu.Menu({
-                             id: 'menuProject',
-                             items: #{project_items.to_json} })
-                         });
-
-       toolbar.addButton({
-               cls: 'x-btn-text-icon bmenu', 
-  	       text:'Administration',
-               menu: new Ext.menu.Menu({
-                             id: 'menuAdmin',
-                             items: #{admin_items.to_json} })
-                         });
-    
-       toolbar.addFill();
-
-       toolbar.addField(
-                   new Ext.form.TextField({
-                    fieldLabel: 'search',
-                    name: 'first',
-                    width:175,
-                    allowBlank:false
-                }));
-       toolbar.addButton({text: 'search'})          
-       }
-     };       
-}();
-
-
-Ext.EventManager.onDocumentReady(MainMenu.init, MainMenu, true);
- 
-JS
-  javascript_tag(script)
-end  
-
   def home_items
      @items = [
        {:href=>home_url(:id=>User.current.id),:text=>'home'},
        {:href=>home_url(:action=>'calendar',:id=>User.current.id),:text=>'Schedule'},
        {:href=>home_url(:action=>'projects',:id=>User.current.id),:text=>'Projects'}       
+     ]
+  end  
+
+  def inventory_items
+     @items = [
+       {:href=>compound_url(:action=>'list'),:text=>'Compounds'},
+       {:href=>batch_url(:action=>'list'),:text=>'Batches'},
+       {:href=>plate_url(:action=>'list'),:text=>'Plates'},
+       {:href=>container_url(:action=>'list'),:text=>'Samples'},
+       {:href=>treatment_group_url(:action=>'list'),:text=>'Treatment Groups'},
+       {:href=>specimen_url(:action=>'list'),:text=>'Specimens'}
      ]
   end  
 
