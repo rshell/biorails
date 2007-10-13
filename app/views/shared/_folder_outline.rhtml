@@ -1,0 +1,27 @@
+<table class="report">
+  <thead>
+    <tr>
+        <th>Notes and Files</th>    
+    </tr>
+    </thead>
+  <tbody>  
+    <% for item in folder.elements %>
+	 <% unless item.class == ProjectFolder %>
+      <tr id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
+    	<td>
+    	    <span id='<%=item.dom_id(:current)%>' class='folder_element'>
+    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
+    	    <%= link_to item.name, element_to_url(item) %>    	               
+            <%if item.reference?%>
+    	       <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
+    	    <%end %>
+			<br/>
+    	  <%= item.summary %> 
+    	    </span>
+        </td>  
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
