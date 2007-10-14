@@ -104,9 +104,9 @@ class ReportColumn < ActiveRecord::Base
          '<null>'  
      elsif value.kind_of? Numeric
          if value.abs > 0.01
-           sprintf("%09.2f", value).to_s
+           sprintf("%9.2f", value).to_s
          else
-           sprintf("%09.4g", value).to_s
+           sprintf("%9.4g", value).to_s
          end
      else 
          value.to_s 

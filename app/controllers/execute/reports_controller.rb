@@ -266,8 +266,8 @@ helper :tree
       format.json { render :json => @hash.to_json }
       format.xml  { render :xml => @hash.to_xml }
       format.js   { render :update do | page |
-           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
-           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
+           page.replace_html @report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
+           page.replace_html @report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
          end }
     end
 

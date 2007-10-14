@@ -1,4 +1,3 @@
-<div id='form-filter'></div>
 <%= form_remote_tag :url => report_url( :action => 'refresh',:id =>report.id, :page => nil ) %>
 <%= end_form_tag %>  
   <table id='<%=report.dom_id%>' class="report" 
@@ -13,6 +12,5 @@
     <%= render :partial => 'shared/report_body', :locals => {:report => report,:data =>data } %> 
   </tbody>
 </table>
-
 
   

@@ -112,7 +112,7 @@ def smiles_depict_field(object, method)
     out = '<img src="<%= url_for :action => "image_for", :smiles => @smiles %>"></img>'
 end
 
-
+ok cant get to 
 def chemistry_png(compound,x=100,y=100)
   filename = "#{compound.dom_id}_#{x}_#{y}.png"
   public_filename = 'public/images/compound/'+filename

@@ -113,3 +113,5 @@ reindex model RequestService : 0.00% complete : 0.40 secs to finish
 Created Ferret index in: /home/rshell/biorails/core/trunk/config/../index/production/shared
 query: id:moose class_name:moose purpose:moose name:moose description:moose title:moose research_area:moose summary:moose
 stored_fields: 
+query: id:moose class_name:moose purpose:moose description:moose name:moose summary:moose title:moose research_area:moose
+stored_fields: 
