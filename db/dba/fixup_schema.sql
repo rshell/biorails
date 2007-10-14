@@ -1180,17 +1180,6 @@ ALTER TABLE `roles`
 ADD CONSTRAINT `roles_fk9` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
-/* Create ForeignKey(s)in Second database */ 
-USE `biorails2_production`; 
-
-ALTER TABLE `roles_permissions`
-ADD CONSTRAINT `fk_roles_permission_permission_id` 
-FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-ALTER TABLE `roles_permissions`
-ADD CONSTRAINT `fk_roles_permission_role_id` 
-FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
