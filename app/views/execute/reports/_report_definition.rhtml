@@ -75,7 +75,6 @@ Biorails.Report.dd.MyDropTarget =function(el,config) {
 Ext.extend(Biorails.Report.dd.MyDropTarget,Ext.dd.DropTarget,{
 
   notifyDrop: function (source,e,data) {
-     console.log("notifyDrop"+encodeURIComponent(data.node.id));
     new Ajax.Request('/reports/add_column/<%=@report.id%>',
                 {asynchronous:true,
                  evalScripts:true,
