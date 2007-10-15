@@ -60,12 +60,12 @@ end
 # In this mode  the structure us unchangable as old value will
 # away be returned in forms.
 #  
-def structure_view_field(object, method)
+def structure_view_field(object, method,width=500,hieght=300)
   smiles = eval("@#{object}.#{method}")
   js = <<END_OF_STATEMENT
   mview_mayscript = true;
   mview_name = "MView";
-  mview_begin("/javascripts/marvin/", 100, 100);
+  mview_begin("/javascripts/marvin/", #{width}, #{hieght});
   mview_param("background", "#ffffff");
   mview_param("molbg", "#ffffff");
   mview_param("selectable", "false");
@@ -112,7 +112,6 @@ def smiles_depict_field(object, method)
     out = '<img src="<%= url_for :action => "image_for", :smiles => @smiles %>"></img>'
 end
 
-ok cant get to 
 def chemistry_png(compound,x=100,y=100)
   filename = "#{compound.dom_id}_#{x}_#{y}.png"
   public_filename = 'public/images/compound/'+filename
