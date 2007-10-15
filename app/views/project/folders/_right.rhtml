@@ -6,32 +6,7 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
-
-<div id="right-accordion">
-  <div id="panel-clip">
-    <h2>Clipboard</h2>
-    <div>
-      <div class="text-content">
-
-        <%=link_to_remote '[Clear]',:url => folder_url(:action=>"clear_clipboard",:id=>folder.id )%>
-          
-          
-          <% if @clipboard and @clipboard.size>0%>
-          <ol>
-            <% for item in @clipboard %>
-             <li>
-              <span id='<%=item.dom_id%>' class='project_element'>
-                      <%=image_tag(item.icon( {:images=>true} ) ) %> <%= item.name%>
-              </span>
-              <%=link_to_remote subject_icon("add.gif"),
-                 :url => folder_url(:action=>'add_element',:id=>@project_folder,:element=>item.id )
-               %>             
-             </li>
-             <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>   
-            <% end %>
-          </ol>
-          <%end%>
-      </div>
-    </div>
+  <div id="panel-clipboard">
+  	    <%= render :partial => 'clipboard' %>   
   </div>
   

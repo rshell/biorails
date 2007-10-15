@@ -107,7 +107,19 @@ JS
    end
 
 def folder_to_json(folder) 
-    list = [] 
+   list = []
+   if folder.parent_id
+    list << [folder.id,'/images/model/folder.png',
+             link_to('[parent]', folder_url(:action=>'show',:id=>folder.parent_id)),
+             '[folder]',
+             folder.updated_by,
+             folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
+   else  
+    list << [folder.id,'/images/model/folder.png','[root]',
+             '[folder]',
+             folder.updated_by,
+             folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
+   end
     if folder 
       folder.elements.each do |item| 
          actions = " "

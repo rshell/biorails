@@ -249,8 +249,8 @@ return {
         buildLayout(title);
         buildToolbar(container,title,home_items,project_items,inventory_items,admin_items);
 	} catch (e) {
-   	  console.log('Problem with initialization ');
-	  console.log(e);
+   	  //console.log('Problem with initialization ');
+	  //console.log(e);
 	};
 
     },
@@ -267,8 +267,8 @@ return {
         folder_ds.load();
         grid.reconfigure(folder_ds, cm);
 	   } catch (e) {
-	   	  console.log('Problem with resync ')
-		  console.log(e);
+	   	  //console.log('Problem with resync ')
+		  //console.log(e);
 	   };
     },
 //
@@ -292,8 +292,8 @@ return {
 	      tree.render();
 	      root.expand();		  	
 	   } catch (e) {
-	   	  console.log('Problem with resync ')
-		  console.log(e);
+	   	 // console.log('Problem with resync ')
+		 // console.log(e);
 	   };
     },	
 //
@@ -325,25 +325,60 @@ return {
              copy:false,
              notifyDrop : function(dd, e, data){
 			   try {
-                   console.log('notifyDrop');
                    var sm=grid.getSelectionModel();
                    var rows=sm.getSelections();
 
                    if (data.rowIndex)   {
                      var source = folder_ds.getAt( data.rowIndex );
                      var dest = folder_ds.getAt( dd.getDragData(e).rowIndex );
-                     console.log("src  id="+source.id);
-                     console.log("dest id="+dest.id);
                      new Ajax.Request("/folders/reorder_element/"+
                           source.id+"?before="+ dest.id+'&format=json',
                         {asynchronous:true, 
                          onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
                       
                    } else if (data.node) {
-                     console.log("src node="+data.node.id);
+					 var dest = folder_ds.getAt( 0 ) || rows[0];
+					 if (rows[0] == dest)
+					 {
+                     new Ajax.Request("/folders/add_element/"+
+                          data.node.id+"?before="+ dest.id+'&format=json',
+                        {asynchronous:true, 
+                         onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
+					 	
+					 } else {
+                     new Ajax.Request("/folders/add_element/"+
+                          data.node.id+"?folder="+ dest.id+'&format=json',
+                        {asynchronous:true, 
+                         onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 
+					 	
+					 }
+                   };
+				} catch (e) {
+				   	  console.log('Problem with drop ');
+				   	  console.log(e);
+				};
+                return true;
+             }
+         });
+        dropZone.addToGroup("ColumnDD"); 
+
+          var dropZone2 = new Ext.dd.DropTarget('panel-clipboard', {
+             ddGroup:"GridDD",
+             copy:false,
+             notifyDrop : function(dd, e, data){
+			   try {
+                   var sm=grid.getSelectionModel();
+                   var rows=sm.getSelections();
+
+                   if (data.rowIndex)   {
+                     var source = folder_ds.getAt( data.rowIndex );
+                     var dest = folder_ds.getAt( dd.getDragData(e).rowIndex );
+                     new Ajax.Request("/folders/clipboard/"+ source.id,
+                        {asynchronous:true }); 
+                      
+                   } else if (data.node) {
 					 var dest = folder_ds.getAt( 0 )
 					 if (rows[0]) { dest = rows[0]; };
-                     console.log("dest node="+dest.id );
                      new Ajax.Request("/folders/add_element/"+
                           data.node.id+"?before="+ dest.id+'&format=json',
                         {asynchronous:true, 
@@ -351,12 +386,12 @@ return {
                    };
 				} catch (e) {
 				   	  console.log('Problem with drop ');
-					  console.log(e);
+				   	  console.log(e);
 				};
                 return true;
              }
          });
-        dropZone.addToGroup("ColumnDD"); 
+        dropZone2.addToGroup("ColumnDD"); 
         
         var tabs = new Ext.TabPanel('tabs-folders');
         var tab1 = tabs.addTab('tab-show', "Folder");        
