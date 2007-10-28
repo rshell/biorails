@@ -1,11 +1,14 @@
-biorails
-    by Robert Shell, Ted Hawkins 
+BioRails 
+Copyright (c) 2007 Alces Ltd
+    Authors: Robert Shell, Ted Hawkins 
+    Business lead: Andrew Lemon
     Business (http://biorails.com)
-    trac (http://biorails.org/)
-    svn (http://biorails.org/svn/biorails)
+    Trac (http://biorails.org/)
+    SVN (http://biorails.org/svn/biorails)
+
 == DESCRIPTION:
   
-FIX (describe your package)
+BioRails is a biological data management solution.
 
 == FEATURES/PROBLEMS:
   
@@ -51,6 +54,7 @@ To Manage starting/stoping
 
 == LICENSE:
 
-(The GNU 2.0  License)
+The GNU Public 2.0  License
+Commercial licenses available from Alces Ltd
+Contact info@biorails.com
 
-Copyright (c) 2007 Robert Shell / Alces Ltd
