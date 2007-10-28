@@ -1,5 +1,6 @@
 ##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# Copyright © 2006 Alces Ltd All Rights Reserved
+# Author: Robert Shell
 # See license agreement for additional rights
 ##
 #

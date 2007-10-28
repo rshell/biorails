@@ -14,7 +14,8 @@
 #
 
 ##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# Copyright © Alces Ltd, All Rights Reserved
+# Author: Robert Shell
 # See license agreement for additional rights
 # 
 class AuditLog < ActiveRecord::Base
