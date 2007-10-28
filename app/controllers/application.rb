@@ -204,9 +204,73 @@ protected
   def show_logout
       clear_session
       redirect_to auth_url(:action => "logout")
-      return false
+      return false      
+ end
+#
+# Get the current page of objects
+# 
+# This accepts sorts and where based filters on values
+# 
+# params[:where][:fei 
+# 
+  def get_page(clazz)
+    labels =[]
+    values =[]
+
+    start = (params[:start] || 1).to_i      
+    size = (params[:limit] || 25).to_i 
+    sort_col = (params[:sort] || 'id')
+    sort_dir = (params[:dir] || 'ASC')
+    where = params[:where] || {}
+
+    page = ((start/size).to_i)+1
+
+    if where.size >0
+      where.values.each do |item| 
+         field = item[:field]
+         data = item[:data]
+         if field && data
+            case data['comparison']
+            when 'gt'
+              labels << "#{field} > ? "
+              values << data['value']
+            when 'lt'
+              labels << "#{field} < ? "
+              values << data['value']
+            when 'list' 
+              labels << "#{field} in (#{data['value']}) "
+            when 'like'
+                labels << "#{field} like ? "
+                values << data['value']+"%"
+            when 'eq'
+                labels << "#{field} = ? "
+                values << data['value']
+            else  
+                labels << "#{field} like ? "
+                values << data['value']+"%"
+            end
+        end
+      end
+      conditions = [labels.join(" and ")] +values
+      @pages = Paginator.new(self, clazz.count(:conditions=> conditions), size, page)    
+      return clazz.find(:all, 
+           :limit=>@pages.items_per_page,
+           :conditions=> conditions ,
+           :offset=>@pages.current.offset, 
+           :order=>sort_col+' '+sort_dir)
+      
+    else
+      @pages = Paginator.new(self, clazz.count, size, page)    
+      return clazz.find(:all, 
+           :limit=>@pages.items_per_page,
+           :offset=>@pages.current.offset, 
+           :order=>sort_col+' '+sort_dir)
+    end
   end
 
+#
+# Render a page as PDF for output based on current html 
+#
   def render_pdf(filename,options={})
     @html = render_to_string(options)
     pdf = PDF::HTMLDoc.new
@@ -216,7 +280,9 @@ protected
     pdf << @html
     send_data(  pdf.generate,  :type => 'application/pdf',    :filename => filename)
   end
-
+#
+# Simple Catch all 
+#
   def rescue_action_in_public(exception)
       logger.debug "#{exception.class.name}: #{exception.to_s}"
       exception.backtrace.each { |t| logger.debug " > #{t}" }

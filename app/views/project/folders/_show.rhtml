@@ -1,11 +1,20 @@
-
+<h2>
+    <% if @project_folder.parent %>
+    <%=image_tag("/images/model/#{@project_folder.style}.png")%>
+    Folder: 
+    <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
+    <%else%>
+    Root: <%= @project_folder.path %>
+    <% end%>
+</h2>
 <div id='folder_top' class='reverse'>
-    Folder <%=folder.name%> has <%=folder.elements.size%> items (drop here to add to start)
+    Folder <%=@project_folder.name%> has <%=@project_folder.elements.size%> items (drop here to add to start)
 </div>
 
-<div id='<%=folder.dom_id%>' class='folder-list'>
+<div id='<%=@project_folder.dom_id%>' class='folder-list'>
 <ol >  
-  <% elements = folder.elements %>
+  <% elements = @project_folder.elements %>
   <% if elements and elements.size>0 %>
     <% (0..elements.size-1).each do |i| %>
       <% item = elements[i] %>      
@@ -33,7 +42,3 @@
     <% end %>
 </ol>
 </div>
-
-<SCRIPT TYPE="text/javascript">
-    <%= folder_drag_and_drop(@project_folder) %>
-</script>

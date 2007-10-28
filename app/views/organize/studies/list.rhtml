@@ -11,7 +11,7 @@
     <%= render :partial => 'help' %>
 <% end %>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
 <h1> Studies in project <%=@project.name%> </h1>
     <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
 <hr/>    

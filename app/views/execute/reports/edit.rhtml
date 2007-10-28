@@ -1,20 +1,33 @@
 
-
 <% content_for :sidemenu do%>
   <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <% end %>
 
-<% content_for :right do%>
-  <%= render :partial =>'right' if @report %>
+<% content_for :help do%>
+  <%= render :partial =>'help' %>
 <%end%>
 
-<% content_for :centre do%>
+<% content_for :status do%>
+  <%= render :partial =>'status' %>
+<%end%>
 
-<h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
-
-<div id="report-definition">    
-    <%= render :partial => 'report_definition'%>  
-</div>
-
+<% content_for :center do%>
+    <%= render :partial => 'edit'%>  
 <%end %>
+
+<script>
+try {
+ Ext.onReady( function() 
+    { 
+        Biorails.Report.init( <%=@report.id%>); 
+        Biorails.Report.columnTree( <%= json_for_report_columns(@report) %> );
+    }, 
+    Biorails);
+} catch (e) {
+	if (Ext.isGecko) {
+ 	  console.log('Problem with main javascript ');
+	  console.log(e);		
+	}
+};
+</script>
         

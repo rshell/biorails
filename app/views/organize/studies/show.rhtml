@@ -13,7 +13,7 @@
 <% end %>
 
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
   <h2><%=subject_icon('study.png')%> Study Design [<strong><%=@study.name %></strong>] </h2>
 
     <div class='panel'>
@@ -41,7 +41,3 @@
        <%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@folder} %>
 <% end %>
 
-<% content_for :tree do -%>
-   <h2>Project Tree </h2>
-    <%= tree_for_project(current_project)%>
-<% end %>

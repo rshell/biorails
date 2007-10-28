@@ -17,6 +17,7 @@ module TreeHelper
          #logger.info "Node(#{model},#{path},#{level})  #{rec.name}"
          node.id = "#{report.model}~#{path}#{rec.name}"
          node.icon = "/images/relations/#{rec.type}.png" 
+ 	     node.iconCls="icon-#{rec.type}"
          node.name = rec.name
          #node.link =  reports_url({ :action =>'add_column',:id=>report.id, :column=>node.id })
   	 node.previous = old
@@ -33,6 +34,7 @@ module TreeHelper
            node = build_column_tree(report, eval(relation.class_name), "#{path}#{relation.name}.",level+1,max)
            node.id = "#{path}#{relation.name}"
            node.icon = "/images/relations/#{relation.macro}.png" 
+		   node.iconCls="icon-#{relation.macro}"
            node.name = relation.name
            node.link = nil
            node.parent = tree
@@ -46,7 +48,11 @@ module TreeHelper
       return tree
  end    
 
-          
+  def json_for_report_columns(report)
+      tree= build_column_tree(report, report.model)
+	  return tree.to_tree.to_json
+  end
+  
   def tree_for_report_columns(report) 
       tree= build_column_tree(report, report.model)
       out = ""
@@ -105,38 +111,45 @@ JS
       logger.error ex.backtrace.join("\n")    
       return "Error in tree_for_report_columns:  #{ex.message}"
    end
-
-def folder_to_json(folder) 
-   list = []
-   if folder.parent_id
-    list << [folder.id,'/images/model/folder.png',
-             link_to('[parent]', folder_url(:action=>'show',:id=>folder.parent_id)),
-             '[folder]',
-             folder.updated_by,
-             folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
-   else  
-    list << [folder.id,'/images/model/folder.png','[root]',
-             '[folder]',
-             folder.updated_by,
-             folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
-   end
-    if folder 
-      folder.elements.each do |item| 
+#
+# General JOSN for folder elements 
+#  @param folder to use
+#  @param elements optional subset of elements to use in case of large folders
+#  @return string json 
+#
+  def folder_to_json( folder,elements = nil) 
+    elements ||= folder.elements 
+    list = []
+    if folder.parent_id
+       list << {:id => folder.id,
+	         :icon => '/images/model/folder.png',
+             :name => link_to_remote('..', :url=>folder_url(:action=>'show',:id=>folder.parent_id)),
+             :summary => '[parent folder]',
+             :updated_by => folder.updated_by,
+             :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") }
+    else  
+        list << [:id => folder.id,
+	         :icon => '/images/model/folder.png',
+			 :name => '/',
+             :summary => '[This is a top level folder]',
+             :updated_by => folder.updated_by,
+             :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
+    end
+    elements.each do |item| 
          actions = " "
-         actions << link_to( "Edit",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent
-         actions << link_to( "Edit",     asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset
-         actions << link_to( "Delete", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 
-         list <<   [item.id,
-                     item.icon( {:images=>true} ),
-                     link_to(item.name, element_to_url(item)),
-                     item.summary,
-                     item.updated_by,
-                     item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
-                     actions,
-                     item.to_html  ]
-      end
-     end
-     list.to_json      
+         actions << link_to( " Edit ",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent
+         actions << link_to( " Edit ",     asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset
+         actions << link_to( " Delete ", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 
+         list <<   {:id =>item.id,
+                    :icon =>  item.icon( {:images=>true} ),
+                    :name =>  link_to_remote(item.name, :url=>element_to_url(item)),
+                    :summary => item.summary,
+					:reference_type => item.reference_type, 
+                    :updated_by => item.updated_by,
+                    :updated_at => item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
+                    :actions =>  actions }
+    end
+    {:folder_id => folder.id, :path => folder.path,  :total => elements.size+1,:items => list }.to_json	    
   end
   
   def tree_to_json(folder)
@@ -146,79 +159,27 @@ def folder_to_json(folder)
     end 
     items.to_json      
   end
-          
-  def tree_for_project(project) 
-      items = project.home.to_tree do |node,rec|   
-         node[:href] = reference_to_url(rec)
-         node[:icon] = rec.icon
-      end   
-      out = ""
-      out << "<div id='#{project.dom_id(:tree)}'>"
-      out << '</div>'
-      script = <<JS
-Ext.onReady( function(){  
-      
-      var tree = new Ext.tree.TreePanel('#{project.dom_id(:tree)}', {
-                                      animate:true,
-                                      enableDD:false,
-                                      loader: new Ext.tree.TreeLoader(), 
-                                      lines: true,
-                                      selModel: new Ext.tree.MultiSelectionModel(),
-                                      containerScroll: false });
 
-      var root = new Ext.tree.AsyncTreeNode(#{items.to_json});
-      tree.setRootNode(root);
-      tree.render();
-      root.expand()
-});
-    
-JS
-      out << javascript_tag(script)
-      return out
-  rescue Exception => ex
-      logger.error "error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      return  "error: #{ex.message}"
+# 
+# Convert a array of project elenments to json
+#
+#
+  def elements_to_json(elements)
+    items = elements.collect do |rec| 
+	  {
+		 :id => rec.id,
+		 :text => rec.name,
+         :href => reference_to_url(rec),
+         :icon => rec.icon,
+	     :iconCls =>  "icon-#{rec.class.to_s.underscore}",
+         :allowDrag => !(rec.class == ProjectFolder),
+         :allowDrop => (rec.class == ProjectFolder),	
+	     :leaf => !(rec.class == ProjectFolder),
+	     :qtip => rec.summary		
+      }
+    end 
+    items.to_json      
   end
-  
- 
-   def  tree_for_folder(project , folder)
-      items =folder.to_tree do |node,rec|   
-         node[:href] = element_to_url(rec)
-         node[:icon] = rec.icon
-      end   
-      out = ""
-      out << "<div id='#{folder.dom_id(:tree)}'>"
-      out << '</div>'
-      script = <<JS
-Ext.onReady( function(){       
-      var tree = new Ext.tree.TreePanel('#{folder.dom_id(:tree)}', {
-                                      animate:true,
-                                      autoScroll:true,
-                                      loader: new Ext.tree.TreeLoader(), 
-                                      lines: true,
-                                      enableDrag: true,
-                                      containerScroll: true,
-                                      singleExpand: true,
-                                      ddGroup: 'ColumnDD',
-                                      selModel: new Ext.tree.MultiSelectionModel(),
-                                      containerScroll: false  });
-
-      var root = new Ext.tree.AsyncTreeNode(#{items.to_json});
-      tree.setRootNode(root);
-      tree.render();
-      root.expand()
-});
-    
-JS
-      out << javascript_tag(script)
-      return out
-  rescue Exception => ex
-      logger.error "error: #{ex.message}"
-      logger.error ex.backtrace.join("\n")    
-      return  "error: #{ex.message}"
-  end
-  
  
 
 ##

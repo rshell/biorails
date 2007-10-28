@@ -9,54 +9,6 @@ module ApplicationHelper
   def logged_in?
     !session[:user_id].nil?
   end
-##
-#Setup tabs for form
-#
- def tab_setup(tab_ids,tab_names)
-    out = String.new
-    out = <<EOS
-<script type="text/javascript" >
-   function switchid(id){ $('#{tab_ids.join("','")}').invoke('hide'); Element.show(id); }
-</script>
-EOS
-   return out
- end
-
-##
-# Generate a header for a tab
-# 
-# * tab_ids     array of div id for tabs
-# * tab_names   array of tab names
-# * tab_no      integer number of the tab in the array
-# * current     integer number of the current tab
-# 
-# "javascript:switchid('<%= div_ids[i] %>');"
-    
-# 
- def tab_divide(tab_ids, tab_names, tab_no=0, current=0)
-    out = String.new
-    out << "<div id='#{tab_ids[tab_no]}' "
-    if tab_no==current
-      out << "style='display:block;'>" 
-    else 
-      out << "style='display:none;'> "
-    end 
-    out << '<br/>'
-    out << '<ul class="tablist">'
-    for i in 0 ... tab_ids.length do
-        if tab_no == i
-           out << "<li> <a class='current' " 
-        else 
-           out << "<li> <a " 
-        end  
-        out << 'href="javascript:switchid('
-        out << "'" << tab_ids[i]
-        out << "');"<< '"' << ">  #{tab_names[i]}  </a>"
-        out << '</li>'
-    end 
-    out << '</ul>'
-    return out
- end
  
 ###
 # Simple boolean switch for display of a div 
@@ -68,7 +20,9 @@ EOS
      'style="display: none;"'
     end
   end
-
+#
+# Customer version of error_messages display
+#
   def error_messages_for(*params)
      options = params.last.is_a?(Hash) ? params.pop.symbolize_keys : {}
      objects = params.collect {|object_name| instance_variable_get("@#{object_name}") }.compact
@@ -96,7 +50,9 @@ EOS
      end
   end
   
-  
+#
+# Test what the client browser is 
+#  
   def browser_is? name
     name = name.to_s.strip
     return true if browser_name == name
@@ -104,7 +60,9 @@ EOS
     return true if name == 'ie' && browser_name.index('ie')
     return true if name == 'webkit' && browser_name == 'safari'
   end
-
+#
+# Get the Browser Name
+#
   def browser_name
     @browser_name ||= begin
       ua = request.env['HTTP_USER_AGENT'].downcase
@@ -123,7 +81,112 @@ EOS
       end
     end
   end
+#
+# Generate a Json description of a model 
+# with optional initial data set
+#
+   def model_to_json(clazz, data = nil)
+    fields =[]
+    filters=[]
+    columns=[]
+    clazz.columns.each do  |column|
+       field = {:name=> column.name  }
+       cview =  { :header => column.human_name, 
+                   :width=> 70, 
+                   :sortable=> true, 
+                   :dataIndex => column.name  }
+                 
+       filter = {:dataIndex => column.name }
+       case column.type 
+       when :integer
+           field[:type]=:int
+           filter[:type]=:numeric
+       when :float
+           field[:type]=:float
+           filter[:type]=:numeric
+       else      
+           filter[:type]=:string
+       end
+       fields <<  field
+       filters << filter
+       columns << cview
+    end
+    
+    item = {:id => "#{clazz.table_name}-grid",
+            :model => clazz.to_s, 
+            :controller => clazz.table_name,
+            :fields => fields,
+            :filters => filters,
+            :columns=> columns}
+    if (data)
+      item[:data]=data.collect{|i|i.attributes}
+    end      
+    return item.to_json    
+ end
 
+ #
+ # Update the the content of the main  panel
+ # 
+ def main_panel(*options_for_render)
+   call 'Element.update','center', render(*options_for_render)   
+ end
+ #
+ # Update the the content of the help panel
+ # 
+ def help_panel(*options_for_render)
+   call 'Element.update','help', render(*options_for_render)   
+ end
+ #
+ # Update the the content of the work area panel
+ # 
+ def work_panel(*options_for_render)
+   call 'Element.update','work', render(*options_for_render)   
+ end
+ #
+ # Update the the content of the status panel
+ # 
+ def status_panel(*options_for_render)
+   call 'Element.update','status', render(*options_for_render)  
+ end
+ #
+ # Update the the content of the audit panel
+ # 
+ def audit_panel(*options_for_render)
+   call 'Element.update','audit', render(*options_for_render)
+ end
+ #
+ # Update the the content to new tab on the center panel
+ # 
+ def add_tab(id,*options_for_render )
+   assign(:content, brender(*options_for_render)   )  
+   page<<  "Biorails.addTab(#{id},content);"
+ end
+#
+# Create a datagrid
+#
+  def model_datagrid(clazz,data=nil)
+#   assign(:my_grid, model_to_json(clazz,data) )  
+   page<< "Biorails.showGrid( #{model_to_json(clazz,data)});"
+ end
+ 
+  def show_folder(folder)	
+	page<< "Ext.onReady(Biorails.folder( #{folder.id} ,'Folder #{folder.path}'),Biorails);"
+  end
+#
+# Update the menu actions
+#
+ def actions_panel(*options_for_render)
+   call 'Element.update','actions', render(*options_for_render)
+ end
+#
+# Update the tree panel
+#
+ def tree_panel(*options_for_render)
+   call 'Element.update','tree', render(*options_for_render)
+ end
+#
+# Generate items for top menu structure
+#
   def home_items
      @items = [
        {:href=>home_url(:id=>User.current.id),:text=>'home'},

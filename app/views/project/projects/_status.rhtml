@@ -1,0 +1,30 @@
+<%if @project%>
+<h2><%=l('Tasks')%> Waiting</h2>
+    <h3 class="reverse"> Today </h3>
+    <ul>
+    <% for item in @project.tasks.current(8) %>
+     <li>
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+	  </div>
+      </li>
+    <% end %>
+    </ul>
+    <h3 class="reverse"> Overdue</h3>
+    <ul>
+    <% for item in @project.tasks.overdue(8) %>
+     <li>
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+      </li>
+    <% end %>
+    </ul>
+    <h3 class="reverse">Expected Soon</h3>
+    <ul>
+    <% for item in @project.tasks.future(8) %>
+      <li>
+         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
+      </li>
+    <% end %>
+    </ul>
+<%end%>
+
+

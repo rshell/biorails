@@ -1,169 +1,17 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
-  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
+  <%= render :partial=>'actions'%>
 <% end -%>
 
-
-<% content_for :centre do -%>
-<%if @project.owner?(current_user)%>
-  <h2> Project <%= in_place_editor_field :project, 'name' ,:cols=>80 %></h2>
-  <b>Summary:</b> <%= in_place_editor_field :project, 'summary',{},{:cols=>100,:rows=>4} %>
-<%else%>
-  <h2> Project <%= @project.name %></h2>
-  <b>Summary:</b> <%= @project.summary %>
-<%end%>
-
-
-<div class="splitcontentleft">
-  <div class="box">
-      <h3><%=l('News (Recent Articles)')%></h3>
-      <% for item in @project.news(5) %>
-          <li>
-          <%= image_tag(item.icon) %>
-          <%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
-          <%= item.summary %>
-          </li>
-      <% end %>
-  </div>
-  <div class="box">
-    <h3 class="icon icon-request"><%=l('Requests')%></h3>
-    <ul>
-    <% for item in @project.lastest(Request,5) %>
-	<li>
- 	<%= link_to item.name, request_url( :action => 'show', :id => item) %> 
-        (<%= format_time(item.updated_at) %>)
-          <br />
-          <%= item.description %>
-	</li>
-    <% end %>
-    </ul>
-  </div>  
-
-  <div class="box">
-    <h3 class="icon icon-compound"><%=l('Compounds')%></h3>
-    <ul>
-    <% for item in @project.lastest(Compound,5) %>
-        <li>
-          <%= link_to item.name, :controller => 'inventory/compounds', :action => 'show', :id => item %> 
-          (<%= format_time(item.updated_at) %>)
-            <br />
-            <%= item.description %>
-        </li>
-    <% end %>
-    </ul>
-  </div>  
-</div>
-
-<div class="splitcontentright">
-  
-  <div class="box">
-    <h3 class="icon icon-study"><%=l('Study Designs')%></h3>
-    <ul>
-    <% for item in @project.lastest(Study,5) %>
-      <li>
-      <%= link_to item.name, study_url( :action => 'show', :id => item) %> 
-      (<%= format_time(item.updated_at) %>)
-        <br />
-        <%= item.description %>
-      </li>
-    <% end %>
-    </ul>
-  </div>  
-    
-  <div class="box">
-    <h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
-    <ul>
-    <% for item in @project.lastest(Experiment,5) %>
-        <li>
-        <%= link_to item.name, experiment_url( :action => 'show', :id => item) %>
-        (<%= format_time(item.updated_at) %>)
-        <br />
-                <%= item.description %>
-        </li>
-    <% end %>
-    </ul>
-  </div>  
-    
-</div>  
+<% content_for :center do -%>
+  <%= render :partial=>'show'%>
 <% end %>
 
-<% content_for :right do -%>
-<H2><%=l('Tasks')%> Waiting</H2>
-    <h3 class="reverse""> Today </h3>
-    <ul>
-    <% for item in @project.tasks.current(8) %>
-     <li>
-      	<div class="tooltip">
-         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
-		 
-  	     <span class="tip"> 
-		     Task: <%= item.name %>
-		     <br />
-		     Expt: <%= item.experiment.name %>
-		     <br />
-		     Status: <%= item.status %>
-		     <br />
-		     By: <%= item.updated_by %>
-		     <br />
-		     On: <%= format_time(item.updated_at) %>
-		     <br />
-			 <%= item.description %>
-	     </span>
-	  </div>
-      </li>
-    <% end %>
-    </ul>
-    <h3 class="reverse""> Overdue</h3>
-    <ul>
-    <% for item in @project.tasks.overdue(8) %>
-     <li>
-      	<div class="tooltip">
-         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
-		 
-  	     <span class="tip"> 
-		     Task: <%= item.name %>
-		     <br />
-		     Expt: <%= item.experiment.name %>
-		     <br />
-		     Status: <%= item.status %>
-		     <br />
-		     By: <%= item.updated_by %>
-		     <br />
-		     On: <%= format_time(item.updated_at) %>
-		     <br />
-			 <%= item.description %>
-	     </span>
-	  </div>
-      </li>
-    <% end %>
-    </ul>
-    <h3 class="reverse">Expected Soon</h3>
-    <ul>
-    <% for item in @project.tasks.future(8) %>
-      <li>
-      	<div class="tooltip">
-         <%= link_to item.name, task_url( :action => 'show', :id => item) %> By <%= short_date(item.expected_at) %>
-		 
-  	     <span class="tip"> 
-		     Task: <%= item.name %>
-		     <br />
-		     Expt: <%= item.experiment.name %>
-		     <br />
-		     Status: <%= item.status %>
-		     <br />
-		     By: <%= item.updated_by %>
-		     <br />
-		     On: <%= format_time(item.updated_at) %>
-		     <br />
-			 <%= item.description %>
-	     </span>
-	  </div>
-      </li>
-    <% end %>
-    </ul>
+<% content_for :status do -%>
+  <%= render :partial=>'status'%>
 <% end %>
 
-<% content_for :tree do -%>
-<%= tree_for_project(@project) %>
+<% content_for :help do -%>
+  <%= render :partial=>'help'%>
 <% end %>
+
 

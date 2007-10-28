@@ -3,7 +3,7 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_elementt']}  %>
 <%end %>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
   <% dialog "New Article in #{@project_folder.path} " do %>
     <% form_tag content_url(:action => 'create',  :folder_id=>@project_folder.id), :before => 'tinyMCE.triggerSave(false,false);'   do %>
      

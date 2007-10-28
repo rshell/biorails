@@ -2,7 +2,7 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['study']}  %>
 <%end %>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
    <%dialog subject_icon('study.png')+'New Study' do %>
         <% form_tag :action => 'update' ,:id=> @study.id do %>
         <%= render :partial => 'form' %>

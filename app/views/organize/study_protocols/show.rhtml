@@ -9,13 +9,6 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['study_protocol','protocol_version']}  %>
 <%end %>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
 <%= render :partial => 'show' %>
 <% end -%>
-
-<% content_for :right do -%>
-   <h2>Project Tree </h2>
-   <div class="panel">
-    <%= tree_for_project(current_project)%>
-   </div>
-<% end %>

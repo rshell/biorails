@@ -124,8 +124,8 @@ class HomeController < ApplicationController
       format.json { render :json => {:user=>@user,:items=>@calendar.items}.to_json }
       format.xml  { render :xml => {:user=>@user,:items=>@calendar.items}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'calendar' 
-           page.replace_html 'right',  :partial => 'calendar_right' 
+           page.replace_html 'center',  :partial => 'calendar' 
+           page.replace_html 'status',  :partial => 'calendar_right' 
          end }
       #format.ical  { render :text => >@calendar@user.calendar.to_ical}
     end
@@ -180,7 +180,21 @@ class HomeController < ApplicationController
                                     :order=>'updated_by,created_by',:limit=>20 )
     render :layout => false if request.xhr?
   end  
-  
+#
+# Create a Tree data model
+#
+  def tree
+	if params[:node] != 'root'
+	  @elements = ProjectElement.find(:all, :conditions =>['parent_id = ?',params[:node] ])
+	else  
+	  @elements = ProjectElement.find(:all, :conditions =>'parent_id is null')
+    end
+    respond_to do | format |
+      format.html { render :partial => 'tree'}
+      format.json { render :partial => 'tree'}
+    end
+  end
+
         
 protected 
   def context

@@ -37,7 +37,7 @@ class Project::AssetsController < ApplicationController
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
       format.js  { render :update do | page |
-           page.replace_html 'centre',  :partial=> 'show'
+           page.replace_html 'center',  :partial=> 'show'
          end
       }
     end  
@@ -72,7 +72,7 @@ class Project::AssetsController < ApplicationController
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
       format.js  { render :update do | page |
            page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'centre',  :partial=> 'show'
+           page.replace_html 'center',  :partial=> 'show'
          end
       }
    end  
@@ -92,7 +92,7 @@ class Project::AssetsController < ApplicationController
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
            page.replace_html 'message', :partial=> 'messages'
-           page.replace_html 'centre',  :partial => 'upload' ,:locals=>{:folder=> @project_folder}
+           page.replace_html 'center',  :partial => 'upload' ,:locals=>{:folder=> @project_folder}
          end
       }
     end  

@@ -1,30 +1,30 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <%#
   # biorails3.rhtml
   # 
   # Created on 12-Sep-2007, 16:38:32
 %>
-<html>
  <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Bio Rails 3.0</title>
-    <%= stylesheet_link_tag "ext-all" %>
-    <%= stylesheet_link_tag "main" %>
-    <%= stylesheet_link_tag "biorails3" %>
-    <%= stylesheet_link_tag 'gantt' %>
-    <%= stylesheet_link_tag 'table' %>
-    <%= stylesheet_link_tag 'forms' %>
-    <%= stylesheet_link_tag "autocomplete" %>
-    <%= stylesheet_link_tag 'calendar-blue' %>
-    <%= stylesheet_link_tag 'datebocks_engine' %>
- 
-    <!-- GC --> 
-	<!-- LIBS -->     
-    <%= javascript_include_tag 'prototype/prototype' %>
-    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
-    <%= javascript_include_tag 'scriptaculous/effects' %>
-    <%= javascript_include_tag 'scriptaculous/dragdrop' %>
-    <%= javascript_include_tag 'scriptaculous/controls' %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/biorails3.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/gantt.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/table.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/forms.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/calendar-blue.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/datebocks_engine.css" />
+
+    <script type="text/javascript" src="/javascripts/prototype/prototype.js"></script>
+    <script type="text/javascript" src="/javascripts/scriptaculous/scriptaculous.js"></script>
+    <script type="text/javascript" src="/javascripts/scriptaculous/effects.js"></script>
+    <script type="text/javascript" src="/javascripts/scriptaculous/slider.js"></script>
+    <script type="text/javascript" src="/javascripts/scriptaculous/controls.js"></script>
+    <script type="text/javascript" src="/javascripts/scriptaculous/dragdrop.js"></script>
+
 	<%= javascript_include_tag 'validator' %>
 	<%= javascript_include_tag 'validators-en' %>
 	<%= javascript_include_tag 'dtcontrols' %>
@@ -34,93 +34,91 @@
     <%= javascript_include_tag 'calendar/lang/calendar-en' %>
     <%= javascript_include_tag 'datebocks_engine' %>
     <%= javascript_include_tag 'tiny_mce/tiny_mce' %>
-    <%= javascript_include_tag 'ext/adapter/ext/ext-base' %>
-    <%= javascript_include_tag 'ext/ext-all-debug' %>
-    <%= javascript_include_tag 'ext/accordion' %>
-    <%= javascript_include_tag 'ext/info_panel' %>
-    <%= javascript_include_tag 'ext/upload_form' %>
-    <%= javascript_include_tag 'biorails_app' %>
-    <%= javascript_include_tag 'application' %>
- 
-    <!-- ENDLIBS -->
-	<%= yield :includes %>
-	<%= yield :header_script %>	
-  </head>
 
+    <script type="text/javascript" src="/javascripts/ext2/adapter/prototype/ext-prototype-adapter.js"></script>
+
+    <script type="text/javascript" src="/javascripts/ext2/ext-all-debug.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/menu/EditableItem.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/menu/RangeMenu.js"></script>
+
+    <script type="text/javascript" src="/javascripts/biorails/grid/GridFilters.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/Filter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/StringFilter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/DateFilter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/ListFilter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/NumericFilter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/grid/filter/BooleanFilter.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/biorails.js"></script>
+
+	<%= yield :header_script %>	
+
+  </head>
 <body>
-	
-<div id="container" >
-<!--Top Header ======================= -->  
-  <div id="header" class="x-layout-inactive-content">
-	  <div id='top-toolbar'>
-	  </div>
+<!--North Header ======================= -->  
+<div id="toolbar-panel" class="x-hidden">
+  <div id='toolbar'> </div>
  </div>
 
-<!--Left Block =======================-->  
-  <div id="left" class="x-layout-inactive-content">
-    <div class='sidemenu'>
+<!--West Block =======================-->  
+<div id="tree-panel" class="x-hidden">
+  <div id='tree' class='bio-tree'>
+      <%= yield :tree %>
+  </div>
+</div>
+	    
+<div id="actions-panel" class="x-hidden">
+  <div id='actions' class='sidemenu bio-actions'>
      <%= if @content_for_sidemenu
           yield :sidemenu 
       else    
          render :partial =>'menu/default_left_menu' 
       end %>
-    </div>
-    <%= if @content_for_left 
-           yield :left  
-    end %> 
-  </div>
-  
-<!-- East Side tabs  -->
-  <div id="right" class="x-layout-inactive-content">
+      <%= yield :left %> 
+	  <%= yield :actions %>
+ </div>
+</div>
+
+<!--East Block =======================-->  
+  <div id="status-tab" class="x-hidden">
+	<div id='status' class='bio-std'>
       <%= yield :right %>
-  </div>
-  
-  <div id="tree" class="x-layout-inactive-content">
-	<div id='tree-root'>
-      <%= yield :tree %>
-    </div>
-  </div>
-  
-  <div id="context" class="x-layout-inactive-content">
-      <%= yield :context %>
-  </div>
- 
-   
-   <!-- Main area  -->
-  <div id="center" class="x-layout-inactive-content">
-     <%= yield :centre %>
-     <%= yield %>
-  </div>
-
-
-<!-- Bottom  -->
-  <div id="footer" class="x-layout-inactive-content">
+      <%= yield :status %>
+     </div>
      <div id="messages">
 	   <%= if @content_for_messages 
 	            yield :messages
 	    end %> 
-     </div>
-     <%= yield :footer %>
- 	<div id="audit_log">
-  	</div>
+    </div>
   </div>
   
-</div>
-<script type="text/javascript">
-//<![CDATA[
-  	try {
-     Ext.onReady(Biorails.init('header','<%=current_project.name%>',
-     <%=home_items.to_json%>,
-     <%=project_items.to_json%>,
-     <%=inventory_items.to_json%>,
-     <%=admin_items.to_json%>
-     ));
- 	} catch (e) {
-	   	  console.log('Problem with main javascript ');
-		  console.log(e);
-	};
-//]]>
-</script>
+  <div id="work-tab" class="x-hidden">
+	<div id='work' class='bio-std'>
+      <%= yield :context %>
+      <%= yield :work %>
+     </div>
+  </div>
+
+  <div id="help-tab" class="x-hidden">
+	<div id='help' class='bio-std'>
+      <%= yield :help %>
+     </div>
+  </div>
+
+<!--center Block =======================-->  
+  <div id="center-panel" class="x-hidden">
+	<div id='center' class='bio-std'>
+       <%= yield :center %>
+       <%= yield %>
+     </div>
+  </div>
+
+<!--South Block =======================-->  
+<!-- Bottom  -->
+  <div id="footer-panel" class="x-hidden">
+	<div id='footer'>
+      <%= yield :footer %>
+  	</div>
+  </div> 
 </body>
 </html>
 

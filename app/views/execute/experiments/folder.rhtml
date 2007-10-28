@@ -2,7 +2,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','project_folder' ]} %>
 <%end%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
  
   <%= render :partial => '/project/folders/blog',:locals=>{:folder=>@project_folder} %>
 <% end %>

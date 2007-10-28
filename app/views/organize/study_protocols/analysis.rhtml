@@ -8,7 +8,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study_protocol','protocol_version' ]} %>
 <%end%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
 <h2>
         <%=subject_icon('model/protocol')%>Protocol [<strong><%=@protocol_version.path%></strong>] Analysis Setup
 </h2>

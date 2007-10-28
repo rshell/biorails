@@ -6,7 +6,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['user']} %>
 <%end%>
 
-<% content_for :centre do %>
+<% content_for :center do %>
   <%dialog 'User' do %>
   <% form_for :user, :url => { :action => 'update' ,:id=>@user.id} do |f| -%>
     <%= render :partial=>'form',:locals=>{:f=>f} %>

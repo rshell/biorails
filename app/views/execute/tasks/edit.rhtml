@@ -2,7 +2,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
 <%end%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
   <% dialog subject_icon('model/task.png')+'Edit Task' do %> 
     <% form_tag :action => 'update', :id => @task do %>
     <%= render :partial => 'form' %>

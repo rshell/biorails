@@ -2,7 +2,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
 <%end%>
 
-<% content_for :centre do %>
+<% content_for :center do %>
  <% dialog 'New Experiment' do %>
    <% form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>

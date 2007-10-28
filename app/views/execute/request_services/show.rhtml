@@ -1,4 +1,4 @@
-<% content_for :centre do -%>
+<% content_for :center do -%>
     <h2>   Service Request <%=subject_icon('services')%> <%= @request_service.name %>  </h2>
     <div class='panel'>
         <%= render :partial => 'request_service', :locals => { :request_service => @request_service } %>  

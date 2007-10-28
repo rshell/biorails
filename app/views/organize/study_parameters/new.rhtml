@@ -6,7 +6,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_parameter' ]} %>
 <%end%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
     <% dialog subject_icon('model/parameter.png')+'New Parameter in Study' do %>
           <% form_tag :action => 'create', :id => @study_parameter.study.id do %>
               <%= render :partial => 'form' %>

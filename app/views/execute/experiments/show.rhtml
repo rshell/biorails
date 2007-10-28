@@ -10,12 +10,7 @@
    <%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@experiment.folder} %>
 <% end %>
 
-<% content_for :tree do -%>
-   <h2>Project Tree </h2>
-    <%= tree_for_project(current_project)%>
-<% end %>
-
-<% content_for :centre do -%>
+<% content_for :center do -%>
 <div id='tabs1'>
     <div id="tab-show" class="tab-content">
        <%=render :partial =>'show' %>

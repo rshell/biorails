@@ -6,7 +6,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['data_system']} %>
 <%end%>
 
-<% content_for :centre do%>
+<% content_for :center do%>
 <%dialog subject_icon('systems')+'Data System' do%>
     <% form_tag :action => 'update', :id => @data_system do %>
       <%= render :partial => 'form' %>

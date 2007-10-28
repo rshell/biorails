@@ -1,0 +1,82 @@
+<%if @project%>
+<%if @project.owner?(current_user)%>
+  <h2> Project <%= in_place_editor_field :project, 'name' ,:cols=>80 %></h2>
+  <b>Summary:</b> <%= in_place_editor_field :project, 'summary',{},{:cols=>100,:rows=>4} %>
+<%else%>
+  <h2> Project <%= @project.name %></h2>
+  <b>Summary:</b> <%= @project.summary %>
+<%end%>
+
+
+<div class="splitcontentleft">
+  <div class="box">
+      <h3><%=l('News (Recent Articles)')%></h3>
+      <% for item in @project.news(5) %>
+          <li>
+          <%= image_tag(item.icon) %>
+          <%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
+          <%= item.summary %>
+          </li>
+      <% end %>
+  </div>
+  <div class="box">
+    <h3 class="icon icon-request"><%=l('Requests')%></h3>
+    <ul>
+    <% for item in @project.lastest(Request,5) %>
+	<li>
+ 	<%= link_to item.name, request_url( :action => 'show', :id => item) %> 
+        (<%= format_time(item.updated_at) %>)
+          <br />
+          <%= item.description %>
+	</li>
+    <% end %>
+    </ul>
+  </div>  
+
+  <div class="box">
+    <h3 class="icon icon-compound"><%=l('Compounds')%></h3>
+    <ul>
+    <% for item in @project.lastest(Compound,5) %>
+        <li>
+          <%= link_to item.name, :controller => 'inventory/compounds', :action => 'show', :id => item %> 
+          (<%= format_time(item.updated_at) %>)
+            <br />
+            <%= item.description %>
+        </li>
+    <% end %>
+    </ul>
+  </div>  
+</div>
+
+<div class="splitcontentright">
+  
+  <div class="box">
+    <h3 class="icon icon-study"><%=l('Study Designs')%></h3>
+    <ul>
+    <% for item in @project.lastest(Study,5) %>
+      <li>
+      <%= link_to item.name, study_url( :action => 'show', :id => item) %> 
+      (<%= format_time(item.updated_at) %>)
+        <br />
+        <%= item.description %>
+      </li>
+    <% end %>
+    </ul>
+  </div>  
+    
+  <div class="box">
+    <h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
+    <ul>
+    <% for item in @project.lastest(Experiment,5) %>
+        <li>
+        <%= link_to item.name, experiment_url( :action => 'show', :id => item) %>
+        (<%= format_time(item.updated_at) %>)
+        <br />
+                <%= item.description %>
+        </li>
+    <% end %>
+    </ul>
+  </div>  
+    
+</div>  
+<%end%>

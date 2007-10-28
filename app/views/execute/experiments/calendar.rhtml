@@ -3,7 +3,7 @@
   <%= render :partial =>'/menu/experiment_menu' , :locals=>{ :experiment => @experiment} %>
 <% end -%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
    <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment'] }  %>
 
    <%= render :partial=>'calendar' %>

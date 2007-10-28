@@ -60,7 +60,7 @@ slightly offset.
 * .login
 * 	.login p
 * 	.login input
-Login should be in the centre panel really.  Logout is fine in the top right
+Login should be in the center panel really.  Logout is fine in the top right
 
 /*
 ===== Small Titles =====
@@ -114,7 +114,7 @@ selected menu items
 /*
 ===== Sub Menu =====
 The behaviour attempted was to get the tabs to behave like windows tabs.  
-The problem is that the centre panel cannot but against the form because it
+The problem is that the center panel cannot but against the form because it
 causes problems with the side panels.  The behaviour of the side panels is
 far more important than the tab feel 
 -----------------------------------------------
@@ -201,10 +201,10 @@ DATA LENS ACTION MENU (Action)
 
 /*
 -------------------------------------------------------------
-Centre Panel
+center Panel
 
 	Left_panel (160px) toggles between left_content or left_close
-	Centre_panel (rest) with centre_content
+	center_panel (rest) with center_content
 	Right_panel (160px) toggles between right_content or right_close  
 
 -------------------------------------------------------------------
@@ -254,20 +254,20 @@ Centre Panel
 
 	/* Central main working area */
 
-	#centre_panel {
+	#center_panel {
 	 margin-left: 16px;
 	 margin-right: 16px;
 
 	}
 
-	#centre_content {
+	#center_content {
 	 text-align: left;
 	 margin-left: 38px;
 	 margin-right: 38px;
 
 	}
 
-	#centre_content h1 {
+	#center_content h1 {
 		font-size: 3.5em;
 		float: right;
 		padding-right: 2em;
@@ -275,7 +275,7 @@ Centre Panel
 
 	}
 
-	#centre_content p {
+	#center_content p {
 		padding-bottom: 3px;
 		padding-top: 3px;
 		padding-left: 1.5em;
@@ -283,18 +283,18 @@ Centre Panel
 
 	}
 
-	#centre_content h6 {
+	#center_content h6 {
 		padding-left: 1.5em;
 
 	}
 
 
-	#centre_content h6:hover {
+	#center_content h6:hover {
 		padding-left: 0;
 
 	}
 
-	#centre_content p:hover {
+	#center_content p:hover {
 	/*color: black;*/
 
 	}

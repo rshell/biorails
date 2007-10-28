@@ -6,7 +6,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['parameter_role']} %>
 <%end%>
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
   <% dialog 'New parameter Role' do %>        
     <% form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>

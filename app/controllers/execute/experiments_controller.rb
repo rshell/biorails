@@ -96,7 +96,7 @@ class Execute::ExperimentsController < ApplicationController
       format.json { render :json => {:experiment=>@experiment,:items=>@calendar.items}.to_json }
       format.xml  { render :xml => {:experiment=>@experiment,:items=>@calendar.items}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'center',  :partial => 'calendar' 
            page.replace_html 'right',  :partial => 'calendar_right' 
          end }
       #format.ical  { render :text => @schedule.to_ical}

@@ -4,7 +4,7 @@
 
 
 
-<% content_for :centre do -%>
+<% content_for :center do -%>
  <% dialog subject_icon('services')+'Edit Request '+@user_request.name do %>
    <% form_tag :action => 'update',:id=> @user_request.id do %>
       <%= render :partial => 'form' %>

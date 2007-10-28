@@ -6,7 +6,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['parameter_type']} %>
 <%end%>
 
-<% content_for :centre do %>
+<% content_for :center do %>
 
   <%dialog 'New Parameter Type' do %>    
     <% validated_form_tag :action => 'create' do %>

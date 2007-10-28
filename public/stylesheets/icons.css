@@ -13,54 +13,54 @@ background-position: 4px 50%;
 }
 
 
-.icon-add { background-image:    url(../images/action/add.png); }
-.icon-edit { background-image:   url(../images/action/edit.png); }
-.icon-del { background-image:    url(../images/action/delete.png); }
-.icon-move { background-image:   url(../images/action/move.png); }
-.icon-save { background-image:   url(../images/action/save.png); }
-.icon-cancel { background-image: url(../images/action/cancel.png); }
+.icon-add { background-image:    url(/images/action/add.png); }
+.icon-edit { background-image:   url(/images/action/edit.png); }
+.icon-del { background-image:    url(/images/action/delete.png); }
+.icon-move { background-image:   url(/images/action/move.png); }
+.icon-save { background-image:   url(/images/action/save.png); }
+.icon-cancel { background-image: url(/images/action/cancel.png); }
 
-.icon-pdf { background-image:  url(../images/mime/pdf.gif); }
-.icon-csv { background-image:  url(../images/mime/csv.png); }
-.icon-file { background-image: url(../images/mime/file.png); }
+.icon-pdf { background-image:  url(/images/mime/pdf.gif); }
+.icon-csv { background-image:  url(/images/mime/csv.png); }
+.icon-file { background-image: url(/images/mime/file.png); }
 
-.icon-folder { background-image:  url(../images/model/folder.png); }
-.icon-package { background-image: url(../images/package.png); }
-.icon-home { background-image:    url(../images/home.png); }
-.icon-user { background-image:    url(../images/model/user.png); }
-.icon-logout { background-image: url(../images/logout.png); }
-.icon-help { background-image: url(../images/help.png); }
+.icon-folder { background-image:  url(/images/model/folder.png); }
+.icon-package { background-image: url(/images/package.png); }
+.icon-home { background-image:    url(/images/home.png); }
+.icon-user { background-image:    url(/images/model/user.png); }
+.icon-logout { background-image: url(/images/logout.png); }
+.icon-help { background-image: url(/images/help.png); }
 
-.icon-attachment  { background-image: url(../images/attachment.png); }
+.icon-attachment  { background-image: url(/images/attachment.png); }
 
-.icon-project   { background-image: url(../images/model/project.png); }
+.icon-project   { background-image: url(/images/model/project.png); }
 
-.icon-experiment{ background-image: url(../images/model/experiment.png); }
-.icon-task      { background-image: url(../images/model/task.png); }
-.icon-request   { background-image: url(../images/model/request.png); }
+.icon-experiment{ background-image: url(/images/model/experiment.png); }
+.icon-task      { background-image: url(/images/model/task.png); }
+.icon-request   { background-image: url(/images/model/request.png); }
 
-.icon-study     { background-image: url(../images/model/study.png); }
-.icon-service   { background-image: url(../images/model/service.png); }
-.icon-protocol  { background-image: url(../images/model/protocol.png); }
-.icon-parameter { background-image: url(../images/model/parameter.png); }
-.icon-queue     { background-image: url(../images/model/queue.png); }
+.icon-study     { background-image: url(/images/model/study.png); }
+.icon-service   { background-image: url(/images/model/service.png); }
+.icon-protocol  { background-image: url(/images/model/protocol.png); }
+.icon-parameter { background-image: url(/images/model/parameter.png); }
+.icon-queue     { background-image: url(/images/model/queue.png); }
 
-.icon-compound  { background-image: url(../images/model/compound.png); }
-.icon-batch     { background-image: url(../images/model/batch.png); }
-.icon-sample    { background-image: url(../images/model/sample.png); }
+.icon-compound  { background-image: url(/images/model/compound.png); }
+.icon-batch     { background-image: url(/images/model/batch.png); }
+.icon-sample    { background-image: url(/images/model/sample.png); }
 
-.icon-data-format   { background-image: url(../images/model/data_format.png); }
-.icon-data-element  { background-image: url(../images/model/data_element.png); }
-.icon-data-type     { background-image: url(../images/model/data_type.png); }
-.icon-data-system   { background-image: url(../images/model/data_system.png); }
-.icon-data-concept  { background-image: url(../images/model/data_concept.png); }
-.icon-data-concext  { background-image: url(../images/model/data_context.png); }
+.icon-data-format   { background-image: url(/images/model/data_format.png); }
+.icon-data-element  { background-image: url(/images/model/data_element.png); }
+.icon-data-type     { background-image: url(/images/model/data_type.png); }
+.icon-data-system   { background-image: url(/images/model/data_system.png); }
+.icon-data-concept  { background-image: url(/images/model/data_concept.png); }
+.icon-data-concext  { background-image: url(/images/model/data_context.png); }
 
-.icon-parameter-type  { background-image: url(../images/model/data_context.png); }
-.icon-parameter-role  { background-image: url(../images/model/data_context.png); }
+.icon-parameter-type  { background-image: url(/images/model/data_context.png); }
+.icon-parameter-role  { background-image: url(/images/model/data_context.png); }
 
-.icon-user        { background-image: url(../images/model/user.png); }
-.icon-role        { background-image: url(../images/model/role.png); }
-.icon-permission  { background-image: url(../images/model/permission.png); }
+.icon-user        { background-image: url(/images/model/user.png); }
+.icon-role        { background-image: url(/images/model/role.png); }
+.icon-permission  { background-image: url(/images/model/permission.png); }
 
 

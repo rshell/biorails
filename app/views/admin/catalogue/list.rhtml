@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<% content_for :centre do%>
+<% content_for :center do%>
   <h2> <%=subject_icon('context')%> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>
   <div id="current-concept">
    <%= render :partial => 'show', :locals => { :concept =>  @data_concept } %>

@@ -13,17 +13,38 @@ class Project::ProjectsController < ApplicationController
 #   
   def index
     @projects = User.current.projects
+    respond_to do |format|
+      format.html # index.rhtml
+      format.xml  { render :xml => @projects.to_xml }
+      format.csv  { render :text => @projects.to_csv }
+      format.json { render :json =>  @projects.to_json } 
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial =>'list'
+          page.model_datagrid(Project)
+       end 
+      }
+    end
   end
 
 ##
 # Generate a index dashboard for the project 
 #  
   def show
-    @project =  current_user.project(params[:id])
-    set_project(@project)    
+    setup_project
     respond_to do | format |
       format.html { render :action => 'show'}
       format.xml {render :xml =>  @project.to_xml(:include=>[:memberships,:folders,:studies,:experiments,:tasks])}
+      format.json  { render :text => @project.to_json }
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial => 'show'
+       end      
+      }
     end
 
   end
@@ -31,39 +52,102 @@ class Project::ProjectsController < ApplicationController
   def new
     @project = Project.new
     @user = current_user
+	respond_to do |format|
+      format.html # new.rhtml
+      format.xml  { render :xml => @project.to_xml }
+      format.json  { render :text => @project.to_json }
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial => 'new'
+        end
+      }
+     end 
   end
 
   def create
     Project.transaction do
-      @user = current_user    
-      @project = current_user.create_project(params['project'])
-      @project.summary = params[:project][:summary]
-      if @project.save
-        flash[:notice] = "Project was successfully created."
-        set_project(@project)
-        redirect_to  :action => 'show',:id => @project      
-      else
-        render :action => 'new'
-      end
+	  @project = current_user.create_project(params['project'])
+	  @project.summary = params[:project][:summary]
+ 	  if @project.save
+		  flash[:notice] = "Project was successfully created."
+		  set_project(@project)
+		  respond_to do |format|
+			  format.html { redirect_to  :action => 'show',:id => @project    }
+			  format.xml  { head :created, :location => projects_url(@project   ) }
+			  format.js  { render :update do | page |  
+				  page.actions_panel  :partial => 'actions'
+				  page.help_panel     :partial => 'help'
+				  page.status_panel   :partial => 'status'
+				  page.main_panel     :partial => 'show'
+				end
+			   }
+			end   
+  	  else
+		  respond_to do |format|
+			  format.html { render :action => "new" }
+			  format.xml  { render :xml => @projects.errors.to_xml }
+			  format.js  { render :update do | page |  
+				  page.actions_panel  :partial => 'actions'
+				  page.help_panel     :partial => 'help'
+				  page.status_panel   :partial => 'status'
+				  page.main_panel     :partial => 'new'
+				end
+			   }
+			end
+	  end
     end
   end
-
+#
+# Edit the project
+# 
   def edit
-    @project = current_user.project(params[:id])
-    respond_to do | format |
+    setup_project
+    respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project.to_xml}
+      format.json  { render :text => @project.to_json }
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial => 'edit'
+        end
+      }
     end
   end
-
+#
+# Update model and change to show project
+#
   def update
     Project.transaction do
       @project = current_user.project(params[:id])
-      if @project.update_attributes(params[:sample])
-        flash[:notice] = 'Sample was successfully updated.'
-        redirect_to :action => 'show', :id => @project
+      if @project.update_attributes(params[:project])
+          flash[:notice] = 'Project was successfully updated.'
+		  respond_to do |format|
+			  format.html { redirect_to  :action => 'show',:id => @project    }
+			  format.xml  { head :created, :location => projects_url(@project   ) }
+			  format.js  { render :update do | page |  
+				  page.actions_panel  :partial => 'actions'
+				  page.help_panel     :partial => 'help'
+				  page.status_panel   :partial => 'status'
+				  page.main_panel     :partial => 'show'
+				end
+			   }
+			end   
       else
-        render :action => 'edit'
+		  respond_to do |format|
+			  format.html { render :action => "edit" }
+			  format.xml  { render :xml => @projects.errors.to_xml }
+			  format.js  { render :update do | page |  
+				  page.actions_panel  :partial => 'actions'
+				  page.help_panel     :partial => 'help'
+				  page.status_panel   :partial => 'status'
+				  page.main_panel     :partial => 'edit'
+				end
+			   }
+			end
       end
     end
   end
@@ -72,17 +156,28 @@ class Project::ProjectsController < ApplicationController
 # Destroy a study
 #
   def destroy
-    current_user.project(params[:id]).destroy
+    setup_project
+    @project.destroy
     set_project(Project.find(1))    
-    redirect_to home_url(:action => 'show')
+    respond_to do |format|
+      format.html { rredirect_to home_url(:action => 'index') }
+      format.xml  { head :ok }
+      format.js  { render :update do | page |  
+            page.actions_panel  :partial => 'actions'
+            page.help_panel     :partial => 'help'
+            page.status_panel   :partial => 'status'
+            page.main_panel     :partial => 'list'
+          end
+      }
+    end
   end  
 
 ##
 # List of the membership of the project
 # 
   def members
-     @project = current_user.project(params[:id])
-     @membership = Membership.new(:project_id=>@project)
+    setup_project
+    @membership = Membership.new(:project_id=>@project)
     respond_to do | format |
       format.html { render :action => 'members'}
       format.xml {render :xml =>  @project.to_xml(:include =>[:memberships,:owners,:users])}
@@ -92,8 +187,7 @@ class Project::ProjectsController < ApplicationController
 # Show a overview calendar for the project this should list the experiments, documents etc linked into the project
 # 
   def calendar
-     @project = current_user.project(params[:id])
- 
+     setup_project
      @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
                 'items'=> {'task'=>1},
@@ -118,8 +212,8 @@ class Project::ProjectsController < ApplicationController
       format.json { render :json => {:project=> @project, :items=>@calendar.items}.to_json }
       format.xml  { render :xml => {:project=> @project,:items=>@calendar.items}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'calendar',  :partial => 'calendar' 
-           page.replace_html 'right',  :partial => 'calendar_right' 
+           page.replace_html 'center',  :partial => 'calendar' 
+           page.replace_html 'status',  :partial => 'calendar_right' 
          end }
       format.ics  { render :text => @calendar.to_ical}
     end
@@ -130,7 +224,7 @@ class Project::ProjectsController < ApplicationController
 # This will need to show studies,experiments and tasks in order
 #   
   def gantt
-     @project = current_user.project(params[:id])
+     setup_project
      @options ={ 'month' => Date.today.month,
                 'year'=> Date.today.year,
                 'items'=> {'task'=>1},
@@ -165,20 +259,26 @@ class Project::ProjectsController < ApplicationController
       format.json { render :json => {:project=> @project, :items=>@tasks}.to_json }
       format.xml  { render :xml =>  {:project=> @project,:items=>@tasks}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'gantt' 
+           page.replace_html 'center',  :partial => 'gantt' 
          end }
     end
   end
 
   def tree
-    @project =  current_project
-    set_project(@project)    
-    
+    setup_project
     respond_to do | format |
       format.html { render :partial => 'tree'}
       format.json { render :partial => 'tree'}
     end
-
   end
+protected
 
+  def setup_project
+	if params[:id]
+	  @project = current_user.project(params[:id])
+	  set_project(@project)
+	else 
+	  @project = current_project  
+    end
+  end
 end

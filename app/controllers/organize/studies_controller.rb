@@ -87,7 +87,7 @@ class Organize::StudiesController < ApplicationController
       format.json { render :json => {:study=> @study, :items=>@calendar.items}.to_json }
       format.xml  { render :xml =>  {:study=> @study ,:items=>@calendar.items}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'calendar' 
+           page.replace_html 'center',  :partial => 'calendar' 
            page.replace_html 'right',  :partial => 'calendar_right' 
          end }
     end

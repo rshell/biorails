@@ -56,7 +56,7 @@ class Organize::StudyProtocolsController < ApplicationController
       format.json { render :json => @study_protocol.to_json }
       format.xml  { render :xml =>  @study_protocol.to_xml(:except=>[:study]) }
       format.js   { render :update do | page |
-           page.replace_html 'centre',  :partial => 'show' 
+           page.replace_html 'center',  :partial => 'show' 
            page.replace_html 'messages',  :partial => 'shared/messages' 
          end }
     end  end

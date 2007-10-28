@@ -1,0 +1,12 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+  <%= render :partial => 'shared/messages', 
+	:locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+  
+
+<% if @project_folder and  @project_folder.reference? and @project_folder.reference %>
+This folder is referenced to a <%=@project_folder.style %>  
+<%= link_to  @project_folder.reference.name , reference_to_url(@project_folder) %>
+<% end %>

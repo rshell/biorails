@@ -5,7 +5,7 @@
 <%= link_to  image_tag("/images/model/link.png")+ " "+ image_tag("/images/model/#{@project_folder.style}.png")+" "+@project_folder.style , reference_to_url(@project_folder)%>
 <% end %>
 <% unless folder.nil? || folder.new_record? %>
-    <%= link_to 'Folder',folder_url( :action => 'show', :folder_id => folder.id ) %> 
+    <%= link_to_remote 'Folder',:url=>folder_url( :action => 'show', :id => folder.id ) %> 
     <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
     <%= link_to 'Save As '+image_tag('mime/pdf.gif'),folder_url( :action => 'print',:format=>:pdf,:folder_id => folder.id ),:popup => true %> 
 

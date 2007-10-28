@@ -1,6 +1,6 @@
 <% dialog "New Folder under #{@project_folder.path} " do %>
 
-<% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:centre do %>
+<% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:center do %>
     <%= hidden_field 'project_folder', 'parent_id'  %>
     <%= hidden_field 'project_folder', 'project_id'  %>
 

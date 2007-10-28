@@ -7,12 +7,12 @@
     </div>
 <% end %>
 
-<% content_for :centre do %>
+<% content_for :center do %>
 
 <div class='main' id='maintitle'>
-    <H2>
+    <h2>
         <%=subject_icon('data_element')%> New Data Element implemening [<strong><%=@data_concept.path%></strong>]
-    </H2>
+    </h2>
     <div class='dialog'>
         <% if @data_element.parent %>
           Child of <%=@data_element.parent.name %>

@@ -34,84 +34,16 @@ class Project::FoldersController < ApplicationController
     set_folder
     respond_to do |format|
       format.html {render :action => 'show'}
-      format.ext {render :action => 'show',:layout => false}
       format.pdf {render_pdf :action => 'show',:layout => false}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end
-      }
-    end 
+      format.js  { render :update do | page |  
+          page.work_panel   :partial => 'work'
+		  page.show_folder   @project_folder
+       end 
+      }    
+	end 
   end
-
-  def folder
-    set_folder
-    respond_to do |format|
-      format.html {render :partial => 'show',:locals=>{:folder=>@project_folder}}
-      format.ext {render :partial => 'show',:locals=>{:folder=>@project_folder}}
-      format.pdf {render_pdf :partial => 'show',:locals=>{:folder=>@project_folder}}
-      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.replace_html 'tab-folder',  :partial => @layout[:centre] ,:locals=>{:folder=>@project_folder}
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end
-      }
-    end 
-  end
-
-##
-# Display the current clipboard 
-# 
-  def document
-    set_folder
-    respond_to do |format|
-      format.html {render :partial => 'document',:locals=>{:folder=>@project_folder}}
-      format.ext {render :partial => 'document',:locals=>{:folder=>@project_folder}}
-      format.pdf {render_pdf :partial => 'document',:locals=>{:folder=>@project_folder}}
-      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.replace_html 'tab-document',  :partial => 'document' ,:locals=>{:folder=>@project_folder}
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end
-      }
-    end 
-  end    
-
-##
-# Display the current clipboard 
-# 
-  def layout
-    set_folder
-    respond_to do |format|
-      format.html {render :partial => 'layout',:locals=>{:folder=>@project_folder}}
-      format.ext {render :partial => 'layout',:locals=>{:folder=>@project_folder}}
-      format.pdf {render_pdf :partial => 'layout',:locals=>{:folder=>@project_folder}}
-      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.replace_html 'tab-outline',  :partial => 'layout' ,:locals=>{:folder=>@project_folder}
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end
-      }
-    end 
-  end
-##
-# Display the current clipboard 
-# 
-  def blog
-    set_folder
-    respond_to do |format|
-      format.html {render :partial => 'blog',:locals=>{:folder=>@project_folder}}
-      format.ext {render :partial => 'blog',:locals=>{:folder=>@project_folder}}
-      format.pdf {render_pdf :partial => 'blog',:locals=>{:folder=>@project_folder}}
-      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.replace_html 'tab-blog',  :partial => 'blog' ,:locals=>{:folder=>@project_folder}
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end
-      }
-    end 
-  end  
+  
 ###
 ##
 # Display the current clipboard 
@@ -123,80 +55,21 @@ class Project::FoldersController < ApplicationController
       format.pdf {render_pdf("#{@project_folder.name}.pdf",{:action => 'print', :layout => "layouts/printout.rhtml"})}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
-           page.replace_html 'create',  :partial => 'print' ,:locals=>{:folder=>@project_folder}
+           page.add_tab @project_folder.dom_id,  :partial => 'print' ,:locals=>{:folder=>@project_folder}
          end
       }
     end  
   end
   
-
-
 ##
-# Display the selector
-#     
-  def selector
-    set_folder
-    return render_right('tree')
+#
+#  
+#      
+  def grid
+    @elements =  get_folder_page
+    render :partial =>  'grid', :layout=>false 	
   end
-##
-# Display the current clipboard 
-# 
-  def clipboard
-    @source = ProjectElement.find(params[:id]) 
-    set_folder @source.parent_id
-    @clipboard = session[:clipboard] || Clipboard.new
-    @clipboard.add(@source)
-    session[:clipboard] = @clipboard
-    
-    respond_to do |format|
-      format.html {render :show => 'show'}
-      format.xml  { render :xml => @clipboard.to_xml}
-      format.js  { render :update do | page |
-           page.replace_html 'panel-clipboard',  :partial => 'clipboard'
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end }
-    end  
-  end  
-  
-  def clear_clipboard
-    set_folder
-    @clipboard =Clipboard.new
-    session[:clipboard] = @clipboard
-    respond_to do |format|
-      format.html {render :show => 'show'}
-      format.xml  { render :xml => @clipboard.to_xml}
-      format.js  { render :update do | page |
-           page.replace_html 'panel-clipboard',  :partial => 'clipboard'
-           page.replace_html 'messages',:partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}
-        end }
-    end  
-  end
-
-##
-# Display the current clipboard 
-# 
-  def finder
-    set_folder
-    @hits = []
-    @clipboard = session[:clipboard] 
-    @user_query = params['query'] 
-    logger.info "query before [#{@user_query}]"
-    ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
-    if @user_query
-       @query = "#{@user_query}"
-       @hits = ProjectElement.find(:all,
-          :conditions=>["project_id in (#{ids}) and name like ?","#{@query}%"],
-          :order=>"abs(project_id-#{current_project.id}) asc,parent_id,name",:limit=>100)
-       if @hits.size==0
-         @hits = ProjectElement.find_by_contents(@query,:models=>[ProjectContent,ProjectAsset,ProjectElement,ProjectReference,ProjectFolder],:limit=>100)
-       end
-    end
-    logger.info "query after [#{@query}]"
-    return render_right('finder')
-  end  
-   
-    
-##
+###
 # List of elements in the route home folder
 # 
 #  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id]
@@ -208,10 +81,16 @@ class Project::FoldersController < ApplicationController
                                         :parent_id=>@parent.id,
                                         :project_id=>@parent.project_id)
     respond_to do |format|
-      format.html { render :action => 'new'}
-      format.js  { render :update do | page |
-           page.replace_html 'centre',  :partial => 'new' ,:locals=>{:folder=>@parent}
-         end
+      format.html # index.rhtml
+      format.xml  { render :xml => @project_folder.to_xml }
+      format.csv  { render :text => @project_folder.to_csv }
+      format.json { render :json =>  @project_folder.to_json }  
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial =>'new'
+       end 
       }
     end  
   end
@@ -226,10 +105,32 @@ class Project::FoldersController < ApplicationController
     @child_folder = @project_folder.folder(params[:project_folder][:name])
     if @child_folder.save
       flash[:notice] = 'ProjectFolder was successfully created.'
-      render :action => 'show'
-    else
+	  respond_to do |format|
+		  format.html { redirect_to  :action => 'show',:id => @project_folder    }
+		  format.xml  { head :created, :location => projects_url(@project_folder   ) }
+		  format.js  { render :update do | page |  
+			  page.actions_panel  :partial => 'actions'
+			  page.help_panel     :partial => 'help'
+			  page.status_panel   :partial => 'status'
+			  page.main_panel     :partial => 'show'
+			end
+		   }
+		end 
+	else
       flash[:error] = 'ProjectFolder creation failed.'
-      render :action => 'show'
+	  @parent = @project_folder 
+	  @project_folder = @child_folder
+	  respond_to do |format|
+		  format.html { render :action => "new" }
+		  format.xml  { render :xml => @child_folder.errors.to_xml }			  
+          format.js  { render :update do | page |  
+			  page.actions_panel  :partial => 'actions'
+			  page.help_panel     :partial => 'help'
+			  page.status_panel   :partial => 'status'
+			  page.main_panel     :partial => 'new'
+			end
+		   }
+		end 
     end
   end
 ##
@@ -239,7 +140,18 @@ class Project::FoldersController < ApplicationController
 # 
   def edit
     set_folder
-    render :action => 'edit' ,:layout => false if request.xhr?
+    respond_to do |format|
+      format.html { render :action => 'edit'}
+      format.xml {render :xml =>  @project_folder.to_xml}
+      format.json  { render :text => @project_folder.to_json }
+      format.js  { render :update do | page |  
+          page.actions_panel  :partial => 'actions'
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial => 'edit'
+        end
+      }
+    end
   end
 ##
 # Update the current folder details
@@ -250,9 +162,29 @@ class Project::FoldersController < ApplicationController
     set_folder
     if @project_folder.update_attributes(params[:project_folder])
       flash[:notice] = 'ProjectFolder was successfully updated.'
-      redirect_to :action => 'show', :id => @project_folder
+	  respond_to do |format|
+		  format.html { redirect_to  :action => 'show',:id => @project_folder    }
+		  format.xml  { head :created, :location => folders_url(@project_folder) }
+		  format.js  { render :update do | page |  
+			  page.actions_panel  :partial => 'actions'
+			  page.help_panel     :partial => 'help'
+			  page.status_panel   :partial => 'status'
+			  page.main_panel     :partial => 'show'
+			end
+		   }
+		end 
     else
-      render :action => 'edit',:layout => false if request.xhr?
+	  respond_to do |format|
+		  format.html { redirect_to  :action => 'edit',:id => @project_folder    }
+		  format.xml  { head :created, :location => folders_url(@project_folder   ) }
+		  format.js  { render :update do | page |  
+			  page.actions_panel  :partial => 'actions'
+			  page.help_panel     :partial => 'help'
+			  page.status_panel   :partial => 'status'
+			  page.main_panel     :partial => 'edit'
+			end
+		   }
+		end 
     end
   end
 ##
@@ -261,8 +193,19 @@ class Project::FoldersController < ApplicationController
   def destroy
     logger.info "destroy"
     element  = ProjectElement.find(params[:id]) 
+	@project_folder = element.parent
     element.destroy
-    redirect_to :action => 'show', :id=>element.parent_id
+    respond_to do |format|
+      format.html { redirect_to :action => 'show', :id=>element.parent_id }
+      format.xml  { head :ok }
+      format.js  { render :update do | page |  
+            page.actions_panel  :partial => 'actions'
+            page.help_panel     :partial => 'help'
+            page.status_panel   :partial => 'status'
+            page.main_panel     :partial => 'show'
+          end
+      }
+    end
   end
 
 
@@ -339,7 +282,60 @@ class Project::FoldersController < ApplicationController
   
 protected
 
-  def allowed_move(source,dest)
+    def get_folder_page
+	  
+    @project_folder = current_user.folder(params[:id]) 
+    labels =['parent_id = ?']
+    values =[params[:id]]
+
+    start = (params[:start] || 1).to_i      
+    size = (params[:limit] || 25).to_i 
+    sort_col = (params[:sort] || 'id')
+    sort_dir = (params[:dir] || 'ASC')
+    where = params[:where] || {}
+
+    page = ((start/size).to_i)+1
+
+    if where.size >0
+      where.values.each do |item| 
+         field = item[:field]
+         data = item[:data]
+         if field && data
+            case data['comparison']
+            when 'gt'
+              labels << "#{field} > ? "
+              values << data['value']
+            when 'lt'
+              labels << "#{field} < ? "
+              values << data['value']
+            when 'list' 
+              labels << "#{field} in (#{data['value']}) "
+            when 'like'
+                labels << "#{field} like ? "
+                values << data['value']+"%"
+            when 'eq'
+                labels << "#{field} = ? "
+                values << data['value']
+            else  
+                labels << "#{field} like ? "
+                values << data['value']+"%"
+            end
+        end
+      end
+	end
+    conditions = [labels.join(" and ")] +values
+    @pages = Paginator.new(self, ProjectElement.count(:conditions=> conditions), size, page)    
+    return ProjectElement.find(:all, 
+           :limit=>@pages.items_per_page,
+           :conditions=> conditions ,
+           :offset=>@pages.current.offset, 
+           :order=>sort_col+' '+sort_dir)
+      
+
+  end
+
+
+def allowed_move(source,dest)
      return !(source.id == dest.id or source.id == dest.parent_id or  source.parent_id == dest.id  or source.parent_id == dest.parent_id)
   end
 
@@ -351,7 +347,7 @@ protected
      ProjectFolder.current = @project_folder = current_user.folder(id) ||  current_project.home
      @layout = {}
      @layout[:right] = params[:right] || 'right_finder'
-     @layout[:centre] = params[:centre] || 'show'     
+     @layout[:center] = params[:center] || 'show'     
      @clipboard = session[:clipboard] 
      @clipboard ||= Clipboard.new
      return @project_folder
