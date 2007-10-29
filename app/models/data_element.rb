@@ -138,8 +138,12 @@ class DataElement < ActiveRecord::Base
     return self.children.detect{|item|item.id.to_s == id.to_s}
   end
   
-  def like(name)
-    return self.values
+  def like(name, limit=25, offset=0)
+    if name
+	   self.children.find(:all, :conditions=>['name like ?',name+'%'],:order=>'name',:limit=>limit,:offset=>offset)
+    else
+       self.children.find(:all,  :order=>'name', :limit=>limit, :offset=>offset)
+    end
   end
 #
 #  List values for this element   
@@ -319,9 +323,20 @@ class SqlElement < DataElement
   def reference(id)
     return  self.system.connection.select_one(content+" where  id='"+id+"'")    
   end
-
-  def like(name)
-    return self.system.connection.select_all(content+" where  name like'"+name+"%' order by name")    
+#
+# @todo rjs not sure on portability and preformance of this
+# 
+# oracle: SELECT * FROM (SELECT ROWNUM as ROW_NUM, x.* FROM (content) where x.name like 'xxx' order by x.name ) WHERE row_num BETWEEN 20 AND 40; 
+# mysql/postgres: SELECT * FROM (Content) where name like 'xxx'  limit=20 start=0
+  def like(name, limit=25, offset=0 )
+	if (self.system.connection.class == "ActiveRecord::ConnectionAdapters::OracleAdapter")
+	  self.system.connection.select_all(
+		"select * from (select ROWNUM row_num,x.* FROM (content) where  x.name like "+
+	    "'#{name}%' order by x.name) where row_num between #{offset} and #{(offset+limit)}" )    
+    else
+	  self.system.connection.select_all(
+		"select * from (#{content}) where  name like'#{name}%' order by name offset #{offset} limit #{limit}")
+    end
   end
  
 
@@ -369,11 +384,11 @@ class ModelElement < DataElement
 ###
 # find values like 
 #  
-  def like(name)
+  def like(name,limit=25,offset=0)
     if name
-       self.model.find(:all,:limit=>100,:conditions=> ['name like ?',name+"%"],:order=>'name' )
+	   self.model.find(:all, :conditions=>['name like ?',name+'%'], :order=>'name', :limit=>limit, :offset=>offset)
     else
-       self.model.find(:all,:limit=>100,:order=>'name')
+       self.model.find(:all,:limit=>100,:order=>'name', :limit=>limit, :offset=>offset)
     end
   end
 

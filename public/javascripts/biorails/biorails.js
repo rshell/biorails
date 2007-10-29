@@ -1025,25 +1025,27 @@ Ext.extend(Biorails.SelectField,  Ext.form.ComboBox, {});
 /**
  * Custom Select field for a remote data element field
  */
-Biorails.ComboField = function(id,element_id){    
+Biorails.ComboField = function(id, element_id){    
     Biorails.DateField.superclass.constructor.call(this,{
 		 mode:'remote',
-		 triggerAction: 'all',
+         applyTo: id,
+         store: new Ext.data.Store({
+                   proxy: new Ext.data.HttpProxy({
+                            url: '/admin/element/select/'+element_id, method: 'get' 
+                          }),
+         reader: new Ext.data.JsonReader({
+								root: 'items', 
+								totalProperty: 'total'},
+								 [ {name: 'id', type: 'int'},
+								   {name: 'name'},
+								   {name: 'description'}]  )
+                    }),
+         triggerAction: 'all',
 		 forceSelection: true,
 		 editable: true,
+         loadingText: 'Searching...',
 		 valueField: 'id',
-		 displayField: 'name',
-		 pageSize: 12,
-		 minListWidth: 250,
-		 minChars: 3,
-         store: new Ext.data.JsonStore({
-                   proxy: new Ext.data.HttpProxy({ url: '/elements/lookup/'+element_id, method: 'get' }),
-                   reader: new Ext.data.JsonReader({
-                     root: 'items', totalProperty: 'total'}, [
-						   {name: 'id', type: 'int'},
-						   {name: 'name'},
-						   {name: 'description'}]  )
-                    })
+		 displayField: 'name'
          }); 
 };
 

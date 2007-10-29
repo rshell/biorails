@@ -48,20 +48,29 @@ class Admin::DataElementsController < ApplicationController
   def choices
     element =DataElement.find( params[:id] )
     text = request.raw_post || request.query_string
-    @value =  URI.unescape(text.split("=")[1])
+    @value =  params[:match] || URI.unescape(text.split("=")[1])
     @choices = element.like(@value)
-    render :inline => "<%= auto_complete_result(@choices, 'name') %>"
+	@list = {:element_id=>params[:id],
+			 :matches=>@value,
+			 :total=>@choices.size ,
+			 :items =>@choices.collect{|i|{:id=>i.id,:name=>i.name,:description=>i.description}} }
+    respond_to do |format|
+      format.html {render :inline => "<%= auto_complete_result(@choices, 'name') %>"}
+      format.xml  { render :xml => @list.to_xml }
+      format.csv  { render :text => @choices.to_csv }
+      format.json { render :json => @list.to_json}
+    end
   end  
 
  def select
-    element =DataElement.find( params[:id] )
-    @value =  URI.unescape(request.raw_post || request.query_string ||"")
-    if @value =~ /=/
-    @value =  @value.split("=")[1] 
+    element = DataElement.find( params[:id] )
+    @value   = params[:query] || ""
     @choices = element.like(@value)
-    else
-    end
-    render :inline => "<%= select_auto_complete_result(@choices, 'name','id') %>"
+	@list = {:element_id=>params[:id],
+			 :matches=>@value,
+			 :total=>@choices.size ,
+			 :items =>@choices.collect{|i|{:id=>i.id,:name=>i.name,:description=>i.description}} }
+     render :text => @list.to_json
   end  
   
 ##

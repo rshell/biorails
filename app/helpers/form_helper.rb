@@ -301,38 +301,21 @@ HTML
 #   
   def my_date_field(id,name,value,options={})
     options[:mask]    ||= '.'
-    options[:value]   ||= value
+    options[:value]   ||= value ? value.strftime("%Y-%m-%d") :""
     options[:default] ||= ''
     options[:autocomplete]   ||= 'off'
     options[:onfocus] ||= 'FieldEntry( this,event)'
-    options[:onkeypress]  ||= 'DateFieldOnKeyPress(this,event); return dateBocksKeyListener(event);'   
     options[:onchanged]  ||= 'FieldSave(this,event)'    
     options[:onblur]  ||= 'DateFieldExit(this,event);' 
-    options[:onclick]  ||= 'this.select();'
  
-    out = String.new
-
-    out  << '<div id="dateBocks">'
-    out  << "<ul><LI>"
+    out = String.new	 
     out << tag( :input, { "type" => "text", "name" => name, "id" => id}.update(options.stringify_keys)) 
-    out << <<EOS
-          </li>
-          <li>#{image_tag('icon-calendar.gif', :alt => 'Calendar', :id => id + '_Button', :style => 'cursor: pointer;' ) }</li>
-          <li>#{image_tag('icon-help.gif', :alt => 'Help', :id => id+ '_Help' ) }</li>
-        </ul>
-        </div>
-        <script type="text/javascript">   
-          Calendar.setup({
-      	   inputField     :    "#{id}",        // id of the input field
-      	   ifFormat       :    calendarIfFormat,         // format of the input field
-      	   button         :    "#{id}Button",  // trigger for the calendar (button ID)
-      	   help           :    "#{id}Help",    // trigger for the help menu
-      	   align          :    "Br",                     // alignment (defaults to "Bl")
-      	   singleClick    :    true,
-      	  });
-        </script>
-      </div>
-EOS
+    out << <<HTML	
+ <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.DateField({ format: 'Y-m-d', applyTo: '#{id}'}); } );
+ </script>
+HTML
+
   end
  
   def my_in_place_editor_field(object, method, tag_options = {}, in_place_editor_options = {})
@@ -348,17 +331,25 @@ EOS
   def my_lookup_tag(id,name, data_element=nil ,options={})
     options[:mask]    ||= '.'
     options[:onfocus] ||= 'FieldEntry( this,event)' 
-#    options[:onkeyup] ||= 'LookupOnKeyPress(this,event)'
     if data_element.nil?
        return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10
-       options[:onchange]  ||= 'FieldSave(this,event)'   
-#       options[:onblur]  ||= 'FieldExit(this,event)'       
-       option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value])
-       return content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys))
+       options[:onchange]  ||= 'FieldSave(this,event)'         
+       option_tags = options_for_select(data_element.values.collect{|i|[i.name,i.name]},options[:value]) 
+	   return <<HTML
+		 #{content_tag( :select, option_tags, { "name" => name, "id" => id }.update(options.stringify_keys)) }
+		 <script type="text/javascript">
+		   Ext.onReady( function(){ new Biorails.SelectField('#{id}'); } );
+		 </script> 
+HTML
+	   
     else
-       return combo_box_tag_auto_complete( id,"",data_element_url(:action=>'select', :id=> data_element.id), options, 
-       {:after_update_element=>'FieldSave', :useCache=>true, :row_count => 20, :min_chars => 2})
+	   return <<HTML
+		  #{content_tag( :input,nil, { "name" => name, "id" => id }.update(options.stringify_keys)) }
+		  <script type="text/javascript">
+			Ext.onReady( function(){ new Biorails.ComboField('#{id}',#{data_element.id}); } );
+		  </script> 
+HTML
     end
   end
 
