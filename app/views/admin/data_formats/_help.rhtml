@@ -8,8 +8,7 @@
 %>
 
 <div id="right-accordion">
-
-  <div id="panel-help">
+  <div id="panel-help" class='x-hidden'>
     <div>Data Format </div>
     <div>
       <div class="text-content">
@@ -20,7 +19,7 @@
     </div>
   </div>
 
-  <div id="panel-meta">
+  <div id="panel-meta" class='x-hidden'>
     <div>RegEx. Meta Characters </div>
     <div>
       <div class="text-content">
@@ -44,7 +43,7 @@
     </div>
   </div>
 
-  <div id="panel-escapes">
+  <div id="panel-escapes" class='x-hidden'>
     <div>RegEx.Character Escapes </div>
     <div>
       <div class="text-content">
@@ -76,7 +75,7 @@
     </div>
   </div>
 
-  <div id="panel-classes">
+  <div id="panel-classes" class='x-hidden'>
     <div>RegEx. Character Classes</div>
     <div>
       <div class="text-content">
@@ -101,7 +100,7 @@
   </div>
 
           	  
-  <div id="panel-printf">
+  <div id="panel-printf" class='x-hidden'>
     <div>Printf Cheat Sheet </div>
     <div>
       <div class="text-content">
@@ -145,13 +144,23 @@
 <script>
   Ext.onReady(function() {
   // create accordion
-  var acc = new Ext.ux.Accordion('right-accordion', { fitHeight: true, autoScroll:true, hideOtherOnExpand: false })
-
-  // create panel 1
-  acc.add(new Ext.ux.InfoPanel('panel-help', {hideOtherOnExpand: false  }));
-  acc.add(new Ext.ux.InfoPanel('panel-meta', {autoScroll:true, hideOtherOnExpand: false  }));
-  acc.add(new Ext.ux.InfoPanel('panel-escapes', {autoScroll:true, hideOtherOnExpand: false  }));
-  acc.add(new Ext.ux.InfoPanel('panel-classes', {autoScroll:true, hideOtherOnExpand: false  }));
-  acc.add(new Ext.ux.InfoPanel('panel-printf', {autoScroll:true, hideOtherOnExpand: false  }));
+  var accordion = new Ext.Panel({
+	  title: 'Help',
+	  renderTo: "right-accordion",
+	  layout:'accordion',
+	  autoHeight: true,
+	  defaults: {
+		  bodyStyle: 'padding:1px'
+	  },
+	  layoutConfig: {
+		  titleCollapse: false,
+		  animate: true
+	  },
+	  items: [{ title: 'Help', contentEl:'panel-help'},
+			  { title: 'Meta Char', contentEl:'panel-meta'},
+			  { title: 'Escapes', contentEl:'panel-escapes'},
+			  { title: 'Classes', contentEl:'panel-classes'},
+			  { title: 'PrintF', contentEl:'panel-printf' }]
+	 });
 });
 </script>

@@ -6,6 +6,15 @@
     Description:
         Purpose of the stylesheet follows.
 */
+html, body {
+    font-size: 10px ;    
+    font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
+    margin:0;
+    padding:0;
+    border:0 none;
+    height:100%;
+}
+
 h1 {
     margin:0 0 12px 0; 
     font-size:1.6em;

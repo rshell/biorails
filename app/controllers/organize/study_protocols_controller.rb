@@ -31,8 +31,12 @@ class Organize::StudyProtocolsController < ApplicationController
 #List the protocols in the study
 #
   def list
-    @study = current_user.study( params[:id] )
-    @study_protocols = @study.protocols
+	if params[:id]
+      @study = current_user.study( params[:id] )
+      @study_protocols = @study.protocols
+	else
+      @study_protocols = current_project.protocols	  
+	end  
   end
 
 ##

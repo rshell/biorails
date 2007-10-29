@@ -21,14 +21,3 @@
   <div id="panel-help">
   
 </div>
-
-<script>
-  Ext.onReady(function() {
-  // create accordion
-  var acc = new Ext.ux.Accordion('right-accordion', { fitHeight: true, autoScroll:true, hideOtherOnExpand: false })
-
-  // create panel 1
-  var panel1 = acc.add(new Ext.ux.InfoPanel('panel-tree', {autoScroll:true, hideOtherOnExpand: false  }));
-  var panel2 = acc.add(new Ext.ux.InfoPanel('panel-help', {hideOtherOnExpand: false  }));
-});
-</script>

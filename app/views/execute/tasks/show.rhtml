@@ -16,17 +16,17 @@
     <div id="tab-show" class="tab-content">
        <%=render :partial =>'show' %>
     </div>
-    <div id="tab-import" class="tab-content">
+    <div id="tab-import" class="tab-content x-hidden">
     </div>
-    <div id="tab-sheet" class="tab-content">
+    <div id="tab-sheet" class="tab-content x-hidden">
     </div>
-    <div id="tab-view" class="tab-content">
+    <div id="tab-view" class="tab-content x-hidden">
     </div>
-    <div id="tab-analysis" class="tab-content">
+    <div id="tab-analysis" class="tab-content x-hidden">
     </div>
-    <div id="tab-report" class="tab-content">
+    <div id="tab-report" class="tab-content x-hidden">
     </div>
-    <div id="tab-matrics" class="tab-content">
+    <div id="tab-matrics" class="tab-content x-hidden">
     </div>
 </div>    
 <%end%>
@@ -34,23 +34,38 @@
 
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
-        var tabs = new Ext.TabPanel('tabs1');
-        var tab1 = tabs.addTab('tab-show', "Overview");        
-        var tab2 = tabs.addTab('tab-import', "Import");
-        var tab3 = tabs.addTab('tab-sheet', "Entry");
-        var tab4 = tabs.addTab('tab-view', "Review");
-        var tab5 = tabs.addTab('tab-analysis', "Analysis");
-        var tab6 = tabs.addTab('tab-report', "Report");
-        var tab7 = tabs.addTab('tab-matrics', "Metrics");
-        tabs.activate('tab-show');
-        
-        tab2.setUrl({url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true},null, false);
-        tab3.setUrl({url:"<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
-        tab4.setUrl({url:"<%=task_url(:action=>'view',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
-        tab5.setUrl({url:"<%=task_url(:action=>'analysis',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
-        tab6.setUrl({url:"<%=task_url(:action=>'report',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
-        tab7.setUrl({url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}, null, false);
+        var tabs = new Ext.TabPanel({
+		        renderTo:'tabs1',
+				activeTab: 0,
+				defaults: {
+						autoHeight: true,
+						autoScroll: true,
+						bodyStyle: 'padding:5px'
+				},
+				items: [{
+						title: 'Overview',
+						contentEl: 'tab-show'
+					},{
+						title: 'Import',
+						contentEl: 'tab-import',
+						autoLoad: {url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true}
+					},{
+						title: 'Sheet',
+						contentEl: 'tab-sheet',
+						autoLoad: {url:"<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>",scripts:true}
+					},{
+						title: 'View',
+						contentEl: 'tab-view',
+						autoLoad: {url:"<%=task_url(:action=>'view',:format=>:ext,:id=>@task)%>",scripts:true}
+					},{
+						title: 'Analysis',
+						contentEl: 'tab-analysis',
+						autoLoad: {url:"<%=task_url(:action=>'analysis',:format=>:ext,:id=>@task)%>",scripts:true}
+					},{
+						title: 'Metices',
+						contentEl: 'tab-matrics',
+                        autoLoad: {url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}
+					}]		  
+		});
  });
 </script>    
-
-    

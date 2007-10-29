@@ -9,11 +9,6 @@
   <%= link_to 'New ',:controller =>'study_parameters', :action => 'new', :id=>@study %></li>
 </div>
 <% end -%>
-
-    <% tab_ids = ['tab-qa','tab-usage','tab-metrics','tab-results']%>   
-    <% tab_names = ['Rules','Protocols','Parameter Metrics','Experiment Metrics']%>   
-    <%=tab_setup(tab_ids,tab_names) %>
-
 <div class="main">
     <h2>
         [<%=@study_parameter.study.name%>] <%=subject_icon('parameter.png')%> Study Parameter [<strong><%=@study_parameter.name%></strong>]
@@ -32,20 +27,20 @@
             metrics for analysis and QA. 
          </div>
 
-         <div id="tab-usage" class="tab-content">
+         <div id="tab-usage" class="tab-content x-hidden">
            <%= render :partial => 'example'  %>    
          </div>
             
-          <div id="tab-protocol" class="tab-content">
+          <div id="tab-protocol" class="tab-content x-hidden">
              List of all the protocols containing this parameter
              <%= render :partial => 'shared/report', :locals => {:report => @protocol_report,:data => @protocol_data } %>    
          </div>
         
-          <div id="tab-params" class="tab-content">
+          <div id="tab-params" class="tab-content x-hidden">
              <%= render :partial => 'shared/report', :locals => {:report => @metrics_report,:data => @metrics_data } %>    
          </div>
         
-          <div id="tab-expt" class="tab-content">
+          <div id="tab-expt" class="tab-content x-hidden">
              <%= render :partial => 'shared/report', :locals => {:report => @experiment_report,:data => @experiment_data } %>    
          </div>
 
@@ -55,12 +50,31 @@
 
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
-        var tabs = new Ext.TabPanel('tabs1');
-        var tab0 = tabs.addTab('tab-show', "Show");        
-        var tab1 = tabs.addTab('tab-usage', "Examples");        
-        var tab2 = tabs.addTab('tab-protocol', "Protocols");
-        var tab3 = tabs.addTab('tab-params', "Metrics [Parameter]");
-        var tab4 = tabs.addTab('tab-expt', "Metrics [Experiment]");
-        tabs.activate('tab-usage');
+        var tabs = new Ext.TabPanel({
+		        renderTo:'tabs1',
+				activeTab: 0,
+				defaults: {
+						autoHeight: true,
+						autoScroll: true,
+						bodyStyle: 'padding:5px'
+				},
+				items: [{
+						title: 'Show',
+						contentEl: 'tab-show'
+					},{
+						title: 'Examples',
+						contentEl: 'tab-usage'
+					},{
+						title: 'Protocols',
+						contentEl: 'tab=protocols'
+					},{
+						title: 'Metrics [Parameter]',
+						contentEl: 'tab-params'
+					},{
+						title: 'Metrics [Experiment]',
+						contentEl: 'tab-expt'
+				    }]		  
+		});
  });
-</script>
+</script>   
+

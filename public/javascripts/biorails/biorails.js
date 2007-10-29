@@ -1,3 +1,21 @@
+/////////////////////////////////////////////////////////////////////////////////////
+// Biorails Application Javascript Support codde
+//
+//
+// Created by: 
+//      Robert Shell - http://biorails.com
+//
+// License:
+//      GNU General Public License version 2.0 
+//      http://www.gnu.org/licenses/gpl.html
+//
+// Bugs:
+//      Please submit bug reports to http://biorails.org
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
 Ext.BLANK_IMAGE_URL = '/images/s.gif';
 Ext.ux.grid.filter.StringFilter.prototype.icon = 'img/find.png';
 Ext.ux.menu.RangeMenu.prototype.icons = {
@@ -61,11 +79,15 @@ Biorails = function(){
 // Chick on a Menu
 //		
   function clickMenu(e) {
-  	 this.base_url = e.url;
-     new Ajax.Request(e.url,{
-            method: 'get',
-			evalScripts: true
-        });
+     if (e.ajax) {
+		 this.base_url = e.url;
+		 new Ajax.Request(e.url,{
+				method: 'get',
+				evalScripts: true
+			});
+     } else {
+        
+     };
     };
 
 // 
@@ -91,13 +113,13 @@ Biorails = function(){
 // West
    var _tree_panel = new Ext.tree.TreePanel({
 			el:'tree-panel',
-            title:'Folder Tree',
-			autoScroll:true,
+            title:'Folders',
+            minHeight: 400,
             autoShow: true,            
 			animate:true,
 			enableDD:true,
 			containerScroll: true,
-            iconCls:'nav', 
+            iconCls:'icon-folder', 
 			loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
 		});
     _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',  draggable:false, id: 'root' }) );
@@ -117,7 +139,7 @@ Biorails = function(){
 					autoScroll: true,
 					contentEl: 'work-tab',
 					id: 'work-id',
-					title:"Work"
+					title:"Workbench"
 				  }  );
    
    var _status_panel = new Ext.Panel({
@@ -135,6 +157,7 @@ Biorails = function(){
 					autoDestroy: true,  
 					autoScroll: true,
 					id: 'help-id',
+                    iconCls:'icon-help', 
 					contentEl:'help-tab',
 					title:"Help"
 				  });
@@ -176,53 +199,52 @@ Biorails = function(){
 // Default Toolbar
 // 
    var _toolbar =  new Ext.Toolbar({
-		 items: [{text: 'Home',menu: { items: [
-								{text: "Dashboard",    url:'/home',handler: clickMenu ,scope: this },
+		 items: [{text: 'Home', menu: { items: [
+								{text: "Dashboard",iconCls:'icon-home',    url:'/home',handler: clickMenu ,scope: this },
 								'-',
-								{text: "Recent",       url:'/home/news',handler: clickMenu ,scope: this },
-								{text: "Projects",     url:'/home/projects',handler: clickMenu ,scope: this },
-								{text: "Todo",         url:'/home/todo',handler: clickMenu ,scope: this  },
-								{text: "Tasks",        url:'/home/tasks',handler: clickMenu ,scope: this  },
-								{text: "Requests",     url:'/home/requests',handler: clickMenu ,scope: this  }
+								{text: "Recent",  iconCls:'icon-news' ,      url:'/home/news',handler: clickMenu ,scope: this },
+								{text: "Projects",iconCls:'icon-project' ,      url:'/home/projects',handler: clickMenu ,scope: this },
+								{text: "Todo",    iconCls:'icon-todo' ,      url:'/home/todo',handler: clickMenu ,scope: this  },
+								{text: "Tasks",   iconCls:'icon-task' ,      url:'/home/tasks',handler: clickMenu ,scope: this  },
+								{text: "Requests",iconCls:'icon-request' ,      url:'/home/requests',handler: clickMenu ,scope: this  }
 							]}},
-				 {text: 'Project',menu : {items: [
-								{text: "Dashboard",    url:'/projects/show',handler: clickMenu ,scope: this },
+				 {text: 'Project', menu : {items: [
+								{text: "Dashboard", iconCls:'icon-project',   url:'/projects/show',handler: clickMenu ,scope: this },
 								'-',
-								{text: "Calender",     url:'/projects/calendar',handler: clickMenu ,  scope: this },
-								{text: 'Timeline',     url:'/projects/gantt',handler: clickMenu,  scope: this },
+								{text: "Calender",    iconCls:'icon-calendar' ,   url:'/projects/calendar',handler: clickMenu ,  scope: this },
+								{text: 'Timeline',    iconCls:'icon-timeline' ,   url:'/projects/gantt',handler: clickMenu,  scope: this },
 								{text: 'Folders',      url:'/folders',handler: clickMenu,  scope: this },
 								{text: 'Study Designs',url:'/studies',handler: clickMenu,  scope: this },
 								{text: 'Experiments',  url:'/experiments',handler: clickMenu,  scope: this },
 								{text: "Reports",      url:'/reports',handler: clickMenu, scope: this }
 							]}},
 				 {text: 'Design',menu : {items: [
-								{text: "Studies",     url:'/studies',handler: clickMenu ,  scope: this },
-								{text: "Services",    url:'/queues',handler: clickMenu ,scope: this },
-								{text: "Protocols",   url:'/protocols',handler: clickMenu , scope: this }
+								{text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },
+								{text: "Services", iconCls:'icon-service' ,  href:'/queues' ,scope: this },
+								{text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
 							]}},' ',
 				 {text: 'Inventory',menu : {items: [
-								{text: "Molecules",   url:'/molecules',handler: clickMenu ,  scope: this },
-								{text: "Compounds",   url:'/compounds',handler: clickMenu ,  scope: this },
-								{text: "Batches",     url:'/batches',handler: clickMenu ,  scope: this },
-								{text: "Mixtures",    url:'/mixtures',handler: clickMenu ,  scope: this },
-								{text: "Samples",     url:'/samples',handler: clickMenu ,  scope: this },
-								{text: "Containers",  url:'/containers',handler: clickMenu ,  scope: this }
+								{text: "Molecules", iconCls:'icon-molecule' , href:'/molecules' ,  scope: this },
+								{text: "Compounds", iconCls:'icon-compound' , href:'/compounds',  scope: this },
+								{text: "Batches",   iconCls:'icon-batch' ,    href:'/batches' ,  scope: this },
+								{text: "Mixtures",  iconCls:'icon-mixture' ,  href:'/mixtures',  scope: this },
+								{text: "Samples",   iconCls:'icon-sample' ,   href:'/samples' ,  scope: this },
+								{text: "Containers",iconCls:'icon-container' ,href:'/containers' ,  scope: this }
 							]}},' ',
 				 {text: 'Administration',menu : {items: [
-								{text: "Catalogue",   url:'/admin/catalogue',handler: clickMenu , scope: this },
+								{text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
 								'-',
-								{text: "Data Sources",url:'/admin/system',handler: clickMenu ,   scope: this },
-								{text: "Data Types",  url:'/admin/data',handler: clickMenu ,   scope: this },
-								{text: "Data Lookups",  url:'/admin/element',handler: clickMenu ,   scope: this },
-								{text: "Data Formats",  url:'/admin/format',handler: clickMenu ,   scope: this },
+								{text: "Data Sources",iconCls:'icon-data-system' ,href:'/admin/system',  scope: this },
+								{text: "Data Types",  iconCls:'icon-data-type' ,href:'/admin/data',  scope: this },
+								{text: "Data Lookups",iconCls:'icon-data-element' ,  href:'/admin/element',  scope: this },
+								{text: "Data Formats",iconCls:'icon-data-format' ,  href:'/admin/format',   scope: this },
 								'-',
-								{text: "Study Stage", url:'/admin/stage',handler: clickMenu ,   scope: this },
-								{text: "Parameter types", url:'/admin/parameters',handler: clickMenu ,   scope: this },
-								{text: "Parameter Roles", url:'/admin/usage',handler: clickMenu ,   scope: this },
+								{text: "Study Stage",iconCls:'icon-study-stage' ,  href:'/admin/stage', scope: this },
+								{text: "Parameter types",iconCls:'icon-parameter-type' , href:'/admin/parameters',  scope: this },
+								{text: "Parameter Roles",iconCls:'icon-parameter-role' , href:'/admin/usage', scope: this },
 								'-',
-								{text: "Roles", url:'/admin/role',handler: clickMenu ,   scope: this },
-								{text: "Users", url:'/admin/user',handler: clickMenu ,   scope: this },
-								{text: "Audit Log", url:'/audit',handler: clickMenu ,   scope: this }
+								{text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
+								{text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
 							]}},
 				 {text: 'Help',menu : {items: [
 								{text: "Help",  scope: this }			            
@@ -230,7 +252,7 @@ Biorails = function(){
 				  '->',
 				  searchField,
 				  {text: 'search',handler: onSearchClick},							
-				  {text: 'logout', href:'/logoff'}							
+				  {text: 'logout', iconCls:'icon-logout', href:'/logoff'}							
 				]});
 
    var _layout = {
@@ -264,19 +286,22 @@ Biorails = function(){
 			    collapsible:true,
 			    useSplitTips: true,
 			    titleCollapse:true,
-		        width: 250,
-		        minSize: 175,
+		        width: 170,
+                minHeight: 600,                       
+		        minSize: 170,
 		        maxSize: 400,
 		        layout:'accordion',
 		        layoutConfig:{
 		            animate:true
 		        },
-		        items: [ _actions_panel, _tree_panel]
+		        items: [ _actions_panel, _work_panel]
 			  },{
 			    region:"east",
 			    title:"Extras",
+                layout: 'fit',                       
 			    id:'extra-id',	
 			    width: 225,
+                minHeight: 600,                       
 				minSize: 175,
                 maxSize: 400,
 			    split:true,
@@ -287,8 +312,7 @@ Biorails = function(){
 			        xtype:"tabpanel",
 			        activeTab:0,
 				    tabPosition: 'top',
-			        items:[ _status_panel, _help_panel, _work_panel  ]
-                               
+			        items:[ _status_panel, _help_panel, _tree_panel  ]
 			      }]
 			  },_center_panel
 			  ]
@@ -556,6 +580,477 @@ Biorails = function(){
         }
    };
 }();
+
+//------------------ Biorails Form controls --------------------------------------------------------
+
+/*
+ * Do some intelligent parsing of date to like like's  of next tues
+ */
+Biorails.MagicDate = function(){
+	// arrays for month and weekday names
+	var monthNames = "January February March April May June July August September October November December".split(" ");
+	var weekdayNames = "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" ");
+
+	/* Takes a string, returns the index of the month matching that string, throws
+	   an error if 0 or more than 1 matches
+	*/
+	function parseMonth(month) {
+		var matches = monthNames.filter(function(item) { 
+			return new RegExp("^" + month, "i").test(item);
+		});
+		if (matches.length == 0) {
+			throw new Error("Invalid month string");
+		}
+		if (matches.length < 1) {
+			throw new Error("Ambiguous month");
+		}
+		return monthNames.indexOf(matches[0]);
+	}
+
+	/* Same as parseMonth but for days of the week */
+	function parseWeekday(weekday) {
+		var matches = weekdayNames.filter(function(item) {
+			return new RegExp("^" + weekday, "i").test(item);
+		});
+		if (matches.length == 0) {
+			throw new Error("Invalid day string");
+		}
+		if (matches.length < 1) {
+			throw new Error("Ambiguous weekday");
+		}
+		return weekdayNames.indexOf(matches[0]);
+	}
+
+	function DateInRange( yyyy, mm, dd )
+	   {
+	   // if month out of range
+	   if ( mm < 0 || mm > 11 )
+		  throw new Error('Invalid month value.  Valid months values are 1 to 12');
+
+	   if (!configAutoRollOver) {
+		   // get last day in month
+		   var d = (11 == mm) ? new Date(yyyy + 1, 0, 0) : new Date(yyyy, mm + 1, 0);
+
+		   // if date out of range
+		   if ( dd < 1 || dd > d.getDate() )
+			  throw new Error('Invalid date value.  Valid date values for ' + monthNames[mm] + ' are 1 to ' + d.getDate().toString());
+	   }
+	   return true;
+	   }
+
+	function getDateObj(yyyy, mm, dd) {
+		var obj = new Date();
+
+		obj.setDate(1);
+		obj.setYear(yyyy);
+		obj.setMonth(mm);
+		obj.setDate(dd);
+
+		return obj;
+	}
+
+	/* Array of objects, each has 're', a regular expression and 'handler', a 
+	   function for creating a date from something that matches the regular 
+	   expression. Handlers may throw errors if string is unparseable. 
+	*/
+	var dateParsePatterns = [
+		// Today
+		{   re: /^tod|now/i,
+			handler: function() { 
+				return new Date();
+			} 
+		},
+		// Tomorrow
+		{   re: /^tom/i,
+			handler: function() {
+				var d = new Date(); 
+				d.setDate(d.getDate() + 1); 
+				return d;
+			}
+		},
+		// Yesterday
+		{   re: /^yes/i,
+			handler: function() {
+				var d = new Date();
+				d.setDate(d.getDate() - 1);
+				return d;
+			}
+		},
+		// 4th
+		{   re: /^(\d{1,2})(st|nd|rd|th)?$/i, 
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear();
+				var dd = parseInt(bits[1], 10);
+				var mm = d.getMonth();
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// 4th Jan
+		{   re: /^(\d{1,2})(?:st|nd|rd|th)? (?:of\s)?(\w+)$/i, 
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear();
+				var dd = parseInt(bits[1], 10);
+				var mm = parseMonth(bits[2]);
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// 4th Jan 2003
+		{   re: /^(\d{1,2})(?:st|nd|rd|th)? (?:of )?(\w+),? (\d{4})$/i,
+			handler: function(bits) {
+				var d = new Date();
+				d.setDate(parseInt(bits[1], 10));
+				d.setMonth(parseMonth(bits[2]));
+				d.setYear(bits[3]);
+				return d;
+			}
+		},
+		// Jan 4th
+		{   re: /^(\w+) (\d{1,2})(?:st|nd|rd|th)?$/i, 
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear(); 
+				var dd = parseInt(bits[2], 10);
+				var mm = parseMonth(bits[1]);
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// Jan 4th 2003
+		{   re: /^(\w+) (\d{1,2})(?:st|nd|rd|th)?,? (\d{4})$/i,
+			handler: function(bits) {
+
+				var yyyy = parseInt(bits[3], 10); 
+				var dd = parseInt(bits[2], 10);
+				var mm = parseMonth(bits[1]);
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// Next Week, Last Week, Next Month, Last Month, Next Year, Last Year
+		{   re: /((next|last)\s(week|month|year))/i,
+			handler: function(bits) {
+				var objDate = new Date();
+
+				var dd = objDate.getDate();
+				var mm = objDate.getMonth();
+				var yyyy = objDate.getFullYear();
+
+				switch (bits[3]) {
+				  case 'week':
+					var newDay = (bits[2] == 'next') ? (dd + 7) : (dd - 7);
+
+					objDate.setDate(newDay);
+
+					break;
+				  case 'month':
+					var newMonth = (bits[2] == 'next') ? (mm + 1) : (mm - 1);
+
+					objDate.setMonth(newMonth);
+
+					break;
+				  case 'year':
+					var newYear = (bits[2] == 'next') ? (yyyy + 1) : (yyyy - 1);
+
+					objDate.setYear(newYear);
+
+					break;
+				}
+
+				return objDate;
+			}
+		},
+		// next Tuesday - this is suspect due to weird meaning of "next"
+		{   re: /^next (\w+)$/i,
+			handler: function(bits) {
+
+				var d = new Date();
+				var day = d.getDay();
+				var newDay = parseWeekday(bits[1]);
+				var addDays = newDay - day;
+				if (newDay <= day) {
+					addDays += 7;
+				}
+				d.setDate(d.getDate() + addDays);
+				return d;
+
+			}
+		},
+		// last Tuesday
+		{   re: /^last (\w+)$/i,
+			handler: function(bits) {
+
+				var d = new Date();
+				var wd = d.getDay();
+				var nwd = parseWeekday(bits[1]);
+
+				// determine the number of days to subtract to get last weekday
+				var addDays = (-1 * (wd + 7 - nwd)) % 7;
+
+				// above calculate 0 if weekdays are the same so we have to change this to 7
+				if (0 == addDays)
+				   addDays = -7;
+
+				// adjust date and return
+				d.setDate(d.getDate() + addDays);
+				return d;
+
+			}
+		},
+		// mm/dd/yyyy (American style)
+		{   re: /(\d{1,2})\/(\d{1,2})\/(\d{4})/,
+			handler: function(bits) {
+				// if config date type is set to another format, use that instead
+				if (configDateType == 'dd/mm/yyyy') {
+				  var yyyy = parseInt(bits[3], 10);
+				  var dd = parseInt(bits[1], 10);
+				  var mm = parseInt(bits[2], 10) - 1;
+				} else {
+				  var yyyy = parseInt(bits[3], 10);
+				  var dd = parseInt(bits[2], 10);
+				  var mm = parseInt(bits[1], 10) - 1;
+				}
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// mm/dd/yy (American style) short year
+		{   re: /(\d{1,2})\/(\d{1,2})\/(\d{1,2})/,
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear() - (d.getFullYear() % 100) + parseInt(bits[3], 10);
+				var dd = parseInt(bits[2], 10);
+				var mm = parseInt(bits[1], 10) - 1;
+
+				if ( DateInRange(yyyy, mm, dd) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// mm/dd (American style) omitted year
+		{   re: /(\d{1,2})\/(\d{1,2})/,
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear();
+				var dd = parseInt(bits[2], 10);
+				var mm = parseInt(bits[1], 10) - 1;
+
+				if ( DateInRange(yyyy, mm, dd) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// mm-dd-yyyy
+		{   re: /(\d{1,2})-(\d{1,2})-(\d{4})/,
+			handler: function(bits) {
+				if (configDateType == 'dd-mm-yyyy') {
+				  // if the config is set to use a different schema, then use that instead
+				  var yyyy = parseInt(bits[3], 10);
+				  var dd = parseInt(bits[1], 10);
+				  var mm = parseInt(bits[2], 10) - 1;
+				} else {
+				  var yyyy = parseInt(bits[3], 10);
+				  var dd = parseInt(bits[2], 10);
+				  var mm = parseInt(bits[1], 10) - 1;
+				}
+
+				if ( DateInRange( yyyy, mm, dd ) ) {
+				   return getDateObj(yyyy, mm, dd);
+				}
+
+			}
+		},
+		// dd.mm.yyyy
+		{   re: /(\d{1,2})\.(\d{1,2})\.(\d{4})/,
+			handler: function(bits) {
+				var dd = parseInt(bits[1], 10);
+				var mm = parseInt(bits[2], 10) - 1;
+				var yyyy = parseInt(bits[3], 10);
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// yyyy-mm-dd (ISO style)
+		{   re: /(\d{4})-(\d{1,2})-(\d{1,2})/,
+			handler: function(bits) {
+
+				var yyyy = parseInt(bits[1], 10);
+				var dd = parseInt(bits[3], 10);
+				var mm = parseInt(bits[2], 10) - 1;
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// yy-mm-dd (ISO style) short year
+		{   re: /(\d{1,2})-(\d{1,2})-(\d{1,2})/,
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear() - (d.getFullYear() % 100) + parseInt(bits[1], 10);
+				var dd = parseInt(bits[3], 10);
+				var mm = parseInt(bits[2], 10) - 1;
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// mm-dd (ISO style) omitted year
+		{   re: /(\d{1,2})-(\d{1,2})/,
+			handler: function(bits) {
+
+				var d = new Date();
+				var yyyy = d.getFullYear();
+				var dd = parseInt(bits[2], 10);
+				var mm = parseInt(bits[1], 10) - 1;
+
+				if ( DateInRange( yyyy, mm, dd ) )
+				   return getDateObj(yyyy, mm, dd);
+
+			}
+		},
+		// mon, tue, wed, thr, fri, sat, sun
+		{   re: /(^mon.*|^tue.*|^wed.*|^thu.*|^fri.*|^sat.*|^sun.*)/i,
+			handler: function(bits) {
+				var d = new Date();
+				var day = d.getDay();
+				var newDay = parseWeekday(bits[1]);
+				var addDays = newDay - day;
+				if (newDay <= day) {
+					addDays += 7;
+				}
+				d.setDate(d.getDate() + addDays);
+				return d;
+			}
+		},
+	];
+return {
+    parse: function(s) {
+		for (var i = 0; i < dateParsePatterns.length; i++) {
+			var re = dateParsePatterns[i].re;
+			var handler = dateParsePatterns[i].handler;
+			var bits = re.exec(s);
+			if (bits) {
+				return handler(bits);
+			}
+		}
+                
+		//throw new Error("Invalid date string");
+        return "";        
+	}
+}      
+}();
+
+
+/**
+ *  Biorails.DateField 
+ *  
+ *  Based on "A better way of entering dates"  
+ *       http://simonwillison.net/2003/Oct/6/betterDateInput/
+ *  and Datablocks engine http://dev.toolbocks.com
+ *
+ */
+
+Ext.namespace("Biorails.DateField");
+
+/**
+ * Date field that allows user to enter shortcuts (ie 't' for today's date)
+ * and plain english like '5 days ago'.
+ * 
+ * @class Biorails.DateFieldField
+ * @extends Ext.form.DateField
+ * @see Biorails.DateField
+ * @constructor   Create a new  Date Field
+ * @param {Object} config The config object
+ */
+Biorails.DateField = function(config){    
+    Biorails.DateField.superclass.constructor.call(this,config); 
+};
+
+Ext.extend(Biorails.DateField,  Ext.form.DateField, {
+	parseDate : function(raw) {
+		var value = Biorails.DateField.superclass.parseDate.call(this, raw);
+		
+        if(!value) {
+			value = Biorails.MagicDate.parse(raw);
+		}
+
+		return value;
+	}
+});
+//Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
+
+
+/**
+ *  Biorails.SelectField 
+ *
+ * Custom Select field for a defined list of values
+ */
+
+
+Ext.namespace("Biorails.SelectField");
+
+Biorails.SelectField = function(id){    
+    Biorails.SelectField .superclass.constructor.call(this,{
+		typeAhead: true,
+        triggerAction: 'all',
+        transform: id,
+        forceSelection:true        
+        }); 
+};
+
+Ext.extend(Biorails.SelectField,  Ext.form.ComboBox, {});
+/**
+ * Custom Select field for a remote data element field
+ */
+Biorails.ComboField = function(id,element_id){    
+    Biorails.DateField.superclass.constructor.call(this,{
+		 mode:'remote',
+		 triggerAction: 'all',
+		 forceSelection: true,
+		 editable: true,
+		 valueField: 'id',
+		 displayField: 'name',
+		 pageSize: 12,
+		 minListWidth: 250,
+		 minChars: 3,
+         store: new Ext.data.JsonStore({
+                   proxy: new Ext.data.HttpProxy({ url: '/elements/lookup/'+element_id, method: 'get' }),
+                   reader: new Ext.data.JsonReader({
+                     root: 'items', totalProperty: 'total'}, [
+						   {name: 'id', type: 'int'},
+						   {name: 'name'},
+						   {name: 'description'}]  )
+                    })
+         }); 
+};
+
+Ext.extend(Biorails.ComboField,  Ext.form.ComboBox, {});
+//Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
+
+
 
 //------------------ Folder Tree Panel------------------------------------------------------------------
 Biorails.Tree = function(){

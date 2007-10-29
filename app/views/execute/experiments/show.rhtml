@@ -11,16 +11,17 @@
 <% end %>
 
 <% content_for :center do -%>
+
 <div id='tabs1'>
-    <div id="tab-show" class="tab-content">
+    <div id="tab-show" class="tab-content x-hidden">
        <%=render :partial =>'show' %>
     </div>
-    <div id="tab-import" class="tab-content">
+    <div id="tab-import" class="tab-content x-hidden">
        <%=render :partial =>'import' %>
     </div>
-    <div id="tab-matrics" class="tab-content">
+    <div id="tab-matrics" class="tab-content x-hidden">
     </div>
-    <div id="tab-xxx" class="tab-content">
+    <div id="tab-xxx" class="tab-content x-hidden">
     </div>
 </div>    
 <%end%>
@@ -28,14 +29,26 @@
 
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
-        var tabs = new Ext.TabPanel('tabs1');
-        var tab1 = tabs.addTab('tab-show', "Overview");        
-        var tab2 = tabs.addTab('tab-import', "Import");
-        var tab3 = tabs.addTab('tab-matrics', "Metrics");
-        tabs.activate('tab-show');
+        var tabs = new Ext.TabPanel({
+		        renderTo:'tabs1',
+				activeTab: 0,
+				defaults: {
+						autoHeight: true,
+						autoScroll: true,
+						bodyStyle: 'padding:15px'
+				},
+				items: [{
+						title: 'Overview',
+						contentEl: 'tab-show'
+					},{
+						title: 'Import',
+						contentEl: 'tab-import'
+					},{
+						title: 'Metices',
+						contentEl: 'tab-matrics',
+                        autoLoad: "<%=experiment_url(:action=>'metrics',:format=>:html,:id=>@experiment)%>"
+					}]		  
+		});
 
-        //tab1.setUrl("<%=experiment_url(:action=>'show',:id=>@experiment)%>", null, false);
-        //tab2.setUrl("<%=experiment_url(:action=>'import',:id=>@experiment)%>", null, false);
-        tab3.setUrl("<%=experiment_url(:action=>'metrics',:format=>:html,:id=>@experiment)%>", null, false);
  });
 </script>    

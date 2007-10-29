@@ -34,37 +34,16 @@ EOL
 # Date field for stadard forms
 # 
   def date_field(object_name, method)
-    calendar_ref = object_name + '_' + method
-    <<-EOL
-      <div id="dateBocks">
-        <ul>
-          <li>#{text_field object_name, method, { 
-                   :onchange => "magicDate('#{calendar_ref}');", 
-                   :onkeypress => "magicDateOnlyOnSubmit('#{calendar_ref}', event); return dateBocksKeyListener(event);", 
-                   :onclick => "this.select();"} }</li>
-          <li>#{subject_icon('icon-calendar.gif', :alt => 'Calendar', 
-                                           :id => calendar_ref + 'Button', 
-                                           :style => 'cursor: pointer;' ) }</li>
-          <li>#{subject_icon('icon-help.gif', :alt => 'Help', :id => calendar_ref+ 'Help' ) }</li>
-
-        </ul>
-        <div id="dateBocksMessage"><div id="#{calendar_ref}Msg"></div></div>
-        <script type="text/javascript">
-          document.getElementById('#{calendar_ref}Msg').innerHTML = calendarFormatString;
-          
-          Calendar.setup({
-      	   inputField     :    "#{calendar_ref}",        // id of the input field
-      	   ifFormat       :    calendarIfFormat,         // format of the input field
-      	   button         :    "#{calendar_ref}Button",  // trigger for the calendar (button ID)
-      	   help           :    "#{calendar_ref}Help",    // trigger for the help menu
-      	   align          :    "Br",                     // alignment (defaults to "Bl")
-      	   singleClick    :    true
-      	  });
-          //document.getElementById('#{calendar_ref}').onkeydown = dateBocksKeyListener;
-          
-        </script>
-      </div>
-    EOL
+ 	date = eval("@#{object_name}.#{method}") 
+	 
+	value = date ? date.strftime("%Y-%m-%d") :""
+<<HTML	
+ <input id="#{object_name}_#{method}" name="#{object_name}[#{method}]" type="text" value="#{value}" />
+ <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.DateField({ format: 'Y-m-d', applyTo: '#{object_name}_#{method}'}); } );
+ </script>
+HTML
+	
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -106,7 +85,12 @@ EOL
           list << [item.send(:name),item.send(id_field)]
        end
      end
-     return  select(object, method ,list)      
+<<HTML
+  #{select(object, method ,list)}
+  <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
+  </script> 
+HTML
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -141,7 +125,12 @@ EOL
      else
          list.concat(DataElement.find(:all,:conditions=>'parent_id is null',:order=>'name').collect{|c|[c.summary,c.id]})   
      end
-     return  select(object, method ,list)      
+<<HTML
+  #{select(object, method ,list)}
+  <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
+  </script> 
+HTML
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -158,7 +147,12 @@ EOL
      else
        formats = DataFormat.find(:all,:order=>'name') 
      end
-     return collection_select(object, method ,formats, :id, :name) 
+<<HTML
+  #{collection_select(object, method ,formats, :id, :name) }
+  <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
+  </script> 
+HTML
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -176,7 +170,12 @@ EOL
      if model 
          list.concat(model.find(:all,:order=>'name').collect{|i|[i.name,i.id]})
      end 
-     return select(object, method ,list) 
+<<HTML
+  #{select(object, method ,list)  }
+  <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
+  </script> 
+HTML
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
@@ -196,31 +195,18 @@ EOL
      else
        protocols = StudyProtocol.find(:all)
      end
-    return collection_select(object, method ,protocols, :id, :name) 
+<<HTML
+  #{collection_select(object, method ,protocols, :id, :name) }
+  <script type="text/javascript">
+    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
+  </script> 
+HTML
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
       return "[No Protocols]"  << hidden_field(object,method) 
   end
   
-##
-# select for a ProtocolVersion (eg How to do stuff)
-# 
-  def select_process( object,method,item = nil)
-    processes = []
-    case item
-     when Study
-       processes = item.protocols.collect{|i|i.process}
-     when StudyProtocol
-       processes = item.definition.versions
-     else
-       processes = ProtocolVersion.find(:all,:order=>'name')
-     end
-    return collection_select(object, method , processes, :id, :name) 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-  end
 
 ##
 # Handlers for specific data types

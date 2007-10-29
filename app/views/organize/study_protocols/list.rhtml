@@ -13,17 +13,18 @@
 
 <% content_for :center do%>
 <h2>
-   <%=subject_icon('model/protocol.png')%> Protocols in <%=link_to "#{@study.name}", :controller=>'studies', 
-            :action =>'show',:id =>@study.id %>
+   <%=subject_icon('model/protocol.png')%> Protocols In <%= @study ? @study.name : current_project.name %>
 </h2>
   <table class="report">
     <tr>
-      <th colspan='3'><%=subject_icon('model/study.png')%> Study</th>
+      <th colspan='1'><%=subject_icon('model/study.png')%> Study </th>
+      <th colspan='3'><%=subject_icon('model/protocol.png')%> Protocol </th>
       <th colspan='2'><%=subject_icon('model/protocol.png')%> Released Version</th>
       <th colspan='1'><%=subject_icon('metric.png')%>  Pending </th>
       <th colspan='3'></th>
     </tr>  
     <tr>
+      <th>Name</th>
       <th>Name</th>
       <th>Stage</th>
 
@@ -35,9 +36,10 @@
       <th colspan='3'>Actions</th>
     </tr>
 
-    <% for study_protocol in @study.protocols %>
+    <% for study_protocol in @study_protocols %>
     <% classAttr = cycle("class=\"odd\"", "class=\"even\"") %>
     <tr  <%= classAttr %> >
+      <td><%=h study_protocol.study.name %></td>
       <td><%=h study_protocol.name %></td>
       <td><%=h study_protocol.stage.name if study_protocol.stage %></td>
 
@@ -72,7 +74,7 @@
 <% content_for :right do%>
       <h3>Guidance</h3>
       <p>
-         This forms shows all the protocols linked into the <%=@study.name%> study. This manages the complex 
+         This forms shows all the protocols in the current context. This manages the complex 
          rules for entry of data. Protocols can be created visually, imported from file or other studies.
          All changes to protocol are versioned and new un-used versions of the protocol are available for editing.
          There is a single <strong>released</strong> version for the study.  
