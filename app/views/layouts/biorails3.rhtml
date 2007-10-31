@@ -54,14 +54,9 @@
  </div>
 
 <!--West Block =======================-->  
-<div id="tree-panel" class="x-hidden">
-  <div id='tree' class='bio-tree'>
-      <%= yield :tree %>
-  </div>
-</div>
 	    
-<div id="actions-panel" class="x-hidden">
-  <div id='actions' class='sidemenu bio-actions'>
+  <div id="actions-panel" class="x-hidden">
+    <div id='actions' class='sidemenu bio-actions'>
      <%= if @content_for_sidemenu
           yield :sidemenu 
       else    
@@ -69,21 +64,8 @@
       end %>
       <%= yield :left %> 
 	  <%= yield :actions %>
+   </div>
  </div>
-</div>
-
-<!--East Block =======================-->  
-  <div id="status-tab" class="x-hidden">
-	<div id='status' class='bio-std'>
-      <%= yield :right %>
-      <%= yield :status %>
-     </div>
-     <div id="messages">
-	   <%= if @content_for_messages 
-	            yield :messages
-	    end %> 
-    </div>
-  </div>
   
   <div id="work-tab" class="x-hidden">
 	<div id='work' class='bio-std'>
@@ -92,10 +74,29 @@
      </div>
   </div>
 
-  <div id="help-tab" class="x-hidden">
-	<div id='help' class='bio-std'>
+<!--East Block =======================-->  
+  <div id="status-tab" class="x-hidden">
+	<div id='help' class='box bio-std'>
       <%= yield :help %>
+    </div>
+    <div id="messages"class='bio-std'>
+	   <%= if @content_for_messages 
+	            yield :messages
+	    end %> 
+    </div>
+	<div id='status' class='bio-std'>
+      <%= yield :right %>
+      <%= yield :status %>
      </div>
+  </div>
+
+  <div id="tree-panel" class="x-hidden">
+    <div id='tree' class='bio-tree'>
+      <%= yield :tree %>
+    </div>
+  </div>
+
+  <div id="help-tab" class="x-hidden">
   </div>
 
 <!--center Block =======================-->  

@@ -135,6 +135,27 @@ HTML
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    
   end
+##
+# Return a combo of the allowed Elements that can be used as specializations 
+# of the passed concept of children of the passed element.
+# 
+#  * object  to build selector around
+#  * method of the object to build selector for
+#  * root [default=nil] root on tree of items to display
+# 
+  def combo_data_element(object,method, root=nil)   
+	data_element_id = (root.respond_to?(:id)? root.id : root)
+  
+<<HTML
+		  #{content_tag( :input,nil, { "name" => name, "id" => id }.update(options.stringify_keys)) }
+		  <script type="text/javascript">
+			Ext.onReady( function(){ new Biorails.ComboField('#{object}_#{method}'',#{data_element_id}); } );
+		  </script> 
+HTML
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")    
+  end
 
 ##
 # List of a allowed data formats

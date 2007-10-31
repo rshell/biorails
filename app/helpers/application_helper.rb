@@ -184,47 +184,5 @@ module ApplicationHelper
  def tree_panel(*options_for_render)
    call 'Element.update','tree', render(*options_for_render)
  end
-#
-# Generate items for top menu structure
-#
-  def home_items
-     @items = [
-       {:href=>home_url(:id=>User.current.id),:text=>'home'},
-       {:href=>home_url(:action=>'calendar',:id=>User.current.id),:text=>'Schedule'},
-       {:href=>home_url(:action=>'projects',:id=>User.current.id),:text=>'Projects'}       
-     ]
-  end  
-
-  def inventory_items
-     @items = [
-       {:href=>compound_url(:action=>'list'),:text=>'Compounds'},
-       {:href=>batch_url(:action=>'list'),:text=>'Batches'},
-       {:href=>plate_url(:action=>'list'),:text=>'Plates'},
-       {:href=>container_url(:action=>'list'),:text=>'Samples'},
-       {:href=>treatment_group_url(:action=>'list'),:text=>'Treatment Groups'},
-       {:href=>specimen_url(:action=>'list'),:text=>'Specimens'}
-     ]
-  end  
-
-  def admin_items
-     @items = [
-       {:href=>home_url(:id=>User.current.id),:text=>'home'},
-       {:href=>catalogue_url(:action=>'list'),:text=>'Catalogue'},
-       {:href=>data_type_url(:action=>'list'),:text=>'Data Types'},       
-       {:href=>data_format_url(:action=>'list'),:text=>'Data Formats'},       
-       {:href=>parameter_type_url(:action=>'list'),:text=>'Parameter Types'},       
-       {:href=>parameter_role_url(:action=>'list'),:text=>'Parameter Roles'},       
-       {:href=>study_stage_url(:action=>'list'),:text=>'Study Stages'},       
-       {:href=>user_url(:action=>'list'),:text=>'User'},       
-       {:href=>role_url(:action=>'list'),:text=>'Roles'},       
-       {:href=>data_system_url(:action=>'list'),:text=>'Systems'}       
-     ]
-  end  
-
-  def project_items
-    @items = User.current.projects.collect do |project|
-      {:href=>project_url(:action=>'show',:id=>project),:text=>project.name}
-    end
-  end  
 
 end

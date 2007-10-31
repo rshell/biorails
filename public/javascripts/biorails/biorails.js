@@ -24,7 +24,8 @@ Ext.ux.menu.RangeMenu.prototype.icons = {
           eq: '/images/equals.png'
 };
 
-Ext.namespace("Biorails", "Biorails.Report",  "Biorails.GridPanel",  "Biorails.FolderPanel",  "Biorails.TreePanel");	
+Ext.namespace("Biorails");
+//---------------------------------------- Core Biorails ----------------------------------------------------------
 //
 // Main biorails client application code.
 // Licence GNU 2.0 see biorails.org project site for details
@@ -40,10 +41,7 @@ Biorails = function(){
    var _columns = [];
    var _fields = [];
    var _filters = [];
-   
-   var _folder_tree =null;
-   var _folder_root =null;
-  
+
    var _toolbar = null;
    var _base_url = null;
    var _viewport = null;
@@ -90,18 +88,32 @@ Biorails = function(){
      };
     };
 
-// 
-// Private Rendering functions for the Grid
-//    
-    function renderIcon(val){
-        return '<img src="' + val + '" />';
+/*
+ * Handling a element dropped onto the clipboard work brench
+ *
+ */
+    function dropOnClipboard(dd,e,data) {
+       try{ 
+            // Test for case of a row from a grid
+            if (data.grid) {
+                source_row = data.grid.store.getAt(data.rowIndex);
+                new Ajax.Request("/finder/add_clipboard/"+source_row.data.id, 
+                    {asynchronous:true, evalScripts:true});
+            }
+            // Test for case of a node from a folder tree 
+            else if (data.node) {
+                new Ajax.Request("/finder/add_clipboard/"+data.node.id, 
+                    {asynchronous:true, evalScripts:true});
+            }  
+        } catch (e) {
+              console.log('Problem with drop ');
+              console.log(e);
+        } 
+        return true;                
     };
+    
 
-    function renderIndex(val,cell,record,row,col,ds){
-        return row;
-    };
-
-
+    
     
 //------------------ Main Layout ------------------------------------------------------------------------
 // West: Navigation with project tree and actions for current controller
@@ -139,7 +151,7 @@ Biorails = function(){
 					autoScroll: true,
 					contentEl: 'work-tab',
 					id: 'work-id',
-					title:"Workbench"
+					title:"Clipboard"
 				  }  );
    
    var _status_panel = new Ext.Panel({
@@ -148,19 +160,10 @@ Biorails = function(){
 					autoDestroy: true,  
 					autoScroll: true,
 					id: 'status-id',
-					title:"Status"
+                    iconCls:'icon-help',                                         
+					title:"Info."
 				  } );
 
-                        
-   var _help_panel = new Ext.Panel({
-					xtype:"panel",
-					autoDestroy: true,  
-					autoScroll: true,
-					id: 'help-id',
-                    iconCls:'icon-help', 
-					contentEl:'help-tab',
-					title:"Help"
-				  });
 // South                                  
    var _footer_panel = new Ext.Panel({
 					contentEl:'footer-panel',
@@ -224,12 +227,12 @@ Biorails = function(){
 								{text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
 							]}},' ',
 				 {text: 'Inventory',menu : {items: [
-								{text: "Molecules", iconCls:'icon-molecule' , href:'/molecules' ,  scope: this },
-								{text: "Compounds", iconCls:'icon-compound' , href:'/compounds',  scope: this },
-								{text: "Batches",   iconCls:'icon-batch' ,    href:'/batches' ,  scope: this },
-								{text: "Mixtures",  iconCls:'icon-mixture' ,  href:'/mixtures',  scope: this },
-								{text: "Samples",   iconCls:'icon-sample' ,   href:'/samples' ,  scope: this },
-								{text: "Containers",iconCls:'icon-container' ,href:'/containers' ,  scope: this }
+								{text: "Molecules", iconCls:'icon-molecule' , href:'/inventory/molecules' ,  scope: this },
+								{text: "Compounds", iconCls:'icon-compound' , href:'/inventory/compounds',  scope: this },
+								{text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this },
+								{text: "Mixtures",  iconCls:'icon-mixture' ,  href:'/inventory/mixtures',  scope: this },
+								{text: "Samples",   iconCls:'icon-sample' ,   href:'/inventory/samples' ,  scope: this },
+								{text: "Containers",iconCls:'icon-container' ,href:'/inventory/containers' ,  scope: this }
 							]}},' ',
 				 {text: 'Administration',menu : {items: [
 								{text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
@@ -311,8 +314,8 @@ Biorails = function(){
 			    items: [{
 			        xtype:"tabpanel",
 			        activeTab:0,
-				    tabPosition: 'top',
-			        items:[ _status_panel, _help_panel, _tree_panel  ]
+				    tabPosition: 'bottom',
+			        items:[ _status_panel, _tree_panel  ]
 			      }]
 			  },_center_panel
 			  ]
@@ -383,34 +386,14 @@ Biorails = function(){
                                    root: 'items', totalProperty: 'total'}, _fields  )
                     })},
 /*
- * Get the current folder data store
- * @return {Ext.data.GroupingStore} the data store
- */
-      getFolderStore : function(folder_id){ 
-            return new Ext.data.GroupingStore({
-                   remoteSort: true,
-                   lastOptions: {params:{start: 0, limit: 25}},
-                   sortInfo: {field: 'id', direction: 'ASC'},
-                   proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+folder_id, method: 'get' }),
-                   reader: new Ext.data.JsonReader({
-                     root: 'items', totalProperty: 'total'}, [
-						   {name: 'id', type: 'int'},
-						   {name: 'icon'},
-						   {name: 'name'},
-						   {name: 'summary'},
-						   {name: 'reference_type'},
-						   {name: 'updated_by'},
-						   {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
-						   {name: 'actions'}]  )
-                    })},
-/*
  * Setup the Project tree on the navigation panel
  */        
       projectTree : function(config){
 
       var tree = new Ext.tree.TreePanel('project-tree', {
-                                      animate:true,
-                                      enableDD:false,
+                                      animate: true,
+                                      enableDrag: true,
+                                      ddGroup: "GridDD",
                                       loader: new Ext.tree.TreeLoader(), 
                                       lines: true,
                                       selModel: new Ext.tree.MultiSelectionModel(),
@@ -497,8 +480,7 @@ Biorails = function(){
 			    _center_panel.add( this.grid() );                
                 _center_panel.doLayout();
           }  
-      },
-      
+      }, 
 /*
  * Get a new grid Panel to the current config
  *
@@ -508,56 +490,8 @@ Biorails = function(){
  *
  */          
       folder: function(id,title){
-         _folder_store =  this.getFolderStore(id);
-         _folder_grid = new Ext.grid.GridPanel({
-                                 border:false,
-                                 autoscroll: true,
-						         autoDestroy: true,  
-						         closable:true,
-                                 title: title,
-                                 id: 'folder-grid-'+id,
-                                 ds:  _folder_store,
-                                 cm: new Ext.grid.ColumnModel([
-										{header: "Icon", width: 32, sortable: false,renderer: renderIcon,  dataIndex: 'icon'},
-										{header: "Name", width: 100, sortable: true,  dataIndex: 'name'},
-										{header: "Style", width: 100, sortable: true,  dataIndex: 'reference_type'},
-										{header: "Summmary", width: 300, sortable: false,   dataIndex: 'summary'},
-										{header: "Updated By", width: 85, sortable: false,  dataIndex: 'updated_by'},
-										{header: "Updated At", width: 85, sortable: true,
-                                                  renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
-										{header: "Actions", width: 75,   dataIndex: 'actions'}
-									]),
-                                 view: new Ext.grid.GroupingView(),
-                                 viewConfig: {forceFit:true},
-                        tbar:[{
-								text:'Add File',
-								tooltip:'Add a image or other file to the folder',
-                                href: '/asset/new?folder_id='+id,                                
-								iconCls:'add'
-							}, {
-								text:'Add Article',
-								tooltip:'Add some textual content to the folder',
-                                href: '/content/new?folder_id='+id,                              
-								iconCls:'add'
-							}, {
-								text:'Add Sub-folder',
-								tooltip:'Add a new sub folder',
-                                href: '/folders/new?folder_id='+id,                                
-								iconCls:'add'
-							}, '-', {
-								text:'Preview',
-								tooltip:'Preview',
-                                href: '/folders/print?folder_id='+id,                                
-								iconCls:'print'
-							},'-',{
-								text:'Print',
-								tooltip:'Print the folder as a report',
-                                href: '/folders/print?format=pdf&folder_id='+id,                                
-								iconCls:'print'
-							}]
-               });    
-           _folder_store.load({params:{start: 0, limit: 50}});
-           if (_center_panel){
+        _folder_grid = new Biorails.Folder(id,title);
+        if (_center_panel){
               tab = Ext.ComponentMgr.get('folder-grid-'+id);
               if (tab) {
                    _center_panel.remove(tab);
@@ -566,20 +500,28 @@ Biorails = function(){
 			  _center_panel.add( _folder_grid );  
               _center_panel.setActiveTab( _folder_grid );
               _center_panel.doLayout();
-                                           
-          }  
-         return _folder_grid;                        
-      },      
+           } 
 
+         return _folder_grid;       
+       },
             
       init : function(){ 
           if (!_viewport){    
             Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
             _viewport = new Ext.Viewport(_layout ); // End Viewport
-          }
+            
+            var dropZone = new Ext.dd.DropTarget(_work_panel.id, {
+             ddGroup:"GridDD",
+             copy:false,
+             notifyDrop : dropOnClipboard});   
+
+             dropZone.addToGroup("ClipboardDD"); 
+             dropZone.addToGroup("TreeDD"); 
+           } 
         }
    };
 }();
+
 
 //------------------ Biorails Form controls --------------------------------------------------------
 
@@ -964,6 +906,8 @@ return {
 }();
 
 
+//---------------------------------------- Date Field Widget--------------------------------------------------------
+Ext.namespace("Biorails.DateField");
 /**
  *  Biorails.DateField 
  *  
@@ -971,11 +915,6 @@ return {
  *       http://simonwillison.net/2003/Oct/6/betterDateInput/
  *  and Datablocks engine http://dev.toolbocks.com
  *
- */
-
-Ext.namespace("Biorails.DateField");
-
-/**
  * Date field that allows user to enter shortcuts (ie 't' for today's date)
  * and plain english like '5 days ago'.
  * 
@@ -991,17 +930,22 @@ Biorails.DateField = function(config){
 
 Ext.extend(Biorails.DateField,  Ext.form.DateField, {
 	parseDate : function(raw) {
-		var value = Biorails.DateField.superclass.parseDate.call(this, raw);
+         try {
+            var value = Biorails.DateField.superclass.parseDate.call(this, raw);
 		
-        if(!value) {
-			value = Biorails.MagicDate.parse(raw);
-		}
-
-		return value;
+            if(!value) {
+                value = Biorails.MagicDate.parse(raw);
+            }
+            return value;
+            } catch (e) {
+          return "";    
+        }
 	}
 });
 //Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
 
+
+//---------------------------------------- Select Field Widget--------------------------------------------------------
 
 /**
  *  Biorails.SelectField 
@@ -1010,10 +954,9 @@ Ext.extend(Biorails.DateField,  Ext.form.DateField, {
  */
 
 
-Ext.namespace("Biorails.SelectField");
 
 Biorails.SelectField = function(id){    
-    Biorails.SelectField .superclass.constructor.call(this,{
+    Biorails.SelectField.superclass.constructor.call(this,{
 		typeAhead: true,
         triggerAction: 'all',
         transform: id,
@@ -1022,11 +965,14 @@ Biorails.SelectField = function(id){
 };
 
 Ext.extend(Biorails.SelectField,  Ext.form.ComboBox, {});
+
+//---------------------------------------- Conbo Field Widget--------------------------------------------------------
+Ext.namespace("Biorails.ComboField");
 /**
  * Custom Select field for a remote data element field
  */
 Biorails.ComboField = function(id, element_id){    
-    Biorails.DateField.superclass.constructor.call(this,{
+    Biorails.ComboField.superclass.constructor.call(this,{
 		 mode:'remote',
          applyTo: id,
          store: new Ext.data.Store({
@@ -1052,45 +998,255 @@ Biorails.ComboField = function(id, element_id){
 Ext.extend(Biorails.ComboField,  Ext.form.ComboBox, {});
 //Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
 
+//---------------------------------------- Simple  HTML Editor -------------------------------------------------
+Ext.namespace("Biorails.HtmlField");
 
+Biorails.HtmlField = function(id){
+    Biorails.HtmlField.superclass.constructor.call(this,{
+         applyTo: id,
+         enableFontSize: true,
+         enableFormat: true,
+         enableLists: true,
+         enableColours:true
+    });
+}
 
-//------------------ Folder Tree Panel------------------------------------------------------------------
-Biorails.Tree = function(){
-  var _tree =null;
-  var _root =null;
-return {
-/*
- * Initialize Folder Tree display
+Ext.extend(Biorails.HtmlField,  Ext.form.HtmlEditor, {});
+//----------------------------------------  HTML Word processor -------------------------------------------------
+Ext.namespace("Biorails.DocumentField");
+
+Biorails.DocumentField = function(id){
+    Biorails.DocumentField.superclass.constructor.call(this,{
+         applyTo: id,
+         enableFontSize: true,
+         enableFormat: true,
+         enableLists: true,
+         enableColours:true
+    });
+}
+
+Ext.extend(Biorails.DocumentField,  Ext.form.HtmlEditor, {});
+//---------------------------------------- Model Grid ----------------------------------------------------------
+Ext.namespace("Biorails.DataGrid");
+/**
+Ext.namespace("Biorails.DataGrid");
+ * Dynamic DataGrid linked back to a rails controller driven query
+ *
+ * id: Grid id
+ * title: Panel title
+ * url: Name of controller url call
+ * fields: 
+ * filters:
+ * columns: 
  */
-   init: function() {
-   
-    _tree = new Ext.Tree.TreePanel({
-        el:'tree-div',
-        autoScroll:true,
-        animate:true,
-        enableDD:true,
-        containerScroll: true, 
-        loader: new Ext.Tree.TreeLoader({
-            dataUrl:'/projects/show'
-        })
-    });
+Biorails.DataGrid.Folder = function(config){
+      
+     var _model_store = 
+                    
+     Biorails.DataGrid.Folder.superclass.constructor.call(this,{
+                         border:false,
+                         autoscroll: true,
+                         autoDestroy: true,  
+                         closable:true,
+                         title: config.title,
+                         id: config.id,
+                         ds: new  Ext.data.GroupingStore({
+                               remoteSort: true,
+                               lastOptions: {params:{start: 0, limit: 25}},
+                               sortInfo: {field: 'id', direction: 'ASC'},
+                               proxy: new Ext.data.HttpProxy({ url: '/ext/'+config.controller, method: 'get' }),
+                               reader: new Ext.data.JsonReader({
+                                               root: 'items', totalProperty: 'total'}, 
+                                               config.fields  )
+                         }),
+                         cm: new Ext.grid.ColumnModel(config.columns),
+                         view: new Ext.grid.GroupingView(),
+                         viewConfig: {forceFit:true},
+                         plugins: new Ext.ux.grid.GridFilters( config.filters ),
+ 		                 bbar: new Ext.PagingToolbar({
+				            pageSize: 25,
+				            store: this.store,
+				            displayInfo: true,
+				            displayMsg: 'Displaying {0} - {1} of {2}',
+				            emptyMsg: "No results to display"
+				        })
+     });
+};
 
-    // set the root node
-    _root = new Ext.Tree.AsyncTreeNode({
-        text: 'Ext JS',
-        draggable:false,
-        id:'source'
-    });
-    _tree.setRootNode(root);
+Ext.extend(Biorails.DataGrid,  Ext.grid.GridPanel);
+//---------------------------------------- Folders Grid ----------------------------------------------------------
+Ext.namespace("Biorails.Folder");
+/*
+ * Panel for handling a biorails folder display. This is basically a grid with some custom D&D code.
+ * 
+ */
+Biorails.Folder = function(folder_id, title){  
+       
+     Biorails.Folder.superclass.constructor.call(this,{
+           border:false,
+           autoscroll: true,
+           autoDestroy: true,  
+           closable:true,
+           folder_id: folder_id,
+           title: title,
+           id: 'folder-grid-'+folder_id,
+           ds:  new Ext.data.GroupingStore({
+               remoteSort: true,
+               sortInfo: {field: 'position', direction: 'ASC'},
+               proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+folder_id, method: 'get' }),
+               reader: new Ext.data.JsonReader({
+                             root: 'items', totalProperty: 'total'}, [
+                                   {name: 'id', type: 'int'},
+                                   {name: 'icon'},
+                                   {name: 'position', type: 'int'},
+                                   {name: 'left_limit', type: 'int'},
+                                   {name: 'right_limit', type: 'int'},
+                                   {name: 'name'},
+                                   {name: 'summary'},
+                                   {name: 'reference_type'},
+                                   {name: 'updated_by'},
+                                   {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
+                                   {name: 'actions'}]  )
+                        }),
+           sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+           loadMask: true,
+           enableDragDrop: true,
+           cm: new Ext.grid.ColumnModel([
+                {header: "Icon", width: 32, sortable: false,renderer: this.renderIcon,  dataIndex: 'icon'},
+                    {header: "Name", width: 150, sortable: true,  dataIndex: 'name'},
+                    {header: "Pos", width: 50, sortable: true, renderer: this.renderNum,  dataIndex: 'left_limit'},
+                    {header: "Left", width: 50, sortable: true,  dataIndex: 'left_limit'},
+                    {header: "Right", width: 50, sortable: true,   dataIndex: 'right_limit'},
+                    {header: "Style", width: 100, sortable: true,  dataIndex: 'reference_type'},
+                    {header: "Summmary", width: 300, sortable: false,   dataIndex: 'summary'},
+                    {header: "Updated By", width: 55, sortable: false,  dataIndex: 'updated_by'},
+                    {header: "Updated At", width: 85, sortable: true,
+                              renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
+                    {header: "Actions", width: 75,   dataIndex: 'actions'}
+                ]),
+           view: new Ext.grid.GroupingView(),
+           viewConfig: {forceFit:true},
+           tbar:[{
+                    text:'Add File',
+                    tooltip:'Add a image or other file to the folder',
+                    href: '/asset/new/'+folder_id, 
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-file'
+                }, {
+                    text:'Add Article',
+                    tooltip:'Add some textual content to the folder',
+                    href: '/content/new/'+folder_id,                              
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-note'
+                }, {
+                    text:'Add Sub-folder',
+                    tooltip:'Add a new sub folder',
+                    href: '/folders/new/'+folder_id,                                
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-folder'
+                }, '-', {
+                    text:'Preview',
+                    tooltip:'Preview',
+                    href: '/folders/print/'+folder_id,                                
+                    handler : function(item){
+                        window.open(item.href);
+                    }, 
+                    iconCls:'icon-print'
+                },'-',{
+                    text:'Print',
+                    tooltip:'Print the folder as a report',
+                    href: '/folders/print/'+folder_id+'?format=pdf',                                
+                    handler : function(item){
+                        window.open(item.href);
+                    },                               
+                    iconCls:'icon-pdf'
+                }]
+         });
+        this.store.load({params:{start: 0, limit: 50}});
+ 
+};
 
-    // render the tree
-    _tree.render();
-    _root.expand();
-    }  
-  }      
-}();
+Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
+/*
+ * Fire AJAX call for tool bar functions
+ */    
+    toolbarClick: function(item) {
+         new Ajax.Request( item.href,
+                            {asynchronous:true,
+                             evalScripts:true });         
+       
+    },
+    renderIcon: function(val){
+        return '<img src="' + val + '" />';
+    },
+    renderNum: function(val,cell,record,row,col,ds){
+        return '1.'+record.get('position');
+    },
+    resync: function(request){
+       this.store.load();
+    },
+    
+ /*
+  * dropped Item Handler to update the layout 
+  * with new row added via clipboard or tree
+  */      
+   droppedItem: function(source,event,data){
+       try{ 
+           // Get selection for default row
+            var sm=this.grid.getSelectionModel();
+            var rows=sm.getSelections();
+
+            // Test for case of a row from a grid
+            if (data.rowIndex) {
+                var source_row = data.grid.store.getAt(data.rowIndex);
+                var  dest_row  = this.grid.store.getAt( source.getDragData(event).rowIndex );
+                
+                 new Ajax.Request("/folders/reorder_element/"+
+                          source_row.data.id,
+                        {asynchronous:true, 
+                         onComplete: function(req) {
+                             data.grid.store.load();
+                             } ,
+                         parameters:'before='+dest_row.data.id+'&folder_id='+data.grid.folder_id });  
+                         
+            }
+            // Test for case of a node from a folder tree 
+            else if (data.node) {
+                
+                new Ajax.Request('/folders/add_element/'+data.node.id,
+                            {asynchronous:true,
+                             onComplete: this.grid.resync,
+                             parameters:'folder_id='+this.folder_id });  
+            }  
+        } catch (e) {
+              console.log('Problem cant handle Dropped Item ');
+              console.log(e);
+        } 
+        return true;  
+   },
+/*
+ * Custom Rendering function to add drop zone on grid after its rendered
+ */    
+   onRender: function(){
+            Biorails.Folder.superclass.onRender.apply(this, arguments);
+       try{ 
+            var dropzone = new Ext.dd.DropTarget(this.id, {
+                ddGroup : 'GridDD',
+                folder_id: this.folder_id,
+                grid: this,
+                notifyDrop : this.droppedItem  });
+             dropzone.addToGroup("ClipboardDD"); 
+             dropzone.addToGroup("TreeDD"); 
+        } catch (e) {
+              console.log('Problem with setup drop zone on folder grid ');
+              console.log(e);
+        } 
+        }
+   });	
 
 //------------------ Report Definition -------------------------------------------------------------------
+Ext.namespace('Biorails.Report');
+
 Biorails.Report = function() {
  var _tree = null;
  var _root = null;

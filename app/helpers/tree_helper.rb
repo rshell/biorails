@@ -123,24 +123,24 @@ JS
     if folder.parent_id
        list << {:id => folder.id,
 	         :icon => '/images/model/folder.png',
+             :position => -1,
+             :left_limit => -1,
+             :right_limit => -1,
              :name => link_to_remote('..', :url=>folder_url(:action=>'show',:id=>folder.parent_id)),
              :summary => '[parent folder]',
              :updated_by => folder.updated_by,
              :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") }
-    else  
-        list << [:id => folder.id,
-	         :icon => '/images/model/folder.png',
-			 :name => '/',
-             :summary => '[This is a top level folder]',
-             :updated_by => folder.updated_by,
-             :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") ]
     end
+    elements.sort{|a,b|a.left_limit <=> b.left_limit}.each_with_index{|e,i| e.position=i} 
     elements.each do |item| 
          actions = " "
          actions << link_to( " Edit ",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent
          actions << link_to( " Edit ",     asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset
          actions << link_to( " Delete ", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 
          list <<   {:id =>item.id,
+                    :position => item.position,
+                    :left_limit => item.left_limit,
+                    :right_limit => item.right_limit,
                     :icon =>  item.icon( {:images=>true} ),
                     :name =>  link_to_remote(item.name, :url=>element_to_url(item)),
                     :summary => item.summary,
@@ -149,7 +149,7 @@ JS
                     :updated_at => item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
                     :actions =>  actions }
     end
-    {:folder_id => folder.id, :path => folder.path,  :total => elements.size+1,:items => list }.to_json	    
+    {:folder_id => folder.id, :path => folder.path,  :total => list.size,:items => list }.to_json	    
   end
   
   def tree_to_json(folder)

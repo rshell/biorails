@@ -93,18 +93,21 @@ protected
   def setup_context
     User.current    = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].nil? 
     Project.current = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
+    @clipboard = session[:clipboard] ||= Clipboard.new
   end  
 
   def clear_session
     logger.info("clear_session ")
     session[:current_user_id] = nil
     session[:current_project_id] = nil
+    session[:current_folder_id] = nil
     session[:current_username] = 'none'
     session[:current_params] = nil
+    session[:clipboard] = nil
     @current_project = nil
     @current_user = nil
   end
-
+  
 #
 # Current username
 #   
@@ -142,6 +145,8 @@ protected
   def current_folder
     if session[:current_folder_id]  
        @current_folder ||= ProjectFolder.find(session[:current_folder_id])
+    else
+      @current_folder = current_project.home
     end
     logger.info("current_folder #{@current_folder.name}")
     ProjectFolder.current = @current_folder
@@ -173,12 +178,17 @@ protected
 #
 # Change the Current folder in session
 # 
-  def set_folder(folder)
-      logger.info("set_folder #{folder.name} ")
-      if folder.project.member(current_user)
-         session[:current_folder_id] = folder.id
-         @current_folder = folder
+##
+# Simple helpers to get the current folder from the session or params 
+#  
+  def set_folder( folder_id = nil)
+      @current_folder =  current_project.home if folder_id.nil?
+      @current_folder =  current_user.folder(folder_id) 
+      if @current_folder
          ProjectFolder.current = @current_folder
+         logger.info("set_folder #{@current_folder.name} ")
+         session[:current_folder_id] = @current_folder.id
+         return @current_folder
       else
          show_access_denied      
       end
@@ -267,7 +277,18 @@ protected
            :order=>sort_col+' '+sort_dir)
     end
   end
-
+#
+# Load the clipboard for the current session
+#
+ def current_clipboard
+    @clipboard ||= session[:clipboard] ||= Clipboard.new
+  end
+#
+# Save the clipboard for the current session
+#
+  def save_clipboard( item = nil)
+    session[:clipboard] = item || @clipboard
+  end
 #
 # Render a page as PDF for output based on current html 
 #

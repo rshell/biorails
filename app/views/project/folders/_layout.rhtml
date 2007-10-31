@@ -1,4 +1,13 @@
-<%= render :partial => 'title' %>
+<h2>
+    <% if @project_folder.parent %>
+    <%=image_tag("/images/model/#{@project_folder.style}.png")%>
+    Folder: 
+    <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
+    <%else%>
+    Root: <%= @project_folder.path %>
+    <% end%>
+</h2>
 
   <% elements = folder.elements %>
   <% if elements and elements.size>0 %>
@@ -34,32 +43,5 @@
     <h2><%=item.title%> </h2>
     <p>  <%=item.to_html %>	</p>
 </div>	
-
-      <%= draggable_element(item.dom_id(:header) ,:scroll=> true,:ghosting => false, :revert=> true) %>
-
-      <%= drop_receiving_element(item.dom_id(:current), :hoverclass => "drop-active",   
-           :accept =>'folder_element',
-           :url => element_url(:action=>"move_element",:id=>folder.id, :before=>item.id )) %>
-
-      <%= drop_receiving_element(item.dom_id(:current), :hoverclass => "drop-active",   
-           :accept =>['project_element','project_reference','project_content','project_asset'],
-           :url => element_url(:action=>"drop_element", :id=>folder.id, :before=>item.id)) %>
-
     <% end %>
   <% end %>
-<div id='layout_bottom' class='panel>
-<p>
-Items can be drags from the right hand side menu to the layout to build a complete document report up.
-</p>
-</div>
-
-      <%= drop_receiving_element('layout_bottom', :hoverclass => "drop-active",
-           :accept =>['project_element','project_reference','project_content','project_asset'],
-           :url => element_url(:action=>"add_element", :id=>folder.id )) %>
-
-
-
-
-	
-
-

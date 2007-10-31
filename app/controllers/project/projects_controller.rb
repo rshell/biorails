@@ -252,6 +252,7 @@ class Project::ProjectsController < ApplicationController
     
     @options_for_rfpdf ||= {}
     @options_for_rfpdf[:file_name] = "gantt.pdf"
+
     respond_to do | format |
       format.html { render :action => 'gantt' }
       format.ext { render :action => 'gantt', :layout => false }
@@ -259,7 +260,8 @@ class Project::ProjectsController < ApplicationController
       format.json { render :json => {:project=> @project, :items=>@tasks}.to_json }
       format.xml  { render :xml =>  {:project=> @project,:items=>@tasks}.to_xml }
       format.js   { render :update do | page |
-           page.replace_html 'center',  :partial => 'gantt' 
+           page.main_panel   :partial => 'gantt' 
+           page.status_panel   :partial => 'gantt_status'
          end }
     end
   end

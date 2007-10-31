@@ -152,13 +152,21 @@ class ProjectElement < ActiveRecord::Base
     end
   end
   
-
+#
+# todo get position working via a RANK now easy in mysql
+#
+# select * , 
+#        (select 1+count(*) from project_elements b where parent_id=5 and b.left_limit < a.left_limit) rank
+#from project_elements a where parent_id=5 order by left_limit
+#
+#
   
   def reorder_before(destination)
      logger.info "Move #{self.id} before #{destination.id}"
      if self.parent_id ==  destination.parent_id
        ProjectElement.transaction do
          self.move_to_left_of destination
+   
        end
      end
   end
@@ -167,7 +175,7 @@ class ProjectElement < ActiveRecord::Base
      logger.info "Move #{self.id} before #{destination.id}"
      if self.parent_id ==  destination.parent_id
        ProjectElement.transaction do
-         self.move_to_right_of destination
+         self.move_to_right_of destination   
        end
      end
   end

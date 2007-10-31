@@ -19,19 +19,28 @@ background-position: 4px 50%;
 .icon-move { background-image:   url(/images/action/move.png); }
 .icon-save { background-image:   url(/images/action/save.png); }
 .icon-cancel { background-image: url(/images/action/cancel.png); }
+.icon-print { background-image: url(/images/action/print.png); }
+.icon-new { background-image: url(/images/action/new.png); }
+
 
 .icon-pdf { background-image:  url(/images/mime/pdf.gif); }
-.icon-csv { background-image:  url(/images/mime/csv.png); }
-.icon-file { background-image: url(/images/mime/file.png); }
+.icon-csv { background-image:  url(/images/mime/xls.gif); }
+.icon-xls { background-image: url(/images/mime/xls.png); }
+.icon-txt { background-image: url(/images/mime/txt.gif); }
 
-.icon-folder { background-image:  url(/images/model/folder.png); }
 .icon-package { background-image: url(/images/package.png); }
 .icon-home { background-image:    url(/images/home.png); }
 .icon-user { background-image:    url(/images/model/user.png); }
 .icon-logout { background-image: url(/images/logout.png); }
 .icon-help { background-image: url(/images/help.png); }
 
-.icon-attachment  { background-image: url(/images/attachment.png); }
+.icon-note  { background-image: url(/images/model/note.png); }
+.icon-folder  { background-image: url(/images/model/folder.png); }
+.icon-file   { background-image: url(/images/model/file.png); }
+
+.icon-project   { background-image: url(/images/model/project.png); }
+.icon-project   { background-image: url(/images/model/project.png); }
+.icon-project   { background-image: url(/images/model/project.png); }
 
 .icon-project   { background-image: url(/images/model/project.png); }
 .icon-study     { background-image: url(/images/model/study.png); }

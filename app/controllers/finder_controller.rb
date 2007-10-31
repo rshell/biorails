@@ -32,7 +32,7 @@ class FinderController < ApplicationController
 # 
   def finder
     @hits = []
-    @clipboard = session[:clipboard] 
+    load_clipboard
     @user_query = params['query'] 
     logger.info "query before [#{@user_query}]"
     ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
@@ -49,4 +49,67 @@ class FinderController < ApplicationController
     return render_right('finder')
   end  
   
+  def add_clipboard
+    @project_element = ProjectElement.find(params[:id])
+    load_clipboard
+    @clipboard.add(@project_element);
+    save_clipboard @clipboard
+    respond_to do | format |
+      format.html { render :partial => 'shared/clipboard' }
+      format.js  { render :update do | page |  
+            page.work_panel :partial => 'shared/clipboard'
+         end 
+      }
+      format.json { render :json => @clipboard.to_json }
+      format.xml  { render :xml => @clipboard.to_xml }
+    end
+  end
+
+  def remove_clipboard
+    @project_element = ProjectElement.find(params[:id])
+    load_clipboard
+    @clipboard.remove(@project_element);
+    save_clipboard @clipboard
+    respond_to do | format |
+      format.html { render :partial => 'shared/clipboard' }
+      format.js  { render :update do | page |  
+            page.work_panel :partial => 'shared/clipboard'
+         end 
+      }
+      format.json { render :json => @clipboard.to_json }
+      format.xml  { render :xml => @clipboard.to_xml }
+    end    
+  end
+  
+  def clear_clipboard
+    save_clipboard @clipboard = Clipboard.new    
+    respond_to do | format |
+      format.html { render :partial => 'shared/clipboard' }
+      format.js  { render :update do | page |  
+            page.work_panel :partial => 'shared/clipboard'
+         end 
+      }
+      format.json { render :json => @clipboard.to_json }
+      format.xml  { render :xml => @clipboard.to_xml }
+    end    
+  end
+  
+#
+# get the clipboard for the current user 
+#
+  def clipboard
+    load_clipboard
+    respond_to do | format |
+      format.html { render :partial => 'shared/clipboard' }
+      format.js  { render :update do | page |  
+            page.work_panel :partial => 'shared/clipboard'
+         end 
+      }
+      format.json { render :json => @clipboard.to_json }
+      format.xml  { render :xml => @clipboard.to_xml }
+    end    
+  end  
+
+
+ 
 end

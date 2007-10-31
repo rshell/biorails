@@ -66,9 +66,17 @@ class Clipboard
 # 
   def remove(element)
     initialize_cache
+    @elements.delete(element.id)
     @cache.delete(element)
   end
 
+#
+# Remove all items from the clipboard
+#
+  def clear
+    @elements = []
+    @cache = []
+  end
 ##
 # filtered list of items
 # 
@@ -78,9 +86,11 @@ class Clipboard
   end
   
   def initialize_cache
-    if @elements
-      @cache = @elements.collect{|i| ProjectElement.find(i) }
+    if @elements && @elements.size>0
+      #move logic from oo to db level as IN list @elements.collect{|i| ProjectElement.find(i) }
+      @cache = ProjectElement.find(:all,:conditions=>"id in (#{@elements.join(',')}) ") 
     end
+    @cache ||=[]
   end
 
 end

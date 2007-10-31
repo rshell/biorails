@@ -31,13 +31,13 @@ class Project::FoldersController < ApplicationController
 #  * @project based on folder
 # 
   def show
-    set_folder
+    @project_folder = set_folder(params[:id])
     respond_to do |format|
       format.html {render :action => 'show'}
       format.pdf {render_pdf :action => 'show',:layout => false}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |  
-          page.work_panel   :partial => 'work'
+          page.work_panel   :partial => 'shared/clipboard'
 		  page.show_folder   @project_folder
        end 
       }    
@@ -46,10 +46,10 @@ class Project::FoldersController < ApplicationController
   
 ###
 ##
-# Display the current clipboard 
+# Display the current folder for printout 
 # 
   def print
-    set_folder
+    @project_folder = set_folder(params[:id])
     respond_to do |format|
       format.html { render :action => 'print', :layout => "layouts/printout.rhtml"}
       format.pdf {render_pdf("#{@project_folder.name}.pdf",{:action => 'print', :layout => "layouts/printout.rhtml"})}
@@ -76,7 +76,7 @@ class Project::FoldersController < ApplicationController
 #  * @project based on folder
 # 
   def new
-    @parent =  set_folder
+    @parent =  set_folder(params[:id])
     @project_folder = ProjectFolder.new(:name=> Identifier.next_user_ref, 
                                         :parent_id=>@parent.id,
                                         :project_id=>@parent.project_id)
@@ -101,7 +101,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder created from module forparams[:project_folder]
 # 
   def create
-    @project_folder = set_folder
+    @project_folder = set_folder(params[:id])
     @child_folder = @project_folder.folder(params[:project_folder][:name])
     if @child_folder.save
       flash[:notice] = 'ProjectFolder was successfully created.'
@@ -139,7 +139,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] 
 # 
   def edit
-    set_folder
+    @project_folder = set_folder(params[:id])
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project_folder.to_xml}
@@ -159,7 +159,7 @@ class Project::FoldersController < ApplicationController
 #  * @project_folder based on params[:folder_id] || params[:id] || session[:folder_id] then updated from params[:project_folder]
 #
   def update
-    set_folder
+    @project_folder = set_folder(params[:id])
     if @project_folder.update_attributes(params[:project_folder])
       flash[:notice] = 'ProjectFolder was successfully updated.'
 	  respond_to do |format|
@@ -218,15 +218,18 @@ class Project::FoldersController < ApplicationController
   def reorder_element
      @source =  current(ProjectElement, params[:id] ) 
      @project_element =  current(ProjectElement, params[:before] ) 
-     set_folder(@source.parent_id)
+      @project_folder = set_folder(@source.parent_id)
      if @source.parent_id ==  @project_element.parent_id
         @source.reorder_before( @project_element )       
         @project_folder.reload
-     end
-     
+     end     
     respond_to do |format|
-      format.html { render :action => 'show'}
-      format.json { render :partial => "reorder"};
+        format.html { render :action => 'show'}
+        format.json { render :partial => "reorder"};
+        format.js { render :update do | page |  
+              page.status_panel :inline =>" Source [#{ @source.name}] moved before [#{@project_element.name}]"
+            end
+        }
     end  
   end
 #
@@ -236,13 +239,14 @@ class Project::FoldersController < ApplicationController
 #   :before = element to place element before
 #
   def add_element   
+    @project_folder = set_folder(params[:folder_id])  if params[:folder_id]
     @source =  current(ProjectElement, params[:id] ) 
+    
     if  params[:before]
       @project_element =  current(ProjectElement, params[:before] ) 
-      set_folder(@project_element.parent_id)
-    else
-      set_folder(params[:folder])
+      @project_folder = set_folder(@project_element.parent_id)
     end
+
     if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
        @new_element = @project_folder.copy(@source)
        @new_element.reorder_before( @project_element ) if @project_element
@@ -253,7 +257,11 @@ class Project::FoldersController < ApplicationController
     @project_folder.reload
     respond_to do |format|
       format.html { render :action => 'show'}
-      format.json { render :partial => "reorder"};
+      format.json { render :partial => "reorder"}
+      format.js { render :update do | page |  
+              page.status_panel   :inline => flash[:info]||flash[:warning]
+            end
+        }
     end  
   end
 
@@ -335,22 +343,8 @@ protected
   end
 
 
-def allowed_move(source,dest)
+  def allowed_move(source,dest)
      return !(source.id == dest.id or source.id == dest.parent_id or  source.parent_id == dest.id  or source.parent_id == dest.parent_id)
   end
 
-##
-# Simple helpers to get the current folder from the session or params 
-#  
-  def set_folder(id = nil)
-     id ||= params[:folder_id] || params[:id]
-     ProjectFolder.current = @project_folder = current_user.folder(id) ||  current_project.home
-     @layout = {}
-     @layout[:right] = params[:right] || 'right_finder'
-     @layout[:center] = params[:center] || 'show'     
-     @clipboard = session[:clipboard] 
-     @clipboard ||= Clipboard.new
-     return @project_folder
-  end  
-  
 end

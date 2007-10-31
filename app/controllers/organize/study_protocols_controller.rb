@@ -215,13 +215,13 @@ class Organize::StudyProtocolsController < ApplicationController
              @parameter.default_value = row[1]['default_value']
              @parameter.mandatory = row[1]['mandatory']
              unless @parameter.save
-               logger.error @flash[:warning] = "#{@flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
+               logger.error flash[:warning] = "#{flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
                break
              end
           end
         end
       else   
-        @flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
+        flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
       end
    end
    respond_to do | format |

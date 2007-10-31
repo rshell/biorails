@@ -6,6 +6,11 @@
     Description:
         Purpose of the stylesheet follows.
 */
+.bio-std li { display: list-item }
+.bio-std ol { list-style-type: decimal }
+.bio-std 
+.bio-std 
+
 html, body {
     font-size: 10px ;    
     font-family: Trebuchet MS,Georgia,"Times New Roman",serif;

@@ -1,5 +1,13 @@
-<%= render :partial => 'title' %>
-
+<h2>
+    <% if @project_folder.parent %>
+    <%=image_tag("/images/model/#{@project_folder.style}.png")%>
+    Folder: 
+    <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
+    <%else%>
+    Root: <%= @project_folder.path %>
+    <% end%>
+</h2>
 <% for item in folder.elements %>    	
    <% if (item.asset? and item.asset.image?) %>
       <h2> Figure: <%=item.title%>  </h2>
