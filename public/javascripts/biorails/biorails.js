@@ -174,30 +174,68 @@ Biorails = function(){
 					iconCls:'nav'
 				});
 // center
-   var _main_panel = new Ext.Panel({
-					title: 'Main',
+   var _center_panel = new Ext.Panel({
+			    region:"center",
 					id: 'main-id',
                     xtype:"panel", 
-                    layout: 'fit',
-					autoScroll:true, 
+                    layout: 'fit',	
+                    autoScroll: true,				
 					contentEl:'center-panel',
 					autoDestroy: true,  
                     autoShow: true,
                     frame: false
-			       });
-                               
-   var _center_panel = new Ext.TabPanel( {
-					region:"center",
-					border: false,
-                	xtype:"tabpanel",
-					border: true,
-					id:'center-id',
-					border:false,
-					activeTab:0,
-					tabPosition: 'top',
-					 items: [ _main_panel ]
-				   } );
+			       });                               
+                                   
+   var _south_panel = new Ext.Panel({
+			    region:"south",
+			    title:"History",
+			    id:'footer-id',	
+			    height:75,
+			    split:true,
+			    splitTip: "Mesages and Audit information",
+			    useSplitTips: true,
+			    collapsible:true,
+			    titleCollapse:true,
+			    floatable: true,
+		            items: [ _footer_panel ]
+			 });                                
  
+   var _east_panel = new Ext.TabPanel( {
+			    region:"east",
+			    title:"Extras",
+		        xtype:"tabpanel",
+			    id:'extra-id',	
+			    width: 225,
+                minHeight: 600,                       
+				minSize: 175,
+                maxSize: 400,
+			    split:true,
+			    useSplitTips: true,
+			    collapsible:true,
+			    titleCollapse:true,
+		        activeTab:0,
+			    tabPosition: 'bottom',
+		        items:[ _status_panel, _tree_panel ]
+			  });
+
+   var _west_panel = new Ext.Panel( {
+			    region:"west",
+			    title:"Navigation",
+			    id:'nav-id',	
+			    split:true,
+			    collapsible:true,
+			    useSplitTips: true,
+			    titleCollapse:true,
+		        width: 170,
+                minHeight: 600,                       
+		        minSize: 170,
+		        maxSize: 400,
+		        layout:'accordion',
+		        layoutConfig:{     animate:true   },
+		        items: [ _actions_panel, _work_panel]
+			  });
+                          
+                          
 
 // 
 // Default Toolbar
@@ -258,68 +296,21 @@ Biorails = function(){
 				  {text: 'search',handler: onSearchClick},							
 				  {text: 'logout', iconCls:'icon-logout', href:'/logoff'}							
 				]});
+                                
+   var _north_panel = new Ext.Panel({
+			 region:"north",
+			 height: 32,
+             autoShow: true,            
+			 el: 'toolbar-panel',
+			 tbar: _toolbar	   		
+			  });                            
 
    var _layout = {
 		layout:"border",
 	    autoHeight: true,
  	   	autoWidth : true,
 		autoScroll: true,
-		items:[{
-			 region:"north",
-			 height: 32,
-             autoShow: true,            
-			 el: 'toolbar-panel',
-			 tbar: _toolbar	   		
-			  },{
-			    region:"south",
-			    title:"History",
-			    id:'footer-id',	
-			    height:75,
-			    split:true,
-			    splitTip: "Mesages and Audit information",
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-			    floatable: true,
-		            items: [ _footer_panel ]
-			 },{
-			    region:"west",
-			    title:"Navigation",
-			    id:'nav-id',	
-			    split:true,
-			    collapsible:true,
-			    useSplitTips: true,
-			    titleCollapse:true,
-		        width: 170,
-                minHeight: 600,                       
-		        minSize: 170,
-		        maxSize: 400,
-		        layout:'accordion',
-		        layoutConfig:{
-		            animate:true
-		        },
-		        items: [ _actions_panel, _work_panel]
-			  },{
-			    region:"east",
-			    title:"Extras",
-                layout: 'fit',                       
-			    id:'extra-id',	
-			    width: 225,
-                minHeight: 600,                       
-				minSize: 175,
-                maxSize: 400,
-			    split:true,
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-			    items: [{
-			        xtype:"tabpanel",
-			        activeTab:0,
-				    tabPosition: 'bottom',
-			        items:[ _status_panel, _tree_panel  ]
-			      }]
-			  },_center_panel
-			  ]
+		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _center_panel  ]
 		};
 //------------------Public Methods ------------------------------------------------------------------------
   
@@ -415,9 +406,9 @@ Biorails = function(){
 			  tab = Ext.ComponentMgr.get('#{config.id}');
 			  if (tab) {
 			     tab.body.update(config.html);
-			     panel.activate('#{id}');
+			     _center_panel.activate('#{id}');
 			  } else {
-			    panel.add( new Ext.Panel({
+			    _center_panel.add( new Ext.Panel({
 			          title: '#{id}', 
 			          id: '#{id}',
 			          html: content, 
@@ -426,10 +417,19 @@ Biorails = function(){
 			          closable:true,
 			          html: content })
 			    );  
-			   panel.activate('#{id}');
+			   _center_panel.activate('#{id}');
 			  }
 		  };
 	  },
+/*
+ * Set the active panel in the UI
+ */          
+    focus: function(id){
+        if ('main'==id) {  _center_panel.activate(_main_panel); }  
+        else if ('clipboard'==id) { _work_panel.focus(); }  
+        else if ('status'==id) { _east_panel.activate(_status_panel); }  
+        else if ('tree'==id) { _east_panel.activate(_tree_panel); };  
+    },      
 /*
  * Get the grid_id
  */          
@@ -491,16 +491,16 @@ Biorails = function(){
  *
  */          
       folder: function(id,title){
-        _folder_grid = new Biorails.Folder(id,title);
         if (_center_panel){
               tab = Ext.ComponentMgr.get('folder-grid-'+id);
               if (tab) {
                    _center_panel.remove(tab);
                    _center_panel.doLayout();
               };
+              _folder_grid = new Biorails.Folder(id,title);
 			  _center_panel.add( _folder_grid );  
-              _center_panel.setActiveTab( _folder_grid );
               _center_panel.doLayout();
+              _center_panel.setActiveTab( _folder_grid );
            } 
 
          return _folder_grid;       
@@ -508,7 +508,6 @@ Biorails = function(){
             
       init : function(){ 
           if (!_viewport){    
-            Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
             _viewport = new Ext.Viewport(_layout ); // End Viewport
             
             var dropZone = new Ext.dd.DropTarget(_work_panel.id, {
@@ -1004,11 +1003,16 @@ Ext.namespace("Biorails.HtmlField");
 
 Biorails.HtmlField = function(id){
     Biorails.HtmlField.superclass.constructor.call(this,{
+         id: id,
          applyTo: id,
-         enableFontSize: true,
+         width : 600,
+         height: 300,
          enableFormat: true,
          enableLists: true,
-         enableColours:true
+         enableFontSize: false,
+         enableLinks:  false,
+         enableSourceEdit: false,
+         enableColours: false
     });
 }
 
@@ -1022,6 +1026,10 @@ Biorails.DocumentField = function(id){
          enableFontSize: true,
          enableFormat: true,
          enableLists: true,
+         enableLinks: true,
+         height: 600,
+         autoWidth : true,
+         enableSourceEdit: true,
          enableColours:true
     });
 }
@@ -1184,7 +1192,7 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
     resync: function(request){
        this.store.load();
     },
-    
+
  /*
   * dropped Item Handler to update the layout 
   * with new row added via clipboard or tree
@@ -1320,15 +1328,14 @@ Ext.extend( Biorails.Report.DropTarget, Ext.dd.DropTarget, {
 
 //------------------ Main App ------------------------------------------------------------------------
 
+ Ext.onReady( function() { 
 try {
- Ext.onReady( function() 
-    { 
+        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+        Ext.QuickTips.init();
         Biorails.init();        
-    }, 
-    Biorails);
 } catch (e) {
 	if (Ext.isGecko) {
  	  console.log('Problem with main javascript ');
 	  console.log(e);		
 	}
-};
+};    }, Biorails);

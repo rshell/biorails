@@ -1,6 +1,5 @@
 <h2> Article: <%= @project_element.title%> 
-<%= link_to '[Edit]', content_url(:action=>'edit',:id=> @project_element.id) ,
-      :complete => " tinyMCE.execCommand('mceAddControl',true,'project_element_to_html' );"  %>  
+<%= link_to '[Edit]', content_url(:action=>'edit',:id=> @project_element.id )   %>  
 </h2>
 <p>       
 <%=  @project_element.to_html %>	

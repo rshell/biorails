@@ -147,6 +147,7 @@ module ApplicationHelper
  # 
  def status_panel(*options_for_render)
    call 'Element.update','status', render(*options_for_render)  
+   page<< "Biorails.focus('status');"
  end
  #
  # Update the the content of the audit panel

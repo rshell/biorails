@@ -1,5 +1,12 @@
 <% content_for :center do -%>
-  <%= render :partial => 'document', :locals=>{:folder=>@project_folder} %>
+<div id='tabs-folders'>
+    <div id="tab-show" class="tab-content">
+        <%= render :partial => 'document', :locals=>{:folder=>@project_folder} %>
+    </div>
+    <div id="tab-folders" class="tab-content x-hidden">
+    </div>
+</div>    
+  
 <% end %>    
 
 <% content_for :help do -%>
@@ -11,6 +18,23 @@
 
 
 
-<script>
-Ext.onReady(Biorails.folder(<%=@project_folder.id %>,'Folder <%=@project_folder.path %>'),Biorails);
-</script>
+
+<SCRIPT TYPE="text/javascript"> 
+Ext.onReady(function(){
+        var tabs = new Ext.TabPanel({
+		        renderTo:'tabs-folders',
+				activeTab: 0,
+				defaults: {
+						autoHeight: true,
+						autoScroll: true,
+						bodyStyle: 'padding:5px'
+				},
+				items: [{
+						title: 'Document View',
+						contentEl: 'tab-show',
+						autoScroll: true
+					    },  new Biorails.Folder(<%=@project_folder.id%>,'Folder View')
+                    ]		  
+		});
+ });
+</script>    

@@ -13,18 +13,13 @@
     </div>
 </div>
    
+
 <div class="row">
-    <div class="form-element">
-     <label for="text">Article</label>
-     <%= text_area('project_element', 'to_html', {:rows=>40,:cols=>100})  %>
-     </div>
+ <label for="title">Text:</label>
+  <%= document_field('project_element', 'to_html')  %>
 </div>
 
 <div class="row">
 <%= submit_tag "Save"  %>
 </div>
-
-<script> 
-  Ext.onReady(MceEditor.init( 'project_element[to_html]' ), MceEditor);
-</script>
 

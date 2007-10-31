@@ -49,7 +49,43 @@ HTML
       logger.error ex.backtrace.join("\n")    
        "Err. (no date picker)"
   end
-  
+
+##
+# Html editor data entry field
+# 
+  def html_field(object_name,method ,options={})
+   return <<HTML	
+ #{text_area(object_name,method,options)} 
+ <script type="text/javascript">
+    Ext.onReady( function(){ 
+        new Biorails.HtmlField( '#{object_name}_#{method}'); 
+    } );
+ </script>
+HTML
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")    
+      "Err. (no html editor found)"
+  end
+##
+# Html editor data entry field
+# 
+  def document_field(object_name,method,options={})
+   title ||= method
+   return <<HTML	
+  #{text_area(object_name,method,options)} 
+ <script type="text/javascript">
+    Ext.onReady( function(){ 
+        new Biorails.DocumentField( '#{object_name}_#{method}'); 
+    } );
+ </script>
+HTML
+  rescue Exception => ex
+      logger.error ex.message
+      logger.error ex.backtrace.join("\n")    
+      "Err. (no html editor found)"
+  end
+    
   def select_values(object,method, root = nil,id_field=:id,initial_list=nil)
      list = initial_list || [[nil,nil]]
      case root

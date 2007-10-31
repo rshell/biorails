@@ -1,6 +1,5 @@
 
-<% form_remote_tag :url=>content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder), 
-                :before => 'tinyMCE.triggerSave(false,false);'   do %>
+<% form_remote_tag :url=>content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder)  do %>
      
        <%= render :partial => 'article' %>
     

@@ -22,8 +22,8 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html  @project_element.dom_id(:current), :partial=> 'show'
+           page.status_panel :partial=> 'messages'
+           page.main_panel :partial=> 'show'
          end
       }
     end  

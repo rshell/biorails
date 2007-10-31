@@ -91,8 +91,9 @@ class Project::AssetsController < ApplicationController
       format.html { render :action=>'new'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
-           page.replace_html 'message', :partial=> 'messages'
-           page.replace_html 'center',  :partial => 'upload' ,:locals=>{:folder=> @project_folder}
+           page.status_panel :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_asset']} 
+           page.help_panel   :partial=> 'help'
+           page.main_panel   :partial => 'upload' ,:locals=>{:folder=> @project_folder}
          end
       }
     end  

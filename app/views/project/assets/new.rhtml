@@ -6,6 +6,6 @@
    <%= render :partial => 'upload',:locals=>{:folder=>@project_folder} %>
 <% end %>
 
-<% content_for :right do -%>
-  <%= render :partial => 'guide',:locals=>{:folder=>@project_folder} %>  
+<% content_for :help do -%>
+  <%= render :partial => 'help',:locals=>{:folder=>@project_folder} %>  
 <% end %>

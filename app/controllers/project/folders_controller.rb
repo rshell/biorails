@@ -39,6 +39,8 @@ class Project::FoldersController < ApplicationController
       format.js  { render :update do | page |  
           page.work_panel   :partial => 'shared/clipboard'
 		  page.show_folder   @project_folder
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
        end 
       }    
 	end 
@@ -54,10 +56,6 @@ class Project::FoldersController < ApplicationController
       format.html { render :action => 'print', :layout => "layouts/printout.rhtml"}
       format.pdf {render_pdf("#{@project_folder.name}.pdf",{:action => 'print', :layout => "layouts/printout.rhtml"})}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.add_tab @project_folder.dom_id,  :partial => 'print' ,:locals=>{:folder=>@project_folder}
-         end
-      }
     end  
   end
   
@@ -76,7 +74,7 @@ class Project::FoldersController < ApplicationController
 #  * @project based on folder
 # 
   def new
-    @parent =  set_folder(params[:id])
+    @parent =  set_folder(params[:id]||params[:folder_id])
     @project_folder = ProjectFolder.new(:name=> Identifier.next_user_ref, 
                                         :parent_id=>@parent.id,
                                         :project_id=>@parent.project_id)
@@ -86,7 +84,6 @@ class Project::FoldersController < ApplicationController
       format.csv  { render :text => @project_folder.to_csv }
       format.json { render :json =>  @project_folder.to_json }  
       format.js  { render :update do | page |  
-          page.actions_panel  :partial => 'actions'
           page.help_panel     :partial => 'help'
           page.status_panel   :partial => 'status'
           page.main_panel     :partial =>'new'

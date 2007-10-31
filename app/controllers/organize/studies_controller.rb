@@ -31,6 +31,11 @@ class Organize::StudiesController < ApplicationController
    @data_pages = Paginator.new self, @project.studies.size, 20, params[:page]
    @data = @report.run({:limit  =>  @data_pages.items_per_page,
                         :offset =>  @data_pages.current.offset })
+    respond_to do | format |
+      format.html { render :action => 'list' }
+      format.json { render :json => @data.to_json }
+      format.xml  { render :xml => @data.to_xml }
+    end
   end
 ##
 # Show a overview of the current study

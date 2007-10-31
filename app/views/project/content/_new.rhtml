@@ -1,6 +1,5 @@
 <br/>
-<% form_remote_tag :before => 'tinyMCE.triggerSave(false,false);', 
-                   :url =>content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>
+<% form_remote_tag  :url =>content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>
  
    <%= render :partial => 'article' %>
 
