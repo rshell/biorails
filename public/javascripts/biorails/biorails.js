@@ -204,23 +204,23 @@ Biorails = function(){
 // 
    var _toolbar =  new Ext.Toolbar({
 		 items: [{text: 'Home', menu: { items: [
-								{text: "Dashboard",iconCls:'icon-home',    url:'/home',handler: clickMenu ,scope: this },
+								{text: "Dashboard",iconCls:'icon-home',    href:'/home',scope: this },
 								'-',
-								{text: "Recent",  iconCls:'icon-news' ,      url:'/home/news',handler: clickMenu ,scope: this },
-								{text: "Projects",iconCls:'icon-project' ,      url:'/home/projects',handler: clickMenu ,scope: this },
-								{text: "Todo",    iconCls:'icon-todo' ,      url:'/home/todo',handler: clickMenu ,scope: this  },
-								{text: "Tasks",   iconCls:'icon-task' ,      url:'/home/tasks',handler: clickMenu ,scope: this  },
-								{text: "Requests",iconCls:'icon-request' ,      url:'/home/requests',handler: clickMenu ,scope: this  }
+								{text: "Recent",  iconCls:'icon-news' ,      href:'/home/news',scope: this },
+								{text: "Projects",iconCls:'icon-project' ,      href:'/home/projects',scope: this },
+								{text: "Todo",    iconCls:'icon-todo' ,      href:'/home/todo',scope: this  },
+								{text: "Tasks",   iconCls:'icon-task' ,      href:'/home/tasks' ,scope: this  },
+								{text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  }
 							]}},
 				 {text: 'Project', menu : {items: [
-								{text: "Dashboard", iconCls:'icon-project',   url:'/projects/show',handler: clickMenu ,scope: this },
+								{text: "Dashboard", iconCls:'icon-project',   href:'/projects/show',scope: this },
 								'-',
-								{text: "Calender",    iconCls:'icon-calendar' ,   url:'/projects/calendar',handler: clickMenu ,  scope: this },
-								{text: 'Timeline',    iconCls:'icon-timeline' ,   url:'/projects/gantt',handler: clickMenu,  scope: this },
-								{text: 'Folders',      url:'/folders',handler: clickMenu,  scope: this },
-								{text: 'Study Designs',url:'/studies',handler: clickMenu,  scope: this },
-								{text: 'Experiments',  url:'/experiments',handler: clickMenu,  scope: this },
-								{text: "Reports",      url:'/reports',handler: clickMenu, scope: this }
+								{text: "Calender",    iconCls:'icon-calendar' ,   href:'/projects/calendar',  scope: this },
+								{text: 'Timeline',    iconCls:'icon-timeline' ,   href:'/projects/gantt' , scope: this },
+								{text: 'Folders',     iconCls:'icon-folder' , href:'/folders',  scope: this },
+								{text: 'Study Designs',iconCls:'icon-study' ,href:'/studies',  scope: this },
+								{text: 'Experiments', iconCls:'icon-experiment' , href:'/experiments',  scope: this },
+								{text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this }
 							]}},
 				 {text: 'Design',menu : {items: [
 								{text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },

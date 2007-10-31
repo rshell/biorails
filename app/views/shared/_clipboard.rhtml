@@ -1,0 +1,23 @@
+
+<div id='clipboard'>
+<h2>Clipboard for <%=current_user.name%></h2>
+<i>Drop items to add</i><%=link_to_remote '[Clear]',:url => finder_url(:action=>"clear_clipboard")%>
+<br/>
+  <% if current_clipboard.size>0%>
+  <ol>
+    <% for item in current_clipboard %>
+     <li>
+      <span id='<%=item.dom_id%>' class='project_element'>
+              <%=image_tag(item.icon( {:images=>true} ) ) %> 
+               <%=link_to item.name ,reference_to_url(item) %>
+      </span>
+      <%=link_to_remote subject_icon("action/add.png"),
+                :url => folder_url(:action=>'add_element',:id=>item.id,:folder=>current_folder ) %>             
+      <%=link_to_remote subject_icon("action/cancel.png"), 
+                :url => finder_url(:action=>'remove_clipboard', :id=>item.id) %>             
+     </li>
+    <% end %>
+  </ol>
+  <%end%>
+</div>
+  
