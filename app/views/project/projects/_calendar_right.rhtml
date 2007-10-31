@@ -1,15 +1,13 @@
-<h2> Update View </h2>
+<div class='box'>
 <%form_tag({:action =>'calendar', :id=> @project.id} ) do %>
-    <div class='panel'>
     <%= error_messages_for("user") %>
-    <fieldset>
     <br>Month:
     <%= select_month(@calendar.started_at, :prefix => "month", :discard_type => true)%>
     <br/>Year:
     <%= select_year(@calendar.started_at, :prefix => "year", :discard_type => true)%>
-    </fieldset>
+    <br/>
     <fieldset>
-    Types 
+    <legend>Types</legend> 
     <ul>
     <li>  <%=subject_icon("model/request") %>    <%= check_box_tag 'items[request]', 'y',   checked = @options['items']['request'] %>Requests</li>
     <li>  <%=subject_icon("model/request") %>    <%= check_box_tag 'items[service]', 'y',   checked = @options['items']['service'] %>Queued </li>
@@ -19,20 +17,20 @@
     <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[task]', 'y',      checked = @options['items']['task'] %>Tasks</li>
     </ul>
     </fieldset>
+    <br/>
     <fieldset>
-     Status values 
+    <legend> Status values </legend> 
     <ul>
     <% for state in Task.schedule_states.keys.sort  %>
-       <li class='state_<%=Task.schedule_states[state]%>'>  
+       <li  class='state-<%=Task.schedule_states[state]%>'>  
          <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state]||@options['states'][state.to_s] %>
          <%=Task.schedule_states[state]%>
        </li>
     <% end %>
-    </ul>
+    </ul>  
     </fieldset>
-    </div>   
-<%= image_tag('schedule/arrow_from.png')%>  Starts on this day <br />
-  Ends on this day <%=image_tag('schedule/arrow_to.png')%>  <br />
-    <br />
+    <br/>
+
     <%= submit_tag("Update")%>
+ </div>
  <% end %>

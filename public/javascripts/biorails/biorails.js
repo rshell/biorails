@@ -150,6 +150,7 @@ Biorails = function(){
 					autoDestroy: true,  
 					autoScroll: true,
 					contentEl: 'work-tab',
+                    //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
 					id: 'work-id',
 					title:"Clipboard"
 				  }  );
@@ -1092,7 +1093,7 @@ Biorails.Folder = function(folder_id, title){
            id: 'folder-grid-'+folder_id,
            ds:  new Ext.data.GroupingStore({
                remoteSort: true,
-               sortInfo: {field: 'position', direction: 'ASC'},
+               sortInfo: {field: 'left_limit', direction: 'ASC'},
                proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+folder_id, method: 'get' }),
                reader: new Ext.data.JsonReader({
                              root: 'items', totalProperty: 'total'}, [
@@ -1112,17 +1113,15 @@ Biorails.Folder = function(folder_id, title){
            loadMask: true,
            enableDragDrop: true,
            cm: new Ext.grid.ColumnModel([
+                {header: "Pos", width: 50, sortable: true, renderer: this.renderNum,  dataIndex: 'left_limit'},
                 {header: "Icon", width: 32, sortable: false,renderer: this.renderIcon,  dataIndex: 'icon'},
-                    {header: "Name", width: 150, sortable: true,  dataIndex: 'name'},
-                    {header: "Pos", width: 50, sortable: true, renderer: this.renderNum,  dataIndex: 'left_limit'},
-                    {header: "Left", width: 50, sortable: true,  dataIndex: 'left_limit'},
-                    {header: "Right", width: 50, sortable: true,   dataIndex: 'right_limit'},
-                    {header: "Style", width: 100, sortable: true,  dataIndex: 'reference_type'},
-                    {header: "Summmary", width: 300, sortable: false,   dataIndex: 'summary'},
-                    {header: "Updated By", width: 55, sortable: false,  dataIndex: 'updated_by'},
-                    {header: "Updated At", width: 85, sortable: true,
-                              renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
-                    {header: "Actions", width: 75,   dataIndex: 'actions'}
+                {header: "Name", width: 150, sortable: true,  dataIndex: 'name'},
+                {header: "Style", width: 100, sortable: true,  dataIndex: 'reference_type'},
+                {header: "Summmary", width: 300, sortable: false,   dataIndex: 'summary'},
+                {header: "Updated By", width: 55, sortable: false,  dataIndex: 'updated_by'},
+                {header: "Updated At", width: 85, sortable: true,
+                          renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
+                {header: "Actions", width: 75,   dataIndex: 'actions'}
                 ]),
            view: new Ext.grid.GroupingView(),
            viewConfig: {forceFit:true},

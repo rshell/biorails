@@ -7,6 +7,14 @@
    <%= render :partial=>'calendar' %>  	   
 <% end %>
 
+<% content_for :help  do %>
+  <h2> Calendar View </h2>
+   Calendar view of the project, select types are work you want to appear here.
+   <br />
+   <%= image_tag('schedule/arrow_from.png')%>  Starts on this day <br />
+   Ends on this day <%=image_tag('schedule/arrow_to.png')%>  <br />
+<% end %>
+
 <% content_for :status  do %>
    <%= render :partial=>'calendar_right' %>
 <% end %>

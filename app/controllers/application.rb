@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_project
   helper_method :current_username
   helper_method :current_folder
+  helper_method :current_clipboard
   helper_method :current 
 
 

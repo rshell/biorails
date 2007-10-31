@@ -69,8 +69,11 @@
   
   <div id="work-tab" class="x-hidden">
 	<div id='work' class='bio-std'>
-      <%= yield :context %>
-      <%= yield :work %>
+     <%= if @content_for_work
+         yield :work
+       else    
+         render :partial =>'shared/clipboard' 
+       end %>
      </div>
   </div>
 
