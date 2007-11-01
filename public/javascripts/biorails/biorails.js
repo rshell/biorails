@@ -926,7 +926,14 @@ Ext.namespace("Biorails.DateField");
  */
 Biorails.DateField = function(config){    
     Biorails.DateField.superclass.constructor.call(this,config); 
-};
+         
+    this.on('blur',function(field){
+              field.save();
+        });
+    this.on('focus',function(field){
+              field.entry();
+        });
+      };
 
 Ext.extend(Biorails.DateField,  Ext.form.DateField, {
 	parseDate : function(raw) {
@@ -940,7 +947,24 @@ Ext.extend(Biorails.DateField,  Ext.form.DateField, {
             } catch (e) {
           return "";    
         }
-	}
+	},
+
+   save: function(){
+            if ( this.url && (_original_value != this.getValue() ) ) {
+              var element=this.getEl().dom;
+              new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
+              var save_url = this.url+'?element='+element.id;
+              new Ajax.Request(save_url,
+                  {asynchronous:true, evalScripts:true, parameters:'value=' + escape(element.value)} ); 
+            }
+          },
+          
+    entry: function(){
+         var element=this.getEl().dom;
+         _original_background = element.style.background;
+         _original_value = this.getValue();
+         }              
+                 
 });
 //Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
 
@@ -955,29 +979,53 @@ Ext.extend(Biorails.DateField,  Ext.form.DateField, {
 
 
 
-Biorails.SelectField = function(id){    
-    Biorails.SelectField.superclass.constructor.call(this,{
+Biorails.SelectField = function(config){   
+     
+    Biorails.SelectField.superclass.constructor.call(this,Ext.apply(config,{
 		typeAhead: true,
         triggerAction: 'all',
-        transform: id,
         forceSelection:true        
-        }); 
+        }));
+         
+    this.on('change',function(field){
+              field.save();
+        });
+    this.on('focus',function(field){
+              field.entry();
+        });     
 };
 
-Ext.extend(Biorails.SelectField,  Ext.form.ComboBox, {});
+Ext.extend(Biorails.SelectField,  Ext.form.ComboBox, {
+
+     save: function(){
+            if ( this.url && (_original_value != this.getValue() ) ) {
+              var element=this.getEl().dom;
+              new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
+              var save_url = this.url+'?element='+element.id;
+              new Ajax.Request(save_url,
+                  {asynchronous:true, evalScripts:true, parameters:'value=' + escape(element.value)} ); 
+            }
+          },
+          
+     entry: function(){
+         var element=this.getEl().dom;
+         _original_background = element.style.background;
+         _original_value = this.getValue();
+         }              
+                 
+});
 
 //---------------------------------------- Conbo Field Widget--------------------------------------------------------
 Ext.namespace("Biorails.ComboField");
 /**
  * Custom Select field for a remote data element field
  */
-Biorails.ComboField = function(id, element_id){    
-    Biorails.ComboField.superclass.constructor.call(this,{
+Biorails.ComboField = function(config){    
+    Biorails.ComboField.superclass.constructor.call(this,Ext.apply(config,{
 		 mode:'remote',
-         applyTo: id,
          store: new Ext.data.Store({
                    proxy: new Ext.data.HttpProxy({
-                            url: '/admin/element/select/'+element_id, method: 'get' 
+                            url: '/admin/element/select/'+config.root_id, method: 'get' 
                           }),
          reader: new Ext.data.JsonReader({
 								root: 'items', 
@@ -992,11 +1040,103 @@ Biorails.ComboField = function(id, element_id){
          loadingText: 'Searching...',
 		 valueField: 'id',
 		 displayField: 'name'
-         }); 
+         })); 
+         
+        this.on('change',function(field){
+              field.save();
+        });
+        this.on('focus',function(field){
+              field.entry();
+        });
+      
 };
 
-Ext.extend(Biorails.ComboField,  Ext.form.ComboBox, {});
+Ext.extend(Biorails.ComboField,  Ext.form.ComboBox, {
+
+     save: function(){
+            if ( this.url && (_original_value != this.getValue() ) ) {
+              var element=this.getEl().dom;
+              new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
+              var save_url = this.url+'?element='+element.id;
+              new Ajax.Request(save_url,
+                  {asynchronous:true, evalScripts:true, parameters:'value=' + escape(element.value)} ); 
+            }
+          },
+          
+     entry: function(){
+         var element=this.getEl().dom;
+         _original_background = element.style.background;
+         _original_value = this.getValue();
+         }              
+                 
+});
+
 //Ext.reg('datefield', Biorails.DateField); // Register as default datefield in Ext
+
+//---------------------------------------- Conbo Field Widget--------------------------------------------------------
+Ext.namespace("Biorails.FileComboField");
+/**
+ * Custom Select field for a remote data element field
+ */
+Biorails.FileComboField = function(config){ 
+    var _original_value = null;
+    var _original_background = null;   
+    Biorails.FileComboField.superclass.constructor.call(this,Ext.apply(config,{
+		 mode:'remote',
+         store: new Ext.data.Store({
+                   proxy: new Ext.data.HttpProxy({
+                            url: '/folders/select/'+config.folder_id, method: 'get' 
+                          }),
+                   reader: new Ext.data.JsonReader({
+                                            root: 'items', 
+                                            totalProperty: 'total'},
+                                             [ {name: 'id', type: 'int'},
+                                               {name: 'name'},
+                                               {name: 'path'},
+                                               {name: 'icon'}]  )
+                    }),
+         triggerAction: 'all',
+		 forceSelection: true,
+		 editable: true,
+         loadingText: 'Searching...',
+		 valueField: 'id',
+		 displayField: 'name',
+         tpl: new Ext.XTemplate(
+                '<tpl for="."><div class="x-combo-list-item">',
+                '<image src="{icon}"/>',
+                '<em>{name}</em>:   <strong>{path}</strong>',
+                '<div class="x-clear"></div>',
+                '</div></tpl>')       
+         })); 
+        this.on('change',function(field,newValue,oldValue){
+              field.save();
+        });
+        this.on('focus',function(field){
+                 field.entry();
+        });
+      
+};
+
+Ext.extend(Biorails.FileComboField,  Ext.form.ComboBox, {
+
+
+     save: function(){
+            if ( this.url && (_original_value != this.getValue() ) ) {
+              var element=this.getEl().dom;
+              new Effect.Highlight(element.id,{endcolor:'#FFFF99', restorecolor:'#FFFF99'} );
+              var save_url = this.url+'?element='+element.id;
+              new Ajax.Request(save_url,
+                  {asynchronous:true, evalScripts:true, parameters:'value=' + escape(element.value)} ); 
+            }
+          },
+          
+     entry: function(){
+         var element=this.getEl().dom;
+         _original_background = element.style.background;
+         _original_value = this.getValue();
+         }                        
+        
+    });
 
 //---------------------------------------- Simple  HTML Editor -------------------------------------------------
 Ext.namespace("Biorails.HtmlField");

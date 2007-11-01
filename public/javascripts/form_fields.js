@@ -152,7 +152,7 @@ function FieldEntry(element,event)
     if (element.type == "text")
      { 
       element.select();
-     }
+     } 
   }
 }
 

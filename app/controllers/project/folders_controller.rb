@@ -270,20 +270,19 @@ class Project::FoldersController < ApplicationController
 # 
 #  * url is in the form /data_element/choices/n with value=xxxx parameter
 #
-  def choices
-    text = request.raw_post || request.query_string
-    @value = text.split("=")[1]
+   def select
+    @value   = params[:query] || ""
     @choices = ProjectAsset.find(:all,
                                 :conditions=>['project_id=? and name like ? ', current_project.id, "#{@value}%"],
-                                :order=>"abs(#{params[:id]} - parent_id) asc,parent_id,name",
+                                :order=>"abs(#{params[:id]} - parent_id) asc,left_limit,name",
                                 :limit=>10)
-    render :partial=>'choices',:layout=>false
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-    render :inline => ""                        
-  end    
-  
+
+	@list = {:element_id=>params[:id],
+			 :matches=>@value,
+			 :total=>100 ,
+			 :items =>@choices.collect{|i|{:id=>i.id,:name=>i.name,:path=>i.path, :icon=>i.icon( {:images=>true} )}} }
+     render :text => @list.to_json
+  end  
   
 protected
 
