@@ -1,23 +1,12 @@
 
 <% content_for :messages do -%>
-<%= render :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_elementt']}  %>
+   <%= render :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_elementt']}  %>
 <%end %>
 
 <% content_for :center do -%>
-  <% dialog "New Article in #{@project_folder.path} " do %>
-    <% form_tag content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>
-     
-       <%= render :partial => 'article' %>
-    
-    <% end %>
+   <%= render :partial => 'new' %>
  <% end %>
 
-	
-<% end %>
-
-<% content_for :right do -%>  
-  <div class='panel' id='folder_actions'>
-       This is a simple to use HTML editor, supporting cut and paste of data from word. 
-       For secure browsers you may need to enable browser paste into the window.
-     </div>
+<% content_for :help do -%>  
+   <%= render :partial => 'help' %>
 <% end %>

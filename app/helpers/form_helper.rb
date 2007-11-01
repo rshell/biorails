@@ -58,7 +58,19 @@ HTML
  #{text_area(object_name,method,options)} 
  <script type="text/javascript">
     Ext.onReady( function(){ 
-        new Biorails.HtmlField( '#{object_name}_#{method}'); 
+        new Ext.form.HtmlEditor({
+         applyTo: "#{object_name}_#{method}",
+         id: "#{object_name}_#{method}",
+         enableFontSize: true,
+         enableFormat: true,
+         enableLists: true,
+         enableLinks: true,
+         minHeight: 400,
+         height: 600,
+         autoWidth : true,
+         enableSourceEdit: true,
+         enableColours:true
+        });
     } );
  </script>
 HTML
@@ -227,12 +239,7 @@ HTML
      if model 
          list.concat(model.find(:all,:order=>'name').collect{|i|[i.name,i.id]})
      end 
-<<HTML
-  #{select(object, method ,list)  }
-  <script type="text/javascript">
-    Ext.onReady( function(){ new Biorails.SelectField('#{object}_#{method}'); } );
-  </script> 
-HTML
+     return select(object, method ,list)
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")    

@@ -379,7 +379,7 @@ return {
                    } else if (data.node) {
 					 var dest = folder_ds.getAt( 0 )
 					 if (rows[0]) { dest = rows[0]; };
-                     new Ajax.Request("/folders/add_element/"+
+                     new .Request(Ajax"/folders/add_element/"+
                           data.node.id+"?before="+ dest.id+'&format=json',
                         {asynchronous:true, 
                          onComplete: function(req){Biorails.resyncGrid(eval(req.responseText))} }); 

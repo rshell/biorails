@@ -1,3 +1,8 @@
+<h2>
+Edit Article: 
+    <%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
+    <%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
+</h2> 
 
 <% form_remote_tag :url=>content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder)  do %>
      

@@ -1005,7 +1005,7 @@ Biorails.HtmlField = function(id){
     Biorails.HtmlField.superclass.constructor.call(this,{
          id: id,
          applyTo: id,
-         width : 600,
+         autoWidth : true,
          height: 300,
          enableFormat: true,
          enableLists: true,
@@ -1027,6 +1027,7 @@ Biorails.DocumentField = function(id){
          enableFormat: true,
          enableLists: true,
          enableLinks: true,
+         minHeight: 400,
          height: 600,
          autoWidth : true,
          enableSourceEdit: true,
