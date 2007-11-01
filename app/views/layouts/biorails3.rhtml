@@ -30,7 +30,7 @@
     <!--script type="text/javascript" src="/javascripts/ext2/adapter/prototype/ext-prototype-adapter.js"></script-->
     <script type="text/javascript" src="/javascripts/ext2/adapter/ext/ext-base.js"></script>
 
-    <script type="text/javascript" src="/javascripts/ext2/ext-all-debug.js"></script>
+    <script type="text/javascript" src="/javascripts/ext2/ext-all.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/menu/EditableItem.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/menu/RangeMenu.js"></script>
 
@@ -51,6 +51,14 @@
 <div id="toolbar-panel" class="x-hidden">
   <div id='toolbar'> </div>
  </div>
+
+<!--center Block =======================-->  
+  <div id="center-panel" class="x-hidden">
+	<div id='center' class='bio-std'>
+       <%= yield :center %>
+       <%= yield %>
+     </div>
+  </div>
 
 <!--West Block =======================-->  
 	    
@@ -80,7 +88,7 @@
 
 <!--East Block =======================-->  
   <div id="status-tab" class="x-hidden">
-	<div id='help' class='box bio-std'>
+	<div id='help' class='bio-std'>
       <%= yield :help %>
     </div>
     <div id="messages"class='bio-std'>
@@ -103,13 +111,7 @@
   <div id="help-tab" class="x-hidden">
   </div>
 
-<!--center Block =======================-->  
-  <div id="center-panel" class="x-hidden">
-	<div id='center' class='bio-std'>
-       <%= yield :center %>
-       <%= yield %>
-     </div>
-  </div>
+
 
 <!--South Block =======================-->  
 <!-- Bottom  -->

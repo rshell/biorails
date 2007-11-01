@@ -38,7 +38,7 @@ class Project::FoldersController < ApplicationController
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |  
           page.work_panel   :partial => 'shared/clipboard'
-		  page.show_folder   @project_folder
+		  page.main_panel  :partial => 'show'
           page.help_panel     :partial => 'help'
           page.status_panel   :partial => 'status'
        end 
@@ -293,7 +293,7 @@ protected
     values =[params[:id]]
 
     start = (params[:start] || 1).to_i      
-    size = (params[:limit] || 25).to_i 
+    size = (params[:limit] || 20).to_i 
     sort_col = (params[:sort] || 'id')
     sort_dir = (params[:dir] || 'ASC')
     where = params[:where] || {}

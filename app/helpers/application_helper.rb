@@ -155,13 +155,6 @@ module ApplicationHelper
  def audit_panel(*options_for_render)
    call 'Element.update','audit', render(*options_for_render)
  end
- #
- # Update the the content to new tab on the center panel
- # 
- def add_tab(id,*options_for_render )
-   assign(:content, brender(*options_for_render)   )  
-   page<<  "Biorails.addTab(#{id},content);"
- end
 #
 # Create a datagrid
 #

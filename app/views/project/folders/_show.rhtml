@@ -1,44 +1,34 @@
-<h2>
-    <% if @project_folder.parent %>
-    <%=image_tag("/images/model/#{@project_folder.style}.png")%>
-    Folder: 
-    <%= link_to "/"+ @project_folder.parent.path, folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
-    <%= link_to "/"+ @project_folder.name,        folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
-    <%else%>
-    Root: <%= @project_folder.path %>
-    <% end%>
-</h2>
-<div id='folder_top' class='reverse'>
-    Folder <%=@project_folder.name%> has <%=@project_folder.elements.size%> items (drop here to add to start)
+<div id='tabs-folders'>
+    <div id="tab-show" class="tab-content x-hidden">
+        <%= render :partial => 'document', :locals=>{:folder=>@project_folder} %>
+    </div>
+    <div id="tab-folders" class="tab-content x-hidden">
+    </div>
 </div>
 
-<div id='<%=@project_folder.dom_id%>' class='folder-list'>
-<ol >  
-  <% elements = @project_folder.elements %>
-  <% if elements and elements.size>0 %>
-    <% (0..elements.size-1).each do |i| %>
-      <% item = elements[i] %>      
-       <li id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
- 	 <span id='<%=item.dom_id(:current)%>' class='folder_element textleft'>
-           <%=image_tag(item.icon( {:images=>true} ) ) %>
-           <strong>
-              <%= link_to  item.name, element_to_url(item) %>
-           </strong>           
-           <%= item.summary %> 
-           <%= short_date(item.updated_at) %>
-         </span>
-         <span class='textright'>
-           <%=link_to_remote( subject_icon("arrow_up"),   :url =>folder_url(:action=>"reorder_element",:id=>item.id, :before=>elements[i-1].id )) if i>0 %>
-           <%=link_to_remote( subject_icon("arrow_down"), :url =>folder_url(:action=>"reorder_element",:id=>item.id, :after=>elements[i+1].id )) if elements[i+1] %>
-           <%if item.reference?%>
-    	      <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
-  	   <%end %>
-           <%= link_to(  "["+subject_icon("edit")+"]",   content_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectContent %>
-           <%= link_to( "["+subject_icon("edit")+"]",   asset_url( :action => 'edit', :id => item ), :class => "button") if item.is_a? ProjectAsset %>
-           <%= link_to( "["+ subject_icon("delete")+"]", folder_url( :action => 'destroy', :id => item ), :class => "button", :confirm => 'Are you sure?',:method => "post") if item.child_count==0 %>
-          </span>  
-        </li>  
-    <% end %>
-    <% end %>
-</ol>
-</div>
+
+<SCRIPT TYPE="text/javascript"> 
+Ext.onReady(function(){
+
+        var tabs = new Ext.TabPanel({
+		        renderTo:'tabs-folders',
+				activeTab: 0,
+                autoWidth: true,
+                frame: true,
+                deferredRender: true,
+                items: [ new Biorails.Folder({
+                        folder_id: <%=@project_folder.id%>,
+                        title: '<%=@project_folder.name%>',
+                        autoWidth: true,
+                        layout: 'fit'         
+                    }), {
+						title: 'Document View',
+						contentEl: 'tab-show',
+                        layout: 'fit'            
+					    } 
+                    ]	
+                });
+
+       //folder.applyToMarkup('tab-folders');
+ });
+</script>  

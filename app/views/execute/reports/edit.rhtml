@@ -3,31 +3,29 @@
   <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
 <% end %>
 
-<% content_for :help do%>
+<% content_for :left do%>
+  <div class='box'>
   <%= render :partial =>'help' %>
+  </div>  
 <%end%>
 
 <% content_for :status do%>
-  <%= render :partial =>'status' %>
+  <div id='column-tree'></div>
 <%end%>
 
 <% content_for :center do%>
-    <%= render :partial => 'edit'%>  
+    <%= render :partial => 'edit'%>      
 <%end %>
 
 <script>
-try {
- Ext.onReady( function() 
-    { 
-        Biorails.Report.init( <%=@report.id%>); 
-        Biorails.Report.columnTree( <%= json_for_report_columns(@report) %> );
-    }, 
-    Biorails);
-} catch (e) {
-	if (Ext.isGecko) {
- 	  console.log('Problem with main javascript ');
-	  console.log(e);		
-	}
-};
+   Ext.onReady( function() { 
+    var tree = new Biorails.ColumnTree({
+                    renderTo:'column-tree',
+                    model:'<%=@report.model.to_s %>', 
+                    report_id: <%=@report.id %> });
+
+     //tree.applyToMarkup('column-tree');
+     var dropzone = new Biorails.Report.DropTarget('report-definition',{report_id: <%=@report.id %> }); 
+  });
 </script>
         

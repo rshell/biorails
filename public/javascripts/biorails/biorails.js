@@ -127,14 +127,15 @@ Biorails = function(){
 			el:'tree-panel',
             title:'Folders',
             minHeight: 400,
-            autoShow: true,            
+            autoShow: true,
+            autoScroll: true,            
+         	autoDestroy: true,  
 			animate:true,
 			enableDD:true,
-			containerScroll: true,
             iconCls:'icon-folder', 
 			loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
 		});
-    _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',  draggable:false, id: 'root' }) );
+    _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',expanded: true,    draggable:false, id: 'root' }) );
     
    var _actions_panel = new Ext.Panel({
 		            title:'Menu Actions',
@@ -157,6 +158,7 @@ Biorails = function(){
    
    var _status_panel = new Ext.Panel({
 					xtype:"panel",
+                    layout:'fit',                    
 					contentEl: 'status-tab',
 					autoDestroy: true,  
 					autoScroll: true,
@@ -350,6 +352,11 @@ Biorails = function(){
       getFields : function(){ 
             return _fields;
         },
+      centerPanel: function(){ return _center_panel;}, 
+      statusPanel: function(){ return _status_panel;}, 
+      actionPanel: function(){ return _actions_panel;}, 
+      clipboardPanel: function(){ return _work_panel;}, 
+        
  /*
   * Set the current Context for the client in terms of model/controller
   */       
@@ -396,31 +403,6 @@ Biorails = function(){
       tree.render();
       root.expand()
         },  
-/*
- * Add a new Tab to the central panel
- * @param {hash} configuration
- * @return {Ext.Panel} Panel added
- */      
-	  add_tab: function(config) {
-	  	  if (config.id) {
-			  tab = Ext.ComponentMgr.get('#{config.id}');
-			  if (tab) {
-			     tab.body.update(config.html);
-			     _center_panel.activate('#{id}');
-			  } else {
-			    _center_panel.add( new Ext.Panel({
-			          title: '#{id}', 
-			          id: '#{id}',
-			          html: content, 
-			          autoDestroy: true,  
-			          autoScroll: true,
-			          closable:true,
-			          html: content })
-			    );  
-			   _center_panel.activate('#{id}');
-			  }
-		  };
-	  },
 /*
  * Set the active panel in the UI
  */          
@@ -482,32 +464,11 @@ Biorails = function(){
                 _center_panel.doLayout();
           }  
       }, 
-/*
- * Get a new grid Panel to the current config
- *
- * @param id {int} Identifier to the folder
- * @param name {string} 
- * @return {Ext.grid.GridPanel} Folder grid
- *
- */          
-      folder: function(id,title){
-        if (_center_panel){
-              tab = Ext.ComponentMgr.get('folder-grid-'+id);
-              if (tab) {
-                   _center_panel.remove(tab);
-                   _center_panel.doLayout();
-              };
-              _folder_grid = new Biorails.Folder(id,title);
-			  _center_panel.add( _folder_grid );  
-              _center_panel.doLayout();
-              _center_panel.setActiveTab( _folder_grid );
-           } 
-
-         return _folder_grid;       
-       },
             
       init : function(){ 
-          if (!_viewport){    
+         Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+         Ext.QuickTips.init();
+         if (!_viewport){    
             _viewport = new Ext.Viewport(_layout ); // End Viewport
             
             var dropZone = new Ext.dd.DropTarget(_work_panel.id, {
@@ -1181,6 +1142,7 @@ Ext.extend(Biorails.DocumentField,  Ext.form.HtmlEditor, {});
 Ext.namespace("Biorails.ConceptTree");
 
 Biorails.ConceptTree = function(el){
+    
     Biorails.ConceptTree.superclass.constructor.call(this,{
 			el: el,
             title:'Namespace (Concepts)',
@@ -1191,22 +1153,26 @@ Biorails.ConceptTree = function(el){
             layout: 'fit',           
 			animate:true,
 			enableDD:false,
-			containerScroll: true,
             iconCls:'icon-catalogue', 
-            root:  new Ext.tree.AsyncTreeNode({   text: 'Biorails',expanded: true,  draggable:false, id: '1' }),
+            root:  new Ext.tree.AsyncTreeNode({   text: 'Biorails',
+                                                  expanded: true,  
+                                                  draggable:false, id: '1' }),
 			loader: new Ext.tree.TreeLoader({ dataUrl:'/admin/catalogue/tree'	})
 		});
+                
         this.on('click',function(node){
                try{ 
                     new Ajax.Request(node.attributes.url,{asynchronous:true, evalScripts:true});  
                 } catch (e) {
-                      console.log('Problem with click on tree node ');
-                      console.log(e);
+                      Ext.log('Problem with click on tree node ');
+                      Ext.log(e);
                 } 
         });                     
 }
 
 Ext.extend(Biorails.ConceptTree,  Ext.tree.TreePanel, {} );
+
+
 //---------------------------------------- Model Grid ----------------------------------------------------------
 Ext.namespace("Biorails.DataGrid");
 /**
@@ -1261,24 +1227,16 @@ Ext.namespace("Biorails.Folder");
  * Panel for handling a biorails folder display. This is basically a grid with some custom D&D code.
  * 
  */
-Biorails.Folder = function(folder_id, title){  
-       
-     Biorails.Folder.superclass.constructor.call(this,{
-           border:true,
-           autoHeight: true,
-           shim: true,
-           monitorResize: true,
-           autoDestroy: true, 
-           folder_id: folder_id,
-           title: title,
-           id: 'folder-grid-'+folder_id,
-           ds:  new Ext.data.GroupingStore({
+Biorails.Folder = function(config){  
+    
+     var _store = new Ext.data.GroupingStore({
                remoteSort: true,
                sortInfo: {field: 'left_limit', direction: 'ASC'},
-               proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+folder_id, method: 'get' }),
+               lastOptions: {params:{start: 0, limit: 25}},
+               proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+config.folder_id, method: 'get' }),
                reader: new Ext.data.JsonReader({
                              root: 'items', totalProperty: 'total'}, [
-                                   {name: 'id', type: 'int'},
+                                   {name: 'id', type: 'int' },
                                    {name: 'icon'},
                                    {name: 'position', type: 'int'},
                                    {name: 'left_limit', type: 'int'},
@@ -1289,7 +1247,16 @@ Biorails.Folder = function(folder_id, title){
                                    {name: 'updated_by'},
                                    {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
                                    {name: 'actions'}]  )
-                        }),
+                        });
+                         
+     Biorails.Folder.superclass.constructor.call(this, Ext.apply(config,{
+           border:true,
+           autoHeight: true,
+           shim: true,
+           monitorResize: true,
+           autoDestroy: true, 
+           id: 'folder-grid-'+config.folder_id,
+           ds:  _store ,
            sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
            loadMask: true,
            enableDragDrop: true,
@@ -1306,30 +1273,30 @@ Biorails.Folder = function(folder_id, title){
                 ]),
            view: new Ext.grid.GroupingView(),
            viewConfig: {
-                 forceFit:true
+                 forceFit:false
                },
            tbar:[{
                     text:'Add File',
                     tooltip:'Add a image or other file to the folder',
-                    href: '/asset/new/'+folder_id, 
+                    href: '/asset/new/'+config.folder_id, 
                     handler: this.toolbarClick,                               
                     iconCls:'icon-file'
                 }, {
                     text:'Add Article',
                     tooltip:'Add some textual content to the folder',
-                    href: '/content/new/'+folder_id,                              
+                    href: '/content/new/'+config.folder_id,                              
                     handler: this.toolbarClick,                               
                     iconCls:'icon-note'
                 }, {
                     text:'Add Sub-folder',
                     tooltip:'Add a new sub folder',
-                    href: '/folders/new/'+folder_id,                                
+                    href: '/folders/new/'+config.folder_id,                                
                     handler: this.toolbarClick,                               
                     iconCls:'icon-folder'
                 }, '-', {
                     text:'Preview',
                     tooltip:'Preview',
-                    href: '/folders/print/'+folder_id,                                
+                    href: '/folders/print/'+config.folder_id,                                
                     handler : function(item){
                         window.open(item.href);
                     }, 
@@ -1337,15 +1304,26 @@ Biorails.Folder = function(folder_id, title){
                 },'-',{
                     text:'Print',
                     tooltip:'Print the folder as a report',
-                    href: '/folders/print/'+folder_id+'?format=pdf',                                
+                    href: '/folders/print/'+config.folder_id+'?format=pdf',                                
                     handler : function(item){
                         window.open(item.href);
                     },                               
                     iconCls:'icon-pdf'
-                }]
+                }],
+                bbar: new Ext.PagingToolbar({
+				            pageSize: 20,
+				            store: _store,
+				            displayInfo: true,
+				            displayMsg: 'Displaying {0} - {1} of {2}',
+				            emptyMsg: "No results to display"
+				        })
+   
+         }));
+         this.on('render',    function(grid){
+             grid.enableDD();
          });
-        this.store.load({params:{start: 0, limit: 50}});
- 
+
+         _store.load({params:{start: 0, limit: 100}});
 };
 
 Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
@@ -1406,11 +1384,11 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
         } 
         return true;  
    },
+   
 /*
  * Custom Rendering function to add drop zone on grid after its rendered
  */    
-   onRender: function(){
-            Biorails.Folder.superclass.onRender.apply(this, arguments);
+   enableDD: function(){
        try{ 
             var dropzone = new Ext.dd.DropTarget(this.id, {
                 ddGroup : 'GridDD',
@@ -1420,75 +1398,27 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
              dropzone.addToGroup("ClipboardDD"); 
              dropzone.addToGroup("TreeDD"); 
         } catch (e) {
-              console.log('Problem with setup drop zone on folder grid ');
-              console.log(e);
-        } 
-        }
+              Ext.log('Problem with setup drop zone on folder grid ');
+              Ext.log(e);
+        }        
+   }
+
    });	
 
-//------------------ Report Definition -------------------------------------------------------------------
+//----------------------------------------  Biorails Column Tree ---------------------------------------------
 Ext.namespace('Biorails.Report');
 
-Biorails.Report = function() {
- var _tree = null;
- var _root = null;
- var columnDropZone;
-
-    // public space
-return {
-        // public methods
-   init: function(pk) {
-	columnDropZone = new Biorails.Report.DropTarget( pk, 'report-definition', {
+Biorails.Report.DropTarget =function(el,config) {
+   Biorails.Report.DropTarget.superclass.constructor.call(this,el, 
+       Ext.apply(config,{
             ddGroup:'ColumnDD',
-            overClass: 'dd-over'
-        });
-      
-     },
-/*
- * Generate a column tree in the status panel for the colunns which can be added to the tree
- 
- */     
-    columnTree: function(config){  
-      
-      _tree = new Ext.tree.TreePanel({
-					  id: 'column-tree-id',
-                      applyTo: 'column-tree',                    
-					  animate:true,
-					  autoScroll:true,
-					  loader: new Ext.tree.TreeLoader(), 
-					  lines: true,
-					  enableDrag: true,
-					  containerScroll: true,
-					  singleExpand: true,
-					  ddGroup: 'ColumnDD',
-					  selModel: new Ext.tree.MultiSelectionModel(),
-					  containerScroll: false  });
-
-      _root = new Ext.tree.AsyncTreeNode(config);
-	 
-      _tree.setRootNode(_root);
-	  _tree.render();
-	  _root.expand();
-	  _tree.on('dblclick',function(node,e){
-				new Ajax.Request('/reports/add_column/#{report.id}',
-						{asynchronous:true,
-						 evalScripts:true,
-						 parameters:'id='+encodeURIComponent(node.id) }); 
-				return false;
-			});
-	} 
-   };
-}(); // end of app
-
-Biorails.Report.DropTarget =function(id,el,config) {
-   var _id = id;
-   Biorails.Report.DropTarget.superclass.constructor.call(this,el,config);   
+            overClass: 'dd-over'}));   
 };
 
 Ext.extend( Biorails.Report.DropTarget, Ext.dd.DropTarget, {
 
   notifyDrop: function (source,e,data) {
-    new Ajax.Request('/reports/add_column/'+_id,
+    new Ajax.Request('/reports/add_column/'+this.report_id,
                 {asynchronous:true,
                  evalScripts:true,
                  parameters:'id='+encodeURIComponent(data.node.id) }); 
@@ -1497,7 +1427,47 @@ Ext.extend( Biorails.Report.DropTarget, Ext.dd.DropTarget, {
      }
 });      
 
+//----------------------------------------  Biorails Column Tree ---------------------------------------------
+Ext.namespace("Biorails.ColumnTree");
 
+Biorails.ColumnTree = function(config){
+    
+    Biorails.ColumnTree.superclass.constructor.call(this,Ext.apply(config,{
+            title:'Model Columns',
+            minHeight: 400,
+            autoShow: true, 
+            autoHeight:true,
+            autoScroll:true,
+            layout: 'fit',           
+			animate:true,
+			enableDD:true,
+            ddGroup:'ColumnDD',
+            iconCls:'icon-model', 
+            root:  new Ext.tree.AsyncTreeNode({   text: config.model,
+                                                  expanded: true,  
+                                                  draggable:false, 
+                                                  id: "."}),
+			loader: new Ext.tree.TreeLoader({ dataUrl: '/reports/columns/'+config.report_id	})
+		}));
+                
+        this.on('dblclick',function(node,e) { 
+            this.add_column(node) 
+        });
+                      
+}
+
+Ext.extend(Biorails.ColumnTree,  Ext.tree.TreePanel, {
+    
+  add_column: function (node){
+      if (node.leaf) {
+        new Ajax.Request('/reports/add_column/'+this.report_id,
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'id='+encodeURIComponent(node.id) }); 
+        }
+        return false;
+  }  
+} );
 
 
 
@@ -1505,8 +1475,6 @@ Ext.extend( Biorails.Report.DropTarget, Ext.dd.DropTarget, {
 
  Ext.onReady( function() { 
 try {
-        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-        Ext.QuickTips.init();
         Biorails.init();        
 } catch (e) {
 	if (Ext.isGecko) {

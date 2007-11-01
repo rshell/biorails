@@ -272,30 +272,31 @@ helper :tree
     end
 
  end
-  
+
+ 
 ##
 # expand a element of the attribute tree
 # 
 #  * param[:id] 
 #  * param[:link] 
-# 
- def expand 
-   @report = Report.find(params[:context])
-   if params[:id]       
-      @model = eval(params[:id])
-      @link = params[:link]
-      @current = @model
-      elements =  @link.split(".")
-      for element in elements
-        relation = @current.reflections.find{|key,value|key.to_s == element}
-        @current = eval(relation[1].class_name)
-      end
-      @link << "."
-      @has_many = false
-      render :partial => 'attribute_selector',
-             :locals => {:root => @model, :link => @link, :model => @current }
-   end
- end
+#
+  def columns
+	@report = Report.find(params[:id])
+    @model = @report.model
+    @path = "" 
+    if params[:node] && params[:node]!="."
+      @path = params[:node] + "."   
+      @path .split(".").each do |item|
+         @model = eval(@model.reflections[item.to_sym].class_name)              
+      end       
+    end
+    respond_to do | format |
+      format.html { render :partial => 'tree'}
+      format.json { render :partial => 'tree'}
+    end
+  end
+
+ 
 #
 #  export Report of Concepts as CVS
 #  

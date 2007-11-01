@@ -9,24 +9,24 @@
    <tr>
    <th> Name  </th>
    <th> Label  </th>
-   <th> Order  </th>
    <th> Show  </th>
-   <th> Changable  </th>
+   <th> Order  </th>
+   <th> Allow  </th>
    <th> Initial  </th>
-   <th> Changable  </th>
+   <th> Allow  </th>
    <th> Order  </th>
    <th> Dir.  </th>
-   <th> Action  </th>
+   <th>  </th>
    </tr>
   <%for column in @report.columns %>  
    <tr>
    <td><%=column.name%></td>
    <td><%=text_field_tag "columns[#{column.name}][label]",column.label,:size=>15 %></td>
+   <td><%=check_box_tag  "columns[#{column.name}][is_visible]",1,column.is_visible %> </td>
    <td><%=text_field_tag "columns[#{column.name}][order_num]",column.order_num,:size=>2 %>
        <%=link_to_remote subject_icon("arrow_up"),  :url=> report_url(:action=>'move_column',:no=>"-1",:id=>column) %>
        <%=link_to_remote subject_icon("arrow_down"),:url=> report_url(:action=>'move_column',:no=>"1",:id=>column) %>
    </td>
-   <td><%=check_box_tag  "columns[#{column.name}][is_visible]",1,column.is_visible %> </td>
    <%if column.has_many? %>
    <td colspan='5'>sub-collection</td>
    <%else%>
@@ -37,7 +37,7 @@
    
    <td><%= select_tag "columns[#{column.name}][sort_direction]", options_for_select( ['', 'asc', 'desc' ],column.sort_direction)%> </td>
    <%end%>
-   <td><%=link_to_remote "remove",:url=>{:action=>'remove_column',:context=>@report.id, :id=>column.id} %></td>
+   <td><%=link_to_remote image_tag('action/cancel.png'),:url=>{:action=>'remove_column',:context=>@report.id, :id=>column.id} %></td>
    </tr>
   <%end%>
  </table>

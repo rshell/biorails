@@ -1,14 +1,11 @@
 
-<% content_for :left do%>
-<div id='concepts-panel'>
-</div>
+<% content_for :help do%>
+   Central Catalogue to define the conceptural namespace for the organization and where to look them up.
+<% end%>
 
-<script>
-Ext.onReady(function(){
-   tree = new Biorails.ConceptTree('concepts-tree-panel');
-   tree.applyToMarkup('concepts-panel');
-  });
-</script>
+<% content_for :status do%>
+  <div id='concepts-panel'>
+  </div>
 <% end %>
 
 <% content_for :sidemenu do%>
@@ -26,29 +23,30 @@ Ext.onReady(function(){
   </div>
 
   <div id='tabs1'>
-    <div id="tab-children" class="tab-content x-hidden">
+    
+      <div id="tab-element" class="tab-content">
+	    <div id='current-elements'>    
+	        <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept }%>  
+	    </div> 
+    </div>
+    
+      <div id="tab-children" class="tab-content  x-hidden">
 	    <div id='current-children'>    
 	        <%= render :partial => 'list_concepts', :locals =>{:concept => @data_concept }%>  
 	    </div> 
     </div>
 
-    <div id="tab-element" class="tab-content x-hidden">
-	    <div id='current-elements'>    
-	        <%= render :partial => 'list_elements', :locals =>{:concept => @data_concept }%>  
-	    </div> 
-    </div>
 	
     <div id="tab-parameter" class="tab-content x-hidden">
         <div id='current-usage'>    
            <%= render :partial => 'list_usages', :locals =>{:concept => @data_concept } %>  
         </div>
     </div>
-  </div>    
 <% end %>
 
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
-        var tabs = new Ext.TabPanel({
+  var tabs = new Ext.TabPanel({
 		        renderTo:'tabs1',
 				activeTab: 0,
 				defaults: {
@@ -67,6 +65,8 @@ Ext.onReady(function(){
 						contentEl: 'tab-children'
 					  }]		  
 		});
+   var tree = new Biorails.ConceptTree('concepts-tree-panel');
+   tree.applyToMarkup('concepts-panel');
  });
 </script>    
         

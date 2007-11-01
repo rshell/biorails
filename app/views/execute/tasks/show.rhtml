@@ -47,7 +47,7 @@ Ext.onReady(function(){
 				items: [{
 						title: 'Overview',
 						contentEl: 'tab-show'
-					}, new Biorails.Folder(<%=@task.folder.id%>,'Folder')
+					}, new Biorails.Folder({ folder_id: <%=@task.folder.id%>,title: 'Folder'})
                      ,{
 						title: 'Import',
 						contentEl: 'tab-import',

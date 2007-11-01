@@ -1,7 +1,13 @@
 <br/>
 <h2>
-Element Path: 
-<%= link_to "/"+@project_asset.parent.path, folder_url( :action => 'show',:id=> @project_asset.parent_id) if  @project_asset.parent%>
+File: 
+    <% if @project_folder.parent %>
+    <%= link_to_remote ".."+ @project_folder.parent.path, :url=>folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to_remote "/"+ @project_folder.name,         :url=>folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
+    <%else%>
+    <%= link_to_remote "/"+@project_folder.name, :url=>folder_url( :action => 'show',:id=> @project_folder.id) %>
+    <% end%>
+
 <%= "/"+ @project_asset.name %>
 
 </h2>

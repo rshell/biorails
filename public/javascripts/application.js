@@ -61,26 +61,3 @@ function RegExMatchOnKey(mask,subject) {
 		subject.style.background = "#FFAAAA";
     }
 }
-
-var MceEditor = {
-    init : function(el){
-      tinyMCE.init({
-           theme: 'advanced',
-           mode: "textareas",
-           doctype: " ",
-           theme_advanced_toolbar_location: "top",
-           theme_advanced_toolbar_align: "left",
-           auto_resize: false,
-           theme_advanced_resizing: true,
-           theme_advanced_statusbar_location: "bottom",
-           paste_auto_cleanup_on_paste: true,
-           theme_advanced_buttons1: "formatselect,fontselect,fontsizeselect,bold,italic,underline,strikethrough,separator,justifyleft,justifycenter,justifyright,indent,outdent,bullist,numlist,separator,fullscreen,help",
-           theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,undo,redo,link,unlink,image,separator,visualaid,tablecontrols,separator,fullpage,code,cleanup",
-           theme_advanced_buttons3: "",
-           plugins: "contextmenu,paste,table,fullscreen,fullpage",
-           width: "600",
-           height: "400",
-           mode : "exact",
-           elements : el  });
-    }
-  };

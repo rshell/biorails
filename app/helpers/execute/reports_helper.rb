@@ -16,4 +16,40 @@ module Execute::ReportsHelper
       end   
  end
 
+ # 
+# Generate a Level in the tree of columns for a report.
+#
+  def columns_to_json(report,model=nil,path="")
+    model ||= report.model
+    items =[]
+    model.content_columns.each do |rec| 
+      items << {
+		 :id => "#{report.model}~#{path}#{rec.name}",
+		 :text => rec.name,
+         :icon =>  "/images/relations/#{rec.type}.png", 
+ 	     :iconCls=> "icon-#{rec.type}",
+         :name => rec.name,
+         :allowDrag => true,
+         :allowDrop => false,	
+	     :leaf => true,
+	     :qtip => "#{rec.name} is #{rec.type} field with a #{rec.limit} size"	
+      }
+    end 
+    for relation in model.reflections.values
+        unless (report.base_model==relation.class_name) or relation.options[:polymorphic]
+           items << {
+           :id => "#{@path}#{relation.name}",
+           :icon => "/images/relations/#{relation.macro}.png",
+		   :iconCls=>"icon-#{relation.macro}",
+           :text => relation.name,           
+           :allowDrag => false,
+           :allowDrop => false,	
+	       :leaf => false,
+	       :qtip => "#{model.class} #{relation.macro} #{relation.options[:class_name]||relation.name} via #{relation.options[:foreign_key]||relation.primary_key_name}"	
+           }
+        end
+      end    
+    items.to_json      
+  end  
+
 end

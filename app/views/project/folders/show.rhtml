@@ -1,10 +1,5 @@
 <% content_for :center do -%>
-<div id='tabs-folders'>
-    <div id="tab-show" class="tab-content">
-        <%= render :partial => 'document', :locals=>{:folder=>@project_folder} %>
-    </div>
-    <div id="tab-folders" class="tab-content x-hidden">
-    </div>
+    <%= render :partial => 'show' %>
 </div>    
   
 <% end %>    
@@ -15,26 +10,4 @@
 <% content_for :status do -%>
     <%= render :partial => 'status' %>   
 <% end %>
-
-
-
-
-<SCRIPT TYPE="text/javascript"> 
-Ext.onReady(function(){
-
-        var folder = new Biorails.Folder(<%=@project_folder.id%>,'Folder View');
-        var tabs = new Ext.TabPanel({
-		        renderTo:'tabs-folders',
-				activeTab: 0,
-                frame: true,
-                deferredRender: true,
-                items: [ {
-						title: 'Document View',
-						contentEl: 'tab-show',
-                        layout: 'fit'            
-					    } , folder
-                    ]		  
-		});
-       //folder.applyToMarkup('tab-folders');
- });
-</script>    
+  

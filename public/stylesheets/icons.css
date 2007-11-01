@@ -11,6 +11,16 @@ vertical-align: middle;
 #navigation .icon {
 background-position: 4px 50%;
 }
+/* Data Columns */
+.icon-has_many { background-image:    url(/images/relations/has_many.png); }
+.icon-has_one { background-image:    url(/images/relations/has_one.png); }
+.icon-belongs_to { background-image:    url(/images/relations/belongs_to.png); }
+.icon-text { background-image:    url(/images/relations/text.png); }
+.icon-string { background-image:    url(/images/relations/string.png); }
+.icon-float { background-image:    url(/images/relations/float.png); }
+.icon-date { background-image:    url(/images/relations/date.png); }
+.icon-binary { background-image:    url(/images/relations/binary.png); }
+.icon-boolean { background-image:    url(/images/relations/boolean.png); }
 
 
 .icon-add { background-image:    url(/images/action/add.png); }

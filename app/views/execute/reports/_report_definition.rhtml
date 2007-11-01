@@ -1,7 +1,6 @@
 
+<% dialog 'Report Definition' do %>
 <% form_remote_tag :url => report_url(:action => 'update', :id => @report) do %>
-
-<div class='dialog'>
 
      <%= hidden_field :report,:style %>
      <%= hidden_field :report,:project_id %>
@@ -42,4 +41,5 @@
        <%= submit_tag 'Update' %>
     </fieldset>    
 </div>
+<% end %>
 <% end %>

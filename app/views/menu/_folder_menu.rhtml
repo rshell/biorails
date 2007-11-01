@@ -6,8 +6,8 @@
 <% end %>
 <% unless folder.nil? || folder.new_record? %>
     <%= link_to_remote 'Folder',:url=>folder_url( :action => 'show', :id => folder.id ) %> 
-    <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:folder_id => folder.id ),:popup => true %> 
-    <%= link_to 'Save As '+image_tag('mime/pdf.gif'),folder_url( :action => 'print',:format=>:pdf,:folder_id => folder.id ),:popup => true %> 
+    <%= link_to 'Print '+image_tag('mime/html.png'),folder_url( :action => 'print',:id => folder.id ),:popup => true %> 
+    <%= link_to 'Save As '+image_tag('mime/pdf.gif'),folder_url( :action => 'print',:format=>:pdf,:id => folder.id ),:popup => true %> 
 
     <%= link_to_remote subject_icon('new')+'Add Folder',:url=>  folder_url( :action => 'new',     :folder_id => folder.id ) %> 
     <%= link_to_remote subject_icon('new')+'Add Article', :url=> content_url( :action => 'new',:folder_id => folder.id )  %> 
