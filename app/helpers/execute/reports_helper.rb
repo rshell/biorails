@@ -35,7 +35,7 @@ module Execute::ReportsHelper
 	     :qtip => "#{rec.name} is #{rec.type} field with a #{rec.limit} size"	
       }
     end 
-    for relation in model.reflections.values
+    for relation in model.reflections.values.sort{|a,b| a.macro.to_s <=> b.macro.to_s}
         unless relation.options[:polymorphic] or (report.base_model==relation.class_name) or (relation.macro==:has_many and path.size>2) 
            items << {
            :id => "#{@path}#{relation.name}",

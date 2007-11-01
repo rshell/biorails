@@ -3,13 +3,7 @@
 <% end -%>
 
 <% content_for :center do -%>
-<div id='tabs-project'>
-    <div id="tab-show" class="tab-content">
-       <%=render :partial =>'show' %>
-    </div>
-    <div id="tab-folders" class="tab-content x-hidden">
-    </div>
-</div>    
+     <%=render :partial =>'show' %>
 <% end %>
 
 <% content_for :status do -%>
@@ -21,18 +15,4 @@
 <% end %>
 
   
-<SCRIPT TYPE="text/javascript"> 
-Ext.onReady(function(){
-        var tabs = new Ext.TabPanel({
-		        renderTo:'tabs-project',
-				activeTab: 0,
-				items: [{
-						title: 'Overview',
-						contentEl: 'tab-show',
-                        autoScroll: true,
-                        layout: 'fit'    
-					}, new Biorails.Folder(<%=@project.home.id%>,'Folder')        ]		  
-		});
- });
-</script>    
 

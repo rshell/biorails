@@ -122,123 +122,6 @@ Biorails = function(){
 // South: Audting and history information
 // Centre: Main tab + accessaries tabs for grids etc.
 //
-// West
-   var _tree_panel = new Ext.tree.TreePanel({
-			el:'tree-panel',
-            title:'Folders',
-            minHeight: 400,
-            autoShow: true,
-            autoScroll: true,            
-         	autoDestroy: true,  
-			animate:true,
-			enableDD:true,
-            iconCls:'icon-folder', 
-			loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
-		});
-    _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',expanded: true,    draggable:false, id: 'root' }) );
-    
-   var _actions_panel = new Ext.Panel({
-		            title:'Menu Actions',
-		            contentEl: 'actions-panel',
-		            border:false,
-          		    autoDestroy: true,  
-                    autoScroll: true,
-		            iconCls:'settings'
-		        } );
-// East                        
-   var _work_panel = new Ext.Panel({
-					xtype:"panel",
-					autoDestroy: true,  
-					autoScroll: true,
-					contentEl: 'work-tab',
-                    //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
-					id: 'work-id',
-					title:"Clipboard"
-				  }  );
-   
-   var _status_panel = new Ext.Panel({
-					xtype:"panel",
-                    layout:'fit',                    
-					contentEl: 'status-tab',
-					autoDestroy: true,  
-					autoScroll: true,
-					id: 'status-id',
-                    iconCls:'icon-help',                                         
-					title:"Info."
-				  } );
-
-// South                                  
-   var _footer_panel = new Ext.Panel({
-					contentEl:'footer-panel',
-					border:false,
-					autoDestroy: true,  
-					autoScroll: true,
-					iconCls:'nav'
-				});
-// center
-   var _center_panel = new Ext.Panel({
-			    region:"center",
-					id: 'main-id',
-                    xtype:"panel", 
-                    layout: 'fit',				
-					contentEl:'center-panel',
-					autoDestroy: true,  
-                    autoShow: true,
-   					autoScroll: true,
-                    frame: true
-			       });                               
-                                   
-   var _south_panel = new Ext.Panel({
-			    region:"south",
-			    title:"History",
-			    id:'footer-id',	
-			    height:75,
-			    split:true,
-			    splitTip: "Mesages and Audit information",
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-			    floatable: true,
-		            items: [ _footer_panel ]
-			 });                                
- 
-   var _east_panel = new Ext.TabPanel( {
-			    region:"east",
-			    title:"Extras",
-		        xtype:"tabpanel",
-			    id:'extra-id',	
-			    width: 225,
-                minHeight: 600,                       
-				minSize: 175,
-                maxSize: 400,
-			    split:true,
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-		        activeTab:0,
-			    tabPosition: 'bottom',
-		        items:[ _status_panel, _tree_panel ]
-			  });
-
-   var _west_panel = new Ext.Panel( {
-			    region:"west",
-			    title:"Navigation",
-			    id:'nav-id',	
-			    split:true,
-			    collapsible:true,
-			    useSplitTips: true,
-			    titleCollapse:true,
-		        width: 170,
-                minHeight: 600,                       
-		        minSize: 170,
-		        maxSize: 400,
-		        layout:'accordion',
-		        layoutConfig:{     animate:true   },
-		        items: [ _actions_panel, _work_panel]
-			  });
-                          
-                          
-
 // 
 // Default Toolbar
 // 
@@ -298,6 +181,8 @@ Biorails = function(){
 				  {text: 'search',handler: onSearchClick},							
 				  {text: 'logout', iconCls:'icon-logout', href:'/logoff'}							
 				]});
+
+// region -----------------------North------------------------------
                                 
    var _north_panel = new Ext.Panel({
 			 region:"north",
@@ -306,13 +191,141 @@ Biorails = function(){
 			 el: 'toolbar-panel',
 			 tbar: _toolbar	   		
 			  });                            
+// region -----------------------West------------------------------
+   var _actions_panel = new Ext.Panel({
+		            title:'Menu Actions',
+		            contentEl: 'actions-panel',
+		            border:false,
+                    autoScroll: true,
+		            iconCls:'settings'
+		        } );
+
+   var _work_panel = new Ext.Panel({
+					xtype:"panel",
+					autoScroll: true,
+					contentEl: 'work-tab',
+                    //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
+					id: 'work-id',
+					title:"Clipboard"
+				  }  );
+
+
+   var _west_panel = new Ext.Panel( {
+			    region:"west",
+			    title:"Navigation",
+			    id:'nav-id',	
+			    split:true,
+			    collapsible:true,
+			    useSplitTips: true,
+			    titleCollapse:true,
+		        width: 170,
+                minHeight: 600,                       
+		        minSize: 170,
+		        maxSize: 400,
+		        layout:'accordion',
+		        layoutConfig:{     animate:true   },
+		        items: [ _actions_panel, _work_panel]
+			  });
+                          
+   
+// region -----------------------East------------------------------
+   var _status_panel = new Ext.Panel({
+					xtype:"panel",
+                    layout:'fit',                    
+					contentEl: 'status-tab',
+					autoDestroy: true,  
+					autoScroll: true,
+					id: 'status-id',
+                    iconCls:'icon-help',                                         
+					title:"Info."
+				  } );
+
+   var _tree_panel = new Ext.tree.TreePanel({
+			el:'tree-panel',
+            title:'Folders',
+            minHeight: 400,
+            autoShow: true,
+            autoScroll: true,            
+         	autoDestroy: true,  
+			animate:true,
+			enableDD:true,
+            iconCls:'icon-folder', 
+			loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
+		});
+    _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',expanded: true,    draggable:false, id: 'root' }) );
+    
+   var _east_panel = new Ext.TabPanel( {
+			    region:"east",
+			    title:"Extras",
+		        xtype:"tabpanel",
+			    id:'extra-id',	
+			    width: 225,
+                minHeight: 600,                       
+				minSize: 175,
+                maxSize: 400,
+			    split:true,
+			    useSplitTips: true,
+			    collapsible:true,
+			    titleCollapse:true,
+		        activeTab:0,
+			    tabPosition: 'bottom',
+		        items:[ _status_panel, _tree_panel ]
+			  });
+
+// region -----------------------Center------------------------------
+  var _center_panel = new Ext.Panel({
+			        region:"center",
+					id: 'center-id',			
+					contentEl:'center-panel',
+		            layout:'fit',
+					autoScroll: true,
+                    frame: true
+			       });    
+                               
+                                                          
+  var _main_panel = new Ext.Panel({
+			        region:"center",
+					id: 'main-id',
+		            layout:'border',
+                    autoWidth:false,        
+                    autoHeight:false,        
+                    items:[_center_panel]
+			       });  
+                                  
+  
+
+// South                                  
+   var _footer_panel = new Ext.Panel({
+					contentEl:'footer-panel',
+					border:false,
+					autoDestroy: true,  
+					autoScroll: true,
+					iconCls:'nav'
+				});
+                                                             
+   var _south_panel = new Ext.Panel({
+			    region:"south",
+			    title:"History",
+			    id:'footer-id',	
+			    height:75,
+			    split:true,
+			    splitTip: "Mesages and Audit information",
+			    useSplitTips: true,
+			    collapsible:true,
+			    titleCollapse:true,
+			    floatable: true,
+		            items: [ _footer_panel ]
+			 });                                
+ 
+                          
+
 
    var _layout = {
 		layout:"border",
 	    autoHeight: true,
  	   	autoWidth : true,
 		autoScroll: true,
-		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _center_panel  ]
+		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _main_panel  ]
 		};
 //------------------Public Methods ------------------------------------------------------------------------
   
