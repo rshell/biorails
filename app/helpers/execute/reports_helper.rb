@@ -36,7 +36,7 @@ module Execute::ReportsHelper
       }
     end 
     for relation in model.reflections.values
-        unless (report.base_model==relation.class_name) or relation.options[:polymorphic]
+        unless relation.options[:polymorphic] or (report.base_model==relation.class_name) or (relation.macro==:has_many and path.size>2) 
            items << {
            :id => "#{@path}#{relation.name}",
            :icon => "/images/relations/#{relation.macro}.png",
