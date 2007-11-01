@@ -21,20 +21,20 @@
 
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
+
+        var folder = new Biorails.Folder(<%=@project_folder.id%>,'Folder View');
         var tabs = new Ext.TabPanel({
 		        renderTo:'tabs-folders',
 				activeTab: 0,
-				defaults: {
-						autoHeight: true,
-						autoScroll: true,
-						bodyStyle: 'padding:5px'
-				},
-				items: [{
+                frame: true,
+                deferredRender: true,
+                items: [ {
 						title: 'Document View',
 						contentEl: 'tab-show',
-						autoScroll: true
-					    },  new Biorails.Folder(<%=@project_folder.id%>,'Folder View')
+                        layout: 'fit'            
+					    } , folder
                     ]		  
 		});
+       //folder.applyToMarkup('tab-folders');
  });
 </script>    

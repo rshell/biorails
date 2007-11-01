@@ -237,6 +237,21 @@ def remove_element
     @data_concept.destroy
     redirect_to :action => 'list',:id => @parent
   end
-  
+ 
+#
+# Create a Tree data model
+#
+  def tree
+	if params[:node] && params[:node] != 'root'
+	  @data_concepts = DataConcept.find(:all, :conditions =>['parent_id = ?',params[:node] ])
+	else  
+	  @data_concepts = DataConcept.find(:all, :conditions =>'parent_id is null')
+    end
+    respond_to do | format |
+      format.html { render :partial => 'tree'}
+      format.json { render :partial => 'tree'}
+    end
+  end
+ 
 
 end

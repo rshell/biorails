@@ -26,18 +26,12 @@ Ext.onReady(function(){
         var tabs = new Ext.TabPanel({
 		        renderTo:'tabs-project',
 				activeTab: 0,
-				defaults: {
-						autoHeight: true,
-						autoScroll: true,
-						bodyStyle: 'padding:5px'
-				},
 				items: [{
 						title: 'Overview',
 						contentEl: 'tab-show',
                         autoScroll: true,
-					}, new Biorails.Folder(<%=@project.home.id%>,'Folder')
-
-                    ]		  
+                        layout: 'fit'    
+					}, new Biorails.Folder(<%=@project.home.id%>,'Folder')        ]		  
 		});
  });
 </script>    

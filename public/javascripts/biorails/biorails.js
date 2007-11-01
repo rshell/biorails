@@ -178,12 +178,12 @@ Biorails = function(){
 			    region:"center",
 					id: 'main-id',
                     xtype:"panel", 
-                    layout: 'fit',	
-                    autoScroll: true,				
+                    layout: 'fit',				
 					contentEl:'center-panel',
 					autoDestroy: true,  
                     autoShow: true,
-                    frame: false
+   					autoScroll: true,
+                    frame: true
 			       });                               
                                    
    var _south_panel = new Ext.Panel({
@@ -1035,6 +1035,37 @@ Biorails.DocumentField = function(id){
 }
 
 Ext.extend(Biorails.DocumentField,  Ext.form.HtmlEditor, {});
+
+//----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
+Ext.namespace("Biorails.ConceptTree");
+
+Biorails.ConceptTree = function(el){
+    Biorails.ConceptTree.superclass.constructor.call(this,{
+			el: el,
+            title:'Namespace (Concepts)',
+            minHeight: 400,
+            autoShow: true, 
+            autoHeight:true,
+            autoScroll:true,
+            layout: 'fit',           
+			animate:true,
+			enableDD:false,
+			containerScroll: true,
+            iconCls:'icon-catalogue', 
+            root:  new Ext.tree.AsyncTreeNode({   text: 'Biorails',expanded: true,  draggable:false, id: '1' }),
+			loader: new Ext.tree.TreeLoader({ dataUrl:'/admin/catalogue/tree'	})
+		});
+        this.on('click',function(node){
+               try{ 
+                    new Ajax.Request(node.attributes.url,{asynchronous:true, evalScripts:true});  
+                } catch (e) {
+                      console.log('Problem with click on tree node ');
+                      console.log(e);
+                } 
+        });                     
+}
+
+Ext.extend(Biorails.ConceptTree,  Ext.tree.TreePanel, {} );
 //---------------------------------------- Model Grid ----------------------------------------------------------
 Ext.namespace("Biorails.DataGrid");
 /**
@@ -1092,10 +1123,11 @@ Ext.namespace("Biorails.Folder");
 Biorails.Folder = function(folder_id, title){  
        
      Biorails.Folder.superclass.constructor.call(this,{
-           border:false,
-           autoscroll: true,
-           autoDestroy: true,  
-           closable:true,
+           border:true,
+           autoHeight: true,
+           shim: true,
+           monitorResize: true,
+           autoDestroy: true, 
            folder_id: folder_id,
            title: title,
            id: 'folder-grid-'+folder_id,
@@ -1132,7 +1164,9 @@ Biorails.Folder = function(folder_id, title){
                 {header: "Actions", width: 75,   dataIndex: 'actions'}
                 ]),
            view: new Ext.grid.GroupingView(),
-           viewConfig: {forceFit:true},
+           viewConfig: {
+                 forceFit:true
+               },
            tbar:[{
                     text:'Add File',
                     tooltip:'Add a image or other file to the folder',

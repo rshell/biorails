@@ -1,6 +1,14 @@
 
 <% content_for :left do%>
-  <%= tree_for_catalog(@context)%>
+<div id='concepts-panel'>
+</div>
+
+<script>
+Ext.onReady(function(){
+   tree = new Biorails.ConceptTree('concepts-tree-panel');
+   tree.applyToMarkup('concepts-panel');
+  });
+</script>
 <% end %>
 
 <% content_for :sidemenu do%>
@@ -9,6 +17,7 @@
     <span class='menu'>Catalogue</span>
   </div>
 <% end %>
+
 
 <% content_for :center do%>
   <h2> <%=subject_icon('context')%> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>

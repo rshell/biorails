@@ -55,12 +55,14 @@
 <!--West Block =======================-->  
 	    
   <div id="actions-panel" class="x-hidden">
-    <div id='actions' class='sidemenu bio-actions'>
-     <%= if @content_for_sidemenu
+    <div id='actions'>
+     <div class='sidemenu'>
+       <%= if @content_for_sidemenu
           yield :sidemenu 
-      else    
+        else    
          render :partial =>'menu/default_left_menu' 
-      end %>
+        end %>
+     </div>
       <%= yield :left %> 
 	  <%= yield :actions %>
    </div>
