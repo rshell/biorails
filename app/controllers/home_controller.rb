@@ -185,9 +185,9 @@ class HomeController < ApplicationController
 #
   def tree
 	if params[:node] != 'root'
-	  @elements = ProjectElement.find(:all, :conditions =>['parent_id = ?',params[:node] ])
+	  @elements = current_user.element(:all, :conditions =>['parent_id = ?',params[:node] ],:order=>:left_limit)
 	else  
-	  @elements = ProjectElement.find(:all, :conditions =>'parent_id is null')
+	  @elements = current_user.element(:all,:conditions=>'parent_id is null',:order=>:name)
     end
     respond_to do | format |
       format.html { render :partial => 'tree'}

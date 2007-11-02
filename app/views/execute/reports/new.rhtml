@@ -1,3 +1,12 @@
+<% content_for :sidemenu do%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<div>
+    <span class='menu'>Report </span>
+    <%= link_to subject_icon('new.png')  + 'New',   :action => 'new' %>
+    <%= link_to subject_icon('list.png') + 'List',  :action => 'list' %>
+</div>
+<% end %>
+
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['report' ]} %>
 <%end%>
@@ -41,7 +50,6 @@
 
 
 <% content_for :help do -%>
-<div class='panel'>
 <h2>Guide </h2>
 <p>
 Due to the generic nature of this reporting and size of the system there are is long list of models to base reports on. 

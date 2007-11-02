@@ -99,8 +99,8 @@ end
         clear
      else
         self.data_type = new_value.class.to_s
-        self.data_id   = new_value[:id].to_i 
-        self.data_name = new_value[:name] 
+        self.data_id   = new_value['id'].to_i 
+        self.data_name = new_value['name'] 
         @current_value = new_value
     end
  end

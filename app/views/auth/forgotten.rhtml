@@ -1,20 +1,16 @@
-<% content_for :sidemenu do -%>
-    <div>
-      <span class='menu'> Login </span>
-      <%= link_to 'Login',               auth_url(:action => 'login')%>
-      <%= link_to 'Forgotten password',  auth_url(:action => 'forgotten') %>
-  </div>
-<%end %>
-
 <center>
-<div class="box login">
-<h2>Login Failed</h2>
-Please type in your email address registered with your username for the new password to be send too.
+<div class="box login"></h1>
+<h1>Login Failed  </h1>
+<h2><b><%= link_to '[Click here to Try Again] ',  :action => 'login' %></b></h2>
+<p>
+Or type in your username/email address registered withfor the new password to be send to you by the 
+administrator.
+</p>
 
 <% form_tag( auth_url(:action=> "forgotten"), :class => "tabular") do %>
 
 <p><label for="mail"><%=l(:field_mail)%> <span class="required"></span></label>
-<%= text_field_tag 'mail', nil, :size => 40 %></p>
+<%= text_field_tag 'mail', nil, :size => 80 %></p>
 
 <p><center><%= submit_tag l(:button_submit) %></center></p>
 

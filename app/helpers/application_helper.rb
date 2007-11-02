@@ -155,7 +155,10 @@ module ApplicationHelper
  def audit_panel(*options_for_render)
    call 'Element.update','audit', render(*options_for_render)
  end
-#
+
+ 
+
+##
 # Create a datagrid
 #
   def model_datagrid(clazz,data=nil)
@@ -163,9 +166,17 @@ module ApplicationHelper
    page<< "Biorails.showGrid( #{model_to_json(clazz,data)});"
  end
  
-  def show_folder(folder)	
-	page<< "Ext.onReady(Biorails.folder( #{folder.id} ,'Folder #{folder.path}'),Biorails);"
-  end
+ def refresh()
+	page<< "Biorails.refresh();"
+ end   
+
+ def show_document(folder)
+	page<< "Biorails.showDocument( #{folder.id});"
+ end   
+
+ def show_folder(folder)	
+	page<< "Biorails.showFolder( #{folder.id});"
+ end
 #
 # Update the menu actions
 #

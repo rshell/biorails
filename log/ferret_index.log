@@ -115,3 +115,7 @@ query: id:moose class_name:moose purpose:moose name:moose description:moose titl
 stored_fields: 
 query: id:moose class_name:moose purpose:moose description:moose name:moose summary:moose title:moose research_area:moose
 stored_fields: 
+rebuild index: []
+reindexing model ProjectElement
+reindex model ProjectElement : 0.00% complete : 1.90 secs to finish
+Created Ferret index in: script/../config/../index/oracle/shared

@@ -69,7 +69,9 @@ class Admin::DataElementsController < ApplicationController
 	@list = {:element_id=>params[:id],
 			 :matches=>@value,
 			 :total=>@choices.size ,
-			 :items =>@choices.collect{|i|{:id=>i.id,:name=>i.name,:description=>i.description}} }
+			 :items =>@choices.collect{|i|{ :id=>i['id'],
+                                            :name=>i['name'],
+                                            :description=>i['description']}} }
      render :text => @list.to_json
   end  
   

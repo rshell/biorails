@@ -324,19 +324,26 @@ class SqlElement < DataElement
     return  self.system.connection.select_one(content+" where  id='"+id+"'")    
   end
 #
-# @todo rjs not sure on portability and preformance of this
+# @todo rjs not sure on portability and preformance of this should move windowing code to db driver
 # 
-# oracle: SELECT * FROM (SELECT ROWNUM as ROW_NUM, x.* FROM (content) where x.name like 'xxx' order by x.name ) WHERE row_num BETWEEN 20 AND 40; 
+# oracle: SELECT * FROM (SELECT ROWNUM as ROW_NUM, x.* FROM (content) xwhere x.name like 'xxx' order by x.name ) WHERE row_num BETWEEN 20 AND 40; 
 # mysql/postgres: SELECT * FROM (Content) where name like 'xxx'  limit=20 start=0
+#
   def like(name, limit=25, offset=0 )
-	if (self.system.connection.class == "ActiveRecord::ConnectionAdapters::OracleAdapter")
-	  self.system.connection.select_all(
-		"select * from (select ROWNUM row_num,x.* FROM (content) where  x.name like "+
-	    "'#{name}%' order by x.name) where row_num between #{offset} and #{(offset+limit)}" )    
+    sql = ""
+	if (self.system.connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
+      sql = <<SQL
+        select * from 
+          (select x.*, ROWNUM row_num FROM (#{content}) x 
+           where  x.name like '#{name}%' order by x.name ) 
+        where row_num between #{offset} and #{(offset+limit)}
+SQL
     else
-	  self.system.connection.select_all(
-		"select * from (#{content}) where  name like'#{name}%' order by name offset #{offset} limit #{limit}")
+    sql = <<SQL      
+        select * from (#{content}) where  name like'#{name}%' order by name offset #{offset} limit #{limit}
+SQL
     end
+    self.system.connection.select_all(sql)
   end
  
 

@@ -45,7 +45,16 @@ class Project::FoldersController < ApplicationController
       }    
 	end 
   end
-  
+
+  def document
+    @project_folder = set_folder(params[:id])
+    respond_to do |format|
+      format.html {render :partial => 'document', :locals=>{:folder=>@project_folder} }
+      format.pdf {render_pdf("#{@project_folder.name}.pdf",{:action => 'print', :layout => "layouts/printout.rhtml"})}
+      format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
+	end 
+  end
+    
 ###
 ##
 # Display the current folder for printout 
@@ -256,7 +265,8 @@ class Project::FoldersController < ApplicationController
       format.html { render :action => 'show'}
       format.json { render :partial => "reorder"}
       format.js { render :update do | page |  
-              page.status_panel   :inline => flash[:info]||flash[:warning]
+              page.status_panel   :inline => flash[:warning] if flash[:warning]
+              page.refresh
             end
         }
     end  
@@ -293,7 +303,7 @@ protected
     values =[params[:id]]
 
     start = (params[:start] || 1).to_i      
-    size = (params[:limit] || 20).to_i 
+    size = (params[:limit] || 25).to_i 
     sort_col = (params[:sort] || 'id')
     sort_dir = (params[:dir] || 'ASC')
     where = params[:where] || {}
@@ -335,7 +345,6 @@ protected
            :offset=>@pages.current.offset, 
            :order=>sort_col+' '+sort_dir)
       
-
   end
 
 

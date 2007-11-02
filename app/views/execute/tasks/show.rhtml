@@ -16,8 +16,6 @@
     <div id="tab-show" class="tab-content">
        <%=render :partial =>'show' %>
     </div>
-    <div id="tab-folder" class="tab-content x-hidden">
-    </div>
     <div id="tab-import" class="tab-content x-hidden">
     </div>
     <div id="tab-sheet" class="tab-content x-hidden">
@@ -47,8 +45,7 @@ Ext.onReady(function(){
 				items: [{
 						title: 'Overview',
 						contentEl: 'tab-show'
-					}, new Biorails.Folder({ folder_id: <%=@task.folder.id%>,title: 'Folder'})
-                     ,{
+					},{
 						title: 'Import',
 						contentEl: 'tab-import',
 						autoLoad: {url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true}

@@ -23,7 +23,7 @@
     <!-- GC --> 
 	<!-- LIBS -->     
     <%= javascript_include_tag 'prototype/prototype' %>
-rshell    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
+    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
 
 
     <!-- ENDLIBS -->
@@ -39,8 +39,10 @@ rshell    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
 <div id="container" >
 <!--Top Header ======================= -->  
   <div id="header" class="x-layout-inactive-content">
-	  <div id='top-toolbar'>
-	  </div>
+    <div class='left'>
+      <h1><%= SystemSettings.app_title %></h1>
+      <h2><%= SystemSettings.app_subtitle %> </h2>
+    </div>
  </div>
 
 <!--Left Block =======================-->  
@@ -48,8 +50,6 @@ rshell    <%= javascript_include_tag 'scriptaculous/scriptaculous' %>
     <div class='sidemenu'>
      <%= if @content_for_sidemenu
           yield :sidemenu 
-      else    
-         render :partial =>'menu/default_left_menu' 
       end %>
     </div>
     <%= if @content_for_left 

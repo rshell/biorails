@@ -24,7 +24,9 @@ class AuthController < ApplicationController
     end
   end  # def login
   
-  def forgotten
+  def forgotten  
+    logger.warn("TODO setup SMTP mail and send new password for "+params[:mail])    
+    redirect_to :action=>'login'
   end
 
   def login_failed

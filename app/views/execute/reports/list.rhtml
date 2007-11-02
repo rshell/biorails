@@ -1,4 +1,5 @@
 <% content_for :sidemenu do%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
 <div>
     <span class='menu'>Report </span>
     <%= link_to subject_icon('new.png')  + 'New',   :action => 'new' %>

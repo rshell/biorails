@@ -11,6 +11,12 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
+  adapter: oracle
+  database: //localhost/xe
+  username: biorails
+  password: moose
+
+dev_msql:
   adapter: mysql
   database: biorails2_development
   username: biorails 
@@ -28,8 +34,8 @@ test:
   host: localhost
 
 production:
-  adapter: mysql
-  database: biorails2_production
+  adapter: oracle
+  database: //localhost/xe
   username: biorails
   password: moose
 #

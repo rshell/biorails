@@ -1,34 +1,5 @@
-<div id='tabs-folders'>
-    <div id="tab-show" class="tab-content x-hidden">
-        <%= render :partial => 'document', :locals=>{:folder=>@project_folder} %>
-    </div>
-    <div id="tab-folders" class="tab-content x-hidden">
-    </div>
-</div>
-
-
 <SCRIPT TYPE="text/javascript"> 
 Ext.onReady(function(){
-
-        var tabs = new Ext.TabPanel({
-		        renderTo:'tabs-folders',
-				activeTab: 0,
-                autoWidth: true,
-                frame: true,
-                deferredRender: true,
-                items: [ new Biorails.Folder({
-                        folder_id: <%=@project_folder.id%>,
-                        title: '<%=@project_folder.name%>',
-                        autoWidth: true,
-                        layout: 'fit'         
-                    }), {
-						title: 'Document View',
-						contentEl: 'tab-show',
-                        layout: 'fit'            
-					    } 
-                    ]	
-                });
-
-       //folder.applyToMarkup('tab-folders');
+    Biorails.showFolder(<%=@project_folder.id%>);
  });
 </script>  

@@ -45,6 +45,7 @@ Biorails = function(){
    var _toolbar = null;
    var _base_url = null;
    var _viewport = null;
+   var _folder_panel = null;
 /*
  * Read the configuration
  */   
@@ -277,7 +278,6 @@ Biorails = function(){
 			        region:"center",
 					id: 'center-id',			
 					contentEl:'center-panel',
-		            layout:'fit',
 					autoScroll: true,
                     frame: true
 			       });    
@@ -426,12 +426,6 @@ Biorails = function(){
         else if ('tree'==id) { _east_panel.activate(_tree_panel); };  
     },      
 /*
- * Get the grid_id
- */          
-      grid_id: function(){ 
-	  	return  _controller+'-grid' 
-	  },
-/*
  * Get a new grid Panel to the current config
  */          
       grid: function(){
@@ -442,7 +436,7 @@ Biorails = function(){
 						         autoDestroy: true,  
 						         closable:true,
                                  title: this.model()+' List',
-                                 id: this.grid_id(),
+                                 id: 'model-folder-id',
                                  ds:  _store,
                                  cm: this.getColumnView(),
                                  view: new Ext.grid.GroupingView(),
@@ -458,7 +452,67 @@ Biorails = function(){
                                 });    
           _store.load({params:{start: 0, limit: 25}});
          return _grid;                        
-      },      
+      },
+          
+/*
+ * show a datagrid to the passed current config
+ *
+ * @param config of the model grid
+ *
+ */      
+      showDocument: function(folder_id){
+                if( _folder_panel){
+   			        _center_panel.remove(_folder_panel);                
+                    _folder_panel.destroy();
+                };    
+                    
+                _folder_panel = new Biorails.Document({
+                               folder_id: folder_id,
+                               border:true,
+                               autoHeight: true,
+                               autoShow: true,
+                               autoScroll: true,            
+                               autoDestroy: true,  
+                               shim: true,
+                               monitorResize: true,
+                               layout: 'fit'         	
+                        });
+			    _center_panel.add(_folder_panel);                
+                _viewport.doLayout();         
+      },  
+          
+/*
+ * show a datagrid to the passed current config
+ *
+ * @param config of the model grid
+ *
+ */      
+      showFolder: function(folder_id){
+                if( _folder_panel){
+   			        _center_panel.remove(_folder_panel);                
+                    _folder_panel.destroy();
+                };    
+                    
+                _folder_panel = new Biorails.Folder({
+                               folder_id: folder_id,
+                               layout: 'fit',
+                               border:true,
+                               autoHeight: true,
+                               autoShow: true,
+                               autoScroll: true,            
+                               autoDestroy: true,  
+                               shim: true,
+                               monitorResize: true
+                        });
+			    _center_panel.add(_folder_panel);                
+                _center_panel.doLayout();
+      },
+      refresh: function(){
+        if( _folder_panel && _folder_panel.store){            
+            _folder_panel.store.load();
+        };                 
+      },
+          
 /*
  * show a datagrid to the passed current config
  *
@@ -466,16 +520,12 @@ Biorails = function(){
  *
  */      
       showGrid: function(config) {
-          ReadConfig(config);
-          
-          if (_center_panel){
-                tab = Ext.ComponentMgr.get(this.grid_id());
-                if (tab) {
-                   _center_panel.remove(tab);
-                };
-			    _center_panel.add( this.grid() );                
-                _center_panel.doLayout();
-          }  
+            ReadConfig(config);
+            if( _folder_panel){
+                _folder_panel.destroy();
+            };    
+            _center_panel.add( this.grid() );                
+            _center_panel.doLayout();
       }, 
             
       init : function(){ 
@@ -1234,7 +1284,80 @@ Biorails.DataGrid.Folder = function(config){
 };
 
 Ext.extend(Biorails.DataGrid,  Ext.grid.GridPanel);
+//---------------------------------------- Folders Document ----------------------------------------------------------
+Ext.namespace("Biorails.Document");
+/*
+ * Panel for handling a biorails folder display. This is basically a grid with some custom D&D code.
+ * 
+ */
+Biorails.Document = function(config){  
+    
+     Biorails.Document.superclass.constructor.call(this, Ext.apply(config,{
+           autoLoad: '/folders/document/'+config.folder_id,
+           id: 'folder-doc-'+config.folder_id,
+           enableDragDrop: true,
+           tbar:[{
+                    text:'Add File',
+                    tooltip:'Add a image or other file to the folder',
+                    href: '/asset/new/'+config.folder_id, 
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-file'
+                },'-', {
+                    text:'Add Article',
+                    tooltip:'Add some textual content to the folder',
+                    href: '/content/new/'+config.folder_id,                              
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-note'
+                },'-', {
+                    text:'Add Sub-folder',
+                    tooltip:'Add a new sub folder',
+                    href: '/folders/new/'+config.folder_id,                                
+                    handler: this.toolbarClick,                               
+                    iconCls:'icon-folder'
+                }, '-', {
+                    text:'Folder',
+                    tooltip:'Show as Folder',
+                    folder_id: config.folder_id,                                
+                    handler : function(item){
+                        Biorails.showFolder(item.folder_id);
+                    }, 
+                    iconCls:'icon-print'
+                },'-', {
+                    text:'Preview',
+                    tooltip:'Preview',
+                    href: '/folders/print/'+config.folder_id,                                
+                    handler : function(item){
+                        window.open(item.href);
+                    }, 
+                    iconCls:'icon-print'
+                },'-',{
+                    text:'Print',
+                    tooltip:'Print the folder as a report',
+                    href: '/folders/print/'+config.folder_id+'?format=pdf',                                
+                    handler : function(item){
+                        window.open(item.href);
+                    },                               
+                    iconCls:'icon-pdf'
+                }]   
+         }));
+};
+
+Ext.extend(Biorails.Document,  Ext.Panel, {
+/*
+ * Fire AJAX call for tool bar functions
+ */    
+    toolbarClick: function(item) {
+         new Ajax.Request( item.href,
+                            {asynchronous:true,
+                             evalScripts:true });         
+       
+    },
+    resync: function(){
+    }
+
+   });	
 //---------------------------------------- Folders Grid ----------------------------------------------------------
+
 Ext.namespace("Biorails.Folder");
 /*
  * Panel for handling a biorails folder display. This is basically a grid with some custom D&D code.
@@ -1244,8 +1367,8 @@ Biorails.Folder = function(config){
     
      var _store = new Ext.data.GroupingStore({
                remoteSort: true,
-               sortInfo: {field: 'left_limit', direction: 'ASC'},
-               lastOptions: {params:{start: 0, limit: 25}},
+               sortInfo: {params:{sort: 'left_limit',dir:'ASC'}},
+               lastOptions: {params:{sort: 'left_limit',dir:'ASC',start: 0, limit: 25}},
                proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+config.folder_id, method: 'get' }),
                reader: new Ext.data.JsonReader({
                              root: 'items', totalProperty: 'total'}, [
@@ -1261,13 +1384,9 @@ Biorails.Folder = function(config){
                                    {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
                                    {name: 'actions'}]  )
                         });
+                       
                          
      Biorails.Folder.superclass.constructor.call(this, Ext.apply(config,{
-           border:true,
-           autoHeight: true,
-           shim: true,
-           monitorResize: true,
-           autoDestroy: true, 
            id: 'folder-grid-'+config.folder_id,
            ds:  _store ,
            sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
@@ -1294,18 +1413,26 @@ Biorails.Folder = function(config){
                     href: '/asset/new/'+config.folder_id, 
                     handler: this.toolbarClick,                               
                     iconCls:'icon-file'
-                }, {
+                },'-', {
                     text:'Add Article',
                     tooltip:'Add some textual content to the folder',
                     href: '/content/new/'+config.folder_id,                              
                     handler: this.toolbarClick,                               
                     iconCls:'icon-note'
-                }, {
+                },'-', {
                     text:'Add Sub-folder',
                     tooltip:'Add a new sub folder',
                     href: '/folders/new/'+config.folder_id,                                
                     handler: this.toolbarClick,                               
                     iconCls:'icon-folder'
+                },'-', {
+                    text:'Document',
+                    tooltip:'Show as Folder',
+                    folder_id: config.folder_id,                                
+                    handler : function(item){
+                        Biorails.showDocument(item.folder_id);
+                    }, 
+                    iconCls:'icon-print'
                 }, '-', {
                     text:'Preview',
                     tooltip:'Preview',
@@ -1324,7 +1451,7 @@ Biorails.Folder = function(config){
                     iconCls:'icon-pdf'
                 }],
                 bbar: new Ext.PagingToolbar({
-				            pageSize: 20,
+				            pageSize: 25,
 				            store: _store,
 				            displayInfo: true,
 				            displayMsg: 'Displaying {0} - {1} of {2}',
@@ -1332,11 +1459,13 @@ Biorails.Folder = function(config){
 				        })
    
          }));
+         if (_store.getCount() < 1){
+             _store.load();             
+         }
+         
          this.on('render',    function(grid){
              grid.enableDD();
          });
-
-         _store.load({params:{start: 0, limit: 100}});
 };
 
 Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
@@ -1355,10 +1484,7 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
     renderNum: function(val,cell,record,row,col,ds){
         return '1.'+record.get('position');
     },
-    resync: function(request){
-       this.store.load();
-    },
-
+    
  /*
   * dropped Item Handler to update the layout 
   * with new row added via clipboard or tree

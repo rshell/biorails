@@ -80,19 +80,25 @@ has_many :data_elements, :conditions => "parent_id is null", :dependent => :dest
 #  reset the connection for a ActiveBase Class
 #  
   def reset_connection(clazz)
+    unless (self.is_local?)
     clazz.establish_connection(
       :adapter  => adapter,
       :host     => host,
       :username => username,
       :password => password,
       :database => database
-    )    
+      )   
+    end    
   end
-#
+  
+    def is_local?
+      (self.adapter.to_s=='local')
+    end
+
 # Test whether connection information is valid
 #
   def can_connect?
-    (self.adapter.to_s=='local') || !self.remote_connection.nil?
+    self.is_local?|| !self.remote_connection.nil?
   end
 #
 #  Get a connection to remote systems
