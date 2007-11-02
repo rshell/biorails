@@ -1,4 +1,4 @@
-<% form_remote_tag :url=>content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder)  do %>
+<% form_tag content_url(:action => 'update', :id=>@project_element, :folder_id=>@project_folder)  do %>
 <% dialog "Edit Article in #{link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder)}" do %>
      
        <%= render :partial => 'article' %>

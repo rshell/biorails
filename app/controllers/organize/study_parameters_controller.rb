@@ -121,6 +121,21 @@ class Organize::StudyParametersController < ApplicationController
       :filename => @study.name+"-"+'parameter.csv')
   end   
 
+  
+#
+# Create a Tree data model
+#
+  def tree
+	if params[:node] && params[:node] != '0'
+	  @items = ParameterRole.find(:all)
+      render :inline => 'tree'
+	else  
+	  @items = StudyParameter.find(:all, :conditions =>['parameter_role_id =?',params[:node]])
+      render :inline => '<%=parameter_roles_to_json(@items) '
+    end
+  end
+ 
+  
   def import
     @study = Study.find(params[:id])    
   end

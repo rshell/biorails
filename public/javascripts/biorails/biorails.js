@@ -1265,6 +1265,40 @@ Biorails.ConceptTree = function(el){
 
 Ext.extend(Biorails.ConceptTree,  Ext.tree.TreePanel, {} );
 
+//----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
+Ext.namespace("Biorails.ParameterTree");
+
+Biorails.ParameterTree = function(el){
+    
+    Biorails.ParameterTree.superclass.constructor.call(this,{
+			el: el,
+            title:'Study (Parameters)',
+            minHeight: 400,
+            autoShow: true, 
+            autoHeight:true,
+            autoScroll:true,
+            layout: 'fit',           
+			animate:true,
+			enableDD:false,
+            iconCls:'icon-study', 
+            root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
+                                                  expanded: true,  
+                                                  draggable:false, id: '1' }),
+			loader: new Ext.tree.TreeLoader({ dataUrl:'/parameters/tree'	})
+		});
+                
+        this.on('dblclick',function(node){
+               try{ 
+                    new Ajax.Request(node.attributes.url,{asynchronous:true, evalScripts:true});  
+                } catch (e) {
+                      Ext.log('Problem with click on tree node ');
+                      Ext.log(e);
+                } 
+        });                     
+}
+
+Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {} );
+
 
 //---------------------------------------- Model Grid ----------------------------------------------------------
 Ext.namespace("Biorails.DataGrid");
