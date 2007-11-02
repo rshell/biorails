@@ -32,12 +32,21 @@ production:
   database: biorails2_production
   username: biorails
   password: moose
-
+#
+# Data base specific Test configrations
+#
 oracle:
   adapter: oracle
   database: //localhost/xe
   username: biorails
   password: moose
+
+mysql:
+  adapter: mysql
+  database: biorails2_production
+  username: biorails
+  password: moose
+
 
 postgres:
     adapter: postgresql
@@ -47,7 +56,7 @@ postgres:
     host: localhost
    
 ###
-# This is a demostraction database which appears with te application
+# This is a demo database which appears with te application
 #  
 demo:
   adapter: sqlite3

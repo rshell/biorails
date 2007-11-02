@@ -1,0 +1,28 @@
+
+  <h3 class="icon icon-task"><%=l('Tasks')%> Todo</h3>
+      <ul>
+      <% for item in @user.tasks.current(5) %>
+          <li>
+          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
+          <%= item.description %>
+          </li>
+      <% end %>
+      </ul>
+  <h3 class="icon icon-task"><%=l('Tasks')%> Overdue</h3>
+      <ul>
+      <% for item in @user.tasks.overdue(5) %>
+          <li>
+          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
+          <%= item.description %>
+          </li>
+      <% end %>
+      </ul>
+  <h3 class="icon icon-task"><%=l('Tasks')%> Soon</h3>
+      <ul>
+      <% for item in @user.tasks.future(5) %>
+          <li>
+          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
+          <%= item.description %>
+          </li>
+      <% end %>
+      </ul>

@@ -1,0 +1,64 @@
+<h2>Dashboard of user <%=@user.name%></h2>
+
+<div class="splitcontentleft">
+  <div class="box">
+	<h3><%=link_to l('News: Recent Articles '),home_url(:action=>:news) %></h3>
+		<% for item in @user.news(5) %>
+			<li>
+			<%=image_tag(item.icon) %> 
+			<%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=item.summary%> 
+			</li>
+		<% end %>
+	</div>
+	<div class="box">
+	<h3 class="icon icon-request"><%=link_to l('My Projects'),home_url(:action=>:projects)%></h3>
+		<ul>
+		<% for item in @user.projects %>
+			<li>
+			<%= link_to item.name, project_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
+			<%=h item.summary %>
+			<%= link_to( subject_icon('cancel.png'), project_url( :action => 'destroy', :id => item)) unless item.in_use?  %>
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+</div>
+
+<div class="splitcontentright">
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=link_to l('Requests Todo'),home_url(:action=>:todo)%> </h3>
+		<ul>
+		<% for item in @user.lastest(QueueItem,10) %>
+			<li>
+			<%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %>:
+			  <strong><%= item.data_name %></strong> (<%= short_date(item.updated_at) %>) [<%= item.status %>]
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=link_to l('Requested Services'), home_url(:action=>:requests)%></h3>
+		<ul>
+		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
+			<li>
+			<%= link_to item.request.name, request_url( :action => 'show', :id => item.request) %> /
+			<%= link_to item.queue.name, service_url( :action => 'show', :id => item) %> 
+			(<%= short_date item.updated_at %>) 
+			[ <%= item.items.summary %> ]<br />
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+	<div class="box">
+	<h3 class="icon icon-protocol"><%=l('My Queues')%> [total/new/active/finished]</h3>
+		<ul>
+		<% for item in @user.lastest(StudyQueue,5) %>
+			<li>
+			<%= link_to item.name, queue_url( :action => 'show', :id => item) %> (<%= short_date(item.updated_at) %>) [<%= item.items.summary %>] <br />
+			</li>
+		<% end %>
+		</ul>
+	</div>  
+
+</div>	
