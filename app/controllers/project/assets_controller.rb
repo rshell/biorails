@@ -37,7 +37,8 @@ class Project::AssetsController < ApplicationController
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
       format.js  { render :update do | page |
-           page.replace_html 'center',  :partial=> 'show'
+            page.hide_folder
+            page.main_panel   :partial=> 'show'
          end
       }
     end  
@@ -51,6 +52,12 @@ class Project::AssetsController < ApplicationController
     respond_to do |format|
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:db_file])}
+      format.js  { render :update do | page |
+           page.hide_folder
+           page.status_panel :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_asset']} 
+           page.main_panel   :partial=> 'edit'
+         end
+      }
     end  
     
   end
@@ -71,7 +78,7 @@ class Project::AssetsController < ApplicationController
       format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
+           page.status_panel :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_asset']} 
            page.replace_html 'center',  :partial=> 'show'
          end
       }
@@ -91,9 +98,10 @@ class Project::AssetsController < ApplicationController
       format.html { render :action=>'new'}
       format.xml  { render :xml => @project_asset.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
+           page.hide_folder
            page.status_panel :partial => 'shared/messages', :locals => { :objects => ['project_folder','project_asset']} 
            page.help_panel   :partial=> 'help'
-           page.main_panel   :partial => 'upload' ,:locals=>{:folder=> @project_folder}
+           page.main_panel   :partial=> 'upload'
          end
       }
     end  

@@ -22,8 +22,9 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'show'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
+           page.hide_folder
            page.status_panel :partial=> 'messages'
-           page.main_panel :partial=> 'show'
+           page.main_panel   :partial=> 'show'
          end
       }
     end  
@@ -39,7 +40,7 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'diff'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
+           page.status_panel :partial=> 'messages'
            page.replace_html 'diff',  :partial=> 'diff'
          end
       }
@@ -56,8 +57,9 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'new'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html 'center',  :partial=> 'new'
+           page.hide_folder
+           page.status_panel :partial=> 'messages'
+           page.main_panel  :partial=> 'new'
          end
       }
     end  
@@ -78,8 +80,8 @@ class Project::ContentController < ApplicationController
             format.html { render :action=>'new'}
             format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
             format.js  { render :update do | page |
-                 page.replace_html 'messages', :partial=> 'messages'
-                 page.replace_html 'center',  :partial=> 'new'
+                 page.status_panel :partial=> 'messages'
+                 page.main_panel   :partial=> 'new'
                end
             }
           end 
@@ -88,8 +90,8 @@ class Project::ContentController < ApplicationController
             format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
             format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
             format.js  { render :update do | page |
-                 page.replace_html 'messages', :partial=> 'messages'
-                 page.replace_html 'center',  :partial=> 'show'
+                 page.status_panel :partial=> 'messages'
+                 page.main_panel   :partial=> 'show'
                end
             }
           end  
@@ -106,8 +108,9 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html  @project_element.dom_id(:current), :partial=> 'edit'
+           page.hide_folder
+           page.status_panel :partial=> 'messages'
+           page.main_panel   :partial=> 'edit'
          end
       }
     end  
@@ -130,8 +133,8 @@ class Project::ContentController < ApplicationController
       format.html { redirect_to folder_url(:action => 'show', :id => @project_folder) } 
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset])}
       format.js  { render :update do | page |
-           page.replace_html 'messages', :partial=> 'messages'
-           page.replace_html  @project_element.dom_id(:current), :partial=> 'show'
+           page.status_panel :partial=> 'messages'
+           page.main_panel   :partial=> 'show'
          end
       }
    end  

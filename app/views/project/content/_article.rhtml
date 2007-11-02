@@ -1,5 +1,4 @@
- 
-<% dialog 'New Article ' do %>
+    
    <%= hidden_field 'project_element', 'id'  %>
    <%= hidden_field 'project_element', 'project_id'  %>
  
@@ -18,10 +17,9 @@
 
 <div class="row">
  <label for="title">Text:</label>
-  <%= document_field('project_element', 'to_html',{:size=>'100x40'})  %>
+       <%= html_field 'project_element', 'to_html', { :width=>600,:height=>300} %>
 </div>
 
 <div class="row">
 <%= submit_tag "Save"  %>
 </div>
-<%end%>

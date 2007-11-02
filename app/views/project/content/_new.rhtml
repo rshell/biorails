@@ -1,11 +1,5 @@
-<br/>
-<h2>
-New Article: 
-    <%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
-    <%= "/"+ ( @project_element ? @project_element.name : 'save article') %>
-</h2> 
 <% form_remote_tag  :url =>content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>
- 
+<% dialog "New Article in #{link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder)}" do %>
    <%= render :partial => 'article' %>
-
+<% end %>
 <% end %>

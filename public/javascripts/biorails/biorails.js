@@ -219,9 +219,9 @@ Biorails = function(){
 			    collapsible:true,
 			    useSplitTips: true,
 			    titleCollapse:true,
-		        width: 170,
+		        width: 140,
                 minHeight: 600,                       
-		        minSize: 170,
+		        minSize: 100,
 		        maxSize: 400,
 		        layout:'accordion',
 		        layoutConfig:{     animate:true   },
@@ -260,9 +260,9 @@ Biorails = function(){
 			    title:"Extras",
 		        xtype:"tabpanel",
 			    id:'extra-id',	
-			    width: 225,
+			    width: 170,
                 minHeight: 600,                       
-				minSize: 175,
+				minSize: 100,
                 maxSize: 400,
 			    split:true,
 			    useSplitTips: true,
@@ -453,6 +453,20 @@ Biorails = function(){
           _store.load({params:{start: 0, limit: 25}});
          return _grid;                        
       },
+
+          
+/*
+ * Hide Folder
+ *
+ * @param config of the model grid
+ *
+ */      
+      hideFolder: function(){
+            if( _folder_panel){
+                _center_panel.remove(_folder_panel);                
+                _folder_panel.destroy();
+            };    
+      },
           
 /*
  * show a datagrid to the passed current config
@@ -491,19 +505,35 @@ Biorails = function(){
                 if( _folder_panel){
    			        _center_panel.remove(_folder_panel);                
                     _folder_panel.destroy();
-                };    
+                };
                     
+                if (Ext.isIE6) {
+                _folder_panel = new Biorails.Folder({
+                               folder_id: folder_id,
+                               layout: 'fit',
+                               border:true,
+                               width: _center_panel.getSize().width-20,
+                               height: _center_panel.getSize().height-20,
+                               autoShow: true,
+                               autoScroll: true,            
+                               autoDestroy: true,  
+                               shim: true,
+                               monitorResize: true
+                        });                    
+                } else { // Working browser
                 _folder_panel = new Biorails.Folder({
                                folder_id: folder_id,
                                layout: 'fit',
                                border:true,
                                autoHeight: true,
                                autoShow: true,
-                               autoScroll: true,            
                                autoDestroy: true,  
                                shim: true,
                                monitorResize: true
                         });
+               }                             
+                        
+
 			    _center_panel.add(_folder_panel);                
                 _center_panel.doLayout();
       },
@@ -1284,6 +1314,7 @@ Biorails.DataGrid.Folder = function(config){
 };
 
 Ext.extend(Biorails.DataGrid,  Ext.grid.GridPanel);
+
 //---------------------------------------- Folders Document ----------------------------------------------------------
 Ext.namespace("Biorails.Document");
 /*
@@ -1409,40 +1440,46 @@ Biorails.Folder = function(config){
                },
            tbar:[{
                     text:'Add File',
+                    xtype:'tbbutton',
                     tooltip:'Add a image or other file to the folder',
                     href: '/asset/new/'+config.folder_id, 
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-file'
+                    iconCls: 'icon-file'
                 },'-', {
                     text:'Add Article',
                     tooltip:'Add some textual content to the folder',
+                    xtype:'tbbutton',
                     href: '/content/new/'+config.folder_id,                              
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-note'
+                    iconCls: 'icon-note'
                 },'-', {
                     text:'Add Sub-folder',
                     tooltip:'Add a new sub folder',
+                    xtype:'tbbutton',
                     href: '/folders/new/'+config.folder_id,                                
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-folder'
+                    iconCls: 'icon-folder'
                 },'-', {
                     text:'Document',
-                    tooltip:'Show as Folder',
+                    tooltip:'Show as Document',
+                    xtype:'tbbutton',
                     folder_id: config.folder_id,                                
                     handler : function(item){
                         Biorails.showDocument(item.folder_id);
                     }, 
-                    iconCls:'icon-print'
+                    iconCls: 'icon-print'
                 }, '-', {
                     text:'Preview',
                     tooltip:'Preview',
+                    xtype:'tbbutton',
                     href: '/folders/print/'+config.folder_id,                                
                     handler : function(item){
                         window.open(item.href);
                     }, 
-                    iconCls:'icon-print'
+                    iconCls: 'icon-print'
                 },'-',{
                     text:'Print',
+                    xtype:'tbbutton',
                     tooltip:'Print the folder as a report',
                     href: '/folders/print/'+config.folder_id+'?format=pdf',                                
                     handler : function(item){

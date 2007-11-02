@@ -177,6 +177,10 @@ module ApplicationHelper
  def show_folder(folder)	
 	page<< "Biorails.showFolder( #{folder.id});"
  end
+
+ def hide_folder	
+	page<< "Biorails.hideFolder();"
+ end
 #
 # Update the menu actions
 #

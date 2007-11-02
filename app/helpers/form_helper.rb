@@ -58,19 +58,20 @@ HTML
  #{text_area(object_name,method,options)} 
  <script type="text/javascript">
     Ext.onReady( function(){ 
-        new Ext.form.HtmlEditor({
-         applyTo: "#{object_name}_#{method}",
-         id: "#{object_name}_#{method}",
-         enableFontSize: true,
-         enableFormat: true,
-         enableLists: true,
-         enableLinks: true,
-         minHeight: 400,
-         height: 600,
-         autoWidth : true,
-         enableSourceEdit: true,
-         enableColours:true
-        });
+      
+       control = new Ext.form.HtmlEditor(
+          Ext.apply( #{options.to_json} ,{
+             applyTo: "#{object_name}_#{method}",
+             id: "#{object_name}_#{method}",
+             enableFontSize: true,
+             enableFormat: true,
+             enableLists: true,
+             enableLinks: true,
+             enableSourceEdit: true,
+             enableColours:true
+            }));
+
+      control.applyToMarkup("#{object_name}_#{method}"); 
     } );
  </script>
 HTML
