@@ -1,0 +1,2 @@
+module Organize::StudyQueuesHelper
+end
