@@ -67,7 +67,8 @@
           <%=my_field_tag(parameter.dom_id('default_value'),row+"[default_value]",parameter,
             {:value=> parameter.default_value, :save=> parameter_url(:action=>'test_save', :id=> parameter ) }) %>
     </td>
-    <td><%= link_to_remote subject_icon('destroy.png') + 'Delete', :url => { :action => 'remove_parameter',:id =>parameter.id }%>
+    <td>
+<%= link_to_remote subject_icon('destroy.png') + 'Delete', :url => { :action => 'remove_parameter',:id =>parameter.id }%>
     </td>
   </tr>
  <%end%>

@@ -8,8 +8,6 @@
 */
 .bio-std li { display: list-item }
 .bio-std ol { list-style-type: decimal }
-.bio-std 
-.bio-std 
 
 html, body {
     font-size: 10px ;    
@@ -289,12 +287,14 @@ Report Table Style
     color:#fff;
     background: #6593cf;
     font: bold 11px arial, sans-serif;
-    padding: 2px 5px 2px 5px;
+    padding: 0;
+    margin:0;
+
 }
  
 .report  th p {
     color: #eee;
-    padding: 2px 5px;
+    padding: 1px 1px;
 }
  
 .report  th a:hover {
@@ -320,12 +320,7 @@ Report Table Style
     background-position:right ;
     background-repeat: no-repeat;
 }
- 
-.report  th.loading a,
-.report  th.loading a:hover {
-    background: #333 url(/images/indicator-small.gif) right;
-}
-   
+  
  
 /*
 -----------------------------------------------
@@ -362,26 +357,6 @@ Edit, Delete
 * Styles for drag and drop items on the protocol edit form
 */
 
-.protocol th  {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;  
-    background-color:#eee;
-    border: solid thin black;
-    background-color: #ddd;
-    color:black;
-    empty-cells: show;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.protocol table  {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;  
-    border: solid thin black;
-    width: 100%;
-    empty-cells: show;
-}
-
 #allowed_types {
     background-color:#fff;
 }
@@ -391,12 +366,14 @@ Edit, Delete
 }
 
 #parameter_tree dt {
-    margin: 1px 1px 1px 1px;
+    margin: 0;
+    padding: 0;
     color:#ffffff;
 }
 
 #parameter_tree dl {
-    margin: 1px 1px 1px 1px;
+    margin: 0;
+    padding: 0;
     list-style-type:none;
     border-right:1px solid #ffffff;
     white-space:nowrap;
@@ -410,8 +387,8 @@ span.study_parameter {
     z-index:            1666;
     color:black;
     background-color:#98c0f4;
-    padding: 1px 1px 1px 1px;
-    margin: 1px 1px 1px 1px;
+    margin: 1;
+    padding: 0;
     border-style:outset;
     border-width: thin;
     white-space: nowrap;
@@ -422,8 +399,8 @@ span.study_queue {
     z-index:            1666;
     color:black;
     background-color:#d0def0;
-    padding: 1px 1px 1px 1px;
-    margin: 1px 1px 1px 1px;
+    margin: 1;
+    padding: 0;
     border-style:outset;
     border-width: thin;
     white-space: nowrap;
@@ -435,8 +412,8 @@ span.parameter {
     z-index:   1666;
     color:black;
     background-color:#98c0f4;
-    padding: 1px 1px 1px 1px;
-    margin: 1px 1px 1px 1px;
+    margin: 0;
+    padding: 0;
     border-style:outset;
     border-width: thin;
     white-space: nowrap;

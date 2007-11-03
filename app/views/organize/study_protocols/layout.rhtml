@@ -1,47 +1,26 @@
 
 <% content_for :sidemenu do -%>
-   <%=link_to "Close", protocol_url(:action=>'show',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
-   <hr/>
+  <%= render :partial =>'/menu/project_menu' ,    :locals=>{ :project => current_project} %>
+  <%= render :partial =>'/menu/study_menu' ,      :locals=>{ :study => @study_protocol.study}   %>
+  <%= render :partial =>'/menu/process_menu' ,    :locals=>{ :process => @protocol_version} %>
 <% end -%>
 
-
-<% content_for :left do -%>
-<div id="parameter_tree">
-   <%= render :partial => 'parameter_tree' %>
-   
-   <div class='box'>
-      <%=image_tag('delete.png')%>
-      Drop parameters here to remove.
+<% content_for :center do %>
+    <div class='report' id="<%=@protocol_version.dom_id('editor') %>">
+      <%= render :partial => 'parameter_layout' %>
    </div>
-</div>
-   <hr/>
-   <%=link_to "Redraw", protocol_url(:action=>'layout',:id=> @protocol_version.protocol, :version=>@protocol_version) %>
 <% end -%>
 
-<div class='panel'>
-   <h2>
-        <%=subject_icon('model/protocol.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
-        in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
-    </h2> 
- 
-    <%= render :partial => 'process_layout' %>
+<% content_for :status do %>
+    <div id='tp'>    </div>
+<% end%>
 
-<div class='box'>
-This form is build to work with drag and drop of parameters from the list of available types for the study design to column positions in a set of contexts.
-In a simple excel like sheet there would only be a single context. For more complex example there may be a number of level like plate/compounds/well for screen 
-of treatment group/subject/time for clienical example. The idea of context is save re-entering the same value multiple time.
-</div>
-
-<SCRIPT TYPE="text/javascript">
- function initialize_dropzones()  
- {
-  <%= protocol_drag_and_drop(@protocol_version.contexts) %>
- }
-if (window.addEventListener) //DOM method for binding an event
-   window.addEventListener("load", initialize_dropzones, false)
-else if (window.attachEvent) //IE exclusive method for binding an event
-  window.attachEvent("onload", initialize_dropzones)
-else if (document.getElementById) //support older modern browsers
-  window.onload=initialize_dropzones()
-
+ <script type="text/javascript"> 
+Ext.onReady(function(){
+   var tree = new Biorails.ParameterTree({el:'tp',study_id: <%=@study.id%> });
+   tree.applyToMarkup('tp');
+<% for parameter_context in @protocol_version.contexts %>
+   var d = new Biorails.Protocol.DropTarget("<%=parameter_context.dom_id%>",{context_id:<%=parameter_context.id%>} );
+ <% end %>
+});
 </script>

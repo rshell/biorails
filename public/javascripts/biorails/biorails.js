@@ -1265,40 +1265,6 @@ Biorails.ConceptTree = function(el){
 
 Ext.extend(Biorails.ConceptTree,  Ext.tree.TreePanel, {} );
 
-//----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
-Ext.namespace("Biorails.ParameterTree");
-
-Biorails.ParameterTree = function(el){
-    
-    Biorails.ParameterTree.superclass.constructor.call(this,{
-			el: el,
-            title:'Study (Parameters)',
-            minHeight: 400,
-            autoShow: true, 
-            autoHeight:true,
-            autoScroll:true,
-            layout: 'fit',           
-			animate:true,
-			enableDD:false,
-            iconCls:'icon-study', 
-            root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
-                                                  expanded: true,  
-                                                  draggable:false, id: '1' }),
-			loader: new Ext.tree.TreeLoader({ dataUrl:'/parameters/tree'	})
-		});
-                
-        this.on('dblclick',function(node){
-               try{ 
-                    new Ajax.Request(node.attributes.url,{asynchronous:true, evalScripts:true});  
-                } catch (e) {
-                      Ext.log('Problem with click on tree node ');
-                      Ext.log(e);
-                } 
-        });                     
-}
-
-Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {} );
-
 
 //---------------------------------------- Model Grid ----------------------------------------------------------
 Ext.namespace("Biorails.DataGrid");
@@ -1615,7 +1581,7 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
 
    });	
 
-//----------------------------------------  Biorails Column Tree ---------------------------------------------
+//----------------------------------------  Biorails Report ---------------------------------------------
 Ext.namespace('Biorails.Report');
 
 Biorails.Report.DropTarget =function(el,config) {
@@ -1679,6 +1645,68 @@ Ext.extend(Biorails.ColumnTree,  Ext.tree.TreePanel, {
   }  
 } );
 
+
+//----------------------------------------  Biorails Column Tree ---------------------------------------------
+Ext.namespace('Biorails.Protocol');
+
+Biorails.Protocol.DropTarget =function(el,config) {
+   Biorails.Protocol.DropTarget.superclass.constructor.call(this,el, 
+       Ext.apply(config,{
+            ddGroup:'parameterDD',
+            overClass: 'dd-over'}));   
+};
+
+Ext.extend( Biorails.Protocol.DropTarget, Ext.dd.DropTarget, {
+
+  notifyDrop: function (source,e,data) {
+    new Ajax.Request('/protocols/add_parameter/'+this.context_id,
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'node='+encodeURIComponent(data.node.id) }); 
+    return false;
+
+     }
+});      
+
+//----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
+Ext.namespace("Biorails.ParameterTree");
+
+Biorails.ParameterTree = function(config){
+    
+    Biorails.ParameterTree.superclass.constructor.call(this,Ext.apply(config,{
+            title:'Study (Parameters)',
+            minHeight: 400,
+            autoShow: true, 
+            autoHeight: true,
+            autoScroll: true,
+            layout: 'fit',           
+			animate: true,
+			enableDD: true,
+            ddGroup:'parameterDD',
+            iconCls:'icon-study', 
+            root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
+                                                  expanded: true,  
+                                                  draggable:false, id: 'root' }),
+			loader: new Ext.tree.TreeLoader({ dataUrl:'/parameters/tree/'+config.study_id})
+		}));
+                
+        this.on('dblclick',function(node,e) { 
+            this.add_parameter(node) 
+        });                  
+}
+
+Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {
+    
+  add_parameter: function (node){
+      if (node.leaf) {
+        new Ajax.Request('/protocols/add_parameter/'+this.process_id,
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'id='+encodeURIComponent(node.id) }); 
+        }
+        return false;
+  }  
+} );
 
 
 //------------------ Main App ------------------------------------------------------------------------

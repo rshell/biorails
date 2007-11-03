@@ -156,7 +156,8 @@ end
 # 
   def parameters_for_role(role)
       if !role.nil? 
-          return parameters.reject{|p| p.role != role}
+          role_id = role.is_a?(ParameterRole) ? role.id : role
+          return self.parameters.find(:all,:conditions=>['parameter_role_id=?',role_id])
       else    
           return parameters
       end 
@@ -229,9 +230,12 @@ end
 ##
 # get all the ParameterType linked into this study
    def parameter_types(role = nil)
-     if role
+     if role.is_a?(ParameterRole)
        ParameterRole.find_by_sql(
        ["SELECT * FROM parameter_types a where exists (select 1 from study_parameters b  where b.parameter_type_id= a.id and b.parameter_role_id=? and b.study_id=?)",role.id,id])     
+     elsif role
+       ParameterRole.find_by_sql(
+       ["SELECT * FROM parameter_types a where exists (select 1 from study_parameters b  where b.parameter_type_id= a.id and b.parameter_role_id=? and b.study_id=?)",role,id])     
      else
        ParameterRole.find_by_sql(
        ["SELECT * FROM parameter_types a where exists (select 1 from study_parameters b  where b.parameter_type_id= a.id and b.study_id=?)",id])

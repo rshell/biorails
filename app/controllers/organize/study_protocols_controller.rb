@@ -266,9 +266,9 @@ class Organize::StudyProtocolsController < ApplicationController
  def add_parameter
    @successful  = false
    ProtocolVersion.transaction do
-     @parameter_context = ParameterContext.find(params[:context])
+     @parameter_context = ParameterContext.find(params[:id]) 
      @protocol_version = @parameter_context.process
-     style, id = params[:id].split("_")
+     style, id = params[:node].split("_")
      case style
        when 'sp' : @parameter = @parameter_context.add_parameter( StudyParameter.find(id) )
        when 'sq' : @parameter = @parameter_context.add_queue( StudyQueue.find(id) )
@@ -289,7 +289,6 @@ class Organize::StudyProtocolsController < ApplicationController
             page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
                               :locals => {:parameter_context => @parameter_context, :hidden => false }
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
-            page<< protocol_drag_and_drop(@protocol_version.contexts)
           else
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
           end

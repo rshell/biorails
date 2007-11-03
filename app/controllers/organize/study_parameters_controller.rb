@@ -126,12 +126,15 @@ class Organize::StudyParametersController < ApplicationController
 # Create a Tree data model
 #
   def tree
-	if params[:node] && params[:node] != '0'
-	  @items = ParameterRole.find(:all)
-      render :inline => 'tree'
-	else  
-	  @items = StudyParameter.find(:all, :conditions =>['parameter_role_id =?',params[:node]])
-      render :inline => '<%=parameter_roles_to_json(@items) '
+    @study = current_user.study(params[:id])        
+	if params[:node] == 'root'
+      return render :inline => "<%= parameter_roles_to_json(@study.allowed_roles) %>"
+
+	elsif params[:node] == 'queue'
+      return render :inline => "<%= study_queues_to_json(@study.queues) %>"
+
+    else        
+      return render :inline => "<%= study_parameters_to_json( @study.parameters_for_role( params[:node] ) ) %>"
     end
   end
  
