@@ -1,23 +1,19 @@
 <% content_for :sidemenu do -%>
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
+  <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study}if @study %>
 <div>
   <span class='menu'>Services </span>
-  <%= link_to subject_icon('list.png') +'List', queue_url( :action => 'list', :id=>@study  ) %>
-  <%= link_to subject_icon('new.png') +'New Service',  queue_url( :action => 'new', :id=>@study  ) %>
+  <%= link_to subject_icon('list.png') +'List', queue_url( :action => 'list', :id=>@study  ) if @study%>
+  <%= link_to subject_icon('new.png') +'New Service',  queue_url( :action => 'new', :id=>@study  ) if @study %>
   <%= link_to subject_icon('new.png')+'New Request ',request_url( :action => 'new' )%> 
 </div>
 <% end -%>
 
 <% content_for :center do%>
-<h2>
-          <%=subject_icon('services')%> Services for Study 
-          <%= link_to @study.name, :controller => 'studies', 
-                :action => 'show', :id => @study.id  %>
-  </h2>
+<h2>  List of Services  </h2>
   <table class="report">
     <tr>
-      <th>Name</th>
+      <th colspan=2>Study</th>
       <th>Description</th>
       <th>Assigned</th>
       <th colspan=2>Request Status</th>
@@ -25,7 +21,8 @@
       <th>Actions</th>
     </tr>
     <tr>
-      <th colspan=2>For <%=@study.name%> </th>
+      <th>Name</th>
+      <th>Service</th>
       <th>To User</th>
       <th>Default</th>
       <th>Counts</th>
@@ -36,6 +33,7 @@
 
   <% for study_queue in @study_queues %>
     <tr>
+      <td><%= link_to study_queue.study.name, :action => 'show', :id => study_queue.study_id %></td>
       <td><%= link_to study_queue.name, :action => 'manage', :id => study_queue %></td>
       <td><%=h study_queue.description %></td>
       <td><%=h study_queue.assigned_to.name %></td>

@@ -19,8 +19,13 @@ class Organize::StudyQueuesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @study = current( Study, params[:id] )
-    @study_queue_pages, @study_queues = paginate :study_queues, :conditions => ["study_id=?",@study.id], :per_page => 10
+    if params[:id]
+      @study = current( Study, params[:id] )
+      @study_queue_pages, @study_queues = paginate :study_queues, :conditions => ["study_id=?",@study.id], :per_page => 10
+    else
+      @study_queue_pages, @study_queues = paginate :study_queues,
+        :conditions => ["study_id in (select id from studies where project_id = ?)",current_project.id], :per_page => 20
+    end
   end
 
   def results

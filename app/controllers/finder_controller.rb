@@ -24,6 +24,10 @@ class FinderController < ApplicationController
       format.js   { render :action => 'search', :layout=>false }
       format.json { render :json => {:text=>@search_text,:items=>@hitlist}.to_json }
       format.xml  { render :xml => {:text=>@search_text,:items=>@hitlist}.to_xml }
+      format.js  { render :update do | page |  
+            page.status_panel :partial => 'search'
+         end 
+      }
     end
    end
 
