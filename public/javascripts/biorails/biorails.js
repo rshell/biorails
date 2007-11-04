@@ -67,11 +67,12 @@ Biorails = function(){
 // Manage Free Text Search Click
 //					
   function onSearchClick(btn){
-		layout.getRegion('east').showPanel('status');   
-		Ext.get("status").load({
-		        url: "/finder/search?text="+searchField.getValue(),
-		        text: "Searching..."
-		   });
+          new Ajax.Request('/finder/search',
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'text='+encodeURIComponent(searchField.getValue()) }); 
+          return false;
+
    };	   
 
 //
