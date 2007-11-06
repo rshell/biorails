@@ -9,13 +9,19 @@
 .bio-std li { display: list-item }
 .bio-std ol { list-style-type: decimal }
 
-html, body {
+html {
+    overflow: hidden;
+}
+
+body {
     font-size: 10px ;    
     font-family: Trebuchet MS,Georgia,"Times New Roman",serif;
     margin:0;
     padding:0;
     border:0 none;
     height:100%;
+    width:100%;
+    overflow: auto;
 }
 
 h1 {
@@ -61,11 +67,11 @@ h4 {
 
 .splitcontentleft{
     float:left; 
-    width:49%;}
+    width:46%;}
 
 .splitcontentright{
     float:right; 
-    width:49%;}
+    width:46%;}
     
 .clear{clear:both;}
 .small{font-size:0.8em;line-height:1.4em;padding:0 0 0 0;}
@@ -547,31 +553,6 @@ Cells
     font-family: Arial;
     font-size: 1.0em;
     text-align: center;
-}
-
-.sheet input[type="text"], .sheet select {
-    width:   100%;
-    height:  100%;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;    
-}
-/* Specific rules for data_type of cells 1=text 2=numeric 3=date */
-.sheet td.type-1 input[type="text"] {
-    text-align: left;	
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;    
-}
-
-.sheet td.type-2 input[type="text"] {
-    text-align: right;	
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;    
-}
-
-.sheet td.type-3 input[type="text"] {
-    text-align: center;	
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;    
 }
   
   
