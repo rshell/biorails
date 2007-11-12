@@ -308,20 +308,20 @@ class SqlElement < DataElement
 # Count the number of records returned with a select count(*) from (select ....)
 # 
   def size
-    return  self.system.connection.select_all("select count(*) from ("+content+") x")
+    return  self.system.remote_connection.select_all("select count(*) from ("+content+") x")
   end
 
 ###
 # Lookup to find value in a list
   def lookup(name)
-    return  self.system.connection.select_one(content+" where  name='"+name+"'")    
+    return  self.system.remote_connection.select_one("select * from (#{content}) where name='"+name+"'")    
   end
 
 ##
 # Get by id  
 # 
   def reference(id)
-    return  self.system.connection.select_one(content+" where  id='"+id+"'")    
+    return  self.system.remote_connection.select_one(" select * from (#{content})  where  id='"+id+"'")    
   end
 #
 # @todo rjs not sure on portability and preformance of this should move windowing code to db driver
@@ -331,7 +331,7 @@ class SqlElement < DataElement
 #
   def like(name, limit=25, offset=0 )
     sql = ""
-	if (self.system.connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
+	if (self.system.remote_connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
       sql = <<SQL
         select * from 
           (select x.*, ROWNUM row_num FROM (#{content}) x 
@@ -343,7 +343,7 @@ SQL
         select * from (#{content}) where  name like'#{name}%' order by name offset #{offset} limit #{limit}
 SQL
     end
-    self.system.connection.select_all(sql)
+    self.system.remote_connection.select_all(sql)
   end
  
 

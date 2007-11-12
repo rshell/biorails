@@ -304,7 +304,7 @@ def move_parameter
   ProtocolVersion.transaction do
     @parameter_context = ParameterContext.find(params[:context])
     @protocol_version = @parameter_context.process
-    @parameter = Parameter.find(params[:id].split("_")[1])
+    @parameter = Parameter.find(params[:id])
     @source = @parameter.context 
     if @source != @parameter_context
        @parameter.context = @parameter_context
@@ -315,6 +315,7 @@ def move_parameter
        @parameter.save
        @parameter.process.resync_columns
        @parameter_context.reload
+        @successful = true
        logger.info "reorder #{@parameter_context.parameters.collect{|i|i.name}.join(',')}"
     end 
   end 
@@ -322,9 +323,13 @@ def move_parameter
       format.html { render :action => 'layout',:id => @parameter_context.process.protocol,:version=> @parameter_context.process }
       format.xml  { render :xml => @parameter_context.to_xml }
       format.js   { render :update do | page |
-            page.replace_html @protocol_version.dom_id('editor'), :partial => 'parameter_layout'
+          if @successful
+            page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
+                              :locals => {:parameter_context => @parameter_context, :hidden => false }
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+          else
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
-            page<< protocol_drag_and_drop(@protocol_version.contexts)
+          end
          end }
     end
 end

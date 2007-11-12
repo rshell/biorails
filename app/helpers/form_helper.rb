@@ -408,7 +408,7 @@ HTML
 # 
   def my_lookup_tag(id,name, data_element=nil ,options={})
     options[:mask]    ||= '.'
-    options[:onfocus] ||= 'FieldEntry( this,event)' 
+##    options[:onfocus] ||= 'FieldEntry( this,event)' 
     if data_element.nil?
        return my_regex_tag(id, name,options)
     elsif data_element.estimated_count and data_element.estimated_count < 10

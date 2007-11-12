@@ -95,7 +95,7 @@ class Content < ActiveRecord::Base
      out = ' ' 
      out << title
      out << ' ['
-     out << number_to_human_size( body_html.size)
+     out << number_to_human_size( self.body_html.size) if self.body_html
      out << "]"  
   end
   

@@ -33,19 +33,6 @@
     </ul>
   </div>  
 
-  <div class="box">
-    <h3 class="icon icon-compound"><%=l('Compounds')%></h3>
-    <ul>
-    <% for item in @project.lastest(Compound,5) %>
-        <li>
-          <%= link_to item.name, :controller => 'inventory/compounds', :action => 'show', :id => item %> 
-          (<%= format_time(item.updated_at) %>)
-            <br />
-            <%= item.description %>
-        </li>
-    <% end %>
-    </ul>
-  </div>  
 </div>
 
 <div class="splitcontentright">

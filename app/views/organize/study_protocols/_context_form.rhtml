@@ -48,6 +48,7 @@
    <tr class="row" id="row_<%=row_id%>">
     <td class="cell" >
           <%=text_field_tag row + "[name]", parameter.name,  :onkeypress =>'MatchMask( this,/^[a-z]{1}\w*$/i)', :style=>'text-align: left;' %>
+          <%= link_to_remote subject_icon('arrow_right.png'), :url => { :action => 'move_parameter',:id =>parameter.id,:context=>parameter.context.id }%>
     </td>
     <td class="cell" >      
           <%=subject_icon(parameter.role.name) + parameter.description%>
@@ -64,11 +65,10 @@
            <%=check_box_tag row + "[mandatory]","Y", parameter.mandatory=="Y" %>
     </td>
     <td class="cell" > 
-          <%=my_field_tag(parameter.dom_id('default_value'),row+"[default_value]",parameter,
-            {:value=> parameter.default_value, :save=> parameter_url(:action=>'test_save', :id=> parameter ) }) %>
+          <%=text_field_tag (row+"[default_value]",parameter.default_value ) %>
     </td>
     <td>
-<%= link_to_remote subject_icon('destroy.png') + 'Delete', :url => { :action => 'remove_parameter',:id =>parameter.id }%>
+<%= link_to_remote subject_icon('destroy.png') , :url => { :action => 'remove_parameter',:id =>parameter.id }%>
     </td>
   </tr>
  <%end%>

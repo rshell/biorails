@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0 Beta 1
+ * Ext JS Library 2.0 RC 1
  * Copyright(c) 2006-2007, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -1186,6 +1186,7 @@ Ext.query = Ext.DomQuery.select;
 
 
 Ext.util.Observable = function(){
+    
     if(this.listeners){
         this.on(this.listeners);
         delete this.listeners;
@@ -1266,7 +1267,15 @@ Ext.util.Observable.prototype = {
         if(!this.events){
             this.events = {};
         }
-        Ext.applyIf(this.events, o);
+        if(typeof o == 'string'){
+            for(var i = 0, a = arguments, v; v = a[i]; i++){
+                if(!this.events[a[i]]){
+                    o[a[i]] = true;
+                }
+            }
+        }else{
+            Ext.applyIf(this.events, o);
+        }
     },
 
     
@@ -2193,7 +2202,7 @@ El.prototype = {
         var cb = ct + ch;
         var cr = cl + c.clientWidth;
 
-        if(t < ct){
+        if(el.offsetHeight > ch || t < ct){
         	c.scrollTop = t;
         }else if(b > cb){
             c.scrollTop = b-ch;
@@ -2201,7 +2210,7 @@ El.prototype = {
         c.scrollTop = c.scrollTop; 
 
         if(hscroll !== false){
-            if(l < cl){
+			if(el.offsetWidth > c.clientWidth || l < cl){
                 c.scrollLeft = l;
             }else if(r > cr){
                 c.scrollLeft = r-c.clientWidth;
@@ -3591,6 +3600,11 @@ El.prototype = {
     },
 
     
+    parent : function(selector, returnDom){
+        return this.matchNode('parentNode', 'parentNode', selector, returnDom);
+    },
+
+     
     next : function(selector, returnDom){
         return this.matchNode('nextSibling', 'nextSibling', selector, returnDom);
     },
@@ -3615,11 +3629,11 @@ El.prototype = {
         var n = this.dom[start];
         while(n){
             if(n.nodeType == 1 && (!selector || Ext.DomQuery.is(n, selector))){
-                return n;
+                return !returnDom ? Ext.get(n) : n;
             }
             n = n[dir];
         }
-        return n && !returnDom ? Ext.get(n) : n;
+        return null;
     },
 
     
@@ -3748,7 +3762,7 @@ El.prototype = {
             if(attr == "style" || typeof o[attr] == "function") continue;
             if(attr=="cls"){
                 el.className = o["cls"];
-            }else{
+            }else if(o.hasOwnProperty(attr)){
                 if(useSet) el.setAttribute(attr, o[attr]);
                 else el[attr] = o[attr];
             }
@@ -4411,14 +4425,14 @@ Ext.Fx = {
 
         el.queueFx(o, function(){
             color = color || "ffff9c";
-            attr = o.attr || "backgroundColor";
+            var attr = o.attr || "backgroundColor";
 
             this.clearOpacity();
             this.show();
 
             var origColor = this.getColor(attr);
             var restoreColor = this.dom.style[attr];
-            endColor = (o.endColor || origColor) || "ffffff";
+            var endColor = (o.endColor || origColor) || "ffffff";
 
             var after = function(){
                 el.dom.style[attr] = restoreColor;
@@ -5066,14 +5080,14 @@ Ext.select = Ext.Element.select;
 
 Ext.data.Connection = function(config){
     Ext.apply(this, config);
-    this.addEvents({
+    this.addEvents(
         
-        "beforerequest" : true,
+        "beforerequest",
         
-        "requestcomplete" : true,
+        "requestcomplete",
         
-        "requestexception" : true
-    });
+        "requestexception"
+    );
     Ext.data.Connection.superclass.constructor.call(this);
 };
 
@@ -5099,7 +5113,7 @@ Ext.extend(Ext.data.Connection, Ext.util.Observable, {
                 p = p.call(o.scope||window, o);
             }
             if(typeof p == "object"){
-                p = Ext.urlEncode(o.params);
+                p = Ext.urlEncode(p);
             }
             if(this.extraParams){
                 var extras = Ext.urlEncode(this.extraParams);
@@ -5152,7 +5166,7 @@ Ext.extend(Ext.data.Connection, Ext.util.Observable, {
             }else if(this.autoAbort !== false){
                 this.abort();
             }
-            if((method == 'GET' && p) || o.xmlData){
+            if((method == 'GET' && p) || o.xmlData || o.jsonData){
                 url += (url.indexOf('?') != -1 ? '&' : '?') + p;
                 p = '';
             }
@@ -5326,14 +5340,14 @@ Ext.Updater = function(el, forceNew){
     
     this.defaultUrl = null;
 
-    this.addEvents({
+    this.addEvents(
         
-        "beforeupdate": true,
+        "beforeupdate",
         
-        "update": true,
+        "update",
         
-        "failure": true
-    });
+        "failure"
+    );
     var d = Ext.Updater.defaults;
     
     this.sslBlankUrl = d.sslBlankUrl;
@@ -5360,10 +5374,6 @@ Ext.Updater = function(el, forceNew){
     this.updateDelegate = this.update.createDelegate(this);
     
     this.formUpdateDelegate = this.formUpdate.createDelegate(this);
-    
-    this.successDelegate = this.processSuccess.createDelegate(this);
-    
-    this.failureDelegate = this.processFailure.createDelegate(this);
 
     if(!this.renderer){
      
@@ -5380,16 +5390,14 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
     
     update : function(url, params, callback, discardUrl){
         if(this.fireEvent("beforeupdate", this.el, url, params) !== false){
-            var method = this.method, cfg;
+            var method = this.method, cfg, callerScope;
             if(typeof url == "object"){ 
                 cfg = url;
                 url = cfg.url;
                 params = params || cfg.params;
                 callback = callback || cfg.callback;
                 discardUrl = discardUrl || cfg.discardUrl;
-                if(callback && cfg.scope){
-                    callback = callback.createDelegate(cfg.scope);
-                }
+	            callerScope = cfg.scope;
                 if(typeof cfg.method != "undefined"){method = cfg.method;};
                 if(typeof cfg.nocache != "undefined"){this.disableCaching = cfg.nocache;};
                 if(typeof cfg.text != "undefined"){this.indicatorText = '<div class="loading-indicator">'+cfg.text+"</div>";};
@@ -5411,12 +5419,20 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
 
             var o = Ext.apply(cfg ||{}, {
                 url : url,
-                params: params,
-                success: this.successDelegate,
-                failure: this.failureDelegate,
+                params: (typeof params == "function" && callerScope) ? params.createDelegate(callerScope) : params,
+                success: this.processSuccess,
+                failure: this.processFailure,
+                scope: this,
                 callback: undefined,
                 timeout: (this.timeout*1000),
-                argument: {"url": url, "form": null, "callback": callback, "params": params}
+                argument: {
+                	"options": cfg,
+                	"url": url,
+                	"form": null,
+                	"callback": callback,
+                	"scope": callerScope || window,
+                	"params": params
+                }
             });
 
             this.transaction = Ext.Ajax.request(o);
@@ -5433,10 +5449,16 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
             this.transaction = Ext.Ajax.request({
                 form: form,
                 url:url,
-                success: this.successDelegate,
-                failure: this.failureDelegate,
+                success: this.processSuccess,
+                failure: this.processFailure,
+                scope: this,
                 timeout: (this.timeout*1000),
-                argument: {"url": url, "form": form, "callback": callback, "reset": reset}
+                argument: {
+                	"url": url,
+                	"form": form,
+                	"callback": callback,
+                	"reset": reset
+                }
             });
             this.showLoading.defer(1, this);
         }
@@ -5512,7 +5534,7 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
     updateComplete : function(response){
         this.fireEvent("update", this.el, response);
         if(typeof response.argument.callback == "function"){
-            response.argument.callback(this.el, true, response);
+            response.argument.callback.call(response.argument.scope, this.el, true, response, response.argument.options);
         }
     },
 
@@ -5521,7 +5543,7 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
         this.transaction = null;
         this.fireEvent("failure", this.el, response);
         if(typeof response.argument.callback == "function"){
-            response.argument.callback(this.el, false, response);
+            response.argument.callback.call(response.argument.scope, this.el, false, response, response.argument.options);
         }
     },
 

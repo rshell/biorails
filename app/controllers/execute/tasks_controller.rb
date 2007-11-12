@@ -83,7 +83,7 @@ class Execute::TasksController < ApplicationController
   def sheet
     set_task
     respond_to do | format |
-      format.html { render :action => 'sheet' }
+      format.html { render :action => 'sheet'}
       format.ext { render :action => 'sheet',:layout=>false }
       format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
