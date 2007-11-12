@@ -1,7 +1,0 @@
-====== Home ======
-Created Tuesday 12/12/2006 09:23
-
-This is an alternative store for [[BioRails]] Documentation:
-
-1) Default [[StyleSheet]] 
-2) [[DataBaseBackup]] 
