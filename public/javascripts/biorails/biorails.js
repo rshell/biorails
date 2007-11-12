@@ -46,6 +46,7 @@ Biorails = function(){
    var _base_url = null;
    var _viewport = null;
    var _folder_panel = null;
+   var _document_panel = null;
 /*
  * Read the configuration
  */   
@@ -153,12 +154,8 @@ Biorails = function(){
 								{text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
 							]}},' ',
 				 {text: 'Inventory',menu : {items: [
-								{text: "Molecules", iconCls:'icon-molecule' , href:'/inventory/molecules' ,  scope: this },
 								{text: "Compounds", iconCls:'icon-compound' , href:'/inventory/compounds',  scope: this },
-								{text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this },
-								{text: "Mixtures",  iconCls:'icon-mixture' ,  href:'/inventory/mixtures',  scope: this },
-								{text: "Samples",   iconCls:'icon-sample' ,   href:'/inventory/samples' ,  scope: this },
-								{text: "Containers",iconCls:'icon-container' ,href:'/inventory/containers' ,  scope: this }
+								{text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this }
 							]}},' ',
 				 {text: 'Administration',menu : {items: [
 								{text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
@@ -188,8 +185,8 @@ Biorails = function(){
                                 
    var _north_panel = new Ext.Panel({
 			 region:"north",
-			 height: 32,
-             autoShow: true,            
+			 autoHeight: true,
+                         autoShow:  true,                  
 			 el: 'toolbar-panel',
 			 tbar: _toolbar	   		
 			  });                            
@@ -198,7 +195,7 @@ Biorails = function(){
 		            title:'Menu Actions',
 		            contentEl: 'actions-panel',
 		            border:false,
-                    autoScroll: true,
+                            autoScroll: true,
 		            iconCls:'settings'
 		        } );
 
@@ -326,7 +323,7 @@ Biorails = function(){
 	    autoHeight: true,
  	   	autoWidth : true,
 		autoScroll: true,
-		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _main_panel  ]
+		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _center_panel  ]
 		};
 //------------------Public Methods ------------------------------------------------------------------------
   
@@ -462,13 +459,16 @@ Biorails = function(){
  * @param config of the model grid
  *
  */      
-      hideFolder: function(){
-            if( _folder_panel){
-                _center_panel.remove(_folder_panel);                
-                _folder_panel.destroy();
+      hideDocument: function(){
+            if( _document_panel){
+                _document_panel.hide();
             };    
       },
-          
+      hideFolder: function(){
+            if( _folder_panel){
+                _folder_panel.hide();
+            };    
+      },          
 /*
  * show a datagrid to the passed current config
  *
@@ -476,12 +476,25 @@ Biorails = function(){
  *
  */      
       showDocument: function(folder_id){
-                if( _folder_panel){
-   			        _center_panel.remove(_folder_panel);                
-                    _folder_panel.destroy();
-                };    
-                    
-                _folder_panel = new Biorails.Document({
+                this.hideFolder();
+                this.hideDocument();
+                
+                if (Ext.isIE6) {
+                _document_panel = new Biorails.Document({
+                               folder_id: folder_id,
+                               layout: 'fit',
+                               border:true,
+                               width: _center_panel.getSize().width-20,
+                               height: _center_panel.getSize().height-20,
+                               autoShow: true,
+                               position: 'static',
+                               autoScroll: true,            
+                               autoDestroy: true,  
+                               shim: true,
+                               monitorResize: true
+                        });                    
+                } else { // Working browser
+                _document_panel = new Biorails.Document({
                                folder_id: folder_id,
                                border:true,
                                autoHeight: true,
@@ -492,7 +505,8 @@ Biorails = function(){
                                monitorResize: true,
                                layout: 'fit'         	
                         });
-			    _center_panel.add(_folder_panel);                
+                        }
+	        _center_panel.add(_document_panel);                
                 _viewport.doLayout();         
       },  
           
@@ -503,10 +517,8 @@ Biorails = function(){
  *
  */      
       showFolder: function(folder_id){
-                if( _folder_panel){
-   			        _center_panel.remove(_folder_panel);                
-                    _folder_panel.destroy();
-                };
+                this.hideFolder();
+                this.hideDocument();
                     
                 if (Ext.isIE6) {
                 _folder_panel = new Biorails.Folder({
@@ -1090,14 +1102,15 @@ Biorails.ComboField = function(config){
 								   {name: 'description'}]  )
                     }),
          triggerAction: 'all',
-		 forceSelection: true,
+		 forceSelection: false,
 		 editable: true,
-         loadingText: 'Searching...',
-		 valueField: 'id',
+         loadingText: 'Looking Up Name...',
+         selectOnFocus: false,
+		 valueField: 'name',
 		 displayField: 'name'
          })); 
          
-        this.on('change',function(field){
+        this.on('blur',function(field){
               field.save();
         });
         this.on('focus',function(field){
@@ -1151,8 +1164,8 @@ Biorails.FileComboField = function(config){
                                                {name: 'icon'}]  )
                     }),
          triggerAction: 'all',
-		 forceSelection: true,
-		 editable: true,
+		 forceSelection: false,
+		 editable: true,               
          loadingText: 'Searching...',
 		 valueField: 'id',
 		 displayField: 'name',
@@ -1163,7 +1176,7 @@ Biorails.FileComboField = function(config){
                 '<div class="x-clear"></div>',
                 '</div></tpl>')       
          })); 
-        this.on('change',function(field,newValue,oldValue){
+        this.on('blur',function(field,newValue,oldValue){
               field.save();
         });
         this.on('focus',function(field){
