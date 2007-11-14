@@ -145,11 +145,24 @@ class BiorailsApi < ActionWebService::API::Base
                :expects => [ {:element_id => :int} ],
                :returns =>  [Asset]
 
-    api_method :get_content,
+   api_method :get_choices,
+               :expects => [ {:data_element_id => :int}, {:matches=>:string} ],
+               :returns =>  [[:string]]
+             
+  
+   api_method :get_content,
                :expects => [ {:element_id => :int} ],
                :returns =>  [Content]
 
-    api_method :add_task,
+   api_method :get_report,
+               :expects => [ {:report_id => :int} ],
+               :returns =>  [:string]
+
+  api_method :add_experiment,
+               :expects => [ {:session_id => :int},{:project_id => :int},{:protocol_id => :int},{:name => :string},{:description => :string} ],
+               :returns => [Experiment]
+
+  api_method :add_task,
                :expects => [ {:session_id => :int},{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
                :returns => [Task]
     

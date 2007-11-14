@@ -126,12 +126,11 @@ class User < ActiveRecord::Base
 # 
 # 
   def create_project(params={})
-    logger.info params.to_yaml
      Project.transaction do 
        project = Project.new(params)
        project.summary||= "New Project #{params[:name]} created by user #{self.name}"
        if project.save     
-           self.memberships.create(:project_id =>project.id,:role_id=>self.role,:owner=>true)
+           self.memberships.create(:project_id =>project.id,:role_id=>ProjectRole.owner.id,:owner=>true)
        end
        return project
      end
@@ -269,7 +268,7 @@ end
 # get the role for the user in a role
 #  
   def membership(project)
-    Membership.find(:first,:conditions=>['project_id=? and user_id=?',self.id,user.id],:include=>:role)
+    Membership.find(:first,:conditions=>['project_id=? and user_id=?',project.id,self.id],:include=>:role)
   end	
  
 ##
@@ -283,7 +282,9 @@ end
        return membership.allow?(subject,action)
     end
   end 	  
-  
+#
+# Get the cached current user for this context
+# 
   def User.current
     @@current || User.find(DEFAULT_GUEST_USER_ID)
   end

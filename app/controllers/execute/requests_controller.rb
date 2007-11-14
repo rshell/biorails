@@ -208,6 +208,7 @@ class Execute::RequestsController < ApplicationController
     Request.transaction do
       @user_request = Request.find(params[:id])
       @user_request.status_id = params[:user_request][:status_id]
+      @user_request.started_at ||= Time.new
       if @user_request.update_attributes(params[:user_request])
           @user_request.services.each do |service|
              service.submit 

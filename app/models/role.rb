@@ -22,6 +22,7 @@
 
 class Role < ActiveRecord::Base
   serialize :cache
+
 ##
 # This record has a full audit log created for changes 
 #   
@@ -35,6 +36,7 @@ class Role < ActiveRecord::Base
   has_many :users
   has_many :memberships, :include=>[:user,:project]
 
+  
 ###
 # Test if the role permissions is cached?
 # 

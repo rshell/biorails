@@ -408,8 +408,8 @@ SQL
 # Update all queue_items with where current task status value if they are acvtive
 # 
 # 1) Only update active items
-# 2) Only update items which are not associated with a task or with this taks
-# 3) Dont
+# 2) Only update items which are not associated with a task or with this task
+# 3) Dont update when queue item is in failed status
 # 
  def update_queued_items
    for item in self.queue_items

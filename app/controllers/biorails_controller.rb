@@ -6,6 +6,7 @@ class BiorailsController < ApplicationController
   web_service_api BiorailsApi
   web_service_scaffold :invoke
 
+   layout 'printout'
   #
   # Simple test function to see it web service API is wrong
   #
@@ -77,7 +78,7 @@ class BiorailsController < ApplicationController
        end
     end
 #    
-#
+# List of all studies in a project
 #
 #
     def study_list(project_id)
@@ -165,6 +166,24 @@ class BiorailsController < ApplicationController
     def get_task(id)
       Task.find(id)      
     end
+    
+#
+# Get a list of matching choices for a data Element for a client lookup
+#
+    def get_choices(id,matches)
+      element =DataElement.find( id )
+      choices = element.like(matches)
+      return choices.collect{|i|i['name']}
+    end
+#
+# Get a reports out as a soap web services
+#
+    def get_report(id)
+      @report = Report.find(id)
+      @data = @report.run    
+      return render_to_string :partial => 'shared/report_printout', :locals=>{:report =>  @report, :data => @data}
+    end
+    
     ##
     # Export a task 
     def task_export(task_id)
@@ -180,6 +199,18 @@ class BiorailsController < ApplicationController
        experiment.import_task(text_data) if experiment
     end
 
+    
+    def add_experiment(user_id,project_id,protocol_id,name,description)
+      User.current = User.find(user_id)
+      Project.current = Project.find(project_id)
+      experiment = Experiment.new( :name=>name, :description=>description)
+      experiment.project = Project.current
+      experiment.protocol =StudyProtocol.find(protocol_id)
+      if experiment.save
+          folder = experiment.folder       
+      end
+      return experiment
+    end
     
     def add_task(user_id,experiment_id ,process_id ,task_name )
       User.current = User.find(user_id)

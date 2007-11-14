@@ -21,6 +21,12 @@ namespace :biorails do
     system('mongrel_rails cluster::restart')  
   end
 
+  desc "Identify any differences between local copy and master copy from biorails.org"
+  task :diff => :environment do
+    system('svn diff ')  
+    system('svn info')  
+  end 
+  
   desc "Start Mongrel cluster"
   task :start => :environment do
     system('mongrel_rails cluster::start')  
@@ -35,5 +41,22 @@ namespace :biorails do
   task :stop => :environment do
     system('mongrel_rails cluster::stop')  
   end
+
+  desc 'Do Basic Check that all core models exists and actual link to database tables' 
+  task :check => :environment do 
+    ActiveRecord::Base.establish_connection  
+    database, user, password = Biorails::Dba.retrieve_db_info
+    p "For [#{RAILS_ENV}] database #{database} as user #{user}"
+    p "=================================================="
+    Biorails::ALL_MODELS.each do |model| 
+       o = model.find(:first)
+       if o
+         model.columns.each{|c| v = o.send(c.name) }
+         p "   #{model} appears ok"
+       else
+         p "   #{model} appears empty"
+       end
+    end 
+  end 
 
 end

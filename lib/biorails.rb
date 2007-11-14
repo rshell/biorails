@@ -8,7 +8,7 @@
  
 
 module Biorails
-  
+
   TEMPLATE_MODELS = [UserRole,ProjectRole,User,Identifier,Permission,RolePermission,
     DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,DataType,

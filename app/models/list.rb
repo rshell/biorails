@@ -63,11 +63,7 @@ class List < ActiveRecord::Base
    when String
        value = lookup(new_value)  
        return nil unless value
-       if value.is_a? Hash
-         item.data_type = 'external'
-       else 
-         item.data_type = value.class.to_s
-       end
+       item.data_type = value.class.to_s
        item.data_id   = value['id']  
        item.data_name = value['name'] 
 

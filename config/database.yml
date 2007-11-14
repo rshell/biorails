@@ -10,13 +10,13 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-development:
+ora_development:
   adapter: oracle
   database: //localhost/xe
   username: biorails
   password: moose
 
-dev_msql:
+development:
   adapter: mysql
   database: biorails2_development
   username: biorails 
