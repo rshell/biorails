@@ -136,7 +136,9 @@ Biorails = function(){
 								{text: "Projects",iconCls:'icon-project' ,      href:'/home/projects',scope: this },
 								{text: "Todo",    iconCls:'icon-todo' ,      href:'/home/todo',scope: this  },
 								{text: "Tasks",   iconCls:'icon-task' ,      href:'/home/tasks' ,scope: this  },
-								{text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  }
+								{text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  },
+								'-',
+								{text: "Logout",  iconCls:'icon-logout' ,      href:'/logoff' ,scope: this  }
 							]}},
 				 {text: 'Project', menu : {items: [
 								{text: "Dashboard", iconCls:'icon-project',   href:'/projects/show',scope: this },
@@ -172,13 +174,10 @@ Biorails = function(){
 								{text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
 								{text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
 							]}},
-				 {text: 'Help',menu : {items: [
-								{text: "Help",  scope: this }			            
-							]}},
+				 {text: 'Help',menu : {items: [{text: "Help",  scope: this } ]}},
 				  '->',
 				  searchField,
-				  {text: 'search',handler: onSearchClick},							
-				  {text: 'logout', iconCls:'icon-logout', href:'/logoff'}							
+				  {text: 'Search',handler: onSearchClick}				
 				]});
 
 // region -----------------------North------------------------------

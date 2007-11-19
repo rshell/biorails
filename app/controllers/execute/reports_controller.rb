@@ -383,6 +383,32 @@ def export
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
  end
+#
+# Display the column layout
+#
+ def layout
+   @report = Report.find(params[:id])  
+   @items =  @report.columns.collect do |column| 
+    {
+      :id => column.id,
+      :name => column.name,
+      :label => column.label,
+      :filter => column.filter,
+      :is_filterable => column.is_filterible,
+      :is_visible => column.is_visible, 
+      :is_sortable => column.is_sortable,
+      :sort_num => column.sort_num || 0,
+      :sort_dir =>  column.sort_direction
+    }  
+   end     
+   @data = {:report_id => @report.id,  :total => @items.size,:items => @items }
+  
+    respond_to do | format |
+      format.html {  render :text => @data.to_json}
+      format.json { render :json => @data.to_json }
+      format.xml  { render :xml => @data.to_xml }
+    end
+ end
  
 ##
 # Remove a column from the report

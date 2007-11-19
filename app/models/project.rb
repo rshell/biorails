@@ -269,7 +269,7 @@ end
 # Helper to return the current active project 
 # 
   def Project.current
-    @current || Project.find(DEFAULT_PROJECT_ID)
+    @@current || Project.find(DEFAULT_PROJECT_ID)
   end
 #
 # Get a study for this user, limits to projects the user is a member of

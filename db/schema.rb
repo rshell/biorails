@@ -133,8 +133,10 @@ ActiveRecord::Schema.define(:version => 280) do
   add_index "audits", ["created_at"], :name => "audits_created_at_index"
 
   create_table "batches", :force => true do |t|
-    t.column "compound_id",        :integer,  :default => 0, :null => false
+    t.column "registration_id",    :integer,  :default => 0, :null => false
+    t.column "composition_id",     :integer
     t.column "name",               :string
+    t.column "compound_id",        :integer,  :default => 0, :null => false
     t.column "description",        :text
     t.column "external_ref",       :string
     t.column "quantity_unit",      :string
@@ -146,8 +148,6 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
-
-  add_index "batches", ["compound_id"], :name => "batches_compound_fk"
 
   create_table "catalog_logs", :force => true do |t|
     t.column "user_id",        :integer
@@ -163,6 +163,23 @@ ActiveRecord::Schema.define(:version => 280) do
   add_index "catalog_logs", ["user_id"], :name => "catalog_logs_user_id_index"
   add_index "catalog_logs", ["auditable_type", "auditable_id"], :name => "catalog_logs_auditable_type_index"
   add_index "catalog_logs", ["created_at"], :name => "catalog_logs_created_at_index"
+
+  create_table "composition_items", :force => true do |t|
+    t.column "composition_id", :integer
+    t.column "compound_id",    :integer
+    t.column "coeffient",      :float
+    t.column "name",           :string
+    t.column "description",    :text
+  end
+
+  create_table "compositions", :force => true do |t|
+    t.column "type",               :string,   :limit => 50, :default => "", :null => false
+    t.column "lock_version",       :integer,                :default => 0,  :null => false
+    t.column "created_at",         :datetime,                               :null => false
+    t.column "updated_at",         :datetime,                               :null => false
+    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
+    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
+  end
 
   create_table "compound_results", :force => true do |t|
     t.column "row_no",                :integer,                               :null => false
@@ -199,6 +216,7 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "updated_at",         :datetime,                               :null => false
     t.column "registration_date",  :datetime
     t.column "iupacname",          :string,                 :default => ""
+    t.column "molecule_id",        :integer
   end
 
   create_table "container_items", :force => true do |t|
@@ -206,6 +224,23 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "subject_type",       :string,  :default => "", :null => false
     t.column "subject_id",         :integer,                 :null => false
     t.column "slot_no",            :integer,                 :null => false
+  end
+
+  create_table "container_slots", :force => true do |t|
+    t.column "container_layout_id", :integer,                 :default => 0,   :null => false
+    t.column "name",                :string,   :limit => 128, :default => "",  :null => false
+    t.column "label",               :string
+    t.column "slot_no",             :integer,                 :default => 0,   :null => false
+    t.column "object_no",           :integer,                 :default => 0,   :null => false
+    t.column "dilution_factor",     :float,                   :default => 1.0, :null => false
+    t.column "x",                   :integer,                 :default => 0,   :null => false
+    t.column "y",                   :integer,                 :default => 0,   :null => false
+    t.column "z",                   :integer,                 :default => 0,   :null => false
+    t.column "lock_version",        :integer,                 :default => 0,   :null => false
+    t.column "created_at",          :datetime,                                 :null => false
+    t.column "updated_at",          :datetime,                                 :null => false
+    t.column "updated_by_user_id",  :integer,                 :default => 1,   :null => false
+    t.column "created_by_user_id",  :integer,                 :default => 1,   :null => false
   end
 
   create_table "containers", :force => true do |t|
@@ -496,11 +531,27 @@ ActiveRecord::Schema.define(:version => 280) do
   add_index "menu_items", ["content_page_id"], :name => "fk_menu_item_content_page_id"
   add_index "menu_items", ["parent_id"], :name => "fk_menu_item_parent_id"
 
-  create_table "molecules", :id => false, :force => true do |t|
+  create_table "mixtures", :force => true do |t|
+    t.column "name",               :string
+    t.column "description",        :text
+    t.column "composition_id",     :integer
+    t.column "lock_version",       :integer,  :default => 0, :null => false
+    t.column "created_at",         :datetime,                :null => false
+    t.column "updated_at",         :datetime,                :null => false
+    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
+    t.column "created_by_user_id", :integer,  :default => 1, :null => false
+  end
+
+  create_table "molecules", :force => true do |t|
+    t.column "cas",          :string,   :limit => 50,  :default => "", :null => false
+    t.column "name",         :string
+    t.column "formula",      :string,   :limit => 50
+    t.column "mass",         :float
+    t.column "smiles",       :string
+    t.column "cd_id",        :integer,                                 :null => false
     t.column "compound_ref", :string,   :limit => 50
     t.column "iupac_name",   :string
     t.column "comments",     :string,   :limit => 50
-    t.column "cd_id",        :integer,                                 :null => false
     t.column "cd_structure", :binary,                  :default => "", :null => false
     t.column "cd_mol_file",  :text
     t.column "cd_smiles",    :text
@@ -526,8 +577,6 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "cd_fp15",      :integer,                                 :null => false
     t.column "cd_fp16",      :integer,                                 :null => false
   end
-
-  add_index "molecules", ["cd_hash"], :name => "molecules_hx"
 
   create_table "molecules_UL", :id => false, :force => true do |t|
     t.column "update_id",   :integer,                               :null => false
@@ -965,6 +1014,18 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "update_info", :string,  :limit => 20, :default => "", :null => false
   end
 
+  create_table "registrations", :force => true do |t|
+    t.column "name",               :string,   :limit => 50, :default => "", :null => false
+    t.column "type",               :string,   :limit => 50, :default => "", :null => false
+    t.column "description",        :text
+    t.column "registration_date",  :datetime
+    t.column "lock_version",       :integer,                :default => 0,  :null => false
+    t.column "created_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
+    t.column "created_at",         :datetime,                               :null => false
+    t.column "updated_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
+    t.column "updated_at",         :datetime,                               :null => false
+  end
+
   create_table "report_columns", :force => true do |t|
     t.column "report_id",          :integer,                                   :null => false
     t.column "name",               :string,   :limit => 128, :default => "",   :null => false
@@ -1081,6 +1142,16 @@ ActiveRecord::Schema.define(:version => 280) do
   add_index "roles_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
 
   create_table "samples", :force => true do |t|
+    t.column "name",               :string
+    t.column "description",        :text
+    t.column "batch_id",           :integer
+    t.column "container_id",       :integer
+    t.column "composition_id",     :integer
+    t.column "lock_version",       :integer,  :default => 0, :null => false
+    t.column "created_at",         :datetime,                :null => false
+    t.column "updated_at",         :datetime,                :null => false
+    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
+    t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
   create_table "sessions", :force => true do |t|

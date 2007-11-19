@@ -44,7 +44,7 @@
         <table width='100%'>
           <tr>
              <td>
-               <%=my_lookup_tag("value","item", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
+               <%=my_lookup_tag("value","value", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>     
             </td>
             <td>
                   <%= submit_tag "add" %>

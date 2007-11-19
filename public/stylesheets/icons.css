@@ -73,8 +73,8 @@ background-position: 4px 50%;
 .icon-data-concept  { background-image: url(/images/model/data_concept.png); }
 .icon-data-context  { background-image: url(/images/model/data_context.png); }
 
-.icon-parameter-type  { background-image: url(/images/model/parameter-type.png); }
-.icon-parameter-role  { background-image: url(/images/model/parameter-role.png); }
+.icon-parameter-type  { background-image: url(/images/model/parameter_type.png); }
+.icon-parameter-role  { background-image: url(/images/model/parameter_role.png); }
 
 .icon-user        { background-image: url(/images/model/user.png); }
 .icon-role        { background-image: url(/images/model/role.png); }

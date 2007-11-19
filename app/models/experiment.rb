@@ -144,7 +144,7 @@ end
     if tasks.size > 0 
        return first_task.started_at
    else
-       return created_at  
+       return self.attributes['started_at']
     end
  end
 ##

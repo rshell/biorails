@@ -96,7 +96,7 @@ class Execute::RequestsController < ApplicationController
 ##
 # Display form for a new request item
   def new
-    @user_request = Request.new(:name=> Identifier.next_id(Request))
+    @user_request = Request.new(:expected_at=> Time.new+14.day,:name=> Identifier.next_id(Request))
   end
 
 ##
