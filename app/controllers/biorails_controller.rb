@@ -101,8 +101,13 @@ class BiorailsController < ApplicationController
 ##
 #List all parameters in a process
 #
-    def parameter_list(protocol_id)  
+    def parameter_list(protocol_id,context_id)  
+      if context_id and context_id >0
+       Parameter.find(:all,:conditions=>['protocol_version_id=? parameter_context_id=>?',
+                      protocol_id,context_id],:order=>'column_no')
+      else
        Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'column_no')
+      end  
     end
 ##
 #List all parameter contexts in a process
