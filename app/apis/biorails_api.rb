@@ -90,7 +90,7 @@ class BiorailsApi < ActionWebService::API::Base
                 :returns => [[ParameterContext]]
  
     api_method  :parameter_list,
-                :expects => [ {:process_id => :int} ],
+                :expects => [ {:process_id => :int},{:context_id => :int} ],
                 :returns => [[Parameter]]
  
     api_method  :study_list,
