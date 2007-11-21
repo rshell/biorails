@@ -66,12 +66,21 @@ class Admin::DataElementsController < ApplicationController
     element = DataElement.find( params[:id] )
     @value   = params[:query] || ""
     @choices = element.like(@value)
-	@list = {:element_id=>params[:id],
+    if @choices[0].is_a? ActiveRecord::Base
+        @list = {:element_id=>params[:id],
+			 :matches=>@value,
+			 :total=>@choices.size ,
+			 :items =>@choices.collect{|i|{ :id=>i.id,
+                                            :name=>i.name,
+                                            :description=>i.description}} }
+    else                                  
+        @list = {:element_id=>params[:id],
 			 :matches=>@value,
 			 :total=>@choices.size ,
 			 :items =>@choices.collect{|i|{ :id=>i['id'],
                                             :name=>i['name'],
                                             :description=>i['description']}} }
+    end
      render :text => @list.to_json
   end  
   
