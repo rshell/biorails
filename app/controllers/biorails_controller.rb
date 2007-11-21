@@ -82,8 +82,8 @@ class BiorailsController < ApplicationController
 #
 #
     def study_list(project_id)
-       Project.find(project_id)
-       Study.find(:all)
+       project = Project.find(project_id)
+       project.studies
     end
 ##
 # List all the Protocols in a study
