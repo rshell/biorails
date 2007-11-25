@@ -20,8 +20,8 @@ class BiorailsController < ApplicationController
  #
     def login( username, password)
       user = User.authenticate(username,password)
-      if user
-          logger.info "User #{username} successfully logged in"
+      if user and user.enabled?
+         logger.info "User #{username} successfully logged in"
           set_user(user)
           set_project(user.projects[0])    
       end
@@ -38,7 +38,7 @@ class BiorailsController < ApplicationController
 # List of all project elements in order parent_id,name for 
 # easy creation of a tree structure on client (Hash and fill)
 #
-    def project_element_list(id)
+    def project_element_list(session_id,id)
        items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
        items.collect do |item|
            BiorailsApi::Element.new(
@@ -60,7 +60,7 @@ class BiorailsController < ApplicationController
 # List of all project elements in order parent_id,name for 
 # easy creation of a tree structure on client (Hash and fill)
 #
-    def project_folder_list(id)
+    def project_folder_list(session_id,id)
        items = ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
        items.collect do |item|
            BiorailsApi::Element.new(
@@ -81,27 +81,27 @@ class BiorailsController < ApplicationController
 # List of all studies in a project
 #
 #
-    def study_list(project_id)
+    def study_list(session_id,project_id)
        project = Project.find(project_id)
        project.studies
     end
 ##
 # List all the Protocols in a study
 #     
-    def protocol_list(study_id)  
+    def protocol_list(session_id,study_id)  
        logger.warn "study_id is #{study_id.to_s}"
        StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
     end
 ##
 # List all the processing 
 #    
-    def process_list(protocol_id)  
+    def process_list(session_id,protocol_id)  
        ProtocolVersion.find(:all,:conditions=>['study_protocol_id=?',protocol_id],:order=>'version desc')
     end
 ##
 #List all parameters in a process
 #
-    def parameter_list(protocol_id,context_id)  
+    def parameter_list(session_id,protocol_id,context_id)  
       if context_id and context_id >0
        Parameter.find(:all,:conditions=>['protocol_version_id=? and parameter_context_id=?',
                       protocol_id,context_id],:order=>'column_no')
@@ -112,26 +112,26 @@ class BiorailsController < ApplicationController
 ##
 #List all parameter contexts in a process
 #
-    def parameter_context_list(protocol_id)  
+    def parameter_context_list(session_id,protocol_id)  
        ParameterContext.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'id')
     end
 
-    def experiment_list(study_id)  
+    def experiment_list(session_id,study_id)  
        Experiment.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
     end
 
-    def task_list(experiment_id)  
+    def task_list(session_id,experiment_id)  
        Task.find(:all,:conditions=>['experiment_id=?',experiment_id],:order=>'id')
     end
     
-    def task_context_list(task_id)
+    def task_context_list(session_id,task_id)
        TaskContext.find(:all,:conditions=>['task_id=?',task_id],:order=>'id')
     end
 
     ##
     # Get the list of value associated with a task
     # 
-    def task_value_list(task_id)
+    def task_value_list(session_id,task_id)
        task = Task.find(task_id)
        task.items.collect do | item |
            BiorailsApi::TaskItem.new(
@@ -148,30 +148,39 @@ class BiorailsController < ApplicationController
        end
     end
 
-    def get_project(id)
+    def get_project(session_id,id)
       Project.find(id)      
     end
 
-    def get_study(id)
+    def get_study(session_id,id)
       Study.find(id)      
     end
 
-    def get_study_protocol(id)
+    def get_study_xml(session_id,id)
+      study = Study.find(id)      
+      study.to_xml if study
+    end
+    
+    def get_study_protocols(session_id,id)
       StudyProtocol.find(id)      
     end
 
-    def get_protocol_version(id)
+    def get_protocol_version(session_id,id)
       ProtocolVersion.find(id)      
     end
 
-    def get_experiment(id)
+    def get_experiment(session_id,id)
       Experiment.find(id)      
     end
 
-    def get_task(id)
+    def get_task(session_id,id)
       Task.find(id)      
     end
-    
+
+    def get_task_xml(session_id,id)
+      task = Task.find(id)
+      task.to_xml if task      
+    end    
 #
 # Get a list of matching choices for a data Element for a client lookup
 #
