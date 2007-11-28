@@ -76,7 +76,18 @@ class ApplicationController < ActionController::Base
     !session[:current_user_id].nil?
   end
 
-
+  def get_auth_data
+    user,pass = nil,nil
+    if request.env.has_key? 'X-HTTP_AUTHORIZATION'
+      authdata = request.env('X-HTTP_AUTHORIZATION').to_s.split
+    elsif request.env.has_key('HTTP_AUTHORIZATION')
+      authdata = request.env('HTTP_AUTHORIZATION').to_s.split    
+    end
+    if authdata && authdata[0] =='Basic'
+      user,pass = Base64.decode64(authdata[1]).split(':')[0..1]
+    end
+    return [user,pass]
+  end
 ##
 # Default authenticate called before all authorization activity to make
 # sure the user is logged

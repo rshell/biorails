@@ -42,3 +42,143 @@
   <%end%>
  </table>
  
+  <div id='column-grid'>
+  <select name="sort_dir_select" id="sort_dir_select" style="display: none;">
+	<option value="">(None)</option>
+	<option value="desc">Desc</option>
+	<option value="asc">Asc</option>
+  </select>    
+ 
+  </div>
+  
+<script>
+var grid = null;  
+  
+ Ext.onReady( function() {
+
+  var check_visible  = new Ext.grid.CheckColumn({header:'Visible',  width:32, dataIndex:'is_visible'});
+  var check_filter   = new Ext.grid.CheckColumn({header:'Filter',   width:32, dataIndex:'is_filterable'});
+  var check_sort     = new Ext.grid.CheckColumn({header:'Sortable', width:32, dataIndex:'is_sortable'});
+  
+// Column model for report definition with label,filter and sort changable
+
+  var column_model = new Ext.grid.ColumnModel([
+        { id:'Id', 
+          header: "id", 
+          width: 20, 
+          sortable: true, 
+          dataIndex: 'id'
+        },
+        check_visible,
+        { header: "Name",  
+          width: 120, 
+          sortable: true,
+          dataIndex: 'name'
+        },        
+        { header: "Label",  
+          width: 120, 
+          sortable: true,
+          editor: new Ext.form.TextField({
+               allowBlank: false
+           }),
+          dataIndex: 'label'
+        },
+        check_filter,
+        { header: "Where",    
+          width: 120, 
+          sortable: true, 
+          editor: new Ext.form.TextField({
+               allowBlank: false
+           }),
+          dataIndex: 'filter'
+        },
+        check_sort,
+        { header: "Dir",   
+          width: 50, 
+          editor: new Ext.form.ComboBox({
+               typeAhead: true,
+               triggerAction: 'all',
+               transform:'sort_dir_select',
+               lazyRender:true,
+               listClass: 'x-combo-list-small' }), 
+          dataIndex: 'sort_dir'}
+    ]);
+    
+  column_model.defaultSortable =true;
+  
+// Data source linked up to report definition
+
+  var column_store = new Ext.data.Store({
+ 	    proxy: new Ext.data.HttpProxy({url: '/reports/layout/<%=@report.id%>'}),
+ 
+        reader: new Ext.data.JsonReader({
+            root: 'items',
+            totalProperty: 'total',
+            id: 'id'
+        }, [
+            {name: 'id'},
+            {name: 'name'},
+            {name: 'label'},
+            {name: 'filter'},
+            {name: 'is_filterable'},
+            {name: 'is_visible'},
+            {name: 'is_sortable'},
+            {name: 'sort_num'},
+            {name: 'sort_dir'}
+        ]),        
+        remoteSort: true	
+    })
+  
+  grid = new Ext.grid.EditorGridPanel({
+    renderTo: 'column-grid',
+    store: column_store,        
+    cm: column_model ,
+    viewConfig: {  forceFit: true  },
+    sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+    width:'auto',
+    height:300,
+    frame:true,
+    title:'Drag columns from tree to add to report',
+    iconCls:'icon-grid'
+});
+   grid.store.load();
+   
+  });
+//
+// CheckBoxColumn
+//
+  Ext.grid.CheckColumn = function(config){
+      Ext.apply(this, config);
+      if(!this.id){
+          this.id = Ext.id();
+      }
+      this.renderer = this.renderer.createDelegate(this);
+  };
+
+//
+// Configure new checkbox type
+//
+  Ext.grid.CheckColumn.prototype ={
+      init : function(grid){
+          this.grid = grid;
+          this.grid.on('render', function(){
+              var view = this.grid.getView();
+              view.mainBody.on('mousedown', this.onMouseDown, this);
+          }, this);
+      },
+
+      onMouseDown : function(e, t){
+          if(t.className && t.className.indexOf('x-grid3-cc-'+this.id) != -1){
+              e.stopEvent();
+              var index = this.grid.getView().findRowIndex(t);
+              var record = this.grid.store.getAt(index);
+              record.set(this.dataIndex, !record.data[this.dataIndex]);
+          }
+      },
+
+      renderer : function(v, p, record){
+          p.css += ' x-grid3-check-col-td'; 
+          return '<div class="x-grid3-check-col'+(v?'-on':'')+' x-grid3-cc-'+this.id+'">&#160;</div>';
+      }
+  };  
+</script>
