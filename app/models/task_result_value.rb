@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: task_result_values
 #
@@ -20,9 +20,9 @@
 #  row_label              :string(255)   
 #  parameter_name         :string(62)    
 #  data_value             :float         
-#  created_by_user_id     :integer(11)   default(1), not null
+#  created_by_USER_ID     :integer(11)   default(1), not null
 #  created_at             :datetime      not null
-#  updated_by_user_id     :integer(11)   default(1), not null
+#  updated_by_USER_ID     :integer(11)   default(1), not null
 #  updated_at             :datetime      not null
 #
 

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: parameters
 #
@@ -35,7 +35,6 @@
 ##
 #
 class Parameter < ActiveRecord::Base
-
 
 # validates_presence_of :protocol_version_id
  validates_uniqueness_of :name, :scope =>"protocol_version_id"
@@ -98,16 +97,51 @@ class Parameter < ActiveRecord::Base
 # Template the parameter
   def description
      out = ""
-     if queue
-       out << "Queue:" << queue.name 
-     elsif study_parameter
+     if self.queue
+       out << "Queue:" << self.queue.name 
+     elsif self.study_parameter
        out << "Parameter " 
      end
      out << "  ["
-     out << role.name if role
+     out << self.role.name if self.role
      out << "/"
-     out << type.name if type
+     out << self.type.name if self.type
      out << "]"  
+  end
+  
+ #
+ # reorder columns 
+  def after(parameter)
+    return self if parameter.column_no == self.column_no
+    from = [parameter.column_no,self.column_no].min
+    to = [parameter.column_no,self.column_no].max
+    if parameter.column_no == from
+        process.parameters.each do |item|
+           if item == parameter
+           elsif item == self
+              item.column_no = from + 1
+              item.save
+
+           elsif ((item.column_no > from) && (item.column_no < to))
+              item.column_no += 1
+              item.save
+           end
+        end
+      else
+        process.parameters.each do |item|
+           if item == self
+              item.column_no = to
+              item.save
+         elsif item == parameter
+              item.column_no -= 1
+              item.save
+           elsif ((item.column_no > from) && (item.column_no < to))
+              item.column_no -= 1
+              item.save
+           end
+        end
+    end      
+    return self.column_no
   end
 ##
 # Get a string describing the style of the parameter in term of a data element or data format
@@ -119,6 +153,7 @@ class Parameter < ActiveRecord::Base
         data_format.name if data_format
       end
   end
+  
     
  def element
   self.data_element ||= DataElement.find(:first,:conditions=>["data_concept_id=?",type.data_concept_id])

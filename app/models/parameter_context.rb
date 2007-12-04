@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: parameter_contexts
 #
@@ -29,13 +29,22 @@ class ParameterContext < ActiveRecord::Base
 
  belongs_to :process, :class_name=>'ProtocolVersion',:foreign_key=>'protocol_version_id'
 
- acts_as_tree :order => "id"  
+ acts_as_fast_nested_set :parent_column => 'parent_id',
+                     :left_column => 'left_limit',
+                     :right_column => 'right_limit',
+                     :order => 'protocol_version_id,left_limit',
+                     :scope => :protocol_version_id,
+                     :text_column => 'label' 
  
  @@default_columns = 64
 ##
 # In term the context is defined 
 #
- has_many :parameters,  :class_name=>'Parameter',:foreign_key =>'parameter_context_id', :dependent => :destroy, :order => 'column_no'
+ has_many :parameters,  :class_name=>'Parameter',
+                        :foreign_key =>'parameter_context_id', 
+                        :dependent => :destroy,
+                        :include=>[:type,:role,:study_parameter,:data_format,:data_element], 
+                        :order => 'column_no'
 
 ##
 # Link to actual result row. Have to be careful here as there may be 1000s ofrows here.
@@ -123,7 +132,7 @@ class ParameterContext < ActiveRecord::Base
 #  * definition is a Parameter or Study_parameter to use a source definition
 #  * context is the protocol context to add the created parameter to (effects name generation) 
 #  
-  def add_parameter( definition )
+ def add_parameter( definition )
     logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     return nil if definition.nil?
     parameter = Parameter.new
@@ -146,19 +155,19 @@ class ParameterContext < ActiveRecord::Base
   rescue Exception => ex
       logger.error ex.message
       logger.error ex.backtrace.join("\n")
-  end
+ end
   
 ##
 #  
-  def add_queue( queue)
+ def add_queue( queue)
     return nil unless queue and queue.parameter
     logger.info "Queue Parameter Create [#{queue.name}] in context [#{self.label}]"
     parameter = add_parameter(queue.parameter)
     parameter.queue = queue
     return parameter
-  end
-  
-
+ end
+   
+ 
  def to_xml(options = {})
      Alces::XmlSerializer.new(self, options.merge( {:include=> [:parameters]} )  ).to_s
  end

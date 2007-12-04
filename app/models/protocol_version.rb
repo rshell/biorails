@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: protocol_versions
 #
@@ -17,24 +17,6 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #
 
-# == Schema Information
-# Schema version: 239
-#
-# Table name: protocol_versions
-#
-#  id                 :integer(11)   not null, primary key
-#  study_protocol_id  :integer(11)   
-#  name               :string(77)    
-#  version            :integer(6)    not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :time          
-#  updated_at         :time          
-#  how_to             :text          
-#  report_id          :integer(11)   
-#  analysis_id        :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
@@ -67,7 +49,9 @@ class ProtocolVersion < ActiveRecord::Base
 
  has_many :roots, :class_name=>'ParameterContext',:conditions => 'parent_id is null', :order => :id
 
- has_many :parameters, :class_name=>'Parameter', :order => :id
+ has_many :parameters, :class_name=>'Parameter',
+          :include=>[:type,:role,:study_parameter,:data_format,:data_element], 
+          :order => :column_no
 
  has_many :tasks, :dependent => :destroy, :order => :id
 
@@ -99,6 +83,7 @@ class ProtocolVersion < ActiveRecord::Base
       end
    end
  end
+ 
 
  def definition
    self.protocol

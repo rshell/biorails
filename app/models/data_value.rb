@@ -1,13 +1,5 @@
 # == Schema Information
-# Schema version: 280
-#
-# Table name: tmp_data
-#
-#  id :integer(10)   not null, primary key
-#
-
-# == Schema Information
-# Schema version: 111
+# Schema version: 281
 #
 # Table name: tmp_data
 #

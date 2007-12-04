@@ -302,20 +302,19 @@ class Organize::StudyProtocolsController < ApplicationController
 #
 def move_parameter
   ProtocolVersion.transaction do
-    @parameter_context = ParameterContext.find(params[:context])
-    @protocol_version = @parameter_context.process
     @parameter = Parameter.find(params[:id])
+    @after = Parameter.find(params[:after])
+    @parameter_context = @after.context 
+    @protocol_version = @parameter_context.process
     @source = @parameter.context 
     if @source != @parameter_context
        @parameter.context = @parameter_context
        @successful = @parameter.save
        flash[:notice] = "#Parameter #{@parameter.name} moved from #{@source.label} to context #{@parameter_context.label}"
     else   
-       @parameter.column_no=99999
-       @parameter.save
-       @parameter.process.resync_columns
+       @parameter.after(@after)
        @parameter_context.reload
-        @successful = true
+       @successful = true
        logger.info "reorder #{@parameter_context.parameters.collect{|i|i.name}.join(',')}"
     end 
   end 
@@ -391,8 +390,20 @@ end
     end  
  end
 
-
-  
+#
+# get a set of context tables
+#
+ def table
+   @parameter_context = ParameterContext.find(params[:id])
+   render :partial => 'table'
+ end
+ #
+ # Get a table of data for a context definition
+ #
+ def context
+   @parameter_context = ParameterContext.find(params[:id])
+   render :partial => 'context'
+ end  
 ##
 #Import a protocol into the systems. This reads the xml generated above.
 #  

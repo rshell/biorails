@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 280) do
+ActiveRecord::Schema.define(:version => 283) do
 
   create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
     t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
@@ -589,6 +589,8 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "level_no",            :integer, :default => 0
     t.column "label",               :string
     t.column "default_count",       :integer, :default => 1
+    t.column "left_limit",          :integer, :default => 0, :null => false
+    t.column "right_limit",         :integer, :default => 0, :null => false
   end
 
   add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_process_instance_id_index"
@@ -644,6 +646,8 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "study_queue_id",       :integer
     t.column "updated_by_user_id",   :integer,                :default => 1,   :null => false
     t.column "created_by_user_id",   :integer,                :default => 1,   :null => false
+    t.column "left_limit",           :integer,                :default => 0,   :null => false
+    t.column "right_limit",          :integer,                :default => 0,   :null => false
   end
 
   add_index "parameters", ["name"], :name => "parameters_name_index"
@@ -1339,9 +1343,11 @@ ActiveRecord::Schema.define(:version => 280) do
     t.column "parameter_context_id", :integer
     t.column "label",                :string
     t.column "is_valid",             :boolean
-    t.column "row_no",               :integer, :null => false
+    t.column "row_no",               :integer,                :null => false
     t.column "parent_id",            :integer
-    t.column "sequence_no",          :integer, :null => false
+    t.column "sequence_no",          :integer,                :null => false
+    t.column "left_limit",           :integer, :default => 0, :null => false
+    t.column "right_limit",          :integer, :default => 0, :null => false
   end
 
   add_index "task_contexts", ["task_id"], :name => "task_contexts_task_id_index"

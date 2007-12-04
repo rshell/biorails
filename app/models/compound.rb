@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: compounds
 #
@@ -16,6 +16,7 @@
 #  updated_at         :datetime      not null
 #  registration_date  :datetime      
 #  iupacname          :string(255)   default()
+#  molecule_id        :integer(11)   
 #
 
 ##

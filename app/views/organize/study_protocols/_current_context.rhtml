@@ -1,30 +1,10 @@
+<div class="parameter_context"  id="<%=parameter_context.dom_id%>" ></div> 
 
-<tr >  
-  <th rowspan='2'>
-    <%= parameter_context.label %>  <%= link_to_function((subject_icon('down')),   "new Effect.toggle('detail_"+ parameter_context.dom_id+"','slide')") %>     
-  <br/> x <%= parameter_context.default_count %> rows     
-  </th>
-  
-<% for parameter in parameter_context.parameters %>
-  <th>  <span style='width: 80px;' class='parameter' id="<%=parameter.dom_id%>">   <%= parameter.name %>  </span>  </th>
-<% end %>
-  <th style='height: 40px;' colspan='<%=parameter_context.fill_columns+2 %>' >  <%=image_tag('action/add.png')%>  .............  </th>
-</tr>
-
-<!-- Setup for context row -->
-
-<tr class="setup" > 
-  <td colspan='<%=ParameterContext.default_columns+4 %>' >  
-   <div id="<%= parameter_context.dom_id('detail') %>" class="row_detail" <%= 'style="display: none;"' unless @open %> > 
-   <%= render :partial => 'context_form', :locals => {:parameter_context => parameter_context } %>
-  </div>
-  </td>
-</tr>
-
-<tr>
-  <td colspan='<%=ParameterContext.default_columns+3%>' >
-      <%= link_to "New Child", { :action => 'new_context',:parent_id =>parameter_context.id, :id=>parameter_context.process.id} %> 
-      of <%= parameter_context.path %>            
-  </td>
-</tr>
-  
+<script>   
+Ext.onReady(
+  function(){
+        Ext.form.Field.prototype.msgTarget = 'side';
+        var panel = new Biorails.Protocol.Context( <%=context_definition(parameter_context) %>  );
+        panel.render("<%=parameter_context.dom_id%>")
+  });
+</script>

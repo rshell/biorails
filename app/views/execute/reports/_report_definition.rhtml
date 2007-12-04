@@ -2,44 +2,32 @@
 <% dialog 'Report Definition' do %>
 <% form_remote_tag :url => report_url(:action => 'update', :id => @report) do %>
 
-     <%= hidden_field :report,:style %>
-     <%= hidden_field :report,:project_id %>
-    <fieldset>
-    
-        <div class="row">
-          <div class="form-element">
-           <label for="report_name">Name</label>
-           <%= text_field 'report', 'name' , {:class=>"text-input"} %>
-          </div>
-          
-          <div class="form-element">
-           <label for="report_name">Decimal Places</label>
-            <%= select_tag 'report[decimal_places]', "<option>#{(0..9).to_a.join('</option><option>')}</option>" %>
-          </div>
-          <div class="form-element">
-           <label for="report_name">Row Action</label>
-            <%= select_tag 'report[action]', "<option>#{["","show","edit"].to_a.join('</option><option>')}</option>" %>
-          </div>
-          
-        </div>
+    <%= hidden_field :report,:style %>
+    <%= hidden_field :report,:project_id %>
+    <div class="row">
+      <div class="form-element">
+       <label for="report_name">Name</label>
+       <%= text_field 'report', 'name' , {:class=>"text-input"} %>
+      </div>
+
+      <div class="form-element">
+       <label for="report_name">Decimal Places</label>
+        <%= select_tag 'report[decimal_places]', "<option>#{(0..9).to_a.join('</option><option>')}</option>" %>
+      </div>
+    </div>
    
-        <div class="row">
-          <div class="form-element">
-           <label for="report_description">Description</label>
-            <%= text_area('report', 'description',{:rows=>5, :cols=>100} ) %>
-          </div>
-        </div>
-
-        <div class="row">
-            <div class='panel'>
-                <div id="current_columns" class="row">
-                  <%= render :partial => 'report_columns' %>    
-                </div>
-            </div>
-       </div>
-
-       <%= submit_tag 'Update' %>
-    </fieldset>    
-</div>
+    <div class="row">
+      <div class="form-element">
+       <label for="report_description">Description</label>
+        <%= text_area('report', 'description',{:rows=>5, :cols=>100} ) %>
+      </div>
+    </div>
+    <div class="row">
+     <%= submit_tag 'Update' %>   
+    </div>
 <% end %>
 <% end %>
+    <div id="current_columns" class="row">
+      <%= render :partial => 'report_columns' %>    
+    </div>
+

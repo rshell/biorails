@@ -1,23 +1,7 @@
-<table width="100%" id="protocol_<%=@protocol_version.id%>">
-     <thead id="header_<%=@protocol_version.dom_id%>" >
-       <tr> <th colspan='<%=ParameterContext.default_columns+2%>' >
-              Drag values down to end of rows in the grid to add more columns.      
-        </th> </tr>
-  </thead>
-</table>
-
-<table width="100%">
-    <% for parameter_context in @protocol_version.contexts %>
-    <tbody class="parameter_context"  id="<%=parameter_context.dom_id%>" >
-         <%= render :partial => 'current_context', :locals => {:parameter_context => parameter_context } %>
-    </tbody>
-    <% end %>
-    
-  <tbody id="footer_<%=@protocol_version.dom_id%>" class="footer" >
-    <tr class="Context">      <th>      </th>    </tr>
-  </tbody>
-   
-</table>
-
+<% for parameter_context in @protocol_version.contexts %>
+  <div class="parameter_context"  id="<%=parameter_context.dom_id%>" >
+     <%= render :partial => 'current_context', :locals => {:parameter_context => parameter_context } %>
+  </div> 
+<% end %>
 
 

@@ -341,13 +341,16 @@ def export
 # customize details for a column
 # 
  def update_column   
-   @report = Report.find(params[:context])
    column = ReportColumn.find(params[:id])
-   column.customize(params[:column])   
+   @report = column.report
+   column.customize({params[:field] => params[:value]}.symbolize_keys() )   
    @successful=column.save
-
-   return render(:action => 'refresh_report.rjs') if request.xhr?
-   render :action=> 'edit', :id=>@report
+    respond_to do | format |
+      format.html { render( :inline => 'ok')}
+      format.json { render( :partial => column.to_json)}
+      format.xml { render( :partial => column.to_xml)}
+      #format.js { render(:action => 'refresh_report.rjs')}
+    end
  end
 
 ##
@@ -383,6 +386,21 @@ def export
    return render(:action => 'refresh_report.rjs') if request.xhr?
    render :action=> 'edit', :id=>@report
  end
+##
+# Remove a column from the report
+#  
+ def remove_column
+   column = ReportColumn.find(params[:id])
+   @report = column.report
+   @successful=column.destroy
+   respond_to do | format |
+      format.html { render( :inline => 'ok')}
+      format.json { render( :partial => column.to_json)}
+      format.xml { render( :partial => column.to_xml)}
+      #format.js { render(:action => 'refresh_report.rjs')}
+    end
+ end
+#
 #
 # Display the column layout
 #
@@ -410,18 +428,6 @@ def export
     end
  end
  
-##
-# Remove a column from the report
-#  
- def remove_column
-   text = request.raw_post || request.query_string
 
-   @report = Report.find(params[:context])
-   column = ReportColumn.find(params[:id])
-   @successful=column.destroy
-
-   return render(:action => 'refresh_report.rjs') if request.xhr?
-   render :action=> 'edit', :id=>@report
- end
 
 end

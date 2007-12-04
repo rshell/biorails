@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: report_columns
 #
@@ -48,17 +48,19 @@ class ReportColumn < ActiveRecord::Base
 #
 #
   def customize(params={})
-    logger.info "old ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
+    params.symbolize_keys() { |i|  }
+    logger.info(params.to_xml)
+    logger.info "old ReportColumn.customize Id:#{id} Label:#{label} show:#{is_visible} order:#{order_num} sort:#{is_sortable} sort_n:#{sort_num} sort_dir:#{sort_direction} filterable:#{is_filterible} filter:#{filter}"
     if params.size>0
-      self.is_visible = params[:is_visible]=='1'
+      self.is_visible = params[:is_visible]=='1' || params[:is_visible]=='true'
       self.label = params[:label]                    if params[:label]
       self.order_num = params[:order_num]            if params[:order_num]
   
-      self.is_filterible =  params[:is_filterible]=='1'
+      self.is_filterible =  params[:is_filterible]=='1' || params[:is_filterible]=='true'
       self.filter =  params[:filter]                 if  params[:filter] 
       self.filter =  params[:action]                 if  params[:action] 
       
-      self.is_sortable =  params[:is_sortable]=='1'
+      self.is_sortable =  params[:is_sortable]=='1'|| params[:is_sortable]=='true'
       if ['asc','desc'].any?{|i|i==params[:sort_direction]} and params[:sort_num].to_i > 0
           self.sort_direction = params[:sort_direction] || 'asc'
           self.sort_num ||= params[:sort_num].to_i || self.order_num+1
@@ -67,7 +69,7 @@ class ReportColumn < ActiveRecord::Base
           self.sort_num = nil
       end   
     end
-    logger.info "new ReportColumn.customize #{id} #{label} #{is_visible} #{order_num} #{is_sortable} #{sort_num} #{sort_direction} #{filter}"
+    logger.info "new ReportColumn.customize Id:#{id} Label:#{label} show:#{is_visible} order:#{order_num} sort:#{is_sortable} sort_n:#{sort_num} sort_dir:#{sort_direction} filterable:#{is_filterible} filter:#{filter}"
   end
   
 ##

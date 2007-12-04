@@ -4,7 +4,153 @@
 ##
 module SheetHelper
 
-##
+  EXT_FIELD_TYPE = [ :textfield,:textfield,:datefield,:timefield,:elementcombo,:textfield,:textfield ] 
+  
+  def context_definition(context, url = nil) 
+    url ||= "/protocols/table/#{context.id}"
+    item = {:id => context.id,
+            :url => url,
+            :parent_id => context.parent_id,
+            :level => context.level_no,
+            :name => context.label,
+            :path => context.path,
+            :protocol_version_id => context.protocol_version_id,
+            :parameter_context_id=>context.id,
+            :parameters => context.parameters.collect{|i|i.attributes}
+            }
+    return item.to_json        
+  end
+  
+  def context_model(context, url = nil) 
+    url ||= "/protocols/table/#{context.id}"
+    item = {:id => context.id,
+            :url => url,
+            :parent_id => context.parent_id,
+            :level => context.level_no,
+            :name => context.label,
+            :name => context.label,
+            :path => context.path,
+            :total => context.parameters.size,
+            :items => context.parameters.collect do |i|
+              {:id => i.id,
+               :name => i.name,
+               :description => i.description, 
+               :style => i.style,
+               :regex => (i.data_format_id ? i.data_format.format_regex : nil),
+               :column_no => i.column_no,  
+               :data_type_id => i.data_type_id,
+               :data_format_id => i.data_format_id,
+               :data_element_id => i.data_element_id,
+               :study_parameter_id => i.study_parameter_id,
+               :default_value => i.default_value,
+               :unit => i.display_unit,
+               :mandatory => i.mandatory,
+              }
+            end
+            }
+    return item.to_json        
+  end
+  
+  def context_dummy_data(context)
+    items = {}
+    context.parameters.each do |item|
+      items[item.name] = item.default_value
+    end
+    return {
+      :id => context.id,
+      :name => context.label,
+      :total => 2,
+      :items => [items,items]
+    }.to_json
+  end
+
+  def context_data(context)
+    items = {}
+    context.definition.parameters.each do |item|
+      items[item.name] = ''
+    end
+    return {
+      :id => context.id,
+      :name => context.label,
+      :total => 1,
+      :items => [items]
+    }.to_json   
+  end
+  
+  def parameter_definition(parameter)
+    out = <<JS
+      {name: '#{parameter.name}',
+       value:'#{parameter.default_value}', 
+       unit: '#{parameter.display_unit}',
+       column_no: '#{parameter.column_no}',
+JS
+    case parameter.data_type_id
+      when 1  #text
+        out << "editor:  new Ext.form.TextField({  name: '#{parameter.name}',fieldLabel: '#{parameter.name}' })"
+      when 2  # numeric
+        out << "editor: new Ext.form.NumberField({ name:'#{parameter.name}', fieldLabel: '#{parameter.name}' })"
+      when 3  # date
+        out << "editor:  new Ext.form.DateField({  name: '#{parameter.name}',fieldLabel: '#{parameter.name}' })"
+      when 4  # time
+        out << "editor:  new Ext.form.TimeField({  name: '#{parameter.name}',fieldLabel: '#{parameter.name}' })"
+      when 5  # dictionary
+        out << "editor:  new Biorails.ComboField({ name: '#{parameter.name}',root_id: #{parameter.data_element_id}, fieldLabel:  '#{parameter.name}' })"
+      when 6  # url
+        out << "editor:  new Ext.form.TextField({  name: '#{parameter.name}',vtype: url, fieldLabel: '#{parameter.name}' })"
+      when 7  # file   
+        out << "editor:  new Biorails.FileComboField({  name: '#{parameter.name}',folder_id: #{current_project.home.id}, fieldLabel: '#{parameter.name}' })"
+      end
+      out = "}"
+      return out.to_s
+  end
+  #
+  # Display a form based on the current context
+  #
+  def form_definition(context)
+    out = <<JS
+new Ext.FormPanel({
+   labelWidth: 75, 
+   frame:true,
+   title: '#{context.label}',
+   bodyStyle:'padding:5px 5px 0',
+   defaults: {width: 400},
+   defaultType: 'textfield',\n
+   items: [
+JS
+    items = context.parameters.collect do |param|
+    case param.data_type_id
+      when 1  #text
+       "   new Ext.form.TextField({ name: '#{param.name}', fieldLabel: '#{param.name}' })"
+      when 2  # numeric
+       "  new Ext.form.NumberField({name:'#{param.name}', fieldLabel: '#{param.name}' })"
+      when 3  # date
+       "  new Ext.form.DateField({  name: '#{param.name}', fieldLabel: '#{param.name}' })"
+      when 4  # time
+       "  new Ext.form.TimeField({  name: '#{param.name}', fieldLabel: '#{param.name}' })"
+      when 5  # dictionary
+       "  new Biorails.ComboField({  name: '#{param.name}',root_id: #{param.data_element_id}, fieldLabel:  '#{param.name}' })"
+      when 6  # url
+       "  new Ext.form.TextField({  name: '#{param.name}',vtype: url, fieldLabel: '#{param.name}' })"
+      when 7  # file   
+       "  new Biorails.FileComboField({  name: '#{param.name}',folder_id: #{current_project.home.id}, fieldLabel: '#{param.name}' })"
+      end
+    end
+
+    out << items.join(",\n")
+    out << "\n ]});"
+    return out.to_s
+  end
+  #
+  # Display a table definition on the current context
+  #
+  def table_definition(context)
+    out = <<JS
+    
+JS
+    return out.to_s
+  end
+
+  ##
 # Mega Helper for display of a whole data view
 # Display the data for a task is a tabluar manor
 
@@ -155,34 +301,6 @@ module SheetHelper
      my_sheet_tag( cell.dom_id('item'), cell.dom_id('item'), cell, options)
   end
 
-  def protocol_drag_and_drop(contexts)
-    return '' unless contexts
-     out = String.new
-     out << 'Droppables.drops = [];'
-     out <<  drop_receiving_element_js("parameter_tree", :hoverclass => "drop-active",   
-           :accept =>'parameter',
-           :url => protocol_url(:action=> "remove_parameter"))
-         
-     for parameter_context in contexts
-          out<< drop_receiving_element_js(  parameter_context.dom_id, 
-            :url => { :action => "add_parameter" ,:context=>parameter_context},
-            :hoverclass => "drop-active",
-            :accept => "study_parameter",
-            :droponempy => true )
 
-          out<< drop_receiving_element_js( parameter_context.dom_id, 
-            :url => { :action => "add_parameter" ,:context=>parameter_context},
-            :hoverclass => "drop-active",
-            :accept => "study_queue",
-            :droponempy => true )
-
-          out<< drop_receiving_element_js(parameter_context.dom_id,  
-            :url => { :action => "move_parameter" ,:context=>parameter_context },
-            :hoverclass => "drop-active",
-            :accept => "parameter",
-            :droponempy => true  )
-      end
-      return out;
-  end
 end
 

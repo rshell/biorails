@@ -1,11 +1,13 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: batches
 #
 #  id                 :integer(11)   not null, primary key
-#  compound_id        :integer(11)   default(0), not null
+#  registration_id    :integer(11)   default(0), not null
+#  composition_id     :integer(11)   
 #  name               :string(255)   
+#  compound_id        :integer(11)   default(0), not null
 #  description        :text          
 #  external_ref       :string(255)   
 #  quantity_unit      :string(255)   

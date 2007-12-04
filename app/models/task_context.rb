@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 281
 #
 # Table name: task_contexts
 #
@@ -11,21 +11,8 @@
 #  row_no               :integer(11)   not null
 #  parent_id            :integer(11)   
 #  sequence_no          :integer(11)   not null
-#
-
-# == Schema Information
-# Schema version: 233
-#
-# Table name: task_contexts
-#
-#  id                   :integer(11)   not null, primary key
-#  task_id              :integer(11)   
-#  parameter_context_id :integer(11)   
-#  label                :string(255)   
-#  is_valid             :boolean(1)    
-#  row_no               :integer(11)   not null
-#  parent_id            :integer(11)   
-#  sequence_no          :integer(11)   not null
+#  left_limit           :integer(11)   default(0), not null
+#  right_limit          :integer(11)   default(0), not null
 #
 
 ##
@@ -49,8 +36,26 @@ class TaskContext < ActiveRecord::Base
 # a context may be linked part of something larger 
 # for example well => sample => plate
 # 
- acts_as_tree :order => "id"  
- 
+# Other methods added by acts_as_nested_set are:
+# * +root+ - root item of the tree (the one that has a nil parent; should have left_column = 1 too)
+# * +roots+ - root items, in case of multiple roots (the ones that have a nil parent)
+# * +level+ - number indicating the level, a root being level 0
+# * +ancestors+ - array of all parents, with root as first item
+# * +self_and_ancestors+ - array of all parents and self
+# * +siblings+ - array of all siblings, that are the items sharing the same parent and level
+# * +self_and_siblings+ - array of itself and all siblings
+# * +count+ - count of all immediate children
+# * +children+ - array of all immediate childrens
+# * +all_children+ - array of all children and nested children
+# * +full_set+ - array of itself and all children and nested children
+#
+  acts_as_fast_nested_set :parent_column => 'parent_id',
+                     :left_column => 'left_limit',
+                     :right_column => 'right_limit',
+                     :order => 'task_id,left_limit',
+                     :scope => :task_id,
+                     :text_column => 'label' 
+  
 ##
 # The task this context belongs too
  belongs_to :task

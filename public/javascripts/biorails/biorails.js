@@ -129,56 +129,56 @@ Biorails = function(){
 // Default Toolbar
 // 
    var _toolbar =  new Ext.Toolbar({
-		 items: [{text: 'Home', menu: { items: [
-								{text: "Dashboard",iconCls:'icon-home',    href:'/home',scope: this },
-								'-',
-								{text: "Recent",  iconCls:'icon-news' ,      href:'/home/news',scope: this },
-								{text: "Projects",iconCls:'icon-project' ,      href:'/home/projects',scope: this },
-								{text: "Todo",    iconCls:'icon-todo' ,      href:'/home/todo',scope: this  },
-								{text: "Tasks",   iconCls:'icon-task' ,      href:'/home/tasks' ,scope: this  },
-								{text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  },
-								'-',
-								{text: "Logout",  iconCls:'icon-logout' ,      href:'/logoff' ,scope: this  }
-							]}},
-				 {text: 'Project', menu : {items: [
-								{text: "Dashboard", iconCls:'icon-project',   href:'/projects/show',scope: this },
-								'-',
-								{text: "Calender",    iconCls:'icon-calendar' ,   href:'/projects/calendar',  scope: this },
-								{text: 'Timeline',    iconCls:'icon-timeline' ,   href:'/projects/gantt' , scope: this },
-								{text: 'Folders',     iconCls:'icon-folder' , href:'/folders',  scope: this },
-								{text: 'Study Designs',iconCls:'icon-study' ,href:'/studies',  scope: this },
-								{text: 'Experiments', iconCls:'icon-experiment' , href:'/experiments',  scope: this },
-								{text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this }
-							]}},
-				 {text: 'Design',menu : {items: [
-								{text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },
-								{text: "Services", iconCls:'icon-service' ,  href:'/queues' ,scope: this },
-								{text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
-							]}},' ',
-				 {text: 'Inventory',menu : {items: [
-								{text: "Compounds", iconCls:'icon-compound' , href:'/inventory/compounds',  scope: this },
-								{text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this }
-							]}},' ',
-				 {text: 'Administration',menu : {items: [
-								{text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
-								'-',
-								{text: "Data Sources",iconCls:'icon-data-system' ,href:'/admin/system',  scope: this },
-								{text: "Data Types",  iconCls:'icon-data-type' ,href:'/admin/data',  scope: this },
-								{text: "Data Lookups",iconCls:'icon-data-element' ,  href:'/admin/element',  scope: this },
-								{text: "Data Formats",iconCls:'icon-data-format' ,  href:'/admin/format',   scope: this },
-								'-',
-								{text: "Study Stage",iconCls:'icon-study-stage' ,  href:'/admin/stage', scope: this },
-								{text: "Parameter types",iconCls:'icon-parameter-type' , href:'/admin/parameters',  scope: this },
-								{text: "Parameter Roles",iconCls:'icon-parameter-role' , href:'/admin/usage', scope: this },
-								'-',
-								{text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
-								{text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
-							]}},
-				 {text: 'Help',menu : {items: [{text: "Help",  scope: this } ]}},
-				  '->',
-				  searchField,
-				  {text: 'Search',handler: onSearchClick}				
-				]});
+        items: [{text: 'Home', menu: { items: [
+                    {text: "Dashboard",iconCls:'icon-home',    href:'/home',scope: this },
+                    '-',
+                    {text: "Recent",  iconCls:'icon-news' ,      href:'/home/news',scope: this },
+                    {text: "Projects",iconCls:'icon-project' ,      href:'/home/projects',scope: this },
+                    {text: "Todo",    iconCls:'icon-todo' ,      href:'/home/todo',scope: this  },
+                    {text: "Tasks",   iconCls:'icon-task' ,      href:'/home/tasks' ,scope: this  },
+                    {text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  },
+                    '-',
+                    {text: "Logout",  iconCls:'icon-logout' ,      href:'/logoff' ,scope: this  }
+                ]}},
+             {text: 'Project', menu : {items: [
+                    {text: "Dashboard", iconCls:'icon-project',   href:'/projects/show',scope: this },
+                    '-',
+                    {text: "Calender",    iconCls:'icon-calendar' ,   href:'/projects/calendar',  scope: this },
+                    {text: 'Timeline',    iconCls:'icon-timeline' ,   href:'/projects/gantt' , scope: this },
+                    {text: 'Folders',     iconCls:'icon-folder' , href:'/folders',  scope: this },
+                    {text: 'Study Designs',iconCls:'icon-study' ,href:'/studies',  scope: this },
+                    {text: 'Experiments', iconCls:'icon-experiment' , href:'/experiments',  scope: this },
+                    {text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this }
+                ]}},
+             {text: 'Design',menu : {items: [
+                    {text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },
+                    {text: "Services", iconCls:'icon-service' ,  href:'/queues' ,scope: this },
+                    {text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
+                ]}},' ',
+             {text: 'Inventory',menu : {items: [
+                    {text: "Compounds", iconCls:'icon-compound' , href:'/inventory/compounds',  scope: this },
+                    {text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this }
+                ]}},' ',
+             {text: 'Administration',menu : {items: [
+                    {text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
+                    '-',
+                    {text: "Data Sources",iconCls:'icon-data-system' ,href:'/admin/system',  scope: this },
+                    {text: "Data Types",  iconCls:'icon-data-type' ,href:'/admin/data',  scope: this },
+                    {text: "Data Lookups",iconCls:'icon-data-element' ,  href:'/admin/element',  scope: this },
+                    {text: "Data Formats",iconCls:'icon-data-format' ,  href:'/admin/format',   scope: this },
+                    '-',
+                    {text: "Study Stage",iconCls:'icon-study-stage' ,  href:'/admin/stage', scope: this },
+                    {text: "Parameter types",iconCls:'icon-parameter-type' , href:'/admin/parameters',  scope: this },
+                    {text: "Parameter Roles",iconCls:'icon-parameter-role' , href:'/admin/usage', scope: this },
+                    '-',
+                    {text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
+                    {text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
+                ]}},
+             {text: 'Help',menu : {items: [{text: "Help",  scope: this } ]}},
+              '->',
+              searchField,
+              {text: 'Search',handler: onSearchClick}				
+            ]});
 
 // region -----------------------North------------------------------
                                 
@@ -199,25 +199,25 @@ Biorails = function(){
 		        } );
 
    var _work_panel = new Ext.Panel({
-					xtype:"panel",
-					autoScroll: true,
-					contentEl: 'work-tab',
-                    //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
-					id: 'work-id',
-					title:"Clipboard"
-				  }  );
+                                xtype:"panel",
+                                autoScroll: true,
+                                contentEl: 'work-tab',
+            //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
+                                id: 'work-id',
+                                title:"Clipboard"
+                      }  );
 
 
    var _west_panel = new Ext.Panel( {
-			    region:"west",
-			    title:"Navigation",
-			    id:'nav-id',	
-			    split:true,
-			    collapsible:true,
-			    useSplitTips: true,
-			    titleCollapse:true,
+                        region:"west",
+                        title:"Navigation",
+                        id:'nav-id',	
+                        split:true,
+                        collapsible:true,
+                        useSplitTips: true,
+                        titleCollapse:true,
 		        width: 140,
-                minHeight: 600,                       
+                        minHeight: 600,                       
 		        minSize: 100,
 		        maxSize: 400,
 		        layout:'accordion',
@@ -228,15 +228,15 @@ Biorails = function(){
    
 // region -----------------------East------------------------------
    var _status_panel = new Ext.Panel({
-					xtype:"panel",
+                    xtype:"panel",
                     layout:'fit',                    
-					contentEl: 'status-tab',
-					autoDestroy: true,  
-					autoScroll: true,
-					id: 'status-id',
+                    contentEl: 'status-tab',
+                    autoDestroy: true,  
+                    autoScroll: true,
+                    id: 'status-id',
                     iconCls:'icon-help',                                         
-					title:"Info."
-				  } );
+                    title:"Info."
+              } );
 
    var _tree_panel = new Ext.tree.TreePanel({
 			el:'tree-panel',
@@ -1279,8 +1279,215 @@ Biorails.ConceptTree = function(el){
 Ext.extend(Biorails.ConceptTree,  Ext.tree.TreePanel, {} );
 
 
+//---------------------------------------- Report Definition ------------------------------------------------
+
+Ext.namespace("Biorails.ReportDef");
+
+Biorails.ReportDef = function(report_id){
+    var grid = null;  
+    var column_record;
+    var column_store;
+    var column_model;
+    var report_form;
+
+    /** 
+     * Red/Green Custom renderer function
+     * renders red if <0 otherwise renders green 
+     * @param {Object} val
+     */
+    function renderBoolean(v, p, record){
+      var checkState = (+v) ? '-on' : '';
+      p.css += ' x-grid3-check-col-td'; 
+      return '<div class="x-grid3-check-col'+ checkState +' x-grid3-cc-'+this.id+'"> </div>';
+    };
+    function renderId(val){
+      return '<img alt="remove" src="/images/action/cancel.png"/>';
+    };
+  
+    function cellClicked( grid, rowIndex,  columnIndex, event){
+      if (columnIndex == 7){
+         var record = column_store.getAt(rowIndex);
+         deleteRow(record);
+      }
+    };
+    // Delete a Columns row from the report
+    function deleteRow(record) {
+      Ext.Ajax.request( {  
+            waitMsg: 'Deleting row...',
+            url: '/reports/remove_column',
+            method: 'POST',
+            params: {
+                  id: record.data.id
+              },
+            failure: function(response, options){
+                  Ext.MessageBox.alert('Warning','Failed to remove column from report...');
+              },                                  
+            success: function(response, options){
+                  column_store.remove(record);
+              }                             
+           }
+      ); 
+    };
+    /**
+     * Function for updating database
+     * @param {Object} event
+     */
+    function updateRow(event) {
+        if (event.value instanceof Date)
+        {   //format the value for easy insertion into MySQL
+           var fieldValue = event.value.format('Y-m-d H:i:s');
+        } else
+        {
+           var fieldValue = event.value;
+        }	
+        Ext.Ajax.request( {  
+              waitMsg: 'Saving changes...',
+                url: '/reports/update_column',
+                //method: 'POST', //if specify params default is 'POST' instead of 'GET'
+                params: { //these will be available via $_POST or $_REQUEST:
+                    id: event.record.data.id,
+                    column: {id: event.record.data.id},
+                    field: event.field,
+                    value: event.value,
+                    originalValue: event.record.modified                                                                                                                              //when the response comes back from the server can we make an undo array?                         
+                },//end params
+                failure: function(response, options){
+                    Ext.MessageBox.alert('Warning','Failed to update report...');
+                    column_store.rejectChanges();
+                },//end failure block                                      
+                success: function(response, options){
+                    column_store.commitChanges();
+                }//end success block                                      
+             }//end request config
+        ); //end request  
+    };
+
+    function setupRecord(){
+        if (!column_record)
+        {
+            column_record = Ext.data.Record.create([
+              {name: 'id'},
+              {name: 'name'},
+              {name: 'label'},
+              {name: 'filter'},
+              {name: 'is_filterable'},
+              {name: 'is_visible'},
+              {name: 'is_sortable'},
+              {name: 'sort_num'},
+              {name: 'sort_dir'}]
+           );
+        }
+    };
+
+    function setupStore(report_id){
+        if (!column_store) {
+            column_store = new Ext.data.Store({
+              proxy: new Ext.data.HttpProxy({url: '/reports/layout/'+report_id}),
+
+              reader: new Ext.data.JsonReader({
+                  root: 'items',
+                  totalProperty: 'total',
+                  id: 'id'
+                 },column_record),        
+              remoteSort: true	
+            })
+        }
+    };
+
+    function setupColumns(){
+        if (!column_model)
+        {
+           // Column model for report definition with label,filter and sort changable
+
+           column_model = new Ext.grid.ColumnModel([
+              { header: "Name",  
+                width: 120, 
+                sortable: true,
+                dataIndex: 'name'
+              },        
+              { header:'Visible',  
+                width:32, 
+                renderer: renderBoolean,
+                editor: new Ext.form.Checkbox(),
+                dataIndex:'is_visible'
+              },
+              { header: "Label",  
+                width: 120, 
+                sortable: true,
+                editor: new Ext.form.TextField({
+                  allowBlank: false
+                }),
+                dataIndex: 'label'
+              },
+              { header:'Filterable',  
+                width:45, 
+                renderer: renderBoolean,
+                editor: new Ext.form.Checkbox(),
+                dataIndex:'is_filterable'
+              },
+              { header: "Filter",    
+                width: 120, 
+                sortable: true, 
+                editor: new Ext.form.TextField(),
+                dataIndex: 'filter'
+              },
+              { header:'Sortable',  
+                width:40, 
+                renderer: renderBoolean,
+                editor: new Ext.form.Checkbox(),
+                dataIndex:'is_sortable'
+              },
+              { header: "Dir",   
+                width: 50, 
+                editor: new Ext.form.ComboBox({
+                  typeAhead: true,
+                  triggerAction: 'all',
+                  transform:'sort_dir_select',
+                  lazyRender:true,
+                  listClass: 'x-combo-list-small' }), 
+                dataIndex: 'sort_dir'},
+              { id:'Id', 
+                header: "Remove", 
+                width: 20, 
+                sortable: true, 
+                renderer: renderId,
+                dataIndex: 'id'
+              }
+
+            ]);
+
+            column_model.defaultSortable =true;
+       };
+    };
+
+    function setupGrid(){
+         grid = new Ext.grid.EditorGridPanel({
+            renderTo: 'column-grid',
+            store: column_store,        
+            cm:    column_model ,
+            viewConfig: {  forceFit: true  },
+            sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+            width:'auto',
+            height:300,
+            frame:true,
+            title:'Drag columns from tree to add to report',
+            iconCls:'icon-grid'
+         });
+         grid.store.load();
+         grid.addListener('afteredit', updateRow);
+         grid.addListener('cellclick', cellClicked);
+    };
+
+     setupRecord();
+     setupStore(report_id);
+     setupColumns();
+     setupGrid();       
+};  
+
+
 //---------------------------------------- Model Grid ----------------------------------------------------------
 Ext.namespace("Biorails.DataGrid");
+
 /**
 Ext.namespace("Biorails.DataGrid");
  * Dynamic DataGrid linked back to a rails controller driven query
@@ -1657,70 +1864,6 @@ Ext.extend(Biorails.ColumnTree,  Ext.tree.TreePanel, {
         return false;
   }  
 } );
-
-
-//----------------------------------------  Biorails Column Tree ---------------------------------------------
-Ext.namespace('Biorails.Protocol');
-
-Biorails.Protocol.DropTarget =function(el,config) {
-   Biorails.Protocol.DropTarget.superclass.constructor.call(this,el, 
-       Ext.apply(config,{
-            ddGroup:'parameterDD',
-            overClass: 'dd-over'}));   
-};
-
-Ext.extend( Biorails.Protocol.DropTarget, Ext.dd.DropTarget, {
-
-  notifyDrop: function (source,e,data) {
-    new Ajax.Request('/protocols/add_parameter/'+this.context_id,
-                {asynchronous:true,
-                 evalScripts:true,
-                 parameters:'node='+encodeURIComponent(data.node.id) }); 
-    return false;
-
-     }
-});      
-
-//----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
-Ext.namespace("Biorails.ParameterTree");
-
-Biorails.ParameterTree = function(config){
-    
-    Biorails.ParameterTree.superclass.constructor.call(this,Ext.apply(config,{
-            title:'Study (Parameters)',
-            minHeight: 400,
-            autoShow: true, 
-            autoHeight: true,
-            autoScroll: true,
-            layout: 'fit',           
-			animate: true,
-			enableDD: true,
-            ddGroup:'parameterDD',
-            iconCls:'icon-study', 
-            root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
-                                                  expanded: true,  
-                                                  draggable:false, id: 'root' }),
-			loader: new Ext.tree.TreeLoader({ dataUrl:'/parameters/tree/'+config.study_id})
-		}));
-                
-        this.on('dblclick',function(node,e) { 
-            this.add_parameter(node) 
-        });                  
-}
-
-Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {
-    
-  add_parameter: function (node){
-      if (node.leaf) {
-        new Ajax.Request('/protocols/add_parameter/'+this.process_id,
-                {asynchronous:true,
-                 evalScripts:true,
-                 parameters:'id='+encodeURIComponent(node.id) }); 
-        }
-        return false;
-  }  
-} );
-
 
 //------------------ Main App ------------------------------------------------------------------------
 
