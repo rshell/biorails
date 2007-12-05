@@ -20,7 +20,6 @@ class Execute::ExperimentsController < ApplicationController
 # default action is linked to list
   def index
     list
-    render :action=>'list'
   end
 
 ###

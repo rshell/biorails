@@ -240,12 +240,13 @@ class Organize::StudyProtocolsController < ApplicationController
 ##
 # Create a new basic process context
 # 
-  def new_context
+  def add_context
    @successful  = false
    begin
-      @protocol_version = ProtocolVersion.find(params[:id])
+      @parent = ParameterContext.find(params[:id])
+      @protocol_version = @parent.process
       @parameter_context = @protocol_version.new_context
-      @parameter_context.parent_id = params[:parent_id] if params[:parent_id]
+      @parameter_context.parent = @parent;
       @successful  = @parameter_context.save
       flash[:notice] = 'Context '+@parameter_context.label+"  was successfully added"
    rescue
@@ -256,6 +257,26 @@ class Organize::StudyProtocolsController < ApplicationController
           :id => @parameter_context.process.protocol,
           :version=> @parameter_context.process 
   end
+
+
+##
+# This deletes a context and all its children
+#
+ def remove_context
+    @successful = false
+    @parameter_context = ParameterContext.find(params[:id])
+    @process = @parameter_context.process
+    if  @parameter_context.parent_id.nil? or @parameter_context.children.size>0
+        flash[:error] = ' Cant delete a context row with children'   
+    else
+       @dom = @parameter_context.dom_id
+       @successful = @parameter_context.destroy
+       @process.resync_columns
+       flash[:notice] = 'Context successfully removed '
+    end
+    return render( :action => 'delete_row.rjs') if request.xhr?  
+    return_to_main
+ end
   
 ##
 # Add a new parameter to the current parameters for the instance this expects the id of parameter type, 
@@ -331,25 +352,6 @@ def move_parameter
           end
          end }
     end
-end
-
-##
-# This deletes a context and all its children
-#
-def delete_context
-  @successful = false
-  @parameter_context = ParameterContext.find(params[:id])
-  @process = @parameter_context.process
-  if @parameter_context.children.size>0
-      flash[:error] = ' Cant delete a context row with children'   
-  else
-     @dom = @parameter_context.dom_id
-     @successful = @parameter_context.destroy
-     @process.resync_columns
-     flash[:notice] = 'Context successfully removed '
-  end
-  return render( :action => 'delete_row.rjs') if request.xhr?  
-  return_to_main
 end
 
 ##

@@ -27,6 +27,9 @@ class Execute::ReportsController < ApplicationController
                
 helper :tree
 
+  def index
+    list
+  end
 ##
 # List of created reports
 # 

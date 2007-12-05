@@ -17,10 +17,7 @@
 
  <script type="text/javascript"> 
 Ext.onReady(function(){
-   var tree = new Biorails.ParameterTree({el:'tp',study_id: <%=@study.id%> });
+   var tree = new Biorails.Protocol.ParameterTree({el:'tp',study_id: <%=@study.id%> });
    tree.applyToMarkup('tp');
-<% for parameter_context in @protocol_version.contexts %>
-   var d = new Biorails.Protocol.DropTarget("<%=parameter_context.dom_id%>",{context_id:<%=parameter_context.id%>} );
- <% end %>
 });
 </script>

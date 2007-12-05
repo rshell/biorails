@@ -174,7 +174,7 @@ Biorails = function(){
                     {text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
                     {text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
                 ]}},
-             {text: 'Help',menu : {items: [{text: "Help",  scope: this } ]}},
+             {text: 'Help',menu : {items: [{text: "Help",href:'/help',   scope: this } ]}},
               '->',
               searchField,
               {text: 'Search',handler: onSearchClick}				
@@ -1785,7 +1785,12 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
  * Custom Rendering function to add drop zone on grid after its rendered
  */    
    enableDD: function(){
-       try{ 
+       try{       if (config.parent_id>0) {
+          new Biorails.Protocol.ContextForm(config);
+      } else {  
+          new Biorails.Protocol.Preview(config);
+      };
+       
             var dropzone = new Ext.dd.DropTarget(this.id, {
                 ddGroup : 'GridDD',
                 folder_id: this.folder_id,

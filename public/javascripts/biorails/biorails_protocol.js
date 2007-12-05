@@ -1,34 +1,12 @@
 
 Ext.namespace("Biorails");
-
-//----------------------------------------  Biorails Column Tree ---------------------------------------------
 Ext.namespace('Biorails.Protocol');
-
-Biorails.Protocol.DropTarget =function(el,config) {
-   Biorails.Protocol.DropTarget.superclass.constructor.call(this,el, 
-       Ext.apply(config,{
-            ddGroup:'parameterDD',
-            overClass: 'dd-over'}));   
-};
-
-Ext.extend( Biorails.Protocol.DropTarget, Ext.dd.DropTarget, {
-
-  notifyDrop: function (source,e,data) {
-    new Ajax.Request('/protocols/add_parameter/'+this.context_id,
-                {asynchronous:true,
-                 evalScripts:true,
-                 parameters:'node='+encodeURIComponent(data.node.id) }); 
-        return false;
-
-     }
-});      
-
 //----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
-Ext.namespace("Biorails.ParameterTree");
+Ext.namespace("Biorails.Protocol.ParameterTree");
 
-Biorails.ParameterTree = function(config){
+Biorails.Protocol.ParameterTree = function(config){
     
-    Biorails.ParameterTree.superclass.constructor.call(this,Ext.apply(config,{
+    Biorails.Protocol.ParameterTree.superclass.constructor.call(this,Ext.apply(config,{
             title:'Study (Parameters)',
             minHeight: 400,
             autoShow: true, 
@@ -44,14 +22,29 @@ Biorails.ParameterTree = function(config){
                                                   draggable:false, id: 'root' }),
 			loader: new Ext.tree.TreeLoader({ dataUrl:'/parameters/tree/'+config.study_id})
 		}));
-                
-        this.on('dblclick',function(node,e) { 
-            this.add_parameter(node) 
-        });                  
-}
+         
+        this.on('notifyDrop',function(source,e,data) {   this.remove_parameter(data); });  
+        
+        this.on('dblclick',function(node,e) {      this.add_parameter(node);     });                  
+};
 
-Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {
-    
+Ext.extend(Biorails.Protocol.ParameterTree,  Ext.tree.TreePanel, {
+  
+  remove_parameter: function(source,e,data){
+       try{ 
+         if (data.grid) {
+            var source_row = data.grid.store.getAt(data.rowIndex);                
+            new Ajax.Request("/protocols/remove_parameter/"+  source_row.data.id,
+                    {asynchronous:true,
+                     evalScripts: true });
+          }
+        } catch (e) {
+              console.log('Problem cant handle Dropped Item ');
+              console.log(e);
+        };
+        return true;    
+  },
+  
   add_parameter: function (node){
       if (node.leaf) {
         new Ajax.Request('/protocols/add_parameter/'+this.process_id,
@@ -65,7 +58,7 @@ Ext.extend(Biorails.ParameterTree,  Ext.tree.TreePanel, {
 
 //----------------------------------------  Protocol Preview Context Table ------------------------------------
 
-Biorails.Protocol.Preview = function(config) {
+Biorails.Protocol.ContextTable = function(config) {
   var column_record;
   var column_store;
   var column_model;
@@ -130,14 +123,6 @@ Biorails.Protocol.Preview = function(config) {
     ); 
   };
 
-
-  // show details form on click on header  
-  function columnDetails(grid,columnIndex,event)
-  {
-      var name = column_model.getColumnId(columnIndex);
-      var column = column_model.getColumnById(name);
-  }
-  
 /**
  * Generate a Record to 
  */
@@ -185,7 +170,7 @@ Biorails.Protocol.Preview = function(config) {
              }
              switch (item.data_type_id)   {
                    case 2 :  
-                      columns[i].editor = new Ext.form.NumberField({name: item.name,                                                               
+                      columns[i].editor = new Ext.form.TextField({name: item.name,                                                               
                                                                     fieldLabel: item.name});
                       break;                      
                    case 3 : 
@@ -203,7 +188,7 @@ Biorails.Protocol.Preview = function(config) {
                       break;
                    case 6: 
                       columns[i].editor = new Ext.form.TextField({name: item.name, 
-                                                            vtype: url, 
+                                                            vtype: 'url', 
                                                             fieldLabel: item.name});
                       break;
                    case 7:  
@@ -225,7 +210,7 @@ Biorails.Protocol.Preview = function(config) {
     };
    
      
-   Biorails.Protocol.Preview.superclass.constructor.call(this, {
+   Biorails.Protocol.ContextTable.superclass.constructor.call(this, {
             store: getDataStore(),        
             cm:    getColumnModel() ,
             viewConfig: {  forceFit: true  },
@@ -236,17 +221,15 @@ Biorails.Protocol.Preview = function(config) {
             enableHdMenu: false,
             selModel: new Ext.grid.CellSelectionModel(),
             frame:true,
-            title: config.path,
             iconCls:'icon-grid'
          });
     this.store.load();
     this.addListener('afteredit', saveCell);
     this.addListener('columnmove',columnMoved);
-    this.addListener('headerclick',columnDetails);
 
 };
 
-Ext.extend(Biorails.Protocol.Preview,Ext.grid.EditorGridPanel,{
+Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
 });
 
 
@@ -284,9 +267,9 @@ Biorails.Protocol.ContextForm = function(config) {
              }
         ); 
      }
-  };
+  }; 
     
-    function getFields() {
+  function getFields() {
       var fields =[];
       var i = 0;
       config.parameters.each( function(item){
@@ -351,7 +334,6 @@ Biorails.Protocol.ContextForm = function(config) {
     Biorails.Protocol.ContextForm.superclass.constructor.call(this,{
             labelWidth: 75,
             frame: true,
-            title: config.path,
             autoHeight: true,
             bodyStyle:'padding:5px 5px 0',
             defaults: {width: 400},
@@ -362,17 +344,65 @@ Biorails.Protocol.ContextForm = function(config) {
 
 Ext.extend(Biorails.Protocol.ContextForm, Ext.form.FormPanel,{
 
+ 
+/*
+ * Custom Rendering function to add drop zone on grid after its rendered
+ */    
+   enableDD: function(){
+       try{ 
+            var dropzone1 = new Ext.dd.DropTarget(this.id, {
+                panel: this,
+                notifyDrop : this.addItem  });            
+            dropzone1.addToGroup("parameterDD"); 
+             
+
+        } catch (e) {
+              Ext.log('Problem with setup drop zone on folder grid ');
+              Ext.log(e);
+        }        
+   }
 });
 
 //----------------------------------------  Protocol Context Definition Table ------------------------------------
 
-Biorails.Protocol.ContextTable = function(config) {
+Biorails.Protocol.ContextEditor = function(config) {
 
   var grid;
   var record;
   var store;
   var model;
 
+  function renderId(val){
+      return '<img alt="remove" src="/images/action/cancel.png"/>';
+   };
+
+// Delete a Columns row from the report
+//
+  function deleteRow(record) {
+      Ext.Ajax.request( {  
+            waitMsg: 'Deleting row...',
+            url: '/protocols/remove_parameter',
+            method: 'POST',
+            params: {
+                  id: record.data.id
+              },
+            failure: function(response, options){
+                  Ext.MessageBox.alert('Warning','Failed to remove column from report...');
+              },                                  
+            success: function(response, options){
+                  store.remove(record);
+              }                             
+           }
+      ); 
+    };
+    
+ function cellClicked( grid, rowIndex,  columnIndex, event){
+    if (columnIndex == 0){
+       var record = store.getAt(rowIndex);
+       deleteRow(record);
+    }
+  }; 
+  
 /**
  * Setup Context Ajax data loader
  */
@@ -409,6 +439,12 @@ Biorails.Protocol.ContextTable = function(config) {
  */
   function setupColumns(){
     model = new Ext.grid.ColumnModel([
+      { id:'Id', 
+        header: "Remove", 
+        width: 20,  
+        renderer: renderId,
+        dataIndex: 'id'
+      },
       { header: "No.",  
         width: 32, 
         sortable: true,
@@ -455,7 +491,7 @@ Biorails.Protocol.ContextTable = function(config) {
 /**
  * Setup Context Model
  */
-    Biorails.Protocol.ContextTable.superclass.constructor.call(this,{ 
+    Biorails.Protocol.ContextEditor.superclass.constructor.call(this,{ 
             store: store,        
             cm:    model ,
             viewConfig: {  forceFit: true  },
@@ -474,14 +510,15 @@ Biorails.Protocol.ContextTable = function(config) {
                     }}
                 },
             frame:true,
-            title:'Definition of '+config.path,
             iconCls:'icon-grid'
          });
     store.load();
+    
+    this.on('cellclick', cellClicked);
     this.on('render',    function(grid){ grid.enableDD();  });
 }
 
-Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
+Ext.extend(Biorails.Protocol.ContextEditor,Ext.grid.EditorGridPanel,{
   
    addItem: function(source,event,data){
        try{ 
@@ -489,7 +526,7 @@ Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
                 {asynchronous:true, evalScripts:true,
                  parameters:'node='+encodeURIComponent(data.node.id) }); 
         } catch (e) {
-              console.log('Problem cant handle Dropped Item ');
+              console.log('Problem cant handle Add Item ');
               console.log(e);
         } 
         return true;  
@@ -504,7 +541,7 @@ Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
                      onComplete: function(req) { data.grid.store.load(); } ,
                      parameters:'after='+dest_row.data.id });                          
         } catch (e) {
-              console.log('Problem cant handle Dropped Item ');
+              console.log('Problem cant handle move Item ');
               console.log(e);
         } 
         return true;  
@@ -525,7 +562,7 @@ Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
                 notifyDrop : this.moveItem  });
 
         } catch (e) {
-              Ext.log('Problem with setup drop zone on folder grid ');
+              Ext.log('Problem with setup drop zone on context editor grid ');
               Ext.log(e);
         }        
    }
@@ -534,11 +571,160 @@ Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
 
 
 //----------------------------------------  Protocol Context ------------------------------------
+/**
+ * Protocol Context Editor and Preview Panel 
+ *
+ *  This Takes as protocol context as json and generate a suitable editor panel
+ *
+ */
+Biorails.Protocol.Context = function(config) {  
+   var preview_panel= (config.parent_id == null ? new Biorails.Protocol.ContextForm(config) : new Biorails.Protocol.ContextTable(config) );
 
-Biorails.Protocol.Context = function(config) {
-   if (config.parent_id > 0) {
-       return new Biorails.Protocol.Preview(config);
-   } else  {
-       return new Biorails.Protocol.ContextForm(config);
+   var editor_panel= new Biorails.Protocol.ContextEditor(config);
+   
+ /**
+  * Event Handler to show Preview
+  */
+  function showPreview() {
+       preview_panel.show();
+       editor_panel.hide();       
    };
-}    
+   
+ /**
+  * Event Handler to show editor
+  */
+  function  showEditor(){
+       preview_panel.hide();
+       editor_panel.show();
+   };  
+   
+ /**
+  * Event Handler to add  child context to the form
+  */
+   function addContext(){
+     try{ 
+         new Ajax.Request('/protocols/add_context/'+config.id,
+                {asynchronous:true,
+                 evalScripts:true }); 
+        } catch (e) {
+              console.log('Problem cant handle add context ');
+              console.log(e);
+        } 
+   
+   };
+ /**
+  * Event Handler to remove current context from the form
+  */
+   function removeContext(){
+     try{ 
+         new Ajax.Request('/protocols/remove_context/'+config.id,
+                {asynchronous:true,
+                 evalScripts:true}); 
+        } catch (e) {
+              console.log('Problem cant handle remove context ');
+              console.log(e);
+        } 
+   
+   };
+/** 
+ * Build Panel with top/bottom panel functions set
+ */
+  Biorails.Protocol.Context.superclass.constructor.call(this,{
+        layout:"card",
+        context: config,
+        tbar: ['Context: '+config.path,'->', {
+                    text:'Preview',
+                    tooltip:'Show as a table',
+                    href: '/content/new/'+config.folder_id,                              
+                    handler: function(){
+                        showPreview();
+                    },                                
+                    iconCls:'icon-preview'
+                },'-', {
+                    text:'Edit',
+                    tooltip:'Context editor to allow for customization',                            
+                    handler: function(){
+                        showEditor();
+                    },                            
+                    iconCls:'icon-edit'
+                }],
+        bbar: ['->',{ 
+                    text:'Add Child',
+                    tooltip:'New Child context',
+                    handler: function(){
+                        addContext();
+                    }, 
+                    iconCls:'icon-file'
+                },' ', {
+                    text:'Remove',
+                    tooltip:'Remove context and all children',                              
+                    handler: function(){
+                        removeContext();
+                    }, 
+                    iconCls:'icon-note'
+                }],
+        activeItem: 0, // make sure the active item is set on the container config!
+        bodyStyle: 'padding:1px',
+        defaults: {  border:false  },         
+	    autoHeight: true,
+ 	   	autoWidth : false,
+		autoScroll: false,
+        items: [preview_panel,editor_panel]
+   });   
+   this.on('render',    function(panel){ panel.enableDD();  });
+};    
+
+Ext.extend(Biorails.Protocol.Context, Ext.Panel,{
+    
+   addParameter: function(source,event,data){
+     try{ 
+         new Ajax.Request('/protocols/add_parameter/'+this.context_id,
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'node='+encodeURIComponent(data.node.id) }); 
+        } catch (e) {
+              console.log('Problem cant handle Add Parameter ');
+              console.log(e);
+        } 
+        return true;  
+   },
+  
+/*
+ * Custom Rendering function to add drop zone on grid after its rendered
+ */    
+   enableDD: function(){
+       try{ 
+            var dropzone = new Ext.dd.DropTarget(this.id, {
+                ddGroup : 'parameterDD',
+                context_id: this.context.id,
+                panel: this,
+                notifyDrop : this.addParameter  });
+
+        } catch (e) {
+              Ext.log('Problem with setup drop zone on context panel ');
+              Ext.log(e);
+        }        
+   }
+    
+});
+
+ //----------------------------------------  Biorails Context Panel Drop Zone------------------------------------
+
+Biorails.Protocol.DropTarget =function(el,config) {
+   Biorails.Protocol.DropTarget.superclass.constructor.call(this,el, 
+       Ext.apply(config,{
+            ddGroup:'parameterDD',
+            overClass: 'dd-over'}));   
+};
+
+Ext.extend( Biorails.Protocol.DropTarget, Ext.dd.DropTarget, {
+
+  notifyDrop: function (source,e,data) {
+    new Ajax.Request('/protocols/add_parameter/'+this.context_id,
+                {asynchronous:true,
+                 evalScripts:true,
+                 parameters:'node='+encodeURIComponent(data.node.id) }); 
+        return false;
+
+     }
+});    
