@@ -1,16 +1,29 @@
 
-<center>
+
 <div class="box login">
 <%= error_messages_for 'user' %>
-<% form_tag({:controller=>:auth, :action=>:login}, { :id => 'login_form' }) do -%>
-  <dl>
-    <dt><%= label_tag 'login', 'Login' %></dt>
-    <dd><%= text_field_tag 'login', params[:login], :class => 'big' %></dd>
-    <dt><%= label_tag 'password', 'Password' %></dt>
-    <dd><%= password_field_tag 'password', {}, :class => 'big' %></dd>
-    <dt></dt>
-  </dl>
-  <p><%= submit_tag 'Sign in' %> </p>
-<% end -%>
-</div>
-</center>
+
+<% dialog subject_icon('biorails_logo.png') do %>
+  
+    <% form_tag :controller=>:auth, :action=>:login do %>
+    <div class="row">
+      <!--[form:study]-->
+      <div class="form-element">
+         <label for="study_name">Login:</label>
+        <%= text_field_tag 'login', params[:login], :class => 'big' %>
+      </div>
+     </div>
+
+    <div class="row">
+      <div class="form-element">
+       <label for="study_description">Password:</label>
+        <%= password_field_tag 'password', {}, :class => 'big' %>
+      </div>
+    </div>
+  
+    <div class="row">
+        <%= submit_tag "Login" %>
+    </div>
+    <% end %>
+  <% end %>
+  </div>

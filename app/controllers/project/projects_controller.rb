@@ -1,3 +1,15 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+##
+
+##
+# Project Dashboard controller
+# 
+# This manages the creation of new projects and the main pages for a project. This should allow easy
+#  nagavation to current work in the project. 
+#
+#
 class Project::ProjectsController < ApplicationController
 
   use_authorization :project,
@@ -9,7 +21,10 @@ class Project::ProjectsController < ApplicationController
   in_place_edit_for :project, :name
   in_place_edit_for :project, :summary
 ##
-# Generate a index dashboard for the project 
+# Generate a index projects the user can see
+# 
+# @return list of projects in html,xml,csv,json or as diagram page update
+#  
 #   
   def index
     @projects = User.current.projects
@@ -30,7 +45,7 @@ class Project::ProjectsController < ApplicationController
   end
 
 ##
-# Generate a index dashboard for the project 
+# Generate a dashboard for the project 
 #  
   def show
     setup_project
@@ -48,7 +63,10 @@ class Project::ProjectsController < ApplicationController
     end
 
   end
-
+  
+#
+# Show new project form
+# 
   def new
     @project = Project.new
     @user = current_user
@@ -65,7 +83,9 @@ class Project::ProjectsController < ApplicationController
       }
      end 
   end
-
+#
+# Create a new project
+#Create
   def create
     Project.transaction do
 	  @project = current_user.create_project(params['project'])
@@ -204,7 +224,7 @@ class Project::ProjectsController < ApplicationController
     @project.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
     @project.studies.add_into(@calendar,find_options)             if @options['items']['study']
     @project.requests.add_into(@calendar,find_options)            if @options['items']['request']
-    @project.requested_services.add_into(@calendar,find_options)     if @options['items']['service']
+    @project.requested_services.add_into(@calendar,find_options)  if @options['items']['service']
     @project.queue_items.add_into(@calendar,find_options)         if @options['items']['queue']
 
     respond_to do | format |
@@ -266,6 +286,9 @@ class Project::ProjectsController < ApplicationController
     end
   end
 
+#
+# Render node information to the project tree control
+#
   def tree
     setup_project
     respond_to do | format |
@@ -273,6 +296,7 @@ class Project::ProjectsController < ApplicationController
       format.json { render :partial => 'tree'}
     end
   end
+
 protected
 
   def setup_project

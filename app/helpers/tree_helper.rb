@@ -5,9 +5,6 @@
 #
 # Methods added to this helper will be available to all templates in the application.
 module TreeHelper
-
-  include Alces::TreeControl
-
 #
 # General JOSN for folder elements 
 #  @param folder to use

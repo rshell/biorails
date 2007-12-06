@@ -7,9 +7,8 @@
 # Main Application controller with a log of the key application aspects for
 # user authorization, authentatations etc.
 # 
-require 'htmldoc'
+
 class ApplicationController < ActionController::Base
- # observer :study_observer,:experiment_observer, :catalog_observer
  
  PUBLIC_PROJECT_ID = 1
  GUEST_USER_ID = 1
@@ -29,13 +28,18 @@ class ApplicationController < ActionController::Base
   helper FormHelper    # Various Form helper and custom controllers
   helper FormatHelper  # Extra formating rules for date,times etc
   helper SessionHelper # Various session/parameter cache and lookup function
-  helper TreeHelper # Tree display helpers
+  helper TreeHelper    # Tree display helpers
 
   # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_Biorails2_session_id'
+  session :session_key => '_Biorails3_session_id'
 
+#
+# Filter actions to automiatcally setup current project,user,folder context from session
+#
   before_filter :setup_context
-
+#
+# share session management methods with helpers
+#
   helper_method :logged_in?
   helper_method :current_user
   helper_method :current_project
@@ -44,10 +48,19 @@ class ApplicationController < ActionController::Base
   helper_method :current_clipboard
   helper_method :current 
 
+protected #----- End of public actions --------------------------------------------------------------------------------
 
 ##
 # Get current version of this model passed on param[:id] and
 # if not found the current session
+#  1) model instance with passed id
+#  2) model instance cached in session
+#  3) last edited model instance
+# 
+# @param model
+# @parm id
+# 
+# @return object 
 #
   def current(model,id=nil)
     logger.debug "current(#{model},#{id})"
@@ -60,22 +73,9 @@ class ApplicationController < ActionController::Base
   rescue Exception => ex
       logger.error "current error: #{ex.message}"
   end
-
-##
-# Default authorization function allow anything generally overridden in
-# controllers via use_authorization definition
-#  
-  def authorize
-    return true
-  end   
-
-##
-# is there a user logged in, tests whether there is a current user set
-#   
-  def logged_in?
-    !session[:current_user_id].nil?
-  end
-
+#
+# Simple methods to get authentication details from the front end web server
+#
   def get_auth_data
     user,pass = nil,nil
     if request.env.has_key? 'X-HTTP_AUTHORIZATION'
@@ -88,17 +88,6 @@ class ApplicationController < ActionController::Base
     end
     return [user,pass]
   end
-##
-# Default authenticate called before all authorization activity to make
-# sure the user is logged
-#  
-  def authenticate
-    session[:current_url] = url_for(params)
-    logged_in?
-  end
-  
-  
-protected   
 #
 # Read the session and setup the context for user,project and folder
 #
@@ -107,7 +96,9 @@ protected
     Project.current = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
     @clipboard = session[:clipboard] ||= Clipboard.new
   end  
-
+#
+# Clean out the session
+#
   def clear_session
     logger.info("clear_session ")
     session[:current_user_id] = nil
@@ -119,6 +110,33 @@ protected
     @current_project = nil
     @current_user = nil
   end
+
+##
+# Default authorization function allow anything generally overridden in
+# controllers via use_authorization definition
+#  
+  def authorize
+    return true
+  end   
+
+##
+# is there a user logged in, tests whether there is a current user set
+# 
+# @return true/false
+#   
+  def logged_in?
+    !session[:current_user_id].nil?
+  end
+
+##
+# Default authenticate called before all authorization activity to make
+# sure the user is logged
+#  
+  def authenticate
+    session[:current_url] = url_for(params)
+    logged_in?
+  end
+  
   
 #
 # Current username
@@ -158,7 +176,7 @@ protected
     if session[:current_folder_id]  
        @current_folder ||= ProjectFolder.find(session[:current_folder_id])
     else
-      @current_folder = current_project.home
+       @current_folder = current_project.home
     end
     logger.info("current_folder #{@current_folder.name}")
     ProjectFolder.current = @current_folder
@@ -228,12 +246,18 @@ protected
       redirect_to auth_url(:action => "logout")
       return false      
  end
+
 #
-# Get the current page of objects
+# Get the current page of objects, generic call used by diagram ext grids to fill the 
+# grid with dta. 
 # 
 # This accepts sorts and where based filters on values
 # 
-# params[:where][:fei 
+# params[:where] hash of filter rules
+# params[:start] number for page start offset
+# params[:size]  number of items on page
+# params[:sort] attribute to sort data by
+# params[:dir] ASC/DESC sort direction
 # 
   def get_page(clazz)
     labels =[]
