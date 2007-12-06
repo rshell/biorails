@@ -166,8 +166,8 @@ class BiorailsApi < ActionWebService::API::Base
                :returns =>  [:string]
 
   api_method :add_experiment,
-               :expects => [ {:session_id => :string},{:project_id => :int},{:protocol_version_id => :int},{:name => :string},{:description => :string} ],
-               :returns => [Experiment]
+             :expects => [ {:session_id => :string},{:project_id => :int},{:protocol_version_id => :int},{:name => :string},{:description => :string} ],
+             :returns => [Experiment]
 
   api_method :add_task,
                :expects => [ {:session_id => :string},{:experiment_id => :int},{:protocol_version_id => :int},{:task_name => :string} ],
@@ -177,11 +177,11 @@ class BiorailsApi < ActionWebService::API::Base
                :expects => [ {:session_id => :string},{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
                :returns => [TaskContext]
 
-    api_method :set_asset,
+  api_method :set_asset,
                :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
                :returns =>  [Asset]
 
-    api_method :set_content,
+  api_method :set_content,
                :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
                :returns =>  [Content]
          
