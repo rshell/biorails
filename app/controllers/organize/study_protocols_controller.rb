@@ -10,25 +10,20 @@ class Organize::StudyProtocolsController < ApplicationController
                       
 
   helper SheetHelper
-  
-  in_place_edit_for :parameter_context,:label
-  in_place_edit_for :parameter_context,:default_count
-  in_place_edit_for :parameter, :name
-  in_place_edit_for :parameter, :mandatory
-  in_place_edit_for :parameter, :default_value
-  
-  
-  def index
-    list
-    render :action => 'list'
-  end
-
+    
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
+  
+  def index
+    list
+  end
+
 ##
 #List the protocols in the study
+#
+# @return list of protocols in html,json or xml
 #
   def list
 	if params[:id]
@@ -37,10 +32,17 @@ class Organize::StudyProtocolsController < ApplicationController
 	else
       @study_protocols = current_project.protocols	  
 	end  
+    respond_to do | format |
+      format.html { render :action => 'list' }
+      format.json { render :json => @study_protocols.to_json }
+      format.xml  { render :xml =>  @study_protocols.to_xml }
+    end  
   end
 
 ##
 #Set the release protocol version
+#
+# # @return redirect to list
 #
   def release
     @study_protocol = current_user.protocol( params[:id])
@@ -51,6 +53,8 @@ class Organize::StudyProtocolsController < ApplicationController
 
 ##
 # Show details for a protocol
+# 
+#  @return protocol definition in html,xml,json or ajax partial page update
 # 
   def show
     find_process
@@ -63,12 +67,23 @@ class Organize::StudyProtocolsController < ApplicationController
            page.replace_html 'center',  :partial => 'show' 
            page.replace_html 'messages',  :partial => 'shared/messages' 
          end }
-    end  end
+    end  
+  end
 
+##
+# Show QA matrics for a protocol
+# 
+#  @return protocol usages stats 
+# 
   def metrics
     find_process
   end
   
+##
+# Show Analysis plugin
+# 
+#  @return analysis
+# 
   def analysis
     find_process
     AnalysisMethod.add_processor(Alces::Processor::PlotXy)
@@ -89,6 +104,11 @@ class Organize::StudyProtocolsController < ApplicationController
     @study_protocol.name = Identifier.next_id(StudyProtocol)
     @study_protocol.protocol_catagory = 'Protocol'
     @study_protocol.description = "new protocol created for study "+@study.name   
+    respond_to do | format |
+      format.html { render :action => 'new' }
+      format.json { render :json => @study_protocol.to_json }
+      format.xml  { render :xml =>  @study_protocol.to_xml(:except=>[:study]) }
+    end  
   end
 
 ##
@@ -133,11 +153,13 @@ class Organize::StudyProtocolsController < ApplicationController
   end
 
 ##
-# Show a preview
+# Show a preview 
+# 
+# @todo old style data entry grid
 # 
   def preview
     find_process
-    @data_sheet = TreeGrid.from_process(@protocol_version)
+    @data_sheet = TreeGrid.from_process(@protocol_version)    
   end
   
 ##
@@ -205,7 +227,6 @@ class Organize::StudyProtocolsController < ApplicationController
 # 
   def update_context
    ProtocolVersion.transaction do
-      text = request.raw_post || request.query_string
       @parameter_context = ParameterContext.find(params[:id])         
       if  @parameter_context.update_attributes(params[:parameter_context]) 
         if params[:cell] and !params[:cell].empty?     
@@ -245,17 +266,25 @@ class Organize::StudyProtocolsController < ApplicationController
    begin
       @parent = ParameterContext.find(params[:id])
       @protocol_version = @parent.process
-      @parameter_context = @protocol_version.new_context
-      @parameter_context.parent = @parent;
+      @parameter_context = @protocol_version.new_context( @parent, params[:name] )
       @successful  = @parameter_context.save
       flash[:notice] = 'Context '+@parameter_context.label+"  was successfully added"
    rescue
       logger.warn $!.to_s
       flash[:error]= $!.to_s
    end
-    redirect_to :action => 'layout', 
-          :id => @parameter_context.process.protocol,
-          :version=> @parameter_context.process 
+    respond_to do | format |
+      format.html { render :action => 'layout',:id => @protocol_version.protocol,:version=> @protocol_version }
+      format.xml  { render :xml => @parameter_context.to_xml }
+      format.js   { render :update do | page |
+          if @successful
+            page.insert_html :after,@parent.dom_id,:partial => 'current_context', :locals => {:parameter_context => @parameter_context, :hidden => false }
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          end
+         end }
+    end
   end
 
 
@@ -266,16 +295,29 @@ class Organize::StudyProtocolsController < ApplicationController
     @successful = false
     @parameter_context = ParameterContext.find(params[:id])
     @process = @parameter_context.process
-    if  @parameter_context.parent_id.nil? or @parameter_context.children.size>0
+    if  @parameter_context.children.size>0
         flash[:error] = ' Cant delete a context row with children'   
+    elsif  @parameter_context.parent_id.nil?    
+        flash[:error] = ' Cant delete a root context form of task'   
     else
        @dom = @parameter_context.dom_id
        @successful = @parameter_context.destroy
        @process.resync_columns
        flash[:notice] = 'Context successfully removed '
     end
-    return render( :action => 'delete_row.rjs') if request.xhr?  
-    return_to_main
+    respond_to do | format |
+      format.html { render :action => 'layout',:id => @process.protocol,:version=> @process }
+      format.xml  { render :xml => @parameter_context.to_xml }
+      format.js   { render :update do | page |
+          if @successful
+            page.remove @dom
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          end
+         end }
+    end
+
  end
   
 ##
@@ -288,6 +330,7 @@ class Organize::StudyProtocolsController < ApplicationController
    @successful  = false
    ProtocolVersion.transaction do
      @parameter_context = ParameterContext.find(params[:id]) 
+     @mode = params[:mode] || 0
      @protocol_version = @parameter_context.process
      style, id = params[:node].split("_")
      case style
@@ -324,6 +367,7 @@ class Organize::StudyProtocolsController < ApplicationController
 def move_parameter
   ProtocolVersion.transaction do
     @parameter = Parameter.find(params[:id])
+    @mode = params[:mode] || 0
     @after = Parameter.find(params[:after])
     @parameter_context = @after.context 
     @protocol_version = @parameter_context.process
@@ -360,6 +404,7 @@ end
 #  
 def remove_parameter
    @successful = false
+   @mode = params[:mode] || 0
    begin
       id = params[:id].split("_")[1]
       id = params[:id] unless id
@@ -373,8 +418,19 @@ def remove_parameter
       logger.warn "problem with create "+$!.to_s
       flash[:error]  = $!.to_s
    end
-   return render( :action => 'update_row.rjs') if request.xhr?  
-   return_to_main
+    respond_to do | format |
+      format.html { render :action => 'layout',:id => @parameter_context.process.protocol,:version=> @parameter_context.process }
+      format.xml  { render :xml => @parameter_context.to_xml }
+      format.js   { render :update do | page |
+          if @successful
+            page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
+                              :locals => {:parameter_context => @parameter_context, :hidden => false }
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['parameter_context','parameter'] }
+          end
+         end }
+    end
 end  
  
 ##
@@ -386,9 +442,7 @@ end
     xml = Builder::XmlMarkup.new(:ident=>2)
     xml.instruct!
     @study_protocol.to_xml(xml)
-    send_data(xml.target!(),
-      :type => 'text/xml; charset=iso-8859-1; header=present',
-      :filename => @study_protocol.name+'.xml')     
+    send_data(xml.target!(), :type => 'text/xml; charset=iso-8859-1; header=present',   :filename => @study_protocol.name+'.xml')     
     end  
  end
 
@@ -414,7 +468,7 @@ end
   def import
   end
 
-protected  
+  protected  
 
   def find_process
     @study_protocol = current_user.protocol(params[:id])

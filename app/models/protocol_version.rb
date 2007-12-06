@@ -123,9 +123,9 @@ class ProtocolVersion < ActiveRecord::Base
   
 ##
 # Create a new context in this process 
- def new_context( parent  = nil)
+ def new_context( parent  = nil, name =nil)
     parameter_context = ParameterContext.new
-    parameter_context.label =  "context"+contexts.size.to_s
+    parameter_context.label =  name || "context"+contexts.size.to_s
     parameter_context.parent = parent if parent
     contexts << parameter_context
     return parameter_context

@@ -15,35 +15,18 @@ module  Named
     return "#{self.dom_id} #{self.name}"
   end
   
-##
-# Simple rules for name generation for various data type in the system
-#   
-  def Named.generator(object)
-    case object
-    when RequestService
-      return "RS-#{object.id}"    
-    when Task
-      return "T-#{object.id}"    
-    when Experiment
-      return "E-#{object.id}"    
-    when Study
-      return "S-#{object.id}"    
-    when StudyProtocol
-      return "SP-#{object.id}"    
-    when QueueItem
-      return "QI-#{object.id}"    
-    when StudyQueue
-      return "#{object.study.name}-#{object.id}"    
-    when RequestService
-      return "RS-#{object.request.id}-#{object.service.id}"    
-    when Request
-      return "R-#{object.id}"      
-    when Compound
-      return "C-#{object.id}"
-    when Batch
-      return "#{object.compound.name}-#{object.id}"
-    else
-      return object.dom_id     
-    end
+  #
+  # Defined Like method for use in a lookup
+  #
+  def self.like(name,limit = 20,offset=0)
+    self.find(:all, :conditions=>['name like ? ',name+'%'], :limit=>limit, :offset=>offset)
   end
+
+  #
+  # Defined Like method for use in a lookup
+  #
+  def self.lookup(name)
+    self.find(:first,    :conditions=>['name = ? ',name])
+  end
+  
 end

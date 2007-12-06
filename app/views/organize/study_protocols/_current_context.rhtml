@@ -4,7 +4,7 @@
 Ext.onReady(
   function(){
         Ext.form.Field.prototype.msgTarget = 'side';
-        var panel = new Biorails.Protocol.Context( <%=context_definition(parameter_context) %>  );
+        var panel = new Biorails.Protocol.Context( <%=context_definition(parameter_context) %>,<%=@mode||0%>  );
         panel.render("<%=parameter_context.dom_id%>")
   });
 </script>

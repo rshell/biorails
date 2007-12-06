@@ -852,3 +852,29 @@ body.x-body-masked .x-window-plain .x-window-mc{background:#C7D6E9;}
 .x-window-dlg .ext-mb-question{background:transparent url(../images/default/window/icon-question.gif) no-repeat top left;}
 .x-window-dlg .ext-mb-error{background:transparent url(../images/default/window/icon-error.gif) no-repeat top left;}
 
+
+/* fixes grid moving in dialog in IE */
+.x-grid3  { position: static; }
+.x-grid3-hd-inner  { position: static; }
+.x-grid3-scroller  { position: static; }
+.x-grid3-topbar,.x-grid3-bottombar  { position: static; }
+.ext-ie .x-grid3 .x-editor .x-form-text { position: static; }
+/* fixes comboboxes moving in dialog in IE */
+.x-form-field-wrap{
+    position: static;
+}
+
+/* fixes combobox dropdown arrow img alignment in dialog in IE */
+.x-form-field-wrap .x-form-trigger{
+    position: static;
+    vertical-align: bottom;
+}
+
+/* fixes form elements moving fields in dialog in IE */
+.x-form-element {
+    position: static;
+}
+
+.x-form-item label {
+    position: static;
+}
