@@ -25,18 +25,22 @@ class BiorailsController < ApplicationController
           set_user(user)
           set_project(user.projects[0])    
       end
-      return user
+      return user.id.to_s
     end
   #
   # List of of projects for the current user
   # 
+  # @return [Project]
+  # 
     def project_list(session_id)
        user = User.find(session_id)
-       user.projects
+       retrun user.projects
     end
 #
 # List of all project elements in order parent_id,name for 
 # easy creation of a tree structure on client (Hash and fill)
+# 
+# @return [ProjectElement] all project elements sorted in tree order
 #
     def project_element_list(session_id,id)
        items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
@@ -59,6 +63,8 @@ class BiorailsController < ApplicationController
 #
 # List of all project elements in order parent_id,name for 
 # easy creation of a tree structure on client (Hash and fill)
+# 
+#  @return [Element] get a Elements in a folder
 #
     def project_folder_list(session_id,id)
        items = ProjectFolder.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
@@ -79,41 +85,55 @@ class BiorailsController < ApplicationController
     end
 #    
 # List of all studies in a project
+# 
+# @param 
 #
+# @return [Study] array of studies in a project
 #
     def study_list(session_id,project_id)
+       user = User.find(session_id)
        project = Project.find(project_id)
-       project.studies
+       return project.studies
     end
 ##
 # List all the Protocols in a study
+# 
+#  @return [StudyProtocol]  
 #     
-    def protocol_list(session_id,study_id)  
-       logger.warn "study_id is #{study_id.to_s}"
-       StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
+    def study_protocol_list(session_id,study_id)  
+       user = User.find(session_id)
+       protocols = StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
+       return protocols;
     end
 ##
 # List all the processing 
 #    
-    def process_list(session_id,protocol_id)  
-       ProtocolVersion.find(:all,:conditions=>['study_protocol_id=?',protocol_id],:order=>'version desc')
-    end
-##
-#List all parameters in a process
-#
-    def parameter_list(session_id,protocol_id,context_id)  
-      if context_id and context_id >0
-       Parameter.find(:all,:conditions=>['protocol_version_id=? and parameter_context_id=?',
-                      protocol_id,context_id],:order=>'column_no')
-      else
-       Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'column_no')
-      end  
+    def protocol_version_list(session_id,study_protocol_id)  
+       user = User.find(session_id)
+       return ProtocolVersion.find(:all,:conditions=>['study_protocol_id=?',study_protocol_id],:order=>'version desc')
     end
 ##
 #List all parameter contexts in a process
 #
     def parameter_context_list(session_id,protocol_id)  
        ParameterContext.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'id')
+    end
+##
+#List all parameters in a process
+# 
+# @params protocol_version_id
+# @params context_id 0/null for all  
+#
+# @return [Parameters]
+#
+    def parameter_list(session_id,protocol_version_id,parameter_context_id)  
+      user = User.find(session_id)
+      if context_id and context_id >0
+        return Parameter.find(:all,:conditions=>['protocol_version_id=? and parameter_context_id=?',
+                      protocol_version_id,parameter_context_id],:order=>'column_no')
+      else
+        return Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_version_id],:order=>'column_no')
+      end  
     end
 
     def experiment_list(session_id,study_id)  
@@ -133,7 +153,7 @@ class BiorailsController < ApplicationController
     # 
     def task_value_list(session_id,task_id)
        task = Task.find(task_id)
-       task.items.collect do | item |
+       return task.items.collect do | item |
            BiorailsApi::TaskItem.new(
            :id => item.id,
            :task_id => item.task_id,
@@ -156,11 +176,6 @@ class BiorailsController < ApplicationController
       Study.find(id)      
     end
 
-    def get_study_xml(session_id,id)
-      study = Study.find(id)      
-      study.to_xml if study
-    end
-    
     def get_study_protocols(session_id,id)
       StudyProtocol.find(id)      
     end
@@ -177,6 +192,11 @@ class BiorailsController < ApplicationController
       Task.find(id)      
     end
 
+    def get_study_xml(session_id,id)
+      study = Study.find(id)      
+      study.to_xml if study
+    end
+    
     def get_task_xml(session_id,id)
       task = Task.find(id)
       task.to_xml if task      
@@ -184,7 +204,7 @@ class BiorailsController < ApplicationController
 #
 # Get a list of matching choices for a data Element for a client lookup
 #
-    def get_choices(id,matches)
+    def get_choices(session_id,id,matches)
       element =DataElement.find( id )
       choices = element.like(matches)
       return choices.collect{|i|i['name']}
@@ -192,7 +212,7 @@ class BiorailsController < ApplicationController
 #
 # Get a reports out as a soap web services
 #
-    def get_report(id)
+    def get_report(session_id,id)
       @report = Report.find(id)
       @data = @report.run    
       return render_to_string :partial => 'shared/report_printout', :locals=>{:report =>  @report, :data => @data}
@@ -200,22 +220,22 @@ class BiorailsController < ApplicationController
     
     ##
     # Export a task 
-    def task_export(task_id)
+    def task_export(session_id,task_id)
        task = Task.find(task_id)
        task.to_csv if task
     end
 
     ## 
     # Import a task
-    def task_import(user_id,experiment_id,text_data)
-       User.current = User.find(user_id)
+    def task_import(session_id,experiment_id,text_data)
+       User.current = User.find(session_id)
        experiment = Experiment.find(experiment_id)
        experiment.import_task(text_data) if experiment
     end
 
     
-    def add_experiment(user_id,project_id,protocol_id,name,description)
-      User.current = User.find(user_id)
+    def add_experiment(session_id,project_id,protocol_id,name,description)
+      User.current = User.find(session_id)
       Project.current = Project.find(project_id)
       experiment = Experiment.new( :name=>name, :description=>description)
       experiment.project = Project.current
@@ -226,26 +246,35 @@ class BiorailsController < ApplicationController
       return experiment
     end
     
-    def add_task(user_id,experiment_id ,process_id ,task_name )
-      User.current = User.find(user_id)
+    def add_task(session_id,experiment_id ,protocol_version_id ,task_name )
+      User.current = User.find(session_id)
       experiment = Experiment.find(experiment_id)
       task = experiment.new_task
       task.name = task_name
-      task.process = ProtocolVersion.find(process_id)
+      task.process = ProtocolVersion.find(protocol_version_id)
       task.save 
       return task
     end
-    
-    def add_task_context(user_id, task_id, parameter_context_id, values)
-       User.current = User.find(user_id)
+    #
+    # Create a filled results row
+    # 
+    # @params parameter_context_id
+    # @params values in order of column_no
+    #
+    def add_task_context(session_id, task_id, parameter_context_id, values)
+       User.current = User.find(session_id)
        task = Task.find(task_id)
        return nil unless task
-       context = task.new_context(ParameterContext.find(parameter_context_id))
+       
+       definition = ParameterContext.find(parameter_context_id);
+       return nil unless definition.process_id == task.process_id
+       
+       context = task.new_context(definition)
        task_context.save
        return nil unless context
        return nil unless values.size == context.definition.parameters.size
        n = 0
-       for parameter in context.definition.parameters 
+       for parameter in definition.parameters 
            task_item = context.add_task_item(parameter,values[n]) 
            task_item.save
            n +=1
@@ -253,7 +282,7 @@ class BiorailsController < ApplicationController
        return context
     end 
 
-     def get_asset( element_id)
+     def get_asset(session_id, element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.asset_id
        BiorailsApi::Asset.new(
@@ -285,7 +314,7 @@ class BiorailsController < ApplicationController
      end
 
      
-     def get_content( element_id)
+     def get_content( session_id, element_id)
        element = ProjectElement.find(element_id)
        return nil unless element and element.content_id
        BiorailsApi::Content.new(
@@ -312,7 +341,9 @@ class BiorailsController < ApplicationController
              )
      end
 
-
+#
+# get folder as html
+#
 
 
 end

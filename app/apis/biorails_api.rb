@@ -58,131 +58,131 @@ class BiorailsApi < ActionWebService::API::Base
 
     api_method  :login,
                 :expects => [ {:username => :string},{:password =>:string} ],
-                :returns => [User]
+                :returns => [:string]
                 
     api_method  :project_list,
-                :expects => [ {:session_id => :int} ],
+                :expects => [ {:session_id => :string} ],
                 :returns => [[Project]]
  
     api_method  :project_element_list,
-                :expects => [ {:session_id => :int},{:project_id => :int} ],
+                :expects => [ {:session_id => :string},{:project_id => :int} ],
                 :returns => [[Element]]
  
     api_method  :project_folder_list,
-                :expects => [ {:session_id => :int},{:project_id => :int} ],
+                :expects => [ {:session_id => :string},{:project_id => :int} ],
                 :returns => [[Element]]
  
 
     api_method  :experiment_list,
-                :expects => [ {:session_id => :int},{:study_id => :int} ],
+                :expects => [ {:session_id => :string},{:study_id => :int} ],
                 :returns => [[Experiment]]
  
-    api_method  :protocol_list,
-                :expects => [ {:session_id => :int},{:study_id => :int}],
+    api_method  :study_protocol_list,
+                :expects => [ {:session_id => :string},{:study_id => :int}],
                 :returns => [[StudyProtocol]]
 
-    api_method  :process_list,
-                :expects => [ {:session_id => :int},{:protocol_id => :int} ],
+    api_method  :protocol_version_list,
+                :expects => [ {:session_id => :string},{:study_protocol_id => :int} ],
                 :returns => [[ProtocolVersion]]
 
     api_method  :parameter_context_list,
-                :expects => [ {:session_id => :int},{:process_id => :int} ],
+                :expects => [ {:session_id => :string},{:protocol_version_id => :int} ],
                 :returns => [[ParameterContext]]
  
     api_method  :parameter_list,
-                :expects => [ {:session_id => :int},{:process_id => :int},{:context_id => :int} ],
+                :expects => [ {:session_id => :string},{:protocol_version_id => :int},{:parameter_context_id => :int} ],
                 :returns => [[Parameter]]
  
     api_method  :study_list,
-                :expects => [ {:session_id => :int},{:project_id => :int} ],
+                :expects => [ {:session_id => :string},{:project_id => :int} ],
                 :returns => [[Study]]
     
     api_method  :task_list,
-                :expects => [ {:session_id => :int},{:experiment_id => :int} ],
+                :expects => [ {:session_id => :string},{:experiment_id => :int} ],
                 :returns => [[Task]]
 
     api_method  :task_context_list,
-                :expects => [ {:session_id => :int},{:task_id => :int}],
+                :expects => [ {:session_id => :string},{:task_id => :int}],
                 :returns => [[TaskContext]]
 
     api_method  :task_value_list,
-                :expects => [ {:session_id => :int},{:task_id => :int}],
+                :expects => [ {:session_id => :string},{:task_id => :int}],
                 :returns => [[TaskItem]]
 
     api_method :task_export,
-               :expects => [ {:session_id => :int},{:task_id => :int}],
+               :expects => [ {:session_id => :string},{:task_id => :int}],
                :returns => [:string]
 
     api_method :task_import,
-               :expects => [{:session_id => :int},{:experiment_id => :int},{:cvs => :string} ],
+               :expects => [{:session_id => :string},{:experiment_id => :int},{:cvs => :string} ],
                :returns =>  [Task]
 
     api_method :get_project,
-               :expects => [ {:session_id => :int},{:project_id => :int} ],
+               :expects => [ {:session_id => :string},{:project_id => :int} ],
                :returns =>  [Project]
     
     api_method :get_study,
-               :expects => [ {:session_id => :int},{:study_id => :int} ],
+               :expects => [ {:session_id => :string},{:study_id => :int} ],
                :returns =>  [Study]
 
    api_method :get_study_xml,
-               :expects => [ {:session_id => :int},{:study_id => :int} ],
+               :expects => [ {:session_id => :string},{:study_id => :int} ],
                :returns =>  [:string]
 
     api_method :get_study_protocol,
-               :expects => [ {:session_id => :int},{:study_protocol_id => :int} ],
+               :expects => [ {:session_id => :string},{:study_protocol_id => :int} ],
                :returns =>  [StudyProtocol]
 
     api_method :get_protocol_version,
-               :expects => [ {:session_id => :int},{:protocol_version_id => :int} ],
+               :expects => [ {:session_id => :string},{:protocol_version_id => :int} ],
                :returns =>  [ProtocolVersion]
 
     api_method :get_experiment,
-               :expects => [ {:session_id => :int},{:experiment_id => :int} ],
+               :expects => [ {:session_id => :string},{:experiment_id => :int} ],
                :returns =>  [Experiment]
 
     api_method :get_task,
-               :expects => [ {:session_id => :int},{:task_id => :int} ],
+               :expects => [ {:session_id => :string},{:task_id => :int} ],
                :returns =>  [Task]
 
     api_method :get_task_xml,
-               :expects => [ {:session_id => :int},{:task_id => :int} ],
+               :expects => [ {:session_id => :string},{:task_id => :int} ],
                :returns =>  [:string]
 
     api_method :get_asset,
-               :expects => [ {:session_id => :int},{:element_id => :int} ],
+               :expects => [ {:session_id => :string},{:element_id => :int} ],
                :returns =>  [Asset]
 
    api_method :get_choices,
-               :expects => [ {:session_id => :int},{:data_element_id => :int}, {:matches=>:string} ],
+               :expects => [ {:session_id => :string},{:data_element_id => :int}, {:matches=>:string} ],
                :returns =>  [[:string]]             
   
    api_method :get_content,
-               :expects => [ {:session_id => :int},{:element_id => :int} ],
+               :expects => [ {:session_id => :string},{:element_id => :int} ],
                :returns =>  [Content]
 
    api_method :get_report,
-               :expects => [ {:session_id => :int},{:report_id => :int} ],
+               :expects => [ {:session_id => :string},{:report_id => :int} ],
                :returns =>  [:string]
 
   api_method :add_experiment,
-               :expects => [ {:session_id => :int},{:project_id => :int},{:protocol_id => :int},{:name => :string},{:description => :string} ],
+               :expects => [ {:session_id => :string},{:project_id => :int},{:protocol_version_id => :int},{:name => :string},{:description => :string} ],
                :returns => [Experiment]
 
   api_method :add_task,
-               :expects => [ {:session_id => :int},{:experiment_id => :int},{:process_id => :int},{:task_name => :string} ],
+               :expects => [ {:session_id => :string},{:experiment_id => :int},{:protocol_version_id => :int},{:task_name => :string} ],
                :returns => [Task]
     
   api_method :add_task_context,
-               :expects => [ {:session_id => :int},{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
+               :expects => [ {:session_id => :string},{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
                :returns => [TaskContext]
 
     api_method :set_asset,
-               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
+               :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
                :returns =>  [Asset]
 
     api_method :set_content,
-               :expects => [ {:session_id => :int},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
+               :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:name=>:string}, {:html =>:string} ],
                :returns =>  [Content]
          
 end
