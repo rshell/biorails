@@ -68,6 +68,8 @@ GLoc.set_kcode
 GLoc.load_localized_strings
 GLoc.set_config(:raise_string_not_found_errors => false)
 
+ActiveRecord::Base.send(:include, DomId)
+
 # Time.now.to_ordinalized_s :long
 # => "February 28th, 2006 21:10"
 module ActiveSupport::CoreExtensions::Time::Conversions
