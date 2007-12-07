@@ -8,12 +8,12 @@
   <br/><%= f.text_area :fullname %>
 </p>
 <p>
-  <%= f.label_for  :login %>
+  <label for="login">Login</label>
   <br/><%= f.text_field :login %>
 </p>
 
 <p>
-  <%= f.label_for      :password %>
+  <label for="Password">Password</label>
   <br/><%= f.password_field :password %>
 </p>
 
@@ -28,13 +28,13 @@
 </p>
 <% end%>
     <p>
-      <%= f.label_for  'Adminstrator Rights [Full System Liability]' %><br/>
       <%= f.check_box :admin %>
+      <label for="Adminstrator Rights [Full System Liability]">Adminstrator Rights [Full System Liability]</label>
     </p>
 
     <p>
-      <%= f.label_for  'User is disabled from logging in' %><br/>
       <%= f.check_box :is_disabled %>
+      <label for="User is disabled from logging in">User is disabled from logging in</label>
     </p>
     
     <p>
