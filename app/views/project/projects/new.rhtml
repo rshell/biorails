@@ -4,17 +4,16 @@
 
 <% content_for :center do -%>
 
-<h2><%=subject_icon('model/project.png')%> New Project </h2>
-Create a new project for organization and execution of a block of work
+<%dialog subject_icon('model/project.png')+'New Project'  do %>
+  Create a new project for organization and execution of a block of work
 
-
-    <% form_tag :action => 'create' do %>
+  <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
         <%= submit_tag "Save" %>
-        <%= link_to 'Cancel', home_url %>
     </div>
     <% end %>
+  <% end %>
 <% end %>
 
 

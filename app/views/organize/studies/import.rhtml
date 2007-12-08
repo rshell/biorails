@@ -3,16 +3,13 @@
 <%end %>
 
 <%content_for :center do%>
-<h2>
-        <%= subject_icon('study.png')%> Import Study Design into Project [<strong><%=current_project.name%></strong>]
-</h2> 
-<div class='panel'>
+<% dialog subject_icon('study.png')+'Import Study Design into Project [<strong>#{current_project.name}</strong>]' do %>
    <%form_tag({:action =>'import_file', :id=> current_project.id} , {:multipart => true}) do %>
    <div class="row">
      <div class="form-element">
        <label for="study_name">Study design file to import :-        
        </label>
-          <%=file_field_tag(:file) %>  
+          <%=file_field_tag(:file,:size=>80) %>  
      </div>        
    </div>        
   <div class="row">
@@ -23,19 +20,27 @@
     </div>
    </div>        
   <div class="row">
+       <p>
         The options for importing the study :-
-        <ol>
+       </p>
+        <br />
+       <p>
+        <ul>
         <li>  <%= check_box_tag 'study_queue', 'study_queue',        checked =true %>Create Queues </li>
         <li>  <%= check_box_tag 'study_protocol', 'study_protocol',  checked =true %>Create Protocols</li>
-        </ol>
+        </ul>
+      </p>
+        <br />
+      <p>
         In a number of cases if protocols have references to queue both will need to be included for the import to succeed.
         Also with larger studies the import process may take 10-30 seconds to complete as it applies all the same validation
         rules as manually created study.
+      </p>
         <br />
         <%= submit_tag("Import")%>
         <% end %>
     </div> 
-   </div>        
+ <% end%>
 <% end%>
 
 <% content_for :right do%>

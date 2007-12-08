@@ -1,24 +1,39 @@
 
 <!--[form:study_queue]-->
+ <div class="row">
+    <div class="form-element">
+        <label for="study_queue_name">Name</label>
+        <%= text_field 'study_queue', 'name' , {:size => 40,:class=>"text-input"} %>
+    </div>
+ </div>
+
+ <div class="row">
+    <div class="form-element">
+        <label for="study_queue_description">Description:</label>
+        <%= text_area('study_queue', 'description',{:rows=>5, :cols=>80} ) %>
+    </div>
+ </div>
+
+ <div class="row">
+    <div class="form-element">
+        <label for="study_parameter_id">Accepts Items of Type :</label>
+        <%= collection_select(:study_queue, :study_parameter_id, @study.parameters_for_data_type(5), :id, :name) %>
+    </div>
+    <div class="form-element">
+        <label for="study_queue_assigned_to">Assigned to:</label>
+        <%= select_named 'study_queue', 'assigned_to_user_id', User  %>
+    </div>
+    <div class="form-element">
+        <label for="study_protocol_stage_id">Stage:</label>
+         <%= collection_select('study_queue', 'study_stage_id', @study.stages, :id, :name) %>
+    </div>
+ </div>
 <br />
-<label for="study_queue_name">Name</label>
-<br />
-<%= text_field 'study_queue', 'name' , {:size => 16,:class=>"text-input"} %>
-<br />
-<label for="study_parameter_id">Accepts Items of Type :</label>
-<br />
-<%= collection_select(:study_queue, :study_parameter_id, @study.parameters_for_data_type(5), :id, :name) %>
-<br />
-<label for="study_queue_assigned_to">Assigned to</label>
-<br />
-<%= select_named 'study_queue', 'assigned_to_user_id', User  %>
-<br />
-<label for="study_queue_description">Description</label>
-<%= text_area('study_queue', 'description',{:rows=>5, :cols=>100} ) %>
-<br />
-<label for="study_protocol_stage_id">Stage</label>
-<br />
- <%= collection_select('study_queue', 'study_stage_id', @study.stages, :id, :name) %>
+ <div class="row">
+    <div class="form-element">
+        <%= submit_tag "Save" %>
+    </div>
+ </div>
 <br />
 <!--[eoform:study_queue]-->
 

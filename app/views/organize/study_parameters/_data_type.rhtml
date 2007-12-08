@@ -1,56 +1,48 @@
 
-  <% if @study_parameter.type %>
-  <div class="row" id="<%=@study_parameter.dom_id('data_type')%>" >
-    <div class="form-element">
-          <label for="study_parameter_data_type_id">Data_Type</label>
-          <%= select_named( :study_parameter, :data_type_id ,DataType) %>
-          
-          <%= observe_field 'study_parameter_data_type_id',
-              :url => {:action=>'refresh_formats', 
-                       :id =>@study_parameter.id, 
-                       :parameter_type_id => @study_parameter.parameter_type.id },
-                       :with=>'data_type_id' %>
-    </div>
-
-    <div class="form-element" id="<%=@study_parameter.dom_id('format')%>">
-          <%= render :partial => 'formats' %>
-    </div>
+<div id= "<%=@study_parameter.dom_id('data_type')%>" >
+  <div class="row" >
 
     <div class="form-element">
       <label for="study_name">Name</label>
-      <%= text_field :study_parameter, :name , {:size =>10, :class=>"text-input"} %>
+      <%= text_field :study_parameter, :name , {:size =>30, :class=>"text-input"} %>
     </div>
 
     <div class="form-element">
       <label for="study_default_value">Default Value</label>
-      <%= text_field :study_parameter, :default_value , {:size =>10,:class=>"text-input"} %>
-    </div>
-
-    <div class="form-element">
-      <label for="study_default_value">Default Unit (<%=@study_parameter.parameter_type.storage_unit%>) </label>
-	  <%if @study_parameter.custom? %>
-        <%= text_field( :study_parameter, :display_unit, {:size =>10, :class=>"text-input"})  %>
-	  <%else%>
-        <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
-	  <%end%>
+      <%= text_field :study_parameter, :default_value , {:size =>40,:class=>"text-input"} %>
     </div>
   </div>
-  <br />
-  <br />
-  <br />
-    <div class='row'>
-        <div class="form-element">
-             <%= submit_tag 'Save' %>
-        </div>
-    </div>
-    
- <% else %>
+  <div class="row">
+   <div class="form-element">
+     <label for="study_parameter_description">Description</label>
+     <%= text_area(:study_parameter, 'description',{:rows=>3, :cols=>80})  %>
+   </div>
+  </div>
+
   <div class="row" id="<%=@study_parameter.dom_id('data_type')%>" >
+    <div class="form-element">
+          <label for="study_parameter_data_type_id">Data_Type</label>
+          <%= select_named( :study_parameter, :data_type_id ,DataType) %>
+    </div>
+
+    <div id="<%=@study_parameter.dom_id('format')%>">
+          <%= render :partial => 'formats' %>
+    </div>
+  </div>
+  <div class="row">
+   <br />
    <p>
     Please select the parameter type this usages is derived from. A Study parameter is a aliased version of a centrally managed 
     parameter type with a given parameter role. 
    </p>   
- </div>
- <% end %>
- 
 
+  </div>
+</div>
+
+
+ 
+<%= observe_field 'study_parameter_data_type_id',
+    :url => {:action=>'refresh_formats', 
+             :id =>@study_parameter.id, 
+             :parameter_type_id => @study_parameter.parameter_type_id },
+             :with=>'data_type_id' %>

@@ -15,7 +15,6 @@
 <% content_for :center do -%>
  <% dialog 'New Report Definition' do %>
   <% form_tag :action => 'create' do %> 
-    <fieldset>
      <%= hidden_field :report,:style %>
      <%= hidden_field :report,:project_id %>
       <div class="row">
@@ -33,17 +32,14 @@
       <div class="row" >
         <div class="form-element" >
             <label for="report_description">Description</label>
-            <span width=100%>
-                 <%= text_area('report', 'description',{:rows=>5, :cols=>100} )%>
-            </span>
+            <%= text_area('report', 'description',{:rows=>3, :cols=>80} )%>
         </div>
-      </div>
+       </div>
     <div class="row" >
        <div class="form-element" >
         <%= submit_tag 'Create' %>
         </div>
     </div>
-    </fieldset>
    <% end %> 
  <% end %> 
 <%end%>

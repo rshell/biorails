@@ -1,7 +1,29 @@
 <% if @study_parameter.data_type_id == 5 %>
-      <label for="parameter_type_data_element">Lookup From</label>
+  
+   <div class="form-element" >
+      <label for="parameter_type_data_element">Lookup From
+      </label>
       <%= select_data_element( :study_parameter, :data_element_id, @study_parameter.type.data_concept) %>
+   </div>
+
 <% else %>
-      <label for="study_default_value">Entry Format </label>
+  
+   <div class="form-element" >
+      <label for="study_default_value">Entry Format 
+      </label>
       <%= select_data_format( :study_parameter, :data_format_id ,@study_parameter.data_type)%>
+   </div>
+   <% if @study_parameter.parameter_type && @study_parameter.data_type_id == 2%>
+     <div class="form-element">
+        <label for="study_default_value">Default Unit (<%=@study_parameter.parameter_type.storage_unit%>) 
+        </label>
+        <%if @study_parameter.custom? %>
+          <%= text_field( :study_parameter, :display_unit, {:size =>10, :class=>"text-input"})  %>
+        <%else%>
+          <%= select( :study_parameter, :display_unit, @study_parameter.units )  %>
+        <%end%>
+    </div>
+  <% end %>
+
 <% end %>
+

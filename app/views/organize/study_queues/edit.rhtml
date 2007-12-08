@@ -21,9 +21,6 @@
 <% dialog subject_icon('services')+"New Service in #{@study.name}" do %>
         <% form_tag :action => 'update', :id => @study_queue do %>
         <%= render :partial => 'form' %>
-<br />
-                <%= submit_tag 'Save' %>
-<br />
         <% end %>
   <% end %>
 

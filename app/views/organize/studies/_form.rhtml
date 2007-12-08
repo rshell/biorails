@@ -7,8 +7,10 @@
    </div>
    
   <div class="row">
-     <label for="study_description">Description</label><br />
+   <div class="form-element">
+     <label for="study_description">Description</label>
      <%= text_area('study', 'description', {:rows=>5,:cols=>100})  %>
+  </div>
   </div>
   
   <div class="row">
@@ -19,8 +21,10 @@
   </div>
 
   <div class="row">
-     <label for="study_purpose">Purpose</label><br />
+   <div class="form-element">
+     <label for="study_purpose">Purpose</label>
      <%= text_area 'study', 'purpose' , {:rows=>3,:cols=>100} %>
+  </div>
   </div>
 
 <div class="row">

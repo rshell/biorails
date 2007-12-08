@@ -8,8 +8,12 @@
 %>
  <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>Bio Rails 3.0</title>
+	<title>Bio Rails 3.0 (development)</title>
+<%if browser_is? 'ie'%>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ext-all-ie6.css" />
+ <%else%>
     <link rel="stylesheet" type="text/css" href="/stylesheets/ext-all.css" />
+ <%end%>  
     <link rel="stylesheet" type="text/css" href="/stylesheets/icons.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/biorails3.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/gantt.css" />

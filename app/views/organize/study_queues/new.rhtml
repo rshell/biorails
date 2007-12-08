@@ -2,7 +2,7 @@
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
   <%= render :partial =>'/menu/study_menu' , :locals=>{ :study =>  @study} %>
 <div>
-  <span class='menu'>Services </span>
+  <span class='menu'>Service Queue </span>
   <%= link_to subject_icon('new.png') +'New Service',  queue_url( :action => 'new', :id=>@study  ) %>
   <%= link_to subject_icon('list.png') +'List', queue_url( :action => 'list', :id=>@study  ) %>
 </div>
@@ -12,11 +12,25 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['study','study_queue' ]} %>
 <%end%>
 
-<% dialog subject_icon('services')+"New Service in #{@study.name}" do %>
+<% content_for :help do -%>
+  <h2>Service Queues</h2>
+<p>
+ Only Dictionary linked paramaters defined in study can be used as a type for a queue. You will
+not be able to create a queue until a suitable parameter exists. 
+</p>
+<p>
+  At present following types are 
+available:-
+<b>
+  <ul>
+  <%= @study.parameters_for_data_type(5).collect{|i| "<li>#{i.name}</li>"} %>
+  </ul>   
+</b>
+</p>
+<%end%>
+
+<% dialog subject_icon('services')+"New Service Queue in #{@study.name}" do %>
         <% form_tag :action => 'create' do %>
           <%= render :partial => 'form' %>
-<br />
-                <%= submit_tag "Create" %>
-<br />
          <% end %>
  <% end %>

@@ -17,17 +17,21 @@
 	<%=  hidden_field :membership, :project_id %>
 
     <!--[form:membership]-->
-    <p>
-      <label for="membership_owner">User</label>
-       <%= collection_select(:membership, :user_id ,current_project.non_members, :id, :name)  %>
-    </p>
-    <p><label for="membership_owner">Owner</label>
-      <%= check_box    :membership, :is_owner  %>
-    </p>
-    <p><label for="membership_owner">Role</label>
-      <%= select_named :membership, :role_id ,ProjectRole %>
-    </p>
-    
+      <p>
+        <label for="membership_owner">User</label><br/>
+        <%= collection_select(:membership, :user_id ,current_project.non_members, :id, :name)  %>
+      </p>
+      <p>
+        <label for="membership_owner">Role</label><br/>
+        <%= select_named :membership, :role_id ,ProjectRole %>
+      </p>
+
+      <br />
+      <p>
+        <label for="membership_owner">Allow this user to manage the project as a owner ? </label>
+        <%= check_box    :membership, :owner  %>
+      </p>
+      <br />
     <!--[eoform:membership]-->
         
   <%= submit_tag "Create" %>

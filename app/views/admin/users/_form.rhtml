@@ -5,15 +5,17 @@
 
 <p>
   <label for="user_login">Full Name</label>
-  <br/><%= f.text_area :fullname %>
+  <br/><%= f.text_field :fullname, :size=>80 %>
 </p>
+   <label for="user_email">Email address</label>
+   <br/><%= f.text_field :email,:size=>80 %>
 <p>
-  <label for="login">Login</label>
+  <label> Login </label> 
   <br/><%= f.text_field :login %>
 </p>
 
 <p>
-  <label for="Password">Password</label>
+  <label> Password </label> 
   <br/><%= f.password_field :password %>
 </p>
 
@@ -28,17 +30,15 @@
 </p>
 <% end%>
     <p>
+      <label>  Adminstrator Rights [Full System Liability] </label><br/>
       <%= f.check_box :admin %>
-      <label for="Adminstrator Rights [Full System Liability]">Adminstrator Rights [Full System Liability]</label>
     </p>
 
     <p>
+      <label>   User is disabled from logging in</label> <br/>
       <%= f.check_box :is_disabled %>
-      <label for="User is disabled from logging in">User is disabled from logging in</label>
     </p>
     
     <p>
-   <label for="user_email">Email address</label>
-   <br/><%= f.text_field :email,:size=>100 %>
 </p>
 <p><%= submit_tag('Save') %></p>  

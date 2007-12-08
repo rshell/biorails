@@ -8,60 +8,64 @@
 <% dialog subject_icon('model/task.png')+'New Task' do %> 
  <% form_tag :action => 'create' do %>   
 
-    
-     <div class="row">
-          <div class="form-element">
-            <label for="task_name">Task Name</label>
-            <%= text_field 'task', 'name' , {:class=>"text-input"} %>
-        </div>        
 
-        <div class="form-element">
-            <label for="tasks_study_protocol_id">Experiment</label>
-            <%= select_values(:task, :experiment_id, current_project.experiments,:id,[]) %>
-        </div>   
-
-        <div id='protocol_id' class="form-element">
-             <label for="tasks_protocol_version_id">Running Study/Protocol:Version </label>
-             <%= select(:task, :protocol_version_id, @protocol_options) %>
-        </div>        
+ <div class="row">
+      <div class="form-element">
+        <label for="task_name">Task Name</label>
+        <%= text_field 'task', 'name' , {:class=>"text-input"} %>
     </div>        
 
+    <div class="form-element">
+        <label for="tasks_study_protocol_id">Experiment</label>
+        <%= select_values(:task, :experiment_id, current_project.experiments,:id,[]) %>
+    </div>   
+ </div>   
+
+ <div class="row">
+    <div id='protocol_id' class="form-element">
+         <label for="tasks_protocol_version_id">Running Study/Protocol:Version </label>
+         <%= select(:task, :protocol_version_id, @protocol_options) %>
+    </div>        
+</div>        
+
     <div class="row">
+       <div class="form-element">
         <label for="study_description">Description</label>
         <%= text_area('task', 'description', {:rows=>5, :cols=>100} )%>
+      </div>
     </div>
 
-    <div class="row">
-          <div class="form-element">
-            <label for="task_assigned_to">Assigned to</label>
-            <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
-        </div>
-    
-        <div class="form-element">
-            <label for="task_expected_hours">Expected hours</label>
-            <%= text_field 'task', 'expected_hours', 'size' => 6  %>
-        </div>   
+  <div class="row">
+       <div class="form-element">
+          <label for="task_assigned_to">Assigned to</label>
+          <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
+      </div>
 
-        <div class="form-element">
-            <label for="task_done_hours">Done hours</label> 
-            <%= text_field 'task', 'done_hours', 'size' => 6  %>
-        </div>   
+      <div class="form-element">
+          <label for="task_expected_hours">Expected hours</label>
+          <%= text_field 'task', 'expected_hours', 'size' => 6  %>
+      </div>   
 
-        <div class="form-element">
-            <label for="task_status_id">Status</label>
-            <%= select( :task, :status_id, @task.allowed_status_list)  %>
-        </div>   
+      <div class="form-element">
+          <label for="task_done_hours">Done hours</label> 
+          <%= text_field 'task', 'done_hours', 'size' => 6  %>
+      </div>   
 
-        <div class="form-element">
-            <label for="task_started_at">Start date</label>
-            <%= date_field 'task', 'started_at'  %>
-        </div>   
+      <div class="form-element">
+          <label for="task_status_id">Status</label>
+          <%= select( :task, :status_id, @task.allowed_status_list)  %>
+      </div>   
 
-        <div class="form-element">
-            <label for="task_ended_at">Expected End date</label>
-            <%= date_field 'task', 'expected_at'  %>
-        </div>
-    </div>
+      <div class="form-element">
+          <label for="task_started_at">Start date</label>
+          <%= date_field 'task', 'started_at'  %>
+      </div>   
+
+      <div class="form-element">
+          <label for="task_ended_at">Expected End date</label>
+          <%= date_field 'task', 'expected_at'  %>
+      </div>
+  </div>
 
     <div class="row">
       <%= submit_tag "Create" %>

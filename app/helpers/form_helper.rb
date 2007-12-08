@@ -187,7 +187,8 @@ HTML
               new Biorails.SelectField({
                            transform: '#{object}_#{method}',
                            root_class: '#{root.class}',
-                           root_id: '#{root.id}'
+                           width: 450,
+                           root_id: '#{(root ? root.id : 'nil') }'
                         }); 
     } );
   </script> 
@@ -285,7 +286,7 @@ HTML
 <<HTML
   #{collection_select(object, method ,protocols, :id, :name) }
   <script type="text/javascript">
-    Ext.onReady( function(){ new Biorails.SelectField{
+    Ext.onReady( function(){ new Biorails.SelectField({
                            applyTo: '#{object}_#{method}',
                            id: '#{object}_#{method}'       });
     } );
