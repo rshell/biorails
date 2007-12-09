@@ -53,7 +53,17 @@ h4 {
     font-weight: normal; 
     border-bottom: dotted 1px #c0c0c0;
 }
- 
+
+a {
+    color: #15428B;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
 .panel {
   background-color: #FFFFF0;
   border: 1px solid #c0c0c0;
@@ -125,7 +135,7 @@ img.calendar-trigger {
 div.tooltip:hover span.tip{
     display:block;
     position:absolute;
-    top:12px; left:24px; width:270px;
+    top:24px; left:24px; width:270px;
     border:1px solid #555;
     background-color:#fff;
     padding: 4px;
@@ -166,7 +176,7 @@ div.sidemenu div  a {
     padding: 1px 5px;
     background: white;
     display: block;
-    color: #0000ee;
+/*    color:orange;*/
     z-index: 10; 
     background-color: white;
 }
