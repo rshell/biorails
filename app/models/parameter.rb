@@ -93,6 +93,9 @@ class Parameter < ActiveRecord::Base
     self.protocol.study if self.protocol
   end
   
+  def set(field, value = nil)
+    eval(" self.#{field} = value")
+  end
 ##
 # Template the parameter
   def description

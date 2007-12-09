@@ -6,42 +6,44 @@
 <%= hidden_field 'protocol_version', 'study_protocol_id' %>
 <%= hidden_field 'protocol_version', 'version'  %>
 
-<div class="row">
-    <div class="form-element">
-    <label for="study_protocol_stage_id">Stage of <%=@study_protocol.study.name%></label>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="study_protocol_stage_id">Stage of <%=@study_protocol.study.name%></label>
+    <div class="x-form-element">
      <%= collection_select('study_protocol', 'study_stage_id', @study_protocol.study.stages, :id, :name) %>
     </div>
-   
-    <div class="form-element">
-      <label for="process_definition_name">Protocol Name</label>
+</div>
+  
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_name">Protocol Name</label>
+    <div class="x-form-element">
       <%= text_field 'study_protocol', 'name' , {:class=>"text-input"} %>
     </div>
-
 </div>
     
-<div class="row">
-    <div class="form-element" >
-      <label for="process_definition_description">Description</label>
-            <%= text_area( 'study_protocol', 'description',{:rows=>5, :cols=>100}	)
-            %>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_description">Description</label>
+    <div class="x-form-element" >
+       <%= text_area( 'study_protocol', 'description',{:rows=>5, :cols=>100}	)  %>
     </div>
 </div>
     
-<div class="row">
-    <div class="form-element">
-      <label for="process_definition_protocol_catagory">Protocol category</label>
+<div class="x-form-item">
+    <label  class="x-form-item-label" for="process_definition_protocol_catagory">Protocol category</label>
+    <div class="x-form-element">
       <%= select_values 'study_protocol', 'protocol_catagory'  ,'ProtocolCatagory',:name %>
     </div>
+</div>
+<div class="x-form-item">
 
-    <div class="form-element">
-      <label for="process_definition_protocol_status">Protocol status</label>
+    <label  class="x-form-item-label" for="process_definition_protocol_status">Protocol status</label>
+    <div class="x-form-element">
       <%= select_values 'study_protocol', 'protocol_status'  ,'ProtocolStatus',:name %>
     </div>
 </div>
 
-<div class="row">
-    <div class="form-element">
-      <label for="process_definition_literature_ref">Literature ref</label>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_literature_ref">Literature ref</label>
+    <div class="x-form-element">
       <%= text_area 'study_protocol', 'literature_ref' , {:rows=>5, :cols=>100} %>
     </div>
 </div>

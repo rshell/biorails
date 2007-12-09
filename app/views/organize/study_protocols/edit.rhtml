@@ -5,14 +5,8 @@
   <%= render :partial =>'/menu/process_menu' ,    :locals=>{ :process => @protocol_version} %>
 <% end -%>
 
-
-   <h2>
-        <%=subject_icon('model/protocol.png')%> Configuring Process [<strong><%=@protocol_version.path%></strong>] 
-        in Study [<%=link_to "#{@study.name}", :controller=>'studies', :action =>'show',:id =>@study.id %>]
-    </h2> 
-        
-<div class='panel'>
-    <div id='process_overview'>      
-        <%= render :partial => 'process_overview' %>
-    </div>
-</div>    
+<% dialog subject_icon('model/protocol.png')+"Configuring Process [<strong>#{@protocol_version.path}</strong>]" do %>
+  <div id='process_overview'>      
+    <%= render :partial =>'process_overview'%>
+  </div>
+<%end%>

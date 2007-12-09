@@ -228,20 +228,7 @@ class Organize::StudyProtocolsController < ApplicationController
   def update_context
    ProtocolVersion.transaction do
       @parameter_context = ParameterContext.find(params[:id])         
-      if  @parameter_context.update_attributes(params[:parameter_context]) 
-        if params[:cell] and !params[:cell].empty?     
-          for row in params[:cell]         
-             @parameter = Parameter.find(row[0])
-             @parameter.name =  row[1]['name']
-             @parameter.default_value = row[1]['default_value']
-             @parameter.mandatory = row[1]['mandatory']
-             unless @parameter.save
-               logger.error flash[:warning] = "#{flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
-               break
-             end
-          end
-        end
-      else   
+      unless  @parameter_context.update_attributes({:label =>params[:label],:default_count=>params[:default_count]}) 
         flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
       end
    end
@@ -251,13 +238,15 @@ class Organize::StudyProtocolsController < ApplicationController
        format.js   { render :update do | page |
           page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
                     :locals => {:parameter_context => @parameter_context, :hidden => false }
+          @parameter_context.children.each do |context| 
+            page.replace_html context.dom_id, :partial => 'current_context', 
+                    :locals => {:parameter_context => context, :hidden => false }
+          end          
           page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
-          page.visual_effect :SlideDown, @parameter_context.dom_id('detail')
          end 
        }
     end
- end
-
+  end
 ##
 # Create a new basic process context
 # 
@@ -359,7 +348,31 @@ class Organize::StudyProtocolsController < ApplicationController
          end }
     end
  end
-   
+##
+# Update a parameter in a context with a new name or other value
+#  
+  def update_parameter
+    @mode = params[:mode] || 1
+   ProtocolVersion.transaction do
+      @parameter = Parameter.find(params[:id])
+      @parameter_context =  @parameter.context      
+      @parameter.set(params[:field],params[:value])
+      unless @parameter.save
+        logger.error flash[:warning] = "#{flash[:warning]}\n Parameter [#{@parameter.name}] not updated in context [#{@parameter_context.path}] "
+      end
+   end
+   respond_to do | format |
+       format.html { render :action => 'layout'}
+       format.xml  { render :xml =>  @protocol_version.to_xml(:include=>[:protocol])}
+       format.js   { render :update do | page |
+           
+          page.replace_html @parameter_context.dom_id, :partial => 'current_context', 
+                    :locals => {:parameter_context => @parameter_context, :hidden => false }
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['protocol_version','parameter_context','parameter'] }
+         end 
+       }
+    end
+ end     
 ##
 # Change the Role of a parameter in the protocol. Afraid with drag and drop
 # its easy to drop things in the wrong place so a simple recovery is needed. 

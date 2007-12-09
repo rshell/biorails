@@ -1,9 +1,9 @@
- <%= form_tag  protocol_url(:action => 'update', :id => @study_protocol.id, :version => @protocol_version.id) %>
-  <div class='dialog'>
+ <% form_tag  protocol_url(:action => 'update', :id => @study_protocol.id, :version => @protocol_version.id),{:class=>'x-form'} do %>
+  <div class="x-panel-body">
     <%= render :partial => 'form' %>
 
     <div class='row'>
       <%= submit_tag 'Save' %>
     </div>
  </div>
-<%= end_form_tag %>
+<% end %>

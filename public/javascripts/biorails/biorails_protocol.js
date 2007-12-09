@@ -25,7 +25,74 @@ return {
         } 
    
    },
- /**
+   editContext: function(config){       
+     try{ 
+            var  form = new Ext.FormPanel({
+                labelWidth: 75,
+                frame: true,
+                autoHeight: true,
+                url: '/protocols/update_context/'+config.id,
+                bodyStyle:'padding:5px 5px 0',
+                defaults: {width: 200},
+                defaultType: 'textfield',
+                items : [{
+                        fieldLabel: 'Context',
+                        name: 'parameter_context_id',
+                        xtype: 'hidden',
+                        value: config.id,
+                        allowBlank:false
+                    },{
+                        fieldLabel: 'Label',
+                        name: 'label',
+                        value: config.label,
+                        allowBlank:false
+                    },{
+                        fieldLabel: 'Default Count',
+                        xtype: 'numberfield',
+                        value: config.default_count,
+                        minValue: 1,
+                        maxValue: 100,
+                        allowBlank:false,
+                        name: 'default_count'
+                    }]
+                });
+                
+            var win = new Ext.Window({
+                layout:'fit',
+                width: 350,
+                height:150,
+                url: '/protocols/update_context/'+config.id,
+                modal: true,
+                plain: true,                
+                items: form,
+                buttons: [{
+                    text:'Update',
+                    handler: function(item){ 
+                      if(form.getForm().isValid() ){
+                         win.hide(); 
+                         form.getForm().submit({
+                           url: form.url
+                         });
+
+                     } else { 
+                        Ext.Msg.alert('Warning', 'Entered Data is not valid');	
+                     }                
+                    }
+                },{
+                    text: 'Cancel',
+                    handler: function(){
+                        win.close(); 
+                    }
+                }]
+            });
+            win.show(this);
+            //win.render(document.body); 
+        } catch (e) {
+              console.log('Problem cant handle add context ');
+              console.log(e);
+        } 
+   
+   }, /**
   * Remove a context from the treee
   */
    removeContext: function(context_id){
@@ -95,6 +162,12 @@ return {
    }   
  }  
 }();
+Ext.namespace("Biorails.Protocol.ContextDialog");
+
+Biorails.Protocol.ContextDialog =  function(config){
+    };
+    
+    
 //----------------------------------------  Biorails Conceptural Tree ---------------------------------------------
 Ext.namespace("Biorails.Protocol.ParameterTree");
 
@@ -334,8 +407,8 @@ Biorails.Protocol.ContextForm = function(config) {
   * Generate Field definition from configuration
   */
   function getFields() {
-      var fields =[];
-      var i = 0;
+      var fields =[new Ext.form.Hidden({fieldLabel: 'Context Id:',value: config.id,name: 'parameter_context_id'})];
+      var i = 1;
       config.parameters.each( function(item){
         switch(item.data_type_id)
            {
@@ -447,6 +520,7 @@ Biorails.Protocol.ContextEditor = function(config) {
   function renderId(val){
       return '<img alt="remove" src="/images/action/cancel.png"/>';
    };
+
 /**
  * Handler for a cell click to call delete row if 1st column clicked
  */
@@ -456,7 +530,37 @@ Biorails.Protocol.ContextEditor = function(config) {
        Biorails.Protocol.removeParameter(record.data.id,1)
     }
   };    
-  
+
+/**
+ * Function for updating database
+ * @param {Object} event
+ */
+  function saveCell(event) {
+        if (event.value instanceof Date)            
+        {   
+           var fieldValue = event.value.format('Y-m-d H:i:s');
+        } else
+        {
+           var fieldValue = event.value;
+        }	
+        Ext.Ajax.request( {  
+              waitMsg: 'Saving changes...',
+                url: '/protocols/update_parameter/'+ event.record.data.id ,
+                method: 'POST',
+                params: { 
+                    field: event.field,
+                    value: event.value                                                                                                                             //when the response comes back from the server can we make an undo array?                         
+                },
+                failure: function(response, options){
+                    Ext.MessageBox.alert('Warning','Failed to update report...');
+                    store.rejectChanges();
+                },                                     
+                success: function(response, options){
+                    store.commitChanges();
+                }                                   
+             }
+        ); 
+    };  
 /**
  * Setup Context Ajax data loader
  */
@@ -541,7 +645,8 @@ Biorails.Protocol.ContextEditor = function(config) {
     store.load();
     
     this.on('cellclick', cellClicked);
-    this.on('render',    function(grid){ grid.enableDD();  });
+    this.addListener('afteredit', saveCell);
+    this.on('render',  function(grid){ grid.enableDD();  });
 }
 
 Ext.extend(Biorails.Protocol.ContextEditor,Ext.grid.EditorGridPanel,{
@@ -590,7 +695,8 @@ Ext.extend(Biorails.Protocol.ContextEditor,Ext.grid.EditorGridPanel,{
  *
  */
 Biorails.Protocol.Context = function(config,mode) {  
-   var preview_panel= (config.parent_id == null ? new Biorails.Protocol.ContextForm(config) : new Biorails.Protocol.ContextTable(config) );
+   var context = config; 
+   var preview_panel= (config.default_count == 1 ? new Biorails.Protocol.ContextForm(config) : new Biorails.Protocol.ContextTable(config) );
 
    var editor_panel= new Biorails.Protocol.ContextEditor(config);
 
@@ -615,14 +721,24 @@ Biorails.Protocol.Context = function(config,mode) {
        preview_panel.hide();
        editor_panel.show();
    };  
-
+ /**
+  * Event Handler to show editor
+  */
+  function  edit(){
+      Biorails.Protocol.editContext(context);
+   }; 
 /** 
  * Build Panel with top/bottom panel functions set
  */
   Biorails.Protocol.Context.superclass.constructor.call(this,{
         layout:"card",
         context: config,
-        tbar: ['Context ['+config.path+"] ","Count:",sizeField,'->',{
+        tbar: [{
+                    text: 'Context ['+config.path+'] expected '+config.default_count+' rows',
+                    handler: function(panel){
+                        edit();
+                    }
+                },'->',{
                     text:'Preview',
                     tooltip:'Show as a table',
                     href: '/content/new/'+config.folder_id,                              
