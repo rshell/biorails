@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TreatmentItemTest < Test::Unit::TestCase
-  fixtures :treatment_items
+    ## Biorails::Dba.import_model :treatment_items
 
   # Replace this with your real tests.
   def test_truth

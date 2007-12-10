@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ProjectFolderTest < Test::Unit::TestCase
-  fixtures :projects
-  fixtures :users
-  fixtures :project_elements
+  ## Biorails::Dba.import_model :projects
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :project_elements
 
   def assert_ok(object)
      assert_not_nil object, ' Object is missing'

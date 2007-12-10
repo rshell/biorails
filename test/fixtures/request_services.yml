@@ -1,26 +1,362 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: request_services
-#
-#  id                   :integer(11)   not null, primary key
-#  request_id           :integer(11)   not null
-#  service_id           :integer(11)   not null
-#  name                 :string(128)   default(), not null
-#  description          :text          
-#  expected_at          :datetime      
-#  started_at           :datetime      
-#  ended_at             :datetime      
-#  lock_version         :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  status_id            :integer(11)   default(0), not null
-#  priority_id          :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  requested_by_user_id :integer(11)   default(1)
-#  assigned_to_user_id  :integer(11)   default(1)
-#
-
---- {}
-
+--- 
+00000000007_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-3-1
+    updated_at: 2007-07-06 08:47:51
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "1"
+    lock_version: "2"
+    expected_at: 2007-06-28 00:00:00
+    request_id: "3"
+    service_id: "1"
+    id: "7"
+    assigned_to_user_id: "3"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "0"
+    created_at: 2007-07-06 06:45:23
+    started_at: 
+00000000012_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: MPB-001-6
+    updated_at: 2007-09-17 09:24:05
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "0"
+    lock_version: "7"
+    expected_at: 2007-09-19 00:00:00
+    request_id: "6"
+    service_id: "6"
+    id: "12"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-12 15:20:26
+    started_at: 2007-09-12 16:19:36
+00000000020_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: MBP-002-6
+    updated_at: 2007-10-12 11:42:14
+    ended_at: 
+    updated_by_user_id: "3"
+    priority_id: "1"
+    lock_version: "4"
+    expected_at: 2007-10-13 00:00:00
+    request_id: "9"
+    service_id: "6"
+    id: "20"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-19 10:17:34
+    started_at: 2007-09-13 13:21:44
+00000000002_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-1-2
+    updated_at: 2007-06-09 08:31:39
+    ended_at: 
+    updated_by_user_id: "3"
+    priority_id: "0"
+    lock_version: "4"
+    expected_at: 2007-06-29 00:00:00
+    request_id: "1"
+    service_id: "2"
+    id: "2"
+    assigned_to_user_id: "3"
+    requested_by_user_id: "3"
+    description: 
+    created_by_user_id: "3"
+    status_id: "3"
+    created_at: 2007-06-08 20:02:17
+    started_at: 2007-06-08 21:55:08
+00000000021_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: Req-39-8
+    updated_at: 2007-11-16 14:29:58
+    ended_at: 
+    updated_by_user_id: "3"
+    priority_id: "0"
+    lock_version: "2"
+    expected_at: 2007-11-16 00:00:00
+    request_id: "14"
+    service_id: "8"
+    id: "21"
+    assigned_to_user_id: "10"
+    requested_by_user_id: "3"
+    description: 
+    created_by_user_id: "3"
+    status_id: "0"
+    created_at: 2007-11-16 14:19:33
+    started_at: 2007-11-16 14:17:25
+00000000010_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-5-6
+    updated_at: 2007-09-12 15:21:45
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "2"
+    lock_version: "2"
+    expected_at: 2007-07-16 00:00:00
+    request_id: "5"
+    service_id: "6"
+    id: "10"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "3"
+    description: 
+    created_by_user_id: "3"
+    status_id: "1"
+    created_at: 2007-07-09 10:54:16
+    started_at: 2007-09-12 16:21:44
+00000000015_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: Req-28-8
+    updated_at: 2007-09-12 16:48:07
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "1"
+    lock_version: "5"
+    expected_at: 2007-09-12 00:00:00
+    request_id: "8"
+    service_id: "8"
+    id: "15"
+    assigned_to_user_id: "10"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-12 16:44:09
+    started_at: 2007-09-12 17:44:02
+00000000011_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: MPB-001-7
+    updated_at: 2007-09-17 09:24:05
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "0"
+    lock_version: "7"
+    expected_at: 2007-09-19 00:00:00
+    request_id: "6"
+    service_id: "7"
+    id: "11"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-12 15:19:50
+    started_at: 2007-09-12 16:19:36
+00000000016_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: MBP-002-7
+    updated_at: 2007-12-07 14:37:35
+    ended_at: 
+    updated_by_user_id: "3"
+    priority_id: "1"
+    lock_version: "14"
+    expected_at: 2007-10-13 00:00:00
+    request_id: "9"
+    service_id: "7"
+    id: "16"
+    assigned_to_user_id: "7"
+    requested_by_user_id: "1"
+    description: 
+    created_by_user_id: "4"
+    status_id: "4"
+    created_at: 2007-09-13 12:22:57
+    started_at: 2007-09-13 13:21:44
+00000000001_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-1-1
+    updated_at: 2007-06-08 20:03:33
+    ended_at: 
+    updated_by_user_id: "3"
+    priority_id: "1"
+    lock_version: "1"
+    expected_at: 2007-06-29 00:00:00
+    request_id: "1"
+    service_id: "1"
+    id: "1"
+    assigned_to_user_id: "3"
+    requested_by_user_id: "3"
+    description: 
+    created_by_user_id: "3"
+    status_id: "0"
+    created_at: 2007-06-08 20:02:06
+    started_at: 
+00000000006_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-3-6
+    updated_at: 2007-07-06 08:48:27
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "1"
+    lock_version: "5"
+    expected_at: 2007-06-28 00:00:00
+    request_id: "3"
+    service_id: "6"
+    id: "6"
+    assigned_to_user_id: "6"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "2"
+    created_at: 2007-07-06 06:45:14
+    started_at: 2007-07-06 07:46:50
+00000000018_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: SampleReq-31-9
+    updated_at: 2007-09-19 08:37:08
+    ended_at: 
+    updated_by_user_id: "11"
+    priority_id: "1"
+    lock_version: "3"
+    expected_at: 2007-09-19 00:00:00
+    request_id: "11"
+    service_id: "9"
+    id: "18"
+    assigned_to_user_id: "11"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-19 08:36:34
+    started_at: 2007-09-19 09:32:04
+00000000014_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: Req-27-9
+    updated_at: 2007-09-19 08:37:04
+    ended_at: 2007-09-19 09:37:04
+    updated_by_user_id: "11"
+    priority_id: "1"
+    lock_version: "5"
+    expected_at: 2007-09-12 00:00:00
+    request_id: "7"
+    service_id: "9"
+    id: "14"
+    assigned_to_user_id: "11"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "5"
+    created_at: 2007-09-12 15:32:38
+    started_at: 2007-09-12 16:31:49
+00000000003_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-2-1
+    updated_at: 2007-06-28 17:19:15
+    ended_at: 
+    updated_by_user_id: "1"
+    priority_id: "1"
+    lock_version: "3"
+    expected_at: 2007-07-28 00:00:00
+    request_id: "2"
+    service_id: "1"
+    id: "3"
+    assigned_to_user_id: "3"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-06-28 15:39:05
+    started_at: 
+00000000019_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: MBP-002-4
+    updated_at: 2007-09-19 10:25:12
+    ended_at: 2007-09-19 11:25:05
+    updated_by_user_id: "4"
+    priority_id: "2"
+    lock_version: "8"
+    expected_at: 2007-10-13 00:00:00
+    request_id: "9"
+    service_id: "4"
+    id: "19"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "1"
+    created_at: 2007-09-19 09:46:54
+    started_at: 2007-09-13 13:21:44
+00000000008_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-3-3
+    updated_at: 2007-07-06 08:47:51
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "1"
+    lock_version: "1"
+    expected_at: 2007-06-28 00:00:00
+    request_id: "3"
+    service_id: "3"
+    id: "8"
+    assigned_to_user_id: "3"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "0"
+    created_at: 2007-07-06 08:47:17
+    started_at: 
+00000000004_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-3-4
+    updated_at: 2007-07-09 10:54:51
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "1"
+    lock_version: "4"
+    expected_at: 2007-06-28 00:00:00
+    request_id: "3"
+    service_id: "4"
+    id: "4"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "1"
+    status_id: "1"
+    created_at: 2007-06-28 17:18:23
+    started_at: 2007-07-09 11:54:51
+00000000009_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: RS-5-4
+    updated_at: 2007-09-19 09:44:35
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "2"
+    lock_version: "2"
+    expected_at: 2007-07-16 00:00:00
+    request_id: "5"
+    service_id: "4"
+    id: "9"
+    assigned_to_user_id: "4"
+    requested_by_user_id: "3"
+    description: 
+    created_by_user_id: "3"
+    status_id: "1"
+    created_at: 2007-07-09 10:54:10
+    started_at: 2007-09-19 10:44:35
+00000000017_request_service: !ruby/object:RequestService 
+  attributes: 
+    name: Req-30-8
+    updated_at: 2007-09-17 09:34:04
+    ended_at: 
+    updated_by_user_id: "4"
+    priority_id: "2"
+    lock_version: "2"
+    expected_at: 2007-09-24 00:00:00
+    request_id: "10"
+    service_id: "8"
+    id: "17"
+    assigned_to_user_id: "10"
+    requested_by_user_id: "4"
+    description: 
+    created_by_user_id: "4"
+    status_id: "0"
+    created_at: 2007-09-17 09:33:01
+    started_at: 2007-09-17 10:32:54

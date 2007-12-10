@@ -1,13 +1,13 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class DataElementsTest < Test::Unit::TestCase
-  fixtures :data_contexts
-  fixtures :data_concepts
-  fixtures :data_systems
-  fixtures :data_elements
-  fixtures :data_formats    # Used as ModelElement
-  fixtures :users           # Used as SqlElement
-  fixtures :studies         # Used as test_create_model_element
+  ## Biorails::Dba.import_model :data_contexts
+  ## Biorails::Dba.import_model :data_concepts
+  ## Biorails::Dba.import_model :data_systems
+  ## Biorails::Dba.import_model :data_elements
+  ## Biorails::Dba.import_model :data_formats    # Used as ModelElement
+  ## Biorails::Dba.import_model :users           # Used as SqlElement
+  ## Biorails::Dba.import_model :studies         # Used as test_create_model_element
 
   # Replace this with your real tests.
   def test_truth

@@ -1,126 +1,244 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: projects
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(30)    default(), not null
-#  summary            :text          default(), not null
-#  status_id          :integer(11)   default(0), not null
-#  title              :string(255)   
-#  email              :string(255)   
-#  host               :string(255)   
-#  comment_age        :integer(11)   
-#  timezone           :string(255)   
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  started_at         :datetime      
-#  ended_at           :datetime      
-#  expected_at        :datetime      
-#  done_hours         :float         
-#  expected_hours     :float         
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
+00000000019_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: moose
+    expected_hours: 
+    updated_at: 2007-09-12 10:40:22
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "3"
+    expected_at: 
+    id: "19"
+    summary: moose
+    created_by_user_id: "3"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-12 10:40:21
+    email: 
 00000000001_project: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: global
     expected_hours: 
-    updated_at: 2007-08-24 09:55:23 +01:00
+    updated_at: 0000-00-00 00:00:00
     ended_at: 
     title: Global
     timezone: 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     expected_at: 
-    id: 1
+    id: "1"
     summary: Public Area for open work everyone allowed to see!
-    created_by_user_id: 1
+    created_by_user_id: "1"
     host: 
-    status_id: 0
+    status_id: "0"
     comment_age: 
     started_at: 
-    created_at: 2007-08-24 09:55:23 +01:00
+    created_at: 0000-00-00 00:00:00
+    email: 
+00000000020_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: Locomotion
+    expected_hours: 
+    updated_at: 2007-09-24 11:06:54
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "4"
+    expected_at: 
+    id: "20"
+    summary: Locomotion assays from the US
+    created_by_user_id: "4"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-12 10:49:32
+    email: 
+00000000021_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: Male Pattern Baldness
+    expected_hours: 
+    updated_at: 2007-09-13 07:37:57
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "4"
+    expected_at: 
+    id: "21"
+    summary: |+
+      <strong>Mail pattern baldness project</strong>
+      This project may need to develop its own assays but currently relies on the bank of existing assays made available through  requests.
+      
+    created_by_user_id: "4"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-12 14:44:05
+    email: 
+00000000022_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: Animal Management
+    expected_hours: 
+    updated_at: 2007-09-12 14:52:35
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "4"
+    expected_at: 
+    id: "22"
+    summary: Provision of animals for testing purposes in drug discovery research
+    created_by_user_id: "4"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-12 14:52:34
     email: 
 00000000015_project: !ruby/object:Project 
   attributes: 
     done_hours: 
-    name: Part 11
+    name: Sample Management
     expected_hours: 
-    updated_at: 2007-08-24 12:37:05 +01:00
+    updated_at: 2007-09-12 14:51:25
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: 1
+    updated_by_user_id: "4"
     expected_at: 
-    id: 15
-    summary: Electronic signature notes
-    created_by_user_id: 1
+    id: "15"
+    summary: Sample Management lab
+    created_by_user_id: "1"
     host: 
-    status_id: 0
+    status_id: "0"
     comment_age: 
     started_at: 
-    created_at: 2007-06-29 14:46:23 +01:00
+    created_at: 2007-06-29 14:46:23
     email: 
 00000000016_project: !ruby/object:Project 
   attributes: 
     done_hours: 
-    name: HTS
+    name: High Throughput Screening
     expected_hours: 
-    updated_at: 2007-08-24 12:37:04 +01:00
+    updated_at: 2007-09-12 14:50:17
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: 1
+    updated_by_user_id: "4"
     expected_at: 
-    id: 16
+    id: "16"
     summary: Screening Examples
-    created_by_user_id: 1
+    created_by_user_id: "4"
     host: 
-    status_id: 0
+    status_id: "0"
     comment_age: 
     started_at: 
-    created_at: 2007-07-04 12:49:49 +01:00
+    created_at: 2007-07-04 12:49:49
+    email: 
+00000000017_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: test
+    expected_hours: 
+    updated_at: 2007-08-28 11:46:02
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "2"
+    expected_at: 
+    id: "17"
+    summary: test
+    created_by_user_id: "2"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-08-28 11:46:01
     email: 
 00000000013_project: !ruby/object:Project 
   attributes: 
     done_hours: 
     name: Demo
     expected_hours: 
-    updated_at: 2007-08-24 12:37:04 +01:00
+    updated_at: 2007-06-06 22:06:30
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: 1
+    updated_by_user_id: "3"
     expected_at: 
-    id: 13
+    id: "13"
     summary: This is a demo production for training and playing
-    created_by_user_id: 1
+    created_by_user_id: "3"
     host: 
-    status_id: 0
+    status_id: "0"
     comment_age: 
     started_at: 
-    created_at: 2007-06-06 22:06:30 +01:00
+    created_at: 2007-06-06 22:06:30
     email: 
 00000000014_project: !ruby/object:Project 
   attributes: 
     done_hours: 
-    name: In Vivo
+    name: Behaviour
     expected_hours: 
-    updated_at: 2007-08-24 12:37:05 +01:00
+    updated_at: 2007-09-12 14:50:36
     ended_at: 
     title: 
     timezone: 
-    updated_by_user_id: 1
+    updated_by_user_id: "4"
     expected_at: 
-    id: 14
+    id: "14"
     summary: Example project focused on in vivo studies
-    created_by_user_id: 1
+    created_by_user_id: "1"
     host: 
-    status_id: 0
+    status_id: "0"
     comment_age: 
     started_at: 
-    created_at: 2007-06-28 08:47:07 +01:00
+    created_at: 2007-06-28 08:47:07
+    email: 
+00000000027_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: RAT Project
+    expected_hours: 
+    updated_at: 2007-09-14 15:38:27
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "4"
+    expected_at: 
+    id: "27"
+    summary: A varied study on rat behaviour
+    created_by_user_id: "4"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-14 15:38:26
+    email: 
+00000000018_project: !ruby/object:Project 
+  attributes: 
+    done_hours: 
+    name: Compound Management
+    expected_hours: 
+    updated_at: 2007-09-12 10:32:08
+    ended_at: 
+    title: 
+    timezone: 
+    updated_by_user_id: "11"
+    expected_at: 
+    id: "18"
+    summary: "Provision of compounds to the research groups.  Covers both samples and plates "
+    created_by_user_id: "11"
+    host: 
+    status_id: "0"
+    comment_age: 
+    started_at: 
+    created_at: 2007-09-12 10:32:05
     email: 

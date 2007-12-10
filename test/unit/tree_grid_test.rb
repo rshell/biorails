@@ -1,18 +1,17 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TreeGridTest < Test::Unit::TestCase
-  fixtures :projects
-  fixtures :studies
-  fixtures :study_protocols
-  fixtures :study_parameters
-  fixtures :protocol_versions
-  fixtures :parameters
-  fixtures :experiments
-  fixtures :experiments
-  fixtures :tasks
-  fixtures :task_contexts
-  fixtures :task_values
-  fixtures :task_texts
+  ## Biorails::Dba.import_model Project
+  ## Biorails::Dba.import_model Study
+  ## Biorails::Dba.import_model StudyProtocol
+  ## Biorails::Dba.import_model StudyParameter
+  ## Biorails::Dba.import_model ProtocolVersion
+  ## Biorails::Dba.import_model Parameter
+  ## Biorails::Dba.import_model Experiment
+  ## Biorails::Dba.import_model Task
+  ## Biorails::Dba.import_model TaskContext
+  ## Biorails::Dba.import_model TaskValue
+  ## Biorails::Dba.import_model TaskText
  
 
   # Replace this with your real tests.

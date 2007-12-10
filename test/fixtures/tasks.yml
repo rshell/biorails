@@ -1,30 +1,48 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: tasks
-#
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :text          
-#  experiment_id       :integer(11)   not null
-#  protocol_version_id :integer(11)   not null
-#  status_id           :integer(11)   default(0), not null
-#  is_milestone        :boolean(1)    
-#  priority_id         :integer(11)   
-#  started_at          :datetime      
-#  ended_at            :datetime      
-#  expected_hours      :float         
-#  done_hours          :float         
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  study_protocol_id   :integer(11)   
-#  project_id          :integer(11)   not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
-#  assigned_to_user_id :integer(11)   default(1)
-#  expected_at         :datetime      
-#
-
---- {}
+---
+00000000105_task: !ruby/object:Task
+  attributes: 
+    done_hours: "0"
+    experiment_id: "43"
+    name: Task-87
+    project_id: "20"
+    updated_at: 2007-09-17 09:17:59
+    expected_hours: "1"
+    ended_at: 
+    protocol_version_id: "58"
+    expected_at: 2007-09-18 10:16:03
+    updated_by_user_id: "4"
+    lock_version: "1"
+    priority_id: 
+    study_protocol_id: "19"
+    id: "1"
+    assigned_to_user_id: "4"
+    description: " Task in experiment thawkins-120 "
+    created_by_user_id: "4"
+    status_id: "5"
+    is_milestone: "1"
+    created_at: 2007-09-17 09:16:16
+    started_at: 2007-09-17 10:16:03
+00000000081_task: !ruby/object:Task 
+  attributes: 
+    done_hours: "0"
+    experiment_id: "31"
+    name: xdxdx:2
+    project_id: "13"
+    updated_at: 2007-08-27 14:00:09
+    expected_hours: "1"
+    ended_at:
+    protocol_version_id: "3"
+    expected_at: 2007-08-28 14:00:09
+    updated_by_user_id: "1"
+    lock_version: "0"
+    priority_id:
+    study_protocol_id: "3"
+    id: "2"
+    assigned_to_user_id: "3"
+    description: " Task in experiment rjs-296 "
+    created_by_user_id: "1"
+    status_id: "0"
+    is_milestone:
+    created_at: 2007-08-27 14:00:09
+    started_at: 2007-08-27 14:00:09
 

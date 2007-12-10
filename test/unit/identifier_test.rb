@@ -1,8 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class IdentifierTest < Test::Unit::TestCase
-  fixtures :identifiers
-  fixtures :users
+  ## Biorails::Dba.import_model :identifiers
+  ## Biorails::Dba.import_model :users
 
   # Replace this with your real tests.
   def test_truth

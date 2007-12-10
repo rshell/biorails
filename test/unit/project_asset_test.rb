@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ProjectAssetTest < Test::Unit::TestCase
-  fixtures :project_assets
-  fixtures :project_elements
-  fixtures :projects
+  ## Biorails::Dba.import_model :project_assets
+  ## Biorails::Dba.import_model :project_elements
+  ## Biorails::Dba.import_model :projects
 
   # Replace this with your real tests.
   def test_truth
@@ -29,7 +29,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   
   
   def test_word_asset
-     file = ActionController::TestUploadedFile.new('test/fixtures/files/moose_origami.doc', 'application/word') 
+     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/moose_origami.doc', 'application/word') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
@@ -39,7 +39,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end
 
   def test_pdf_asset
-     file = ActionController::TestUploadedFile.new('test/fixtures/files/Fitting.pdf', 'application/pdf') 
+     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/Fitting.pdf', 'application/pdf') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
@@ -49,7 +49,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end
   
   def test_image_asset
-     file = ActionController::TestUploadedFile.new('test/fixtures/files/rails.png', 'image/png') 
+     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/rails.png', 'image/png') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)

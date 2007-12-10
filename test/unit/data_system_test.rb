@@ -1,8 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class DataSystemsTest < Test::Unit::TestCase
-  fixtures :data_contexts
-  fixtures :data_systems
+  ## Biorails::Dba.import_model :data_contexts
+  ## Biorails::Dba.import_model :data_systems
 
 #  NEW_DATA_SYSTEM = { :name =>"Demo", 
 #                      :description => 'A description',

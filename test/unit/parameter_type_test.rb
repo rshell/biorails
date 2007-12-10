@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ParameterTypeTest < Test::Unit::TestCase
-  fixtures :parameter_types
+  ## Biorails::Dba.import_model :parameter_types
 
 	NEW_PARAMETER_TYPE = {:name => 'Test ParameterType', :description => 'Dummy'}
 	REQ_ATTR_NAMES 			 = %w(name description) # name of fields that must be present, e.g. %(name description)

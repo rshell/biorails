@@ -3,16 +3,18 @@ require File.dirname(__FILE__) + '/../test_helper'
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ScheduleTest < Test::Unit::TestCase
-  fixtures :projects
-  fixtures :memberships
-  fixtures :users
-  fixtures :studies
-  fixtures :study_protocols
-  fixtures :protocol_versions
-  fixtures :parameters
-  fixtures :study_parameters
-  fixtures :experiments
-  fixtures :tasks
+  ## Biorails::Dba.import_model :user_roles
+  ## Biorails::Dba.import_model :project_roles
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :projects
+  ## Biorails::Dba.import_model :memberships
+  ## Biorails::Dba.import_model :studies
+  ## Biorails::Dba.import_model :study_protocols
+  ## Biorails::Dba.import_model :protocol_versions
+  ## Biorails::Dba.import_model :parameters
+  ## Biorails::Dba.import_model :study_parameters
+  ## Biorails::Dba.import_model :experiments
+  ## Biorails::Dba.import_model :tasks
 
   # Replace this with your real tests.
   def test_truth

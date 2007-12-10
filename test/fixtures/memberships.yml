@@ -1,149 +1,485 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: memberships
-#
-#  id                 :integer(11)   not null, primary key
-#  user_id            :integer(11)   default(0), not null
-#  project_id         :integer(11)   default(0), not null
-#  role_id            :integer(11)   default(0), not null
-#  is_owner           :boolean(1)    
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
+00000000075_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-10-05 14:31:03
+    is_owner: "0"
+    project_id: "14"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "75"
+    created_by_user_id: "4"
+    user_id: "13"
+    created_at: 2007-10-05 14:31:03
+00000000005_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 0000-00-00 00:00:00
+    is_owner: "1"
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "5"
+    created_by_user_id: "1"
+    user_id: "6"
+    created_at: 0000-00-00 00:00:00
+00000000074_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-10-05 14:29:34
+    is_owner: "0"
+    project_id: "21"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "74"
+    created_by_user_id: "4"
+    user_id: "13"
+    created_at: 2007-10-05 14:29:34
+00000000070_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:58:54
+    is_owner: "0"
+    project_id: "14"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "70"
+    created_by_user_id: "4"
+    user_id: "6"
+    created_at: 2007-09-21 19:58:54
 00000000004_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 0000-00-00 00:00:00
     is_owner: "1"
-    project_id: 1
-    updated_by_user_id: 1
-    role_id: 3
-    id: 4
-    created_by_user_id: 1
-    user_id: 4
-    created_at: 2007-08-24 12:37:06 +01:00
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "4"
+    created_by_user_id: "1"
+    user_id: "4"
+    created_at: 0000-00-00 00:00:00
+00000000073_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-10-05 14:27:58
+    is_owner: 
+    project_id: "1"
+    updated_by_user_id: "2"
+    role_id: "2"
+    id: "73"
+    created_by_user_id: "2"
+    user_id: "13"
+    created_at: 2007-10-05 14:27:58
+00000000069_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:58:29
+    is_owner: "0"
+    project_id: "21"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "69"
+    created_by_user_id: "4"
+    user_id: "6"
+    created_at: 2007-09-21 19:58:29
+00000000051_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 14:52:35
+    is_owner: "1"
+    project_id: "22"
+    updated_by_user_id: "4"
+    role_id: "1"
+    id: "51"
+    created_by_user_id: "4"
+    user_id: "4"
+    created_at: 2007-09-12 14:52:35
+00000000047_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 10:40:22
+    is_owner: "1"
+    project_id: "19"
+    updated_by_user_id: "3"
+    role_id: "1"
+    id: "47"
+    created_by_user_id: "3"
+    user_id: "3"
+    created_at: 2007-09-12 10:40:22
 00000000039_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-07-04 12:49:49
     is_owner: "1"
-    project_id: 16
-    updated_by_user_id: 1
-    role_id: 1
-    id: 39
-    created_by_user_id: 1
-    user_id: 4
-    created_at: 2007-07-04 12:49:49 +01:00
+    project_id: "16"
+    updated_by_user_id: "4"
+    role_id: "1"
+    id: "39"
+    created_by_user_id: "4"
+    user_id: "4"
+    created_at: 2007-07-04 12:49:49
+00000000028_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-05-30 14:17:29
+    is_owner: "0"
+    project_id: "1"
+    updated_by_user_id: "3"
+    role_id: "2"
+    id: "28"
+    created_by_user_id: "3"
+    user_id: "8"
+    created_at: 2007-05-30 14:17:29
 00000000003_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-28 13:35:23 +01:00
+    updated_at: 0000-00-00 00:00:00
     is_owner: "1"
-    project_id: 1
-    updated_by_user_id: 3
-    role_id: 2
-    id: 3
-    created_by_user_id: 1
-    user_id: 3
-    created_at: 2007-08-24 12:37:05 +01:00
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "3"
+    created_by_user_id: "1"
+    user_id: "3"
+    created_at: 0000-00-00 00:00:00
+00000000072_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:59:30
+    is_owner: "0"
+    project_id: "16"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "72"
+    created_by_user_id: "4"
+    user_id: "12"
+    created_at: 2007-09-21 19:59:30
+00000000068_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:58:19
+    is_owner: "0"
+    project_id: "21"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "68"
+    created_by_user_id: "4"
+    user_id: "12"
+    created_at: 2007-09-21 19:58:19
+00000000050_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 14:51:42
+    is_owner: "1"
+    project_id: "15"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "50"
+    created_by_user_id: "4"
+    user_id: "11"
+    created_at: 2007-09-12 14:51:42
+00000000046_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 10:32:08
+    is_owner: "1"
+    project_id: "18"
+    updated_by_user_id: "11"
+    role_id: "1"
+    id: "46"
+    created_by_user_id: "11"
+    user_id: "11"
+    created_at: 2007-09-12 10:32:08
 00000000002_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:05 +01:00
+    updated_at: 0000-00-00 00:00:00
     is_owner: "1"
-    project_id: 1
-    updated_by_user_id: 1
-    role_id: 3
-    id: 2
-    created_by_user_id: 1
-    user_id: 2
-    created_at: 2007-08-24 12:37:05 +01:00
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "2"
+    created_by_user_id: "1"
+    user_id: "2"
+    created_at: 0000-00-00 00:00:00
+00000000071_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:59:04
+    is_owner: "0"
+    project_id: "14"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "71"
+    created_by_user_id: "4"
+    user_id: "12"
+    created_at: 2007-09-21 19:59:03
+00000000067_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-21 19:56:35
+    is_owner: 
+    project_id: "1"
+    updated_by_user_id: "2"
+    role_id: "2"
+    id: "67"
+    created_by_user_id: "2"
+    user_id: "12"
+    created_at: 2007-09-21 19:56:35
+00000000049_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 14:44:06
+    is_owner: "1"
+    project_id: "21"
+    updated_by_user_id: "4"
+    role_id: "1"
+    id: "49"
+    created_by_user_id: "4"
+    user_id: "4"
+    created_at: 2007-09-12 14:44:06
+00000000045_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 10:25:16
+    is_owner: "1"
+    project_id: "1"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "45"
+    created_by_user_id: "4"
+    user_id: "11"
+    created_at: 2007-09-12 10:25:16
 00000000038_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:05 +01:00
+    updated_at: 2007-06-29 14:46:24
     is_owner: "1"
-    project_id: 15
-    updated_by_user_id: 1
-    role_id: 1
-    id: 38
-    created_by_user_id: 1
-    user_id: 4
-    created_at: 2007-06-29 14:46:24 +01:00
+    project_id: "15"
+    updated_by_user_id: "1"
+    role_id: "1"
+    id: "38"
+    created_by_user_id: "1"
+    user_id: "4"
+    created_at: 2007-06-29 14:46:24
+00000000066_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-14 15:38:27
+    is_owner: "1"
+    project_id: "27"
+    updated_by_user_id: "4"
+    role_id: "1"
+    id: "66"
+    created_by_user_id: "4"
+    user_id: "4"
+    created_at: 2007-09-14 15:38:27
+00000000055_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-13 14:19:41
+    is_owner: "0"
+    project_id: "21"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "55"
+    created_by_user_id: "4"
+    user_id: "3"
+    created_at: 2007-09-13 14:19:41
+00000000048_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 10:49:32
+    is_owner: "1"
+    project_id: "20"
+    updated_by_user_id: "4"
+    role_id: "1"
+    id: "48"
+    created_by_user_id: "4"
+    user_id: "4"
+    created_at: 2007-09-12 10:49:32
+00000000044_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 10:22:44
+    is_owner: "1"
+    project_id: "1"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "44"
+    created_by_user_id: "4"
+    user_id: "10"
+    created_at: 2007-09-12 10:22:44
 00000000037_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:05 +01:00
+    updated_at: 2007-06-28 08:47:08
     is_owner: "1"
-    project_id: 14
-    updated_by_user_id: 1
-    role_id: 1
-    id: 37
-    created_by_user_id: 1
-    user_id: 4
-    created_at: 2007-06-28 08:47:08 +01:00
+    project_id: "14"
+    updated_by_user_id: "1"
+    role_id: "1"
+    id: "37"
+    created_by_user_id: "1"
+    user_id: "4"
+    created_at: 2007-06-28 08:47:08
 00000000033_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-06-11 13:32:52
     is_owner: "0"
-    project_id: 13
-    updated_by_user_id: 1
-    role_id: 5
-    id: 33
-    created_by_user_id: 1
-    user_id: 4
-    created_at: 2007-06-07 22:50:01 +01:00
+    project_id: "13"
+    updated_by_user_id: "3"
+    role_id: "5"
+    id: "33"
+    created_by_user_id: "3"
+    user_id: "4"
+    created_at: 2007-06-07 22:50:01
+00000000054_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-13 13:16:04
+    is_owner: "0"
+    project_id: "16"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "54"
+    created_by_user_id: "4"
+    user_id: "6"
+    created_at: 2007-09-13 13:16:03
+00000000043_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-08-28 11:46:02
+    is_owner: "1"
+    project_id: "17"
+    updated_by_user_id: "2"
+    role_id: "1"
+    id: "43"
+    created_by_user_id: "2"
+    user_id: "2"
+    created_at: 2007-08-28 11:46:02
+00000000036_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-06-11 13:31:57
+    is_owner: "0"
+    project_id: "13"
+    updated_by_user_id: "3"
+    role_id: "2"
+    id: "36"
+    created_by_user_id: "3"
+    user_id: "9"
+    created_at: 2007-06-11 13:31:57
 00000000032_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-06-11 13:33:07
     is_owner: "1"
-    project_id: 13
-    updated_by_user_id: 1
-    role_id: 5
-    id: 32
-    created_by_user_id: 1
-    user_id: 3
-    created_at: 2007-06-06 22:06:30 +01:00
+    project_id: "13"
+    updated_by_user_id: "3"
+    role_id: "5"
+    id: "32"
+    created_by_user_id: "3"
+    user_id: "3"
+    created_at: 2007-06-06 22:06:30
+00000000053_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-13 11:49:18
+    is_owner: "0"
+    project_id: "20"
+    updated_by_user_id: "4"
+    role_id: "2"
+    id: "53"
+    created_by_user_id: "4"
+    user_id: "3"
+    created_at: 2007-09-13 11:49:17
 00000000042_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-07-12 22:05:45
     is_owner: "0"
-    project_id: 15
-    updated_by_user_id: 1
-    role_id: 5
-    id: 42
-    created_by_user_id: 1
-    user_id: 3
-    created_at: 2007-07-12 22:05:45 +01:00
+    project_id: "15"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "42"
+    created_by_user_id: "4"
+    user_id: "3"
+    created_at: 2007-07-12 22:05:45
+00000000035_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-06-11 13:32:15
+    is_owner: "0"
+    project_id: "13"
+    updated_by_user_id: "3"
+    role_id: "5"
+    id: "35"
+    created_by_user_id: "3"
+    user_id: "7"
+    created_at: 2007-06-07 22:50:30
+00000000031_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-06-06 18:16:18
+    is_owner: "0"
+    project_id: "1"
+    updated_by_user_id: "3"
+    role_id: "2"
+    id: "31"
+    created_by_user_id: "3"
+    user_id: "9"
+    created_at: 2007-06-06 18:16:18
+00000000052_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-09-12 14:53:10
+    is_owner: "0"
+    project_id: "22"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "52"
+    created_by_user_id: "4"
+    user_id: "10"
+    created_at: 2007-09-12 14:53:10
 00000000041_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-07-12 22:05:03
     is_owner: "0"
-    project_id: 16
-    updated_by_user_id: 1
-    role_id: 5
-    id: 41
-    created_by_user_id: 1
-    user_id: 3
-    created_at: 2007-07-12 22:05:03 +01:00
+    project_id: "16"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "41"
+    created_by_user_id: "4"
+    user_id: "3"
+    created_at: 2007-07-12 22:05:03
+00000000034_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-06-11 13:32:36
+    is_owner: "0"
+    project_id: "13"
+    updated_by_user_id: "3"
+    role_id: "2"
+    id: "34"
+    created_by_user_id: "3"
+    user_id: "6"
+    created_at: 2007-06-07 22:50:13
+00000000007_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-04-19 20:50:06
+    is_owner: "0"
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "7"
+    created_by_user_id: "1"
+    user_id: "7"
+    created_at: 2007-04-18 15:30:13
 00000000001_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 09:55:24 +01:00
-    is_owner: Y
-    project_id: 1
-    updated_by_user_id: 1
-    role_id: 1
-    id: 1
-    created_by_user_id: 1
-    user_id: 1
-    created_at: 2007-08-24 09:55:24 +01:00
+    updated_at: 0000-00-00 00:00:00
+    is_owner: "0"
+    project_id: "1"
+    updated_by_user_id: "1"
+    role_id: "1"
+    id: "1"
+    created_by_user_id: "1"
+    user_id: "1"
+    created_at: 0000-00-00 00:00:00
+00000000077_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-10-29 16:39:13
+    is_owner: "0"
+    project_id: "14"
+    updated_by_user_id: "3"
+    role_id: "2"
+    id: "77"
+    created_by_user_id: "3"
+    user_id: "9"
+    created_at: 2007-10-29 16:39:13
 00000000040_membership: !ruby/object:Membership 
   attributes: 
-    updated_at: 2007-08-24 12:37:06 +01:00
+    updated_at: 2007-07-12 22:04:22
     is_owner: "0"
-    project_id: 14
-    updated_by_user_id: 1
-    role_id: 5
-    id: 40
-    created_by_user_id: 1
-    user_id: 3
-    created_at: 2007-07-12 22:04:22 +01:00
+    project_id: "14"
+    updated_by_user_id: "4"
+    role_id: "5"
+    id: "40"
+    created_by_user_id: "4"
+    user_id: "3"
+    created_at: 2007-07-12 22:04:22
+00000000076_membership: !ruby/object:Membership 
+  attributes: 
+    updated_at: 2007-10-05 14:31:54
+    is_owner: "0"
+    project_id: "14"
+    updated_by_user_id: "13"
+    role_id: "5"
+    id: "76"
+    created_by_user_id: "13"
+    user_id: "7"
+    created_at: 2007-10-05 14:31:54

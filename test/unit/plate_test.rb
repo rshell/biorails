@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PlateTest < Test::Unit::TestCase
-  fixtures :plates
+  ## Biorails::Dba.import_model :plates
 
   def assert_ok(object)
      assert_not_nil object, ' Object is missing'

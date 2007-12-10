@@ -1,83 +1,63 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: study_parameters
-#
-#  id                 :integer(11)   not null, primary key
-#  parameter_type_id  :integer(11)   
-#  parameter_role_id  :integer(11)   
-#  study_id           :integer(11)   default(1)
-#  name               :string(255)   
-#  default_value      :string(255)   
-#  data_element_id    :integer(11)   
-#  data_type_id       :integer(11)   
-#  data_format_id     :integer(11)   
-#  description        :string(1024)  default(), not null
-#  display_unit       :string(255)   
-#  created_by_user_id :integer(11)   default(1), not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 00000000071_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: QC
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 30
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 71
+    parameter_role_id: "2"
+    parameter_type_id: "30"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "71"
     description: Pass, Fail, Retest
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 116
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "116"
 00000000055_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Charts
     display_unit: <none>
-    default_value: 
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 22
-    updated_by_user_id: 1
-    data_type_id: 7
-    id: 55
+    parameter_role_id: "2"
+    parameter_type_id: "22"
+    updated_by_user_id: "1"
+    data_type_id: "7"
+    id: "55"
     description: Summary
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000056_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Dose
     display_unit: mg/kg
-    default_value: 
-    data_format_id: 27
-    parameter_role_id: 6
-    parameter_type_id: 1
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 56
+    default_value: ""
+    data_format_id: "27"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "56"
     description: Dosage
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000051_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Group Size
     display_unit: <none>
     default_value: "6"
-    data_format_id: 8
-    parameter_role_id: 3
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 51
+    data_format_id: "8"
+    parameter_role_id: "3"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "51"
     description: Group size
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000052_study_parameter: !ruby/object:StudyParameter 
   attributes: 
@@ -85,659 +65,1079 @@
     display_unit: 
     default_value: po
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 20
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 52
+    parameter_role_id: "6"
+    parameter_type_id: "20"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "52"
     description: Route of administration
-    study_id: 5
-    created_by_user_id: 1
-    data_element_id: 52
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: "52"
+00000000112_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Conclusion
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "2"
+    parameter_type_id: "4"
+    updated_by_user_id: "4"
+    data_type_id: "1"
+    id: "112"
+    description: Conclusion
+    study_id: "5"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000111_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Time
+    display_unit: min
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "17"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "111"
+    description: Time of observation
+    study_id: "11"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000091_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Movement
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "91"
+    description: Movement
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000076_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Pos Ctrl
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "3"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "76"
+    description: Positive control
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: "35"
+00000000075_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Compound
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "75"
+    description: Test compound, compound under investigation
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: "35"
 00000000005_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: URL
-    display_unit: 
-    default_value: 
-    data_format_id: 24
-    parameter_role_id: 3
-    parameter_type_id: 11
-    updated_by_user_id: 1
-    data_type_id: 6
-    id: 5
+    display_unit: ""
+    default_value: ""
+    data_format_id: "24"
+    parameter_role_id: "3"
+    parameter_type_id: "11"
+    updated_by_user_id: "1"
+    data_type_id: "6"
+    id: "5"
     description: Url
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000008_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: FromTask
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 7
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 8
+    parameter_role_id: "6"
+    parameter_type_id: "7"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "8"
     description: Source Task for this subject
-    study_id: 1
-    created_by_user_id: 1
-    data_element_id: 33
+    study_id: "1"
+    created_by_user_id: "1"
+    data_element_id: "33"
 00000000009_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Count
     display_unit: count
     default_value: "1"
-    data_format_id: 8
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 9
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "9"
     description: Number of Wells
-    study_id: 2
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
     data_element_id: 
 00000000020_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Enzyme
-    display_unit: 
-    default_value: 
-    data_format_id: 1
-    parameter_role_id: 3
-    parameter_type_id: 13
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 20
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "3"
+    parameter_type_id: "13"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "20"
     description: Enzyme
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000004_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Inhibition
     display_unit: "%"
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 3
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 4
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "3"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "4"
     description: Inhibition
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
+00000000116_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Compound
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "116"
+    description: Compounds
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: "35"
+00000000096_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Dispatch Status
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "2"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "96"
+    description: Delivery status for requested animals
+    study_id: "8"
+    created_by_user_id: "10"
+    data_element_id: "125"
+00000000095_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Experiment
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "32"
+    updated_by_user_id: "10"
+    data_type_id: "5"
+    id: "95"
+    description: Experiment waiting for the animals
+    study_id: "8"
+    created_by_user_id: "10"
+    data_element_id: "30"
 00000000024_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Temperature
     display_unit: degC
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 18
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 24
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "18"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "24"
     description: Temperature
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000060_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Target
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 4
-    parameter_type_id: 28
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 60
+    parameter_role_id: "4"
+    parameter_type_id: "28"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "60"
     description: A dummy list of targets shown as an example.  Linked to a dictionary to provide an example drop down as well to highlight an integration point with an external data source
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 96
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "96"
 00000000028_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: CPM
     display_unit: cpm
     default_value: 
-    data_format_id: 11
-    parameter_role_id: 4
-    parameter_type_id: 8
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 28
+    data_format_id: "11"
+    parameter_role_id: "4"
+    parameter_type_id: "8"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "28"
     description: Count per minute
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
 00000000029_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Inhibition
     display_unit: uM
     default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 3
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 29
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "3"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "29"
     description: Inhibition
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
 00000000040_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Total
-    display_unit: <none>
-    default_value: 
-    data_format_id: 8
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 40
+    display_unit: ""
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "40"
     description: Total counts
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000080_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: MED
+    display_unit: mg/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "33"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "80"
+    description: Maximum? effective dose
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000044_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Time
     display_unit: min
-    default_value: 
-    data_format_id: 8
-    parameter_role_id: 6
-    parameter_type_id: 17
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 44
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "6"
+    parameter_type_id: "17"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "44"
     description: Sample Time
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000048_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: sd
     display_unit: <none>
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 48
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "48"
     description: standard deviation
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
+00000000109_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Species
+    display_unit: ""
+    default_value: rat
+    data_format_id: 
+    parameter_role_id: "3"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "109"
+    description: Species
+    study_id: "11"
+    created_by_user_id: "4"
+    data_element_id: "134"
+00000000105_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Mass
+    display_unit: mg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "3"
+    parameter_type_id: "23"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "105"
+    description: Sample mass
+    study_id: "9"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000104_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Expected Dispatch Date
+    display_unit: ""
+    default_value: ""
+    data_format_id: "25"
+    parameter_role_id: "6"
+    parameter_type_id: "16"
+    updated_by_user_id: "4"
+    data_type_id: "3"
+    id: "104"
+    description: Expected dispatch date
+    study_id: "9"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000101_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Strain
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "101"
+    description: Strain
+    study_id: "8"
+    created_by_user_id: "4"
+    data_element_id: "130"
+00000000100_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Species
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "100"
+    description: Species
+    study_id: "8"
+    created_by_user_id: "4"
+    data_element_id: "134"
 00000000069_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: IC50
     display_unit: uM
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 12
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 69
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "12"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "69"
     description: IC50, concentration of compound that caused 50% inhibition
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000068_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Z-prime
-    display_unit: 
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 68
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "68"
     description: Z prime
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000013_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Label
     display_unit: 
     default_value: 
-    data_format_id: 1
-    parameter_role_id: 6
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 13
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "13"
     description: Sample Label
-    study_id: 2
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
     data_element_id: 
 00000000064_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Neg Ctrl
     display_unit: count
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 64
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "64"
     description: Negative Control (mean, sd, stedv)
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000120_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Identifier
+    display_unit: 
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    id: "120"
+    description: test
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: 
+00000000089_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Ambulation
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "89"
+    description: Ambulation
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000084_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Distance
+    display_unit: cm
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "10"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "84"
+    description: Distance moved
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000033_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Delta
     display_unit: min
     default_value: "0"
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 9
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 33
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "9"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "33"
     description: Delta from start of run
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
 00000000017_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: IC50
     display_unit: mM
-    default_value: 
-    data_format_id: 27
-    parameter_role_id: 2
-    parameter_type_id: 12
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 17
+    default_value: ""
+    data_format_id: "27"
+    parameter_role_id: "2"
+    parameter_type_id: "12"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "17"
     description: IC50 values from curve fit
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000072_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Hit
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 29
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 72
+    parameter_role_id: "2"
+    parameter_type_id: "29"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "72"
     description: Hit miss or retest
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 108
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "108"
 00000000053_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Sex
     display_unit: 
     default_value: male
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 19
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 53
+    parameter_role_id: "6"
+    parameter_type_id: "19"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "53"
     description: Sex
-    study_id: 5
-    created_by_user_id: 1
-    data_element_id: 62
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: "62"
 00000000037_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Date
     display_unit: <none>
-    default_value: 
-    data_format_id: 25
-    parameter_role_id: 3
-    parameter_type_id: 16
-    updated_by_user_id: 1
-    data_type_id: 3
-    id: 37
+    default_value: ""
+    data_format_id: "25"
+    parameter_role_id: "3"
+    parameter_type_id: "16"
+    updated_by_user_id: "1"
+    data_type_id: "3"
+    id: "37"
     description: Date/Time of event
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000093_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Rearing
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "93"
+    description: Rearing
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000073_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Fit Stat
-    display_unit: 
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 12
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 73
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "12"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "73"
     description: Supporting fit statistics
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000006_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 5
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 6
+    parameter_role_id: "6"
+    parameter_type_id: "5"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "6"
     description: Compound lookup
-    study_id: 1
-    created_by_user_id: 1
-    data_element_id: 35
+    study_id: "1"
+    created_by_user_id: "1"
+    data_element_id: "35"
 00000000057_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 4
-    parameter_type_id: 5
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 57
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "57"
     description: Compound to be screened, as well as controls and standards
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 35
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "35"
 00000000001_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Delta
     display_unit: min
     default_value: "0"
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 9
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 1
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "9"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "1"
     description: Delta from start of run
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000002_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Count
     display_unit: count
     default_value: "1"
-    data_format_id: 8
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 2
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "2"
     description: Number of Wells
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
+00000000118_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Probablity
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "118"
+    description: Prop
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: 
+00000000117_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Dose
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "117"
+    description: Dose
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: 
+00000000113_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Man Days
+    display_unit: d
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "3"
+    parameter_type_id: "17"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "113"
+    description: Man days invested in the study
+    study_id: "5"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000097_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Expected Dispatch
+    display_unit: ""
+    default_value: ""
+    data_format_id: "25"
+    parameter_role_id: "2"
+    parameter_type_id: "16"
+    updated_by_user_id: "4"
+    data_type_id: "3"
+    id: "97"
+    description: Dispatch Date
+    study_id: "8"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000077_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Species
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "77"
+    description: Species used in experiment
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: "134"
 00000000026_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Count
     display_unit: count
     default_value: "1"
-    data_format_id: 8
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 26
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "26"
     description: Number of Wells
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
 00000000021_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: organism
-    display_unit: 
-    default_value: 
-    data_format_id: 1
-    parameter_role_id: 6
-    parameter_type_id: 14
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 21
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "14"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "21"
     description: Organizsm
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000022_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Identifier
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 22
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "22"
     description: "Followup from "
-    study_id: 1
-    created_by_user_id: 1
-    data_element_id: 30
+    study_id: "1"
+    created_by_user_id: "1"
+    data_element_id: "30"
 00000000025_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Date
-    display_unit: 
-    default_value: 
-    data_format_id: 25
-    parameter_role_id: 3
-    parameter_type_id: 16
-    updated_by_user_id: 1
-    data_type_id: 3
-    id: 25
+    display_unit: ""
+    default_value: ""
+    data_format_id: "25"
+    parameter_role_id: "3"
+    parameter_type_id: "16"
+    updated_by_user_id: "1"
+    data_type_id: "3"
+    id: "25"
     description: Date of measurment
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000045_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Probablity
-    display_unit: <none>
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 24
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 45
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "24"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "45"
     description: Probability
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000046_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Marker
     display_unit: 
-    default_value: 
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 25
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 46
+    parameter_role_id: "2"
+    parameter_type_id: "25"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "46"
     description: Level of significance
-    study_id: 5
-    created_by_user_id: 1
-    data_element_id: 70
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: "70"
 00000000041_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Weight
     display_unit: g
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 23
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 41
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "23"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "41"
     description: Weight of animal
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000042_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Age
     display_unit: wk
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 17
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 42
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "17"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "42"
     description: Age in weeks
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000061_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Dose
     display_unit: uM
-    default_value: 
-    data_format_id: 27
-    parameter_role_id: 6
-    parameter_type_id: 1
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 61
+    default_value: ""
+    data_format_id: "27"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "61"
     description: Concentration of compound in vehicle (Molar units)
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000102_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Compound
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "102"
+    description: Requested compound
+    study_id: "9"
+    created_by_user_id: "4"
+    data_element_id: "35"
+00000000081_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: ED50
+    display_unit: mg/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "33"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "81"
+    description: ED50
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000065_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Inhibition
     display_unit: "%"
-    default_value: 
-    data_format_id: 13
-    parameter_role_id: 2
-    parameter_type_id: 3
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 65
+    default_value: ""
+    data_format_id: "13"
+    parameter_role_id: "2"
+    parameter_type_id: "3"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "65"
     description: "% Inhibition (%activity)"
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000066_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Col
-    display_unit: 
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 3
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 66
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "3"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "66"
     description: Column Number
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000010_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: URL
     display_unit: 
     default_value: 
-    data_format_id: 24
-    parameter_role_id: 3
-    parameter_type_id: 11
-    updated_by_user_id: 1
-    data_type_id: 6
-    id: 10
+    data_format_id: "24"
+    parameter_role_id: "3"
+    parameter_type_id: "11"
+    updated_by_user_id: "1"
+    data_type_id: "6"
+    id: "10"
     description: Url
-    study_id: 2
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000121_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Standards
+    display_unit: 
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "121"
+    description: Standard Compounds
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: "35"
+00000000106_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Dispatch Status
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "3"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "106"
+    description: Sample dispatch status
+    study_id: "9"
+    created_by_user_id: "4"
+    data_element_id: "125"
+00000000086_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Time
+    display_unit: min
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "17"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "86"
+    description: Injection time
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000050_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Role
     display_unit: 
-    default_value: 
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 3
-    parameter_type_id: 27
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 50
+    parameter_role_id: "3"
+    parameter_type_id: "27"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "50"
     description: Role that compound takes in a treatment group
-    study_id: 5
-    created_by_user_id: 1
-    data_element_id: 78
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: "78"
 00000000015_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: FromTask
     display_unit: 
     default_value: 
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 7
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 15
+    parameter_role_id: "6"
+    parameter_type_id: "7"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "15"
     description: Source Task for this subject
-    study_id: 2
-    created_by_user_id: 1
-    data_element_id: 33
+    study_id: "2"
+    created_by_user_id: "1"
+    data_element_id: "33"
 00000000018_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Dose
-    display_unit: 
-    default_value: 
-    data_format_id: 27
-    parameter_role_id: 6
-    parameter_type_id: 1
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 18
+    display_unit: ""
+    default_value: ""
+    data_format_id: "27"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "18"
     description: Dose
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000019_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Concentration
-    display_unit: 
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 1
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 19
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "19"
     description: Concentration(Dose)
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000030_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Label
     display_unit: 
     default_value: 
-    data_format_id: 1
-    parameter_role_id: 6
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 30
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "30"
     description: Sample Label
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
 00000000014_study_parameter: !ruby/object:StudyParameter 
   attributes: 
@@ -745,372 +1145,552 @@
     display_unit: 
     default_value: 
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 5
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 14
+    parameter_role_id: "6"
+    parameter_type_id: "5"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "14"
     description: Compound lookup
-    study_id: 2
-    created_by_user_id: 1
-    data_element_id: 35
+    study_id: "2"
+    created_by_user_id: "1"
+    data_element_id: "35"
 00000000070_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Verified
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 30
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 70
+    parameter_role_id: "2"
+    parameter_type_id: "30"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "70"
     description: Verification status of task context
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 112
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "112"
 00000000039_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: sem
-    display_unit: <none>
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 39
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "39"
     description: Standard error of measurement of count
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000034_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Identifier
     display_unit: <none>
-    default_value: 
-    data_format_id: 1
-    parameter_role_id: 3
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 34
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "3"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "34"
     description: Identifier not linked to a management  system
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000038_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Mean
-    display_unit: <none>
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 38
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "38"
     description: Mean of counts
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000059_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Plate
-    display_unit: 
-    default_value: 
-    data_format_id: 1
-    parameter_role_id: 4
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 59
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "4"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "59"
     description: Plate identifier, not managed
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000003_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: CPM
     display_unit: cpm
-    default_value: 
-    data_format_id: 11
-    parameter_role_id: 4
-    parameter_type_id: 8
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 3
+    default_value: ""
+    data_format_id: "11"
+    parameter_role_id: "4"
+    parameter_type_id: "8"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "3"
     description: Count per minute
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000054_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: CI
-    display_unit: <none>
-    default_value: 
-    data_format_id: 13
-    parameter_role_id: 2
-    parameter_type_id: 24
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 54
+    display_unit: "%"
+    default_value: ""
+    data_format_id: "13"
+    parameter_role_id: "2"
+    parameter_type_id: "24"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "54"
     description: Confidence interval
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000058_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Role
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 3
-    parameter_type_id: 27
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 58
+    parameter_role_id: "3"
+    parameter_type_id: "27"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "58"
     description: "The role a compound (or well) takes in a screening run "
-    study_id: 6
-    created_by_user_id: 1
-    data_element_id: 78
+    study_id: "6"
+    created_by_user_id: "1"
+    data_element_id: "78"
+00000000119_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Count
+    display_unit: <none>
+    default_value: "0"
+    data_format_id: "8"
+    parameter_role_id: "6"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "119"
+    description: Count
+    study_id: "7"
+    created_by_user_id: "3"
+    data_element_id: 
+00000000115_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Count
+    display_unit: <none>
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "115"
+    description: Count
+    study_id: "12"
+    created_by_user_id: "3"
+    data_element_id: 
+00000000114_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Row
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "3"
+    parameter_type_id: "4"
+    updated_by_user_id: "4"
+    data_type_id: "1"
+    id: "114"
+    description: Row number
+    study_id: "6"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000110_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Effective Dose
+    display_unit: mg/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "1"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "110"
+    description: Effective Dose
+    study_id: "11"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000094_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Route
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "20"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "94"
+    description: Route of administration
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: "52"
+00000000079_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Dose
+    display_unit: mg/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "79"
+    description: Dosage (mg/kg)
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000078_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Strain
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "78"
+    description: Strain of species
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: "130"
 00000000074_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Fit
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 2
-    parameter_type_id: 22
-    updated_by_user_id: 1
-    data_type_id: 7
-    id: 74
+    parameter_role_id: "2"
+    parameter_type_id: "22"
+    updated_by_user_id: "1"
+    data_type_id: "7"
+    id: "74"
     description: Fit chart
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000023_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Fitdata
-    display_unit: 
-    default_value: 
+    display_unit: ""
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 1
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 7
-    id: 23
+    parameter_role_id: "1"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "7"
+    id: "23"
     description: Fit Data
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
     data_element_id: 
 00000000007_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Label
-    display_unit: 
-    default_value: 
-    data_format_id: 1
-    parameter_role_id: 6
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 7
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "1"
+    data_type_id: "1"
+    id: "7"
     description: Sample Label
-    study_id: 1
-    created_by_user_id: 1
+    study_id: "1"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000098_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Number of Animals
+    display_unit: ""
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "98"
+    description: Number of animals to dispatch
+    study_id: "8"
+    created_by_user_id: "4"
     data_element_id: 
 00000000043_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Duration
     display_unit: s
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 1
-    parameter_type_id: 17
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 43
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "1"
+    parameter_type_id: "17"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "43"
     description: Behaviour duration, time spent doing something
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000027_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: URL
     display_unit: 
     default_value: 
-    data_format_id: 24
-    parameter_role_id: 3
-    parameter_type_id: 11
-    updated_by_user_id: 1
-    data_type_id: 6
-    id: 27
+    data_format_id: "24"
+    parameter_role_id: "3"
+    parameter_type_id: "11"
+    updated_by_user_id: "1"
+    data_type_id: "6"
+    id: "27"
     description: Url
-    study_id: 3
-    created_by_user_id: 1
+    study_id: "3"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000083_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: n
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "83"
+    description: Population sample size
+    study_id: "7"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000082_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Volume
+    display_unit: ml/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "34"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "82"
+    description: Injection Volume
+    study_id: "7"
+    created_by_user_id: "4"
     data_element_id: 
 00000000062_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Count
     display_unit: count
-    default_value: 
-    data_format_id: 8
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 62
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "62"
     description: Counts per minute, disintegrations per second. A whole number.
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000063_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Pos Ctrl
     display_unit: count
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 63
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "63"
     description: Positive Control (TOTB)
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "6"
+    created_by_user_id: "1"
     data_element_id: 
 00000000047_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Diff
-    display_unit: <none>
-    default_value: 
-    data_format_id: 4
-    parameter_role_id: 2
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 47
+    display_unit: ""
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "47"
     description: Difference
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: 
+00000000108_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Movement
+    display_unit: ""
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    id: "108"
+    description: Count of movements
+    study_id: "11"
+    created_by_user_id: "4"
+    data_element_id: 
+00000000107_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Compound
+    display_unit: ""
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "31"
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    id: "107"
+    description: Compound of interest
+    study_id: "11"
+    created_by_user_id: "4"
+    data_element_id: "35"
+00000000103_study_parameter: !ruby/object:StudyParameter 
+  attributes: 
+    name: Sample ID
+    display_unit: ""
+    default_value: ""
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "4"
+    data_type_id: "1"
+    id: "103"
+    description: Sample Identifier
+    study_id: "9"
+    created_by_user_id: "4"
     data_element_id: 
 00000000016_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Delta
     display_unit: min
     default_value: "0"
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 9
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 16
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "9"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "16"
     description: Delta from start of run
-    study_id: 2
-    created_by_user_id: 1
-    data_element_id: 
-00000000067_study_parameter: !ruby/object:StudyParameter 
-  attributes: 
-    name: Row
-    display_unit: 
-    default_value: 
-    data_format_id: 2
-    parameter_role_id: 3
-    parameter_type_id: 4
-    updated_by_user_id: 1
-    data_type_id: 1
-    id: 67
-    description: Row label
-    study_id: 6
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
     data_element_id: 
 00000000011_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: CPM
     display_unit: cpm
     default_value: 
-    data_format_id: 11
-    parameter_role_id: 4
-    parameter_type_id: 8
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 11
+    data_format_id: "11"
+    parameter_role_id: "4"
+    parameter_type_id: "8"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "11"
     description: Count per minute
-    study_id: 2
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
     data_element_id: 
 00000000012_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Inhibition
     display_unit: uM
     default_value: 
-    data_format_id: 4
-    parameter_role_id: 6
-    parameter_type_id: 3
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 12
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "3"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "12"
     description: Inhibition
-    study_id: 2
-    created_by_user_id: 1
+    study_id: "2"
+    created_by_user_id: "1"
     data_element_id: 
 00000000035_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Count
     display_unit: <none>
-    default_value: 
-    data_format_id: 8
-    parameter_role_id: 1
-    parameter_type_id: 2
-    updated_by_user_id: 1
-    data_type_id: 2
-    id: 35
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    id: "35"
     description: Counts
-    study_id: 5
-    created_by_user_id: 1
+    study_id: "5"
+    created_by_user_id: "1"
     data_element_id: 
 00000000036_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
     display_unit: <none>
-    default_value: 
+    default_value: ""
     data_format_id: 
-    parameter_role_id: 4
-    parameter_type_id: 5
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 36
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "36"
     description: Compounds and controls used in the experiments
-    study_id: 5
-    created_by_user_id: 1
-    data_element_id: 35
+    study_id: "5"
+    created_by_user_id: "1"
+    data_element_id: "35"
 00000000031_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
     display_unit: 
     default_value: 
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 5
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 31
+    parameter_role_id: "6"
+    parameter_type_id: "5"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "31"
     description: Compound lookup
-    study_id: 3
-    created_by_user_id: 1
-    data_element_id: 35
+    study_id: "3"
+    created_by_user_id: "1"
+    data_element_id: "35"
 00000000032_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: FromTask
     display_unit: 
     default_value: 
     data_format_id: 
-    parameter_role_id: 6
-    parameter_type_id: 7
-    updated_by_user_id: 1
-    data_type_id: 5
-    id: 32
+    parameter_role_id: "6"
+    parameter_type_id: "7"
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    id: "32"
     description: Source Task for this subject
-    study_id: 3
-    created_by_user_id: 1
-    data_element_id: 33
+    study_id: "3"
+    created_by_user_id: "1"
+    data_element_id: "33"

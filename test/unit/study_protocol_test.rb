@@ -1,14 +1,28 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class StudyProtocolTest < Test::Unit::TestCase
-  fixtures :study_protocols
+  ## Biorails::Dba.import_model :user_roles
+  ## Biorails::Dba.import_model :project_roles
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :projects
+  ## Biorails::Dba.import_model :memberships
+  ## Biorails::Dba.import_model :studies
+  ## Biorails::Dba.import_model :data_concept
+  ## Biorails::Dba.import_model :data_systems
+  ## Biorails::Dba.import_model :data_element
+  ## Biorails::Dba.import_model :data_type
+  ## Biorails::Dba.import_model :data_format
+  ## Biorails::Dba.import_model :parameter_types
+  ## Biorails::Dba.import_model :parameter_roles
+  ## Biorails::Dba.import_model :study_parameters
+  ## Biorails::Dba.import_model :study_protocols
 
 	NEW_STUDY_PROTOCOL = {:name => 'test'}	# e.g. {:name => 'Test StudyProtocol', :description => 'Dummy'}
 	REQ_ATTR_NAMES 			 = %w(name ) # name of fields that must be present, e.g. %(name description)
 	DUPLICATE_ATTR_NAMES = %w( ) # name of fields that cannot be a duplicate, e.g. %(name description)
 
   def setup
-    # Retrieve fixtures via their name
+    # Retrieve ## Biorails::Dba.import_model via their name
     # @first = study_protocols(:first)
   end
 

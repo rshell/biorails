@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  fixtures :role_permissions
-  fixtures :roles
-  fixtures :users
+ # fixtures :role_permissions
+ # fixtures :roles
+ # fixtures :users
 
   def assert_ok(object)
      assert_not_nil object, ' Object is missing'

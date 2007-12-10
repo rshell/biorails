@@ -1,30 +1,13 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: plate_formats
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :text          
-#  num_rows           :integer(11)   
-#  num_columns        :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
-plate_format_1: !ruby/object:PlateFormat 
+00000000001_plate_format: !ruby/object:PlateFormat 
   attributes: 
-    num_rows: 1
+    num_rows: "1"
     name: 12 Vial Rack
-    updated_at: 2007-08-28 13:34:32 +01:00
-    updated_by_user_id: 1
-    lock_version: 0
-    num_columns: 12
-    id: 1
+    updated_at: 2007-01-10 10:37:19
+    updated_by_user_id: "1"
+    lock_version: "0"
+    num_columns: "12"
+    id: "1"
     description: A rack to hold 12 test tubes
-    created_by_user_id: 1
-    created_at: 2007-01-10 10:37:19 +00:00
+    created_by_user_id: "1"
+    created_at: 2007-01-10 10:37:19

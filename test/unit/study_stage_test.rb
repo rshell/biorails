@@ -1,14 +1,14 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class StudyStageTest < Test::Unit::TestCase
-  fixtures :study_stages
+  ## Biorails::Dba.import_model :study_stages
 
 	NEW_STUDY_STAGE =  {:name => 'Test StudyStage', :description => 'Dummy'}
 	REQ_ATTR_NAMES 			 = %w(name) # name of fields that must be present, e.g. %(name description)
 	DUPLICATE_ATTR_NAMES = %w(name) # name of fields that cannot be a duplicate, e.g. %(name description)
 
   def setup
-    # Retrieve fixtures via their name
+    # Retrieve ## Biorails::Dba.import_model via their name
     # @first = study_stages(:first)
   end
 

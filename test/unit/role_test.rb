@@ -1,8 +1,11 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class RoleTest < Test::Unit::TestCase
-  fixtures :roles
-  fixtures :role_permissions
+  ## Biorails::Dba.import_model :user_roles
+  ## Biorails::Dba.import_model :project_roles
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :permissions
+  ## Biorails::Dba.import_model :role_permissions
   
   # Replace this with your real tests.
   def test_truth

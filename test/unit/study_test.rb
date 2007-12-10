@@ -1,22 +1,22 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class StudyTest < Test::Unit::TestCase
-  fixtures :users
-  fixtures :projects
-  fixtures :memberships
-  fixtures :parameter_types
-  fixtures :parameter_roles
-  fixtures :data_elements
-  fixtures :data_types
-  fixtures :data_formats
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :projects
+  ## Biorails::Dba.import_model :memberships
+  ## Biorails::Dba.import_model :parameter_types
+  ## Biorails::Dba.import_model :parameter_roles
+  ## Biorails::Dba.import_model :data_elements
+  ## Biorails::Dba.import_model :data_types
+  ## Biorails::Dba.import_model :data_formats
   
-  fixtures :studies
-  fixtures :study_protocols
-  fixtures :study_parameters
-  fixtures :protocol_versions
-  fixtures :parameter_contexts
-  fixtures :parameters
-  fixtures :study_queues
+  ## Biorails::Dba.import_model :studies
+  ## Biorails::Dba.import_model :study_protocols
+  ## Biorails::Dba.import_model :study_parameters
+  ## Biorails::Dba.import_model :protocol_versions
+  ## Biorails::Dba.import_model :parameter_contexts
+  ## Biorails::Dba.import_model :parameters
+  ## Biorails::Dba.import_model :study_queues
 
 	NEW_STUDY = {:name => 'Test Study', :description => 'Dummy', :project_id=>1}
 	REQ_ATTR_NAMES 			 = %w(name description) # name of fields that must be present, e.g. %(name description)
@@ -27,7 +27,7 @@ class StudyTest < Test::Unit::TestCase
      STUDY3_XML = ' <study><project-id type="integer">1</project-id><name>ScreenYYY</name><description>xxx</description></study>'
 
   def setup
-    # Retrieve fixtures via their name
+    # Retrieve ## Biorails::Dba.import_model via their name
     # @first = studies(:first)
   end
 
@@ -96,7 +96,7 @@ class StudyTest < Test::Unit::TestCase
 
 
 #    def test012_xml_study_file
-#      file = File.new File.dirname(__FILE__) + '/../fixtures/files/study.xml'
+#      file = File.new File.dirname(__FILE__) + '/../## Biorails::Dba.import_model/files/study.xml'
 #      assert_not_nil file
 #      study = Study.from_xml(file, :create=>[:study ,:study_protocol,:study_parameter,:process,
 #                                            :protocol_version,:parameter_context,:parameter],

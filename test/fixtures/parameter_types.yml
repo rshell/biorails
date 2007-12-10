@@ -1,429 +1,466 @@
-# == Schema Information
-# Schema version: 280
-#
-# Table name: parameter_types
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(255)   default(), not null
-#  weighing           :integer(11)   default(0), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  data_concept_id    :integer(11)   
-#  data_type_id       :integer(11)   
-#  storage_unit       :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
 00000000024_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Probablity
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 24
+    storage_unit: ""
+    updated_at: 2007-06-28 13:36:52
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "24"
     description: Probablilty
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-28 13:36:52 +01:00
-    weighing: 0
+    created_by_user_id: "1"
+    created_at: 2007-06-28 13:36:52
+    weighing: "0"
 00000000021_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Asset
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 7
-    lock_version: 0
-    id: 21
+    storage_unit: ""
+    updated_at: 2007-06-28 12:57:49
+    updated_by_user_id: "1"
+    data_type_id: "7"
+    lock_version: "0"
+    id: "21"
     description: Charts, documents, images
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-28 12:57:49 +01:00
-    weighing: 0
+    created_by_user_id: "1"
+    created_at: 2007-06-28 12:57:49
+    weighing: "0"
 00000000013_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Enzyme
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 0
-    id: 13
+    storage_unit: ""
+    updated_at: 2007-06-06 22:27:29
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    lock_version: "0"
+    id: "13"
     description: Enzymes are proteins that catalyze (i.e. accelerate) chemical reactions.[1] In enzymatic reactions, the molecules at the beginning of the process are called substrates, and the enzyme converts them into different molecules, the products. Almost all proces
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 22:27:29 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 22:27:29
+    weighing: "0"
 00000000010_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Length
     storage_unit: length
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 10
+    updated_at: 2007-06-06 17:12:28
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "10"
     description: "Length "
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:12:28 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:12:28
+    weighing: "0"
 00000000002_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Count
     storage_unit: counting
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 1
-    id: 2
+    updated_at: 2007-06-06 17:02:49
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "1"
+    id: "2"
     description: This is generic parameter type for animal counts and other such totals
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 16:59:17 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 16:59:17
+    weighing: "0"
+00000000031_parameter_type: !ruby/object:ParameterType 
+  attributes: 
+    name: Inventory
+    storage_unit: 
+    updated_at: 2007-09-12 10:26:00
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "31"
+    description: Inventory concepts in BioRails
+    data_concept_id: "2"
+    created_by_user_id: "4"
+    created_at: 2007-09-12 10:26:00
+    weighing: "0"
 00000000019_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Sex
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 19
+    updated_at: 2007-06-28 12:51:52
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "19"
     description: Sex
-    data_concept_id: 56
-    created_by_user_id: 1
-    created_at: 2007-06-28 12:51:52 +01:00
-    weighing: 0
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    created_at: 2007-06-28 12:51:52
+    weighing: "0"
 00000000008_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Rate
     storage_unit: rate
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 8
+    updated_at: 2007-06-06 17:08:52
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "8"
     description: Rate for radisotope used and other places with are managing counts per min etc.
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:08:52 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:08:52
+    weighing: "0"
 00000000029_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Hit
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 29
+    updated_at: 2007-07-04 14:04:10
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "29"
     description: Is this a hit?
-    data_concept_id: 60
-    created_by_user_id: 1
-    created_at: 2007-07-04 14:04:10 +01:00
-    weighing: 10
+    data_concept_id: "60"
+    created_by_user_id: "4"
+    created_at: 2007-07-04 14:04:10
+    weighing: "10"
 00000000022_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: File
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 7
-    lock_version: 0
-    id: 22
+    storage_unit: ""
+    updated_at: 2007-06-28 13:02:23
+    updated_by_user_id: "1"
+    data_type_id: "7"
+    lock_version: "0"
+    id: "22"
     description: File, document, image, spectra, chromatograph, ole objects
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-28 13:02:23 +01:00
-    weighing: 0
+    created_by_user_id: "1"
+    created_at: 2007-06-28 13:02:23
+    weighing: "0"
 00000000011_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: URL
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 6
-    lock_version: 1
-    id: 11
+    storage_unit: ""
+    updated_at: 2007-06-06 17:13:42
+    updated_by_user_id: "3"
+    data_type_id: "6"
+    lock_version: "1"
+    id: "11"
     description: Reference url for futher information in external context
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:13:05 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:13:05
+    weighing: "0"
 00000000017_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Time
     storage_unit: time
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 17
+    updated_at: 2007-06-08 10:49:50
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "17"
     description: Time
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-08 10:49:50 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-08 10:49:50
+    weighing: "0"
 00000000006_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Plate
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:02 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 6
+    storage_unit: ""
+    updated_at: 2007-06-06 17:05:46
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "6"
     description: "Plate reference, lookup based Plate Id "
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:05:46 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:05:46
+    weighing: "0"
+00000000032_parameter_type: !ruby/object:ParameterType 
+  attributes: 
+    name: Workflow
+    storage_unit: 
+    updated_at: 2007-09-12 10:26:32
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "32"
+    description: Workflow concepts in BioRails
+    data_concept_id: "4"
+    created_by_user_id: "4"
+    created_at: 2007-09-12 10:26:32
+    weighing: "0"
 00000000027_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Role
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 27
+    updated_at: 2007-06-28 14:20:32
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "27"
     description: Compound Role
-    data_concept_id: 58
-    created_by_user_id: 1
-    created_at: 2007-06-28 14:20:32 +01:00
-    weighing: 0
+    data_concept_id: "58"
+    created_by_user_id: "1"
+    created_at: 2007-06-28 14:20:32
+    weighing: "0"
 00000000009_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Duration
     storage_unit: time
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 9
+    updated_at: 2007-06-06 17:09:57
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "9"
     description: Duration for managemenrt of delta times and other time points as numeric values.
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:09:57 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:09:57
+    weighing: "0"
 00000000020_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Route
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 20
+    updated_at: 2007-06-28 12:52:09
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "20"
     description: Route of administration
-    data_concept_id: 55
-    created_by_user_id: 1
-    created_at: 2007-06-28 12:52:09 +01:00
-    weighing: 0
+    data_concept_id: "55"
+    created_by_user_id: "1"
+    created_at: 2007-06-28 12:52:09
+    weighing: "0"
 00000000004_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Identifier
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 0
-    id: 4
+    storage_unit: ""
+    updated_at: 2007-06-06 17:04:24
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    lock_version: "0"
+    id: "4"
     description: In the case of non managed inventories this provide a reference text or barcode used for identification
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:04:24 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:04:24
+    weighing: "0"
 00000000030_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: QC
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 30
+    updated_at: 2007-07-04 14:05:48
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "30"
     description: QC Parameters
-    data_concept_id: 61
-    created_by_user_id: 1
-    created_at: 2007-07-04 14:05:48 +01:00
-    weighing: 0
+    data_concept_id: "61"
+    created_by_user_id: "4"
+    created_at: 2007-07-04 14:05:48
+    weighing: "0"
 00000000025_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: PvalueMarker
     storage_unit: 
-    updated_at: 2007-08-24 12:37:02 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 25
+    updated_at: 2007-06-28 13:39:06
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "25"
     description: P value marker
-    data_concept_id: 57
-    created_by_user_id: 1
-    created_at: 2007-06-28 13:39:06 +01:00
-    weighing: 1
+    data_concept_id: "57"
+    created_by_user_id: "1"
+    created_at: 2007-06-28 13:39:06
+    weighing: "1"
 00000000018_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Temperature
     storage_unit: temperature
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 18
+    updated_at: 2007-06-08 10:51:11
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "18"
     description: Temperature
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-08 10:51:11 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-08 10:51:11
+    weighing: "0"
 00000000014_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: organism
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:02 +01:00
-    updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 0
-    id: 14
+    storage_unit: ""
+    updated_at: 2007-06-06 22:29:09
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    lock_version: "0"
+    id: "14"
     description: |-
       n biology and ecology, an organism (in Greek organon = instrument) is a living complex adaptive system of organs that influence each other in such a way that they function in some way as a stable whole.
       
       The origin of life on Earth and the relationships
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 22:29:09 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 22:29:09
+    weighing: "0"
 00000000007_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Subject
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:02 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 7
+    storage_unit: ""
+    updated_at: 2007-06-06 17:07:05
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "7"
     description: Generic lookup for the subject of a experiment may be a compound, tissue , treadment group in use depending on the study.
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:07:05 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:07:05
+    weighing: "0"
 00000000028_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Target
     storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 28
+    updated_at: 2007-07-04 13:00:05
+    updated_by_user_id: "4"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "28"
     description: Dummy target database
-    data_concept_id: 1
-    created_by_user_id: 1
-    created_at: 2007-07-04 13:00:05 +01:00
-    weighing: 0
+    data_concept_id: "1"
+    created_by_user_id: "4"
+    created_at: 2007-07-04 13:00:05
+    weighing: "0"
+00000000034_parameter_type: !ruby/object:ParameterType 
+  attributes: 
+    name: Volume
+    storage_unit: ""
+    updated_at: 2007-09-12 11:11:06
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    lock_version: "1"
+    id: "34"
+    description: Volume ml/kg
+    data_concept_id: 
+    created_by_user_id: "4"
+    created_at: 2007-09-12 11:09:55
+    weighing: "0"
 00000000023_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Mass
     storage_unit: mass
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 23
+    updated_at: 2007-06-28 13:12:11
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "23"
     description: Mass, weight
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-28 13:12:11 +01:00
-    weighing: 0
+    created_by_user_id: "1"
+    created_at: 2007-06-28 13:12:11
+    weighing: "0"
 00000000016_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Date
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 3
-    lock_version: 0
-    id: 16
+    storage_unit: ""
+    updated_at: 2007-06-08 10:49:26
+    updated_by_user_id: "3"
+    data_type_id: "3"
+    lock_version: "0"
+    id: "16"
     description: Date
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-08 10:49:26 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-08 10:49:26
+    weighing: "0"
 00000000012_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: IC50
     storage_unit: concentration
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 12
+    updated_at: 2007-06-06 22:22:07
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "12"
     description: IC50 is a measure of concentration used in pharmacological research. IC50, or the half maximal inhibitory concentration, represents the concentration of an inhibitor that is required for 50% inhibition of its target (i.e. an enzyme, cell, cell receptor or
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 22:22:07 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 22:22:07
+    weighing: "0"
 00000000005_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Compound
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:04 +01:00
-    updated_by_user_id: 1
-    data_type_id: 5
-    lock_version: 0
-    id: 5
+    storage_unit: ""
+    updated_at: 2007-06-06 17:05:07
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "5"
     description: Lookup of a compound reference, dictionary driven
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:05:07 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:05:07
+    weighing: "0"
 00000000001_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Dose
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 0
-    id: 1
+    storage_unit: ""
+    updated_at: 2007-06-06 16:56:20
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "1"
     description: "Dosage "
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 16:56:20 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 16:56:20
+    weighing: "0"
+00000000033_parameter_type: !ruby/object:ParameterType 
+  attributes: 
+    name: Effective Dose
+    storage_unit: ""
+    updated_at: 2007-09-12 11:01:06
+    updated_by_user_id: "4"
+    data_type_id: "2"
+    lock_version: "0"
+    id: "33"
+    description: Covers MED and ED50 in default units of mg/kg, ie dimensionless
+    data_concept_id: 
+    created_by_user_id: "4"
+    created_at: 2007-09-12 11:01:06
+    weighing: "0"
 00000000015_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Location
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:02 +01:00
-    updated_by_user_id: 1
-    data_type_id: 1
-    lock_version: 0
-    id: 15
+    storage_unit: ""
+    updated_at: 2007-06-06 22:29:40
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    lock_version: "0"
+    id: "15"
     description: Location of a object
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 22:29:40 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 22:29:40
+    weighing: "0"
 00000000003_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Inhibition
-    storage_unit: 
-    updated_at: 2007-08-24 12:37:03 +01:00
-    updated_by_user_id: 1
-    data_type_id: 2
-    lock_version: 1
-    id: 3
+    storage_unit: ""
+    updated_at: 2007-06-08 10:45:01
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "1"
+    id: "3"
     description: A good example of usage would be the competitive inhibition, the inhibitor binds to the same active site as the normal enzyme substrate, without undergoing a reaction. The substrate molecule cannot enter the active site while the inhibitor is there, and t
     data_concept_id: 
-    created_by_user_id: 1
-    created_at: 2007-06-06 17:01:06 +01:00
-    weighing: 0
+    created_by_user_id: "3"
+    created_at: 2007-06-06 17:01:06
+    weighing: "0"
