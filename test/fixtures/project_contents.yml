@@ -1,0 +1,37 @@
+3_project_content: !ruby/object:ProjectContent
+  attributes:
+    name: "test1"
+    content_id: "45"
+    updated_at: 2007-08-21 13:52:22
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "8"
+    updated_by_user_id: "1"
+    type: ProjectContent
+    id: "3"
+    right_limit: "9"
+    reference_type:
+    created_by_user_id: "1"
+    reference_id:
+    published_hash:
+    position: "3"
+    parent_id: "1"
+    asset_id: 1
+    created_at: 2007-07-24 11:12:09
+4_project_content: !ruby/object:ProjectContent
+  attributes:
+    name: "rjs-435"
+    content_id: "66"
+    updated_at: 2007-10-28 21:52:44
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "220"
+    updated_by_user_id: "3"
+    type: ProjectContent
+    id: "4"
+    right_limit: "221"
+    created_by_user_id: "3"
+    published_hash:
+    position: "18"
+    asset_id: 2
+    created_at: 2007-10-28 21:52:44

@@ -1,0 +1,44 @@
+---
+1_asset: !ruby/object:Asset
+  attributes: 
+    content_type: image/png
+    updated_at: 2007-10-15 12:05:58
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 1
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "1"
+    caption: 
+    size_bytes: "32180"
+    height: "129"
+    filename: resp31to60.jpg_normal.png
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "71"
+    created_at: 2007-09-19 09:30:59
+    width: "320"
+2_asset: !ruby/object:Asset
+  attributes: 
+    content_type: image/png
+    updated_at: 2007-09-14 15:31:50
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 1
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "2"
+    caption: 
+    size_bytes: "7004"
+    height: "35"
+    filename: XLfitChart2D_icon.png
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "1"
+    created_at: 2007-09-14 15:31:50
+    width: "48"
+

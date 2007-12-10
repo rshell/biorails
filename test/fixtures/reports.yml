@@ -1,0 +1,609 @@
+--- 
+00000000058_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: R-51
+    project_id: "14"
+    updated_at: 2007-10-10 09:47:52
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: TaskContext
+    id: "58"
+    description: test
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-10-10 09:47:52
+00000000036_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: My News
+    project_id: 
+    updated_at: 2007-05-28 18:15:06
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: ProjectElement
+    id: "36"
+    description: Default reports for display as /ProjectElement/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:15:06
+00000000003_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: All-Reports
+    project_id: 
+    updated_at: 2007-04-24 14:58:56
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Report
+    id: "3"
+    description: List of all reports on the system
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-04-24 14:52:18
+00000000038_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: Service Request Results
+    project_id: 
+    updated_at: 2007-05-29 11:34:18
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: QueueResult
+    id: "38"
+    description: Default reports for display as /QueueResult/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-29 11:34:17
+00000000024_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Results
+    project_id: 
+    updated_at: 2007-05-01 09:11:26
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "3"
+    base_model: TaskResultValue
+    id: "24"
+    description: Screening results
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-05-01 09:09:07
+00000000016_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: StudyList
+    project_id: 
+    updated_at: 2007-04-26 21:03:52
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Study
+    id: "16"
+    description: Default reports for display as /Study/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-26 21:03:52
+00000000002_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: ReportList
+    project_id: 
+    updated_at: 2007-04-24 14:44:52
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: Report
+    id: "2"
+    description: Default reports for display as /Report/list
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-04-24 14:44:52
+00000000056_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: My Tasks
+    project_id: 
+    updated_at: 2007-09-14 09:15:11
+    action: 
+    updated_by_user_id: "4"
+    lock_version: "1"
+    base_model: Task
+    id: "56"
+    description: Default reports for display as /Task/list
+    created_by_user_id: "4"
+    style: System
+    created_at: 2007-09-14 09:15:09
+00000000048_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: RequestList
+    project_id: 
+    updated_at: 2007-08-27 14:58:53
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Request
+    id: "48"
+    description: Default reports for display as /Request/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-08-27 14:58:53
+00000000034_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: "My Todo List "
+    project_id: 
+    updated_at: 2007-05-28 18:11:31
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: QueueItem
+    id: "34"
+    description: Default reports for display as /QueueItem/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:11:30
+00000000026_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Report-26
+    project_id: "4"
+    updated_at: 2007-05-30 15:45:04
+    action: ""
+    updated_by_user_id: "8"
+    lock_version: "22"
+    base_model: DataElement
+    id: "26"
+    description: llll
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-05-23 06:29:12
+00000000044_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: More Hits
+    project_id: "16"
+    updated_at: 2007-07-06 00:00:49
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "9"
+    base_model: TaskResultText
+    id: "44"
+    description: Hits
+    created_by_user_id: "4"
+    style: Report
+    created_at: 2007-07-05 23:56:30
+00000000022_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Screening Results
+    project_id: 
+    updated_at: 2007-05-01 09:06:07
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "2"
+    base_model: TaskValue
+    id: "22"
+    description: Screening results
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-05-01 09:04:48
+00000000047_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Request Tracking
+    project_id: "14"
+    updated_at: 2007-10-15 14:07:19
+    action: ""
+    updated_by_user_id: "3"
+    lock_version: "7"
+    base_model: QueueResult
+    id: "47"
+    description: Tracking requests through results
+    created_by_user_id: "4"
+    style: Report
+    created_at: 2007-07-09 19:54:09
+00000000043_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Hits
+    project_id: "16"
+    updated_at: 2007-07-05 23:55:42
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "2"
+    base_model: CompoundResult
+    id: "43"
+    description: Hits from 1y screen
+    created_by_user_id: "4"
+    style: Report
+    created_at: 2007-07-05 23:54:10
+00000000057_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: ResultsTed
+    project_id: "16"
+    updated_at: 2007-10-05 15:22:07
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "1"
+    base_model: AnalysisMethod
+    id: "57"
+    description: simple table based reports
+    created_by_user_id: "4"
+    style: Report
+    created_at: 2007-10-05 15:21:40
+00000000035_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: My Articles
+    project_id: 
+    updated_at: 2007-05-28 18:11:58
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: ProjectContent
+    id: "35"
+    description: Default reports for display as /ProjectContent/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:11:57
+00000000031_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: UserArticles
+    project_id: 
+    updated_at: 2007-05-28 17:49:05
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: ProjectContent
+    id: "31"
+    description: Default reports for display as /ProjectContent/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 17:49:04
+00000000045_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: My Requested List
+    project_id: 
+    updated_at: 2007-07-06 06:44:45
+    action: 
+    updated_by_user_id: "4"
+    lock_version: "1"
+    base_model: QueueItem
+    id: "45"
+    description: Default reports for display as /QueueItem/list
+    created_by_user_id: "4"
+    style: System
+    created_at: 2007-07-06 06:44:45
+00000000023_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Screening Results
+    project_id: 
+    updated_at: 2007-05-01 09:07:12
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: TaskValue
+    id: "23"
+    description: Screening results
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-05-01 09:07:12
+00000000018_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: ParameterProtocols
+    project_id: 
+    updated_at: 2007-04-30 15:09:18
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Parameter
+    id: "18"
+    description: Default reports for display as /Parameter/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-30 15:09:18
+00000000040_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: R-38
+    project_id: "13"
+    updated_at: 2007-06-26 18:34:00
+    action: 
+    updated_by_user_id: "1"
+    lock_version: "0"
+    base_model: Compound
+    id: "40"
+    description: comp
+    created_by_user_id: "1"
+    style: Report
+    created_at: 2007-06-26 18:34:00
+00000000039_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: Service Queue Results
+    project_id: 
+    updated_at: 2007-05-29 11:43:44
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: QueueResult
+    id: "39"
+    description: Default reports for display as /QueueResult/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-29 11:43:43
+00000000033_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: Stuff Wanted
+    project_id: 
+    updated_at: 2007-05-28 18:00:47
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: QueueItem
+    id: "33"
+    description: Default reports for display as /QueueItem/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:00:47
+00000000017_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: ExperimentList
+    project_id: 
+    updated_at: 2007-04-26 21:08:09
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "3"
+    base_model: Experiment
+    id: "17"
+    description: Default reports for display as /Experiment/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-26 21:05:42
+00000000050_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: RX Actives
+    project_id: "21"
+    updated_at: 2007-09-13 08:18:30
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "20"
+    base_model: CompoundResult
+    id: "50"
+    description: Lists the compounds identified in screening as active against receptor <i>RX</i>
+    created_by_user_id: "4"
+    style: Report
+    created_at: 2007-09-12 19:37:03
+00000000049_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: Request Results
+    project_id: 
+    updated_at: 2007-09-19 08:40:37
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "17"
+    base_model: QueueResult
+    id: "49"
+    description: Default reports for display as /QueueResult/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-08-27 15:11:53
+00000000032_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: "Stuff Todo "
+    project_id: 
+    updated_at: 2007-05-28 18:00:30
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: QueueItem
+    id: "32"
+    description: Default reports for display as /QueueItem/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:00:29
+00000000027_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Report-27
+    project_id: "4"
+    updated_at: 2007-05-25 18:07:46
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: AnalysisMethod
+    id: "27"
+    description: task report
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-05-25 18:07:46
+00000000005_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: List_of_Study
+    project_id: 
+    updated_at: 2007-04-24 21:27:22
+    action: 
+    updated_by_user_id: "1"
+    lock_version: "2"
+    base_model: Study
+    id: "5"
+    description: Default reports for display as /Study/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-24 20:45:49
+00000000060_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Element
+    project_id: "14"
+    updated_at: 2007-11-16 15:34:57
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: ProjectElement
+    id: "60"
+    description: Elements
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-11-16 15:34:57
+00000000059_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: R-55
+    project_id: "13"
+    updated_at: 2007-11-01 21:02:07
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "0"
+    base_model: Task
+    id: "59"
+    description: Tasks
+    created_by_user_id: "3"
+    style: Report
+    created_at: 2007-11-01 21:02:07
+00000000042_report: !ruby/object:Report 
+  attributes: 
+    internal: 
+    custom_sql: 
+    name: Significant groups
+    project_id: "14"
+    updated_at: 2007-07-09 19:53:15
+    action: ""
+    updated_by_user_id: "4"
+    lock_version: "10"
+    base_model: TaskResult
+    id: "42"
+    description: Experiment results
+    created_by_user_id: "1"
+    style: Report
+    created_at: 2007-06-29 10:49:11
+00000000037_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: My Projects
+    project_id: 
+    updated_at: 2007-11-01 21:42:22
+    action: ""
+    updated_by_user_id: "3"
+    lock_version: "2"
+    base_model: Membership
+    id: "37"
+    description: Default reports for display as /Membership/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 18:18:21
+00000000020_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: ExperimentStatistics
+    project_id: 
+    updated_at: 2007-04-30 15:09:19
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: ExperimentStatistics
+    id: "20"
+    description: Default reports for display as /ExperimentStatistics/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-30 15:09:19
+00000000019_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: ParameterStatistics
+    project_id: 
+    updated_at: 2007-04-30 15:09:19
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: ProcessStatistics
+    id: "19"
+    description: Default reports for display as /ProcessStatistics/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-30 15:09:19
+00000000015_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: StudyList
+    project_id: 
+    updated_at: 2007-04-26 21:03:13
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Study
+    id: "15"
+    description: Default reports for display as /Study/list
+    created_by_user_id: "3"
+    style: 
+    created_at: 2007-04-26 21:03:12
+00000000029_report: !ruby/object:Report 
+  attributes: 
+    internal: "1"
+    custom_sql: 
+    name: UserProjects
+    project_id: 
+    updated_at: 2007-05-28 17:38:48
+    action: 
+    updated_by_user_id: "3"
+    lock_version: "1"
+    base_model: Membership
+    id: "29"
+    description: Default reports for display as /Membership/list
+    created_by_user_id: "3"
+    style: System
+    created_at: 2007-05-28 17:38:47

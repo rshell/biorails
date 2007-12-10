@@ -1,0 +1,50 @@
+---
+00000001211_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: c(C1)(c2c([nH]3)ccc(F)c2)c3CCN1C(=O)c4ccc(cc4Cl)Cl
+    name: ESC-00001211:01
+    updated_at: 2007-06-05 20:33:53
+    registration_date: 
+    mass: "363.213"
+    updated_by_user_id: "0"
+    lock_version: "4"
+    id: "1211"
+    formula: C18H13Cl2FN2O
+    description: ESC-00001211:01
+    created_by_user_id: "0"
+    molecule_id: 
+    iupacname: ""
+    created_at: 2007-06-05 20:33:53
+00000005705_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: S(=O)(=O)(Nc1cc(ccc1N2CCc(c3C2)cccc3)C(F)(F)F)c4cccc(non5)c45
+    name: ESC-00005705:01
+    updated_at: 2007-06-05 20:33:53
+    registration_date: 
+    mass: "474.456"
+    updated_by_user_id: "0"
+    lock_version: "4"
+    id: "5705"
+    formula: C22H17F3N4O3S
+    description: ESC-00005705:01
+    created_by_user_id: "0"
+    molecule_id: 
+    iupacname: ""
+    created_at: 2007-06-05 20:33:53
+00000000184_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: c1(ccc(C(OC)=O)n1C)S(=O)(=O)NCc2csc(ccc(Cl)c3)c23
+    name: ESC-00000184:01
+    updated_at: 2007-06-05 20:33:53
+    registration_date: 
+    mass: "398.884"
+    updated_by_user_id: "0"
+    lock_version: "4"
+    id: "184"
+    formula: C16H15ClN2O4S2
+    description: ESC-00000184:01
+    created_by_user_id: "0"
+    molecule_id: 
+    iupacname: ""
+    created_at: 2007-06-05 20:33:53
+

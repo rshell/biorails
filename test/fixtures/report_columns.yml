@@ -1,0 +1,132 @@
+---
+00000000411_report_column: !ruby/object:ReportColumn 
+  attributes: 
+    is_visible: "0"
+    data_element: 
+    filter_operation: 
+    name: created_at
+    updated_at: 2007-09-19 08:40:37
+    updated_by_user_id: "4"
+    join_name: 
+    lock_version: "16"
+    action: 
+    sort_num: 
+    id: "411"
+    is_sortable: "1"
+    subject_type: 
+    description: 
+    report_id: "49"
+    subject_id: 
+    created_by_user_id: "3"
+    sort_direction: 
+    is_filterible: "0"
+    filter_text: 
+    label: Created_at
+    join_model: 
+    created_at: 2007-08-27 15:11:53
+    order_num: "8"
+00000000394_report_column: !ruby/object:ReportColumn 
+  attributes: 
+    is_visible: "0"
+    data_element: 
+    filter_operation:
+    name: started_at
+    updated_at: 2007-08-27 14:58:53
+    updated_by_user_id: "3"
+    join_name: 
+    lock_version: "0"
+    action: 
+    sort_num:
+    id: "394"
+    is_sortable: "1"
+    subject_type: 
+    description: 
+    report_id: "48"
+    subject_id: 
+    created_by_user_id: "3"
+    sort_direction: 
+    is_filterible: "0"
+    filter_text: 
+    label: Started_at
+    join_model: 
+    created_at: 2007-08-27 14:58:53
+    order_num: "6"
+00000000342_report_column: !ruby/object:ReportColumn 
+  attributes: 
+    is_visible: "1"
+    data_element: 
+    filter_operation: 
+    name: label
+    updated_at: 2007-07-09 19:53:15
+    updated_by_user_id: "4"
+    join_name: 
+    lock_version: "11"
+    action: 
+    sort_num: 
+    id: "342"
+    is_sortable: "1"
+    subject_type: 
+    description: 
+    report_id: "42"
+    subject_id: 
+    created_by_user_id: "1"
+    sort_direction: 
+    is_filterible: "1"
+    filter_text: 
+    label: Label
+    join_model: 
+    created_at: 2007-06-29 10:49:26
+    order_num: "0"
+00000000205_report_column: !ruby/object:ReportColumn 
+  attributes: 
+    is_visible: "1"
+    data_element: 
+    filter_operation: 
+    name: id
+    updated_at: 2007-05-28 17:38:48
+    updated_by_user_id: "3"
+    join_name: 
+    lock_version: "0"
+    action: 
+    sort_num: 
+    id: "205"
+    is_sortable: "1"
+    subject_type:
+    description: 
+    report_id: "29"
+    subject_id: 
+    created_by_user_id: "3"
+    sort_direction: 
+    is_filterible: "0"
+    filter_text:
+    label: Id
+    join_model: 
+    created_at: 2007-05-28 17:38:48
+    order_num: "3"
+00000000188_report_column: !ruby/object:ReportColumn 
+  attributes: 
+    is_visible: "1"
+    data_element: 
+    filter_operation: 
+    name: settings.type.value_class
+    updated_at: 2007-05-25 18:08:33
+    updated_by_user_id: "3"
+    join_name: has_many
+    lock_version: "1"
+    action: 
+    sort_num: 
+    id: "188"
+    is_sortable: "0"
+    subject_type: 
+    description: 
+    report_id: "27"
+    subject_id: 
+    created_by_user_id: "3"
+    sort_direction:
+    is_filterible: "0"
+    filter_text:
+    label: Settings Type Value_class
+    join_model: settings
+    created_at: 2007-05-25 18:08:33
+    order_num: "18"
+

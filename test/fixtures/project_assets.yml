@@ -1,0 +1,41 @@
+---
+5_project_asset: !ruby/object:ProjectAsset
+  attributes: 
+    name: microexambm42.jpg
+    content_id: 
+    updated_at: 2007-10-31 01:28:40
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "50"
+    updated_by_user_id: "3"
+    lock_version: "4"
+    type: ProjectAsset
+    id: "5"
+    right_limit: "1"
+    created_by_user_id: "3"
+    published_hash:
+    position: "2"
+    parent_id: "1"
+    asset_id: "2"
+    created_at: 2007-07-25 11:59:39
+6_project_asset: !ruby/object:ProjectAsset
+  attributes: 
+    name: grid.csv
+    content_id: 
+    updated_at: 2007-10-13 10:29:12
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "124"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectAsset
+    id: "6"
+    right_limit: "125"
+    reference_type:
+    created_by_user_id: "3"
+    reference_id:
+    published_hash:
+    position: "0"
+    parent_id: "1"
+    asset_id: "1"
+    created_at: 2007-10-13 10:29:11

@@ -1,0 +1,27 @@
+---
+00000000447_task_text: !ruby/object:TaskText 
+  attributes: 
+    updated_at: 2007-06-29 09:43:35
+    task_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    task_context_id: "1"
+    id: "1"
+    parameter_id: "115"
+    created_by_user_id: "1"
+    data_content: A vs C
+    created_at: 2007-06-29 09:43:35
+00000000406_task_text: !ruby/object:TaskText 
+  attributes: 
+    updated_at: 2007-06-29 09:06:45
+    task_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    task_context_id: "1"
+    id: "2"
+    parameter_id: "64"
+    created_by_user_id: "1"
+    data_content: "12"
+    created_at: 2007-06-29 09:06:45
+
+

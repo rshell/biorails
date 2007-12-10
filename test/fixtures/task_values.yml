@@ -1,0 +1,30 @@
+---
+00000021764_task_value: !ruby/object:TaskValue
+  attributes: 
+    storage_unit: s
+    updated_at: 2007-06-29 09:01:08
+    display_unit: min
+    task_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    task_context_id: "1"
+    id: "21764"
+    parameter_id: "66"
+    created_by_user_id: "1"
+    created_at: 2007-06-29 09:01:08
+    data_value: "14640"
+00000001821_task_value: !ruby/object:TaskValue 
+  attributes: 
+    storage_unit: ""
+    updated_at: 2007-06-29 08:16:55
+    display_unit: none
+    task_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    task_context_id: "1"
+    id: "1821"
+    parameter_id: "67"
+    created_by_user_id: "1"
+    created_at: 2007-06-29 08:16:55
+    data_value: "6"
+

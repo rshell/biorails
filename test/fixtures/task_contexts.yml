@@ -1,0 +1,26 @@
+---
+00000000229_task_context: !ruby/object:TaskContext
+  attributes:
+    parameter_context_id: "30"
+    sequence_no: "0"
+    left_limit: "0"
+    task_id: "1"
+    id: "1"
+    right_limit: "0"
+    row_no: "9"
+    is_valid: "1"
+    parent_id: "220"
+    label: Animal[9]
+00000002_task_context: !ruby/object:TaskContext
+  attributes:
+    parameter_context_id: "20"
+    sequence_no: "0"
+    left_limit: "0"
+    task_id: "1"
+    id: "2"
+    right_limit: "0"
+    row_no: "53"
+    is_valid: "1"
+    parent_id: "1349"
+    label: Sample[53]
+

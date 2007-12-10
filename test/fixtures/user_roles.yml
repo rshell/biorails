@@ -1,0 +1,333 @@
+--- 
+00000000006_user_role: !ruby/object:UserRole 
+  attributes: 
+    name: manager
+    updated_at: 2007-09-12 10:38:52
+    cache: |
+      --- 
+      experiments: {}
+      
+      studies: {}
+      
+      membership: {}
+      
+      user: 
+        "*": true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      project: {}
+      
+      dba: {}
+      
+      study_parameters: {}
+      
+      audit: 
+        show: true
+        "*": true
+      study_queues: {}
+      
+      tasks: {}
+      
+      biorails: {}
+      
+      queue_items: {}
+      
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        list: true
+        show: true
+      reports: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      study_protocols: {}
+      
+      home: 
+        calendar: true
+        blog: true
+        destroy: true
+        projects: true
+        timeline: true
+        show: true
+        index: true
+        "*": true
+      folders: {}
+      
+      report: 
+        "*": true
+      finder: {}
+      
+      inventory: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "6"
+    description: General Power user role with delete rights
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:06:50
+00000000003_user_role: !ruby/object:UserRole 
+  attributes: 
+    name: Administrator
+    updated_at: 2007-09-12 10:38:35
+    cache: |
+      --- 
+      experiments: {}
+      
+      studies: {}
+      
+      membership: {}
+      
+      user: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      auth: {}
+      
+      help: {}
+      
+      catalogue: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        new_usage: true
+        create: true
+        new_element: true
+        show: true
+        update: true
+        "*": true
+      protocol: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      project: {}
+      
+      dba: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      study_parameters: {}
+      
+      ~: 
+        ~: true
+      system: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      audit: 
+        show: true
+        "*": true
+      cataloge: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_queues: {}
+      
+      tasks: {}
+      
+      biorails: {}
+      
+      queue_items: {}
+      
+      experiment: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      request: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      reports: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      study_protocols: {}
+      
+      home: 
+        calendar: true
+        blog: true
+        destroy: true
+        projects: true
+        timeline: true
+        show: true
+        index: true
+        "*": true
+      folders: {}
+      
+      report: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      finder: {}
+      
+      inventory: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "3"
+    description: Systems Catalogue Administrator
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2006-06-23 12:03:48
+00000000007_user_role: !ruby/object:UserRole 
+  attributes: 
+    name: Users
+    updated_at: 2007-11-19 11:12:24
+    cache: |
+      --- 
+      membership: {}
+      
+      experiments: {}
+      
+      studies: {}
+      
+      auth: {}
+      
+      help: {}
+      
+      catalogue: {}
+      
+      project: {}
+      
+      dba: {}
+      
+      study_parameters: {}
+      
+      audit: 
+        show: true
+        "*": true
+      study_queues: {}
+      
+      tasks: {}
+      
+      queue_items: {}
+      
+      biorails: {}
+      
+      page: {}
+      
+      requests: {}
+      
+      users: 
+        list: true
+        show: true
+      reports: 
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      study_protocols: {}
+      
+      home: 
+        calendar: true
+        blog: true
+        destroy: true
+        projects: true
+        timeline: true
+        show: true
+        index: true
+        "*": true
+      folders: {}
+      
+      finder: {}
+      
+      inventory: 
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+
+    type: UserRole
+    updated_by_user_id: "3"
+    id: "7"
+    description: "Standard User "
+    created_by_user_id: "3"
+    parent_id: 
+    created_at: 2007-06-11 12:48:05

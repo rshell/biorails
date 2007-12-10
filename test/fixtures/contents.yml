@@ -1,0 +1,58 @@
+---
+1_content: !ruby/object:Content
+  attributes: 
+    name: Art-76
+    updated_at: 2007-10-31 19:05:27
+    body_html: "Today, on the last day of our 10 year anniversary navel gazing\n\
+      spectacular, I present the final (thank god!) chapter in my 4 part\n\
+      history of Slashdot. I've written about the creation,\n\
+      the explosion, and the corporatization. Today I talk about where we are\n\
+      today, and what I see as our future,\n\
+      and how I feel about it. Clicky click the magic link below to read the\n\
+      last \"thrilling\" chapter, and celebrate\n\
+      with me the fact that I won't have to spend this much time writing\n\
+      about Slashdot for another decade. "
+    project_id: "1"
+    body: 
+    title: "anniversary "
+    left_limit: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: 
+    id: "1"
+    right_limit: 
+    lock_timeout: 
+    created_by_user_id: "1"
+    comments_count: "0"
+    parent_id: 
+    lock_user_id: 
+    content_hash: 
+    comment_age: "0"
+    author_ip: 
+    created_at: 2007-10-31 19:05:27
+2_content: !ruby/object:Content
+  attributes: 
+    name: Art-40
+    updated_at: 2007-06-28 11:12:15
+    body_html: "  <html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"> <head> \t<title>Untitled document</title> \t </head> <body> <dl> <dt>Control Vehicle</dt> <dd style=\"color: blue\">Control Vehicle</dd> <dt>Stock Concentration</dt> <dd style=\"color: blue\">Stock Concentration</dd> <dt>Route of Administration</dt> <dd style=\"color: blue\">Route of Administration</dd> </dl> <h3>Justification of Dose Levels&nbsp;</h3> <p style=\"color: blue\">A justfication for these dose levels&nbsp;</p> <dl> <dt>Control Dose</dt> <dd style=\"color: blue\">Control Dose</dd> <dt>Control Dose Unit</dt> <dd style=\"color: blue\">Dose Unit</dd> <dt>Control Route of Administration</dt> <dd style=\"color: blue\">Control Route of Administration</dd> </dl>   </body> </html>"
+    project_id: "1"
+    body: 
+    title: Dose Levels
+    left_limit: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: 
+    id: "2"
+    right_limit: 
+    lock_timeout: 
+    created_by_user_id: "1"
+    comments_count: "0"
+    parent_id: 
+    lock_user_id: 
+    content_hash: 
+    comment_age: "0"
+    author_ip: 
+    created_at: 2007-06-28 11:12:15
+
