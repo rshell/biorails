@@ -121,7 +121,7 @@ module Biorails
 
       def self.export_model(model,filename=nil)
 
-        filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tablize + '.yml')
+        filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tableize + '.yml')
         File.open(filename, 'w' ) do |file|
           data = model.find(:all,:order => :id)
           file.write data.inject({}) { |hash, record|
@@ -131,9 +131,13 @@ module Biorails
         end
        p "Writen #{model.count} #{model.to_s} records exported to #{filename}"
       end
-
-      def self.import_model(model,filename=nil)
-       filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tablize + '.yml')
+      
+      def self.import_model(item,filename=nil)
+       model = item
+       if item.is_a? Symbol
+         model = eval(item.to_s.singularize.camelcase)  
+       end 
+       filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tableize + '.yml')
        success =0
        records = YAML::load( File.open(filename))
         model.transaction do
@@ -164,9 +168,9 @@ module Biorails
   end 
 
   module Version
-    MAJOR  = 1
-    MINOR  = 10
-    TINY   = 815
+    MAJOR  = 2
+    MINOR  = 1
+    TINY   = 0
     STRING = [MAJOR, MINOR, TINY].join('.').freeze
     TITLE  = "Biorails".freeze
   end
