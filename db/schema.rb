@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 283) do
+ActiveRecord::Schema.define(:version => 284) do
 
   create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
     t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
@@ -1130,8 +1130,8 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "cache",              :text
     t.column "created_at",         :timestamp,                                 :null => false
     t.column "updated_at",         :timestamp,                                 :null => false
-    t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
-    t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
+    t.column "created_by_user_id", :integer,                   :default => 1
+    t.column "updated_by_user_id", :integer,                   :default => 1
     t.column "type",               :string
   end
 
