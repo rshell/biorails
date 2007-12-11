@@ -54,7 +54,7 @@ Ext.onReady(function(){
 						contentEl: 'tab-sheet',
 						autoLoad: {url:"<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>",scripts:true}
 					},{
-						title: 'View',
+                                                title: 'View',
 						contentEl: 'tab-view',
 						autoLoad: {url:"<%=task_url(:action=>'view',:format=>:ext,:id=>@task)%>",scripts:true}
 					},{
@@ -62,7 +62,7 @@ Ext.onReady(function(){
 						contentEl: 'tab-analysis',
 						autoLoad: {url:"<%=task_url(:action=>'analysis',:format=>:ext,:id=>@task)%>",scripts:true}
 					},{
-						title: 'Metices',
+						title: 'Metrics',
 						contentEl: 'tab-matrics',
                         autoLoad: {url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}
 					}]		  

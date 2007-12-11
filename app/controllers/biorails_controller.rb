@@ -34,7 +34,7 @@ class BiorailsController < ApplicationController
   # 
     def project_list(session_id)
        user = User.find(session_id)
-       retrun user.projects
+       return user.projects
     end
 #
 # List of all project elements in order parent_id,name for 

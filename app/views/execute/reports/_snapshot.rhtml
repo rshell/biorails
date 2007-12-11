@@ -1,12 +1,12 @@
 
-<b>Snapshot To Folder</b></a>
+<b>Snapshot To Folder</b>
 <div id="snapshot-dialog">
 
 <% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
 
   <div class="form-element">
   <label for="folder">Folder</label>
-  <%= select_tag 'folder_id', options_for_select(current_project.folder_options) %>
+  <%= select_tag :folder_id, options_for_select(current_project.folder_options) %>
   </div>
 
   <div class="form-element">
