@@ -27,7 +27,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   
   
   def test_word_asset
-     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/moose_origami.doc', 'application/word') 
+     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'files/moose_origami.doc', 'application/word') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
@@ -37,7 +37,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end
 
   def test_pdf_asset
-     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/Fitting.pdf', 'application/pdf') 
+     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/Fitting.pdf', 'application/pdf') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
@@ -47,7 +47,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end
   
   def test_image_asset
-     file = ActionController::TestUploadedFile.new('test/## Biorails::Dba.import_model/files/rails.png', 'image/png') 
+     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/rails.png', 'image/png') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
