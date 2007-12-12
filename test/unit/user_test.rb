@@ -65,13 +65,4 @@ class UserTest < Test::Unit::TestCase
      assert user.memberships.detect{|i|i.project ==project}, "project is on my membership list"
   end
   
-  
-  def test005_get_permission
-     user = User.find(:first)
-     role = Role.find(:first)
-     user.role = role
-     assert_ok user.role
-     assert_ok user.rights(user) 
-  end
-  
 end

@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskContextTest < Test::Unit::TestCase
   
-  TASK_ID = 63
+  TASK_ID = 1
   
   # Replace this with your real tests.
   def test_truth
@@ -10,16 +10,16 @@ class TaskContextTest < Test::Unit::TestCase
   end
   
   
-  def test_find()
-    task = task.find(TASK_ID)
-    assert task.contexts> 0
+  def test_find
+    task = Task.find(TASK_ID)
+    assert task.contexts.count > 0
   end
   
   #
   # See if data items and hashes contains corrent number of columns
   #
-  def test_get_grid()
-    task = task.find(TASK_ID)
+  def test_get_grid
+    task = Task.find(TASK_ID)
     task.process.contexts.each  do |definition| 
       rows = task.contexts.matching(definition)
       rows.each do |row|
