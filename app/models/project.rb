@@ -92,7 +92,7 @@ class Project < ActiveRecord::Base
 #   
   acts_as_scheduled :summary=>:tasks
 
-  has_many_scheduled :studies,      :class_name=>'Study',:foreign_key =>'project_id', :dependent => :destroy 
+  has_many_scheduled :studies,      :class_name=>'Study', :order=>'name', :foreign_key =>'project_id', :dependent => :destroy 
   has_many_scheduled :experiments,  :class_name=>'Experiment',  :foreign_key =>'project_id', :dependent => :destroy 
 
   has_many_scheduled :tasks,        :class_name=>'Task',  :foreign_key =>'project_id', :dependent => :destroy 

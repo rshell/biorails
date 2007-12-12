@@ -18,9 +18,9 @@ ora_development:
 
 development:
   adapter: mysql
-  database: biorails_development
-  username: chrisc 
-  password: naughty
+  database: biorails2_development
+  username: biorails
+  password: moose
   host: localhost
 
 # Warning: The database defined as 'test' will be erased and

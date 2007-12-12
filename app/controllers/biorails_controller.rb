@@ -92,7 +92,7 @@ class BiorailsController < ApplicationController
 #
     def study_list(session_id,project_id)
        user = User.find(session_id)
-       project = Project.find(project_id)
+       project = Project.find(project_id, :order=>'id')
        return project.studies
     end
 ##
@@ -102,7 +102,7 @@ class BiorailsController < ApplicationController
 #     
     def study_protocol_list(session_id,study_id)  
        user = User.find(session_id)
-       protocols = StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'id')
+       protocols = StudyProtocol.find(:all,:conditions=>['study_id=?',study_id],:order=>'name')
        return protocols;
     end
 ##
@@ -115,7 +115,7 @@ class BiorailsController < ApplicationController
 ##
 #List all parameter contexts in a process
 #
-    def parameter_context_list(session_id,protocol_id)  
+    def parameter_context_list(session_id, protocol_id)  
        ParameterContext.find(:all,:conditions=>['protocol_version_id=?',protocol_id],:order=>'id')
     end
 ##
@@ -176,7 +176,7 @@ class BiorailsController < ApplicationController
       Study.find(id)      
     end
 
-    def get_study_protocols(session_id,id)
+    def get_study_protocol(session_id,id)
       StudyProtocol.find(id)      
     end
 
@@ -240,6 +240,9 @@ class BiorailsController < ApplicationController
       experiment = Experiment.new( :name=>name, :description=>description)
       experiment.project = Project.current
       experiment.protocol =StudyProtocol.find(protocol_id)
+      experiment.protocol_version_id = protocol_id
+      experiment.study_id = experiment.protocol.study.id
+      #TODO add started_at and expected_at to the new experiment
       if experiment.save
           folder = experiment.folder       
       end

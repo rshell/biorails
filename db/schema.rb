@@ -2,80 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 283) do
-
-  create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",    :string, :limit => 32,  :default => "", :null => false
-    t.column "INFO_TYPE",  :string, :limit => 32,  :default => "", :null => false
-    t.column "EXTRA_1",    :string, :limit => 100
-    t.column "EXTRA_2",    :string, :limit => 100
-    t.column "EXTRA_3",    :string, :limit => 100
-    t.column "EXTRA_4",    :string, :limit => 100
-    t.column "INFO_VALUE", :text
-  end
-
-  create_table "IJC_ITEM_USER", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",     :string,   :limit => 32, :default => "", :null => false
-    t.column "ITEM_ID",       :string,   :limit => 32, :default => "", :null => false
-    t.column "USERNAME",      :string,   :limit => 32, :default => "", :null => false
-    t.column "TYPE",          :string,   :limit => 32, :default => "", :null => false
-    t.column "CREATION_TIME", :datetime,                               :null => false
-    t.column "INFO",          :text
-  end
-
-  add_index "IJC_ITEM_USER", ["SCHEMA_ID", "USERNAME"], :name => "FK_IJC_ITEM_USER_USER"
-
-  create_table "IJC_SCHEMA", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",    :string,  :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",      :string,  :limit => 32,  :default => "", :null => false
-    t.column "ITEM_INDEX",   :integer, :limit => 6,                   :null => false
-    t.column "GENERIC_TYPE", :string,  :limit => 200, :default => "", :null => false
-    t.column "IMPL_TYPE",    :string,  :limit => 200, :default => "", :null => false
-    t.column "PARENT_ID",    :string,  :limit => 32
-    t.column "ITEM_VALUE",   :text
-  end
-
-  add_index "IJC_SCHEMA", ["SCHEMA_ID", "PARENT_ID"], :name => "FK_IJC_SCHEMA_SCHEMA"
-
-  create_table "IJC_SECURITY_INFO", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
-    t.column "ITEM_ID",    :string, :limit => 32,  :default => "", :null => false
-    t.column "INFO_TYPE",  :string, :limit => 32,  :default => "", :null => false
-    t.column "EXTRA_1",    :string, :limit => 100
-    t.column "EXTRA_2",    :string, :limit => 100
-    t.column "EXTRA_3",    :string, :limit => 100
-    t.column "EXTRA_4",    :string, :limit => 100
-    t.column "INFO_VALUE", :text
-  end
-
-  create_table "IJC_USER", :id => false, :force => true do |t|
-    t.column "SCHEMA_ID",  :string,   :limit => 32, :default => "", :null => false
-    t.column "USERNAME",   :string,   :limit => 32, :default => "", :null => false
-    t.column "LOGIN_TIME", :datetime
-    t.column "HEARTBEAT",  :datetime
-  end
-
-  create_table "IJC_VIEWS", :id => false, :force => true do |t|
-    t.column "ID",          :integer,                                :null => false
-    t.column "SCHEMA_ID",   :string,  :limit => 32,  :default => "", :null => false
-    t.column "DATATREE_ID", :string,  :limit => 32,  :default => "", :null => false
-    t.column "USERNAME",    :string,  :limit => 32,  :default => "", :null => false
-    t.column "VIEW_ID",     :string,  :limit => 32,  :default => "", :null => false
-    t.column "VIEW_NAME",   :string,  :limit => 100, :default => "", :null => false
-    t.column "VIEW_INDEX",  :integer, :limit => 6,                   :null => false
-    t.column "IMPL_TYPE",   :string,  :limit => 200, :default => "", :null => false
-    t.column "VIEW_CONFIG", :text
-  end
-
-  add_index "IJC_VIEWS", ["SCHEMA_ID", "DATATREE_ID", "USERNAME", "VIEW_ID"], :name => "UQ_IJC_VIEWS", :unique => true
-  add_index "IJC_VIEWS", ["SCHEMA_ID", "USERNAME"], :name => "FK_IJC_VIEWS_USER"
-
-  create_table "JCHEMPROPERTIES", :id => false, :force => true do |t|
-    t.column "prop_name",      :string, :limit => 200, :default => "", :null => false
-    t.column "prop_value",     :string, :limit => 200
-    t.column "prop_value_ext", :binary
-  end
+ActiveRecord::Schema.define(:version => 284) do
 
   create_table "analysis_methods", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -88,6 +15,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id",  :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id",  :integer,                 :default => 1,  :null => false
   end
+
+  add_index "analysis_methods", ["created_by_user_id"], :name => "analysis_methods_idx10"
+  add_index "analysis_methods", ["name"], :name => "analysis_methods_idx2"
+  add_index "analysis_methods", ["protocol_version_id"], :name => "analysis_methods_idx5"
+  add_index "analysis_methods", ["created_at"], :name => "analysis_methods_idx7"
+  add_index "analysis_methods", ["updated_at"], :name => "analysis_methods_idx8"
+  add_index "analysis_methods", ["updated_by_user_id"], :name => "analysis_methods_idx9"
 
   create_table "analysis_settings", :force => true do |t|
     t.column "analysis_method_id", :integer
@@ -106,6 +40,15 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,                :default => 1,   :null => false
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
   end
+
+  add_index "analysis_settings", ["created_at"], :name => "analysis_settings_idx13"
+  add_index "analysis_settings", ["updated_at"], :name => "analysis_settings_idx14"
+  add_index "analysis_settings", ["updated_by_user_id"], :name => "analysis_settings_idx15"
+  add_index "analysis_settings", ["created_by_user_id"], :name => "analysis_settings_idx16"
+  add_index "analysis_settings", ["analysis_method_id"], :name => "analysis_settings_idx2"
+  add_index "analysis_settings", ["name"], :name => "analysis_settings_idx3"
+  add_index "analysis_settings", ["parameter_id"], :name => "analysis_settings_idx6"
+  add_index "analysis_settings", ["data_type_id"], :name => "analysis_settings_idx7"
 
   create_table "audit_logs", :force => true do |t|
     t.column "auditable_id",   :integer
@@ -131,12 +74,33 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
   add_index "audits", ["created_at"], :name => "audits_created_at_index"
+  add_index "audits", ["auditable_id"], :name => "audits_idx2"
+  add_index "audits", ["user_id"], :name => "audits_idx4"
+  add_index "audits", ["session_id"], :name => "audits_idx6"
+
+  create_table "authentication_systems", :force => true do |t|
+    t.column "name",               :string,   :limit => 50, :default => "",            :null => false
+    t.column "description",        :text
+    t.column "type",               :string,                 :default => "DataConcept", :null => false
+    t.column "host",               :string,   :limit => 60
+    t.column "port",               :integer
+    t.column "account",            :string,   :limit => 60
+    t.column "account_password",   :string,   :limit => 60
+    t.column "base_dn",            :string
+    t.column "attr_login",         :string,   :limit => 30
+    t.column "attr_firstname",     :string,   :limit => 30
+    t.column "attr_lastname",      :string,   :limit => 30
+    t.column "attr_mail",          :string,   :limit => 30
+    t.column "lock_version",       :integer,                :default => 0,             :null => false
+    t.column "created_at",         :datetime,                                          :null => false
+    t.column "updated_at",         :datetime,                                          :null => false
+    t.column "updated_by_user_id", :integer,                :default => 1,             :null => false
+    t.column "created_by_user_id", :integer,                :default => 1,             :null => false
+  end
 
   create_table "batches", :force => true do |t|
-    t.column "registration_id",    :integer,  :default => 0, :null => false
-    t.column "composition_id",     :integer
-    t.column "name",               :string
     t.column "compound_id",        :integer,  :default => 0, :null => false
+    t.column "name",               :string
     t.column "description",        :text
     t.column "external_ref",       :string
     t.column "quantity_unit",      :string
@@ -148,6 +112,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,  :default => 1, :null => false
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
+
+  add_index "batches", ["compound_id"], :name => "batches_compound_fk"
+  add_index "batches", ["created_at"], :name => "batches_idx10"
+  add_index "batches", ["updated_at"], :name => "batches_idx11"
+  add_index "batches", ["updated_by_user_id"], :name => "batches_idx12"
+  add_index "batches", ["created_by_user_id"], :name => "batches_idx13"
+  add_index "batches", ["name"], :name => "batches_idx3"
 
   create_table "catalog_logs", :force => true do |t|
     t.column "user_id",        :integer
@@ -163,26 +134,32 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "catalog_logs", ["user_id"], :name => "catalog_logs_user_id_index"
   add_index "catalog_logs", ["auditable_type", "auditable_id"], :name => "catalog_logs_auditable_type_index"
   add_index "catalog_logs", ["created_at"], :name => "catalog_logs_created_at_index"
+  add_index "catalog_logs", ["user_id"], :name => "catalog_logs_idx1"
+  add_index "catalog_logs", ["auditable_type", "auditable_id"], :name => "catalog_logs_idx2"
+  add_index "catalog_logs", ["created_at"], :name => "catalog_logs_idx3"
+  add_index "catalog_logs", ["name"], :name => "catalog_logs_idx6"
 
-  create_table "composition_items", :force => true do |t|
-    t.column "composition_id", :integer
-    t.column "compound_id",    :integer
-    t.column "coeffient",      :float
-    t.column "name",           :string
-    t.column "description",    :text
+  create_table "compound_results", :force => true do |t|
+    t.column "row_no",                :integer,                               :null => false
+    t.column "column_no",             :integer
+    t.column "task_id",               :integer
+    t.column "parameter_context_id",  :integer
+    t.column "task_context_id",       :integer
+    t.column "data_element_id",       :integer
+    t.column "compound_parameter_id", :integer
+    t.column "compound_id",           :integer
+    t.column "compound_name",         :string
+    t.column "protocol_version_id",   :integer
+    t.column "label",                 :string
+    t.column "row_label",             :string
+    t.column "parameter_id",          :integer
+    t.column "parameter_name",        :string,   :limit => 62
+    t.column "data_value",            :float
+    t.column "created_by_user_id",    :integer,                :default => 1, :null => false
+    t.column "created_at",            :datetime,                              :null => false
+    t.column "updated_by_user_id",    :integer,                :default => 1, :null => false
+    t.column "updated_at",            :datetime,                              :null => false
   end
-
-  create_table "compositions", :force => true do |t|
-    t.column "type",               :string,   :limit => 50, :default => "", :null => false
-    t.column "lock_version",       :integer,                :default => 0,  :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
-  end
-
-# Could not dump table "compound_results" because of following StandardError
-#   Unknown type 'null' for column 'id'
 
   create_table "compounds", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -197,8 +174,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_at",         :datetime,                               :null => false
     t.column "registration_date",  :datetime
     t.column "iupacname",          :string,                 :default => ""
-    t.column "molecule_id",        :integer
   end
+
+  add_index "compounds", ["updated_by_user_id"], :name => "compounds_idx12"
+  add_index "compounds", ["created_by_user_id"], :name => "compounds_idx13"
+  add_index "compounds", ["name"], :name => "compounds_idx2"
+  add_index "compounds", ["created_at"], :name => "compounds_idx8"
+  add_index "compounds", ["updated_at"], :name => "compounds_idx9"
 
   create_table "container_items", :force => true do |t|
     t.column "container_group_id", :integer,                 :null => false
@@ -207,22 +189,8 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "slot_no",            :integer,                 :null => false
   end
 
-  create_table "container_slots", :force => true do |t|
-    t.column "container_layout_id", :integer,                 :default => 0,   :null => false
-    t.column "name",                :string,   :limit => 128, :default => "",  :null => false
-    t.column "label",               :string
-    t.column "slot_no",             :integer,                 :default => 0,   :null => false
-    t.column "object_no",           :integer,                 :default => 0,   :null => false
-    t.column "dilution_factor",     :float,                   :default => 1.0, :null => false
-    t.column "x",                   :integer,                 :default => 0,   :null => false
-    t.column "y",                   :integer,                 :default => 0,   :null => false
-    t.column "z",                   :integer,                 :default => 0,   :null => false
-    t.column "lock_version",        :integer,                 :default => 0,   :null => false
-    t.column "created_at",          :datetime,                                 :null => false
-    t.column "updated_at",          :datetime,                                 :null => false
-    t.column "updated_by_user_id",  :integer,                 :default => 1,   :null => false
-    t.column "created_by_user_id",  :integer,                 :default => 1,   :null => false
-  end
+  add_index "container_items", ["container_group_id"], :name => "container_items_idx2"
+  add_index "container_items", ["subject_id"], :name => "container_items_idx4"
 
   create_table "containers", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
@@ -235,27 +203,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
-  create_table "content_pages", :force => true do |t|
-    t.column "title",           :string
-    t.column "name",            :string,    :default => "", :null => false
-    t.column "markup_style_id", :integer
-    t.column "content",         :text
-    t.column "permission_id",   :integer,                   :null => false
-    t.column "created_at",      :timestamp,                 :null => false
-    t.column "updated_at",      :timestamp,                 :null => false
-  end
-
-  add_index "content_pages", ["permission_id"], :name => "fk_content_page_permission_id"
-  add_index "content_pages", ["markup_style_id"], :name => "fk_content_page_markup_style_id"
-
-  create_table "controller_actions", :force => true do |t|
-    t.column "site_controller_id", :integer,                 :null => false
-    t.column "name",               :string,  :default => "", :null => false
-    t.column "permission_id",      :integer
-  end
-
-  add_index "controller_actions", ["permission_id"], :name => "fk_controller_action_permission_id"
-  add_index "controller_actions", ["site_controller_id"], :name => "fk_controller_action_site_controller_id"
+  add_index "containers", ["name"], :name => "containers_idx2"
+  add_index "containers", ["plate_format_id"], :name => "containers_idx4"
+  add_index "containers", ["created_at"], :name => "containers_idx6"
+  add_index "containers", ["updated_at"], :name => "containers_idx7"
+  add_index "containers", ["updated_by_user_id"], :name => "containers_idx8"
+  add_index "containers", ["created_by_user_id"], :name => "containers_idx9"
 
   create_table "data_concepts", :force => true do |t|
     t.column "parent_id",          :integer
@@ -276,6 +229,9 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "data_concepts", ["name"], :name => "data_concepts_name_idx"
   add_index "data_concepts", ["access_control_id"], :name => "data_concepts_acl_idx"
   add_index "data_concepts", ["data_context_id"], :name => "data_concepts_fk1"
+  add_index "data_concepts", ["parent_id"], :name => "data_concepts_fk0"
+  add_index "data_concepts", ["updated_by_user_id"], :name => "data_concepts_idx11"
+  add_index "data_concepts", ["created_by_user_id"], :name => "data_concepts_idx12"
 
   create_table "data_contexts", :force => true do |t|
     t.column "name",              :string,   :limit => 50, :default => "",    :null => false
@@ -288,12 +244,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_at",        :datetime,                                  :null => false
   end
 
-  add_index "data_contexts", ["updated_by"], :name => "data_contexts_idx1"
   add_index "data_contexts", ["updated_at"], :name => "data_contexts_idx2"
-  add_index "data_contexts", ["created_by"], :name => "data_contexts_idx3"
   add_index "data_contexts", ["created_at"], :name => "data_contexts_idx4"
   add_index "data_contexts", ["name"], :name => "data_contexts_name_idx"
   add_index "data_contexts", ["access_control_id"], :name => "data_contexts_acl_idx"
+  add_index "data_contexts", ["updated_by"], :name => "data_contexts_idx1"
+  add_index "data_contexts", ["created_by"], :name => "data_contexts_idx3"
 
   create_table "data_elements", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -319,6 +275,9 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "data_elements", ["access_control_id"], :name => "data_elements_acl_idx"
   add_index "data_elements", ["data_concept_id"], :name => "data_element_fk2"
   add_index "data_elements", ["data_system_id"], :name => "data_element_fk1"
+  add_index "data_elements", ["parent_id"], :name => "data_elements_idx10"
+  add_index "data_elements", ["updated_by_user_id"], :name => "data_elements_idx15"
+  add_index "data_elements", ["created_by_user_id"], :name => "data_elements_idx16"
 
   create_table "data_formats", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
@@ -333,6 +292,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "format_sprintf",     :string
   end
+
+  add_index "data_formats", ["updated_by_user_id"], :name => "data_formats_idx10"
+  add_index "data_formats", ["created_by_user_id"], :name => "data_formats_idx11"
+  add_index "data_formats", ["name"], :name => "data_formats_idx2"
+  add_index "data_formats", ["created_at"], :name => "data_formats_idx7"
+  add_index "data_formats", ["updated_at"], :name => "data_formats_idx8"
+  add_index "data_formats", ["data_type_id"], :name => "data_formats_idx9"
 
   create_table "data_relations", :force => true do |t|
     t.column "from_concept_id", :integer, :limit => 32, :null => false
@@ -367,6 +333,8 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "data_systems", ["name"], :name => "data_environments_name_idx"
   add_index "data_systems", ["access_control_id"], :name => "data_environments_acl_idx"
   add_index "data_systems", ["data_context_id"], :name => "data_environments_fk1"
+  add_index "data_systems", ["updated_by_user_id"], :name => "data_systems_idx15"
+  add_index "data_systems", ["created_by_user_id"], :name => "data_systems_idx16"
 
   create_table "data_types", :force => true do |t|
     t.column "name",               :string
@@ -379,13 +347,14 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
+  add_index "data_types", ["name"], :name => "data_types_idx2"
+  add_index "data_types", ["created_at"], :name => "data_types_idx6"
+  add_index "data_types", ["updated_at"], :name => "data_types_idx7"
+  add_index "data_types", ["updated_by_user_id"], :name => "data_types_idx8"
+  add_index "data_types", ["created_by_user_id"], :name => "data_types_idx9"
+
   create_table "db_files", :force => true do |t|
     t.column "data", :binary
-  end
-
-  create_table "engine_schema_info", :id => false, :force => true do |t|
-    t.column "engine_name", :string
-    t.column "version",     :integer
   end
 
   create_table "experiment_logs", :force => true do |t|
@@ -405,9 +374,27 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "experiment_logs", ["user_id"], :name => "experiment_logs_user_id_index"
   add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_auditable_type_index"
   add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
+  add_index "experiment_logs", ["task_id"], :name => "experiment_logs_fk3"
+  add_index "experiment_logs", ["experiment_id"], :name => "experiment_logs_idx1"
+  add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_idx3"
+  add_index "experiment_logs", ["created_at"], :name => "experiment_logs_idx4"
+  add_index "experiment_logs", ["auditable_id"], :name => "experiment_logs_idx5"
+  add_index "experiment_logs", ["name"], :name => "experiment_logs_idx8"
+  add_index "experiment_logs", ["user_id"], :name => "experiment_logs_user_idx2"
 
-# Could not dump table "experiment_statistics" because of following StandardError
-#   Unknown type 'null' for column 'experiment_id'
+  create_table "experiment_statistics", :force => true do |t|
+    t.column "experiment_id",      :integer,               :default => 0, :null => false
+    t.column "study_parameter_id", :integer
+    t.column "parameter_role_id",  :integer
+    t.column "parameter_type_id",  :integer
+    t.column "data_type_id",       :integer
+    t.column "avg_values",         :float
+    t.column "stddev_values",      :float
+    t.column "num_values",         :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",         :integer, :limit => 21, :default => 0, :null => false
+    t.column "max_values",         :float
+    t.column "min_values",         :float
+  end
 
   create_table "experiments", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -428,6 +415,18 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "expected_at",         :datetime
   end
 
+  add_index "experiments", ["updated_at"], :name => "experiments_idx10"
+  add_index "experiments", ["study_protocol_id"], :name => "experiments_idx11"
+  add_index "experiments", ["project_id"], :name => "experiments_idx12"
+  add_index "experiments", ["updated_by_user_id"], :name => "experiments_idx13"
+  add_index "experiments", ["created_by_user_id"], :name => "experiments_idx14"
+  add_index "experiments", ["name"], :name => "experiments_idx2"
+  add_index "experiments", ["category_id"], :name => "experiments_idx4"
+  add_index "experiments", ["status_id"], :name => "experiments_idx5"
+  add_index "experiments", ["study_id"], :name => "experiments_idx6"
+  add_index "experiments", ["protocol_version_id"], :name => "experiments_idx7"
+  add_index "experiments", ["created_at"], :name => "experiments_idx9"
+
   create_table "identifiers", :force => true do |t|
     t.column "name",               :string
     t.column "prefix",             :string
@@ -442,12 +441,21 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
+  add_index "identifiers", ["updated_at"], :name => "identifiers_idx10"
+  add_index "identifiers", ["updated_by_user_id"], :name => "identifiers_idx11"
+  add_index "identifiers", ["created_by_user_id"], :name => "identifiers_idx12"
+  add_index "identifiers", ["name"], :name => "identifiers_idx2"
+  add_index "identifiers", ["created_at"], :name => "identifiers_idx9"
+
   create_table "list_items", :force => true do |t|
     t.column "list_id",   :integer
     t.column "data_type", :string
     t.column "data_id",   :integer
     t.column "data_name", :string
   end
+
+  add_index "list_items", ["list_id"], :name => "list_items_idx2"
+  add_index "list_items", ["data_id"], :name => "list_items_idx4"
 
   create_table "lists", :force => true do |t|
     t.column "name",               :string
@@ -462,6 +470,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
+  add_index "lists", ["updated_by_user_id"], :name => "lists_idx10"
+  add_index "lists", ["created_by_user_id"], :name => "lists_idx11"
+  add_index "lists", ["name"], :name => "lists_idx2"
+  add_index "lists", ["created_at"], :name => "lists_idx7"
+  add_index "lists", ["updated_at"], :name => "lists_idx8"
+  add_index "lists", ["data_element_id"], :name => "lists_idx9"
+
   create_table "logging_events", :force => true do |t|
     t.column "level",       :string
     t.column "source",      :string
@@ -471,10 +486,6 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "description", :string
     t.column "comments",    :string
     t.column "data",        :text
-  end
-
-  create_table "markup_styles", :force => true do |t|
-    t.column "name", :string, :default => "", :null => false
   end
 
   create_table "memberships", :force => true do |t|
@@ -488,70 +499,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  create_table "menu_items", :force => true do |t|
-    t.column "parent_id",            :integer
-    t.column "name",                 :string,  :default => "", :null => false
-    t.column "label",                :string,  :default => "", :null => false
-    t.column "seq",                  :integer
-    t.column "controller_action_id", :integer
-    t.column "content_page_id",      :integer
-  end
-
-  add_index "menu_items", ["controller_action_id"], :name => "fk_menu_item_controller_action_id"
-  add_index "menu_items", ["content_page_id"], :name => "fk_menu_item_content_page_id"
-  add_index "menu_items", ["parent_id"], :name => "fk_menu_item_parent_id"
-
-  create_table "mixtures", :force => true do |t|
-    t.column "name",               :string
-    t.column "description",        :text
-    t.column "composition_id",     :integer
-    t.column "lock_version",       :integer,  :default => 0, :null => false
-    t.column "created_at",         :datetime,                :null => false
-    t.column "updated_at",         :datetime,                :null => false
-    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
-    t.column "created_by_user_id", :integer,  :default => 1, :null => false
-  end
-
-  create_table "molecules", :force => true do |t|
-    t.column "cas",          :string,   :limit => 50,  :default => "", :null => false
-    t.column "name",         :string
-    t.column "formula",      :string,   :limit => 50
-    t.column "mass",         :float
-    t.column "smiles",       :string
-    t.column "cd_id",        :integer,                                 :null => false
-    t.column "compound_ref", :string,   :limit => 50
-    t.column "iupac_name",   :string
-    t.column "comments",     :string,   :limit => 50
-    t.column "cd_structure", :binary,                  :default => "", :null => false
-    t.column "cd_mol_file",  :text
-    t.column "cd_smiles",    :text
-    t.column "cd_formula",   :string,   :limit => 100
-    t.column "cd_molweight", :float
-    t.column "cd_hash",      :integer,                                 :null => false
-    t.column "cd_flags",     :string,   :limit => 20
-    t.column "cd_timestamp", :datetime,                                :null => false
-    t.column "cd_fp1",       :integer,                                 :null => false
-    t.column "cd_fp2",       :integer,                                 :null => false
-    t.column "cd_fp3",       :integer,                                 :null => false
-    t.column "cd_fp4",       :integer,                                 :null => false
-    t.column "cd_fp5",       :integer,                                 :null => false
-    t.column "cd_fp6",       :integer,                                 :null => false
-    t.column "cd_fp7",       :integer,                                 :null => false
-    t.column "cd_fp8",       :integer,                                 :null => false
-    t.column "cd_fp9",       :integer,                                 :null => false
-    t.column "cd_fp10",      :integer,                                 :null => false
-    t.column "cd_fp11",      :integer,                                 :null => false
-    t.column "cd_fp12",      :integer,                                 :null => false
-    t.column "cd_fp13",      :integer,                                 :null => false
-    t.column "cd_fp14",      :integer,                                 :null => false
-    t.column "cd_fp15",      :integer,                                 :null => false
-    t.column "cd_fp16",      :integer,                                 :null => false
-  end
-
-  create_table "molecules_UL", :id => false, :force => true do |t|
-    t.column "update_id",   :integer,                               :null => false
-    t.column "update_info", :string,  :limit => 20, :default => "", :null => false
-  end
+  add_index "memberships", ["user_id"], :name => "memberships_idx2"
+  add_index "memberships", ["project_id"], :name => "memberships_idx3"
+  add_index "memberships", ["role_id"], :name => "memberships_idx4"
+  add_index "memberships", ["created_at"], :name => "memberships_idx6"
+  add_index "memberships", ["updated_at"], :name => "memberships_idx7"
+  add_index "memberships", ["updated_by_user_id"], :name => "memberships_idx8"
+  add_index "memberships", ["created_by_user_id"], :name => "memberships_idx9"
 
   create_table "parameter_contexts", :force => true do |t|
     t.column "protocol_version_id", :integer
@@ -566,6 +520,9 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_process_instance_id_index"
   add_index "parameter_contexts", ["parent_id"], :name => "parameter_contexts_parent_id_index"
   add_index "parameter_contexts", ["label"], :name => "parameter_contexts_label_index"
+  add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_ide1"
+  add_index "parameter_contexts", ["parent_id"], :name => "parameter_contexts_idx2"
+  add_index "parameter_contexts", ["label"], :name => "parameter_contexts_idx3"
 
   create_table "parameter_roles", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -577,6 +534,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
     t.column "created_by_user_id", :integer,                :default => 1,  :null => false
   end
+
+  add_index "parameter_roles", ["name"], :name => "parameter_roles_idx2"
+  add_index "parameter_roles", ["created_at"], :name => "parameter_roles_idx6"
+  add_index "parameter_roles", ["updated_at"], :name => "parameter_roles_idx7"
+  add_index "parameter_roles", ["updated_by_user_id"], :name => "parameter_roles_idx8"
+  add_index "parameter_roles", ["created_by_user_id"], :name => "parameter_roles_idx9"
 
   create_table "parameter_types", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -591,6 +554,14 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
     t.column "created_by_user_id", :integer,                :default => 1,  :null => false
   end
+
+  add_index "parameter_types", ["updated_by_user_id"], :name => "parameter_types_idx11"
+  add_index "parameter_types", ["created_by_user_id"], :name => "parameter_types_idx12"
+  add_index "parameter_types", ["name"], :name => "parameter_types_idx2"
+  add_index "parameter_types", ["created_at"], :name => "parameter_types_idx6"
+  add_index "parameter_types", ["updated_at"], :name => "parameter_types_idx7"
+  add_index "parameter_types", ["data_concept_id"], :name => "parameter_types_idx8"
+  add_index "parameter_types", ["data_type_id"], :name => "parameter_types_idx9"
 
   create_table "parameters", :force => true do |t|
     t.column "protocol_version_id",  :integer
@@ -626,6 +597,21 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "parameters", ["parameter_type_id"], :name => "parameters_parameter_type_id_index"
   add_index "parameters", ["parameter_role_id"], :name => "parameters_parameter_role_id_index"
   add_index "parameters", ["updated_at"], :name => "parameters_updated_at_index"
+  add_index "parameters", ["name"], :name => "parameters_idx1"
+  add_index "parameters", ["data_element_id"], :name => "parameters_idx11"
+  add_index "parameters", ["access_control_id"], :name => "parameters_idx13"
+  add_index "parameters", ["created_at"], :name => "parameters_idx15"
+  add_index "parameters", ["data_type_id"], :name => "parameters_idx19"
+  add_index "parameters", ["protocol_version_id"], :name => "parameters_idx2"
+  add_index "parameters", ["data_format_id"], :name => "parameters_idx20"
+  add_index "parameters", ["study_parameter_id"], :name => "parameters_idx21"
+  add_index "parameters", ["study_queue_id"], :name => "parameters_idx22"
+  add_index "parameters", ["updated_by_user_id"], :name => "parameters_idx23"
+  add_index "parameters", ["created_by_user_id"], :name => "parameters_idx24"
+  add_index "parameters", ["parameter_context_id"], :name => "parameters_idx3"
+  add_index "parameters", ["parameter_type_id"], :name => "parameters_idx4"
+  add_index "parameters", ["parameter_role_id"], :name => "parameters_idx5"
+  add_index "parameters", ["updated_at"], :name => "parameters_idx6"
 
   create_table "permissions", :force => true do |t|
     t.column "checked", :boolean, :default => false, :null => false
@@ -645,6 +631,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
+  add_index "plate_formats", ["created_by_user_id"], :name => "plate_formats_idx10"
+  add_index "plate_formats", ["name"], :name => "plate_formats_idx2"
+  add_index "plate_formats", ["created_at"], :name => "plate_formats_idx7"
+  add_index "plate_formats", ["updated_at"], :name => "plate_formats_idx8"
+  add_index "plate_formats", ["updated_by_user_id"], :name => "plate_formats_idx9"
+
   create_table "plate_wells", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "label",              :string
@@ -657,6 +649,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,                 :default => 1,  :null => false
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
+
+  add_index "plate_wells", ["updated_by_user_id"], :name => "plate_wells_idx10"
+  add_index "plate_wells", ["created_by_user_id"], :name => "plate_wells_idx11"
+  add_index "plate_wells", ["name"], :name => "plate_wells_idx2"
+  add_index "plate_wells", ["created_at"], :name => "plate_wells_idx8"
+  add_index "plate_wells", ["updated_at"], :name => "plate_wells_idx9"
 
   create_table "plates", :force => true do |t|
     t.column "name",               :string
@@ -672,13 +670,64 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
+  add_index "plates", ["updated_at"], :name => "plates_idx10"
+  add_index "plates", ["updated_by_user_id"], :name => "plates_idx11"
+  add_index "plates", ["created_by_user_id"], :name => "plates_idx12"
+  add_index "plates", ["name"], :name => "plates_idx2"
+  add_index "plates", ["created_at"], :name => "plates_idx9"
+
   create_table "plugin_schema_info", :id => false, :force => true do |t|
     t.column "plugin_name", :string
     t.column "version",     :integer
   end
 
-# Could not dump table "process_statistics" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  create_table "process_definitions", :force => true do |t|
+    t.column "name",               :string,   :limit => 30, :default => "", :null => false
+    t.column "release",            :string,   :limit => 5,  :default => "", :null => false
+    t.column "description",        :text
+    t.column "protocol_catagory",  :string,   :limit => 20
+    t.column "protocol_status",    :string,   :limit => 20
+    t.column "literature_ref",     :string
+    t.column "access_control_id",  :integer,                :default => 0,  :null => false
+    t.column "lock_version",       :integer,                :default => 0,  :null => false
+    t.column "created_at",         :datetime,                               :null => false
+    t.column "updated_at",         :datetime,                               :null => false
+    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
+    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
+  end
+
+  add_index "process_definitions", ["name"], :name => "process_definitions_name_index"
+  add_index "process_definitions", ["updated_at"], :name => "process_definitions_updated_at_index"
+
+  create_table "process_instances", :force => true do |t|
+    t.column "process_definition_id", :integer,                              :null => false
+    t.column "name",                  :string,  :limit => 77
+    t.column "version",               :integer, :limit => 6,                 :null => false
+    t.column "lock_version",          :integer,               :default => 0, :null => false
+    t.column "created_at",            :time
+    t.column "updated_at",            :time
+    t.column "how_to",                :text
+    t.column "updated_by_user_id",    :integer,               :default => 1, :null => false
+    t.column "created_by_user_id",    :integer,               :default => 1, :null => false
+  end
+
+  add_index "process_instances", ["name"], :name => "process_instances_name_index"
+  add_index "process_instances", ["process_definition_id"], :name => "process_instances_process_definition_id_index"
+  add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
+
+  create_table "process_statistics", :force => true do |t|
+    t.column "study_parameter_id",  :integer
+    t.column "protocol_version_id", :integer
+    t.column "parameter_id",        :integer
+    t.column "parameter_role_id",   :integer
+    t.column "parameter_type_id",   :integer
+    t.column "avg_values",          :float
+    t.column "stddev_values",       :float
+    t.column "num_values",          :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",          :integer, :limit => 21, :default => 0, :null => false
+    t.column "max_values",          :float
+    t.column "min_values",          :float
+  end
 
   create_table "project_assets", :force => true do |t|
     t.column "project_id",         :integer
@@ -701,6 +750,14 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "caption",            :text
     t.column "db_file_id",         :integer
   end
+
+  add_index "project_assets", ["created_at"], :name => "project_assets_idx15"
+  add_index "project_assets", ["updated_at"], :name => "project_assets_idx16"
+  add_index "project_assets", ["updated_by_user_id"], :name => "project_assets_idx17"
+  add_index "project_assets", ["created_by_user_id"], :name => "project_assets_idx18"
+  add_index "project_assets", ["project_id"], :name => "project_assets_idx2"
+  add_index "project_assets", ["db_file_id"], :name => "project_assets_idx20"
+  add_index "project_assets", ["parent_id"], :name => "project_assets_idx4"
 
   create_table "project_contents", :force => true do |t|
     t.column "project_id",         :integer,                                    :null => false
@@ -725,6 +782,15 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "right_limit",        :integer
     t.column "parent_id",          :integer
   end
+
+  add_index "project_contents", ["lock_user_id"], :name => "project_contents_idx14"
+  add_index "project_contents", ["created_at"], :name => "project_contents_idx16"
+  add_index "project_contents", ["updated_at"], :name => "project_contents_idx17"
+  add_index "project_contents", ["updated_by_user_id"], :name => "project_contents_idx18"
+  add_index "project_contents", ["created_by_user_id"], :name => "project_contents_idx19"
+  add_index "project_contents", ["project_id"], :name => "project_contents_idx2"
+  add_index "project_contents", ["parent_id"], :name => "project_contents_idx22"
+  add_index "project_contents", ["name"], :name => "project_contents_idx4"
 
   create_table "project_elements", :force => true do |t|
     t.column "parent_id",              :integer
@@ -751,6 +817,15 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "project_elements", ["project_id"], :name => "project_id"
   add_index "project_elements", ["left_limit", "project_id"], :name => "left_limit"
   add_index "project_elements", ["right_limit", "project_id"], :name => "right_limit"
+  add_index "project_elements", ["created_at"], :name => "project_elements_idx10"
+  add_index "project_elements", ["updated_at"], :name => "project_elements_idx11"
+  add_index "project_elements", ["updated_by_user_id"], :name => "project_elements_idx12"
+  add_index "project_elements", ["created_by_user_id"], :name => "project_elements_idx13"
+  add_index "project_elements", ["asset_id"], :name => "project_elements_idx14"
+  add_index "project_elements", ["content_id"], :name => "project_elements_idx15"
+  add_index "project_elements", ["parent_id"], :name => "project_elements_idx2"
+  add_index "project_elements", ["name"], :name => "project_elements_idx6"
+  add_index "project_elements", ["reference_id"], :name => "project_elements_idx7"
 
   create_table "projects", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "", :null => false
@@ -772,6 +847,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                :default => 1,  :null => false
   end
 
+  add_index "projects", ["created_at"], :name => "projects_idx10"
+  add_index "projects", ["updated_at"], :name => "projects_idx11"
+  add_index "projects", ["updated_by_user_id"], :name => "projects_idx17"
+  add_index "projects", ["created_by_user_id"], :name => "projects_idx18"
+  add_index "projects", ["name"], :name => "projects_idx2"
+  add_index "projects", ["status_id"], :name => "projects_idx4"
+
   create_table "protocol_versions", :force => true do |t|
     t.column "study_protocol_id",  :integer
     t.column "name",               :string,  :limit => 77
@@ -789,6 +871,14 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "protocol_versions", ["name"], :name => "process_instances_name_index"
   add_index "protocol_versions", ["study_protocol_id"], :name => "process_instances_process_definition_id_index"
   add_index "protocol_versions", ["updated_at"], :name => "process_instances_updated_at_index"
+  add_index "protocol_versions", ["name"], :name => "process_versions_idx1"
+  add_index "protocol_versions", ["study_protocol_id"], :name => "process_versions_idx2"
+  add_index "protocol_versions", ["updated_at"], :name => "process_versions_idx3"
+  add_index "protocol_versions", ["analysis_id"], :name => "protocol_versions_idx10"
+  add_index "protocol_versions", ["updated_by_user_id"], :name => "protocol_versions_idx11"
+  add_index "protocol_versions", ["created_by_user_id"], :name => "protocol_versions_idx12"
+  add_index "protocol_versions", ["created_at"], :name => "protocol_versions_idx6"
+  add_index "protocol_versions", ["report_id"], :name => "protocol_versions_idx9"
 
   create_table "queue_items", :force => true do |t|
     t.column "name",                 :string
@@ -815,108 +905,76 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "assigned_to_user_id",  :integer,  :default => 1
   end
 
-# Could not dump table "queue_result_texts" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  add_index "queue_items", ["created_at"], :name => "queue_items_idx15"
+  add_index "queue_items", ["updated_at"], :name => "queue_items_idx16"
+  add_index "queue_items", ["request_service_id"], :name => "queue_items_idx17"
+  add_index "queue_items", ["status_id"], :name => "queue_items_idx18"
+  add_index "queue_items", ["priority_id"], :name => "queue_items_idx19"
+  add_index "queue_items", ["name"], :name => "queue_items_idx2"
+  add_index "queue_items", ["updated_by_user_id"], :name => "queue_items_idx20"
+  add_index "queue_items", ["created_by_user_id"], :name => "queue_items_idx21"
+  add_index "queue_items", ["requested_by_user_id"], :name => "queue_items_idx22"
+  add_index "queue_items", ["assigned_to_user_id"], :name => "queue_items_idx23"
+  add_index "queue_items", ["study_queue_id"], :name => "queue_items_idx4"
+  add_index "queue_items", ["experiment_id"], :name => "queue_items_idx5"
+  add_index "queue_items", ["task_id"], :name => "queue_items_idx6"
+  add_index "queue_items", ["study_parameter_id"], :name => "queue_items_idx7"
+  add_index "queue_items", ["data_id"], :name => "queue_items_idx9"
 
-# Could not dump table "queue_result_values" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  create_table "queue_result_texts", :force => true do |t|
+    t.column "row_no",                 :integer,                               :null => false
+    t.column "column_no",              :integer
+    t.column "task_id",                :integer
+    t.column "queue_item_id",          :integer,                :default => 0, :null => false
+    t.column "request_service_id",     :integer
+    t.column "study_queue_id",         :integer
+    t.column "parameter_context_id",   :integer
+    t.column "task_context_id",        :integer
+    t.column "reference_parameter_id", :integer
+    t.column "data_element_id",        :integer
+    t.column "data_type",              :string
+    t.column "data_id",                :integer
+    t.column "subject",                :string
+    t.column "parameter_id",           :integer
+    t.column "protocol_version_id",    :integer
+    t.column "label",                  :string
+    t.column "row_label",              :string
+    t.column "parameter_name",         :string,   :limit => 62
+    t.column "data_value",             :text
+    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "created_at",             :datetime,                              :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "updated_at",             :datetime,                              :null => false
+  end
+
+  create_table "queue_result_values", :force => true do |t|
+    t.column "row_no",                 :integer,                               :null => false
+    t.column "column_no",              :integer
+    t.column "task_id",                :integer
+    t.column "queue_item_id",          :integer,                :default => 0, :null => false
+    t.column "request_service_id",     :integer
+    t.column "study_queue_id",         :integer
+    t.column "parameter_context_id",   :integer
+    t.column "task_context_id",        :integer
+    t.column "reference_parameter_id", :integer
+    t.column "data_element_id",        :integer
+    t.column "data_type",              :string
+    t.column "data_id",                :integer
+    t.column "subject",                :string
+    t.column "parameter_id",           :integer
+    t.column "protocol_version_id",    :integer
+    t.column "label",                  :string
+    t.column "row_label",              :string
+    t.column "parameter_name",         :string,   :limit => 62
+    t.column "data_value",             :float
+    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "created_at",             :datetime,                              :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "updated_at",             :datetime,                              :null => false
+  end
 
 # Could not dump table "queue_results" because of following StandardError
 #   Unknown type 'null' for column 'id'
-
-  create_table "reactions", :id => false, :force => true do |t|
-    t.column "cd_id",        :integer,                                 :null => false
-    t.column "cd_structure", :binary,                  :default => "", :null => false
-    t.column "cd_smiles",    :text
-    t.column "cd_formula",   :string,   :limit => 100
-    t.column "cd_molweight", :float
-    t.column "cd_hash",      :integer,                                 :null => false
-    t.column "cd_flags",     :string,   :limit => 20
-    t.column "cd_timestamp", :datetime,                                :null => false
-    t.column "cd_fp1",       :integer,                                 :null => false
-    t.column "cd_fp2",       :integer,                                 :null => false
-    t.column "cd_fp3",       :integer,                                 :null => false
-    t.column "cd_fp4",       :integer,                                 :null => false
-    t.column "cd_fp5",       :integer,                                 :null => false
-    t.column "cd_fp6",       :integer,                                 :null => false
-    t.column "cd_fp7",       :integer,                                 :null => false
-    t.column "cd_fp8",       :integer,                                 :null => false
-    t.column "cd_fp9",       :integer,                                 :null => false
-    t.column "cd_fp10",      :integer,                                 :null => false
-    t.column "cd_fp11",      :integer,                                 :null => false
-    t.column "cd_fp12",      :integer,                                 :null => false
-    t.column "cd_fp13",      :integer,                                 :null => false
-    t.column "cd_fp14",      :integer,                                 :null => false
-    t.column "cd_fp15",      :integer,                                 :null => false
-    t.column "cd_fp16",      :integer,                                 :null => false
-    t.column "cd_fp17",      :integer,                                 :null => false
-    t.column "cd_fp18",      :integer,                                 :null => false
-    t.column "cd_fp19",      :integer,                                 :null => false
-    t.column "cd_fp20",      :integer,                                 :null => false
-    t.column "cd_fp21",      :integer,                                 :null => false
-    t.column "cd_fp22",      :integer,                                 :null => false
-    t.column "cd_fp23",      :integer,                                 :null => false
-    t.column "cd_fp24",      :integer,                                 :null => false
-    t.column "cd_fp25",      :integer,                                 :null => false
-    t.column "cd_fp26",      :integer,                                 :null => false
-    t.column "cd_fp27",      :integer,                                 :null => false
-    t.column "cd_fp28",      :integer,                                 :null => false
-    t.column "cd_fp29",      :integer,                                 :null => false
-    t.column "cd_fp30",      :integer,                                 :null => false
-    t.column "cd_fp31",      :integer,                                 :null => false
-    t.column "cd_fp32",      :integer,                                 :null => false
-    t.column "cd_fp33",      :integer,                                 :null => false
-    t.column "cd_fp34",      :integer,                                 :null => false
-    t.column "cd_fp35",      :integer,                                 :null => false
-    t.column "cd_fp36",      :integer,                                 :null => false
-    t.column "cd_fp37",      :integer,                                 :null => false
-    t.column "cd_fp38",      :integer,                                 :null => false
-    t.column "cd_fp39",      :integer,                                 :null => false
-    t.column "cd_fp40",      :integer,                                 :null => false
-    t.column "cd_fp41",      :integer,                                 :null => false
-    t.column "cd_fp42",      :integer,                                 :null => false
-    t.column "cd_fp43",      :integer,                                 :null => false
-    t.column "cd_fp44",      :integer,                                 :null => false
-    t.column "cd_fp45",      :integer,                                 :null => false
-    t.column "cd_fp46",      :integer,                                 :null => false
-    t.column "cd_fp47",      :integer,                                 :null => false
-    t.column "cd_fp48",      :integer,                                 :null => false
-    t.column "cd_fp49",      :integer,                                 :null => false
-    t.column "cd_fp50",      :integer,                                 :null => false
-    t.column "cd_fp51",      :integer,                                 :null => false
-    t.column "cd_fp52",      :integer,                                 :null => false
-    t.column "cd_fp53",      :integer,                                 :null => false
-    t.column "cd_fp54",      :integer,                                 :null => false
-    t.column "cd_fp55",      :integer,                                 :null => false
-    t.column "cd_fp56",      :integer,                                 :null => false
-    t.column "cd_fp57",      :integer,                                 :null => false
-    t.column "cd_fp58",      :integer,                                 :null => false
-    t.column "cd_fp59",      :integer,                                 :null => false
-    t.column "cd_fp60",      :integer,                                 :null => false
-    t.column "cd_fp61",      :integer,                                 :null => false
-    t.column "cd_fp62",      :integer,                                 :null => false
-    t.column "cd_fp63",      :integer,                                 :null => false
-    t.column "cd_fp64",      :integer,                                 :null => false
-  end
-
-  add_index "reactions", ["cd_hash"], :name => "reactions_hx"
-
-  create_table "reactions_UL", :id => false, :force => true do |t|
-    t.column "update_id",   :integer,                               :null => false
-    t.column "update_info", :string,  :limit => 20, :default => "", :null => false
-  end
-
-  create_table "registrations", :force => true do |t|
-    t.column "name",               :string,   :limit => 50, :default => "", :null => false
-    t.column "type",               :string,   :limit => 50, :default => "", :null => false
-    t.column "description",        :text
-    t.column "registration_date",  :datetime
-    t.column "lock_version",       :integer,                :default => 0,  :null => false
-    t.column "created_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_by_user_id", :integer,  :limit => 32, :default => 1,  :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-  end
 
   create_table "report_columns", :force => true do |t|
     t.column "report_id",          :integer,                                   :null => false
@@ -944,6 +1002,14 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,    :null => false
   end
 
+  add_index "report_columns", ["subject_id"], :name => "report_columns_idx11"
+  add_index "report_columns", ["report_id"], :name => "report_columns_idx2"
+  add_index "report_columns", ["created_at"], :name => "report_columns_idx20"
+  add_index "report_columns", ["updated_at"], :name => "report_columns_idx21"
+  add_index "report_columns", ["updated_by_user_id"], :name => "report_columns_idx23"
+  add_index "report_columns", ["created_by_user_id"], :name => "report_columns_idx24"
+  add_index "report_columns", ["name"], :name => "report_columns_idx3"
+
   create_table "reports", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "description",        :text
@@ -959,6 +1025,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "project_id",         :integer
     t.column "action",             :string
   end
+
+  add_index "reports", ["updated_by_user_id"], :name => "reports_idx10"
+  add_index "reports", ["created_by_user_id"], :name => "reports_idx11"
+  add_index "reports", ["project_id"], :name => "reports_idx13"
+  add_index "reports", ["name"], :name => "reports_idx2"
+  add_index "reports", ["created_at"], :name => "reports_idx7"
+  add_index "reports", ["updated_at"], :name => "reports_idx8"
 
   create_table "request_lists", :force => true do |t|
   end
@@ -982,6 +1055,18 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "assigned_to_user_id",  :integer,                 :default => 1
   end
 
+  add_index "request_services", ["created_at"], :name => "request_services_idx10"
+  add_index "request_services", ["updated_at"], :name => "request_services_idx11"
+  add_index "request_services", ["status_id"], :name => "request_services_idx12"
+  add_index "request_services", ["priority_id"], :name => "request_services_idx13"
+  add_index "request_services", ["updated_by_user_id"], :name => "request_services_idx14"
+  add_index "request_services", ["created_by_user_id"], :name => "request_services_idx15"
+  add_index "request_services", ["requested_by_user_id"], :name => "request_services_idx16"
+  add_index "request_services", ["assigned_to_user_id"], :name => "request_services_idx17"
+  add_index "request_services", ["request_id"], :name => "request_services_idx2"
+  add_index "request_services", ["service_id"], :name => "request_services_idx3"
+  add_index "request_services", ["name"], :name => "request_services_idx4"
+
   create_table "requests", :force => true do |t|
     t.column "name",                 :string,   :limit => 128, :default => "", :null => false
     t.column "description",          :text
@@ -1001,6 +1086,18 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "ended_at",             :datetime
   end
 
+  add_index "requests", ["status_id"], :name => "requests_idx10"
+  add_index "requests", ["priority_id"], :name => "requests_idx11"
+  add_index "requests", ["project_id"], :name => "requests_idx12"
+  add_index "requests", ["updated_by_user_id"], :name => "requests_idx13"
+  add_index "requests", ["created_by_user_id"], :name => "requests_idx14"
+  add_index "requests", ["requested_by_user_id"], :name => "requests_idx15"
+  add_index "requests", ["name"], :name => "requests_idx2"
+  add_index "requests", ["created_at"], :name => "requests_idx6"
+  add_index "requests", ["updated_at"], :name => "requests_idx7"
+  add_index "requests", ["list_id"], :name => "requests_idx8"
+  add_index "requests", ["data_element_id"], :name => "requests_idx9"
+
   create_table "role_permissions", :force => true do |t|
     t.column "role_id",       :integer,               :null => false
     t.column "permission_id", :integer
@@ -1010,6 +1107,8 @@ ActiveRecord::Schema.define(:version => 283) do
 
   add_index "role_permissions", ["role_id"], :name => "fk_roles_permission_role_id"
   add_index "role_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
+  add_index "role_permissions", ["role_id"], :name => "roles_permission_idx1"
+  add_index "role_permissions", ["permission_id"], :name => "roles_permission_idx2"
 
   create_table "roles", :force => true do |t|
     t.column "name",               :string,                    :default => "", :null => false
@@ -1018,12 +1117,18 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "cache",              :text
     t.column "created_at",         :timestamp,                                 :null => false
     t.column "updated_at",         :timestamp,                                 :null => false
-    t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
-    t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
+    t.column "created_by_user_id", :integer,                   :default => 1
+    t.column "updated_by_user_id", :integer,                   :default => 1
     t.column "type",               :string
   end
 
   add_index "roles", ["parent_id"], :name => "fk_role_parent_id"
+  add_index "roles", ["parent_id"], :name => "role_parent_idx"
+  add_index "roles", ["updated_by_user_id"], :name => "roles_idx10"
+  add_index "roles", ["name"], :name => "roles_idx2"
+  add_index "roles", ["created_at"], :name => "roles_idx7"
+  add_index "roles", ["updated_at"], :name => "roles_idx8"
+  add_index "roles", ["created_by_user_id"], :name => "roles_idx9"
 
   create_table "roles_permissions", :force => true do |t|
     t.column "role_id",       :integer, :null => false
@@ -1034,16 +1139,6 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "roles_permissions", ["permission_id"], :name => "fk_roles_permission_permission_id"
 
   create_table "samples", :force => true do |t|
-    t.column "name",               :string
-    t.column "description",        :text
-    t.column "batch_id",           :integer
-    t.column "container_id",       :integer
-    t.column "composition_id",     :integer
-    t.column "lock_version",       :integer,  :default => 0, :null => false
-    t.column "created_at",         :datetime,                :null => false
-    t.column "updated_at",         :datetime,                :null => false
-    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
-    t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
   create_table "sessions", :force => true do |t|
@@ -1053,13 +1148,9 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_at", :timestamp,                 :null => false
   end
 
-  create_table "site_controllers", :force => true do |t|
-    t.column "name",          :string,                :default => "", :null => false
-    t.column "permission_id", :integer,                               :null => false
-    t.column "builtin",       :integer, :limit => 10, :default => 0
-  end
-
-  add_index "site_controllers", ["permission_id"], :name => "fk_site_controller_permission_id"
+  add_index "sessions", ["session_id"], :name => "sessions_idx2"
+  add_index "sessions", ["created_at"], :name => "sessions_idx4"
+  add_index "sessions", ["updated_at"], :name => "sessions_idx5"
 
   create_table "specimens", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
@@ -1084,6 +1175,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
+  add_index "specimens", ["created_at"], :name => "specimens_idx18"
+  add_index "specimens", ["updated_at"], :name => "specimens_idx19"
+  add_index "specimens", ["name"], :name => "specimens_idx2"
+  add_index "specimens", ["updated_by_user_id"], :name => "specimens_idx20"
+  add_index "specimens", ["created_by_user_id"], :name => "specimens_idx21"
+
   create_table "studies", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "description",        :text
@@ -1104,6 +1201,14 @@ ActiveRecord::Schema.define(:version => 283) do
 
   add_index "studies", ["name"], :name => "studies_name_index"
   add_index "studies", ["updated_at"], :name => "studies_updated_at_index"
+  add_index "studies", ["name"], :name => "studies_idx1"
+  add_index "studies", ["project_id"], :name => "studies_idx10"
+  add_index "studies", ["updated_by_user_id"], :name => "studies_idx11"
+  add_index "studies", ["created_by_user_id"], :name => "studies_idx12"
+  add_index "studies", ["status_id"], :name => "studies_idx16"
+  add_index "studies", ["updated_at"], :name => "studies_idx2"
+  add_index "studies", ["category_id"], :name => "studies_idx4"
+  add_index "studies", ["created_at"], :name => "studies_idx8"
 
   create_table "study_logs", :force => true do |t|
     t.column "study_id",       :integer
@@ -1122,6 +1227,11 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "study_logs", ["user_id"], :name => "study_logs_user_id_index"
   add_index "study_logs", ["auditable_type", "auditable_id"], :name => "study_logs_auditable_type_index"
   add_index "study_logs", ["created_at"], :name => "study_logs_created_at_index"
+  add_index "study_logs", ["study_id"], :name => "study_logs_idx1"
+  add_index "study_logs", ["user_id"], :name => "study_logs_idx2"
+  add_index "study_logs", ["auditable_type", "auditable_id"], :name => "study_logs_idx3"
+  add_index "study_logs", ["created_at"], :name => "study_logs_idx4"
+  add_index "study_logs", ["name"], :name => "study_logs_idx7"
 
   create_table "study_parameters", :force => true do |t|
     t.column "parameter_type_id",  :integer
@@ -1142,6 +1252,15 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "study_parameters", ["name"], :name => "study_parameters_default_name_index"
   add_index "study_parameters", ["parameter_type_id"], :name => "study_parameters_parameter_type_id_index"
   add_index "study_parameters", ["parameter_role_id"], :name => "study_parameters_parameter_role_id_index"
+  add_index "study_parameters", ["study_id"], :name => "study_parameters_idx1"
+  add_index "study_parameters", ["created_by_user_id"], :name => "study_parameters_idx12"
+  add_index "study_parameters", ["updated_by_user_id"], :name => "study_parameters_idx13"
+  add_index "study_parameters", ["name"], :name => "study_parameters_idx2"
+  add_index "study_parameters", ["parameter_type_id"], :name => "study_parameters_idx3"
+  add_index "study_parameters", ["parameter_role_id"], :name => "study_parameters_idx4"
+  add_index "study_parameters", ["data_element_id"], :name => "study_parameters_idx7"
+  add_index "study_parameters", ["data_type_id"], :name => "study_parameters_idx8"
+  add_index "study_parameters", ["data_format_id"], :name => "study_parameters_idx9"
 
   create_table "study_protocols", :force => true do |t|
     t.column "study_id",              :integer,                                      :null => false
@@ -1164,6 +1283,14 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "study_protocols", ["study_id"], :name => "study_protocols_study_id_index"
   add_index "study_protocols", ["current_process_id"], :name => "study_protocols_process_instance_id_index"
   add_index "study_protocols", ["process_definition_id"], :name => "study_protocols_process_definition_id_index"
+  add_index "study_protocols", ["study_id"], :name => "study_protocols_idx1"
+  add_index "study_protocols", ["created_at"], :name => "study_protocols_idx13"
+  add_index "study_protocols", ["updated_at"], :name => "study_protocols_idx14"
+  add_index "study_protocols", ["updated_by_user_id"], :name => "study_protocols_idx15"
+  add_index "study_protocols", ["created_by_user_id"], :name => "study_protocols_idx16"
+  add_index "study_protocols", ["current_process_id"], :name => "study_protocols_idx2"
+  add_index "study_protocols", ["process_definition_id"], :name => "study_protocols_idx3"
+  add_index "study_protocols", ["name"], :name => "study_protocols_idx7"
 
   create_table "study_queues", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "",       :null => false
@@ -1182,6 +1309,17 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "assigned_to_user_id", :integer,                 :default => 1
   end
 
+  add_index "study_queues", ["created_at"], :name => "study_queues_idx11"
+  add_index "study_queues", ["updated_at"], :name => "study_queues_idx12"
+  add_index "study_queues", ["updated_by_user_id"], :name => "study_queues_idx13"
+  add_index "study_queues", ["created_by_user_id"], :name => "study_queues_idx14"
+  add_index "study_queues", ["assigned_to_user_id"], :name => "study_queues_idx15"
+  add_index "study_queues", ["name"], :name => "study_queues_idx2"
+  add_index "study_queues", ["study_id"], :name => "study_queues_idx4"
+  add_index "study_queues", ["study_stage_id"], :name => "study_queues_idx5"
+  add_index "study_queues", ["study_parameter_id"], :name => "study_queues_idx6"
+  add_index "study_queues", ["study_protocol_id"], :name => "study_queues_idx7"
+
   create_table "study_stages", :force => true do |t|
     t.column "name",               :string,   :limit => 128, :default => "", :null => false
     t.column "description",        :text
@@ -1192,8 +1330,29 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
-# Could not dump table "study_statistics" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  add_index "study_stages", ["name"], :name => "study_stages_idx2"
+  add_index "study_stages", ["created_at"], :name => "study_stages_idx5"
+  add_index "study_stages", ["updated_at"], :name => "study_stages_idx6"
+  add_index "study_stages", ["updated_by_user_id"], :name => "study_stages_idx7"
+  add_index "study_stages", ["created_by_user_id"], :name => "study_stages_idx8"
+
+  create_table "study_statistics", :force => true do |t|
+    t.column "study_id",          :integer,               :default => 0, :null => false
+    t.column "parameter_role_id", :integer
+    t.column "parameter_type_id", :integer
+    t.column "data_type_id",      :integer
+    t.column "avg_values",        :float
+    t.column "stddev_values",     :float
+    t.column "num_values",        :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",        :integer, :limit => 21, :default => 0, :null => false
+    t.column "max_values",        :float
+    t.column "min_values",        :float
+  end
+
+  create_table "subscribers", :force => true do |t|
+    t.column "user_id",    :integer, :default => 0, :null => false
+    t.column "project_id", :integer, :default => 0, :null => false
+  end
 
   create_table "system_settings", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "",  :null => false
@@ -1205,6 +1364,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
   end
 
+  add_index "system_settings", ["name"], :name => "system_settings_idx2"
+  add_index "system_settings", ["created_at"], :name => "system_settings_idx5"
+  add_index "system_settings", ["updated_at"], :name => "system_settings_idx6"
+  add_index "system_settings", ["updated_by_user_id"], :name => "system_settings_idx7"
+  add_index "system_settings", ["created_by_user_id"], :name => "system_settings_idx8"
+
   create_table "taggings", :force => true do |t|
     t.column "tag_id",        :integer
     t.column "taggable_id",   :integer
@@ -1212,9 +1377,15 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_at",    :timestamp
   end
 
+  add_index "taggings", ["tag_id"], :name => "taggings_idx2"
+  add_index "taggings", ["taggable_id"], :name => "taggings_idx3"
+  add_index "taggings", ["created_at"], :name => "taggings_idx5"
+
   create_table "tags", :force => true do |t|
     t.column "name", :string
   end
+
+  add_index "tags", ["name"], :name => "tags_idx2"
 
   create_table "task_contexts", :force => true do |t|
     t.column "task_id",              :integer
@@ -1232,6 +1403,12 @@ ActiveRecord::Schema.define(:version => 283) do
   add_index "task_contexts", ["parameter_context_id"], :name => "task_contexts_parameter_context_id_index"
   add_index "task_contexts", ["row_no"], :name => "task_contexts_row_no_index"
   add_index "task_contexts", ["label"], :name => "task_contexts_label_index"
+  add_index "task_contexts", ["task_id"], :name => "task_contexts_idx1"
+  add_index "task_contexts", ["parameter_context_id"], :name => "task_contexts_idx2"
+  add_index "task_contexts", ["row_no"], :name => "task_contexts_idx3"
+  add_index "task_contexts", ["label"], :name => "task_contexts_idx4"
+  add_index "task_contexts", ["is_valid"], :name => "task_contexts_idx5"
+  add_index "task_contexts", ["parent_id"], :name => "task_contexts_idx7"
 
   create_table "task_files", :force => true do |t|
     t.column "task_context_id", :integer
@@ -1263,10 +1440,15 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  add_index "task_references", ["task_id"], :name => "task_references_task_id_index"
-  add_index "task_references", ["task_context_id"], :name => "task_references_task_context_id_index"
-  add_index "task_references", ["parameter_id"], :name => "task_references_parameter_id_index"
-  add_index "task_references", ["updated_at"], :name => "task_references_updated_at_index"
+  add_index "task_references", ["data_element_id"], :name => "task_references_fk4"
+  add_index "task_references", ["task_id"], :name => "task_references_idx1"
+  add_index "task_references", ["updated_by_user_id"], :name => "task_references_idx12"
+  add_index "task_references", ["created_by_user_id"], :name => "task_references_idx13"
+  add_index "task_references", ["task_context_id"], :name => "task_references_idx2"
+  add_index "task_references", ["parameter_id"], :name => "task_references_idx3"
+  add_index "task_references", ["updated_at"], :name => "task_references_idx4"
+  add_index "task_references", ["data_id"], :name => "task_references_idx6"
+  add_index "task_references", ["created_at"], :name => "task_references_idx9"
 
   create_table "task_relations", :force => true do |t|
     t.column "to_task_id",   :integer
@@ -1274,17 +1456,86 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "relation_id",  :integer
   end
 
-# Could not dump table "task_result_texts" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  add_index "task_relations", ["to_task_id"], :name => "task_relations_idx2"
+  add_index "task_relations", ["from_task_id"], :name => "task_relations_idx3"
+  add_index "task_relations", ["relation_id"], :name => "task_relations_idx4"
 
-# Could not dump table "task_result_values" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  create_table "task_result_texts", :force => true do |t|
+    t.column "row_no",                 :integer,                               :null => false
+    t.column "column_no",              :integer
+    t.column "task_id",                :integer
+    t.column "parameter_context_id",   :integer
+    t.column "task_context_id",        :integer
+    t.column "reference_parameter_id", :integer
+    t.column "data_element_id",        :integer
+    t.column "data_type",              :string
+    t.column "data_id",                :integer
+    t.column "subject",                :string
+    t.column "parameter_id",           :integer
+    t.column "protocol_version_id",    :integer
+    t.column "label",                  :string
+    t.column "row_label",              :string
+    t.column "parameter_name",         :string,   :limit => 62
+    t.column "data_value",             :text
+    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "created_at",             :datetime,                              :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "updated_at",             :datetime,                              :null => false
+  end
 
-# Could not dump table "task_results" because of following StandardError
-#   Unknown type 'null' for column 'id'
+  create_table "task_result_values", :force => true do |t|
+    t.column "row_no",                 :integer,                               :null => false
+    t.column "column_no",              :integer
+    t.column "task_id",                :integer
+    t.column "parameter_context_id",   :integer
+    t.column "task_context_id",        :integer
+    t.column "reference_parameter_id", :integer
+    t.column "data_element_id",        :integer
+    t.column "data_type",              :string
+    t.column "data_id",                :integer
+    t.column "subject",                :string
+    t.column "parameter_id",           :integer
+    t.column "protocol_version_id",    :integer
+    t.column "label",                  :string
+    t.column "row_label",              :string
+    t.column "parameter_name",         :string,   :limit => 62
+    t.column "data_value",             :float
+    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "created_at",             :datetime,                              :null => false
+    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
+    t.column "updated_at",             :datetime,                              :null => false
+  end
 
-# Could not dump table "task_statistics" because of following StandardError
-#   Unknown type 'null' for column 'task_id'
+  create_table "task_results", :force => true do |t|
+    t.column "protocol_version_id",  :integer
+    t.column "parameter_context_id", :integer,                :default => 0, :null => false
+    t.column "label",                :string
+    t.column "row_label",            :string
+    t.column "row_no",               :integer,                :default => 0, :null => false
+    t.column "column_no",            :integer
+    t.column "task_id",              :integer
+    t.column "parameter_id",         :integer
+    t.column "parameter_name",       :string,   :limit => 62
+    t.column "data_value",           :binary
+    t.column "created_by_user_id",   :integer,                :default => 0, :null => false
+    t.column "created_at",           :datetime,                              :null => false
+    t.column "updated_by_user_id",   :integer,                :default => 0, :null => false
+    t.column "updated_at",           :datetime,                              :null => false
+  end
+
+  create_table "task_statistics", :force => true do |t|
+    t.column "task_id",           :integer
+    t.column "parameter_id",      :integer
+    t.column "parameter_role_id", :integer
+    t.column "parameter_type_id", :integer
+    t.column "data_type_id",      :integer
+    t.column "avg_values",        :float
+    t.column "stddev_values",     :float
+    t.column "num_values",        :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",        :integer, :limit => 21, :default => 0, :null => false
+    t.column "max_values",        :binary
+    t.column "min_values",        :binary
+  end
 
   create_table "task_stats1", :id => false, :force => true do |t|
     t.column "task_id",           :integer
@@ -1322,10 +1573,13 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  add_index "task_texts", ["task_id"], :name => "task_texts_task_id_index"
-  add_index "task_texts", ["task_context_id"], :name => "task_texts_task_context_id_index"
-  add_index "task_texts", ["parameter_id"], :name => "task_texts_parameter_id_index"
-  add_index "task_texts", ["updated_at"], :name => "task_texts_updated_at_index"
+  add_index "task_texts", ["task_id"], :name => "task_texts_idx1"
+  add_index "task_texts", ["updated_by_user_id"], :name => "task_texts_idx10"
+  add_index "task_texts", ["created_by_user_id"], :name => "task_texts_idx11"
+  add_index "task_texts", ["task_context_id"], :name => "task_texts_idx2"
+  add_index "task_texts", ["parameter_id"], :name => "task_texts_idx3"
+  add_index "task_texts", ["updated_at"], :name => "task_texts_idx4"
+  add_index "task_texts", ["created_at"], :name => "task_texts_idx7"
 
   create_table "task_values", :force => true do |t|
     t.column "task_context_id",    :integer
@@ -1341,10 +1595,14 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  add_index "task_values", ["task_id"], :name => "task_values_task_id_index"
-  add_index "task_values", ["task_context_id"], :name => "task_values_task_context_id_index"
-  add_index "task_values", ["parameter_id"], :name => "task_values_parameter_id_index"
-  add_index "task_values", ["updated_at"], :name => "task_values_updated_at_index"
+  add_index "task_values", ["task_id"], :name => "task_values_idx1"
+  add_index "task_values", ["updated_by_user_id"], :name => "task_values_idx11"
+  add_index "task_values", ["created_by_user_id"], :name => "task_values_idx12"
+  add_index "task_values", ["task_context_id"], :name => "task_values_idx2"
+  add_index "task_values", ["parameter_id"], :name => "task_values_idx3"
+  add_index "task_values", ["updated_at"], :name => "task_values_idx4"
+  add_index "task_values", ["data_value"], :name => "task_values_idx5"
+  add_index "task_values", ["created_at"], :name => "task_values_idx7"
 
   create_table "tasks", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -1369,12 +1627,24 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "expected_at",         :datetime
   end
 
-  add_index "tasks", ["name"], :name => "tasks_name_index"
   add_index "tasks", ["experiment_id"], :name => "tasks_experiment_id_index"
   add_index "tasks", ["protocol_version_id"], :name => "tasks_process_instance_id_index"
   add_index "tasks", ["study_protocol_id"], :name => "tasks_study_protocol_id_index"
   add_index "tasks", ["started_at"], :name => "tasks_start_date_index"
   add_index "tasks", ["ended_at"], :name => "tasks_end_date_index"
+  add_index "tasks", ["name"], :name => "tasks_idx1"
+  add_index "tasks", ["created_at"], :name => "tasks_idx14"
+  add_index "tasks", ["updated_at"], :name => "tasks_idx15"
+  add_index "tasks", ["project_id"], :name => "tasks_idx17"
+  add_index "tasks", ["updated_by_user_id"], :name => "tasks_idx18"
+  add_index "tasks", ["created_by_user_id"], :name => "tasks_idx19"
+  add_index "tasks", ["experiment_id"], :name => "tasks_idx2"
+  add_index "tasks", ["assigned_to_user_id"], :name => "tasks_idx20"
+  add_index "tasks", ["protocol_version_id"], :name => "tasks_idx3"
+  add_index "tasks", ["study_protocol_id"], :name => "tasks_idx4"
+  add_index "tasks", ["started_at"], :name => "tasks_idx5"
+  add_index "tasks", ["ended_at"], :name => "tasks_idx6"
+  add_index "tasks", ["priority_id"], :name => "tasks_idx8"
 
   create_table "tmp_data", :force => true do |t|
   end
@@ -1391,12 +1661,23 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
+  add_index "treatment_groups", ["created_by_user_id"], :name => "treatment_groups_idx10"
+  add_index "treatment_groups", ["name"], :name => "treatment_groups_idx2"
+  add_index "treatment_groups", ["study_id"], :name => "treatment_groups_idx4"
+  add_index "treatment_groups", ["experiment_id"], :name => "treatment_groups_idx5"
+  add_index "treatment_groups", ["created_at"], :name => "treatment_groups_idx7"
+  add_index "treatment_groups", ["updated_at"], :name => "treatment_groups_idx8"
+  add_index "treatment_groups", ["updated_by_user_id"], :name => "treatment_groups_idx9"
+
   create_table "treatment_items", :force => true do |t|
     t.column "treatment_group_id", :integer,                 :null => false
     t.column "subject_type",       :string,  :default => "", :null => false
     t.column "subject_id",         :integer,                 :null => false
     t.column "sequence_order",     :integer,                 :null => false
   end
+
+  add_index "treatment_items", ["treatment_group_id"], :name => "treatment_items_idx2"
+  add_index "treatment_items", ["subject_id"], :name => "treatment_items_idx4"
 
   create_table "user_settings", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "",  :null => false
@@ -1407,6 +1688,12 @@ ActiveRecord::Schema.define(:version => 283) do
     t.column "updated_by_user_id", :integer,                :default => 1,   :null => false
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
   end
+
+  add_index "user_settings", ["name"], :name => "user_settings_idx2"
+  add_index "user_settings", ["created_at"], :name => "user_settings_idx5"
+  add_index "user_settings", ["updated_at"], :name => "user_settings_idx6"
+  add_index "user_settings", ["updated_by_user_id"], :name => "user_settings_idx7"
+  add_index "user_settings", ["created_by_user_id"], :name => "user_settings_idx8"
 
   create_table "users", :force => true do |t|
     t.column "name",               :string,                 :default => "",    :null => false
@@ -1432,6 +1719,12 @@ ActiveRecord::Schema.define(:version => 283) do
   end
 
   add_index "users", ["role_id"], :name => "fk_user_role_id"
+  add_index "users", ["state_id"], :name => "users_idx10"
+  add_index "users", ["created_at"], :name => "users_idx16"
+  add_index "users", ["updated_at"], :name => "users_idx17"
+  add_index "users", ["created_by_user_id"], :name => "users_idx19"
+  add_index "users", ["name"], :name => "users_idx2"
+  add_index "users", ["updated_by_user_id"], :name => "users_idx20"
 
   create_table "work_status", :force => true do |t|
     t.column "name",         :string
