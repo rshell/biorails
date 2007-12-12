@@ -14,10 +14,6 @@ class RoleTest < Test::Unit::TestCase
     assert true
   end
   
-  def test001_find
-    item = Report.find(:first)
-    assert !item.nil?
-  end  
 
   def test001_create
     report = Report.for_model(Membership)

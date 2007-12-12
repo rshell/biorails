@@ -42,10 +42,11 @@ class StudyStageTest < Test::Unit::TestCase
  	end
 
 	def test_duplicate
-    current_study_stage = StudyStage.find(:first)
+    current_study_stage = StudyStage.new(:name=>'test', :description=>'test')
+    current_study_stage.save
    	DUPLICATE_ATTR_NAMES.each do |attr_name|
    		study_stage = StudyStage.new(NEW_STUDY_STAGE.merge(attr_name.to_sym => current_study_stage[attr_name]))
-			assert !study_stage.valid?, "StudyStage should be invalid, as @#{attr_name} is a duplicate"
+			assert !study_stage.valid?, "StudyStage should be invalid, as @#{attr_name} is a duplicate."
     	assert study_stage.errors.invalid?(attr_name.to_sym), "Should be an error message for :#{attr_name}"
 		end
 	end
