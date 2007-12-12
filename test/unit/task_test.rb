@@ -1,27 +1,11 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskTest < Test::Unit::TestCase
-  ## Biorails::Dba.import_model :projects
-  ## Biorails::Dba.import_model :studies
-  ## Biorails::Dba.import_model :study_protocols
-  ## Biorails::Dba.import_model :study_parameters
-  ## Biorails::Dba.import_model :protocol_versions
-  ## Biorails::Dba.import_model :parameters
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :tasks
-  ## Biorails::Dba.import_model :task_contexts
-  ## Biorails::Dba.import_model :task_values
-  ## Biorails::Dba.import_model :task_texts
+
  def setup
-    # Retrieve ## Biorails::Dba.import_model via their name
      @model = Task
   end
-  
-  def test_truth
-    assert true
-  end
-  
+ 
   def test_find
      first = @model.find(:first)
      assert first.id
@@ -51,7 +35,82 @@ class TaskTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.description    
   end
+
+  def test_has_experiment
+    first = @model.find(:first)
+    assert first.experiment
+  end
  
+  def test_has_process
+    first = @model.find(:first)
+    assert first.process
+  end
+
+  def test_has_project
+    first = @model.find(:first)
+    assert first.project 
+  end
+
+  def test_has_period
+    first = @model.find(:first)
+    assert first.period 
+  end  
+  
+  def test_has_started_at
+    first = @model.find(:first)
+    assert first.started_at     
+  end
+
+  def test_has_expected_at
+    first = @model.find(:first)
+    assert first.expected_at     
+  end
+
+  def test_has_has_contexts
+    first = @model.find(:first)
+    assert first.contexts     
+  end  
+  
+  def test_has_has_items
+    first = @model.find(:first)
+    assert first.items     
+  end  
+  
+  def test_has_process_name
+    first = @model.find(:first)
+    assert first.process_name     
+  end  
+
+  def test_has_protocol_name
+    first = @model.find(:first)
+    assert first.protocol_name     
+  end  
+  
+  def test_has_experiment_name
+    first = @model.find(:first)
+    assert first.experiment_name     
+  end  
+
+  def test_to_titles
+    first = @model.find(:first)
+    assert first.to_titles.size >0  
+  end  
+
+  def test_to_matrix
+    first = @model.find(:first)
+    assert first.to_matrix  
+  end  
+
+  def test_to_html
+    first = @model.find(:first)
+    assert first.to_html
+  end  
+  
+  def test_has_valid_date_range
+    first = @model.find(:first)
+    assert first.started_at < first.expected_at     
+  end
+  
   # Replace this with your real tests.
   def test000_truth
     assert true

@@ -156,10 +156,16 @@ class TaskContext < ActiveRecord::Base
 
 ##
 # get TaskItem values for column the context   
- def item(name)
-      value = items[name.to_s]
+ def item(column)
+   if column.is_a?(Parameter)
+      value = items[column.name] 
       return value if value   
-      return add_task_item(name.to_s, nil)      
+      return add_task_item(column, nil)      
+   else   
+      value = items[column.to_s]
+      return value if value   
+      return add_task_item(parameter(column.to_s), nil)      
+   end   
  end
  
 #

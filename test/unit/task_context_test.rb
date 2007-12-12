@@ -34,6 +34,101 @@ class TaskContextTest < Test::Unit::TestCase
       end
     end    
   end
+    
+  def test_new
+    first = @model.new
+    assert first
+    assert first.new_record?
+    assert !first.valid?
+  end
+
+  def test_build_simple_context
+    task = Task.find(:first)
+    assert task
+    definition = task.process.contexts[0]
+    parameter = definition.parameters[0]
+    
+    context = task.add_context(definition)
+    assert context
+    assert context.save
+    item = context.item(parameter)
+    
+    assert item
+    assert item.parameter == parameter
+    assert item.to_s == parameter.default_value
+  end
+
+  def test_build_full_context
+    task = Task.find(:first)
+    assert task
+    definition = task.process.contexts[0]
+    
+    context = task.add_context(definition)
+    assert context
+    assert context.save
+    
+    definition.parameters.each do |parameter|
+      item = context.item(parameter)
+
+      assert item
+      assert item.parameter == parameter   
+    end
+  end
   
+  def test_update
+    first = @model.find(:first)
+    assert first.save
+    assert !first.new_record?
+    assert first.valid?
+  end
   
+  def test_has_label
+    first = @model.find(:first)
+    assert first.label    
+  end
+
+  def test_has_row_no
+    first = @model.find(:first)
+    assert first.row_no 
+  end
+
+  def test_has_definition
+    first = @model.find(:first)
+    assert first.definition
+    assert first.definition.is_a?( ParameterContext)
+  end
+ 
+  def test_has_task
+    first = @model.find(:first)
+    assert first.task
+    assert first.task.is_a?(Task)
+  end
+
+  def test_has_path
+    first = @model.find(:first)
+    assert first.path 
+  end  
+
+  def test_has_parameters
+    first = @model.find(:first)
+    assert first.parameters
+    assert first.parameters.size > 0 
+    assert first.parameters[0].is_a?(Parameter)
+  end  
+
+  def test_has_items
+    first = @model.find(:first)
+    assert first.items 
+  end  
+
+   def test_can_convert_to_hash
+    first = @model.find(:first)
+    assert first.to_hash
+  end  
+
+   def test_can_convert_to_xml
+    first = @model.find(:first)
+    assert first.to_xml
+  end  
+   
 end
