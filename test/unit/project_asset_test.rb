@@ -27,7 +27,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   
   
   def test_word_asset
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'files/moose_origami.doc', 'application/word') 
+     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/moose_origami.doc', 'application/word') 
      asset = ProjectAsset.new
      asset.title="tests"
      asset.project = Project.find(:first)
