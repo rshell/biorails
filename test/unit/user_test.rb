@@ -42,13 +42,16 @@ class UserTest < Test::Unit::TestCase
      user.set_password "xxx-xxx"
      user.fullname="test account"
      user.admin =false
+     user.role = Role.find(:first)
+     user.login='ddddddddddddd'
      assert user.save, 'save first test2 user'
      assert_ok user
-
      user = User.new(:name=>'test2')
      user.set_password "xxx-xxx"
      user.fullname="test account"
      user.admin =false
+     user.role = Role.find(:first)
+     user.login='ddddddddddddd'
      assert !user.save,' should fail save test2 user duplicate '
   end
   
