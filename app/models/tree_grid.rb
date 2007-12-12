@@ -20,7 +20,7 @@ class TreeGrid
   attr_accessor :process
 ##
 # Defeult logger got tracing problesm
-def logger
+def self.logger
   ActionController::Base.logger rescue nil
 end
 ##
@@ -245,12 +245,12 @@ class GridRow
   end
 
   def task
-    self.grid.task 
+    @grid.task 
   end
   
 ##
 #Get default logger   
-  def logger
+  def self.logger
     ActionController::Base.logger rescue nil
   end
  
@@ -305,7 +305,7 @@ class GridRow
 
 ###
 # Create a text context record if needed
-# will create parents as needed
+# will create parents as needed    assert grid.task == task
 #   
  def save
     if @context.nil? and @grid.task

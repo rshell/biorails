@@ -177,6 +177,32 @@ class TaskContext < ActiveRecord::Base
     return item
  end
 
+
+  # Rebuild all the set based on the parent_id and text_column name
+  #
+  def self.rebuild_sets
+    self.roots.each do |root|
+      root.left_limit = 1
+      root.right_limit = 2 
+      root.save!
+      root.rebuild_set
+    end
+    roots.size
+  end
+        
+  def rebuild_set
+    TaskContext.transaction do    
+      items = TaskContext.find(:all, :conditions => ["task_id=? AND parent_id = ?",self.task_id, self.id],:order => 'parent_id,id')                                       
+      for child in items 
+         self.add_child(child)             
+      end  
+      for child in items 
+         child.rebuild_set
+      end  
+    end
+    child_count
+ end
+ 
 protected
  def add_task_value(parameter,value  =nil)
     item = TaskValue.new

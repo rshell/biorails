@@ -44,7 +44,7 @@ class Parameter < ActiveRecord::Base
  validates_presence_of :data_type_id
  validates_presence_of :name
  validates_associated  :study_parameter, 
-    :if => Proc.new { | p | p.study_parameter.study == p.study},
+    :if => Proc.new { | p | p.study && p.study_parameter && p.study_parameter.study == p.study},
     :message => "Parameter is linked to a the wrong study" 
 
  before_validation :fill_type_and_formating
@@ -84,7 +84,7 @@ class Parameter < ActiveRecord::Base
  #
   def protocol
     logger.info "finding protocol"
-    self.context.process.protocol if self.context.process
+    self.process.protocol if self.process 
   end
  ##
  # helper to study
@@ -186,7 +186,7 @@ class Parameter < ActiveRecord::Base
  def to_xml(options = {})
       my_options = options.dup
       my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
-      my_options[:except] = [:protocol_version_id,:study_queue_id,:study_parameter_id,:parameter_type_id,:parameter_role_id,:data_format_id,:data_element_id] +  my_options[:except]
+      my_options[:except] = [:protocol_version_id,:study_queue_id,:study_parameter_id,:parameter_type_id,:parameter_role_id,:data_format_id,:data_element_id]   
      Alces::XmlSerializer.new(self,my_options ).to_s
  end
 

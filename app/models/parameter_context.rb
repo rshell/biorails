@@ -180,6 +180,55 @@ class ParameterContext < ActiveRecord::Base
       my_options[:include] = [:parameters]
  
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
- end  
-            
+ end 
+#
+# Get default count of expected totals rows for this context type
+#
+ def default_total
+   if parent
+     parent.default_total * self.default_count      
+   else  
+     self.default_count    
+   end     
+ end
+ #
+ # Get default row labels for expected context in use
+ #
+ def default_labels
+   labels =[]
+   if parent
+     parent.default_labels.collect do |i|
+        1.upto(self.default_count) do |n|
+         labels << "#{i}/#{label}[#{n}]"
+       end          
+     end
+   else  
+      1.upto(self.default_count) do |n|
+       labels << "#{label}[#{n}]"
+     end   
+   end
+   return labels
+ end 
+ #
+ # Get default row values as a hash by parameter id
+ #     
+ def default_row
+   values ={}
+   self.parameters.each do |parameter|
+     values[parameter.id] = parameter.default_value
+   end   
+   return values   
+ end
+#
+# Get expected total data block
+#
+ def default_block
+   values = default_row
+   block ={}
+   default_labels.each do |n|
+     block[n] = values
+   end    
+   return block
+ end
+ 
 end

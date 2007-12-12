@@ -2,7 +2,10 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskContextTest < Test::Unit::TestCase
   
-  TASK_ID = 1
+ def setup
+    # Retrieve ## Biorails::Dba.import_model via their name
+     @model = TaskContext
+  end
   
   # Replace this with your real tests.
   def test_truth
@@ -10,16 +13,17 @@ class TaskContextTest < Test::Unit::TestCase
   end
   
   
-  def test_find
-    task = Task.find(TASK_ID)
+  def test_find()
+    task = Task.find(:first)
+    assert task.contexts
     assert task.contexts.count > 0
   end
   
   #
   # See if data items and hashes contains corrent number of columns
   #
-  def test_get_grid
-    task = Task.find(TASK_ID)
+  def test_get_grid()
+    task =Task.find(:first)
     task.process.contexts.each  do |definition| 
       rows = task.contexts.matching(definition)
       rows.each do |row|
