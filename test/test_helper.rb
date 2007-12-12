@@ -18,6 +18,8 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :data_format
   Biorails::Dba.import_model :parameter_types
   Biorails::Dba.import_model :parameter_roles
+  Biorails::Dba.import_model :model_element
+  Biorails::Dba.import_model :sql_element
   
   # - Projects
   Biorails::Dba.import_model :projects

@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 284) do
+ActiveRecord::Schema.define(:version => 283) do
 
   create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
     t.column "SCHEMA_ID",  :string, :limit => 32,  :default => "", :null => false
@@ -181,27 +181,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "created_by_user_id", :integer,                :default => 1,  :null => false
   end
 
-  create_table "compound_results", :force => true do |t|
-    t.column "row_no",                :integer,                               :null => false
-    t.column "column_no",             :integer
-    t.column "task_id",               :integer
-    t.column "parameter_context_id",  :integer
-    t.column "task_context_id",       :integer
-    t.column "data_element_id",       :integer
-    t.column "compound_parameter_id", :integer
-    t.column "compound_id",           :integer
-    t.column "compound_name",         :string
-    t.column "protocol_version_id",   :integer
-    t.column "label",                 :string
-    t.column "row_label",             :string
-    t.column "parameter_id",          :integer
-    t.column "parameter_name",        :string,   :limit => 62
-    t.column "data_value",            :float
-    t.column "created_by_user_id",    :integer,                :default => 1, :null => false
-    t.column "created_at",            :datetime,                              :null => false
-    t.column "updated_by_user_id",    :integer,                :default => 1, :null => false
-    t.column "updated_at",            :datetime,                              :null => false
-  end
+# Could not dump table "compound_results" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
   create_table "compounds", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -425,19 +406,8 @@ ActiveRecord::Schema.define(:version => 284) do
   add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_auditable_type_index"
   add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
 
-  create_table "experiment_statistics", :force => true do |t|
-    t.column "experiment_id",      :integer,               :default => 0, :null => false
-    t.column "study_parameter_id", :integer
-    t.column "parameter_role_id",  :integer
-    t.column "parameter_type_id",  :integer
-    t.column "data_type_id",       :integer
-    t.column "avg_values",         :float
-    t.column "stddev_values",      :float
-    t.column "num_values",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",         :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",         :float
-    t.column "min_values",         :float
-  end
+# Could not dump table "experiment_statistics" because of following StandardError
+#   Unknown type 'null' for column 'experiment_id'
 
   create_table "experiments", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
@@ -707,19 +677,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "version",     :integer
   end
 
-  create_table "process_statistics", :force => true do |t|
-    t.column "study_parameter_id",  :integer
-    t.column "protocol_version_id", :integer
-    t.column "parameter_id",        :integer
-    t.column "parameter_role_id",   :integer
-    t.column "parameter_type_id",   :integer
-    t.column "avg_values",          :float
-    t.column "stddev_values",       :float
-    t.column "num_values",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",          :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",          :float
-    t.column "min_values",          :float
-  end
+# Could not dump table "process_statistics" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
   create_table "project_assets", :force => true do |t|
     t.column "project_id",         :integer
@@ -856,85 +815,14 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "assigned_to_user_id",  :integer,  :default => 1
   end
 
-  create_table "queue_result_texts", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :text
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
+# Could not dump table "queue_result_texts" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
-  create_table "queue_result_values", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
+# Could not dump table "queue_result_values" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
-  create_table "queue_results", :force => true do |t|
-    t.column "row_no",                 :integer,                :default => 0, :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "queue_item_id",          :integer,                :default => 0, :null => false
-    t.column "request_service_id",     :integer
-    t.column "study_queue_id",         :integer
-    t.column "requested_by_user_id",   :integer
-    t.column "assigned_to_user_id",    :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :binary
-    t.column "created_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 0, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
+# Could not dump table "queue_results" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
   create_table "reactions", :id => false, :force => true do |t|
     t.column "cd_id",        :integer,                                 :null => false
@@ -1130,8 +1018,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "cache",              :text
     t.column "created_at",         :timestamp,                                 :null => false
     t.column "updated_at",         :timestamp,                                 :null => false
-    t.column "created_by_user_id", :integer,                   :default => 1
-    t.column "updated_by_user_id", :integer,                   :default => 1
+    t.column "created_by_user_id", :integer,                   :default => 1,  :null => false
+    t.column "updated_by_user_id", :integer,                   :default => 1,  :null => false
     t.column "type",               :string
   end
 
@@ -1304,18 +1192,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "created_by_user_id", :integer,                 :default => 1,  :null => false
   end
 
-  create_table "study_statistics", :force => true do |t|
-    t.column "study_id",          :integer,               :default => 0, :null => false
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :float
-    t.column "min_values",        :float
-  end
+# Could not dump table "study_statistics" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
   create_table "system_settings", :force => true do |t|
     t.column "name",               :string,   :limit => 30, :default => "",  :null => false
@@ -1396,82 +1274,17 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "relation_id",  :integer
   end
 
-  create_table "task_result_texts", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :text
-    t.column "created_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_user_id",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
+# Could not dump table "task_result_texts" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
-  create_table "task_result_values", :force => true do |t|
-    t.column "row_no",                 :integer,                               :null => false
-    t.column "column_no",              :integer
-    t.column "task_id",                :integer
-    t.column "parameter_context_id",   :integer
-    t.column "task_context_id",        :integer
-    t.column "reference_parameter_id", :integer
-    t.column "data_element_id",        :integer
-    t.column "data_type",              :string
-    t.column "data_id",                :integer
-    t.column "subject",                :string
-    t.column "parameter_id",           :integer
-    t.column "protocol_version_id",    :integer
-    t.column "label",                  :string
-    t.column "row_label",              :string
-    t.column "parameter_name",         :string,   :limit => 62
-    t.column "data_value",             :float
-    t.column "created_by_USER_ID",     :integer,                :default => 1, :null => false
-    t.column "created_at",             :datetime,                              :null => false
-    t.column "updated_by_USER_ID",     :integer,                :default => 1, :null => false
-    t.column "updated_at",             :datetime,                              :null => false
-  end
+# Could not dump table "task_result_values" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
-  create_table "task_results", :force => true do |t|
-    t.column "protocol_version_id",  :integer
-    t.column "parameter_context_id", :integer,                :default => 0, :null => false
-    t.column "label",                :string
-    t.column "row_label",            :string
-    t.column "row_no",               :integer,                :default => 0, :null => false
-    t.column "column_no",            :integer
-    t.column "task_id",              :integer
-    t.column "parameter_id",         :integer
-    t.column "parameter_name",       :string,   :limit => 62
-    t.column "data_value",           :binary
-    t.column "created_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "created_at",           :datetime,                              :null => false
-    t.column "updated_by_user_id",   :integer,                :default => 0, :null => false
-    t.column "updated_at",           :datetime,                              :null => false
-  end
+# Could not dump table "task_results" because of following StandardError
+#   Unknown type 'null' for column 'id'
 
-  create_table "task_statistics", :force => true do |t|
-    t.column "task_id",           :integer
-    t.column "parameter_id",      :integer
-    t.column "parameter_role_id", :integer
-    t.column "parameter_type_id", :integer
-    t.column "data_type_id",      :integer
-    t.column "avg_values",        :float
-    t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "max_values",        :binary
-    t.column "min_values",        :binary
-  end
+# Could not dump table "task_statistics" because of following StandardError
+#   Unknown type 'null' for column 'task_id'
 
   create_table "task_stats1", :id => false, :force => true do |t|
     t.column "task_id",           :integer
@@ -1480,8 +1293,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "data_type_id",      :integer
     t.column "avg_values",        :float
     t.column "stddev_values",     :float
-    t.column "num_values",        :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",        :integer, :limit => 20, :default => 0, :null => false
+    t.column "num_values",        :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",        :integer, :limit => 21, :default => 0, :null => false
     t.column "max_values",        :float
     t.column "min_values",        :float
   end
@@ -1491,8 +1304,8 @@ ActiveRecord::Schema.define(:version => 284) do
     t.column "parameter_id",  :integer
     t.column "avg_values",    :float
     t.column "stddev_values", :float
-    t.column "num_values",    :integer, :limit => 20, :default => 0, :null => false
-    t.column "num_unique",    :integer, :limit => 20, :default => 0, :null => false
+    t.column "num_values",    :integer, :limit => 21, :default => 0, :null => false
+    t.column "num_unique",    :integer, :limit => 21, :default => 0, :null => false
     t.column "max_values",    :float
     t.column "min_values",    :float
   end

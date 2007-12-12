@@ -133,13 +133,16 @@ module Biorails
       end
       
       def self.import_model(item,filename=nil)
-       model = item
-       if item.is_a? Symbol
-         model = eval(item.to_s.singularize.camelcase)  
-       end 
-       filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tableize + '.yml')
-       success =0
-       records = YAML::load( File.open(filename))
+        logger=Logger.new(STDOUT)
+        #SET LOG LEVEL TO DEBUG TO SEE ANY FIXTURE LOAD ERRORS
+        logger.level=Logger::WARN
+        model = item
+        if item.is_a? Symbol
+          model = eval(item.to_s.singularize.camelcase)  
+        end 
+        filename ||= File.join(RAILS_ROOT,'test','fixtures',model.to_s.tableize + '.yml')
+        success =0
+        records = YAML::load( File.open(filename))
         model.transaction do
           records.keys.sort.each do |key|
             begin
@@ -151,19 +154,22 @@ module Biorails
                 @new_item = row.class.new(row.attributes)
                 @new_item.id = row.id
               end
-              
+              #check for duplicates and move on silently if already loaded
+              begin
+                break if model.find(@new_item.id) 
+              rescue ActiveRecord::RecordNotFound
+              end
               if @new_item.save
                  success =  success + 1
-	      else
-	         p "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
+	             else
+	               logger.debug "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
               end
             rescue Exception => ex
-                p "Error for [#{row.class}.#{row.id}] #{ex.message} " 
+                logger.debug "Error for [#{row.class}.#{row.id}] #{ex.message} " 
             end
           end
-         p "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"
+          logger.debug "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"
         end
-
      end
   end 
 
