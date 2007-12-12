@@ -12,73 +12,78 @@ vertical-align: middle;
 background-position: 4px 50%;
 }
 /* Data Columns */
-.icon-has_many { background-image:    url(/images/relations/has_many.png); }
-.icon-has_one { background-image:    url(/images/relations/has_one.png); }
-.icon-belongs_to { background-image:    url(/images/relations/belongs_to.png); }
-.icon-text { background-image:    url(/images/relations/text.png); }
-.icon-string { background-image:    url(/images/relations/string.png); }
-.icon-float { background-image:    url(/images/relations/float.png); }
-.icon-date { background-image:    url(/images/relations/date.png); }
-.icon-binary { background-image:    url(/images/relations/binary.png); }
-.icon-boolean { background-image:    url(/images/relations/boolean.png); }
+.icon-has_many { background-image:url(/images/relations/has_many.png)  !important; }
+.icon-has_one { background-image:url(/images/relations/has_one.png)  !important; }
+.icon-belongs_to { background-image:url(/images/relations/belongs_to.png)  !important; }
+.icon-text { background-image:url(/images/relations/text.png)  !important; }
+.icon-string { background-image:url(/images/relations/string.png)  !important; }
+.icon-float { background-image:url(/images/relations/float.png)  !important; }
+.icon-date { background-image:url(/images/relations/date.png)  !important; }
+.icon-binary { background-image:url(/images/relations/binary.png)  !important; }
+.icon-boolean { background-image:url(/images/relations/boolean.png)  !important; }
 
 
-.icon-add { background-image:    url(/images/action/add.png); }
-.icon-edit { background-image:   url(/images/action/edit.png); }
-.icon-del { background-image:    url(/images/action/delete.png); }
-.icon-move { background-image:   url(/images/action/move.png); }
-.icon-save { background-image:   url(/images/action/save.png); }
-.icon-cancel { background-image: url(/images/action/cancel.png); }
-.icon-print { background-image: url(/images/action/print.png); }
-.icon-new { background-image: url(/images/action/new.png); }
+.icon-new { background-image: url(/images/action/new.png) !important; }
+.icon-add { background-image:url(/images/action/add.png) !important; }
+.icon-list { background-image:url(/images/action/list.png) !important; }
+.icon-edit { background-image:url(/images/action/edit.png) !important; }
+.icon-cancel { background-image:url(/images/action/cancel.png) !important; }
+.icon-del { background-image:url(/images/action/delete.png) !important; }
+.icon-calendar { background-image:url(/images/action/calendar.png) !important; }
+.icon-copy { background-image:url(/images/action/copy.png) !important; }
+.icon-move { background-image:url(/images/action/move.png) !important; }
+.icon-save { background-image:url(/images/action/save.png) !important; }
+.icon-cancel { background-image:url(/images/action/cancel.png) !important; }
+.icon-preview { background-image:url(/images/action/list.png) !important; }
+.icon-print { background-image:url(/images/action/print.png) !important; }
 
 
-.icon-pdf { background-image:  url(/images/mime/pdf.gif); }
-.icon-csv { background-image:  url(/images/mime/xls.gif); }
-.icon-xls { background-image: url(/images/mime/xls.png); }
-.icon-txt { background-image: url(/images/mime/txt.gif); }
+.icon-pdf { background-image:url(/images/mime/pdf.gif) !important; }
+.icon-csv { background-image:url(/images/mime/xls.gif) !important; }
+.icon-xls { background-image:url(/images/mime/xls.png) !important; }
+.icon-txt { background-image:url(/images/mime/txt.gif) !important; }
 
-.icon-package { background-image: url(/images/package.png); }
-.icon-home { background-image:    url(/images/home.png); }
-.icon-user { background-image:    url(/images/model/user.png); }
-.icon-logout { background-image: url(/images/logout.png); }
-.icon-help { background-image: url(/images/help.png); }
+.icon-package { background-image:url(/images/package.png) !important; }
+.icon-home { background-image:url(/images/home.png) !important; }
+.icon-user { background-image:url(/images/model/user.png) !important; }
+.icon-logout { background-image:url(/images/logout.png) !important; }
+.icon-help { background-image:url(/images/help.png) !important; }
 
-.icon-note  { background-image: url(/images/model/note.png); }
-.icon-folder  { background-image: url(/images/model/folder.png); }
-.icon-file   { background-image: url(/images/model/file.png); }
+.icon-note  { background-image:url(/images/model/note.png)  !important; }
+.icon-folder  { background-image:url(/images/model/folder.png)  !important; }
+.icon-file   { background-image:url(/images/model/file.png)  !important; }
 
-.icon-project   { background-image: url(/images/model/project.png); }
-.icon-study     { background-image: url(/images/model/study.png); }
-.icon-request   { background-image: url(/images/model/request.png); }
-.icon-service   { background-image: url(/images/model/request_service.png); }
-.icon-protocol  { background-image: url(/images/model/protocol.png); }
-.icon-parameter { background-image: url(/images/model/parameter.png); }
-.icon-queue     { background-image: url(/images/model/queue.png); }
-.icon-experiment{ background-image: url(/images/model/experiment.png); }
-.icon-task      { background-image: url(/images/model/task.png); }
+.icon-project   { background-image:url(/images/model/project.png) !important; }
+.icon-study     { background-image:url(/images/model/study.png) !important; }
+.icon-request   { background-image:url(/images/model/request.png) !important; }
+.icon-service   { background-image:url(/images/model/request_service.png) !important; }
+.icon-protocol  { background-image:url(/images/model/protocol.png) !important; }
+.icon-parameter { background-image:url(/images/model/parameter.png) !important; }
+.icon-queue     { background-image:url(/images/model/queue.png) !important; }
+.icon-experiment{ background-image:url(/images/model/experiment.png) !important; }
+.icon-task      { background-image:url(/images/model/task.png) !important; }
 
 
-.icon-compound  { background-image: url(/images/model/compound.png); }
-.icon-batch     { background-image: url(/images/model/batch.png); }
-.icon-sample    { background-image: url(/images/model/sample.png); }
-.icon-container { background-image: url(/images/model/container.png); }
-.icon-mixture   { background-image: url(/images/model/container.png); }
+.icon-compound  { background-image:url(/images/model/compound.png)  !important; }
+.icon-batch     { background-image:url(/images/model/batch.png)  !important; }
+.icon-sample    { background-image:url(/images/model/sample.png)  !important; }
+.icon-container { background-image:url(/images/model/container.png)  !important; }
+.icon-mixture   { background-image:url(/images/model/container.png)  !important; }
 
-.icon-catalogue     { background-image: url(/images/model/catalogue.png); }
-.icon-data-format   { background-image: url(/images/model/data_format.png); }
-.icon-data-element  { background-image: url(/images/model/data_element.png); }
-.icon-data-type     { background-image: url(/images/model/data_type.png); }
-.icon-data-system   { background-image: url(/images/model/data_system.png); }
-.icon-data-concept  { background-image: url(/images/model/data_concept.png); }
-.icon-data-context  { background-image: url(/images/model/data_context.png); }
+.icon-catalogue     { background-image:url(/images/model/catalogue.png)  !important; }
+.icon-data-format   { background-image:url(/images/model/data_format.png)  !important; }
+.icon-data-element  { background-image:url(/images/model/data_element.png)  !important; }
+.icon-data-type     { background-image:url(/images/model/data_type.png)  !important; }
+.icon-data-system   { background-image:url(/images/model/data_system.png)  !important; }
+.icon-data-concept  { background-image:url(/images/model/data_concept.png)  !important; }
+.icon-data-context  { background-image:url(/images/model/data_context.png)  !important; }
 
-.icon-parameter-type  { background-image: url(/images/model/parameter_type.png); }
-.icon-parameter-role  { background-image: url(/images/model/parameter_role.png); }
+.icon-parameter-type  { background-image:url(/images/model/parameter_type.png)  !important; }
+.icon-parameter-role  { background-image:url(/images/model/parameter_role.png)  !important; }
 
-.icon-user        { background-image: url(/images/model/user.png); }
-.icon-role        { background-image: url(/images/model/role.png); }
-.icon-audit        { background-image: url(/images/model/role.png); }
-.icon-permission  { background-image: url(/images/model/permission.png); }
+.icon-user        { background-image:url(/images/model/user.png)  !important; }
+.icon-role        { background-image:url(/images/model/role.png)  !important; }
+.icon-audit        { background-image:url(/images/model/role.png)  !important; }
+.icon-permission  { background-image:url(/images/model/permission.png)  !important; }
 
 

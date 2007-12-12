@@ -8,6 +8,32 @@ Ext.namespace('Biorails.Protocol');
 Biorails.Protocol = function(){
 
 return {
+    
+   getEditor: function(item){
+     switch (item.data_type_id)   {
+       case 2 :  
+          return new Ext.form.TextField({name: item.name,  fieldLabel: item.name});
+          break;                      
+       case 3 : 
+          return new Ext.form.DateField({name: item.name,  fieldLabel: item.name});
+          break;
+       case 4: 
+          return new Ext.form.TimeField({name: item.name, fieldLabel: item.name});
+          break;
+       case 5:  
+          return new Biorails.ComboField({name: item.name,  root_id: item.data_element_id, fieldLabel: item.name});
+          break;
+       case 6: 
+          return new Ext.form.TextField({name: item.name,   vtype: 'url',  fieldLabel: item.name});
+          break;
+       case 7:  
+          return new Biorails.FileComboField({name: item.name,  folder_id: item.folder_id, fieldLabel: item.name});
+          break;
+       default:
+          return new Ext.form.TextField({name: item.name,  fieldLabel: item.name});
+          break;
+        };
+   },  
  /**
   * Add a new child context
   */
@@ -250,14 +276,28 @@ Biorails.Protocol.ContextTable = function(config) {
  */
   function getStore(){
         if (!store) {
-            record = config.parameters.each(function(item){ 
+            record = config.parameters.each( function(item){ 
                 {name: item.name} 
-            })
-            row = config.parameters.each(function(item){ 
-                "x"
             });
-            store = new Ext.data.SimpleStore({  fields: record});
-            store.loadData([row,row])
+            
+            row = config.parameters.each(function(item){ 
+                item.default_value
+            });
+            rows = []
+            for(i=0;i<config.default_count;i++) {
+              rows[i] = row;
+            }
+            //store = new Ext.data.SimpleStore({  fields: record});
+            //store.loadData([row,row])
+            store = new Ext.data.Store({
+
+                data: { id: config.id, total: 2,items: rows },
+
+              reader: new Ext.data.JsonReader({
+                  root: 'items',  totalProperty: 'total', id: 'id' },record),        
+                  remoteSort: true	
+            });
+
         }
         return store;
     };
@@ -278,32 +318,9 @@ Biorails.Protocol.ContextTable = function(config) {
            sortable: true,
            parameter: item,
            dataIndex: item.name,
-           editor: null
+           editor: Biorails.Protocol.getEditor(item)
          }
-         switch (item.data_type_id)   {
-           case 2 :  
-              columns[i].editor = new Ext.form.TextField({name: item.name,  fieldLabel: item.name});
-              break;                      
-           case 3 : 
-              columns[i].editor = new Ext.form.DateField({name: item.name,  fieldLabel: item.name});
-              break;
-           case 4: 
-              columns[i].editor = new Ext.form.TimeField({name: item.name, fieldLabel: item.name});
-              break;
-           case 5:  
-              columns[i].editor = new Biorails.ComboField({name: item.name,  root_id: item.data_element_id, fieldLabel: item.name});
-              break;
-           case 6: 
-              columns[i].editor = new Ext.form.TextField({name: item.name,   vtype: 'url',  fieldLabel: item.name});
-              break;
-           case 7:  
-              columns[i].editor = new Biorails.FileComboField({name: item.name,  folder_id: item.folder_id, fieldLabel: item.name});
-              break;
-           default:
-              columns[i].editor = new Ext.form.TextField({name: item.name,  fieldLabel: item.name});
-              break;
-            };
-          i++;   
+         i++;   
         }); 
        model = new Ext.grid.ColumnModel(columns);
        model.defaultSortable =true;
@@ -745,7 +762,7 @@ Biorails.Protocol.Context = function(config,mode) {
                     handler: function(){
                         showPreview();
                     },                                
-                    iconCls:'icon-preview'
+                    iconCls:'icon-list'
                 },'-', {
                     text:'Edit',
                     tooltip:'Context editor to allow for customization',                            
@@ -756,18 +773,18 @@ Biorails.Protocol.Context = function(config,mode) {
                 }],
         bbar: [{ 
                     text:'Add Child',
+                    iconCls:'icon-add',
                     tooltip:'New Child context',
                     handler: function(){
                         Biorails.Protocol.addContext(config.id);
-                    }, 
-                    iconCls:'icon-file'
+                    } 
                 },'->', (config.parent_id == null ? "" : {
                     text:'Remove',
+                    iconCls:'icon-cancel',
                     tooltip:'Remove context and all children',                              
                     handler: function(){
                         Biorails.Protocol.removeContext(config.id);
-                    }, 
-                    iconCls:'icon-note'
+                    } 
                 })],
         activeItem: mode, // make sure the active item is set on the container config!
         bodyStyle: 'padding:1px',

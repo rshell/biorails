@@ -37,7 +37,7 @@ module  TaskItem
  end
  
  def to_s
-  return context.to_s + "=" + self.value.to_s
+  return "#{context.to_s}[#{self.name}]=#{self.value}"
  end
  
 
