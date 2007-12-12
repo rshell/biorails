@@ -15,15 +15,13 @@ class ProjectAssetTest < Test::Unit::TestCase
      assert_not_nil fixture_file_upload('/files/rails.png', 'image/png')
   end
   
-  def test_create
+  def test_build
       project = Project.find(:first)
       file = fixture_file_upload('/files/rails.png', 'image/png')
-      asset = ProjectAsset.new
-      asset.uploaded_data = file
+      asset = ProjectAsset.build(:name=>'test', :uploaded_data=>file,:project_id=>project.id,:position=>'1')
+      #asset.uploaded_data = file
       asset.project =project
-
-      assert asset.valid?
-
+       assert asset.valid?
       assert asset.save
   end
   
