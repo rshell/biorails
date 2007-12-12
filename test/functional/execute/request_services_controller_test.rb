@@ -1,16 +1,16 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'execute/request_services_controller'
+require "#{RAILS_ROOT}/app/controllers/execute/request_services_controller"
 
 # Re-raise errors caught by the controller.
 class Execute::RequestServicesController; def rescue_action(e) raise e end; end
 
 class Execute::RequestServicesControllerTest < Test::Unit::TestCase
-  fixtures :request_services
-  fixtures :users
-  fixtures :projects
-  fixtures :roles
-  fixtures :memberships
-  fixtures :role_permissions
+  # # fixtures :request_services
+  # # fixtures :users
+  # # fixtures :projects
+  # # fixtures :roles
+  # # fixtures :memberships
+  # # fixtures :role_permissions
 
   def setup
     @controller = Execute::RequestServicesController.new

@@ -1,18 +1,17 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/users_controller'
-require 'application'
+require "#{RAILS_ROOT}/app/controllers/admin/users_controller"
 
 # Re-raise errors caught by the controller.
 class Admin::UsersController; def rescue_action(e) raise e end; end
 
 class Admin::UsersControllerTest < Test::Unit::TestCase
-  fixtures :projects
-  fixtures :project_elements
-  fixtures :users
-  fixtures :roles
-  fixtures :role_permissions
-  fixtures :permissions
-  fixtures :projects
+  # # fixtures :projects
+  # # fixtures :project_elements
+  # # fixtures :users
+  # # fixtures :roles
+  # # fixtures :role_permissions
+  # # fixtures :permissions
+  # # fixtures :projects
 
   def setup
     @controller = Admin::UsersController.new

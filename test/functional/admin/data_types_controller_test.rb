@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/data_types_controller'
+require "#{RAILS_ROOT}/app/controllers/admin/data_types_controller"
 
 # Re-raise errors caught by the controller.
 class Admin::DataTypesController; def rescue_action(e) raise e end; end
 
 class Admin::DataTypesControllerTest < Test::Unit::TestCase
     
-    fixtures :data_types
+    # # fixtures :data_types
 
 	NEW_DATA_TYPE = {}	# e.g. {:name => 'Test DataType', :description => 'Dummy'}
 	REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect

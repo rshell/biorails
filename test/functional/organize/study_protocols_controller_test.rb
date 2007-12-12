@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'organize/study_protocols_controller'
+require "#{RAILS_ROOT}/app/controllers/organize/study_protocols_controller"
 
 # Re-raise errors caught by the controller.
 class Organize::StudyProtocolsController; def rescue_action(e) raise e end; end
 
 class Organize::StudyProtocolsControllerTest < Test::Unit::TestCase
-  fixtures :study_protocols
+  # fixtures :study_protocols
 
   def setup
     @controller = Organize::StudyProtocolsController.new

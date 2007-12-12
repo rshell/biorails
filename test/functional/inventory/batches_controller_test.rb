@@ -1,18 +1,18 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'inventory/batches_controller'
+require "#{RAILS_ROOT}/app/controllers/inventory/batches_controller"
 
 # Re-raise errors caught by the controller.
 class Inventory::BatchesController; def rescue_action(e) raise e end; end
 
 class BatchesControllerTest < Test::Unit::TestCase
-  fixtures :batches
+  # fixtures :batches
 
-  fixtures :compounds
-  fixtures :users
-  fixtures :projects
-  fixtures :roles
-  fixtures :memberships
-  fixtures :role_permissions
+  # fixtures :compounds
+  # fixtures :users
+  # fixtures :projects
+  # fixtures :roles
+  # fixtures :memberships
+  # fixtures :role_permissions
 
   def setup
     @controller = Inventory::CompoundsController.new

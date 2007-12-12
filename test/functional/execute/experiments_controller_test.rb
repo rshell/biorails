@@ -1,16 +1,16 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'execute/experiments_controller'
+require "#{RAILS_ROOT}/app/controllers/execute/experiments_controller"
 
 # Re-raise errors caught by the controller.
 class Execute::ExperimentsController; def rescue_action(e) raise e end; end
 
 class Execute::ExperimentsControllerTest < Test::Unit::TestCase
-  fixtures :experiments
-  fixtures :users
-  fixtures :projects
-  fixtures :roles
-  fixtures :memberships
-  fixtures :role_permissions
+  # # fixtures :experiments
+  # # fixtures :users
+  # # fixtures :projects
+  # # fixtures :roles
+  # # fixtures :memberships
+  # # fixtures :role_permissions
 
   def setup
     @controller = Execute::ExperimentsController.new

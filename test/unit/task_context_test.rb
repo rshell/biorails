@@ -1,21 +1,35 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskContextTest < Test::Unit::TestCase
-  ## Biorails::Dba.import_model :projects
-  ## Biorails::Dba.import_model :studies
-  ## Biorails::Dba.import_model :study_protocols
-  ## Biorails::Dba.import_model :study_parameters
-  ## Biorails::Dba.import_model :protocol_versions
-  ## Biorails::Dba.import_model :parameters
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :tasks
-  ## Biorails::Dba.import_model :task_contexts
-  ## Biorails::Dba.import_model :task_values
-  ## Biorails::Dba.import_model :task_texts
- 
+  
+  TASK_ID = 63
+  
   # Replace this with your real tests.
   def test_truth
     assert true
   end
+  
+  
+  def test_find()
+    task = task.find(TASK_ID)
+    assert task.contexts> 0
+  end
+  
+  #
+  # See if data items and hashes contains corrent number of columns
+  #
+  def test_get_grid()
+    task = task.find(TASK_ID)
+    task.process.contexts.each  do |definition| 
+      rows = task.contexts.matching(definition)
+      rows.each do |row|
+        assert row.to_hash
+        assert row.items
+        assert row.items.size = row.to_hash.size
+        assert row.items.size = definition.parameters.size
+      end
+    end    
+  end
+  
+  
 end

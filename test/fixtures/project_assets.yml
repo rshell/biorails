@@ -10,7 +10,7 @@
     updated_by_user_id: "3"
     lock_version: "4"
     type: ProjectAsset
-    id: "5"
+    id: "30"
     right_limit: "1"
     created_by_user_id: "3"
     published_hash:
@@ -29,7 +29,7 @@
     updated_by_user_id: "3"
     lock_version: "1"
     type: ProjectAsset
-    id: "6"
+    id: "40"
     right_limit: "125"
     reference_type:
     created_by_user_id: "3"

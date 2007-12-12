@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/database_controller'
+require "#{RAILS_ROOT}/app/controllers/admin/database_controller"
 
 # Re-raise errors caught by the controller.
 class Admin::DatabaseController; def rescue_action(e) raise e end; end

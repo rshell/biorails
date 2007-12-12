@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'admin/data_systems_controller'
+require "#{RAILS_ROOT}/app/controllers/admin/data_systems_controller"
 
 # Re-raise errors caught by the controller.
 class Admin::DataSystemsController; def rescue_action(e) raise e end; end
 
 class Admin::DataSystemsControllerTest < Test::Unit::TestCase
-  fixtures :data_systems
+  # # fixtures :data_systems
   
   def setup
     @request    = ActionController::TestRequest.new

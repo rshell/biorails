@@ -1,16 +1,16 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'inventory/treatment_groups_controller'
+require "#{RAILS_ROOT}/app/controllers/inventory/treatment_groups_controller"
 
 # Re-raise errors caught by the controller.
 class Inventory::TreatmentGroupsController; def rescue_action(e) raise e end; end
 
 class Inventory::TreatmentGroupsControllerTest < Test::Unit::TestCase
-  fixtures :treatment_groups
-  fixtures :users
-  fixtures :projects
-  fixtures :roles
-  fixtures :memberships
-  fixtures :role_permissions
+  # fixtures :treatment_groups
+  # fixtures :users
+  # fixtures :projects
+  # fixtures :roles
+  # fixtures :memberships
+  # fixtures :role_permissions
 
   def setup
     @controller = Inventory::TreatmentGroupsController.new

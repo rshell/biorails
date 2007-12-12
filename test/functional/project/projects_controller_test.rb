@@ -1,15 +1,15 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'project/projects_controller'
+require  "#{RAILS_ROOT}/app/controllers/project/projects_controller"
 
 # Re-raise errors caught by the controller.
 class Project::ProjectsController; def rescue_action(e) raise e end; end
 
 class Project::ProjectsControllerTest < Test::Unit::TestCase
-  fixtures :users
-  fixtures :roles
-  fixtures :role_permissions
-  fixtures :permissions
-  fixtures :projects
+  # # fixtures :users
+  # # fixtures :roles
+  # # fixtures :role_permissions
+  # # fixtures :permissions
+  # # fixtures :projects
 
   def setup
     @controller = Project::ProjectsController.new
@@ -17,6 +17,7 @@ class Project::ProjectsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
+    @item = Project.find(:first)
   end
 
   # Replace this with your real tests.
@@ -46,7 +47,7 @@ class Project::ProjectsControllerTest < Test::Unit::TestCase
   
   def test002_index
     fill_session_user
-    get :index
+    get :list
     assert_response :success
   end
   
@@ -54,21 +55,16 @@ class Project::ProjectsControllerTest < Test::Unit::TestCase
     get :new
     assert_response :success
   end
-#
-#  def test004_create
-#    post :create, :user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 3}
-#    assert_response :success
-#  end
-#  
-#  def test005_edit
-#    get :edit
-#    assert_response :success
-#  end
-#
-#  def test006_update
-#    post :update, :user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 3}
-#    assert_response :success
-#  end
-#  
+
+  def test003_show
+    get :show ,:id=>@item.id
+    assert_response :success
+  end
+
+  def test004_calendar
+    get :calendar ,:id=>@item.id
+    assert_response :success
+  end
+   
   
 end

@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require 'organize/studies_controller'
+require "#{RAILS_ROOT}/app/controllers/organize/studies_controller"
 
 # Re-raise errors caught by the controller.
 class Organize::StudiesController; def rescue_action(e) raise e end; end
 
 class Organize::StudiesControllerTest < Test::Unit::TestCase
-  fixtures :studies
+  # fixtures :studies
 
 	NEW_STUDY = {}	# e.g. {:name => 'Test Study', :description => 'Dummy'}
 	REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect
