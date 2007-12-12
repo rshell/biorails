@@ -72,7 +72,7 @@ class ProjectTest < Test::Unit::TestCase
 
   def test007_linked_to
      project = Project.find(1)
-     assert project.folders.size==0
+     assert project.folders.size==1
      assert project.folders_for(Study).size==0 # array of folders linked to a model type
 
 # test database not populated
