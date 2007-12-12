@@ -93,6 +93,36 @@ class Execute::TasksController < ApplicationController
   end
 
 ##
+# show data entry sheet 
+  def entry
+    set_task
+    respond_to do | format |
+      format.html { render :action => 'entry'}
+      format.ext { render :action => 'entry',:layout=>false }
+      format.pdf  { render_pdf :action => 'sheet',:layout=>false }
+      format.csv { render :json => @task.grid.to_csv}
+      format.json { render :json => @task.to_json}
+      format.xml  { render :xml => @task.to_xml }
+     end
+  end  
+  
+
+ #
+ # Get a table of data for a context definition
+ #
+ def context
+   @parameter_context = ParameterContext.find(params[:id])
+   render :inline => '<%= context_model(@parameter_context) %>'
+ end  
+ #
+ # Get a table of data for a context definition
+ #
+ def values
+   @task_context = TaskContext.find(params[:id])
+   render :inline => '<%= context_values(@task_context) %>'
+ end    
+  
+##
 # show data task analysis options
 # 
   def analysis
@@ -147,20 +177,8 @@ class Execute::TasksController < ApplicationController
 # Create a new task in the the current experiment
 #
   def new
-   set_experiment(params[:id])
-    @task = Task.new
-    @task.reset
-    @task.experiment = @experiment
-    @task.protocol = @experiment.protocol
-    @task.process = @experiment.process
-    @task.project = current_project
-    @task.assigned_to_user_id = current_user.id
-    @task.expected_hours =1
-    @task.done_hours = 0
-    @task.started_at = Time.new
-    @task.expected_at = Time.new+1.day
-    @task.name = Identifier.next_id(Task)
-    @task.description = " Task in experiment #{@experiment.name} "      
+    set_experiment(params[:id])
+    @task = @experiment.new_task
   end
 
 

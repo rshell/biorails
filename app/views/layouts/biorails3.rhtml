@@ -31,7 +31,7 @@
 	<%= javascript_include_tag 'form_fields' %>
 
 
-    <script type="text/javascript" src="/javascripts/ext2/ext-all.js"></script>
+    <script type="text/javascript" src="/javascripts/ext2/ext-all-debug.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/menu/EditableItem.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/menu/RangeMenu.js"></script>
 
@@ -42,8 +42,12 @@
     <script type="text/javascript" src="/javascripts/biorails/grid/filter/ListFilter.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/grid/filter/NumericFilter.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/grid/filter/BooleanFilter.js"></script>
+
     <script type="text/javascript" src="/javascripts/biorails/biorails.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/biorails_controls.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/biorails_reports.js"></script>
     <script type="text/javascript" src="/javascripts/biorails/biorails_protocol.js"></script>
+    <script type="text/javascript" src="/javascripts/biorails/biorails_task.js"></script>
 
 	<%= yield :header_script %>	
 
@@ -93,13 +97,13 @@
 
 <!--East Block =======================-->  
   <div id="status-tab" class="x-hidden">
-	<div id='help' class='bio-std'>
-      <%= yield :help %>
-    </div>
     <div id="messages"class='bio-std'>
 	   <%= if @content_for_messages 
 	            yield :messages
 	    end %> 
+    </div>
+	<div id='help' class='bio-std'>
+      <%= yield :help %>
     </div>
 	<div id='status' class='bio-std'>
       <%= yield :right %>
@@ -112,10 +116,6 @@
       <%= yield :tree %>
     </div>
   </div>
-
-  <div id="help-tab" class="x-hidden">
-  </div>
-
 
 
 <!--South Block =======================-->  

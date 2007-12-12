@@ -100,12 +100,19 @@ class Task < ActiveRecord::Base
 ##
 # In the Process sets of parameters are grouped into a context of usages
 # 
- has_many :contexts, :class_name =>'TaskContext', :dependent => :destroy, :order => 'row_no',:include => ['definition'] 
+  has_many :contexts, :class_name =>'TaskContext', :dependent => :destroy, :order => 'row_no,task_contexts.id',:include => ['definition'] do
+    def matching(object,options={})      
+        with_scope :find => options  do
+              find(:all, 
+                   :order => 'row_no,task_contexts.id',
+                   :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.to_s.underscore}_id=?",object.id] )
+        end  
+    end
+  end 
 ##
 # As contexts may be in a tree is a good idea to start at the roots some times
 #
- has_many :roots, :class_name =>'TaskContext', :order => 'row_no', :conditions=>'parent_id is null'
-
+  has_many :roots, :class_name =>'TaskContext', :order => 'row_no', :conditions=>'parent_id is null'
 ##
 #  has many project elements associated with it
 #  
@@ -117,11 +124,38 @@ class Task < ActiveRecord::Base
 # Ok links to complete sets of TaskItems associated with the Task.
 # Generally for working with data a complete task is loaded into server
 # memory for processing. 
- has_many :values, :class_name=>'TaskValue', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
+ has_many :values, :class_name=>'TaskValue', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
+    def matching(object,options={})      
+        with_scope :find => options  do
+              find(:all,
+                   :order =>'task_contexts.row_no,parameters.column_no',
+                   :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.to_s.underscore}_id=?",object.id] )
+        end  
+    end
+  end 
 
- has_many :texts, :class_name=>'TaskText', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
 
- has_many :references, :class_name=>'TaskReference', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter']
+ has_many :texts, :class_name=>'TaskText', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
+    def matching(object,options={})      
+        with_scope :find => options  do
+              find(:all,
+                   :order =>'task_contexts.row_no,parameters.column_no',
+                   :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.to_s.underscore}_id=?",object.id] )
+        end  
+    end
+  end 
+
+
+ has_many :references, :class_name=>'TaskReference', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
+    def matching(object,options={})      
+        with_scope :find => options  do
+              find(:all,
+                   :order =>'task_contexts.row_no,parameters.column_no',
+                   :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.to_s.underscore}_id=?",object.id] )
+        end  
+    end
+  end 
+
 
  
 def before_update

@@ -65,6 +65,7 @@ module ApplicationHelper
 #
   def browser_name
     @browser_name ||= begin
+      return 'test' unless request.env['HTTP_USER_AGENT']
       ua = request.env['HTTP_USER_AGENT'].downcase
       if ua.index('msie') && !ua.index('opera') && !ua.index('webtv')
         'ie'+ua[ua.index('msie')+5].chr

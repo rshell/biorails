@@ -1,0 +1,38 @@
+<% content_for :center do %>
+
+<h2>
+ <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
+ [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
+</h2>
+
+<div id="<%=@task.dom_id('entry') %>" >
+   <% for parameter_context in @task.process.contexts %>
+      <div class="parameter_context"  id="<%=parameter_context.dom_id%>" > 
+      </div> 
+
+      <script>   
+      Ext.onReady(function() {
+
+      var data2 = <%=context_values(@task,parameter_context)%>;
+      var el = "<%=parameter_context.dom_id%>";
+        
+        Ext.form.Field.prototype.msgTarget = 'side';
+
+        var panel = new Biorails.Task.ContextTable(data2 );
+        panel.render(el)
+        });
+      </script>
+   <% end %>
+</div>
+
+<% end -%>
+
+<% content_for :status do %>
+    <div id='parameter-tree'>    </div>
+     <script type="text/javascript"> 
+ //   Ext.onReady(function(){
+ //      var tree = new Biorails.Protocol.ParameterTree({el:'parameter-tree',study_id: <%=@task.experiment.study.id%> });
+ //      tree.applyToMarkup('parameter-tree');
+ //   });
+    </script>
+<% end%>

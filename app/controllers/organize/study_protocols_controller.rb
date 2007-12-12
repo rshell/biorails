@@ -459,19 +459,12 @@ end
     end  
  end
 
-#
-# get a set of context tables
-#
- def table
-   @parameter_context = ParameterContext.find(params[:id])
-   render :partial => 'table'
- end
  #
  # Get a table of data for a context definition
  #
  def context
    @parameter_context = ParameterContext.find(params[:id])
-   render :partial => 'context'
+   render :inline => '<%= context_model(@parameter_context) %>'
  end  
 ##
 #Import a protocol into the systems. This reads the xml generated above.

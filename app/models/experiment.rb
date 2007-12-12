@@ -84,6 +84,8 @@ class Experiment < ActiveRecord::Base
   belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
 ##
 # Protocol this is linked to
+# 
+# @todo replacement with workflow for 3.0
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 
@@ -239,6 +241,7 @@ SQL
  def new_task
    task = Task.new
    task.name = Identifier.next_id(Task)
+   task.experiment = self
    task.process = self.process
    task.protocol= self.protocol 
    task.project = self.project
@@ -248,9 +251,7 @@ SQL
    task.started_at = Time.new
    task.expected_at = Time.new+1.day
    task.description = " Task in experiment #{self.name} "      
-   tasks << task
-   task.save
-   logger.info "New Task #{task.id}"
+   logger.info "New Task[#{task.id}] is #{task.name}"
    return task
  end
  

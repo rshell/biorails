@@ -74,62 +74,98 @@ class TaskContext < ActiveRecord::Base
 
  has_many :references, :class_name=>'TaskReference', :dependent => :destroy,:order =>'parameter_id'
 
-##
-# combined array of all TaskItems
-# 
- def items
-    items = Array.new
-    items.concat(values)
-    items.concat(files)
-    items.concat(texts)
-    items.concat(references)
- end
-
+ 
 #
 # path to this context
 # 
 # myPlate[1]:sample[2]:well[3]
 #
   def path
-     if parent == nil 
+     if parent.nil? 
         return label 
      else 
-        return parent.path+":"+label
+        return parent.path+"/"+label
      end 
   end 
 
   def to_matrix
     self.task.to_matrix(self)
   end
-
+#
+# Unique label for the group the row belongs top
+#
+  def row_group
+    unless parent.nil?
+        return self.parent.label
+    else
+      'root'
+    end      
+  end
 ##
 # Parameters allowed for this context
 # 
  def parameters
     return definition.parameters
  end
- 
+
+#
+# get a parameter by name
+#
  def parameter(name)
     return definition.parameter(name)  
  end
- 
+
 ##
-# get existing TaskItem values for the context   
- def item(parameter)
-    case parameter.data_type_id
-    when 2 
-      value = values.find(:conditions=>["parameter_id=?",parameter.id])
-    when 5
-      value = references.find(:conditions=>["parameter_id=?",parameter.id])
-    else
-      value = texts.find(:conditions=>["parameter_id=?",parameter.id])
-    end 
-    return value if value   
-    return add_task_item(parameter,nil)
+# combined array of all TaskItems both real and virtual (empty)
+# 
+ def items
+    @items = Hash.new
+    unless @items
+      self.values.each{|i| @items[i.name] = i}
+      self.texts.each{|i| @items[i.name] = i}
+      self.references.each{|i| @items[i.name] = i}
+    end
+    self.definition.parameters.collect do |p|
+      unless @items[p.name]
+        @items[p.name] = add_task_item(p)
+      end  
+    end
+    return @items
+ end
+#
+# Generate a hash of the row for external use
+#
+ def to_hash
+   hash = {
+           :id => self.id,
+           :row_group => self.row_group,
+           :row_label => self.label,
+           :row_no => self.row_no
+           }
+   items.values.each do |item|
+     hash[item.parameter.dom_id] = item.to_s
+   end        
+   return hash
+ end
+#
+# Get the value of a named column as a string
+#
+ def value(name)
+    return self.item(name).to_s
+ end 
+
+##
+# get TaskItem values for column the context   
+ def item(name)
+      value = items[name.to_s]
+      return value if value   
+      return add_task_item(name.to_s, nil)      
  end
  
- 
- def add_task_item(parameter, value)
+#
+# Create a new task item
+#
+ def add_task_item(parameter, value  =nil)
     case parameter.data_type_id
     when 2 
       item = add_task_value(parameter,value)
@@ -142,7 +178,7 @@ class TaskContext < ActiveRecord::Base
  end
 
 protected
- def add_task_value(parameter,value)
+ def add_task_value(parameter,value  =nil)
     item = TaskValue.new
     item.context = self
     item.task = self.task 
@@ -154,7 +190,7 @@ protected
 ###
 # Create a reference base TestItem linked to data_element value
 #
- def add_task_reference(parameter,value)
+ def add_task_reference(parameter,value =nil)
     item = TaskReference.new
     item.context = self
     item.task = self.task 
@@ -166,7 +202,7 @@ protected
 ##
 # Create a textual TestItem based on ther value passed in
 # 
- def add_task_text(parameter,value)
+ def add_task_text(parameter,value  =nil)
     item = TaskText.new
     item.context = self
     item.task = self.task 

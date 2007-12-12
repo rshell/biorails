@@ -1,7 +1,5 @@
 <% for parameter_context in @protocol_version.contexts %>
-  <div class="parameter_context"  id="<%=parameter_context.dom_id%>" >
      <%= render :partial => 'current_context', :locals => {:parameter_context => parameter_context } %>
-  </div> 
 <% end %>
 
 
