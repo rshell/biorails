@@ -4,7 +4,7 @@ class StudyQueueTest < Test::Unit::TestCase
   ## Biorails::Dba.import_model :study_queues
 
   # Replace this with your real tests.
-def setup
+  def setup
     # Retrieve ## Biorails::Dba.import_model via their name
      @model = StudyQueue
   end

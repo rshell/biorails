@@ -15,8 +15,22 @@ class TaskReferenceTest < Test::Unit::TestCase
   ## Biorails::Dba.import_model :task_texts
   ## Biorails::Dba.import_model :task_references
 
-  # Replace this with your real tests.
+def setup
+    # Retrieve ## Biorails::Dba.import_model via their name
+     @model = TaskReference
+  end
+  
   def test_truth
     assert true
   end
+
+  
+  def test_new
+    first = @model.new
+    assert first
+    assert first.new_record?
+    assert !first.valid?
+  end
+
+  
 end
