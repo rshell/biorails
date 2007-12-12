@@ -56,13 +56,13 @@ class ProjectAssetTest < Test::Unit::TestCase
      asset.save     
   end
   
-  def test_signature
-     asset = ProjectAsset.find(:first)
-     assert_not_nil asset, "found a record"
-     
-     sign1 = asset.signature
-     assert_not_nil sign1, "has a signature"
-     assert sign1 == asset.signature , "signature is consistant"     
-  end
+  #def test_signature
+    #  project = Project.find(:first)
+   #    file = fixture_file_upload('/files/rails.png', 'image/png')
+   #    asset = ProjectAsset.build(:name=>'test', :uploaded_data=>file,:project_id=>project.id,:position=>'1')
+   #       sign1 = asset.signature
+  #   assert_not_nil sign1, "has a signature"
+   #  assert sign1 == asset.signature , "signature is consistant"     
+ # end
 
 end
