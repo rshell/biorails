@@ -270,18 +270,7 @@ end
   def membership(project)
     Membership.find(:first,:conditions=>['project_id=? and user_id=?',project.id,self.id],:include=>:role)
   end	
- 
-##
-# Test in the user is authorized for a subject and action in a project
-#  	
-  def authorized?(subject,action)
-    membership = membership(project)
-    if membership.nil?
-       return self.admin?  # Your not a member
-    else
-       return membership.allow?(subject,action)
-    end
-  end 	  
+  	  
 #
 # Get the cached current user for this context
 # 
