@@ -17,4 +17,33 @@ class HelpControllerTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+  
+  def test_get_uml
+    get :uml,nil,@session
+    assert_response :success
+  end
+
+  def test_get_diagram
+    get :diagram,{:id=>'Task'},@session
+    assert_response :success
+  end
+  
+  def test_get_report
+    report = Report.find(:first)
+    assert report, 'No report to use in test'
+    get :report,{:id=> report.id},@session
+    assert_response :success
+  end
+
+  def test_get_model
+    get :model,{:id=> 'Task'},@session
+    assert_response :success
+  end
+
+  def test_get_controller
+    get :controller,{:id=> 'TaskController'},@session
+    assert_response :success
+  end
+  
+  
 end

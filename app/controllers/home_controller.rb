@@ -123,11 +123,11 @@ class HomeController < ApplicationController
       format.html { render :action => 'calendar' }
       format.json { render :json => {:user=>@user,:items=>@calendar.items}.to_json }
       format.xml  { render :xml => {:user=>@user,:items=>@calendar.items}.to_xml }
+# @todo enable mime etc for ical     format.ical  { render :text => @calendar.to_ical }
       format.js   { render :update do | page |
            page.replace_html 'center',  :partial => 'calendar' 
            page.replace_html 'status',  :partial => 'calendar_right' 
          end }
-      #format.ical  { render :text => >@calendar@user.calendar.to_ical}
     end
   end
   
@@ -176,8 +176,8 @@ class HomeController < ApplicationController
 #
   def blog
     @user = current_user
-    @elements = ProjectElement.find(:conditions=>["created_by = ? or updated_by = ?",@user.id,@user.id],
-                                    :order=>'updated_by,created_by',:limit=>20 )
+    @elements = ProjectElement.find(:all,:conditions=>["created_by_user_id = ? or updated_by_user_id = ?",@user.id,@user.id],
+                                    :order=>'updated_at desc',:limit=>20 )
     render :layout => false if request.xhr?
   end  
 #

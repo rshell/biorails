@@ -30,14 +30,30 @@ class HomeControllerTest < Test::Unit::TestCase
     get :show,nil,@session
     assert_response :success
   end
+
+  def test_show_as_xml
+    get :show,{:format=>'xml'},@session    
+    assert_response :success
+  end
   
-  def test003_calendar
+  
+  def test_calendar_as_html
     get :calendar,nil,@session
     assert_response :success
   end
+  
+  def test_calendar_as_json
+    get :calendar,{:format=>'json'},@session    
+    assert_response :success
+  end
 
+  def test_calendar_as_js
+    get :calendar,{:format=>'js'},@session    
+    assert_response :success
+  end
+  
   def test004_timeline
-    post :timeline, @params, @session
+    post :gantt, @params, @session
     assert_response :success
   end
   
@@ -46,27 +62,29 @@ class HomeControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test006_blog
-    post :blog,  @params, @session
+  def test006_news
+    post :news,  @params, @session
     assert_response :success
   end  
-  
-  def test007_controller
-    get :show,nil,@session
-    assert_not_nil @controller.current_user
-    assert_not_nil @controller.current_user.id
 
-    assert_not_nil @controller.class.rights_subject
-    assert_not_nil @controller.class.rights_actions
-    assert @controller.logged_in?
-    
-    
-    assert  @controller.authorized?(:show)     
-    assert  @controller.authorized?(:calendar)     
-    assert  @controller.authorized?(:timeline)     
-    assert  @controller.authorized?('blog') 
-        
-    
+  def test007_requests
+    get :todo,nil,@session
+    assert_response :success
   end
   
+  def test008_tasks
+    get :todo,nil,@session
+    assert_response :success
+  end
+  
+  def test009_blog
+    get :blog,nil,@session
+    assert_response :success
+  end
+
+  def test010_tree
+    get :tree,{:node=>'root'},@session
+    assert_response :success
+  end
+    
 end

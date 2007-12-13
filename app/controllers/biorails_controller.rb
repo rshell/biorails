@@ -215,7 +215,7 @@ class BiorailsController < ApplicationController
     def get_report(session_id,id)
       @report = Report.find(id)
       @data = @report.run    
-      return render_to_string :partial => 'shared/report_printout', :locals=>{:report =>  @report, :data => @data}
+      return render_to_string( :partial => 'shared/report_printout', :locals=>{:report =>  @report, :data => @data})
     end
     
     ##

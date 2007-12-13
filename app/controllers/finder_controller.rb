@@ -20,8 +20,7 @@ class FinderController < ApplicationController
         @hitlist = @hitlist.compact
       end 
     respond_to do | format |
-      format.html { render :action => 'search', :layout=>false }
-      format.js   { render :action => 'search', :layout=>false }
+      format.html { render :partial => 'search', :layout=>false }
       format.json { render :json => {:text=>@search_text,:items=>@hitlist}.to_json }
       format.xml  { render :xml => {:text=>@search_text,:items=>@hitlist}.to_xml }
       format.js  { render :update do | page |  
@@ -31,27 +30,6 @@ class FinderController < ApplicationController
     end
    end
 
-##
-# Display the current clipboard 
-# 
-  def finder
-    @hits = []
-    @user_query = params['query'] 
-    logger.info "query before [#{@user_query}]"
-    ids = current_user.projects.collect{|i|i.id.to_s}.join(",")
-    if @user_query
-       @query = "#{@user_query}"
-       @hits = ProjectElement.find(:all,
-          :conditions=>["project_id in (#{ids}) and name like ?","#{@query}%"],
-          :order=>"abs(project_id-#{current_project.id}) asc,parent_id,name",:limit=>100)
-       if @hits.size==0
-         @hits = ProjectElement.find_by_contents(@query,:models=>[ProjectContent,ProjectAsset,ProjectElement,ProjectReference,ProjectFolder],:limit=>100)
-       end
-    end
-    logger.info "query after [#{@query}]"
-    return render_right('finder')
-  end  
-  
   def add_clipboard
     @project_element = ProjectElement.find(params[:id])
     @clipboard.add(@project_element);
