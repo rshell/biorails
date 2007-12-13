@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require  "#{RAILS_ROOT}/app/controllers/project/projects_controller"
+require  "projects_controller"
 
 # Re-raise errors caught by the controller.
 class Project::ProjectsController; def rescue_action(e) raise e end; end
@@ -45,9 +45,27 @@ class Project::ProjectsControllerTest < Test::Unit::TestCase
     assert_not_nil @request.session[:project_id]
   end
   
-  def test002_index
+  def test_list
     fill_session_user
     get :list
+    assert_response :success
+  end
+
+  def test_index
+    fill_session_user
+    get :index
+    assert_response :success
+  end
+
+  def test_get_index_as_xml
+    fill_session_user
+    get :index,{:format=>'xml'}
+    assert_response :success
+  end
+
+  def test_get_index_as_csv
+    fill_session_user
+    get :index,{:format=>'csv'}
     assert_response :success
   end
   
@@ -56,15 +74,64 @@ class Project::ProjectsControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test003_show
+  def test_get_show
     get :show ,:id=>@item.id
     assert_response :success
   end
 
-  def test004_calendar
-    get :calendar ,:id=>@item.id
+  def test_get_show_as_json
+    get :show ,:id=>@item.id,:format=>'json'
     assert_response :success
   end
-   
+
+  def test_get_show_as_xml
+    get :show ,:id=>@item.id,:format=>'xml'
+    assert_response :success
+  end
   
+  def test_get_show_as_js
+    get :show ,:id=>@item.id,:format=>'js'
+    assert_response :success
+  end
+
+   def test_get_new
+    get :new 
+    assert_response :success
+  end
+
+  def test_get_edit
+    get :new 
+    assert_response :success
+  end
+  
+  def test_get_members
+    get :new 
+    assert_response :success
+  end
+    
+    def test_calendar_as_html
+    get :calendar,:id=>@item.id
+    assert_response :success
+  end
+  
+  def test_calendar_as_json
+    get :calendar,{:format=>'json',:id=>@item.id}
+    assert_response :success
+  end
+
+  def test_calendar_as_js
+    get :calendar,{:id=>@item.id,:format=>'js'}
+    assert_response :success
+  end
+  
+ def test_get_gantt
+    get :gantt,{:id=>@item.id,:format=>'js'}
+    assert_response :success
+  end
+
+ def test_get_tree
+    get :tree,:id=>@item.id
+    assert_response :success
+  end
+ 
 end
