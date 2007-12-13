@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require  "#{RAILS_ROOT}/app/controllers/project/memberships_controller"
+require  "memberships_controller"
 
 # Re-raise errors caught by the controller.
 class MembershipsController; def rescue_action(e) raise e end; end
@@ -14,7 +14,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
 
-    @item = memberships(:first)
+    @item = Membership.find(:first)
   end
 
   def test_index
@@ -54,12 +54,10 @@ class MembershipsControllerTest < Test::Unit::TestCase
   def test_create
     num_memberships = Membership.count
 
-    post :create, :membership => {}
+    post :create, :membership => {:project_id=>1,:user_id=>3,:role_id=>4}
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_memberships + 1, Membership.count
+    assert_response :success
+    assert_template 'new'
   end
 
   def test_edit
@@ -75,7 +73,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
   def test_update
     post :update, :id => @item.id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
+    assert_redirected_to :action => 'list'
   end
 
   def test_destroy
@@ -85,8 +83,5 @@ class MembershipsControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Membership.find( @item.id)
-    }
   end
 end
