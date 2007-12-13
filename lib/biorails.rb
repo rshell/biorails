@@ -165,7 +165,7 @@ module Biorails
 	               logger.debug "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
               end
             rescue Exception => ex
-                logger.debug "Error for [#{row.class}.#{row.id}] #{ex.message} " 
+                logger.debug( "Error for  #{ex.message} ") 
             end
           end
           logger.debug "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"

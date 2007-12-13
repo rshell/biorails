@@ -13,78 +13,66 @@ class Organize::StudyParametersControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
+    @study = Study.find(:first)
+    @item = StudyParameter.find(:first)
   end
 
+  def test_setup
+    assert_not_nil @controller
+    assert_not_nil @request
+    assert_not_nil @response
+    assert_not_nil @study
+    assert_not_nil @item
+    assert_not_nil @item.id
+  end
+  
   def test_index
-    get :index
+    get :index,:id=>@study.id
     assert_response :success
     assert_template 'list'
   end
 
   def test_list
-    get :list
-
+    get :list,:id=>@study.id
     assert_response :success
     assert_template 'list'
-
-    assert_not_nil assigns(:study_parameters)
   end
 
   def test_show
-    get :show, :id => 1
-
+    get :show, :id => @item.id
     assert_response :success
     assert_template 'show'
-
     assert_not_nil assigns(:study_parameter)
     assert assigns(:study_parameter).valid?
   end
 
   def test_new
-    get :new
-
+    get :new,:id=>@study.id
     assert_response :success
     assert_template 'new'
-
     assert_not_nil assigns(:study_parameter)
   end
 
   def test_create
     num_study_parameters = StudyParameter.count
-
-    post :create, :study_parameter => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_study_parameters + 1, StudyParameter.count
+    post :create, :id=>@study.id, :study_parameter => {}
+    assert_response :success
+    assert_template 'new'
+    assert_equal num_study_parameters, StudyParameter.count
   end
 
   def test_edit
-    get :edit, :id => 1
-
+    get :edit, :id => @item.id
     assert_response :success
     assert_template 'edit'
-
     assert_not_nil assigns(:study_parameter)
     assert assigns(:study_parameter).valid?
   end
 
   def test_update
-    post :update, :id => 1
+    post :update, :id => @item.id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'list', :id => 1
   end
 
-  def test_destroy
-    assert_not_nil StudyParameter.find(1)
-
-    post :destroy, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_raise(ActiveRecord::RecordNotFound) {
-      StudyParameter.find(1)
-    }
-  end
 end

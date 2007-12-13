@@ -23,7 +23,6 @@
 
 <%if  @data_element.new_record? %>
 <div class="row">
-<%=@data_element.types%>
     <div class="form-element">
       <label for="data_element_style">Style</label>
       <%= select(:data_element, :style, @data_element.allowed_styles {|p| p})%>

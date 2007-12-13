@@ -7,8 +7,33 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :user_roles
   Biorails::Dba.import_model :project_roles
   Biorails::Dba.import_model :users
+  Biorails::Dba.import_model :identifiers
   Biorails::Dba.import_model :role_permissions
   Biorails::Dba.import_model :permissions
+  
+#  Biorails::Dba.import_model :analysis_settings
+
+  Biorails::Dba.import_model :reports
+  Biorails::Dba.import_model :report_columns
+
+  #- Inventory
+  Biorails::Dba.import_model :compounds
+  Biorails::Dba.import_model :batches
+#  Biorails::Dba.import_model :samples
+
+  Biorails::Dba.import_model :plates
+  Biorails::Dba.import_model :plate_wells
+  Biorails::Dba.import_model :plate_formats
+
+  Biorails::Dba.import_model :containers
+  Biorails::Dba.import_model :container_items
+  Biorails::Dba.import_model :lists
+  Biorails::Dba.import_model :list_items
+
+  Biorails::Dba.import_model :specimens
+  Biorails::Dba.import_model :treatment_groups
+#  Biorails::Dba.import_model :treatment_ites
+  
   
   #-- Catalogue
   Biorails::Dba.import_model :data_concept
@@ -24,6 +49,7 @@ class Test::Unit::TestCase
   # - Projects
   Biorails::Dba.import_model :projects
   Biorails::Dba.import_model :memberships
+  Biorails::Dba.import_model :db_files
   Biorails::Dba.import_model :assets
   Biorails::Dba.import_model :contents
   Biorails::Dba.import_model :project_folders
@@ -31,14 +57,20 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :project_assets
   
   #  - Studies 
+  Biorails::Dba.import_model :study_stages
   Biorails::Dba.import_model :studies
+
+  Biorails::Dba.import_model :requests
+  Biorails::Dba.import_model :request_services
+  Biorails::Dba.import_model :queue_items
+
   Biorails::Dba.import_model :study_parameters
   Biorails::Dba.import_model :study_queues
   Biorails::Dba.import_model :study_protocols
   Biorails::Dba.import_model :protocol_versions
   Biorails::Dba.import_model :parameter_contexts
   Biorails::Dba.import_model :parameters
-  
+    
   # - Experiments
   Biorails::Dba.import_model :experiments
   Biorails::Dba.import_model :tasks

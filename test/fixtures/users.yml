@@ -1,31 +1,8 @@
 --- 
 00000000004_user: !ruby/object:User 
   attributes: 
-    name: thawkins
-    updated_at: 2007-08-23 22:25:04
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "1"
-    token_expires_at: 
-    activation_code: 
-    fullname: baldyhawkins
-    password_salt: 37d5f65a85d0582ef849a5c3edd63df61e2ca3b5
-    role_id: "3"
-    id: "4"
-    is_disabled: "0"
-    filter: 
-    password_hash: e27ea9bbaea03c3cef1342b7b37c54690e1af6d7
-    created_by_user_id: "1"
-    state_id: 
-    login: thawkins
-    created_at: 
-    email: ted@edgesoftwareconsultancy.com
-00000000010_user: !ruby/object:User 
-  attributes: 
-    name: Annie Mal
-    updated_at: 2007-09-12 10:22:44
+    name: A User
+    updated_at: 2007-12-07 19:19:26
     activated_at: 
     deleted_at: 
     token: 
@@ -33,22 +10,22 @@
     admin: "0"
     token_expires_at: 
     activation_code: 
-    fullname: Annie Mal - Head of the animal welfare facilities
-    password_salt: 312fd7d182b2049f107de14de396f62a57b967a9
-    role_id: "6"
-    id: "10"
+    fullname: A user of the system
+    password_salt: 2bd81601e4038970a61cb533e97c791e37a6eb11
+    role_id: "7"
+    id: "4"
     is_disabled: "0"
     filter: 
-    password_hash: 5014aaa416c61e460f080936701386344d64f144
+    password_hash: 56e69ba3861d3693f4cfd0bbbe25adc1037b3496
     created_by_user_id: "1"
     state_id: 
-    login: amal
-    created_at: 2007-09-12 10:22:44
-    email: amal@ddresearch.com
+    login: auser
+    created_at: 2007-12-07 19:07:50
+    email: user@biorails.org
 00000000003_user: !ruby/object:User 
   attributes: 
-    name: rshell
-    updated_at: 2007-08-23 22:25:04
+    name: Robert Shell
+    updated_at: 2007-05-26 10:13:38
     activated_at: 
     deleted_at: 
     token: 
@@ -68,64 +45,18 @@
     login: rshell
     created_at: 
     email: ""
-00000000013_user: !ruby/object:User 
-  attributes: 
-    name: MWortman
-    updated_at: 2007-10-05 14:27:58
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: Matt Wortman
-    password_salt: f4648b001ce1080a58db687d676844c6eeed2699
-    role_id: "7"
-    id: "13"
-    is_disabled: "0"
-    filter: 
-    password_hash: 2f3e6d5acc333bd6aa5504c419e7179d0c6ac2d7
-    created_by_user_id: "1"
-    state_id: 
-    login: mwortman
-    created_at: 2007-10-05 14:27:58
-    email: mwortman@genomescience.org
-00000000009_user: !ruby/object:User 
-  attributes: 
-    name: demo1
-    updated_at: 2007-08-23 22:25:04
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: Demo1 user a simple member
-    password_salt: fd5fc858572324f3aef01fb01492f113dec1707f
-    role_id: "7"
-    id: "9"
-    is_disabled: "0"
-    filter: 
-    password_hash: 4b2e6eed98f2af38184a5986144c39650abe907a
-    created_by_user_id: "3"
-    state_id: 
-    login: demo1
-    created_at: 2007-06-06 18:16:18
-    email: demo1@localhost
 00000000002_user: !ruby/object:User 
   attributes: 
-    name: admin
-    updated_at: 2007-08-28 09:20:06
+    name: Administrator
+    updated_at: 2007-12-07 19:20:04
     activated_at: 
     deleted_at: 
     token: 
     updated_by_user_id: "1"
-    admin: "1"
+    admin: "0"
     token_expires_at: 
     activation_code: 
-    fullname: 
+    fullname: ""
     password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
     role_id: "3"
     id: "2"
@@ -136,57 +67,11 @@
     state_id: 
     login: admin
     created_at: 
-    email: 
-00000000012_user: !ruby/object:User 
-  attributes: 
-    name: melliott
-    updated_at: 2007-09-21 19:56:35
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: Mike Elliott
-    password_salt: ef90bd0a105d2e636acec1cb167ffd981366fe60
-    role_id: "7"
-    id: "12"
-    is_disabled: "0"
-    filter: 
-    password_hash: 1d428cd8ebf0c3901ccaa75c49017facc8d2a6d3
-    created_by_user_id: "1"
-    state_id: 
-    login: melliott
-    created_at: 2007-09-21 19:56:35
-    email: melliott@atriumresearch.com
-00000000008_user: !ruby/object:User 
-  attributes: 
-    name: amember
-    updated_at: 2007-08-23 22:25:04
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: A.Member
-    password_salt: 9c432e83097c4c00014fa3b1e31026cd6040132b
-    role_id: "7"
-    id: "8"
-    is_disabled: "0"
-    filter: 
-    password_hash: e71497f06f6dba6a3f50932146732c510fab17ed
-    created_by_user_id: "3"
-    state_id: 
-    login: member
-    created_at: 2007-05-30 14:17:29
-    email: dddd
+    email: admin@biorails.org
 00000000001_user: !ruby/object:User 
   attributes: 
     name: guest
-    updated_at: 2007-08-23 22:25:03
+    updated_at: 
     activated_at: 
     deleted_at: 
     token: 
@@ -206,33 +91,10 @@
     login: guest
     created_at: 
     email: 
-00000000011_user: !ruby/object:User 
-  attributes: 
-    name: Mol A Kule
-    updated_at: 2007-09-12 10:42:56
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: Molly Anastasia Kule - head of compound inventory system
-    password_salt: 10e851e1e9931340b02cecb15cb1ccd4495b864d
-    role_id: "6"
-    id: "11"
-    is_disabled: "0"
-    filter: 
-    password_hash: a07334caef1676befde78c245151943b7a809e67
-    created_by_user_id: "1"
-    state_id: 
-    login: mkule
-    created_at: 2007-09-12 10:25:16
-    email: mkule@ddresearch.com
 00000000007_user: !ruby/object:User 
   attributes: 
-    name: ewallace
-    updated_at: 2007-08-23 22:25:04
+    name: A N Other
+    updated_at: 2007-12-07 19:20:56
     activated_at: 
     deleted_at: 
     token: 
@@ -240,22 +102,22 @@
     admin: "0"
     token_expires_at: 
     activation_code: 
-    fullname: Emma Wallace
-    password_salt: 745025c931ef3349548997790985f0b2cf4f6dd4
-    role_id: "3"
+    fullname: Another user of the system
+    password_salt: a1edd16ddaed4d2a1cc2b8995cd133f63af58e61
+    role_id: "6"
     id: "7"
     is_disabled: "0"
     filter: 
-    password_hash: cdfcc3ace3be12baddddf8ace44be64f992d3887
+    password_hash: ae256ea03aaa0b8ac40005b6011e521457b2ccc0
     created_by_user_id: "1"
     state_id: 
-    login: ewallace
-    created_at: 2007-04-18 15:30:13
-    email: test@test
+    login: another
+    created_at: 2007-12-07 19:20:56
+    email: another@biorails.org
 00000000006_user: !ruby/object:User 
   attributes: 
-    name: alemon
-    updated_at: 2007-09-12 07:08:27
+    name: An Auditor
+    updated_at: 2007-12-07 19:10:55
     activated_at: 
     deleted_at: 
     token: 
@@ -263,15 +125,38 @@
     admin: "0"
     token_expires_at: 
     activation_code: 
-    fullname: Andrew Lemon
-    password_salt: d46395dfc589ac52b8b6a7b3e09cf7a3fa89a3b1
-    role_id: "3"
+    fullname: An auditor of the system with public role
+    password_salt: 208efcb4bcf7acae8750468ce0a8191d0468ed29
+    role_id: "7"
     id: "6"
     is_disabled: "0"
     filter: 
-    password_hash: 5b7c6c3d37069ae06b2073de8a856365124eff6e
+    password_hash: 59ba977b21fd8bcd548c930c01ff78250165fe0f
     created_by_user_id: "1"
     state_id: 
-    login: alemon
-    created_at: 
-    email: andrew@edgesoftwareconsultancy.com
+    login: anauditor
+    created_at: 2007-12-07 19:10:55
+    email: anauditor@biorails.org
+00000000005_user: !ruby/object:User 
+  attributes: 
+    name: A Manager
+    updated_at: 2007-12-07 19:18:52
+    activated_at: 
+    deleted_at: 
+    token: 
+    updated_by_user_id: "1"
+    admin: "0"
+    token_expires_at: 
+    activation_code: 
+    fullname: A manager in the system
+    password_salt: cdc6cbca2cdee7883982f637615d615917ab1f75
+    role_id: "6"
+    id: "5"
+    is_disabled: "0"
+    filter: 
+    password_hash: 9928ce439b2de6be18f8e6d4601842fa1c71e668
+    created_by_user_id: "1"
+    state_id: 
+    login: amanager
+    created_at: 2007-12-07 19:09:13
+    email: manager@biorails.org

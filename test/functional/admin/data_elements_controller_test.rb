@@ -51,15 +51,15 @@ class Admin::DataElementsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:data_element)
   end
 
-  def test_create
+  def test_create_failed
     num_data_elements = DataElement.count
 
     post :create,:id => @data_concept.id, :data_element => {}
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_response :success
+    assert_template 'new'
 
-    assert_equal num_data_elements + 1, DataElement.count
+    assert_equal num_data_elements , DataElement.count
   end
 
   def test_destroy

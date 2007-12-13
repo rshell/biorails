@@ -278,7 +278,17 @@ SQL
      @done_hours = 0
      refresh
   end 
-  
+
+ def data_block(definition)
+    block = definition.default_block
+    self.items.each do |item|
+       if item.context.parameter_context_id = definition.id
+         block[item.context.label] ||= {}
+         block[item.context.label][item.parameter_id] = item.to_s              
+       end 
+    end
+    return block
+ end  
 #
 # the the column titles as array of strings
 #

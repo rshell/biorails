@@ -1,16 +1,11 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require "#{RAILS_ROOT}/app/controllers/execute/experiments_controller"
+require "experiments_controller"
 
 # Re-raise errors caught by the controller.
 class Execute::ExperimentsController; def rescue_action(e) raise e end; end
 
 class Execute::ExperimentsControllerTest < Test::Unit::TestCase
-  # # fixtures :experiments
-  # # fixtures :users
-  # # fixtures :projects
-  # # fixtures :roles
-  # # fixtures :memberships
-  # # fixtures :role_permissions
+
 
   def setup
     @controller = Execute::ExperimentsController.new
@@ -21,6 +16,14 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
     @first = Experiment.find(:first)
   end
 
+  def test_setup
+    assert_not_nil @controller
+    assert_not_nil @request
+    assert_not_nil @response
+    assert_not_nil @first
+    assert_not_nil @first.id
+  end
+  
   def test_index
     get :index
     assert_response :success
@@ -29,15 +32,13 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
 
   def test_list
     get :list
-
     assert_response :success
     assert_template 'list'
-
-    assert_not_nil assigns(:experiments)
+    assert_not_nil assigns(:report)
   end
 
   def test_show
-    get :show, :id => 14
+    get :show, :id => @first.id
 
     assert_response :success
     assert_template 'show'
@@ -47,8 +48,7 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
   end
 
   def test_new
-    get :new
-
+    get :new, :id => Study.find(:first).id
     assert_response :success
     assert_template 'new'
 
@@ -60,14 +60,14 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
 
     post :create, :experiment => {}
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_response :success
+    assert_template 'new'
 
-    assert_equal num_experiments + 1, Experiment.count
+    assert_equal num_experiments, Experiment.count
   end
 
   def test_edit
-    get :edit, :id => 14
+    get :edit, :id => @first.id
 
     assert_response :success
     assert_template 'edit'
@@ -77,20 +77,20 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, :id => 14
+    post :update, :id => @first.id
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 1
   end
 
   def test_destroy
-    assert_not_nil Experiment.find(1)
+    assert_not_nil Experiment.find(@first.id)
 
-    post :destroy, :id => 14
+    post :destroy, :id => @first.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Experiment.find(1)
+      Experiment.find(@first.id)
     }
   end
 end

@@ -152,8 +152,8 @@ class TaskContext < ActiveRecord::Base
 #
  def value(name)
     return self.item(name).to_s
- end 
-
+ end
+ 
 ##
 # get TaskItem values for column the context   
  def item(column)

@@ -2,81 +2,50 @@
 00000000006_user_role: !ruby/object:UserRole 
   attributes: 
     name: manager
-    updated_at: 2007-09-12 10:38:52
+    updated_at: 2007-06-11 12:27:59
     cache: |
       --- 
-      experiments: {}
-      
-      studies: {}
-      
-      membership: {}
+      memberships: {}
       
       user: 
         "*": true
+      project_queues: {}
+      
       auth: {}
       
       help: {}
       
-      catalogue: {}
+      project_studies: {}
+      
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
       
       project: {}
       
-      dba: {}
+      audit: {}
       
-      study_parameters: {}
-      
-      audit: 
-        show: true
-        "*": true
-      study_queues: {}
-      
-      tasks: {}
+      project_experiments: {}
       
       biorails: {}
       
-      queue_items: {}
-      
       page: {}
-      
-      requests: {}
       
       users: 
         list: true
         show: true
-      reports: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      study_protocols: {}
-      
-      home: 
-        calendar: true
-        blog: true
-        destroy: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
-        "*": true
-      folders: {}
-      
       report: 
+        "*": true
+      home: 
         "*": true
       finder: {}
       
+      charts: {}
+      
+      project_requests: {}
+      
       inventory: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
 
     type: UserRole
@@ -89,14 +58,14 @@
 00000000003_user_role: !ruby/object:UserRole 
   attributes: 
     name: Administrator
-    updated_at: 2007-09-12 10:38:35
+    updated_at: 2007-06-11 12:47:32
     cache: |
       --- 
-      experiments: {}
-      
       studies: {}
       
-      membership: {}
+      experiments: {}
+      
+      memberships: {}
       
       user: 
         new: true
@@ -113,10 +82,7 @@
         new: true
         list: true
         edit: true
-        destroy: true
-        new_usage: true
         create: true
-        new_element: true
         show: true
         update: true
         "*": true
@@ -134,17 +100,10 @@
         create: true
         show: true
         update: true
+      dba: 
+        "*": true
       project: {}
       
-      dba: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       study_parameters: {}
       
       ~: 
@@ -156,9 +115,8 @@
         create: true
         show: true
         update: true
-      audit: 
-        show: true
-        "*": true
+      audit: {}
+      
       cataloge: 
         new: true
         list: true
@@ -168,11 +126,11 @@
         update: true
       study_queues: {}
       
+      queue_items: {}
+      
       tasks: {}
       
       biorails: {}
-      
-      queue_items: {}
       
       experiment: 
         new: true
@@ -189,7 +147,6 @@
         new: true
         list: true
         edit: true
-        destroy: true
         create: true
         show: true
         update: true
@@ -202,27 +159,17 @@
         show: true
         update: true
       reports: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
       study_protocols: {}
       
       home: 
         calendar: true
         blog: true
-        destroy: true
         projects: true
         timeline: true
         show: true
         index: true
         "*": true
-      folders: {}
-      
       report: 
         new: true
         list: true
@@ -233,11 +180,14 @@
         "*": true
       finder: {}
       
+      charts: {}
+      
+      project_requests: {}
+      
       inventory: 
         new: true
         list: true
         edit: true
-        destroy: true
         create: true
         show: true
         update: true
@@ -252,38 +202,38 @@
     created_at: 2006-06-23 12:03:48
 00000000007_user_role: !ruby/object:UserRole 
   attributes: 
-    name: Users
-    updated_at: 2007-11-19 11:12:24
+    name: User
+    updated_at: 2007-06-11 12:48:39
     cache: |
       --- 
-      membership: {}
+      studies: {}
+      
+      memberships: {}
       
       experiments: {}
-      
-      studies: {}
       
       auth: {}
       
       help: {}
       
-      catalogue: {}
+      catalogue: 
+        list: true
+        show: true
+      dba: {}
       
       project: {}
       
-      dba: {}
-      
       study_parameters: {}
       
-      audit: 
-        show: true
-        "*": true
+      audit: {}
+      
       study_queues: {}
+      
+      biorails: {}
       
       tasks: {}
       
       queue_items: {}
-      
-      biorails: {}
       
       page: {}
       
@@ -292,6 +242,8 @@
       users: 
         list: true
         show: true
+      study_protocols: {}
+      
       reports: 
         new: true
         list: true
@@ -299,29 +251,15 @@
         create: true
         show: true
         update: true
-      study_protocols: {}
-      
       home: 
-        calendar: true
-        blog: true
-        destroy: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
         "*": true
-      folders: {}
-      
       finder: {}
       
+      charts: {}
+      
+      project_requests: {}
+      
       inventory: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
 
     type: UserRole

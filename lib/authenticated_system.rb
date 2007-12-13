@@ -15,15 +15,19 @@ module AuthenticatedSystem
       session[:user] = (new_user.nil? || new_user.is_a?(Symbol)) ? nil : new_user.id
       @current_user = new_user
     end
-    
+    #
+    # Default rule its authorized
+    #
     def authorized?
       true
     end
-    
+    #
+    # Test if a login is needed for this user
+    #
     def login_required
       username, passwd = get_auth_data
       self.current_user ||= User.login(username, passwd) || :false if username && passwd
-      logged_in? && authorized? ? true : access_denied
+      ((logged_in? && authorized?) ? true : access_denied)
     end
 
     def access_denied

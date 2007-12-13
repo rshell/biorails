@@ -20,108 +20,66 @@ class Inventory::PlatesControllerTest < Test::Unit::TestCase
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
-    @first = Plate.find(:first)
+    @item = Plate.find(:first)
   end
-
-	NEW_PLATE = {}	# e.g. {:name => 'Test Plate', :description => 'Dummy'}
-	REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect
-
-  def test_component
-    get :component
+  def test_setup
+    assert_not_nil @controller
+    assert_not_nil @request
+    assert_not_nil @response
+    assert_not_nil @item
+    assert_not_nil @item.id
+  end
+  
+  def test_index
+    get :index
     assert_response :success
-    assert_template 'plates/component'
-    plates = check_attrs(%w(plates))
-    assert_equal Plate.find(:all).length, plates.length, "Incorrect number of plates shown"
+    assert_template 'list'
   end
 
-  def test_component_update
-    get :component_update
-    assert_response :redirect
-    assert_redirected_to REDIRECT_TO_MAIN
-  end
-
-  def test_component_update_xhr
-    xhr :get, :component_update
+  def test_list
+    get :list
     assert_response :success
-    assert_template 'plates/component'
-    plates = check_attrs(%w(plates))
-    assert_equal Plate.find(:all).length, plates.length, "Incorrect number of plates shown"
+    assert_template 'list'
+  end
+
+  def test_show
+    get :show, :id => @item.id
+    assert_response :success
+    assert_template 'show'
+  end
+
+  def test_new
+    get :new
+    assert_response :success
+    assert_template 'new'
   end
 
   def test_create
-  	plate_count = Plate.find(:all).length
-    post :create, {:plate => NEW_PLATE}
-    plate, successful = check_attrs(%w(plate successful))
-    assert successful, "Should be successful"
-    assert_response :redirect
-    assert_redirected_to REDIRECT_TO_MAIN
-    assert_equal plate_count + 1, Plate.find(:all).length, "Expected an additional Plate"
+    num = Plate.count
+    post :create, :study => {}
+    assert_response :success
+    assert_template 'new'
+    assert_equal num, Plate.count
   end
 
-  def test_create_xhr
-  	plate_count = Plate.find(:all).length
-    xhr :post, :create, {:plate => NEW_PLATE}
-    plate, successful = check_attrs(%w(plate successful))
-    assert successful, "Should be successful"
+  def test_edit
+    get :edit, :id => @item.id
     assert_response :success
-    assert_template 'create.rjs'
-    assert_equal plate_count + 1, Plate.find(:all).length, "Expected an additional Plate"
+    assert_template 'edit'
   end
 
   def test_update
-  	plate_count = Plate.find(:all).length
-    post :update, {:id => @first.id, :plate => @first.attributes.merge(NEW_PLATE)}
-    plate, successful = check_attrs(%w(plate successful))
-    assert successful, "Should be successful"
-    plate.reload
-   	NEW_PLATE.each do |attr_name|
-      assert_equal NEW_PLATE[attr_name], plate.attributes[attr_name], "@plate.#{attr_name.to_s} incorrect"
-    end
-    assert_equal plate_count, Plate.find(:all).length, "Number of Plates should be the same"
+    post :update, :id => @item.id
     assert_response :redirect
-    assert_redirected_to REDIRECT_TO_MAIN
-  end
-
-  def test_update_xhr
-  	plate_count = Plate.find(:all).length
-    xhr :post, :update, {:id => @first.id, :plate => @first.attributes.merge(NEW_PLATE)}
-    plate, successful = check_attrs(%w(plate successful))
-    assert successful, "Should be successful"
-    plate.reload
-   	NEW_PLATE.each do |attr_name|
-      assert_equal NEW_PLATE[attr_name], plate.attributes[attr_name], "@plate.#{attr_name.to_s} incorrect"
-    end
-    assert_equal plate_count, Plate.find(:all).length, "Number of Plates should be the same"
-    assert_response :success
-    assert_template 'update.rjs'
+    assert_redirected_to :action => 'show', :id => 1
   end
 
   def test_destroy
-  	plate_count = Plate.find(:all).length
-    post :destroy, {:id => @first.id}
+    assert_not_nil Plate.find(@item.id)
+    post :destroy, :id => @item.id
     assert_response :redirect
-    assert_equal plate_count - 1, Plate.find(:all).length, "Number of Plates should be one less"
-    assert_redirected_to REDIRECT_TO_MAIN
+    assert_redirected_to :action => 'list'
   end
 
-  def test_destroy_xhr
-  	plate_count = Plate.find(:all).length
-    xhr :post, :destroy, {:id => @first.id}
-    assert_response :success
-    assert_equal plate_count - 1, Plate.find(:all).length, "Number of Plates should be one less"
-    assert_template 'destroy.rjs'
-  end
 
-protected
-	# Could be put in a Helper library and included at top of test class
-  def check_attrs(attr_list)
-    attrs = []
-    attr_list.each do |attr_sym|
-      attr = assigns(attr_sym.to_sym)
-      assert_not_nil attr,       "Attribute @#{attr_sym} should not be nil"
-      assert !attr.new_record?,  "Should have saved the @#{attr_sym} obj" if attr.class == ActiveRecord
-      attrs << attr
-    end
-    attrs.length > 1 ? attrs : attrs[0]
-  end
 end

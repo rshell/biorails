@@ -17,7 +17,7 @@ class Admin::DataTypesControllerTest < Test::Unit::TestCase
 		@response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
-		@first = DataType.find_first
+		@first = DataType.find(:first)
 	end
 
   def test_truth

@@ -1,7 +1,7 @@
 3_project_content: !ruby/object:ProjectContent
   attributes:
     name: "test1"
-    content_id: "45"
+    content_id: "3"
     updated_at: 2007-08-21 13:52:22
     project_id: "1"
     project_elements_count: "0"
@@ -21,7 +21,7 @@
 4_project_content: !ruby/object:ProjectContent
   attributes:
     name: "rjs-435"
-    content_id: "66"
+    content_id: "1"
     updated_at: 2007-10-28 21:52:44
     project_id: "1"
     project_elements_count: "0"

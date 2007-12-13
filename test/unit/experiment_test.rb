@@ -15,8 +15,14 @@ class ExperimentTest < Test::Unit::TestCase
   
   def test_find
      first = @model.find(:first)
-     assert first.id
-     assert first.name
+     p first.to_yaml
+     assert_not_nil first
+     assert_not_nil first.id
+     assert_not_nil first.name
+     assert_not_nil first.study.id
+     assert_not_nil first.protocol.id
+     assert_not_nil first.project.id
+     assert_not_nil first.process.id
   end
   
   def test_new

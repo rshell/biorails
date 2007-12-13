@@ -2,11 +2,11 @@
 00000000001_data_context: !ruby/object:DataContext 
   attributes: 
     name: BioRails
-    updated_at: 2007-11-01 16:05:01
+    updated_at: 2007-01-23 20:54:17
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: DataContext
-    lock_version: "6"
+    lock_version: "3"
     data_context_id: "1"
     id: "1"
     description: |-

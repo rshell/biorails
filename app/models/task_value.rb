@@ -91,12 +91,12 @@ class TaskValue < ActiveRecord::Base
  def to_unit
     return @quantity if @quantity
     @quantity = Unit.new(self.data_value,self.storage_unit)
-    @quantity = @quantity.to(self.display_unit||"") unless @quantity.units ==self.display_unit || self.display_unit.nil?  
+    @quantity = @quantity.to(self.display_unit||"") unless @quantity.units ==self.display_unit || self.display_unit="" || self.display_unit.nil?  
     return @quantity
  end
  
  def to_s
-    return "" if self.data_value.nil?  
+    return "" if self.data_value.nil? 
     v = self.to_unit
     if self.parameter and self.parameter.data_format
        formatter = self.parameter.data_format 

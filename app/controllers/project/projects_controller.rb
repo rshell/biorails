@@ -29,19 +29,15 @@ class Project::ProjectsController < ApplicationController
   def index
     @projects = User.current.projects
     respond_to do |format|
-      format.html # index.rhtml
+      format.html { render :action=>'index'}
       format.xml  { render :xml => @projects.to_xml }
       format.csv  { render :text => @projects.to_csv }
       format.json { render :json =>  @projects.to_json } 
-      format.js  { render :update do | page |  
-          page.actions_panel  :partial => 'actions'
-          page.help_panel     :partial => 'help'
-          page.status_panel   :partial => 'status'
-          page.main_panel     :partial =>'list'
-          page.model_datagrid(Project)
-       end 
-      }
     end
+  end    
+    
+  def list
+    index
   end
 
 ##

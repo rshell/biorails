@@ -27,10 +27,10 @@ class TaskContextTest < Test::Unit::TestCase
     task.process.contexts.each  do |definition| 
       rows = task.contexts.matching(definition)
       rows.each do |row|
-        assert row.to_hash
-        assert row.items
-        assert row.items.size = row.to_hash.size
-        assert row.items.size = definition.parameters.size
+        assert row.to_hash, " Can Hash"
+        assert row.items, " Has Items"
+        assert((( row.items.size + 4 ) == row.to_hash.size) , "items == to_hash #{row.items.size}+4 == #{row.to_hash.size} ")
+        assert row.items.size == definition.parameters.size
       end
     end    
   end
@@ -42,6 +42,7 @@ class TaskContextTest < Test::Unit::TestCase
     assert !first.valid?
   end
 
+  
   def test_build_simple_context
     task = Task.find(:first)
     assert task
@@ -58,6 +59,7 @@ class TaskContextTest < Test::Unit::TestCase
     assert item.to_s == parameter.default_value
   end
 
+  
   def test_build_full_context
     task = Task.find(:first)
     assert task
@@ -121,14 +123,17 @@ class TaskContextTest < Test::Unit::TestCase
     assert first.items 
   end  
 
-   def test_can_convert_to_hash
+  def test_can_convert_to_hash
     first = @model.find(:first)
     assert first.to_hash
   end  
 
-   def test_can_convert_to_xml
+  def test_can_convert_to_xml
     first = @model.find(:first)
     assert first.to_xml
   end  
    
+  def test_build_row
+    
+  end 
 end

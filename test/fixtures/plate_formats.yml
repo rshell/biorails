@@ -1,12 +1,12 @@
 --- 
 00000000001_plate_format: !ruby/object:PlateFormat 
   attributes: 
-    num_rows: "1"
+    num_rows: 
     name: 12 Vial Rack
     updated_at: 2007-01-10 10:37:19
     updated_by_user_id: "1"
     lock_version: "0"
-    num_columns: "12"
+    num_columns: 
     id: "1"
     description: A rack to hold 12 test tubes
     created_by_user_id: "1"

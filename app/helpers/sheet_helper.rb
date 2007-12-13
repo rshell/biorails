@@ -64,15 +64,15 @@ module SheetHelper
 
     parameters =  paramater_collection(definition.parameters)
     
-    items = task.contexts.matching(definition)
+    items = task.contexts.matching(definition)   
+    1.upto(definition.default_count) do |n|    
+        row = grid.append(context)
+        row.label = context.label  + "[" + n.to_s + "]"
+    end      
+       
     values = []
     items.each do |row|      
-        values << row.to_hash
-    end
-    
-    items.size.upto(definition.default_count) do  
-      row = task.add_context(definition)
-      values << row.to_hash
+        values << row.to_hash    
     end
 
     url ||= "/task/cell_value/#{task.id}"

@@ -54,11 +54,11 @@ def index
   def destroy
     @membership = Membership.find(params[:id])
     if @membership.project_id == 1
-       flash[:warning]="Cant delete user from the default public group"
-       render :action => 'edit'
+        flash[:warning]="Cant delete user from the default public group"
+        redirect_to :action => 'list'
     else
-       @membership.destroy
-      redirect_to :action => 'list'
+        @membership.destroy
+        redirect_to :action => 'list'
     end
   end
 end

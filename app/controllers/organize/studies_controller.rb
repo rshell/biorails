@@ -10,7 +10,7 @@ class Organize::StudiesController < ApplicationController
                     :rights => :current_project
                       
   def index
-    redirect_to study_url(:action => 'list')
+    list
   end
   
 ##

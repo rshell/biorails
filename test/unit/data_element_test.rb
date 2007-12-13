@@ -37,11 +37,11 @@ class DataElementsTest < Test::Unit::TestCase
      element.name = 'xxxx'
      element.style = 'list'
      element.description = 'test'
-     element.concept = DataConcept.find(2)
+     element.concept = DataConcept.find(:first)
      element.system = DataSystem.find(:first)
      element.content = "a,b,c,d"
-     element.save     
-#     assert element.valid? ,"failed to save"
+     assert element.valid?, "not valid #{element.errors.full_messages.to_sentence}" 
+     assert  element.save,"failed to save"     
      assert element.children.size==4, "wrong number of children #{element.children.size}"
   end
 
@@ -51,11 +51,11 @@ class DataElementsTest < Test::Unit::TestCase
      element.name = 'xxx2'
      element.style = 'list'
      element.description = 'test'
-     element.concept = DataConcept.find(2)
+     element.concept = DataConcept.find(:first)
      element.system = DataSystem.find(:first)
      element.content = "1,2,3,4,5,6"
-     element.save     
-#     assert element.valid? ,"failed to save"
+     assert element.valid?, "not valid #{element.errors.full_messages.to_sentence}" 
+     assert  element.save,"failed to save"     
      assert element.children.size==6, "wrong number of children #{element.children.size}"
   end
   
@@ -67,8 +67,8 @@ class DataElementsTest < Test::Unit::TestCase
      element.concept = DataConcept.find(2)
      element.system = DataSystem.find(:first)
      element.content = "Study"
-     element.save     
-#     assert element.valid? ,"failed to save"
+     assert element.valid?, "not valid #{element.errors.full_messages.to_sentence}" 
+     assert  element.save,"failed to save"     
      assert element.size == Study.count, "wrong number of Studies"
   end
     

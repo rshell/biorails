@@ -1,63 +1,4 @@
 --- 
-00000000008_project_role: !ruby/object:ProjectRole 
-  attributes: 
-    name: ReadOnly
-    updated_at: 2007-12-08 15:06:38
-    cache: |+
-      --- 
-      membership: {}
-      
-      experiments: {}
-      
-      studies: {}
-      
-      auth: {}
-      
-      help: {}
-      
-      catalogue: {}
-      
-      project: {}
-      
-      dba: {}
-      
-      study_parameters: {}
-      
-      audit: {}
-      
-      study_queues: {}
-      
-      tasks: {}
-      
-      biorails: {}
-      
-      queue_items: {}
-      
-      page: {}
-      
-      requests: {}
-      
-      users: {}
-      
-      reports: {}
-      
-      study_protocols: {}
-      
-      home: {}
-      
-      folders: {}
-      
-      finder: {}
-      
-      inventory: {}
-      
-    type: ProjectRole
-    updated_by_user_id: "1"
-    id: "8"
-    description: Read Only Access to data
-    created_by_user_id: "1"
-    parent_id: 
-    created_at: 2007-12-08 15:06:35
 00000000001_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Public
@@ -134,34 +75,16 @@
 00000000002_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Member
-    updated_at: 2007-09-12 10:40:39
-    cache: |
+    updated_at: 2007-06-11 12:44:25
+    cache: |+
       --- 
-      experiments: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       studies: 
-        new: true
         list: true
-        edit: true
-        destroy: true
-        create: true
         show: true
-        update: true
-      membership: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
+      memberships: {}
+      
+      experiments: 
+        "*": true
       user: 
         list: true
         show: true
@@ -177,25 +100,15 @@
       study: 
         list: true
         show: true
-      project: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       dba: {}
       
-      study_parameters: 
-        new: true
+      project: 
         list: true
-        edit: true
-        destroy: true
-        create: true
         show: true
-        update: true
+        "*": true
+      study_parameters: 
+        list: true
+        show: true
       ~: 
         ~: true
       system: 
@@ -207,32 +120,14 @@
         list: true
         show: true
       study_queues: 
-        new: true
         list: true
-        edit: true
-        destroy: true
-        create: true
         show: true
-        update: true
-      tasks: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       biorails: {}
       
+      tasks: 
+        "*": true
       queue_items: 
-        new: true
         list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
       experiment: 
         new: true
@@ -243,13 +138,7 @@
       page: {}
       
       requests: 
-        new: true
         list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
       users: {}
       
@@ -260,26 +149,13 @@
         create: true
         show: true
         update: true
+      study_protocols: 
+        list: true
+        show: true
       home: {}
       
       reports: {}
       
-      study_protocols: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-      folders: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
       report: 
         new: true
         list: true
@@ -287,14 +163,15 @@
         create: true
         show: true
         update: true
-      finder: {}
+      charts: {}
       
-      inventory: {}
+      finder: {}
       
       project_requests: 
         list: true
         "*": true
-
+      inventory: {}
+      
     type: ProjectRole
     updated_by_user_id: "3"
     id: "2"
@@ -305,35 +182,14 @@
 00000000005_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Owner
-    updated_at: 2007-09-12 10:33:32
-    cache: |
+    updated_at: 2007-06-11 12:41:08
+    cache: |+
       --- 
-      experiments: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
+      memberships: {}
+      
       studies: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
-      membership: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
+      experiments: 
         "*": true
       auth: {}
       
@@ -349,25 +205,13 @@
         "*": true
       catalogue: {}
       
-      project: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       dba: {}
       
-      study_parameters: 
-        new: true
+      project: 
         list: true
-        edit: true
-        destroy: true
-        create: true
         show: true
-        update: true
+        "*": true
+      study_parameters: 
         "*": true
       audit: {}
       
@@ -376,78 +220,35 @@
         show: true
         "*": true
       study_queues: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
+        "*": true
+      queue_items: 
         "*": true
       tasks: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
       biorails: {}
       
-      queue_items: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
       page: {}
       
       requests: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
       users: {}
-      
-      home: {}
       
       reports: {}
       
       study_protocols: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
         "*": true
-      folders: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      finder: {}
+      home: {}
       
-      inventory: {}
+      charts: {}
+      
+      finder: {}
       
       project_requests: 
         list: true
         show: true
         "*": true
-
+      inventory: {}
+      
     type: ProjectRole
     updated_by_user_id: "3"
     id: "5"

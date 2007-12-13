@@ -16,7 +16,7 @@ class Admin::DataFormatsControllerTest < Test::Unit::TestCase
 		@response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
-		@first = DataFormat.find_first
+		@first = DataFormat.find(:first)
 	end
 
   def test_truth

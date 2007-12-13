@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require "#{RAILS_ROOT}/app/controllers/project/content_controller"
+require "content_controller"
 
 # Re-raise errors caught by the controller.
 class Project::ContenController; def rescue_action(e) raise e end; end
@@ -11,84 +11,57 @@ class Project::ContentControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
-    @item = ProjectAsset.find(:first)
+    @item = User.find(3).element(:first,:conditions=>"type='ProjectContent'")
   end
 
   # Replace this with your real tests.
   def test_truth
     assert true
   end
+
+  def test_setup
+    assert_not_nil @item
+    assert_not_nil @item.id
+    assert_not_nil @item.parent
+    assert_not_nil @item.name
+  end
   
- def test_index
-    get :index
-    assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list
-
-    assert_response :success
-    assert_template 'list'
-
-    assert_not_nil assigns(:memberships)
-  end
-
   def test_show
     get :show, :id => @item.id
-
     assert_response :success
     assert_template 'show'
-
-    assert_not_nil assigns(:membership)
-    assert assigns(:membership).valid?
+    assert_not_nil assigns(:project_element)
   end
 
-  def test_new
-    get :new
 
+  def test_new
+    get :new, :id=>@item.parent_id
     assert_response :success
     assert_template 'new'
-
-    assert_not_nil assigns(:membership)
+    assert_not_nil assigns(:project_element)
   end
 
   def test_create
-    num_memberships = Membership.count
-
-    post :create, :membership => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_memberships + 1, Membership.count
+    post :create, :id=>@item.parent_id, :project_element => {:name=>'dfdsfd',:title=>'testing',:to_html=>'body'}
+    assert_response  :redirect
+    assert_redirected_to :action => 'show'
+    assert_not_nil assigns(:project_element)
+    assert assigns(:project_element).valid?
+    assert !assigns(:project_element).new_record?
   end
 
   def test_edit
     get :edit, :id =>  @item.id
-
     assert_response :success
     assert_template 'edit'
-
-    assert_not_nil assigns(:membership)
-    assert assigns(:membership).valid?
   end
+#
+# @todo rjs need to set data pattern for update
+##
+#  def test_update
+#    post :update, { :id=> @item.id, :project_element=>{} }
+#    assert_response :redirect
+#    assert_redirected_to :action => 'show', :id => @item.id
+#  end
 
-  def test_update
-    post :update, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
-  end
-
-  def test_destroy
-    assert_nothing_raised {      Membership.find( @item.id)    }
-
-    post :destroy, :id =>  @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Membership.find( @item.id)
-    }
-  end
 end

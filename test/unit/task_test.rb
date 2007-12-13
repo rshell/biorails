@@ -111,6 +111,17 @@ class TaskTest < Test::Unit::TestCase
     assert first.started_at < first.expected_at     
   end
   
+  def test_build_data_block
+    task = @model.find(:first)
+    definition = task.process.contexts[0]
+    assert definition
+    block =  task.data_block(definition)   
+    assert block
+    assert block.size > 0
+    assert block.keys.size >= definition.default_total
+    
+  end
+  
   # Replace this with your real tests.
   def test000_truth
     assert true

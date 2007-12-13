@@ -17,7 +17,6 @@ class Execute::TasksController < ApplicationController
 
   def index
     list
-    render :action => 'list'
   end
 
 ##
@@ -187,7 +186,7 @@ class Execute::TasksController < ApplicationController
 #
   def create
     @task = Task.new(params[:task])
-    @task.protocol = @task.process.protocol
+    @task.protocol = @task.process.protocol if @task.process
     @task.project = current_project
     set_experiment(@task.experiment_id)
     if @task.save

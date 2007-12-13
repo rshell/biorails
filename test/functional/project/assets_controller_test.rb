@@ -1,17 +1,17 @@
 require File.dirname(__FILE__) + '/../../test_helper'
-require "#{RAILS_ROOT}/app/controllers/project/assets_controller"
+require "folders_controller"
 
 # Re-raise errors caught by the controller.
-class Project::AssetsController; def rescue_action(e) raise e end; end
+class Project::FoldersController; def rescue_action(e) raise e end; end
 
-class Project::AssetsControllerTest < Test::Unit::TestCase
+class Project::FoldersControllerTest < Test::Unit::TestCase
   def setup
-    @controller = Project::AssetsController.new
+    @controller = Project::FoldersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
-    @model = ProjectAsset
+    @model = ProjectFolder
     @item = @model.find(:first)
   end
 
@@ -24,8 +24,8 @@ class Project::AssetsControllerTest < Test::Unit::TestCase
   #
   def test_index
     get :index
-    assert_response :success
-    assert_template 'list'
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
   end
 
   #
@@ -33,11 +33,8 @@ class Project::AssetsControllerTest < Test::Unit::TestCase
   #
   def test_list
     get :list
-
-    assert_response :success
-    assert_template 'list'
-
-    assert_not_nil assigns(:memberships)
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
   end
 
   #
@@ -48,21 +45,58 @@ class Project::AssetsControllerTest < Test::Unit::TestCase
 
     assert_response :success
     assert_template 'show'
-
-    assert_not_nil assigns(:membership)
-    assert assigns(:membership).valid?
+    assert_not_nil assigns(:project_element)
+    assert assigns(:project_element).valid?
   end
 
+  def test_show_as_xml
+    get :show, :id => @item.id,:format=>'xml'
+    assert_response :success
+  end
+
+  def test_show_as_pdf
+    get :show, :id => @item.id,:format=>'pdf'
+    assert_response :success
+  end
+
+  def test_show_as_js
+    get :show, :id => @item.id,:format=>'js'
+    assert_response :success
+  end
+
+  #
+  # Test a show of a item
+  #
+  def test_document
+    get :document, :id => @item.id
+    assert_response :success
+    assert_template '_document'
+  end
+  
+  #
+  # Test a show of a item
+  #
+  def test_print
+    get :print, :id => @item.id
+    assert_response :success
+  end
+
+  #
+  # Test a show of a item
+  #
+  def test_print
+    get :grid, :id => @item.id
+    assert_response :success
+  end
+    
   #
   # Test a new call to controller
   #
   def test_new
-    get :new
-
+    get :new, :id => @item.id
     assert_response :success
     assert_template 'new'
-
-    assert_not_nil assigns(:membership)
+    assert_not_nil assigns(:project_element)
   end
 
   #
@@ -70,12 +104,8 @@ class Project::AssetsControllerTest < Test::Unit::TestCase
   #
   def test_edit
     get :edit, :id =>  @item.id
-
     assert_response :success
     assert_template 'edit'
-
-    assert_not_nil assigns(:membership)
-    assert assigns(:membership).valid?
   end
 
   #
@@ -92,13 +122,8 @@ class Project::AssetsControllerTest < Test::Unit::TestCase
   #
   def test_destroy
     assert_nothing_raised {      @model.find( @item.id)    }
-
     post :destroy, :id =>  @item.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
-
-    assert_raise(ActiveRecord::RecordNotFound) {
-      @model.find( @item.id)
-    }
   end
 end

@@ -120,6 +120,7 @@ class Organize::StudyProtocolsController < ApplicationController
   def create
     @study = current_user.study(params[:id])   
     @study_protocol = StudyProtocol.new(params[:study_protocol])
+    @study_protocol.study = @study
     if @study_protocol.save
       @project_folder = @study_protocol.folder
       @study_protocol.process = @study_protocol.new_version     

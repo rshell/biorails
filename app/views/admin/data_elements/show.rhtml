@@ -19,8 +19,8 @@
 
   <div class='panel'>
    <div class="row">
-        <p><b>Concept: </b><%= @data_element.concept.name %> </p>
-        <p><b>System: </b><%= @data_element.system.name %> </p>
+        <p><b>Concept: </b><%= @data_element.concept.name if @data_element.concept %> </p>
+        <p><b>System: </b><%= @data_element.system.name if @data_element.system %> </p>
         <p><b>Name: </b><%= @data_element.name %> </p>
         <p><b>Description: </b><%= in_place_editor_field(:data_element,:description,{},{:rows=>2,:cols=>60}) %> </p>        
    </div>

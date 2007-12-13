@@ -19,7 +19,7 @@ class Inventory::SpecimensControllerTest < Test::Unit::TestCase
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
-    @first = Specimen.find(:first)
+    @item = Specimen.find(:first)
   end
 
 
@@ -31,68 +31,47 @@ class Inventory::SpecimensControllerTest < Test::Unit::TestCase
 
   def test_list
     get :list
-
     assert_response :success
     assert_template 'list'
-
-    assert_not_nil assigns(:specimens)
   end
 
   def test_show
-    get :show, :id => 1
-
+    get :show, :id => @item.id
     assert_response :success
     assert_template 'show'
-
-    assert_not_nil assigns(:specimen)
-    assert assigns(:specimen).valid?
   end
 
   def test_new
     get :new
-
     assert_response :success
     assert_template 'new'
-
-    assert_not_nil assigns(:specimen)
   end
 
-  def test_create
+  def test_create_failed
     num_specimens = Specimen.count
-
     post :create, :specimen => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_specimens + 1, Specimen.count
+    assert_response :success
+    assert_template 'new'
+    assert_equal num_specimens , Specimen.count
   end
 
   def test_edit
-    get :edit, :id => 1
-
+    get :edit, :id => @item.id
     assert_response :success
     assert_template 'edit'
-
-    assert_not_nil assigns(:specimen)
-    assert assigns(:specimen).valid?
   end
 
   def test_update
-    post :update, :id => 1
+    post :update, :id => @item.id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show', :id => @item.id
   end
 
   def test_destroy
-    assert_not_nil Specimen.find(1)
-
-    post :destroy, :id => 1
+    assert_not_nil Specimen.find(@item.id)
+    post :destroy, :id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
-
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Specimen.find(1)
-    }
   end
+  
 end

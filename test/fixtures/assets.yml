@@ -1,44 +1,1409 @@
----
-1_asset: !ruby/object:Asset
+--- 
+00000000054_asset: !ruby/object:Asset 
   attributes: 
-    content_type: image/png
-    updated_at: 2007-10-15 12:05:58
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:33:52
     thumbnails_count: "0"
-    thumbnail: normal
-    project_id: 1
+    thumbnail: icon
+    project_id: 
     title: 
     published: "0"
     updated_by_user_id: "1"
-    lock_version: "1"
-    id: "1"
+    lock_version: "0"
+    id: "54"
     caption: 
-    size_bytes: "32180"
-    height: "129"
-    filename: resp31to60.jpg_normal.png
+    size_bytes: "2773"
+    db_file_id: "53"
+    height: "48"
+    filename: bob_icon.jpg
     created_by_user_id: "1"
     content_hash: 
-    parent_id: "71"
-    created_at: 2007-09-19 09:30:59
-    width: "320"
-2_asset: !ruby/object:Asset
+    parent_id: "53"
+    created_at: 2007-12-11 18:33:52
+    width: "43"
+00000000051_asset: !ruby/object:Asset 
   attributes: 
-    content_type: image/png
-    updated_at: 2007-09-14 15:31:50
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:23:52
     thumbnails_count: "0"
     thumbnail: icon
-    project_id: 1
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "51"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "50"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "50"
+    created_at: 2007-12-11 18:23:52
+    width: "43"
+00000000032_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:02
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "32"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "34"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:21:02
+    width: "113"
+00000000028_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:13:02
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "28"
+    caption: 
+    size_bytes: "481149"
+    db_file_id: "27"
+    height: "200"
+    filename: ball_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "26"
+    created_at: 2007-12-11 16:13:02
+    width: "267"
+00000000010_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 10:46:01
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "10"
+    caption: 
+    size_bytes: "2105428"
+    db_file_id: "9"
+    height: "200"
+    filename: Olive_s_Dress_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "8"
+    created_at: 2007-12-11 10:46:01
+    width: "150"
+00000000006_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-10 21:04:16
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "6"
+    caption: 
+    size_bytes: "481149"
+    db_file_id: "5"
+    height: "36"
+    filename: ball_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "5"
+    created_at: 2007-12-10 21:04:16
+    width: "48"
+00000000055_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:33:52
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "55"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "54"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "53"
+    created_at: 2007-12-11 18:33:52
+    width: "178"
+00000000052_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:23:52
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "52"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "51"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "50"
+    created_at: 2007-12-11 18:23:52
+    width: "178"
+00000000033_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:02
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "33"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "32"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "32"
+    created_at: 2007-12-11 16:21:02
+    width: "43"
+00000000030_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:17:37
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "30"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "29"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "29"
+    created_at: 2007-12-11 16:17:37
+    width: "43"
+00000000029_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:17:38
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "29"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "31"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:17:37
+    width: "113"
+00000000011_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 13:43:30
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "11"
+    caption: Only time you'll ever see him in a suite
+    size_bytes: "2946"
+    db_file_id: "13"
+    height: "127"
+    filename: Bob3.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 13:43:30
+    width: "113"
+00000000007_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-10 21:04:16
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "7"
+    caption: 
+    size_bytes: "481149"
+    db_file_id: "6"
+    height: "200"
+    filename: ball_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "5"
+    created_at: 2007-12-10 21:04:16
+    width: "267"
+00000000064_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-12 12:22:23
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "64"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "63"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "62"
+    created_at: 2007-12-12 12:22:23
+    width: "43"
+00000000045_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:39:19
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "45"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "44"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "44"
+    created_at: 2007-12-11 16:39:19
+    width: "43"
+00000000042_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:36:13
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "42"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "41"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "41"
+    created_at: 2007-12-11 16:36:13
+    width: "43"
+00000000020_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:58:25
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "20"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "22"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 15:58:25
+    width: "113"
+00000000019_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:56:53
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "19"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "18"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "17"
+    created_at: 2007-12-11 15:56:53
+    width: "178"
+00000000012_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 13:43:30
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "12"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "11"
+    height: "48"
+    filename: Bob3_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "11"
+    created_at: 2007-12-11 13:43:30
+    width: "43"
+00000000046_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:39:19
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "46"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "45"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "44"
+    created_at: 2007-12-11 16:39:19
+    width: "178"
+00000000024_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:02:04
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "24"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "23"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "23"
+    created_at: 2007-12-11 16:02:04
+    width: "43"
+00000000002_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/png
+    updated_at: 2007-12-08 11:15:14
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
     title: 
     published: "0"
     updated_by_user_id: "1"
     lock_version: "0"
     id: "2"
     caption: 
-    size_bytes: "7004"
-    height: "35"
-    filename: XLfitChart2D_icon.png
+    size_bytes: "4218"
+    db_file_id: "1"
+    height: "14"
+    filename: biorails_logo_icon.png
     created_by_user_id: "1"
     content_hash: 
     parent_id: "1"
-    created_at: 2007-09-14 15:31:50
+    created_at: 2007-12-08 11:15:14
     width: "48"
-
+00000000047_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 17:58:22
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "47"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "49"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 17:58:22
+    width: "113"
+00000000043_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:36:13
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "43"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "42"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "41"
+    created_at: 2007-12-11 16:36:13
+    width: "178"
+00000000025_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:02:04
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "25"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "24"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "23"
+    created_at: 2007-12-11 16:02:04
+    width: "178"
+00000000021_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:58:25
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "21"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "20"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "20"
+    created_at: 2007-12-11 15:58:25
+    width: "43"
+00000000003_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/png
+    updated_at: 2007-12-08 11:15:14
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "3"
+    caption: 
+    size_bytes: "4218"
+    db_file_id: "2"
+    height: "96"
+    filename: biorails_logo_normal.png
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "1"
+    created_at: 2007-12-08 11:15:14
+    width: "320"
+00000000059_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:34:04
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "59"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "61"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 19:34:04
+    width: "113"
+00000000044_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:39:19
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "44"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "46"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:39:19
+    width: "113"
+00000000037_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:51
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "37"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "36"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "35"
+    created_at: 2007-12-11 16:21:51
+    width: "178"
+00000000026_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:13:03
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Asset1
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "26"
+    caption: Me kicking a ball
+    size_bytes: "482038"
+    db_file_id: "28"
+    height: "797"
+    filename: ball.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:13:02
+    width: "1063"
+00000000022_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:58:25
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "22"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "21"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "20"
+    created_at: 2007-12-11 15:58:25
+    width: "178"
+00000000004_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: text/csvtext/comma-separated-values
+    updated_at: 2007-12-10 21:01:14
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: grid.csv
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "4"
+    caption: 
+    size_bytes: "56"
+    db_file_id: "4"
+    height: 
+    filename: grid.csv
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-10 21:01:14
+    width: 
+00000000061_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:34:04
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "61"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "60"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "59"
+    created_at: 2007-12-11 19:34:04
+    width: "178"
+00000000056_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:19:52
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "56"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "58"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 19:19:52
+    width: "113"
+00000000038_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:34:41
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "38"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "40"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:34:41
+    width: "113"
+00000000034_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:02
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "34"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "33"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "32"
+    created_at: 2007-12-11 16:21:02
+    width: "178"
+00000000023_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:02:04
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "23"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "25"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:02:04
+    width: "113"
+00000000016_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 14:10:54
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "16"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "15"
+    height: "200"
+    filename: Bob3_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "14"
+    created_at: 2007-12-11 14:10:54
+    width: "178"
+00000000001_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/png
+    updated_at: 2007-12-08 11:15:14
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "1"
+    title: Logo
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "1"
+    caption: I wonder how long captions will last?
+    size_bytes: "4136"
+    db_file_id: "3"
+    height: "108"
+    filename: biorails_logo.png
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-08 11:15:14
+    width: "360"
+00000000062_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-12 12:22:23
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "62"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "64"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-12 12:22:23
+    width: "113"
+00000000057_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:19:52
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "57"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "56"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "56"
+    created_at: 2007-12-11 19:19:52
+    width: "43"
+00000000040_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:34:41
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "40"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "39"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "38"
+    created_at: 2007-12-11 16:34:41
+    width: "178"
+00000000039_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:34:41
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "39"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "38"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "38"
+    created_at: 2007-12-11 16:34:41
+    width: "43"
+00000000035_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:51
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "35"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "37"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:21:51
+    width: "113"
+00000000017_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:56:54
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "17"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "19"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 15:56:53
+    width: "113"
+00000000013_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 13:43:30
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "13"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "12"
+    height: "200"
+    filename: Bob3_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "11"
+    created_at: 2007-12-11 13:43:30
+    width: "178"
+00000000063_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-12 12:22:23
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "63"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "62"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "62"
+    created_at: 2007-12-12 12:22:23
+    width: "178"
+00000000058_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:19:52
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "58"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "57"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "56"
+    created_at: 2007-12-11 19:19:52
+    width: "178"
+00000000041_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:36:13
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "41"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "43"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 16:36:13
+    width: "113"
+00000000036_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:21:51
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "36"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "35"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "35"
+    created_at: 2007-12-11 16:21:51
+    width: "43"
+00000000018_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 15:56:53
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "18"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "17"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "17"
+    created_at: 2007-12-11 15:56:53
+    width: "43"
+00000000014_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 14:10:55
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "14"
+    caption: Bob in suit
+    size_bytes: "2946"
+    db_file_id: "16"
+    height: "127"
+    filename: Bob3.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 14:10:54
+    width: "113"
+00000000060_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 19:34:04
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "60"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "59"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "59"
+    created_at: 2007-12-11 19:34:04
+    width: "43"
+00000000053_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:33:52
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "53"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "55"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 18:33:52
+    width: "113"
+00000000048_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 17:58:22
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "48"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "47"
+    height: "48"
+    filename: bob_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "47"
+    created_at: 2007-12-11 17:58:22
+    width: "43"
+00000000031_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:17:37
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "31"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "30"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "29"
+    created_at: 2007-12-11 16:17:37
+    width: "178"
+00000000015_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 14:10:54
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "15"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "14"
+    height: "48"
+    filename: Bob3_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "14"
+    created_at: 2007-12-11 14:10:54
+    width: "43"
+00000000008_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 10:46:02
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Olive's Dress
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "8"
+    caption: ""
+    size_bytes: "2610079"
+    db_file_id: "10"
+    height: "2000"
+    filename: Olive_s_Dress.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 10:45:59
+    width: "1500"
+00000000050_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 18:23:52
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: Bob
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
+    id: "50"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "52"
+    height: "127"
+    filename: bob.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-11 18:23:52
+    width: "113"
+00000000049_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 17:58:22
+    thumbnails_count: "0"
+    thumbnail: normal
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "49"
+    caption: 
+    size_bytes: "2773"
+    db_file_id: "48"
+    height: "200"
+    filename: bob_normal.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "47"
+    created_at: 2007-12-11 17:58:22
+    width: "178"
+00000000027_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 16:13:02
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "27"
+    caption: 
+    size_bytes: "481149"
+    db_file_id: "26"
+    height: "36"
+    filename: ball_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "26"
+    created_at: 2007-12-11 16:13:02
+    width: "48"
+00000000009_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-11 10:46:00
+    thumbnails_count: "0"
+    thumbnail: icon
+    project_id: 
+    title: 
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "9"
+    caption: 
+    size_bytes: "2105428"
+    db_file_id: "8"
+    height: "48"
+    filename: Olive_s_Dress_icon.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: "8"
+    created_at: 2007-12-11 10:46:00
+    width: "36"
+00000000005_asset: !ruby/object:Asset 
+  attributes: 
+    content_type: image/jpeg
+    updated_at: 2007-12-10 21:04:17
+    thumbnails_count: "0"
+    thumbnail: 
+    project_id: "2"
+    title: "Worlds biggest ball or just an unlucky cameraman "
+    published: "0"
+    updated_by_user_id: "1"
+    lock_version: "3"
+    id: "5"
+    caption: The latter
+    size_bytes: "482038"
+    db_file_id: "7"
+    height: "797"
+    filename: ball.jpg
+    created_by_user_id: "1"
+    content_hash: 
+    parent_id: 
+    created_at: 2007-12-10 21:04:16
+    width: "1063"

@@ -7,7 +7,7 @@ class Project::FoldersController < ApplicationController
                     :rights =>  :current_project  
   
   def index
-    list
+    redirect_to :action => 'show' ,:id=>current_project.home
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)

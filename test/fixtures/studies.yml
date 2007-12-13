@@ -1,219 +1,37 @@
 --- 
-00000000008_study: !ruby/object:Study 
-  attributes: 
-    name: Dispatch Animals
-    project_id: "22"
-    updated_at: 2007-09-12 14:55:13
-    purpose: ""
-    ended_at: 
-    expected_at: 2007-12-11 14:53:36
-    updated_by_user_id: "10"
-    lock_version: "1"
-    id: "8"
-    category_id: 
-    description: Lab managers design their experiments and submit a request for the number of animals they will need for that experiment.  These are then dispatched, the operation being recorded in a <i>dispatch animals</i> task within this project.
-    status_id: "0"
-    created_by_user_id: "10"
-    started_at: 2007-09-12 15:53:36
-    created_at: 2007-09-12 14:55:13
-    research_area: ""
-00000000005_study: !ruby/object:Study 
-  attributes: 
-    name: Rat Locomotion
-    project_id: "14"
-    updated_at: 2007-10-29 13:39:19
-    purpose: Safety pharmacology
-    ended_at: 
-    expected_at: 2007-11-28 09:15:19
-    updated_by_user_id: "3"
-    lock_version: "5"
-    id: "5"
-    category_id: 
-    description: |
-      Investigation of the effects on spontaneous locomotor activity in the rat
-
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 
-    created_at: 2007-06-28 08:52:39
-    research_area: B
-00000000010_study: !ruby/object:Study 
-  attributes: 
-    name: S-52
-    project_id: "19"
-    updated_at: 2007-09-14 13:18:01
-    purpose: kk
-    ended_at: 
-    expected_at: 2007-12-13 13:17:51
-    updated_by_user_id: "3"
-    lock_version: "1"
-    id: "10"
-    category_id: 
-    description: kk
-    status_id: "0"
-    created_by_user_id: "3"
-    started_at: 2007-09-14 14:17:51
-    created_at: 2007-09-14 13:17:59
-    research_area: ""
-00000000009_study: !ruby/object:Study 
-  attributes: 
-    name: Sample Dispatch
-    project_id: "15"
-    updated_at: 2007-09-12 15:08:52
-    purpose: ""
-    ended_at: 
-    expected_at: 2007-12-11 15:08:24
-    updated_by_user_id: "4"
-    lock_version: "1"
-    id: "9"
-    category_id: 
-    description: Dispatch samples of compound
-    status_id: "0"
-    created_by_user_id: "4"
-    started_at: 2007-09-12 16:08:24
-    created_at: 2007-09-12 15:08:52
-    research_area: ""
-00000000011_study: !ruby/object:Study 
-  attributes: 
-    name: Rat Locomotion
-    project_id: "27"
-    updated_at: 2007-09-14 15:39:13
-    purpose: ""
-    ended_at: 
-    expected_at: 2007-12-13 15:38:44
-    updated_by_user_id: "4"
-    lock_version: "1"
-    id: "11"
-    category_id: 
-    description: Effect of compound on rat locomotion
-    status_id: "0"
-    created_by_user_id: "4"
-    started_at: 2007-09-14 16:38:44
-    created_at: 2007-09-14 15:39:13
-    research_area: ""
-00000000006_study: !ruby/object:Study 
-  attributes: 
-    name: HTS Screen
-    project_id: "16"
-    updated_at: 2007-07-04 12:52:31
-    purpose: Proof of concept
-    ended_at: 
-    expected_at: 2008-07-04 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "1"
-    id: "6"
-    category_id: 
-    description: An example of how plate management and screening operations can be handled in BioRails with the use of external applications such as MS Excel or plug-ins such for fitting and normalisation
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-07-04 00:00:00
-    created_at: 2007-07-04 12:52:31
-    research_area: "39"
-00000000007_study: !ruby/object:Study 
-  attributes: 
-    name: LMA
-    project_id: "20"
-    updated_at: 2007-12-07 13:47:37
-    purpose: ""
-    ended_at: 
-    expected_at: 2007-12-11 00:00:00
-    updated_by_user_id: "3"
-    lock_version: "5"
-    id: "7"
-    category_id: 
-    description: "Effect of compound on animal locomotion, movement and ambulation "
-    status_id: "0"
-    created_by_user_id: "4"
-    started_at: 2007-09-12 00:00:00
-    created_at: 2007-09-12 10:50:35
-    research_area: C
 00000000002_study: !ruby/object:Study 
   attributes: 
-    name: Demo2
-    project_id: "13"
-    updated_at: 2007-06-06 22:07:50
-    purpose: demo
+    name: Study2
+    project_id: "2"
+    updated_at: 2007-12-11 18:03:54
+    purpose: More than one is good
     ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "2"
-    id: "2"
-    category_id: 
-    description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
-    research_area: demo
-00000000003_study: !ruby/object:Study 
-  attributes: 
-    name: Screening
-    project_id: "13"
-    updated_at: 2007-06-08 15:46:38
-    purpose: demo
-    ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "3"
-    id: "3"
-    category_id: 
-    description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
-    research_area: demo
-00000000004_study: !ruby/object:Study 
-  attributes: 
-    name: Clinical
-    project_id: "13"
-    updated_at: 2007-06-08 21:17:02
-    purpose: ""
-    ended_at: 
-    expected_at: 2007-06-22 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "1"
-    id: "4"
-    category_id: 
-    description: "The world of complex results contexts "
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-08 00:00:00
-    created_at: 2007-06-08 21:17:02
-    research_area: "42"
-00000000012_study: !ruby/object:Study 
-  attributes: 
-    name: S-65
-    project_id: "14"
-    updated_at: 2007-10-28 21:54:46
-    purpose: testj
-    ended_at: 
-    expected_at: 2008-01-26 21:54:14
+    expected_at: 2008-03-10 00:00:00
     updated_by_user_id: "3"
     lock_version: "1"
-    id: "12"
+    id: "2"
     category_id: 
-    description: testj
+    description: Second Study
     status_id: "0"
     created_by_user_id: "3"
-    started_at: 2007-10-28 21:54:14
-    created_at: 2007-10-28 21:54:46
+    started_at: 2007-12-11 00:00:00
+    created_at: 2007-12-11 18:03:54
     research_area: B
 00000000001_study: !ruby/object:Study 
   attributes: 
-    name: Profiling
-    project_id: "13"
-    updated_at: 2007-06-08 15:47:29
-    purpose: demo
+    name: Study1
+    project_id: "2"
+    updated_at: 2007-12-07 19:28:02
+    purpose: Testing Study
     ended_at: 
-    expected_at: 2007-06-30 00:00:00
-    updated_by_user_id: "1"
-    lock_version: "3"
+    expected_at: 2008-03-06 00:00:00
+    updated_by_user_id: "3"
+    lock_version: "1"
     id: "1"
     category_id: 
-    description: Demo Study
-    status_id: "0"
-    created_by_user_id: "1"
-    started_at: 2007-06-06 00:00:00
-    created_at: 2007-06-06 18:18:49
-    research_area: ""
+    description: My first study
+    status_id: "1"
+    created_by_user_id: "3"
+    started_at: 2007-12-07 00:00:00
+    created_at: 2007-12-07 19:28:02
+    research_area: A

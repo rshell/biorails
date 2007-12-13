@@ -19,6 +19,7 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
+    @item = User.find(:first)
   end
 
   # Replace this with your real tests.
@@ -30,12 +31,11 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     assert_not_nil @controller
     assert_not_nil @response
     assert_not_nil @request
+    assert_not_nil @item
   end
   
   def test002_index
-    @session[:current_user_id] = User.find(:first)
-    @session[:current_project_id] = Project.find(:first)
-    get :index,nil,@session
+    get :index
     assert_response :success
   end
   
@@ -45,20 +45,20 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
   end
 
   def test004_create
-    @params = {:user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 1}}
+    @params = {:user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 1},:project=>{:role_id=>4}}
     post :create, @params, @session
-    assert_response :success
+    assert_response :redirect
   end
   
   def test005_edit
-    get :edit
+    get :edit,:id=>@item.id
     assert_response :success
   end
 
   def test006_update
-    @params = {:user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 1}}
+    @params = {:id=>@item.id,:user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 1}}
     post :update,  @params, @session
-    assert_response :success
+    assert_response :redirect
   end  
   
 end

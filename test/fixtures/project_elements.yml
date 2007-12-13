@@ -1,0 +1,673 @@
+--- 
+00000000058_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task4
+    content_id: 
+    updated_at: 2007-12-12 11:11:34
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "33"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "58"
+    right_limit: "34"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "4"
+    published_hash: 
+    position: "2"
+    parent_id: "49"
+    asset_id: 
+    created_at: 2007-12-12 11:11:34
+00000000051_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment3
+    content_id: 
+    updated_at: 2007-12-11 20:37:20
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "40"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "51"
+    right_limit: "41"
+    reference_type: Experiment
+    created_by_user_id: "3"
+    reference_id: "3"
+    published_hash: 
+    position: "5"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-11 20:37:20
+00000000029_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: Article1
+    content_id: "17"
+    updated_at: 2007-12-11 16:18:48
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "17"
+    updated_by_user_id: "3"
+    lock_version: "4"
+    type: ProjectContent
+    id: "29"
+    right_limit: "18"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "0"
+    parent_id: "14"
+    asset_id: 
+    created_at: 2007-12-11 16:12:19
+00000000018_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: Art1Folder1
+    content_id: "5"
+    updated_at: 2007-12-11 12:12:13
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "12"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectContent
+    id: "18"
+    right_limit: "13"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "0"
+    parent_id: "17"
+    asset_id: 
+    created_at: 2007-12-11 12:12:13
+00000000017_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Folder1
+    content_id: 
+    updated_at: 2007-12-11 12:09:44
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "11"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectFolder
+    id: "17"
+    right_limit: "14"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "3"
+    parent_id: "7"
+    asset_id: 
+    created_at: 2007-12-11 12:09:44
+00000000003_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Study1
+    content_id: 
+    updated_at: 2007-12-07 19:28:03
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "0"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "3"
+    right_limit: "3"
+    reference_type: Study
+    created_by_user_id: "3"
+    reference_id: "1"
+    published_hash: 
+    position: "0"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-07 19:28:03
+00000000050_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task2
+    content_id: 
+    updated_at: 2007-12-11 20:31:41
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "29"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "50"
+    right_limit: "30"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "2"
+    published_hash: 
+    position: "0"
+    parent_id: "49"
+    asset_id: 
+    created_at: 2007-12-11 20:31:41
+00000000049_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment2
+    content_id: 
+    updated_at: 2007-12-11 20:31:15
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "28"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "49"
+    right_limit: "39"
+    reference_type: Experiment
+    created_by_user_id: "3"
+    reference_id: "2"
+    published_hash: 
+    position: "4"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-11 20:31:15
+00000000013_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project Z
+    content_id: 
+    updated_at: 2007-12-11 10:19:13
+    project_id: "4"
+    project_elements_count: "0"
+    left_limit: "0"
+    updated_by_user_id: "3"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "13"
+    right_limit: "2"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2007-12-11 10:19:13
+00000000059_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Req1
+    content_id: 
+    updated_at: 2007-12-12 11:35:52
+    project_id: "4"
+    project_elements_count: "0"
+    left_limit: "0"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "59"
+    right_limit: "1"
+    reference_type: Request
+    created_by_user_id: "3"
+    reference_id: "1"
+    published_hash: 
+    position: "0"
+    parent_id: "13"
+    asset_id: 
+    created_at: 2007-12-12 11:35:52
+00000000056_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task3
+    content_id: 
+    updated_at: 2007-12-12 11:02:38
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "31"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectFolder
+    id: "56"
+    right_limit: "32"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "3"
+    published_hash: 
+    position: "1"
+    parent_id: "49"
+    asset_id: 
+    created_at: 2007-12-12 11:02:08
+00000000030_project_asset: !ruby/object:ProjectAsset 
+  attributes: 
+    name: ball.jpg
+    content_id: 
+    updated_at: 2007-12-11 16:13:03
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "19"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectAsset
+    id: "30"
+    right_limit: "20"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: "14"
+    asset_id: "26"
+    created_at: 2007-12-11 16:13:02
+00000000004_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol1
+    content_id: 
+    updated_at: 2007-12-08 11:12:10
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "4"
+    right_limit: "2"
+    reference_type: StudyProtocol
+    created_by_user_id: "3"
+    reference_id: "1"
+    published_hash: 
+    position: "0"
+    parent_id: "3"
+    asset_id: 
+    created_at: 2007-12-08 11:12:10
+00000000054_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: AddExpt1
+    content_id: 
+    updated_at: 2007-12-12 09:36:25
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "46"
+    updated_by_user_id: "4"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "54"
+    right_limit: "47"
+    reference_type: Experiment
+    created_by_user_id: "4"
+    reference_id: "6"
+    published_hash: 
+    position: "8"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-12 09:36:24
+00000000014_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Background
+    content_id: 
+    updated_at: 2007-12-11 10:20:21
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "16"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectFolder
+    id: "14"
+    right_limit: "21"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "2"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-11 10:20:21
+00000000057_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol3
+    content_id: 
+    updated_at: 2007-12-12 11:03:26
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "25"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "57"
+    right_limit: "26"
+    reference_type: StudyProtocol
+    created_by_user_id: "3"
+    reference_id: "3"
+    published_hash: 
+    position: "1"
+    parent_id: "39"
+    asset_id: 
+    created_at: 2007-12-12 11:03:26
+00000000006_project_asset: !ruby/object:ProjectAsset 
+  attributes: 
+    name: biorails_logo.png
+    content_id: 
+    updated_at: 2007-12-08 11:15:14
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "26"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectAsset
+    id: "6"
+    right_limit: "27"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: "1"
+    asset_id: "1"
+    created_at: 2007-12-08 11:15:14
+00000000002_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project X
+    content_id: 
+    updated_at: 2007-12-07 18:47:06
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "0"
+    updated_by_user_id: "3"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "2"
+    right_limit: "50"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2007-12-07 18:47:06
+00000000052_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: TEST1
+    content_id: 
+    updated_at: 2007-12-12 08:56:56
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "42"
+    updated_by_user_id: "4"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "52"
+    right_limit: "43"
+    reference_type: Experiment
+    created_by_user_id: "4"
+    reference_id: "4"
+    published_hash: 
+    position: "6"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-12 08:56:56
+00000000012_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project Y
+    content_id: 
+    updated_at: 2007-12-11 10:18:25
+    project_id: "3"
+    project_elements_count: "0"
+    left_limit: "0"
+    updated_by_user_id: "3"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "12"
+    right_limit: "0"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2007-12-11 10:18:25
+00000000007_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment1
+    content_id: 
+    updated_at: 2007-12-10 20:22:10
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "4"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "7"
+    right_limit: "15"
+    reference_type: Experiment
+    created_by_user_id: "3"
+    reference_id: "1"
+    published_hash: 
+    position: "1"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-10 20:22:09
+00000000001_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Global
+    content_id: 
+    updated_at: 2007-12-07 10:36:43
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectFolder
+    id: "1"
+    right_limit: "28"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2007-06-06 18:16:48
+00000000062_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task-77
+    content_id: 
+    updated_at: 2007-12-12 14:33:56
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "35"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "62"
+    right_limit: "36"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "6"
+    published_hash: 
+    position: "3"
+    parent_id: "49"
+    asset_id: 
+    created_at: 2007-12-12 14:33:56
+00000000055_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: AddExpt2
+    content_id: 
+    updated_at: 2007-12-12 10:42:49
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "48"
+    updated_by_user_id: "4"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "55"
+    right_limit: "49"
+    reference_type: Experiment
+    created_by_user_id: "4"
+    reference_id: "7"
+    published_hash: 
+    position: "9"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-12 10:42:48
+00000000039_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Study2
+    content_id: 
+    updated_at: 2007-12-11 18:03:54
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "22"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "39"
+    right_limit: "27"
+    reference_type: Study
+    created_by_user_id: "3"
+    reference_id: "2"
+    published_hash: 
+    position: "3"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-11 18:03:54
+00000000010_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: Exp1Article1
+    content_id: "2"
+    updated_at: 2007-12-10 21:03:14
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "7"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectContent
+    id: "10"
+    right_limit: "8"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "1"
+    parent_id: "7"
+    asset_id: 
+    created_at: 2007-12-10 21:03:14
+00000000053_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Test2
+    content_id: 
+    updated_at: 2007-12-12 09:03:50
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "44"
+    updated_by_user_id: "4"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "53"
+    right_limit: "45"
+    reference_type: Experiment
+    created_by_user_id: "4"
+    reference_id: "5"
+    published_hash: 
+    position: "7"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2007-12-12 09:03:50
+00000000048_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol2
+    content_id: 
+    updated_at: 2007-12-11 20:25:37
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "23"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "48"
+    right_limit: "24"
+    reference_type: StudyProtocol
+    created_by_user_id: "3"
+    reference_id: "2"
+    published_hash: 
+    position: "0"
+    parent_id: "39"
+    asset_id: 
+    created_at: 2007-12-11 20:25:37
+00000000011_project_asset: !ruby/object:ProjectAsset 
+  attributes: 
+    name: ball.jpg
+    content_id: 
+    updated_at: 2007-12-10 21:04:17
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "9"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectAsset
+    id: "11"
+    right_limit: "10"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "2"
+    parent_id: "7"
+    asset_id: "5"
+    created_at: 2007-12-10 21:04:17
+00000000008_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task1
+    content_id: 
+    updated_at: 2007-12-10 20:22:33
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "5"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "8"
+    right_limit: "6"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "1"
+    published_hash: 
+    position: "0"
+    parent_id: "7"
+    asset_id: 
+    created_at: 2007-12-10 20:22:33
+00000000005_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: art-1
+    content_id: "1"
+    updated_at: 2007-12-08 11:13:54
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "24"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectContent
+    id: "5"
+    right_limit: "25"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 
+    published_hash: 
+    position: "0"
+    parent_id: "1"
+    asset_id: 
+    created_at: 2007-12-08 11:13:54
+00000000063_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task-78
+    content_id: 
+    updated_at: 2007-12-12 14:39:00
+    project_id: "2"
+    project_elements_count: "0"
+    left_limit: "37"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "63"
+    right_limit: "38"
+    reference_type: Task
+    created_by_user_id: "3"
+    reference_id: "7"
+    published_hash: 
+    position: "4"
+    parent_id: "49"
+    asset_id: 
+    created_at: 2007-12-12 14:39:00

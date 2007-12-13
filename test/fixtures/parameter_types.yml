@@ -1,31 +1,31 @@
 --- 
 00000000024_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Probablity
-    storage_unit: ""
-    updated_at: 2007-06-28 13:36:52
+    name: Concentration
+    storage_unit: concentration
+    updated_at: 2007-10-11 10:24:04
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
     id: "24"
-    description: Probablilty
+    description: Concentration of compounds etc
     data_concept_id: 
     created_by_user_id: "1"
-    created_at: 2007-06-28 13:36:52
+    created_at: 2007-10-11 10:24:04
     weighing: "0"
 00000000021_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Asset
-    storage_unit: ""
-    updated_at: 2007-06-28 12:57:49
+    name: Mass
+    storage_unit: mass
+    updated_at: 2007-06-21 12:31:55
     updated_by_user_id: "1"
-    data_type_id: "7"
+    data_type_id: "2"
     lock_version: "0"
     id: "21"
-    description: Charts, documents, images
+    description: Mass
     data_concept_id: 
     created_by_user_id: "1"
-    created_at: 2007-06-28 12:57:49
+    created_at: 2007-06-21 12:31:55
     weighing: "0"
 00000000013_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -71,31 +71,31 @@
     weighing: "0"
 00000000031_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Inventory
-    storage_unit: 
-    updated_at: 2007-09-12 10:26:00
-    updated_by_user_id: "4"
-    data_type_id: "5"
+    name: AUC
+    storage_unit: ""
+    updated_at: 2007-10-13 15:17:21
+    updated_by_user_id: "1"
+    data_type_id: "2"
     lock_version: "0"
     id: "31"
-    description: Inventory concepts in BioRails
-    data_concept_id: "2"
-    created_by_user_id: "4"
-    created_at: 2007-09-12 10:26:00
+    description: Area under the curve
+    data_concept_id: 
+    created_by_user_id: "1"
+    created_at: 2007-10-13 15:17:21
     weighing: "0"
 00000000019_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Sex
+    name: ClinScore
     storage_unit: 
-    updated_at: 2007-06-28 12:51:52
+    updated_at: 2007-06-13 11:59:30
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
     id: "19"
-    description: Sex
-    data_concept_id: "56"
+    description: Clinical Score
+    data_concept_id: "55"
     created_by_user_id: "1"
-    created_at: 2007-06-28 12:51:52
+    created_at: 2007-06-13 11:59:30
     weighing: "0"
 00000000008_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -113,31 +113,31 @@
     weighing: "0"
 00000000029_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Hit
-    storage_unit: 
-    updated_at: 2007-07-04 14:04:10
-    updated_by_user_id: "4"
-    data_type_id: "5"
+    name: Volume
+    storage_unit: volume
+    updated_at: 2007-10-13 15:09:21
+    updated_by_user_id: "1"
+    data_type_id: "2"
     lock_version: "0"
     id: "29"
-    description: Is this a hit?
-    data_concept_id: "60"
-    created_by_user_id: "4"
-    created_at: 2007-07-04 14:04:10
-    weighing: "10"
-00000000022_parameter_type: !ruby/object:ParameterType 
-  attributes: 
-    name: File
-    storage_unit: ""
-    updated_at: 2007-06-28 13:02:23
-    updated_by_user_id: "1"
-    data_type_id: "7"
-    lock_version: "0"
-    id: "22"
-    description: File, document, image, spectra, chromatograph, ole objects
+    description: Volume
     data_concept_id: 
     created_by_user_id: "1"
-    created_at: 2007-06-28 13:02:23
+    created_at: 2007-10-13 15:09:21
+    weighing: "0"
+00000000022_parameter_type: !ruby/object:ParameterType 
+  attributes: 
+    name: TreatmentGroup
+    storage_unit: 
+    updated_at: 2007-06-21 12:44:11
+    updated_by_user_id: "1"
+    data_type_id: "5"
+    lock_version: "0"
+    id: "22"
+    description: Treatment Group
+    data_concept_id: "9"
+    created_by_user_id: "1"
+    created_at: 2007-06-21 12:44:11
     weighing: "0"
 00000000011_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -183,31 +183,31 @@
     weighing: "0"
 00000000032_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Workflow
-    storage_unit: 
-    updated_at: 2007-09-12 10:26:32
-    updated_by_user_id: "4"
-    data_type_id: "5"
+    name: File
+    storage_unit: ""
+    updated_at: 2007-11-06 02:00:44
+    updated_by_user_id: "1"
+    data_type_id: "7"
     lock_version: "0"
     id: "32"
-    description: Workflow concepts in BioRails
-    data_concept_id: "4"
-    created_by_user_id: "4"
-    created_at: 2007-09-12 10:26:32
+    description: Files, associated documents, images
+    data_concept_id: 
+    created_by_user_id: "1"
+    created_at: 2007-11-06 02:00:44
     weighing: "0"
 00000000027_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Role
+    name: Species
     storage_unit: 
-    updated_at: 2007-06-28 14:20:32
+    updated_at: 2007-10-11 11:10:35
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
     id: "27"
-    description: Compound Role
-    data_concept_id: "58"
+    description: Species
+    data_concept_id: "47"
     created_by_user_id: "1"
-    created_at: 2007-06-28 14:20:32
+    created_at: 2007-10-11 11:10:35
     weighing: "0"
 00000000009_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -222,20 +222,6 @@
     data_concept_id: 
     created_by_user_id: "3"
     created_at: 2007-06-06 17:09:57
-    weighing: "0"
-00000000020_parameter_type: !ruby/object:ParameterType 
-  attributes: 
-    name: Route
-    storage_unit: 
-    updated_at: 2007-06-28 12:52:09
-    updated_by_user_id: "1"
-    data_type_id: "5"
-    lock_version: "0"
-    id: "20"
-    description: Route of administration
-    data_concept_id: "55"
-    created_by_user_id: "1"
-    created_at: 2007-06-28 12:52:09
     weighing: "0"
 00000000004_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -253,32 +239,32 @@
     weighing: "0"
 00000000030_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: QC
-    storage_unit: 
-    updated_at: 2007-07-04 14:05:48
-    updated_by_user_id: "4"
-    data_type_id: "5"
-    lock_version: "0"
+    name: Clearance
+    storage_unit: ""
+    updated_at: 2007-10-13 15:16:30
+    updated_by_user_id: "1"
+    data_type_id: "2"
+    lock_version: "1"
     id: "30"
-    description: QC Parameters
-    data_concept_id: "61"
-    created_by_user_id: "4"
-    created_at: 2007-07-04 14:05:48
+    description: For plasma clearance in mL/mim
+    data_concept_id: 
+    created_by_user_id: "1"
+    created_at: 2007-10-13 15:15:59
     weighing: "0"
 00000000025_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: PvalueMarker
-    storage_unit: 
-    updated_at: 2007-06-28 13:39:06
+    name: Normal
+    storage_unit: ""
+    updated_at: 2007-10-11 10:40:43
     updated_by_user_id: "1"
-    data_type_id: "5"
-    lock_version: "0"
+    data_type_id: "2"
+    lock_version: "2"
     id: "25"
-    description: P value marker
-    data_concept_id: "57"
+    description: Normalised data, usually in a percentage format
+    data_concept_id: 
     created_by_user_id: "1"
-    created_at: 2007-06-28 13:39:06
-    weighing: "1"
+    created_at: 2007-10-11 10:39:19
+    weighing: "0"
 00000000018_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Temperature
@@ -326,45 +312,31 @@
     weighing: "0"
 00000000028_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Target
+    name: Route
     storage_unit: 
-    updated_at: 2007-07-04 13:00:05
-    updated_by_user_id: "4"
+    updated_at: 2007-10-13 14:56:37
+    updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
     id: "28"
-    description: Dummy target database
-    data_concept_id: "1"
-    created_by_user_id: "4"
-    created_at: 2007-07-04 13:00:05
-    weighing: "0"
-00000000034_parameter_type: !ruby/object:ParameterType 
-  attributes: 
-    name: Volume
-    storage_unit: ""
-    updated_at: 2007-09-12 11:11:06
-    updated_by_user_id: "4"
-    data_type_id: "2"
-    lock_version: "1"
-    id: "34"
-    description: Volume ml/kg
-    data_concept_id: 
-    created_by_user_id: "4"
-    created_at: 2007-09-12 11:09:55
+    description: Route of Administration
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    created_at: 2007-10-13 14:56:37
     weighing: "0"
 00000000023_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Mass
-    storage_unit: mass
-    updated_at: 2007-06-28 13:12:11
+    name: unitless
+    storage_unit: ""
+    updated_at: 2007-06-28 20:07:44
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
     id: "23"
-    description: Mass, weight
+    description: unitless
     data_concept_id: 
     created_by_user_id: "1"
-    created_at: 2007-06-28 13:12:11
+    created_at: 2007-06-28 20:07:44
     weighing: "0"
 00000000016_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -422,20 +394,20 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 16:56:20
     weighing: "0"
-00000000033_parameter_type: !ruby/object:ParameterType 
+00000000026_parameter_type: !ruby/object:ParameterType 
   attributes: 
-    name: Effective Dose
-    storage_unit: ""
-    updated_at: 2007-09-12 11:01:06
-    updated_by_user_id: "4"
-    data_type_id: "2"
+    name: Molecule
+    storage_unit: 
+    updated_at: 2007-10-11 10:55:13
+    updated_by_user_id: "1"
+    data_type_id: "5"
     lock_version: "0"
-    id: "33"
-    description: Covers MED and ED50 in default units of mg/kg, ie dimensionless
-    data_concept_id: 
-    created_by_user_id: "4"
-    created_at: 2007-09-12 11:01:06
-    weighing: "0"
+    id: "26"
+    description: Molecules and their roles
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    created_at: 2007-10-11 10:55:13
+    weighing: "10"
 00000000015_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Location

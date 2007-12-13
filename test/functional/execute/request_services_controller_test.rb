@@ -21,6 +21,14 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
     @first = RequestService.find(:first)
   end
 
+  def test_setup
+    assert_not_nil @controller
+    assert_not_nil @request
+    assert_not_nil @response
+    assert_not_nil @first , "Missing a valid fixture for this controller"
+    assert_not_nil @first.id
+  end
+
   def test_index
     get :index
     assert_response :success
@@ -37,7 +45,7 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, :id => @first_id
+    get :show, :id => @first.id
 
     assert_response :success
     assert_template 'show'
@@ -60,14 +68,14 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
 
     post :create, :request_service => {}
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_response :success
+    assert_template 'new'
 
-    assert_equal num_request_services + 1, RequestService.count
+    assert_equal num_request_services , RequestService.count
   end
 
   def test_edit
-    get :edit, :id => @first_id
+    get :edit, :id => @first.id
 
     assert_response :success
     assert_template 'edit'
@@ -77,22 +85,25 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, :id => @first_id
+    post :update, :id => @first.id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
+    assert_redirected_to :action => 'show', :id => @first.id
   end
 
   def test_destroy
-    assert_nothing_raised {
-      RequestService.find(@first_id)
-    }
+    RequestService.transaction do
+        assert_nothing_raised {
+          RequestService.find(@first.id)
+        }
 
-    post :destroy, :id => @first_id
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+        post :destroy, :id => @first.id
+        assert_response :redirect
+        assert_redirected_to :action =>'show'
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      RequestService.find(@first_id)
-    }
+        assert_raise(ActiveRecord::RecordNotFound) {
+          RequestService.find(@first.id)
+        }
+     #raise ActiveRecord::Rollback 
+    end  
   end
 end

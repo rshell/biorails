@@ -39,7 +39,7 @@ class Admin::DatabaseController < ApplicationController
 ##
 # Initialize new database
 #
-  def initialize
+  def bootstrap
     @messages = []    
     ActiveRecord::Base.establish_connection
     Dir.glob(File.join(RAILS_ROOT,'db','bootstrap',"*.yml")).each do |f|

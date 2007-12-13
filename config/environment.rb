@@ -17,7 +17,11 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 
   # Add additional load paths for your own custom dirs
-  config.load_paths += %W( #{RAILS_ROOT}/app/cachers #{RAILS_ROOT}/app/drops #{RAILS_ROOT}/app/filters )
+  config.load_paths += %W( #{RAILS_ROOT}/app/cachers #{RAILS_ROOT}/app/filters )
+  #
+  # Add Controller namespaces to path to found in unit tests
+  #
+  config.load_paths += %W( #{RAILS_ROOT}/app/controllers/project #{RAILS_ROOT}/app/controllers/organize #{RAILS_ROOT}/app/controllers/execute #{RAILS_ROOT}/app/controllers/inventory #{RAILS_ROOT}/app/controllers/admin)
 
   # Force all environments to use the same logger level 
   # (by default production uses :info, the others :debug)

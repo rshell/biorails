@@ -57,15 +57,15 @@ class Inventory::PlateFormatsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:plate_format)
   end
 
-  def test_create
+  def test_create_failed
     num_plate_formats = PlateFormat.count
 
     post :create, :plate_format => {}
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_response :success
+    assert_template 'new'
 
-    assert_equal num_plate_formats + 1, PlateFormat.count
+    assert_equal num_plate_formats , PlateFormat.count
   end
 
   def test_edit

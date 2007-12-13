@@ -21,6 +21,14 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     @first = Task.find(:first)
   end
 
+  def test_setup
+    assert_not_nil @controller
+    assert_not_nil @request
+    assert_not_nil @response
+    assert_not_nil @first , "Missing a valid fixture for this controller"
+    assert_not_nil @first.id
+  end
+
   def test_index
     get :index
     assert_response :success
@@ -57,16 +65,12 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
 
   def test_create
     num_tasks = Task.count
+    post :create, :task => {}
 
-    post :create, :task => {"experiment_id"=>"14", "done_hours"=>"0", "ended_at"=>"2007-02-17",
-     "name"=>"TH001-3", "started_at"=>"2007-02-11", "expected_hours"=>"1", "assigned_to"=>"rshell",
-     "protocol_version_id"=>"125","study_protocol_id"=>"44", "description"=>"", "status_id"=>"1",
-      "is_milestone"=>"false"}
+    assert_response :success
+    assert_template 'new'
 
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_tasks + 1, Task.count
+    assert_equal num_tasks , Task.count
   end
 
   def test_edit
@@ -86,27 +90,18 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
   end
 
   def test_destroy
-    assert_not_nil Task.find(1)
+    Task.transaction do
+      assert_not_nil @first
 
-    post :destroy, :id => @first.id
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+      post :destroy, :id => @first.id
+      assert_response :redirect
+      assert_redirected_to :action => 'show'
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Task.find(1)
-    }
+      assert_raise(ActiveRecord::RecordNotFound) {
+        Task.find(@first.id)
+      }
+   #   raise ActiveRecord::Rollback 
+    end
   end
   
-  def test_grid
-    task = Task.find(:first)
-    definition = task.process.contexts[0]
-    parameter = definition.parameters[1]
-    
-    context = task.new_context(definition)
-    item1 = context.add_task_item(parameter,'10.0')
-    item2 = context.item(parameter)
-    
-    assert !item1.nil
-    assert item1==item2
-  end
 end
