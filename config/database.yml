@@ -1,0 +1,71 @@
+# MySQL (default setup).  Versions 4.1 and 5.0 are recommended.
+#
+# Install the MySQL driver:
+#   gem install mysql
+# On MacOS X:
+#   gem install mysql -- --include=/usr/local/lib
+# On Windows:
+#   There is no gem for Windows.  Install mysql.so from RubyForApache.
+#   http://rubyforge.org/projects/rubyforapache
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+ora_development:
+  adapter: oracle
+  database: //localhost/xe
+  username: biorails
+  password: moose
+
+development:
+  adapter: mysql
+  database: biorails2_development
+  username: biorails 
+  password: moose
+  host: localhost
+
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql
+  database: biorails2_test
+  username: biorails
+  password: moose
+  host: localhost
+
+#
+# Data base specific Test configrations
+#
+oracle:
+  adapter: oracle
+  database: //localhost/xe
+  username: biorails
+  password: moose
+
+production:
+  adapter: mysql
+  database: biorails2_production
+  username: biorails
+  password: moose
+
+
+postgres:
+    adapter: postgresql
+    database: biorails
+    username: biorails
+    password: moose
+    host: localhost
+   
+###
+# This is a demo database which appears with te application
+#  
+demo:
+  adapter: sqlite3
+  dbfile: db/demo.db
+##
+# Lite version to ship as part of checkin
+
+lite:
+  adapter: sqlite3
+  dbfile: db/biorails.db
+  
