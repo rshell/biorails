@@ -634,6 +634,12 @@ Biorails.Document = function(config){
                         window.open(item.href);
                     }, 
                     iconCls:'icon-print'
+				},'-',{
+                    text:'Sign',
+                    tooltip:'Sign as the author',
+                    href: '/folders/sign/'+config.folder_id,                                
+                   	handler: this.toolbarClick,                               
+                    iconCls:'icon-sign'
                 },'-',{
                     text:'Print',
                     tooltip:'Print the folder as a report',
@@ -750,6 +756,12 @@ Biorails.Folder = function(config){
                         window.open(item.href);
                     }, 
                     iconCls: 'icon-print'
+					},'-',{
+	                    text:'Sign',
+	                    tooltip:'Sign as the author',
+	                    href: '/folders/sign/'+config.folder_id,                                
+	                   	handler: this.toolbarClick,                               
+	                    iconCls:'icon-sign'
                 },'-',{
                     text:'Print',
                     xtype:'tbbutton',

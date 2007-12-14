@@ -28,7 +28,6 @@ class Admin::DataElementsControllerTest < Test::Unit::TestCase
 
   def test_list
     get :list,:id => @data_system.id
-
     assert_response :redirect
   end
 

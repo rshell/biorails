@@ -83,6 +83,7 @@ class ProjectElement < ActiveRecord::Base
   belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
+  has_many :signatures
 ##
 # Parent of a record is a   
   def folder

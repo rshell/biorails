@@ -36,7 +36,7 @@ background-position: 4px 50%;
 .icon-cancel { background-image:url(/images/action/cancel.png) !important; }
 .icon-preview { background-image:url(/images/action/list.png) !important; }
 .icon-print { background-image:url(/images/action/print.png) !important; }
-
+.icon-sign {background-image:url(/images/action/sign.png) !important;}
 
 .icon-pdf { background-image:url(/images/mime/pdf.gif) !important; }
 .icon-csv { background-image:url(/images/mime/xls.gif) !important; }

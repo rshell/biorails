@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../../test_helper'
 require "content_controller"
 
 # Re-raise errors caught by the controller.
-class Project::ContenController; def rescue_action(e) raise e end; end
+class Project::ContentController; def rescue_action(e) raise e end; end
 
 class Project::ContentControllerTest < Test::Unit::TestCase
   def setup
@@ -12,11 +12,22 @@ class Project::ContentControllerTest < Test::Unit::TestCase
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
     @item = User.find(3).element(:first,:conditions=>"type='ProjectContent'")
+    
   end
-
+ 
   # Replace this with your real tests.
   def test_truth
     assert true
+  end
+
+  def test_show_article
+   get :show,  :id=>"1"
+   assert_response :success
+  end
+ def test_index
+    get :index
+    assert_response :success
+    assert_template 'list'
   end
 
   def test_setup
