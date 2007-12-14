@@ -60,20 +60,14 @@ module SheetHelper
 #
 # Build a json table definition for use in ExtJS
 #
-  def context_values(task,definition) 
-
+  def context_values(task,definition,url = nil) 
     parameters =  paramater_collection(definition.parameters)
-    
-         
     values = task.to_rows(definition)
-
-
     url ||= "/task/cell_value/#{task.id}"
-    
     data = { :parent_id => definition.parent_id,
              :expected => definition.default_count,
              :task_id => task.id,     
-             :url =>   "/task/cell_value/#{task.id}",           
+             :url => url,           
              :level_no => definition.level_no,
              :label => definition.label,
              :path => definition.path,

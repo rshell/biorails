@@ -84,7 +84,7 @@ Biorails.Task.ContextTable = function(config) {
            var fieldValue = event.value;
         }	
         Ext.Ajax.request( {  
-              waitMsg: 'Saving changes...',
+             waitMsg: 'Saving changes...',
              url: config.url,
              method: 'POST',
              params: { 

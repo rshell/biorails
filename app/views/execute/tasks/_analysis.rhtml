@@ -1,4 +1,4 @@
-<%= form_tag  task_url(:action => 'analysis', :id => @task.id,:run=>"yes") %>
+<% form_tag  task_url(:action => 'analysis', :id => @task.id,:run=>"yes") do %>
     <div class="row">
         <div class="form-element">
         <label for="analysis_class_name">Analysis Method [<%=@analysis.class_name%>]:</label>
@@ -36,10 +36,9 @@
            </td>
         </tr>
         <% end %> 
-       <table>
+       </table>
     </div>
     <div class='row'>
       <%= submit_tag 'Run' %>
     </div>
- </div>
-<%= end_form_tag %>
+<% end %>

@@ -13,12 +13,12 @@
       <script>   
       Ext.onReady(function() {
 
-      var data2 = <%=context_values(@task,parameter_context)%>;
+      var data = <%=context_values(@task,parameter_context)%>;
       var el = "<%=parameter_context.dom_id%>";
         
         Ext.form.Field.prototype.msgTarget = 'side';
 
-        var panel = new Biorails.Task.ContextTable(data2 );
+        var panel = new Biorails.Task.ContextTable(data);
         panel.render(el)
         });
       </script>

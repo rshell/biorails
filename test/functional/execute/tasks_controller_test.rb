@@ -29,6 +29,7 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_not_nil @first.id
   end
 
+  
   def test_index
     get :index
     assert_response :success
@@ -108,6 +109,37 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert assigns(:task).valid?
   end
 
+  def test_folder
+    get :folder, :id => @first.id
+    assert_response :success
+    assert_not_nil assigns(:task)
+    assert_not_nil assigns(:folder)
+    assert assigns(:task).valid?
+  end
+
+  def test_report
+    get :report, :id => @first.id
+    assert_response :success
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+  def test_transform
+    get :transform, :id => @first.id
+    assert_response :success
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+  def test_cell_change
+    task = Task.find(:first)
+    grid = task.grid
+    grid.rows[0].cells.each do |cell| 
+      get :cell_change, :id => task.id,:element=>cell.dom_id,:value=> cell.value,:format=>'js'
+      assert_response :success      
+    end      
+  end
+  
   def test_context
     get :context, :id => ParameterContext.find(:first)
     assert_response :success
