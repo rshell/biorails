@@ -2,7 +2,7 @@ class TestDataCaptureApi < Test::Unit::TestCase
 
   # Replace this with your real tests.
   def test_read_study
-    api = ActionWebService::Client::Soap.new(DataCaptureApi,"http://192.168.1.110:3000/biorails/api")
+    api = ActionWebService::Client::Soap.new(DataCaptureApi,"http://localhost:3000/biorails/api")
     
     studies = api.study_list    
     protocols = api.protocol_list(studies[0].id)

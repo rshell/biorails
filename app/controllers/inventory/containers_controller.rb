@@ -19,7 +19,7 @@ class Inventory::ContainersController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @container_pages, @containers = paginate :containers, :per_page => 10
+    @containers = Container.paginate :order=>'name', :page => params[:page]
   end
 
   def show

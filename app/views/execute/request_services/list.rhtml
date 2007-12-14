@@ -19,8 +19,7 @@
 <% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @request_service_pages.current.previous } if @request_service_pages.current.previous %>
-<%= link_to 'Next page', { :page => @request_service_pages.current.next } if @request_service_pages.current.next %> 
+  <%= will_paginate @request_services %>
 
 <br />
 

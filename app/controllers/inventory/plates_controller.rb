@@ -23,7 +23,7 @@ class Inventory::PlatesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @plate_pages, @plates = paginate :plates, :per_page => 30
+    @plates = Plate.paginate :order=>'name', :page => params[:page]
   end
 
   def show

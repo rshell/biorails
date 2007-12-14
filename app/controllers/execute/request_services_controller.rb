@@ -12,7 +12,6 @@ class Execute::RequestServicesController < ApplicationController
 
   def index
     list
-    render :action => 'list'
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
@@ -20,7 +19,8 @@ class Execute::RequestServicesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @request_service_pages, @request_services = paginate :request_services, :per_page => 10
+     @request_services = RequestService.paginate :order=>'name', :page => params[:page]
+    render :action => 'list'
   end
 
 

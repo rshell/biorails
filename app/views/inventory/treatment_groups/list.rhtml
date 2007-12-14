@@ -33,9 +33,8 @@
 
 <div class='panel'>
 <%= link_to 'New', :action => 'new' %>
-<%= link_to 'Previous page', { :page => @treatment_group_pages.current.previous } if @treatment_group_pages.current.previous %>
-<%= link_to 'Next page', { :page => @treatment_group_pages.current.next } if @treatment_group_pages.current.next %> 
-</div>
+ <%= will_paginate @treatment_groups %>	
+<</div>
 
 
 <% end %>

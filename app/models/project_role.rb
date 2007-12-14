@@ -23,11 +23,6 @@
 
 
 class ProjectRole < Role
-#
-#  Define rules to link to actual database records for ROLES
-# 
-   DEFAULT_OWNER_ROLE = 5
-   DEFAULT_PROJECT_ROLE = 2
 
   def self.subjects
     Permission.subjects(:current_project)
@@ -36,13 +31,13 @@ class ProjectRole < Role
 # Get the default role as a the owner of project
 #
   def self.owner
-    self.find(DEFAULT_OWNER_ROLE)
+    self.find(Biorails::Record::DEFAULT_OWNER_ROLE)
   end
 #
 # Get the default role as a member of the project
 #
   def self.member
-    self.find(DEFAULT_MEMBER_ROLE)    
+    self.find(Biorails::Record::DEFAULT_MEMBER_ROLE)    
   end
 
 end

@@ -21,6 +21,5 @@
 
 <div class='panel'>
 <%= link_to 'New ', :action => 'new' %>
-<%= link_to 'Previous page', { :page => @container_pages.current.previous } if @container_pages.current.previous %>
-<%= link_to 'Next page', { :page => @container_pages.current.next } if @container_pages.current.next %> 	
+  <%= will_paginate @containers %>	
 </div>

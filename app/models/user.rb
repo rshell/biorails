@@ -34,7 +34,6 @@ require 'digest/sha1'
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
 
-  DEFAULT_GUEST_USER_ID = 1
 ##
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
@@ -275,7 +274,7 @@ end
 # Get the cached current user for this context
 # 
   def User.current
-    @@current || User.find(DEFAULT_GUEST_USER_ID)
+    @@current || User.find(Biorails::Record::DEFAULT_GUEST_USER_ID)
   end
 
   def User.selector

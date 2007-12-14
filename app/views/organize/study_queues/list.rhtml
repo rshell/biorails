@@ -52,8 +52,7 @@
   <% end %>
   </table>
 <hr/>
-<%= link_to 'Previous page', { :page => @study_queue_pages.current.previous } if @study_queue_pages.current.previous %>
-<%= link_to 'Next page', { :page => @study_queue_pages.current.next } if @study_queue_pages.current.next %> 
+   <%= will_paginate @study_queues %>
 <%end %>
 
 <% content_for :right do%>

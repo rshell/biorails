@@ -41,6 +41,27 @@ module Biorails
     List,ListItem,
     Report,ReportColumn,
     Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
+  
+  module Type
+    TEXT =1
+    NUMERIC = 2
+    DATE = 3
+    TIME = 4
+    DICTIONARY = 5
+    URL =6
+    ASSET = 7
+  end
+  
+  module Record
+#
+#  Define rules to link to actual database records for ROLES
+# 
+   DEFAULT_OWNER_ROLE = 5
+   DEFAULT_PROJECT_ROLE = 2
+
+    DEFAULT_PROJECT_ID = 1
+    DEFAULT_GUEST_USER_ID = 1
+  end
 ##
 # Get a List of all the Models
 #   

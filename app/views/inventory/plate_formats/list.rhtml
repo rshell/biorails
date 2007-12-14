@@ -27,7 +27,6 @@
         <% end %>
         </table>
     </div>
-<%= link_to 'Previous page', { :page => @plate_format_pages.current.previous } if @plate_format_pages.current.previous %>
-<%= link_to 'Next page', { :page => @plate_format_pages.current.next } if @plate_format_pages.current.next %> 
+  <%= will_paginate @plate_formats %>	
 
 </div>

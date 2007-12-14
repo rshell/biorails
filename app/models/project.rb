@@ -36,7 +36,6 @@ require 'tzinfo'
 
 class Project < ActiveRecord::Base
 
-  DEFAULT_PROJECT_ID = 1
 ##
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 
@@ -269,7 +268,7 @@ end
 # Helper to return the current active project 
 # 
   def Project.current
-    @@current || Project.find(DEFAULT_PROJECT_ID)
+    @@current || Project.find(Biorails::Record::DEFAULT_PROJECT_ID)
   end
 #
 # Get a study for this user, limits to projects the user is a member of

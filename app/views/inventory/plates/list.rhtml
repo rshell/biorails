@@ -26,6 +26,5 @@
 
 <div class='panel'>
 <%= link_to 'New', plate_url(:action => 'new')%>
-<%= link_to 'Previous page', { :page => @plate_pages.current.previous } if @plate_pages.current.previous %>
-<%= link_to 'Next page', { :page => @plate_pages.current.next } if @plate_pages.current.next %> 
+  <%= will_paginate @plates %>	
 </div>

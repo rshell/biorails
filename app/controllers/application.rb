@@ -9,9 +9,6 @@
 # 
 
 class ApplicationController < ActionController::Base
- 
- PUBLIC_PROJECT_ID = 1
- GUEST_USER_ID = 1
 
  layout 'biorails3'
 
@@ -151,7 +148,7 @@ protected #----- End of public actions -----------------------------------------
     if session[:current_user_id]
       @current_user ||= User.find(session[:current_user_id]) 
     else
-      @current_user = User.find(GUEST_USER_ID)
+      @current_user = User.find(Biorails::Record::DEAFULT_GUEST_USER_ID)
       return nil
     end
     User.current = @current_user

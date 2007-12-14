@@ -37,10 +37,7 @@
           </tr>
         <% end %>
         </table>
-    </div>
-    <div class='panel'>
-        <%= link_to (subject_icon('arrow_left')) +'Previous page', { :page => @task_pages.current.previous } if @task_pages.current.previous %>
-        <%= link_to (subject_icon('arrow_right')) +'Next page', { :page => @task_pages.current.next } if @task_pages.current.next %> 
+  <%= will_paginate @tasks %>
     </div>
 
 </div>

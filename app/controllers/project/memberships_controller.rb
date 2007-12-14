@@ -14,7 +14,7 @@ def index
          :redirect_to => { :action => :list }
 
   def list
-    @membership_pages, @memberships = paginate :memberships, :conditions=>['project_id=?',current_project.id], :per_page => 10
+    @memberships = Membership.paginate  :conditions=>['project_id=?',current_project.id], :order=>'role_id,updated_at', :page => params[:page]
   end
 
   def show

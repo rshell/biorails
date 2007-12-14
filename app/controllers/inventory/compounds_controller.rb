@@ -10,17 +10,21 @@ class Inventory::CompoundsController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_user  
 
-  def index
-    list
-    render :action => 'list'
-  end
+  cattr_reader :per_page
+  @@per_page = 10
+    
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
+  def index
+    list
+  end
+
   def list
-    @compound_pages, @compounds = paginate :compounds, :order_by => 'name', :per_page => 10
+    @compounds = Compound.paginate :order=>'name', :page => params[:page]
+    render :action => 'list'
   end
 
   def show

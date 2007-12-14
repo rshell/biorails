@@ -19,7 +19,7 @@ class Inventory::TreatmentGroupsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @treatment_group_pages, @treatment_groups = paginate :treatment_groups, :per_page => 10
+     @treatment_groups = TreatmentGroup.paginate  :order=>'name', :page => params[:page]
   end
 
   def show

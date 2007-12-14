@@ -118,17 +118,17 @@ class StudyParameter < ActiveRecord::Base
    value = new_value
    case self.data_type.id
    
-   when DataType::DATE
+   when Biorails::Type::DATE
      value =  DateTime.strptime(new_value,"%Y-%m-%d")
      
-   when DataType::NUMERIC
+   when Biorails::Type::NUMERIC
      value = Unit.new(new_value)
      value = Unit.new(new_value,self.display_unit)  if value.units == "" and self.display_unit 
 
-   when DataType::TIME
+   when Biorails::Type::TIME
      value =  DateTime.strptime(new_value,"%Y-%m-%d %H:%M:%S")
 
-   when DataType::DICTIONARY
+   when Biorails::Type::DICTIONARY
     value = element.lookup(new_value)
    end
    logger.info "parsed #{new_value} => #{value}"

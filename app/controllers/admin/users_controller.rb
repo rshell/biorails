@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new params[:user]
     @user.set_password( params[:user][:password])
     @user.save!
-    @user.memberships.create(:project_id=> PUBLIC_PROJECT_ID, :role_id=> params[:project][:role_id])
+    @user.memberships.create(:project_id=> Biorails::Record::DEFAULT_PROJECT_ID, :role_id=> params[:project][:role_id])
     flash[:notice] = "User created."
     redirect_to :action => 'index'
   rescue ActiveRecord::RecordInvalid

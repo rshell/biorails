@@ -56,8 +56,7 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Previous page', { :page => @membership_pages.current.previous } if @membership_pages.current.previous %>
-  <%= link_to 'Next page', { :page => @membership_pages.current.next } if @membership_pages.current.next %> 
+ <%= will_paginate @memberships %>	
 
 <% end %>
 

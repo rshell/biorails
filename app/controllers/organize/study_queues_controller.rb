@@ -21,10 +21,9 @@ class Organize::StudyQueuesController < ApplicationController
   def list
     if params[:id]
       @study = current( Study, params[:id] )
-      @study_queue_pages, @study_queues = paginate :study_queues, :conditions => ["study_id=?",@study.id], :per_page => 10
+      @study_queues = StudyQueue.paginate  :conditions => ["study_id=?",@study.id], :order=>'name', :page => params[:page]
     else
-      @study_queue_pages, @study_queues = paginate :study_queues,
-        :conditions => ["study_id in (select id from studies where project_id = ?)",current_project.id], :per_page => 20
+      @study_queues = StudyQueue.paginate :conditions => ["study_id in (select id from studies where project_id = ?)",current_project.id], :order=>'name', :page => params[:page]
     end
   end
 

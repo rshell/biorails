@@ -23,7 +23,7 @@ class Execute::TasksController < ApplicationController
 # List tasks in the the current experiment
 # 
   def list
-    @task_pages, @tasks = paginate :tasks, :per_page => 10
+    @tasks = Task.paginate :order=>'updated_at desc', :page => params[:page]
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext { render :action => 'list',:layout=>false }

@@ -19,7 +19,7 @@ class Inventory::PlateFormatsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @plate_format_pages, @plate_formats = paginate :plate_formats, :per_page => 10
+    @plate_formats = PlateFormat.paginate :order=>'name', :page => params[:page]
   end
 
   def show
