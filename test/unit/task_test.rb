@@ -70,6 +70,41 @@ class TaskTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.contexts     
   end  
+
+  def test_has_roots
+    task = @model.find(:first)
+    assert task.roots    
+  end  
+
+  def test_has_roots
+    task = @model.find(:first)
+    assert task.elements    
+  end  
+
+  def test_has_roots
+    task = @model.find(:first)
+    assert task.assigned_to   
+  end  
+
+  def test_has_has_contexts_matching
+    task = @model.find(:first)
+    assert task.contexts.matching(task.process.contexts[0])     
+  end  
+
+  def test_has_has_values_matching
+    task = @model.find(:first)
+    assert task.values.matching(task.process.parameters[0])     
+  end  
+  
+  def test_has_has_texts_matching
+    task = @model.find(:first)
+    assert task.texts.matching(task.process.parameters[0])     
+  end  
+  
+  def test_has_has_references_matching
+    task = @model.find(:first)
+    assert task.references.matching(task.process.parameters[0])     
+  end  
   
   def test_has_has_items
     first = @model.find(:first)
@@ -105,6 +140,46 @@ class TaskTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.to_html
   end  
+
+  def test_has_stats
+    first = @model.find(:first)
+    assert first.stats
+  end  
+
+  def test_has_statistics
+    first = @model.find(:first)
+    assert first.statistics
+  end  
+  
+  def test_has_reports
+    first = @model.find(:first)
+    assert first.reports
+  end  
+  
+  def test_has_rows
+    first = @model.find(:first)
+    assert first.rows
+  end  
+
+  def test_to_csv
+    first = @model.find(:first)
+    assert first.to_csv
+  end  
+  
+  def test_done
+    first = @model.find(:first)
+    assert first.done
+  end  
+
+  def test_is_not_validate
+    task = Task.new
+    assert !task.valid?
+  end  
+  
+  def test_has_audit_collection
+    first = @model.find(:first)
+    assert first.change_log
+  end  
   
   def test_has_valid_date_range
     first = @model.find(:first)
@@ -118,8 +193,23 @@ class TaskTest < Test::Unit::TestCase
     block =  task.data_block(definition)   
     assert block
     assert block.size > 0
-    assert block.keys.size >= definition.default_total
-    
+    assert block.keys.size >= definition.default_total    
+  end
+  
+  def test_to_rows
+    task = @model.find(:first)
+    definition = task.process.contexts[0]
+    assert definition
+    rows = task.to_rows(definition)
+    assert rows
+  end
+
+  def test_to_all_rows
+    task = @model.find(:first)
+    definition = task.process.contexts[0]
+    assert definition
+    rows = task.to_rows()
+    assert rows.size >= task.contexts.count
   end
   
   # Replace this with your real tests.

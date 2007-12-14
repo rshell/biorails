@@ -64,16 +64,9 @@ module SheetHelper
 
     parameters =  paramater_collection(definition.parameters)
     
-    items = task.contexts.matching(definition)   
-    1.upto(definition.default_count) do |n|    
-        row = grid.append(context)
-        row.label = context.label  + "[" + n.to_s + "]"
-    end      
-       
-    values = []
-    items.each do |row|      
-        values << row.to_hash    
-    end
+         
+    values = task.to_rows(definition)
+
 
     url ||= "/task/cell_value/#{task.id}"
     
@@ -85,7 +78,7 @@ module SheetHelper
              :label => definition.label,
              :path => definition.path,
              :parameters => parameters,
-             :data =>   values
+             :data =>   values.values
             }           
     return data.to_json        
   end

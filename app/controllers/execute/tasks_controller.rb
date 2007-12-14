@@ -118,7 +118,7 @@ class Execute::TasksController < ApplicationController
  #
  def values
    @task_context = TaskContext.find(params[:id])
-   render :inline => '<%= context_values(@task_context) %>'
+   render :inline => '<%= context_values( @task_context.task , @task_context.definition ) %>'
  end    
   
 ##

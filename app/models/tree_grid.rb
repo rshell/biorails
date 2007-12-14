@@ -20,7 +20,7 @@ class TreeGrid
   attr_accessor :process
 ##
 # Defeult logger got tracing problesm
-def self.logger
+def TreeGrid.logger
   ActionController::Base.logger rescue nil
 end
 ##
@@ -75,8 +75,8 @@ end
         cell.changed = false
       end
    rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
+      TreeGrid.logger.error ex.message
+      TreeGrid.logger.error ex.backtrace.join("\n")
    end   
    return grid
  end
@@ -96,8 +96,8 @@ end
        end           
      end
    rescue Exception => ex
-       logger.error  ex.message
-       logger.error  ex.backtrace.join("\n")
+       TreeGrid.logger.error  ex.message
+       TreeGrid.logger.error  ex.backtrace.join("\n")
    end   
    return grid
  end
@@ -124,7 +124,7 @@ end
 #  
  def save
    if @task
-     logger.debug("Saving grid task  #{task.id}")
+     TreeGrid.logger.debug("Saving grid task  #{task.id}")
 
      TaskContext.transaction do
        for row in self.rows
@@ -137,11 +137,11 @@ end
        end
      end
    else
-     logger.error "No Task defined"
+     TreeGrid.logger.error "No Task defined"
    end
   rescue Exception => ex
-      logger.error "grid.save #{ex.message}"          
-      logger.debug ex.backtrace.join("\n")
+      TreeGrid.logger.error "grid.save #{ex.message}"          
+      TreeGrid.logger.debug ex.backtrace.join("\n")
  end
  
 ##
@@ -175,8 +175,8 @@ end
        "grid #{@process.dom_id} #{@rows.size} rows"
      end
   rescue Exception => ex
-      logger.error "grid.to_s: #{ex.message}"          
-      logger.debug ex.backtrace.join("\n")  
+      TreeGrid.logger.error "grid.to_s: #{ex.message}"          
+      TreeGrid.logger.debug ex.backtrace.join("\n")  
   end      
 
 ##
@@ -207,8 +207,8 @@ end
       csv << ['end']      
     end
   rescue Exception => ex
-      logger.error ex.message
-      logger.debug ex.backtrace.join("\n")  
+      TreeGrid.logger.error ex.message
+      TreeGrid.logger.debug ex.backtrace.join("\n")  
       return ex.message
  end
  
@@ -248,12 +248,6 @@ class GridRow
     @grid.task 
   end
   
-##
-#Get default logger   
-  def self.logger
-    ActionController::Base.logger rescue nil
-  end
- 
   def dom_id(name = 'row')
     return "#{name}_#{id}"
   end
@@ -324,8 +318,8 @@ class GridRow
     end
     
   rescue Exception => ex
-      logger.error "failed to save row  #{self.to_s}: #{ex.message}"
-      logger.debug ex.backtrace.join("\n")  
+      TreeGrid.logger.error "failed to save row  #{self.to_s}: #{ex.message}"
+      TreeGrid.logger.debug ex.backtrace.join("\n")  
  end
 
 ###
@@ -338,8 +332,8 @@ class GridRow
        "row #{@definition.label}[#{id}]=#{@label}"
      end       
    rescue Exception => ex
-      logger.error "row.to_s: #{ex.message}"
-      logger.debug ex.backtrace.join("\n")  
+      TreeGrid.logger.error "row.to_s: #{ex.message}"
+      TreeGrid.logger.debug ex.backtrace.join("\n")  
    end  
 
 end
@@ -355,11 +349,6 @@ class GridCell
    attr_accessor :row
    attr_accessor :changed
 
-##
-#Get default logger   
-def logger
-  ActionController::Base.logger rescue nil
-end
 
 ###
 # initialize based on parameter and back reference to the row   
@@ -422,7 +411,7 @@ end
     end  
     return @item.save
   rescue Exception => ex
-      logger.error "failed to save cell #{self.to_s}: #{ex.message}"
+      TreeGrid.logger.error "failed to save cell #{self.to_s}: #{ex.message}"
       return false
  end
 
@@ -448,8 +437,8 @@ end
        @value
      end       
    rescue Exception => ex
-      logger.error "cell.to_s: #{ex.message}"
-      logger.debug ex.backtrace.join("\n")  
+      TreeGrid.logger.error "cell.to_s: #{ex.message}"
+      TreeGrid.logger.debug ex.backtrace.join("\n")  
    end  
    
    def to_html
@@ -461,7 +450,7 @@ end
        ''       
      end       
    rescue Exception => ex
-      logger.error "cell.to_s: #{ex.message}"
-      logger.debug ex.backtrace.join("\n")       
+      TreeGrid.logger.error "cell.to_s: #{ex.message}"
+      TreeGrid.logger.debug ex.backtrace.join("\n")       
    end
 end

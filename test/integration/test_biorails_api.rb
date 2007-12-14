@@ -1,14 +1,25 @@
-class TestDataCaptureApi < Test::Unit::TestCase
+require File.dirname(__FILE__) + '/../test_helper'
 
+class TestBiorailApi < Test::Unit::TestCase
+  
+  def setup
+    @api = ActionWebService::Client::Soap.new(BiorailsApi,"http://localhost:3000/biorails/api")    
+  end
+  
+  def api
+    @api 
+  end
+  
   # Replace this with your real tests.
   def test_read_study
-    api = ActionWebService::Client::Soap.new(DataCaptureApi,"http://localhost:3000/biorails/api")
-    
-    studies = api.study_list    
-    protocols = api.protocol_list(studies[0].id)
-    processes = api.process_list(protocols[0].id)
-    contexts = api.parameter_context_list(processes[0].id)
-    parameters = api.parameter_list(processes[0].id)
+    key = api.login('rshell','y90125')  
+    projects = api.project_list(key)
+    studies = api.study_list(key,projects[1].id)    
+    protocols = api.study_protocol_list(key,studies[0].id)
+    processes = api.protocol_version_list(key,protocols[0].id)
+    contexts = api.parameter_context_list(key,processes[0].id)
+    parameters = api.parameter_list(key,processes[0].id)
+    parameters = api.parameter_list(key,processes[0].id,contexts[0].id)
     
     assert studies[0].class == Study
     assert protocols[0].class == StudyProtocol
@@ -19,30 +30,29 @@ class TestDataCaptureApi < Test::Unit::TestCase
 
   # Replace this with your real tests.
   def test_read_experiment
-    api = ActionWebService::Client::Soap.new(DataCaptureApi,"http://localhost:3000/biorails/api")
-    
-    studies = api.study_list    
-    experiments = api.experiment_list(studies[0].id)
-    tasks = api.task_list(experiments[0].id)
-    task_contexts = api.task_contexts(tasks[0].id)
-    task_values = api.task_values(tasks[0].id)
+    key = api.login('rshell','y90125')  
+    projects = api.project_list(key)
+    studies = api.study_list(key,projects[1].id)    
+    experiments = api.experiment_list(key,studies[0].id)
+    tasks = api.task_list(key,experiments[0].id)
+    task_contexts = api.task_context_list(key,tasks[0].id)
+    task_values = api.task_value_list(key,tasks[0].id)
     
     assert studies[0].class == Study
     assert experiments[0].class == Experiment
     assert tasks[0].class == Task
-    assert task_contexts[0].class == Task
+    assert task_contexts[0].class == TaskContext
+    assert task_values
    end
   
  def test_create_task
-    api = ActionWebService::Client::Soap.new(DataCaptureApi,"http://localhost:3000/biorails/api")
-    
-    studies = api.study_list    
-    experiments = api.experiment_list(studies[0].id)
-    tasks = api.task_list(experiments[0].id)
-
-    csv = api.task_export(tasks[0].id)
-    task = api.task_import(experiment[0].id,csv)
-    
-    assert !task.class = Task
+    key = api.login('rshell','y90125')  
+    projects = api.project_list(key)
+    studies = api.study_list(key,projects[1].id)    
+    experiments = api.experiment_list(key,studies[0].id)
+    tasks = api.task_list(key,experiments[0].id)
+    csv = api.task_export(key,tasks[0].id)
+    task = api.task_import(key,experiments[0].id,csv)
+    assert task.class == Task
  end   
 end

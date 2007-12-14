@@ -198,12 +198,12 @@ class ParameterContext < ActiveRecord::Base
    labels =[]
    if parent
      parent.default_labels.collect do |i|
-        1.upto(self.default_count) do |n|
+        0.upto(self.default_count-1) do |n|
          labels << "#{i}/#{label}[#{n}]"
        end          
      end
    else  
-      1.upto(self.default_count) do |n|
+      0.upto(self.default_count-1) do |n|
        labels << "#{label}[#{n}]"
      end   
    end

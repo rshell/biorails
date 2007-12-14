@@ -282,7 +282,7 @@ SQL
  def data_block(definition)
     block = definition.default_block
     self.items.each do |item|
-       if item.context.parameter_context_id = definition.id
+       if item.context.parameter_context_id == definition.id
          block[item.context.label] ||= {}
          block[item.context.label][item.parameter_id] = item.to_s              
        end 
@@ -304,25 +304,49 @@ SQL
 #
 # get all rows for a known context
 #
-  def to_rows(context=nil)
-    row_defaults =[]
+  def to_rows(definition=nil)
+    row_defaults ={}
     data = {}  
     process.parameters.each do |p|
-      row_defaults[p.column_no] = p.default_value 
+      row_defaults[p.dom_id] = p.default_value 
     end
+
     for item in self.items
-        if (context.nil? or context.id == item.context.id or context.id == item.context.parent_id)  
+        if (definition.nil? or definition.id == item.context.parameter_context_id)  
           if item.context.parent_id and data[item.context.parent.row_no.to_i] and ! data[item.context.row_no.to_i]
               data[item.context.row_no.to_i] ||= data[item.context.parent.row_no.to_i].clone 
           end
-          data[item.context.row_no.to_i] ||= row_defaults.clone            
-          data[item.context.row_no.to_i][0] = item.context.label
-          data[item.context.row_no.to_i][item.parameter.column_no] = item.value
+          data[item.context.label] ||= row_defaults.clone            
+          data[item.context.label][:id] = item.context.id
+          data[item.context.label][:row_no] = item.context.row_no
+          data[item.context.label][:row_label] = item.context.label
+          data[item.context.label][:row_group] = item.context.row_group
+          data[item.context.label][item.parameter.dom_id] = item.value
           
         end        
     end
+    logger.warn data.to_yaml
     return data 
   end
+#
+# Build a in memory two way hash(rows/cols) of all the values in the task 
+# 
+ def rows
+   @rows ||= self.to_rows
+   return @rows
+ end
+#
+# Get a Row (TaskContext) my position in int 
+# 
+ def row(row_no)
+  return self.rows[row_no]
+ end 
+#
+# Get a Cell position 
+# 
+ def cell(row_no,column_no)
+   return self.row(row_no).column(column_no)
+ end
 #
 # Convert task to a simple matrix for easy analysis use
 #
@@ -406,33 +430,7 @@ SQL
    return context
  end
  
-#
-# Build a in memory two way hash(rows/cols) of all the values in the task 
-# 
- def rows
-   unless @rows
-     @rows = {} 
-     contexts.each{ |row|  @rows[row.row_no] = row } 
-     for item in self.items 
-        row = @rows[item.context.row_no] ||= item.context
-        #puts "context #{row.id}  #{row.label} row #{row.row_no} #{item.column_no}  task item #{item.id}"
-        row.add_column(item)
-     end
-   end
-   return @rows
- end
-#
-# Get a Row (TaskContext) my position in int 
-# 
- def row(row_no)
-  return self.rows[row_no]
- end 
-#
-# Get a Cell position 
-# 
- def cell(row_no,column_no)
-   return self.row(row_no).column(column_no)
- end
+
 #
 # Run a named analyse method to the data in this taks
 #

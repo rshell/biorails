@@ -6,7 +6,7 @@ class DataElementsTest < Test::Unit::TestCase
   def test_chart
 		Gnuplot.open do |gp|
 			Gnuplot::Plot.new( gp ) do |plot|
-				plot.set ('terminal', 'svg' )
+				plot.set('terminal', 'svg' )
 				plot.set('output','c:\graph1.svg')
 			  
 				plot.xrange "[-10:10]"

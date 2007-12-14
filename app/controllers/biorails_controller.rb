@@ -128,11 +128,15 @@ class BiorailsController < ApplicationController
 #
     def parameter_list(session_id,protocol_version_id,parameter_context_id)  
       user = User.find(session_id)
-      if context_id and context_id >0
-        return Parameter.find(:all,:conditions=>['protocol_version_id=? and parameter_context_id=?',
-                      protocol_version_id,parameter_context_id],:order=>'column_no')
+      if parameter_context_id and parameter_context_id >0
+        return Parameter.find(:all,
+               :conditions=>['protocol_version_id=? and parameter_context_id=?',
+                      protocol_version_id,parameter_context_id],
+               :order=>'column_no')
       else
-        return Parameter.find(:all,:conditions=>['protocol_version_id=?',protocol_version_id],:order=>'column_no')
+        return Parameter.find(:all,
+               :conditions=>['protocol_version_id=?',protocol_version_id],
+               :order=>'column_no')
       end  
     end
 
