@@ -24,12 +24,7 @@ class Project::ContentControllerTest < Test::Unit::TestCase
    get :show,  :id=>"1"
    assert_response :success
   end
- def test_index
-    get :index
-    assert_response :success
-    assert_template 'list'
-  end
-
+  
   def test_setup
     assert_not_nil @item
     assert_not_nil @item.id

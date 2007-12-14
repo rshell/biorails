@@ -209,7 +209,7 @@ class Project::ProjectsController < ApplicationController
                 'items'=> {'task'=>1},
                 'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
  
-    logger.info " Calendar for #{@options.to_yaml}"
+    logger.debug " Calendar for #{@options.to_yaml}"
 
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
 

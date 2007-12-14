@@ -15,7 +15,6 @@ class ExperimentTest < Test::Unit::TestCase
   
   def test_find
      first = @model.find(:first)
-     p first.to_yaml
      assert_not_nil first
      assert_not_nil first.id
      assert_not_nil first.name

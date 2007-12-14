@@ -52,7 +52,7 @@ class ProjectContent < ProjectElement
     content.project_id=    options[:project_id]
     content.body_html =    options[:to_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")   
     content.valid?
-    logger.info content.to_yaml
+    logger.debug content.to_yaml
     content.save
     element.content = content
     return element
@@ -117,5 +117,4 @@ class ProjectContent < ProjectElement
      '/images/model/note.png'
   end  
   
-
 end

@@ -131,7 +131,7 @@ class ProjectAsset < ProjectElement
   def image?
     asset.image? if asset
   end
-
+  
 ##
 # File assets  
 

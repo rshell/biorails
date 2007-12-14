@@ -126,8 +126,8 @@ class ProjectFolder < ProjectElement
    element = item.clone
    element.reference=item
    element.parent= self
-   logger.info "cloned element ==============================================="
-   logger.info element.to_yaml
+   logger.debug "cloned element ==============================================="
+   logger.debug element.to_yaml
    element.project_id = self.project_id
    element.position = self.elements.size
    element.parent_id = self.id
@@ -302,16 +302,5 @@ class ProjectFolder < ProjectElement
   def self.current
     @current || Project.current.folder
   end
-
- def to_tree(&block)
-   node = {:text => self.name,:id=>self.id,:leaf=> true,:cls=>'folder'}
-   if elements.size>0
-     node[:leaf] = false
-     node[:children] = self.elements.collect{|i|i.to_tree(&block)}   
-   end
-   yield node,self  if block_given?    
-   return node
- end
-
 
 end

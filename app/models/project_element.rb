@@ -207,11 +207,8 @@ class ProjectElement < ActiveRecord::Base
     child_count
  end
   
- 
- def to_tree(&block)
-   node = {:text => self.name,:id=>self.id,:leaf=> true,:cls=>'file'}
-   yield node,self  if block_given?    
-   return node
- end
+  def ancestors
+    (self.content ? self.content.ancestors : [])
+  end
 
 end

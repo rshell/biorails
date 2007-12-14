@@ -121,8 +121,8 @@ class Project::AssetsController < ApplicationController
           return render( :action => 'new',:folder_id => @project_folder)
       end
     end
-    logger.info "keys #{session.data.keys.join(',')}"
-    logger.info session.to_yaml
+    logger.debug "keys #{session.data.keys.join(',')}"
+    logger.debug session.to_yaml
     redirect_to asset_url(:action => 'new',:id => @project_folder)  
   end 
 

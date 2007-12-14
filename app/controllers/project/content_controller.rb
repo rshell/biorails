@@ -72,7 +72,7 @@ class Project::ContentController < ApplicationController
     ProjectElement.transaction do
       @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],
                                                      params[:project_element][:to_html])   
-      logger.info @project_element.to_yaml
+      logger.debug @project_element.to_yaml
       @project_element.valid?
       unless @project_element.save
            flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"

@@ -38,6 +38,51 @@ class Organize::StudyProtocolsControllerTest < Test::Unit::TestCase
     assert assigns(:study_protocol).valid?
   end
 
+  def test_metrics
+    get :metrics, :id => @item.id
+    assert_response :success
+    assert_template 'metrics'
+    assert_not_nil assigns(:study_protocol)
+    assert assigns(:study_protocol).valid?
+  end
+  
+  def test_analysis
+    get :analysis, :id => @item.id
+    assert_response :success
+    assert_template 'analysis'
+    assert_not_nil assigns(:study_protocol)
+    assert assigns(:study_protocol).valid?
+  end
+
+  def test_layout
+    get :layout, :id => @item.id
+    assert_response :success
+    assert_template 'layout'
+    assert_not_nil assigns(:study_protocol)
+    assert assigns(:study_protocol).valid?
+  end
+
+  def test_preview
+    get :preview, :id => @item.id
+    assert_response :success
+    assert_template 'preview'
+    assert_not_nil assigns(:study_protocol)
+    assert assigns(:study_protocol).valid?
+  end
+  
+  def test_template
+    get :template, :id => @item.id
+    assert_response :success
+    assert_not_nil assigns(:study_protocol)
+    assert assigns(:study_protocol).valid?
+  end
+  
+   def test_context
+    get :context, :id => ParameterContext.find(:first).id
+    assert_response :success
+    assert_not_nil assigns(:parameter_context)
+  end
+ 
   def test_new
     get :new, :id => @item.id
     assert_response :success
