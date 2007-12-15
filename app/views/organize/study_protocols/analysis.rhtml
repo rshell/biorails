@@ -14,7 +14,7 @@
 </h2>
 <div class='panel'>
 
- <%= form_tag  protocol_url(:action => 'analysis', :id => @study_protocol.id, :version => @protocol_version.id) %>
+ <% form_tag  protocol_url(:action => 'analysis', :id => @study_protocol.id, :version => @protocol_version.id) do %>
     <div class="row">
         <div class="form-element">
         <label for="analysis_class_name">Analysis Method:</label>
@@ -52,12 +52,11 @@
            </td>
         </tr>
         <% end %> 
-       <table>
+       </table>
     </div>
     <div class='row'>
       <%= submit_tag 'Save' %>
     </div>
  </div>
-<%= end_form_tag %>
-</div>
+<% end %>
 <% end -%>

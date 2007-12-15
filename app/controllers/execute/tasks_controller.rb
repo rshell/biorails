@@ -321,7 +321,10 @@ class Execute::TasksController < ApplicationController
   end
   
 
-
+  def cell_value
+    @task = Task.find(params[:id])
+    @task.cell()
+  end
 ##
 # Handle cell change events to save data back to the database
 # 

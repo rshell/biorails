@@ -11,7 +11,8 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :role_permissions
   Biorails::Dba.import_model :permissions
   
-#  Biorails::Dba.import_model :analysis_settings
+  Biorails::Dba.import_model :analysis_methods
+  Biorails::Dba.import_model :analysis_settings
 
   Biorails::Dba.import_model :reports
   Biorails::Dba.import_model :report_columns

@@ -5,6 +5,4 @@
 #
 module Organize::StudyProtocolsHelper
 
-include TasksHelper
-
 end

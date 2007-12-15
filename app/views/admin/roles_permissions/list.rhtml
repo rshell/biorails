@@ -18,9 +18,7 @@
   </tr>
 <% end %>
 </table>
-
-<%= link_to 'Previous page', { :page => @roles_permission_pages.current.previous } if @roles_permission_pages.current.previous %>
-<%= link_to 'Next page', { :page => @roles_permission_pages.current.next } if @roles_permission_pages.current.next %> 
+<%= will_paginate  @roles_permissions%>    
 
 <br />
 

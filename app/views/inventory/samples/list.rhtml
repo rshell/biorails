@@ -1,4 +1,3 @@
-<fieldset>
     <div class="form-title">
         <%=subject_icon('samples')%> Listing Samples
     </div>
@@ -7,7 +6,6 @@
         <%= link_to 'New sample', :action => 'new' %>
       </div>
     </div>
-    <fieldset class='table'>            
         <table class="report">
           <tr>
           <% for column in Sample.content_columns %>
@@ -26,7 +24,4 @@
           </tr>
         <% end %>
         </table>
-</fieldset>
-<%= link_to 'Previous page', { :page => @sample_pages.current.previous } if @sample_pages.current.previous %>
-<%= link_to 'Next page', { :page => @sample_pages.current.next } if @sample_pages.current.next %> 
-</fieldset>
+    <%= will_paginate  @samples%>    

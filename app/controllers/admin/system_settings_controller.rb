@@ -15,9 +15,6 @@ class Admin::SystemSettingsController < ApplicationController
   def list
     @system_settings = SystemSettings.find(:first)
     redirect_to :action => :show, :id => @system_settings
-
-    # @system_settings_pages, @system_settings = paginate :system_settings, 
-    # :class_name => 'SystemSettings', :per_page => 10
   end
 
   def show

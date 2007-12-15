@@ -36,9 +36,7 @@ class Execute::ExperimentsController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @project.experiments.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                        :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext { render :action => 'list',:layout=>false }

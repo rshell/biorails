@@ -171,6 +171,11 @@ class Report < ActiveRecord::Base
  def model
    @model ||= eval(base_model) if base_model
  end
+ 
+ def model=(value)
+   @model = value
+   self.base_model = value.to_s
+ end
 #
 # Apply the name=value hash of filter values to the query. This applies these the the
 # named columns as a set of conbined filters on the returned data.
@@ -305,7 +310,7 @@ end
    @model = self.model
    if @model
      params = params.merge({:conditions => conditions, :order => order, :include => includes })
-     return @model.find(:all, params ) 
+     return @model.paginate(:all, params ) 
    end  
  end 
 

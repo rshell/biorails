@@ -8,5 +8,4 @@
     <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
 </div>
 <hr/>    
-    <%= link_to 'Previous page', { :page => @data_pages.current.previous } if @data_pages.current.previous %>
-    <%= link_to 'Next page', { :page => @data_pages.current.next } if @data_pages.current.next %> 
+    <%= will_paginate  @data%>    

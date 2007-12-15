@@ -19,10 +19,6 @@ class Admin::ParameterRolesController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
  
-
-  in_place_edit_for :parameter_role, :name
-  in_place_edit_for :parameter_role, :description
-
   def index
     list
     render :action => 'list'
@@ -33,7 +29,7 @@ class Admin::ParameterRolesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @parameter_role_pages, @parameter_roles = paginate :parameter_roles, :per_page => 30
+     @parameter_roles = ParameterRole.paginate(:page => params[:page])
   end
 
   def show

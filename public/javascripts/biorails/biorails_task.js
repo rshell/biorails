@@ -71,6 +71,24 @@ Biorails.Task.ContextTable = function(config) {
   var store;
   var model;
    
+ var data = {path: "conc", url: "/task/cell_value/1", task_id: 1, label: "conc", 
+     data: [{parameter_1: 11.0, row_group: "root", parameter_2: 0.3048, parameter_3: "", row_label: "conc[0]", 
+         parameter_4: "", id: 5, parameter_5: "", row_no: 0}], 
+     parameters: [
+         {unit: "mM", study_parameter_id: 1, style: "Decimal", data_type_id: 2, 
+             description: "Parameter   [condition/Concentration]", default_value: "", 
+             index: "parameter_1", name: "Concentration", data_format_id: 4, 
+             data_element_id: null, column_no: 1, regex: "^[-+]?[0-9]*\\.?[0-9]+[ ,A-z,/,%]*$", 
+             mandatory: "N", id: 1}, 
+         {unit: "in", study_parameter_id: 2, style: "Decimal", data_type_id: 2, 
+             description: "Parameter   [result/Length]", default_value: "", index: "parameter_2", 
+             name: "Length", data_format_id: 4, data_element_id: null, column_no: 2, 
+             regex: "^[-+]?[0-9]*\\.?[0-9]+[ ,A-z,/,%]*$", mandatory: "N", id: 2}
+     ], 
+     level_no: 0, 
+     expected: 1, parent_id: null};
+ 
+
     /**
      * Function for updating database
      * @param {Object} event

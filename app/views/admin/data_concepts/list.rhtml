@@ -12,14 +12,13 @@
     <h2>
         <%=subject_icon('concept')%> Data Concepts
     </h2>
-    <div class='panel'>
-        <table class="report">
-        <%= render :partial => 'shared/table_of_named',:locals =>
-           {:items => @data_concepts, 
-            :controller => 'data_concepts',
-            :edit => 'edit', 
-            :show => 'show' } %>    
-        </table>
-    </div>
+    <table class="report">
+    <%= render :partial => 'shared/table_of_named',:locals =>
+       {:items => @data_concepts, 
+        :controller => 'data_concepts',
+        :edit => 'edit', 
+        :show => 'show' } %>    
+    </table>
+<%= will_paginate @data_concepts %>
 </div>
 <!--END FORM BACKGROUND-->

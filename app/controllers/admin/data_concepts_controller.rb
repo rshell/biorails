@@ -36,10 +36,10 @@ class Admin::DataConceptsController < ApplicationController
 
   def list
     
-    @data_concept_pages, @data_concepts = paginate(:data_concepts, 
+    @data_concepts = DataContept.paginate(
                             :conditions => ['parent_id is null'], 
                             :order         => 'name ASC', 
-                            :per_page     => 20)
+                            :page     => params[:page])
   end
 
 #

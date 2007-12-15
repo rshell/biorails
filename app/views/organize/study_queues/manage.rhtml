@@ -77,7 +77,6 @@
     </table>
 </div>
 <div class='panel'>
-    <%= link_to 'Previous page', { :page => @queue_item_pages.current.previous } if @queue_item_pages.current.previous %>
-    <%= link_to 'Next page', { :page => @queue_item_pages.current.next } if @queue_item_pages.current.next %> 
+    <%= will_paginate  @queue_items%>    
 </div>
 

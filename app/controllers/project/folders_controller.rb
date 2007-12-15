@@ -337,11 +337,10 @@ protected
       end
 	end
     conditions = [labels.join(" and ")] +values
-    @pages = Paginator.new(self, ProjectElement.count(:conditions=> conditions), size, page)    
     return ProjectElement.find(:all, 
-           :limit=>@pages.items_per_page,
+           :limit=>size,
            :conditions=> conditions ,
-           :offset=>@pages.current.offset, 
+           :offset=>start, 
            :order=>sort_col+' '+sort_dir)
       
   end

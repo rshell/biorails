@@ -8,10 +8,6 @@ class Admin::DataTypesController < ApplicationController
   use_authorization :dba,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
-                     
-
-  in_place_edit_for :data_type, :name
-  in_place_edit_for :data_type, :description
 
   def index
     list
@@ -23,7 +19,7 @@ class Admin::DataTypesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @data_type_pages, @data_types = paginate :data_types, :per_page => 30
+    @data_types = DataType.paginate( :page=>params[:page])
   end
 
   def show

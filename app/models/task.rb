@@ -169,7 +169,16 @@ end
 def before_destroy
    self.folder.destroy
 end
-
+#
+# Finder for visible versions of the model for the scope of the current user
+#
+  def self.visible(*args)
+    self.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m,experiments e where e.id = tasks.experiment_id and m.user_id=? and m.project_id=e.project_id)',User.current.id]
+        })  do
+       self.find(*args)
+    end
+  end  
 ##
 # Get summary stats to compare task with all runs in the process.
 # This is basically a set of TaskStatistics with added details on

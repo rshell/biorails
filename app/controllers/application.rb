@@ -266,8 +266,6 @@ protected #----- End of public actions -----------------------------------------
     sort_dir = (params[:dir] || 'ASC')
     where = params[:where] || {}
 
-    page = ((start/size).to_i)+1
-
     if where.size >0
       where.values.each do |item| 
          field = item[:field]
@@ -295,18 +293,16 @@ protected #----- End of public actions -----------------------------------------
         end
       end
       conditions = [labels.join(" and ")] +values
-      @pages = Paginator.new(self, clazz.count(:conditions=> conditions), size, page)    
-      return clazz.find(:all, 
-           :limit=>@pages.items_per_page,
+      return clazz.find( :all, 
+           :offset => start,
+           :limit => size,
            :conditions=> conditions ,
-           :offset=>@pages.current.offset, 
            :order=>sort_col+' '+sort_dir)
       
     else
-      @pages = Paginator.new(self, clazz.count, size, page)    
-      return clazz.find(:all, 
-           :limit=>@pages.items_per_page,
-           :offset=>@pages.current.offset, 
+      return clazz.find( 
+           :offset => start,
+           :limit => size,
            :order=>sort_col+' '+sort_dir)
     end
   end

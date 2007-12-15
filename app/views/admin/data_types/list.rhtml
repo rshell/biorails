@@ -24,5 +24,4 @@
 	<% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @data_type_pages.current.previous } if @data_type_pages.current.previous %>
-<%= link_to 'Next page', { :page => @data_type_pages.current.next } if @data_type_pages.current.next %> 
+       <%= will_paginate @data_types %>    

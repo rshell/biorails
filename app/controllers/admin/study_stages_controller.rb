@@ -7,10 +7,6 @@ class Admin::StudyStagesController < ApplicationController
   use_authorization :catalogue,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
- 
-
-  in_place_edit_for :study_stage, :name
-  in_place_edit_for :study_stage, :description
 
   def index
     list
@@ -22,7 +18,7 @@ class Admin::StudyStagesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @study_stage_pages, @study_stages = paginate :study_stages, :per_page => 30
+     @study_stages = StudyStage.paginate(:page => params[:page])
   end
 
   def show

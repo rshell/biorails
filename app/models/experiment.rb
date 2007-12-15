@@ -100,6 +100,14 @@ end
 def before_destroy
    self.folder.destroy
 end
+
+  def self.visible(*args)
+    self.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=experiments.project_id)',User.current.id]
+        })  do
+       self.find(*args)
+    end
+  end
 #
 # Get the folder for this protocol
 #

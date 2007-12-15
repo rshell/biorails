@@ -36,8 +36,7 @@ class Execute::RequestsController < ApplicationController
       report.add_sort(params[:sort]) if params[:sort]
    end
    
-   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })                            
+   @data = @report.run(:page => params[:page])
   end
 
 
@@ -89,8 +88,7 @@ class Execute::RequestsController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, 1000, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 ##
@@ -207,9 +205,9 @@ class Execute::RequestsController < ApplicationController
   def update
     Request.transaction do
       @user_request = Request.find(params[:id])
-      @user_request.status_id = params[:user_request][:status_id]
+      @user_request.status_id = params[:request][:status_id] if params[:request]
       @user_request.started_at ||= Time.new
-      if @user_request.update_attributes(params[:user_request])
+      if @user_request.update_attributes(params[:request])
           @user_request.services.each do |service|
              service.submit 
         end

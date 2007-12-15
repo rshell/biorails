@@ -50,14 +50,11 @@ helper :tree
       report.add_sort(params[:sort]) if params[:sort]
    end
    
-   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })  
+   @data = @report.run(:page => params[:page])
    @hash = {   :report => @report.to_ext,
                :rows  => @data.collect{|i|i.attributes},
                :id => @report.id,
-               :total => @data_pages.item_count      ,
-               :limit => @data_pages.items_per_page,
-               :offset =>  @data_pages.current.offset }
+               :page =>  params[:page]}
    respond_to do | format |
       format.html { render :action => 'list' }
       format.json { render :json => @hash.to_json }
@@ -78,16 +75,12 @@ helper :tree
     
     @snapshot_name = Identifier.next_id(current_user.login)
     
-    @data_pages = Paginator.new self, @report.model.count, 20, params[:page]
     @columns = @report.displayed_columns
-    @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                          :offset =>  @data_pages.current.offset })
+    @data = @report.run(:page => params[:page])
    @hash = {   :report => @report.to_ext,
                :rows  => @data.collect{|i|i.attributes},
                :id => @report.id,
-               :total => @data_pages.item_count      ,
-               :limit => @data_pages.items_per_page,
-               :offset =>  @data_pages.current.offset }
+               :page => params[:page]      }
     respond_to do | format |
       format.html { render :action => 'show' }
       format.json { render :json => @hash.to_json }
@@ -115,8 +108,7 @@ helper :tree
       report.add_sort(params[:sort]) if params[:sort]
    end
    
-   @data_pages = Paginator.new self, @project.reports.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset }) 
+   @data = @report.run(:page => params[:page])
    respond_to do | format |
       format.html { render :action => 'list' }
       format.json { render :json => @data.to_json }
@@ -153,8 +145,6 @@ helper :tree
   def create
     @models = Biorails::UmlModel.models
     @report = Report.new(params[:report])    
-    @model = eval(@report.base_model)
-    @report.model = @model
     @report.errors.clear
     @report.errors.full_messages().each {|e| logger.info "Report #{e.to_s}"}
     if @report.save
@@ -170,7 +160,7 @@ helper :tree
  def edit
    @report = Report.find(params[:id])  
    @has_many = true
-   @data = @report.run(:limit=>10)
+   @data = @report.run(:page => 1)
  end
 
 ##
@@ -253,10 +243,8 @@ helper :tree
     @report.set_filter(params[:filter])if params[:filter] 
     @report.add_sort(params[:sort]) if params[:sort]
 
-    @data_pages = Paginator.new self, 1000, 20, params[:page]
     @columns = @report.displayed_columns
-    @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                          :offset =>  @data_pages.current.offset })
+    @data = @report.run(:page => params[:page])
 
    @hash = {   :rows  => @data.collect{|i|i.attributes},
                :id => @report.id,

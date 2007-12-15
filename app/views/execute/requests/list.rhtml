@@ -5,7 +5,7 @@
 <div class='panel'>
     <%= render :partial => 'shared/report', :locals => {:report => @report, :data => @data } %>    
 
-<%= pagination_links_full @data_pages %>
+<%= will_paginate @data %>
 </div>
 <%end%>
     

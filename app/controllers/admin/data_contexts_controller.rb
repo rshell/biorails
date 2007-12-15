@@ -46,9 +46,7 @@ class Admin::DataContextsController < ApplicationController
    @report.set_filter(params[:filter])if params[:filter] 
    @report.add_sort(params[:sort]) if params[:sort]
 
-   @data_pages = Paginator.new self, 1000, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                        :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
   end
 #
 # Show current context form

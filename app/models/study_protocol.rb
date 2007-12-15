@@ -133,7 +133,16 @@ end
     end
  end
 
-
+#
+# Finder for visible versions of the model for the scope of the current user
+#
+  def self.visible(*args)
+    self.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m,studies s where m.user_id=? and s.id=study_protocols.study_id and m.project_id=s.project_id)',User.current.id]
+        })  do
+       self.find(*args)
+    end
+  end  
 #
 #   Return the most current implementation of the process definition
 #   return ProcessInstance 

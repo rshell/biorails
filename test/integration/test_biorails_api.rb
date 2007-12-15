@@ -48,10 +48,20 @@ class TestBiorailApi < Test::Unit::TestCase
  def test_create_task
     key = api.login('rshell','y90125')  
     projects = api.project_list(key)
+    assert projects.size >0
+    
     studies = api.study_list(key,projects[1].id)    
+    assert studies.size >0
+    
     experiments = api.experiment_list(key,studies[0].id)
+    assert experiments.size >0
+
     tasks = api.task_list(key,experiments[0].id)
+    assert tasks.size >0
+
     csv = api.task_export(key,tasks[0].id)
+    assert cvs.size >0
+
     task = api.task_import(key,experiments[0].id,csv)
     assert task.class == Task
  end   

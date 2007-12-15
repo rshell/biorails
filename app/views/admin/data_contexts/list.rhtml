@@ -10,7 +10,6 @@
     <h2>
         <%=subject_icon('context')%> List Conceptual Namespaces
     </h2>
-    <div class='panel'>
         <table class="report">
         <%= render :partial => 'shared/report',:locals =>
            {:report =>@report,
@@ -19,10 +18,6 @@
             :edit => 'edit', 
             :show => 'show' } %>    
         </table>
-    </div>
-    <div class='panel'>
-        <%= render :partial => 'shared/paginate',
-                   :locals => {:pages => @data_pages} %>    
-    </div>
+       <%= will_paginate @data %>    
 </div>
            

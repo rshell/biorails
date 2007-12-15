@@ -130,10 +130,14 @@ class Request < ActiveRecord::Base
 # Transform items into a hash of hashs for a table of queue_item cell with item.name row ids
 #   
   def items_by_service     
-     @grid = {}
-     items.each{|i|@grid[i.data_name]={}}            
+     @grid = {}         
      services.each do |service|
-        service.items.each{  |item|  @grid[item.data_name][service.name]=item.status  }        
+        service.items.each do |item|
+          if item.data_name and service.name          
+            @grid[item.data_name] ||={} 
+            @grid[item.data_name][service.name]=item.status  
+          end          
+        end
      end
      return @grid
   end

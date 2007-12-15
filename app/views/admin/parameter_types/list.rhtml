@@ -29,9 +29,7 @@
 <% end %>
 </table>
 </div>
-
-<%= link_to 'Previous page', { :page => @parameter_type_pages.current.previous } if @parameter_type_pages.current.previous %>
-<%= link_to 'Next page', { :page => @parameter_type_pages.current.next } if @parameter_type_pages.current.next %> 
+<%= will_paginate @parameter_types %>    
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

@@ -20,9 +20,6 @@ class Admin::ParameterTypesController < ApplicationController
                     :rights => :current_user
  
 
-  in_place_edit_for :parameter_type, :name
-  in_place_edit_for :parameter_type, :description
-
   def index
     list
     render :action => 'list'
@@ -33,7 +30,7 @@ class Admin::ParameterTypesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @parameter_type_pages, @parameter_types = paginate :parameter_types,:order=>'name', :per_page => 30
+    @parameter_types = ParameterType.paginate(:page => params[:page])
   end
 
   def show

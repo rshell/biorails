@@ -6,7 +6,6 @@
 <p>
 Roles for partitioning of parameter types by styles of usage in a given content.
 </p>
-<div class='panel'>
 <table class="report">
   <tr>
     <th>name</th>
@@ -26,10 +25,7 @@ Roles for partitioning of parameter types by styles of usage in a given content.
 </td>
 </tr>
 </table>
-</div>
-<%= link_to 'Previous page', { :page => @parameter_role_pages.current.previous } if @parameter_role_pages.current.previous %>
-<%= link_to 'Next page', { :page => @parameter_role_pages.current.next } if @parameter_role_pages.current.next %> 
-
+<%= will_paginate @parameter_roles %>    
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

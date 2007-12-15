@@ -26,7 +26,7 @@ class Admin::DataSystemsController < ApplicationController
 #
 # List of all available data environmenjts
   def list
-    @data_system_pages, @data_systems = paginate :data_systems, :per_page => 10
+    @data_systems = DataSystem.paginate(:page => params[:page])
   end
 
 #

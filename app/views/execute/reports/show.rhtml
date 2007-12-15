@@ -17,5 +17,5 @@
      </p>
     <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
 </div>
-<%= pagination_links(@data_pages, :window_size => 4) %><br>
+<%= will_paginate(@data) %><br>
 

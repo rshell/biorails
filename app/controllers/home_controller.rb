@@ -35,8 +35,7 @@ class HomeController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @user.projects.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 
@@ -57,8 +56,7 @@ class HomeController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @user.projects.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 
@@ -70,8 +68,7 @@ class HomeController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @user.projects.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 
@@ -83,8 +80,7 @@ class HomeController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @user.projects.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 
@@ -96,8 +92,7 @@ class HomeController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, @user.projects.size, 20, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page, :offset =>  @data_pages.current.offset })
+   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 

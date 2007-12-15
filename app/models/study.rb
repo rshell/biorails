@@ -130,6 +130,16 @@ end
       return folder
     end
   end  
+#
+# Finder for visible versions of the model for the scope of the current user
+#
+  def self.visible(*args)
+    self.with_scope( :find => {
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=studies.project_id)',User.current.id]
+        })  do
+       self.find(*args)
+    end
+  end  
 ##
 # Get the named protocol from the list attrached to the study
 # 

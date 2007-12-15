@@ -29,10 +29,7 @@ class Organize::ParametersController < ApplicationController
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data_pages = Paginator.new self, 1000, 100, params[:page]
-   @data = @report.run({:limit  =>  @data_pages.items_per_page,
-                        :offset =>  @data_pages.current.offset })
-
+   @data = @report.run(:page => params[:page])
   end
 
   def show
@@ -58,7 +55,7 @@ protected
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end  
-   @protocol_data = @report.run({:limit  =>  32})
+   @protocol_data = @report.run(:page=>params[:page])
   end
 
 
@@ -78,7 +75,7 @@ protected
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end 
-   @task_data = @report.run({:limit  =>  32})
+   @task_data = @report.run(:page=>params[:page])
   end
 
 ##
@@ -97,7 +94,7 @@ protected
       report.column('parameter_context_id').filter = "#{@parameter.parameter_context_id}"
       report.column('parameter_context_id').is_visible = false
    end 
-   @results_data = @report.run({:limit  =>  32})
+   @results_data = @report.run(:page=>params[:page])
   end
 
 

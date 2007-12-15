@@ -34,7 +34,7 @@ class RequestTest < Test::Unit::TestCase
     cmpd2 = Compound.find(2)
     request.add_item(cmpd1)
     request.add_item(cmpd2)
-    request.save
+    assert request.save
   end
   
   

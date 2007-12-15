@@ -23,6 +23,5 @@ Data Formatting rules based on regular wxpression mask for input filtering and p
   </tr>
 <% end %>
 </table>
-<%= link_to 'Previous page', { :page => @data_format_pages.current.previous } if @data_format_pages.current.previous %>
-<%= link_to 'Next page', { :page => @data_format_pages.current.next } if @data_format_pages.current.next %> 
+       <%= will_paginate @data_formats %>    
 <%end%>

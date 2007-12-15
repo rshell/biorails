@@ -89,6 +89,7 @@ class ProjectFolder < ProjectElement
     return name
   end
 
+  
   def to_html
     if reference
       return reference.to_html if reference.respond_to?(:to_html)

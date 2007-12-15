@@ -318,7 +318,7 @@ protected
        report.column('study_parameter_id').filter = "#{@study_parameter.id}"
        report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
    end 
-   @protocol_data = @protocol_report.run({:limit  =>  32})
+   @protocol_data = @protocol_report.run(:page=>params[:page])
   end
 
 
@@ -330,7 +330,7 @@ protected
       report.column('study_parameter_id').is_visible = false
       report.column('study_parameter_id').filter = "#{@study_parameter.id}"
    end  
-   @metrics_data = @metrics_report.run({:limit  =>  32})
+   @metrics_data = @metrics_report.run(:page=>params[:page])
   end
 
 ##
@@ -341,7 +341,7 @@ protected
      report.column('study_parameter_id').is_visible = false
      report.column('study_parameter_id').filter = "#{@study_parameter.id}"
    end
-   @experiment_data = @experiment_report.run({:limit  =>  32})
+   @experiment_data = @experiment_report.run(:page=>params[:page])
   end
   
 end

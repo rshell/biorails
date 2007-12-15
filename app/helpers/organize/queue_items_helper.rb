@@ -1,2 +1,0 @@
-module Organize::QueueItemHelper
-end

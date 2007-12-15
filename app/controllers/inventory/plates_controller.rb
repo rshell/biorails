@@ -10,9 +10,6 @@ class Inventory::PlatesController < ApplicationController
                     :rights =>  :current_user  
  
 
-  in_place_edit_for :plate, :name
-  in_place_edit_for :plate, :description
-
   def index
     list
     render :action => 'list'

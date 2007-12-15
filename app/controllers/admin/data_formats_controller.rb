@@ -9,10 +9,7 @@ class Admin::DataFormatsController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
                      
-  in_place_edit_for :data_format, :name
-  in_place_edit_for :data_format, :description
-
-  def index
+   def index
     list
     render :action => 'list'
   end
@@ -22,7 +19,7 @@ class Admin::DataFormatsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @data_format_pages, @data_formats = paginate :data_formats, :per_page => 30
+    @data_formats = DataFormat.paginate(:page => params[:page])
   end
 
   def show
