@@ -49,28 +49,34 @@ class Signature < ActiveRecord::Base
     return last_two_sigs[1] if last_two_sigs.count == 2
   end
   
-  
-  
-  
-  
   def generate_checksum
-    #content = File.open(filename)  
-    
+    if self.asset
+      filename = self.asset.filename ||=''
+      title=self.asset.title ||=''
+      created=self.asset.created_at.to_s
+      data = 'file:' << filename << '~~'<< title << '~~' << created
+   elsif self.article
+     name= self.article.name ||=''
+     title= self.article.title ||=''
+     body=self.article.body ||=''
+     data= name << '~~' <<  title << '~~' << body << '~~' << self.article.created_at.to_s
+   end
     begin
       case self.signature_format
         when 'SHA512'
           begin
           OpenSSL::Digest::SHA512.new
-          return OpenSSL::Digest::SHA512.hexdigest(self.asset.to_s)
+          return OpenSSL::Digest::SHA512.hexdigest(data)
         rescue
           return false
         end
         when 'SHA1'
-          return OpenSSL::Digest::SHA1.hexdigest(self.asset.to_s)
+          return OpenSSL::Digest::SHA1.hexdigest(data)
         when 'MD5'
-          return Digest::MD5.hexdigest(self.asset.to_s)
+          return Digest::MD5.hexdigest(data)
         end 
-    rescue
+    rescue Exception => e
+      p e.message
       return nil
     end
   end  
