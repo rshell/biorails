@@ -148,6 +148,12 @@ class BiorailsController < ApplicationController
        Task.find(:all,:conditions=>['experiment_id=?',experiment_id],:order=>'id')
     end
     
+    def task_mine_list(session_id)
+      user = User.find(session_id)
+      Task.find(:all,:conditions=>['assigned_to_user_id=? and status_id in (0,1,2,3,4)', 
+          user.id],:order=>'id')
+    end
+    
     def task_context_list(session_id,task_id)
        TaskContext.find(:all,:conditions=>['task_id=?',task_id],:order=>'id')
     end

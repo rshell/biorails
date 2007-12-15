@@ -100,6 +100,10 @@ class BiorailsApi < ActionWebService::API::Base
     api_method  :task_list,
                 :expects => [ {:session_id => :string},{:experiment_id => :int} ],
                 :returns => [[Task]]
+              
+  api_method    :task_mine_list,
+                :expects => [ {:session_id => :string} ],
+                :returns => [[Task]]
 
     api_method  :task_context_list,
                 :expects => [ {:session_id => :string},{:task_id => :int}],
