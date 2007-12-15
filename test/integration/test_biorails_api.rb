@@ -1,4 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
+require 'action_web_service'
+require 'action_web_service/test_invoke'
 
 class TestBiorailApi < Test::Unit::TestCase
   
@@ -9,6 +11,7 @@ class TestBiorailApi < Test::Unit::TestCase
   def api
     @api 
   end
+  
   
   # Replace this with your real tests.
   def test_read_study
@@ -60,7 +63,7 @@ class TestBiorailApi < Test::Unit::TestCase
     assert tasks.size >0
 
     csv = api.task_export(key,tasks[0].id)
-    assert cvs.size >0
+    assert csv.size >0
 
     task = api.task_import(key,experiments[0].id,csv)
     assert task.class == Task

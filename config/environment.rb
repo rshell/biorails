@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 
   # Add additional load paths for your own custom dirs
-  config.load_paths += %W( #{RAILS_ROOT}/app/cachers #{RAILS_ROOT}/app/filters )
+  config.load_paths += %W( #{RAILS_ROOT}/app/cachers #{RAILS_ROOT}/app/observers )
   #
   # Add Controller namespaces to path to found in unit tests
   #
