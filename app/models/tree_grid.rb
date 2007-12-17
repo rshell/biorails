@@ -68,7 +68,7 @@ end
         cell = row.cell(item.parameter)
         unless cell
           cell = GridCell.new(row,item.parameter)
-          logger.info "missing cell in row #{row.id} for #{item.id}" 
+          TreeGrid.logger.info "missing cell in row #{row.id} for #{item.id}" 
         end
         cell.item = item
         cell.value = item.value
@@ -303,7 +303,7 @@ class GridRow
 #   
  def save
     if @context.nil? and @grid.task
-      logger.debug("rows[#{id}].save creating context ")
+      TreeGrid.logger.debug("rows[#{id}].save creating context ")
       
       @context = @grid.task.add_context(definition) 
       @context.row_no = id
