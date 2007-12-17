@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 286) do
+ActiveRecord::Schema.define(:version => 288) do
 
   create_table "IJC_ITEM_INFO", :id => false, :force => true do |t|
     t.string "SCHEMA_ID",  :limit => 32,  :default => "", :null => false
@@ -521,18 +521,17 @@ ActiveRecord::Schema.define(:version => 286) do
   add_index "experiment_logs", ["name"], :name => "experiment_logs_idx8"
   add_index "experiment_logs", ["user_id"], :name => "experiment_logs_user_idx2"
 
-  create_table "experiment_statistics", :force => true do |t|
-    t.integer "experiment_id",                    :default => 0, :null => false
-    t.integer "study_parameter_id"
+  create_table "experiment_statistics", :id => false, :force => true do |t|
+    t.integer "experiment_id",                   :default => 0, :null => false
     t.integer "parameter_role_id"
     t.integer "parameter_type_id"
     t.integer "data_type_id"
     t.float   "avg_values"
     t.float   "stddev_values"
-    t.integer "num_values",         :limit => 20, :default => 0, :null => false
-    t.integer "num_unique",         :limit => 20, :default => 0, :null => false
-    t.float   "max_values"
-    t.float   "min_values"
+    t.integer "num_values",        :limit => 20, :default => 0, :null => false
+    t.integer "num_unique",        :limit => 20, :default => 0, :null => false
+    t.binary  "max_values"
+    t.binary  "min_values"
   end
 
   create_table "experiments", :force => true do |t|
@@ -731,6 +730,37 @@ ActiveRecord::Schema.define(:version => 286) do
   add_index "parameter_contexts", ["parent_id"], :name => "parameter_contexts_idx2"
   add_index "parameter_contexts", ["label"], :name => "parameter_contexts_idx3"
 
+  create_table "parameter_facts", :force => true do |t|
+    t.string  "parameter_name",       :limit => 62
+    t.string  "study_parameter_name"
+    t.string  "parameter_type_name",  :limit => 50,  :default => "",  :null => false
+    t.string  "type_name"
+    t.string  "element_name",         :limit => 50,  :default => ""
+    t.string  "format_name",          :limit => 128, :default => ""
+    t.string  "role_name",            :limit => 50,  :default => "",  :null => false
+    t.string  "version_label",        :limit => 77
+    t.integer "version",              :limit => 6,                    :null => false
+    t.string  "protocol_name",        :limit => 128, :default => "",  :null => false
+    t.string  "study_name",           :limit => 128, :default => "",  :null => false
+    t.string  "context_label"
+    t.integer "context_count",                       :default => 1
+    t.integer "context_level",                       :default => 0
+    t.integer "column_no"
+    t.integer "sequence_num"
+    t.string  "description",          :limit => 62
+    t.string  "mandatory",                           :default => "N"
+    t.string  "default_value"
+    t.string  "display_unit",         :limit => 20
+    t.integer "parameter_type_id"
+    t.integer "parameter_role_id"
+    t.integer "parameter_context_id"
+    t.integer "parent_context_id"
+    t.integer "data_element_id"
+    t.string  "qualifier_style",      :limit => 1
+    t.integer "data_type_id"
+    t.integer "data_format_id"
+  end
+
   create_table "parameter_roles", :force => true do |t|
     t.string   "name",               :limit => 50, :default => "", :null => false
     t.string   "description",                      :default => "", :null => false
@@ -923,17 +953,16 @@ ActiveRecord::Schema.define(:version => 286) do
   add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
 
   create_table "process_statistics", :force => true do |t|
-    t.integer "study_parameter_id"
     t.integer "protocol_version_id"
     t.integer "parameter_id"
-    t.integer "parameter_role_id"
     t.integer "parameter_type_id"
+    t.integer "parameter_role_id"
     t.float   "avg_values"
     t.float   "stddev_values"
     t.integer "num_values",          :limit => 20, :default => 0, :null => false
     t.integer "num_unique",          :limit => 20, :default => 0, :null => false
-    t.float   "max_values"
-    t.float   "min_values"
+    t.binary  "max_values"
+    t.binary  "min_values"
   end
 
   create_table "project_assets", :force => true do |t|
@@ -1681,7 +1710,7 @@ ActiveRecord::Schema.define(:version => 286) do
   add_index "study_stages", ["updated_by_user_id"], :name => "study_stages_idx7"
   add_index "study_stages", ["created_by_user_id"], :name => "study_stages_idx8"
 
-  create_table "study_statistics", :force => true do |t|
+  create_table "study_statistics", :id => false, :force => true do |t|
     t.integer "study_id",                        :default => 0, :null => false
     t.integer "parameter_role_id"
     t.integer "parameter_type_id"
@@ -1690,8 +1719,8 @@ ActiveRecord::Schema.define(:version => 286) do
     t.float   "stddev_values"
     t.integer "num_values",        :limit => 20, :default => 0, :null => false
     t.integer "num_unique",        :limit => 20, :default => 0, :null => false
-    t.float   "max_values"
-    t.float   "min_values"
+    t.binary  "max_values"
+    t.binary  "min_values"
   end
 
   create_table "subscribers", :force => true do |t|
@@ -1990,6 +2019,20 @@ ActiveRecord::Schema.define(:version => 286) do
   add_index "tasks", ["started_at"], :name => "tasks_idx5"
   add_index "tasks", ["ended_at"], :name => "tasks_idx6"
   add_index "tasks", ["priority_id"], :name => "tasks_idx8"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name",               :limit => 30, :default => "", :null => false
+    t.text     "description",                      :default => "", :null => false
+    t.integer  "status_id",                        :default => 0,  :null => false
+    t.integer  "public_role_id",                                   :null => false
+    t.integer  "external_role_id"
+    t.string   "email"
+    t.integer  "lock_version",                     :default => 0,  :null => false
+    t.datetime "created_at",                                       :null => false
+    t.integer  "created_by_user_id",               :default => 1,  :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "updated_by_user_id",               :default => 1,  :null => false
+  end
 
   create_table "tmp_data", :force => true do |t|
   end
