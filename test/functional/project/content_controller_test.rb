@@ -11,10 +11,18 @@ class Project::ContentControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
-    @item = User.find(3).element(:first,:conditions=>"type='ProjectContent'")
+    @item = getItem
     
   end
- 
+  
+  def getItem
+    @item = User.find(3).element(:first,:conditions=>"parent_id is not null and type='ProjectContent'")
+  end
+
+  def getFolder
+    @item = User.find(3).element(:first,:conditions=>"type='ProjectFolder'")
+  end
+  
   # Replace this with your real tests.
   def test_truth
     assert true
@@ -41,14 +49,14 @@ class Project::ContentControllerTest < Test::Unit::TestCase
 
 
   def test_new
-    get :new, :id=>@item.parent_id
+    get :new, :id=>getFolder.id
     assert_response :success
     assert_template 'new'
     assert_not_nil assigns(:project_element)
   end
 
   def test_create
-    post :create, :id=>@item.parent_id, :project_element => {:name=>'dfdsfd',:title=>'testing',:to_html=>'body'}
+    post :create, :id=>getFolder.id, :project_element => {:name=>'dfdsfd',:title=>'testing',:to_html=>'body'}
     assert_response  :redirect
     assert_redirected_to :action => 'show'
     assert_not_nil assigns(:project_element)
@@ -57,7 +65,7 @@ class Project::ContentControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, :id =>  @item.id
+    get :edit, :id =>  getItem.id
     assert_response :success
     assert_template 'edit'
   end

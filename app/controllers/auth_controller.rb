@@ -9,15 +9,11 @@ class AuthController < ApplicationController
       render :action=>'login',:layout=> 'simple'
     else
       user = User.authenticate(params[:login],params[:password])
-      if user and user.enabled?
+      if user and user.enabled?        
         logger.info "User #{params[:login][:name]} successfully logged in"
         set_user(user)
         set_project(user.projects[0])
-        if session[:current_url]
-          redirect_to session[:current_url]
-        else
-          redirect_to home_url(:action=>'show')          
-        end
+        redirect_to session[:current_url] || home_url(:action=>'show')          
       else
         login_failed
       end

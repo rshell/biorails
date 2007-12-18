@@ -34,6 +34,17 @@ require 'digest/sha1'
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
 
+    class AccessDenied < RuntimeError
+      
+    end
+    
+    class NotAuthorized < RuntimeError
+      
+    end
+
+    class NotAuthenticated < RuntimeError
+      
+    end
 ##
 # Populated in Application controller with current user for the transaction
 # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this keeps working 

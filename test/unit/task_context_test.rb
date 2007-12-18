@@ -56,7 +56,7 @@ class TaskContextTest < Test::Unit::TestCase
     
     assert item
     assert item.parameter == parameter
-    assert item.to_s == parameter.default_value
+    assert item.to_s == parameter.default_value.to_s
   end
 
   

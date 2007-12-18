@@ -31,7 +31,7 @@ module ActiveRecord
 #
        def simplified_type(field_type)
           return :boolean if OracleAdapter.emulate_booleans && field_type == 'NUMBER(1)'
-          return :boolean if OracleAdapter.emulate_booleans && field_type == 'CHAR'
+          return :boolean if OracleAdapter.emulate_booleans && field_type == 'CHAR(1)'
           case field_type
             when  'NUMBER' then :float
             when /date|time/i then :datetime

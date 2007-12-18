@@ -92,6 +92,7 @@ protected #----- End of public actions -----------------------------------------
     User.current    = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].nil? 
     Project.current = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
     @clipboard = session[:clipboard] ||= Clipboard.new
+    return true
   end  
 #
 # Clean out the session

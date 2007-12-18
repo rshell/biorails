@@ -8,7 +8,7 @@
 #
 # Should work under 2.0 or 1.2 rails unlocked as testing with 2.0 at present
 # 
-# RAILS_GEM_VERSION = '1.2.6'
+#RAILS_GEM_VERSION = '1.2.6'
 # RAILS_GEM_VERSION = '2.0.1'
 
 # Bootstrap the Rails environment, frameworks, and default configuration

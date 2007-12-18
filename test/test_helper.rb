@@ -63,7 +63,6 @@ class Test::Unit::TestCase
 
   Biorails::Dba.import_model :requests
   Biorails::Dba.import_model :request_services
-  Biorails::Dba.import_model :queue_items
 
   Biorails::Dba.import_model :study_parameters
   Biorails::Dba.import_model :study_queues
@@ -78,6 +77,8 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :task_contexts
   Biorails::Dba.import_model :task_values
   Biorails::Dba.import_model :task_texts
+
+  Biorails::Dba.import_model :queue_items
  
   
   # 
