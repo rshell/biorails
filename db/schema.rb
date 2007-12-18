@@ -23,6 +23,33 @@ ActiveRecord::Schema.define(:version => 288) do
     t.integer  "created_by_user_id",                  :precision => 11, :scale => 0, :default => 1,  :null => false
   end
 
+  create_table "analysis_settings", :force => true do |t|
+    t.integer  "analysis_method_id",                :precision => 11, :scale => 0
+    t.string   "name",               :limit => 62
+    t.text     "script_body",        :limit => nil
+    t.text     "options",            :limit => nil
+    t.integer  "parameter_id",                      :precision => 11, :scale => 0
+    t.integer  "data_type_id",                      :precision => 11, :scale => 0
+    t.integer  "level_no",                          :precision => 11, :scale => 0
+    t.integer  "column_no",                         :precision => 11, :scale => 0
+    t.integer  "io_mode",                           :precision => 11, :scale => 0
+    t.string   "mandatory",                                                        :default => "N"
+    t.string   "default_value"
+    t.datetime "created_at",                                                                        :null => false
+    t.datetime "updated_at",                                                                        :null => false
+    t.integer  "updated_by_user_id",                :precision => 11, :scale => 0, :default => 1,   :null => false
+    t.integer  "created_by_user_id",                :precision => 11, :scale => 0, :default => 1,   :null => false
+  end
+
+  add_index "analysis_settings", ["created_at"], :name => "analysis_settings_idx13"
+  add_index "analysis_settings", ["updated_at"], :name => "analysis_settings_idx14"
+  add_index "analysis_settings", ["updated_by_user_id"], :name => "analysis_settings_idx15"
+  add_index "analysis_settings", ["created_by_user_id"], :name => "analysis_settings_idx16"
+  add_index "analysis_settings", ["analysis_method_id"], :name => "analysis_settings_idx2"
+  add_index "analysis_settings", ["name"], :name => "analysis_settings_idx3"
+  add_index "analysis_settings", ["parameter_id"], :name => "analysis_settings_idx6"
+  add_index "analysis_settings", ["data_type_id"], :name => "analysis_settings_idx7"
+
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id",                  :precision => 11, :scale => 0
     t.string   "auditable_type"
@@ -730,6 +757,7 @@ ActiveRecord::Schema.define(:version => 288) do
     t.integer  "created_by_user_id",                   :precision => 11, :scale => 0, :default => 1,  :null => false
     t.integer  "requested_by_user_id",                 :precision => 11, :scale => 0, :default => 1
     t.integer  "assigned_to_user_id",                  :precision => 11, :scale => 0, :default => 1
+    t.integer  "lock_version",                         :precision => 11, :scale => 0
   end
 
   add_index "queue_items", ["created_at"], :name => "queue_items_idx15"
@@ -821,6 +849,7 @@ ActiveRecord::Schema.define(:version => 288) do
     t.integer  "created_by_user_id",                   :precision => 11, :scale => 0, :default => 1,  :null => false
     t.integer  "requested_by_user_id",                 :precision => 11, :scale => 0, :default => 1
     t.integer  "assigned_to_user_id",                  :precision => 11, :scale => 0, :default => 1
+    t.integer  "lock_version",                         :precision => 11, :scale => 0
   end
 
   add_index "request_services", ["created_at"], :name => "request_services_idx10"
