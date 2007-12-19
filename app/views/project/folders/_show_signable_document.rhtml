@@ -1,0 +1,28 @@
+<% dialog "Sign Folder under #{folder.path} " do %>
+<%= SystemSettings.get('author_assert_text') %>
+<% form_for(:signatures , :url=>signature_url(:action=>'sign_as_author',:id=>folder.id)) do |f| -%>
+
+  <div class="row">
+    <div class="form-element">
+        <label for="public_key">Paste your public key here</label>
+        <%= text_area :public_key %>
+    </div>
+    <div class="form-element">
+         <label for="study_name">Signed by</label>
+         <%= current_user.name %>
+         <%= hidden_field :user, current_user.id %>
+         <%= hidden_field :title, "project_folder-"+folder.auditable_id %>
+         <%= hidden_field :filename, folder.signed_pdf_file_path %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= submit_tag "Sign" %>
+  </div>
+ <% end %>
+<% end %>
+<br/>
+<%= document %>
+
+
+
