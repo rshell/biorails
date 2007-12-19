@@ -4,6 +4,12 @@ app_subtitle:
   default: Project organization and data management
 welcome_text:
   default: Welcome to Biorails
+hash_format:
+  default: MD5
+author_assert_text: 
+  default: I assert that the document below is my work and affirm this by attaching my electronic signature
+witness_assert_text: 
+  default: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
 login_required:
   default: 0
 self_registration:

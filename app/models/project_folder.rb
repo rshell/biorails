@@ -48,12 +48,16 @@
 #  * Page of all items in the folder in order 
 # 
 require 'pathname'
+require 'has_file'
 class ProjectFolder < ProjectElement
 
   cattr_accessor :current
 ##
 # Details of the order
 #   Checking studies
+#put all pdfs made from this folder into the same directory 
+has_file :signed_pdf, 'public/documents/folder_'+ self.id.to_s + '/'
+
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],

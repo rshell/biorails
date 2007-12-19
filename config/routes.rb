@@ -47,6 +47,7 @@ ActionController::Routing::Routes.draw do |map|
   map.element  'element/:action/:id', :controller => 'project/folders',:center=>'layout'
   map.content 'content/:action/:id', :controller => 'project/content'
   map.asset   'asset/:action/:id', :controller => 'project/assets'
+  map.signature   'signatures/:action/:id', :controller => 'project/signatures'
 ##
 # Studies
 #  

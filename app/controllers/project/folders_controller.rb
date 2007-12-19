@@ -5,7 +5,7 @@ class Project::FoldersController < ApplicationController
   use_authorization :folders,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
-  
+
   def index
     redirect_to :action => 'show' ,:id=>current_project.home
   end
@@ -66,7 +66,38 @@ class Project::FoldersController < ApplicationController
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
     end  
   end
-  
+###
+##
+# Sign the folder by creating a pdf of the cntents and displaying a form for signature  
+  def sign
+    folder = current_user.folder(params[:folder_id]||params[:id])
+    @signable_document="<h2>"<< folder.name << "</h2>"
+     for item in folder.children     
+       if item.asset? and item.asset.image? 
+         @signable_document << "<h4>Figure: " << item.name << "</h4>"
+         @signable_document << "<p><img src='"  << item.asset.public_filename << "' alt='" << item.name << "'/></p>"
+         @signable_document << "<i>" << item.description << "</i>"
+       elsif item.textual? 
+         @signable_document << "<h2>" << item.content.title << "</h2>"
+         @signable_document << "<p>" << item.to_html << "</p>"
+       else 
+         @signable_document << "<h2>" << item.title << "</h2>"
+         @signable_document << item.to_html
+       end
+       #use has_file lib to save pdf to temp directory
+    folder.signed_pdf=render_to_pdf @signable_document
+    end
+    respond_to do |format|
+      format.html { render :action=>'print'}
+      format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
+      format.js  { render :update do | page |  
+          page.help_panel     :partial => 'help'
+          page.status_panel   :partial => 'status'
+          page.main_panel     :partial => 'show_signable_document',:locals=>{:current_user=>current_user,:folder=>folder, :document=>@signable_document}
+       end
+     }
+    end
+  end
 ##
 #
 #  
@@ -294,7 +325,13 @@ class Project::FoldersController < ApplicationController
   end  
   
 protected
-
+  def render_to_pdf html
+     pdf = PDF::HTMLDoc.new
+      pdf.set_option :webpage, true
+      pdf.set_option :toc, true
+      pdf.set_option :links, false
+      pdf << html
+    end
     def get_folder_page
 	  
     @project_folder = current_user.folder(params[:id]) 
