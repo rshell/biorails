@@ -332,6 +332,8 @@ protected
       pdf.set_option :links, false
       pdf << html
     end
+    
+  
     def get_folder_page
 	  
     @project_folder = ProjectFolder.find(params[:id]) 

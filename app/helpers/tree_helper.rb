@@ -43,7 +43,7 @@ module TreeHelper
                     :updated_at => item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
                     :actions =>  actions }
     end
-    {:folder_id => folder.id, :path => folder.path,  :total => folder.elements.count,:items => list }.to_json	    
+    {:folder_id => folder.id, :path => folder.path,  :total => list.size ,:items => list }.to_json	    
   end
 
 # 

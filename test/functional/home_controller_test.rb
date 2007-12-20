@@ -57,11 +57,6 @@ class HomeControllerTest < Test::Unit::TestCase
     assert_response :success
   end
   
-  def test005_projects
-    get :projects
-    assert_response :success
-  end
-
   def test006_news
     post :news,  @params, @session
     assert_response :success

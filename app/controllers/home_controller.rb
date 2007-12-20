@@ -22,23 +22,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def projects
-   @user = current_user    
-   @report = Report.internal_report("My Projects",Membership) do | report |
-      report.column('user_id').filter = @user.id
-      report.column('project.project_id').is_visible = false
-      report.column('id').is_visible = false
-      report.column('project.name').customize(:order_num=>1)
-      report.column('project.summary').is_visible = true
-      report.column('role.name').action = :show
-      report.column('owner').action = :show
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-   end
-   @data = @report.run(:page => params[:page])
-   render :action => :report
-  end
-
   def news
    @user = current_user    
    @report = Report.internal_report("My News",ProjectElement) do | report |

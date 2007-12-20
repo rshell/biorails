@@ -110,7 +110,7 @@ class User < ActiveRecord::Base
   has_many :audits  
 
   def projects 
-    Project.find(:all,:conditions=>['exists (select 1 from teams t,memberships m where m.team_id=t.id and projects.team_id = t.id and m.user_id=?)',self.id])
+    Project.find(:all,:include=>[:team => [:memberships]],:conditions=>['memberships.user_id=?',self.id]) 
   end  
 ##
 # This record has a full audit log created for changes 
