@@ -5,13 +5,13 @@
   <div class="row">
     <div class="form-element">
         <label for="public_key">Paste your public key here</label>
-        <%= text_area :public_key %>
+        <%= f.text_area :public_key %>
     </div>
     <div class="form-element">
          <label for="study_name">Signed by</label>
          <%= current_user.name %>
-         <%= hidden_field :user, current_user.id %>
-         <%= hidden_field :title, "project_folder-"+folder.auditable_id %>
+         <%= hidden_field :user, current_user.id.to_s %>
+         <%= hidden_field :title, "project_folder-"+folder.id.to_s %>
          <%= hidden_field :filename, folder.signed_pdf_file_path %>
     </div>
   </div>

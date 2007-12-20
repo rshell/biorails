@@ -27,13 +27,13 @@ class Signature < ActiveRecord::Base
      return Time.at(ntp['Originate Timestamp']).utc
    end
  
-  defaults :signature_format=>SystemSettings.get('hash_format').text, :signed_date=> set_signature_time
+  defaults :signature_format=>SystemSettings.get('hash_format').text, :signed_date=> set_signature_time, :asset=>Asset.new
   Statuses= %w{PENDING, SIGNED, ABANDONED}
   SignatureRoles=%w{AUTHOR, WITNESS}
   SignatureFormats=%w{SHA1, SHA512, MD5}
   
-    validates_inclusion_of :signature_state,  :in => Statuses
-    validates_inclusion_of :signature_role,   :in => SignatureRoles
+   # validates_inclusion_of :signature_state,  :in => Statuses
+   # validates_inclusion_of :signature_role,   :in => SignatureRoles
     validates_inclusion_of :signature_format, :in => SignatureFormats
   
  ###########################################################################
@@ -41,8 +41,10 @@ class Signature < ActiveRecord::Base
  #
  ###########################################################################
   def before_save
-    pub_key=OpenSSL::PKey::RSA.new(public_key)
-    content_hash=Base64.encode64(public_key.public_encrypt(text_to_sign))
+    #this needs a lot of work yet - just proof of concept
+    new_key=OpenSSL::PKey::RSA.generate(2048)
+    new_public=new_key.public_key
+   self.content_hash=Base64.encode64(new_public.public_encrypt(text_to_sign))
   end
   def text_to_sign
     signed_text=[]
@@ -67,10 +69,12 @@ class Signature < ActiveRecord::Base
   end
   
   def generate_checksum  
-      filename = self.asset.filename ||=''
+    p  filename = self.asset.filename ||=''
       title=self.asset.title ||=''
       created=self.asset.created_at.to_s
-      data = 'file:' << filename << '~~'<< title << '~~' << created
+      data = 'file:' << filename 
+      data << '~~'<< title 
+      data << '~~' << created
     begin
       case self.signature_format
         when 'SHA512'

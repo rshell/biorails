@@ -1,20 +1,20 @@
 class Project::SignaturesController < ApplicationController
-  def sign 
-    @sig.asset.title=params[:title]
-    @sig.asset.filename=params[:filename]
-    @sig.signer=params[:user]
-    @sig.generate_checksum
-    @sig.public_key=params[:public_key]
-    @sig.save!
+  def sign(sig) 
+    sig.asset.title=params[:title].shift[0]
+    sig.asset.filename=params[:filename].shift[0]
+    sig.signer=params[:user]
+    sig.generate_checksum
+    sig.public_key=params[:public_key]
+    sig.signature_state='SIGNED'
+    sig.save!
+    redirect_to :controller=>'folders', :action=>'show', :id=>params[:id]
   end
   
   def sign_as_author
-    @sig=AuthorSignature.new
-    sign
+    sign(AuthorSignature.new)
   end
   
   def sign_as_witness
-    @sig=WitnessSignature.new
-    sign
+     sign(WitnessSignature.new)
   end
 end
