@@ -13,6 +13,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2007-04-03 16:44:25
+  attributes_cache: {}
+
 00000000027_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Task
@@ -27,6 +29,8 @@
     created_by_user_id: "1"
     parent_id: "4"
     created_at: 2006-11-22 12:53:17
+  attributes_cache: {}
+
 00000000002_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Subject
@@ -41,6 +45,8 @@
     created_by_user_id: "1"
     parent_id: "1"
     created_at: 2006-09-06 19:33:33
+  attributes_cache: {}
+
 00000000056_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Route
@@ -55,6 +61,8 @@
     created_by_user_id: "3"
     parent_id: "3"
     created_at: 2007-06-13 12:30:12
+  attributes_cache: {}
+
 00000000048_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Users
@@ -69,6 +77,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2007-02-28 17:55:48
+  attributes_cache: {}
+
 00000000004_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Organization
@@ -83,6 +93,8 @@
     created_by_user_id: "1"
     parent_id: "1"
     created_at: 2006-09-06 19:35:33
+  attributes_cache: {}
+
 00000000001_data_context: !ruby/object:DataContext 
   attributes: 
     name: BioRails
@@ -100,6 +112,8 @@
     created_by_user_id: "1"
     parent_id: 
     created_at: 2007-01-22 15:23:29
+  attributes_cache: {}
+
 00000000047_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Species
@@ -114,6 +128,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2007-01-31 13:51:33
+  attributes_cache: {}
+
 00000000033_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Groups
@@ -128,6 +144,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-12-12 13:53:02
+  attributes_cache: {}
+
 00000000010_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Specimens
@@ -142,6 +160,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:36:24
+  attributes_cache: {}
+
 00000000009_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Treatment
@@ -156,6 +176,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:36:13
+  attributes_cache: {}
+
 00000000053_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ProtocolStatus
@@ -170,6 +192,8 @@
     created_by_user_id: "3"
     parent_id: "3"
     created_at: 2007-06-06 20:37:19
+  attributes_cache: {}
+
 00000000024_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Experiment
@@ -184,6 +208,8 @@
     created_by_user_id: "1"
     parent_id: "4"
     created_at: 2006-11-22 12:49:19
+  attributes_cache: {}
+
 00000000030_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ParameterType
@@ -198,6 +224,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-11-22 12:56:57
+  attributes_cache: {}
+
 00000000007_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Batches
@@ -212,6 +240,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:36:00
+  attributes_cache: {}
+
 00000000055_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: PickLists
@@ -226,6 +256,8 @@
     created_by_user_id: "3"
     parent_id: "4"
     created_at: 2007-06-13 11:57:22
+  attributes_cache: {}
+
 00000000051_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Folder
@@ -240,6 +272,8 @@
     created_by_user_id: "2"
     parent_id: "4"
     created_at: 2007-04-30 15:12:38
+  attributes_cache: {}
+
 00000000039_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Roles
@@ -254,6 +288,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2007-01-19 16:04:03
+  attributes_cache: {}
+
 00000000028_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: DataType
@@ -268,6 +304,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-11-22 12:53:47
+  attributes_cache: {}
+
 00000000011_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Lists
@@ -282,6 +320,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:36:32
+  attributes_cache: {}
+
 00000000054_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ResearchArea
@@ -296,6 +336,8 @@
     created_by_user_id: "3"
     parent_id: "3"
     created_at: 2007-06-06 20:37:46
+  attributes_cache: {}
+
 00000000049_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Project
@@ -310,6 +352,8 @@
     created_by_user_id: "1"
     parent_id: "4"
     created_at: 2007-03-20 15:53:10
+  attributes_cache: {}
+
 00000000031_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ParameterRole
@@ -324,6 +368,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-11-22 12:57:18
+  attributes_cache: {}
+
 00000000026_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Unit
@@ -338,6 +384,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-11-22 12:52:30
+  attributes_cache: {}
+
 00000000008_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Plate
@@ -352,6 +400,8 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:36:07
+  attributes_cache: {}
+
 00000000058_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Scores
@@ -366,6 +416,8 @@
     created_by_user_id: "3"
     parent_id: "3"
     created_at: 2007-06-13 14:47:56
+  attributes_cache: {}
+
 00000000052_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ProtocolCatagory
@@ -380,6 +432,8 @@
     created_by_user_id: "3"
     parent_id: "3"
     created_at: 2007-06-06 20:36:51
+  attributes_cache: {}
+
 00000000029_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: DataFormat
@@ -394,6 +448,8 @@
     created_by_user_id: "1"
     parent_id: "3"
     created_at: 2006-11-22 12:56:05
+  attributes_cache: {}
+
 00000000025_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Protocol
@@ -408,6 +464,8 @@
     created_by_user_id: "1"
     parent_id: "4"
     created_at: 2006-11-22 12:52:00
+  attributes_cache: {}
+
 00000000003_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Catalogue
@@ -422,6 +480,8 @@
     created_by_user_id: "1"
     parent_id: "1"
     created_at: 2006-09-06 19:35:22
+  attributes_cache: {}
+
 00000000006_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Compounds
@@ -436,3 +496,5 @@
     created_by_user_id: "1"
     parent_id: "2"
     created_at: 2006-09-06 19:35:50
+  attributes_cache: {}
+

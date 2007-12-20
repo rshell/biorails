@@ -14,6 +14,8 @@
     study_id: "1"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000009_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Concentration
@@ -29,6 +31,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000010_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Receptor
@@ -44,6 +48,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000007_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: CPM
@@ -59,6 +65,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000012_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Species
@@ -74,6 +82,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: "122"
+  attributes_cache: {}
+
 00000000008_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: IC50
@@ -89,6 +99,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000013_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Inhibition
@@ -104,6 +116,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000002_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Length
@@ -119,6 +133,8 @@
     study_id: "1"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000003_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
@@ -134,6 +150,8 @@
     study_id: "1"
     created_by_user_id: "3"
     data_element_id: "35"
+  attributes_cache: {}
+
 00000000011_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound Role
@@ -149,6 +167,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: "116"
+  attributes_cache: {}
+
 00000000005_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Dose
@@ -164,6 +184,8 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000001_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Concentration
@@ -179,6 +201,8 @@
     study_id: "1"
     created_by_user_id: "3"
     data_element_id: 
+  attributes_cache: {}
+
 00000000006_study_parameter: !ruby/object:StudyParameter 
   attributes: 
     name: Compound
@@ -194,3 +218,5 @@
     study_id: "2"
     created_by_user_id: "3"
     data_element_id: "35"
+  attributes_cache: {}
+

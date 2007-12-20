@@ -56,7 +56,11 @@ class Experiment < ActiveRecord::Base
 #Owner project
 #  
   belongs_to :project  
-
+#
+# access control managed via team
+# 
+  access_control_via  :team
+  
 ##
 # The experiment is a summary of the tasks
 #
@@ -89,6 +93,10 @@ class Experiment < ActiveRecord::Base
 #
   belongs_to :protocol, :class_name =>'StudyProtocol', :foreign_key=>'study_protocol_id' 
 
+def before_create 
+  self.team_id = self.project.team_id if self.project    
+end
+
 def before_update
     ref = self.folder
     if ref.name !=self.name
@@ -103,7 +111,7 @@ end
 
   def self.visible(*args)
     self.with_scope( :find => {
-         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=experiments.project_id)',User.current.id]
+         :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.team_id=experiments.team_id)',User.current.id]
         })  do
        self.find(*args)
     end

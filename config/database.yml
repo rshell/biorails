@@ -10,13 +10,13 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-development:
+oracle_development:
   adapter:  oracle
   database: //localhost/xe
   username: biorails
   password: moose
 
-my_development:
+development:
   adapter: mysql
   database: biorails2_development
   username: biorails 
@@ -26,7 +26,7 @@ my_development:
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
 # Do not set this db to the same as development or production.
-my_test:
+test:
   adapter: mysql
   database: biorails2_test
   username: biorails
@@ -36,7 +36,7 @@ my_test:
 #
 # Data base specific Test configrations
 #
-test:
+oracle_test:
   adapter: oracle
   database: //localhost/xe
   username: biorails2_test

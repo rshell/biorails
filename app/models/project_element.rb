@@ -99,7 +99,7 @@ class ProjectElement < ActiveRecord::Base
 #
   def self.visible(*args)
     self.with_scope( :find => {
-      :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.project_id=project_elements.project_id)',User.current.id]
+      :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.team_id = project_elements.team_id)',User.current.id]
         })  do
         self.find(*args)
     end

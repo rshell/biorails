@@ -171,6 +171,7 @@ Biorails = function(){
                     {text: "Parameter types",iconCls:'icon-parameter-type' , href:'/admin/parameters',  scope: this },
                     {text: "Parameter Roles",iconCls:'icon-parameter-role' , href:'/admin/usage', scope: this },
                     '-',
+                    {text: "Teams",iconCls:'icon-team' , href:'/admin/teams', scope: this },
                     {text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
                     {text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
                 ]}},

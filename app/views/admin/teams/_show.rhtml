@@ -1,0 +1,49 @@
+<%if @team%>
+
+<%if @team.owner?(current_user)%>
+  <h2> team <%= in_place_editor_field :team, 'name' ,:cols=>80 %></h2>
+  <b>Summary:</b> <%= in_place_editor_field :team, 'description',{},{:cols=>100,:rows=>4} %>
+<%else%>
+  <h2> team <%= @team.name %></h2>
+  <b>Summary:</b> <%= @team.summary %>
+<%end%>
+
+
+<div class="splitcontentleft">
+  <div class="box">
+      <h3><%=l('News (Recent Articles)')%></h3>
+      <% for item in @team.news(10) %>
+          <li>
+          <%= image_tag(item.icon) %>
+          <%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
+          <%= item.summary %>
+          </li>
+      <% end %>
+  </div>
+</div>
+
+<div class="splitcontentright">    
+  <div class="box">
+    <h3 class="icon icon-experiment"><%=l('Users')%></h3>
+     <table id="project_members" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Owner</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @memberships %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=item.user.name %></td>
+            <td> <%(item.owner? ? 'Yes' : 'No')%></td>
+            <td> <%=h item.role.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+</div>  
+
+<%end%>

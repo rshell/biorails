@@ -2,7 +2,7 @@
 <h3>Implement of concept <%=@data_concept.name%> </h3>
 <p>
 These are actual data element lookup list of values associated with a concept. This are defined internally or linked to external databases.
-To managed the external data systems jump to this <%= link_to ('list',{:controller=>'data_systems', :action => 'list'})  %>
+To managed the external data systems jump to this <%= link_to('list',{:controller=>'data_systems', :action => 'list'})  %>
 </p>
  <table class="report" width='100%'>
    <thead>  
@@ -27,7 +27,7 @@ To managed the external data systems jump to this <%= link_to ('list',{:controll
        <td> <%=row.parameters.size %> </td>
        <td> <%=row.study_parameters.size %></td>
        <td>
-         <%= link_to_remote ((subject_icon('delete')) + 'Delete',:url => { :action => 'remove_element' ,:id=> row.id}, 
+         <%= link_to_remote( subject_icon('delete') + 'Delete',:url => { :action => 'remove_element' ,:id=> row.id}, 
                                :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
        </td>
     </tr>
@@ -35,6 +35,6 @@ To managed the external data systems jump to this <%= link_to ('list',{:controll
    </tbody>
    
  </table>
- <%= link_to_remote (subject_icon('new.png')) + 'Add', :url => { :action => 'new_element' ,:id=> @data_concept.id } %>  
+ <%= link_to_remote(subject_icon('new.png') + 'Add', :url => { :action => 'new_element' ,:id=> @data_concept.id }) %>  
 
  

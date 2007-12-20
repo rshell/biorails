@@ -1,6 +1,7 @@
 --- 
 00000000001_project: !ruby/object:Project 
   attributes: 
+    team_id: "1"
     done_hours: 
     name: Global
     expected_hours: 
@@ -19,8 +20,11 @@
     started_at: 
     created_at: 0000-00-00 00:00:00
     email: 
+  attributes_cache: {}
+
 00000000002_project: !ruby/object:Project 
   attributes: 
+    team_id: "2"
     done_hours: 
     name: Project X
     expected_hours: 
@@ -39,8 +43,11 @@
     started_at: 
     created_at: 2007-12-07 18:47:05
     email: 
+  attributes_cache: {}
+
 00000000003_project: !ruby/object:Project 
   attributes: 
+    team_id: "3"
     done_hours: 
     name: Project Y
     expected_hours: 
@@ -59,8 +66,11 @@
     started_at: 
     created_at: 2007-12-11 10:18:25
     email: 
+  attributes_cache: {}
+
 00000000004_project: !ruby/object:Project 
   attributes: 
+    team_id: "4"
     done_hours: 
     name: Project Z
     expected_hours: 
@@ -79,3 +89,5 @@
     started_at: 
     created_at: 2007-12-11 10:19:13
     email: 
+  attributes_cache: {}
+

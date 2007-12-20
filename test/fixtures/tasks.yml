@@ -1,6 +1,7 @@
 --- 
 00000000002_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: Task2
@@ -22,19 +23,22 @@
     is_milestone: "1"
     created_at: 2007-12-11 20:31:40
     started_at: 2007-12-11 00:00:00
+  attributes_cache: {}
+
 00000000001_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "1"
     name: Task1
     project_id: "2"
-    updated_at: 2007-12-10 20:22:33
+    updated_at: 2007-12-19 09:43:55
     expected_hours: "1"
     ended_at: 
     protocol_version_id: "1"
     expected_at: 2007-12-11 00:00:00
     updated_by_user_id: "3"
-    lock_version: "0"
+    lock_version: "18"
     priority_id: 
     study_protocol_id: "1"
     id: "1"
@@ -45,8 +49,11 @@
     is_milestone: 
     created_at: 2007-12-10 20:22:33
     started_at: 2007-12-10 00:00:00
+  attributes_cache: {}
+
 00000000007_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: Task-78
@@ -68,8 +75,11 @@
     is_milestone: 
     created_at: 2007-12-12 14:38:02
     started_at: 2007-12-12 14:38:02
+  attributes_cache: {}
+
 00000000006_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: Task-77
@@ -91,8 +101,11 @@
     is_milestone: 
     created_at: 2007-12-12 14:08:09
     started_at: 2007-12-12 14:08:09
+  attributes_cache: {}
+
 00000000005_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: TaskbyWS
@@ -114,8 +127,11 @@
     is_milestone: 
     created_at: 2007-12-12 12:22:37
     started_at: 2007-12-12 12:22:37
+  attributes_cache: {}
+
 00000000004_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: Task4
@@ -137,8 +153,11 @@
     is_milestone: 
     created_at: 2007-12-12 11:11:34
     started_at: 2007-12-12 00:00:00
+  attributes_cache: {}
+
 00000000003_task: !ruby/object:Task 
   attributes: 
+    team_id: "2"
     done_hours: "0"
     experiment_id: "2"
     name: Task3
@@ -160,3 +179,5 @@
     is_milestone: "1"
     created_at: 2007-12-12 11:02:08
     started_at: 2007-12-12 00:00:00
+  attributes_cache: {}
+

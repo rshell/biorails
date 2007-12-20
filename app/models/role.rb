@@ -88,8 +88,13 @@ class Role < ActiveRecord::Base
  
  
  def permission?(user,subject,action)
-   logger.info("check permission? #{user} #{subject} #{action}")
-   return  allow?(subject,action)
+   if  allow?(subject,action)
+     logger.info("passed permission? #{user.to_s} #{subject} #{action}")
+     return  true
+   else
+     logger.info("failed permission? #{user.to_s} #{subject} #{action}")
+     return false
+   end
  end
  
   

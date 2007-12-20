@@ -24,6 +24,8 @@
     data_id: "5"
     created_at: 2007-12-12 11:40:03
     started_at: 
+  attributes_cache: {}
+
 00000000004_queue_item: !ruby/object:QueueItem 
   attributes: 
     data_name: Compound1
@@ -49,6 +51,8 @@
     data_id: "1"
     created_at: 2007-12-12 11:37:15
     started_at: 2007-12-12 11:41:04
+  attributes_cache: {}
+
 00000000003_queue_item: !ruby/object:QueueItem 
   attributes: 
     data_name: Compound2
@@ -74,6 +78,8 @@
     data_id: "2"
     created_at: 2007-12-12 11:37:15
     started_at: 2007-12-12 11:41:06
+  attributes_cache: {}
+
 00000000002_queue_item: !ruby/object:QueueItem 
   attributes: 
     data_name: Compound1
@@ -99,6 +105,8 @@
     data_id: "1"
     created_at: 2007-12-12 11:37:15
     started_at: 2007-12-12 11:45:25
+  attributes_cache: {}
+
 00000000001_queue_item: !ruby/object:QueueItem 
   attributes: 
     data_name: Compound2
@@ -124,6 +132,8 @@
     data_id: "2"
     created_at: 2007-12-12 11:37:15
     started_at: 
+  attributes_cache: {}
+
 00000000006_queue_item: !ruby/object:QueueItem 
   attributes: 
     data_name: Compound5
@@ -149,3 +159,5 @@
     data_id: "5"
     created_at: 2007-12-12 11:40:03
     started_at: 2007-12-12 11:40:59
+  attributes_cache: {}
+

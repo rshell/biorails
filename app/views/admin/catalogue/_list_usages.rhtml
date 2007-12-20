@@ -1,7 +1,7 @@
 <h3>Usage of concept <%=@data_concept.name%> in parameter types</h3>
 <p>
 These are actual usages of the concept as a defined volcabary for Parameter Type. This is how catagorized data values are managed within the system.
- To manage the parameter type jump to this <%= link_to ('list',{:controller=>'parameter_types', :action => 'list'})  %> .  
+ To manage the parameter type jump to this <%= link_to('list',{:controller=>'parameter_types', :action => 'list'})  %> .  
 </p>
 
  <table class="report" width='100%'>
@@ -23,15 +23,14 @@ These are actual usages of the concept as a defined volcabary for Parameter Type
        </td>
        <% end %>
        <td> 
-         <%= link_to ((subject_icon('delete')) + 'Delete',
+         <%= link_to( subject_icon('delete') + 'Delete',
                parameter_type_url(:action => 'destroy' ,:id=> row.id),
                :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
        </td>      
      </tr>
-    </tr>
     <% end %>
    </tbody>
    
  </table>
- <%= link_to_remote (subject_icon('new.png')) + 'Add', :url=>{ :action => 'new_usage', :id=> @data_concept.id } %>  
+ <%= link_to_remote(  subject_icon('new.png') + 'Add', :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>  
  

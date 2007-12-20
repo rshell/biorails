@@ -58,11 +58,40 @@ class UserTest < Test::Unit::TestCase
   
   def test004_create_project
      user = User.find(:first)
-
      project = user.create_project(:name=>"test-projectss",:summary=>'somthing')
      assert_ok project
      assert user.projects.detect{|i|i==project}, "project on my list"
-     assert user.memberships.detect{|i|i.project ==project}, "project is on my membership list"
   end
   
+  
+  def test005_check_access_control
+     user = User.find_by_name('test5')
+     user.destroy if user
+     user = User.new(:name=>'test5')
+     assert user.changable?
+     user.set_password "xxx-xxx"
+     user.fullname="test account"
+     user.admin =false
+     user.role = Role.find(:first)
+     user.login='ddddddddddddd'
+     assert user.save, 'save test5 user'
+     
+     assert user.changable?
+     assert user.visible?
+  end
+  
+  def test006_visible?
+     user = User.new(:name=>'test6')
+     assert user.new_record?, "should be a new record"
+     assert user.changable?, "should be changable"
+  end
+  
+  def test007_permission?
+     user = User.new(:name=>'test7')
+     role = Role.find(:first)
+     user.role = role
+     assert user.new_record?
+     assert user.changable?
+     assert user.role == role
+  end
 end

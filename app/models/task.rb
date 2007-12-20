@@ -174,7 +174,7 @@ end
 #
   def self.visible(*args)
     self.with_scope( :find => {
-         :conditions=> ['exists (select 1 from memberships m,experiments e where e.id = tasks.experiment_id and m.user_id=? and m.project_id=e.project_id)',User.current.id]
+         :conditions=> ['exists (select 1 from memberships m,experiments e where e.id = tasks.experiment_id and m.user_id=? and m.team_id=e.team_id)',User.current.id]
         })  do
        self.find(*args)
     end

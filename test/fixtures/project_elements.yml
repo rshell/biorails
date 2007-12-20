@@ -1,6 +1,7 @@
 --- 
 00000000058_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task4
     content_id: 
     updated_at: 2007-12-12 11:11:34
@@ -20,8 +21,11 @@
     parent_id: "49"
     asset_id: 
     created_at: 2007-12-12 11:11:34
+  attributes_cache: {}
+
 00000000051_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Experiment3
     content_id: 
     updated_at: 2007-12-11 20:37:20
@@ -41,8 +45,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-11 20:37:20
+  attributes_cache: {}
+
 00000000029_project_content: !ruby/object:ProjectContent 
   attributes: 
+    team_id: "2"
     name: Article1
     content_id: "17"
     updated_at: 2007-12-11 16:18:48
@@ -62,8 +69,11 @@
     parent_id: "14"
     asset_id: 
     created_at: 2007-12-11 16:12:19
+  attributes_cache: {}
+
 00000000018_project_content: !ruby/object:ProjectContent 
   attributes: 
+    team_id: "2"
     name: Art1Folder1
     content_id: "5"
     updated_at: 2007-12-11 12:12:13
@@ -83,8 +93,11 @@
     parent_id: "17"
     asset_id: 
     created_at: 2007-12-11 12:12:13
+  attributes_cache: {}
+
 00000000017_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Folder1
     content_id: 
     updated_at: 2007-12-11 12:09:44
@@ -104,8 +117,11 @@
     parent_id: "7"
     asset_id: 
     created_at: 2007-12-11 12:09:44
+  attributes_cache: {}
+
 00000000003_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Study1
     content_id: 
     updated_at: 2007-12-07 19:28:03
@@ -125,8 +141,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-07 19:28:03
+  attributes_cache: {}
+
 00000000050_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task2
     content_id: 
     updated_at: 2007-12-11 20:31:41
@@ -146,8 +165,11 @@
     parent_id: "49"
     asset_id: 
     created_at: 2007-12-11 20:31:41
+  attributes_cache: {}
+
 00000000049_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Experiment2
     content_id: 
     updated_at: 2007-12-11 20:31:15
@@ -167,8 +189,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-11 20:31:15
+  attributes_cache: {}
+
 00000000013_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "4"
     name: Project Z
     content_id: 
     updated_at: 2007-12-11 10:19:13
@@ -188,8 +213,11 @@
     parent_id: 
     asset_id: 
     created_at: 2007-12-11 10:19:13
+  attributes_cache: {}
+
 00000000059_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "4"
     name: Req1
     content_id: 
     updated_at: 2007-12-12 11:35:52
@@ -209,8 +237,11 @@
     parent_id: "13"
     asset_id: 
     created_at: 2007-12-12 11:35:52
+  attributes_cache: {}
+
 00000000056_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task3
     content_id: 
     updated_at: 2007-12-12 11:02:38
@@ -230,8 +261,11 @@
     parent_id: "49"
     asset_id: 
     created_at: 2007-12-12 11:02:08
+  attributes_cache: {}
+
 00000000030_project_asset: !ruby/object:ProjectAsset 
   attributes: 
+    team_id: "2"
     name: ball.jpg
     content_id: 
     updated_at: 2007-12-11 16:13:03
@@ -251,8 +285,11 @@
     parent_id: "14"
     asset_id: "26"
     created_at: 2007-12-11 16:13:02
+  attributes_cache: {}
+
 00000000004_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Protocol1
     content_id: 
     updated_at: 2007-12-08 11:12:10
@@ -272,8 +309,11 @@
     parent_id: "3"
     asset_id: 
     created_at: 2007-12-08 11:12:10
+  attributes_cache: {}
+
 00000000054_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: AddExpt1
     content_id: 
     updated_at: 2007-12-12 09:36:25
@@ -293,8 +333,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-12 09:36:24
+  attributes_cache: {}
+
 00000000014_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Background
     content_id: 
     updated_at: 2007-12-11 10:20:21
@@ -314,8 +357,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-11 10:20:21
+  attributes_cache: {}
+
 00000000057_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Protocol3
     content_id: 
     updated_at: 2007-12-12 11:03:26
@@ -335,8 +381,11 @@
     parent_id: "39"
     asset_id: 
     created_at: 2007-12-12 11:03:26
+  attributes_cache: {}
+
 00000000006_project_asset: !ruby/object:ProjectAsset 
   attributes: 
+    team_id: "1"
     name: biorails_logo.png
     content_id: 
     updated_at: 2007-12-08 11:15:14
@@ -356,8 +405,11 @@
     parent_id: "1"
     asset_id: "1"
     created_at: 2007-12-08 11:15:14
+  attributes_cache: {}
+
 00000000002_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Project X
     content_id: 
     updated_at: 2007-12-07 18:47:06
@@ -377,8 +429,11 @@
     parent_id: 
     asset_id: 
     created_at: 2007-12-07 18:47:06
+  attributes_cache: {}
+
 00000000052_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: TEST1
     content_id: 
     updated_at: 2007-12-12 08:56:56
@@ -398,8 +453,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-12 08:56:56
+  attributes_cache: {}
+
 00000000012_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "3"
     name: Project Y
     content_id: 
     updated_at: 2007-12-11 10:18:25
@@ -419,8 +477,11 @@
     parent_id: 
     asset_id: 
     created_at: 2007-12-11 10:18:25
+  attributes_cache: {}
+
 00000000007_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Experiment1
     content_id: 
     updated_at: 2007-12-10 20:22:10
@@ -440,8 +501,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-10 20:22:09
+  attributes_cache: {}
+
 00000000001_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "1"
     name: Global
     content_id: 
     updated_at: 2007-12-07 10:36:43
@@ -461,8 +525,11 @@
     parent_id: 
     asset_id: 
     created_at: 2007-06-06 18:16:48
+  attributes_cache: {}
+
 00000000062_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task-77
     content_id: 
     updated_at: 2007-12-12 14:33:56
@@ -482,8 +549,11 @@
     parent_id: "49"
     asset_id: 
     created_at: 2007-12-12 14:33:56
+  attributes_cache: {}
+
 00000000055_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: AddExpt2
     content_id: 
     updated_at: 2007-12-12 10:42:49
@@ -503,8 +573,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-12 10:42:48
+  attributes_cache: {}
+
 00000000039_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Study2
     content_id: 
     updated_at: 2007-12-11 18:03:54
@@ -524,8 +597,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-11 18:03:54
+  attributes_cache: {}
+
 00000000010_project_content: !ruby/object:ProjectContent 
   attributes: 
+    team_id: "2"
     name: Exp1Article1
     content_id: "2"
     updated_at: 2007-12-10 21:03:14
@@ -545,8 +621,11 @@
     parent_id: "7"
     asset_id: 
     created_at: 2007-12-10 21:03:14
+  attributes_cache: {}
+
 00000000053_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Test2
     content_id: 
     updated_at: 2007-12-12 09:03:50
@@ -566,8 +645,11 @@
     parent_id: "2"
     asset_id: 
     created_at: 2007-12-12 09:03:50
+  attributes_cache: {}
+
 00000000048_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Protocol2
     content_id: 
     updated_at: 2007-12-11 20:25:37
@@ -587,8 +669,11 @@
     parent_id: "39"
     asset_id: 
     created_at: 2007-12-11 20:25:37
+  attributes_cache: {}
+
 00000000011_project_asset: !ruby/object:ProjectAsset 
   attributes: 
+    team_id: "2"
     name: ball.jpg
     content_id: 
     updated_at: 2007-12-10 21:04:17
@@ -608,8 +693,11 @@
     parent_id: "7"
     asset_id: "5"
     created_at: 2007-12-10 21:04:17
+  attributes_cache: {}
+
 00000000008_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task1
     content_id: 
     updated_at: 2007-12-10 20:22:33
@@ -629,8 +717,11 @@
     parent_id: "7"
     asset_id: 
     created_at: 2007-12-10 20:22:33
+  attributes_cache: {}
+
 00000000005_project_content: !ruby/object:ProjectContent 
   attributes: 
+    team_id: "1"
     name: art-1
     content_id: "1"
     updated_at: 2007-12-08 11:13:54
@@ -650,8 +741,11 @@
     parent_id: "1"
     asset_id: 
     created_at: 2007-12-08 11:13:54
+  attributes_cache: {}
+
 00000000063_project_folder: !ruby/object:ProjectFolder 
   attributes: 
+    team_id: "2"
     name: Task-78
     content_id: 
     updated_at: 2007-12-12 14:39:00
@@ -671,3 +765,5 @@
     parent_id: "49"
     asset_id: 
     created_at: 2007-12-12 14:39:00
+  attributes_cache: {}
+

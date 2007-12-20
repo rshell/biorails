@@ -47,7 +47,7 @@ class Project::ProjectsController < ApplicationController
     setup_project
     respond_to do | format |
       format.html { render :action => 'show'}
-      format.xml {render :xml =>  @project.to_xml(:include=>[:memberships,:folders,:studies,:experiments,:tasks])}
+      format.xml {render :xml =>  @project.to_xml(:include=>[:team,:folders,:studies,:experiments,:tasks])}
       format.json  { render :text => @project.to_json }
       format.js  { render :update do | page |  
           page.actions_panel  :partial => 'actions'

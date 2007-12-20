@@ -8,8 +8,8 @@
 #
 # Should work under 2.0 or 1.2 rails unlocked as testing with 2.0 at present
 # 
-#RAILS_GEM_VERSION = '1.2.6'
-# RAILS_GEM_VERSION = '2.0.1'
+# RAILS_GEM_VERSION = '1.2.6'
+RAILS_GEM_VERSION = '2.0.1'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
 
   # Force all environments to use the same logger level 
   # (by default production uses :info, the others :debug)
-  config.log_level = :info
+  config.log_level = :debug
 
   # Use the database for sessions instead of the file system
   # (create the session table with 'rake db:sessions:create')

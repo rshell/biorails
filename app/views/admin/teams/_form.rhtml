@@ -1,0 +1,19 @@
+  <div class="row">
+    <!--[form:team]-->
+    <%= hidden_field 'team', 'lock_version'  %>
+    <div class="form-element">
+       <label for="team_name">Name</label>
+       <%= text_field 'team', 'name' , {:class=>"text-input"} %>
+    </div>
+   </div>
+   
+  <div class="row">
+   <div class="form-element">
+     <label for="team_description">Summary</label>
+     <%= text_area('team', 'description', {:rows=>5,:cols=>100})  %>
+   </div>
+  </div>
+  
+
+
+<!--[eoform:team]-->

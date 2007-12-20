@@ -22,7 +22,7 @@ This forms the basic volcabary of the systems in this area.
       <% for column in @data_concept.class.content_columns %>
        <td>
           <%if column.name=='name'%>
-            <%= link_to_remote ((subject_icon('show.png')) + row.send(column.name),:url=>{ :action => 'show' ,:id=> row.id }) %>  
+            <%= link_to_remote( subject_icon('show.png') + row.send(column.name),:url=>{ :action => 'show' ,:id=> row.id }) %>  
           <%else%>
           <%=h row.send(column.name) %>
           <%end%>
@@ -31,7 +31,7 @@ This forms the basic volcabary of the systems in this area.
        <td> <%=row.elements.size %></td>
        <td>   <%=row.parameter_types.size %> </td>
        <td>
-      <%= link_to ((subject_icon('delete')) + 'Delete', {:action => 'destroy' ,:id=> row.id},
+      <%= link_to(subject_icon('delete') + 'Delete', {:action => 'destroy' ,:id=> row.id},
                      :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
        </td>
     </tr>    

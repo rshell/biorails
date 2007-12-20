@@ -13,6 +13,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-11 10:24:04
     weighing: "0"
+  attributes_cache: {}
+
 00000000021_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Mass
@@ -27,6 +29,8 @@
     created_by_user_id: "1"
     created_at: 2007-06-21 12:31:55
     weighing: "0"
+  attributes_cache: {}
+
 00000000013_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Enzyme
@@ -41,6 +45,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 22:27:29
     weighing: "0"
+  attributes_cache: {}
+
 00000000010_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Length
@@ -55,6 +61,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:12:28
     weighing: "0"
+  attributes_cache: {}
+
 00000000002_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Count
@@ -69,6 +77,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 16:59:17
     weighing: "0"
+  attributes_cache: {}
+
 00000000031_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: AUC
@@ -83,6 +93,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-13 15:17:21
     weighing: "0"
+  attributes_cache: {}
+
 00000000019_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: ClinScore
@@ -97,6 +109,8 @@
     created_by_user_id: "1"
     created_at: 2007-06-13 11:59:30
     weighing: "0"
+  attributes_cache: {}
+
 00000000008_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Rate
@@ -111,6 +125,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:08:52
     weighing: "0"
+  attributes_cache: {}
+
 00000000029_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Volume
@@ -125,6 +141,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-13 15:09:21
     weighing: "0"
+  attributes_cache: {}
+
 00000000022_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: TreatmentGroup
@@ -139,6 +157,8 @@
     created_by_user_id: "1"
     created_at: 2007-06-21 12:44:11
     weighing: "0"
+  attributes_cache: {}
+
 00000000011_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: URL
@@ -153,6 +173,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:13:05
     weighing: "0"
+  attributes_cache: {}
+
 00000000017_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Time
@@ -167,6 +189,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-08 10:49:50
     weighing: "0"
+  attributes_cache: {}
+
 00000000006_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Plate
@@ -181,6 +205,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:05:46
     weighing: "0"
+  attributes_cache: {}
+
 00000000032_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: File
@@ -195,6 +221,8 @@
     created_by_user_id: "1"
     created_at: 2007-11-06 02:00:44
     weighing: "0"
+  attributes_cache: {}
+
 00000000027_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Species
@@ -209,6 +237,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-11 11:10:35
     weighing: "0"
+  attributes_cache: {}
+
 00000000009_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Duration
@@ -223,6 +253,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:09:57
     weighing: "0"
+  attributes_cache: {}
+
 00000000004_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Identifier
@@ -237,6 +269,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:04:24
     weighing: "0"
+  attributes_cache: {}
+
 00000000030_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Clearance
@@ -251,6 +285,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-13 15:15:59
     weighing: "0"
+  attributes_cache: {}
+
 00000000025_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Normal
@@ -265,6 +301,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-11 10:39:19
     weighing: "0"
+  attributes_cache: {}
+
 00000000018_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Temperature
@@ -279,6 +317,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-08 10:51:11
     weighing: "0"
+  attributes_cache: {}
+
 00000000014_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: organism
@@ -296,6 +336,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 22:29:09
     weighing: "0"
+  attributes_cache: {}
+
 00000000007_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Subject
@@ -310,6 +352,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:07:05
     weighing: "0"
+  attributes_cache: {}
+
 00000000028_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Route
@@ -324,6 +368,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-13 14:56:37
     weighing: "0"
+  attributes_cache: {}
+
 00000000023_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: unitless
@@ -338,6 +384,8 @@
     created_by_user_id: "1"
     created_at: 2007-06-28 20:07:44
     weighing: "0"
+  attributes_cache: {}
+
 00000000016_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Date
@@ -352,6 +400,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-08 10:49:26
     weighing: "0"
+  attributes_cache: {}
+
 00000000012_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: IC50
@@ -366,6 +416,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 22:22:07
     weighing: "0"
+  attributes_cache: {}
+
 00000000005_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Compound
@@ -380,6 +432,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:05:07
     weighing: "0"
+  attributes_cache: {}
+
 00000000001_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Dose
@@ -394,6 +448,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 16:56:20
     weighing: "0"
+  attributes_cache: {}
+
 00000000026_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Molecule
@@ -408,6 +464,8 @@
     created_by_user_id: "1"
     created_at: 2007-10-11 10:55:13
     weighing: "10"
+  attributes_cache: {}
+
 00000000015_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Location
@@ -422,6 +480,8 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 22:29:40
     weighing: "0"
+  attributes_cache: {}
+
 00000000003_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Inhibition
@@ -436,3 +496,5 @@
     created_by_user_id: "3"
     created_at: 2007-06-06 17:01:06
     weighing: "0"
+  attributes_cache: {}
+

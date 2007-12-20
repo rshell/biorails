@@ -75,7 +75,13 @@ class Request < ActiveRecord::Base
 #Owner project
 #  
   belongs_to :project  
-  
+#
+# access control managed via team
+# 
+  access_control_via  :team
+#
+# Requested at a user
+#
   belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
 ##
 #  has many project elements associated with it

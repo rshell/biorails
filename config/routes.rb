@@ -31,6 +31,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
+  map.teams 'admin/teams/:action/:id', :controller => 'admin/teams'
+  map.member  'admin/members/:action/:id', :controller => 'admin/memberships'
+
   map.auth 'auth/:action/:id' , :controller => 'auth'
   map.audit 'audit/:action/:id' , :controller => 'audit'
   map.help 'help/:action/:id' , :controller => 'help'
@@ -42,7 +45,6 @@ ActionController::Routing::Routes.draw do |map|
 # Main Project elements
 #
   map.project 'projects/:action/:id', :controller => 'project/projects'
-  map.member  'members/:action/:id', :controller => 'project/memberships'
   map.folder  'folders/:action/:id', :controller => 'project/folders',:center=>'show'
   map.element  'element/:action/:id', :controller => 'project/folders',:center=>'layout'
   map.content 'content/:action/:id', :controller => 'project/content'

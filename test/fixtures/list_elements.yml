@@ -17,6 +17,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-13 12:28:31
+  attributes_cache: {}
+
 00000000047_list_element: !ruby/object:ListElement 
   attributes: 
     name: Catagory
@@ -35,6 +37,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 21:17:22
+  attributes_cache: {}
+
 00000000043_list_element: !ruby/object:ListElement 
   attributes: 
     name: Status
@@ -53,6 +57,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 21:15:55
+  attributes_cache: {}
+
 00000000145_list_element: !ruby/object:ListElement 
   attributes: 
     name: Organ
@@ -71,6 +77,8 @@
     parent_id: 
     style: list
     created_at: 2007-11-05 23:07:35
+  attributes_cache: {}
+
 00000000122_list_element: !ruby/object:ListElement 
   attributes: 
     name: Species
@@ -89,6 +97,8 @@
     parent_id: 
     style: list
     created_at: 2007-10-11 11:10:17
+  attributes_cache: {}
+
 00000000116_list_element: !ruby/object:ListElement 
   attributes: 
     name: CompoundRole
@@ -107,6 +117,8 @@
     parent_id: 
     style: list
     created_at: 2007-10-11 10:54:03
+  attributes_cache: {}
+
 00000000083_list_element: !ruby/object:ListElement 
   attributes: 
     name: Route
@@ -125,6 +137,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-13 12:30:28
+  attributes_cache: {}
+
 00000000021_list_element: !ruby/object:ListElement 
   attributes: 
     name: weight
@@ -143,6 +157,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 14:47:17
+  attributes_cache: {}
+
 00000000038_list_element: !ruby/object:ListElement 
   attributes: 
     name: Area
@@ -161,6 +177,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 20:42:42
+  attributes_cache: {}
+
 00000000129_list_element: !ruby/object:ListElement 
   attributes: 
     name: Controls
@@ -179,6 +197,8 @@
     parent_id: 
     style: list
     created_at: 2007-10-11 12:07:40
+  attributes_cache: {}
+
 00000000135_list_element: !ruby/object:ListElement 
   attributes: 
     name: Strain
@@ -197,6 +217,8 @@
     parent_id: 
     style: list
     created_at: 2007-10-13 15:00:26
+  attributes_cache: {}
+
 00000000007_list_element: !ruby/object:ListElement 
   attributes: 
     name: Molar
@@ -215,6 +237,8 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 14:45:45
+  attributes_cache: {}
+
 00000000138_list_element: !ruby/object:ListElement 
   attributes: 
     name: MSRole
@@ -235,6 +259,8 @@
     parent_id: 
     style: list
     created_at: 2007-11-05 22:49:37
+  attributes_cache: {}
+
 00000000013_list_element: !ruby/object:ListElement 
   attributes: 
     name: Length
@@ -253,3 +279,5 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 14:46:42
+  attributes_cache: {}
+

@@ -16,7 +16,7 @@ class Project::ContentController < ApplicationController
 # Display a article
 # 
   def show
-    @project_element = current_user.element(params[:id])  
+    @project_element = ProjectElement.find(params[:id])  
     @project_folder  = @project_element.parent    
     respond_to do |format|
       format.html { render :action=>'show'}

@@ -48,8 +48,9 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :sql_element
   
   # - Projects
-  Biorails::Dba.import_model :projects
+  Biorails::Dba.import_model :teams
   Biorails::Dba.import_model :memberships
+  Biorails::Dba.import_model :projects
   Biorails::Dba.import_model :db_files
   Biorails::Dba.import_model :assets
   Biorails::Dba.import_model :contents

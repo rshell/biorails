@@ -1,0 +1,21 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['team','user']} %>
+<% end -%>
+
+<% content_for :center do -%>
+
+<%dialog subject_icon('model/team.png')+'New team'  do %>
+  Create a new team for organization or users.
+
+  <% form_tag :action => 'create' do %>
+    <%= render :partial => 'form' %>
+    <div class="row">
+        <%= submit_tag "Save" %>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+

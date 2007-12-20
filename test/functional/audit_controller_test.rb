@@ -20,22 +20,22 @@ class AuditControllerTest < Test::Unit::TestCase
   
   def test_show
     get :show,{:auditabel_type=>'Project',:id=>'1'},@session    
-    assert_response :success
+    assert_response :redirect
   end
   
   def test_show_as_xml
     get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'xml'},@session    
-    assert_response :success
+    assert_response :redirect
   end
   
   def test_show_as_json
     get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'json'},@session    
-    assert_response :success
+    assert_response :redirect
   end
 
   def test_show_as_js
     get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'js'},@session    
-    assert_response :success
+    assert_response :redirect
   end
   
 end

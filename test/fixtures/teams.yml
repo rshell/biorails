@@ -1,0 +1,65 @@
+--- 
+00000000004_team: !ruby/object:Team 
+  attributes: 
+    name: Project Z
+    updated_at: 2007-12-19 11:36:36
+    updated_by_user_id: "1"
+    lock_version: "0"
+    external_role_id: "1"
+    id: "4"
+    description: Cure for Malaria
+    public_role_id: "1"
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-12-19 11:36:36
+    email: 
+  attributes_cache: {}
+
+00000000003_team: !ruby/object:Team 
+  attributes: 
+    name: Project Y
+    updated_at: 2007-12-19 11:36:36
+    updated_by_user_id: "1"
+    lock_version: "0"
+    external_role_id: "1"
+    id: "3"
+    description: Cure for baldness
+    public_role_id: "1"
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-12-19 11:36:36
+    email: 
+  attributes_cache: {}
+
+00000000002_team: !ruby/object:Team 
+  attributes: 
+    name: Project X
+    updated_at: 2007-12-19 11:36:36
+    updated_by_user_id: "1"
+    lock_version: "0"
+    external_role_id: "1"
+    id: "2"
+    description: Project to uncover the secret formula in Coca-Cola.
+    public_role_id: "1"
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-12-19 11:36:36
+    email: 
+  attributes_cache: {}
+
+00000000001_team: !ruby/object:Team 
+  attributes: 
+    name: Global
+    updated_at: 2007-12-19 11:36:34
+    updated_by_user_id: "1"
+    lock_version: "0"
+    external_role_id: "1"
+    id: "1"
+    description: This is the global project and by default, everyone in the system is a member and can see the contents.
+    public_role_id: "1"
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-12-19 11:36:34
+    email: 
+  attributes_cache: {}
+

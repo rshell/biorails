@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
   access_authenticated  :username => :login, 
                         :passsword => :password_hash
                            
-  access_control_rights :role                      
+  access_control_role :role                      
 ##
 # Business Rules for a user
 # 
@@ -79,14 +79,15 @@ class User < ActiveRecord::Base
 
 # validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
+
 ##
 # User a linked into projects
 #   
-  has_many   :projects, :through=>:memberships, :order => 'name' 
+  has_many   :teams, :through=>:memberships, :order => 'name' 
 ##
 # Has membership of a a number of projects with a set role in each
 #   
-  has_many   :memberships, :include => [ :project, :role ], :dependent => :delete_all
+  has_many   :memberships, :include => [ :teams, :role ], :dependent => :delete_all
 ##
 # Users are linked into the system as a the owner of a number of record types
 # 
@@ -108,6 +109,9 @@ class User < ActiveRecord::Base
 
   has_many :audits  
 
+  def projects 
+    Project.find(:all,:conditions=>['exists (select 1 from teams t,memberships m where m.team_id=t.id and projects.team_id = t.id and m.user_id=?)',self.id])
+  end  
 ##
 # This record has a full audit log created for changes 
 #   
@@ -139,10 +143,24 @@ class User < ActiveRecord::Base
      Project.transaction do 
        project = Project.new(params)
        project.summary||= "New Project #{params[:name]} created by user #{self.name}"
-       if project.save     
-           self.memberships.create(:project_id =>project.id,:role_id=>ProjectRole.owner.id,:owner=>true)
-       end
+       project.team_id = Team.current.id
+       project.save!     
        return project
+     end
+  end
+##
+# Create a new Team owned by this user
+#  accepts a list of parameters for the project eg {:name=>'xxxx',:summary=>'ddddd'}
+#  the user is automatically made a member of the project and its owner
+# 
+# 
+  def create_team(params={})
+     Team.transaction do 
+       team = Team.new(params)
+       team.description ||= "New Team #{params[:name]} created by user #{self.name}"
+       team.save!    
+       self.memberships.create(:team_id => team.id,:role_id=>ProjectRole.owner.id,:owner=> true)       
+       return team
      end
   end
 
@@ -172,32 +190,32 @@ class User < ActiveRecord::Base
   # Get a element for this user, limits to projects the user is a member of
   #  
   def element(*args)
-     ProjectElement.visible(*args)
+     ProjectElement.find(*args)
   end
   #
   # Get a folder for this user, limits to projects the user is a member of
   #  
   def folder(*args)
-     ProjectFolder.visible(*args)
+     ProjectFolder.find(*args)
   end
   #
   # Get a study for this user, limits to projects the user is a member of
   #  
   def study(*args)
-     Study.visible(*args)
+     Study.find(*args)
   end
   #
   # Get a study for this user, limits to projects the user is a member of
   #  
   def protocol(*args)
-    StudyProtocol.visible(*args)
+    StudyProtocol.find(*args)
   end
 
   #
   # Get a experiment for this user, limits to projects the user is a member of
   #  
   def experiment(*args)
-     Experiment.visible(*args)
+     Experiment.find(*args)
   end
   #
   # Get a task for this user, limits to projects the user is a member of

@@ -20,13 +20,13 @@ class Membership < ActiveRecord::Base
 #   
  acts_as_audited :change_log
 
-  validates_uniqueness_of :user_id,:scope=>'project_id'
+  validates_uniqueness_of :user_id,:scope=>'team_id'
   validates_presence_of :user
-  validates_presence_of :project
+  validates_presence_of :team
   validates_presence_of :role
   
   belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
-  belongs_to :project, :class_name=>'Project', :foreign_key =>'project_id'
+  belongs_to :team, :class_name=>'Team', :foreign_key =>'team_id'
   belongs_to :role, :class_name=>'Role', :foreign_key =>'role_id' 
 ##
 # Test if this role allows this action to this subject eg.
@@ -48,4 +48,5 @@ class Membership < ActiveRecord::Base
    self.is_owner.to_s  == self.connection.quoted_true
  end
 
+ 
 end

@@ -1,0 +1,12 @@
+<div>
+  <span class='menu'>Teams  </span>
+  <%= link_to subject_icon('action/list.png') + 'List', :action => 'list' %>
+  <% if @team %>
+  <%= link_to subject_icon('action/edit.png') + "Edit [#{@team.name}]", :action => 'edit', :id => @team %>
+  <%= link_to subject_icon('new.png') +"Add to [#{@team.name}]", member_url(   :action => 'new', :team_id=>@team.id) %>
+  <%  unless @team.in_use?  %>
+  <%= link_to subject_icon('action/destroy.png') + "Delete [#{@team.name}]",{ :action => 'destroy', :id => @team }, 
+                    :confirm => 'Are you sure?',:method => "post" %>
+  <% end %>
+  <% end %>
+</div>

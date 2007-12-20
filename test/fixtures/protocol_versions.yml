@@ -13,6 +13,8 @@
     created_by_user_id: "3"
     how_to: 
     created_at: "11:03:26"
+  attributes_cache: {}
+
 00000000002_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Protocol2:1
@@ -27,6 +29,8 @@
     created_by_user_id: "3"
     how_to: 
     created_at: "20:25:37"
+  attributes_cache: {}
+
 00000000001_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Protocol1:1
@@ -41,6 +45,24 @@
     created_by_user_id: "3"
     how_to: 
     created_at: "11:12:10"
+  attributes_cache: {}
+
+00000000005_protocol_version: !ruby/object:ProtocolVersion 
+  attributes: 
+    name: Protocol1:2
+    analysis_id: 
+    updated_at: "16:54:04"
+    updated_by_user_id: "3"
+    lock_version: "0"
+    study_protocol_id: "1"
+    id: "5"
+    report_id: 
+    version: "2"
+    created_by_user_id: "3"
+    how_to: 
+    created_at: "16:54:04"
+  attributes_cache: {}
+
 00000000004_protocol_version: !ruby/object:ProtocolVersion 
   attributes: 
     name: Protocol2:2
@@ -55,3 +77,5 @@
     created_by_user_id: "3"
     how_to: 
     created_at: "17:58:15"
+  attributes_cache: {}
+

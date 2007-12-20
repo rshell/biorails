@@ -1,4 +1,34 @@
 --- 
+00000000028_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Concentration_1
+    default_value: ""
+    updated_at: 2007-12-15 16:54:20
+    display_unit: mM
+    parameter_context_id: "9"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: "4"
+    mandatory: N
+    column_no: "6"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "28"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "1"
+    created_by_user_id: "3"
+    data_element_id: 
+    sequence_num: "1"
+    created_at: 2007-12-15 16:54:19
+  attributes_cache: {}
+
 00000000014_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound Role
@@ -27,6 +57,8 @@
     data_element_id: "116"
     sequence_num: "0"
     created_at: 2007-12-12 11:10:28
+  attributes_cache: {}
+
 00000000006_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
@@ -55,6 +87,8 @@
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-11 20:25:52
+  attributes_cache: {}
+
 00000000018_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
@@ -83,6 +117,8 @@
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-11 20:25:52
+  attributes_cache: {}
+
 00000000004_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
@@ -111,6 +147,38 @@
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-10 20:19:25
+  attributes_cache: {}
+
+00000000027_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Length
+    default_value: ""
+    updated_at: 2007-12-15 16:54:04
+    display_unit: in
+    parameter_context_id: "8"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: "4"
+    mandatory: N
+    column_no: "2"
+    parameter_role_id: "2"
+    parameter_type_id: "10"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "27"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+    sequence_num: "0"
+    created_at: 2007-12-09 23:41:32
+  attributes_cache: {}
+
 00000000020_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
@@ -139,6 +207,8 @@
     data_element_id: "122"
     sequence_num: "0"
     created_at: 2007-12-11 20:26:06
+  attributes_cache: {}
+
 00000000008_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
@@ -167,6 +237,8 @@
     data_element_id: "122"
     sequence_num: "0"
     created_at: 2007-12-11 20:26:06
+  attributes_cache: {}
+
 00000000005_parameter: !ruby/object:Parameter 
   attributes: 
     name: QueueCompound
@@ -195,6 +267,8 @@
     data_element_id: "35"
     sequence_num: "1"
     created_at: 2007-12-10 20:19:37
+  attributes_cache: {}
+
 00000000021_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
@@ -223,6 +297,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:09
+  attributes_cache: {}
+
 00000000010_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
@@ -251,6 +327,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:30
+  attributes_cache: {}
+
 00000000017_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
@@ -279,6 +357,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:44
+  attributes_cache: {}
+
 00000000011_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
@@ -307,6 +387,68 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:37
+  attributes_cache: {}
+
+00000000029_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Count_1
+    default_value: ""
+    updated_at: 2007-12-15 16:54:29
+    display_unit: ""
+    parameter_context_id: "8"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: "8"
+    mandatory: N
+    column_no: "7"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "29"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "4"
+    created_by_user_id: "3"
+    data_element_id: 
+    sequence_num: "1"
+    created_at: 2007-12-15 16:54:29
+  attributes_cache: {}
+
+00000000023_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Count
+    default_value: ""
+    updated_at: 2007-12-15 16:54:04
+    display_unit: ""
+    parameter_context_id: "9"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: "8"
+    mandatory: N
+    column_no: "3"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "23"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "4"
+    created_by_user_id: "3"
+    data_element_id: 
+    sequence_num: "0"
+    created_at: 2007-12-10 20:19:15
+  attributes_cache: {}
+
 00000000007_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
@@ -335,6 +477,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:25:59
+  attributes_cache: {}
+
 00000000001_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
@@ -363,6 +507,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:23
+  attributes_cache: {}
+
 00000000019_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
@@ -391,6 +537,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:25:59
+  attributes_cache: {}
+
 00000000013_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
@@ -419,6 +567,38 @@
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-12 11:10:18
+  attributes_cache: {}
+
+00000000025_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Compound
+    default_value: ""
+    updated_at: 2007-12-15 16:54:04
+    display_unit: 
+    parameter_context_id: "9"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: 
+    mandatory: N
+    column_no: "5"
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    lock_version: "3"
+    id: "25"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "3"
+    created_by_user_id: "3"
+    data_element_id: "35"
+    sequence_num: "0"
+    created_at: 2007-12-10 20:19:25
+  attributes_cache: {}
+
 00000000009_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
@@ -447,6 +627,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:09
+  attributes_cache: {}
+
 00000000003_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count
@@ -475,6 +657,38 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-10 20:19:15
+  attributes_cache: {}
+
+00000000026_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: Concentration
+    default_value: ""
+    updated_at: 2007-12-15 16:54:04
+    display_unit: mM
+    parameter_context_id: "8"
+    study_queue_id: 
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: "4"
+    mandatory: N
+    column_no: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    lock_version: "2"
+    id: "26"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "1"
+    created_by_user_id: "3"
+    data_element_id: 
+    sequence_num: "0"
+    created_at: 2007-12-09 23:41:23
+  attributes_cache: {}
+
 00000000022_parameter: !ruby/object:Parameter 
   attributes: 
     name: MaxInhibition
@@ -503,6 +717,8 @@
     data_element_id: 
     sequence_num: "1"
     created_at: 2007-12-12 17:58:44
+  attributes_cache: {}
+
 00000000015_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
@@ -531,6 +747,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:30
+  attributes_cache: {}
+
 00000000016_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
@@ -559,6 +777,8 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:37
+  attributes_cache: {}
+
 00000000012_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
@@ -587,6 +807,38 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:44
+  attributes_cache: {}
+
+00000000024_parameter: !ruby/object:Parameter 
+  attributes: 
+    name: QueueCompound
+    default_value: ""
+    updated_at: 2007-12-15 16:54:04
+    display_unit: 
+    parameter_context_id: "9"
+    study_queue_id: "1"
+    access_control_id: "0"
+    protocol_version_id: "5"
+    left_limit: "0"
+    data_format_id: 
+    mandatory: N
+    column_no: "4"
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    lock_version: "5"
+    id: "24"
+    right_limit: "0"
+    qualifier_style: 
+    description: 
+    study_parameter_id: "3"
+    created_by_user_id: "3"
+    data_element_id: "35"
+    sequence_num: "1"
+    created_at: 2007-12-10 20:19:37
+  attributes_cache: {}
+
 00000000002_parameter: !ruby/object:Parameter 
   attributes: 
     name: Length
@@ -615,3 +867,5 @@
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:32
+  attributes_cache: {}
+

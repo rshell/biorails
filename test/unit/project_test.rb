@@ -43,15 +43,16 @@ class ProjectTest < Test::Unit::TestCase
   end
 
   def test004_save
-     project = Project.new(:name=>'test4',:summary=>'sssss')
+     team = Team.find(:first)
+     project = Project.new(:name=>'test4',:summary=>'sssss',:team_id => team.id)
      assert project.save , project.errors.full_messages().join('\n')
      assert_ok project
      
      assert project.folders.size==1, 'has a root folder'
      assert project.articles.size==0, 'has no articles'
-     assert project.users.size==0, 'has one member'
-     assert project.memberships.size==0, 'has one membership'
-     assert project.owners.size==0, 'has one owner'
+     assert project.users.size== team.users.size, 'has one member'
+     assert project.members.size== team.memberships.size , 'has one membership'
+     assert project.owners.size== team.owners.size, 'has one owner'
   end 
   
   
@@ -97,5 +98,33 @@ class ProjectTest < Test::Unit::TestCase
 
   end
  
+  def test0011_users
+    project = Project.find(1)
+    assert project.users
+    assert project.users.size > 0, "there are users linked to this project"
+  end
+   
+  def test0012_owners
+    project = Project.find(1)
+    assert project.owners
+    assert project.owners.size > 0, "there are owners linked to this project"
+  end
+   
+  def test0013_non_members
+    project = Project.find(1)
+    assert project.non_members
+    assert project.non_members.size == 0, "Everyone is on the public project"
+  end
+   
+  def test0014_member
+    project = Project.find(1)
+    assert project.member(User.find(1)), "there are users linked to this project"
+  end
+  
+  def test0015_owner?
+    project = Project.find(1)
+    assert !project.owner?(User.find(1)), "guest is not the owner"
+    assert project.owner?(User.find(2)), "admin is the owner"
+  end
    
 end

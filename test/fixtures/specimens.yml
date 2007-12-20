@@ -22,49 +22,5 @@
     age: 2006-12-18 22:44:52
     birth: 2006-12-18 22:44:52
     created_at: 2006-12-18 22:46:00
-00000000002_specimen: !ruby/object:Specimen 
-  attributes: 
-    taxon_species: ""
-    name: Moose
-    updated_at: 2006-12-18 22:46:00
-    weight: 
-    taxon_genus: ""
-    taxon_domain: ""
-    updated_by_user_id: "1"
-    lock_version: "0"
-    taxon_kingdom: ""
-    id: "2"
-    taxon_subspecies: ""
-    taxon_phylum: ""
-    sex: ""
-    description: Large mammal
-    taxon_order: ""
-    taxon_family: ""
-    taxon_class: ""
-    created_by_user_id: "1"
-    age: 2006-12-18 22:44:52
-    birth: 2006-12-18 22:44:52
-    created_at: 2006-12-18 22:46:00
-00000000003_specimen: !ruby/object:Specimen 
-  attributes: 
-    taxon_species: ""
-    name: Mouse
-    updated_at: 2006-12-18 22:46:00
-    weight: 
-    taxon_genus: ""
-    taxon_domain: ""
-    updated_by_user_id: "1"
-    lock_version: "0"
-    taxon_kingdom: ""
-    id: "3"
-    taxon_subspecies: ""
-    taxon_phylum: ""
-    sex: ""
-    description: Large mammal
-    taxon_order: ""
-    taxon_family: ""
-    taxon_class: ""
-    created_by_user_id: "1"
-    age: 2006-12-18 22:44:52
-    birth: 2006-12-18 22:44:52
-    created_at: 2006-12-18 22:46:00
+  attributes_cache: {}
+

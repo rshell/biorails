@@ -16,11 +16,11 @@ class Project::ContentControllerTest < Test::Unit::TestCase
   end
   
   def getItem
-    @item = User.find(3).element(:first,:conditions=>"parent_id is not null and type='ProjectContent'")
+    @item = ProjectElement.find(:first,:conditions=>"parent_id is not null and type='ProjectContent'")
   end
 
   def getFolder
-    @item = User.find(3).element(:first,:conditions=>"type='ProjectFolder'")
+    @item = ProjectElement.find(:first,:conditions=>"type='ProjectFolder'")
   end
   
   # Replace this with your real tests.

@@ -11,6 +11,8 @@
     created_by_user_id: "3"
     data_content: "'5-HT2A'"
     created_at: 2007-12-12 13:46:15
+  attributes_cache: {}
+
 00000000003_task_text: !ruby/object:TaskText 
   attributes: 
     updated_at: 2007-12-12 14:38:02
@@ -23,6 +25,8 @@
     created_by_user_id: "4"
     data_content: 5-HT2A
     created_at: 2007-12-12 14:38:02
+  attributes_cache: {}
+
 00000000002_task_text: !ruby/object:TaskText 
   attributes: 
     updated_at: 2007-12-12 14:33:31
@@ -35,3 +39,5 @@
     created_by_user_id: "4"
     data_content: 5-HT2A
     created_at: 2007-12-12 14:33:31
+  attributes_cache: {}
+

@@ -13,7 +13,7 @@ module Biorails
     DataContext,DataConcept,DataSystem,
     ListElement,ModelElement,SqlElement,ViewElement,DataType,
     DataFormat,ParameterType,ParameterRole,StudyStage,
-    Project,Membership,
+    Project,Team,Membership,
     Study,StudyParameter,StudyQueue,StudyProtocol,
     ProtocolVersion,ParameterContext,Parameter]
 
@@ -33,7 +33,7 @@ module Biorails
     ParameterType,ParameterRole,StudyStage,
     Compound,Batch,Plate,Container,PlateFormat,PlateWell,
     Specimen,TreatmentGroup,TreatmentItem,
-    Project,Membership,
+    Project,Team,Membership,
     ProjectElement,Asset,Content,DbFile,
     Study,StudyParameter,StudyQueue,StudyProtocol,StudyStage,
     ProtocolVersion,ParameterContext,Parameter,
@@ -51,15 +51,17 @@ module Biorails
     URL =6
     ASSET = 7
   end
+     
   
   module Record
 #
 #  Define rules to link to actual database records for ROLES
 # 
-   DEFAULT_OWNER_ROLE = 5
-   DEFAULT_PROJECT_ROLE = 2
+    DEFAULT_OWNER_ROLE = 5
+    DEFAULT_PROJECT_ROLE = 2
 
     DEFAULT_PROJECT_ID = 1
+    DEFAULT_TEAM_ID = 1
     DEFAULT_GUEST_USER_ID = 1
   end
 ##
@@ -67,14 +69,21 @@ module Biorails
 #   
   
   class Dba
+      #SET LOG LEVEL TO DEBUG TO SEE ANY FIXTURE LOAD ERRORS
+      @@logger=Logger.new(STDOUT)
+      @@logger.level=Logger::WARN
+      
+      def self.logger
+        return @@logger
+      end
 
-      def models
+      def self.models
         unless @@models
           for file in Dir.glob("#{RAILS_ROOT}/app/models/*.rb") do
             begin
               load file
             rescue
-              logger.info "Couldn't load file '#{file}' (already loaded?)"
+              self.logger.info "Couldn't load file '#{file}' (already loaded?)"
             end
           end  
         end
@@ -90,7 +99,7 @@ module Biorails
         return @@models.sort{|a,b| a.to_s <=> b.to_s }
 
       rescue Exception => ex
-        logger.error "Failed to find models #{ex.message}"
+        self.logger.error "Failed to find models #{ex.message}"
         return []
       end
   
@@ -117,7 +126,7 @@ module Biorails
           backup_folder = File.join(base_path, 'backup')
           File.makedirs(backup_folder)
           backup_file = File.join(backup_folder, "#{RAILS_ENV}_#{datestamp}_dump") 
-          p database
+          
           case database
           when 'oracle','oci8'
             puts "Using oracle export utility for backup"
@@ -132,7 +141,7 @@ module Biorails
             cmd += " #{database} | gzip -c > #{backup_file}"
             system(cmd)
           else
-            puts "Using default fixtures for backup"
+            self.logger.info "Using default fixtures for backup"
             Biorails::ALL_MODELS.each do |model| 
                filename = File.join(backup_folder,model.table_name + '.yml')
                export_model_fixture(model,filename)
@@ -150,13 +159,10 @@ module Biorails
             hash
           }.to_yaml
         end
-       p "Writen #{model.count} #{model.to_s} records exported to #{filename}"
+        self.logger.debug "Writen #{model.count} #{model.to_s} records exported to #{filename}"
       end
       
       def self.import_model(item,filename=nil)
-        logger=Logger.new(STDOUT)
-        #SET LOG LEVEL TO DEBUG TO SEE ANY FIXTURE LOAD ERRORS
-        logger.level=Logger::WARN
         model = item
         if item.is_a? Symbol
           model = eval(item.to_s.singularize.camelcase)  
@@ -182,14 +188,14 @@ module Biorails
               end
               if @new_item.save
                  success =  success + 1
-	             else
-	               logger.debug "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
+	          else
+	             self.logger.warn "No Valid [#{row.class}.#{row.id}] #{@new_item.errors.full_messages().to_sentence} "
               end
             rescue Exception => ex
-                logger.debug( "Error for  #{ex.message} ") 
+               self.logger.error( "Error for  #{ex.message} ") 
             end
           end
-          logger.debug "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"
+          self.logger.debug "Total #{success} out of #{records.size} #{model.to_s} records imported from #{filename}"
         end
      end
   end 

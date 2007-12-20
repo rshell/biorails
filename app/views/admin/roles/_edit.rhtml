@@ -4,6 +4,7 @@
 
 <p><label for="role_description">Description:</label><br/>
 <%= text_area 'role', 'description', :rows => 2 %> </p>
+<%= hidden_field :role,:lock_version  %>
 
 
 <h2> Permissions for <%= @role.name %></h2>

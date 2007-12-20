@@ -10,6 +10,8 @@
     description: File
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000001_data_type: !ruby/object:DataType 
   attributes: 
     name: text
@@ -21,6 +23,8 @@
     description: Text
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000004_data_type: !ruby/object:DataType 
   attributes: 
     name: time
@@ -32,6 +36,8 @@
     description: Time
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000006_data_type: !ruby/object:DataType 
   attributes: 
     name: url
@@ -43,6 +49,8 @@
     description: Reference
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000002_data_type: !ruby/object:DataType 
   attributes: 
     name: numeric
@@ -54,6 +62,8 @@
     description: Numeric
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000003_data_type: !ruby/object:DataType 
   attributes: 
     name: date
@@ -65,6 +75,8 @@
     description: Date
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+
 00000000005_data_type: !ruby/object:DataType 
   attributes: 
     name: dictionary
@@ -76,3 +88,5 @@
     description: Look up on catalogue
     created_by_user_id: "1"
     created_at: 0000-00-00 00:00:00
+  attributes_cache: {}
+

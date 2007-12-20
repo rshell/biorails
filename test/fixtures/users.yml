@@ -22,6 +22,8 @@
     login: auser
     created_at: 2007-12-07 19:07:50
     email: user@biorails.org
+  attributes_cache: {}
+
 00000000003_user: !ruby/object:User 
   attributes: 
     name: Robert Shell
@@ -45,6 +47,8 @@
     login: rshell
     created_at: 
     email: ""
+  attributes_cache: {}
+
 00000000002_user: !ruby/object:User 
   attributes: 
     name: Administrator
@@ -68,6 +72,8 @@
     login: admin
     created_at: 
     email: admin@biorails.org
+  attributes_cache: {}
+
 00000000001_user: !ruby/object:User 
   attributes: 
     name: guest
@@ -91,6 +97,8 @@
     login: guest
     created_at: 
     email: 
+  attributes_cache: {}
+
 00000000007_user: !ruby/object:User 
   attributes: 
     name: A N Other
@@ -114,6 +122,8 @@
     login: another
     created_at: 2007-12-07 19:20:56
     email: another@biorails.org
+  attributes_cache: {}
+
 00000000006_user: !ruby/object:User 
   attributes: 
     name: An Auditor
@@ -137,6 +147,8 @@
     login: anauditor
     created_at: 2007-12-07 19:10:55
     email: anauditor@biorails.org
+  attributes_cache: {}
+
 00000000005_user: !ruby/object:User 
   attributes: 
     name: A Manager
@@ -160,3 +172,5 @@
     login: amanager
     created_at: 2007-12-07 19:09:13
     email: manager@biorails.org
+  attributes_cache: {}
+

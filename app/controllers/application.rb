@@ -166,10 +166,19 @@ protected #----- End of public actions -----------------------------------------
     else
        @current_project ||= Project.find(PUBLIC_PROJECT_ID)
     end
+     Team.current = @current_project.team
+     @current_team = @current_project.team
      Project.current = @current_project
   end
-
-
+  #
+  #
+  #
+  def current_team
+    @current_team ||= Team.find(Biorails::Record::DEFAULT_TEAM_ID)
+  end
+  #
+  #
+  #
   def current_folder
     if session[:current_folder_id]  
        @current_folder ||= ProjectFolder.find(session[:current_folder_id])
@@ -211,7 +220,7 @@ protected #----- End of public actions -----------------------------------------
 #  
   def set_folder( folder_id = nil)
       @current_folder =  current_project.home if folder_id.nil?
-      @current_folder =  current_user.folder(folder_id) 
+      @current_folder =  ProjectFolder.find(folder_id) 
       if @current_folder
          ProjectFolder.current = @current_folder
          logger.info("set_folder #{@current_folder.name} ")

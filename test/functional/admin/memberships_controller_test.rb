@@ -8,7 +8,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
   # fixtures :memberships
 
   def setup
-    @controller = Project::MembershipsController.new
+    @controller = Admin::MembershipsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
@@ -54,7 +54,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
   def test_create
     num_memberships = Membership.count
 
-    post :create, :membership => {:project_id=>1,:user_id=>3,:role_id=>4}
+    post :create, :membership => {:team_id=>1,:user_id=>3,:role_id=>4}
 
     assert_response :success
     assert_template 'new'

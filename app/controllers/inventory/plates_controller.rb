@@ -32,7 +32,7 @@ class Inventory::PlatesController < ApplicationController
   end
 
   def create
-    @plate = Plate.new(params[:plates])
+    @plate = Plate.new(params[:plate])
     if @plate.save
       flash[:notice] = 'Plate was successfully created.'
       redirect_to :action => 'list'
@@ -47,7 +47,7 @@ class Inventory::PlatesController < ApplicationController
 
   def update
     @plate = Plate.find(params[:id])
-    if @plate.update_attributes(params[:plates])
+    if @plate.update_attributes(params[:plate])
       flash[:notice] = 'Plate was successfully updated.'
       redirect_to :action => 'show', :id => @plate
     else

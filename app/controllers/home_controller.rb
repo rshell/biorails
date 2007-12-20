@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     @user = current_user    
     respond_to do | format |
       format.html { render :action => 'show'}
-      format.xml {render :xml =>  @user.to_xml(:include=>[:projects,:tasks,:requested_services,:queue_items])}
+      format.xml {render :xml =>  @user.to_xml(:include=>[:teams,:tasks,:requested_services,:queue_items])}
     end
   end
 

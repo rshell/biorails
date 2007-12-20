@@ -1,13 +1,13 @@
 <div>
   <span class='menu'>Report <%=report.name%> </span>
-  <%= link_to (subject_icon('action/list.png')) + 'List', :action => 'list' %>
-  <%= link_to (subject_icon('action/show.png')) + 'Run', :action => 'show', :id => report %>
-  <%= link_to (subject_icon('action/print.png')) + 'Print', :action => 'print', :id => report %>
-  <%= link_to (subject_icon('mime/pdf.gif')) + 'Save As', :action => 'print',:format=>:pdf, :id => report %>
-  <%= link_to (subject_icon('action/show.png')) + 'Visualize', :action => 'visualize', :id => report %>
-  <%= link_to (subject_icon('action/edit.png')) + 'Edit', :action => 'edit', :id => report %>
-  <%= link_to (subject_icon('action/new.png'))  + 'New', :action => 'new' %>
-  <%= link_to (subject_icon('mime/xls.png')) + 'Export', :action => 'export', :id => report  %> </li>
-  <%= link_to (subject_icon('action/destroy.png')) + 'Delete',{ :action => 'destroy', :id => report }, 
-                    :confirm => 'Are you sure?',:method => "post" %></li>
+  <%= link_to subject_icon('action/list.png') + 'List', :action => 'list' %>
+  <%= link_to subject_icon('action/show.png') + 'Run', :action => 'show', :id => report %>
+  <%= link_to subject_icon('action/print.png') + 'Print', :action => 'print', :id => report %>
+  <%= link_to subject_icon('mime/pdf.gif') + 'Save As', :action => 'print',:format=>:pdf, :id => report %>
+  <%= link_to subject_icon('action/show.png') + 'Visualize', :action => 'visualize', :id => report %>
+  <%= link_to subject_icon('action/edit.png') + 'Edit', :action => 'edit', :id => report %>
+  <%= link_to subject_icon('action/new.png')  + 'New', :action => 'new' %>
+  <%= link_to subject_icon('mime/xls.png') + 'Export', :action => 'export', :id => report  %> 
+  <%= link_to subject_icon('action/destroy.png') + 'Delete',{ :action => 'destroy', :id => report }, 
+                    :confirm => 'Are you sure?',:method => "post" %>
 </div>

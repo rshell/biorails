@@ -9,6 +9,8 @@
     description: Data analysis
     created_by_user_id: "1"
     created_at: 2006-12-11 18:33:23
+  attributes_cache: {}
+
 00000000005_study_stage: !ruby/object:StudyStage 
   attributes: 
     name: Preparation
@@ -19,6 +21,8 @@
     description: Preparation steps
     created_by_user_id: "1"
     created_at: 2006-12-11 18:32:33
+  attributes_cache: {}
+
 00000000006_study_stage: !ruby/object:StudyStage 
   attributes: 
     name: Data Capture
@@ -29,3 +33,5 @@
     description: Capturing raw data
     created_by_user_id: "1"
     created_at: 2006-12-11 18:32:56
+  attributes_cache: {}
+

@@ -20,4 +20,11 @@ class RolePermission < ActiveRecord::Base
   belongs_to :role
   belongs_to :permission
  
+  def action
+    self.permission.action if self.permission
+  end
+
+  def subject
+    self.permission.subject if self.permission
+  end
 end

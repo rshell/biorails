@@ -21,7 +21,7 @@ class MembershipTest < Test::Unit::TestCase
      assert first.id
      assert first.role
      assert first.user
-     assert first.project
+     assert first.team
   end
     
     def test_valid

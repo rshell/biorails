@@ -334,7 +334,7 @@ protected
     end
     def get_folder_page
 	  
-    @project_folder = current_user.folder(params[:id]) 
+    @project_folder = ProjectFolder.find(params[:id]) 
     labels =['parent_id = ?']
     values =[params[:id]]
 
