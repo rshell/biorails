@@ -1,4 +1,5 @@
 //----------------------------------------  Biorails Report ---------------------------------------------
+
 Ext.namespace('Biorails.Report');
 
 Biorails.Report.DropTarget =function(el,config) {
@@ -21,6 +22,7 @@ Ext.extend( Biorails.Report.DropTarget, Ext.dd.DropTarget, {
 });      
 
 //----------------------------------------  Biorails Column Tree ---------------------------------------------
+
 Ext.namespace("Biorails.ColumnTree");
 
 Biorails.ColumnTree = function(config){

@@ -342,8 +342,11 @@ protected
 
     start = (params[:start] || 1).to_i      
     size = (params[:limit] || 25).to_i 
-    sort_col = (params[:sort] || 'id')
-    sort_dir = (params[:dir] || 'ASC')
+    
+    sort_col = params[:sort] if params[:sort] and params[:sort].size > 1
+    sort_col ||= 'id' 
+    sort_dir = ( params[:dir] || 'ASC' )
+    
     where = params[:where] || {}
 
     page = ((start/size).to_i)+1

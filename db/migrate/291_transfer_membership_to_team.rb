@@ -25,7 +25,9 @@ class TransferMembershipToTeam < ActiveRecord::Migration
         execute 'update tasks set team_id = project_id'
         execute 'update requests set team_id = project_id'
 
-        rename_column    :memberships, :project_id, :team_id    
+        add_column    :memberships, :team_id  ,:integer ,:default=>0, :null => false  
+        execute 'update memberships set team_id = project_id'
+
   end
 
   def self.down

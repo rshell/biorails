@@ -62,7 +62,7 @@ class Project < ActiveRecord::Base
 #
 # access control managed via team
 # 
-  access_control_via  :team
+  access_control_via  :team 
 #
 # home folders
 # 
@@ -79,7 +79,7 @@ class Project < ActiveRecord::Base
 # List of all the elements 
 #
   has_many :elements, :class_name=>'ProjectElement',:foreign_key =>'project_id',:order=>'left_limit,parent_id,name', :dependent => :destroy 
-
+ 
 #
 # The project is the main holder of schedules but in turn can be seen on a system schedule
 #   
