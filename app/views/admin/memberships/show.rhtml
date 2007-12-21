@@ -1,8 +1,11 @@
-<% for column in Membership.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @membership.send(column.name) %>
-</p>
+<% content_for :sidemenu do -%>
+  <%= render :partial=>'actions'%>
+<% end -%>
+
+<% content_for :help do -%>
+  <%= render :partial=>'help'%>
 <% end %>
 
-<%= link_to 'Edit', :action => 'edit', :id => @membership %> |
-<%= link_to 'Back', :action => 'list' %>
+<% content_for :center do -%>
+     <%=render :partial =>'show' %>
+<% end %>

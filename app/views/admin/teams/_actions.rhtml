@@ -1,1 +1,14 @@
-  <%= render :partial =>'/menu/team_menu'  %>
+<div>
+  <span class='menu'>Teams  </span>
+  <%= link_to subject_icon('action/list.png') + 'List', team_url(:action => 'list') %>
+  <% if @team %>
+  <%= link_to subject_icon('action/show.png') + "Show",team_url( :action => 'show', :id => @team) %>
+  <%= link_to subject_icon('action/edit.png') + "Edit",team_url( :action => 'edit', :id => @team) %>
+  <%= link_to subject_icon('new.png') +"Add User ", member_url(   :action => 'new', :team_id=>@team.id) %>
+  <%= link_to subject_icon('new.png') +"New project", project_url(   :action => 'new', :team_id=>@team.id) %>
+  <%  unless @team.in_use?  %>
+  <%= link_to subject_icon('action/destroy.png') + "Delete [#{@team.name}]",team_url({ :action => 'destroy', :id => @team }), 
+                    :confirm => 'Are you sure?',:method => "post" %>
+  <% end %>
+  <% end %>
+</div>

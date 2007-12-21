@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
-  map.teams 'admin/teams/:action/:id', :controller => 'admin/teams'
+  map.team 'admin/teams/:action/:id', :controller => 'admin/teams'
   map.member  'admin/members/:action/:id', :controller => 'admin/memberships'
 
   map.auth 'auth/:action/:id' , :controller => 'auth'

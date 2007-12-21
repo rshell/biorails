@@ -1,39 +1,39 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial =>'/menu/team_menu'  %>
-  <div>
-  <span class='menu'>Membership</span>
-   <%= link_to 'List', :action => 'list' %>
-   <%= link_to 'Add Member', :action => 'new' %>
-   <%= link_to( subject_icon('action/destroy.png') + 'Delete',{ :action => 'destroy', :id => @membership },  :confirm => 'Are you sure?',:method => "post") %>
-  </div>
+  <%= render :partial=>'actions'%>
 <% end -%>
+
+<% content_for :help do -%>
+  <%= render :partial=>'help'%>
+<% end %>
 
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
 <%end%>
 
-<h1>Editing membership of team <%=@team.name%> </h1>
-<div class='panel'>
+<% content_for :center do %>
+  <%dialog "Team [#{@team.name}] edit [#{@membership.user.name}] rights" do %>
+    <% form_tag :action => 'update', :id => @membership do %>
 
-<% form_tag :action => 'update', :id => @membership do %>
+        <%=  hidden_field :membership, :team_id %>
 
-    <%= hidden_field :membership, :lock_version  %>
-	<%=  hidden_field :membership, :team_id %>
-
-    <!--[form:membership]-->
-    <p>
-      <h3>User <%= @membership.user.name%></h3>
-      <%= hidden_field :membership, :user_id  %>
-<br />
-    <label for="membership_owner">Owner</label>
-      <%= check_box    :membership, :is_owner  %>
-    <label for="membership_owner">Role</label>
-      <%= select_named :membership, :role_id ,ProjectRole %>
-<br />    
-<br />    
-    <!--[eoform:membership]-->
-          <%= submit_tag 'Edit' %>
+        <!--[form:membership]-->
+        <p>
+          <%= hidden_field :membership, :user_id  %>
+    <br />
+        <label for="membership_owner">User: </label>
+          <%= @membership.user.name%>
+        <br/>
+        <label for="membership_owner">Owner: </label>
+          <%= check_box    :membership, :is_owner  %>
+        <br/>
+        <label for="membership_owner">Role: </label>
+          <%= select_named :membership, :role_id ,ProjectRole %>
+    <br />    
+    <br />    
+        <!--[eoform:membership]-->
+              <%= submit_tag 'Save' %>
+    <% end %>
+  <% end %>
 <% end %>
-</div>
  
                     

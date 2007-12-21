@@ -48,5 +48,39 @@ class Membership < ActiveRecord::Base
    self.is_owner.to_s  == self.connection.quoted_true
  end
 
+ def experiments(limit = 10)
+   Experiment.find(:all,
+                   :limit=>limit,
+                   :order=>'updated_at desc',
+                   :conditions=>['team_id=? and updated_by_user_id=?',self.team_id,self.user_id])
+ end
+ 
+ def requests(limit = 10)
+   Request.find( :all,
+                 :limit=>limit,
+                 :order=>'updated_at desc',
+                 :conditions=>['team_id=? and updated_by_user_id=?',self.team_id,self.user_id])   
+ end
+ 
+ def tasks(limit = 10)
+   Task.find(:all,
+             :limit=>limit,
+             :order=>'updated_at desc',
+             :conditions=>['team_id=? and updated_by_user_id=?',self.team_id,self.user_id])   
+ end
+
+ def studies(limit = 10)
+   Study.find(:all,
+             :limit=>limit,
+             :order=>'updated_at desc',
+             :conditions=>['team_id=? and updated_by_user_id=?',self.team_id,self.user_id])   
+ end
+
+ def projects(limit = 10)
+   Project.find(:all,
+             :limit=>limit,
+             :order=>'updated_at desc',
+             :conditions=>['team_id=? and updated_by_user_id=?',self.team_id,self.user_id])   
+ end
  
 end

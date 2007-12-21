@@ -1,7 +1,7 @@
 <%if @team%>
 
 <%if @team.owner?(current_user)%>
-  <h2> team <%= in_place_editor_field :team, 'name' ,:cols=>80 %></h2>
+  <h2> Team <%= in_place_editor_field :team, 'name' ,:cols=>80 %></h2>
   <b>Summary:</b> <%= in_place_editor_field :team, 'description',{},{:cols=>100,:rows=>4} %>
 <%else%>
   <h2> team <%= @team.name %></h2>
@@ -11,21 +11,57 @@
 
 <div class="splitcontentleft">
   <div class="box">
-      <h3><%=l('News (Recent Articles)')%></h3>
-      <% for item in @team.news(10) %>
-          <li>
-          <%= image_tag(item.icon) %>
-          <%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
-          <%= item.summary %>
-          </li>
-      <% end %>
-  </div>
+    <h3 class="icon icon-project"><%=l('Projects')%></h3>
+     <table id="team_projects" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @team.projects %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,project_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to subject_icon('new.png') +"New project", project_url(   :action => 'new', :team_id=>@team.id) %>
+
+  </div>      
+
+  <div class="box">
+    <h3 class="icon icon-study"><%=l('Studies')%></h3>
+     <table id="team_studies" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @team.studies %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,study_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+    
 </div>
 
 <div class="splitcontentright">    
   <div class="box">
-    <h3 class="icon icon-experiment"><%=l('Users')%></h3>
-     <table id="project_members" class="report">
+    <h3 class="icon icon-user"><%=l('Users')%></h3>
+     <table id="team_members" class="report">
       <thead>
         <tr class='header'>
           <th>Name</th>
@@ -34,16 +70,20 @@
         </tr>
       </thead>
       <tbody>
-        <% for item in @memberships %>
+        <% for item in @team.memberships %>
           <tr class="<%= cycle('odd', 'even') %>">
-            <td> <%=item.user.name %></td>
+            <td> <%= link_to subject_icon('action/edit.png') + "#{item.user.login} [#{item.user.name}]",
+                                    member_url( :action => 'edit', :id => item) %></td>
             <td> <%(item.owner? ? 'Yes' : 'No')%></td>
             <td> <%=h item.role.name %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  </div>      
+   <%= link_to subject_icon('new.png') +"Add user", member_url(   :action => 'new', :team_id=>@team.id) %>
+
+  </div>   
+
 </div>  
 
 <%end%>

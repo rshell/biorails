@@ -1,0 +1,129 @@
+<%if @team && @membership %>
+
+  <h2> Members Profile for <%=@membership.user.name%> </h2>
+  <p><b> Team:</b> <%= @membership.team.name %></p>
+  <p><b> User:</b> <%= @membership.user.name %></p>
+  <p><b> Role:</b> <%= @membership.role.name %></p>
+
+
+
+<div class="splitcontentleft">
+  <div class="box">
+    <h3 class="icon icon-project"><%=l('Projects')%></h3>
+     <table id="team_projects" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @membership.projects %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,project_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>      
+
+  <div class="box">
+    <h3 class="icon icon-study"><%=l('Studies')%></h3>
+     <table id="team_studies" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @membership.studies %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,study_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+    
+</div>
+
+<div class="splitcontentright">    
+
+  <div class="box">
+    <h3 class="icon icon-study"><%=l('Experiments')%></h3>
+     <table id="team_studies" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @membership.experiments %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,experiment_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+
+  <div class="box">
+    <h3 class="icon icon-request"><%=l('Request')%></h3>
+     <table id="team_request" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @membership.requests %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,task_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+
+  <div class="box">
+    <h3 class="icon icon-task"><%=l('Task')%></h3>
+     <table id="team_task" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Created By </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @membership.tasks %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%=link_to item.name ,task_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=item.created_by%></td>
+            <td> <%=h item.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>      
+
+
+</div>  
+
+<%end%>

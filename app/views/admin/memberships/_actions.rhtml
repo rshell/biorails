@@ -1,0 +1,12 @@
+<div>
+  <span class='menu'>Membership  </span>
+  <%= link_to subject_icon('action/list.png') + 'List Members',team_url(  :action => 'show', :id => @team) %>
+  <% if @membership %>
+  <%= link_to subject_icon('action/show.png') + "Show Profile ",member_url(  :action => 'show', :id => @membership) %>
+  <%= link_to subject_icon('action/edit.png') + "Edit Rights ",member_url(  :action => 'edit', :id => @membership) %>
+  <%= link_to subject_icon('new.png') +"Add User", member_url(   :action => 'new', :team_id=>@team.id) %>
+  <%= link_to subject_icon('action/destroy.png') + 
+                    "Delete User",member_url( :action => 'destroy', :id => @membership ), 
+                    :confirm => 'Are you sure?',:method => "post" %>
+  <% end %>
+</div>

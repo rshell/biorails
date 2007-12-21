@@ -55,9 +55,17 @@ class Team < ActiveRecord::Base
 #
   has_many :owners,  :through => :memberships, :source => :user, :conditions => ['memberships.is_owner = ? or users.admin = ?', true, true]
 #
-# List of all the elements 
+# List of all the projects
 #
   has_many :projects, :class_name=>'Project',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
+#
+# List of all the studies
+#
+  has_many :studies, :class_name=>'Study',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
+#
+# List of all the experiments
+#
+  has_many :experiments, :class_name=>'Experiment',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
 
 #
 # List of all the users who are not a member of the project

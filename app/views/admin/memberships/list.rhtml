@@ -1,7 +1,14 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial =>'/menu/team_menu' %>
+  <%= render :partial=>'actions'%>
 <% end -%>
 
+<% content_for :help do -%>
+  <%= render :partial=>'help'%>
+<% end %>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
+<%end%>
 
 <% content_for :center do -%>
   <h2> Project <b><%=@team.name%></b> membership </h2>
@@ -59,5 +66,4 @@
 
 <% end %>
 
-<br />
 
