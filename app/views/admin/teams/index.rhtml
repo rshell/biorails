@@ -13,7 +13,7 @@
     </tr>
     <% for team in @teams %>
       <tr>
-          <td><%=link_to team.name, teams_url(:action=>'show',:id=> team.id) %></td>
+          <td><%=link_to team.name, team_url(:action=>'show',:id=> team.id) %></td>
           <td><%=team.description%></td>
           <td><%=team.memberships.size%></td>
       </tr>
