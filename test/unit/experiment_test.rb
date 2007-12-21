@@ -48,11 +48,19 @@ class ExperimentTest < Test::Unit::TestCase
     assert first.description    
   end
  
-  
+  def test_export
+    expt = @model.find(1)
+    task = expt.tasks[0]
+    csv = task.to_csv
+    task2 =expt.import_task(csv)
+    assert task2   
+  end
+   
   def test_copy
     exp = Experiment.find(:first)
     assert !exp.nil?,"No Experiment fixture found"
     exp2 = exp.copy
-    
+    assert exp2   
+    assert exp2.tasks.size ==exp.tasks.size
   end
 end

@@ -93,4 +93,12 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
       Experiment.find(@first.id)
     }
   end
+  
+  def test_export
+    get :export, :id => @first.id
+    assert_response :success
+    assert_not_nil assigns(:experiment)
+    assert assigns(:experiment).valid?
+    
+  end
 end
