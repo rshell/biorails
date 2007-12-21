@@ -65,6 +65,7 @@ class Project::ProjectsController < ApplicationController
 # 
   def new
     @project = Project.new
+    @project.team = current_project.team
     @user = current_user
 	respond_to do |format|
       format.html # new.rhtml
