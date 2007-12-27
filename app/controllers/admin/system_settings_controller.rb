@@ -17,16 +17,20 @@ class Admin::SystemSettingsController < ApplicationController
   end
 
   def edit
-    @system_setting = SystemSetting.find(params[:id])
+      @system_setting = SystemSetting.find(params[:id])   
   end
 
   def update
-    @system_setting = SystemSetting.find(params[:id])
-    if @system_setting.update_attributes(params[:system_setting])
-      flash[:notice] = 'SystemSettings was successfully updated.'
-      redirect_to :action => 'list'
+    if params[:commit].eql?('Edit')
+      @system_setting = SystemSetting.find(params[:id])
+      if @system_setting.update_attributes(params[:system_setting])
+        flash[:notice] = 'SystemSettings was successfully updated.'
+        redirect_to :action => 'list'
+      else
+        render :action => 'edit'
+      end
     else
-      render :action => 'edit'
+      redirect_to :action=>'list'
     end
   end
 
