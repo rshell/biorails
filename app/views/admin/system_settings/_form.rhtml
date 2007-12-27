@@ -4,14 +4,14 @@
 <div class="row">
  <div class="form-element">
   <label for="system_setting_name">Setting name</label>
-     <%= text_field 'system_setting', 'name',:cols=>80  %>
+     <%= text_field 'system_setting', 'name'  %>
   </div>
 </div>
 
 <div class="row">
  <div class="form-element">
    <label for="system_setting_description">Setting description</label>
-    <%= text_field 'system_setting', 'description'  %>
+    <%= text_area 'system_setting', 'description' , {:cols=>80, :rows=>5} %>
   </div>
 </div>
 
@@ -22,50 +22,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="form-element">
-    <label for="system_settings_public_role_id">Public   Role</label>
-     
 
-  <div class="form-element">
-   <label for="system_settings_session_timeout">Session timeout</label>
-      
-  </div>
-
- <div class="form-element">
-   <label for="system_settings_menu_depth">Menu Depth</label>
-    
-  </div>
-
- <div class="form-element">
-    <label for="system_settings_default_markup_style_id"> Default Markup Style</label>
-     </p>
-  </div>
-</div>
-
-<div class="row">
- <div class="form-element">
-    <label for="system_settings_site_default_page_id"> Default Page </label>
-   </p>
-  </div>
-
- <div class="form-element">
-    <label for="system_settings_not_found_page_id"> Not Found Page</label>
-    </p>
-  </div>
-
- <div class="form-element">
-        <label for="system_settings_permission_denied_page_id"> Permission Denied Page </label>
-        
-   </div>
-   
-
- <div class="form-element">
-        <label for="system_settings_session_expired_page_id"> Session Expired Page</label>
-       
-  </div>
-
-
-</div>
 <!--[eoform:system_settings]-->
 

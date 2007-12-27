@@ -1,9 +1,9 @@
 app_title:
   default: Biorails
-  description: Application title
+  description: The site name may be displayed by your template across the top of the page
 app_subtitle:
   default: Project organization and data management
-  description: Application subtitle
+  description: Optional subheading for site, which may be displayed underneath the site name
 welcome_text:
   default: Welcome to Biorails
   description: Text to display when application starts

@@ -162,6 +162,8 @@ Biorails = function(){
              {text: 'Administration',menu : {items: [
                     {text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
                     '-',
+					{text: "System Settings", iconCls:'icon-system-settings' ,href:'/admin/system_settings', scope: this },
+					'-',
                     {text: "Data Sources",iconCls:'icon-data-system' ,href:'/admin/system',  scope: this },
                     {text: "Data Types",  iconCls:'icon-data-type' ,href:'/admin/data',  scope: this },
                     {text: "Data Lookups",iconCls:'icon-data-element' ,  href:'/admin/element',  scope: this },

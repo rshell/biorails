@@ -71,6 +71,7 @@ background-position: 4px 50%;
 .icon-mixture   { background-image:url(/images/model/container.png)  !important; }
 
 .icon-catalogue     { background-image:url(/images/model/catalogue.png)  !important; }
+.icon-system-settings { background-image:url(/images/model/system_settings.png) !important; }
 .icon-data-format   { background-image:url(/images/model/data_format.png)  !important; }
 .icon-data-element  { background-image:url(/images/model/data_element.png)  !important; }
 .icon-data-type     { background-image:url(/images/model/data_type.png)  !important; }
