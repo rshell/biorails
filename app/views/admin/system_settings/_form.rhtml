@@ -3,67 +3,66 @@
 
 <div class="row">
  <div class="form-element">
-  <label for="system_settings_site_name">Site name</label>
-     <%= text_field 'system_settings', 'site_name',:cols=>80  %>
+  <label for="system_setting_name">Setting name</label>
+     <%= text_field 'system_setting', 'name',:cols=>80  %>
   </div>
 </div>
 
 <div class="row">
  <div class="form-element">
-   <label for="system_settings_site_logo">Site subtitle</label>
-    <%= text_area 'system_settings', 'site_subtitle'  %>
+   <label for="system_setting_description">Setting description</label>
+    <%= text_field 'system_setting', 'description'  %>
   </div>
 </div>
 
 <div class="row">
  <div class="form-element">
-   <label for="system_settings_footer_messasge">Footer Message</label>
-     <%= text_area 'system_settings', 'footer_message'  %>
+   <label for="system_setting_value">Value</label>
+     <%= text_field 'system_setting', 'text'  %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-element">
     <label for="system_settings_public_role_id">Public   Role</label>
-      <%= collection_select :system_settings, :public_role_id, @roles, :id, :name %> 
-  </div>
+     
 
   <div class="form-element">
    <label for="system_settings_session_timeout">Session timeout</label>
-       <%= text_field 'system_settings', 'session_timeout'  %>
+      
   </div>
 
  <div class="form-element">
    <label for="system_settings_menu_depth">Menu Depth</label>
-     <%= text_field 'system_settings', 'menu_depth'  %>
+    
   </div>
 
  <div class="form-element">
     <label for="system_settings_default_markup_style_id"> Default Markup Style</label>
-      <%= collection_select :system_settings, :default_markup_style_id,   @markup_styles, :id, :name %></p>
+     </p>
   </div>
 </div>
 
 <div class="row">
  <div class="form-element">
     <label for="system_settings_site_default_page_id"> Default Page </label>
-    <%= collection_select :system_settings, :site_default_page_id,   @pages, :id, :name %> </p>
+   </p>
   </div>
 
  <div class="form-element">
     <label for="system_settings_not_found_page_id"> Not Found Page</label>
-    <%= collection_select :system_settings, :not_found_page_id,   @pages, :id, :name %> </p>
+    </p>
   </div>
 
  <div class="form-element">
         <label for="system_settings_permission_denied_page_id"> Permission Denied Page </label>
-        <%= collection_select :system_settings, :permission_denied_page_id,   @pages, :id, :name %> 
+        
    </div>
    
 
  <div class="form-element">
         <label for="system_settings_session_expired_page_id"> Session Expired Page</label>
-        <%= collection_select :system_settings, :session_expired_page_id,   @pages, :id, :name %> 
+       
   </div>
 
 

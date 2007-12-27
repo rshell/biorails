@@ -9,7 +9,9 @@
 # Should work under 2.0 or 1.2 rails unlocked as testing with 2.0 at present
 # 
 # RAILS_GEM_VERSION = '1.2.6'
-#RAILS_GEM_VERSION = '2.0.1'
+
+RAILS_GEM_VERSION = '2.0.2'
+
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -57,6 +59,8 @@ end
 
 PUBLIC_ROOT = "#{RAILS_ROOT}/public"
 
+## make sure that default system settings get loaded into the db
+SystemSetting.load_defaults
 ##
 # Htmldoc is used for HTML to PDF conversion in application
 require 'htmldoc' 

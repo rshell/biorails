@@ -32,8 +32,8 @@ class Signature < ActiveRecord::Base
   SignatureRoles=%w{AUTHOR, WITNESS}
   SignatureFormats=%w{SHA1, SHA512, MD5}
   
-   # validates_inclusion_of :signature_state,  :in => Statuses
-   # validates_inclusion_of :signature_role,   :in => SignatureRoles
+    validates_inclusion_of :signature_state,  :in => Statuses
+    validates_inclusion_of :signature_role,   :in => SignatureRoles
     validates_inclusion_of :signature_format, :in => SignatureFormats
   
  ###########################################################################
@@ -43,8 +43,7 @@ class Signature < ActiveRecord::Base
   def before_save
     #this needs a lot of work yet - just proof of concept
     new_key=OpenSSL::PKey::RSA.generate(2048)
-    new_public=new_key.public_key
-   self.content_hash=Base64.encode64(new_public.public_encrypt(text_to_sign))
+   self.content_hash=Base64.encode64(new_key.private_encrypt(text_to_sign))
   end
   def text_to_sign
     signed_text=[]
@@ -69,7 +68,7 @@ class Signature < ActiveRecord::Base
   end
   
   def generate_checksum  
-    p  filename = self.asset.filename ||=''
+      filename = self.asset.filename ||=''
       title=self.asset.title ||=''
       created=self.asset.created_at.to_s
       data = 'file:' << filename 

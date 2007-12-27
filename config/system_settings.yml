@@ -1,17 +1,24 @@
 app_title:
   default: Biorails
+  description: Application title
 app_subtitle:
   default: Project organization and data management
+  description: Application subtitle
 welcome_text:
   default: Welcome to Biorails
+  description: Text to display when application starts
 hash_format:
   default: MD5
+  description: Algorithm to use for encoding documents to be signed
 author_assert_text: 
   default: I assert that the document below is my work and affirm this by attaching my electronic signature
+  description: Text to display when an author is signing a document
 witness_assert_text: 
   default: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
+  description: Text to display when a witness is signing a document
 login_required:
   default: 0
+  description: 0 if a login is required or 1 if not
 self_registration:
   default: 1
 lost_password:
@@ -22,6 +29,7 @@ mail_from:
   default: info@biorails.org
 text_formatting:
   default: textile
+  description:  markup language for web pages
 default_language:
   default: en
 host_name:

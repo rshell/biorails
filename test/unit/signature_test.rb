@@ -3,6 +3,8 @@ require 'mocha'
 require 'ntp'
 require 'author_signature'
 class SignatureTest < Test::Unit::TestCase
+  
+  ## TODO - LOOK AT WHY NTP CALLED WHEN NO NETWORK AND TESTS FAIL
   #fixtures :signatures
   def test_that_signature_is_created
     sig=Signature.new

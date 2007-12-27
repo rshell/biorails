@@ -16,6 +16,9 @@
 ##
 # This class manages system wide settings. Defaults are read from /config directory and can 
 # be over ridden via records in the system_settings table.
+
+# There is no mechanism to create a new system setting - system settings only make sense when associated with blocks of code
+# and so they are created by the programmer by adding to the system_settings.yml file
 #
 class SystemSetting < ActiveRecord::Base
 ##
@@ -29,11 +32,22 @@ class SystemSetting < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_inclusion_of :name, :in => @@defaults.keys
   
+  def self.load_defaults
+     @@defaults.each do |default|
+       description=default[1]['description'] || ''
+        setting =new(:name => default[0], :description=>description, :text => default[1]['default'])
+        setting.save
+      end
+  end
+  
+
   def self.get(name)
     name = name.to_s
     setting = find_by_name(name)
-    setting ||= new(:name => name, :text => @@defaults[name]['default']) if @@defaults.has_key? name
-    setting
+    if setting.nil?
+       load_defaults 
+    end
+    find_by_name(name)
   end
   
   def self.[](name)

@@ -13,62 +13,28 @@ class Admin::SystemSettingsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @system_settings = SystemSettings.find(:first)
-    redirect_to :action => :show, :id => @system_settings
-  end
-
-  def show
-    foreign()
-    @system_settings = SystemSettings.find(:first)
-  end
-
-  def new
-    @system_settings = SystemSettings.find(:first)
-    if @system_settings != nil
-      redirect_to :action => :edit, :id => @system_settings.id
-    else
-      foreign()
-      @system_settings = SystemSettings.new
-    end
-  end
-
-  def create
-    @system_settings = SystemSettings.new(params[:system_settings])
-    if @system_settings.save
-      flash[:notice] = 'SystemSettings was successfully created.'
-      redirect_to :action => 'list'
-    else
-      render :action => 'new'
-    end
+    @system_settings = SystemSetting.find(:all)
   end
 
   def edit
-    foreign()
-    @system_settings = SystemSettings.find(params[:id])
+    @system_setting = SystemSetting.find(params[:id])
   end
 
   def update
-    @system_settings = SystemSettings.find(params[:id])
-    if @system_settings.update_attributes(params[:system_settings])
+    @system_setting = SystemSetting.find(params[:id])
+    if @system_setting.update_attributes(params[:system_setting])
       flash[:notice] = 'SystemSettings was successfully updated.'
-      redirect_to :action => 'show', :id => @system_settings
+      redirect_to :action => 'list'
     else
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    SystemSettings.find(params[:id]).destroy
-    redirect_to :action => 'list'
   end
 
   protected
 
   def foreign
     @roles = Role.find(:all, :order => 'name')
-    @pages = ContentPage.find(:all, :order => 'name')
-    @markup_styles = MarkupStyle.find(:all, :order => 'name')
-    @markup_styles.unshift MarkupStyle.new(:id => nil, :name => '(none)')
+    
   end
 
 end

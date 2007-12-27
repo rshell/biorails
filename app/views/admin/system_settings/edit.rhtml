@@ -1,26 +1,17 @@
 <div class='main' >
     <div class="title">
-         Editing System Settings
-        <div class="actions">
-            <ul>
-              <li>
-                   <%= link_to 'Show', :action => 'show', :id => @system_settings %>
-              </li>
-            </ul>
-        </div>
+         Editing <%= h(@system_setting.name).humanize %>
     </div>
 
-        <%= error_messages_for 'study' %>
-
     <div class="dialog">                              
-     <% form_tag :action => 'update', :id => @system_settings do %>
+     <% form_tag :action => 'update', :id => @system_setting do %>
        <%= render :partial => 'form' %>
         <div class='row'>
         <%= submit_tag 'Edit' %>
         </div>
      <% end %>
     </div>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
+    <%#= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
 </div>    
 
 

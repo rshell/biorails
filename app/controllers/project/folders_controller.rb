@@ -85,10 +85,13 @@ class Project::FoldersController < ApplicationController
          @signable_document << item.to_html
        end
        #use has_file lib to save pdf to temp directory
-    folder.signed_pdf=render_to_pdf @signable_document
+       pdf=PDF::HTMLDoc.new
+       pdf << @signable_document
+       
+    folder.signed_pdf=pdf.generate
     end
     respond_to do |format|
-      format.html { render :action=>'print'}
+      format.html { render :partial => 'show_signable_document',:locals=>{:asserted_text=> SystemSettings.get('author_assert_text').text, :current_user=>current_user,:folder=>folder, :document=>folder.signed_pdf}}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
       format.js  { render :update do | page |  
           page.help_panel     :partial => 'help'

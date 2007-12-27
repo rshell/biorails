@@ -1,12 +1,8 @@
 <% dialog "Sign Folder under #{folder.path} " do %>
-<%= SystemSettings.get('author_assert_text') %>
+<%= asserted_text %>
 <% form_for(:signatures , :url=>signature_url(:action=>'sign_as_author',:id=>folder.id)) do |f| -%>
 
   <div class="row">
-    <div class="form-element">
-        <label for="public_key">Paste your public key here</label>
-        <%= f.text_area :public_key %>
-    </div>
     <div class="form-element">
          <label for="study_name">Signed by</label>
          <%= current_user.name %>
