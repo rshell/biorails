@@ -18,6 +18,8 @@ Dependance Gems
   gem install builder
   gem install ferret
   gem install htmldoc
+  gem install uuid
+
 
 Options gems needed based configration:-
 
