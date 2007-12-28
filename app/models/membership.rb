@@ -25,6 +25,7 @@ class Membership < ActiveRecord::Base
   validates_presence_of :team
   validates_presence_of :role
   
+   belongs_to :project, :class_name=>'Project', :foreign_key =>'project_id'
   belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
   belongs_to :team, :class_name=>'Team', :foreign_key =>'team_id'
   belongs_to :role, :class_name=>'Role', :foreign_key =>'role_id' 
