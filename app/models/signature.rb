@@ -25,7 +25,7 @@ class Signature < ActiveRecord::Base
      return Time.at(ntp['Originate Timestamp']).utc
    end
  
-  defaults :signature_format=>SystemSetting.get('hash_format').text, :signed_date=> set_signature_time
+  defaults :signature_format=>SystemSetting.hash_format, :signed_date=> set_signature_time
   Statuses= %w{PENDING SIGNED ABANDONED}
   SignatureRoles=%w{AUTHOR WITNESS}
   SignatureFormats=%w{SHA1 SHA512 MD5}
