@@ -49,7 +49,9 @@ Biorails.Document = function(config){
                     text:'Sign',
                     tooltip:'Sign as the author',
                    href: '/folders/sign/'+config.folder_id+'?format=js',                            
-                    handler: this.toolbarClick,                  
+                   	handler : function(item){
+                       window.open(item.href);
+                   },                  
                     iconCls:'icon-sign'
                 },'-',{
                     text:'Print',
@@ -169,8 +171,10 @@ Biorails.Folder = function(config){
                     text:'Sign',
                     xtype:'tbbutton',
                     tooltip:'Sign as the author',
-                    href: '/folders/sign/'+config.folder_id+'?format=js',                              
-                    handler: this.toolbarClick,                    
+                    href: '/folders/sign/'+config.folder_id,                              
+                    handler : function(item){
+                        window.open(item.href);
+                    },                  
                     iconCls:'icon-sign'
                 },'-',{
                     text:'Print',

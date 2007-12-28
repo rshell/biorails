@@ -15,9 +15,7 @@ require 'base64'
  
 class Signature < ActiveRecord::Base
   belongs_to :project_element
-  belongs_to :asset
   belongs_to :user
-  belongs_to :article
 ############################################################################
 #       CLASS METHOD TO GET TIME FROM REMOTE TIME SERVER
 #        (has to come before the defaults are set up)
@@ -27,11 +25,11 @@ class Signature < ActiveRecord::Base
      return Time.at(ntp['Originate Timestamp']).utc
    end
  
-  defaults :signature_format=>SystemSettings.get('hash_format').text, :signed_date=> set_signature_time, :asset=>Asset.new
-  Statuses= %w{PENDING, SIGNED, ABANDONED}
-  SignatureRoles=%w{AUTHOR, WITNESS}
-  SignatureFormats=%w{SHA1, SHA512, MD5}
-  
+  defaults :signature_format=>SystemSetting.get('hash_format').text, :signed_date=> set_signature_time
+  Statuses= %w{PENDING SIGNED ABANDONED}
+  SignatureRoles=%w{AUTHOR WITNESS}
+  SignatureFormats=%w{SHA1 SHA512 MD5}
+
     validates_inclusion_of :signature_state,  :in => Statuses
     validates_inclusion_of :signature_role,   :in => SignatureRoles
     validates_inclusion_of :signature_format, :in => SignatureFormats
@@ -68,9 +66,9 @@ class Signature < ActiveRecord::Base
   end
   
   def generate_checksum  
-      filename = self.asset.filename ||=''
-      title=self.asset.title ||=''
-      created=self.asset.created_at.to_s
+      filename = self.filename ||=''
+      title=self.title ||=''
+      created=self.signed_date.to_s
       data = 'file:' << filename 
       data << '~~'<< title 
       data << '~~' << created

@@ -148,7 +148,8 @@ Biorails = function(){
                     {text: 'Folders',     iconCls:'icon-folder' , href:'/folders',  scope: this },
                     {text: 'Study Designs',iconCls:'icon-study' ,href:'/studies',  scope: this },
                     {text: 'Experiments', iconCls:'icon-experiment' , href:'/experiments',  scope: this },
-                    {text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this }
+                    {text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this },
+					{text: "Signed Documents", iconCls:'icon-sign', href:'/signatures', scope: this },
                 ]}},
              {text: 'Design',menu : {items: [
                     {text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },

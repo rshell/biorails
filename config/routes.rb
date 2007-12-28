@@ -17,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/service.wsdl', :action => 'wsdl'
 
 ##
+# signed documents
+#
+  map.document '/folders/sign/document//public', :controller => 'page', :action=>'show_pdf'
+##
 # administration elements
 # 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
@@ -94,4 +98,5 @@ ActionController::Routing::Routes.draw do |map|
 # 
   map.home    'home/:action/:id' , :controller => 'home'
   map.connect ':*path', :controller => "page", :action => "locate"
+ 
 end

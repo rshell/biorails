@@ -56,8 +56,7 @@ class ProjectFolder < ProjectElement
 # Details of the order
 #   Checking studies
 #put all pdfs made from this folder into the same directory 
-has_file :signed_pdf, 'public/documents/folder_'+ self.id.to_s + '/'
-
+has_file :signed_pdf, 'public/documents/'
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],

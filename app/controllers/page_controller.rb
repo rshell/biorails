@@ -3,6 +3,9 @@ class PageController < ApplicationController
   def show
   end
 
+def show_pdf
+  render :file => params[:file]
+end
 ##
 # return a file asset by primilink id
 #   

@@ -1,5 +1,5 @@
 require 'htmldoc'
-
+require 'uuid'
 class Project::FoldersController < ApplicationController
  
   use_authorization :folders,
@@ -84,19 +84,29 @@ class Project::FoldersController < ApplicationController
          @signable_document << "<h2>" << item.title << "</h2>"
          @signable_document << item.to_html
        end
-       #use has_file lib to save pdf to temp directory
-       pdf=PDF::HTMLDoc.new
-       pdf << @signable_document
        
-    folder.signed_pdf=pdf.generate
     end
+    
+     document=PDF::HTMLDoc.create(PDF::PDF) do |p|
+     p.set_option :links, false
+     p.set_option :webpage, true
+     #p.header ".t."
+     p << @signable_document
+     
+     #p.footer ".l."
+  end
+  #use has_file lib to save pdf to temp directory
+  folder.signed_pdf=document
+  unique_name = folder.signed_pdf_file_path << UUID.new << '.pdf'
+ File.rename(folder.signed_pdf_file_path, unique_name)
+  root=RAILS_ROOT.dup
     respond_to do |format|
-      format.html { render :partial => 'show_signable_document',:locals=>{:asserted_text=> SystemSettings.get('author_assert_text').text, :current_user=>current_user,:folder=>folder, :document=>folder.signed_pdf}}
+      format.html { render :partial => 'show_signable_document',:locals=>{:asserted_text=> SystemSetting.get('author_assert_text'), :current_user=>current_user,:folder=>folder, :document=>unique_name.gsub!(root << '/public','')}}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
       format.js  { render :update do | page |  
           page.help_panel     :partial => 'help'
           page.status_panel   :partial => 'status'
-          page.main_panel     :partial => 'show_signable_document',:locals=>{:current_user=>current_user,:folder=>folder, :document=>@signable_document}
+          page.main_panel     :partial => 'show_signable_document',:locals=>{:asserted_text=> SystemSetting.get('author_assert_text'),:current_user=>current_user,:folder=>folder, :document=>folder.signed_pdf_file_path}
        end
      }
     end

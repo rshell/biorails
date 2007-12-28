@@ -76,6 +76,8 @@ helper :tree
     @snapshot_name = Identifier.next_id(current_user.login)
     
     @columns = @report.displayed_columns
+    p @columns
+    p '*************'
     @data = @report.run(:page => params[:page])
    @hash = {   :report => @report.to_ext,
                :rows  => @data.collect{|i|i.attributes},

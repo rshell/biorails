@@ -1,5 +1,5 @@
 <% dialog "Sign Folder under #{folder.path} " do %>
-<%= asserted_text %>
+<%= asserted_text.text %>
 <% form_for(:signatures , :url=>signature_url(:action=>'sign_as_author',:id=>folder.id)) do |f| -%>
 
   <div class="row">
@@ -18,7 +18,7 @@
  <% end %>
 <% end %>
 <br/>
-<%= document %>
+<embed src="<%= document %>/" width="800" height="800" type="application/pdf"></embed>
 
 
 

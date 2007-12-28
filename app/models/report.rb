@@ -309,7 +309,8 @@ end
  def run( params= {})
    @model = self.model
    if @model
-     params = params.merge({:conditions => conditions, :order => order, :include => includes })
+     p '***************'
+     p params = params.merge({:conditions => conditions, :order => order, :include => includes })
      return @model.paginate(:all, params ) 
    end  
  end 
