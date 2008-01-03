@@ -59,8 +59,7 @@ end
 
 PUBLIC_ROOT = "#{RAILS_ROOT}/public"
 
-## make sure that default system settings get loaded into the db
-SystemSetting.load_defaults
+
 ##
 # Htmldoc is used for HTML to PDF conversion in application
 require 'htmldoc' 
