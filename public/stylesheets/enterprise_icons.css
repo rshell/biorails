@@ -243,6 +243,16 @@
                           }
 .icon-todo                { background-image:url(/images/enterprise/request/todo.png) !important; }
 
+/*Status*/
+.icon-status_aborted     { background-image:url(/images/status/red.png) !important; }
+.icon-status_rejected    { background-image:url(/images/status/red.png) !important; }
+.icon-status_new         { background-image:url(/images/status/orange.png) !important; }
+.icon-status_accepted    { background-image:url(/images/status/green.png) !important; }
+.icon-status_waiting     { background-image:url(/images/status/pink.png) !important; }
+.icon-status_processing  { background-image:url(/images/status/white.png) !important; }
+.icon-status_validation  { background-image:url(/images/status/amber.png) !important; }
+.icon-status_completed   { background-image:url(/images/status/purple.png) !important; }
+
 /* Study */
 .icon-study               { background-image:url(/images/enterprise/study/study.png) !important; }
 .icon-study-add           { background-image:url(/images/enterprise/study/study-add.png) !important; }

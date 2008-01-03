@@ -2,63 +2,124 @@
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3 class="icon icon-news-large" style="text-indent:0.5em"><%=link_to l('News: Recent Articles '),home_url(:action=>:news) %></h3>
-            <ul>
-		<% for item in @user.news(5) %>
-			<li>
-			<%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%=item.summary%> 
-			</li>
-		<% end %>
-               </ul>
-	</div>
-	<div class="box">
-	<h3 class="icon icon-project-large" style="text-indent:0.5em"><%=l('My Projects') %></h3>
-		<ul>
-		<% for item in @user.projects %>
-			<li>
-			<%= link_to item.name, project_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%=h item.summary %>
-			</li>
-		<% end %>
-		</ul>
-	</div>  
+    <h3 class="icon icon-news-large" style="text-indent:0.5em">
+      <%=link_to l('News: Recent Articles '),home_url(:action=>:news) %>
+    </h3>
+    <table id="my_projects_news" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @user.news(5) %>
+	<tr class="<%= cycle('odd', 'even') %>">
+	  <td><b class="icon icon-article"></b><%= link_to item.name, element_to_url(item) %> 
+            <td><%= short_date(item.updated_at) %></td>
+            <td><%= item.summary %></td>
+        </tr>
+	<% end %>      
+      </tbody>
+    </table>
+  </div>
+  <div class="box">
+    <h3 class="icon icon-project-large" style="text-indent:0.5em"><%=l('My Projects') %></h3>
+      <table id="my_project" class="report">
+        <thead>
+          <tr class='header'>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for item in @user.projects %>
+	  <tr class="<%= cycle('odd', 'even') %>">
+            <td><b class='icon icon-project'></b><%= link_to item.name, project_url( :action => 'show', :id => item) %></td>
+            <td><%= short_date(item.updated_at) %></td>
+            <td><%=h item.summary %></td>
+	  </tr>
+	  <% end %>
+      </tbody>
+    </table>  
+  </div>  
 </div>
 
 <div class="splitcontentright">
- 
-	<div class="box">
-	<h3 class="icon icon-request-large" style="text-indent:0.5em"><%=link_to l('Requested Services'), home_url(:action=>:requests)%></h3>
-		<ul>
-		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
-			<li>
-			<%= link_to item.request.name, request_url( :action => 'show', :id => item.request) %> /
-			<%= link_to item.queue.name, service_url( :action => 'show', :id => item) %> 
-			(<%= short_date item.updated_at %>) 
-			[ <%= item.items.summary %> ]<br />
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-	<div class="box">
-	<h3 class="icon icon-service-large" style="text-indent:0.5em"><%=l('My Service Queues')%> [total/new/active/finished]</h3>
-		<ul>
-		<% for item in @user.lastest(StudyQueue,5) %>
-			<li>
-			<%= link_to item.name, queue_url( :action => 'show', :id => item) %> (<%= short_date(item.updated_at) %>) [<%= item.items.summary %>] <br />
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-	<div class="box">
-	<h3 class="icon icon-queue_item-large" style="text-indent:0.5em"><%=link_to l('Items in Service Queues'),home_url(:action=>:todo)%> </h3>
-		<ul>
-		<% for item in @user.lastest(QueueItem,10) %>
-			<li>
-			<%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %>:
-			  <strong><%= item.data_name %></strong> (<%= short_date(item.updated_at) %>) [<%= item.status %>]
-			</li>
-		<% end %>
-		</ul>
-	</div>
+  <div class="box">
+    <h3 class="icon icon-request-large" style="text-indent:0.5em">
+      <%=link_to l('Requests'), home_url(:action=>:requests)%>
+    </h3>
+    <table id="my_project" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            <b class='icon icon-request'></b><%= link_to item.request.name, request_url( :action => 'show', :id => item.request) %> /
+            <%= link_to item.queue.name, service_url( :action => 'show', :id => item) %>
+          </td>
+          <td><%= short_date item.updated_at %></td>
+          <td><%= item.items.summary %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+  <div class="box">
+    <h3 class="icon icon-service-large" style="text-indent:0.5em">
+      <%=l('My Service Queues')%>
+    </h3>
+    <table id="my_project" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Name</th>
+          <th>Date</th>
+          <th>[new/active/finished]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @user.lastest(StudyQueue,5) %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><b class='icon icon-queue'></b><%= link_to item.name, queue_url( :action => 'show', :id => item) %></td>
+          <td><%= short_date(item.updated_at) %></td>
+          <td>[<%= item.items.summary %>] </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+  <div class="box">
+    <h3 class="icon icon-queue_item-large" style="text-indent:0.5em">
+      <%=link_to l('Items in Service Queues'),home_url(:action=>:todo)%>
+    </h3>
+    <table id="my_project" class="report">
+      <thead>
+        <tr class='header'>
+          <th>Queue</th>
+          <th>Item</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @user.lastest(QueueItem,10) %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><b class='icon icon-queue_item'></b><%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %></td>
+          <td><strong><%= item.data_name %></strong></td>
+          <td><%= short_date(item.updated_at) %></td>
+          <td><b class='icon icon-status_<%= item.status %>'></b><%= item.status %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>	

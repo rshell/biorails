@@ -9,6 +9,9 @@
             <td><b>Description:</b></td>
             <td><%= in_place_editor_field :project, 'summary',{},{:cols=>100,:rows=>4} %></td>
         </tr>
+        <tr>
+            <td><b> Owned by: </b></td><td><%= @project.team.name %></td>
+        </tr>
     </table>
 <%else%>
   <h1 class="icon icon-project_large" style="text-indent:0.5em">
@@ -23,10 +26,8 @@
         </tr>
     </table
 <%end%>
-<br />
-  <p style="font-size:1.2em"><b> Owned by: </b> <%= @project.team.name %><p>
-<br />
 
+  
 
 <div class="splitcontentleft">
   <div class="box">
