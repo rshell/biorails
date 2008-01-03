@@ -1,14 +1,14 @@
 <div>
-  <span class='menu'>Actions</span>
-  <%= link_to subject_icon('new.png') +'Add Study',       study_url(     :action => 'new', :project_id=>project.id) %>
-  <%= link_to subject_icon('new.png') +'Import Study',    study_url(     :action => 'import', :project_id=>project.id) %>
+  <span class='menu'><b>Actions</b></span>
+  <p class="icon icon-study-add"><%= link_to 'Add Study', study_url(:action => 'new', :project_id=>project.id) %></p>
+  <p class="icon icon-study-import"><%= link_to 'Import Study', study_url(:action => 'import', :project_id=>project.id) %></p>
   <% if project.runnable? %> 
-    <%= link_to subject_icon('new.png') +'Add Experiment',  experiment_url(:action => 'new', :project_id=>project.id) %>
-    <%= link_to subject_icon('new.png') +'Add Task',  task_url(:action => 'new') %>
+    <p class="icon icon-experiment-add"><%= link_to 'Add Experiment',  experiment_url(:action => 'new', :project_id=>project.id) %></p>
+    <p class="icon icon-task-add"><%= link_to 'Add Task',  task_url(:action => 'new') %></p>
   <%else%>
-    <%=subject_icon('cancel.png')%> No runnable study
+    <p class="icon icon-warning"> No runnable study</p>
   <%end %>
 
-  <%= link_to subject_icon('new.png') +'Add Request',     request_url(   :action => 'new', :project_id=>project.id) %>
-  <%= link_to subject_icon('new.png') +'Add Report',     report_url(   :action => 'new', :project_id=>project.id) %>
+  <p class="icon icon-request-add"><%= link_to 'Add Request', request_url(:action => 'new', :project_id=>project.id) %></p>
+  <p class="icon icon-report-add"><%= link_to 'Add Report', report_url(:action => 'new', :project_id=>project.id) %></p>
 </div>

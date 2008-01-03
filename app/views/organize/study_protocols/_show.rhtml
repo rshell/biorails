@@ -1,33 +1,33 @@
 
-<h2>
-    <%=subject_icon('model/protocol.png')%>Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
+<h2 class="icon icon-protocol-large" style="text-indent:0.5em">
+    Protocol [<strong><%=@protocol_version.path%></strong>] in Study 
     [<%=link_to " #{@study.name} ", study_url( :action =>'show',:id =>@study.id) %>]
 </h2>
 <div class='panel'>
     <table class="report">
       <tr>
-          <th class="label"><%=subject_icon('name.png')%> Name</th>
+        <th class="label"><b class="icon icon-name">Name</b></th>
           <td colspan='3'> <%= @study_protocol.name %></td>
       </tr>
       <tr>
-          <th class="label"><%=subject_icon('description.png')%> Description</th>
+        <th class="label"><b class="icon icon-description">Description</b></th>
           <td colspan='3'> <%= @study_protocol.description %></td>
       </tr>
       <tr>
-          <th class="label"><%=subject_icon('litref')%> Lit.Ref.</th>
+          <th class="label"><b class="icon icon-litref">Lit.Ref.</b></th>
           <td colspan='3'> <%= @study_protocol.literature_ref %></td>
       </tr><br/>
       
       <tr>
-          <th class="label"><%=subject_icon('category')%> Catagory</th>
+          <th class="label"><b class="icon icon-category"> Catagory</b></th>
           <td> <%= @study_protocol.protocol_catagory %></td>
-           <th class="label"><%=subject_icon('status')%> Status</th>
+           <th class="label"><b class="icon icon-status">Status</b></th>
            <td> <%= @study_protocol.protocol_status %></td>
       </tr>
       <tr>
-          <th class="label"><%=subject_icon('label')%> Label</th>
+          <th class="label"><b class="icon icon-label">Label</b></th>
           <td> <%= @protocol_version.name %> <%=" [release]" if @protocol_version == @study_protocol.process%></td>
-          <th class="label"><%=subject_icon('version')%> Version</th>
+          <th class="label"><b class="icon icon-protocol-version">Version</b></th>
           <td> <%= @protocol_version.version %></td>
       </tr>
     </table>
@@ -35,9 +35,9 @@
                                         
     <table class="report">
         <thead>  
-            <tr haligh="left">
+            <tr halign="left">
             <% for role in @protocol_version.allowed_roles %>
-              <th><%=subject_icon(role.name)+role.name%></th>
+              <th><b class="icon icon-<%=role.name%>"> <%=role.name%> </b></th>
             <% end %>  
             </tr>
         </thead>
@@ -62,14 +62,13 @@
     <table class="report">
         <thead>  
             <tr> 
-                <th>   Label    </th>
-                <th>   Version 
-                 </th>
-                <th>   No. Contexts </th>           
-                <th>   No. Parameters </th>           
-                <th>   No. Tasks </th>
-                <th>   Date   </th>
-                <th>   User   </th>
+                <th><b class="icon icon-label">Label</b> </th>
+                <th><b class="icon icon-protocol-version">Version</b></th>
+                <th><b class="icon icon-context">No. Contexts</b></th>           
+                <th><b class="icon icon-parameter">No. Parameters </b></th>           
+                <th><b class="icon icon-task">No. Tasks</b></th>
+                <th><b class="icon icon-date">Date</b></th>
+                <th><b class="icon icon-user">User</b></th>
             </tr> 
         </thead>
         <tbody>
@@ -90,7 +89,7 @@
             <% end %>
         </tbody>
     </table>
-    <%= link_to (subject_icon('release'))+" Release Latest", :action => 'release', :id => @study_protocol %>
+    <b class="icon icon-release"><%= link_to "Release Latest", :action => 'release', :id => @study_protocol %></b>
 <br/>
     <div>
        <%= render :partial => 'shared/folder',:locals=>{:folder=>@folder} %>

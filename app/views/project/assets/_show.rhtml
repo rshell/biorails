@@ -1,5 +1,5 @@
 <br/>
-<h2>
+<h2 class="icon icon-file-large" style="text-indent:0.5em">
 File: 
     <% if @project_folder.parent %>
     <%= link_to_remote ".."+ @project_folder.parent.path, :url=>folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
@@ -14,6 +14,7 @@ File:
 <%if @project_asset.asset.image? %>
 <%= @project_asset.asset.image_tag  %>
 <%end %>
+<h3 style="margin-top:1em">File details</h3>
 <ul>
 <li><b>Title: </b><%=in_place_editor_field :project_asset,:title,{} ,{:cols=>80}%> </li>
 <li><b>Caption: </b><%=in_place_editor_field :project_asset, :description,{},{:cols=>100,:rows=>4} %> </li>

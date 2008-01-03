@@ -1,15 +1,15 @@
 <% unless process.nil?  %>
 <div>
   <span class='menu'> <%=subject_icon('model/protocol')%> <%=process.name %></span>
-  <%= link_to 'Protocol',   protocol_url(:action =>'show',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Edit',   protocol_url(:action =>'edit',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Layout',  protocol_url(:action =>'layout',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Preview', protocol_url(:action =>'preview',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Metrics', protocol_url(:action =>'metrics',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Template'+subject_icon('xls.png'), 
-        protocol_url(:action =>'template',:id => process.protocol, :version=>process.id) %>
-  <%= link_to 'Export'+subject_icon('xml'), 
-        protocol_url(:action =>'export',:id => process.protocol, :version=>process.id) %>
+  <p class="icon icon-protocol"><%= link_to 'Protocol',   protocol_url(:action =>'show',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-protocol-edit"><%= link_to 'Edit',   protocol_url(:action =>'edit',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-layout"><%= link_to 'Layout',  protocol_url(:action =>'layout',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-protocol-version-preview"><%= link_to 'Preview', protocol_url(:action =>'preview',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-metric"><%= link_to 'Metrics', protocol_url(:action =>'metrics',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-xls"><%= link_to 'Template', 
+        protocol_url(:action =>'template',:id => process.protocol, :version=>process.id) %></p>
+  <p class="icon icon-xml"><%= link_to 'Export', 
+        protocol_url(:action =>'export',:id => process.protocol, :version=>process.id) %></p>
 
 </div>
 <%end %>

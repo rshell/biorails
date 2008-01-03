@@ -1,43 +1,41 @@
 <% if @audits.size>0 %>
-<h4>Change log for <%= @root.class%>.id=<%=@root.id%></h4>
+<h4 class="icon icon-history">Change log for <%= @root.class%>.id=<%=@root.id%></h4>
 <table class='report'>
-<thead>
-<tr>
-    <th>Action</th>
-    <th>User</th>
-    <th>Created</th>
-    <% for column in @root.class.content_columns %>
-       <th>
-       <%= column.name.to_s %> 
-       </th>
-    <% end %>
-</tr>
-</thead>
-<tbody>
-<% for audit in @audits%>
-<tr>
-    <th><b><%= audit.action %></b></th>
-    <th><%= audit.user.name %></th>
-    <th><%=format_date audit.created_at %></th>
-    <% for column in @root.class.content_columns %>
-       <% change = audit.changes[column.name] %>
-       <% unless change %>
-       <td>
-          <%= @root.attributes[column.name]  %>
-       </td>
-       <% else %>
-       <% if audit.action=='update'%>
-       <td class='state_accepted'> <b><%= change[1] %></b> </span>
-       <% else %>
-       <td class='state_accepted'> <b><%= change[1] %></b> </span>
-       <% end %>
-       </td>
-       <% end %>
-    <% end %>
-    </td>
-</tr>
-<%end%>
-</tbody>
+  <thead>
+    <tr>
+        <th>Action</th>
+        <th>User</th>
+        <th>Created</th>
+        <% for column in @root.class.content_columns %>
+           <th>
+           <%= column.name.to_s %> 
+           </th>
+        <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% for audit in @audits%>
+    <tr>
+        <th><b><%= audit.action %></b></th>
+        <th><%= audit.user.name %></th>
+        <th><%=format_date audit.created_at %></th>
+        <% for column in @root.class.content_columns %>
+           <% change = audit.changes[column.name] %>
+           <% unless change %>
+         <td>
+            <%= @root.attributes[column.name]  %>
+         </td>
+         <% else %>
+         <% if audit.action=='update'%>
+         <td class='state_accepted'> <b><%= change[1] %></b> </td>
+         <% else %>
+         <td class='state_accepted'> <b><%= change[1] %></b> </td>
+         <% end %>
+         <% end %>
+         <% end %>
+    </tr>
+  <%end%>
+  </tbody>
 </table>
 <%else%>
 No old versions founds

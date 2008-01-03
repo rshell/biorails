@@ -4,7 +4,7 @@
 
 <% content_for :center do -%>
 <br/>
-<h2>
+<h2 class="icon icon-folder-large" style="text-indent:0.5em">
 Content Path: 
     <%= link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder) if  @project_folder%>
     <%= "/"+ ( @project_element ? @project_element.name : 'save article') %>

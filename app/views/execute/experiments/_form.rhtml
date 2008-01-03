@@ -18,13 +18,14 @@
   <div id="<%=@experiment.dom_id('protocols')%>">
    <%= select_protocol(:experiment, :study_protocol_id, @study) %>
    </div>
+  </div>
  </div>
-    
-</div>
 
   <div class="row">
-     <label for="study_description">Description</label>
-     <%= text_area('experiment', 'description',{:rows=>5, :cols=>100} 	) %>
+    <div class="form-element">
+       <label for="study_description">Description</label>
+       <%= text_area('experiment', 'description',{:rows=>5, :cols=>100} 	) %>
+    </div>
   </div>
 
 <div class="row">

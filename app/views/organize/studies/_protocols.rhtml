@@ -1,6 +1,9 @@
 <table class="report">
   <thead>
     <tr>
+       <th colspan='<%=study.stages.size%>'><b class="icon icon-protocol">Protocols</b></th>
+    </tr>
+    <tr>
      <% for stage in study.stages %>
       <th><%=stage.name%>  [runs]</th>
      <% end %>  

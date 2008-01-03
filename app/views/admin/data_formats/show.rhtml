@@ -2,11 +2,10 @@
     <%= render :partial => 'menu'%>
 <% end %>
 
+<div class='panel'>
+<h1 class="icon icon-data_format"><%=@data_format.name%></h1>
 
-<h1><%=@data_format.name%></h1>
-
-<p><%=@data_format.description%>
-</p>
+<p><%=@data_format.description%></p>
 <% if @data_format.used?%>
 	<table class="report">
 		<tr>
@@ -33,3 +32,4 @@
                             :confirm => 'Are you sure?',:method => "post" %> ]
 	
 <%end%>
+</div>

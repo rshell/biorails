@@ -4,8 +4,12 @@
 
 
 <% content_for :center do%>
-<h1>Data Formating Rules</h1>
-Data Formatting rules based on regular wxpression mask for input filtering and printf mask for output layout of data.  
+  <div class='panel'>
+<h1 class="icon icon-data_format">Data Formating Rules</h1>
+<p>
+  Data Formatting rules use a <b>regular expression</b> mask for input filtering and 
+  a <b>printf</b> mask for output layout of data.
+</p>
 <table class="report">
   <tr>
     <th>name</th>
@@ -25,3 +29,4 @@ Data Formatting rules based on regular wxpression mask for input filtering and p
 </table>
        <%= will_paginate @data_formats %>    
 <%end%>
+</div>

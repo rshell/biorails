@@ -9,7 +9,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['data_type']} %>
 <%end%>
 
-<% dialog 'Data Type' do %>
+<% dialog '<h1 class="icon icon-data_type">Data Type</h1>' do %>
 	<% form_tag :action => 'update', :id => @data_type do %>
 	  <%= render :partial => 'form' %>
 	  <%= submit_tag 'Edit' %>

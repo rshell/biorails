@@ -10,8 +10,8 @@
     <div class="table-header">
       <div class="actions">
           <ul>
-            <li><%= link_to 'Edit', :action => 'Edit', :id => @sample %></li>
-            <li><%= link_to 'list', :action => 'List' %></li>
+            <li class="icon icon-edit"><%= link_to 'Edit', :action => 'Edit', :id => @sample %></li>
+            <li class="icon icon-list"><%= link_to 'list', :action => 'List' %></li>
           </ul>
       </div>
     </div>
@@ -31,8 +31,8 @@
     <div class="table-footer">
       <div class="actions">
           <ul>        
-            <li><%= link_to subject_icon('edit.png') +'Edit', :action => 'edit', :id => @???? %></li>
-            <li><%= link_to subject_icon('list.png') +'list' %></li>
+            <li class="icon icon-edit"> <%= link_to 'Edit', :action => 'edit', :id => @???? %> </li>
+            <li class="icon icon-list"><%= link_to 'list' %></li>
           </ul>
       </div>
     </div>
@@ -40,7 +40,7 @@
  
     <!--if AUDIT APPLICABLE-->
         <!--START AUDIT-->
-        <br /><hr/ >
+        <br /><hr></hr>
         <%= render :partial => 'shared/audit',:locals =>{ :item => @????} %>
         <!--END AUDIT-->
         <hr />

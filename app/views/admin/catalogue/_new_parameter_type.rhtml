@@ -1,7 +1,7 @@
 <p>  
 Enter the usage for the  concept [<%=@data_concept.path%>] below:-
 </p>
-<% dialog 'New Parameter' do%>
+<% dialog '<h3 class="icon-parameter">New Parameter Type<h3>' do%>
 
 	<%= form_remote_tag :url => { :action => 'create_usage', :id => @data_concept} %>
       <%= render :partial =>'form_parameter_type' %>

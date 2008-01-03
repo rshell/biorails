@@ -4,8 +4,8 @@
 
 <% content_for :center do -%>
 
-<%dialog subject_icon('model/project.png')+'New Project'  do %>
-  Create a new project for organization and execution of a block of work
+<%dialog '<h2 class="icon icon-project-large" style="text-indent:0.5em">New Project</h2>'do %>
+  <p>Create a new project for organization and execution of a block of work</p>
 
   <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>

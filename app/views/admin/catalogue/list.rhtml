@@ -1,6 +1,9 @@
 
 <% content_for :help do%>
-   Central Catalogue to define the conceptural namespace for the organization and where to look them up.
+    <p>
+     The Central Catalogue defines the <i>conceptual namespace</i> for organization 
+     acting as a collection of look-ups or dictionaries.
+    </p>
 <% end%>
 
 <% content_for :status do%>
@@ -17,7 +20,7 @@
 
 
 <% content_for :center do%>
-  <h2> <%=subject_icon('context')%> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>
+  <h2 class="icon icon-data_context-large" style="text-indent:0.5em"> Data Dictionary for context [<strong><%=@context.name%></strong>]  </h2>
   <div id="current-concept">
    <%= render :partial => 'show', :locals => { :concept =>  @data_concept } %>
   </div>
@@ -50,21 +53,21 @@ Ext.onReady(function(){
 		        renderTo:'tabs1',
 				activeTab: 0,
 				defaults: {
-						autoHeight: true,
-						autoScroll: true,
-						bodyStyle: 'padding:5px'
+					autoHeight: true,
+					autoScroll: true,
+					bodyStyle: 'padding:5px'
 				},
 				items: [{
-						title: "Implementation (lookup)",
-						contentEl: 'tab-element'
-					  },{
-					    title: "Usage (parameter types)",
-						contentEl:'tab-parameter'
-					  },{
-						title: "Children (specializations)",
-						contentEl: 'tab-children'
-					  }]		  
-		});
+					title: "Implementation (lookup)",
+					contentEl: 'tab-element'
+					},{
+					title: "Usage (parameter types)",
+					contentEl:'tab-parameter'
+					},{
+					title: "Children (specializations)",
+					contentEl: 'tab-children'
+					}]		  
+                                });
    var tree = new Biorails.ConceptTree('concepts-tree-panel');
    tree.applyToMarkup('concepts-panel');
  });

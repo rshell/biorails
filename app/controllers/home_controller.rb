@@ -44,8 +44,8 @@ class HomeController < ApplicationController
   end
 
   def todo
-   @user = current_user    
-   @report = Report.internal_report("My Todo List ",QueueItem) do | report |
+   @user = current_user 
+   @report = Report.internal_report("'s Queued Items",QueueItem) do | report |
       report.column('assigned_to_user_id').filter = @user.id
       report.column('id').is_visible = false
       report.set_filter(params[:filter])if params[:filter] 

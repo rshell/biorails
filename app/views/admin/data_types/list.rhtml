@@ -6,8 +6,8 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-
-<h1>Listing Data Types</h1>
+<div class='panel'>
+<h1 class="icon icon-data_type">Listing Data Types</h1>
 <table class="report">
   <tr>
     <th>name</th>
@@ -19,9 +19,10 @@
 	  <tr>
 	    <td><%= link_to data_type.name,data_type_url( :action => 'show', :id => data_type) %></td>
 	    <td><%=h data_type.description%></td>
-	    <td><%= link_to 'edit',data_type_url( :action => 'edit', :id => data_type) %></td>
+	    <td><%= link_to '<b class="icon icon-edit"></b>edit',data_type_url( :action => 'edit', :id => data_type) %></td>
 	  </tr>
 	<% end %>
 </table>
 
        <%= will_paginate @data_types %>    
+</div>

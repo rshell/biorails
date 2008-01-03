@@ -1,24 +1,24 @@
-<h2>Dashboard of user <%=@user.name%></h2>
+<h1 class="icon icon-user-large" style="text-indent:0.5em">Dashboard of <%=@user.name%></h1>
 
 <div class="splitcontentleft">
   <div class="box">
-	<h3><%=link_to l('News: Recent Articles '),home_url(:action=>:news) %></h3>
+	<h3 class="icon icon-news-large" style="text-indent:0.5em"><%=link_to l('News: Recent Articles '),home_url(:action=>:news) %></h3>
+            <ul>
 		<% for item in @user.news(5) %>
 			<li>
-			<%=image_tag(item.icon) %> 
 			<%= link_to item.name, element_to_url(item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%=item.summary%> 
 			</li>
 		<% end %>
+               </ul>
 	</div>
 	<div class="box">
-	<h3 class="icon icon-request"><%=l('My Projects') %></h3>
+	<h3 class="icon icon-project-large" style="text-indent:0.5em"><%=l('My Projects') %></h3>
 		<ul>
 		<% for item in @user.projects %>
 			<li>
 			<%= link_to item.name, project_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
 			<%=h item.summary %>
-			<%= link_to( subject_icon('cancel.png'), project_url( :action => 'destroy', :id => item)) unless item.in_use?  %>
 			</li>
 		<% end %>
 		</ul>
@@ -26,19 +26,9 @@
 </div>
 
 <div class="splitcontentright">
+ 
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=link_to l('Requests Todo'),home_url(:action=>:todo)%> </h3>
-		<ul>
-		<% for item in @user.lastest(QueueItem,10) %>
-			<li>
-			<%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %>:
-			  <strong><%= item.data_name %></strong> (<%= short_date(item.updated_at) %>) [<%= item.status %>]
-			</li>
-		<% end %>
-		</ul>
-	</div>  
-	<div class="box">
-	<h3 class="icon icon-protocol"><%=link_to l('Requested Services'), home_url(:action=>:requests)%></h3>
+	<h3 class="icon icon-request-large" style="text-indent:0.5em"><%=link_to l('Requested Services'), home_url(:action=>:requests)%></h3>
 		<ul>
 		<% for item in @user.lastest(RequestService,5,'requested_by_user_id') %>
 			<li>
@@ -51,7 +41,7 @@
 		</ul>
 	</div>  
 	<div class="box">
-	<h3 class="icon icon-protocol"><%=l('My Queues')%> [total/new/active/finished]</h3>
+	<h3 class="icon icon-service-large" style="text-indent:0.5em"><%=l('My Service Queues')%> [total/new/active/finished]</h3>
 		<ul>
 		<% for item in @user.lastest(StudyQueue,5) %>
 			<li>
@@ -60,5 +50,15 @@
 		<% end %>
 		</ul>
 	</div>  
-
+	<div class="box">
+	<h3 class="icon icon-queue_item-large" style="text-indent:0.5em"><%=link_to l('Items in Service Queues'),home_url(:action=>:todo)%> </h3>
+		<ul>
+		<% for item in @user.lastest(QueueItem,10) %>
+			<li>
+			<%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %>:
+			  <strong><%= item.data_name %></strong> (<%= short_date(item.updated_at) %>) [<%= item.status %>]
+			</li>
+		<% end %>
+		</ul>
+	</div>
 </div>	

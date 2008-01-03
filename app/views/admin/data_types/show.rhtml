@@ -6,8 +6,8 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-
-<h1><%=@data_type.name%></h1>
+<div class='panel'>
+<h1 class="icon icon-data_type"><%=@data_type.name%></h1>
 
 <p><%=@data_type.description%>
 </p>
@@ -27,3 +27,4 @@
 </tr>
 <%end%>
 </table>
+</div>

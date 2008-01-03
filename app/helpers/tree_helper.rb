@@ -16,14 +16,14 @@ module TreeHelper
     list = []
     if folder.parent_id
        list << {:id => folder.id,
-	         :icon => '/images/model/folder.png',
-             :position => -1,
-             :left_limit => -1,
-             :right_limit => -1,
-             :name => link_to_remote('..', :url=>folder_url(:action=>'show',:id=>folder.parent_id)),
-             :summary => '[parent folder]',
-             :updated_by => folder.updated_by,
-             :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") }
+	        :iconCls => 'icon-project',
+                :position => -1,
+                :left_limit => -1,
+                :right_limit => -1,
+                :name => link_to_remote('..', :url=>folder_url(:action=>'show',:id=>folder.parent_id)),
+                :summary => '[parent folder]',
+                :updated_by => folder.updated_by,
+                :updated_at => folder.updated_at.strftime("%Y-%m-%d %H:%M:%S") }
     end
     elements.sort{|a,b|a.left_limit <=> b.left_limit}.each_with_index{|e,i| e.position=i} 
     elements.each do |item| 
@@ -36,9 +36,10 @@ module TreeHelper
                     :left_limit => item.left_limit,
                     :right_limit => item.right_limit,
                     :icon =>  item.icon( {:images=>true} ),
+                    :iconCls =>"icon-#{item.reference_type.to_s.underscore}",
                     :name =>  link_to_remote(item.name, :url=>element_to_url(item)),
                     :summary => item.summary,
-					:reference_type => item.reference_type, 
+                    :reference_type => item.reference_type, 
                     :updated_by => item.updated_by,
                     :updated_at => item.updated_at.strftime("%Y-%m-%d %H:%M:%S"), 
                     :actions =>  actions }
@@ -53,13 +54,13 @@ module TreeHelper
   def elements_to_json(elements)
     items = elements.collect do |rec| 
 	  {
-		 :id => rec.id,
-		 :text => rec.name,
-         :href => reference_to_url(rec),
-         :icon => rec.icon,
-	     :iconCls =>  "icon-#{rec.class.to_s.underscore}",
-         :allowDrag => !(rec.class == ProjectFolder),
-         :allowDrop => (rec.class == ProjectFolder),	
+              :id => rec.id,
+              :text => rec.name,
+              :href => reference_to_url(rec),
+              :icon => rec.icon,
+              :iconCls =>  "icon-#{rec.class.to_s.underscore}",
+              :allowDrag => !(rec.class == ProjectFolder),
+              :allowDrop => (rec.class == ProjectFolder),	
 	     :leaf => !(rec.class == ProjectFolder),
 	     :qtip => rec.summary		
       }
@@ -74,12 +75,12 @@ module TreeHelper
   def data_concepts_to_json(elements)
     items = elements.collect do |rec| 
 	  {
-		 :id => rec.id,
-		 :text => rec.name,
-         :url => catalogue_url(:action=>:show,:id => rec.id),
-	     :iconCls =>  "icon-concept",	
-	     :leaf => (rec.children.count==0),
-	     :qtip => rec.description		
+              :id => rec.id,
+              :text => rec.name,
+              :url => catalogue_url(:action=>:show,:id => rec.id),
+              :iconCls =>  "icon-concept",	
+              :leaf => (rec.children.count==0),
+              :qtip => rec.description		
       }
     end 
     items.to_json      

@@ -130,7 +130,7 @@ Biorails = function(){
 // 
    var _toolbar =  new Ext.Toolbar({
         items: [{text: 'Home', menu: { items: [
-                    {text: "Dashboard",iconCls:'icon-home',    href:'/home',scope: this },
+                    {text: "Dashboard", iconCls: 'icon-home',    href:'/home',scope: this },
                     '-',
                     {text: "Recent",  iconCls:'icon-news' ,      href:'/home/news',scope: this },
                     {text: "Projects",iconCls:'icon-project' ,      href:'/home/projects',scope: this },
@@ -139,8 +139,8 @@ Biorails = function(){
                     {text: "Requests",iconCls:'icon-request' ,      href:'/home/requests' ,scope: this  },
                     '-',
                     {text: "Logout",  iconCls:'icon-logout' ,      href:'/logoff' ,scope: this  }
-                ]}},
-             {text: 'Project', menu : {items: [
+                    ]}},
+             {text: 'Project', menu: {items: [
                     {text: "Dashboard", iconCls:'icon-project',   href:'/projects/show',scope: this },
                     '-',
                     {text: "Calender",    iconCls:'icon-calendar' ,   href:'/projects/calendar',  scope: this },
@@ -149,40 +149,40 @@ Biorails = function(){
                     {text: 'Study Designs',iconCls:'icon-study' ,href:'/studies',  scope: this },
                     {text: 'Experiments', iconCls:'icon-experiment' , href:'/experiments',  scope: this },
                     {text: "Reports",     iconCls:'icon-report' , href:'/reports', scope: this },
-					{text: "Signed Documents", iconCls:'icon-sign', href:'/signatures', scope: this },
-                ]}},
-             {text: 'Design',menu : {items: [
+                    {text: "Signed Documents", iconCls:'icon-sign', href:'/signatures', scope: this }
+                    ]}},
+             {text: 'Design', menu: {items: [
                     {text: "Studies", iconCls:'icon-study' ,     href:'/studies',  scope: this },
                     {text: "Services", iconCls:'icon-service' ,  href:'/queues' ,scope: this },
                     {text: "Protocols",iconCls:'icon-protocol' , href:'/protocols' , scope: this }
-                ]}},' ',
-             {text: 'Inventory',menu : {items: [
+                    ]}},' ',
+             {text: 'Inventory', menu : {items: [
                     {text: "Compounds", iconCls:'icon-compound' , href:'/inventory/compounds',  scope: this },
                     {text: "Batches",   iconCls:'icon-batch' ,    href:'/inventory/batches' ,  scope: this }
-                ]}},' ',
+                    ]}},' ',
              {text: 'Administration',menu : {items: [
                     {text: "Catalogue", iconCls:'icon-catalogue' , href:'/admin/catalogue', scope: this },
                     '-',
-					{text: "System Settings", iconCls:'icon-system-settings' ,href:'/admin/system_settings', scope: this },
-					'-',
-                    {text: "Data Sources",iconCls:'icon-data-system' ,href:'/admin/system',  scope: this },
-                    {text: "Data Types",  iconCls:'icon-data-type' ,href:'/admin/data',  scope: this },
-                    {text: "Data Lookups",iconCls:'icon-data-element' ,  href:'/admin/element',  scope: this },
-                    {text: "Data Formats",iconCls:'icon-data-format' ,  href:'/admin/format',   scope: this },
+                    {text: "System Settings", iconCls:'icon-settings' ,href:'/admin/system_settings', scope: this },
                     '-',
-                    {text: "Study Stage",iconCls:'icon-study-stage' ,  href:'/admin/stage', scope: this },
-                    {text: "Parameter types",iconCls:'icon-parameter-type' , href:'/admin/parameters',  scope: this },
-                    {text: "Parameter Roles",iconCls:'icon-parameter-role' , href:'/admin/usage', scope: this },
+                    {text: "Data Sources",iconCls:'icon-data_system' ,href:'/admin/system',  scope: this },
+                    {text: "Data Types",  iconCls:'icon-data_type' ,href:'/admin/data',  scope: this },
+                    {text: "Data Lookups",iconCls:'icon-data_element' ,  href:'/admin/element',  scope: this },
+                    {text: "Data Formats",iconCls:'icon-data_format' ,  href:'/admin/format',   scope: this },
+                    '-',
+                    {text: "Study Stage",iconCls:'icon-study_stage' ,  href:'/admin/stage', scope: this },
+                    {text: "Parameter types",iconCls:'icon-parameter_type' , href:'/admin/parameters',  scope: this },
+                    {text: "Parameter Roles",iconCls:'icon-parameter_role' , href:'/admin/usage', scope: this },
                     '-',
                     {text: "Teams",iconCls:'icon-team' , href:'/admin/teams', scope: this },
                     {text: "Roles",iconCls:'icon-role' , href:'/admin/role', scope: this },
                     {text: "Users",iconCls:'icon-user' , href:'/admin/users',  scope: this }
-                ]}},
-             {text: 'Help',menu : {items: [{text: "Help",href:'/help',   scope: this } ]}},
-              '->',
-              searchField,
-              {text: 'Search',handler: onSearchClick}				
-            ]});
+                    ]}},
+            {text: 'Help',menu: {items: [{text: "Help", iconCls: 'icon-help', href:'/help',   scope: this } ]}},
+                    '->',
+                    searchField,
+            {text: 'Search',handler: onSearchClick}				
+                    ]});
 
 // region -----------------------North------------------------------
                                 
@@ -195,26 +195,28 @@ Biorails = function(){
 			  });                            
 // region -----------------------West------------------------------
    var _actions_panel = new Ext.Panel({
-		            title:'Menu Actions',
-		            contentEl: 'actions-panel',
-		            border:false,
-                            autoScroll: true,
-		            iconCls:'settings'
+		        title:'Menu Actions',
+                        iconCls:'icon-action',    
+                        contentEl: 'actions-panel',
+		        border:false,
+                        autoScroll: true
 		        } );
 
    var _work_panel = new Ext.Panel({
-                                xtype:"panel",
-                                autoScroll: true,
-                                contentEl: 'work-tab',
-            //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
-                                id: 'work-id',
-                                title:"Clipboard"
-                      }  );
+                        xtype:"panel",
+                        autoScroll: true,
+                        contentEl: 'work-tab',
+                        //autoLoad: {url:'/finder/clipboard?format=html',method:'get',scripts:true},                    
+                        id: 'work-id',
+                        title:"Clipboard",
+                        iconCls: 'icon-clipboard'
+                        }  );
 
 
    var _west_panel = new Ext.Panel( {
                         region:"west",
                         title:"Navigation",
+                        iconCls:'icon-navigation',
                         id:'nav-id',	
                         split:true,
                         collapsible:true,
@@ -238,56 +240,56 @@ Biorails = function(){
                     autoDestroy: true,  
                     autoScroll: true,
                     id: 'status-id',
-                    iconCls:'icon-help',                                         
+                    iconCls:'icon-info',                                         
                     title:"Info."
               } );
 
    var _tree_panel = new Ext.tree.TreePanel({
-			el:'tree-panel',
+            el:'tree-panel',
             title:'Folders',
             minHeight: 400,
             autoShow: true,
             autoScroll: true,            
-         	autoDestroy: true,  
-			animate:true,
-			enableDD:true,
+            autoDestroy: true,  
+            animate:true,
+            enableDD:true,
             iconCls:'icon-folder', 
-			loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
-		});
+            loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
+            });
     _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   text: 'Projects',expanded: true,    draggable:false, id: 'root' }) );
     
    var _east_panel = new Ext.TabPanel( {
-			    region:"east",
-			    title:"Extras",
-		        xtype:"tabpanel",
-			    id:'extra-id',	
-			    width: 170,
-                minHeight: 600,                       
-				minSize: 100,
-                maxSize: 400,
-			    split:true,
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-		        activeTab:0,
-			    tabPosition: 'bottom',
-		        items:[ _status_panel, _tree_panel ]
-			  });
+		    region:"east",
+		    title:"Extras",
+		    xtype:"tabpanel",
+		    id:'extra-id',	
+		    width: 170,
+                    minHeight: 600,                       
+                    minSize: 100,
+                    maxSize: 400,
+		    split:true,
+		    useSplitTips: true,
+		    collapsible:true,
+                    titleCollapse:true,
+		    activeTab:0,
+		    tabPosition: 'bottom',
+		    items:[ _status_panel, _tree_panel ]
+                    });
 
 // region -----------------------Center------------------------------
   var _center_panel = new Ext.Panel({
-			        region:"center",
-					id: 'center-id',			
-					contentEl:'center-panel',
-					autoScroll: true,
+                    region:"center",
+                    id: 'center-id',			
+                    contentEl:'center-panel',
+                    autoScroll: true,
                     frame: true
 			       });    
                                
                                                           
   var _main_panel = new Ext.Panel({
-			        region:"center",
-					id: 'main-id',
-		            layout:'border',
+                    region:"center",
+                    id: 'main-id',
+		    layout:'border',
                     autoWidth:false,        
                     autoHeight:false,        
                     items:[_center_panel]

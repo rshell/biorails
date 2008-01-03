@@ -1,28 +1,29 @@
 
-  <h3 class="icon icon-task"><%=l('Tasks')%> Todo</h3>
-      <ul>
+  <h3 class="icon icon-task"><%=@user.name%>'s Tasks</h3>
+  <h4 class="icon icon-green">Current</h4>
+      <table>
       <% for item in @user.tasks.current(5) %>
-          <li>
-          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-          <%= item.description %>
-          </li>
+          <tr>
+            <td><%= link_to item.name, task_url( :action => 'show', :id => item) %></td>
+            <td>Due:<%= short_date(item.ended_at) %></td>
+          </tr>
       <% end %>
-      </ul>
-  <h3 class="icon icon-task"><%=l('Tasks')%> Overdue</h3>
-      <ul>
+      </table>
+  <h4 class="icon icon-red">Overdue</h4>
+      <table>
       <% for item in @user.tasks.overdue(5) %>
-          <li>
-          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-          <%= item.description %>
-          </li>
+          <tr>
+            <td><%= link_to item.name, task_url( :action => 'show', :id => item) %></td>
+            <td>Due:<%= short_date(item.ended_at) %></td>
+          </tr>
       <% end %>
-      </ul>
-  <h3 class="icon icon-task"><%=l('Tasks')%> Soon</h3>
-      <ul>
+      </table>
+  <h4 class="icon icon-amber">Soon</h4>
+      <table>
       <% for item in @user.tasks.future(5) %>
-          <li>
-          <%= link_to item.name, task_url( :action => 'show', :id => item) %> Due <%= short_date(item.ended_at) %> (<%= format_time(item.updated_at) %>)<br />
-          <%= item.description %>
-          </li>
+          <tr>
+            <td><%= link_to item.name, task_url( :action => 'show', :id => item) %></td>
+            <td>Due <%= short_date(item.ended_at) %> </td>
+          </tr>
       <% end %>
-      </ul>
+      </table>

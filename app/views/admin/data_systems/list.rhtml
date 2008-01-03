@@ -8,8 +8,9 @@
 
 
 <% content_for :center do%>
-<h1>
-    <%= subject_icon('systems')%>Data Sources
+<div class='panel'>
+<h1 class="icon icon-data_system-large" style="text-indent:0.5em">
+    Data Sources
 </h1>
 <p>
 	The data sources contain the mappings of parameters to other data systems for internal and remote data dictionaries and other lookups. 
@@ -32,11 +33,12 @@
     <td><%=h item.username %></td>
     <td><%=h item.database %></td>
     <td><%=h item.test_object %></td>
-    <td><%= link_to 'edit',data_system_url( :action => 'edit', :id => item) %></td>
+    <td><%= link_to '<b class="icon icon-edit"></b>edit',data_system_url( :action => 'edit', :id => item) %></td>
   </tr>
 <% end %>
 </table>
 <%= will_paginate @data_systems %>    
 <%end%>
+</div>
 
 

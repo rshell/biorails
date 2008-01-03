@@ -4,7 +4,7 @@
 
 <% content_for :center do -%>
 
- <% dialog subject_icon('experiment.png')+'Edit Experiment' do %>
+ <% dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">Edit Experiment</h2>' do %>
    <% form_tag :action => 'update', :id => @experiment do %>
     <%= render :partial => 'form' %>
     <div class="row">

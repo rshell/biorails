@@ -1,9 +1,9 @@
 <%content_for :center do%>
-<h2>
+
+<div class='panel'>
+<h2 class="icon icon-data_system-large" style="text-indent:0.5em">
    Import Catalogue into System 
 </h2> 
-<div class='panel'>
-
 <%form_tag({:action =>'import_file'} , {:multipart => true}) do %>
 
    <%= render :partial => '/shared/messages',  :locals => { :objects => ['data_context']} %>
@@ -23,7 +23,7 @@
    </div>        
 
   <div class="row">
-    <h2 style="color:red"> BACKUP YOUR DATABASE NOW BEFORE ATTEMPTING THIS OPERATION</h2>
+    <h2 class="icon icon-warning" style="color:red"> BACKUP YOUR DATABASE NOW BEFORE ATTEMPTING THIS OPERATION</h2>
     <p>
     This operation will attempt to load a complete catalogue of terms into the system and 
 	is designed as a method of <strong>seeding</strong> new systems rather than extending

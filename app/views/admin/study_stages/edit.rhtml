@@ -2,12 +2,12 @@
   <%= render :partial => '/menu/admin_menu'%>
   <div>
     <span class='menu'>Study Stages</span>
-    <%= link_to 'List',    study_stage_url(:action => 'list') %>
-    <%= link_to 'New',    study_stage_url(:action => 'new') %> 
-    <%= link_to 'Edit',    study_stage_url(:action => 'edit', :id => @study_stage) %> 
-    <%= link_to 'Show',    study_stage_url(:action => 'show',:id => @study_stage) %>
+    <p class="icon icon-list"><%= link_to 'List',    study_stage_url(:action => 'list') %></p>
+    <p class="icon icon-new"><%= link_to 'New',    study_stage_url(:action => 'new') %> </p>
+    <p class="icon icon-edit"><%= link_to 'Edit',    study_stage_url(:action => 'edit', :id => @study_stage) %> </p>
+    <p class="icon icon-show"><%= link_to 'Show',    study_stage_url(:action => 'show',:id => @study_stage) %></p>
     <% if @study_stage.protocols.size==0 %>
-    <%= link_to 'Destroy', study_stage_url(:action => 'destroy', :id => @study_stage ), :confirm => 'Are you sure?', :method => :post %><
+    <p class="icon icon-del"><%= link_to 'Delete', study_stage_url(:action => 'destroy', :id => @study_stage ), :confirm => 'Are you sure?', :method => :post %></p>
     <% end %>
   </div>
 <% end %>
@@ -15,7 +15,7 @@
 
 <div style="width:100%">
 
-	<% dialog 'Editing Study Stage' do %>		
+	<% dialog '<h1 class="icon icon-study_stage">Editing Study Stage</h1>' do %>		
 		<% form_tag :action => 'update', :id => @study_stage do %>
 		  <%= render :partial => 'form' %>
   	      <%= submit_tag 'Edit' %>

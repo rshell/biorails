@@ -1,33 +1,33 @@
-<h2>
-   <%=subject_icon('experiment.png')%> Experiment [<strong><%=@experiment.name %></strong>] in study 
+<h2 class="icon icon-experiment-large" style="text-indent:0.5em">
+   Experiment [<strong><%=@experiment.name %></strong>] in study 
         [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
 </h2>
 <table class="report">
-  <tr><th class="label"><%=subject_icon('name.png')%> Name</th>
+  <tr><th class="label"><b class="icon icon-name">Name</b></th>
       <td colspan='3'> <%= @experiment.name %></td>
   </tr>
   <tr>
-     <th class="label"><%=subject_icon('description.png')%> Description</th>
+     <th class="label"><b class="icon icon-description">Description</b></th>
      <td colspan='3'> <%= @experiment.description %></td>
   </tr>
   <tr>
-    <th class="label"><%=subject_icon('model/study.png')%> Study</th>
+    <th class="label"><b class="icon icon-study">Study</b></th>
     <td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td>
-    <th class="label"><%=subject_icon('model/protocol.png')%> Process [Default]</th>
+    <th class="label"><b class="icon icon-protocol_version">Default Prot. Ver.</b></th>
     <td> <%= @experiment.process.path  %></td>
   </tr>
   <tr>
-    <th class="label">Started</th>
+    <th class="label"><b class="icon icon-date">Started</b></th>
     <td><%=format_date @experiment.started_at  %></td>
-    <th class="label">Expected (End)</th>
+    <th class="label"><b class="icon icon-date">Expected End</b></th>
     <td> <%=format_date @experiment.expected_at %></td>
   </tr>
 </table>
 <br/>
 <table class="report">
     <tr>
-        <th>Task</th>
-        <th>Protocol</th>
+        <th><b class="icon icon-task">Task</b></th>
+        <th><b class="icon icon-protocol">Protocol</b></th>
         <th>Status</th>
         <th>Started</th>
         <th>Expected (End)</th>

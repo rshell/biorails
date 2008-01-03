@@ -1,7 +1,7 @@
 <%if @team%>
 
 <%if @team.owner?(current_user)%>
-  <h2> Team <%= in_place_editor_field :team, 'name' ,:cols=>80 %></h2>
+  <h1 class="icon icon-team-large"> Team <%= in_place_editor_field :team, 'name' ,:cols=>80 %></h1>
   <b>Summary:</b> <%= in_place_editor_field :team, 'description',{},{:cols=>100,:rows=>4} %>
 <%else%>
   <h2> team <%= @team.name %></h2>
@@ -23,14 +23,14 @@
       <tbody>
         <% for item in @team.projects %>
           <tr class="<%= cycle('odd', 'even') %>">
-            <td> <%=link_to item.name ,project_url(:action=>'show',:id=>item.id) %></td>
+            <td><p class="icon icon-show"><%=link_to item.name ,project_url(:action=>'show',:id=>item.id) %></td>
             <td> <%=item.created_by%></td>
             <td> <%=h item.status %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  <%= link_to subject_icon('new.png') +"New project", project_url(   :action => 'new', :team_id=>@team.id) %>
+    <p class="icon icon-project-add"><%= link_to "New project", project_url(   :action => 'new', :team_id=>@team.id) %>
 
   </div>      
 
@@ -47,7 +47,7 @@
       <tbody>
         <% for item in @team.studies %>
           <tr class="<%= cycle('odd', 'even') %>">
-            <td> <%=link_to item.name ,study_url(:action=>'show',:id=>item.id) %></td>
+            <td><p class="icon icon-show"><%=link_to item.name, study_url(:action=>'show',:id=>item.id) %></td>
             <td> <%=item.created_by%></td>
             <td> <%=h item.status %></td>
           </tr>
@@ -72,7 +72,7 @@
       <tbody>
         <% for item in @team.memberships %>
           <tr class="<%= cycle('odd', 'even') %>">
-            <td> <%= link_to subject_icon('action/edit.png') + "#{item.user.login} [#{item.user.name}]",
+            <td> <p class="icon icon-edit"><%= link_to "#{item.user.login} [#{item.user.name}]",
                                     member_url( :action => 'edit', :id => item) %></td>
             <td> <%(item.owner? ? 'Yes' : 'No')%></td>
             <td> <%=h item.role.name %></td>
@@ -80,7 +80,7 @@
         <% end %>
       </tbody>
     </table>
-   <%= link_to subject_icon('new.png') +"Add user", member_url(   :action => 'new', :team_id=>@team.id) %>
+    <p class="icon icon-user-add"><%= link_to "Add user", member_url(   :action => 'new', :team_id=>@team.id) %>
 
   </div>   
 

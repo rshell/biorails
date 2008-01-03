@@ -2,8 +2,8 @@
   <%= render :partial => 'menu'%>
 <% end %>
 
-    <h2>
-        <%= subject_icon('systems')%> Data System [<strong><%=@data_system.name%></strong>]
+    <h2 class="icon icon-data_system-large" style="text-indent:0.5em">
+        Data System [<strong><%=@data_system.name%></strong>]
    </h2>
     <div class='panel'>
         <%= render :partial => 'shared/named',:locals =>{:item => @data_system} %>

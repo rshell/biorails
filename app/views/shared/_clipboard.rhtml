@@ -1,6 +1,6 @@
 
 <div id='clipboard'>
-<h2>Clipboard for <%=current_user.name%></h2>
+<h2 class='icon icon-clipboard'>Clipboard for <%=current_user.name%></h2>
 <i>Drop items to add</i><%=link_to_remote '[Clear]',:url => finder_url(:action=>"clear_clipboard")%>
 <br/>
   <% if current_clipboard.size>0%>

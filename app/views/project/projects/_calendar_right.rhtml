@@ -1,25 +1,25 @@
 <div class='box'>
 <%form_tag({:action =>'calendar', :id=> @project.id} ) do %>
     <%= error_messages_for("user") %>
-    <br>Month:
-    <%= select_month(@calendar.started_at, :prefix => "month", :discard_type => true)%>
-    <br/>Year:
-    <%= select_year(@calendar.started_at, :prefix => "year", :discard_type => true)%>
-    <br/>
+    <p>Month:</p>
+    <p><%= select_month(@calendar.started_at, :prefix => "month", :discard_type => true)%></p>
+    <p>Year:</p>
+    <p><%= select_year(@calendar.started_at, :prefix => "year", :discard_type => true)%></p>
+    <br />
     <fieldset>
     <legend>Types</legend> 
     <ul>
-    <li>  <%=subject_icon("model/request") %>    <%= check_box_tag 'items[request]', 'y',   checked = @options['items']['request'] %>Requests</li>
-    <li>  <%=subject_icon("model/request") %>    <%= check_box_tag 'items[service]', 'y',   checked = @options['items']['service'] %>Queued </li>
-    <li>  <%=subject_icon("model/queue_item")%>  <%= check_box_tag 'items[queue]', 'y',     checked = @options['items']['queue'] %>Queued Items</li>
-    <li>  <%=subject_icon("model/study") %> <%= check_box_tag 'items[study]', 'y',   checked = @options['items']['study'] %>Studies</li>
-    <li>  <%=subject_icon("model/experiment") %> <%= check_box_tag 'items[experiment]', 'y',checked = @options['items']['experiment'] %>Experiments</li>
-    <li>  <%=subject_icon("model/task") %> <%= check_box_tag 'items[task]', 'y',      checked = @options['items']['task'] %>Tasks</li>
+      <li class="icon icon-task"><%= check_box_tag 'items[task]', 'y',      checked = @options['items']['task'] %>Tasks</li>
+      <li class="icon icon-queue_item"><%= check_box_tag 'items[queue]', 'y',     checked = @options['items']['queue'] %>Queued Items</li>
+      <li class="icon icon-experiment"><%= check_box_tag 'items[experiment]', 'y',checked = @options['items']['experiment'] %>Experiments</li>
+      <li class="icon icon-study"><%= check_box_tag 'items[study]', 'y',   checked = @options['items']['study'] %>Studies</li>
+      <li class="icon icon-request"><%= check_box_tag 'items[request]', 'y', checked = @options['items']['request'] %>Requests</li>
+      <li class="icon icon-service"><%= check_box_tag 'items[service]', 'y',   checked = @options['items']['service'] %>Services</li>
     </ul>
     </fieldset>
     <br/>
     <fieldset>
-    <legend> Status values </legend> 
+    <legend class="icon icon-status"> Status values </legend> 
     <ul>
     <% for state in Task.schedule_states.keys.sort  %>
        <li  class='state-<%=Task.schedule_states[state]%>'>  

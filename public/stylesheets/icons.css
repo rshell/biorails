@@ -1,90 +1,278 @@
-/**************** Icons *******************/
+/**************** Enterprise Icons *******************/
 .icon {
-background-position: 0% 40%;
-background-repeat: no-repeat;
-padding-left: 20px;
-padding-top: 2px;
-padding-bottom: 3px;
-vertical-align: middle;
-}
+                            background-position: 0% 40%;
+                            background-repeat: no-repeat;
+                            padding-left: 20px;
+                            padding-top: 2px;
+                            padding-right: 5px;
+                            padding-bottom: 2px;
+                            vertical-align: middle;
+                          }
 
-#navigation .icon {
-background-position: 4px 50%;
-}
+#navigation .icon         {
+                            background-position: 4px 50%;
+                          }
+
+/* Actions */
+.icon-action 	          { background-image:url(/images/open/actions/action.png) !important; }
+.icon-add 	          { background-image:url(/images/open/actions/add.png) !important; }
+.icon-cancel 	          { background-image:url(/images/open/actions/cancel.png) !important; }
+.icon-copy 	          { background-image:url(/images/open/actions/copy.png) !important; }
+.icon-del 	          { background-image:url(/images/open/actions/delete.png) !important; }
+.icon-edit 	          { background-image:url(/images/open/actions/edit.png) !important; }
+.icon-export 	          { background-image:url(/images/open/actions/actions/exportt.png) !important; }
+.icon-import 	          { background-image:url(/images/open/actions/actions/import.png) !important; }
+.icon-list 	          { background-image:url(/images/open/actions/list.png) !important; }
+.icon-logout 	          { background-image:url(/images/open/actions/logout.png) !important; }
+.icon-metric 	          { background-image:url(/images/open/actions/metric.png) !important;}
+.icon-move 	          { background-image:url(/images/open/actions/move.png) !important; }
+.icon-navigation          { background-image:url(/images/open/actions/navigation.png)  !important; }
+.icon-new 	          { background-image:url(/images/open/actions/new.png) !important; }
+.icon-paste 	          { background-image: url(/images/open/actions/paste.png) !important; }
+.icon-preview 	          { background-image:url(/images/open/actions/list.png) !important; }
+.icon-refresh             { background-image:url(/images/open/actions/refresh.png) !important; }
+.icon-release             { background-image:url(/images/open/actions/release.png) !important; }
+.icon-save 	          { background-image:url(/images/open/actions/save.png) !important; }
+.icon-show                { background-image: url(/images/open/actions/show.png) !important; }
+.icon-warning 	          { background-image:url(/images/open/actions/warning.png) !important;}
+.icon-zoom_in 	          { background-image:url(/images/open/actions/zoom_in.png) !important; }
+.icon-zoom_in-large       { background-image:url(/images/open/actions/zoom_in-large.png) ;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-zoom_out	          { background-image:url(/images/open/action/zoom_out.png) !important; }
+.icon-zoom_out-large      { background-image:url(/images/open/action/zoom_out-large.png) ;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+                          
+/* Admin */
+.icon-admin               { background-image:url(/images/open/admin/admin.png) !important;}
+.icon-catalogue           { background-image:url(/images/open/admin/catalogue.png)  !important; }
+.icon-data_concept        { background-image:url(/images/open/admin/data_concept.png)  !important; }
+.icon-data_concept-large  { background-image:url(/images/open/admin/data_concept-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-data_context        { background-image:url(/images/open/admin/data_context.png)  !important; }
+.icon-data_context-large  { background-image:url(/images/open/admin/data_context-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-data_element        { background-image:url(/images/open/admin/data_element.png)  !important; }
+.icon-data_format         { background-image:url(/images/open/admin/data_format.png)  !important; }
+.icon-data_system         { background-image:url(/images/open/admin/data_system.png)  !important; }
+.icon-data_system-large   { background-image:url(/images/open/admin/data_system-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-data_type           { background-image:url(/images/open/admin/data_type.png)  !important; }
+.icon-settings             { background-image:url(/images/open/admin/settings.png) !important;}
+                          
+/* Calendar */
+.icon-calendar 	          { background-image:url(/images/open/calendar/calendar.png) !important; }
+.icon-timeline 	          { background-image:url(/images/open/calendar/timeline.png) !important; }
+
+/* Content */
+.icon-article             { background-image:url(/images/open/content/note.png)  !important; }
+.icon-article-add         { background-image:url(/images/open/content/note-add.png)  !important; }
+.icon-clipboard           { background-image:url(/images/open/content/clipboard.png) !important;}
+.icon-document            { background-image:url(/images/open/content/document.png)  !important; }
+.icon-document-view       { background-image:url(/images/open/content/document-view.png)  !important; }
+.icon-file                { background-image:url(/images/open/content/file.png)  !important; }
+.icon-file-add            { background-image:url(/images/open/content/file-add.png)  !important; }
+.icon-file-large          { background-image:url(/images/open/content/file-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-folder              { background-image:url(/images/open/content/folder.png)  !important; }
+.icon-folder-add          { background-image:url(/images/open/content/folder-add.png)  !important; }
+.icon-folder-large        { background-image:url(/images/open/content/folder-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-folders             { background-image:url(/images/open/content/folders.png)  !important; }
+.icon-folder-view         { background-image:url(/images/open/content/folder-view.png)  !important; }
+.icon-history             { background-image:url(/images/open/content/history.png)  !important; }
+.icon-link                { background-image:url(/images/open/content/content/link.png)  !important; }
+.icon-news                { background-image:url(/images/open/content/news.png) !important; }
+.icon-news-large          { background-image:url(/images/open/content/news-large.png) !important; }
+.icon-note                { background-image:url(/images/open/content/note.png)  !important; }
+.icon-note-add            { background-image:url(/images/open/content/note-add.png)  !important; }
+.icon-print 	          { background-image:url(/images/open/content/print.png) !important; }
+.icon-print-preview 	  { background-image:url(/images/open/content/print-preview.png) !important; }
+.icon-report              { background-image:url(/images/open/content/report.png)  !important; }
+.icon-report-add          { background-image:url(/images/open/content/report-add.png)  !important; }
+.icon-sign 	          { background-image:url(/images/open/content/sign.png) !important;}
+.icon-webdoc 	          { background-image:url(/images/open/content/webdoc.png) !important; }
+
 /* Data Columns */
-.icon-has_many { background-image:url(/images/relations/has_many.png)  !important; }
-.icon-has_one { background-image:url(/images/relations/has_one.png)  !important; }
-.icon-belongs_to { background-image:url(/images/relations/belongs_to.png)  !important; }
-.icon-text { background-image:url(/images/relations/text.png)  !important; }
-.icon-string { background-image:url(/images/relations/string.png)  !important; }
-.icon-float { background-image:url(/images/relations/float.png)  !important; }
-.icon-date { background-image:url(/images/relations/date.png)  !important; }
-.icon-binary { background-image:url(/images/relations/binary.png)  !important; }
-.icon-boolean { background-image:url(/images/relations/boolean.png)  !important; }
+.icon-belongs_to          { background-image:url(/images/open/data_columns/belongs_to.png)  !important; }
+.icon-binary 	          { background-image:url(/images/open/data_columns/binary.png)  !important; }
+.icon-boolean 	          { background-image:url(/images/open/data_columns/boolean.png)  !important; }
+.icon-date 	          { background-image:url(/images/open/data_columns/date.png)  !important; }
+.icon-float 	          { background-image:url(/images/open/data_columns/float.png)  !important; }
+.icon-has_many 	          { background-image:url(/images/open/data_columns/has_many.png)  !important; }
+.icon-has_one 	          { background-image:url(/images/open/data_columns/has_one.png)  !important; }
+.icon-string 	          { background-image:url(/images/open/data_columns/string.png)  !important; }
+.icon-text 	          { background-image:url(/images/open/data_columns/text.png)  !important; }
 
+/* Experiment */
+.icon-experiment          { background-image:url(/images/open/experiment/experiment.png) !important; }
+.icon-experiment-add      { background-image:url(/images/open/experiment/experiment-add.png) !important; }
+.icon-experiment-copy     { background-image:url(/images/open/experiment/experiment-copy.png) !important; }
+.icon-experiment-large    { background-image:url(/images/open/experiment/experiment-large.png); 
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-experiment-small    { background-image:url(/images/open/experiment/experiment-small.png) !important; }
 
-.icon-new { background-image: url(/images/action/new.png) !important; }
-.icon-add { background-image:url(/images/action/add.png) !important; }
-.icon-list { background-image:url(/images/action/list.png) !important; }
-.icon-edit { background-image:url(/images/action/edit.png) !important; }
-.icon-cancel { background-image:url(/images/action/cancel.png) !important; }
-.icon-del { background-image:url(/images/action/delete.png) !important; }
-.icon-calendar { background-image:url(/images/action/calendar.png) !important; }
-.icon-copy { background-image:url(/images/action/copy.png) !important; }
-.icon-move { background-image:url(/images/action/move.png) !important; }
-.icon-save { background-image:url(/images/action/save.png) !important; }
-.icon-cancel { background-image:url(/images/action/cancel.png) !important; }
-.icon-preview { background-image:url(/images/action/list.png) !important; }
-.icon-print { background-image:url(/images/action/print.png) !important; }
-.icon-sign {background-image:url(/images/action/sign.png) !important;}
+/* flags */
+.icon-amber               { background-image:url(/images/open/flags/amber.png)  !important; }
+.icon-green               { background-image:url(/images/open/flags/green.png)  !important; }
+.icon-red                 { background-image:url(/images/open/flags/red.png)  !important; }
+.icon-white               { background-image:url(/images/open/flags/white.png)  !important; }
 
-.icon-pdf { background-image:url(/images/mime/pdf.gif) !important; }
-.icon-csv { background-image:url(/images/mime/xls.gif) !important; }
-.icon-xls { background-image:url(/images/mime/xls.png) !important; }
-.icon-txt { background-image:url(/images/mime/txt.gif) !important; }
+/* Information */
+.icon-category            { background-image:url(/images/open/information/category.png)  !important; }
+.icon-description 	  { background-image:url(/images/open/information/description.png) !important;}
+.icon-help 	          { background-image:url(/images/open/information/help.png) !important; }
+.icon-home 	          { background-image:url(/images/open/information/home.png) !important;}
+.icon-info 	          { background-image:url(/images/open/information/info.png) !important; }
+.icon-label 	          { background-image:url(/images/open/information/label.png) !important;}
+.icon-litref              { background-image:url(/images/open/information/litref.png)  !important; }
+.icon-name 	          { background-image:url(/images/open/information/name.png) !important;}
+.icon-package 	          { background-image:url(/images/open/information/package.png) !important; }
+.icon-purpose 	          { background-image:url(/images/open/information/purpose.png) !important; }
+.icon-research_area 	  { background-image:url(/images/open/information/research_area.png) !important; }
+.icon-search 	          { background-image:url(/images/open/information/search.png) !important; }
+.icon-status              { background-image:url(/images/open/information/status.png)  !important; }
 
-.icon-package { background-image:url(/images/package.png) !important; }
-.icon-home { background-image:url(/images/home.png) !important; }
-.icon-user { background-image:url(/images/model/user.png) !important; }
-.icon-logout { background-image:url(/images/logout.png) !important; }
-.icon-help { background-image:url(/images/help.png) !important; }
+/* inventory */
+.icon-batch               { background-image:url(/images/open/inventory/batch.png)  !important; }
+.icon-compound            { background-image:url(/images/open/inventory/compound.png)  !important; }
+.icon-container           { background-image:url(/images/open/inventory/container.png)  !important; }
+.icon-mixture             { background-image:url(/images/open/inventory/mixture.png)  !important; }
+.icon-sample              { background-image:url(/images/open/inventory/sample.png)  !important; }
 
-.icon-note  { background-image:url(/images/model/note.png)  !important; }
-.icon-folder  { background-image:url(/images/model/folder.png)  !important; }
-.icon-file   { background-image:url(/images/model/file.png)  !important; }
+/* Logo */
+.icon-favicon 	          { background-image:url(/images/logo/favicon.ico)  !important; }
+.icon-logo 	          { background-image:url(/images/logo/logo.png)  !important; }
+.icon-logo_full           { background-image:url(/images/logo/logo_full.png)  !important; }
 
-.icon-project   { background-image:url(/images/model/project.png) !important; }
-.icon-study     { background-image:url(/images/model/study.png) !important; }
-.icon-request   { background-image:url(/images/model/request.png) !important; }
-.icon-service   { background-image:url(/images/model/request_service.png) !important; }
-.icon-protocol  { background-image:url(/images/model/protocol.png) !important; }
-.icon-parameter { background-image:url(/images/model/parameter.png) !important; }
-.icon-queue     { background-image:url(/images/model/queue.png) !important; }
-.icon-experiment{ background-image:url(/images/model/experiment.png) !important; }
-.icon-task      { background-image:url(/images/model/task.png) !important; }
+/* Mime Types */
+.icon-csv 	          { background-image:url(/images/open/mime_types/csv.png) !important; }
+.icon-gif 	          { background-image:url(/images/open/mime_types/csv.gif) !important; }
+.icon-html 	          { background-image:url(/images/open/mime_types/html.gif) !important; }
+.icon-jpg 	          { background-image:url(/images/open/mime_types/jpg.gif) !important; }
+.icon-mdb 	          { background-image:url(/images/open/mime_types/mdb.gif) !important; }
+.icon-pdf 	          { background-image:url(/images/open/mime_types/pdf.png) !important; }
+.icon-png 	          { background-image:url(/images/open/mime_types/png.gif) !important; }
+.icon-ppt 	          { background-image:url(/images/open/mime_types/ppt.gif) !important; }
+.icon-rtf 	          { background-image:url(/images/open/mime_types/rtf.gif) !important; }
+.icon-txt 	          { background-image:url(/images/open/mime_types/txt.png) !important; }
+.icon-vis 	          { background-image:url(/images/open/mime_types/vis.gif) !important; }
+.icon-wav 	          { background-image:url(/images/open/mime_types/wav.gif) !important; }
+.icon-word 	          { background-image:url(/images/open/mime_types/word.png) !important; }
+.icon-wwf 	          { background-image:url(/images/open/mime_types/wwf.gif) !important; }
+.icon-xls 	          { background-image:url(/images/open/mime_types/xls.png) !important; }
+.icon-xml 	          { background-image:url(/images/open/mime_types/xml.png) !important; }
+.icon-zip 	          { background-image:url(/images/open/mime_types/zip.gif) !important; }
 
+/* Parameter Roles */
+.icon-condition           { background-image:url(/images/open/parameter_roles/condition.png) !important; }
+.icon-observation         { background-image:url(/images/open/parameter_roles/observation.png) !important; }
+.icon-result              { background-image:url(/images/open/parameter_roles/result.png) !important; }
+.icon-setting             { background-image:url(/images/open/parameter_roles/setting.png) !important; }
+.icon-subject             { background-image:url(/images/open/parameter_roles/subject.png) !important; }
 
-.icon-compound  { background-image:url(/images/model/compound.png)  !important; }
-.icon-batch     { background-image:url(/images/model/batch.png)  !important; }
-.icon-sample    { background-image:url(/images/model/sample.png)  !important; }
-.icon-container { background-image:url(/images/model/container.png)  !important; }
-.icon-mixture   { background-image:url(/images/model/container.png)  !important; }
+/* Parameters */
+.icon-parameter           { background-image:url(/images/open/parameters/parameter.png) !important; }
+.icon-parameter_role      { background-image:url(/images/open/parameters/parameter_role.png)  !important; }
+.icon-parameter-add       { background-image:url(/images/open/parameters/parameter_type-add.png) !important; }
+.icon-parameter_type      { background-image:url(/images/open/parameters/parameter_type.png)  !important; }
+.icon-parameter_type-add  { background-image:url(/images/open/parameters/parameter_type-add.png)  !important; }
 
-.icon-catalogue     { background-image:url(/images/model/catalogue.png)  !important; }
-.icon-system-settings { background-image:url(/images/model/system_settings.png) !important; }
-.icon-data-format   { background-image:url(/images/model/data_format.png)  !important; }
-.icon-data-element  { background-image:url(/images/model/data_element.png)  !important; }
-.icon-data-type     { background-image:url(/images/model/data_type.png)  !important; }
-.icon-data-system   { background-image:url(/images/model/data_system.png)  !important; }
-.icon-data-concept  { background-image:url(/images/model/data_concept.png)  !important; }
-.icon-data-context  { background-image:url(/images/model/data_context.png)  !important; }
+/* Project */
+.icon-project             { background-image:url(/images/open/project/project.png) !important; }
+.icon-project-add         { background-image:url(/images/open/project/project-add.png) !important; }
+.icon-project-closed      { background-image:url(/images/open/project/project-closed.png) !important; }
+.icon-project-large       { background-image:url(/images/open/project/project-large.png) ;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+                          
+/* Protocol*/
+.icon-context             { background-image:url(/images/open/protocol/context.png) !important; }
+.icon-layout              { background-image:url(/images/open/protocol/layout.png) !important; }
+.icon-protocol            { background-image:url(/images/open/protocol/protocol.png) !important; }
+.icon-protocol-add        { background-image:url(/images/open/protocol/protocol-add.png) !important; }
+.icon-protocol-edit       { background-image:url(/images/open/protocol/protocol-edit.png) !important; }
+.icon-protocol-large      { background-image:url(/images/open/protocol/protocol-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-protocol_version    { background-image:url(/images/open/protocol/protocol_version.png) !important; }
+.icon-protocol_version-preview { background-image:url(/images/open/protocol/protocol_version-preview.png) !important; }
 
-.icon-parameter-type  { background-image:url(/images/model/parameter_type.png)  !important; }
-.icon-parameter-role  { background-image:url(/images/model/parameter_role.png)  !important; }
+/* Request */
+.icon-queue               { background-image:url(/images/open/request/queue.png) !important; }
+.icon-queue-add           { background-image:url(/images/open/request/queue-add.png) !important; }
+.icon-queue_item          { background-image:url(/images/open/request/queue_item.png) !important; }
+.icon-queue_item-large    { background-image:url(/images/open/request/queue_item-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-queue_item-small    { background-image:url(/images/open/request/queue_item-small.png) !important; }
+.icon-queue_large         { background-image:url(/images/open/request/queue_large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-queue-small         { background-image:url(/images/open/request/queue-small.png) !important; }
+.icon-request             { background-image:url(/images/open/request/request.png) !important; }
+.icon-request-add         { background-image:url(/images/open/request/request-add.png) !important; }
+.icon-request-large       { background-image:url(/images/open/request/request-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-request-small         { background-image:url(/images/open/request/request-small.png) !important; }
+.icon-service             { background-image:url(/images/open/request/service.png) !important; }
+.icon-service-large       { background-image:url(/images/open/request/service-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-todo                { background-image:url(/images/open/request/todo.png) !important; }
 
-.icon-user        { background-image:url(/images/model/user.png)  !important; }
-.icon-role        { background-image:url(/images/model/role.png)  !important; }
-.icon-audit        { background-image:url(/images/model/role.png)  !important; }
-.icon-permission  { background-image:url(/images/model/permission.png)  !important; }
+/* Study */
+.icon-study               { background-image:url(/images/open/study/study.png) !important; }
+.icon-study-add           { background-image:url(/images/open/study/study-add.png) !important; }
+.icon-study-edit          { background-image:url(/images/open/study/study-edit.png) !important; }
+.icon-study-import        { background-image:url(/images/open/study/study-import.png) !important; }
+.icon-study-large         { background-image:url(/images/open/study/study-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-study-small         { background-image:url(/images/open/study/study-small.png) !important; }
+.icon-study_stage         { background-image:url(/images/open/study/study_stage.png) !important; }
+.icon-workflow         { background-image:url(/images/open/study/workflow.png) !important; }
 
+/* Task */
+.icon-task                { background-image:url(/images/open/task/task.png) !important; }
+.icon-task-add            { background-image:url(/images/open/task/task-add.png) !important; }
+.icon-task-small          { background-image:url(/images/open/task/task-small.png) !important; }
 
+/* User */
+.icon-audit               { background-image:url(/images/open/user/audit.png)  !important; }
+.icon-permission          { background-image:url(/images/open/user/permission.png)  !important; }
+.icon-role                { background-image:url(/images/open/user/role.png)  !important; }
+.icon-team 	          { background-image:url(/images/open/user/team.png) !important; }
+.icon-team-large          { background-image:url(/images/open/user/team-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-user 	          { background-image:url(/images/open/user/user.png) !important; }
+.icon-user-add 	          { background-image:url(/images/open/user/user-add.png) !important; }
+.icon-user-large          { background-image:url(/images/open/user/user-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }

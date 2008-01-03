@@ -3,7 +3,7 @@
 <%end%>
 
 <% content_for :center do %>
- <% dialog 'New Experiment' do %>
+ <% dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">New Experiment</h2>' do %>
    <% form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
       <div class="row">

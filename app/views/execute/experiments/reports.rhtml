@@ -1,10 +1,10 @@
 <div class='main' id='maintitle'>
     <div class="title" id="experiment">
-        <%=subject_icon('study.png')%> Experiment related report [<strong><%=@report.name%></strong>]
+        <h2 class="icon icon-experiment-large" style="text-indent:0.5em">Experiment related report [<strong><%=@report.name%></strong>]</h2>
         <div class="actions">
             <ul>
-                <li><%= link_to (subject_icon('show.png')) + 'Reset', :action => 'reports' %></li>
-                <li><%= link_to (subject_icon('new.png')) + 'New', :controller=>'reports',  :action => 'new' %></li>
+                <li class="icon-list">'Reset', :action => 'reports' %></li>
+                <li class="icon-new"><%= link_to 'New', :controller=>'reports',  :action => 'new' %></li>
             </ul>
         </div>
     </div>

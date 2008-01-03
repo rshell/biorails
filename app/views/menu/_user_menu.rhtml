@@ -1,23 +1,23 @@
 <% unless user.nil?  %>
 <div>
-  <span class='menu' > <%=subject_icon('model/user')%>User: <%=  user.name %> </span>
-    <%= link_to l('Home'),        home_url( :action => 'show') %>
-	<%= link_to l('Calendar'),    home_url( :action => 'calendar') %>
-	<%= link_to l('Timeline'),    home_url( :action => 'gantt') %>
-	<%= link_to l('Todo'),        home_url( :action => 'todo') %>
+  <span class='menu'><%=  user.name %></span>
+  <p class="icon icon-home"><%= link_to l('Home'),        home_url( :action => 'show') %></p>
+  <p class="icon icon-calendar"><%= link_to l('Calendar'),    home_url( :action => 'calendar') %></p>
+  <p class="icon icon-timeline"><%= link_to l('Timeline'),    home_url( :action => 'gantt') %></p>
+  <p class="icon icon-todo"><%= link_to l('Todo'),        home_url( :action => 'todo') %></p>
 
 </div>
 <div>
-  <span class='menu' > <%=subject_icon('model/project')%> Projects </span>
+  <span class='menu' >Projects </span>
   <% for project in user.projects %>
-    <%= link_to project.name, project_url(:action => 'show', :id => project) %>
+    <p class="icon icon-project"><%= link_to project.name, project_url(:action => 'show', :id => project) %><///p>
   <% end %>  
 </div>
 
 <div>
-  <span class='menu' > Actions </span>
-  <%= link_to subject_icon('new.png') +'New Project',  project_url(:action => 'new') %>
-  <%= link_to subject_icon('new.png') +'New Request',  request_url(:action => 'new') %>
+  <span class='menu' >Actions </span>
+    <p class="icon icon-project-add"><%= link_to 'New Project',  project_url(:action => 'new') %></p>
+    <p class ="icon icon-request-add"><%= link_to 'New Request',  request_url(:action => 'new') %></p>
 </div>
 
 <% end %>

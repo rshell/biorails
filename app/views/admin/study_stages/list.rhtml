@@ -6,8 +6,8 @@
     <%= link_to 'New',    study_stage_url(:action => 'new') %> 
     </div>
 <% end %>
-
-<h1>Listing Study Stages</h1>
+<div class='panel'>
+<h1 class="icon icon-study_stage">Listing Study Stages</h1>
 <table class="report">
   <tr>
     <th>name</th>
@@ -25,3 +25,4 @@
 </table>
 
 <%= will_paginate   @study_stages%>    
+</div>

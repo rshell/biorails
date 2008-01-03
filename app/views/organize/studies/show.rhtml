@@ -4,17 +4,17 @@
     <%= render :partial =>'/menu/study_menu' , :locals=>{ :study => @study} %>
   <div>
       <span class='menu'> Actions </span>
-      <%= link_to subject_icon('action/new') +'Add Parameter',    parameter_url(:action => 'new',  :id => @study)%>
-      <%= link_to subject_icon('action/new') +'Add Protocol',     protocol_url(:action => 'new',  :id => @study)%>
-      <%= link_to subject_icon('action/new') +'Add Queue',        queue_url(:action => 'new',  :id => @study)%>
-      <%= link_to subject_icon('action/new') +'Add Experiment',   experiment_url(:action => 'new',  :id => @study) if @study.protocols.size>0 %>
+      <p class="icon icon-parameter_type-add"><%= link_to 'Add Parameter',    parameter_url(:action => 'new',  :id => @study)%></p>
+      <p class="icon icon-queue-add"><%= link_to 'Add Queue',        queue_url(:action => 'new',  :id => @study)%></p>
+      <p class="icon icon-protocol-add"><%= link_to 'Add Protocol',     protocol_url(:action => 'new',  :id => @study)%></p>
+      <p class="icon icon-experiment-add"><%= link_to 'Add Experiment',   experiment_url(:action => 'new',  :id => @study) if @study.protocols.size>0 %></p>
   </div>
 
 <% end %>
 
 
 <% content_for :center do -%>
-  <h2><%=subject_icon('study.png')%> Study Design [<strong><%=@study.name %></strong>] </h2>
+  <h2 class="icon icon-study-large" style="text-indent:0.5em">Study Design [<strong><%=@study.name %></strong>] </h2>
 
     <div class='panel'>
         <%= render :partial => 'study', :locals => { :study => @study } %>  

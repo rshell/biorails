@@ -1,9 +1,9 @@
 <% unless protocol.nil?  %>
 <div>
   <span class='menu'><%=subject_icon('model/protocol')%>Protocol <%=  protocol.name %></span>
-<%= link_to  'New',      protocol_url( :action =>'export',:id => protocol) %></li>
-<%= link_to 'Show',    protocol_url( :action =>'export',:id => protocol) %></li>
-<%= link_to 'Edit',protocol_url( :action => 'edit', :id => protocol) %></li>
-<%= link_to 'Export'+subject_icon('xml'),   protocol_url( :action =>'export',:id => protocol) %></li>
+  <p class="icon icon-protocol-add"><%= link_to  'New', protocol_url( :action =>'export',:id => protocol) %></p>
+  <p class="icon icon-protocol"><%= link_to 'Show', protocol_url( :action =>'show',:id => protocol) %></p>
+  <p class="icon icon-protocol-edit"><%= link_to 'Edit', protocol_url( :action => 'edit', :id => protocol) %></p>
+  <p class="icon icon-xml"><%= link_to 'Export', protocol_url( :action =>'export',:id => protocol) %></p>
 </div>
 <% end %>

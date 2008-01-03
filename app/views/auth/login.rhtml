@@ -1,9 +1,9 @@
 <%if User.count <2  %>
 <div class="<%= "flash_warning message" %>" >
-<strong>No User defined in System</strong>
+<h1><strong class="icon icon-warning">No User defined in System</strong></h1>                                                                                           
 <p>
-Looks like installation has not been completed. There is only guest user setup
-in the system. expect the administrator needs to add bootstrap data with:-
+  It looks like the BioRails installation is not yet completed, there is only a <i>guest-user</i>
+  registered in the system. The administrator needs to add bootstrap data with:-
 </p>
 <p>
 rake biorails:db:bootstrap 

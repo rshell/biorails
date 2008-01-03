@@ -1,5 +1,5 @@
 <br/>
-<h3>Implement of concept <%=@data_concept.name%> </h3>
+<h3>Implementations of concept <%=@data_concept.name%> </h3>
 <p>
 These are actual data element lookup list of values associated with a concept. This are defined internally or linked to external databases.
 To managed the external data systems jump to this <%= link_to('list',{:controller=>'data_systems', :action => 'list'})  %>
@@ -20,14 +20,14 @@ To managed the external data systems jump to this <%= link_to('list',{:controlle
    <tbody>
     <% for row in @data_concept.elements %>
     <tr>
-       <td> <%=link_to row.name ,:controller=>'data_elements',:action=>'show',:id=>row.id %></td>
+       <td> <b class="icon icon-data_concept"></b><%=link_to row.name ,:controller=>'data_elements',:action=>'show',:id=>row.id %></td>
        <td> <%=row.description %> </td>
        <td> <%=row.style %> </td>
        <td> <%=row.name %> </td>
        <td> <%=row.parameters.size %> </td>
        <td> <%=row.study_parameters.size %></td>
        <td>
-         <%= link_to_remote( subject_icon('delete') + 'Delete',:url => { :action => 'remove_element' ,:id=> row.id}, 
+         <%= link_to_remote( '<b class="icon icon-del"></b>Delete',:url => { :action => 'remove_element' ,:id=> row.id}, 
                                :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
        </td>
     </tr>
@@ -35,6 +35,6 @@ To managed the external data systems jump to this <%= link_to('list',{:controlle
    </tbody>
    
  </table>
- <%= link_to_remote(subject_icon('new.png') + 'Add', :url => { :action => 'new_element' ,:id=> @data_concept.id }) %>  
+ <%= link_to_remote('<b class="icon icon-add"></b>Add', :url => { :action => 'new_element' ,:id=> @data_concept.id }) %>  
 
  

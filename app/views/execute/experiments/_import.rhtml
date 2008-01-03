@@ -1,5 +1,25 @@
- <%dialog 'Import Tasks' do%>
-    Once is is filled it can be re-imported via the following file selector:-
+ <%dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">Import Tasks</h2>' do%>
+  <p>
+      This is a simple cvs file importer for importing large blocks of data into the system. 
+      Export a template  by clicking on following links:
+  </p>
+ <fieldset>
+ <legend class="icon icon-protocol">Protocol Templates</legend>
+ <br />
+   <ul>
+    <%for protocol in @experiment.study.protocols %>
+  <li style="margin-left:1em">
+    <%= link_to '<strong class="icon icon-xls">Template</strong> for [' + protocol.name + ']',
+        :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
+    <%= protocol.definition.description %>    
+  </li>
+ <%end%>
+ <br />
+ </fieldset>
+ <br />
+ </ul>
+ 
+  <p>Once a CSV file is ready, it can be re-imported via the following file selector:-</p>
     <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
     <%= error_messages_for("import") %>
       <%=file_field_tag(:file, :size=>64) %>  
@@ -7,20 +27,3 @@
     <%= submit_tag("Import")%>
     <% end %>    
 <% end%> 
-
-<p>
-    This is a simple cvs file importer for getting larger blocks of data into the system. 
-    For a template to fill in click on following links to get a CVS sheet fill in. These can be build by hand but 
-    life should not be made any more difficult then needed.
-</p>
-<ul>
- <%for protocol in @experiment.study.protocols %>
-  <li>
-    <%= link_to (subject_icon('xls.png'))+' Template for [' + protocol.name + ']',
-        :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
-    <%= protocol.definition.description %>    
-  </li>
- <%end%>
- </ul>
-
-

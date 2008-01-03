@@ -1,7 +1,7 @@
 <p>  
 Enter the implementation for the  concept [<%=@data_concept.path%>] below:-
 </p>
-<% dialog 'New Parameter' do%>
+<% dialog '<h3 class="icon-parameter">New Parameter</h3>' do%>
 	<%= form_remote_tag :url => {:action =>'create_element', :id => @data_concept} %>
 	  <fieldset class='form'>                              
 	      <%= render :partial =>'form_element' %>

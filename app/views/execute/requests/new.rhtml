@@ -4,7 +4,7 @@
 
 
 <% content_for :center do -%>
-  <% dialog subject_icon('services')+'New Request'  do %>
+  <% dialog '<h2 class="icon icon-request-large" style="text-indent:0.5em">New Request</h2>' do %>
     <% form_tag :action => 'create' do %>
         <%= render :partial => 'form' %>
         <div class="row">
