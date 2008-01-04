@@ -58,8 +58,6 @@ Rails::Initializer.run do |config|
 end
 
 PUBLIC_ROOT = "#{RAILS_ROOT}/public"
-
-
 ##
 # Htmldoc is used for HTML to PDF conversion in application
 require 'htmldoc' 

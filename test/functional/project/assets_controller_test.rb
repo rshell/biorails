@@ -45,8 +45,6 @@ class Project::FoldersControllerTest < Test::Unit::TestCase
 
     assert_response :success
     assert_template 'show'
-    assert_not_nil assigns(:project_element)
-    assert assigns(:project_element).valid?
   end
 
   def test_show_as_xml
@@ -96,7 +94,6 @@ class Project::FoldersControllerTest < Test::Unit::TestCase
     get :new, :id => @item.id
     assert_response :success
     assert_template 'new'
-    assert_not_nil assigns(:project_element)
   end
 
   #
@@ -124,6 +121,6 @@ class Project::FoldersControllerTest < Test::Unit::TestCase
     assert_nothing_raised {      @model.find( @item.id)    }
     post :destroy, :id =>  @item.id
     assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_redirected_to :action => 'show'
   end
 end

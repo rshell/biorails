@@ -18,7 +18,11 @@ Dependance Gems
   gem install builder
   gem install ferret
   gem install htmldoc
+<<<<<<< .mine
+  gem install ntp
+=======
   gem install uuid
+>>>>>>> .r1230
 
 
 Options gems needed based configration:-
@@ -29,7 +33,6 @@ Options gems needed based configration:-
   gem install mongrel_cluster  
   gem install mysql
   gem install postgres
-  gem install rjb
 
 The command  [ rake biorails:gems ] will load all the gems
   
