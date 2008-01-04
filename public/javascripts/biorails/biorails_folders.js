@@ -16,19 +16,19 @@ Biorails.Document = function(config){
                     tooltip:'Add a image or other file to the folder',
                     href: '/asset/new/'+config.folder_id, 
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-file'
+                    iconCls:'icon-file-add'
                 },'-', {
                     text:'Add Article',
                     tooltip:'Add some textual content to the folder',
                     href: '/content/new/'+config.folder_id,                              
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-note'
+                    iconCls:'icon-note-add'
                 },'-', {
                     text:'Add Sub-folder',
                     tooltip:'Add a new sub folder',
                     href: '/folders/new/'+config.folder_id,                                
                     handler: this.toolbarClick,                               
-                    iconCls:'icon-folder'
+                    iconCls:'icon-folder-add'
                 }, '-', {
                     text:'Folder',
                     tooltip:'Show as Folder',
@@ -36,7 +36,7 @@ Biorails.Document = function(config){
                     handler : function(item){
                         Biorails.showFolder(item.folder_id);
                     }, 
-                    iconCls:'icon-print'
+                    iconCls:'icon-folder-view'
                 },'-', {
                     text:'Preview',
                     tooltip:'Preview',
@@ -44,7 +44,7 @@ Biorails.Document = function(config){
                     handler : function(item){
                         window.open(item.href);
                     }, 
-                    iconCls:'icon-print'
+                    iconCls:'icon-print-preview'
                 },'-',{
                     text:'Sign',
                     tooltip:'Sign as the author',
@@ -134,21 +134,21 @@ Biorails.Folder = function(config){
                     tooltip:'Add a image or other file to the folder',
                     href: '/asset/new/'+config.folder_id, 
                     handler: this.toolbarClick,                               
-                    iconCls: 'icon-file'
+                    iconCls: 'icon-file-add'
                 },'-', {
                     text:'Add Article',
                     tooltip:'Add some textual content to the folder',
                     xtype:'tbbutton',
                     href: '/content/new/'+config.folder_id,                              
                     handler: this.toolbarClick,                               
-                    iconCls: 'icon-note'
+                    iconCls: 'icon-note-add'
                 },'-', {
                     text:'Add Sub-folder',
                     tooltip:'Add a new sub folder',
                     xtype:'tbbutton',
                     href: '/folders/new/'+config.folder_id,                                
                     handler: this.toolbarClick,                               
-                    iconCls: 'icon-folder'
+                    iconCls: 'icon-folder-add'
                 },'-', {
                     text:'Document',
                     tooltip:'Show as Document',
@@ -157,7 +157,7 @@ Biorails.Folder = function(config){
                     handler : function(item){
                         Biorails.showDocument(item.folder_id);
                     }, 
-                    iconCls: 'icon-print'
+                    iconCls: 'icon-document-view'
                 }, '-', {
                     text:'Preview',
                     tooltip:'Preview',
@@ -166,7 +166,7 @@ Biorails.Folder = function(config){
                     handler : function(item){
                         window.open(item.href);
                     }, 
-                    iconCls: 'icon-print'
+                    iconCls: 'icon-print-preview'
                 },'-',{
                     text:'Sign',
                     xtype:'tbbutton',
@@ -254,7 +254,7 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
                              parameters:'folder_id='+this.folder_id });  
             }  
         } catch (e) {
-              console.log('Problem cant handle Dropped Item ');
+              console.log('Problem, cannot handle Dropped Item ');
               console.log(e);
         } 
         return true;  

@@ -34,8 +34,8 @@ Biorails.ColumnTree = function(config){
             autoHeight:true,
             autoScroll:true,
             layout: 'fit',           
-			animate:true,
-			enableDD:true,
+            animate:true,
+            enableDD:true,
             ddGroup:'ColumnDD',
             iconCls:'icon-model', 
             root:  new Ext.tree.AsyncTreeNode({   text: config.model,
@@ -289,32 +289,32 @@ Biorails.DataGrid.Folder = function(config){
      var _model_store = 
                     
      Biorails.DataGrid.Folder.superclass.constructor.call(this,{
-                         border:false,
-                         autoscroll: true,
-                         autoDestroy: true,  
-                         closable:true,
-                         title: config.title,
-                         id: config.id,
-                         ds: new  Ext.data.GroupingStore({
-                               remoteSort: true,
-                               lastOptions: {params:{start: 0, limit: 25}},
-                               sortInfo: {field: 'id', direction: 'ASC'},
-                               proxy: new Ext.data.HttpProxy({ url: '/ext/'+config.controller, method: 'get' }),
-                               reader: new Ext.data.JsonReader({
-                                               root: 'items', totalProperty: 'total'}, 
-                                               config.fields  )
-                         }),
-                         cm: new Ext.grid.ColumnModel(config.columns),
-                         view: new Ext.grid.GroupingView(),
-                         viewConfig: {forceFit:true},
-                         plugins: new Ext.ux.grid.GridFilters( config.filters ),
- 		                 bbar: new Ext.PagingToolbar({
-				            pageSize: 25,
-				            store: this.store,
-				            displayInfo: true,
-				            displayMsg: 'Displaying {0} - {1} of {2}',
-				            emptyMsg: "No results to display"
-				        })
+                        border:false,
+                        autoscroll: true,
+                        autoDestroy: true,  
+                        closable:true,
+                        title: config.title,
+                        id: config.id,
+                        ds: new  Ext.data.GroupingStore({
+                        remoteSort: true,
+                        lastOptions: {params:{start: 0, limit: 25}},
+                        sortInfo: {field: 'id', direction: 'ASC'},
+                        proxy: new Ext.data.HttpProxy({ url: '/ext/'+config.controller, method: 'get' }),
+                        reader: new Ext.data.JsonReader({
+                        root: 'items', totalProperty: 'total'}, 
+                        config.fields  )
+                        }),
+                        cm: new Ext.grid.ColumnModel(config.columns),
+                        view: new Ext.grid.GroupingView(),
+                        viewConfig: {forceFit:true},
+                        plugins: new Ext.ux.grid.GridFilters( config.filters ),
+ 		        bbar: new Ext.PagingToolbar({
+                                pageSize: 25,
+                                store: this.store,
+                                displayInfo: true,
+                                displayMsg: 'Displaying {0} - {1} of {2}',
+                                emptyMsg: "No results to display"
+                                                    })
      });
 };
 

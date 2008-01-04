@@ -148,7 +148,7 @@ return {
                  };
               });
         } catch (e) {
-              console.log('Problem cant handle Dropped Item ');
+              console.log('Problem cannot handle Dropped Item ');
               console.log(e);
         };
         return true;    
@@ -166,7 +166,7 @@ return {
                  } }); 
            return true;  
         } catch (e) {
-          console.log('Problem cant handle move Parameter ');
+          console.log('Problem cannot handle Parameter move');
           console.log(e);
           return false;
         } 
@@ -181,7 +181,7 @@ return {
                      parameters: {after: dest_id,
                                    mode: mode }});                          
         } catch (e) {
-              console.log('Problem cant handle move Parameter ');
+              console.log('Problem cannot handle Parameter move');
               console.log(e);
         } 
         return true;  
@@ -216,8 +216,8 @@ Biorails.Protocol.ParameterTree = function(config){
             autoHeight: true,
             autoScroll: true,
             layout: 'fit',           
-			animate: true,
-			enableDD: true,
+            animate: true,
+            enableDD: true,
             ddGroup:'parameterDD',
             iconCls:'icon-study', 
             root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
@@ -535,7 +535,7 @@ Biorails.Protocol.ContextEditor = function(config) {
  * Custom column renderer for cancel icon
  */
   function renderId(val){
-      return '<img alt="remove" src="/images/action/cancel.png"/>';
+      return '<img alt="remove" src="/images/open/actions/cancel.png"/>';
    };
 
 /**

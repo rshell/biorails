@@ -243,16 +243,15 @@
                           }
 .icon-todo                { background-image:url(/images/open/request/todo.png) !important; }
 
-
-/*Status*/
-.icon-status_aborted     { background-image:url(/images/status/red.png) !important; }
-.icon-status_rejected    { background-image:url(/images/status/red.png) !important; }
-.icon-status_new         { background-image:url(/images/status/orange.png) !important; }
-.icon-status_accepted    { background-image:url(/images/status/green.png) !important; }
-.icon-status_waiting     { background-image:url(/images/status/pink.png) !important; }
-.icon-status_processing  { background-image:url(/images/status/white.png) !important; }
-.icon-status_validation  { background-image:url(/images/status/amber.png) !important; }
-.icon-status_completed   { background-image:url(/images/status/purple.png) !important; }
+/*status*/
+.icon-status_aborted     { background-image:url(/images/state/red.png) !important; }
+.icon-status_rejected    { background-image:url(/images/state/red.png) !important; }
+.icon-status_new         { background-image:url(/images/state/orange.png) !important; }
+.icon-status_accepted    { background-image:url(/images/state/green.png) !important; }
+.icon-status_waiting     { background-image:url(/images/state/pink.png) !important; }
+.icon-status_processing  { background-image:url(/images/state/white.png) !important; }
+.icon-status_validation  { background-image:url(/images/state/amber.png) !important; }
+.icon-status_completed   { background-image:url(/images/state/purple.png) !important; }
 
 /* Study */
 .icon-study               { background-image:url(/images/open/study/study.png) !important; }

@@ -299,25 +299,25 @@ Biorails = function(){
 
 // South                                  
    var _footer_panel = new Ext.Panel({
-					contentEl:'footer-panel',
-					border:false,
-					autoDestroy: true,  
-					autoScroll: true,
-					iconCls:'nav'
+                    contentEl:'footer-panel',
+                    border:false,
+                    autoDestroy: true,  
+                    autoScroll: true,
+                    iconCls:'nav'
 				});
                                                              
    var _south_panel = new Ext.Panel({
-			    region:"south",
-			    title:"History",
-			    id:'footer-id',	
-			    height:75,
-			    split:true,
-			    splitTip: "Mesages and Audit information",
-			    useSplitTips: true,
-			    collapsible:true,
-			    titleCollapse:true,
-			    floatable: true,
-		            items: [ _footer_panel ]
+                    region:"south",
+                    title:"History",
+                    id:'footer-id',	
+                    height:75,
+                    split:true,
+                    splitTip: "Mesages and Audit information",
+                    useSplitTips: true,
+                    collapsible:true,
+                    titleCollapse:true,
+                    floatable: true,
+                    items: [ _footer_panel ]
 			 });                                
  
                           
@@ -325,7 +325,7 @@ Biorails = function(){
 
    var _layout = {
 		layout:"border",
-	    autoHeight: true,
+                autoHeight: true,
  	   	autoWidth : true,
 		autoScroll: true,
 		items:[ _north_panel , _south_panel  , _west_panel , _east_panel , _center_panel  ]
@@ -436,8 +436,8 @@ Biorails = function(){
          _grid = new Ext.grid.GridPanel({
                                  border:false,
                                  autoscroll: true,
-						         autoDestroy: true,  
-						         closable:true,
+                                 autoDestroy: true,  
+                                 closable:true,
                                  title: this.model()+' List',
                                  id: 'model-folder-id',
                                  ds:  _store,

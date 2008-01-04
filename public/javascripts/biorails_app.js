@@ -80,7 +80,7 @@
         {header: "Description", width: 300, sortable: true,   dataIndex: 'description'},
         {header: "Updated By", width: 85, sortable: true,  dataIndex: 'updated_by'},
         {header: "Updated At", width: 85, sortable: true, renderer: Ext.util.Format.dateRenderer('d/m/Y'), 
-         dataIndex: 'updated_at'},
+            dataIndex: 'updated_at'},
         {header: "Actions", width: 75,   dataIndex: 'actions'}
     ]);
     var cm = cmFolder;
@@ -108,24 +108,24 @@
                cls: 'x-btn-text-icon bmenu', 
   	       text:'Home',
                menu: new Ext.menu.Menu({
-                             id: 'menuHome',
-                             items: home_items })
+               id: 'menuHome',
+               items: home_items })
                          });
 
        toolbar.addButton({
                cls: 'x-btn-text-icon bmenu', 
   	       text:'Project ['+title+']',
                menu: new Ext.menu.Menu({
-                             id: 'menuProject',
-                             items: project_items })
+               id: 'menuProject',
+               items: project_items })
                          });
 
        toolbar.addButton({
                cls: 'x-btn-text-icon bmenu', 
   	       text:'Inventory',
                menu: new Ext.menu.Menu({
-                             id: 'menuInventory',
-                             items: inventory_items })
+               id: 'menuInventory',
+               items: inventory_items })
                          });
 						 
 						 
@@ -134,8 +134,8 @@
                cls: 'x-btn-text-icon bmenu', 
   	       text:'System',
                menu: new Ext.menu.Menu({
-                             id: 'menuAdmin',
-                             items: admin_items })
+               id: 'menuAdmin',
+               items: admin_items })
                          });
     
        toolbar.addFill();
@@ -202,22 +202,22 @@
 
         layout.add('west', new Ext.ContentPanel('left', {title: 'Menu',fitToFrame:true, closable: false}));
         
-		tree_panel   = new Ext.ContentPanel('tree',{  autoCreate:true, title: 'Tree', closable: true});
-	    help_panel   = new Ext.ContentPanel('right', {title: 'Info',fitToFrame:true, closable: false});
-	    context_panel= new Ext.ContentPanel('context',{autoCreate:true, title: 'Work', closable: true});
-	    centre_panel = new Ext.ContentPanel('center', {title: title,fitToFrame:true, closable: false});
+        tree_panel   = new Ext.ContentPanel('tree',{  autoCreate:true, title: 'Tree', closable: true});
+	help_panel   = new Ext.ContentPanel('right', {title: 'Info',fitToFrame:true, closable: false});
+	context_panel= new Ext.ContentPanel('context',{autoCreate:true, title: 'Work', closable: true});
+	    = new Ext.ContentPanel('center', {title: title,fitToFrame:true, closable: false});
         
-		//tree_panel.on('activate', function(){
-		//	new Ajax.Request("/projects/tree?format=json",
+	//tree_panel.on('activate', function(){
+	//	new Ajax.Request("/projects/tree?format=json",
         //        {asynchronous:true, 
         //         onComplete: function(req){
-		//		 	console.log("got data");
-		//			console.log(req.responseText);
-		//		 	Biorails.resyncTree(eval(req.responseText));
-		//	     } }); 
-		//      });
+	//		 	console.log("got data");
+	//			console.log(req.responseText);
+	//		 	Biorails.resyncTree(eval(req.responseText));
+	//	     } }); 
+	//      });
 		
-		layout.add('east', tree_panel);
+	layout.add('east', tree_panel);
         layout.add('east', context_panel);
         layout.add('east', help_panel);
         layout.add('center', centre_panel);
@@ -315,8 +315,8 @@ return {
             cm: cm,
             selModel: mySelectionModel,
             autoSizeColumns: true,
-            autoWidth: false,
-	    	enableDragDrop: true,
+            autoWidth: false,	
+            enableDragDrop: true,
             ddGroup:"GridDD"
         });
 

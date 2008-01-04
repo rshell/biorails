@@ -48,7 +48,7 @@ module TreeHelper
   end
 
 # 
-# Convert a array of project elenments to json
+# Convert a array of project elements to json
 #
 #
   def elements_to_json(elements)
@@ -69,7 +69,7 @@ module TreeHelper
   end
  
 # 
-# Convert a array of project elenments to json
+# Convert a array of concepts to json
 #
 #
   def data_concepts_to_json(elements)

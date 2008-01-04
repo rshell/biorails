@@ -324,7 +324,7 @@ class Project < ActiveRecord::Base
 protected 
 
   def Project.create_home_folder(project)
-     home_folder = ProjectFolder.new(:project_id=>project.id)
+     home_folder = ProjectFolder.new(:project_id=>project.id, :reference_type=>'Project')
      home_folder.name = project.name
      home_folder.save
      home_folder
