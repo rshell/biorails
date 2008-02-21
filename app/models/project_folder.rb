@@ -293,6 +293,32 @@ has_file :signed_pdf, 'public/documents/'
     end
     return folder
   end
+  
+  def make_pdf_for_signing
+    p '***************'
+    p name
+     @signable_document="<h2>"<< name << "</h2>"
+       for item in children     
+         if item.asset? and item.asset.image? 
+           @signable_document << "<h4>Figure: " << item.name << "</h4>"
+           @signable_document << "<p><img src='"  << item.asset.public_filename << "' alt='" << item.name << "'/></p>"
+           @signable_document << "<i>" << item.description << "</i>"
+         elsif item.textual? 
+           @signable_document << "<h2>" << item.content.title << "</h2>"
+           @signable_document << "<p>" << item.to_html << "</p>"
+         else 
+           @signable_document << "<h2>" << item.title << "</h2>"
+           @signable_document << item.to_html
+         end    
+      end  
+      signed_pdf=PDF::HTMLDoc.create(PDF::PDF) do |p|
+        p.set_option :links, false
+        p.set_option :webpage, true
+        #p.header ".t."
+        p << @signable_document
+        #p.footer ".l."
+      end
+    end
 ##
 # Get the lastest entries in the folder
 #  

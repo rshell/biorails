@@ -70,35 +70,10 @@ class Project::FoldersController < ApplicationController
 ##
 # Sign the folder by creating a pdf of the cntents and displaying a form for signature  
   def sign
-    folder = current_user.folder(params[:folder_id]||params[:id])
-    @signable_document="<h2>"<< folder.name << "</h2>"
-     for item in folder.children     
-       if item.asset? and item.asset.image? 
-         @signable_document << "<h4>Figure: " << item.name << "</h4>"
-         @signable_document << "<p><img src='"  << item.asset.public_filename << "' alt='" << item.name << "'/></p>"
-         @signable_document << "<i>" << item.description << "</i>"
-       elsif item.textual? 
-         @signable_document << "<h2>" << item.content.title << "</h2>"
-         @signable_document << "<p>" << item.to_html << "</p>"
-       else 
-         @signable_document << "<h2>" << item.title << "</h2>"
-         @signable_document << item.to_html
-       end
-       
-    end
-    
-     document=PDF::HTMLDoc.create(PDF::PDF) do |p|
-     p.set_option :links, false
-     p.set_option :webpage, true
-     #p.header ".t."
-     p << @signable_document
-     
-     #p.footer ".l."
-  end
+    folder = set_folder(params[:id])
+    folder.make_pdf_for_signing
   #use has_file lib to save pdf to temp directory
-  folder.signed_pdf=document
-  unique_name = folder.signed_pdf_file_path << UUID.new << '.pdf'
- File.rename(folder.signed_pdf_file_path, unique_name)
+  File.rename(folder.signed_pdf_file_path, folder.signed_pdf_file_path << UUID.new << '.pdf')
   root=RAILS_ROOT.dup
     respond_to do |format|
       format.html { render :partial => 'show_signable_document',:locals=>{:asserted_text=> SystemSetting.get('author_assert_text'), :current_user=>current_user,:folder=>folder, :document=>unique_name.gsub!(root << '/public','')}}
