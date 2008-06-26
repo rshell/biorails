@@ -139,14 +139,14 @@ alter table `biorails2_production`.`experiment_logs`
 /* Alter table in Second database */
 alter table `biorails2_production`.`experiments` 
 	add KEY `experiments_idx10`(`updated_at`), 
-	add KEY `experiments_idx11`(`study_protocol_id`), 
+	add KEY `experiments_idx11`(`assay_protocol_id`), 
 	add KEY `experiments_idx12`(`project_id`), 
 	add KEY `experiments_idx13`(`updated_by_user_id`), 
 	add KEY `experiments_idx14`(`created_by_user_id`), 
 	add KEY `experiments_idx2`(`name`), 
 	add KEY `experiments_idx4`(`category_id`), 
 	add KEY `experiments_idx5`(`status_id`), 
-	add KEY `experiments_idx6`(`study_id`), 
+	add KEY `experiments_idx6`(`assay_id`), 
 	add KEY `experiments_idx7`(`protocol_version_id`), 
 	add KEY `experiments_idx9`(`created_at`), COMMENT='';
 
@@ -215,8 +215,8 @@ alter table `biorails2_production`.`parameters`
 	add KEY `parameters_idx19`(`data_type_id`), 
 	add KEY `parameters_idx2`(`protocol_version_id`), 
 	add KEY `parameters_idx20`(`data_format_id`), 
-	add KEY `parameters_idx21`(`study_parameter_id`), 
-	add KEY `parameters_idx22`(`study_queue_id`), 
+	add KEY `parameters_idx21`(`assay_parameter_id`), 
+	add KEY `parameters_idx22`(`assay_queue_id`), 
 	add KEY `parameters_idx23`(`updated_by_user_id`), 
 	add KEY `parameters_idx24`(`created_by_user_id`), 
 	add KEY `parameters_idx3`(`parameter_context_id`), 
@@ -301,7 +301,7 @@ alter table `biorails2_production`.`projects`
 /* Alter table in Second database */
 alter table `biorails2_production`.`protocol_versions` 
 	add KEY `process_versions_idx1`(`name`), 
-	add KEY `process_versions_idx2`(`study_protocol_id`), 
+	add KEY `process_versions_idx2`(`assay_protocol_id`), 
 	add KEY `process_versions_idx3`(`updated_at`), 
 	add KEY `protocol_versions_idx10`(`analysis_id`), 
 	add KEY `protocol_versions_idx11`(`updated_by_user_id`), 
@@ -321,10 +321,10 @@ alter table `biorails2_production`.`queue_items`
 	add KEY `queue_items_idx21`(`created_by_user_id`), 
 	add KEY `queue_items_idx22`(`requested_by_user_id`), 
 	add KEY `queue_items_idx23`(`assigned_to_user_id`), 
-	add KEY `queue_items_idx4`(`study_queue_id`), 
+	add KEY `queue_items_idx4`(`assay_queue_id`), 
 	add KEY `queue_items_idx5`(`experiment_id`), 
 	add KEY `queue_items_idx6`(`task_id`), 
-	add KEY `queue_items_idx7`(`study_parameter_id`), 
+	add KEY `queue_items_idx7`(`assay_parameter_id`), 
 	add KEY `queue_items_idx9`(`data_id`), COMMENT='';
 
 /* Alter table in Second database */
@@ -417,67 +417,67 @@ alter table `biorails2_production`.`specimens`
 	add KEY `specimens_idx21`(`created_by_user_id`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`studies` 
-	add KEY `studies_idx1`(`name`), 
-	add KEY `studies_idx10`(`project_id`), 
-	add KEY `studies_idx11`(`updated_by_user_id`), 
-	add KEY `studies_idx12`(`created_by_user_id`), 
-	add KEY `studies_idx16`(`status_id`), 
-	add KEY `studies_idx2`(`updated_at`), 
-	add KEY `studies_idx4`(`category_id`), 
-	add KEY `studies_idx8`(`created_at`), COMMENT='';
+alter table `biorails2_production`.`assays` 
+	add KEY `assays_idx1`(`name`), 
+	add KEY `assays_idx10`(`project_id`), 
+	add KEY `assays_idx11`(`updated_by_user_id`), 
+	add KEY `assays_idx12`(`created_by_user_id`), 
+	add KEY `assays_idx16`(`status_id`), 
+	add KEY `assays_idx2`(`updated_at`), 
+	add KEY `assays_idx4`(`category_id`), 
+	add KEY `assays_idx8`(`created_at`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`study_logs` 
-	add KEY `study_logs_idx1`(`study_id`), 
-	add KEY `study_logs_idx2`(`user_id`), 
-	add KEY `study_logs_idx3`(`auditable_type`,`auditable_id`), 
-	add KEY `study_logs_idx4`(`created_at`), 
-	add KEY `study_logs_idx7`(`name`), COMMENT='';
+alter table `biorails2_production`.`assay_logs` 
+	add KEY `assay_logs_idx1`(`assay_id`), 
+	add KEY `assay_logs_idx2`(`user_id`), 
+	add KEY `assay_logs_idx3`(`auditable_type`,`auditable_id`), 
+	add KEY `assay_logs_idx4`(`created_at`), 
+	add KEY `assay_logs_idx7`(`name`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`study_parameters` 
-	add KEY `study_parameters_idx1`(`study_id`), 
-	add KEY `study_parameters_idx12`(`created_by_user_id`), 
-	add KEY `study_parameters_idx13`(`updated_by_user_id`), 
-	add KEY `study_parameters_idx2`(`name`), 
-	add KEY `study_parameters_idx3`(`parameter_type_id`), 
-	add KEY `study_parameters_idx4`(`parameter_role_id`), 
-	add KEY `study_parameters_idx7`(`data_element_id`), 
-	add KEY `study_parameters_idx8`(`data_type_id`), 
-	add KEY `study_parameters_idx9`(`data_format_id`), COMMENT='';
+alter table `biorails2_production`.`assay_parameters` 
+	add KEY `assay_parameters_idx1`(`assay_id`), 
+	add KEY `assay_parameters_idx12`(`created_by_user_id`), 
+	add KEY `assay_parameters_idx13`(`updated_by_user_id`), 
+	add KEY `assay_parameters_idx2`(`name`), 
+	add KEY `assay_parameters_idx3`(`parameter_type_id`), 
+	add KEY `assay_parameters_idx4`(`parameter_role_id`), 
+	add KEY `assay_parameters_idx7`(`data_element_id`), 
+	add KEY `assay_parameters_idx8`(`data_type_id`), 
+	add KEY `assay_parameters_idx9`(`data_format_id`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`study_protocols` 
-	add KEY `study_protocols_idx1`(`study_id`), 
-	add KEY `study_protocols_idx13`(`created_at`), 
-	add KEY `study_protocols_idx14`(`updated_at`), 
-	add KEY `study_protocols_idx15`(`updated_by_user_id`), 
-	add KEY `study_protocols_idx16`(`created_by_user_id`), 
-	add KEY `study_protocols_idx2`(`current_process_id`), 
-	add KEY `study_protocols_idx3`(`process_definition_id`), 
-	add KEY `study_protocols_idx7`(`name`), COMMENT='';
+alter table `biorails2_production`.`assay_protocols` 
+	add KEY `assay_protocols_idx1`(`assay_id`), 
+	add KEY `assay_protocols_idx13`(`created_at`), 
+	add KEY `assay_protocols_idx14`(`updated_at`), 
+	add KEY `assay_protocols_idx15`(`updated_by_user_id`), 
+	add KEY `assay_protocols_idx16`(`created_by_user_id`), 
+	add KEY `assay_protocols_idx2`(`current_process_id`), 
+	add KEY `assay_protocols_idx3`(`process_definition_id`), 
+	add KEY `assay_protocols_idx7`(`name`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`study_queues` 
-	add KEY `study_queues_idx11`(`created_at`), 
-	add KEY `study_queues_idx12`(`updated_at`), 
-	add KEY `study_queues_idx13`(`updated_by_user_id`), 
-	add KEY `study_queues_idx14`(`created_by_user_id`), 
-	add KEY `study_queues_idx15`(`assigned_to_user_id`), 
-	add KEY `study_queues_idx2`(`name`), 
-	add KEY `study_queues_idx4`(`study_id`), 
-	add KEY `study_queues_idx5`(`study_stage_id`), 
-	add KEY `study_queues_idx6`(`study_parameter_id`), 
-	add KEY `study_queues_idx7`(`study_protocol_id`), COMMENT='';
+alter table `biorails2_production`.`assay_queues` 
+	add KEY `assay_queues_idx11`(`created_at`), 
+	add KEY `assay_queues_idx12`(`updated_at`), 
+	add KEY `assay_queues_idx13`(`updated_by_user_id`), 
+	add KEY `assay_queues_idx14`(`created_by_user_id`), 
+	add KEY `assay_queues_idx15`(`assigned_to_user_id`), 
+	add KEY `assay_queues_idx2`(`name`), 
+	add KEY `assay_queues_idx4`(`assay_id`), 
+	add KEY `assay_queues_idx5`(`assay_stage_id`), 
+	add KEY `assay_queues_idx6`(`assay_parameter_id`), 
+	add KEY `assay_queues_idx7`(`assay_protocol_id`), COMMENT='';
 
 /* Alter table in Second database */
-alter table `biorails2_production`.`study_stages` 
-	add KEY `study_stages_idx2`(`name`), 
-	add KEY `study_stages_idx5`(`created_at`), 
-	add KEY `study_stages_idx6`(`updated_at`), 
-	add KEY `study_stages_idx7`(`updated_by_user_id`), 
-	add KEY `study_stages_idx8`(`created_by_user_id`), COMMENT='';
+alter table `biorails2_production`.`assay_stages` 
+	add KEY `assay_stages_idx2`(`name`), 
+	add KEY `assay_stages_idx5`(`created_at`), 
+	add KEY `assay_stages_idx6`(`updated_at`), 
+	add KEY `assay_stages_idx7`(`updated_by_user_id`), 
+	add KEY `assay_stages_idx8`(`created_by_user_id`), COMMENT='';
 
 /* Alter table in Second database */
 alter table `biorails2_production`.`system_settings` 
@@ -586,7 +586,7 @@ alter table `biorails2_production`.`tasks`
 	add KEY `tasks_idx2`(`experiment_id`), 
 	add KEY `tasks_idx20`(`assigned_to_user_id`), 
 	add KEY `tasks_idx3`(`protocol_version_id`), 
-	add KEY `tasks_idx4`(`study_protocol_id`), 
+	add KEY `tasks_idx4`(`assay_protocol_id`), 
 	add KEY `tasks_idx5`(`started_at`), 
 	add KEY `tasks_idx6`(`ended_at`), 
 	add KEY `tasks_idx8`(`priority_id`), 
@@ -596,7 +596,7 @@ alter table `biorails2_production`.`tasks`
 alter table `biorails2_production`.`treatment_groups` 
 	add KEY `treatment_groups_idx10`(`created_by_user_id`), 
 	add KEY `treatment_groups_idx2`(`name`), 
-	add KEY `treatment_groups_idx4`(`study_id`), 
+	add KEY `treatment_groups_idx4`(`assay_id`), 
 	add KEY `treatment_groups_idx5`(`experiment_id`), 
 	add KEY `treatment_groups_idx7`(`created_at`), 
 	add KEY `treatment_groups_idx8`(`updated_at`), 
@@ -782,7 +782,7 @@ USE `biorails2_production`;
 
 ALTER TABLE `experiments`
 ADD CONSTRAINT `experiments_fk11` 
-FOREIGN KEY (`study_protocol_id`) REFERENCES `study_protocols` (`id`);
+FOREIGN KEY (`assay_protocol_id`) REFERENCES `assay_protocols` (`id`);
 
 ALTER TABLE `experiments`
 ADD CONSTRAINT `experiments_fk12` 
@@ -798,7 +798,7 @@ FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
 ALTER TABLE `experiments`
 ADD CONSTRAINT `experiments_fk6` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
 ALTER TABLE `experiments`
 ADD CONSTRAINT `experiments_fk7` 
@@ -906,7 +906,7 @@ FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`);
 
 ALTER TABLE `parameters`
 ADD CONSTRAINT `parameters_fk22` 
-FOREIGN KEY (`study_queue_id`) REFERENCES `study_queues` (`id`);
+FOREIGN KEY (`assay_queue_id`) REFERENCES `assay_queues` (`id`);
 
 ALTER TABLE `parameters`
 ADD CONSTRAINT `parameters_fk23` 
@@ -1042,7 +1042,7 @@ FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
 ALTER TABLE `protocol_versions`
 ADD CONSTRAINT `protocol_versions_fk2` 
-FOREIGN KEY (`study_protocol_id`) REFERENCES `study_protocols` (`id`);
+FOREIGN KEY (`assay_protocol_id`) REFERENCES `assay_protocols` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
@@ -1070,7 +1070,7 @@ FOREIGN KEY (`assigned_to_user_id`) REFERENCES `users` (`id`);
 
 ALTER TABLE `queue_items`
 ADD CONSTRAINT `queue_items_fk4` 
-FOREIGN KEY (`study_queue_id`) REFERENCES `study_queues` (`id`);
+FOREIGN KEY (`assay_queue_id`) REFERENCES `assay_queues` (`id`);
 
 ALTER TABLE `queue_items`
 ADD CONSTRAINT `queue_items_fk5` 
@@ -1082,7 +1082,7 @@ FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`);
 
 ALTER TABLE `queue_items`
 ADD CONSTRAINT `queue_items_fk7` 
-FOREIGN KEY (`study_parameter_id`) REFERENCES `study_parameters` (`id`);
+FOREIGN KEY (`assay_parameter_id`) REFERENCES `assay_parameters` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
@@ -1196,112 +1196,112 @@ FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `studies`
-ADD CONSTRAINT `studies_fk10` 
+ALTER TABLE `assays`
+ADD CONSTRAINT `assays_fk10` 
 FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`);
 
-ALTER TABLE `studies`
-ADD CONSTRAINT `studies_fk11` 
+ALTER TABLE `assays`
+ADD CONSTRAINT `assays_fk11` 
 FOREIGN KEY (`updated_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `studies`
-ADD CONSTRAINT `studies_fk12` 
+ALTER TABLE `assays`
+ADD CONSTRAINT `assays_fk12` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `study_logs`
-ADD CONSTRAINT `study_logs_fk2` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+ALTER TABLE `assay_logs`
+ADD CONSTRAINT `assay_logs_fk2` 
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk12` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk12` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk13` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk13` 
 FOREIGN KEY (`updated_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk2` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk2` 
 FOREIGN KEY (`parameter_type_id`) REFERENCES `parameter_types` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk3` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk3` 
 FOREIGN KEY (`parameter_role_id`) REFERENCES `parameter_roles` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk4` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk4` 
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk7` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk7` 
 FOREIGN KEY (`data_element_id`) REFERENCES `data_elements` (`id`);
 
-ALTER TABLE `study_parameters`
-ADD CONSTRAINT `study_parameters_fk8` 
+ALTER TABLE `assay_parameters`
+ADD CONSTRAINT `assay_parameters_fk8` 
 FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `study_protocols`
-ADD CONSTRAINT `study_protocols_fk15` 
+ALTER TABLE `assay_protocols`
+ADD CONSTRAINT `assay_protocols_fk15` 
 FOREIGN KEY (`updated_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_protocols`
-ADD CONSTRAINT `study_protocols_fk16` 
+ALTER TABLE `assay_protocols`
+ADD CONSTRAINT `assay_protocols_fk16` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_protocols`
-ADD CONSTRAINT `study_protocols_fk2` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+ALTER TABLE `assay_protocols`
+ADD CONSTRAINT `assay_protocols_fk2` 
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk13` 
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk13` 
 FOREIGN KEY (`updated_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk14` 
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk14` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk15` 
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk15` 
 FOREIGN KEY (`assigned_to_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk4` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk4` 
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk6` 
-FOREIGN KEY (`study_parameter_id`) REFERENCES `study_parameters` (`id`);
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk6` 
+FOREIGN KEY (`assay_parameter_id`) REFERENCES `assay_parameters` (`id`);
 
-ALTER TABLE `study_queues`
-ADD CONSTRAINT `study_queues_fk7` 
-FOREIGN KEY (`study_protocol_id`) REFERENCES `study_protocols` (`id`);
+ALTER TABLE `assay_queues`
+ADD CONSTRAINT `assay_queues_fk7` 
+FOREIGN KEY (`assay_protocol_id`) REFERENCES `assay_protocols` (`id`);
 
 
 /* Alter ForeignKey(s)in Second database */
 USE `biorails2_production`; 
 
-ALTER TABLE `study_stages`
-ADD CONSTRAINT `study_stages_fk7` 
+ALTER TABLE `assay_stages`
+ADD CONSTRAINT `assay_stages_fk7` 
 FOREIGN KEY (`updated_by_user_id`) REFERENCES `users` (`id`);
 
-ALTER TABLE `study_stages`
-ADD CONSTRAINT `study_stages_fk8` 
+ALTER TABLE `assay_stages`
+ADD CONSTRAINT `assay_stages_fk8` 
 FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
 
@@ -1422,7 +1422,7 @@ USE `biorails2_production`;
 
 ALTER TABLE `tasks`
 ADD CONSTRAINT `tasks_fk16` 
-FOREIGN KEY (`study_protocol_id`) REFERENCES `study_protocols` (`id`);
+FOREIGN KEY (`assay_protocol_id`) REFERENCES `assay_protocols` (`id`);
 
 ALTER TABLE `tasks`
 ADD CONSTRAINT `tasks_fk17` 
@@ -1454,7 +1454,7 @@ FOREIGN KEY (`created_by_user_id`) REFERENCES `users` (`id`);
 
 ALTER TABLE `treatment_groups`
 ADD CONSTRAINT `treatment_groups_fk4` 
-FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`);
+FOREIGN KEY (`assay_id`) REFERENCES `assays` (`id`);
 
 ALTER TABLE `treatment_groups`
 ADD CONSTRAINT `treatment_groups_fk5` 
@@ -1497,7 +1497,7 @@ USE `biorails2_production`;
 
 DELIMITER $$
 DROP VIEW IF EXISTS `biorails2_production`.`queue_result_texts`$$
-CREATE  VIEW `queue_result_texts` AS select `ti`.`id` AS `id`,`tc`.`row_no` AS `row_no`,`p`.`column_no` AS `column_no`,`tc`.`task_id` AS `task_id`,`qi`.`id` AS `queue_item_id`,`qi`.`request_service_id` AS `request_service_id`,`qi`.`study_queue_id` AS `study_queue_id`,`p`.`parameter_context_id` AS `parameter_context_id`,`tr`.`task_context_id` AS `task_context_id`,`tr`.`parameter_id` AS `reference_parameter_id`,`tr`.`data_element_id` AS `data_element_id`,`tr`.`data_type` AS `data_type`,`tr`.`data_id` AS `data_id`,`tr`.`data_name` AS `subject`,`ti`.`parameter_id` AS `parameter_id`,`pc`.`protocol_version_id` AS `protocol_version_id`,`pc`.`label` AS `label`,`tc`.`label` AS `row_label`,`p`.`name` AS `parameter_name`,`ti`.`data_content` AS `data_value`,`ti`.`created_by_user_id` AS `created_by_user_id`,`ti`.`created_at` AS `created_at`,`ti`.`updated_by_user_id` AS `updated_by_user_id`,`ti`.`updated_at` AS `updated_at` from (((((`parameter_contexts` `pc` join `parameters` `p`) join `task_contexts` `tc`) join `task_references` `tr`) join `task_texts` `ti`) join `queue_items` `qi`) where ((`tc`.`id` = `tr`.`task_context_id`) and (`ti`.`task_context_id` = `tc`.`id`) and (`p`.`id` = `ti`.`parameter_id`) and (`pc`.`id` = `tc`.`parameter_context_id`) and (`qi`.`task_id` = `tr`.`task_id`) and (`qi`.`data_id` = `tr`.`data_id`) and (`qi`.`data_type` = `tr`.`data_type`) and (`qi`.`data_name` = `tr`.`data_name`))$$
+CREATE  VIEW `queue_result_texts` AS select `ti`.`id` AS `id`,`tc`.`row_no` AS `row_no`,`p`.`column_no` AS `column_no`,`tc`.`task_id` AS `task_id`,`qi`.`id` AS `queue_item_id`,`qi`.`request_service_id` AS `request_service_id`,`qi`.`assay_queue_id` AS `assay_queue_id`,`p`.`parameter_context_id` AS `parameter_context_id`,`tr`.`task_context_id` AS `task_context_id`,`tr`.`parameter_id` AS `reference_parameter_id`,`tr`.`data_element_id` AS `data_element_id`,`tr`.`data_type` AS `data_type`,`tr`.`data_id` AS `data_id`,`tr`.`data_name` AS `subject`,`ti`.`parameter_id` AS `parameter_id`,`pc`.`protocol_version_id` AS `protocol_version_id`,`pc`.`label` AS `label`,`tc`.`label` AS `row_label`,`p`.`name` AS `parameter_name`,`ti`.`data_content` AS `data_value`,`ti`.`created_by_user_id` AS `created_by_user_id`,`ti`.`created_at` AS `created_at`,`ti`.`updated_by_user_id` AS `updated_by_user_id`,`ti`.`updated_at` AS `updated_at` from (((((`parameter_contexts` `pc` join `parameters` `p`) join `task_contexts` `tc`) join `task_references` `tr`) join `task_texts` `ti`) join `queue_items` `qi`) where ((`tc`.`id` = `tr`.`task_context_id`) and (`ti`.`task_context_id` = `tc`.`id`) and (`p`.`id` = `ti`.`parameter_id`) and (`pc`.`id` = `tc`.`parameter_context_id`) and (`qi`.`task_id` = `tr`.`task_id`) and (`qi`.`data_id` = `tr`.`data_id`) and (`qi`.`data_type` = `tr`.`data_type`) and (`qi`.`data_name` = `tr`.`data_name`))$$
 DELIMITER ;
 
 /*  Create View in Second database  */
@@ -1505,7 +1505,7 @@ USE `biorails2_production`;
 
 DELIMITER $$
 DROP VIEW IF EXISTS `biorails2_production`.`queue_result_values`$$
-CREATE  VIEW `queue_result_values` AS select `ti`.`id` AS `id`,`tc`.`row_no` AS `row_no`,`p`.`column_no` AS `column_no`,`tc`.`task_id` AS `task_id`,`qi`.`id` AS `queue_item_id`,`qi`.`request_service_id` AS `request_service_id`,`qi`.`study_queue_id` AS `study_queue_id`,`p`.`parameter_context_id` AS `parameter_context_id`,`tr`.`task_context_id` AS `task_context_id`,`tr`.`parameter_id` AS `reference_parameter_id`,`tr`.`data_element_id` AS `data_element_id`,`tr`.`data_type` AS `data_type`,`tr`.`data_id` AS `data_id`,`tr`.`data_name` AS `subject`,`ti`.`parameter_id` AS `parameter_id`,`pc`.`protocol_version_id` AS `protocol_version_id`,`pc`.`label` AS `label`,`tc`.`label` AS `row_label`,`p`.`name` AS `parameter_name`,`ti`.`data_value` AS `data_value`,`ti`.`created_by_user_id` AS `created_by_user_id`,`ti`.`created_at` AS `created_at`,`ti`.`updated_by_user_id` AS `updated_by_user_id`,`ti`.`updated_at` AS `updated_at` from (((((`parameter_contexts` `pc` join `parameters` `p`) join `task_contexts` `tc`) join `task_references` `tr`) join `task_values` `ti`) join `queue_items` `qi`) where ((`tc`.`id` = `tr`.`task_context_id`) and (`ti`.`task_context_id` = `tc`.`id`) and (`p`.`id` = `ti`.`parameter_id`) and (`pc`.`id` = `tc`.`parameter_context_id`) and (`qi`.`task_id` = `tr`.`task_id`) and (`qi`.`data_id` = `tr`.`data_id`) and (`qi`.`data_type` = `tr`.`data_type`) and (`qi`.`data_name` = `tr`.`data_name`))$$
+CREATE  VIEW `queue_result_values` AS select `ti`.`id` AS `id`,`tc`.`row_no` AS `row_no`,`p`.`column_no` AS `column_no`,`tc`.`task_id` AS `task_id`,`qi`.`id` AS `queue_item_id`,`qi`.`request_service_id` AS `request_service_id`,`qi`.`assay_queue_id` AS `assay_queue_id`,`p`.`parameter_context_id` AS `parameter_context_id`,`tr`.`task_context_id` AS `task_context_id`,`tr`.`parameter_id` AS `reference_parameter_id`,`tr`.`data_element_id` AS `data_element_id`,`tr`.`data_type` AS `data_type`,`tr`.`data_id` AS `data_id`,`tr`.`data_name` AS `subject`,`ti`.`parameter_id` AS `parameter_id`,`pc`.`protocol_version_id` AS `protocol_version_id`,`pc`.`label` AS `label`,`tc`.`label` AS `row_label`,`p`.`name` AS `parameter_name`,`ti`.`data_value` AS `data_value`,`ti`.`created_by_user_id` AS `created_by_user_id`,`ti`.`created_at` AS `created_at`,`ti`.`updated_by_user_id` AS `updated_by_user_id`,`ti`.`updated_at` AS `updated_at` from (((((`parameter_contexts` `pc` join `parameters` `p`) join `task_contexts` `tc`) join `task_references` `tr`) join `task_values` `ti`) join `queue_items` `qi`) where ((`tc`.`id` = `tr`.`task_context_id`) and (`ti`.`task_context_id` = `tc`.`id`) and (`p`.`id` = `ti`.`parameter_id`) and (`pc`.`id` = `tc`.`parameter_context_id`) and (`qi`.`task_id` = `tr`.`task_id`) and (`qi`.`data_id` = `tr`.`data_id`) and (`qi`.`data_type` = `tr`.`data_type`) and (`qi`.`data_name` = `tr`.`data_name`))$$
 DELIMITER ;
 
 /*  Alter View in Second database  */
