@@ -1,0 +1,28 @@
+AlcesAnalysisGnuplot
+====================
+
+This is a optional plugin to linkin the Power of gnuplot as a visual analysis tool into biorails.
+
+This follows a simple model for plugin analysis processor which take as task of data and do stuff.
+Normall the task.to_matrix method is used to convert the task into a simple data matrix better
+suited for numeric or visual analysis
+
+class PlotXy     
+
+   def self.setup
+   end
+   
+   def initialize(task,config)
+     @task = task
+     @config = config || PlotXy.setup
+   end
+
+   def run
+     -- Do the Analaysis of the task
+   end
+   
+   def to_html
+      -- Give a html report on the results of the analysis
+   end
+   
+end

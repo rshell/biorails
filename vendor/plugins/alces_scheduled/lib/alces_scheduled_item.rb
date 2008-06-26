@@ -176,7 +176,6 @@ module Alces
                  self.started_at ||= Time.new 
                  self.ended_at = Time.new 
               end
-              self.updated_at = Time.new  if self.respond_to?(:updated_at)
             end
             ##
             #update dependent items with overall progress
@@ -290,11 +289,11 @@ module Alces
            end
            
            def starting?(day = Time.new )
-             return  (!started_at.nil? and  day.to_date == started_at.to_date)
+             return  (!started_at.nil? and  day.to_date == started_at.to_datetime.to_date)
            end
            
            def ending?(day = Time.new )
-             return (!finished_at.nil? and day.to_date == finished_at.to_date)
+             return (!finished_at.nil? and day.to_date == finished_at.to_datetime.to_date)
            end
            
            def current?(day = Time.new )

@@ -16,7 +16,7 @@
 # Constructors
 # 
 #  schedule = Schedule.tasks_in(experiment)
-#  schedule = Schedule.experiments_in(study)
+#  schedule = Schedule.experiments_in(assay)
 #  
 #  Hope later to add work_on(inventory_item) etc 
 #

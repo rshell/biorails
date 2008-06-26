@@ -1,0 +1,8 @@
+<%%dialog "<h1 class='icon icon-<%= singular_name %>'>Edit <%= singular_name %></h1>" do %>    
+
+<%% form_for(:molecule, :url => <%= singular_name %>_url(:action=>:update,:id=>@<%= singular_name %>), :html => { :method => :put }) do |f| %>
+  <%%= render :partial => 'form' ,:locals=>{:form=>f} %>
+<%% end %>
+
+<%%= error_messages_for :<%= singular_name %> %>
+<%%end%>

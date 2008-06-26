@@ -1,0 +1,29 @@
+<div>
+  <span class='menu'>
+    <b class='icon icon-<%= singular_name %>'>
+      <%= singular_name %>
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%%= link_to "<b class='icon icon-list'>List</b>",    
+                                  <%= singular_name %>_url(),
+                                  :method => :get  %>  
+    <%% if @<%= singular_name %> %>
+      <%% unless @<%= singular_name %>.new_record?%>
+        <%%= link_to  "<b class='icon icon-show'>Show</b>",  
+                                  <%= singular_name %>_url(:action=>:show, :id=>@<%= singular_name %>),
+                                  :method => :get%>
+        <%%= link_to "<b class='icon icon-edit'>Edit</b>",  
+                                  <%= singular_name %>_url(:action=>:edit, :id=>@<%= singular_name %>),
+                                  :method => :get  %>
+        <%%= link_to "<b class='icon icon-del'>Delete</b> ",
+                                  <%= singular_name %>_url(:action=>:destroy, :id=>@<%= singular_name %>), 
+                                  :confirm => 'Are you sure?', 
+                                  :method => :delete %>
+      <%% end %>
+    <%% else %>  
+      <%%= link_to "<b class='icon icon-new'>new</b>",   <%= singular_name %>_url(:action=>:new),:method => :get %>
+    <%% end %>
+  </div>
+</div>
+

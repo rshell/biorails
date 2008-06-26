@@ -1,0 +1,25 @@
+AlcesActAsDictionary
+====================
+
+This is a simple plugin to add functions to use a model as a dictionary is in the biorails systems.
+It adds the following class methods :-
+
+  lookup(name) First Matching item 
+  like(name) List of matching instances default limited to 20
+
+Then to the object the to_s is changed to return the 'name'
+
+
+
+Example
+=======
+
+class DataSystem < ActiveRecord::Base
+
+  acts_as_dictionary :name
+
+end
+
+
+Copyright (c) 2008 Robert Shell 
+

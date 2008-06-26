@@ -1,0 +1,5 @@
+<h1><%= singular_name %> [<%%=@<%= singular_name %>.path%>]</h1>
+
+<% for column in content_columns -%>
+      <%= column.name %>: <%%= @<%= singular_name %>.<%= column.name %> %><br />
+<% end -%>

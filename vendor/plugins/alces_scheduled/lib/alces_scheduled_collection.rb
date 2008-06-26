@@ -75,6 +75,23 @@ SQL
                     find(:all,:order=> DEFAULT_SCHEDULE_ORDER ,:limit=>limit  )
                   end  
                 end
+                #
+                # live items
+                #
+                def live(options={})
+                  with_scope :find => options  do
+                    find(:all,:conditions=>'status_id in (0,1,2,3,4)', :order=> DEFAULT_SCHEDULE_ORDER )
+                  end  
+                end
+                #
+                # items awaiting processing
+                #
+                def todo(options={})
+                  
+                  with_scope :find => options  do
+                    find(:all,:conditions=>'status_id in (0,1,2)', :order=> DEFAULT_SCHEDULE_ORDER )
+                  end  
+                end
                 ##
                 # Overdue schedule items linked to this object with optional limit count (default=10)
                 # 
@@ -92,7 +109,9 @@ SQL
                 #
                 def current(limit=10,options={})
                   with_scope :find => options  do
-                    find(:all,:conditions=>["? between #{self.proxy_reflection.klass.table_name}.started_at and #{self.proxy_reflection.klass.table_name}.expected_at and #{self.proxy_reflection.klass.table_name}.status_id in (0,1,2,3,4) ",Time.now],:limit=>limit  )
+                    find(:all,
+                         :conditions=>["? between #{self.proxy_reflection.klass.table_name}.started_at and #{self.proxy_reflection.klass.table_name}.expected_at and #{self.proxy_reflection.klass.table_name}.status_id in (0,1,2,3,4) ",Time.now],
+                         :limit=>limit  )
                   end
                 end
 
@@ -131,7 +150,7 @@ SQL
                    with_scope :find => options do
                      calendar.fill(find(:all, 
                        :order => "#{self.proxy_reflection.klass.table_name}.started_at, #{self.proxy_reflection.klass.table_name}.ended_at", 
-                       :conditions => ["( (#{self.proxy_reflection.klass.table_name}.started_at between  ? and  ? ) or (#{self.proxy_reflection.klass.table_name}.ended_at between  ? and  ? ) ) ",
+                       :conditions => ["( (#{self.proxy_reflection.klass.table_name}.started_at between  ? and  ? ) or (#{self.proxy_reflection.klass.table_name}.expected_at between  ? and  ? ) ) ",
                        calendar.started_at, calendar.finished_at, calendar.started_at, calendar.finished_at] ))
                   end                 
                   return calendar 

@@ -1,0 +1,19 @@
+<% for column in all_columns %>
+  <%if column.name == 'id' || column.name =~ /(lock_version|_by|_at|_id|_count)$/ %> 
+    <%%=hidden_field :<%=file_name%>, :<%=column.name%> %>
+  <%else%> 
+     <div class="x-form-item">
+      <label for="<%=file_name%>-<%=column.name%>" style="width: auto;" class="x-form-item-label">
+        <%= column.name %>:
+      </label>      
+      <div class="x-form-element">
+         <%= field(column) %>  
+      </div>
+    </div> <% end %>    
+<% end %>
+<p>
+  <%%= submit_tag "Save" %>
+</p>
+  
+<%%= error_messages_for :<%=file_name%> %>
+  

@@ -1,0 +1,9 @@
+<%%dialog "<h1 class='icon icon-<%= singular_name %>'>New <%= singular_name %></h1>" do %>    
+
+<%% form_for(@<%= singular_name %>, :url => <%= singular_name %>_url(:action=>:create) ) do |f| %>
+  <%%= render :partial => 'form' ,:locals=>{:form=>f} %>
+<%% end %>
+
+<%% end %>
+
+

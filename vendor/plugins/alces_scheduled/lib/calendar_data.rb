@@ -53,7 +53,7 @@ require 'date'
         for item in items
            self.items << item         
            self.add_item(item.started_at, item)
-           self.add_item(item.finished_at, item)
+           self.add_item(item.expected_at, item)
         end
       end
       return items
@@ -73,11 +73,21 @@ require 'date'
     #
     def add_item(time,item)
       if time
-        n = time.to_date 
-        if (n > self.started_at and n < self.finished_at)
+        case time
+        when Time then   n = time.to_datetime.to_date
+        when DateTime then   n = time.to_date
+        when Date then   n = time
+        else n =time.to_date
+        end
+        if (n >= self.started_at and n <= self.finished_at)
            @boxes    ||= {}
            @boxes[n] ||= []
-           @boxes[n] << item
+           unless @boxes[n].any?{|i|i == item}
+             item.logger.info "added #{item.dom_id} #{item.name}"
+             @boxes[n] << item
+           end
+        else   
+           item.logger.info "not added #{item.class} #{item.name} [#{n} > #{self.started_at}] [#{n} < #{self.finished_at}]"
         end
       end
     end

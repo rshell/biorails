@@ -1,0 +1,26 @@
+AlcesActsAsFolder
+==============
+
+This add all the common functions for a dependent model which acts a folder.
+
+class.visible(*args)
+class.visible(:all)
+class.visible(:first)
+class.visible(:id)
+
+instance.folder
+instance.folder(name)
+
+call back function for create/update/delete to make sure the folder names are in sync and that folder is created.
+
+
+Example
+=======
+
+acts_as_folder :root
+
+The root is generally a project or another folder as expects. This creates a belongs_to relationship
+and expects to find a folder(name) in the other model.
+
+
+Copyright (c) 2008 Robert Shell, for Alces Ltd., released under the GNU license

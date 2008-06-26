@@ -1,0 +1,20 @@
+<h1>Listing <%= singular_name %></h1>
+<div class='panel'>
+
+<table class='report'>
+  <tr>
+    <% for column in content_columns %>    
+    <th><%= column.name %></th> 
+    <% end %>
+    <th>actions</th> 
+  </tr>
+  <%% for <%= singular_name %> in @<%= plural_name %> %>
+  <tr class="<%%= cycle('odd', 'even') %>">
+    <% for column in content_columns %>
+    <td><%%=h <%= singular_name %>.<%= column.name %> %></td>    
+    <% end %>
+    <td><%%= link_to 'show',<%= singular_name %>_url(:action=>:show,:id=><%= singular_name %>),:method => :get %> </td>
+  </tr>
+  <%% end %>
+</table>
+</div>

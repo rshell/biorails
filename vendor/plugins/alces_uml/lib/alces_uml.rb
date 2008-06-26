@@ -15,21 +15,6 @@ module Alces
   def UmlModel.logger
     ActionController::Base.logger rescue nil
   end
-##
-# get the list of possible public actions for this controller
-# 
-#  returns a array of methods names
-# 
-  def UmlModel.actions(name)
-    if name
-      controller = eval("#{name}_controller".camelcase) 
-      methods = controller.public_instance_methods - ApplicationController.public_instance_methods
-      return methods.sort
-    end
-  rescue Exception => ex
-    logger.warning "Failed to find actions #{ex.message}"
-    return []
-  end
 
 ##
 # List of all controllers in the system
