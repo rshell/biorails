@@ -2,12 +2,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UserSettingTest < Test::Unit::TestCase
   ## Biorails::Dba.import_model :system_settings
-
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
-  
   
   def test_use_as_property
     UserSetting.host_name ='xxx'

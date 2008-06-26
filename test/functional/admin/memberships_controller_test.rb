@@ -15,6 +15,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
     @request.session[:current_user_id] = 3
 
     @item = Membership.find(:first)
+    @team = @item.team
   end
 
   def test_index
@@ -43,7 +44,7 @@ class MembershipsControllerTest < Test::Unit::TestCase
   end
 
   def test_new
-    get :new
+    get :new, :id => @team.id
 
     assert_response :success
     assert_template 'new'
@@ -53,13 +54,36 @@ class MembershipsControllerTest < Test::Unit::TestCase
 
   def test_create
     num_memberships = Membership.count
+    user = User.find(:first)
+    role = UserRole.find(:first)
+    team = Team.create(:name=>'qatest',:description=>'test')
+    
+    post :create,:id=>team.id, :membership => {:team_id=>team.id, :user_id=>user.id, :role_id=>role.id, :owner=>0}
 
-    post :create, :membership => {:team_id=>1,:user_id=>3,:role_id=>4}
-
-    assert_response :success
-    assert_template 'new'
+    assert_response :redirect
+    assert_equal num_memberships+1, Membership.count
   end
-
+  
+  def test_create_without_role
+    num_memberships = Membership.count
+    user = User.find(:first)
+    team = Team.create(:name=>'qatest',:description=>'test')  
+    post :create,:id=>team.id, :membership => {:team_id=>team.id, :user_id=>user.id, :owner=>0}
+    assert_response :success
+     assert_equal num_memberships, Membership.count
+  end
+  
+ 
+  
+  def test_create_without_user
+    num_memberships = Membership.count
+    role = UserRole.find(:first)
+    team = Team.create(:name=>'qatest',:description=>'test')    
+    post :create,:id=>team.id, :membership => {:team_id=>team.id, :role_id=>role.id, :owner=>0}
+    assert_response :success
+     assert_equal num_memberships, Membership.count
+  end
+  
   def test_edit
     get :edit, :id =>  @item.id
 
@@ -76,12 +100,25 @@ class MembershipsControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'list'
   end
 
-  def test_destroy
-    assert_nothing_raised {      Membership.find( @item.id)    }
+  def test_update_failed
+    post :update, :id => @item.id,:membership=>{:role_id=>nil}
+    assert_response :success
+    assert_template 'edit'
+  end
 
-    post :destroy, :id =>  @item.id
+  def test_destroy_allow
+    member = Membership.find(9)
+    post :destroy, :id =>  member.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
+    assert !Membership.exists?(9)
+  end
 
+  def test_destroy_deny
+    member = Membership.find(1)
+    post :destroy, :id =>  member.id
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+    assert Membership.exists?(1)
   end
 end

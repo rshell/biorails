@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: reports
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :string(1024)  default(), not null
+#  base_model         :string(255)   
+#  custom_sql         :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  style              :string(255)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#  internal           :boolean(1)    
+#  project_id         :integer(11)   
+#  action             :string(255)   
+#
+
 --- 
 00000000051_report: !ruby/object:Report 
   attributes: 
@@ -75,15 +96,15 @@
   attributes: 
     internal: "1"
     custom_sql: 
-    name: StudyList
+    name: AssayList2
     project_id: 
     updated_at: 2007-04-26 21:03:52
     action: 
     updated_by_user_id: "3"
     lock_version: "1"
-    base_model: Study
+    base_model: Assay
     id: "16"
-    description: Default reports for display as /Study/list
+    description: Default reports for display as /Assay/list
     created_by_user_id: "3"
     style: 
     created_at: 2007-04-26 21:03:52
@@ -309,15 +330,15 @@
   attributes: 
     internal: 
     custom_sql: 
-    name: List_of_Study
+    name: List_of_Assay
     project_id: 
     updated_at: 2007-04-24 21:27:22
     action: 
     updated_by_user_id: "1"
     lock_version: "2"
-    base_model: Study
+    base_model: Assay
     id: "5"
-    description: Default reports for display as /Study/list
+    description: Default reports for display as /Assay/list
     created_by_user_id: "3"
     style: 
     created_at: 2007-04-24 20:45:49
@@ -381,15 +402,15 @@
   attributes: 
     internal: "1"
     custom_sql: 
-    name: StudyList
+    name: AssayList
     project_id: 
     updated_at: 2007-04-26 21:03:13
     action: 
     updated_by_user_id: "3"
     lock_version: "1"
-    base_model: Study
+    base_model: Assay
     id: "15"
-    description: Default reports for display as /Study/list
+    description: Default reports for display as /Assay/list
     created_by_user_id: "3"
     style: 
     created_at: 2007-04-26 21:03:12

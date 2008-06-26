@@ -57,5 +57,27 @@ def setup
     first = @model.find(:first)
     assert first.to_s   
   end
+
+  def test_to_unit
+    first = @model.find(:first)
+    first.value= "xxx"
+    assert_equal nil, first.to_unit
+  end
+
+  def test_default_value
+    first = @model.find(:first)
+    first.parameter.default_value = 'x'
+    first.data_content = nil
+    assert_equal 'x', first.to_s
+  end
+
+  def test_set_value
+    item = @model.find(:first)
+    item.value ="t"
+    assert_equal "t",item.data_content
+    assert_equal "t",item.value
+    assert_equal "t",item.to_s
+  end
+  
   
 end

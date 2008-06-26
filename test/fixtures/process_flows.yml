@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+00000000010_process_flow: !ruby/object:ProcessFlow
+  attributes: 
+    name: flow3:1
+    updated_at: "11:03:26"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    assay_protocol_id: "4"
+    id: "10"
+    report_id: 
+    status: "released"
+    version: "1"
+    created_by_user_id: "3"
+    how_to: 
+    created_at: "11:03:26"
+  attributes_cache: {}
+
+00000000011_process_flow: !ruby/object:ProcessFlow
+  attributes: 
+    name: flow3:2
+    updated_at: "11:03:26"
+    updated_by_user_id: "3"
+    lock_version: "1"
+    assay_protocol_id: "4"
+    id: "11"
+    report_id: 
+    status: "new"
+    version: "2"
+    created_by_user_id: "3"
+    how_to: 
+    created_at: "11:03:26"
+  attributes_cache: {}

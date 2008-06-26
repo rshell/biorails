@@ -43,4 +43,25 @@ class DataConceptsTest < Test::Unit::TestCase
     assert first.description    
   end
  
+  def test_has_summary
+    first = @model.find(:first)
+    assert first.summary 
+  end
+
+   def test_works_for_child
+    first = @model.find(:first,:conditions=>'parent_id is not null')
+    assert first.summary 
+    assert first.path
+    xml = first.to_xml
+    other = DataConcept.from_xml(xml)
+    assert_equal first,other
+  end
+
+  def test_xml_round_trip
+    first = @model.find(:first)
+    xml = first.to_xml
+    other = DataConcept.from_xml(xml)
+    assert_equal first,other
+  end
+  
 end

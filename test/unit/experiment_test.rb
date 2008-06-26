@@ -18,8 +18,7 @@ class ExperimentTest < Test::Unit::TestCase
      assert_not_nil first
      assert_not_nil first.id
      assert_not_nil first.name
-     assert_not_nil first.study.id
-     assert_not_nil first.protocol.id
+     assert_not_nil first.assay.id
      assert_not_nil first.project.id
      assert_not_nil first.process.id
   end
@@ -29,6 +28,7 @@ class ExperimentTest < Test::Unit::TestCase
     assert first
     assert first.new_record?
     assert !first.valid?
+    assert_equal 1.week, first.period
   end
 
   def test_update
@@ -49,11 +49,32 @@ class ExperimentTest < Test::Unit::TestCase
   end
  
   def test_export
-    expt = @model.find(1)
+    expt = @model.find(:first)
     task = expt.tasks[0]
     csv = task.to_csv
     task2 =expt.import_task(csv)
     assert task2   
+  end
+
+  def test_run_flow
+    flow = ProcessFlow.find(:first)
+    assert flow.steps.size>0
+    assert flow.multistep?
+    expt = Experiment.find(2)
+    num = expt.tasks.size
+    expt.run(flow,Time.now)
+    expt.reload
+    assert_equal num+flow.steps.size,expt.tasks.size
+  end
+   
+  def test_run_process
+    flow = ProcessInstance.find(:first)
+    assert flow.parameters.size>0
+    expt = Experiment.find(2)
+    num = expt.tasks.size
+    expt.run(flow,Time.now)
+    expt.reload
+    assert_equal num+1,expt.tasks.size
   end
    
   def test_copy
@@ -63,4 +84,61 @@ class ExperimentTest < Test::Unit::TestCase
     assert exp2   
     assert exp2.tasks.size ==exp.tasks.size
   end
+  
+  def test_import_file_bad_no_experiment_name
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad_no_experiment_name.csv'))
+    experiment = Experiment.find(1)
+    experiment.import_task(file)
+    flunk("should have failed to create a experiment")
+  rescue
+  end
+    
+  def test_import_file_bad_no_assay_name
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad_no_assay_name.csv'))
+    experiment = Experiment.find(1)
+    task = experiment.import_task(file)
+    assert task
+    assert_ok task
+  end
+    
+  def test_import_file_bad_no_protocol_name
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad_no_protocol_name.csv'))
+    experiment = Experiment.find(1)
+    experiment.import_task(file)
+    flunk("should have failed to create a experiment")
+  rescue
+  end
+    
+  def test_import_file_poor_data
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad-data.csv'))
+    experiment = Experiment.find(1)
+    task = experiment.import_task(file)
+    assert task
+    assert_ok task
+  end
+    
+  def test_import_file_bad_context
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad-context.csv'))
+    experiment = Experiment.find(1)
+    task = experiment.import_task(file)
+    assert task
+    assert_ok task
+  end
+    
+  def test_import_file_new_task_good_data
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-good-data.csv'))
+    experiment = Experiment.find(1)
+    task = experiment.import_task(file)
+    assert task
+    assert_ok task
+  end
+    
+  def test_import_file_old_task_good_data
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-Task1.csv'))
+    experiment = Experiment.find(1)
+    task = experiment.import_task(file)
+    assert task
+    assert_ok task
+  end
+  
 end

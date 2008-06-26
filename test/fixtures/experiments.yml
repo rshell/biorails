@@ -1,3 +1,28 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: experiments
+#
+#  id                  :integer(11)   not null, primary key
+#  name                :string(128)   default(), not null
+#  description         :string(1024)  default(), not null
+#  category_id         :integer(11)   
+#  status_id           :integer(11)   default(0), not null
+#  assay_id            :integer(11)   not null
+#  protocol_version_id :integer(11)   
+#  lock_version        :integer(11)   default(0), not null
+#  created_at          :datetime      not null
+#  updated_at          :datetime      not null
+#  assay_protocol_id   :integer(11)   not null
+#  project_id          :integer(11)   not null
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
+#  started_at          :datetime      
+#  ended_at            :datetime      
+#  expected_at         :datetime      
+#  team_id             :integer(11)   default(0), not null
+#
+
 --- 
 00000000001_experiment: !ruby/object:Experiment 
   attributes: 
@@ -10,9 +35,8 @@
     expected_at: 2007-12-17 00:00:00
     updated_by_user_id: "3"
     lock_version: "0"
-    study_protocol_id: "1"
     id: "1"
-    study_id: "1"
+    assay_id: "1"
     category_id: 
     description: " Experiment in project Project X "
     created_by_user_id: "3"
@@ -32,9 +56,8 @@
     expected_at: 2007-12-18 00:00:00
     updated_by_user_id: "3"
     lock_version: "1"
-    study_protocol_id: "2"
     id: "3"
-    study_id: "2"
+    assay_id: "2"
     category_id: 
     description: This is the third experiment
     created_by_user_id: "3"
@@ -54,9 +77,8 @@
     expected_at: 2007-12-18 00:00:00
     updated_by_user_id: "3"
     lock_version: "0"
-    study_protocol_id: "2"
     id: "2"
-    study_id: "2"
+    assay_id: "2"
     category_id: 
     description: " Experiment in project Project X "
     created_by_user_id: "3"

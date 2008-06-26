@@ -1,27 +1,25 @@
 --- 
-00000000001_request_list: !ruby/object:RequestList 
-  attributes: 
-    name: Req1
-    updated_at: 2007-12-12 11:35:52
-    expires_at: 
-    updated_by_user_id: "3"
-    lock_version: "0"
-    type: RequestList
-    id: "1"
-    description: 
-    created_by_user_id: "3"
-    data_element_id: "35"
-    created_at: 2007-12-12 11:35:52
-00000000001_request_list: !ruby/object:List 
-  attributes: 
-    name: List1
-    updated_at: 2007-12-12 11:35:52
-    expires_at: 
-    updated_by_user_id: "3"
-    lock_version: "0"
-    type: RequestList
-    id: "2"
-    description: 
-    created_by_user_id: "3"
-    data_element_id: "35"
-    created_at: 2007-12-12 11:35:52
+lists_001: 
+  name: Req-2
+  updated_at: 2008-03-06 11:15:24 Z
+  expires_at: 
+  updated_by_user_id: 3
+  lock_version: 0
+  type: RequestList
+  id: 1
+  description: 
+  created_by_user_id: 3
+  data_element_id: 35
+  created_at: 2008-03-06 11:15:24 Z
+lists_002: 
+  name: Req-3
+  updated_at: 2008-03-13 22:34:06 Z
+  expires_at: 
+  updated_by_user_id: 3
+  lock_version: 0
+  type: RequestList
+  id: 2
+  description: 
+  created_by_user_id: 3
+  data_element_id: 35
+  created_at: 2008-03-13 22:34:06 Z

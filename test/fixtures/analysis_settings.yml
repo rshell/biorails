@@ -1,13 +1,13 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 306
 #
 # Table name: analysis_settings
 #
 #  id                 :integer(11)   not null, primary key
 #  analysis_method_id :integer(11)   
 #  name               :string(62)    
-#  script_body        :text          
-#  options            :text          
+#  script_body        :string(2048)  
+#  options            :string(2048)  
 #  parameter_id       :integer(11)   
 #  data_type_id       :integer(11)   
 #  level_no           :integer(11)   
@@ -22,74 +22,6 @@
 #
 
 --- 
-analysis_settings_010: 
-  name: x
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:29
-  default_value: 
-  options: 
-  mandatory: "1"
-  column_no: "4"
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  script_body: 
-  id: "10"
-  level_no: "1"
-  parameter_id: "103"
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:29
-  io_mode: "1"
-analysis_settings_009: 
-  name: label
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:29
-  default_value: 
-  options: 
-  mandatory: "0"
-  column_no: "1"
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "9"
-  level_no: "0"
-  parameter_id: "104"
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:29
-  io_mode: "1"
-analysis_settings_011: 
-  name: y
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:29
-  default_value: 
-  options: 
-  mandatory: "1"
-  column_no: "3"
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  script_body: 
-  id: "11"
-  level_no: "1"
-  parameter_id: "102"
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:29
-  io_mode: "1"
-analysis_settings_012: 
-  name: filename
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:35
-  default_value: grid.csv
-  options: 
-  mandatory: N
-  column_no: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "12"
-  level_no: 
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:35
-  io_mode: "1"
 analysis_settings_001: 
   name: filename
   analysis_method_id: 
@@ -107,23 +39,6 @@ analysis_settings_001:
   created_by_user_id: "1"
   created_at: 2007-07-03 14:11:41
   io_mode: "3"
-analysis_settings_013: 
-  name: title
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:35
-  default_value: x/y plot
-  options: 
-  mandatory: N
-  column_no: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "13"
-  level_no: 
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:35
-  io_mode: "1"
 analysis_settings_002: 
   name: filename
   analysis_method_id: 
@@ -140,23 +55,6 @@ analysis_settings_002:
   parameter_id: 
   created_by_user_id: "1"
   created_at: 2007-07-03 14:11:46
-  io_mode: "1"
-analysis_settings_014: 
-  name: label
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:35
-  default_value: 
-  options: 
-  mandatory: "0"
-  column_no: "1"
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "14"
-  level_no: "0"
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:35
   io_mode: "1"
 analysis_settings_003: 
   name: title
@@ -175,23 +73,6 @@ analysis_settings_003:
   created_by_user_id: "1"
   created_at: 2007-07-03 14:11:46
   io_mode: "1"
-analysis_settings_015: 
-  name: x
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:35
-  default_value: 
-  options: 
-  mandatory: "1"
-  column_no: "3"
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  script_body: 
-  id: "15"
-  level_no: "1"
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:35
-  io_mode: "1"
 analysis_settings_004: 
   name: label
   analysis_method_id: 
@@ -208,23 +89,6 @@ analysis_settings_004:
   parameter_id: 
   created_by_user_id: "1"
   created_at: 2007-07-03 14:11:46
-  io_mode: "1"
-analysis_settings_016: 
-  name: y
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:35
-  default_value: 
-  options: 
-  mandatory: "1"
-  column_no: "2"
-  updated_by_user_id: "1"
-  data_type_id: "2"
-  script_body: 
-  id: "16"
-  level_no: "1"
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:35
   io_mode: "1"
 analysis_settings_005: 
   name: x
@@ -259,38 +123,4 @@ analysis_settings_006:
   parameter_id: 
   created_by_user_id: "1"
   created_at: 2007-07-03 14:11:46
-  io_mode: "1"
-analysis_settings_007: 
-  name: filename
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:29
-  default_value: plot_xy.jpg
-  options: 
-  mandatory: N
-  column_no: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "7"
-  level_no: 
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:29
-  io_mode: "1"
-analysis_settings_008: 
-  name: title
-  analysis_method_id: 
-  updated_at: 2007-07-03 14:12:29
-  default_value: x/y plot
-  options: 
-  mandatory: N
-  column_no: 
-  updated_by_user_id: "1"
-  data_type_id: "1"
-  script_body: 
-  id: "8"
-  level_no: 
-  parameter_id: 
-  created_by_user_id: "1"
-  created_at: 2007-07-03 14:12:29
   io_mode: "1"

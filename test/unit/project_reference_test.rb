@@ -7,4 +7,46 @@ class ProjectReferenceTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+  
+  def test_new
+    folder=ProjectReference.new(:name=>'test')
+    assert folder.name
+    assert folder.summary  
+    assert folder.description  
+    assert folder.to_html 
+  end
+
+  def test_create_reference
+    folder=ProjectFolder.find(:first)
+    item = DataFormat.find(1)
+    reference = folder.add_reference("XXXXX",item)
+    assert reference
+    assert reference.valid?
+    assert reference.description
+    assert reference.icon
+    assert reference.to_html
+    assert reference.summary
+  end
+
+  def test_create_duplicate_name
+    folder=ProjectFolder.find(:first)
+    item = DataFormat.find(1)
+    reference = folder.add_reference("XXXXX",item)
+    assert reference
+    assert reference.valid?
+    reference2 = folder.add_reference("XXXXX",item)
+    assert !reference2.valid?
+  end
+
+  def test_create_duplicate_reference
+    folder=ProjectFolder.find(:first)
+    item = DataFormat.find(1)
+    reference = folder.add_reference("XXXXX",item)
+    assert reference
+    assert reference.valid?
+    reference2 = folder.add_reference("XXXX2",item)
+    assert reference2.valid?
+  end
+
+  
 end

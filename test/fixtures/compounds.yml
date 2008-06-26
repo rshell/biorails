@@ -1,86 +1,171 @@
 --- 
+00000000007_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: 
+    name: TEST0007
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "323"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "7"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
+    iupacname: ""
+    created_at: 2008-06-04 08:51:07
+  attributes_cache: {}
+
 00000000002_compound: !ruby/object:Compound 
   attributes: 
-    smiles: c1cc(N)c(Cl)cc1
-    name: Compound2
-    updated_at: 2007-12-07 10:58:08
-    registration_date: 2007-12-08 00:00:00
-    mass: "200"
-    updated_by_user_id: "3"
+    smiles: 
+    name: TEST0002
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "232"
+    updated_by_user_id: "1"
     lock_version: "0"
     id: "2"
-    formula: ""
-    description: My second compound
-    created_by_user_id: "3"
+    formula: CC
+    description: ""
+    created_by_user_id: "1"
     iupacname: ""
-    created_at: 2007-12-07 10:58:08
+    created_at: 2008-06-04 08:51:07
   attributes_cache: {}
 
 00000000004_compound: !ruby/object:Compound 
   attributes: 
-    smiles: c1cc(N)c(Cl)cc1
-    name: Compound4
-    updated_at: 2007-12-07 11:00:22
-    registration_date: 2007-12-09 00:00:00
-    mass: "400"
-    updated_by_user_id: "3"
+    smiles: 
+    name: TEST0004
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "3232"
+    updated_by_user_id: "1"
     lock_version: "0"
     id: "4"
-    formula: ""
-    description: My fourth compund
-    created_by_user_id: "3"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
     iupacname: ""
-    created_at: 2007-12-07 11:00:22
+    created_at: 2008-06-04 08:51:07
+  attributes_cache: {}
+
+00000000010_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: 
+    name: TEST00010
+    updated_at: 2008-06-04 08:51:08
+    registration_date: 
+    mass: "32"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "10"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
+    iupacname: ""
+    created_at: 2008-06-04 08:51:08
   attributes_cache: {}
 
 00000000003_compound: !ruby/object:Compound 
   attributes: 
-    smiles: c1cc(N)c(Cl)cc1
-    name: Compound3
-    updated_at: 2007-12-07 10:59:17
-    registration_date: 2007-12-06 00:00:00
-    mass: "150"
-    updated_by_user_id: "3"
+    smiles: 
+    name: TEST0003
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "232"
+    updated_by_user_id: "1"
     lock_version: "0"
     id: "3"
-    formula: ""
-    description: My third compound
-    created_by_user_id: "3"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
     iupacname: ""
-    created_at: 2007-12-07 10:59:17
+    created_at: 2008-06-04 08:51:07
+  attributes_cache: {}
+
+00000000009_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: 
+    name: TEST0009
+    updated_at: 2008-06-04 08:51:08
+    registration_date: 
+    mass: "232"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "9"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
+    iupacname: ""
+    created_at: 2008-06-04 08:51:08
+  attributes_cache: {}
+
+00000000008_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: 
+    name: TEST0008
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "23"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "8"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
+    iupacname: ""
+    created_at: 2008-06-04 08:51:07
   attributes_cache: {}
 
 00000000001_compound: !ruby/object:Compound 
   attributes: 
-    smiles: C(Cl)C(C)C(N)CCc1ccc(Cl)c(N)c1
-    name: Compound1
-    updated_at: 2007-12-07 10:57:01
-    registration_date: 2007-12-07 00:00:00
-    mass: "100"
-    updated_by_user_id: "3"
+    smiles: 
+    name: TEST0001
+    updated_at: 2008-06-04 08:51:05
+    registration_date: 
+    mass: "121"
+    updated_by_user_id: "1"
     lock_version: "0"
     id: "1"
-    formula: ""
-    description: My first compound
-    created_by_user_id: "3"
+    formula: CCC
+    description: ""
+    created_by_user_id: "1"
     iupacname: ""
-    created_at: 2007-12-07 10:57:01
+    created_at: 2008-06-04 08:51:05
+  attributes_cache: {}
+
+00000000006_compound: !ruby/object:Compound 
+  attributes: 
+    smiles: 
+    name: TEST0006
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "232"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "6"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
+    iupacname: ""
+    created_at: 2008-06-04 08:51:07
   attributes_cache: {}
 
 00000000005_compound: !ruby/object:Compound 
   attributes: 
-    smiles: c1cc(N)c(Cl)cc1
-    name: Compound5
-    updated_at: 2007-12-07 11:02:22
-    registration_date: 2007-12-10 00:00:00
-    mass: "500"
-    updated_by_user_id: "3"
+    smiles: 
+    name: TEST0005
+    updated_at: 2008-06-04 08:51:07
+    registration_date: 
+    mass: "323"
+    updated_by_user_id: "1"
     lock_version: "0"
     id: "5"
-    formula: ""
-    description: My fifth compound
-    created_by_user_id: "3"
+    formula: C
+    description: ""
+    created_by_user_id: "1"
     iupacname: ""
-    created_at: 2007-12-07 11:02:22
+    created_at: 2008-06-04 08:51:07
   attributes_cache: {}
 

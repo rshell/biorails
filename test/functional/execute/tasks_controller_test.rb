@@ -51,6 +51,89 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert assigns(:task).valid?
   end
 
+  def test_show_invalid
+    get :show, :id => 24242432
+    assert_response :redirect
+    assert_redirected_to :action => 'access_denied'
+  end
+
+  def test_show_denied
+    @request.session[:current_project_id] =1
+    @request.session[:current_user_id] = 1    
+    get :show, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'access_denied'
+  end
+    
+  def test_assign
+    get :assign, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => 1
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+  def test_update_queue
+    get :update_queue, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => 1
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+  def test_make_flexible
+    get :make_flexible, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => 1
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+  def test_update_queue_all
+    get :update_queue, :id => @first.id, :any => 'y'
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => 1
+    assert_not_nil assigns(:task)
+    assert assigns(:task).valid?
+  end
+
+ def test_import_file
+    get :import_file, :id=>1, :file=>'file'
+    assert_response :success
+    assert_template 'import'
+     assert_nil assigns(:task)
+  end
+
+  def test_import_file_ie6_pattern
+    get :import_file, :id=>1, 'File'=>'file'
+    assert_response :success
+    assert_template 'import'
+     assert_nil assigns(:task)
+  end
+  
+  def test_import_file_fails_because_file_param_missing
+     post :import_file, :id=>1
+     assert_response :success
+     assert_template 'import'
+     assert_nil assigns(:task)
+   end
+
+  def test_import_file_invalid_file
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','test-parameters.csv'))
+    post :import_file, :id=>1,:file=>file
+     assert_response :success
+     assert_template 'import'
+     assert_nil assigns(:task)
+  end
+  
+  def test_import_file_good_file
+    file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-Task1.csv'))
+    post :import_file, :id=>1,:file=>file
+     assert_response :redirect
+     assert_redirected_to :action => 'show', :id => 1
+     assert_not_nil assigns(:task)
+  end
+  
   def test_metrics
     get :metrics, :id => @first.id
     assert_response :success
@@ -59,10 +142,9 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert assigns(:task).valid?
   end
 
-  def test_view
-    get :view, :id => @first.id
+  def test_print
+    get :print, :id => @first.id
     assert_response :success
-    assert_template 'view'
     assert_not_nil assigns(:task)
     assert assigns(:task).valid?
   end
@@ -91,29 +173,76 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
   end
 
   def test_import
-    get :export, :id => @first.id
+    get :import, :id => @first.id
     assert_response :success
     assert_not_nil assigns(:task)
     assert assigns(:task).valid?
   end
 
-  def test_analysis
+# @TODO cleaning up analysis methods
+
+  def test_analysis_none
+    @first.process.analysis_method = nil
+    @first.process.save
     get :analysis, :id => @first.id
     assert_response :success
-    assert_template 'analysis'
+    assert_template 'analysis'#
 
     assert_not_nil assigns(:task)
-    assert_not_nil assigns(:analysis)
+    assert_nil assigns(:analysis)
     assert_not_nil assigns(:level0)
     assert_not_nil assigns(:level1)
     assert assigns(:task).valid?
   end
 
+  def test_analysis_ok
+    @first.process.analysis_method_id = 1
+    @first.process.save
+    get :analysis, :id => @first.id
+    assert_response :success
+    assert_template 'analysis'#
+
+    assert_not_nil assigns(:task)
+    assert_not_nil assigns(:analysis)
+    assert_not_nil assigns(:level0)
+    assert_not_nil assigns(:level1)
+    assert_ok assigns(:analysis)
+    assert_ok assigns(:task)
+  end
+
+  def test_analysis_run
+    @first.process.analysis_method_id = 1
+    @first.process.save
+    get :analysis, :id => @first.id,:run=>'yes'
+    assert_response :success
+    assert_template 'analysis'
+
+    assert_not_nil assigns(:task)
+    assert_not_nil assigns(:level0)
+    assert_not_nil assigns(:level1)
+    assert_ok assigns(:analysis)
+    assert_ok assigns(:task)
+  end
+
+  def test_analysis_run_ajax
+    @first.process.analysis_method_id = 1
+    @first.process.save
+    get :analysis, :id => @first.id,:run=>'yes',:format=>'js'
+    assert_response :success
+    assert_template '_analysis'
+
+    assert_not_nil assigns(:task)
+    assert_not_nil assigns(:level0)
+    assert_not_nil assigns(:level1)
+    assert_ok assigns(:analysis)
+    assert_ok assigns(:task)
+  end
+  
   def test_folder
     get :folder, :id => @first.id
     assert_response :success
     assert_not_nil assigns(:task)
-    assert_not_nil assigns(:folder)
+    assert_not_nil assigns(:project_folder)
     assert assigns(:task).valid?
   end
 
@@ -122,22 +251,6 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_not_nil assigns(:task)
     assert assigns(:task).valid?
-  end
-
-  def test_transform
-    get :transform, :id => @first.id
-    assert_response :success
-    assert_not_nil assigns(:task)
-    assert assigns(:task).valid?
-  end
-
-  def test_cell_change
-    task = Task.find(:first)
-    grid = task.grid
-    grid.rows[0].cells.each do |cell| 
-      get :cell_change, :id => task.id,:element=>cell.dom_id,:value=> cell.value,:format=>'js'
-      assert_response :success      
-    end      
   end
   
   def test_context
@@ -153,6 +266,106 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:task_context)
     assert assigns(:task_context).valid?
   end
+
+  def test_cell_value_with_error
+    get :cell_value, :id=>-1 ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>0.811 , :originalValue=>1 
+    assert_response :success
+  end
+    
+  def test_cell_value_numeric_failed_as_completed
+    get :cell_value, :id=>15 ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>0.811 , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+
+  end
+  
+  def test_cell_value_numeric
+    row = TaskContext.find(15)
+    task = row.task
+    task.status_id = Alces::ScheduledItem::NEW
+    assert task.save    
+    assert task.start_processing
+    get :cell_value, :id=>row.id ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>"15 %" , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+    row.reload
+    task.reload
+    item = row.item(Parameter.find(12))
+    assert_equal "15 %".to_unit,item.value,item.to_yaml
+    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+  end
+  
+  def test_cell_value_text
+    row = TaskContext.find(17)
+    task = row.task
+    task.status_id = Alces::ScheduledItem::NEW
+    assert task.save    
+    assert task.start_processing
+    get :cell_value, :id=>row.id ,:label=>'context0[0]', :field=>'parameter_9',:row=>5, :column=>6,:value=>"xxxx" , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+    row.reload
+    task.reload
+    item = row.item(Parameter.find(9))
+    assert_equal "xxxx",item.to_s,item.to_xml
+    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+  end
+
+  def test_cell_value_reference_failed
+    row = TaskContext.find(10)
+    task = row.task
+    task.status_id = Alces::ScheduledItem::NEW
+    assert task.save    
+    assert task.start_processing
+    get :cell_value, :id=>row.id ,:label=>'context0', :field=>'parameter_6',:row=>0, :column=>1,:value=>"xxxx" , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+    row.reload
+    task.reload
+    item = row.item(Parameter.find(6))
+    assert item.new_record?, item.to_xml
+    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+  end
+  
+  
+  def test_cell_value_delete
+    row = TaskContext.find(15)
+    task = row.task
+    task.status_id = Alces::ScheduledItem::NEW
+    assert task.save    
+    assert task.start_processing
+    get :cell_value, :id=>row.id ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>'' , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+    row.reload
+    task.reload
+    item = row.item(Parameter.find(12))
+    assert item.new_record?,item.to_xml
+    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+  end
+  
+
+  def test_cell_value_quantity
+    row = TaskContext.find(15)
+    task = row.task
+    task.status_id = Alces::ScheduledItem::NEW
+    assert task.save    
+    assert task.start_processing
+    get :cell_value, :id=>15 ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>'0.811 mM' , :originalValue=>1 
+    assert_response :success
+    assert_not_nil assigns(:context)
+    assert assigns(:context).valid?
+    row.reload
+    task.reload
+    item = row.item(Parameter.find(12))
+    assert "0.811 mM",item.to_s
+    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+  end
   
   def test_new
     get :new, :id => @first.experiment.id
@@ -161,12 +374,34 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:task)
   end
 
-  def test_create
+  def test_create_failed
     num_tasks = Task.count
     post :create, :task => {}
     assert_response :success
     assert_template 'new'
     assert_equal num_tasks , Task.count
+  end
+  
+  def test_create_failed_for_duplicate_name
+    duplicate=Task.find(:first).name
+    post :create, :task=>{:experiment_id=>"1", :name=>duplicate, :protocol_version_id=>"1", :expected_at=>"2008-04-16", "assigned_to_user_id"=>"3", :description=>"", :status_id=>"0", :started_at=>"2008-04-15"}
+    assert_not_nil assigns(:task)
+    assert !assigns(:task).valid?
+    assert assigns(:task).errors
+    assert assigns(:task).errors[:name]
+  end
+    
+  def test_create_succeeded
+    num_tasks = Task.count
+    post :create, :task=>{:experiment_id=>"1", :name=>"Task-90", :protocol_version_id=>"1", :expected_at=>"2008-04-16", "assigned_to_user_id"=>"3", :description=>" Task in experiment Task-89 ", :status_id=>"0", :started_at=>"2008-04-15"}
+    assert_equal num_tasks+1 , Task.count
+    assert_equal 'Task was successfully created.', flash[:notice]
+  end
+
+  def test_copy
+    get :copy, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
   end
 
   def test_edit
@@ -182,7 +417,91 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => 1
   end
+  
+  def test_update_should_fail_for_no_name
+    post :update, :id => @first.id, :task=>{:name=>''}
+    assert_response :success
+    assert_not_nil assigns(:task)
+    assert !assigns(:task).valid?
+    assert assigns(:task).errors
+    assert assigns(:task).errors[:name]
+  end
+  
+  
+  def test_list_columns
+    post :list_columns, :id => @first.id
+    assert_response :success
+  end
+  
+  def test_add_column_failed
+    param = AssayParameter.find(9)
+    post :add_column, :id => 2,:name=>param.name
+    assert_response :redirect
+    assert_ok assigns(:task)
+    assert_redirected_to :action => 'show', :id => 3,:tab=>3    
+  end
 
+  def test_add_column_invalid_id_ajax
+    param = AssayParameter.find(9)
+    post :add_column, :id => 223232,:name=>param.name,:format=>'js'
+    assert_response :success
+    assert !assigns(:successful)
+  end
+
+  def test_add_column_ok
+    param = AssayParameter.find(9)
+    task =Task.find(2)
+    task.make_flexible
+    task.save
+    task.reload
+    assert task.flexible?
+    num = task.process.parameters.size
+    post :add_column, :id => task.contexts[0].id,:name=>param.name
+    assert_ok assigns(:task)
+    assert_equal num+1,task.process.parameters.size
+    assert_response :redirect
+    assert_ok assigns(:task)
+    assert_ok assigns(:task_context)
+    assert_redirected_to :action => 'show'
+  end
+
+  def test_add_column_ok_ajax
+    param = AssayParameter.find(9)
+    task =Task.find(2)
+    task.make_flexible
+    task.save
+    post :add_column, :id => task.contexts[0].id,:name=>param.name,:format=>'js'
+    assert_response :success
+    assert_ok assigns(:task)
+  end
+
+  def test_add_row
+    context = Task.find(2).contexts[0]
+    post :add_row, :id => context.id
+    assert_response :redirect
+    assert_ok assigns(:task)
+    assert_redirected_to :action => 'show', :id => 2,:tab=>3    
+  end
+
+  def test_add_column_ajax
+    param = AssayParameter.find(9)
+    post :add_column, :id => 2,:name=>param.name,:format=>'js'
+    assert_response :success
+    assert_ok assigns(:task)
+  end
+  
+  def test_add_row_ajax
+    context = Task.find(2).contexts[0]
+    post :add_row, :id => context.id,:format=>'js'
+    assert_response :success
+    assert_ok assigns(:task)
+  end
+  
+  def test_add_row_ajax_failed
+    post :add_row, :id => nil,:format=>'js'
+    assert_response :success
+  end
+  
   def test_destroy
     Task.transaction do
       assert_not_nil @first

@@ -1,10 +1,22 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: role_permissions
+#
+#  id            :integer(11)   not null, primary key
+#  role_id       :integer(11)   not null
+#  permission_id :integer(11)   
+#  subject       :string(40)    
+#  action        :string(40)    
+#
+
 --- 
 00000000184_role_permission: !ruby/object:RolePermission 
   attributes: 
     action: show
     permission_id: 
     role_id: "2"
-    subject: study_protocols
+    subject: assay_protocols
     id: "184"
   attributes_cache: {}
 
@@ -49,7 +61,7 @@
     action: show
     permission_id: 
     role_id: "2"
-    subject: study_parameters
+    subject: assay_parameters
     id: "182"
   attributes_cache: {}
 
@@ -103,7 +115,7 @@
     action: "*"
     permission_id: 
     role_id: "5"
-    subject: study_queues
+    subject: assay_queues
     id: "163"
   attributes_cache: {}
 
@@ -184,7 +196,7 @@
     action: show
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "30"
   attributes_cache: {}
 
@@ -283,7 +295,7 @@
     action: list
     permission_id: 
     role_id: "1"
-    subject: study_protocols
+    subject: assay_protocols
     id: "201"
   attributes_cache: {}
 
@@ -328,7 +340,7 @@
     action: show
     permission_id: 
     role_id: "1"
-    subject: study_queues
+    subject: assay_queues
     id: "194"
   attributes_cache: {}
 
@@ -364,7 +376,7 @@
     action: show
     permission_id: 
     role_id: "1"
-    subject: study_parameters
+    subject: assay_parameters
     id: "192"
   attributes_cache: {}
 
@@ -742,7 +754,7 @@
     action: show
     permission_id: 
     role_id: "2"
-    subject: study_queues
+    subject: assay_queues
     id: "183"
   attributes_cache: {}
 
@@ -787,7 +799,7 @@
     action: edit
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "33"
   attributes_cache: {}
 
@@ -796,7 +808,7 @@
     action: list
     permission_id: 
     role_id: "2"
-    subject: study_parameters
+    subject: assay_parameters
     id: "171"
   attributes_cache: {}
 
@@ -868,7 +880,7 @@
     action: new
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "31"
   attributes_cache: {}
 
@@ -985,7 +997,7 @@
     action: show
     permission_id: 
     role_id: "1"
-    subject: study_protocols
+    subject: assay_protocols
     id: "202"
   attributes_cache: {}
 
@@ -1039,7 +1051,7 @@
     action: list
     permission_id: 
     role_id: "2"
-    subject: study
+    subject: assay
     id: "93"
   attributes_cache: {}
 
@@ -1156,7 +1168,7 @@
     action: "*"
     permission_id: 
     role_id: "5"
-    subject: study_parameters
+    subject: assay_parameters
     id: "162"
   attributes_cache: {}
 
@@ -1309,7 +1321,7 @@
     action: list
     permission_id: 
     role_id: "2"
-    subject: study_protocols
+    subject: assay_protocols
     id: "176"
   attributes_cache: {}
 
@@ -1354,7 +1366,7 @@
     action: list
     permission_id: 
     role_id: "1"
-    subject: study_queues
+    subject: assay_queues
     id: "193"
   attributes_cache: {}
 
@@ -1453,7 +1465,7 @@
     action: list
     permission_id: 
     role_id: "1"
-    subject: study_parameters
+    subject: assay_parameters
     id: "191"
   attributes_cache: {}
 
@@ -1462,7 +1474,7 @@
     action: list
     permission_id: 
     role_id: "2"
-    subject: study_queues
+    subject: assay_queues
     id: "172"
   attributes_cache: {}
 
@@ -1498,7 +1510,7 @@
     action: update
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "34"
   attributes_cache: {}
 
@@ -1552,7 +1564,7 @@
     action: create
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "32"
   attributes_cache: {}
 
@@ -1660,7 +1672,7 @@
     action: list
     permission_id: 
     role_id: "3"
-    subject: study
+    subject: assay
     id: "29"
   attributes_cache: {}
 
@@ -1696,7 +1708,7 @@
     action: "*"
     permission_id: 
     role_id: "5"
-    subject: study_protocols
+    subject: assay_protocols
     id: "167"
   attributes_cache: {}
 
@@ -1714,7 +1726,7 @@
     action: show
     permission_id: 
     role_id: "2"
-    subject: study
+    subject: assay
     id: "94"
   attributes_cache: {}
 

@@ -1,0 +1,61 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: assay_queues
+#
+#  id                  :integer(11)   not null, primary key
+#  name                :string(128)   default(), not null
+#  description         :string(1024)  default(), not null
+#  assay_id            :integer(11)   not null
+#  assay_stage_id      :integer(11)   
+#  assay_parameter_id  :integer(11)   not null
+#  assay_protocol_id   :integer(11)   
+#  status              :string(255)   default(new), not null
+#  priority            :string(255)   default(normal), not null
+#  lock_version        :integer(11)   default(0), not null
+#  created_at          :datetime      not null
+#  updated_at          :datetime      not null
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
+#  assigned_to_user_id :integer(11)   default(1)
+#
+
+--- 
+00000000001_assay_queue: !ruby/object:AssayQueue 
+  attributes: 
+    status: new
+    assay_stage_id: "6"
+    name: ServiceQueue1
+    updated_at: 2007-12-10 20:17:31
+    updated_by_user_id: "3"
+    lock_version: "1"
+    priority: normal
+    assay_protocol_id: 
+    id: "1"
+    assigned_to_user_id: "3"
+    assay_id: "1"
+    description: Testing service
+    assay_parameter_id: "3"
+    created_by_user_id: "3"
+    created_at: 2007-12-10 20:17:30
+  attributes_cache: {}
+
+00000000002_assay_queue: !ruby/object:AssayQueue 
+  attributes: 
+    status: new
+    assay_stage_id: "8"
+    name: DR
+    updated_at: 2007-12-11 18:11:14
+    updated_by_user_id: "3"
+    lock_version: "1"
+    priority: normal
+    assay_protocol_id: 
+    id: "2"
+    assigned_to_user_id: "3"
+    assay_id: "2"
+    description: Basic dose response screening service
+    assay_parameter_id: "6"
+    created_by_user_id: "3"
+    created_at: 2007-12-11 18:11:14
+  attributes_cache: {}
+

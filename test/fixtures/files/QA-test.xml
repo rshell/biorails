@@ -16,7 +16,7 @@
   <status-id type="integer">0</status-id>
   <updated-at type="datetime">2007-05-07T13:20:20Z</updated-at>
   <updated-by-user-id type="integer">3</updated-by-user-id>
-  <parameters class="StudyParameter" style="has_many">
+  <parameters class="AssayParameter" style="has_many">
     <study-parameter>
       <created-by-user-id type="integer">3</created-by-user-id>
       <data-type-id type="integer">2</data-type-id>
@@ -62,7 +62,7 @@
       </parameter-type>
     </study-parameter>
   </parameters>
-  <protocols class="StudyProtocol" style="has_many">
+  <protocols class="AssayProtocol" style="has_many">
     <study-protocol>
       <created-at type="datetime">2007-05-07T13:21:23Z</created-at>
       <created-by-user-id type="integer">3</created-by-user-id>
@@ -133,7 +133,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -166,7 +166,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">

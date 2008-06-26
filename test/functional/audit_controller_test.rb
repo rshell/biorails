@@ -9,33 +9,33 @@ class AuditControllerTest < Test::Unit::TestCase
     @controller = AuditController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    @request.session[:current_project_id] = 1
+    @request.session[:current_project_id] = 2
     @request.session[:current_user_id] = 3
-  end
-
-  # Replace this with your real tests.
-  def test_truth
-    assert true
   end
   
   def test_show
-    get :show,{:auditabel_type=>'Project',:id=>'1'},@session    
-    assert_response :redirect
-  end
-  
-  def test_show_as_xml
-    get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'xml'},@session    
-    assert_response :redirect
-  end
-  
-  def test_show_as_json
-    get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'json'},@session    
-    assert_response :redirect
+    get :show,:auditable_type=>'Assay',:id=>1
+    assert_response :success
   end
 
-  def test_show_as_js
-    get :show,{:auditabel_type=>'Project',:id=>'1',:format=>'js'},@session    
-    assert_response :redirect
+  def test_show_json
+    get :show,:auditable_type=>'Assay',:id=>1,:format=>'json'
+    assert_response :success
+  end
+
+  def test_show_xml
+    get :show,:auditable_type=>'Assay',:id=>1,:format=>'xml'
+    assert_response :success
+  end
+
+  def test_show_js_post
+    post :show, :auditable_type=>'Assay',:id=>1, :format=>'js'
+    assert_response :success    
+  end
+
+  def test_show_js_get
+    get :show, :auditable_type=>'Assay',:id=>1, :format=>'js'
+    assert_response :success    
   end
   
 end

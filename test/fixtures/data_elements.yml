@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 280
+# Schema version: 306
 #
 # Table name: data_elements
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(50)    default(), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  data_system_id     :integer(11)   not null
 #  data_concept_id    :integer(11)   not null
 #  access_control_id  :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  parent_id          :integer(10)   
+#  parent_id          :integer(11)   
 #  style              :string(10)    default(), not null
-#  content            :text          default(), not null
+#  content            :string(4000)  default()
 #  estimated_count    :integer(11)   
 #  type               :string(255)   
 #  updated_by_user_id :integer(11)   default(1), not null

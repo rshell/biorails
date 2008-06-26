@@ -19,10 +19,6 @@ class Admin::ParameterRolesControllerTest < Test::Unit::TestCase
     @item = ParameterRole.find(:first)
   end
 
-  def test_truth
-    assert true
-  end
-
 
   def test_index
     get :index
@@ -55,6 +51,16 @@ class Admin::ParameterRolesControllerTest < Test::Unit::TestCase
     assert_template 'new'
     assert_equal num , ParameterRole.count
   end
+  
+  
+  def test_create_succeeded
+    num = ParameterRole.count
+    post :create,  :parameter_role=>{:name=>'hello', :description=>'hello2'}
+    assert_response :redirect
+    assert_redirected_to :action=> 'list'
+    assert_equal num+1 , ParameterRole.count
+  end
+  
 
   def test_edit
     get :edit, :id => @item.id
@@ -75,6 +81,16 @@ class Admin::ParameterRolesControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'list'
   end
 
+  def test_edited_item_is_invalid_because_name_missing
+     post :update, :id => @item.id, :parameter_role=>{:name=>nil}
+     assert_response :success
+     assert_template 'edit'
+   end
 
+   def test_edited_item_is_invalid_because_description_missing
+     post :update, :id => @item.id, :parameter_role=>{:description=>nil}
+     assert_response :success
+     assert_template 'edit'
+   end
 
 end

@@ -8,5 +8,16 @@ class PermissionTest < Test::Unit::TestCase
     assert true
   end
   
-
+  def test_load_database
+    Permission.load_database
+  end
+  
+  def test_load_database
+    Permission.controllers
+    assert Permission.cached_controllers
+    Permission.cached_controllers =nil
+    Permission.controllers
+    assert Permission.cached_controllers
+  end
+  
 end

@@ -1,176 +1,706 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: users
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(255)   default(), not null
+#  password_hash      :string(40)    
+#  role_id            :integer(11)   not null
+#  password_salt      :string(255)   
+#  fullname           :string(255)   
+#  email              :string(255)   
+#  login              :string(40)    
+#  activation_code    :string(40)    
+#  state_id           :integer(11)   
+#  activated_at       :datetime      
+#  token              :string(255)   
+#  token_expires_at   :datetime      
+#  filter             :string(255)   
+#  admin              :boolean(1)    
+#  created_at         :datetime      
+#  updated_at         :datetime      
+#  deleted_at         :datetime      
+#  created_by_user_id :integer(11)   default(1), not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  is_disabled        :boolean(1)    
+#  private_key        :binary        
+#
+
 --- 
-00000000004_user: !ruby/object:User 
-  attributes: 
-    name: A User
-    updated_at: 2007-12-07 19:19:26
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: A user of the system
-    password_salt: 2bd81601e4038970a61cb533e97c791e37a6eb11
-    role_id: "7"
-    id: "4"
-    is_disabled: "0"
-    filter: 
-    password_hash: 56e69ba3861d3693f4cfd0bbbe25adc1037b3496
-    created_by_user_id: "1"
-    state_id: 
-    login: auser
-    created_at: 2007-12-07 19:07:50
-    email: user@biorails.org
-  attributes_cache: {}
+users_004: 
+  name: A User
+  updated_at: 2008-02-01 06:52:42
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: A user of the system
+  password_salt: 2bd81601e4038970a61cb533e97c791e37a6eb11
+  role_id: "7"
+  id: "4"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
 
-00000000003_user: !ruby/object:User 
-  attributes: 
-    name: Robert Shell
-    updated_at: 2007-05-26 10:13:38
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "1"
-    token_expires_at: 
-    activation_code: 
-    fullname: ""
-    password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
-    role_id: "3"
-    id: "3"
-    is_disabled: "0"
-    filter: 
-    password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
-    created_by_user_id: "1"
-    state_id: 
-    login: rshell
-    created_at: 
-    email: ""
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: 56e69ba3861d3693f4cfd0bbbe25adc1037b3496
+  created_by_user_id: "1"
+  state_id: 
+  login: auser
+  created_at: 2007-12-07 19:07:50
+  email: user@biorails.org
+users_005: 
+  name: A Manager
+  updated_at: 2008-02-01 06:53:42
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: A manager in the system
+  password_salt: cdc6cbca2cdee7883982f637615d615917ab1f75
+  role_id: "6"
+  id: "5"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
 
-00000000002_user: !ruby/object:User 
-  attributes: 
-    name: Administrator
-    updated_at: 2007-12-07 19:20:04
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: ""
-    password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
-    role_id: "3"
-    id: "2"
-    is_disabled: "0"
-    filter: 
-    password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
-    created_by_user_id: "1"
-    state_id: 
-    login: admin
-    created_at: 
-    email: admin@biorails.org
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: 9928ce439b2de6be18f8e6d4601842fa1c71e668
+  created_by_user_id: "1"
+  state_id: 
+  login: amanager
+  created_at: 2007-12-07 19:09:13
+  email: manager@biorails.org
+users_006: 
+  name: An Auditor
+  updated_at: 2008-02-01 06:54:19
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: An auditor of the system with public role
+  password_salt: 208efcb4bcf7acae8750468ce0a8191d0468ed29
+  role_id: "7"
+  id: "6"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
 
-00000000001_user: !ruby/object:User 
-  attributes: 
-    name: guest
-    updated_at: 
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: 
-    password_salt: 
-    role_id: "7"
-    id: "1"
-    is_disabled: "0"
-    filter: 
-    password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
-    created_by_user_id: "1"
-    state_id: 
-    login: guest
-    created_at: 
-    email: 
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: 59ba977b21fd8bcd548c930c01ff78250165fe0f
+  created_by_user_id: "1"
+  state_id: 
+  login: anauditor
+  created_at: 2007-12-07 19:10:55
+  email: anauditor@biorails.org
+users_007: 
+  name: A N Other
+  updated_at: 2008-02-01 06:54:39
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: Another user of the system
+  password_salt: a1edd16ddaed4d2a1cc2b8995cd133f63af58e61
+  role_id: "6"
+  id: "7"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
 
-00000000007_user: !ruby/object:User 
-  attributes: 
-    name: A N Other
-    updated_at: 2007-12-07 19:20:56
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: Another user of the system
-    password_salt: a1edd16ddaed4d2a1cc2b8995cd133f63af58e61
-    role_id: "6"
-    id: "7"
-    is_disabled: "0"
-    filter: 
-    password_hash: ae256ea03aaa0b8ac40005b6011e521457b2ccc0
-    created_by_user_id: "1"
-    state_id: 
-    login: another
-    created_at: 2007-12-07 19:20:56
-    email: another@biorails.org
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: ae256ea03aaa0b8ac40005b6011e521457b2ccc0
+  created_by_user_id: "1"
+  state_id: 
+  login: another
+  created_at: 2007-12-07 19:20:56
+  email: another@biorails.org
+users_008: 
+  name: chris catton
+  updated_at: 2008-02-01 06:54:53
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: catton
+  password_salt: fb456df1eec5f1d68aa592ef118a18562183b4ca
+  role_id: "3"
+  id: "8"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
 
-00000000006_user: !ruby/object:User 
-  attributes: 
-    name: An Auditor
-    updated_at: 2007-12-07 19:10:55
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: An auditor of the system with public role
-    password_salt: 208efcb4bcf7acae8750468ce0a8191d0468ed29
-    role_id: "7"
-    id: "6"
-    is_disabled: "0"
-    filter: 
-    password_hash: 59ba977b21fd8bcd548c930c01ff78250165fe0f
-    created_by_user_id: "1"
-    state_id: 
-    login: anauditor
-    created_at: 2007-12-07 19:10:55
-    email: anauditor@biorails.org
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: ebebc63f401f1eb77f945e8355198e104ccc4c50
+  created_by_user_id: "1"
+  state_id: 
+  login: chris
+  created_at: 2008-01-24 14:12:31
+  email: chris@chris.com
+users_001: 
+  name: guest
+  updated_at: 2008-02-01 06:51:30
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: 
+  password_salt: 
+  role_id: "7"
+  id: "1"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIJJwIBAAKCAgEAr5deZycOMrKDSQGCifLZQwAxgeyZJsgV/virZ65s7aCX8Dmv
+    L6Ej8IAC6I36BpJvo1dCwMffVDXuFzsF1pWtzU87TMitM1uvZlAktC9NB8uuYkzJ
+    RaKWUif3J0r8JodYgLV64WX+Wim1bbFN+ARsW5osdgkq+T5dyWi7O2L2+rN7Sr11
+    H68bjcMhJoizN/jjbgbD+aVHWk3X8iLeuJrtChFT6CZlhLQ3fvcL0GAC5OWkzkfc
+    bx/pRAq2JGNCJtgWO09sEE5klOfIdZsSuYZOq3VJtmLtZsKLME1caflLgr1SzIUU
+    fbJed7/Fn0PmzGKuOmzCr7CTqs6IIFDq29IdaqYEVODCt0xlKeaKHHU7XiRzAF/0
+    c8tgkQQSFNktINWMEWdiJA8Me6w7fUFxsmT5eEnPpynH5B2kPY2/DOuMXIg1QNms
+    YBRfxDqB/5EYSIeAB3fJqhrts0sVryaIJYD85Oz/sZjSZiwSGZYy9t3qljlN5txO
+    eIc/01UKWqTgMXbn2FKY/t97BXs048F//DvfHAzWArIH7z05JHYo20m4XrkeBXeO
+    9xuMjeugsGw3i2hfS9KNaCNkPazp0vQPnhD01RumT49239T4/iJ8YA82zCxVHn6J
+    fOOFGRFuw/6k4RqsnQTTWW6PrP58HJCV8ojR2UQlQGEVf4n2HMOMgstsSssCAwEA
+    AQKCAgBZD8TRO00HR+YxLHPitmuegUWbKb+QnSIS/lwqLZ2Qdck7DnceCHSrMrLG
+    8+RiWvoG9makU3yiQOxvmf9fFPJf1ZU1YAABsbpogbPsNKW0k4ny0BGyoUHvj9fb
+    dTwp6rJoLiSSmOIHJ2qfpbPvXYb8e1mb0RCb9Rcq5lU5TPwKsuiRQ0FZ/b5TDCsP
+    WXzVogbxMrtKL5veYOdsKGWhautaFOnjMT6CrcoMOxAh8+Dj6trJykczkhMF8Qzr
+    rfDKtQWptaIRL0HzCRFzHWHE+iuC6e2mdc0GNxzUNhjuo4S6Xn7Vv5ZiHwutX3bE
+    TnONLWxDtBCXfk+X7kO7aG+Haa6DJ3bpbKpzesId99tQHQjseCmnoX/CT5UXVxG3
+    t4eh7+RgydTJVuB6b75ACUrzY+liJCl76VErBe/UCKOSWs/LNdtLHjo3W0VKTwDm
+    FphWdzgi+c0rreYqB/krzS/L56rDyhsjaCxwDBWI5RYgPiG4dKeOguuI3clqILwo
+    t+S3+i2E+ujZM0egISoGJFe1N4tjcmwmIq6Fz5DHF35+BZAt8Yc09NDZTiyV7Bqj
+    a8ZrZpskgfJEQFuPT72Y9J0TaMSzW6D9IQjzQL5CxD8DWTLoyliknY4GTFk9NI0B
+    p9VvWSyhEua1J5UoKSWiGIEFafQVmhephpNXkXvIeJlbX2gEmQKCAQEA1T+TYZQW
+    CqEhMzcxO5hXz9tJOSDpecjcaa0lTBm7zFAkMI80jYyK1jPyApO9wpUnDHyQPLGd
+    5XwbmGBNzNwRVGPz6d6s3YDrIH7H1HzRob52Wu4ZZD4ybmhXQeQO3wtf0TXUFQx+
+    N+wHoQrvlikJNCeeAlfyRT/TXcrGEV/kSiGtUuY4olU3pA4CsEtDsSuBru51PKOE
+    cUI7eJX4eDfVLlWewatGpnwpUKDUGHMScruQLpEMO5PbiuiRpVvPUE1Z3uSuo1h+
+    yNinjVtWYcmVfb5tIx39qSLdkd5AHiGg31wB6UPa+icIcAvvrEUvIReoMy5fqVhV
+    Ajx6T+ruIleg3wKCAQEA0sskH5IxDfg+UT7JrOrzh+PoA/OiGwKZv1Bj5qHCBo8u
+    ND9OsmmO62shreG/QelLvJGhqssXXRfv3YuTeTV+71lOZ1dNj4nl3EbvUTtlxev/
+    64OcxAKUA6D/9ODjxPi9g5xaqqx3hJcmI1dR3Z/Qgv825VxQid3eQ31Fst9/pnWC
+    vJ79IgpSkxQfwszBmrU+UmrPTmctm+Vchhk3ZNub/TNKvy3Ah6AFqHrshRp6yNgt
+    nKXs6LtecwQTfZZ9DOGUS4ByRnJt4VF/5XKs0CpT3jnKu0IQoFhgzh/KBZ/t5F3z
+    TJqy7+O4QwNOtRUSJskslyZ9icNTesDd0X0Xjdx3lQKCAQAq0vac7Ok0P0F0kIvh
+    hOl1g3sD7vkUDOM+kZfg3XYaRKnP2qJaHrQu6gWawOKlteA+oLEyjxS/ZhoAkq5t
+    CnCsetobyCz82ovdXbhxkpNioOYRwqj0uYzVIT0MrWjTH+yhDedGRtj+D/dEPvb4
+    N8tyXtZbcB/mCjg/KJ54FMK6pGKzOCp9ZxGib3HYx3STmsITSC3g/JF3US6yO6PH
+    OKcmA+m6yNOKUXrWh0Wwl0NIKSR+RYCoYjv/fE7rXzGV1cLLgS8U/IuRd/jF6WbC
+    goHz2479M2OiWK8YQQKtSmGNGWQE3SyXeck2/x6lgMtDIQYVKSXq0yNXLJ//dpVV
+    7jUPAoIBADEhbeL55PsXkBbJpqHqBSb4JLy/DVp0SbeAmjhIHXv/5UoCM2p8Ffai
+    +q+XfUd0g9WIsACp42EsUhj2DkJjCJnq285UV9yLzIqB8geh63+tGPIgs+ovm6YY
+    4W+G9y+StkE1sSA0oIrD2/zCvm8Eb8oIiBf/Yzou/z4FtbgSRaNbokQqXl+Pvl1P
+    hHOX28weUE9PW9AvVj8Ov3j16aZVVU83pEVY+ZXi4064j+YaHOIxGLh5J/W6rjHq
+    kkxkRfM5pKHQZ1IqG5g3sbKd/s9p/jA+khUBOfTVhIKmgCS9eOoQR8PkDq7BCdJ8
+    s9ya86ccnosASqRQZWWoDEtmd5X1+90CggEAYir0R0Vkrf1h6rLf/AU8w44k7Nra
+    xTMfB7VJTfE+oKy3M2v4xxNiyG22/lSLPk9fPO3FwM4NfGOYvESdQ+TQf9xRsF7J
+    WVFPKZH5JfUqZ9GD7xIj6JJ92IA7EVHtIjQoNVr/UOxoD5eEMNi6LhfDMM997R/R
+    e9joA+PchuI8W1k1yiE04l5kdCuRT6i8qRa1FB/2mWaoCBsbBor4GcEMchehYYdZ
+    L6DHys6664ExjksNnIwLVYMJKScC9kVhrbCmBDv5Sd9/f5e+YvyMpi1ibXqfxPh4
+    X6Gwb8ffsUCUqhxamla6hAqGEQ0nnksm9fLuxJWSJXYO3wRJBCecmW51fg==
+    -----END RSA PRIVATE KEY-----
 
-00000000005_user: !ruby/object:User 
-  attributes: 
-    name: A Manager
-    updated_at: 2007-12-07 19:18:52
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: A manager in the system
-    password_salt: cdc6cbca2cdee7883982f637615d615917ab1f75
-    role_id: "6"
-    id: "5"
-    is_disabled: "0"
-    filter: 
-    password_hash: 9928ce439b2de6be18f8e6d4601842fa1c71e668
-    created_by_user_id: "1"
-    state_id: 
-    login: amanager
-    created_at: 2007-12-07 19:09:13
-    email: manager@biorails.org
-  attributes_cache: {}
+  is_disabled: "0"
+  filter: 
+  password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
+  created_by_user_id: "1"
+  state_id: 
+  login: guest
+  created_at: 
+  email: 
+users_002: 
+  name: Administrator
+  updated_at: 2008-02-01 06:52:16
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "0"
+  token_expires_at: 
+  activation_code: 
+  fullname: ""
+  password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
+  role_id: "3"
+  id: "2"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIJJwIBAAKCAgEA046mSsXLvpr1nDXcY70bTma7bsRoKA5c4J0y7OIlhXp8/JqL
+    Oh7jGiB+z55EYehmkKcnHyRut38VR529kHTO4XsTvRIRELWzuTxKp8fde5cS8xvP
+    Bud/H2AGUxOKRPeGXVh+Myt7sP4os77vOrmCiXNYrZev85x0V8NGT7ZaG5T71RFv
+    3df4BcK/y0Vb1ZKQEVTGr1z/rO0d0ZM5vOIEvDUKYZSjYVYDLpRoaJaM6nlCy7ri
+    +w1Cw7cDkKtU2qb//z3AyhnQtsRbxeVR9k9XDTQpyCfIJYhE1mRUa2693Ss495AJ
+    gEgTm+7gZ8nqwRj2V5Ewr5PJy5qHsRIVGXhpaegsQaL0CALHoHJhU83wq15YZasT
+    rf14jbC9yN5BbjjulmRE4tDO0WH9KEvPSdwDlcyBksYJuYkmhp4kK11he5Xiwp2W
+    ZAbXad6cFH5AeLlXRpVw1EmHdjQ6ShZfL6oYaCbMzhkyY+IknybdKBA4SIIayEvA
+    NZWAhil0YE79+bIYdG2pG39mHTMhI57MN5vGCTeolRRZrGm6lRetAS4HNzSXOFXT
+    Xs4VmnCe/6RFuThJMWY33sw0w4RACDo3ckHUgbHP1N4ihR/i37PF3iJn8EVWyqiC
+    4jf/GLdYV7M1+zwKTJ01aa9qMCU77TiOlofa+ZglNII9ELbNw7dGdtqY808CAwEA
+    AQKCAgBsZe826NpYs7WdcMuYH1FafrETNHfZ7mIQhPuO/OEU34ojNFyaTzE2NehE
+    IWgQcq/69mrJPjWst+UDaQO0fOV0C0g13If58+A+zXHDPllx9hqzjlApzXwJa35S
+    GvUCGYIzWiBvv5wFOHVKhE633E3Sd9O8PrjdLhE+1sO0HE9XSqMurVyQYxSmfv8e
+    /E7tw8cl2jZjrFclF+nrdHBlI7ohZVwIW8zLFvNSbqCA1oMlsTRUh1G+KTFIbwHY
+    orE7x83rzox2AXw76ajMYY/5kPWdwliWQiv/by82WvoWgguuw3LRBnCX1laV03QQ
+    OhmbD1tJyw8TJ7qCJI/aXtWI03XO6xuZEdA+9nBwlK6EUHe3V3QW/RUw2DT5CIYh
+    w4gJNmpQvgdh6+5/Q1fbgQkEy2pTCte4rNJmQcSmHOpa0OuWjenBOrZ9w8WeCXti
+    PmTHW15Vf7C0qdQAbJw2ZSJw8bjjmugzyvg3Ctx+IxzXdG1i0D5IYfc34eFO7CvZ
+    m+2DMq1BbphyePRUvJHLu+CT+B9tKt2wNxna+RQWJDHjkC23Ikn2PxBKdDewERSc
+    U+2EkpofhU6FGLxzyJVfdSe5a9b2y8jbqGcExNiXt4RBZhgrrae0TsnJlFlEH/ni
+    4MGOZboI2p5iS+xULLZA9urkGwANdzSdJdC6YjD1FgoQDl0a4QKCAQEA+ez0C8a3
+    0PwL9BXNoGe/xpkQfiJQ6JyJ7TBY4/R/7woD8V+JUb7aHJGNir/gqyVQXMlBzSSw
+    OPBQVlj3Zq2fgqj7TvMVZ6RNawkIjK4fw/LzBTKtvzaUakPRZvsJSVBntdOUurcg
+    3CiMNk7bEx9QJ/JTuXIUirIWGkaNfLR8q5a6vqMGtOef+C94aqbTRp2guzk3oMO5
+    W56bG6LhGDDRAZMdb9VAkJxLsaHpaGRs8PM5U1mhAyy7jfCgOJqSEmZNy6qcbGqV
+    02cMRrRTuo1yih5Z5woQKQYva4UfsiOUFgdpVRrfnMb/kNZ9D/wy7YTayDngSZGb
+    m9gv5QAmEGdgNQKCAQEA2LL3focNXGZ/sAnFTxQRQnWEjgkS0S265seiOEBUux84
+    F2lzkwCiJb5QXyONwBOOffCVAEA4s0QG4VwVafPuqkrU19WHFIQe7am0vywGj81n
+    P1MRJPpp0cuDMgXI2cTR+C/ZcK/B+nYaz2qSgY79MDhOwbJJ9Q4K9ZK3OcqjejLl
+    iSKtQIQtwVAy69dzFilAjS9lGX1a7U32ce4xwZo1aIZ23IzxKmYIc2NS2kDspcGZ
+    DsQuTMFPjhJbNbvea4Bbda9VZ3uEO/IEhWc5B2NORKnF4H/NCodoYxt/xImM/1dW
+    ZI+KBlQGlL5gmPHQNZT3NKgd5HXoaaPEQQlfNdw98wKCAQAw1fJiErR8a6PSUChb
+    /anlnqcwXng828m/xUC5Wl9dUDGxCqAEjyyDhJWJ1TCLgMERQGpRMagVmC+6j6vY
+    LnkKyQZCSRGXrO1LyvoWszeVzHVcQKjewkWB9jqGyurnnoSFbRCU44/SNUIgoowA
+    UpARHjLp+7az21SiUcL36TSrOsrG0YhP9Sq3Dl+TR4HlPIvZybZq/ZPMqVNZtRwS
+    5AcTLbIE1kDFgSTxUtgPBACdnIlJFix2OFl1xN0p8lo0qjTtZSsnrDQWmP43Gql5
+    vIXzIzciBD9gJMtDUUH+RyF6pHwamyOyuNfbb24En507+Eff9B81gPRNIZNKRhsp
+    /Wk5AoIBADDTyp6Q8brDQbw5x2K1I9p0vmR+uOW3RyjfDLdeD3mGZE4qLaeO+fpF
+    MrjtOvBvt6i6/+fpkJ0cE+zNoemY1Es8x07Gx0QhLRLiLV7yHZxjbQNAxVkur49d
+    KvenhAVFqwYgSf9xKuUznYDlA5P70yL9XQmaEb4M5v1EjNKRzVoog73tuVoTLngj
+    iQXJKx5wNyJY7o/axhU4fvJW+JEmHSirO7cgburdyMOvOqkA/hGvWLySCdizqiha
+    DIFEDq7sYi9XTYgetcIIG2qvwpLelnE0S+j1Aw9/SU8jkBuJ3uJeHJJWIYShhEYZ
+    y4xK2F5qbXVI+EtVIgRDqWH6KaDqOm8CggEAPqCUArMA3l2suuD6Kl5PRY/qpap7
+    PJT1LA5/96KPrkfebM42yzPK9yMbt2ZXG3KnT6msrrPiHPBXi93vu2uSc6sD/c8I
+    0GAvymqmgcxccSBQWYTnOGOuzU0VxKZZa8XuUUpXzEF2oxwEOzLBbTAqq6Go8Rsw
+    gNTzzeQPxhS4at5ANoLA/llCgnsFP99gl35Km1RpI9sa0Quqxncb2QAm17v4EeFG
+    0D+Tz+bR/m9CHtMc3D6jh181MjU909D3MoXZ5ykVJofI/88D9WDIC5OMkv6Ci9y2
+    fZGFAhyv71V9NN4yH1t6tYNOXATmM9U8PWHQMq5lBH21K4r0lGn3PAog7w==
+    -----END RSA PRIVATE KEY-----
+
+  is_disabled: "0"
+  filter: 
+  password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
+  created_by_user_id: "1"
+  state_id: 
+  login: admin
+  created_at: 
+  email: admin@biorails.org
+users_003: 
+  name: Robert Shell
+  updated_at: 2008-02-01 06:52:29
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: ""
+  password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
+  role_id: "3"
+  id: "3"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    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
+    -----END RSA PRIVATE KEY-----
+
+  is_disabled: "0"
+  filter: 
+  password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+  created_by_user_id: "1"
+  state_id: 
+  login: rshell
+  created_at: 
+  email: bob@bob.com
+users_009: 
+  name: Invalid user
+  updated_at: 2008-02-01 06:52:29
+  activated_at: 
+  deleted_at: 
+  token: 
+  updated_by_user_id: "1"
+  admin: "1"
+  token_expires_at: 
+  activation_code: 
+  fullname: ""
+  password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
+  role_id: "3"
+  id: "9"
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIJJwIBAAKCAgEAsICiz9FXzxw5IPYv+46BNitAkrnhf0Uc+erawH7mDmluvSmi
+    PQwga2vWS7DlG6hLGkdLBbycRK+7fn0ULazIoVjK+n/4oEyLL58CxpgDt5F2sVLz
+    wMSkMvRb6MPeQfmH2IwH8a6rE7csP4TA8cHxkx2wYRy105jytr9hJn/cgmwx1DUz
+    yoieDR7fxSXbJo0pk6NiYPDiT73CLTXjiP/ERrmokY28uEEzmsTyoIqB0cuf4KPv
+    LUhlU/L8ppPpF5pPuLnmdTJbBZz6yCD/3EqkMHe2cDWIXjMuHXIT56GuJjCwrDNH
+    nz5U6zN3z+0JZHtPUFWu23IkTJ7kLphjKpHDUFSca/1vC3swh2BFNn0t8sW4Y/uX
+    jv0av3ENf2WgcvLKgJXHnGo3ckCyujMkgf0HD4kqGdQzUMhOghrS7PuGTqhaurYo
+    venURy7aPTf9XpUg58G+WORuKNoMaQhi2jf6VU+0Bn/xSMkmJdZMcYyXs/84yEjg
+    gmoi7B6lCx0yXSp0HNQy/N4aHccAy6JAUlr2QkYAC+VqWnySdq6y5htJwl/7ZKZy
+    40r7Sd+x/3bOFh0jOgv+4mzVLhQoJ/FofeuVgGk1EHmqGusJiWK8broBBl6k46ot
+    eTjv63C8GIZTnrQJh/zxGhAYlRDGJj/bdW+Igu3gwi7S9pt+HIVCTd4p+iUCAwEA
+    AQKCAgAQU3W731NN9wBZyivaCu5swkdwyvzOtufdPhoJ4DMLdjkmCinVl7+P8COc
+    ULqAemqn/Zw05aNWvyKKqqspJmhQdFQiI6Atw6bEOuMY14rQegYOlOuzEv1VMUEn
+    IKb4V0p3f0xk0JFGe5T+MxtdwWDFCOP9t5giAG3C9aTY2M7eyX86b8lgnI5yDD8K
+    j1vcDwaff2dkLCPi2FyTrf5j97SCDj5HaGLicDWDxV/j9avYagtZzhAbkiy9PSad
+    ieTvp/hjz94/TO8ab9DKnjLMf6L8ULZxXqJEhFtpodmxfUUMh0hwRTYExtE4CES2
+    2OgbgURu294WslIlPDVDEhlqIJ1+Mz6G6GhqheLlY/Qi+1kuEPjgqh3NpQAGXTDb
+    tteEHT4R/AxRSKswXH+vTu/9Wx5FjxFkXdeZwGhB2EB30YVg3H6HvKYwb/19Z1R6
+    jOdNsReHPQswkclilwOqPQPPhd841U96pjQgjONzFGsqjYYsm4QkeZ+SyZsc0TcL
+    Cy79PSnjX4FmbMhDrXajTsAsLQTi0HL/2g4kIgtgto+sw4sGr7eW4GCa3tPGJKj5
+    PDE0egzdW5zsWuCAh1emys3yjC8jUVmoQF5aQ5chpvlQCtzm7myZOC31kYAi7C1f
+    OixckjPaVf5+i963GNaA3Go3Gqj0Q5oCsu8e1R6cVUAs4Te5aQKCAQEA50RSnMQj
+    f47eTUFi2VUyDQtyhQPx+PU2eujNXStINmJauTruhjaXJiwo0wfUxHwPBv7o5IUT
+    kz4iAMAaY4kx1HM8g+Alq0UuUQEKVl1HGf7bB8iOtcR6vffXbYMk5RwkjnlYGxuQ
+    kihvN3QfgpVhpOwhogkb59GQeFm95VM9I5iis1OL3Ht+jdl9yKmribn/h6TtMeef
+    W0qgcIBEVg1Vc2jTEsocYBjpUM4ILfVKRZtNYNWEWycpNljWJlMXXYfrIsZk9peS
+    R8Hx98LzOZ4ZyKfOwnBHtHS0yLrTJnR/xnUNecLf5Vbbiv2BvI1Innos0AOY8DXt
+    frGUCJCmP33fwwKCAQEAw2D2CJqQ5C0NCiqjmoyYFuTJeKsafZ1pUmg5xhqrVl7j
+    zvBJV0Wl0nqVJl7hn8T/cDkRCuDZHwT2a5CU2n48lx5MUJuodAaMy90BKQAuxoE5
+    C0cOo3lEr59I2w/T/w00iHViDg+gsR79/sglwKqlY/sP++Qi+aoxUi1kRDORXc3b
+    Mv/K8vqUgh04gdscKs2f2OJpvfvsiBb8lzPtZUw1vW6QOhGKNt8gbyutarJsQ5V2
+    kpJachj4oFCfek7cdNAISjEdcr75u6E8cwrBAVFddCPHl0hlJU6EF+cdBYQgFjAI
+    PmUE8QRSwMENy+VhOsxVauFfFy2OuA+eMwXbQDhH9wKCAQBFrRb6tjk/uCqPuhBv
+    DDT9KyLAopSnfjGAzFz7Igwqnm1Y+0Fb3FyjmpBeLDDVVc8tO2WtW86vAPw7n6UT
+    sgT6ThHAZarTtA8lRpv3szi1w0v4R1t/tgeI7n/QNb/K6zS0XCjIWgCvmFERswG/
+    VQRLLP1hFT98E25kZB1LV03HSLhUMOqlbeuODyXPbBcLcqdjFbSE4ZToa051Np/g
+    ETpagA1/zrbH2RmKR9i9B/bti8G/V/T9hYnsHs2+VDBo9IdKPd2zUa03w14EWI7x
+    IAoCo1Quzqc73iGNjIQLRPQuNZvuwGC2dvnEIWaSCTsEzChuL3dHf+fi0NuZzQLZ
+    hDIDAoIBAExmLu8gWcYP48h08fKuRY62Oh4ocjxqgFPME8NmjFdC1bwG8/bfcj9C
+    1e3iLkIGi4g7mHFziRN7IkzfhYWG1XSWUWs34wAzy3ywWBLLUn8m6sKBL7U252fx
+    VlDq+JAEfuVZWVV8QO7h2pp1c2XKlM/qzc5G4HJWXeDvhQSyUYanx65Cnf6zg7z5
+    Zi5JGtOWAoqRxp2W1GBG9NC/anYw/dasVFOQpkZcq9cs8iwFxxYKbQpVlm6FWzt9
+    K09tZQF8k7FHUWecTBVVsEigDObSBUQz9YkvsvWKpVafdhbBGrbyY1bas7r3YNCk
+    7Rss//85BbG8nS14EBXjbY4wHRMYrvMCggEAD0FtFt8sBQr0Nxki601dHy8q7TS1
+    b45WjYYMslzuwd5wtxuAFVh6HmToDcpkgTXb1GrsSJI9Az4FYPV8hMrG21gkz+EI
+    CQixMeK5Tsvb1V+I54QtDugbCq27Xi9iVjUEx2tkNlVxCK0unzbnSMM3ok6w6647
+    eMNIE/BWTHVm39+8r/C90ISS1RnvugfJm4PsoU+DDyOIqBm4n0Tvy3jloxkCmqSF
+    5QiPW6hnvYlQD13HcOqtk64myZKOmukCQpNbqU+LE7oY/YX0Pm6SA98flCTcri5q
+    d5LlmrAjSXqCFkPsAyL2bqRIfxp4XOph0TH1SbFEHS1OCbRuXSFxGyIzxA==
+    -----END RSA PRIVATE KEY-----
+
+  is_disabled: "0"
+  filter: 
+  password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
+  created_by_user_id: "1"
+  state_id: 
+  login: none
+  created_at: 
+  email: 
 

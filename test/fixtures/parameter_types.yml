@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: parameter_types
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(50)    default(), not null
+#  description        :string(1024)  default(), not null
+#  weighing           :integer(11)   default(0), not null
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  data_concept_id    :integer(11)   
+#  data_type_id       :integer(11)   
+#  storage_unit       :string(255)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 00000000024_parameter_type: !ruby/object:ParameterType 
   attributes: 
@@ -347,7 +366,7 @@
     data_type_id: "5"
     lock_version: "0"
     id: "7"
-    description: Generic lookup for the subject of a experiment may be a compound, tissue , treadment group in use depending on the study.
+    description: Generic lookup for the subject of a experiment may be a compound, tissue , treadment group in use depending on the assay.
     data_concept_id: 
     created_by_user_id: "3"
     created_at: 2007-06-06 17:07:05

@@ -30,7 +30,7 @@ class TaskContextTest < Test::Unit::TestCase
         assert row.to_hash, " Can Hash"
         assert row.items, " Has Items"
         assert((( row.items.size + 4 ) == row.to_hash.size) , "items == to_hash #{row.items.size}+4 == #{row.to_hash.size} ")
-        assert row.items.size == definition.parameters.size
+        assert row.items.values.all?{|i|definition.parameter(i.parameter)}
       end
     end    
   end
@@ -47,16 +47,17 @@ class TaskContextTest < Test::Unit::TestCase
     task = Task.find(:first)
     assert task
     definition = task.process.contexts[0]
-    parameter = definition.parameters[0]
-    
-    context = task.add_context(definition)
-    assert context
-    assert context.save
-    item = context.item(parameter)
-    
-    assert item
-    assert item.parameter == parameter
-    assert item.to_s == parameter.default_value.to_s
+    for parameter in definition.parameters
+      context = task.add_context(definition)
+      assert context
+      assert context.save
+      item = context.item(parameter)
+
+      assert item
+      assert_equal item.parameter,parameter
+      assert item.to_s, "value to a task item should not be null"
+      assert_equal item.to_s,parameter.default_value.to_s
+    end
   end
 
   
@@ -71,12 +72,11 @@ class TaskContextTest < Test::Unit::TestCase
     
     definition.parameters.each do |parameter|
       item = context.item(parameter)
-
       assert item
       assert item.parameter == parameter   
     end
   end
-  
+
   def test_update
     first = @model.find(:first)
     assert first.save
@@ -133,7 +133,98 @@ class TaskContextTest < Test::Unit::TestCase
     assert first.to_xml
   end  
    
-  def test_build_row
-    
+  def test_roots
+    roots = TaskContext.roots
+    assert roots.is_a?(Array)
+    assert roots.size>0
+    assert roots[0].parent_id.nil?
+  end
+  
+  def test_children
+    root= TaskContext.roots[0]
+    assert root.is_a?(TaskContext)
+    assert root.children.is_a?(Array)    
+    assert root.children.count>0
+  end
+
+  def test_children
+    root= TaskContext.roots[0]
+    assert root.is_a?(TaskContext)
+    assert root.children.is_a?(Array)    
+    assert root.children.count>0
+  end
+  
+  def test_build_full_set
+    root= TaskContext.roots[0]
+    assert root.is_a?(TaskContext)
+    items = root.full_set    
+    assert items.is_a?(Array)
+    assert items.size>0
   end 
+  
+  def test_populate
+    root= TaskContext.roots[0]
+    root.populate    
+  end
+  
+  def test_rebuild_sets
+    n = TaskContext.rebuild_sets
+    assert n>0
+  end
+  
+   def test_add_parameter
+    task = Task.find(:first)
+    task.make_flexible
+    assert task
+    definition = task.process
+    num = definition.parameters.size    
+    context = task.contexts[0]
+    context.add_parameter(definition.parameters[0])
+    definition.reload
+    assert_equal  num+1,definition.parameters.size    
+  end
+
+   def test_add_assay_parameter
+    task = Task.find(:first)
+    task.make_flexible
+    assert task
+    definition = task.process
+    num = definition.parameters.size    
+    context = task.contexts[0]
+    context.add_parameter(definition.parameters[0].assay_parameter)
+    definition.reload
+    assert_equal  num+1,definition.parameters.size    
+  end
+
+   def test_add_assay_parameter_by_name
+    task = Task.find(:first)
+    task.make_flexible
+    assert task
+    definition = task.process
+    num = definition.parameters.size    
+    context = task.contexts[0]
+    context.add_parameter(definition.parameters[0].assay_parameter.name)
+    definition.reload
+    assert_equal  num+1,definition.parameters.size    
+  end
+  
+  def test_to_a
+    context = TaskContext.find(:first,:conditions=>'parent_id is not null')
+    assert context.to_a    
+  end  
+  
+  def test_child
+    context = TaskContext.find(:first,:conditions=>'parent_id is not null')
+    assert context
+    assert context.path
+    assert context.seq
+  end 
+
+  def test_child_append_copy
+    context = TaskContext.find(:first,:conditions=>'parent_id is not null')
+    assert context
+    item = context.append_copy
+    assert_ok item
+  end 
+  
 end

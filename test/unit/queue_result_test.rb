@@ -7,4 +7,9 @@ class QueueResultTest < Test::Unit::TestCase
   def test_truth
     assert true
   end
+  
+  def test_find
+    x = QueueResult.find(:all)
+    assert x
+  end
 end

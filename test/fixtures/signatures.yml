@@ -1,5 +1,106 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-two:
-  id: 2
+# == Schema Information
+# Schema version: 306
+#
+# Table name: signatures
+#
+#  id                 :integer(11)   not null, primary key
+#  user_id            :integer(11)   
+#  public_key         :string(2048)  
+#  signature_format   :string(255)   
+#  signature_role     :string(255)   
+#  signature_state    :string(255)   
+#  reason             :string(255)   
+#  requested_date     :datetime      
+#  signed_date        :datetime      
+#  project_element_id :integer(11)   
+#  asserted_text      :string(255)   
+#  filename           :string(255)   
+#  title              :string(255)   
+#  comments           :string(255)   
+#  time_source        :integer(11)   
+#  created_at         :datetime      
+#  created_by_user_id :integer(38)   
+#  updated_at         :datetime      
+#  updated_by_user_id :integer(38)   
+#  content_hash       :string(2048)  
+#
+
+--- 
+signatures_001: 
+  asserted_text: I assert that the document below is my work and affirm this by attaching my electronic signature
+  updated_at: 2008-01-30 08:32:03
+  comments: signed project x
+  title: 
+  requested_date: 
+  public_key: 
+  updated_by_user_id: "1"
+  id: "56"
+  time_source: "0"
+  filename: Project_X/b350dc80-b13b-012a-0b7c-0016cbd1c457_V77
+  signature_role: AUTHOR
+  created_by_user_id: "1"
+  project_element_id: "2"
+  reason: 
+  signature_format: MD5
+  user_id: "1"
+  content_hash: |-
+    M8BjWyYOzeF/Xe6zJ/V1jchnpmYvaGXYagz0mqRExRxlLDGeH81qjw0S7F0J
+    5NhzV0FDed9x5CtZupUEE5yOth//tW4IPJ6A9alNPUYLclev5jNwEAg/japJ
+    UzF0e7svAfJSoQniu1IyGOd2/vbQBmiHmQAXXx6hwfCvArzD2TJkCw5NsxG8
+    7gtNc+VcTzIuIG/2IF6J+gQhiUI4npDYVuapXgcINiwxjpIEJSSRne6fVDmu
+    ZvJvF+/CRCB
+  created_at: 2008-01-30 08:32:03
+  signed_date: 2008-01-30 08:32:03
+  signature_state: SIGNED
+signatures_002: 
+  asserted_text: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
+  updated_at: 2008-01-30 08:32:10
+  comments: test
+  title: 
+  requested_date: 
+  public_key: 
+  updated_by_user_id: "1"
+  id: "57"
+  time_source: "0"
+  filename: Project_X/b350dc80-b13b-012a-0b7c-0016cbd1c457_V77
+  signature_role: WITNESS
+  created_by_user_id: "1"
+  project_element_id: "2"
+  reason: 
+  signature_format: MD5
+  user_id: "8"
+  content_hash: |-
+    GJonIJDtzoe3mk3mbwDvdvRLbc2hSsejJmIR/7tjOQogfEpaEOKG3fGFK2RO
+    FZ9ts6nsyfBkfDjquzp5Ay/vq9cZNRSDAxEhZLvZJLh9uqQm2cONtH+BG69R
+    BZZqsAmONT15I2Itvd9W4l0zYCRDl8Y7R1ui4izMyFb+UDhyoM6XZb86XtsN
+    8hDyhp+3YWQtF6Cz3GXyulm5OSF593NmUfkb7UZyBEnT524TXpeXCFQXnTvj
+    LnhHvK+sTPy
+  created_at: 2008-01-30 08:32:10
+  signed_date: 2008-01-30 08:32:09
+  signature_state: PENDING
+signatures_003: 
+  asserted_text: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
+  updated_at: 2008-01-30 08:32:10
+  comments: test
+  title: 
+  requested_date: 
+  public_key: 
+  updated_by_user_id: "1"
+  id: "100"
+  time_source: "0"
+  filename: ../../files/foo.txt
+  signature_role: WITNESS
+  created_by_user_id: "1"
+  project_element_id: "2"
+  reason: 
+  signature_format: MD5
+  user_id: "8"
+  content_hash: |-
+    GJonIJDtzoe3mk3mbwDvdvRLbc2hSsejJmIR/7tjOQogfEpaEOKG3fGFK2RO
+    FZ9ts6nsyfBkfDjquzp5Ay/vq9cZNRSDAxEhZLvZJLh9uqQm2cONtH+BG69R
+    BZZqsAmONT15I2Itvd9W4l0zYCRDl8Y7R1ui4izMyFb+UDhyoM6XZb86XtsN
+    8hDyhp+3YWQtF6Cz3GXyulm5OSF593NmUfkb7UZyBEnT524TXpeXCFQXnTvj
+    LnhHvK+sTPy
+  created_at: 2008-01-30 08:32:10
+  signed_date: 2008-01-30 08:32:09
+  signature_state: PENDING

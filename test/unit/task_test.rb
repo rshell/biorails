@@ -26,9 +26,60 @@ class TaskTest < Test::Unit::TestCase
     assert first.valid?
   end
   
+  def test_rename
+    first = @model.find(:first)
+    first.name='xxxtest'
+    assert first.save
+    assert_ok first
+    first.reload
+    assert first.name ='xxxtest'
+    assert first.folder.name='xxxtest'
+  end
+  
+  def test_create
+    task = @model.find(:first)
+    folder = task.process.folder
+    element = folder.add_content('name','title','body')
+    assert_ok element
+    reference = folder.add_reference('example',task)
+    assert_ok reference
+    
+    new_task = Task.new
+    new_task.experiment = task.experiment
+    new_task.process = task.process        
+    assert new_task.save
+    assert_save_ok new_task
+    folder = new_task.folder
+    assert_equal 2,folder.elements.size
+  end
+  
+  def test_copy
+    task = @model.find(:first)
+    folder = task.process.folder
+    element = folder.add_content('name','title','body')
+    assert_ok element
+    reference = folder.add_reference('example',task)
+    assert_ok reference
+    task.status_id =5    
+    new_task = task.copy
+    new_task.experiment = task.experiment
+    new_task.name= 'xfsfsfs'
+    assert_save_ok new_task
+    assert_ok new_task
+    folder = new_task.folder
+    assert_equal 2,folder.elements.size
+  end
+  
+ 
+  
   def test_has_name
     first = @model.find(:first)
     assert first.name    
+  end
+
+  def test_has_assay_name
+    first = @model.find(:first)
+    assert first.assay_name   
   end
 
   def test_has_description
@@ -76,12 +127,12 @@ class TaskTest < Test::Unit::TestCase
     assert task.roots    
   end  
 
-  def test_has_roots
+  def test_has_elements
     task = @model.find(:first)
     assert task.elements    
   end  
 
-  def test_has_roots
+  def test_has_assigned_to 
     task = @model.find(:first)
     assert task.assigned_to   
   end  
@@ -150,12 +201,7 @@ class TaskTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.statistics
   end  
-  
-  def test_has_reports
-    first = @model.find(:first)
-    assert first.reports
-  end  
-  
+
   def test_has_rows
     first = @model.find(:first)
     assert first.rows
@@ -163,19 +209,76 @@ class TaskTest < Test::Unit::TestCase
 
   def test_to_csv
     first = @model.find(:first)
-    assert first.to_csv
+    csv = first.to_csv
+    assert(csv.is_a?(String), "expected a string")
   end  
+  
+  def test_populate
+    first = @model.find(:first)
+    items = first.populate
+    assert !items.nil?,"returen null"
+    assert items.is_a?(Hash),"should be a array"
+    assert items.size>0,"should have items"
+  end
   
   def test_done
     first = @model.find(:first)
     assert first.done
   end  
 
+  def test_done_error
+    first = @model.find(:first)
+    first.expected_hours = nil
+    assert first.done
+  end  
+
+  def test_queues
+    first = @model.find(:first)
+    assert first.queues
+  end  
+
+  def test_matching
+    first = @model.find(:first)
+    assert first.contexts.matching(1)
+    assert first.contexts.matching('')
+    assert first.contexts.matching(first.process.contexts[0])
+  end  
+  
+  def test_to_grid
+    first = @model.find(:first)
+    assert first.to_grid
+  end  
+
+  def test_start_processing
+    first = @model.find(:first)
+    first.status_id = Alces::ScheduledItem::NEW
+    assert first.start_processing
+    assert Alces::ScheduledItem::PROCESSING,first.status_id
+    first.status_id = Alces::ScheduledItem::COMPLETED
+    assert !first.start_processing
+  end  
+  
+  def test_analysis
+    first = @model.find(:first)
+    assert first.analysis
+  end  
+
+  def test_milestone?
+    first = @model.find(:first)
+    assert_equal false, first.milestone?
+  end  
+
+  def test_analysis_with_id
+    first = @model.find(:first)
+    assert first.analysis(1)
+  end  
+
   def test_is_not_validate
     task = Task.new
     assert !task.valid?
+    assert task.done
   end  
-  
+
   def test_has_audit_collection
     first = @model.find(:first)
     assert first.change_log
@@ -186,31 +289,39 @@ class TaskTest < Test::Unit::TestCase
     assert first.started_at < first.expected_at     
   end
   
-  def test_build_data_block
-    task = @model.find(:first)
+  def test_to_hash_task2
+    task = @model.find(2)
     definition = task.process.contexts[0]
     assert definition
-    block =  task.data_block(definition)   
-    assert block
-    assert block.size > 0
-    assert block.keys.size >= definition.default_total    
-  end
-  
-  def test_to_rows
-    task = @model.find(:first)
-    definition = task.process.contexts[0]
-    assert definition
-    rows = task.to_rows(definition)
+    rows = task.to_hash(definition)
     assert rows
   end
-
-  def test_to_all_rows
-    task = @model.find(:first)
+  
+  def test_row
+    task = @model.find(2)
     definition = task.process.contexts[0]
     assert definition
-    rows = task.to_rows()
-    assert rows.size >= task.contexts.count
+    row = task.row('Concentration[1]')
+    assert row
+    assert row.is_a?(Hash)
+    assert_equal 3, row.size
   end
+ 
+  def test_refresh
+    task = @model.find(6)
+    items = task.refresh
+    assert items
+  end
+ 
+  
+   def test_to_hash_task7
+    task = @model.find(7)
+    definition = task.process.contexts[0]
+    assert definition
+    rows = task.to_hash(definition)
+    assert rows
+  end
+ 
   
   # Replace this with your real tests.
   def test000_truth

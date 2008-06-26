@@ -3,19 +3,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ScheduleTest < Test::Unit::TestCase
-  ## Biorails::Dba.import_model :user_roles
-  ## Biorails::Dba.import_model :project_roles
-  ## Biorails::Dba.import_model :users
-  ## Biorails::Dba.import_model :projects
-  ## Biorails::Dba.import_model :memberships
-  ## Biorails::Dba.import_model :studies
-  ## Biorails::Dba.import_model :study_protocols
-  ## Biorails::Dba.import_model :protocol_versions
-  ## Biorails::Dba.import_model :parameters
-  ## Biorails::Dba.import_model :study_parameters
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :tasks
-
   # Replace this with your real tests.
   def test_truth
     assert true
@@ -28,10 +15,10 @@ class ScheduleTest < Test::Unit::TestCase
     assert schedule.model == Task
   end
 
-  def test002_new_study
-    schedule = Schedule.new(Study)
+  def test002_new_assay
+    schedule = Schedule.new(Assay)
     assert_not_nil schedule
-    assert schedule.model == Study
+    assert schedule.model == Assay
   end
 
   def test003_new_experiment
@@ -102,9 +89,31 @@ class ScheduleTest < Test::Unit::TestCase
     schedule.calendar({:year=>2007,:month=>1})
     schedule.filter = ["project_id",Project.find(:first)]
     schedule.refresh
-
     assert_not_nil schedule
-
+    assert schedule.filter
+    assert schedule.period
+    assert schedule.events
+    assert schedule.size
   end   
 
+  def test011_scale
+    schedule = Schedule.new(Task)
+    schedule.calendar({:year=>2007,:month=>1})
+    schedule.filter = ["project_id",Project.find(2)]
+    schedule.refresh
+    schedule.scale
+    assert_not_nil schedule
+  end   
+
+  def test012_for_day
+    schedule = Schedule.new(Task)
+    schedule.calendar({:year=>2007,:month=>1})
+    schedule.filter = ["project_id",Project.find(2)]
+    schedule.refresh
+    list = schedule.for_day(Date.today)
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end   
+
+  
 end

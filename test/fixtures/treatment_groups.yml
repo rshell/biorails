@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: treatment_groups
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :string(1024)  default(), not null
+#  assay_id           :integer(11)   
+#  experiment_id      :integer(11)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 00000000003_treatment_group: !ruby/object:TreatmentGroup 
   attributes: 
@@ -7,7 +24,7 @@
     updated_by_user_id: "1"
     lock_version: "0"
     id: "3"
-    study_id: 
+    assay_id: 
     description: Treatment group C
     created_by_user_id: "1"
     created_at: 2007-06-21 12:42:41
@@ -21,7 +38,7 @@
     updated_by_user_id: "1"
     lock_version: "1"
     id: "2"
-    study_id: 
+    assay_id: 
     description: Group B
     created_by_user_id: "1"
     created_at: 2006-12-18 22:44:22
@@ -35,7 +52,7 @@
     updated_by_user_id: "1"
     lock_version: "1"
     id: "1"
-    study_id: 
+    assay_id: 
     description: Group A
     created_by_user_id: "1"
     created_at: 2006-12-18 22:44:04

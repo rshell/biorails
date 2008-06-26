@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<study>
+  <category-id type="integer"></category-id>
+  <created-at type="datetime">2007-12-07T19:28:02Z</created-at>
+  <created-by-user-id type="integer">1</created-by-user-id>
+  <description>My first study</description>
+  <ended-at type="datetime"></ended-at>
+  <expected-at type="datetime">2008-03-06T00:00:00Z</expected-at>
+  <id type="integer">1</id>
+  <lock-version type="integer">1</lock-version>
+  <name>Assay1</name>
+  <project-id type="integer">2</project-id>
+  <purpose>Testing Assay</purpose>
+  <research-area>A</research-area>
+  <started-at type="datetime">2007-12-07T00:00:00Z</started-at>
+  <status-id type="integer">1</status-id>
+  <team-id type="integer">2</team-id>
+  <updated-at type="datetime">2008-05-05T16:51:08Z</updated-at>
+  <updated-by-user-id type="integer">1</updated-by-user-id>
+  <parameters class="AssayParameter" style="has_many">
+    <study-parameter>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <data-type-id type="integer">5</data-type-id>
+      <default-value></default-value>
+      <description>A Compound</description>
+      <display-unit></display-unit>
+      <id type="integer">3</id>
+      <name>Compound</name>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <data-element class="DataElement" style="belongs_to">
+        <name>Compounds</name>
+      </data-element>
+      <parameter-type class="ParameterType" style="belongs_to">
+        <name>Compound</name>
+      </parameter-type>
+      <role class="ParameterRole" style="belongs_to">
+        <name>subject</name>
+      </role>
+      <data-type class="DataType" style="belongs_to">
+        <name>dictionary</name>
+      </data-type>
+    </study-parameter>
+    <study-parameter>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <data-type-id type="integer">2</data-type-id>
+      <default-value></default-value>
+      <description>Concentration condition</description>
+      <display-unit>mM</display-unit>
+      <id type="integer">1</id>
+      <name>Concentration</name>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <parameter-type class="ParameterType" style="belongs_to">
+        <name>Concentration</name>
+      </parameter-type>
+      <role class="ParameterRole" style="belongs_to">
+        <name>condition</name>
+      </role>
+      <data-type class="DataType" style="belongs_to">
+        <name>numeric</name>
+      </data-type>
+      <data-format class="DataFormat" style="belongs_to">
+        <name>Decimal</name>
+      </data-format>
+    </study-parameter>
+    <study-parameter>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <data-type-id type="integer">2</data-type-id>
+      <default-value></default-value>
+      <description>Counting stuff</description>
+      <display-unit></display-unit>
+      <id type="integer">4</id>
+      <name>Count</name>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <parameter-type class="ParameterType" style="belongs_to">
+        <name>Count</name>
+      </parameter-type>
+      <role class="ParameterRole" style="belongs_to">
+        <name>observation</name>
+      </role>
+      <data-type class="DataType" style="belongs_to">
+        <name>numeric</name>
+      </data-type>
+      <data-format class="DataFormat" style="belongs_to">
+        <name>Integer</name>
+      </data-format>
+    </study-parameter>
+    <study-parameter>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <data-type-id type="integer">2</data-type-id>
+      <default-value></default-value>
+      <description>len</description>
+      <display-unit>in</display-unit>
+      <id type="integer">2</id>
+      <name>Length</name>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <parameter-type class="ParameterType" style="belongs_to">
+        <name>Length</name>
+      </parameter-type>
+      <role class="ParameterRole" style="belongs_to">
+        <name>result</name>
+      </role>
+      <data-type class="DataType" style="belongs_to">
+        <name>numeric</name>
+      </data-type>
+      <data-format class="DataFormat" style="belongs_to">
+        <name>Decimal</name>
+      </data-format>
+    </study-parameter>
+  </parameters>
+  <protocols class="AssayProtocol" style="has_many">
+    <study-workflow>
+      <created-at type="datetime">2007-12-08T11:12:10Z</created-at>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <current-process-id type="integer">1</current-process-id>
+      <description>new workflow created for study Assay1</description>
+      <id type="integer">4</id>
+      <literature-ref>Lit</literature-ref>
+      <lock-version type="integer">1</lock-version>
+      <name>flow1</name>
+      <process-definition-id type="integer"></process-definition-id>
+      <process-style>Entry</process-style>
+      <protocol-catagory>Dose</protocol-catagory>
+      <protocol-status>Active</protocol-status>
+      <study-stage-id type="integer">5</study-stage-id>
+      <updated-at type="datetime">2008-05-05T16:51:11Z</updated-at>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <versions class="ProtocolVersion" style="has_many">
+        <process-flow>
+          <analysis-method-id type="integer" nil="true"></analysis-method-id>
+          <created-at type="datetime">2008-05-05T16:51:12Z</created-at>
+          <created-by-user-id type="integer">1</created-by-user-id>
+          <expected-hours type="float">24.0</expected-hours>
+          <how-to nil="true"></how-to>
+          <id type="integer">11</id>
+          <lock-version type="integer">1</lock-version>
+          <name>flow3:2</name>
+          <report-id type="integer" nil="true"></report-id>
+          <status>new</status>
+          <updated-at type="datetime">2008-05-05T16:51:12Z</updated-at>
+          <updated-by-user-id type="integer">1</updated-by-user-id>
+          <version type="integer">2</version>
+        </process-flow>
+        <process-flow>
+          <analysis-method-id type="integer" nil="true"></analysis-method-id>
+          <created-at type="datetime">2008-05-05T16:51:11Z</created-at>
+          <created-by-user-id type="integer">1</created-by-user-id>
+          <expected-hours type="float">24.0</expected-hours>
+          <how-to nil="true"></how-to>
+          <id type="integer">10</id>
+          <lock-version type="integer">1</lock-version>
+          <name>flow3:1</name>
+          <report-id type="integer" nil="true"></report-id>
+          <status>released</status>
+          <updated-at type="datetime">2008-05-05T16:51:11Z</updated-at>
+          <updated-by-user-id type="integer">1</updated-by-user-id>
+          <version type="integer">1</version>
+        </process-flow>
+      </versions>
+      <stage>
+        <created-at type="datetime">2006-12-11T18:32:33Z</created-at>
+        <created-by-user-id type="integer">1</created-by-user-id>
+        <description>Preparation steps</description>
+        <id type="integer">5</id>
+        <lock-version type="integer">0</lock-version>
+        <name>Preparation</name>
+        <updated-at type="datetime">2008-05-05T16:51:08Z</updated-at>
+        <updated-by-user-id type="integer">1</updated-by-user-id>
+      </stage>
+    </study-workflow>
+    <study-process>
+      <created-at type="datetime">2007-12-08T11:12:10Z</created-at>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <current-process-id type="integer">1</current-process-id>
+      <description>new protocol created for study Assay1</description>
+      <id type="integer">1</id>
+      <literature-ref>Lit</literature-ref>
+      <lock-version type="integer">1</lock-version>
+      <name>Protocol1</name>
+      <process-definition-id type="integer"></process-definition-id>
+      <process-style>Entry</process-style>
+      <protocol-catagory>Dose</protocol-catagory>
+      <protocol-status>Active</protocol-status>
+      <study-stage-id type="integer">5</study-stage-id>
+      <updated-at type="datetime">2008-05-05T16:51:10Z</updated-at>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <versions class="ProtocolVersion" style="has_many">
+        <process-instance>
+          <analysis-method-id type="integer">1</analysis-method-id>
+          <created-at type="datetime">2008-05-05T16:51:13Z</created-at>
+          <created-by-user-id type="integer">1</created-by-user-id>
+          <expected-hours type="float">24.0</expected-hours>
+          <how-to></how-to>
+          <id type="integer">5</id>
+          <lock-version type="integer">0</lock-version>
+          <name>Protocol1:2</name>
+          <report-id type="integer"></report-id>
+          <status>released</status>
+          <updated-at type="datetime">2008-05-05T16:51:13Z</updated-at>
+          <updated-by-user-id type="integer">1</updated-by-user-id>
+          <version type="integer">2</version>
+          <contexts class="ParameterContext" style="has_many">
+            <parameter-context>
+              <created-at type="datetime">2008-05-05T16:51:13Z</created-at>
+              <created-by-user-id type="integer">1</created-by-user-id>
+              <default-count type="integer">1</default-count>
+              <id type="integer">8</id>
+              <label>conc</label>
+              <left-limit type="integer">0</left-limit>
+              <level-no type="integer">0</level-no>
+              <lock-version type="integer">1</lock-version>
+              <parent-id type="integer"></parent-id>
+              <right-limit type="integer">0</right-limit>
+              <updated-at type="datetime">2008-05-05T16:51:13Z</updated-at>
+              <updated-by-user-id type="integer">1</updated-by-user-id>
+              <parameters class="Parameter" style="has_many">
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">1</column-no>
+                  <created-at type="datetime">2007-12-09T23:41:23Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [condition/Concentration]</description>
+                  <display-unit>mM</display-unit>
+                  <id type="integer">26</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Concentration</name>
+                  <parameter-context-id type="integer">8</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Concentration</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>condition</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Concentration</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Decimal</name>
+                  </data-format>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">2</column-no>
+                  <created-at type="datetime">2007-12-09T23:41:32Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [result/Length]</description>
+                  <display-unit>in</display-unit>
+                  <id type="integer">27</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Length</name>
+                  <parameter-context-id type="integer">8</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Length</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>result</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Length</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Decimal</name>
+                  </data-format>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">7</column-no>
+                  <created-at type="datetime">2007-12-15T16:54:29Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [observation/Count]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">29</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Count_1</name>
+                  <parameter-context-id type="integer">8</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">1</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Count</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>observation</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Count</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Integer</name>
+                  </data-format>
+                </parameter>
+              </parameters>
+              <process class="ProcessInstance" style="belongs_to">
+                <name>Protocol1:2</name>
+              </process>
+            </parameter-context>
+            <parameter-context>
+              <created-at type="datetime">2008-05-05T16:51:13Z</created-at>
+              <created-by-user-id type="integer">1</created-by-user-id>
+              <default-count type="integer">10</default-count>
+              <id type="integer">9</id>
+              <label>Run</label>
+              <left-limit type="integer">0</left-limit>
+              <level-no type="integer">0</level-no>
+              <lock-version type="integer">1</lock-version>
+              <parent-id type="integer">8</parent-id>
+              <right-limit type="integer">0</right-limit>
+              <updated-at type="datetime">2008-05-05T16:51:13Z</updated-at>
+              <updated-by-user-id type="integer">1</updated-by-user-id>
+              <parameters class="Parameter" style="has_many">
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">3</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:15Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [observation/Count]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">23</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Count</name>
+                  <parameter-context-id type="integer">9</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Count</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>observation</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Count</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Integer</name>
+                  </data-format>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">4</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:37Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">5</data-type-id>
+                  <default-value></default-value>
+                  <description>Queue:ServiceQueue1  [subject/Compound]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">24</id>
+                  <lock-version type="integer">5</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>QueueCompound</name>
+                  <parameter-context-id type="integer">9</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">1</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Compound</name>
+                  </type>
+                  <data-element class="DataElement" style="belongs_to">
+                    <name>Compounds</name>
+                  </data-element>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>subject</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Compound</name>
+                  </study-parameter>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">5</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:25Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">5</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [subject/Compound]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">25</id>
+                  <lock-version type="integer">3</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Compound</name>
+                  <parameter-context-id type="integer">9</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Compound</name>
+                  </type>
+                  <data-element class="DataElement" style="belongs_to">
+                    <name>Compounds</name>
+                  </data-element>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>subject</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Compound</name>
+                  </study-parameter>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">6</column-no>
+                  <created-at type="datetime">2007-12-15T16:54:19Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [condition/Concentration]</description>
+                  <display-unit>mM</display-unit>
+                  <id type="integer">28</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Concentration_1</name>
+                  <parameter-context-id type="integer">9</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">1</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:15Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Concentration</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>condition</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Concentration</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Decimal</name>
+                  </data-format>
+                </parameter>
+              </parameters>
+              <process class="ProcessInstance" style="belongs_to">
+                <name>Protocol1:2</name>
+              </process>
+            </parameter-context>
+          </contexts>
+        </process-instance>
+        <process-instance>
+          <analysis-method-id type="integer">1</analysis-method-id>
+          <created-at type="datetime">2008-05-05T16:51:12Z</created-at>
+          <created-by-user-id type="integer">1</created-by-user-id>
+          <expected-hours type="float">24.0</expected-hours>
+          <how-to></how-to>
+          <id type="integer">1</id>
+          <lock-version type="integer">1</lock-version>
+          <name>Protocol1:1</name>
+          <report-id type="integer"></report-id>
+          <status>new</status>
+          <updated-at type="datetime">2008-05-05T16:51:12Z</updated-at>
+          <updated-by-user-id type="integer">1</updated-by-user-id>
+          <version type="integer">1</version>
+          <contexts class="ParameterContext" style="has_many">
+            <parameter-context>
+              <created-at type="datetime">2008-05-05T16:51:13Z</created-at>
+              <created-by-user-id type="integer">1</created-by-user-id>
+              <default-count type="integer">1</default-count>
+              <id type="integer">1</id>
+              <label>conc</label>
+              <left-limit type="integer">0</left-limit>
+              <level-no type="integer">0</level-no>
+              <lock-version type="integer">1</lock-version>
+              <parent-id type="integer"></parent-id>
+              <right-limit type="integer">0</right-limit>
+              <updated-at type="datetime">2008-05-05T16:51:13Z</updated-at>
+              <updated-by-user-id type="integer">1</updated-by-user-id>
+              <parameters class="Parameter" style="has_many">
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">1</column-no>
+                  <created-at type="datetime">2007-12-09T23:41:23Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [condition/Concentration]</description>
+                  <display-unit>mM</display-unit>
+                  <id type="integer">1</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Concentration</name>
+                  <parameter-context-id type="integer">1</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:14Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Concentration</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>condition</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Concentration</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Decimal</name>
+                  </data-format>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">2</column-no>
+                  <created-at type="datetime">2007-12-09T23:41:32Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [result/Length]</description>
+                  <display-unit>in</display-unit>
+                  <id type="integer">2</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Length</name>
+                  <parameter-context-id type="integer">1</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:14Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Length</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>result</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Length</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Decimal</name>
+                  </data-format>
+                </parameter>
+              </parameters>
+              <process class="ProcessInstance" style="belongs_to">
+                <name>Protocol1:1</name>
+              </process>
+            </parameter-context>
+            <parameter-context>
+              <created-at type="datetime">2008-05-05T16:51:13Z</created-at>
+              <created-by-user-id type="integer">1</created-by-user-id>
+              <default-count type="integer">3</default-count>
+              <id type="integer">2</id>
+              <label>Run</label>
+              <left-limit type="integer">0</left-limit>
+              <level-no type="integer">0</level-no>
+              <lock-version type="integer">1</lock-version>
+              <parent-id type="integer">1</parent-id>
+              <right-limit type="integer">0</right-limit>
+              <updated-at type="datetime">2008-05-05T16:51:13Z</updated-at>
+              <updated-by-user-id type="integer">1</updated-by-user-id>
+              <parameters class="Parameter" style="has_many">
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">3</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:15Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">2</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [observation/Count]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">3</id>
+                  <lock-version type="integer">2</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Count</name>
+                  <parameter-context-id type="integer">2</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:14Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Count</name>
+                  </type>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>observation</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Count</name>
+                  </study-parameter>
+                  <data-format class="DataFormat" style="belongs_to">
+                    <name>Integer</name>
+                  </data-format>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">4</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:37Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">5</data-type-id>
+                  <default-value></default-value>
+                  <description>Queue:ServiceQueue1  [subject/Compound]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">5</id>
+                  <lock-version type="integer">5</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>QueueCompound</name>
+                  <parameter-context-id type="integer">2</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">1</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:14Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Compound</name>
+                  </type>
+                  <data-element class="DataElement" style="belongs_to">
+                    <name>Compounds</name>
+                  </data-element>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>subject</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Compound</name>
+                  </study-parameter>
+                </parameter>
+                <parameter>
+                  <access-control-id type="integer">0</access-control-id>
+                  <column-no type="integer">5</column-no>
+                  <created-at type="datetime">2007-12-10T20:19:25Z</created-at>
+                  <created-by-user-id type="integer">1</created-by-user-id>
+                  <data-type-id type="integer">5</data-type-id>
+                  <default-value></default-value>
+                  <description>Parameter   [subject/Compound]</description>
+                  <display-unit></display-unit>
+                  <id type="integer">4</id>
+                  <lock-version type="integer">3</lock-version>
+                  <mandatory>N</mandatory>
+                  <name>Compound</name>
+                  <parameter-context-id type="integer">2</parameter-context-id>
+                  <qualifier-style></qualifier-style>
+                  <sequence-num type="integer">0</sequence-num>
+                  <updated-at type="datetime">2008-05-05T16:51:14Z</updated-at>
+                  <updated-by-user-id type="integer">1</updated-by-user-id>
+                  <type class="ParameterType" style="belongs_to">
+                    <name>Compound</name>
+                  </type>
+                  <data-element class="DataElement" style="belongs_to">
+                    <name>Compounds</name>
+                  </data-element>
+                  <role class="ParameterRole" style="belongs_to">
+                    <name>subject</name>
+                  </role>
+                  <study-parameter class="AssayParameter" style="belongs_to">
+                    <name>Compound</name>
+                  </study-parameter>
+                </parameter>
+              </parameters>
+              <process class="ProcessInstance" style="belongs_to">
+                <name>Protocol1:1</name>
+              </process>
+            </parameter-context>
+          </contexts>
+        </process-instance>
+      </versions>
+      <stage>
+        <created-at type="datetime">2006-12-11T18:32:33Z</created-at>
+        <created-by-user-id type="integer">1</created-by-user-id>
+        <description>Preparation steps</description>
+        <id type="integer">5</id>
+        <lock-version type="integer">0</lock-version>
+        <name>Preparation</name>
+        <updated-at type="datetime">2008-05-05T16:51:08Z</updated-at>
+        <updated-by-user-id type="integer">1</updated-by-user-id>
+      </stage>
+    </study-process>
+  </protocols>
+  <queues class="AssayQueue" style="has_many">
+    <study-queue>
+      <assigned-to-user-id type="integer">1</assigned-to-user-id>
+      <created-at type="datetime">2007-12-10T20:17:30Z</created-at>
+      <created-by-user-id type="integer">1</created-by-user-id>
+      <description>Testing service</description>
+      <id type="integer">1</id>
+      <lock-version type="integer">1</lock-version>
+      <name>ServiceQueue1</name>
+      <priority>normal</priority>
+      <status>new</status>
+      <study-protocol-id type="integer"></study-protocol-id>
+      <study-stage-id type="integer">6</study-stage-id>
+      <updated-at type="datetime">2008-05-05T16:51:10Z</updated-at>
+      <updated-by-user-id type="integer">1</updated-by-user-id>
+      <parameter class="AssayParameter" style="belongs_to">
+        <name>Compound</name>
+      </parameter>
+    </study-queue>
+  </queues>
+</study>

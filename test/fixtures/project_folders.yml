@@ -35,4 +35,24 @@
     parent_id: "1"
     asset_id:
     created_at: 2007-07-09 10:51:43
+3_project_folder: !ruby/object:ProjectFolder
+  attributes:
+    name: for_dragging
+    content_id:
+    updated_at: 2007-10-31 00:50:15
+    project_id: "13"
+    project_elements_count: "0"
+    left_limit: "43"
+    updated_by_user_id: "3"
+    lock_version: "3"
+    type: ProjectFolder
+    id: "3"
+    right_limit: "56"
+    created_by_user_id: "3"
+    published_hash:
+    position: "12"
+    parent_id: "1"
+    asset_id:
+    created_at: 2007-07-09 10:51:43
+
 

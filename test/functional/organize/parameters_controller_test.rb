@@ -11,7 +11,7 @@ class Organize::ParametersControllerTest < Test::Unit::TestCase
     @controller = Organize::ParametersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    @request.session[:current_project_id] = 1
+    @request.session[:current_project_id] = 2
     @request.session[:current_user_id] = 3
   end
 
@@ -20,7 +20,7 @@ class Organize::ParametersControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'list'
   end
-
+  
   def test_list
     get :list
     assert_response :success

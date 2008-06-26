@@ -1,0 +1,12 @@
+url,1,/experiments/import_file/1,,,,,
+start,id,name,status,experiment,protocol,study,version
+task,,TaskY,new,Experiment1,Protocol1,Assay1,1
+context,conc,Row No.,Concentration,Length,,,
+types,conc,,Decimal,Decimal,,,
+values,conc.1,4,12 mM,3 cm,,,
+context,Run,Row No.,Count,QueueCompound,Compound,,
+types,Run,,Integer,Compounds,Compounds,,
+values,Run.2.1,5,1,,,,
+values,Run.2.2,6,2,,,,
+values,Run.2.3,7,3,,,,
+end,,,,,,,

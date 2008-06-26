@@ -1,5 +1,5 @@
 --- 
-00000000076_list_element: !ruby/object:ListElement 
+00000000070_list_element: !ruby/object:ListElement 
   attributes: 
     name: FolderTest
     updated_at: 2007-06-13 12:28:31
@@ -9,7 +9,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "4"
-    id: "76"
+    id: "70"
     description: folders
     content: "1,2,3,4"
     data_concept_id: "51"
@@ -19,7 +19,7 @@
     created_at: 2007-06-13 12:28:31
   attributes_cache: {}
 
-00000000047_list_element: !ruby/object:ListElement 
+00000000080_list_element: !ruby/object:ListElement 
   attributes: 
     name: Catagory
     updated_at: 2007-06-06 21:17:22
@@ -29,7 +29,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "4"
-    id: "47"
+    id: "80"
     description: Protocol Catagory
     content: Screen,Dose,Profile,Tox
     data_concept_id: "52"
@@ -39,7 +39,7 @@
     created_at: 2007-06-06 21:17:22
   attributes_cache: {}
 
-00000000043_list_element: !ruby/object:ListElement 
+00000000090_list_element: !ruby/object:ListElement 
   attributes: 
     name: Status
     updated_at: 2007-06-06 21:15:56
@@ -49,7 +49,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "3"
-    id: "43"
+    id: "90"
     description: Protocol Status
     content: New,Active,Finished
     data_concept_id: "53"
@@ -59,7 +59,7 @@
     created_at: 2007-06-06 21:15:55
   attributes_cache: {}
 
-00000000145_list_element: !ruby/object:ListElement 
+00000000100_list_element: !ruby/object:ListElement 
   attributes: 
     name: Organ
     updated_at: 2007-11-05 23:07:36
@@ -69,7 +69,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "4"
-    id: "145"
+    id: "100"
     description: Organ
     content: liver, intestine, skin, lungs
     data_concept_id: "47"
@@ -79,7 +79,7 @@
     created_at: 2007-11-05 23:07:35
   attributes_cache: {}
 
-00000000122_list_element: !ruby/object:ListElement 
+00000000110_list_element: !ruby/object:ListElement 
   attributes: 
     name: Species
     updated_at: 2007-10-11 11:10:18
@@ -89,7 +89,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "6"
-    id: "122"
+    id: "110"
     description: Default species
     content: Human, Rat, Mouse,  Dog, Cynomolgus, Rhesus
     data_concept_id: "47"
@@ -99,7 +99,7 @@
     created_at: 2007-10-11 11:10:17
   attributes_cache: {}
 
-00000000116_list_element: !ruby/object:ListElement 
+00000000120_list_element: !ruby/object:ListElement 
   attributes: 
     name: CompoundRole
     updated_at: 2007-10-11 10:54:04
@@ -109,7 +109,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "5"
-    id: "116"
+    id: "120"
     description: Role any compound may take within an Experiment
     content: Blank, Test, Positive, Negative, Standard
     data_concept_id: "6"
@@ -119,7 +119,7 @@
     created_at: 2007-10-11 10:54:03
   attributes_cache: {}
 
-00000000083_list_element: !ruby/object:ListElement 
+00000000130_list_element: !ruby/object:ListElement 
   attributes: 
     name: Route
     updated_at: 2007-06-13 12:30:28
@@ -129,7 +129,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "3"
-    id: "83"
+    id: "130"
     description: Adding routes of admin
     content: iv,im,o
     data_concept_id: "56"
@@ -139,7 +139,7 @@
     created_at: 2007-06-13 12:30:28
   attributes_cache: {}
 
-00000000021_list_element: !ruby/object:ListElement 
+00000000140_list_element: !ruby/object:ListElement 
   attributes: 
     name: weight
     updated_at: 2007-06-06 14:47:18
@@ -149,7 +149,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "6"
-    id: "21"
+    id: "140"
     description: Weight
     content: g,kg,mg,ug,ng,pg
     data_concept_id: "26"
@@ -159,7 +159,7 @@
     created_at: 2007-06-06 14:47:17
   attributes_cache: {}
 
-00000000038_list_element: !ruby/object:ListElement 
+00000000150_list_element: !ruby/object:ListElement 
   attributes: 
     name: Area
     updated_at: 2007-06-06 20:42:43
@@ -169,7 +169,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "4"
-    id: "38"
+    id: "150"
     description: Research Areas
     content: A,B,C,D
     data_concept_id: "54"
@@ -179,7 +179,7 @@
     created_at: 2007-06-06 20:42:42
   attributes_cache: {}
 
-00000000129_list_element: !ruby/object:ListElement 
+00000000160_list_element: !ruby/object:ListElement 
   attributes: 
     name: Controls
     updated_at: 2007-10-11 12:07:40
@@ -189,7 +189,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "2"
-    id: "129"
+    id: "160"
     description: No Inhib, Blank etc
     content: NoInhibitor, Blank
     data_concept_id: "6"
@@ -199,7 +199,7 @@
     created_at: 2007-10-11 12:07:40
   attributes_cache: {}
 
-00000000135_list_element: !ruby/object:ListElement 
+0000000170_list_element: !ruby/object:ListElement 
   attributes: 
     name: Strain
     updated_at: 2007-10-13 15:00:26
@@ -209,7 +209,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "2"
-    id: "135"
+    id: "170"
     description: Strains of species
     content: SpragueDawley, WistarHans
     data_concept_id: "47"
@@ -219,7 +219,7 @@
     created_at: 2007-10-13 15:00:26
   attributes_cache: {}
 
-00000000007_list_element: !ruby/object:ListElement 
+00000000180_list_element: !ruby/object:ListElement 
   attributes: 
     name: Molar
     updated_at: 2007-06-06 14:45:45
@@ -229,7 +229,7 @@
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "5"
-    id: "7"
+    id: "180"
     description: Molar Units
     content: M,mM,uM,pM,nM
     data_concept_id: "26"
@@ -237,47 +237,5 @@
     parent_id: 
     style: list
     created_at: 2007-06-06 14:45:45
-  attributes_cache: {}
-
-00000000138_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: MSRole
-    updated_at: 2007-11-05 22:49:37
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "6"
-    id: "138"
-    description: role of compound in microsomal stability assay
-    content: |
-      P1,P2,P3,T,B2,B3
-
-    data_concept_id: "6"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-11-05 22:49:37
-  attributes_cache: {}
-
-00000000013_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Length
-    updated_at: 2007-06-06 14:46:42
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "7"
-    id: "13"
-    description: Length Units
-    content: m,km,cm,mm,um,nm,pm
-    data_concept_id: "26"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-06-06 14:46:42
   attributes_cache: {}
 

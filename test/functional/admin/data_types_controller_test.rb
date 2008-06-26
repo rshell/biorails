@@ -51,12 +51,31 @@ class Admin::DataTypesControllerTest < Test::Unit::TestCase
 
   def test_create_failed
     num = DataType.count
-    post :create, :data_type => {}
+    post :create
     assert_response :success
     assert_template 'new'
     assert_equal num , DataType.count
   end
 
+  def test_create_ok
+    num = DataType.count
+    post :create, :data_types => {:name=>'video',:description=>'video'}
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+    assert_equal num+1 , DataType.count
+  end
+  
+  def test_create_duplicate
+    num = DataType.count
+    post :create, :data_types => {:name=>'video',:description=>'video'}
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+    assert_equal num+1 , DataType.count
+    post :create, :data_types => {:name=>'video',:description=>'video'}
+    assert_response :success
+    assert_template 'new'
+  end
+  
   def test_edit
     get :edit, :id => @item.id
     assert_response :success
@@ -68,6 +87,13 @@ class Admin::DataTypesControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show', :id => @item.id
   end
+
+  def test_update_failed
+    post :update, :id => @item.id,:data_types=>{:name=>nil,:description=>nil}
+    assert_response :success
+    assert_template 'edit'
+  end
+
 
   def test_destroy
     assert_not_nil DataType.find(@item.id)

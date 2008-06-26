@@ -6,16 +6,91 @@ class ParameterContextTest < Test::Unit::TestCase
      @model = ParameterContext
   end
   
-  def test_truth
-    assert true
-  end
-  
   def test_find
      first = @model.find(:first)
      assert first.id
      assert first.label
+     assert first.name
+     assert first.count_string
+  end
+
+  def test_from_xml
+    item1 = ParameterContext.find(:first)
+    item2 = ParameterContext.from_xml(item1.to_xml)  
+    assert_equal item1,item2
   end
   
+  def test_parameters
+    type = ParameterContext.find(:first)
+    list = type.parameters
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_role
+    type = ParameterContext.find(:first)
+    scope = ParameterRole.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_role_live
+    type = ParameterContext.find(:first)
+    scope = ParameterRole.find(:first)
+    list = type.parameters.using(scope,true)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_text
+    type = ParameterContext.find(:first)
+    scope = ParameterRole.find(:first)
+    list = type.parameters.using('a',true)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_assay_parameter
+    type = ParameterContext.find(:first)
+    scope = AssayParameter.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_data_format
+    type = ParameterContext.find(:first)
+    scope = DataFormat.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_data_element
+    type = ParameterContext.find(:first)
+    scope = DataElement.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_data_type
+    type = ParameterContext.find(:first)
+    scope = DataType.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_protocol_version
+    type = ParameterContext.find(:first)
+    scope = AssayQueue.find(:first)
+    list = type.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
   def test_new
     first = @model.new
     assert first
@@ -56,11 +131,29 @@ class ParameterContextTest < Test::Unit::TestCase
     assert first.process    
   end  
 
-  def test_has_process
+  def test_new_queue
     first = @model.find(:first)
-    assert first.process    
+    assert_equal 0, first.queues.size 
+    assert !first.queue? 
   end  
-  
+
+  def test_new_queue
+    queue = AssayQueue.find(1)
+    context = ParameterContext.find(1)
+    param = context.add_queue(queue)
+    assert_ok param
+  end  
+
+  def test_parameter
+    assert task_value = TaskValue.find(:first)
+    assert parameter = task_value.parameter
+    assert context = task_value.context.definition
+    assert_equal parameter,context.parameter(parameter)    
+    assert_equal parameter,context.parameter(task_value)    
+    assert_equal parameter,context.parameter(task_value.parameter_id)    
+    assert_equal parameter,context.parameter(task_value.parameter.name)    
+  end  
+
   def test_is_related
     first = @model.find(:first,:conditions=>'parent_id is not null')
     assert first.is_related(first)

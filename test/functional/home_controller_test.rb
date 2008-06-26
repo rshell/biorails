@@ -20,22 +20,35 @@ class HomeControllerTest < Test::Unit::TestCase
     assert true
   end
   
-  def test001_setup
+  def test_setup
     assert_not_nil @controller
     assert_not_nil @response
     assert_not_nil @request
   end
   
-  def test002_show
+  def test_show
     get :show,nil,@session
+    assert_response :success
+  end
+
+  def test_show_no_user
+    @session = @request.session || []
+    @request.session[:current_project_id] = nil
+    @request.session[:current_user_id] = nil
+    get :show,nil,@session
+    assert_response :redirect
+    assert_redirected_to :action=>'login'
+  end
+  
+   def test_index
+    get :index,nil,@session
     assert_response :success
   end
 
   def test_show_as_xml
     get :show,{:format=>'xml'},@session    
     assert_response :success
-  end
-  
+  end 
   
   def test_calendar_as_html
     get :calendar,nil,@session
@@ -52,34 +65,93 @@ class HomeControllerTest < Test::Unit::TestCase
     assert_response :success
   end
   
-  def test004_timeline
-    post :gantt, @params, @session
+  def test_gantt
+    post :gantt
+    assert_response :success
+  end
+
+  def test_gantt_set_options
+    post :gantt,:month=>2,:year=>2007
     assert_response :success
   end
   
-  def test006_news
+  def test_news
     post :news,  @params, @session
     assert_response :success
   end  
 
-  def test007_requests
-    get :todo,nil,@session
+  def test_news_ajax
+    post :news, :format=>'js'
     assert_response :success
-  end
-  
-  def test008_tasks
-    get :todo,nil,@session
-    assert_response :success
-  end
-  
-  def test009_blog
-    get :blog,nil,@session
-    assert_response :success
-  end
+  end  
 
-  def test010_tree
+  def test_news_xml
+    post :news, :format=>'xml'
+    assert_response :success
+  end  
+
+  def test_todo
+    get :todo
+    assert_response :success
+  end
+  
+  def test_todo_ajax
+    get :todo, :format=>'js'
+    assert_response :success
+  end
+  
+  def test_todo_xml
+    get :todo, :format=>'xml'
+    assert_response :success
+  end
+  
+  def test_tasks
+    get :tasks
+    assert_response :success
+  end
+  
+  def test_tasks_ajax
+    get :tasks, :format=>'js'
+    assert_response :success
+  end
+  
+  def test_tasks_xml
+    get :tasks, :format=>'xml'
+    assert_response :success
+  end
+  
+  def test_tree_root
     get :tree,{:node=>'root'},@session
     assert_response :success
   end
+
+  def test_tree_level
+    folder = ProjectFolder.find(:first)      
+    get :tree,{:node=>folder.id},@session
+    assert_response :success
+  end
     
+  def test_requests
+    get :requests
+    assert_response :success
+  end
+
+  def test_requests_ajax
+    get :requests,:format=>'js'
+    assert_response :success
+  end
+
+  def test_requests_xml
+    get :requests,:format=>'xml'
+    assert_response :success
+  end
+
+  def test_timeline
+    @params = {'year'=>2007,'month'=>11,}
+    post :gantt, @params, @session
+    assert_response :success
+  end
+
+   
 end
+

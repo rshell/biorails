@@ -16,7 +16,7 @@
   <status-id type="integer">0</status-id>
   <updated-at type="datetime">2007-04-30T14:46:51Z</updated-at>
   <updated-by-user-id type="integer">3</updated-by-user-id>
-  <parameters class="StudyParameter" style="has_many">
+  <parameters class="AssayParameter" style="has_many">
     <study-parameter>
       <created-by-user-id type="integer">3</created-by-user-id>
       <data-type-id type="integer">2</data-type-id>
@@ -414,7 +414,7 @@
       </data-format>
     </study-parameter>
   </parameters>
-  <protocols class="StudyProtocol" style="has_many">
+  <protocols class="AssayProtocol" style="has_many">
     <study-protocol>
       <created-at type="datetime">2007-04-30T20:08:29Z</created-at>
       <created-by-user-id type="integer">3</created-by-user-id>
@@ -488,7 +488,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -518,7 +518,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -545,7 +545,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -634,7 +634,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -667,7 +667,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -694,7 +694,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -724,7 +724,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -754,7 +754,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -784,7 +784,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -814,7 +814,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -847,7 +847,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -874,7 +874,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -904,7 +904,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -946,7 +946,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -976,7 +976,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1006,7 +1006,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1039,7 +1039,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1069,7 +1069,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1096,7 +1096,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1126,7 +1126,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1159,7 +1159,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1186,7 +1186,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1243,7 +1243,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1276,7 +1276,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1303,7 +1303,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1333,7 +1333,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1363,7 +1363,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1393,7 +1393,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1423,7 +1423,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1456,7 +1456,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1483,7 +1483,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1513,7 +1513,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1555,7 +1555,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1585,7 +1585,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1615,7 +1615,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1648,7 +1648,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1678,7 +1678,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1705,7 +1705,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1735,7 +1735,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1768,7 +1768,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1854,7 +1854,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1887,7 +1887,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1914,7 +1914,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1944,7 +1944,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -1974,7 +1974,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2004,7 +2004,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2037,7 +2037,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2064,7 +2064,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2094,7 +2094,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2124,7 +2124,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2166,7 +2166,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2196,7 +2196,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2226,7 +2226,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2259,7 +2259,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2289,7 +2289,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2316,7 +2316,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2346,7 +2346,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2379,7 +2379,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2433,7 +2433,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2466,7 +2466,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2496,7 +2496,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2523,7 +2523,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2553,7 +2553,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2583,7 +2583,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2613,7 +2613,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2646,7 +2646,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2673,7 +2673,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2703,7 +2703,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2745,7 +2745,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2775,7 +2775,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2805,7 +2805,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2838,7 +2838,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2868,7 +2868,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2895,7 +2895,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2925,7 +2925,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -2958,7 +2958,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3044,7 +3044,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3074,7 +3074,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3104,7 +3104,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3134,7 +3134,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3164,7 +3164,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3194,7 +3194,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3227,7 +3227,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3254,7 +3254,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3284,7 +3284,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Assay Definition</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3329,7 +3329,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3356,7 +3356,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3386,7 +3386,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3416,7 +3416,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3449,7 +3449,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3479,7 +3479,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3506,7 +3506,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3536,7 +3536,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3578,7 +3578,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3608,7 +3608,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3638,7 +3638,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3671,7 +3671,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3698,7 +3698,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3728,7 +3728,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3758,7 +3758,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3815,7 +3815,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3845,7 +3845,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3875,7 +3875,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3905,7 +3905,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3935,7 +3935,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3965,7 +3965,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -3998,7 +3998,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4025,7 +4025,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4070,7 +4070,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4097,7 +4097,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4127,7 +4127,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4157,7 +4157,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4190,7 +4190,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4220,7 +4220,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4247,7 +4247,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4289,7 +4289,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4319,7 +4319,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4349,7 +4349,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4382,7 +4382,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4409,7 +4409,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4439,7 +4439,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4469,7 +4469,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4526,7 +4526,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4556,7 +4556,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Plate QC Stat</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4586,7 +4586,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4616,7 +4616,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4646,7 +4646,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4676,7 +4676,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Calculation</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Control</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4709,7 +4709,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4736,7 +4736,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Hit Threshold</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4781,7 +4781,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Compound</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4808,7 +4808,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>XC50</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4838,7 +4838,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4868,7 +4868,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Fit Statistic</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Fit Statistic</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4901,7 +4901,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>QC</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>QC</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4931,7 +4931,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Progresssion</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Progress</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -4958,7 +4958,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5000,7 +5000,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Label</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5030,7 +5030,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5060,7 +5060,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Index</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Position</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5093,7 +5093,7 @@
                   <data-element class="DataElement" style="belongs_to">
                     <name>Compound Role</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Role</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5120,7 +5120,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Counts</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Counts</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5150,7 +5150,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Activity</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Activity</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5180,7 +5180,7 @@
                   <type class="ParameterType" style="belongs_to">
                     <name>Concentration</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Concentration</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5273,7 +5273,7 @@ Assay development start point is acceptance of the validated target.  The end po
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5300,7 +5300,7 @@ Assay development start point is acceptance of the validated target.  The end po
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Assay Definition</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5360,7 +5360,7 @@ Assay development start point is acceptance of the validated target.  The end po
                   <data-element class="DataElement" style="belongs_to">
                     <name>Target</name>
                   </data-element>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Target</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5387,7 +5387,7 @@ Assay development start point is acceptance of the validated target.  The end po
                   <type class="ParameterType" style="belongs_to">
                     <name>Label</name>
                   </type>
-                  <study-parameter class="StudyParameter" style="belongs_to">
+                  <study-parameter class="AssayParameter" style="belongs_to">
                     <name>Assay Definition</name>
                   </study-parameter>
                   <role class="ParameterRole" style="belongs_to">
@@ -5407,7 +5407,7 @@ Assay development start point is acceptance of the validated target.  The end po
       </versions>
     </study-protocol>
   </protocols>
-  <queues class="StudyQueue" style="has_many">
+  <queues class="AssayQueue" style="has_many">
     <study-queue>
       <assigned-to-user-id type="integer">3</assigned-to-user-id>
       <created-at type="datetime">2007-04-30T16:38:24Z</created-at>
@@ -5422,7 +5422,7 @@ Assay development start point is acceptance of the validated target.  The end po
       <study-stage-id type="integer">5</study-stage-id>
       <updated-at type="datetime">2007-04-30T20:49:47Z</updated-at>
       <updated-by-user-id type="integer">3</updated-by-user-id>
-      <parameter class="StudyParameter" style="belongs_to">
+      <parameter class="AssayParameter" style="belongs_to">
         <name>Target</name>
       </parameter>
     </study-queue>
@@ -5440,7 +5440,7 @@ Assay development start point is acceptance of the validated target.  The end po
       <study-stage-id type="integer">8</study-stage-id>
       <updated-at type="datetime">2007-04-30T20:50:13Z</updated-at>
       <updated-by-user-id type="integer">3</updated-by-user-id>
-      <parameter class="StudyParameter" style="belongs_to">
+      <parameter class="AssayParameter" style="belongs_to">
         <name>Target</name>
       </parameter>
     </study-queue>
@@ -5458,7 +5458,7 @@ Assay development start point is acceptance of the validated target.  The end po
       <study-stage-id type="integer">6</study-stage-id>
       <updated-at type="datetime">2007-04-30T20:50:37Z</updated-at>
       <updated-by-user-id type="integer">3</updated-by-user-id>
-      <parameter class="StudyParameter" style="belongs_to">
+      <parameter class="AssayParameter" style="belongs_to">
         <name>Compound</name>
       </parameter>
     </study-queue>

@@ -1,3 +1,20 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: task_texts
+#
+#  id                 :integer(11)   not null, primary key
+#  task_context_id    :integer(11)   not null
+#  parameter_id       :integer(11)   not null
+#  data_content       :string(1000)  
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  task_id            :integer(11)   not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#
+
 --- 
 00000000001_task_text: !ruby/object:TaskText 
   attributes: 

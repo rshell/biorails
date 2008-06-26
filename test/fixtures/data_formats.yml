@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: data_formats
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(128)   default(), not null
+#  description        :string(1024)  default(), not null
+#  default_value      :string(255)   
+#  format_regex       :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
+#  data_type_id       :integer(11)   
+#  updated_by_user_id :integer(11)   default(1), not null
+#  created_by_user_id :integer(11)   default(1), not null
+#  format_sprintf     :string(255)   
+#
+
 --- 
 00000000003_data_format: !ruby/object:DataFormat 
   attributes: 
@@ -25,7 +44,7 @@
     lock_version: "9"
     id: "4"
     description: Standard Number format +/-nnn.nnnnn with units
-    format_sprintf: "%g %s"
+    format_sprintf: "%g"
     created_by_user_id: "1"
     format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
     created_at: 2006-11-27 11:59:22
@@ -91,7 +110,7 @@
     lock_version: "0"
     id: "28"
     description: "Mols of stuff "
-    format_sprintf: "%d %s"
+    format_sprintf: "%d"
     created_by_user_id: "3"
     format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
     created_at: 2007-06-06 20:22:12
@@ -123,7 +142,7 @@
     lock_version: "0"
     id: "26"
     description: Basic numeric value followed by a unit
-    format_sprintf: "%d %s"
+    format_sprintf: "%d"
     created_by_user_id: "3"
     format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
     created_at: 2007-06-06 20:15:15
@@ -155,7 +174,7 @@
     lock_version: "1"
     id: "27"
     description: Concentration in molar units
-    format_sprintf: "%d %s"
+    format_sprintf: "%d"
     created_by_user_id: "3"
     format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
     created_at: 2007-06-06 20:20:26

@@ -24,14 +24,14 @@
       project: 
         list: true
         show: true
-      study_parameters: 
+      assay_parameters: 
         list: true
         show: true
       ~: 
         ~: true
       audit: {}
       
-      study_queues: 
+      assay_queues: 
         list: true
         show: true
       queue_items: 
@@ -51,7 +51,7 @@
       
       reports: {}
       
-      study_protocols: 
+      assay_protocols: 
         list: true
         show: true
       home: {}
@@ -99,7 +99,7 @@
       protocol: 
         list: true
         show: true
-      study: 
+      assay: 
         list: true
         show: true
       dba: {}
@@ -108,7 +108,7 @@
         list: true
         show: true
         "*": true
-      study_parameters: 
+      assay_parameters: 
         list: true
         show: true
       ~: 
@@ -121,7 +121,7 @@
       cataloge: 
         list: true
         show: true
-      study_queues: 
+      assay_queues: 
         list: true
         show: true
       biorails: {}
@@ -151,7 +151,7 @@
         create: true
         show: true
         update: true
-      study_protocols: 
+      assay_protocols: 
         list: true
         show: true
       home: {}
@@ -215,7 +215,7 @@
         list: true
         show: true
         "*": true
-      study_parameters: 
+      assay_parameters: 
         "*": true
       audit: {}
       
@@ -223,7 +223,7 @@
         list: true
         show: true
         "*": true
-      study_queues: 
+      assay_queues: 
         "*": true
       queue_items: 
         "*": true
@@ -239,7 +239,7 @@
       
       reports: {}
       
-      study_protocols: 
+      assay_protocols: 
         "*": true
       home: {}
       

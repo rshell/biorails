@@ -1,0 +1,242 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: assay_parameters
+#
+#  id                 :integer(11)   not null, primary key
+#  parameter_type_id  :integer(11)   not null
+#  parameter_role_id  :integer(11)   not null
+#  assay_id           :integer(11)   default(1)
+#  name               :string(255)   default(), not null
+#  default_value      :string(255)   
+#  data_element_id    :integer(11)   
+#  data_type_id       :integer(11)   not null
+#  data_format_id     :integer(11)   
+#  description        :string(1024)  default(), not null
+#  display_unit       :string(255)   
+#  created_by_user_id :integer(11)   default(1), not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#
+
+--- 
+00000000004_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Count
+    display_unit: ""
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "4"
+    description: Counting stuff
+    assay_id: "1"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000009_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Concentration
+    display_unit: uM
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "9"
+    description: Concentration of test compound
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000010_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Receptor
+    display_unit: 
+    default_value: 5-HT2A
+    data_format_id: "1"
+    parameter_role_id: "6"
+    parameter_type_id: "4"
+    updated_by_user_id: "3"
+    data_type_id: "1"
+    id: "10"
+    description: The mammalian 5-HT2A receptor is a subtype of the 5-HT2 receptor which belongs to the serotonin receptor family and is a G protein coupled receptor (GPCR). This is the main excitatory receptor subtype among the GPCRs for serotonin (5-HT), although 5-HT2A may also have an inhibitory effect on certain areas such as the visual cortex and the orbitofrontal cortex. This receptor was given importance first as the target of psychedelic drugs like LSD. Later it came back to prominence because it was also found to be mediating, at least partly, the action of many antipsychotic drugs, especially the atypical ones.
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000007_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: CPM
+    display_unit: ""
+    default_value: ""
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "7"
+    description: Counts per minute
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000012_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Species
+    display_unit: 
+    default_value: Rat
+    data_format_id: 
+    parameter_role_id: "6"
+    parameter_type_id: "27"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "12"
+    description: Species under investigation
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: "122"
+  attributes_cache: {}
+
+00000000008_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: IC50
+    display_unit: uM
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "12"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "8"
+    description: Concentration of compound that inhibits activity of receptor by 50%
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000013_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Inhibition
+    display_unit: "%"
+    default_value: ""
+    data_format_id: "12"
+    parameter_role_id: "2"
+    parameter_type_id: "3"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "13"
+    description: Percent inhibition
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000002_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Length
+    display_unit: in
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "2"
+    parameter_type_id: "10"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "2"
+    description: len
+    assay_id: "1"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000003_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Compound
+    display_unit: 
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "3"
+    description: A Compound
+    assay_id: "1"
+    created_by_user_id: "3"
+    data_element_id: "35"
+  attributes_cache: {}
+
+00000000011_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: CompoundRole
+    display_unit: 
+    default_value: Test
+    data_format_id: 
+    parameter_role_id: "3"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "11"
+    description: Role of the compound in the experiment
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: "116"
+  attributes_cache: {}
+
+00000000005_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Dose
+    display_unit: mg/kg
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "1"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "5"
+    description: Dose
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000001_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Concentration
+    display_unit: mM
+    default_value: ""
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    data_type_id: "2"
+    id: "1"
+    description: Concentration condition
+    assay_id: "1"
+    created_by_user_id: "3"
+    data_element_id: 
+  attributes_cache: {}
+
+00000000006_assay_parameter: !ruby/object:AssayParameter 
+  attributes: 
+    name: Compound
+    display_unit: 
+    default_value: ""
+    data_format_id: 
+    parameter_role_id: "4"
+    parameter_type_id: "5"
+    updated_by_user_id: "3"
+    data_type_id: "5"
+    id: "6"
+    description: Compound for testing
+    assay_id: "2"
+    created_by_user_id: "3"
+    data_element_id: "35"
+  attributes_cache: {}
+

@@ -1,3 +1,33 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: project_elements
+#
+#  id                     :integer(11)   not null, primary key
+#  parent_id              :integer(11)   
+#  project_id             :integer(11)   not null
+#  type                   :string(32)    default(ProjectElement)
+#  position               :integer(11)   default(1)
+#  name                   :string(64)    default(), not null
+#  reference_id           :integer(11)   
+#  reference_type         :string(20)    
+#  lock_version           :integer(11)   default(0), not null
+#  created_at             :datetime      not null
+#  updated_at             :datetime      not null
+#  updated_by_user_id     :integer(11)   default(1), not null
+#  created_by_user_id     :integer(11)   default(1), not null
+#  asset_id               :integer(11)   
+#  content_id             :integer(11)   
+#  published_hash         :string(255)   
+#  project_elements_count :integer(11)   default(0), not null
+#  left_limit             :integer(11)   default(1), not null
+#  right_limit            :integer(11)   default(2), not null
+#  team_id                :integer(11)   default(0), not null
+#  published_version_no   :integer(11)   default(0), not null
+#  version_no             :integer(11)   default(0), not null
+#  previous_version       :integer(11)   default(0), not null
+#
+
 --- 
 00000000058_project_folder: !ruby/object:ProjectFolder 
   attributes: 
@@ -122,7 +152,7 @@
 00000000003_project_folder: !ruby/object:ProjectFolder 
   attributes: 
     team_id: "2"
-    name: Study1
+    name: Assay1
     content_id: 
     updated_at: 2007-12-07 19:28:03
     project_id: "2"
@@ -133,7 +163,7 @@
     type: ProjectFolder
     id: "3"
     right_limit: "3"
-    reference_type: Study
+    reference_type: Assay
     created_by_user_id: "3"
     reference_id: "1"
     published_hash: 
@@ -301,7 +331,7 @@
     type: ProjectFolder
     id: "4"
     right_limit: "2"
-    reference_type: StudyProtocol
+    reference_type: AssayProtocol
     created_by_user_id: "3"
     reference_id: "1"
     published_hash: 
@@ -373,7 +403,7 @@
     type: ProjectFolder
     id: "57"
     right_limit: "26"
-    reference_type: StudyProtocol
+    reference_type: AssayProtocol
     created_by_user_id: "3"
     reference_id: "3"
     published_hash: 
@@ -578,7 +608,7 @@
 00000000039_project_folder: !ruby/object:ProjectFolder 
   attributes: 
     team_id: "2"
-    name: Study2
+    name: Assay2
     content_id: 
     updated_at: 2007-12-11 18:03:54
     project_id: "2"
@@ -589,7 +619,7 @@
     type: ProjectFolder
     id: "39"
     right_limit: "27"
-    reference_type: Study
+    reference_type: Assay
     created_by_user_id: "3"
     reference_id: "2"
     published_hash: 
@@ -661,7 +691,7 @@
     type: ProjectFolder
     id: "48"
     right_limit: "24"
-    reference_type: StudyProtocol
+    reference_type: AssayProtocol
     created_by_user_id: "3"
     reference_id: "2"
     published_hash: 
@@ -743,6 +773,31 @@
     created_at: 2007-12-08 11:13:54
   attributes_cache: {}
 
+00000000085_project_reference: !ruby/object:ProjectReference 
+  attributes: 
+    team_id: "1"
+    name: ref-xxxx
+    content_id: "1"
+    updated_at: 2007-12-08 11:13:54
+    project_id: "1"
+    project_elements_count: "0"
+    left_limit: "24"
+    updated_by_user_id: "3"
+    lock_version: "2"
+    type: ProjectContent
+    id: "85"
+    right_limit: "25"
+    reference_type: 
+    created_by_user_id: "3"
+    reference_id: 1
+    reference_type: "DataFormat"
+    published_hash: 
+    position: "4"
+    parent_id: "1"
+    asset_id: 
+    created_at: 2007-12-08 11:13:54
+  attributes_cache: {}
+
 00000000063_project_folder: !ruby/object:ProjectFolder 
   attributes: 
     team_id: "2"
@@ -766,4 +821,3 @@
     asset_id: 
     created_at: 2007-12-12 14:39:00
   attributes_cache: {}
-

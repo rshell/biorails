@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value
+00000000001_parameter_type_alias: !ruby/object:ParameterTypeAlias 
+  attributes: 
+    id: "4"
+    name: Count
+    description: Counting stuff
+    display_unit: ""
+    data_element_id: 
+    data_format_id: "8"
+    parameter_role_id: "1"
+    parameter_type_id: "2"
+    updated_by_user_id: "3"
+    created_by_user_id: "3"
+  attributes_cache: {}
+
+00000000002_parameter_type_alias: !ruby/object:ParameterTypeAlias 
+  attributes: 
+    id: "9"
+    name: Concentration
+    description: Concentration of test compound
+    display_unit: uM
+    data_element_id: 
+    data_format_id: "4"
+    parameter_role_id: "6"
+    parameter_type_id: "24"
+    updated_by_user_id: "3"
+    created_by_user_id: "3"
+  attributes_cache: {}
+

@@ -1,20 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class TaskValueTest < Test::Unit::TestCase
-  ## Biorails::Dba.import_model :projects
-  ## Biorails::Dba.import_model :studies
-  ## Biorails::Dba.import_model :study_protocols
-  ## Biorails::Dba.import_model :study_parameters
-  ## Biorails::Dba.import_model :protocol_versions
-  ## Biorails::Dba.import_model :parameters
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :experiments
-  ## Biorails::Dba.import_model :tasks
-  ## Biorails::Dba.import_model :task_contexts
-  ## Biorails::Dba.import_model :task_values
-  ## Biorails::Dba.import_model :task_texts
- 
- def setup
+
+  def setup
     # Retrieve ## Biorails::Dba.import_model via their name
      @model = TaskValue
   end
@@ -34,6 +22,7 @@ class TaskValueTest < Test::Unit::TestCase
     assert first
     assert first.new_record?
     assert !first.valid?
+    assert first.to_s.is_a?(String)
   end
 
   def test_update
@@ -63,9 +52,47 @@ class TaskValueTest < Test::Unit::TestCase
     assert first.task    
   end
 
-  def test_has_task
+  def test_to_unit
     first = @model.find(:first)
-    assert first.to_s   
+    assert first.to_unit
   end
+
+  def test_default_value
+    first = @model.find(:first)
+    first.parameter.default_value = 10.0
+    first.data_value = nil
+    assert_equal '10.0', first.to_s
+  end
+
+  def test_set_value_unitless
+    item = @model.find(:first)
+    item.parameter.display_unit = nil
+    item.value ="10"
+    assert_equal 10.0,item.data_value
+    assert_equal 10.0,item.value
+    assert_equal "10",item.to_s
+  end  
+
+  def test_set_value_unit
+    item = @model.find(:first)
+    item.parameter.display_unit = nil
+    item.value ="10 mm"
+    assert_equal 0.01,item.data_value
+    assert_equal "m",item.storage_unit
+    assert_equal "mm",item.display_unit
+    assert_equal "10 mm".to_unit,item.to_unit
+    assert_equal "10 mm",item.to_s
+  end  
+
+  def test_set_value_unit_and_default
+    item = @model.find(:first)
+    item.parameter.display_unit = "mm"
+    item.value ="10 mm"
+    assert_equal 0.01,item.data_value
+    assert_equal "m",item.storage_unit
+    assert_equal "mm",item.display_unit
+    assert_equal "10 mm".to_unit,item.to_unit
+    assert_equal "10",item.to_s
+  end  
   
 end

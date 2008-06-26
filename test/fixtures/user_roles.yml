@@ -95,7 +95,7 @@
         create: true
         show: true
         update: true
-      study: 
+      assay: 
         new: true
         list: true
         edit: true
@@ -106,7 +106,7 @@
         "*": true
       project: {}
       
-      study_parameters: {}
+      assay_parameters: {}
       
       ~: 
         ~: true
@@ -126,7 +126,7 @@
         create: true
         show: true
         update: true
-      study_queues: {}
+      assay_queues: {}
       
       queue_items: {}
       
@@ -162,7 +162,7 @@
         update: true
       reports: 
         "*": true
-      study_protocols: {}
+      assay_protocols: {}
       
       home: 
         calendar: true
@@ -227,11 +227,11 @@
       
       project: {}
       
-      study_parameters: {}
+      assay_parameters: {}
       
       audit: {}
       
-      study_queues: {}
+      assay_queues: {}
       
       biorails: {}
       
@@ -246,7 +246,7 @@
       users: 
         list: true
         show: true
-      study_protocols: {}
+      assay_protocols: {}
       
       reports: 
         new: true

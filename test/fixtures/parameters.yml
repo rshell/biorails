@@ -1,3 +1,36 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: parameters
+#
+#  id                   :integer(11)   not null, primary key
+#  protocol_version_id  :integer(11)   not null
+#  parameter_type_id    :integer(11)   not null
+#  parameter_role_id    :integer(11)   not null
+#  parameter_context_id :integer(11)   not null
+#  column_no            :integer(11)   
+#  sequence_num         :integer(11)   
+#  name                 :string(62)    default(), not null
+#  description          :string(1024)  
+#  display_unit         :string(20)    
+#  data_element_id      :integer(11)   
+#  qualifier_style      :string(1)     
+#  access_control_id    :integer(11)   default(0), not null
+#  lock_version         :integer(11)   default(0), not null
+#  created_at           :datetime      not null
+#  updated_at           :datetime      not null
+#  mandatory            :string(255)   default(N)
+#  default_value        :string(255)   
+#  data_type_id         :integer(11)   not null
+#  data_format_id       :integer(11)   
+#  assay_parameter_id   :integer(11)   not null
+#  assay_queue_id       :integer(11)   
+#  updated_by_user_id   :integer(11)   default(1), not null
+#  created_by_user_id   :integer(11)   default(1), not null
+#  left_limit           :integer(11)   default(0), not null
+#  right_limit          :integer(11)   default(0), not null
+#
+
 --- 
 00000000028_parameter: !ruby/object:Parameter 
   attributes: 
@@ -6,10 +39,9 @@
     updated_at: 2007-12-15 16:54:20
     display_unit: mM
     parameter_context_id: "9"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "6"
@@ -19,10 +51,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "28"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "1"
+    assay_parameter_id: "1"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "1"
@@ -31,15 +62,14 @@
 
 00000000014_parameter: !ruby/object:Parameter 
   attributes: 
-    name: Compound Role
+    name: CompoundRole
     default_value: Test
     updated_at: 2007-12-12 11:10:28
     display_unit: 
     parameter_context_id: "5"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "3"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "2"
@@ -49,10 +79,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "14"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "11"
+    assay_parameter_id: "11"
     created_by_user_id: "3"
     data_element_id: "116"
     sequence_num: "0"
@@ -66,10 +95,9 @@
     updated_at: 2007-12-11 20:25:52
     display_unit: 
     parameter_context_id: "3"
-    study_queue_id: "2"
+    assay_queue_id: "2"
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "1"
@@ -79,10 +107,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "6"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "6"
+    assay_parameter_id: "6"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "0"
@@ -96,10 +123,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    study_queue_id: "2"
+    assay_queue_id: "2"
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "1"
@@ -109,10 +135,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "18"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "6"
+    assay_parameter_id: "6"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "0"
@@ -126,10 +151,9 @@
     updated_at: 2007-12-10 20:19:54
     display_unit: 
     parameter_context_id: "2"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "5"
@@ -139,10 +163,9 @@
     data_type_id: "5"
     lock_version: "3"
     id: "4"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "3"
+    assay_parameter_id: "3"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "0"
@@ -156,10 +179,9 @@
     updated_at: 2007-12-15 16:54:04
     display_unit: in
     parameter_context_id: "8"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "2"
@@ -169,10 +191,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "27"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "2"
+    assay_parameter_id: "2"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -186,10 +207,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "3"
@@ -199,10 +219,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "20"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "12"
+    assay_parameter_id: "12"
     created_by_user_id: "3"
     data_element_id: "122"
     sequence_num: "0"
@@ -216,10 +235,9 @@
     updated_at: 2007-12-11 20:26:06
     display_unit: 
     parameter_context_id: "3"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "3"
@@ -229,10 +247,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "8"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "12"
+    assay_parameter_id: "12"
     created_by_user_id: "3"
     data_element_id: "122"
     sequence_num: "0"
@@ -246,10 +263,9 @@
     updated_at: 2007-12-10 20:21:11
     display_unit: 
     parameter_context_id: "2"
-    study_queue_id: "1"
+    assay_queue_id: "1"
     access_control_id: "0"
     protocol_version_id: "1"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "4"
@@ -259,10 +275,9 @@
     data_type_id: "5"
     lock_version: "5"
     id: "5"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "3"
+    assay_parameter_id: "3"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "1"
@@ -276,10 +291,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "1"
     mandatory: N
     column_no: "4"
@@ -289,10 +303,9 @@
     data_type_id: "1"
     lock_version: "2"
     id: "21"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "10"
+    assay_parameter_id: "10"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -306,10 +319,9 @@
     updated_at: 2007-12-11 20:26:30
     display_unit: uM
     parameter_context_id: "4"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "5"
@@ -319,10 +331,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "10"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "9"
+    assay_parameter_id: "9"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -336,10 +347,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: "%"
     parameter_context_id: "7"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "12"
     mandatory: N
     column_no: "7"
@@ -349,10 +359,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "17"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "13"
+    assay_parameter_id: "13"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -366,10 +375,9 @@
     updated_at: 2007-12-11 20:29:37
     display_unit: ""
     parameter_context_id: "4"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: "8"
     mandatory: N
     column_no: "6"
@@ -379,10 +387,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "11"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "7"
+    assay_parameter_id: "7"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -396,10 +403,9 @@
     updated_at: 2007-12-15 16:54:29
     display_unit: ""
     parameter_context_id: "8"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: "8"
     mandatory: N
     column_no: "7"
@@ -409,10 +415,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "29"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "4"
+    assay_parameter_id: "4"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "1"
@@ -426,10 +431,9 @@
     updated_at: 2007-12-15 16:54:04
     display_unit: ""
     parameter_context_id: "9"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: "8"
     mandatory: N
     column_no: "3"
@@ -439,10 +443,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "23"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "4"
+    assay_parameter_id: "4"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -456,10 +459,9 @@
     updated_at: 2007-12-11 20:25:59
     display_unit: uM
     parameter_context_id: "3"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "2"
@@ -469,10 +471,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "7"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "8"
+    assay_parameter_id: "8"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -486,10 +487,9 @@
     updated_at: 2007-12-09 23:41:24
     display_unit: mM
     parameter_context_id: "1"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "1"
@@ -499,10 +499,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "1"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "1"
+    assay_parameter_id: "1"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -516,10 +515,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: uM
     parameter_context_id: "6"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "2"
@@ -529,10 +527,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "19"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "8"
+    assay_parameter_id: "8"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -546,10 +543,9 @@
     updated_at: 2007-12-12 11:10:18
     display_unit: 
     parameter_context_id: "5"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "3"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "1"
@@ -559,10 +555,9 @@
     data_type_id: "5"
     lock_version: "2"
     id: "13"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "6"
+    assay_parameter_id: "6"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "0"
@@ -576,10 +571,9 @@
     updated_at: 2007-12-15 16:54:04
     display_unit: 
     parameter_context_id: "9"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "5"
@@ -589,10 +583,9 @@
     data_type_id: "5"
     lock_version: "3"
     id: "25"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "3"
+    assay_parameter_id: "3"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "0"
@@ -606,10 +599,9 @@
     updated_at: 2007-12-11 20:26:09
     display_unit: 
     parameter_context_id: "3"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: "1"
     mandatory: N
     column_no: "4"
@@ -619,10 +611,9 @@
     data_type_id: "1"
     lock_version: "2"
     id: "9"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "10"
+    assay_parameter_id: "10"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -636,10 +627,9 @@
     updated_at: 2007-12-10 20:19:15
     display_unit: ""
     parameter_context_id: "2"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
-    left_limit: "0"
     data_format_id: "8"
     mandatory: N
     column_no: "3"
@@ -649,10 +639,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "3"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "4"
+    assay_parameter_id: "4"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -666,10 +655,9 @@
     updated_at: 2007-12-15 16:54:04
     display_unit: mM
     parameter_context_id: "8"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "1"
@@ -679,10 +667,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "26"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "1"
+    assay_parameter_id: "1"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -696,10 +683,9 @@
     updated_at: 2007-12-12 17:59:04
     display_unit: "%"
     parameter_context_id: "6"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "12"
     mandatory: N
     column_no: "8"
@@ -709,10 +695,9 @@
     data_type_id: "2"
     lock_version: "3"
     id: "22"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "13"
+    assay_parameter_id: "13"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "1"
@@ -726,10 +711,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: uM
     parameter_context_id: "7"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "5"
@@ -739,10 +723,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "15"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "9"
+    assay_parameter_id: "9"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -756,10 +739,9 @@
     updated_at: 2007-12-12 17:58:15
     display_unit: ""
     parameter_context_id: "7"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
-    left_limit: "0"
     data_format_id: "8"
     mandatory: N
     column_no: "6"
@@ -769,10 +751,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "16"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "7"
+    assay_parameter_id: "7"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -786,10 +767,9 @@
     updated_at: 2007-12-11 20:29:44
     display_unit: "%"
     parameter_context_id: "4"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
-    left_limit: "0"
     data_format_id: "12"
     mandatory: N
     column_no: "7"
@@ -799,10 +779,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "12"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "13"
+    assay_parameter_id: "13"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"
@@ -816,10 +795,9 @@
     updated_at: 2007-12-15 16:54:04
     display_unit: 
     parameter_context_id: "9"
-    study_queue_id: "1"
+    assay_queue_id: "1"
     access_control_id: "0"
     protocol_version_id: "5"
-    left_limit: "0"
     data_format_id: 
     mandatory: N
     column_no: "4"
@@ -829,10 +807,9 @@
     data_type_id: "5"
     lock_version: "5"
     id: "24"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "3"
+    assay_parameter_id: "3"
     created_by_user_id: "3"
     data_element_id: "35"
     sequence_num: "1"
@@ -846,10 +823,9 @@
     updated_at: 2007-12-09 23:41:32
     display_unit: in
     parameter_context_id: "1"
-    study_queue_id: 
+    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
-    left_limit: "0"
     data_format_id: "4"
     mandatory: N
     column_no: "2"
@@ -859,10 +835,9 @@
     data_type_id: "2"
     lock_version: "2"
     id: "2"
-    right_limit: "0"
     qualifier_style: 
     description: 
-    study_parameter_id: "2"
+    assay_parameter_id: "2"
     created_by_user_id: "3"
     data_element_id: 
     sequence_num: "0"

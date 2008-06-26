@@ -5,15 +5,170 @@ class ParameterRoleTest < Test::Unit::TestCase
 
   NEW_PARAMETER_ROLE = {:name => 'Test Parameter Role', 
                         :description => 'Dummy Descripton',
-                        :weighing => '0'}
-  REQ_ATTR_NAMES  = %w(name description) # name of fields that must be present, e.g. %(name description)
-  DUPLICATE_ATTR_NAMES = %w( name ) # name of fields that cannot be a duplicate, e.g. %(name description)
+                        :weighing => '0'} #unless defined?
+  REQ_ATTR_NAMES  = %w(name description)  #unless defined? # name of fields that must be present, e.g. %(name description)
+  DUPLICATE_ATTR_NAMES = %w( name ) #unless defined? # name of fields that cannot be a duplicate, e.g. %(name description)
   LONG_NAMED_PARAMETER_ROLE = {:name => '123 456 789 123 456 789 123 456 789 123 456 789 123 456 789', 
                                :description => 'Dummy Descripton',
                                :weighing => '0'}
   MAX_NAME = "123 456 789 123 456 789 123 456 789 123 456 789 12"
   
- 
+  def test_parameters
+    role = ParameterRole.find(:first)
+    list = role.parameters
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_role
+    role = ParameterRole.find(:first)
+    scope = ParameterType.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_role_live
+    role = ParameterRole.find(:first)
+    scope = ParameterType.find(:first)
+    list = role.parameters.using(scope,true)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_assay_parameter
+    role = ParameterRole.find(:first)
+    scope = AssayParameter.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_data_format
+    role = ParameterRole.find(:first)
+    scope = DataFormat.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_data_element
+    role = ParameterRole.find(:first)
+    scope = DataElement.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_parameters_using_data_role
+    role = ParameterRole.find(:first)
+    scope = DataType.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_text
+    role = ParameterRole.find(:first)
+    scope = DataType.find(:first)
+    list = role.parameters.using('a')
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_parameter_context
+    role = ParameterRole.find(:first)
+    scope = ParameterContext.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_parameters_using_protocol_version
+    role = ParameterRole.find(:first)
+    scope = ProtocolVersion.find(:first)
+    list = role.parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test_assay_parameters_using_role
+    role = ParameterRole.find(:first)
+    scope = ParameterRole.find(:first)
+    list = role.assay_parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_assay_parameters_using_text
+    role = ParameterRole.find(:first)
+    scope = ParameterRole.find(:first)
+    list = role.assay_parameters.using('a')
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test_assay_parameters_using_role_live
+    role = ParameterRole.find(:first)
+    scope = ParameterRole.find(:first)
+    list = role.assay_parameters.using(scope,true)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test10_assay_parameters_using_data_format
+    role = ParameterRole.find(:first)
+    scope = DataFormat.find(:first)
+    list = role.assay_parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  
+  def test11_assay_parameters_using_data_element
+    role = ParameterRole.find(:first)
+    scope = DataElement.find(:first)
+    list = role.assay_parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+
+  def test12_assay_parameters_using_data_role
+    role = ParameterRole.find(:first)
+    scope = DataType.find(:first)
+    list = role.assay_parameters.using(scope)
+    assert list
+    assert list.is_a?(Array), "#{list.class} should have been a Array"
+  end
+  def test13_test_path
+    type = ParameterRole.find(:first)
+    assert_equal type.path, type.name
+  end
+
+  def test14_from_xml
+    type = ParameterRole.find(:first)
+    xml = type.to_xml
+    assert xml
+    type2 = ParameterRole.from_xml(xml)
+    assert type2
+    assert type2.is_a?(ParameterRole)
+    assert_equal type2.name,type.name
+  end
+
+  def test16_has_name
+    first = ParameterRole.find(:first)
+    assert first.name    
+  end
+
+  def test17_has_description
+    first = ParameterRole.find(:first)
+    assert first.description    
+  end
+
+  def test18_test_to_xml
+    type = ParameterRole.find(:first)
+    assert type.to_xml    
+  end
+  
   # Create a new role and check that it is both valid
   # and the attibutes are correct
   def test_new

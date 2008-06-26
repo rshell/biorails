@@ -42,9 +42,20 @@ class QueueItemTest < Test::Unit::TestCase
     assert !first.to_json.nil?  
   end
 
-  def test_to_xml
+  def test_request
     first = @model.find(:first)
-    assert !first.to_xml.nil?  
+    assert first.request
+  end
+
+  def test_data_element
+    first = @model.find(:first)
+    assert first.data_element
+  end
+
+  def test_update_state
+    first = @model.find(:first)
+    first.update_state({:status_id=>1,:user_id=>3,:priority_id=>1})
+    assert first.assigned_to_user_id==3
   end
 
  

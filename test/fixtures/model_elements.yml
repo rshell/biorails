@@ -251,7 +251,7 @@
     estimated_count: 
     id: "3"
     description: User Groups registered on the current system
-    content: Group
+    content: Team
     data_concept_id: "33"
     created_by_user_id: "3"
     parent_id: 

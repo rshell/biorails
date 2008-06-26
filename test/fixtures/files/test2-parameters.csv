@@ -1,0 +1,5 @@
+parameter_id,parameter_name,role_id,role_name,name,value,type_id,type_name,format_id,format_name,unit,description
+,Compound,,subject,Compound,,5,dictionary,,Compounds,,A Compound
+,XXXXXXXXX,,condition,Concentration,,2,numeric,,Decimal,mM,Concentration condition
+,Count,,observation,Count,,12,numeric,,Integer,,Counting stuff
+,Length,,moose,Length,,,numeric,,Decimal,in,len

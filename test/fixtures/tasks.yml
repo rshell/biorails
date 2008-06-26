@@ -1,3 +1,32 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: tasks
+#
+#  id                  :integer(11)   not null, primary key
+#  name                :string(128)   default(), not null
+#  description         :string(1024)  default(), not null
+#  experiment_id       :integer(11)   not null
+#  protocol_version_id :integer(11)   not null
+#  status_id           :integer(11)   default(0), not null
+#  is_milestone        :boolean(1)    
+#  priority_id         :integer(11)   
+#  started_at          :datetime      
+#  ended_at            :datetime      
+#  expected_hours      :float         
+#  done_hours          :float         
+#  lock_version        :integer(11)   default(0), not null
+#  created_at          :datetime      not null
+#  updated_at          :datetime      not null
+#  assay_protocol_id   :integer(11)   
+#  project_id          :integer(11)   not null
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
+#  assigned_to_user_id :integer(11)   default(1)
+#  expected_at         :datetime      
+#  team_id             :integer(11)   default(0), not null
+#
+
 --- 
 00000000002_task: !ruby/object:Task 
   attributes: 
@@ -14,7 +43,7 @@
     updated_by_user_id: "3"
     lock_version: "3"
     priority_id: 
-    study_protocol_id: "2"
+    assay_protocol_id: "2"
     id: "2"
     assigned_to_user_id: "3"
     description: Second task ever
@@ -40,7 +69,7 @@
     updated_by_user_id: "3"
     lock_version: "18"
     priority_id: 
-    study_protocol_id: "1"
+    assay_protocol_id: "1"
     id: "1"
     assigned_to_user_id: "3"
     description: " Task in experiment Experiment1 "
@@ -66,7 +95,7 @@
     updated_by_user_id: "4"
     lock_version: "0"
     priority_id: 
-    study_protocol_id: "2"
+    assay_protocol_id: "2"
     id: "7"
     assigned_to_user_id: "4"
     description: Data Import from file
@@ -92,7 +121,7 @@
     updated_by_user_id: "3"
     lock_version: "0"
     priority_id: 
-    study_protocol_id: "2"
+    assay_protocol_id: "2"
     id: "6"
     assigned_to_user_id: "3"
     description: This task is linked to external cvs file for import created called Experiment2-Task-77.csv
@@ -118,7 +147,7 @@
     updated_by_user_id: "4"
     lock_version: "0"
     priority_id: 
-    study_protocol_id: "2"
+    assay_protocol_id: "2"
     id: "5"
     assigned_to_user_id: "4"
     description: " Task in experiment Experiment2 "
@@ -144,7 +173,7 @@
     updated_by_user_id: "3"
     lock_version: "0"
     priority_id: 
-    study_protocol_id: "3"
+    assay_protocol_id: "3"
     id: "4"
     assigned_to_user_id: "3"
     description: " Task in experiment Experiment2 "
@@ -170,7 +199,7 @@
     updated_by_user_id: "3"
     lock_version: "1"
     priority_id: 
-    study_protocol_id: "1"
+    assay_protocol_id: "1"
     id: "3"
     assigned_to_user_id: "3"
     description: " Task in experiment Experiment2 "

@@ -1,3 +1,14 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: permissions
+#
+#  id      :integer(11)   not null, primary key
+#  checked :boolean(1)    
+#  subject :string(255)   default(), not null
+#  action  :string(255)   default(), not null
+#
+
 --- 
 00000000183_permission: !ruby/object:Permission 
   attributes: 
@@ -83,7 +94,7 @@
     action: |
       --- :update
 
-    subject: study
+    subject: assay
     id: "130"
   attributes_cache: {}
 
@@ -183,7 +194,7 @@
     action: |
       --- :new
 
-    subject: study
+    subject: assay
     id: "21"
   attributes_cache: {}
 
@@ -273,7 +284,7 @@
     action: |
       --- :show
 
-    subject: study
+    subject: assay
     id: "399"
   attributes_cache: {}
 
@@ -323,7 +334,7 @@
     action: |
       --- :edit
 
-    subject: study
+    subject: assay
     id: "402"
   attributes_cache: {}
 
@@ -769,7 +780,7 @@
     action: |
       --- :list
 
-    subject: study
+    subject: assay
     id: "307"
   attributes_cache: {}
 
@@ -789,7 +800,7 @@
     action: |
       --- :show
 
-    subject: study
+    subject: assay
     id: "126"
   attributes_cache: {}
 
@@ -979,7 +990,7 @@
     action: |
       --- :create
 
-    subject: study
+    subject: assay
     id: "219"
   attributes_cache: {}
 
@@ -1213,7 +1224,7 @@
     action: |
       --- :new
 
-    subject: study
+    subject: assay
     id: "400"
   attributes_cache: {}
 
@@ -1223,7 +1234,7 @@
     action: |
       --- :update
 
-    subject: study
+    subject: assay
     id: "24"
   attributes_cache: {}
 
@@ -1263,7 +1274,7 @@
     action: |
       --- :update
 
-    subject: study
+    subject: assay
     id: "221"
   attributes_cache: {}
 
@@ -1697,7 +1708,7 @@
     action: |
       --- :update
 
-    subject: study
+    subject: assay
     id: "312"
   attributes_cache: {}
 
@@ -1823,7 +1834,7 @@
     action: |
       --- :edit
 
-    subject: study
+    subject: assay
     id: "129"
   attributes_cache: {}
 
@@ -1923,7 +1934,7 @@
     action: |
       --- :show
 
-    subject: study
+    subject: assay
     id: "217"
   attributes_cache: {}
 
@@ -1993,7 +2004,7 @@
     action: |
       --- :desrroy
 
-    subject: study
+    subject: assay
     id: "131"
   attributes_cache: {}
 
@@ -2123,7 +2134,7 @@
     action: |
       --- :create
 
-    subject: study
+    subject: assay
     id: "22"
   attributes_cache: {}
 
@@ -2263,7 +2274,7 @@
     action: |
       --- :update
 
-    subject: study
+    subject: assay
     id: "403"
   attributes_cache: {}
 
@@ -2603,7 +2614,7 @@
     action: |
       --- :create
 
-    subject: study
+    subject: assay
     id: "310"
   attributes_cache: {}
 
@@ -2683,7 +2694,7 @@
     action: |
       --- :show
 
-    subject: study
+    subject: assay
     id: "308"
   attributes_cache: {}
 
@@ -2703,7 +2714,7 @@
     action: |
       --- :new
 
-    subject: study
+    subject: assay
     id: "127"
   attributes_cache: {}
 
@@ -2809,7 +2820,7 @@
   attributes: 
     checked: "1"
     action: "*"
-    subject: study
+    subject: assay
     id: "18"
   attributes_cache: {}
 
@@ -3077,7 +3088,7 @@
     action: |
       --- :list
 
-    subject: study
+    subject: assay
     id: "398"
   attributes_cache: {}
 
@@ -3087,7 +3098,7 @@
     action: |
       --- :show
 
-    subject: study
+    subject: assay
     id: "20"
   attributes_cache: {}
 
@@ -3157,7 +3168,7 @@
     action: |
       --- :create
 
-    subject: study
+    subject: assay
     id: "401"
   attributes_cache: {}
 
@@ -3167,7 +3178,7 @@
     action: |
       --- :desrroy
 
-    subject: study
+    subject: assay
     id: "25"
   attributes_cache: {}
 
@@ -3207,7 +3218,7 @@
     action: |
       --- :edit
 
-    subject: study
+    subject: assay
     id: "220"
   attributes_cache: {}
 
@@ -3217,7 +3228,7 @@
     action: |
       --- :desrroy
 
-    subject: study
+    subject: assay
     id: "222"
   attributes_cache: {}
 
@@ -3635,7 +3646,7 @@
     action: |
       --- :desrroy
 
-    subject: study
+    subject: assay
     id: "313"
   attributes_cache: {}
 
@@ -3655,7 +3666,7 @@
     action: |
       --- :list
 
-    subject: study
+    subject: assay
     id: "125"
   attributes_cache: {}
 
@@ -3833,7 +3844,7 @@
     action: |
       --- :new
 
-    subject: study
+    subject: assay
     id: "218"
   attributes_cache: {}
 
@@ -4051,7 +4062,7 @@
     action: |
       --- :edit
 
-    subject: study
+    subject: assay
     id: "23"
   attributes_cache: {}
 
@@ -4151,7 +4162,7 @@
     action: |
       --- :desrroy
 
-    subject: study
+    subject: assay
     id: "404"
   attributes_cache: {}
 
@@ -4191,7 +4202,7 @@
     action: |
       --- :list
 
-    subject: study
+    subject: assay
     id: "216"
   attributes_cache: {}
 
@@ -4507,7 +4518,7 @@
     action: |
       --- :edit
 
-    subject: study
+    subject: assay
     id: "311"
   attributes_cache: {}
 
@@ -4577,7 +4588,7 @@
     action: |
       --- :new
 
-    subject: study
+    subject: assay
     id: "309"
   attributes_cache: {}
 
@@ -4597,7 +4608,7 @@
     action: |
       --- :create
 
-    subject: study
+    subject: assay
     id: "128"
   attributes_cache: {}
 
@@ -4687,7 +4698,7 @@
     action: |
       --- :list
 
-    subject: study
+    subject: assay
     id: "19"
   attributes_cache: {}
 

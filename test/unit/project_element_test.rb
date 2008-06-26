@@ -8,14 +8,19 @@ class ProjectElementTest < Test::Unit::TestCase
      @model = ProjectElement
   end
   
-  def test_truth
-    assert true
+  def test_new
+    item = ProjectElement.new(:name=>'test')
+    assert item.name
+    assert item.summary  
+    assert item.description  
+    assert item.to_html 
   end
   
   def test_find
      first = @model.find(:first)
      assert first.id
      assert first.name
+     assert_ok first
   end
     
   def test_has_name
@@ -30,12 +35,24 @@ class ProjectElementTest < Test::Unit::TestCase
 
    def test_has_summary
     first = @model.find(:first)
-    assert first.description    
+    assert first.summary    
   end
 
-   def test_has_title
+  def test_to_html
     first = @model.find(:first)
-    assert first.title    
+    assert first.to_html
+  end
+
+  def test_reference?
+    first = ProjectReference.find(:first)
+    if first
+      assert first.reference?
+    end
+  end
+
+   def test_icon
+    first = @model.find(:first)
+    assert first.icon  
   end
 
   def test_can_render_as_html
@@ -57,5 +74,38 @@ class ProjectElementTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.path
   end
-   
+
+  def test_signed
+    first = @model.find(:first)
+    assert first.signed(5)
+  end
+
+  def test_sign
+    first = ProjectElement.find(:first)
+    assert first.signatures
+  end
+  
+  def test_reorder_before
+    top = Project.find(2).home
+    assert top.elements.size>2
+    e0 = top.elements[0]
+    e1 = top.elements[1]
+    assert e1.reorder_before(e0)
+  end
+  
+  def test_reorder_after
+    top = Project.find(2).home
+    assert top.elements.size>2
+    e0 = top.elements[0]
+    e1 = top.elements[1]
+    assert e0.reorder_after(e1)
+  end
+  
+  def test_rebuild_set
+     ProjectElement.rebuild_sets   
+     first = @model.find(:first)
+     assert_ok first
+  end
+
+
 end
