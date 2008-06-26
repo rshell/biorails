@@ -1,4 +1,0 @@
-====== BioRails ======
-Created Tuesday 05/12/2006 17:24
-
-[[BioRails]] is a pre-clinical study and data management system.

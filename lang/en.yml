@@ -156,8 +156,8 @@ label_lastest_tasks: Lastest Tasks
 label_lastest_requests: Lastest Requests
 label_lastest_projects: Lastest Projects
 
-label_studies: Studies
-label_study: Study
+label_assays: Studies
+label_study: Assay
 label_experiments: Experiments
 label_experiment: Experiment
 label_reports: Reports

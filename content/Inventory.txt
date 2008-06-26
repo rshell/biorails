@@ -1,4 +1,0 @@
-====== Inventory ======
-Created Tuesday 05/12/2006 19:20
-
-Compounds, batches plates, samples.  From her you can browse all the inventories available, whether they are internal or external.  Each inventory will be maintained in its own tab ([[DataLens]]).

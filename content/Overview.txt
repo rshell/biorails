@@ -1,4 +1,0 @@
-====== Overview ======
-Created Tuesday 05/12/2006 19:27
-
-This is an automated report.  For Studies, Experiments and Inventory this is used for progress and metrics. 

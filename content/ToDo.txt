@@ -1,6 +1,0 @@
-====== ToDo ======
-Created Sunday 10/12/2006 22:13
-
-1) [New Child]
-2) Show Hide Details
-3) Icons for context
