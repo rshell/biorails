@@ -5,7 +5,7 @@ create view queue_results as
          tc.task_id,
          qi.id queue_item_id,
          qi.request_service_id,
-         qi.study_queue_id,
+         qi.assay_queue_id,
          qi.requested_by_user_id,
          qi.assigned_to_user_id,
          p.parameter_context_id,
@@ -46,7 +46,7 @@ union
          tc.task_id,
          qi.id queue_item_id,
          qi.request_service_id,
-         qi.study_queue_id,
+         qi.assay_queue_id,
          qi.requested_by_user_id,
          qi.assigned_to_user_id,
          p.parameter_context_id,
@@ -61,7 +61,7 @@ union
          pc.label,
          tc.label row_label,
          p.name parameter_name,
-         to_char(ti.data_value),
+         ti.data_value,
          ti.created_by_user_id,
          ti.created_at,
          ti.updated_by_user_id,
@@ -80,3 +80,4 @@ union
   and    qi.data_id   = tr.data_id
   and    qi.data_type = tr.data_type
   and    qi.data_name = tr.data_name
+;

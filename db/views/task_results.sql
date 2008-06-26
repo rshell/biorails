@@ -9,7 +9,7 @@
          tc.task_id,
          ti.parameter_id,
          p.name parameter_name,
-         to_char(ti.data_value) data_value,
+         ti.data_value data_value,
          ti.created_by_user_id,
          ti.created_at,
          ti.updated_by_user_id,

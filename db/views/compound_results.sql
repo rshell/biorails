@@ -28,4 +28,4 @@
   and   ti.task_context_id = tc.id 
   and   p.id = ti.parameter_id
   and   pc.id = tc.parameter_context_id 
-  and  tr.data_type='Compound'
+  and  tr.data_type='Compound';

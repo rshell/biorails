@@ -5,7 +5,7 @@
          tc.task_id,
          qi.id queue_item_id,
          qi.request_service_id,
-         qi.study_queue_id,
+         qi.assay_queue_id,
          p.parameter_context_id,
          tr.task_context_id,
          tr.parameter_id reference_parameter_id,
@@ -36,4 +36,4 @@
   and    qi.task_id   = tr.task_id
   and    qi.data_id   = tr.data_id
   and    qi.data_type = tr.data_type
-  and    qi.data_name = tr.data_name
+  and    qi.data_name = tr.data_name;

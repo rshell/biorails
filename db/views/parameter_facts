@@ -1,7 +1,7 @@
 create view parameter_facts as 
 select p.id,
        p.name parameter_name,
-       sp.name study_parameter_name,
+       sp.name assay_parameter_name,
        pt.name parameter_type_name,
        t.name  type_name,
        e.name  element_name,
@@ -10,7 +10,7 @@ select p.id,
        pv.name version_label,
        pv.version version,
        pd.name protocol_name,
-       s.name study_name,
+       s.name assay_name,
        pc.label context_label,
        pc.default_count context_count,
        pc.level_no context_level,
@@ -28,15 +28,15 @@ select p.id,
        p.qualifier_style,
        p.data_type_id,
        p.data_format_id
-from study_parameters sp
-inner join parameters  p        on p.study_parameter_id = sp.id
+from assay_parameters sp
+inner join parameters  p        on p.assay_parameter_id = sp.id
 inner join parameter_types pt   on pt.id = p.parameter_type_id
 inner join data_types t         on t.id = p.data_type_id
 inner join parameter_contexts pc on pc.id = p.parameter_context_id
 inner join protocol_versions pv on pv.id = p.protocol_version_id
-inner join study_protocols pd   on pd.id = pv.study_protocol_id
+inner join assay_protocols pd   on pd.id = pv.assay_protocol_id
 inner join parameter_roles r    on r.id = p.parameter_role_id
-inner join studies s            on s.id = sp.study_id
+inner join assays s            on s.id = sp.assay_id
 left outer join data_elements e on e.id = p.data_element_id
 left outer join data_formats f  on f.id = p.data_format_id
 order by s.id,pd.id,pv.id,p.column_no

@@ -1,12 +1,12 @@
-create view study_statistics as 
-select p.study_parameter_id id,
-       p.study_parameter_id,
-       e.study_id,
+create view assay_statistics as 
+select p.assay_parameter_id id,
+       p.assay_parameter_id,
+       e.assay_id,
        p.parameter_role_id,
        p.parameter_type_id,
        p.data_type_id,
        avg(r.data_value) avg_values,
-       stddev(r.data_value) stddev_values,
+       sum(null) stddev_values,
        count(r.data_value) num_values,
        count(distinct r.data_value) num_unique,
        max(r.data_value) max_values,
@@ -15,16 +15,16 @@ select p.study_parameter_id id,
  where p.id = r.parameter_id
    and t.id = r.task_id
    and e.id = t.experiment_id
-   and p.study_parameter_id is not null
- group by e.study_id,
+   and p.assay_parameter_id is not null
+ group by e.assay_id,
           p.data_type_id,
           p.parameter_role_id,
           p.parameter_type_id,
-          p.study_parameter_id
+          p.assay_parameter_id
 union
-select p.study_parameter_id id,
-       p.study_parameter_id,
-       e.study_id,
+select p.assay_parameter_id id,
+       p.assay_parameter_id,
+       e.assay_id,
        p.parameter_role_id,
        p.parameter_type_id,
        p.data_type_id,
@@ -38,16 +38,16 @@ select p.study_parameter_id id,
  where p.id = r.parameter_id
    and t.id = r.task_id
    and e.id = t.experiment_id
-   and p.study_parameter_id is not null
- group by e.study_id,
+   and p.assay_parameter_id is not null
+ group by e.assay_id,
           p.data_type_id,
           p.parameter_role_id,
           p.parameter_type_id,
-          p.study_parameter_id
+          p.assay_parameter_id
 union
-select p.study_parameter_id id,
-       p.study_parameter_id,
-       e.study_id,
+select p.assay_parameter_id id,
+       p.assay_parameter_id,
+       e.assay_id,
        p.parameter_role_id,
        p.parameter_type_id,
        p.data_type_id,
@@ -61,9 +61,9 @@ select p.study_parameter_id id,
  where p.id = r.parameter_id
    and t.id = r.task_id
    and e.id = t.experiment_id
-   and p.study_parameter_id is not null
- group by e.study_id,
+   and p.assay_parameter_id is not null
+ group by e.assay_id,
           p.data_type_id,
           p.parameter_role_id,
           p.parameter_type_id,
-          p.study_parameter_id;
+          p.assay_parameter_id;
