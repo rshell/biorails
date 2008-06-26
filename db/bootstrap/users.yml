@@ -42,25 +42,3 @@ user_2: !ruby/object:User
     login: admin
     created_at: 
     email: 
-user_3: !ruby/object:User 
-  attributes: 
-    name: rshell
-    updated_at: 2007-08-23 22:25:04
-    activated_at: 
-    deleted_at: 
-    token: 
-    updated_by_user_id: "1"
-    admin: "1"
-    token_expires_at: 
-    activation_code: 
-    fullname: ""
-    password_salt: 4f977405c4c4ca36165fd6bb5f99bc26b9fbaa09
-    role_id: "3"
-    id: "3"
-    filter: 
-    password_hash: e7c2941bbbbec9c14c774e0522d0e18b754f4b69
-    created_by_user_id: "1"
-    state_id: 
-    login: rshell
-    created_at: 
-    email: ""

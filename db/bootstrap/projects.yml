@@ -1,20 +1,17 @@
---- 
-projects_001: 
-  done_hours: 
-  name: global
-  expected_hours: 
-  
-  ended_at: 
+---
+projects_001:
+  done_hours:
+  name: Global
+  expected_hours:
+  team_id: "1"
+  ended_at:
   title: Global
-  timezone: 
+  timezone:
   updated_by_user_id: "1"
-  expected_at: 
+  expected_at:
   id: "1"
-  summary: Public Area for open work everyone allowed to see!
-  created_by_user_id: "1"
-  host: 
+  description: Common project for all users!
+  host:
   status_id: "0"
-  comment_age: 
-  started_at: 
-  
-  email: 
+  comment_age:
+  email:

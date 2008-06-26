@@ -1,225 +1,141 @@
---- 
-identifier_11: !ruby/object:Identifier 
-  attributes: 
+---
+identifier_11: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "38"
+    current_counter: "1"
     prefix: Prot-
-    name: StudyProtocol
-    updated_at: 2007-07-04 15:19:37
-    updated_by_user_id: "1"
-    lock_version: "38"
-    mask: 
+    name: Protocol
+    lock_version: "1"
+    mask:
     id: "11"
-    created_by_user_id: "1"
-    created_at: 2007-04-30 16:55:39
     postfix: ""
-identifier_6: !ruby/object:Identifier 
-  attributes: 
+identifier_6: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "45"
+    current_counter: "1"
     prefix: R-
     name: Report
-    updated_at: 2007-07-09 19:53:33
-    updated_by_user_id: "1"
-    lock_version: "45"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "6"
-    created_by_user_id: "1"
-    created_at: 2007-04-19 11:18:58
     postfix: ""
-identifier_12: !ruby/object:Identifier 
-  attributes: 
+identifier_12: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "53"
+    current_counter: "1"
     prefix: Art-
     name: Content
-    updated_at: 2007-07-24 11:12:09
-    updated_by_user_id: "1"
-    lock_version: "53"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "12"
-    created_by_user_id: "1"
-    created_at: 2007-05-25 16:34:09
     postfix: ""
-identifier_7: !ruby/object:Identifier 
-  attributes: 
+identifier_7: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "3"
+    current_counter: "1"
     prefix: "-"
     name: ""
-    updated_at: 2007-04-19 16:32:39
-    updated_by_user_id: "1"
-    lock_version: "3"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "7"
-    created_by_user_id: "1"
-    created_at: 2007-04-19 16:31:46
     postfix: ""
-identifier_13: !ruby/object:Identifier 
-  attributes: 
+identifier_13: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "3"
+    current_counter: "1"
     prefix: m-
     name: member
-    updated_at: 2007-05-30 15:43:45
-    updated_by_user_id: "1"
-    lock_version: "3"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "13"
-    created_by_user_id: "1"
-    created_at: 2007-05-30 15:42:54
     postfix: ""
-identifier_8: !ruby/object:Identifier 
-  attributes: 
+identifier_14: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "333"
-    prefix: rjs-
-    name: rshell
-    updated_at: 2007-08-27 14:12:36
-    updated_by_user_id: "1"
-    lock_version: "333"
-    mask: 
-    id: "8"
-    created_by_user_id: "1"
-    created_at: 2007-04-19 16:33:09
-    postfix: ""
-identifier_14: !ruby/object:Identifier 
-  attributes: 
-    current_step: "1"
-    current_counter: "9"
+    current_counter: "1"
     prefix: Role-
     name: Role
-    updated_at: 2007-06-11 12:47:48
-    updated_by_user_id: "1"
-    lock_version: "9"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "14"
-    created_by_user_id: "1"
-    created_at: 2007-06-11 11:28:46
     postfix: ""
-identifier_9: !ruby/object:Identifier 
-  attributes: 
+identifier_9: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "25"
+    current_counter: "1"
     prefix: Req-
     name: Request
-    updated_at: 2007-07-09 10:51:08
-    updated_by_user_id: "1"
-    lock_version: "25"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "9"
-    created_by_user_id: "1"
-    created_at: 2007-04-19 20:51:01
     postfix: ""
-identifier_15: !ruby/object:Identifier 
-  attributes: 
+identifier_15: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "59"
+    current_counter: "1"
     prefix: guest-
     name: guest
-    updated_at: 2007-08-27 13:18:17
-    updated_by_user_id: "1"
-    lock_version: "59"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "15"
-    created_by_user_id: "1"
-    created_at: 2007-06-28 08:52:56
     postfix: ""
-identifier_16: !ruby/object:Identifier 
-  attributes: 
+identifier_1: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "47"
-    prefix: thawkins-
-    name: thawkins
-    updated_at: 2007-07-12 21:58:50
-    updated_by_user_id: "1"
-    lock_version: "47"
-    mask: 
-    id: "16"
-    created_by_user_id: "1"
-    created_at: 2007-06-29 10:48:44
-    postfix: ""
-identifier_1: !ruby/object:Identifier 
-  attributes: 
-    current_step: "1"
-    current_counter: "9"
+    current_counter: "1"
     prefix: Fold-
     name: ProjectFolder
-    updated_at: 2007-04-30 17:57:03
-    updated_by_user_id: "1"
-    lock_version: "9"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "1"
-    created_by_user_id: "1"
-    created_at: 2007-04-18 13:30:15
     postfix: ""
-identifier_2: !ruby/object:Identifier 
-  attributes: 
+identifier_2: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "6"
+    current_counter: "1"
     prefix: Expt-
     name: Experiment
-    updated_at: 2007-04-30 21:12:55
-    updated_by_user_id: "1"
-    lock_version: "6"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "2"
-    created_by_user_id: "1"
-    created_at: 2007-04-18 13:58:39
     postfix: ""
-identifier_3: !ruby/object:Identifier 
-  attributes: 
+identifier_3: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "72"
+    current_counter: "1"
     prefix: Task-
     name: Task
-    updated_at: 2007-08-27 12:19:46
-    updated_by_user_id: "1"
-    lock_version: "72"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "3"
-    created_by_user_id: "1"
-    created_at: 2007-04-18 14:08:30
     postfix: ""
-identifier_4: !ruby/object:Identifier 
-  attributes: 
+identifier_4: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "65"
+    current_counter: "1"
     prefix: Note-
     name: ProjectContent
-    updated_at: 2007-04-30 20:39:13
-    updated_by_user_id: "1"
-    lock_version: "65"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "4"
-    created_by_user_id: "1"
-    created_at: 2007-04-18 14:31:57
     postfix: ""
-identifier_5: !ruby/object:Identifier 
-  attributes: 
+identifier_5: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "47"
-    prefix: S-
-    name: Study
-    updated_at: 2007-07-04 12:50:36
-    updated_by_user_id: "1"
-    lock_version: "47"
-    mask: 
+    current_counter: "1"
+    prefix: A-
+    name: Assay
+    lock_version: "1"
+    mask:
     id: "5"
-    created_by_user_id: "1"
-    created_at: 2007-04-18 19:04:32
     postfix: ""
-identifier_10: !ruby/object:Identifier 
-  attributes: 
+identifier_10: !ruby/object:Identifier
+  attributes:
     current_step: "1"
-    current_counter: "31"
+    current_counter: "1"
     prefix: File-
     name: ProjectAsset
-    updated_at: 2007-05-01 06:01:34
-    updated_by_user_id: "1"
-    lock_version: "31"
-    mask: 
+    lock_version: "1"
+    mask:
     id: "10"
-    created_by_user_id: "1"
-    created_at: 2007-04-25 09:46:42
     postfix: ""

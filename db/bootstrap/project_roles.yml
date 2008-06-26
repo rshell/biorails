@@ -1,257 +1,380 @@
-00000000001_project_role: !ruby/object:ProjectRole 
-  attributes: 
-    name: Public
-    updated_at: 2007-08-24 09:55:06 +01:00
-    cache: |+
-      --- 
-      memberships: {}
-      
-      experiments: 
+---
+00000000001_project_role: !ruby/object:ProjectRole
+  attributes:
+    name: Team-Viewer
+    updated_at: 2008-03-03 13:54:53 Z
+    cache: |
+      ---
+      assays:
         list: true
         show: true
-      studies: 
+      experiments:
         list: true
         show: true
-      help: {}
-      
+      teams:
+        list: true
+        show: true
+      "":
+        "": true
       auth: {}
-      
+
+      help: {}
+
       catalogue: {}
-      
-      project: 
+
+      project:
         list: true
         show: true
       dba: {}
-      
-      ~: 
-        ~: true
-      study_parameters: 
+
+      assay_parameters:
         list: true
         show: true
       audit: {}
-      
-      study_queues: 
+
+      assay_queues:
         list: true
         show: true
       biorails: {}
-      
-      tasks: 
+
+      queue_items:
         list: true
         show: true
-      queue_items: 
+      tasks:
+        list: true
+        show: true
+      requests:
         list: true
         show: true
       users: {}
-      
-      requests: 
-        list: true
-        show: true
-      page: {}
-      
+
       home: {}
-      
-      study_protocols: 
+
+      assay_protocols:
         list: true
         show: true
       reports: {}
-      
-      inventory: {}
-      
-      project_requests: 
+
+      signatures: {}
+
+      folders:
         list: true
         show: true
       finder: {}
-      
-      charts: {}
-      
-    type: ProjectRole
+
+      inventory: {}
+
+      project_requests:
+        list: true
+        show: true
+
     updated_by_user_id: 1
+    type: ProjectRole
     id: 1
-    description: Members of the public who are not logged in.
+    description: Members of a team who can simply see work in a read only manor
     created_by_user_id: 1
-    parent_id: 
-    created_at: 2006-06-23 12:03:49 +01:00
-00000000002_project_role: !ruby/object:ProjectRole 
-  attributes: 
-    name: Member
-    updated_at: 2007-08-24 12:36:44 +01:00
-    cache: |+
-      --- 
-      user: 
+    parent_id:
+  attributes_cache: {}
+
+00000000002_project_role: !ruby/object:ProjectRole
+  attributes:
+    name: Team-Member
+    updated_at: 2008-03-03 13:55:31 Z
+    cache: |
+      ---
+      assays:
         list: true
         show: true
-      experiments: 
+      experiments:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
         "*": true
-      memberships: {}
-      
-      studies: 
+      teams:
         list: true
         show: true
-      help: {}
-      
+      "":
+        "": true
+      user:
+        list: true
+        show: true
       auth: {}
-      
-      study: 
-        list: true
-        show: true
-      protocol: 
-        list: true
-        show: true
+
+      help: {}
+
       catalogue: {}
-      
-      project: 
+
+      protocol:
         list: true
         show: true
+      assay:
+        list: true
+        show: true
+      project:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
         "*": true
       dba: {}
-      
-      system: 
+
+      assay_parameters:
         list: true
         show: true
-      ~: 
-        ~: true
-      study_parameters: 
-        list: true
-        show: true
-      cataloge: 
+      system:
         list: true
         show: true
       audit: {}
-      
-      study_queues: 
+
+      cataloge:
         list: true
         show: true
-      experiment: 
-        new: true
+      assay_queues:
         list: true
-        create: true
         show: true
-        update: true
-      queue_items: 
-        list: true
-        "*": true
-      tasks: 
-        "*": true
       biorails: {}
-      
-      request: 
+
+      tasks:
         new: true
         list: true
         edit: true
+        make_flexible: true
         create: true
         show: true
         update: true
+        "*": true
+      queue_items:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      experiment:
+        new: true
+        list: true
+        create: true
+        show: true
+        update: true
+      requests:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
       users: {}
-      
-      requests: 
-        list: true
-        "*": true
-      page: {}
-      
-      report: 
+
+      request:
         new: true
         list: true
         edit: true
         create: true
         show: true
         update: true
-      reports: {}
-      
       home: {}
-      
-      study_protocols: 
+
+      assay_protocols:
         list: true
         show: true
+      reports: {}
+
+      signatures: {}
+
+      folders:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      report:
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
+      finder: {}
+
       inventory: {}
-      
-      project_requests: 
+
+      project_requests:
         list: true
         "*": true
-      finder: {}
-      
-      charts: {}
-      
-    type: ProjectRole
+
     updated_by_user_id: 1
+    type: ProjectRole
     id: 2
     description: Project Member
     created_by_user_id: 1
     parent_id: 1
-    created_at: 2006-06-23 12:03:50 +01:00
-00000000005_project_role: !ruby/object:ProjectRole 
-  attributes: 
-    name: Manager
-    updated_at: 2007-08-24 12:36:44 +01:00
-    cache: |+
-      --- 
-      experiments: 
-        "*": true
-      studies: 
-        "*": true
-      memberships: {}
-      
-      project_studies: 
+    created_at: 2006-06-23 12:03:50 Z
+  attributes_cache: {}
+
+00000000005_project_role: !ruby/object:ProjectRole
+  attributes:
+    name: Team-Manager
+    updated_at: 2008-03-03 13:54:13 Z
+    cache: |
+      ---
+      assays:
+        new: true
         list: true
+        edit: true
+        destroy: true
+        create: true
         show: true
+        update: true
         "*": true
-      project_queues: 
+      experiments:
+        new: true
         list: true
+        edit: true
+        destroy: true
+        create: true
         show: true
+        update: true
         "*": true
-      help: {}
-      
+      teams:
+        new: true
+        list: true
+        edit: true
+        create: true
+        show: true
+        update: true
       auth: {}
-      
-      catalogue: {}
-      
-      project: 
+
+      help: {}
+
+      project_queues:
         list: true
         show: true
+        "*": true
+      project_assays:
+        list: true
+        show: true
+        "*": true
+      catalogue: {}
+
+      project:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
         "*": true
       dba: {}
-      
-      study_parameters: 
-        "*": true
-      project_experiments: 
+
+      assay_parameters:
+        new: true
         list: true
+        edit: true
+        destroy: true
+        create: true
         show: true
+        update: true
         "*": true
       audit: {}
-      
-      study_queues: 
-        "*": true
-      biorails: {}
-      
-      tasks: 
-        "*": true
-      queue_items: 
-        "*": true
-      users: {}
-      
-      requests: 
-        "*": true
-      page: {}
-      
-      home: {}
-      
-      study_protocols: 
-        "*": true
-      reports: {}
-      
-      inventory: {}
-      
-      project_requests: 
+
+      project_experiments:
         list: true
         show: true
         "*": true
+      assay_queues:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      biorails: {}
+
+      queue_items:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      tasks:
+        new: true
+        list: true
+        edit: true
+        make_flexible: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      requests:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      users: {}
+
+      home: {}
+
+      reports: {}
+
+      assay_protocols:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
+      signatures: {}
+
+      folders:
+        new: true
+        list: true
+        edit: true
+        destroy: true
+        create: true
+        show: true
+        update: true
+        "*": true
       finder: {}
-      
-      charts: {}
-      
-    type: ProjectRole
+
+      inventory: {}
+
+      project_requests:
+        list: true
+        show: true
+        "*": true
+
     updated_by_user_id: 1
+    type: ProjectRole
     id: 5
     description: Project owner with full rights
     created_by_user_id: 1
-    parent_id: 
-    created_at: 2007-06-11 12:05:52 +01:00
+    parent_id:
+    created_at: 2007-06-11 12:05:52 Z
+  attributes_cache: {}
+

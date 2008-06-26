@@ -35,7 +35,7 @@
     action: |
       --- :create
 
-    subject: studies
+    subject: assays
     id: 9
 00000000239_permission: !ruby/object:Permission 
   attributes: 
@@ -97,7 +97,7 @@
     action: |
       --- :new
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 89
 00000000109_permission: !ruby/object:Permission 
   attributes: 
@@ -105,7 +105,7 @@
     action: |
       --- :create
 
-    subject: study_queues
+    subject: assay_queues
     id: 109
 00000000065_permission: !ruby/object:Permission 
   attributes: 
@@ -151,7 +151,7 @@
     action: |
       --- :show
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 221
 00000000115_permission: !ruby/object:Permission 
   attributes: 
@@ -159,7 +159,7 @@
     action: |
       --- :destroy
 
-    subject: study_queues
+    subject: assay_queues
     id: 115
 00000000209_permission: !ruby/object:Permission 
   attributes: 
@@ -191,7 +191,7 @@
     action: |
       --- :new
 
-    subject: studies
+    subject: assays
     id: 7
 00000000095_permission: !ruby/object:Permission 
   attributes: 
@@ -199,7 +199,7 @@
     action: |
       --- :update
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 95
 00000000251_permission: !ruby/object:Permission 
   attributes: 
@@ -273,7 +273,7 @@
     action: |
       --- :show
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 87
 00000000195_permission: !ruby/object:Permission 
   attributes: 
@@ -289,7 +289,7 @@
     action: |
       --- :new
 
-    subject: study_queues
+    subject: assay_queues
     id: 107
 00000000013_permission: !ruby/object:Permission 
   attributes: 
@@ -297,7 +297,7 @@
     action: |
       --- :update
 
-    subject: studies
+    subject: assays
     id: 13
 00000000135_permission: !ruby/object:Permission 
   attributes: 
@@ -335,7 +335,7 @@
     action: |
       --- :update
 
-    subject: study_queues
+    subject: assay_queues
     id: 113
 00000000207_permission: !ruby/object:Permission 
   attributes: 
@@ -351,7 +351,7 @@
     action: |
       --- :edit
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 93
 00000000005_permission: !ruby/object:Permission 
   attributes: 
@@ -359,7 +359,7 @@
     action: |
       --- :show
 
-    subject: studies
+    subject: assays
     id: 5
 00000000165_permission: !ruby/object:Permission 
   attributes: 
@@ -445,7 +445,7 @@
     action: |
       --- :edit
 
-    subject: studies
+    subject: assays
     id: 11
 00000000105_permission: !ruby/object:Permission 
   attributes: 
@@ -453,7 +453,7 @@
     action: |
       --- :show
 
-    subject: study_queues
+    subject: assay_queues
     id: 105
 00000000085_permission: !ruby/object:Permission 
   attributes: 
@@ -461,7 +461,7 @@
     action: |
       --- :list
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 85
 00000000157_permission: !ruby/object:Permission 
   attributes: 
@@ -477,7 +477,7 @@
     action: |
       --- :update
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 229
 00000000049_permission: !ruby/object:Permission 
   attributes: 
@@ -493,7 +493,7 @@
     action: |
       --- :edit
 
-    subject: study_queues
+    subject: assay_queues
     id: 111
 00000000205_permission: !ruby/object:Permission 
   attributes: 
@@ -517,7 +517,7 @@
     action: |
       --- :create
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 91
 00000000185_permission: !ruby/object:Permission 
   attributes: 
@@ -531,7 +531,7 @@
     action: |
       --- :list
 
-    subject: studies
+    subject: assays
     id: 3
 00000000027_permission: !ruby/object:Permission 
   attributes: 
@@ -609,7 +609,7 @@
     action: |
       --- :list
 
-    subject: study_queues
+    subject: assay_queues
     id: 103
 00000000249_permission: !ruby/object:Permission 
   attributes: 
@@ -623,7 +623,7 @@
   attributes: 
     checked: "1"
     action: "*"
-    subject: study_parameters
+    subject: assay_parameters
     id: 83
 00000000155_permission: !ruby/object:Permission 
   attributes: 
@@ -645,7 +645,7 @@
     action: |
       --- :edit
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 227
 00000000047_permission: !ruby/object:Permission 
   attributes: 
@@ -675,7 +675,7 @@
   attributes: 
     checked: "1"
     action: "*"
-    subject: studies
+    subject: assays
     id: 1
 00000000099_permission: !ruby/object:Permission 
   attributes: 
@@ -751,7 +751,7 @@
     action: |
       --- :list
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 219
 00000000017_permission: !ruby/object:Permission 
   attributes: 
@@ -803,7 +803,7 @@
     action: |
       --- :create
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 225
 00000000023_permission: !ruby/object:Permission 
   attributes: 
@@ -825,7 +825,7 @@
     action: |
       --- :destroy
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 231
 00000000183_permission: !ruby/object:Permission 
   attributes: 
@@ -841,7 +841,7 @@
     action: |
       --- :destroy
 
-    subject: study_parameters
+    subject: assay_parameters
     id: 97
 00000000169_permission: !ruby/object:Permission 
   attributes: 
@@ -877,7 +877,7 @@
   attributes: 
     checked: "1"
     action: "*"
-    subject: study_protocols
+    subject: assay_protocols
     id: 217
 00000000075_permission: !ruby/object:Permission 
   attributes: 
@@ -897,7 +897,7 @@
   attributes: 
     checked: "1"
     action: "*"
-    subject: study_queues
+    subject: assay_queues
     id: 101
 00000000015_permission: !ruby/object:Permission 
   attributes: 
@@ -905,7 +905,7 @@
     action: |
       --- :destroy
 
-    subject: studies
+    subject: assays
     id: 15
 00000000175_permission: !ruby/object:Permission 
   attributes: 
@@ -943,7 +943,7 @@
     action: |
       --- :new
 
-    subject: study_protocols
+    subject: assay_protocols
     id: 223
 00000000045_permission: !ruby/object:Permission 
   attributes: 

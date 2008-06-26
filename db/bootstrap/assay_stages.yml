@@ -1,0 +1,32 @@
+--- 
+00000000001_assay_stage: !ruby/object:AssayStage 
+  attributes: 
+    name: Analysis
+    lock_version: "0"
+    id: 1
+    description: Data analysis
+  attributes_cache: {}
+
+00000000002_assay_stage: !ruby/object:AssayStage 
+  attributes: 
+    name: Preparation
+    lock_version: "0"
+    id: 2
+    description: Preparation steps
+  attributes_cache: {}
+
+00000000003_assay_stage: !ruby/object:AssayStage 
+  attributes: 
+    name: Data Capture
+    lock_version: "0"
+    id: 3
+    description: Capturing raw data
+  attributes_cache: {}
+
+00000000004_assay_stage: !ruby/object:AssayStage 
+  attributes: 
+    name: Report
+    lock_version: "0"
+    id: 4
+    description: Creating a report
+  attributes_cache: {}

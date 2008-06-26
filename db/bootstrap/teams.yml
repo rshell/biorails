@@ -1,0 +1,12 @@
+--- 
+00000000001_team: !ruby/object:Team 
+  attributes: 
+    name: all-users
+    lock_version: "1"
+    external_role_id: "1"
+    id: "1"
+    description: All users are member of this team by default!
+    public_role_id: "1"
+    status_id: "0"
+    email: 
+  attributes_cache: {}

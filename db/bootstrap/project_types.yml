@@ -1,0 +1,16 @@
+--- 
+00000000001_project: !ruby/object:ProjectType 
+  attributes: 
+    id: "1"
+    name: Project
+    dashboard: project
+    description: Text
+  attributes_cache: {}
+
+00000000002_assay_group: !ruby/object:ProjectType 
+  attributes: 
+    id: "2"
+    name: AssayGroup
+    dashboard: assay_group
+    description: Assay Group
+  attributes_cache: {}
