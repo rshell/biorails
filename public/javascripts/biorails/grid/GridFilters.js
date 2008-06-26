@@ -1,3 +1,7 @@
+/**
+ * Ext.ux.grid.GridFilters v0.2.6
+ **/
+
 Ext.namespace("Ext.ux.grid");
 Ext.ux.grid.GridFilters = function(config){		
 	this.filters = new Ext.util.MixedCollection();
@@ -42,45 +46,42 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 	 * Name of the Ext.data.Store value to be used to store state information.
 	 */
 	stateId: undefined,
+	/**
+	 * @cfg {Boolean} showMenu
+	 * True to show the filter menus
+	 */
+	showMenu: true,
 
 	init: function(grid){
-		this.grid  = grid;
-		
-		this.store = this.grid.getStore();
-		if(this.local){
-			this.store.on('load', function(store){
-				store.filterBy(this.getRecordFilter());
-			}, this);
-		} else {
-			this.store.on('beforeload', this.onBeforeLoad, this);
-		}
-		
-		this.grid.filters = this;
-		
-		this.grid.addEvents({"filterupdate": true});
-		
-		grid.on("render", this.onRender, this);
-		
-		if(Ext.state.Manager && this.stateId){//TODO: Bind to the grids 'beforestatestore' event once it available.
-			var state = Ext.state.Manager.get(this.stateId);
-			if(state) this.applyState(state);
-		}
+    if(grid instanceof Ext.grid.GridPanel){
+      this.grid  = grid;
+      
+      this.store = this.grid.getStore();
+      if(this.local){
+        this.store.on('load', function(store){
+          store.filterBy(this.getRecordFilter());
+        }, this);
+      } else {
+        this.store.on('beforeload', this.onBeforeLoad, this);
+      }
+      
+      this.grid.filters = this;
+      
+      this.grid.addEvents({"filterupdate": true});
+      
+      grid.on("render", this.onRender, this);
+      
+      grid.on("beforestaterestore", this.applyState, this);
+      grid.on("beforestatesave", this.saveState, this);
+      
+    } else if(grid instanceof Ext.PagingToolbar){
+      this.toolbar = grid;
+    }
 	},
-	
+		
 	/** private **/
-	getState: function(){
-		var filters = {};
-		this.filters.each(function(filter){
-			if(filter.active)
-				filters[filter.dataIndex] = filter.getValue();
-		});
-		return {filters: filters};
-	},
-	
-	/** private **/
-	applyState: function(state){
+	applyState: function(grid, state){
 		this.suspendStateStore = true;
-		
 		this.clearFilters();
 		if(state.filters)
 			for(var key in state.filters){
@@ -99,18 +100,32 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 	},
 	
 	/** private **/
+	saveState: function(grid, state){
+		var filters = {};
+		this.filters.each(function(filter){
+			if(filter.active)
+				filters[filter.dataIndex] = filter.getValue();
+		});
+		return state.filters = filters;
+	},
+	
+	/** private **/
 	onRender: function(){
-		var hmenu = this.grid.getView().hmenu;
+		var hmenu;
 		
-		this.sep  = hmenu.addSeparator();
-		this.menu = hmenu.add(new Ext.menu.CheckItem({
-				text: 'Filters',
-				menu: new Ext.menu.Menu()
-			}));
-		this.menu.on('checkchange', this.onCheckChange, this);
-		this.menu.on('beforecheckchange', this.onBeforeCheck, this);
+		if(this.showMenu){
+			hmenu = this.grid.getView().hmenu;
 			
-		hmenu.on('beforeshow', this.onMenu, this);
+			this.sep  = hmenu.addSeparator();
+			this.menu = hmenu.add(new Ext.menu.CheckItem({
+					text: 'Filters',
+					menu: new Ext.menu.Menu()
+				}));
+			this.menu.on('checkchange', this.onCheckChange, this);
+			this.menu.on('beforecheckchange', this.onBeforeCheck, this);
+				
+			hmenu.on('beforeshow', this.onMenu, this);
+		}
 		
 		this.grid.getView().on("refresh", this.onRefresh, this);
 		this.updateColumnHeadings(this.grid.getView());
@@ -140,6 +155,8 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 	
 	/** private **/
 	onStateChange: function(event, filter){
+    if(event == "serialize") return;
+    
 		if(filter == this.getMenuFilter())
 			this.menu.setChecked(filter.active, false);
 			
@@ -149,14 +166,14 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 		var view = this.grid.getView();
 		this.updateColumnHeadings(view);
 			
-		if(Ext.state.Manager && this.stateId && this.suspendStateStore !== true)
-			Ext.state.Manager.set(this.stateId, this.getState());
+		this.grid.saveState();
 			
 		this.grid.fireEvent('filterupdate', this, filter);
 	},
 	
 	/** private **/
 	onBeforeLoad: function(store, options){
+    options.params = options.params || {};
 		this.cleanParams(options.params);		
 		var params = this.buildQuery(this.getFilterData());
 		Ext.apply(options.params, params);
@@ -183,7 +200,7 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 		
 		var hds = view.mainHd.select('td').removeClass(this.filterCls);
 		for(var i=0, len=view.cm.config.length; i<len; i++){
-			filter = this.getFilter(view.cm.config[i].dataIndex);
+			var filter = this.getFilter(view.cm.config[i].dataIndex);
 			if(filter && filter.active)
 				hds.item(i).addClass(this.filterCls);
 		}
@@ -195,7 +212,14 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 			this.grid.store.clearFilter(true);
 			this.grid.store.filterBy(this.getRecordFilter());
 		} else {
-			this.grid.store.reload();
+			this.deferredUpdate.cancel();
+			var store = this.grid.store;
+			if(this.toolbar){
+				var start = this.toolbar.paramNames.start;
+				if(store.lastOptions && store.lastOptions.params && store.lastOptions.params[start])
+					store.lastOptions.params[start] = 0;
+			}
+			store.reload();
 		}
 	},
 	
@@ -319,11 +343,6 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 	 * @return {Class}
 	 */
 	getFilterClass: function(type){
-            try{
 		return Ext.ux.grid.filter[type.substr(0, 1).toUpperCase() + type.substr(1) + 'Filter'];
-            } catch(e)
-            {
-   	       return Ext.ux.grid.filter.StringFilter;                
-            }
 	}
 });

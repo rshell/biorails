@@ -1,10 +1,7 @@
 Ext.namespace("Ext.ux.grid.filter");
 Ext.ux.grid.filter.Filter = function(config){
 	Ext.apply(this, config);
-	
-	this.menu = new Ext.menu.Menu();
-	this.init();
-	
+		
 	this.events = {
 		/**
 		 * @event activate
@@ -23,12 +20,23 @@ Ext.ux.grid.filter.Filter = function(config){
 		 * Fires when a filter configuration has changed
 		 * @param {Ext.ux.grid.filter.Filter} this
 		 */
-		'update': true
+		'update': true,
+		/**
+		 * @event serialize
+		 * Fires after the serialization process. Use this to apply additional parameters to the serialized data.
+		 * @param {Array/Object} data A map or collection of maps representing the current filter configuration.
+		 * @param {Ext.ux.grid.filter.Filter} filter The filter being serialized.
+		 **/
+		'serialize': true
 	};
+	Ext.ux.grid.filter.Filter.superclass.constructor.call(this);
+	
+	this.menu = new Ext.menu.Menu();
+	this.init();
 	
 	if(config && config.value){
 		this.setValue(config.value);
-		this.setActive(true, true);
+		this.setActive(config.active !== false, true);
 		delete config.value;
 	}
 };

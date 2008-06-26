@@ -1,8 +1,11 @@
-Ext.ux.grid.filter.BooleanFilter = Ext.extend(Ext.ux.grid.filter.Filter, {	
+Ext.ux.grid.filter.BooleanFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
+  defaultValue: false,
+
 	init: function(){
+    var gId = Ext.id();
 		this.options = [
-			new Ext.menu.CheckItem({text: "Yes", group: 'boolean'}),
-			new Ext.menu.CheckItem({text: "No", group: 'boolean', checked: true})];
+			new Ext.menu.CheckItem({text: "Yes", group: gId, checked: this.defaultValue === true}),
+			new Ext.menu.CheckItem({text: "No", group: gId, checked: this.defaultValue === false})];
 		
 		this.menu.add(this.options[0], this.options[1]);
 		
@@ -30,7 +33,9 @@ Ext.ux.grid.filter.BooleanFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	},
 	
 	serialize: function(){
-		return {type: 'boolean', value: this.getValue()};
+		var args = {type: 'boolean', value: this.getValue()};
+		this.fireEvent('serialize', args, this);
+		return args;
 	},
 	
 	validateRecord: function(record){

@@ -86,7 +86,7 @@ Biorails.ReportDef = function(report_id){
       return '<div class="x-grid3-check-col'+ checkState +' x-grid3-cc-'+this.id+'"> </div>';
     };
     function renderId(val){
-      return '<img alt="remove" src="/images/action/cancel.png"/>';
+      return '<img alt="remove" src="/images/enterprise/actions/cancel.png"/>';
     };
   
     function cellClicked( grid, rowIndex,  columnIndex, event){
@@ -155,11 +155,11 @@ Biorails.ReportDef = function(report_id){
               {name: 'name'},
               {name: 'label'},
               {name: 'filter'},
-              {name: 'is_filterable'},
+              {name: 'is_filterible'},
               {name: 'is_visible'},
               {name: 'is_sortable'},
               {name: 'sort_num'},
-              {name: 'sort_dir'}]
+              {name: 'sort_direction'}]
            );
         }
     };
@@ -208,7 +208,7 @@ Biorails.ReportDef = function(report_id){
                 width:45, 
                 renderer: renderBoolean,
                 editor: new Ext.form.Checkbox(),
-                dataIndex:'is_filterable'
+                dataIndex:'is_filterible'
               },
               { header: "Filter",    
                 width: 120, 
@@ -230,7 +230,7 @@ Biorails.ReportDef = function(report_id){
                   transform:'sort_dir_select',
                   lazyRender:true,
                   listClass: 'x-combo-list-small' }), 
-                dataIndex: 'sort_dir'},
+                dataIndex: 'sort_direction'},
               { id:'Id', 
                 header: "Remove", 
                 width: 20, 
@@ -246,18 +246,27 @@ Biorails.ReportDef = function(report_id){
     };
 
     function setupGrid(){
-         grid = new Ext.grid.EditorGridPanel({
+         options = {
             renderTo: 'column-grid',
             store: column_store,        
             cm:    column_model ,
             viewConfig: {  forceFit: true  },
             sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
             width:'auto',
-            height:300,
+            autoHeight: true,
+            clicksToEdit: 1,
+	    forceFit: true,
             frame:true,
             title:'Drag columns from tree to add to report',
-            iconCls:'icon-grid'
-         });
+            iconCls:'icon-grid'		 	
+         };
+         if (Ext.isIE6) {
+             options['width']=800
+         } else { 
+                 options['autoWidth']=true
+                 options['autoScroll']=false
+         };
+         grid = new Ext.grid.EditorGridPanel(options);
          grid.store.load();
          grid.addListener('afteredit', updateRow);
          grid.addListener('cellclick', cellClicked);
@@ -268,54 +277,3 @@ Biorails.ReportDef = function(report_id){
      setupColumns();
      setupGrid();       
 };  
-
-
-//---------------------------------------- Model Grid ----------------------------------------------------------
-Ext.namespace("Biorails.DataGrid");
-
-/**
-Ext.namespace("Biorails.DataGrid");
- * Dynamic DataGrid linked back to a rails controller driven query
- *
- * id: Grid id
- * title: Panel title
- * url: Name of controller url call
- * fields: 
- * filters:
- * columns: 
- */
-Biorails.DataGrid.Folder = function(config){
-      
-     var _model_store = 
-                    
-     Biorails.DataGrid.Folder.superclass.constructor.call(this,{
-                        border:false,
-                        autoscroll: true,
-                        autoDestroy: true,  
-                        closable:true,
-                        title: config.title,
-                        id: config.id,
-                        ds: new  Ext.data.GroupingStore({
-                        remoteSort: true,
-                        lastOptions: {params:{start: 0, limit: 25}},
-                        sortInfo: {field: 'id', direction: 'ASC'},
-                        proxy: new Ext.data.HttpProxy({ url: '/ext/'+config.controller, method: 'get' }),
-                        reader: new Ext.data.JsonReader({
-                        root: 'items', totalProperty: 'total'}, 
-                        config.fields  )
-                        }),
-                        cm: new Ext.grid.ColumnModel(config.columns),
-                        view: new Ext.grid.GroupingView(),
-                        viewConfig: {forceFit:true},
-                        plugins: new Ext.ux.grid.GridFilters( config.filters ),
- 		        bbar: new Ext.PagingToolbar({
-                                pageSize: 25,
-                                store: this.store,
-                                displayInfo: true,
-                                displayMsg: 'Displaying {0} - {1} of {2}',
-                                emptyMsg: "No results to display"
-                                                    })
-     });
-};
-
-Ext.extend(Biorails.DataGrid,  Ext.grid.GridPanel);

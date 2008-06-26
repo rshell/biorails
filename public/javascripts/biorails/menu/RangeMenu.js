@@ -26,10 +26,10 @@ Ext.ux.menu.RangeMenu = function(){
 			}
 			
 			if(field == fields.eq){
-				fields.gt.setValue('');
-				fields.lt.setValue('');
+				fields.gt.setValue(null);
+				fields.lt.setValue(null);
 			} else {
-				fields.eq.setValue('');
+				fields.eq.setValue(null);
 			}
 			
 			this.updateTask.delay(this.updateBuffer);

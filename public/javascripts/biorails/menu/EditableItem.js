@@ -6,8 +6,9 @@ Ext.ux.menu.EditableItem = Ext.extend(Ext.menu.BaseItem, {
     initComponent: function(){
     	this.addEvents({keyup: true});
     	
-		this.editor = this.editor || new Ext.form.TextField(this.initialConfig);
-		this.editor.setValue(this.text || '');
+	this.editor = this.editor || new Ext.form.TextField();
+	if(this.text)
+		this.editor.setValue(this.text);
     },
     
     onRender: function(container){

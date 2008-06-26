@@ -1,17 +1,23 @@
 Ext.ux.grid.filter.DateFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	dateFormat: 'm/d/Y',
+	pickerOpts: {},
 	
 	init: function(){
+		var opts = Ext.apply(this.pickerOpts, {
+			minDate: this.minDate, 
+			maxDate: this.maxDate, 
+			format:  this.dateFormat
+		});
 		var dates = this.dates = {
-			'before': new Ext.menu.CheckItem({text: "Before", menu: new Ext.menu.DateMenu()}),
-			'after':  new Ext.menu.CheckItem({text: "After", menu: new Ext.menu.DateMenu()}),
-			'on':     new Ext.menu.CheckItem({text: "On", menu: new Ext.menu.DateMenu()})};
+			'before': new Ext.menu.CheckItem({text: "Before", menu: new Ext.menu.DateMenu(opts)}),
+			'after':  new Ext.menu.CheckItem({text: "After", menu: new Ext.menu.DateMenu(opts)}),
+			'on':     new Ext.menu.CheckItem({text: "On", menu: new Ext.menu.DateMenu(opts)})};
 				
 		this.menu.add(dates.before, dates.after, "-", dates.on);
 		
 		for(var key in dates){
 			var date = dates[key];
-			date.menu.on('select', function(date, picker, value){
+			date.menu.on('select', function(date, menuItem, value, picker){
 				date.setChecked(true);
 				
 				if(date == dates.on){
@@ -20,15 +26,14 @@ Ext.ux.grid.filter.DateFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 				} else {
 					dates.on.setChecked(false, true);
 					
-					/*
-					dates.before.menu.picker.minDate = 
-						dates.after.checked ? this.getFieldValue('after') : null;
-					dates.after.menu.picker.maxDate = 
-						dates.before.checked ? this.getFieldValue('before') : null;*/
+					if(date == dates.after && dates.before.menu.picker.value < value)
+            dates.before.setChecked(false, true);
+          else if (date == dates.before && dates.after.menu.picker.value > value)
+            dates.after.setChecked(false, true);
 				}
 				
 				this.fireEvent("update", this);
-			}.createDelegate(this, [date]));
+			}.createDelegate(this, [date], 0));
 			
 			date.on('checkchange', function(){
 				this.setActive(this.isActivatable());
@@ -70,12 +75,13 @@ Ext.ux.grid.filter.DateFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	serialize: function(){
 		var args = [];
 		if(this.dates.before.checked)
-			args = [{type: 'date', comparison: 'lt',  value: this.getFieldValue('before').format(this.dateFormat)}];
+			args = [{type: 'date', comparison: 'lt', value: this.getFieldValue('before').format(this.dateFormat)}];
 		if(this.dates.after.checked)
 			args.push({type: 'date', comparison: 'gt', value: this.getFieldValue('after').format(this.dateFormat)});
 		if(this.dates.on.checked)
-			args = {type: 'date', comparison: 'eq',  value: this.getFieldValue('on').format(this.dateFormat)};
+			args = {type: 'date', comparison: 'eq', value: this.getFieldValue('on').format(this.dateFormat)};
 
+    this.fireEvent('serialize', args, this);
 		return args;
 	},
 	

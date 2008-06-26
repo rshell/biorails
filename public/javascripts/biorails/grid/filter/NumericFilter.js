@@ -29,6 +29,7 @@ Ext.ux.grid.filter.NumericFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 		for(var key in values)
 			args.push({type: 'numeric', comparison: key, value: values[key]});
 
+		this.fireEvent('serialize', args, this);
 		return args;
 	},
 	

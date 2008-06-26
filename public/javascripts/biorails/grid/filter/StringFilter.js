@@ -3,8 +3,7 @@ Ext.ux.grid.filter.StringFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	icon: '/img/small_icons/famfamfam/find.png',
 	
 	init: function(){
-		var value = this.value = new Ext.ux.menu.EditableItem(
-				{icon: this.icon});
+		var value = this.value = new Ext.ux.menu.EditableItem({icon: this.icon});
 		value.on('keyup', this.onKeyUp, this);
 		this.menu.add(value);
 		
@@ -41,15 +40,17 @@ Ext.ux.grid.filter.StringFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	},
 	
 	serialize: function(){
-		return {type: 'string', value: this.getValue()};
+		var args = {type: 'string', value: this.getValue()};
+		this.fireEvent('serialize', args, this);
+		return args;
 	},
 	
 	validateRecord: function(record){
 		var val = record.get(this.dataIndex);
 		
 		if(typeof val != "string")
-			return false;
+			return this.getValue().length == 0;
 			
-		return val.indexOf(this.getValue()) > -1;
+		return val.toLowerCase().indexOf(this.getValue().toLowerCase()) > -1;
 	}
 });

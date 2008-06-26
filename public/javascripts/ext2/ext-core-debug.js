@@ -1,6 +1,6 @@
 /*
- * Ext JS Library 2.0
- * Copyright(c) 2006-2007, Ext JS, LLC.
+ * Ext JS Library 2.0.2
+ * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
  * http://extjs.com/license
@@ -13,12 +13,17 @@ Ext.DomHelper = function(){
     var tableRe = /^table|tbody|tr|td$/i;
     
     
-    
     var createHtml = function(o){
         if(typeof o == 'string'){
             return o;
         }
         var b = "";
+        if (Ext.isArray(o)) {
+            for (var i = 0, l = o.length; i < l; i++) {
+                b += createHtml(o[i]);
+            }
+            return b;
+        }
         if(!o.tag){
             o.tag = "div";
         }
@@ -57,15 +62,8 @@ Ext.DomHelper = function(){
             b += ">";
             var cn = o.children || o.cn;
             if(cn){
-                if(cn instanceof Array){
-                    for(var i = 0, len = cn.length; i < len; i++) {
-                        b += createHtml(cn[i], b);
-                    }
-                }else{
-                    b += createHtml(cn, b);
-                }
-            }
-            if(o.html){
+                b += createHtml(cn);
+            } else if(o.html){
                 b += o.html;
             }
             b += "</" + o.tag + ">";
@@ -76,30 +74,33 @@ Ext.DomHelper = function(){
     
     
     var createDom = function(o, parentNode){
-        var el = document.createElement(o.tag||'div');
-        var useSet = el.setAttribute ? true : false; 
-        for(var attr in o){
-            if(attr == "tag" || attr == "children" || attr == "cn" || attr == "html" || attr == "style" || typeof o[attr] == "function") continue;
-            if(attr=="cls"){
-                el.className = o["cls"];
-            }else{
-                if(useSet) el.setAttribute(attr, o[attr]);
-                else el[attr] = o[attr];
+        var el;
+        if (Ext.isArray(o)) {                       
+            el = document.createDocumentFragment(); 
+            for(var i = 0, l = o.length; i < l; i++) {
+                createDom(o[i], el);
             }
-        }
-        Ext.DomHelper.applyStyles(el, o.style);
-        var cn = o.children || o.cn;
-        if(cn){
-            if(cn instanceof Array){
-                for(var i = 0, len = cn.length; i < len; i++) {
-                    createDom(cn[i], el);
+        } else if (typeof o == "string)") {         
+            el = document.createTextNode(o);
+        } else {
+            el = document.createElement(o.tag||'div');
+            var useSet = !!el.setAttribute; 
+            for(var attr in o){
+                if(attr == "tag" || attr == "children" || attr == "cn" || attr == "html" || attr == "style" || typeof o[attr] == "function") continue;
+                if(attr=="cls"){
+                    el.className = o["cls"];
+                }else{
+                    if(useSet) el.setAttribute(attr, o[attr]);
+                    else el[attr] = o[attr];
                 }
-            }else{
-                createDom(cn, el);
             }
-        }
-        if(o.html){
-            el.innerHTML = o.html;
+            Ext.DomHelper.applyStyles(el, o.style);
+            var cn = o.children || o.cn;
+            if(cn){
+                createDom(cn, el);
+            } else if(o.html){
+                el.innerHTML = o.html;
+            }
         }
         if(parentNode){
            parentNode.appendChild(el);
@@ -341,7 +342,7 @@ Ext.DomHelper = function(){
 
 Ext.Template = function(html){
     var a = arguments;
-    if(html instanceof Array){
+    if(Ext.isArray(html)){
         html = html.join("");
     }else if(a.length > 1){
         var buf = [];
@@ -934,7 +935,7 @@ Ext.DomQuery = function(){
             if(typeof el == "string"){
                 el = document.getElementById(el);
             }
-            var isArray = (el instanceof Array);
+            var isArray = Ext.isArray(el);
             var result = Ext.DomQuery.filter(isArray ? el : [el], ss);
             return isArray ? (result.length == el.length) : (result.length > 0);
         },
@@ -2056,7 +2057,6 @@ var D = Ext.lib.Dom;
 var E = Ext.lib.Event;
 var A = Ext.lib.Anim;
 
-
 var propCache = {};
 var camelRe = /(-[a-z])/gi;
 var camelFn = function(m, a){ return a.charAt(1).toUpperCase(); };
@@ -2065,12 +2065,10 @@ var view = document.defaultView;
 Ext.Element = function(element, forceNew){
     var dom = typeof element == "string" ?
             document.getElementById(element) : element;
-    if(!dom){ 
-        return null;
+    if(!dom){         return null;
     }
     var id = dom.id;
-    if(forceNew !== true && id && Ext.Element.cache[id]){ 
-        return Ext.Element.cache[id];
+    if(forceNew !== true && id && Ext.Element.cache[id]){         return Ext.Element.cache[id];
     }
 
     
@@ -2162,8 +2160,7 @@ El.prototype = {
         return anim;
     },
 
-    
-    preanim : function(a, i){
+        preanim : function(a, i){
         return !a[i] ? false : (typeof a[i] == "object" ? a[i]: {duration: a[i+1], callback: a[i+2], easing: a[i+3]});
     },
 
@@ -2210,7 +2207,6 @@ El.prototype = {
             c.scrollTop = b-ch;
         }
         c.scrollTop = c.scrollTop; 
-
         if(hscroll !== false){
 			if(el.offsetWidth > c.clientWidth || l < cl){
                 c.scrollLeft = l;
@@ -2222,8 +2218,7 @@ El.prototype = {
         return this;
     },
 
-    
-    scrollChildIntoView : function(child, hscroll){
+        scrollChildIntoView : function(child, hscroll){
         Ext.fly(child, '_scrollChildIntoView').scrollIntoView(this, hscroll);
     },
 
@@ -2231,18 +2226,15 @@ El.prototype = {
     autoHeight : function(animate, duration, onComplete, easing){
         var oldHeight = this.getHeight();
         this.clip();
-        this.setHeight(1); 
-        setTimeout(function(){
-            var height = parseInt(this.dom.scrollHeight, 10); 
-            if(!animate){
+        this.setHeight(1);         setTimeout(function(){
+            var height = parseInt(this.dom.scrollHeight, 10);             if(!animate){
                 this.setHeight(height);
                 this.unclip();
                 if(typeof onComplete == "function"){
                     onComplete();
                 }
             }else{
-                this.setHeight(oldHeight); 
-                this.setHeight(height, animate, duration, function(){
+                this.setHeight(oldHeight);                 this.setHeight(height, animate, duration, function(){
                     this.unclip();
                     if(typeof onComplete == "function") onComplete();
                 }.createDelegate(this), easing);
@@ -2323,8 +2315,7 @@ El.prototype = {
                 this.dom.style.visibility = visible ? "visible" : "hidden";
             }
         }else{
-            
-            var dom = this.dom;
+                        var dom = this.dom;
             var visMode = this.visibilityMode;
             if(visible){
                 this.setOpacity(.01);
@@ -2384,7 +2375,7 @@ El.prototype = {
 
     
     addClass : function(className){
-        if(className instanceof Array){
+        if(Ext.isArray(className)){
             for(var i = 0, len = className.length; i < len; i++) {
             	this.addClass(className[i]);
             }
@@ -2414,7 +2405,7 @@ El.prototype = {
         if(!className || !this.dom.className){
             return this;
         }
-        if(className instanceof Array){
+        if(Ext.isArray(className)){
             for(var i = 0, len = className.length; i < len; i++) {
             	this.removeClass(className[i]);
             }
@@ -2432,8 +2423,7 @@ El.prototype = {
         return this;
     },
 
-    
-    classReCache: {},
+        classReCache: {},
 
     
     toggleClass : function(className){
@@ -2714,8 +2704,7 @@ El.prototype = {
         return asNumber ? parseInt(this.dom.value, 10) : this.dom.value;
     },
 
-    
-    adjustWidth : function(width){
+        adjustWidth : function(width){
         if(typeof width == "number"){
             if(this.autoBoxAdjust && !this.isBorderBox()){
                width -= (this.getBorderWidth("lr") + this.getPadding("lr"));
@@ -2727,8 +2716,7 @@ El.prototype = {
         return width;
     },
 
-    
-    adjustHeight : function(height){
+        adjustHeight : function(height){
         if(typeof height == "number"){
            if(this.autoBoxAdjust && !this.isBorderBox()){
                height -= (this.getBorderWidth("tb") + this.getPadding("tb"));
@@ -2764,8 +2752,7 @@ El.prototype = {
 
     
      setSize : function(width, height, animate){
-        if(typeof width == "object"){ 
-            height = width.height; width = width.width;
+        if(typeof width == "object"){             height = width.height; width = width.width;
         }
         width = this.adjustWidth(width); height = this.adjustHeight(height);
         if(!animate || !A){
@@ -2944,17 +2931,22 @@ El.prototype = {
         return this;
     },
 
-    
-    fixDisplay : function(){
+        fixDisplay : function(){
         if(this.getStyle("display") == "none"){
             this.setStyle("visibility", "hidden");
-            this.setStyle("display", this.originalDisplay); 
-            if(this.getStyle("display") == "none"){ 
-                this.setStyle("display", "block");
+            this.setStyle("display", this.originalDisplay);             if(this.getStyle("display") == "none"){                 this.setStyle("display", "block");
             }
         }
     },
 
+    	setOverflow : function(v){
+    	if(v=='auto' && Ext.isMac && Ext.isGecko){     		this.dom.style.overflow = 'hidden';
+        	(function(){this.dom.style.overflow = 'auto';}).defer(1, this);
+    	}else{
+    		this.dom.style.overflow = v;
+    	}
+	},
+	
     
      setLeftTop : function(left, top){
         this.dom.style.left = this.addUnits(left);
@@ -3020,9 +3012,7 @@ El.prototype = {
 
     
     getAnchorXY : function(anchor, local, s){
-        
-        
-
+                
         var w, h, vp = false;
         if(!s){
             var d = this.dom;
@@ -3081,8 +3071,7 @@ El.prototype = {
             var sc = this.getScroll();
             return [x + sc.left, y + sc.top];
         }
-        
-        var o = this.getXY();
+                var o = this.getXY();
         return [x+o[0], y+o[1]];
     },
 
@@ -3093,8 +3082,7 @@ El.prototype = {
             throw "Element.alignToXY with an element that doesn't exist";
         }
         var d = this.dom;
-        var c = false; 
-        var p1 = "", p2 = "";
+        var c = false;         var p1 = "", p2 = "";
         o = o || [0,0];
 
         if(!p){
@@ -3111,24 +3099,17 @@ El.prototype = {
         }
         p1 = m[1]; p2 = m[2]; c = !!m[3];
 
-        
-        
-        var a1 = this.getAnchorXY(p1, true);
+                        var a1 = this.getAnchorXY(p1, true);
         var a2 = el.getAnchorXY(p2, false);
 
         var x = a2[0] - a1[0] + o[0];
         var y = a2[1] - a1[1] + o[1];
 
         if(c){
-            
-            var w = this.getWidth(), h = this.getHeight(), r = el.getRegion();
-            
-            var dw = D.getViewWidth()-5, dh = D.getViewHeight()-5;
+                        var w = this.getWidth(), h = this.getHeight(), r = el.getRegion();
+                        var dw = D.getViewWidth()-5, dh = D.getViewHeight()-5;
 
-            
-            
-            
-            var p1y = p1.charAt(0), p1x = p1.charAt(p1.length-1);
+                                                var p1y = p1.charAt(0), p1x = p1.charAt(p1.length-1);
            var p2y = p2.charAt(0), p2x = p2.charAt(p2.length-1);
            var swapY = ((p1y=="t" && p2y=="b") || (p1y=="b" && p2y=="t"));
            var swapX = ((p1x=="r" && p2x=="l") || (p1x=="l" && p2x=="r"));
@@ -3153,8 +3134,7 @@ El.prototype = {
         return [x,y];
     },
 
-    
-    getConstrainToXY : function(){
+        getConstrainToXY : function(){
         var os = {top:0, left:0, bottom:0, right: 0};
 
         return function(el, local, offsets, proposedXY){
@@ -3190,11 +3170,9 @@ El.prototype = {
             var x = xy[0], y = xy[1];
             var w = this.dom.offsetWidth, h = this.dom.offsetHeight;
 
-            
-            var moved = false;
+                        var moved = false;
 
-            
-            if((x + w) > vr){
+                        if((x + w) > vr){
                 x = vr - w;
                 moved = true;
             }
@@ -3202,8 +3180,7 @@ El.prototype = {
                 y = vb - h;
                 moved = true;
             }
-            
-            if(x < vx){
+                        if(x < vx){
                 x = vx;
                 moved = true;
             }
@@ -3215,8 +3192,7 @@ El.prototype = {
         };
     }(),
 
-    
-    adjustForConstraints : function(xy, parent, offsets){
+        adjustForConstraints : function(xy, parent, offsets){
         return this.getConstrainToXY(parent || document, false, offsets, xy) ||  xy;
     },
 
@@ -3239,8 +3215,7 @@ El.prototype = {
             Ext.EventManager.on(window, 'scroll', action, this,
                 {buffer: tm == 'number' ? monitorScroll : 50});
         }
-        action.call(this); 
-        return this;
+        action.call(this);         return this;
     },
     
     clearOpacity : function(){
@@ -3431,8 +3406,7 @@ El.prototype = {
          }
     },
 
-    
-    addStyles : function(sides, styles){
+        addStyles : function(sides, styles){
         var val = 0, v, w;
         for(var i = 0, len = sides.length; i < len; i++){
             v = this.getStyle(styles[sides.charAt(i)]);
@@ -3485,8 +3459,7 @@ El.prototype = {
             mm.setDisplayed(true);
             mm.center(this);
         }
-        if(Ext.isIE && !(Ext.isIE7 && Ext.isStrict) && this.getStyle('height') == 'auto'){ 
-            this._mask.setSize(this.dom.clientWidth, this.getHeight());
+        if(Ext.isIE && !(Ext.isIE7 && Ext.isStrict) && this.getStyle('height') == 'auto'){             this._mask.setSize(this.dom.clientWidth, this.getHeight());
         }
         return this._mask;
     },
@@ -3591,7 +3564,7 @@ El.prototype = {
                 e.preventDefault();
             }
         };
-        if(eventName instanceof Array){
+        if(Ext.isArray(eventName)){
             for(var i = 0, len = eventName.length; i < len; i++){
                  this.on(eventName[i], fn);
             }
@@ -3678,8 +3651,7 @@ El.prototype = {
     
     insertFirst: function(el, returnDom){
         el = el || {};
-        if(typeof el == 'object' && !el.nodeType){ 
-            return this.createChild(el, this.dom.firstChild, returnDom);
+        if(typeof el == 'object' && !el.nodeType && !el.dom){             return this.createChild(el, this.dom.firstChild, returnDom);
         }else{
             el = Ext.getDom(el);
             this.dom.insertBefore(el, this.dom.firstChild);
@@ -3690,7 +3662,7 @@ El.prototype = {
     
     insertSibling: function(el, where, returnDom){
         var rt;
-        if(el instanceof Array){
+        if(Ext.isArray(el)){
             for(var i = 0, len = el.length; i < len; i++){
                 rt = this.insertSibling(el[i], where, returnDom);
             }
@@ -3700,8 +3672,7 @@ El.prototype = {
         el = el || {};
         var refNode = where == 'before' ? this.dom : this.dom.nextSibling;
 
-        if(typeof el == 'object' && !el.nodeType){ 
-            if(where == 'after' && !this.dom.nextSibling){
+        if(typeof el == 'object' && !el.nodeType && !el.dom){             if(where == 'after' && !this.dom.nextSibling){
                 rt = Ext.DomHelper.append(this.dom.parentNode, el, !returnDom);
             }else{
                 rt = Ext.DomHelper[where == 'after' ? 'insertAfter' : 'insertBefore'](this.dom, el, !returnDom);
@@ -3736,8 +3707,7 @@ El.prototype = {
 
     
     replaceWith: function(el){
-        if(typeof el == 'object' && !el.nodeType){ 
-            el = this.insertSibling(el, 'before');
+        if(typeof el == 'object' && !el.nodeType && !el.dom){             el = this.insertSibling(el, 'before');
         }else{
             el = Ext.getDom(el);
             this.dom.parentNode.insertBefore(el, this.dom);
@@ -3778,7 +3748,7 @@ El.prototype = {
     
     addKeyListener : function(key, fn, scope){
         var config;
-        if(typeof key != "object" || key instanceof Array){
+        if(typeof key != "object" || Ext.isArray(key)){
             config = {
                 key: key,
                 fn: fn,
@@ -3873,7 +3843,7 @@ El.prototype = {
 
     
     translatePoints : function(x, y){
-        if(typeof x == 'object' || x instanceof Array){
+        if(typeof x == 'object' || Ext.isArray(x)){
             y = x[1]; x = x[0];
         }
         var p = this.getStyle('position');
@@ -3972,8 +3942,7 @@ var ep = El.prototype;
 
 
 ep.on = ep.addListener;
-    
-ep.mon = ep.addListener;
+    ep.mon = ep.addListener;
 
 ep.getUpdateManager = ep.getUpdater;
 
@@ -3983,9 +3952,7 @@ ep.un = ep.removeListener;
 
 ep.autoBoxAdjust = true;
 
-
 El.unitPattern = /\d+(px|em|%|en|ex|pt|in|cm|mm|pc)$/i;
-
 
 El.addUnits = function(v, defaultUnit){
     if(v === "" || v == "auto"){
@@ -3999,7 +3966,6 @@ El.addUnits = function(v, defaultUnit){
     }
     return v;
 };
-
 
 El.boxMarkup = '<div class="{0}-tl"><div class="{0}-tr"><div class="{0}-tc"></div></div></div><div class="{0}-ml"><div class="{0}-mr"><div class="{0}-mc"></div></div></div><div class="{0}-bl"><div class="{0}-br"><div class="{0}-bc"></div></div></div>';
 
@@ -4022,8 +3988,7 @@ var docEl;
 El.get = function(el){
     var ex, elm, id;
     if(!el){ return null; }
-    if(typeof el == "string"){ 
-        if(!(elm = document.getElementById(el))){
+    if(typeof el == "string"){         if(!(elm = document.getElementById(el))){
             return null;
         }
         if(ex = El.cache[el]){
@@ -4032,8 +3997,7 @@ El.get = function(el){
             ex = El.cache[el] = new El(elm);
         }
         return ex;
-    }else if(el.tagName){ 
-        if(!(id = el.id)){
+    }else if(el.tagName){         if(!(id = el.id)){
             id = Ext.id(el);
         }
         if(ex = El.cache[id]){
@@ -4044,18 +4008,14 @@ El.get = function(el){
         return ex;
     }else if(el instanceof El){
         if(el != docEl){
-            el.dom = document.getElementById(el.id) || el.dom; 
-                                                          
-            El.cache[el.id] = el; 
-        }
+            el.dom = document.getElementById(el.id) || el.dom;                                                                       El.cache[el.id] = el;         }
         return el;
     }else if(el.isComposite){
         return el;
-    }else if(el instanceof Array){
+    }else if(Ext.isArray(el)){
         return El.select(el);
     }else if(el == document){
-        
-        if(!docEl){
+                if(!docEl){
             var f = function(){};
             f.prototype = El.prototype;
             docEl = new f();
@@ -4066,7 +4026,6 @@ El.get = function(el){
     return null;
 };
 
-
 El.uncache = function(el){
     for(var i = 0, a = arguments, len = a.length; i < len; i++) {
         if(a[i]){
@@ -4075,9 +4034,6 @@ El.uncache = function(el){
     }
 };
 
-
-
-
 El.garbageCollect = function(){
     if(!Ext.enableGarbageCollector){
         clearInterval(El.collectorThread);
@@ -4085,24 +4041,7 @@ El.garbageCollect = function(){
     }
     for(var eid in El.cache){
         var el = El.cache[eid], d = el.dom;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        if(!d || !d.parentNode || (!d.offsetParent && !document.getElementById(eid))){
+                                                                                                                                                if(!d || !d.parentNode || (!d.offsetParent && !document.getElementById(eid))){
             delete El.cache[eid];
             if(d && Ext.enableListenerCollection){
                 E.purgeElement(d);
@@ -4115,7 +4054,6 @@ El.collectorThreadId = setInterval(El.garbageCollect, 30000);
 var flyFn = function(){};
 flyFn.prototype = El.prototype;
 var _cls = new flyFn();
-
 
 El.Flyweight = function(dom){
     this.dom = dom;
@@ -4143,7 +4081,6 @@ El.fly = function(el, named){
 Ext.get = El.get;
 
 Ext.fly = El.fly;
-
 
 var noBoxAdjust = Ext.isStrict ? {
     select:1
@@ -4926,7 +4863,7 @@ Ext.CompositeElement.prototype = {
 
     
     removeElement : function(el, removeDom){
-        if(el instanceof Array){
+        if(Ext.isArray(el)){
             for(var i = 0, len = el.length; i < len; i++){
                 this.removeElement(el[i]);
             }
@@ -4988,7 +4925,7 @@ Ext.CompositeElementLite = function(els){
 Ext.extend(Ext.CompositeElementLite, Ext.CompositeElement, {
     addElements : function(els){
         if(els){
-            if(els instanceof Array){
+            if(Ext.isArray(els)){
                 this.elements = this.elements.concat(els);
             }else{
                 var yels = this.elements;
@@ -5153,7 +5090,7 @@ Ext.extend(Ext.data.Connection, Ext.util.Observable, {
                 failure: this.handleFailure,
                 scope: this,
                 argument: {options: o},
-                timeout : this.timeout
+                timeout : o.timeout || this.timeout
             };
 
             var method = o.method||this.method||(p ? "POST" : "GET");

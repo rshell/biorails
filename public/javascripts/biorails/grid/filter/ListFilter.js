@@ -127,7 +127,9 @@ Ext.ux.grid.filter.ListFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	},
 	
 	serialize: function(){
-		return {type: 'list', value: this.phpMode ? this.value.join(',') : this.value};
+    var args = {type: 'list', value: this.phpMode ? this.value.join(',') : this.value};
+    this.fireEvent('serialize', args, this);
+		return args;
 	},
 	
 	validateRecord: function(record){
