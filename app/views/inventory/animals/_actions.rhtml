@@ -1,0 +1,10 @@
+<%=   render :partial =>'menu/default_left_menu' %>
+  <div>
+    <span class='menu'>
+      <b>  Animals </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-list'>List</b>",  :action => 'list' %>
+      <%= link_to "<b class='icon icon-new'>Request</b>",  "#{SystemSetting.animal_server}animate_request_animals.pl?step=1,2",:popup=> true %>
+    </div>
+  </div>

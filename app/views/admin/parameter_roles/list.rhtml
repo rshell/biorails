@@ -4,20 +4,38 @@
 
 <h1 class="icon icon-parameter_role">Parameter Roles</h1>
 <p>
-Roles for partitioning of parameter types by styles of usage in a given content.
+  Roles for partitioning of parameter types by styles
+  of usage in a given context.
 </p>
 <table class="report">
   <tr>
-    <th>name</th>
-    <th>Description</th>
-    <th>Action</th>
+    <th>
+      <b class='icon icon-parameter_role'>
+        Name
+      </b>
+    </th>
+    <th>
+      <b class='icon icon-description'>
+        Description
+      </b>
+    </th>
+      <th>
+        <b class='icon icon-action'>
+          Action
+        </b>
+      </th>
   </tr>
-  
+
 <% for parameter_role in @parameter_roles %>
-  <tr>
-    <td><%= link_to parameter_role.name,parameter_role_url( :action => 'show', :id => parameter_role) %></td>
+  <tr class="<%= cycle('odd', 'even') %>">
+      <td><p class='icon icon-<%=parameter_role.name%>'>
+      <%= link_to parameter_role.name, parameter_role_url( :action => 'show', :id => parameter_role) %>
+    </td>
     <td><%=h parameter_role.description%></td>
-    <td><%= link_to 'edit',parameter_role_url( :action => 'edit', :id => parameter_role) %></td>
+      <td><p class='icon icon-edit'>
+            <%= link_to "Edit",parameter_role_url( :action => 'edit', :id => parameter_role) %>
+          </p>
+      </td>
   </tr>
 <% end %>
 <tr>
@@ -25,7 +43,7 @@ Roles for partitioning of parameter types by styles of usage in a given content.
 </td>
 </tr>
 </table>
-<%= will_paginate @parameter_roles %>    
+<%= will_paginate @parameter_roles %>
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

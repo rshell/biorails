@@ -1,0 +1,21 @@
+<div id='<%= @project_folder.dom_id %>'>
+</div>
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+    var el = "<%= @project_folder.dom_id%>";
+    var panel = new Biorails.Document({
+                    folder_id: <%= @project_folder.id %>,
+                    layout: 'fit',
+                    border:true,
+                    width: Biorails.getWidth(),
+                    height: Biorails.getHeight(),
+                    autoShow: true,
+                    autoScroll: true,
+                    autoDestroy: true,
+                    shim: true,
+                    monitorResize: true
+                });
+   panel.render(el)             
+ });
+</script>

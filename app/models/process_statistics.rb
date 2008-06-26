@@ -1,18 +1,18 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: process_statistics
 #
-#  id                  :integer(11)   default(0), not null, primary key
-#  study_parameter_id  :integer(11)   
-#  protocol_version_id :integer(11)   
-#  parameter_id        :integer(11)   
-#  parameter_role_id   :integer(11)   
-#  parameter_type_id   :integer(11)   
+#  id                  :integer(11)   not null, primary key
+#  assay_parameter_id  :integer(11)   not null
+#  protocol_version_id :integer(11)   not null
+#  parameter_id        :integer(11)   not null
+#  parameter_role_id   :integer(11)   not null
+#  parameter_type_id   :integer(11)   not null
 #  avg_values          :float         
 #  stddev_values       :float         
-#  num_values          :integer(20)   default(0), not null
-#  num_unique          :integer(20)   default(0), not null
+#  num_values          :float         
+#  num_unique          :float         
 #  max_values          :float         
 #  min_values          :float         
 #

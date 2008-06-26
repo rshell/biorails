@@ -1,0 +1,22 @@
+<table class='report' style='border: solid thin'>
+  <tr>
+    <th>Request</th>         
+     <th>Material</th>         
+     <th>Status</th>         
+     <th>Priority</th>         
+     <th>Assigned</th>         
+     <th>Comments</th>         
+     <th>Required By</th>         
+     <th>Accepted On</th>         
+     <th>Completed On</th>         
+     <th>Actions</th>         
+  </tr>
+ <%for queue_item in queue_items %>
+  <% form_tag :action => 'update_item',:id=> queue_item.id do %>
+        <tr id='<%=queue_item.dom_id(:updated_at)%>' class="<%= cycle('odd', 'even') %>">
+          <%= render :partial => '/organize/assay_queues/queue_item', :locals => { :queue_item => queue_item} %>  
+        </tr>
+   <% end %>   
+
+ <% end %>
+</table>

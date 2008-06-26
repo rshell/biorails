@@ -1,20 +1,24 @@
-<h2>
- <%=subject_icon('model/task.png')%> Task [<strong><%=@task.name%></strong>] in Experiment
- [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]   
-</h2>
+<h1 class="icon icon-task-large" style='text-indent:0.5em;'>
+ Task [<strong><%=@task.name%></strong>] in Experiment
+ [<%=link_to " #{@task.experiment.name} ",
+   :controller=>'experiments',
+   :action =>'show',:id =>@task.experiment.id %>]
+</h1>
+
+<hr />
 
 <ul>
 <%for item in @task.reports %>
- <h3><%= item.name %></h3>
+ <h2><%= item.name %></h2>
  <p> <%= item.description %></p>
  <%=
-    begin 
+    begin
        render :partial => '/shared/report', :locals=>{:report =>  item, :data => item.run}
     rescue Exception => ex
-       logger.warn ex.backtrace.join("\n")       
+       logger.warn ex.backtrace.join("\n")
        ex.message
     end
   %>
 <%end%>
 
-</ul>   
+</ul>

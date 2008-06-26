@@ -1,0 +1,9 @@
+ <% form_tag  process_url(:action => 'update', :id => @protocol_version.id),{:class=>'x-form'} do %>
+  <div class="x-panel-body">
+    <%= render :partial => 'form' %>
+
+    <div class='row'>
+      <%= submit_tag 'Save' %>
+    </div>
+ </div>
+<% end %>

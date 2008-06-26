@@ -1,0 +1,63 @@
+<table class="report">
+  <tr>
+    <th class='label' >Label  </th><td> <%= @process_flow.name %></td>
+    <th class='label'> Status </th>
+    <td> <%= @process_flow.status%> [
+      <% if @process_flow.released? %> 
+        <%= link_to("Withdraw", workflow_url(:action =>'withdraw',:id => @process_flow)) %>
+      <%else%>
+        <%= link_to("Release", workflow_url(:action =>'release',:id => @process_flow)) %>
+      <% end%> 
+      ]
+    </td>
+  </tr>
+  
+  <tr>
+    <th class='label'>Protocol </th> <td>   <%= @assay_protocol.name %>    </td>
+    <th class='label'>Catagory </th> <td>    <%= @assay_protocol.protocol_catagory %> </td>
+  </tr>
+  <tr>
+    <th class='label'> Description</th> <td colspan='3'><%= @assay_protocol.description %> </td>
+  </tr>
+  <tr>
+    <th class='label'> Lit.Ref.</th> <td colspan='3'>  <%= @assay_protocol.literature_ref %>   </td>
+  </tr>
+  <br/>
+</table>
+
+<br/>
+
+<table class="report">
+  <thead>
+    <tr>
+      <th><b class="icon icon-label">Label</b> </th>
+      <th><b class="icon icon-protocol-version">Version</b></th>
+      <th>Status</th>
+      <th><b class="icon icon-context">Summary</b></th>
+      <th><b class="icon icon-task">No. Usages</b></th>
+      <th><b class="icon icon-date">Date</b></th>
+      <th><b class="icon icon-user">User</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for version in @assay_protocol.versions %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <th><%= link_to( version.name ,:action=>'show',:id => version)%>
+            <%= " * " if  version == @process_flow %>
+          </th>
+          <td>  <%=version.version %> </td>
+          <td>      <%=version.status%>     </td>
+          <td> <%=version.summary %> </td>
+          <td> <%=version.usages.size %>   [  <%=version.usages[0].name if version.usages[0]%> ]     </td>
+          <td> <%=short_date(version.updated_at) %>   </td>
+          <td> <%=version.updated_by %>   </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr/>
+  <p>
+    <%= link_to "<b class='icon icon-del'>Purge</b>",    workflow_url(:action =>'purge',:id => @process_flow) %>
+    <%= link_to "<b class='icon icon-add'>New version</b>", workflow_url(:action =>'copy',:id => @process_flow) %>
+  </p>
+

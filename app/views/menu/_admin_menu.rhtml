@@ -1,12 +1,24 @@
 <div>
-  <span class='menu'><b class="icon icon-data-system">System</b></span>
-  <p class="icon icon-catalogue"><%= link_to 'Catalogue',  catalogue_url( :action => 'list') %></p>
-  <p class="icon icon-data_system"><%= link_to 'Data Sources', url_for(:controller=>'admin/data_systems',:action => 'list') %></p>
-  <p class="icon icon-data_format"><%= link_to 'Data Formats', url_for(:controller=>'admin/data_formats',:action => 'list' )%></p>
-  <p class="icon icon-parameter_role"><%= link_to 'Parameter Role',  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%></p>
-  <p class="icon icon-parameter_type"><%= link_to 'Parameter Types',url_for(:controller=>'admin/parameter_types',:action => 'list' )%></p>
-  <p class="icon icon-user"><%= link_to 'Users',  :controller=>'users', :action => 'index' %></p>
-  <p class="icon icon-role"><%= link_to 'Roles ' ,:controller=>'roles', :action => 'list' %></p>           
-  <p class="icon icon-report"><%= link_to 'System Reports' ,report_url( :action => 'internal') %></p>                      
-  <p class="icon icon-data_system"><%= link_to 'Database Uml' ,help_url( :action => 'uml') %></p>               
+  <span class='menu'><b class="icon icon-data_system">System</b></span>
+ <div class='boldnotbold'>
+  <%= link_to "<b class='icon icon-catalogue'>Catalogue</b>",
+        catalogue_url( :action => 'list') %>
+  <%= link_to "<b class='icon icon-data_system'>Data Sources</b>",
+        url_for(:controller=>'admin/data_systems',:action => 'list') %>
+  <%= link_to "<b class='icon icon-data_format'>Data Formats</b>",
+        url_for(:controller=>'admin/data_formats',:action => 'list' )%>
+  <%= link_to "<b class='icon icon-parameter_role'>Parameter Role</b>",
+        url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
+  <%= link_to "<b class='icon icon-parameter_type'>Parameter Types</b>",
+        url_for(:controller=>'admin/parameter_types',:action => 'list' )%>
+  <%= link_to "<b class='icon icon-user'>Users</b>",
+        :controller=>'users', :action => 'index' %>
+  <%= link_to "<b class='icon icon-role'>Roles</b>",
+        :controller=>'roles', :action => 'list' %>
+  <%= link_to "<b class='icon icon-report'>System Reports</b>",
+        report_url( :action => 'internal') %>
+  <%= link_to "<b class='icon icon-uml'>Database Uml</b>",
+        help_url( :action => 'uml') %>
+</div>
+
 </div>

@@ -1,18 +1,18 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_contexts
 #
 #  id                   :integer(11)   not null, primary key
-#  task_id              :integer(11)   
-#  parameter_context_id :integer(11)   
+#  task_id              :integer(11)   not null
+#  parameter_context_id :integer(11)   not null
 #  label                :string(255)   
 #  is_valid             :boolean(1)    
 #  row_no               :integer(11)   not null
 #  parent_id            :integer(11)   
 #  sequence_no          :integer(11)   not null
-#  left_limit           :integer(11)   default(0), not null
-#  right_limit          :integer(11)   default(0), not null
+#  left_limit           :integer(11)   default(1)
+#  right_limit          :integer(11)   default(2)
 #
 
 ##
@@ -68,13 +68,118 @@ class TaskContext < ActiveRecord::Base
 ##
 # In the Process sets of parameters are grouped into a context of usages
 # 
- has_many :values, :class_name=>'TaskValue', :dependent => :destroy, :order =>'parameter_id'
+ has_many :values, :class_name=>'TaskValue', :dependent => :destroy, :order =>'parameter_id',
+   :include => [:parameter=>[:data_format,:data_element]]
 
- has_many :texts, :class_name=>'TaskText', :dependent => :destroy,:order =>'parameter_id'
+ has_many :texts, :class_name=>'TaskText', :dependent => :destroy,:order =>'parameter_id',
+   :include => [:parameter=>[:data_format,:data_element]]
 
- has_many :references, :class_name=>'TaskReference', :dependent => :destroy,:order =>'parameter_id'
+ has_many :references, :class_name=>'TaskReference', :dependent => :destroy,:order =>'parameter_id',
+   :include => [:parameter=>[:data_format,:data_element]]
 
+  #
+  # Find the assay linked here
+  #
+  def assay
+    self.definition.process.protocol.assay
+  end
+  
+  # Get a sequence number of the item based on ancestors in tree 
+  # eg. 1 or 1.1.2 etc
+  #  
+  def seq
+    unless self.parent_id
+      "#{sequence_no}" 
+    else
+      "#{self.parent.seq}.#{sequence_no}"
+    end
+  end
+#
+# Create a new Context with self as parent
+# 
+ def add_context(parameter_context = nil, new_label = nil)
+     task.add_context(parameter_context,new_label,self)
+ end 
  
+ def append_copy
+   TaskContext.transaction do
+     if self.parent_id
+       self.parent.add_context(self.definition)
+     else
+       self.task.add_context(self.definition)     
+     end
+   end
+ end  
+ #
+ # Add a named parameter
+ #
+  def add_parameter(object)
+   ProtocolVersion.transaction do
+     assay_parameter = object
+     case object
+      when AssayParameter
+        assay_parameter = object
+      when Parameter
+        assay_parameter = object.assay_parameter
+      else
+        assay_parameter = self.task.process.protocol.assay.parameters.find_by_name(object.to_s)
+     end
+     if assay_parameter && self.task.flexible?
+        self.definition.add_parameter(assay_parameter)                
+     end
+   end
+  end   
+  
+  #
+  # Set a Value for this task
+  #
+  def set_value(parameter,value)
+    item = {:passed=>value}
+    if task.start_processing
+      cell = item(parameter, value )
+      if value.blank? 
+        item[:value] = ""           
+        item[:info] = "deleted #{cell.dom_id}"
+        cell.destroy
+      else
+        cell.value = value
+        if cell.save
+          item[:value] = cell.to_s
+        else
+           item[:errors] = "cant update cell #{cell.errors.full_messages.to_sentence}"
+        end
+      end
+    else          
+      item[:errors] = "task is currently #{task.status} so cant change values"             
+    end
+    return item
+  end
+  #
+  # Populate this context creating all child contexts
+  #
+  def populate
+    rows = []
+    for context in self.definition.children.sort_by{|i|i.id}
+       1.upto(context.default_count) do |n|
+         new_label = "#{context.label}.#{self.seq}.#{n}"
+         row = self.children.find(:first,:conditions=>['label=?',new_label])
+         row ||= self.add_context(context,new_label)         
+         rows << row 
+         rows << row.populate
+       end      
+   end
+   self.fill_defaults
+   return rows
+  end  
+
+ def fill_defaults
+   self.parameters.each do |param|
+     unless param.default_value.blank?
+        task_item = self.item(param)
+        task_item.save
+     end
+   end
+ end   
 #
 # path to this context
 # 
@@ -87,10 +192,6 @@ class TaskContext < ActiveRecord::Base
         return parent.path+"/"+label
      end 
   end 
-
-  def to_matrix
-    self.task.to_matrix(self)
-  end
 #
 # Unique label for the group the row belongs top
 #
@@ -109,9 +210,9 @@ class TaskContext < ActiveRecord::Base
  end
 
 #
-# get a parameter by name
+# get a parameter by from the current parameterContext
 #
- def parameter(name)
+ def parameter(name)    
     return definition.parameter(name)  
  end
 
@@ -119,18 +220,20 @@ class TaskContext < ActiveRecord::Base
 # combined array of all TaskItems both real and virtual (empty)
 # 
  def items
-    @items = Hash.new
     unless @items
-      self.values.each{|i| @items[i.name] = i}
-      self.texts.each{|i| @items[i.name] = i}
-      self.references.each{|i| @items[i.name] = i}
-    end
-    self.definition.parameters.collect do |p|
-      unless @items[p.name]
-        @items[p.name] = add_task_item(p)
-      end  
+      @items = Hash.new
+      self.values.each{|i| @items[i.parameter_id] = i}
+      self.texts.each{|i| @items[i.parameter_id] = i}
+      self.references.each{|i| @items[i.parameter_id] = i}
     end
     return @items
+ end
+ 
+ #
+ # Convert to array of TaskItem
+ #
+ def to_a
+   self.items.values   
  end
 #
 # Generate a hash of the row for external use
@@ -147,43 +250,31 @@ class TaskContext < ActiveRecord::Base
    end        
    return hash
  end
-#
-# Get the value of a named column as a string
-#
- def value(name)
-    return self.item(name).to_s
- end
- 
+
 ##
-# get TaskItem values for column the context   
- def item(column)
-   if column.is_a?(Parameter)
-      value = items[column.name] 
-      return value if value   
-      return add_task_item(column, nil)      
-   else   
-      value = items[column.to_s]
-      return value if value   
-      return add_task_item(parameter(column.to_s), nil)      
-   end   
- end
- 
+# Get TaskItem value for column the context , by name or parameter
+# If no value exists then a parameter will be  
+#  item("name") 
+#  item(parameter)
 #
-# Create a new task item
 #
- def add_task_item(parameter, value  =nil)
-    case parameter.data_type_id
-    when 2 
-      item = add_task_value(parameter,value)
-    when 5
-      item = add_task_reference(parameter,value)
-    else
-      item = add_task_text(parameter,value)
-    end 
-    return item
+ def item(param,value = nil)   
+   param = self.parameter(param) unless param.is_a?(Parameter)
+   obj =nil
+   case param.data_type_id
+   when 2
+      obj = self.values.find(:first,:conditions=>['parameter_id=?',param.id])
+      obj||= add_task_value(param,value)
+   when 5
+      obj = self.references.find(:first,:conditions=>['parameter_id=?',param.id])
+      obj ||= add_task_reference(param,value)
+   else  
+      obj = self.texts.find(:first,:conditions=>['parameter_id=?',param.id])
+      obj ||= add_task_text(param,value)
+   end     
+   return obj
  end
-
-
+  #
   # Rebuild all the set based on the parent_id and text_column name
   #
   def self.rebuild_sets

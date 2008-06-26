@@ -1,30 +1,42 @@
-
-
 <% content_for :sidemenu do -%>
   <%= render :partial=>'actions'%>
 <% end -%>
 
 <% content_for :center do -%>
-  <h1 class="icon icon-team">Teams</h1>
-<div class='panel'>
-  <p>A team is a group of people that work together on projects</p>
-  <table class='report'>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>No. Members</th>
-    </tr>
-    <% for team in @teams %>
+<h1 class='icon icon-team-large' style='text-indent:0.5em;'>Teams</h1>
+  <div class='panel'>
+    <br />
+    <p>A team is a group of people that work together on projects</p>
+    <br />
+    <table class='report'>
       <tr>
-          <td><%=link_to team.name, team_url(:action=>'show',:id=> team.id) %></td>
+        <th>
+          <b class='icon icon-name'>
+            Name
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-description'>
+            Description
+          </b>
+        </th>
+        <th>No. Members</th>
+      </tr>
+      <% for team in @teams %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <td>
+            <p class='icon icon-team'>
+              <%=link_to team.name, team_url(:action=>'show',:id=> team.id) %>
+            </p>
+          </td>
           <td><%=team.description%></td>
           <td><%=team.memberships.size%></td>
-      </tr>
-    <% end %>
+        </tr>
+      <% end %>
     </table>
+  </div>
 <% end %>
 
 <% content_for :help do -%>
-  <%= render :partial=>'help'%>
+    <%= render :partial=>'help'%>
 <% end %>
-</div>

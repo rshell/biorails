@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: lists
 #
 #  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  description        :text          
+#  name               :string(255)   not null
+#  description        :string(1024)  default()
 #  type               :string(255)   
 #  expires_at         :datetime      
 #  lock_version       :integer(11)   default(0), not null

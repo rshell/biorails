@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_statistics
 #
-#  id                :integer(20)   primary key
-#  task_id           :integer(11)   
-#  parameter_id      :integer(11)   
-#  parameter_role_id :integer(11)   
-#  parameter_type_id :integer(11)   
-#  data_type_id      :integer(11)   
+#  id                :float         primary key
+#  task_id           :integer(11)   not null
+#  parameter_id      :integer(11)   not null
+#  parameter_role_id :integer(11)   not null
+#  parameter_type_id :integer(11)   not null
+#  data_type_id      :integer(11)   not null
 #  avg_values        :float         
 #  stddev_values     :float         
-#  num_values        :integer(20)   default(0), not null
-#  num_unique        :integer(20)   default(0), not null
-#  max_values        :binary        
-#  min_values        :binary        
+#  num_values        :float         
+#  num_unique        :float         
+#  max_values        :float         
+#  min_values        :float         
 #
 
 ##
@@ -28,7 +28,7 @@
 class TaskStatistics < ActiveRecord::Base
 
  belongs_to :task,            :class_name =>'Task',           :foreign_key => 'task_id'
- belongs_to :study_parameter, :class_name =>'StudyParameter', :foreign_key => 'study_parameter_id'
+ belongs_to :assay_parameter, :class_name =>'AssayParameter', :foreign_key => 'assay_parameter_id'
  belongs_to :parameter,       :class_name =>'Parameter',      :foreign_key => 'parameter_id'
  belongs_to :role,            :class_name =>'ParameterRole',  :foreign_key => 'parameter_role_id'
  belongs_to :type,            :class_name =>'ParameterType',  :foreign_key => 'parameter_type_id'

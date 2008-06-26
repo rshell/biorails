@@ -1,0 +1,26 @@
+<div>
+<%if @internal %>
+  <%= render :partial =>'/menu/admin_menu'   %>
+  <span class='menu'>
+    <b class='icon icon-report'>
+      System Queries
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-list'>List Query</b>", report_url(:action => 'internal')%>  
+<% if @report and !@report.new_record? %>
+    <%= link_to "<b class='icon icon-run'>Show</b>",           report_url(:action => 'show', :id => @report) %>
+    <%= link_to "<b class='icon icon-edit'>Edit</b>",         report_url(:action => 'edit', :id => @report) %>
+    <%= link_to "<b class='icon icon-del'>Reset</b>",        report_url( :action => 'destroy', :id => @report ),
+          :confirm => 'Are you sure?',:method => "post" %>
+<%end%>
+<%else%>
+  <%= render :partial =>'/menu/project_menu' ,:locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/report_menu' ,:locals=>{ :project => current_project}  %>
+<%end%>  
+  </div>
+</div>
+
+
+
+

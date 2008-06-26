@@ -10,6 +10,9 @@ class Inventory::PlatesController < ApplicationController
                     :rights =>  :current_user  
  
 
+  in_place_edit_for :plate, :name
+  in_place_edit_for :plate, :description
+
   def index
     list
     render :action => 'list'
@@ -20,7 +23,7 @@ class Inventory::PlatesController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @plates = Plate.paginate :order=>'name', :page => params[:page]
+     @plates = Plate.paginate :order=>'name desc', :page => params[:page]
   end
 
   def show
@@ -32,7 +35,7 @@ class Inventory::PlatesController < ApplicationController
   end
 
   def create
-    @plate = Plate.new(params[:plate])
+    @plate = Plate.new(params[:plates])
     if @plate.save
       flash[:notice] = 'Plate was successfully created.'
       redirect_to :action => 'list'
@@ -47,7 +50,7 @@ class Inventory::PlatesController < ApplicationController
 
   def update
     @plate = Plate.find(params[:id])
-    if @plate.update_attributes(params[:plate])
+    if @plate.update_attributes(params[:plates])
       flash[:notice] = 'Plate was successfully updated.'
       redirect_to :action => 'show', :id => @plate
     else

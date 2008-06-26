@@ -1,20 +1,19 @@
 <% content_for :messages do -%>
-<%= render :partial => 'shared/messages', :locals => { :objects => ['study']}  %>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
 <%end %>
 
 <% content_for :messages do -%>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['study' ]} %>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['assay' ]} %>
 <%end%>
 
 <% content_for :center do -%>
-    <div class="title">
-        <%=subject_icon('study.png')%> Parameters
-    </div>
+  <div class="title">
+    <h1 class='icon icon-parameter'>Parameters</h1>
+  </div>
 
-    <div class='panel'>
-        <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
+  <div class='panel'>
+    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
     <%= will_paginate  @data%>    
-    </div>
-
+  </div>
 <%end%>
               

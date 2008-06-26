@@ -15,7 +15,9 @@
 </div>
 <% end %>
 
-<h2> <%=subject_icon('reports')%> Current Reference documentation model <%=@name%></h2>
+<h1  class='icon icon-report-large' style='text-indent:0.5em'>
+   Current Reference documentation model <%=@name%>
+</h1>
 <div class='panel'>
    <%= render :file=> "help/models/classes/#{@name}.html" %>
 </div>

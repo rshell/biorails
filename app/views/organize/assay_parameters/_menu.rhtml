@@ -1,0 +1,15 @@
+<%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+<div>
+  <span  class='menu'>
+    <b class="icon icon-parameter">
+      Parameters
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-xls'>Export</b>",
+      :controller =>'assay_parameters', :action => 'export', :id=>@assay %>
+    <%= link_to "<b class='icon icon-xls'>Import</b>",
+      :controller =>'assay_parameters', :action => 'import', :id=>@assay %>
+  </div>
+</div>

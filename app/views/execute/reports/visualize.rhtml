@@ -1,10 +1,12 @@
 <% content_for :sidemenu do%>
-  <%= render :partial =>'/menu/report_menu' ,       :locals=>{ :report => @report}  if @report %>
+  <%= render :partial =>'actions' %>
 <% end %>
 
-<h2>   <%=subject_icon('model/report')%> Visualize Report Tables [<strong><%=@report.name%></strong>]</h2>
+<h1 class='icon icon-report'>
+    Visualize Tables for Query [<%=@report.name%>] based on model [<%=@report.base_model%>]
+</h1>
 
 <div class="panel" id="visualize-model">
-    <%= render :partial => 'visualize' %>  
+    <%= render :partial => 'visualize' %>
 </div>
 

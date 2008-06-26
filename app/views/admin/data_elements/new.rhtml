@@ -1,18 +1,24 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
-    <span class='menu'>Data Elements</span>
-       <%= link_to  (subject_icon('list.png')) +'List', :action => 'show',
-                    :controller => 'data_systems', :id => @data_element.system %>
+      <span class='menu'>
+        <b class='icon icon-data_element'>
+          Data Elements
+        </b>
+      </span>
+      <div class='boldnotbold'>
+        <%= link_to "<b class='icon icon-list'>List</b>", :action => 'show',
+          :controller => 'data_systems', :id => @data_element.system %>
+      </div>
     </div>
 <% end %>
 
 <% content_for :center do %>
 
 <div class='main' id='maintitle'>
-    <h2>
-        <%=subject_icon('data_element')%> New Data Element implemening [<strong><%=@data_concept.path%></strong>]
-    </h2>
+    <h1 class='icon icon-data_element'>
+        New Data Element Implemening [<strong><%=@data_concept.path%></strong>]
+    </h1>
     <div class='dialog'>
         <% if @data_element.parent %>
           Child of <%=@data_element.parent.name %>
@@ -23,7 +29,7 @@
               <p>No root</p>
             <% end %>
         <% end %>
-        
+
       <% form_tag :action => 'create',:id=>@data_concept do %>
         <%= render :partial => 'form' %>
 
@@ -36,6 +42,6 @@
 </div>
 <% end %>
 
-<% content_for :right do %>
+<% content_for :help do %>
   <%= render :partial=>'guide'%>
 <% end %>

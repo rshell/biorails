@@ -1,15 +1,15 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: queue_results
 #
-#  id                     :integer(11)   default(0), not null, primary key
-#  row_no                 :integer(11)   default(0), not null
+#  id                     :integer(11)   primary key
+#  row_no                 :integer(11)   
 #  column_no              :integer(11)   
 #  task_id                :integer(11)   
-#  queue_item_id          :integer(11)   default(0), not null
+#  queue_item_id          :integer(11)   
 #  request_service_id     :integer(11)   
-#  study_queue_id         :integer(11)   
+#  assay_queue_id         :integer(11)   
 #  requested_by_user_id   :integer(11)   
 #  assigned_to_user_id    :integer(11)   
 #  parameter_context_id   :integer(11)   
@@ -24,77 +24,20 @@
 #  label                  :string(255)   
 #  row_label              :string(255)   
 #  parameter_name         :string(62)    
-#  data_value             :binary        
-#  created_by_user_id     :integer(11)   default(0), not null
-#  created_at             :datetime      not null
-#  updated_by_user_id     :integer(11)   default(0), not null
-#  updated_at             :datetime      not null
+#  data_value             :string(1000)  
+#  created_by_user_id     :integer(11)   
+#  created_at             :datetime      
+#  updated_by_user_id     :integer(11)   
+#  updated_at             :datetime      
 #
 
 class QueueResult < ActiveRecord::Base
 
- def initialize
-   super
-   @readonly == true
+ def initialize(*args)
+   super(*args)
+   @readonly = true
  end
  
-#
-# Results for a request
-#
- def self.find_for(item)
-   case item
-   when QueueItem
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
-                    :conditions=>['request_services.id=? and queue_results.data_id=?',item.request_service_id,item.data_id])
-   when StudyQueue
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
-                    :conditions=>['queue_results.study_queue_id=?',item.id])
-   when RequestService
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
-                    :conditions=>['request_services.id=?',item.id])
-   when Request
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
-                    :conditions=>['request_services.request_id=?',item.id])
-   when String,Fixnum
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name,queue_results.subject,queue_results.parameter_name'],
-                    :conditions=>['request_services.request_id=?',item])
-   else
-     return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name'],
-                    :conditions=>['queue_results.data_id=?',item.id])
-     
-   end   
- end
-#
-# Results for a specific item in a queue
-#
- def self.find_for_request_subject(request_id, subject)
-   subject_id = nil
-   case subject
-   when QueueItem,ListItem
-     subject_id = subject.data_id
-   when String,Fixnum
-     subject_id = subject
-   else
-     subject_id = subject.id
-   end
-   return QueueResult.find(:all,
-                    :include=>:service,
-                    :order=>['request_services.name'],
-                    :conditions=>['request_services.request_id=? and queue_results.data_id=?',request_id,subject_id])
- end
-
 ##
 # The task this context belongs too
  belongs_to :task
@@ -105,7 +48,7 @@ class QueueResult < ActiveRecord::Base
 ##
 # The Queue this request is linked too
 # 
- belongs_to :queue, :class_name=>'StudyQueue', :foreign_key =>'study_queue_id'
+ belongs_to :queue, :class_name=>'AssayQueue', :foreign_key =>'assay_queue_id'
 ##
 #Current Request element is linked to a service provided
 #
@@ -131,15 +74,6 @@ class QueueResult < ActiveRecord::Base
 # Added IC50(Output) etc to the basic value and defines the validation rules like must be numeric!
 #  
  belongs_to :parameter
-##
-# returns actual object
- def object
-   return self.subject
- end 
-
- def name
-   return self.subject.name
- end
  
  ##
  # Get the value for this result

@@ -7,7 +7,7 @@
 <%end%>
 
 <% content_for :center do%>
-<%dialog subject_icon('systems')+'Data System' do%>
+<%dialog "Edit Data Source" do%>
     <% form_tag :action => 'update', :id => @data_system do %>
       <%= render :partial => 'form' %>
       <%= submit_tag 'Save' %>

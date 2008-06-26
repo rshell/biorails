@@ -1,3 +1,8 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 module  ScheduleHelper
 
 
@@ -19,8 +24,8 @@ module  ScheduleHelper
                         {:update => "main", :url => { :year => (@month==12 ? @year+1 : @year), :month =>(@month==12 ? 1 : @month+1) }},
                         {:href => url_for(:action => 'calendar', :year => (@month==12 ? @year+1 : @year), :month =>(@month==12 ? 1 : @month+1))})
      out << '  </td>'
-     out << ' </tr>
-     out << '</table>
+     out << ' </tr>'
+     out << '</table>'
      return out
   end
 
@@ -72,7 +77,7 @@ module  ScheduleHelper
     		    
     		end
     		out << '<small>'
-    		out link_to "#{item.name}", { :controller => '/execute/tasks', :action => 'show', :id => i } %> 
+    		out link_to( "#{item.name}", task_url( :action => 'show', :id => i ))
     		out << '</small>'		
             out << '<span class="tip">'
             out << "<strong>Task: #{item.name} [#{tem.status}] </strong>"

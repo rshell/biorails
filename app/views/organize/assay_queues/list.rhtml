@@ -1,0 +1,113 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'actions'%>
+<% end -%>
+
+<% content_for :center do%>
+  <h1 class='icon icon-queue-large' style='text-indent:0.5em'>
+    Service Queues<%= '[<strong>in Assay</strong>]' + @assay.name if @assay%>
+  </h1>
+  <table class="report">
+    <thead>
+    <tr>
+      <th colspan=3>
+        <b class='icon icon-assay'>
+          Assay
+        </b>
+      </th>
+      <th>
+        <b class='icon icon-user_lab'>
+          Assigned
+        </b>
+      </th>
+      <th colspan=3>
+        <b class='icon icon-request'>
+          Request Status
+        </b>
+      </th>
+      <th rowspan=2>
+        <b class='icon icon-action'>
+          Actions
+        </b>
+      </th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Service</th>
+      <th>Description</th>
+      <th>To User</th>
+      <th>Default</th>
+      <th>Counts</th>
+      <th>Usages</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for assay_queue in @assay_queues %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <p class='icon icon-assay'><%= link_to assay_queue.assay.name,assay_url( :action => 'show', :id => assay_queue.assay_id) %>
+        </p>
+      </td>
+      <td>
+        <p class='icon icon-queue'>
+          <%= link_to assay_queue.name, :action => 'show', :id => assay_queue %>
+        </p>
+      </td>
+      <td><%=h assay_queue.description %></td>
+      <td><%=h assay_queue.assigned_to.name %></td>
+      <td>
+        <p class="icon icon-status_<%=h assay_queue.status %>">
+            <%=h assay_queue.status %>
+        </p>
+      </td>
+      <td>
+          <%for row in assay_queue.status_counts %>
+            <p class='icon icon-status_<%=row.status%>'>
+                <%= row.status %> <%=row.num %>
+            </p>
+            <br />
+          <%end%>
+      </td>
+      <td>
+          <%for row in assay_queue.priority_counts %>
+            <p class='icon icon-priority_" + <%=row.priority%>'>
+                <%=row.priority %> <%=row.num %>
+            </p>
+            <br />
+          <%end%>
+      </td>
+      <td>
+        <p class='icon icon-edit'>
+          <%= link_to "Edit", :action => 'edit', :id => assay_queue %>
+        </p>
+      </td>
+    </tr>
+  <% end %>
+  <tbody>
+</table>
+<hr/>
+   <%= will_paginate @assay_queues %>
+<%end %>
+
+<% content_for :right do%>
+<div class=" x-panel-header x-accordion-hd"  >
+  <span class="icon icon-queue x-panel-header-text" >
+   Guidance for Queues
+     </span>
+</div>
+<div class='panel'>
+  <p>
+    Queues are used to manage materials submitted to the services defined
+    within an assay. The items in a queue all have the same parameter type and are awaiting a service. So for example a cue of mice awaiting weighing will all have a parameter type of mass.
+  </p>
+  <br />
+  <h2 class='icon icon-workflow'> Recipe</h2>
+  <p>
+    Once a parameter assigned to a protocol is bound to a queue,
+    active <i>queue items</i> will be automatically linked
+    to the next task they are used in.
+    When the status of that task changes the queue items linked to it
+    are updated automatically, thus returning the <i>results</i> to the
+    original request.
+  </p>
+  </div>
+<%end%>

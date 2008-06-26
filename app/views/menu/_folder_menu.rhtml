@@ -1,19 +1,20 @@
 <% unless folder.nil?  %>
-<div>
-  <span class='menu' ><b><%= ( folder.parent_id ? folder.name : 'Folder') %></b></span>
-<% if  @project_folder.reference? and @project_folder.reference %>
-<%= link_to  image_tag("/images/model/link.png")+ " "+ 
-    image_tag("/images/model/#{@project_folder.style}.png")+" "+
-    @project_folder.style , reference_to_url(@project_folder)%>
-<% end %>
-<% unless folder.nil? || folder.new_record? %>
-    <p class="icon icon-folder"><%= link_to_remote 'Overview',:url=>folder_url( :action => 'show', :id => folder.id ) %> </p>
-    <p class="icon icon-webdoc"><%= link_to 'Print to HTML',folder_url( :action => 'print',:id => folder.id ),:popup => true %> </p>
-    <p class="icon icon-pdf"><%= link_to 'Save As',folder_url( :action => 'print',:format=>:pdf,:id => folder.id ),:popup => true %></p>
-
-    <p class="icon icon-folder-add"><%= link_to_remote 'Add Folder',:url=>  folder_url( :action => 'new',     :folder_id => folder.id ) %></p> 
-    <p class="icon icon-article-add"><%= link_to_remote 'Add Article', :url=> content_url( :action => 'new',:folder_id => folder.id )  %> </p>
-  <p class="icon icon-file-add"><%= link_to_remote 'Add File', :url=>  asset_url( :action => 'new',:folder_id => folder.id ) %> </p>
-<%end%>
-</div>
+  <div>
+    <span class='menu' >
+      <b class='icon icon-folder'>
+        <%= ( folder.parent_id ? folder.name : 'Folder /') %>
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <% if  @project_folder.reference? and @project_folder.reference %>
+        <%= link_to  "<i class='icon icon-arrow_from'></i>"+
+        "<i class='icon icon-" + @project_folder.style + "'>" + @project_folder.style + "</i>",
+        reference_to_url(@project_folder) %>
+      <% end %>
+      <% unless folder.nil? || folder.new_record? %>
+        <%= link_to_remote "<b class='icon icon-folder'>Refresh Folder</b>",
+            :url=>folder_url( :action => 'show', :id => folder.id ) %>
+      <%end%>
+    </div>
+  </div>
 <% end %>

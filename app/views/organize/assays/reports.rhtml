@@ -1,0 +1,18 @@
+<div class='main' id='maintitle'>
+
+  <div class="title" id="assay">
+    Assay Report [<strong><%=@report.name%></strong>]
+    <div class="actions">
+        <%= link_to "<b class='icon icon-show'>Reset</b>",
+          :action => 'reports' %>
+        <%= link_to "<b class='icon icon-new'>New</b>",
+          :controller=>'reports',  :action => 'new' %>
+    </div>
+  </div>
+  <div class='panel'>
+    <p>
+    <%=@report.description%>
+    </p>
+    <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @report.run} %>
+  </div>
+</div>

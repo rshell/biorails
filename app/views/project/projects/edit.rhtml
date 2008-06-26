@@ -8,12 +8,21 @@
 <% end -%>
 
 <% content_for :center do -%>
+  <%dialog "Update Project"  do %>
+      <% form_tag :action => 'update',:id=>@project do %>
+      <%= render :partial => 'form' %>
+      <div class="row">
+          <%= submit_tag "Save" %>
+      </div>
+      <% end %>
+      <%= button_to "Cancel", project_url(:action=>'show',:id=>@project) %>
+  <% end %>
+<% end %>
 
-    <% form_tag :action => 'create' do %>
-    <%= render :partial => 'form' %>
-    <div class="row">
-        <%= submit_tag "Save" %>
-        <%= link_to 'Cancel', home_url %>
-    </div>
-    <% end %>
+<% content_for :status do -%>
+  <%= render :partial=>@project.partial_template('status')%>
+<% end %>
+
+<% content_for :help do -%>
+  <%= render :partial=>@project.partial_template('help')%>
 <% end %>

@@ -1,13 +1,13 @@
 <% form_tag :action => 'add', :id => @data_element do %>
 <table class="report"> 
   <thead>
-     <th>id </th>
-     <th>name</th>
-     <th>description</th>
+     <th>Id </th>
+     <th>Name</th>
+     <th>Description</th>
   </thead> 
   <tbody>  
      <%for row in @data_element.values %>
-     <tr>
+     <tr class="<%= cycle('odd', 'even') %>">
        <td><%=row.id %> </td>
        <%if @data_element.not_used %>
        <td><%=my_in_place_editor_field(row,:name,{},{:size=>30}) %> </td>
@@ -20,7 +20,7 @@
      <tr>
         <td > new </td>
         <td > <%= text_field :child, :name, {:class=>"text-input"}  %></td>
-        <td>   <%= text_field :child, :description, {:class=>"text-input",:size=>80} %> <%= submit_tag 'Add' %></td>
+        <td>  <%= text_field :child, :description, {:class=>"text-input",:size=>80} %> <%= submit_tag 'Add' %></td>
      </tr>
   </tbody>
 </table>

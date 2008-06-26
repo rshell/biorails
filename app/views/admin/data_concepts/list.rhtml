@@ -2,15 +2,15 @@
   <%= render :partial => '/menu/admin_menu'%>
     <div>
     <span class='menu'>Data Concept</span>
-<%= link_to (subject_icon('list.png')) +'List', :action => 'show',
-                    :controller => 'data_contexts', :id => @data_concept.data_context %><
+    <li><%= link_to "<b class='icon icon-list'></b>List", :action => 'show',
+            :controller => 'data_contexts', :id => @data_concept.data_context %></li>
     </div>
 <% end %>
 
 
 <div class='main' id='maintitle'>
-    <h2>
-        <%=subject_icon('concept')%> Data Concepts
+    <h2 class='icon icon-data_concept'>
+        Data Concepts
     </h2>
     <table class="report">
     <%= render :partial => 'shared/table_of_named',:locals =>

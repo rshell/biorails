@@ -1,17 +1,17 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: parameters
 #
 #  id                   :integer(11)   not null, primary key
-#  protocol_version_id  :integer(11)   
-#  parameter_type_id    :integer(11)   
-#  parameter_role_id    :integer(11)   
-#  parameter_context_id :integer(11)   
+#  protocol_version_id  :integer(11)   not null
+#  parameter_type_id    :integer(11)   not null
+#  parameter_role_id    :integer(11)   not null
+#  parameter_context_id :integer(11)   not null
 #  column_no            :integer(11)   
 #  sequence_num         :integer(11)   
-#  name                 :string(62)    
-#  description          :string(62)    
+#  name                 :string(62)    default(), not null
+#  description          :string(1024)  
 #  display_unit         :string(20)    
 #  data_element_id      :integer(11)   
 #  qualifier_style      :string(1)     
@@ -21,12 +21,14 @@
 #  updated_at           :datetime      not null
 #  mandatory            :string(255)   default(N)
 #  default_value        :string(255)   
-#  data_type_id         :integer(11)   
+#  data_type_id         :integer(11)   not null
 #  data_format_id       :integer(11)   
-#  study_parameter_id   :integer(11)   
-#  study_queue_id       :integer(11)   
+#  assay_parameter_id   :integer(11)   not null
+#  assay_queue_id       :integer(11)   
 #  updated_by_user_id   :integer(11)   default(1), not null
 #  created_by_user_id   :integer(11)   default(1), not null
+#  left_limit           :integer(11)   default(0), not null
+#  right_limit          :integer(11)   default(0), not null
 #
 
 ##
@@ -40,12 +42,14 @@ class Parameter < ActiveRecord::Base
  validates_uniqueness_of :name, :scope =>"protocol_version_id"
  validates_presence_of :parameter_type_id
  validates_presence_of :parameter_role_id
- validates_presence_of :study_parameter_id
+ validates_presence_of :assay_parameter_id
  validates_presence_of :data_type_id
  validates_presence_of :name
- validates_associated  :study_parameter, 
-    :if => Proc.new { | p | p.study && p.study_parameter && p.study_parameter.study == p.study},
-    :message => "Parameter is linked to a the wrong study" 
+ validates_format_of :name, :with => /^[A-Z,a-z,0-9,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,_]'
+
+  validates_associated  :assay_parameter, 
+    :if => Proc.new { | p | p.assay && p.assay_parameter && p.assay_parameter.assay == p.assay},
+    :message => "Parameter is linked to a the wrong assay" 
 
  before_validation :fill_type_and_formating
 
@@ -56,16 +60,16 @@ class Parameter < ActiveRecord::Base
 
 
  belongs_to :context, :class_name=>'ParameterContext',  :foreign_key =>'parameter_context_id'
- belongs_to :process, :class_name=>'ProtocolVersion',  :foreign_key =>'protocol_version_id'
+ belongs_to :process, :class_name=>'ProcessInstance',  :foreign_key =>'protocol_version_id'
  belongs_to :role,    :class_name =>'ParameterRole',:foreign_key =>'parameter_role_id'
  belongs_to :type,    :class_name =>'ParameterType',:foreign_key =>'parameter_type_id'
 
 ##
 # The Queue this request is linked too
 # 
- belongs_to :queue, :class_name=>'StudyQueue', :foreign_key =>'study_queue_id'
+ belongs_to :queue, :class_name=>'AssayQueue', :foreign_key =>'assay_queue_id'
 
- belongs_to :study_parameter, :class_name=>'StudyParameter', :foreign_key =>'study_parameter_id'
+ belongs_to :assay_parameter, :class_name=>'AssayParameter', :foreign_key =>'assay_parameter_id'
  belongs_to :data_type
  belongs_to :data_format
  belongs_to :data_element
@@ -73,12 +77,41 @@ class Parameter < ActiveRecord::Base
  has_many :task_values,     :dependent => :destroy
  has_many :task_references, :dependent => :destroy
  has_many :task_texts,      :dependent => :destroy
- 
+ has_many :analysis_settings, :dependent => :destroy
+
+ def path(scope)
+     out = "#{name} "  
+     if self.queue
+       out << "Queue:" << self.queue.name 
+     else  
+       out << "  ["
+       out << self.role.name if self.role
+       out << "/"
+       out << self.type.name if self.type
+       out << "]" 
+     end
+ end
  
   def mask
     return data_format.format_regex if data_format
     return '.'
   end
+ #
+ # parse a text string to a value
+ #
+ def parse(text)
+    return data_format.parse( text,:unit=>self.display_unit)  if self.data_format
+    return data_element.lookup(text) if self.data_element
+    return text.to_s  
+ end  
+ #
+ # format a value to a text string
+ #
+ def format(value)    
+    return data_format.format(value,:unit=>self.display_unit)  if self.data_format
+    return value.name if value.respond_to?(:name) and self.data_element
+    return value.to_s
+ end
  ##
  # helper to protocol
  #
@@ -87,10 +120,10 @@ class Parameter < ActiveRecord::Base
     self.process.protocol if self.process 
   end
  ##
- # helper to study
+ # helper to assay
  #
-  def study
-    self.protocol.study if self.protocol
+  def assay
+    self.protocol.assay if self.protocol
   end
   
   def set(field, value = nil)
@@ -102,7 +135,7 @@ class Parameter < ActiveRecord::Base
      out = ""
      if self.queue
        out << "Queue:" << self.queue.name 
-     elsif self.study_parameter
+     elsif self.assay_parameter
        out << "Parameter " 
      end
      out << "  ["
@@ -162,31 +195,33 @@ class Parameter < ActiveRecord::Base
   self.data_element ||= DataElement.find(:first,:conditions=>["data_concept_id=?",type.data_concept_id])
   return self.data_element
  end
-
+ #
+ # Storage Dimension
+ # 
  def storage_unit
-   type.storage_unit
+   type.storage_unit if self.type
  end
 
 ##
-# fill in any missing format or type information based on study defaults
+# fill in any missing format or type information based on assay defaults
  def fill_type_and_formating   
-   if self.study_parameter
-       self.name ||= self.study_parameter.name 
-       self.data_type_id ||= self.study_parameter.data_type_id 
-       self.parameter_type_id ||= self.study_parameter.parameter_type_id 
-       self.parameter_role_id ||= self.study_parameter.parameter_role_id 
-       self.data_element_id ||= self.study_parameter.data_element_id
-       self.data_format_id ||= self.study_parameter.data_format_id
-       self.default_value ||= self.study_parameter.default_value
-       self.display_unit ||= self.study_parameter.display_unit
+   if self.assay_parameter
+       self.name ||= self.assay_parameter.name 
+       self.data_type_id ||= self.assay_parameter.data_type_id 
+       self.parameter_type_id ||= self.assay_parameter.parameter_type_id 
+       self.parameter_role_id ||= self.assay_parameter.parameter_role_id 
+       self.data_element_id ||= self.assay_parameter.data_element_id
+       self.data_format_id ||= self.assay_parameter.data_format_id
+       self.default_value ||= self.assay_parameter.default_value
+       self.display_unit ||= self.assay_parameter.display_unit
    end
    self.protocol_version_id ||= self.context.protocol_version_id if self.context
   end
  
  def to_xml(options = {})
       my_options = options.dup
-      my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
-      my_options[:except] = [:protocol_version_id,:study_queue_id,:study_parameter_id,:parameter_type_id,:parameter_role_id,:data_format_id,:data_element_id]   
+      my_options[:reference] = {:assay_queue=>:name,:assay_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
+      my_options[:except] = [:protocol_version_id,:assay_queue_id,:assay_parameter_id,:parameter_type_id,:parameter_role_id,:data_format_id,:data_element_id]   
      Alces::XmlSerializer.new(self,my_options ).to_s
  end
 
@@ -196,16 +231,8 @@ class Parameter < ActiveRecord::Base
  # 
  def self.from_xml(xml,options ={} )
       my_options = options.dup
-      my_options[:reference] = {:study_queue=>:name,:study_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
+      my_options[:reference] = {:assay_queue=>:name,:assay_parameter=>:name,:type=>:name,:role=>:name,:data_format=>:name,:data_element=>:name}
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end  
-
-  def units
-    if self.parameter_type 
-       Unit.Units(self.parameter_type.storage_unit)
-    else
-       Unit.UNITS_LOOKUP
-    end
-  end
      
 end

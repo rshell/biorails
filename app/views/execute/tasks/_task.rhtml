@@ -1,33 +1,91 @@
-<div class='panel'>  
   <table class="report">
-      <tr>
-        <th class="label"><%=subject_icon('name.png')%> Name     </th><td><%=@task.name%></td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('description.png')%> Description </th><td colspan='3'><%=@task.description%></td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('study.png')%> Study       </th><td><%= link_to @task.experiment.study.name, study_url(:action => 'show', :id => @task.experiment.study.id)  %></td>
-        <th class="label"><%=subject_icon('experiment.png')%> Experiment  </th><td><%= link_to @task.experiment_name, experiment_url( :action => 'show', :id => @task.experiment_id ) %></td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('model/protocol.png')%> Protocol  </th><td><%= link_to @task.protocol_name, protocol_url( :action => 'show', :id => @task.study_protocol_id )  %></td>
-        <th class="label"><%=subject_icon('model/protocol.png')%> Process  </th>
-        <td>
-        <%=link_to @task.process_name ,protocol_url(:action=>'show',:id => @task.protocol, :version=>@task.protocol_version_id) %> 
-        <%= link_to '[Modify]', protocol_url( :action => 'edit', :version=>@task.protocol_version_id, :id => @task.study_protocol_id) if @task.process.tasks.size<2  %>
+    <tr>
+      <th class="label">
+        <b class='icon icon-name'>
+          Name</b>
+      </th>
+      <td>
+        <%=@task.name%>
+      </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-description'>
+          Description
+        </b>
+      </th>
+      <td colspan='3'><%=@task.description%></td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-assay'>
+          Assay
+        </b>
+      </th>
+      <td>
+        <%= link_to @task.experiment.assay.name,
+            assay_url(:action => 'show', :id => @task.experiment.assay.id)  %>
+      </td>
+
+      <th class="label">
+        <b class='icon icon-protocol'>
+          Protocol
+        </b>
+      </th>
+      <td>
+        <%=  @task.protocol_name %>
         </td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('status')%>Status   </th><td><%=@task.status%></td>
-        <th class="label"><%=subject_icon('lab_worker')%> Assigned To  </th><td><%=@task.assigned_to.name%></td></tr>
-      <tr>
-        <th class="label"><%=subject_icon('time')%> Expected (hours)  </th><td><%=@task.expected_hours%></td>
-        <th class="label"><%=subject_icon('done')%> Done (hours)  </th><td><%=@task.done_hours%></td>
-      </tr>
-      <tr>
-        <th class="label"><%=subject_icon('started.png')%> Started </th><td><%= short_date(@task.started_at) %></td>
-        <th class="label"><%=subject_icon('ended.png')%> Ended   </th><td><%= short_date(@task.ended_at) %></td>
-      </tr>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-experiment'>
+          Experiment
+        </b>
+      </th>
+      <td>
+        <%= link_to @task.experiment_name,
+            experiment_url( :action => 'show', :id => @task.experiment_id ) %>
+      </td>
+      <th class="label">
+        <b class='icon icon-protocol_version'>
+          Process Version
+        </b>
+      </th>
+      <td>
+        <%=link_to @task.process_name,
+            protocol_url(:action=>'show',:id => @task.protocol_version_id) %>
+            Protocol <%=(@task.flexible? ? '  [flexible]' : ' [fixed]')%>
+      </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-status'>
+          Status
+        </b>
+      </th>
+      <td>
+        <%=@task.status%>
+      </td>
+      <th class="label">
+        <b class='icon icon-date'>
+          Started
+        </b>
+      </th>
+      <td><%= short_date(@task.started_at) %></td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-user_lab'>
+          Assigned To
+        </b>
+      </th>
+      <td><%=@task.assigned_to.name%></td>
+      <th class="label">
+        <b class='icon icon-date'>
+          Ended
+        </b>
+      </th>
+      <td>
+      <%= short_date(@task.ended_at) %></td>
+    </tr>
   </table>
-</div>

@@ -1,0 +1,51 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => current_project} %>
+<% end -%>
+
+<% content_for :status do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
+<%end %>
+
+<% content_for :help do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :center do -%>
+<h1 class='icon icon-assay-large' style="text-indent:0.5em;">
+    Assay Definitions in project [<strong><%=@project.name%></strong>]
+</h1>
+
+  <div id="tabs1">
+    <div id="tab-list" class="x-hide-display">
+      <%= render :partial => 'list' %>
+      <%= render( :partial => 'share') if current_project.allows?(:share,:assays) %>
+    </div>
+    <div id="tab-import" class="x-hide-display">
+      <%= render :partial => 'import' %>
+    </div>
+  </div>
+  
+<% end %>
+
+
+<script>
+Ext.onReady(function(){
+      var tabs = new Ext.TabPanel({
+              renderTo:'tabs1',
+              activeTab: <%=@tab||0%>,
+              id: 'myTabs',
+              defaults: {
+                  autoHeight: true,
+                  autoWidth: true,
+                  autoScroll: true
+              },
+              items: [{       title: 'Currently Linked',
+                              contentEl: 'tab-list'
+                      },
+                      {       title: 'Import',
+                              contentEl: 'tab-import'
+                      }]
+          });
+});
+</script>

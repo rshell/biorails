@@ -1,33 +1,37 @@
 
-<fieldset>
+<!--fieldset-->
   <div class="row">
     <!--[form:parameter_type]-->
-  <div class="form-element">
-
-  <%= hidden_field 'parameter_type', 'data_type_id' %>
-
-  <%= hidden_field 'parameter_type', 'data_concept_id' %>
-
-<div class="form-element">
-  <label for="parameter_type_name">Name</label>
-   <%= text_field 'parameter_type', 'name'  ,"size" => 10,:class=>"text-input" %>
-</div>
-</div>
-
- <div class="row">
+    <!--div class="form-element"-->
+      <%= hidden_field 'parameter_type', 'data_type_id' %>
+      <%= hidden_field 'parameter_type', 'data_concept_id' %>
+    <!--/div-->
     <div class="form-element">
-      <label for="parameter_type_description">Description</label>
-          <%= text_area( :parameter_type, :description,{:rows=>5, :cols=>100} 	)        %>
+      <label for="parameter_type_name" class='icon icon-name'>
+        Name
+      </label>
+       <%= text_field 'parameter_type', 'name'  ,"size" => 10,:class=>"text-input" %>
     </div>
-</div>
+  </div>
 
- <div class="row">
-    
+  <div class="row">
     <div class="form-element">
-      <label for="parameter_type_weighing">Weighing</label>
-      <%= text_field 'parameter_type', 'weighing' ,"size" => 8,:class=>"text-input"  %>
+      <label for="parameter_type_description" class='icon icon-description'>
+        Description
+      </label>
+          <%= text_area( :parameter_type, :description,{:rows=>5, :cols=>80})%>
     </div>
+  </div>
 
-<!--[eoform:parameter_type]-->
-</div>
-</fieldset>
+  <div class="row">
+    <div class="form-element">
+      <label for="parameter_type_weighing">
+        Weighting (Governs order in forms)
+      </label>
+        <%= text_field 'parameter_type', 'weighing' ,"size" => 8,:class=>"text-input"  %>
+    </div>
+  </div>
+
+  <!--[eoform:parameter_type]-->
+  
+<!--/fieldset-->

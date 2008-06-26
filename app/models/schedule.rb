@@ -11,7 +11,7 @@
 # Constructors
 # 
 #  schedule = Schedule.tasks_in(experiment)
-#  schedule = Schedule.experiments_in(study)
+#  schedule = Schedule.experiments_in(assay)
 #  
 #  Hope later to add work_on(inventory_item) etc 
 #  
@@ -111,7 +111,7 @@ end
 # Calculate the period of the schedule 
 #
 def period
-  return @options[:data_to].to_d - @options[:data_from].to_s
+  return @options[:data_to].to_date - @options[:data_from].to_date
 end
 ##
 # Get a list of all the events in the schedule
@@ -175,54 +175,29 @@ end
 # Get a list of items for this date
 # 
 def for_day(day)
-	for item in @items
-	  day_issues << i if item.send(@options[:start]).to_date == day or item.send(@options[:end]).to_date == day 
-	end
-	return day_issues
+   day_issues = []
+   for item in @items
+     day_issues << item if item.send(@options[:start]).to_date == day or item.send(@options[:end]).to_date == day 
+   end
+   return day_issues
 end
 
 
 def icon(item,day)
   if item.send(@options[:start]).to_date == day and item.send(@options[:end]).to_date == day
-	image_tag('arrow_bw.png')
+	image_tag('/images/enterprise/calendar/arrow_bw.png')
 	    
   elsif item.send(@options[:start]).to_date == day
-    image_tag('arrow_from.png') 
+    image_tag('/images/enterprise/calendar/arrow_from.png') 
     
   elsif item.send(@options[:end]).to_date == day
-    image_tag('arrow_to.png') 
+    image_tag('/images/enterprise/calendar/arrow_to.png') 
   end   
 end
 
 
 def link(item)
 
-end
-
-def to_html
-  out = ""
-  day = @calendar.date_from
-  while day <= @calendar.date_to	
-  	out << "<th>#{day.cweek}</th>" if day.cwday == 1 
-      out << "<td valign='top' class=" << (day.month==@calendar.month ? "even" : "odd")  
-      out << " style='width:14%; " <<  (Date.today == day ? 'background:#FDFED0;"' : '"')
-  	out << " <p class='textright'>" << (day==Date.today ? "<b>#{day.day}</b>" : day.day) << "</p>"	
-  
-  	for item in @calendar.for_day(day)
-  	    out << " <div class='tooltip'>"
-  	    out << icon(item,day)
-          out << "<small>"
-          out <<  link_to( "#{i.name}", task_url(:action=>'show',:id=>i.id) )
-          out item.description.sub(/^(.{30}[^\s]*\s).*$/, '\1 (...)')
-          out "</small> <span class='tip'>
-          out "<strong>Item #{item.name} [#{item.status}] </strong>{ item.description}"
-  		out " </div>"
-  	end
-      out "</td>"
-  	out '</tr><tr style="height:100px">' if day.cwday >= 7 and day!=@calendar.date_to
-  	
-  	day = day + 1
-  end 
 end
 
 
@@ -250,49 +225,6 @@ def calendar(params={})
     return self    
 end
 
-##
-# Setup schedule for a gantt
-def gantt(params)
-    if options[:year] and options[:year].to_i >0
-      self.year_from = options[:year].to_i
-      if options[:month] and options[:month].to_i >=1 and options[:month].to_i <= 12
-        self.month_from = options[:month].to_i
-      else
-        self.month_from = 1
-      end
-    else
-      self.month_from ||= (Date.today << 1).month
-      self.year_from ||= (Date.today << 1).year
-    end
-    
-    self.zoom = (options[:zoom].to_i > 0 and options[:zoom].to_i < 5) ? options[:zoom].to_i : 2
-    self.months = (options[:months].to_i > 0 and options[:months].to_i < 25) ? options[:months].to_i : 6
-    
-    self.date_from = Date.civil(year_from, month_from, 1)
-    self.date_to = (self.date_from >> self.months) - 1
-end
-
-##
-#Build a schedule of data for subject (the analysts views) 
-#  
-def Schedule.results_for(subject)
-   schedule = Schedule.new
-   sql =<<-SQL 
-      select * from task_contexts c,task_references r 
-      where c.id=r.task_context_id 
-      and r.data_type='#{subject.class}' and r.data_id=#{subject.id}'
-SQL
-   contexts = TaskContext.find_by_sql(sql)
-   if contexts.size > 0
-     first = TaskReference.find_by_type(subject, :order_by => 'created_at asc')
-     last = TaskReference.find_by_type(subject, :order_by => 'updated_at desc')
-     schedule.first = first.created_at.at_beginning_of_day
-     schedule.last = last.updated_at + 24.hours 
-     schedule.default_delta
-     schedule.fill(contexts)
-   end
-   return schedule
-end
 
 
 end

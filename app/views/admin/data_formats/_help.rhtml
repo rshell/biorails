@@ -9,12 +9,11 @@
 
 <div id="right-accordion">
   <div id="panel-help" class='x-hidden'>
-    <div>Data Format </div>
     <div>
       <div class="text-content">
-      	 Data Format define the rules for entry and display of data in the application. 
-		 They use <i>Regular Expersions</i> and C style <i>Printf</i> code to do this. 
-		 Unluckily these are in the are a little cryptic if well documented on the web. 
+      	 Data Formats define the rules for entry and display of data in the application. 
+		 They use <i>Regular Expressions</i> and C style <i>Printf</i> code to do this. 
+		 For the uninitiated these are in the are a little cryptic but they are well documented on the web. 
  	  </div>
     </div>
   </div>
@@ -145,10 +144,9 @@
   Ext.onReady(function() {
   // create accordion
   var accordion = new Ext.Panel({
-	  title: 'Help',
 	  renderTo: "right-accordion",
 	  layout:'accordion',
-	  autoHeight: true,
+	  height: 500,
 	  defaults: {
 		  bodyStyle: 'padding:1px'
 	  },
@@ -156,11 +154,11 @@
 		  titleCollapse: false,
 		  animate: true
 	  },
-	  items: [{ title: 'Help', contentEl:'panel-help'},
-			  { title: 'Meta Char', contentEl:'panel-meta'},
-			  { title: 'Escapes', contentEl:'panel-escapes'},
-			  { title: 'Classes', contentEl:'panel-classes'},
-			  { title: 'PrintF', contentEl:'panel-printf' }]
+	  items: [{ title: 'Data Format', autoScroll:true,contentEl:'panel-help'},
+			  { title: 'Meta Char',autoScroll:true, contentEl:'panel-meta'},
+			  { title: 'Escapes',autoScroll:true, contentEl:'panel-escapes'},
+			  { title: 'Classes',autoScroll:true, contentEl:'panel-classes'},
+			  { title: 'PrintF',autoScroll:true, contentEl:'panel-printf' }]
 	 });
 });
 </script>

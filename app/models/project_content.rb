@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: project_elements
 #
@@ -20,8 +20,12 @@
 #  content_id             :integer(11)   
 #  published_hash         :string(255)   
 #  project_elements_count :integer(11)   default(0), not null
-#  left_limit             :integer(11)   default(0), not null
-#  right_limit            :integer(11)   default(0), not null
+#  left_limit             :integer(11)   default(1), not null
+#  right_limit            :integer(11)   default(2), not null
+#  team_id                :integer(11)   default(0), not null
+#  published_version_no   :integer(11)   default(0), not null
+#  version_no             :integer(11)   default(0), not null
+#  previous_version       :integer(11)   default(0), not null
 #
 
 ##
@@ -50,18 +54,21 @@ class ProjectContent < ProjectElement
     content.title =        options[:title]      
     content.body      =    options[:body]        
     content.project_id=    options[:project_id]
-    content.body_html =    options[:to_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")   
+    content.body_html =    options[:body_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")  
+    content.content_hash= Signature.generate_checksum(content.to_xml) 
     content.valid?
     logger.debug content.to_yaml
     content.save
     element.content = content
+    element.published_hash = Signature.generate_checksum(element.to_xml)
     return element
   end
+
 #
 # Update the content of the element added a new content
 # entry and linking it previous version
 #
-  def update_element(options)
+  def update_content(options)
     Content.transaction do
       old = Content.find(self.content_id)
       self.name= options[:name] if options[:name] 
@@ -69,29 +76,22 @@ class ProjectContent < ProjectElement
       self.content.name       =  options[:name] ||old.name       
       self.content.title      =  options[:title] ||old.title      
       self.content.body       =  options[:body]        
+      self.content.body_html  =  options[:body_html]        
       self.content.project_id =  self.project_id   
-      self.to_html  =  options[:to_html] 
+      self.content.content_hash =  Signature.generate_checksum(self.content.to_xml)
       return self unless self.content.save      
       self.content.move_to_child_of(old)  
       self.save
     end
   end
+    
 ##
 # Single line title
 #
   def title
    self.content.title if content
-  end 
-##
-# Html report version
-#
-  def to_html
-    self.content.body_html if content
-  end
-  
-  def to_html=(value)
-    self.content.body_html = value.gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "") 
-  end
+ end
+
 ##
 # Textual content  
 
@@ -105,16 +105,13 @@ class ProjectContent < ProjectElement
       end
       return text.gsub(/<!--(.*?)-->[\n]?/m, "").gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")  
   end
-##
-# Summay of the content
-
-  def summary
-     return content.summary if content
-     return name
-  end         
 
   def icon( options={} )
      '/images/model/note.png'
   end  
+  
+  def body_html
+    content.body_html if content
+  end
   
 end

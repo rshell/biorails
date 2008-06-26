@@ -1,22 +1,31 @@
 <% content_for :action_nav do %>
-<!-- begin action nav -->
-<div id="page-nav">
-  <ul id="act-nav" class="clear">
-    <li><%= link_to "General", '#general' %></li>
-    <li><%= link_to "Comments", '#spam' %></li>
-    <li><%= link_to "Publishing", '#publish' %></li>
-    <% if ActionController::Base.perform_caching -%>
-    <li><%= link_to 'Caches', :controller => '/admin/cached_pages' %></li>
-    <% end -%>
-  </ul>
-</div>
-<!-- /end action nav -->
+  <!-- begin action nav -->
+  <div id="page-nav">
+    <ul id="act-nav" class="clear">
+      <li>
+        <%= link_to "General", '#general' %>
+      </li>
+      <li>
+        <%= link_to "Comments", '#spam' %>
+      </li>
+      <li>
+        <%= link_to "Publishing", '#publish' %>
+      </li>
+      <% if ActionController::Base.perform_caching -%>
+      <li>
+        <%= link_to 'Caches', :controller => '/admin/cached_pages' %>
+      </li>
+      <% end -%>
+    </ul>
+  </div>
+  <!-- /end action nav -->
 <% end %>
-
 
 <% form_for :project, :url => { :action => "update" } do |f| %>
 <div id="general" class="setgroup">
-  <h3>General project settings</h3>
+  <h3>
+    General project settings
+  </h3>
   <dl class="setform">
     <dt><label for="project_title">Project title</label></dt>
     <dd><%= f.text_field :title %></dd>
@@ -108,4 +117,3 @@
 
 <p class="btns"><%= submit_tag 'Save and apply settings' %></p>
 <% end %>
-    

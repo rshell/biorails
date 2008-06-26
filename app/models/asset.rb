@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: project_assets
 #
@@ -21,7 +21,7 @@
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
-#  caption            :text          
+#  caption            :string(2048)  
 #  db_file_id         :integer(11)   
 #
 
@@ -36,9 +36,6 @@
 # 
 # 
 # 
-require 'digest/md5'
-require 'digest/sha1'
-require 'mime/types'
 
 class Asset < ActiveRecord::Base
    include ActionView::Helpers::NumberHelper
@@ -52,7 +49,7 @@ class Asset < ActiveRecord::Base
   belongs_to :project  
 
 ##
-# A assert may be referenced as a element in a number of folders to allow its inclusion into 
+# A asset may be referenced as an element in a number of folders to allow its inclusion into 
 # reports and analysis.
 #   
   has_many :references,  :class_name  =>'ProjectElement',  :foreign_key =>'reference_id',:dependent => :destroy
@@ -69,13 +66,13 @@ class Asset < ActiveRecord::Base
   belongs_to :db_file    
 ##
 # The main purpose of a Project asset is is to act as a link to external raw/process data block.
-# This could be a image file, csv raw data, office document or many other thinks.
+# This could be a image file, csv raw data, office document or many other things.
 # 
   has_attachment :max_size => 5000.kilobytes,
                  :resize_to => '3000x2000>',
                  :storage => :db_file,
                  :path_prefix =>  File.join('project_assets'),
-                 :thumbnails => {:normal=>'320x200', :icon => '48x48' }
+                 :thumbnails => {:normal=>'640x400', :icon => '48x48' }
 
   #validates_uniqueness_of :filename, :scope => 'project_id'
   validates_presence_of   :filename
@@ -100,12 +97,12 @@ class Asset < ActiveRecord::Base
      Digest::MD5.hexdigest(data )
   end
   
-  def image_tag(max = 700)
+  def image_tag(default_image_size=:normal,max = 700)
    return "<img src='/images/model/file.png' />"  unless image?
    if max and self.width and (max.to_i <= self.width.to_i )
-      "<img src=#{self.public_filename}  width='98%'/>"  
+     "<img width='99%' class='asset' src='#{self.public_filename(default_image_size)}'  alt='#{self.filename}'/>" 
    else
-      "<img src=#{self.public_filename} />" 
+      "<img class='asset' src='#{self.public_filename(default_image_size)}' alt='#{self.filename}'/>" 
    end
   end
   
@@ -139,6 +136,10 @@ class Asset < ActiveRecord::Base
   def description
     return self.caption
   end 
+
+  def description=(value)
+    self.caption = value
+  end 
   
   def summary
      out = number_to_human_size( size)
@@ -148,7 +149,8 @@ class Asset < ActiveRecord::Base
        out << " "<< width.to_s
        out << " x "
        out << " " << height.to_s
-     end          
+     end      
+     out.to_s     
   end
   
   

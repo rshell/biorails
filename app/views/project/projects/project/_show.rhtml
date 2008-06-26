@@ -1,0 +1,44 @@
+<%if @project%>
+
+  <h1 class="icon icon-project-large" style="text-indent:0.5em"> Project <%= @project.name %> </h1>
+  <table style="font-size:1.2em">
+      <tr>
+          <th>Description:</th>
+          <td><%= @project.description %>
+          </td>
+      </tr>
+      <tr>
+        <th>Owned by: </th>
+        <td><%= link_to "#{@project.team.name} ",member_url(:action => 'list', :id => @project.team_id) %>
+        </td>
+      </tr>
+  </table>
+
+  <div class="splitcontentleft">
+    <div class="box">
+   <%= project_render :partial => 'box_published_documents' %>
+    </div>
+
+    <div class="box">
+   <%= project_render :partial => 'box_project_requests' %>
+    </div>
+
+    <div class="box">
+   <%= project_render :partial => 'box_project_news' %>    
+    </div>
+  </div>
+
+  <div class="splitcontentright">
+
+    <div class="box">
+       <%= project_render :partial => 'box_project_assays' %>    
+    </div>
+
+    <div class="box">
+       <%= project_render :partial => 'box_project_experiments' %>    
+    </div>
+  </div>
+  
+<%else%>
+This needs a project to be defined  
+<%end%>

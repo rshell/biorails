@@ -1,33 +1,35 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
-    <span class='menu'>Data Context</span>
-        <%= link_to (subject_icon('destroy.png')) +'Delete', { :action => 'remove', :id =>  @data_context },                                
-                            :confirm => 'Are you sure?',:method => "post" %>
-        <%= link_to (subject_icon('new.png')) +'Add Concept', :action => 'new', :controller=>'data_concepts' , 
-                                :data_context =>  @data_context %>
-        <%= link_to (subject_icon('edit.png')) +'Edit ', :action => 'edit', :id =>  @data_context %>
-        <%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %>
+    <span class='menu'>Dictionary</span>
+    <%= link_to "<b class='icon icon-del'>Delete</b>",
+            { :action => 'remove', :id =>  @data_context },
+            :confirm => 'Are you sure?',:method => "post" %>
+    <%= link_to "<b class='icon icon-add'>Add Concept</b>",
+            :action => 'new', :controller=>'data_concepts' ,
+            :data_context =>  @data_context %>
+    <%= link_to "<b class='icon icon-edit'>Edit</b>",
+            :action => 'edit', :id =>  @data_context %>
+    <%= link_to "<b class='icon icon-list'>List</b>",
+            :action => 'list' %>
     </div>
 <% end %>
 
 
 <div class='main' id='maintitle'>
-    <h2>
-        <%=subject_icon('context')%> Conceptual Namespace [<strong><%= @data_context.path %></strong>]
-    </h2>
+    <h1 class='icon icon-context'>
+        Dictionary <strong><%= @data_context.path %></strong>
+    </h1>
     <div class='panel'>
         <%= render :partial => 'shared/named',:locals =>{:item => @data_context} %>
         <br/>
         <table width='100%'>
         <%= render :partial => 'shared/table_of_named',:locals =>
-           {:items => @data_context.data_concepts, 
+           {:items => @data_context.data_concepts,
             :controller => 'data_concepts',
-            :edit => 'edit', 
+            :edit => 'edit',
             :show => 'show' } %>
-        </table>        
+        </table>
     </div>
-
     <%= render :partial => 'shared/audit',:locals =>{ :item => @data_context} %>
 </div>
-

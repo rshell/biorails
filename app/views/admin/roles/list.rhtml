@@ -9,52 +9,60 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-<h2>User Roles</h2>
-<p>
-	Governs the user's default access rights on the system. Basic access is to the user's and global <i>home pages</i>, 
-	<i>catalogue</i> and other system-wide concepts such as <i>inventory</i>.  
-</p>
-<p>
-	<strong>Note:</strong>Users have project roles which override access at the project level)
-</p>
+<h1 class='icon icon-user-large' style='text-indent:0.5em'>User Roles</h1>
 <div class='panel'>
-	<table class='report'>
-	  <tr>
-		<th>Name</th><th>Description</th><th>Created At</th>
-		<th>Updated At</th>
-	  </tr>
-	<% for role in @user_roles %>
-	  <tr>
-		<td><%= link_to role.name, :action => 'show', :id => role %></td>
-		<td><%= role.description %></td>
-		<td><%=short_date role.created_at %></td>
-		<td><%=short_date role.updated_at %></td>
-		<!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
-	  </tr>
-	<% end %>
-	</table>
+  <p>
+    Governs the user's default access rights on the system.
+    Basic access is to the user's and global <i>home pages</i>,
+    <i>catalogue</i> and other system-wide concepts such as
+    <i>inventory</i>.
+  </p>
+  <p>
+    <strong>Note:</strong>Users have team roles which
+    override access at the project level)
+  </p>
+  <div class='panel'>
+      <table class='report'>
+        <tr>
+              <th>Name</th><th>Description</th><th>Created At</th>
+              <th>Updated At</th>
+        </tr>
+      <% for role in @user_roles %>
+        <tr class="<%= cycle('odd', 'even') %>">
+              <td><%= link_to role.name, :action => 'show', :id => role %></td>
+              <td><%= role.description %></td>
+              <td><%=short_date role.created_at %></td>
+              <td><%=short_date role.updated_at %></td>
+        </tr>
+      <% end %>
+      </table>
+  </div>
 </div>
+
 <br />
-<h2>Project Roles</h2>
-<p>
-	Governs what a user is allowed to do as a member of the project, their project access rights. 
-	This includes operations such as <i>study design</i>, and <i>data entry</i>.
-</p>
+
+<h1  class='icon icon-team-large' style='text-indent:0.5em'>Team Roles</h1>
 <div class='panel'>
-	<table class='report'>
-	  <tr>
-		<th>Name</th><th>Description</th><th>Created At</th>
-		<th>Updated At</th>
-	  </tr>
-	  
-	<% for role in @project_roles %>
-	  <tr>
-		<td><%= link_to role.name, :action => 'show', :id => role %></td>
-		<td><%= role.description %></td>
-		<td><%=short_date role.created_at %></td>
-		<td><%=short_date role.updated_at %></td>
-		<!--td><%= link_to 'Destroy', { :action => 'destroy', :id => role }, :confirm => 'Are you sure?' %></td-->
-	  </tr>
-	<% end %>
-	</table>
+  <p>
+    Governs what a user privileges as a member of a team, their team access rights.
+    This role is then applied to the projects owned by that team and thus control
+    operations such as <i>assay definition</i>, and <i>data entry</i>.
+  </p>
+  <div class='panel'>
+    <table class='report'>
+      <tr>
+            <th>Name</th><th>Description</th><th>Created At</th>
+            <th>Updated At</th>
+      </tr>
+
+    <% for role in @project_roles %>
+      <tr class="<%= cycle('odd', 'even') %>">
+            <td><%= link_to role.name, :action => 'show', :id => role %></td>
+            <td><%= role.description %></td>
+            <td><%=short_date role.created_at %></td>
+            <td><%=short_date role.updated_at %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
 </div>

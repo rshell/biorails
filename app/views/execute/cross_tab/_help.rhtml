@@ -1,0 +1,11 @@
+<div class='panel'>
+
+<h2>Cross Tab</h2>
+This table is based on filtered data from the following:-
+<ul>
+<% for context in @cross_tab.contexts %>
+ <li><%= context.path(:process) %> <%= context.usages.size%> Rows</li>
+<% end %>
+</ul>
+
+</div>

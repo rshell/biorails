@@ -3,13 +3,20 @@
   <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
 <% end -%>
 
+<% content_for :messages do -%>
 <%=render :partial =>'shared/messages',:locals => { :objects => ['project','report'] }  %>
+<% end -%>
 
-<h2 class="icon icon-experiment-large" style="text-indent:0.5em">
-    Experiments in project <%=@project.name%>
-</h2>
-<div class="panel">                              
+<% content_for :help do -%>
+<%=render :partial =>'help'  %>
+<% end -%>
+
+<% content_for :center do -%>
+<h1 class="icon icon-experiment-large" style="text-indent:0.5em">
+  Experiments in project [<strong><%=@project.name%></strong>]
+</h1>
+<div id='<%=@report.dom_id(:show)%>'>                              
     <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
     <%= will_paginate  @data%>    
 </div>
-
+<% end -%>

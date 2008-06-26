@@ -1,19 +1,26 @@
 <!--[form:parameter_roles]-->
 <%= hidden_field :parameter_role, :lock_version  %>
 
-<p><label for="parameter_role_name">Name</label>
-<br/>
-<%= text_field 'parameter_role', 'name',:size=>'80'  %>
+<p>
+  <label for="parameter_role_name" class='icon icon-name'>
+    Name
+  </label>
+  <br/>
+  <%= text_field 'parameter_role', 'name',:size=>'80'  %>
 </p>
 
-<p><label for="parameter_role_description">Description</label>
-<br/>
-<%= text_area( 'parameter_role', 'description',:rows=>4,:cols=>80)  %>
+<p>
+  <label for="parameter_role_description" class='icon icon-description'>
+    Description
+  </label>
+  <br/>
+  <%= text_area( 'parameter_role', 'description',:rows=>4,:cols=>80)  %>
 </p>
 
-<p><label for="parameter_role_weighing">Weighing (Governs order in forms)</label>
-<br/>
-<%= text_field 'parameter_role', 'weighing'  %>
+<p>
+  <label for="parameter_role_weighing">Weighting (Governs order in forms)</label>
+  <br/>
+  <%= text_field 'parameter_role', 'weighing'  %>
 </p>
 
 <!--[eoform:parameter_roles]-->

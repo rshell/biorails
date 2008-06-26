@@ -1,5 +1,5 @@
 ##
-# This is Observer to generate log events for the Study Timeline 
+# This is Observer to generate log events for the Assay Timeline 
 #
 ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
@@ -8,7 +8,7 @@
 
 class CatalogObserver < ActiveRecord::Observer
   observe DataConcept, DataSystem, DataElement,DataType,DataFormat,
-          ParameterType, ParameterRole, StudyStage 
+          ParameterType, ParameterRole, AssayStage 
 
   def after_update(record)
       create_log(record, "Update")

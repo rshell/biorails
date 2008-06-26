@@ -1,26 +1,23 @@
 <% content_for :center do -%>
-<h2>        <%=subject_icon('services')%> List Requests  </h2>
- 
+  <h1 class='icon icon-request-large' style='text-indent:0.5em'>
+    List Requests
+  </h1>
 
-<div class='panel'>
-    <%= render :partial => 'shared/report', :locals => {:report => @report, :data => @data } %>    
-
-<%= will_paginate @data %>
-</div>
+  <div class='panel'>
+    <%= render :partial => 'shared/report', :locals => {:report => @report, :data => @data } %>
+    <%= will_paginate @data %>
+    <%= link_to "<b class='icon icon-new'>New</b>", :action => 'new' %>
+  </div>
 <%end%>
-    
+
 <% content_for :right do %>
-<h2><%=l(:Instructions)%></h2>
-<div class="panel">
-    <p>Filtering: Type search terms into the filter boxes.  Wildcard support with '%' and '<' and '>'.  
-        This form will be extended combo-boxes for data-elements, date pickers, clear filters etc.</p>
-    <p>Sorting: Click on a column header to sort the table by that column.</p>
-</div>
-<div class="actions">
-    <ul>
-        <li><%= link_to subject_icon('new.png')+ 'New', :action => 'new' %></li>
-    </ul>
-</div>
-
-<%end %>    
-
+  <h1 class='icon icon-request'><%=l(:Instructions)%></h1>
+  <div class="panel">
+      <p>
+        Filtering: Type search terms into the filter boxes.
+        Wildcard support with '%' and '<' and '>'. This form
+        will be extended combo-boxes for data-elements, date pickers, clear filters etc.
+      </p>
+      <p>Sorting: Click on a column header to sort the table by that column.</p>
+  </div>
+<%end %>

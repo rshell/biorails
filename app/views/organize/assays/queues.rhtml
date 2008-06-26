@@ -1,0 +1,25 @@
+<h1 class='icon icon-service-large'>
+   Service Queues for Assay
+   <%= link_to @assay.name, :controller => 'assays',  :action => 'show', :id => @assay.id  %>
+</h1>
+
+<% content_for :center do -%>
+
+<%end%>
+
+<% content_for :right do -%>
+   <h1>Guidance</h1>
+   <div class='panel'>
+   <p>
+     This form shows all the service queues
+     available to the <%=@assay.name%>
+     assay. Each queue accepts a single type of
+     parameter for identification of stuff to process
+     in the assay. A number
+     of different protocols may submit items to the same queue.
+   </p>
+  </div>
+  <%= link_to "<b class='icon icon-service'>New</b>",
+    queue_url( :action => 'new', :id=>@assay.id) %>
+<%end%>
+

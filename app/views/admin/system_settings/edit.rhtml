@@ -1,19 +1,15 @@
-<div class='main' >
-    <div class="title">
-         Editing System setting for <%= h(@system_setting.name).humanize %>
-    </div>
-
-    <div class="dialog">                              
-     <% form_tag :action => 'update', :id => @system_setting do %>
-       <%= render :partial => 'form' %>
-        <div class='row'>
-        <%= submit_tag 'Edit' %><%= submit_tag 'Cancel'%>
-        </div>
-     <% end %>
-    </div>
-    <%#= render :partial => 'shared/audit',:locals =>{ :item => @study} %>
-</div>    
-
-
-
-<hr/>
+<% content_for :center do -%>
+  <% dialog "Edit System Settings" do %>  
+    <% for system_setting in @system_settings %>
+      <% form_tag :action => 'update', :id => system_setting.name do %>
+      <div class="row">
+        <label for="system_settings_value">
+          <%=h system_setting.name%>
+        </label>
+        <%= text_field_tag  'value',system_setting.value,:cols=>80  %>
+        <%= submit_tag 'Update' %>
+      </div>
+      <%end%>
+    <%end%>
+  <%end%>
+<% end %> 

@@ -6,30 +6,14 @@
 module Admin::DataElementsHelper
 
   def values
-    txt = table_from_array(@data_element.values)
-    return txt
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+    list = @data_element.values
+    if list
+       table_from_array(list) 
+    end
+  rescue 
+      ""
   end
 
-#
-# General a table for a set of Named Records  
-# 
-  def table_from_records(records)
-       txt ='<table>' 
-       txt += render :partial => 'shared/table_of_named',
-       :locals => {:items => records, 
-                   :controller => 'data_elements',
-                   :edit => 'edit', 
-                   :show => 'show' }
-       txt +='</table>' 
-       return txt
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      ex.message
-  end
 
 #
 #  Generate table from a array of hashed records
@@ -50,10 +34,8 @@ module Admin::DataElementsHelper
      txt +='</tbody>'
      txt +='</table>'
      return txt 
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      ex.message
+  rescue
+      ""
   end
  
 
@@ -63,9 +45,7 @@ module Admin::DataElementsHelper
       txt += '<td>'+ row['name'].to_s + '</td>' 
       txt +='</tr>'
       return txt  
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      ex.message
+  rescue
+    ""
   end
 end

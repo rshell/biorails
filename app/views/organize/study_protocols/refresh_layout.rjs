@@ -1,9 +1,0 @@
-##
-# Script to replace current process-layout with updated version with changed values
-# 
-if @successful
-  page.replace_html "process_layout", :partial => 'process_layout'
-  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['study_protocol','process_version','process_context','parameter'] }
-else
-  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['study_protocol','process_version','process_context','parameter'] }
-end

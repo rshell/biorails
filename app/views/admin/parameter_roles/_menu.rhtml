@@ -1,10 +1,20 @@
   <%= render :partial => '/menu/admin_menu'%>
-    <div>
-    <span class='menu'>Parameter Role</span>
-        <%= link_to 'List',    parameter_role_url(:action => 'list') %>
-        <%= link_to 'New',    parameter_role_url(:action => 'new') %> 
-		<%if @parameter_role && !@parameter_role.new_record? %>
-	        <%= link_to 'Edit',    parameter_role_url(:action => 'edit', :id => @parameter_role) %> 
-	        <%= link_to 'Show',    parameter_role_url(:action => 'show',:id => @parameter_role) %>
-        <% end %>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-parameter_role'>
+        Parameter Role
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-list'>List</b>",
+        parameter_role_url(:action => 'list') %>
+      <%= link_to "<b class='icon icon-new'>New</b>",
+        parameter_role_url(:action => 'new') %></li>
+      <%if @parameter_role && !@parameter_role.new_record? %>
+        <%= link_to "<b class='icon icon-edit'>Edit</b>",
+          parameter_role_url(:action => 'edit', :id => @parameter_role) %>
+        <%= link_to "<b class='icon icon-show'>Show</b>",
+          parameter_role_url(:action => 'show',:id => @parameter_role) %>
+      <% end %>
     </div>
+  </div>

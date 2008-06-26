@@ -1,20 +1,22 @@
-<h1 class="icon icon-team-large">Edit Team</h1>  
 
   <div class="row">
     <!--[form:team]-->
     <%= hidden_field 'team', 'lock_version'  %>
     <div class="form-element">
-      <label for="team_name">Name</label>
+      <label for="team_name" class='icon icon-name'>
+        Name
+      </label>
       <%= text_field 'team', 'name' , {:class=>"text-input"} %>
     </div>
   </div>
 
   <div class="row">
     <div class="form-element">
-      <label for="team_description">Summary</label>
-      <%= text_area('team', 'description', {:rows=>5,:cols=>100})  %>
+      <label for="team_description"  class='icon icon-description'>
+        Summary
+      </label>
+      <%= text_area('team', 'description', {:rows=>5,:cols=>80})  %>
     </div>
   </div>
-
 
 <!--[eoform:team]-->

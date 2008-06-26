@@ -11,42 +11,79 @@
 <% end %>
 
 <% content_for :center do -%>
+<h1 class="icon icon-experiment-large" style="text-indent:0.5em">
+   Experiment [<strong><%=@experiment.name %></strong>] in assay
+        [<%= link_to @experiment.assay.name, assay_url( :action => 'show', :id => @experiment.assay.id)  %>]
+</h1>
 
 <div id='tabs1'>
     <div id="tab-show" class="tab-content x-hidden">
        <%=render :partial =>'show' %>
     </div>
+    <div id="tab-edit" class="tab-content x-hidden">
+    </div>
     <div id="tab-import" class="tab-content x-hidden">
        <%=render :partial =>'import' %>
     </div>
-    <div id="tab-matrics" class="tab-content x-hidden">
+    <div id="tab-view" class="tab-content x-hidden">
     </div>
-</div>    
+    <div id="tab-metrics" class="tab-content x-hidden">
+    </div>
+</div>
+<hr />
+        <%= link_to "<b class='icon icon-task-add'>Add Task</b>",
+        task_url( :action => 'new' , :id => @experiment) %>
+
+        <%= link_to "<b class='icon icon-file-add'>Add File</b>",
+        asset_url( :action => 'new' , :id => @experiment.folder  ) %>
+
+        <%= link_to "<b class='icon icon-note-add'>Add Article</b>",
+        content_url( :action => 'new' , :id => @experiment.folder  ) %>
+
+
 <%end%>
 
 
-<SCRIPT TYPE="text/javascript"> 
+<script type="text/javascript">
+
 Ext.onReady(function(){
-        var tabs = new Ext.TabPanel({
-		        renderTo:'tabs1',
-				activeTab: 0,
-				defaults: {
-						autoHeight: true,
-						autoScroll: true,
-						bodyStyle: 'padding:15px'
-				},
-				items: [{
-						title: 'Overview',
-						contentEl: 'tab-show'
-					},{
-						title: 'Import',
-						contentEl: 'tab-import'
-					},{
-						title: 'Metrics',
-						contentEl: 'tab-matrics',
-                        autoLoad: "<%=experiment_url(:action=>'metrics',:format=>:html,:id=>@experiment)%>"
-					}]		  
-		});
+  var tabs = new Ext.TabPanel({
+        renderTo:'tabs1',
+        activeTab: <%=@tab||0%>,
+        width: Biorails.getWidth()-10,
+        defaults: {
+          autoHeight: true,
+          autoScroll: false
+        },
+        items: [{
+                        title: 'Overview',
+                        contentEl: 'tab-show'
+                },{
+                        title: 'Update',
+                        contentEl: 'tab-edit',
+                        listeners:{
+                            activate : function(panel){panel.getUpdater().refresh();}
+                       },
+                       autoLoad: "<%=experiment_url(:action=>'edit', :format=>:ext, :id=>@experiment)%>"
+                },{
+                        title: 'Import',
+                        contentEl: 'tab-import'
+                },{
+                        title: 'View',
+                        contentEl: 'tab-view',
+                        listeners:{
+                            activate : function(panel){panel.getUpdater().refresh();}
+                       },
+                        autoLoad: "<%=experiment_url(:action=>'print', :format=>:ext, :id=>@experiment)%>"
+               },{
+                        title: 'Metrics',
+                        contentEl: 'tab-metrics',
+                        listeners:{
+                            activate : function(panel){panel.getUpdater().refresh();}
+                       },
+                        autoLoad: "<%=experiment_url(:action=>'metrics', :format=>:ext, :id=>@experiment)%>"
+               }]
+          });
 
  });
-</script>    
+</script>

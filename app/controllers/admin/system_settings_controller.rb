@@ -1,44 +1,40 @@
-class Admin::SystemSettingsController < ApplicationController
-  use_authorization :catalogue,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
 
+class Admin::SystemSettingsController < ApplicationController
+  
+  use_authorization :dba,
+                    :actions => [:list,:edit,:update],
+                    :rights => :current_user
   def index
     list
     render :action => 'list'
   end
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
   def list
-    @system_settings = SystemSetting.find(:all)
-  end
-
-  def edit
-      @system_setting = SystemSetting.find(params[:id])   
-  end
-
-  def update
-    if params[:commit].eql?('Edit')
-      @system_setting = SystemSetting.find(params[:id])
-      if @system_setting.update_attributes(params[:system_setting])
-        flash[:notice] = 'SystemSettings was successfully updated.'
-        redirect_to :action => 'list'
-      else
-        render :action => 'edit'
+    @system_settings =[]
+    SystemSetting.all.each do |setting|
+      if setting.value.nil? || setting.value.to_s.empty?
+        setting.value="?"
       end
-    else
-      redirect_to :action=>'list'
+      @system_settings << setting
     end
   end
-
-  protected
-
-  def foreign
-    @roles = Role.find(:all, :order => 'name')
-    
+  
+  def update
+    name=params[:id]
+    item = SystemSetting.get(name)
+    return render(:text=>"#invalid name") unless item
+    begin
+      item.value=params[name]   
+      item.save!
+      return render(:text=>item.displayed_value)
+    rescue Exception
+       logger.info "failed to set value SystemSetting #{params[:id]}   "
+      render(:text=> item.displayed_value)
+    end
   end
-
+  
 end

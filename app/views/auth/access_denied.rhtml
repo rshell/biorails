@@ -1,4 +1,36 @@
+<% content_for :messages do -%>
+  <%=render :partial=>'/shared/messages',:locals => { :objects => ['user' ]} %>
+<%end %>
 
-<%=render :partial=>'/shared/messages',:locals => { :objects => ['user' ]} %>
-<h1 class="icon icon-warning">Access Denied</h1>
-<p>Sorry, it appears you do to have the correct privileges to see the requested page</p>
+<% content_for :center do -%>
+
+  <%dialog "Permissions" do %>
+    <div class="box" >
+      <h2 class="icon icon-warning">Access Denied </h2>
+      <p>
+        Sorry, it appears you do to have the correct privileges to see the requested page at present.
+        This can mean either the page does not exist or you can not see it in the current project/user
+        context. 
+      </p>
+      <br />
+      <h3> Your current context is Project <%=current_project.name%> and user <%=current_user.name%></h3>
+      <p>
+        <%=current_user.name %> is a
+        <%= current_user.admin? ? 'adminstrator' : 'user' %>  with the default role of a 
+        <%=current_user.role.name%>' and as a 
+        <%= current_project.owner?(current_user) ? 'owner' : 'member' %>  of the team
+        <%=current_project.team.name%> which owns the project.
+    
+      </p>
+      <ul>	
+        <li> 
+            Project [ <%=link_to current_project.name, project_url(:action=>:show ,:id=>current_project)%> ] 
+            governs access to Project, Assays, Process , Queues, Parameter and Recipe	
+        </li>
+        <li> 
+            User [ <%=link_to current_user.name,home_url%>] used governs access to other items 	
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

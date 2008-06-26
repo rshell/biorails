@@ -1,28 +1,7 @@
-
-<h2 class="icon icon-experiment-large" style="text-indent:0.5em">
-   Experiment [<strong><%=@experiment.name %></strong>] in study 
-   [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
-</h2>
-<table class="report">
-  <tr>
-    <th class="label"><b class="icon icon-name">Name</b></th>
-    <td> <%= @experiment.name %></td>
-  </tr>
-  <tr>
-    <th class="label"><b class="icon icon-description">Description</b></th>
-    <td> <%= @experiment.description %></td>
-  </tr>
-  <tr>
-    <th class="label"><b class="icon icon-study">Study</b></th>
-    <td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td>
-  </tr>
-  <tr>
-    <th class="label"><b class="icon icon-protocol">Default Protocol Ver</b></th>
-    <td> <%= @experiment.process.path %></td>
-  </tr>
-</table>
-<div id="tab-parameters">                                       
-        <%= render :partial => 'stats' %>  
-</div>  
-
-
+<h1 class="icon icon-experiment-large" style="text-indent:0.5em">
+   Experiment [<strong><%=@experiment.name %></strong>] in assay
+   [<%= link_to @experiment.assay.name, assay_url( :action => 'show', :id => @experiment.assay.id)  %>]
+</h1>
+<div id="tab-parameters">
+        <%= render :partial => 'metrics' %>
+</div>

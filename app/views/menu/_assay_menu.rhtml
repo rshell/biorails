@@ -1,0 +1,16 @@
+<div>
+    <span class='menu'>
+      <b class='icon icon-assay'>
+        Assay Definition
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <% unless @assay.nil? || @assay.new_record? %>
+        <%= link_to "<b class='icon icon-assay'>Overview</b>", assay_url(:action => 'show',  :id => @assay)%>
+        <%= link_to "<b class='icon icon-folder'>Folder</b>", folder_url(:action => 'show', :id => @assay.folder )%>
+        <%= link_to("<b class='icon icon-parameter'>Manage Parameters</b>",parameter_url(:action => 'list' , :id => @assay)) if @assay.allows?(:edit) %>
+        <%= link_to("<b class='icon icon-queue'>Manage Queues</b>",queue_url(:action => 'list', :id => @assay )) if @assay.allows?(:edit)%>
+        <%= link_to("<b class='icon icon-xml'> Export</b>",  assay_url( :action =>'export',:id => @assay)) if @assay.allows?(:export) %>
+      <%end %>
+    </div>
+</div>

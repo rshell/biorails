@@ -1,6 +1,61 @@
+<% if @report%>
+<h2>
+  Query [<%=@report.name%>] based on model [<%=@report.base_model%>]
+</h2>
+<br />
+<div id='tabs-edit'>
+  <div id='tab-columns' class="tab-content x-hidden">
+  <%=render :partial=>'columns'%>
+  </div>
 
-<h2>   <%=subject_icon('model/report')%> Edit Report [<strong><%=@report.name%></strong>]</h2>
+  <div id='tab-update' class="tab-content x-hidden">
+  <%=render :partial=>'update'%>
+  </div>
 
-<div id="report-definition">    
-    <%= render :partial => 'report_definition'%>  
+  <div id='tab-preview' class="tab-content x-hidden">
+  </div>
+
+  <div id='tab-visual' class="tab-content x-hidden">
+  </div>
 </div>
+<br />
+
+
+
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+  var dropzone = new Biorails.Report.DropTarget('tab-columns',{report_id: <%=@report.id %> });
+	
+  var tabs = new Ext.TabPanel({
+      renderTo:'tabs-edit',
+              activeTab: <%=@tab||0%>,
+              defaults: {
+                autoHeight: true,
+                autoWidth: true
+              },
+              items: [{
+                              title: 'Columns',
+                              contentEl: 'tab-columns'
+                      },{
+                              title: 'Update',
+                              contentEl: 'tab-update'
+                     },{
+                              title: 'Preview',
+                              contentEl: 'tab-preview',
+                              listeners:{
+                                  activate : function(panel){panel.getUpdater().refresh();}
+                              },
+                              autoLoad: "<%=report_url(:action=>'show', :format=>:ext, :id=>@report)%>"
+                     },{
+                              title: 'Visualize',
+                              contentEl: 'tab-visual',
+                              listeners:{
+                                  activate : function(panel){panel.getUpdater().refresh();}
+                              },
+                              autoLoad: "<%=report_url(:action=>'visualize', :format=>:ext, :id=>@report)%>"                     }]
+          });
+ });
+
+</script>
+<%end%>

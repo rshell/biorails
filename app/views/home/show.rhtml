@@ -7,12 +7,17 @@
   <%= render :partial =>'show' %>
 <% end %>
 
+<% content_for :messages do -%>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
+<% end %>
+
 <% content_for :status do -%>
-  <%= render :partial =>'status' %>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
 <% end %>
 
 <% content_for :help do -%>
   <%= render :partial =>'help' %>
+  <%= render :partial =>'status' %>
 <% end %>
 
 

@@ -1,14 +1,16 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: parameter_contexts
 #
 #  id                  :integer(11)   not null, primary key
-#  protocol_version_id :integer(11)   
+#  protocol_version_id :integer(11)   not null
 #  parent_id           :integer(11)   
 #  level_no            :integer(11)   default(0)
 #  label               :string(255)   
 #  default_count       :integer(11)   default(1)
+#  left_limit          :integer(11)   default(0), not null
+#  right_limit         :integer(11)   default(0), not null
 #
 
 ##
@@ -22,12 +24,16 @@
 # 
 class ParameterContext < ActiveRecord::Base
 
+ acts_as_audited :change_log
+
  validates_uniqueness_of :label, :scope =>"protocol_version_id"
  validates_presence_of :protocol_version_id
  validates_presence_of :label
- validates_presence_of :default_count
+ validates_format_of :label, :with => /^[A-Z,a-z,0-9,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,_]'
 
- belongs_to :process, :class_name=>'ProtocolVersion',:foreign_key=>'protocol_version_id'
+  validates_presence_of :default_count
+
+ belongs_to :process, :class_name=>'ProcessInstance',:foreign_key=>'protocol_version_id'
 
  acts_as_fast_nested_set :parent_column => 'parent_id',
                      :left_column => 'left_limit',
@@ -43,24 +49,48 @@ class ParameterContext < ActiveRecord::Base
  has_many :parameters,  :class_name=>'Parameter',
                         :foreign_key =>'parameter_context_id', 
                         :dependent => :destroy,
-                        :include=>[:type,:role,:study_parameter,:data_format,:data_element], 
-                        :order => 'column_no'
-
+                        :include=>[:type,:role,:assay_parameter,:data_format,:data_element], 
+                        :order => 'column_no' do
+     #
+     # Limit set to contexts using the the a object
+     #
+     def using(item,in_use=false)
+       template = 'parameters'
+       if in_use
+         template = "exists (select 1 from task_contexts where task_contexts.parameter_context_id = parameters.parameter_context_id) and #{template}"
+       end
+       case item
+       when ParameterType  then  find(:all,:conditions=>["#{template}.parameter_type_id=?" ,item.id])
+       when ParameterRole  then  find(:all,:conditions=>["#{template}.parameter_role_id=?" ,item.id])
+       when AssayParameter then  find(:all,:conditions=>["#{template}.assay_parameter_id=?",item.id])
+       when DataFormat     then  find(:all,:conditions=>["#{template}.data_format_id=?"    ,item.id])
+       when DataType       then  find(:all,:conditions=>["#{template}.data_type_id=?"      ,item.id])
+       when DataElement    then  find(:all,:conditions=>["#{template}.data_element_id=?"   ,item.id])
+       when AssayQueue     then  find(:all,:conditions=>["#{template}.assay_queue_id=?"    ,item.id])
+       else         
+         find(:all,:conditions=>['parameters.name like ?',item.to_s])
+       end  
+     end  
+                 
+    end
 ##
 # Link to actual result row. Have to be careful here as there may be 1000s ofrows here.
 # 
- has_many :usages, :class_name=>'TaskContext',:foreign_key =>'parameter_content_id'
-##
-# path to name
+ has_many :usages, :class_name=>'TaskContext',:foreign_key =>'parameter_context_id'
 #
-  def path
-     if parent == nil 
-        return label 
-     else 
-        return parent.path+"/"+label
-     end 
-  end 
-
+# Path
+#  
+ def path(scope='process')
+    case scope.to_s
+    when 'world','project','assay' then "#{process.path(scope)}/#{self.label}"
+    when 'process' then "#{process.name}/#{self.label}"
+    else "#{self.label}"
+    end
+ end  
+  
+ def name
+   self.label
+ end
 ##
 # string to show how many of this contexts to expected eg. 5 x 6 x 54
 # 
@@ -70,8 +100,20 @@ class ParameterContext < ActiveRecord::Base
      else 
         return parent.count_string+'x'+self.default_count.to_s
      end 
-
   end
+  
+#
+# are there queues associated with this process
+#
+ def queues?
+   self.parameters.count(:all,:conditions=>'assay_queue_id is not null')>0
+ end
+ #
+ # List of queues associated with this process
+ #
+ def queues
+   self.parameters(:all,:include=>[:queue],:conditions=>'assay_queue_id is not null').collect{|i|i.queue}
+ end  
 ##
 # See in the the passed record in related to this one (eg. parent or self)
 # 
@@ -84,63 +126,50 @@ class ParameterContext < ActiveRecord::Base
     return false
  end
  
- 
- def allowed_parents
-     list = [["",nil]] 
-     process.contexts.each do |item|
-         list.concat( [[item.label,item.id]]) if !item.is_related(self)
-     end
-     return list
- end
- 
- 
+ ##
+# get a list of titles of the cells
+# 
+  def names
+    self.parameters.collect{|item|item.name}
+  end
+
+##
+#  Styles of cell use
+#  
+  def styles
+    self.parameters.collect{|item|item.style}
+  end 
+
  def parameter(name)
     case name
+    when Parameter
+      return parameters.detect{|item|item.id == name.id}   
+    when TaskValue,TaskReference,TaskText
+      return parameters.detect{|item|item.id == name.parameter.id}   
     when Fixnum
       return parameters.detect{|item|item.id == name}   
     else
       return parameters.detect{|item|item.name == name.to_s}   
     end
  end
-##
-# desendants summed up
-# 
- def desendent_count
-    n = default_count
-    for child in children
-       n *= child.desendent_count
-    end
-    return n
- end
- 
- def fill_columns
-   @@default_columns - parameters.size
- end
-
- def self.default_columns
-   @@default_columns
- end
- 
- def self.default_columns=(value)
-   @@default_columns = value
- end
 
 ##
-# Setup Parameter with default from study with unqiue name generation and 
+# Setup Parameter with default from assay with unqiue name generation and 
 # addition to the protocol.
 # 
-#  * definition is a Parameter or Study_parameter to use a source definition
+#  * definition is a Parameter or Assay_parameter to use a source definition
 #  * context is the protocol context to add the created parameter to (effects name generation) 
 #  
  def add_parameter( definition )
     logger.info "Parameter Create [#{definition.name}] in context [#{self.label}]"
     return nil if definition.nil?
     parameter = Parameter.new
-    parameter.study_parameter = definition
+    parameter.assay_parameter = definition
     parameter.sequence_num    =  0 
     parameter.context = self
     parameter.name = definition.name
     parameter.fill_type_and_formating
+    parameter.column_no = 1 + self.process.parameters.size
     while Parameter.find(:first, :conditions => 
             ["protocol_version_id=? and name=?", self.process.id, parameter.name])
        parameter.sequence_num +=1
@@ -148,13 +177,8 @@ class ParameterContext < ActiveRecord::Base
     end
     self.process.parameters << parameter 
     self.parameters << parameter    
-    parameter.column_no = self.process.parameters.size 
     logger.info "Parameter Created [#{parameter.name}] in context [#{self.label}]"
     return parameter
-    
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")
  end
   
 ##

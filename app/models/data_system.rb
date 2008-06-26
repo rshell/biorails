@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: data_systems
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(50)    default(), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  data_context_id    :integer(11)   default(1), not null
 #  access_control_id  :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
@@ -28,7 +28,6 @@
 ##
 
 class DataSystem < ActiveRecord::Base
-  included Named
 ##
 # This record has a full audit log created for changes 
 #   
@@ -41,9 +40,10 @@ class DataSystem < ActiveRecord::Base
                    :store_class_name => true 
 #
 # Generic rules for a name and description to be present
+  acts_as_dictionary :name
   validates_presence_of :name
-  validates_presence_of :description
   validates_uniqueness_of :name
+  validates_presence_of :description
 
 def validate 
     unless self.can_connect?
@@ -58,17 +58,8 @@ has_many :data_elements, :conditions => "parent_id is null", :dependent => :dest
 # path for the data system
 #
   def path
-     if data_context then 
-        data_context.path+':'+name
-     else 
-        name
-     end 
+      name
   end
-  
-  def elements
-    self.data_elements
-  end 
-
 #
 # List of allowed adapters
 #
@@ -120,16 +111,5 @@ has_many :data_elements, :conditions => "parent_id is null", :dependent => :dest
   def allowed_contexts
      return DataContext.find(:all)
   end
-  
-#
-# allowed concepts for the current data system
-#  
-  def allowed_concepts
-     if data_context
-       return DataConcept.find(:all,:conditions=>['data_context_id=?',data_context.id],:order=>'name,parent_id')
-     else
-       return DataConcept.find(:all,:order=>'name,parent_id')
-     end  
-  end 
 
 end

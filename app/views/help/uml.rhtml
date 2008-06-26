@@ -1,42 +1,52 @@
 <% content_for :sidemenu do%>
-<div>
-  <span class='menu'>Help</span>
-   <%= link_to "UML", :action => 'uml',:model=>"#{@options[:model]}"  %> 
-   <%= link_to "docs", :action => 'model',:model=>"#{@options[:model]}"  %> 
-</div>
-<div>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-help'>
+        Help
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-uml'>UML</b>", :action => 'uml',:model=>"#{@options[:model]}"  %>
+      <%= link_to "<b class='icon icon-documents'>Docs</b>", :action => 'model',:model=>"#{@options[:model]}"  %>
+    </div>
+  </div>
+  <div>
 
   <span class='menu'>UML Models</span>
-  
-<% form_tag help_url(:action => 'uml') do %>
-  <div>
-     <%= select_tag(:model, options_for_select( @models.collect{|obj|[obj.to_s,obj.to_s]},@options[:model].to_s  )  ) %>
-   <label for="report_name">Levels Ref.</label>
-     <%= select_tag(:levels, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:levels] )  ) %>
-   <br/>
-   <label for="report_name">Levels Many</label>
-     <%= select_tag(:many, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:many] )  ) %>
-   <br/>
-   <label for="report_name">Style</label>
-     <%= select_tag(:style, options_for_select(['dot','neato','fdp'].collect{|obj|[obj,obj]},@options[:style] )  ) %>
-   <br/>   
-    <%= submit_tag 'redrew' %>
-   <br/>  
+
+  <% form_tag help_url(:action => 'uml') do %>
+    <div>
+      <%= select_tag(:model, options_for_select( @models.collect{|obj|[obj.to_s,obj.to_s]},@options[:model].to_s  )  ) %>
+    <label for="report_name">Levels Ref.</label>
+      <%= select_tag(:levels, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:levels] )  ) %>
+    <br/>
+    <label for="report_name">Levels Many</label>
+      <%= select_tag(:many, options_for_select((1..10).collect{|obj|[obj.to_s,obj.to_s]},@options[:many] )  ) %>
+    <br/>
+    <label for="report_name">Style</label>
+      <%= select_tag(:style, options_for_select(['dot','neato','fdp'].collect{|obj|[obj,obj]},@options[:style] )  ) %>
+    <br/>
+      <%= submit_tag 'redrew' %>
+    <br/>
+    </div>
+  <% end %>
+
+
+  <% for model in @models %>
+    <%= link_to model.to_s, :action => 'uml',:model=>"#{model}"  %>
+  <% end %>
+
   </div>
 <% end %>
 
-  
-<% for model in @models %>
-  <%= link_to model.to_s, :action => 'uml',:model=>"#{model}"  %> 
-<% end %>
-
-</div>
-<% end %>
-
-<h2> <%=subject_icon('reports')%> <%= @options[:model]%> centric UML model </h2>
-   <%= @options[:model] %> with <%= @options[:levels] %> level of references and <%=@options[:many] %> levels of collections  
+<h1 class='icon icon-report-large'>
+  <%= @options[:model]%>-centric UML model
+</h1>
+<%= @options[:model] %> with <%= @options[:levels] %> level of references and <%=@options[:many] %> levels of collections
 
 <div class='panel'>
-    <img  title="Map" src="/help/diagram/<%=@options[:model]%>?levels=<%=@options[:levels]%>?many=<%=@options[:many]%>&style=<%=@options[:style]%>">
+    <img  title="Map" src="/help/diagram/<%=@options[:model]%>
+        ?levels=<%=@options[:levels]%>
+        ?many=<%=@options[:many]%>
+        &style=<%=@options[:style]%>">
 </div>
-              

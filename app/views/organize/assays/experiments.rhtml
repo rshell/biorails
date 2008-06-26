@@ -1,0 +1,10 @@
+<% content_for :sidemenu do -%>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+    <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+<% end -%>
+
+<h1>
+  Experiments in Assay [<strong><%=@assay.name %></strong>]
+</h1>
+
+<%= render :partial => 'experiments', :locals => { :assay => @assay } %>  

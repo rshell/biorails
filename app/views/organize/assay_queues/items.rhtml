@@ -1,0 +1,44 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'actions' %>
+<% end -%>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
+<%end%>
+
+
+<h1 class='icon icon-queue-large' style='text-indent:0.5em'>
+  Service Queue  [<%= @assay_queue.name %>] in Assay [<%= @assay_queue.assay.name %>]
+</h1>
+<div class='panel'>
+    <%= render :partial => 'assay_queue', :locals => { :assay_queue => @assay_queue } %>
+    <table class='report' style='border: solid thin'>
+      <tr>
+          <th>Request</th>
+          <th>Material</th>
+          <th>status</th>
+          <th>priority</th>
+          <th>Assigned To</th>
+          <th>Comments</th>
+          <th>latest At</th>
+          <th>Accepted At</th>
+          <th>Completed At</th>
+          <th></th>
+      </tr>
+      <tr>
+      <tr>
+      <%for queue_item in @assay_queue.items %>
+      <% form_tag :action => 'update_item',:id=> queue_item.id do %>
+            <tr id='<%=queue_item.dom_id(:updated_at)%>'>
+              <%= render :partial => 'queue_item', :locals => { :queue_item => queue_item} %>
+            </tr>
+        <% end %>
+
+      <% end %>
+    </table>
+  </div>
+
+
+<% content_for :footer do -%>
+   <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
+<%end%>

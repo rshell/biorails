@@ -1,10 +1,16 @@
 <table class="actions">
   <tr>
-  <%if pages.current.previous %>
-  <th><%= link_to (subject_icon('arrow_left')) +' Previous', { :page => pages.current.previous }%> </th>
-  <% end%>
-  <%if  pages.current.next %>
-  <th><%= link_to (subject_icon('arrow_right')) +' Next', { :page => pages.current.next } %> </th>
-  <% end%>
+    <%if pages.current.previous %>
+    <th>
+      <%= link_to "<b class='icon icon-arrow_left'>Previous</b>",
+        { :page => pages.current.previous }%>
+    </th>
+    <% end%>
+    <%if  pages.current.next %>
+      <th>
+        <%= link_to "<b class='icon icon-arrow_right'>Next</b>",
+          { :page => pages.current.next } %>
+      </th>
+    <% end%>
   </tr>
 </table>

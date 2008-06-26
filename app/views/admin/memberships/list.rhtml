@@ -1,51 +1,49 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial=>'actions'%>
+  <%= render :partial =>'actions' %>
 <% end -%>
 
-<% content_for :help do -%>
-  <%= render :partial=>'help'%>
-<% end %>
-
-<% content_for :messages do -%>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
-<%end%>
 
 <% content_for :center do -%>
-  <h2> Project <b><%=@team.name%></b> membership </h2>
+  <h1 class='icon icon-team-large' style='text-indent:0.5em'>
+    Team [<strong><%=@team.name%></strong>] Membership
+  </h1>
   <p><%=@team.description%></p>
-  <table id="team_members", class="report">
+  <table id="team_members" class="report">
     <thead>
       <tr class='header'>
-        <th>Name</th>
-        <th>Owner</th>
-        <th>Role</th>
-        <th>Created</th>
-        <th>Updated</th>
+        <th><b class="icon icon-name">Name</b></th>
+        <th><b class="icon icon-user">Owner</b></th>
+        <th><b class="icon icon-role">Role</b></th>
+        <th><b class="icon icon-date">Created</b></th>
+        <th><b class="icon icon-date">Updated</b></th>
       </tr>
     </thead>
     <tbody>
-    
+
       <% for item in @memberships %>
-        <tr class="<%= cycle('odd', 'even') %>">
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
           <td>
           <div class="tooltip">
-            <%=link_to item.user.name, :action => 'edit' ,:id=>item %>
+            <%=link_to "<b class='icon icon-edit'>" + item.user.name + "</b>", :action => 'edit' ,:id=>item %>
             <span class="tip">
-              <h3><%=h item.user.name %>: <%=h item.user.fullname %></h3>
-              Last login was <%=format_date item.user.updated_at%>. 
+              <h3 class='icon icon-user'><%=h item.user.name %>: <%=h item.user.fullname %>
+              </h3>
+              Last login was <%=format_date item.user.updated_at%>.
               <% if item.user.admin %>
                 This user is a <strong>system administrator</strong> so has full rights over the project.
               <% end %>
-            </span>		
+            </span>
           </div>
           <td><%if item.owner? %>
             <div class="tooltip">
               Yes
               <span class="tip">
-                <h3><%=item.user.name%></h3>
+                <h3 class='icon icon-user'>
+                  <%=item.user.name%>
+                </h3>
                 As a owner of a project this user has full rights to use every feature and
                 can add more members.
-              </span>		
+              </span>
             </div>
           <%end%>
           <td>
@@ -54,7 +52,7 @@
             <span class="tip">
               <h2><%=h item.role.name %></h2>
               <%= item.role.description %>
-            </span>		
+            </span>
           </div>
           <td ><%= short_date(item.created_at) %>
           <td><%= short_date(item.updated_at) %>
@@ -62,8 +60,9 @@
       <% end %>
     </tbody>
   </table>
- <%= will_paginate @memberships %>	
+ <%= will_paginate @memberships %>
 
 <% end %>
 
+<br />
 

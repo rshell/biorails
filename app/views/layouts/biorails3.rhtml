@@ -1,134 +1,103 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<%#
-  # biorails3.rhtml
-  # 
-  # Created on 12-Sep-2007, 16:38:32
-%>
- <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>BioRails 3.0 (development)</title>
-        <link rel="biorails icon" href="/images/logo/favicon.ico">
-<%if browser_is? 'ie'%>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/ext-all-ie6.css" />
- <%else%>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/ext-all.css" />
- <%end%>  
-    <link rel="stylesheet" type="text/css" href="/stylesheets/open_icons.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/biorails3.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/gantt.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/table.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/forms.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/errors.css" />
-
-    <script type="text/javascript" src="/javascripts/ext2/adapter/prototype/prototype.js"></script>
-    <script type="text/javascript" src="/javascripts/ext2/adapter/prototype/scriptaculous.js"></script>
-    <script type="text/javascript" src="/javascripts/ext2/adapter/prototype/effects.js"></script>    
-    <script type="text/javascript" src="/javascripts/ext2/adapter/prototype/ext-prototype-adapter.js"></script>
-
-    <!--script type="text/javascript" src="/javascripts/validator.js"></script>
-    <script type="text/javascript" src="/javascripts/validators-en.js"></script-->
-	<%= javascript_include_tag 'form_fields' %>
-
-
-    <script type="text/javascript" src="/javascripts/ext2/ext-all-debug.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/menu/EditableItem.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/menu/RangeMenu.js"></script>
-
-    <script type="text/javascript" src="/javascripts/biorails/grid/GridFilters.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/Filter.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/StringFilter.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/DateFilter.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/ListFilter.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/NumericFilter.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/grid/filter/BooleanFilter.js"></script>
-
-    <script type="text/javascript" src="/javascripts/biorails/biorails.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/biorails_folders.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/biorails_controls.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/biorails_reports.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/biorails_protocol.js"></script>
-    <script type="text/javascript" src="/javascripts/biorails/biorails_task.js"></script>
-
-	<%= yield :header_script %>	
-
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BioRails [<%=current_project.name%>] (Rev. <%=Biorails::Version::STRING%>) </title>
+    <link rel="biorails icon" href="/images/logo/favicon.ico" />
+    
+    <%= stylesheet_link_merged :base %>
+    <%= stylesheet_link_tag "xtheme-#{SystemSetting.theme}.css" %>  
+    <%= javascript_include_merged :base %>
+    
+    <!-- Executed in header before other js includes so Biorails initialized for use in other scripts!-->
+    <script type="text/javascript">
+        Ext.onReady( function() {
+            try {
+                Ext.state.Manager.setProvider(new Ext.state.CookieProvider({name:"biorails"}));
+                Ext.QuickTips.init();
+                Biorails.init(<%=toolbar_items%>);
+            } catch (e) {
+                console.log('Problem with main javascript ');
+                console.log(e);
+            }    
+        }, Biorails);    
+    </script>
+    <%= yield :header_script %>	
   </head>
-<body>
-<!--North Header ======================= -->  
-<div id="toolbar-panel" class="x-hidden">
-  <div id='toolbar'> </div>
- </div>
-
-<!--center Block =======================-->  
-  <div id="main-panel" class="x-hidden">
-  </div>
-  
-  <div id="center-panel" class="x-hidden">
-	<div id='center' class='bio-std'>
-       <%= yield :center %>
-       <%= yield %>
-     </div>
-  </div>
-
-<!--West Block =======================-->  
-	    
-  <div id="actions-panel" class="x-hidden">
-    <div id='actions'>
-     <div class='sidemenu'>
-       <%= if @content_for_sidemenu
-          yield :sidemenu 
+  <body>
+    
+    <!--North Header ======================= -->  
+    <div id="toolbar-panel" class="x-hidden">
+      <div id='toolbar'> </div>
+    </div>
+    
+    <!--center Block =======================-->   
+    <div id="center-panel" class="x-hidden">
+      <div id='center' class='bio-std'>
+        <%= yield :center %>
+        <%= yield %>
+      </div>
+    </div>
+    
+    <!--West Block =======================-->  
+            
+    <div id="actions-panel" class="x-hidden">
+      <div id='actions'>
+        <div class='sidemenu'>
+          <%= if @content_for_sidemenu
+            yield :sidemenu 
+          else    
+            render :partial =>'menu/default_left_menu' 
+          end %>
+        </div>
+        <%= yield :actions %>
+      </div>
+    </div>
+    
+    <div id="work-tab" class="x-hidden">
+      <div id='work'>
+        <%= if @content_for_work
+          yield :work
         else    
-         render :partial =>'menu/default_left_menu' 
+          render :partial =>'shared/clipboard' 
         end %>
-     </div>
-      <%= yield :left %> 
-	  <%= yield :actions %>
-   </div>
- </div>
+      </div>
+    </div>
+    
+    <!--East Block TAB1=======================-->  
+    <div id="status-tab" class="x-hidden">
+      <div id="messages" class='panel'>
+        <%= if @content_for_messages 
+          yield :messages
+        end %> 
+      </div>
+      <div id='status' >
+        <%= yield :right %>
+        <%= yield :status %>
+      </div>
+      <div id='help'>
+        <%= yield :help %>
+      </div>
+    </div>
+    
+    <!--East Block TAB2=======================-->  
+    <div id="tree-panel" class="x-hidden">
+      <div id='tree' class='bio-tree'>
+        <%= yield :tree %>
+      </div>
+    </div>
   
-  <div id="work-tab" class="x-hidden">
-	<div id='work' class='bio-std'>
-     <%= if @content_for_work
-         yield :work
-       else    
-         render :partial =>'shared/clipboard' 
-       end %>
-     </div>
-  </div>
-
-<!--East Block =======================-->  
-  <div id="status-tab" class="x-hidden">
-    <div id="messages"class='bio-std'>
-	   <%= if @content_for_messages 
-	            yield :messages
-	    end %> 
-    </div>
-	<div id='help' class='bio-std'>
-      <%= yield :help %>
-    </div>
-	<div id='status' class='bio-std'>
-      <%= yield :right %>
-      <%= yield :status %>
-     </div>
-  </div>
-
-  <div id="tree-panel" class="x-hidden">
-    <div id='tree' class='bio-tree'>
-      <%= yield :tree %>
-    </div>
-  </div>
-
-
-<!--South Block =======================-->  
-<!-- Bottom  -->
-  <div id="footer-panel" class="x-hidden">
-	<div id='footer'>
-      <%= yield :footer %>
-  	</div>
-	<div id='audit_log'>
-  	</div>
-  </div> 
-</body>
+    <!--South Block =======================-->  
+    <div id="footer-panel" class="x-hidden">
+      <div class='bio-std' id='audit_log'>
+      </div>
+      <div class='bio-std' id='footer'>
+        <%= yield :footer %>
+      </div>
+    </div> 
+    
+  </body>
+  
 </html>
 

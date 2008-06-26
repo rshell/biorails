@@ -1,29 +1,66 @@
- <%dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">Import Tasks</h2>' do%>
+<h2>Import Tasks</h2>
   <p>
-      This is a simple cvs file importer for importing large blocks of data into the system. 
-      Export a template  by clicking on following links:
+    This is a simple CSV file-importer for importing large
+    blocks of data into the system.
+    The procedure is to export a CSV template, usually opened in a spreadsheet.
+    Exporting a template will create the task within the experiment.
+    Add the data, save the file and re-import the file.
+ </p>
+ <br />
+ <p>
+    Export a template by clicking on following links:
   </p>
+ <br />
  <fieldset>
- <legend class="icon icon-protocol">Protocol Templates</legend>
+   <%if @experiment.process.multistep? %>
+   <legend class="icon icon-protocol">
+      Recipe Steps
+   </legend>
+    <table>
+      <tr>
+        <th>Step</th>
+        <th>Start (h)</th>
+        <th>Time (h)</th>
+        <th>Template</th>
+        <th>Description</th>
+      </tr>
+      <%for step in @experiment.process.steps %>
+      <tr>
+        <td><%= step.name %></td>
+        <td><%= step.start_offset_hours %></td>
+        <td><%= step.expected_hours %></td>
+        
+        <td><%= link_to "<strong class='icon icon-xls'> #{step.process.path(:assay)}</strong>",
+          :action => 'export', :id => @experiment.id, :assay_protocol_id => step.process.id %> </td>
+        <td><%= step.process.description %></td>
+      </tr>
+      <%end%>
+    </table>
+   </fieldset>
  <br />
-   <ul>
-    <%for protocol in @experiment.study.protocols %>
-  <li style="margin-left:1em">
-    <%= link_to '<strong class="icon icon-xls">Template</strong> for [' + protocol.name + ']',
-        :action => 'export', :id => @experiment.id, :study_protocol_id => protocol.id %> <br />
-    <%= protocol.definition.description %>    
-  </li>
- <%end%>
+   <% else %>
+   <legend class="icon icon-protocol">
+     Protocol Templates from assay <%=@experiment.assay%>
+   </legend>
+   <br />
+    <ul>
+      <%for protocol in @experiment.assay.process_instances %>
+      <li style="margin-left:1em">
+        <%= link_to '<strong class="icon icon-xls">Template</strong> for [' + protocol.path(:assay) + ']',
+        :action => 'export', :id => @experiment.id, :assay_protocol_id => protocol.id %> 
+        <%= protocol.definition.description %>
+      </li>
+      <%end%>
+    </ul>
+     <br />
+   </fieldset>
  <br />
- </fieldset>
- <br />
- </ul>
- 
-  <p>Once a CSV file is ready, it can be re-imported via the following file selector:-</p>
+    <% end %>
+
+  <p>Once a CSV file is ready, it can be re-imported via the following file selector:-</p><br />
     <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
     <%= error_messages_for("import") %>
-      <%=file_field_tag(:file, :size=>64) %>  
+      <%=file_field_tag(:file, :size=>64) %>
     <br />
     <%= submit_tag("Import")%>
-    <% end %>    
-<% end%> 
+    <% end %>

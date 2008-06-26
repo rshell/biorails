@@ -1,0 +1,9 @@
+<% form_tag  workflow_url(:action => 'update', :id =>  @process_flow.id),{:class=>'x-form'} do %>
+  <div class="x-panel-body">
+    <%= render :partial => 'form' %>
+
+    <div class='row'>
+      <%= submit_tag 'Save' %>
+    </div>
+ </div>
+<% end %>

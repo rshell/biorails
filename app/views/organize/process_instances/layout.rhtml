@@ -1,0 +1,33 @@
+
+
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'actions' %>
+<% end -%>
+
+<% content_for :center do %>
+  <div class='report' id="<%=@protocol_version.dom_id('editor') %>">
+    <%= render :partial => 'layout' %>
+  </div>
+<% end -%>
+
+<% content_for :status do %>
+
+<div class=" x-panel-header x-accordion-hd"  >
+  <span class="x-panel-header-text" > Create entry sheet </span>
+</div> 
+
+<div class='panel'>
+You can now create a data entry sheet for this protocol by opening up any of the folders 
+below and dragging parameters to the central panel
+</div>
+
+<div id='parameter-tree'>    
+</div>
+<script type="text/javascript">
+      Ext.onReady(function(){
+      var tree = new Biorails.Protocol.ParameterTree({
+            el:'parameter-tree',assay_id: <%= @assay_protocol.assay.id %> });
+      tree.applyToMarkup('parameter-tree');
+  });
+</script>
+<% end%>

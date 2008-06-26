@@ -1,0 +1,31 @@
+<div>
+  <span class='menu'>
+    <b class='icon icon-assay'>
+      Assay Definitions
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-list'>List</b>",
+        assay_url( :action => 'list', :project_id => project) %>
+    <%= link_to "<b class='icon icon-assay-add'>Add Assay</b>",
+        assay_url(     :action => 'new', :project_id=>project.id) %>
+    <% unless assay.nil? || @assay.new_record? %>
+      <%= link_to "<b class='icon icon-assay'>Overview</b>",
+            assay_url(:action => 'show',  :id => assay)%>
+      <%= link_to "<b class='icon icon-folder'>Folder</b>",
+            folder_url(:action => 'show', :id => assay.folder )%>
+      <%= link_to "<b class='icon icon-assay-edit'>Edit</b>",
+            assay_url(:action => 'edit', :id => assay) %>
+      <%= link_to "<b class='icon icon-parameter'>Parameters"+" [#{assay.parameters.size}]</b>",
+            parameter_url(:action => 'list' , :id => assay)%>
+      <%= link_to "<b class='icon icon-queue'>Service Queues"  +" [#{assay.queues.size}]</b>",
+            queue_url(:action => 'list', :id => assay )%>
+      <%= link_to "<b class='icon icon-protocol'>Protocols" +" [#{assay.protocols.size}]</b>",
+            protocol_url(:action => 'list' , :id => assay)%>
+      <%= link_to "<b class='icon icon-metric'>Metrics</b>",
+            assay_url(:action => 'metrics', :id => assay )%>
+      <%= link_to "<b class='icon icon-xml'>Export</b>",
+            assay_url( :action =>'export',:id => assay) %>
+    <%end %>
+  </div>
+</div>

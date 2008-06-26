@@ -1,9 +1,8 @@
-
-  <% dialog '<h2 class="icon icon-data_concept-large" style="text-indent:0.5em"> Editing Concept</h2>'+ @data_concept.path do %>
+<% dialog 'Concept '+ @data_concept.path do %>
 	  <% form_tag :action => 'update', :id => @data_concept do %>
-	  <fieldset class='form'>                              
+	  <fieldset class='form'>
 	      <%= render :partial => 'form_concept' %>
-	  </fieldset>   
+	  </fieldset>
 	  <%= submit_tag 'Save' %>
 	  <% end %>
   <% end %>

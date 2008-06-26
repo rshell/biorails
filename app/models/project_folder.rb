@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: project_elements
 #
@@ -20,8 +20,12 @@
 #  content_id             :integer(11)   
 #  published_hash         :string(255)   
 #  project_elements_count :integer(11)   default(0), not null
-#  left_limit             :integer(11)   default(0), not null
-#  right_limit            :integer(11)   default(0), not null
+#  left_limit             :integer(11)   default(1), not null
+#  right_limit            :integer(11)   default(2), not null
+#  team_id                :integer(11)   default(0), not null
+#  published_version_no   :integer(11)   default(0), not null
+#  version_no             :integer(11)   default(0), not null
+#  previous_version       :integer(11)   default(0), not null
 #
 
 ##
@@ -47,20 +51,27 @@
 #  * Folder directory style view
 #  * Page of all items in the folder in order 
 # 
-require 'pathname'
-require 'has_file'
+require 'ftools'
+
 class ProjectFolder < ProjectElement
 
   cattr_accessor :current
 ##
 # Details of the order
-#   Checking studies
-#put all pdfs made from this folder into the same directory 
-has_file :signed_pdf, 'public/documents/'
+#   Checking assays
+
   has_many :elements,  :class_name  => 'ProjectElement',
                        :foreign_key => 'parent_id',
                        :include => [:asset,:content],
                        :order       => 'project_elements.left_limit'  
+  
+
+  def before_save
+    @paths=[]
+    @signable_document="<h2>"<< name << "</h2>"
+    #get_assets(self)
+    #self.published_hash=Signature.generate_checksum(@signable_document)
+  end
 
   def assets(limit=100)
     ProjectAsset.find(:all,:conditions=>['project_elements.parent_id=? ',self.id],:include => [:asset],:order=>'project_elements.updated_at desc',:limit=>limit) 
@@ -69,7 +80,9 @@ has_file :signed_pdf, 'public/documents/'
   def contents(limit=100)
     ProjectContent.find(:all,:conditions=>['project_elements.parent_id=? ',self.id],:include => [:content],:order=>'project_elements.updated_at desc',:limit=>limit) 
   end
-
+  #
+  # short title for the folder
+  #
   def title 
     if reference and reference.respond_to?(:name)
       out = " #{self.reference_type} ["
@@ -79,10 +92,22 @@ has_file :signed_pdf, 'public/documents/'
     end
     return self.name
   end
-
-  def summary
-    return "#{self.style.capitalize} folder with #{self.child_count} items"   if reference 
-    return "#{self.style.capitalize} with #{self.child_count} items"     
+  
+  #
+  # Summary text for a the folder content
+  #
+  def summary    
+    if self.published?
+        text = "Published " 
+    elsif self.signed?
+        text = "Signed " 
+    else  
+        text = ""
+    end
+    text << " #{self.style.capitalize} "
+    text << " folder " if self.reference_id
+    text << " with #{self.child_count} items "
+    return text
   end
 
   def description
@@ -91,40 +116,25 @@ has_file :signed_pdf, 'public/documents/'
     end
     return name
   end
-
-  
-  def to_html
-    if reference
-      return reference.to_html if reference.respond_to?(:to_html)
-      out = "<h4> #{self.reference_type} ["
-      out << self.reference.name if reference.respond_to?(:description)
-      out << "] </h4><p>"
-      out << self.reference.description if reference.respond_to?(:description)
-      out << "</p>"
-      return out
-    end
-    return path
-  end
-  
   
   def icon( options={} )
      case attributes['reference_type']
-      when 'Project' :        return '/images/model/project.png'
-      when 'Study' :          return '/images/model/study.png'
-      when 'StudyParameter':  return '/images/model/parameter.png'
-      when 'StudyProtocol':   return '/images/model/protocol.png'
-      when 'Experiment':      return '/images/model/experiment.png'
-      when 'Task':            return '/images/model/task.png'
-      when 'Report':          return '/images/model/report.png'
-      when 'Request':         return '/images/model/request.png'
-      when 'Compound':        return '/images/model/compound.png'
+      when 'Project'  then        return '/images/model/project.png'
+      when 'Assay'  then          return '/images/model/assay.png'
+      when 'AssayParameter' then  return '/images/model/parameter.png'
+      when 'AssayProtocol' then   return '/images/model/protocol.png'
+      when 'Experiment' then      return '/images/model/experiment.png'
+      when 'Task' then            return '/images/model/task.png'
+      when 'Report' then          return '/images/model/report.png'
+      when 'Request' then         return '/images/model/request.png'
+      when 'Compound' then        return '/images/model/compound.png'
       else
          return '/images/model/folder.png'
       end 
   end    
 
 #
-#
+# Copy the passed element under this one
 #
  def copy(item)
    element = item.clone
@@ -151,24 +161,14 @@ has_file :signed_pdf, 'public/documents/'
 #  * ProjectContent
 #  * ProjectAsset
 # 
-  def add(item)
+  def add(element)
      ProjectElement.transaction do          
-       element = item
-       case item
-       when ProjectAsset,ProjectContent,ProjectFolder,ProjectElement
-           element = item           
-       when String 
-           element.name = "comment-#{self.child_count}"
-           element = ProjectContent.Build(:project_id=> self.project_id,:parent=>self, :name=>name, :title=>"comments",:body=>item )
-       else    
-           name = (item.respond_to?(:name) ? item.name : item.to_s )
-           return add_reference( name, item ) 
-       end       
-       element.project_id = self.project_id
+       element.project_id = self.project_id || Project.current.id
        element.position = self.elements.size
        element.parent_id = self.id
+       element.team_id ||= self.team_id
        unless element.valid?
-         logger.error("Failed to save element in add(#{item.path}) "+ element.errors.full_messages.to_sentence)
+         logger.error("Failed to save element in add(#{element.path}) "+ element.errors.full_messages.to_sentence)
        else    
          element.save
          self.add_child(element)     
@@ -182,8 +182,8 @@ has_file :signed_pdf, 'public/documents/'
 #
 #
   def add_asset( filepath, title =nil, mime_type = 'image/jpeg', data =nil )
-     logger.info "add_asset(#{filepath}, #{title}, #{mime_type})"
      ProjectElement.transaction do 
+       logger.info "add_asset(#{filepath}, #{title}, #{mime_type})"
        filename = File.basename(filepath)
        title ||= filename
        element   = self.elements.find_by_name(filename)
@@ -198,27 +198,20 @@ has_file :signed_pdf, 'public/documents/'
        asset.save 
        element.asset = asset
        element.asset_id = asset.id
-       if element.new_record?
-            self.add(element) 
-       else
-            element.save
-       end
+       ( element.new_record? ? self.add(element) : element.save )
        return element
      end
-     return nil
   end
 ##
 # Add a reference to the another database model
 #   
   def add_reference(name,item)
-     logger.info "add_reference(#{name}, #{item.class}:#{item.id})"
      ProjectElement.transaction do 
+         logger.info "add_reference(#{name}, #{item.class}:#{item.id})"
          element = ProjectReference.new(:name=> name, :parent_id=>self.id, :project_id => self.project_id )                                       
          element.reference = item    
-         case item
-         when ProjectContent
-           element.content_id = item.content_id
-         when ProjectAsset
+         if item.is_a?(ProjectElement)
+           element.content_id = item.content_id 
            element.asset_id = item.asset_id
          end
          return add(element)
@@ -226,33 +219,18 @@ has_file :signed_pdf, 'public/documents/'
   end
   
   def add_content(name,title,body)
-     logger.info "add_reference(#{name}, #{title})"
      ProjectElement.transaction do 
+         logger.info "add_reference(#{name}, #{title})"
          element = ProjectContent.build(:name=> name, 
                                       :title=> title,
                                       :position => elements.size,
                                       :parent=>self,
                                       :title=> title,
-                                      :to_html => body,
+                                      :body_html => body,
                                       :project_id=>self.project_id)
            return add(element)
      end
-     return nil
   end
-
-##
-# Get a elment in the folder 
-#                        
-   def get(item)
-      return self if item == self
-      if item.is_a?  ActiveRecord::Base
-         ProjectElement.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.to_s,item.id])
-      elsif item.respond_to?(:name)
-         ProjectElement.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
-      else
-         ProjectElement.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
-      end
-   end
 
 ##
 # Get a root folder my name 
@@ -260,7 +238,7 @@ has_file :signed_pdf, 'public/documents/'
   def folder?(item)
     return self if item == self
     if item.is_a?  ActiveRecord::Base
-       ProjectFolder.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.to_s,item.id])
+       ProjectFolder.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.class_name,item.id])
     elsif item.respond_to?(:name)
        ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
     else
@@ -281,56 +259,150 @@ has_file :signed_pdf, 'public/documents/'
           folder = ProjectFolder.new(:name=> item.name, 
                                      :position => self.elements.size, 
                                      :parent_id=>self.id, 
-                                     :project_id => self.project.id ) 
+                                     :team_id => self.team_id,
+                                     :project_id => self.project_id ) 
           folder.reference =  item         
        else
           folder = ProjectFolder.new(:name=> item.to_s, 
                                      :position => self.elements.size, 
                                      :parent_id=>self.id, 
-                                     :project_id => self.project.id ) 
+                                     :team_id => self.team_id,
+                                     :project_id => self.project_id ) 
        end
        self.add(folder )   
     end
     return folder
   end
   
-  def make_pdf_for_signing
-    p '***************'
-    p name
-     @signable_document="<h2>"<< name << "</h2>"
-       for item in children     
-         if item.asset? and item.asset.image? 
-           @signable_document << "<h4>Figure: " << item.name << "</h4>"
-           @signable_document << "<p><img src='"  << item.asset.public_filename << "' alt='" << item.name << "'/></p>"
-           @signable_document << "<i>" << item.description << "</i>"
-         elsif item.textual? 
-           @signable_document << "<h2>" << item.content.title << "</h2>"
-           @signable_document << "<p>" << item.to_html << "</p>"
-         else 
-           @signable_document << "<h2>" << item.title << "</h2>"
-           @signable_document << item.to_html
-         end    
-      end  
-      signed_pdf=PDF::HTMLDoc.create(PDF::PDF) do |p|
-        p.set_option :links, false
-        p.set_option :webpage, true
-        #p.header ".t."
-        p << @signable_document
-        #p.footer ".l."
-      end
-    end
-##
-# Get the lastest entries in the folder
-#  
-  def lastest( option={})
-      query_options = { :conditions=>['parent_id=?',self.id],:order=>"updated_at desc",:limit=>10}      
-      ProjectElement.find(:all,query_options.merge(option))
+  def new_published_version
+    #increment the published version counter for the folder, and return the current number
+    v=published_version_no+1
+    update_attribute(:published_version_no,v )
+    return v
   end
+  #
+  # Serialize the current item out as html copying all asset to folder
+  #
+  def serialize_to_html(file,current_item)
+    logger.info("#{current_item.dom_id} #{current_item.name} converted to html ")
+    
+    doc = Biorails.utf8_to_codepage(current_item.to_html)
+    doc = doc.gsub(/src='\/project_assets\/[0-9]*\/[0-9]*\//,"src='")
+    
+    if current_item.asset?
+      path ="public"+ current_item.asset.public_filename(self.default_image_size)
+      logger.info "cp #{path},#{folder_filepath}"
+      FileUtils.cp path, folder_filepath      
+    end   
+    file << doc
+    current_item.children.each do |child|
+      file << "<div class='box'>" 
+      child.default_image_size = self.default_image_size
+      serialize_to_html(file,child)
+      file << "</div>" 
+    end
+    return doc  
+  end
+  #
+  # Make a html file copy all assets and html to folder_filepath
+  #
+  def make_htmlfile(filename)
+    logger.info("Making HTML #{filename}") 
+    open(File.join(filename),'w') do |file|
+       file << "<h1>#{project.name}</h1>"    
+       serialize_to_html(file,self)
+       file.flush
+    end            
+  end
+
+#
+# generate a PDF for the current element
+#
+  def make_pdf(filename)
+    logger.info("Making PDF #{filename}")
+    html_filename = File.join(folder_filepath,'folder.html')
+    self.make_htmlfile(html_filename)
+      
+    pdf = PDF::HTMLDoc.new
+      pdf.set_option :outfile, filename
+      pdf.set_option :outfile, filename
+      pdf.set_option :webpage, true
+      pdf.set_option :charset, SystemSetting.character_set
+      pdf.set_option :bodycolor, :white
+      pdf.set_option :links, false
+      pdf.set_option :path, File::SEPARATOR
+      pdf << html_filename
+      pdf.generate
+     return pdf
+  end
+  #
+  # create a pdf and then copy source files to as a zip and pdf to project directory
+  #
+  def make_pdf_for_signing
+    logger.info "making pdf to sign"
+    @paths=[]
+    filename = File.join("/tmp","#{self.dom_id}.pdf")  
+    @paths << filename 
+    make_pdf(filename)
+    return  make_permanent(filename)   #returns the permanent path of the document
+  end
+  #
+  # Get the root project filepath
+  #
+  def project_filepath
+    unless @project_filepath
+      @project_filepath = File.join(RAILS_ROOT,"public",SystemSetting.get(:published_folder).value,project.dom_id)
+      File.makedirs(@project_filepath)
+    end
+    @project_filepath
+  end
+  #
+  # Get the folder path for the current folder on the public file space 
+  #
+  def folder_filepath
+    unless @folder_filepath
+      @folder_filepath = File.join(self.project_filepath,self.dom_id)
+      File.makedirs(@folder_filepath)
+    end
+    @folder_filepath
+  end
+  
+   #$asset_root and $published_folder are configured via system settings 
+    #documents are saved to a directory named following the pattern
+    #$asset_root/$published_folder/project/folder/document
+  def make_permanent(filename)
+      begin
+        @published_file_prefix =    self.dom_id+ '_V' + new_published_version.to_s  
+        path=File.join(project_filepath, @published_file_prefix)
+        @pdf_filename = path + '.pdf'
+        @tar_filename = path + '.zip'
+      end while (File.exists?(@tar_filename) or File.exists?(@pdf_filename))
+      logger.info 'making permanent ' + @pdf_filename
+      make_zip(@tar_filename)
+      FileUtils.mv filename,  @pdf_filename       
+      return @published_file_prefix
+    end  
 #
 # Helper to return the current active project 
 # 
   def self.current
-    @current || Project.current.folder
+    @current || Project.current.home
+  end
+    
+
+protected
+  
+  def make_zip(destination)
+     Zip::ZipFile.open(destination, Zip::ZipFile::CREATE) do |zipfile|
+     # collect the album's tracks
+      Dir.foreach(folder_filepath) do |path|
+         if File.file?(path)
+           zipfile.add(path, File.join(folder_filepath,path))
+         end
+      end
+      return destination
+     end
   end
 
+       
 end

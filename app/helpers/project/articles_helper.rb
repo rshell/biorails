@@ -1,3 +1,8 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 module Project::ArticlesHelper
   FILTER_TYPES = %w(approved unapproved) unless const_defined?(:FILTER_TYPES)
 

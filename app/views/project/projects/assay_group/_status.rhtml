@@ -1,0 +1,49 @@
+<%if @project%>
+<div class="x-panel-header x-accordion-hd" >
+  <span class="icon icon-task x-panel-header-text">
+     Assay Group Tasks
+     </span>
+</div>
+<div class='panel'>
+<h3 class="reverse; icon icon-green">    Today</h3>
+<table>
+    <% for item in @project.tasks.current(8) %>
+      <tr>
+        <td>
+          <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+        </td>
+        <td>
+          <%= short_date(item.expected_at) %>
+        </td>
+      </tr>
+    <% end %>
+</table>
+<h3 class="reverse; icon icon-red"> Overdue</h3>
+<table>
+    <% for item in @project.tasks.overdue(8) %>
+      <tr>
+        <td>
+          <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+        </td>
+        <td>
+          <%= short_date(item.expected_at) %>
+        </td>
+      </tr>
+    <% end %>
+</table>
+
+<h3 class="reverse; icon icon-amber">  Expected Soon </h3>  
+<table>
+  <% for item in @project.tasks.future(8) %>
+    <tr>
+      <td>
+        <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+      </td>
+      <td>
+        <%= short_date(item.expected_at) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+<%end%>

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: data_concepts
 #
@@ -7,7 +7,7 @@
 #  parent_id          :integer(11)   
 #  name               :string(50)    default(), not null
 #  data_context_id    :integer(11)   default(0), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  access_control_id  :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
@@ -68,6 +68,9 @@ class DataConcept < ActiveRecord::Base
     return (parameter_types.size==0 and elements.size==0)
   end  
   
+  def elements?
+    self.elements.size>0
+  end
   def default
     self.elements.first
   end

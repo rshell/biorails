@@ -1,0 +1,32 @@
+<h1 class='icon icon-request-large' style='text-indent:0.5em;'>
+  Request [<strong><%= @user_request.name %></strong>]
+</h1>
+
+  <div class='box'>
+  <%= render :partial => 'request' %>
+  </div>
+  
+  <div class='box'>
+    <h4>Services requested </h4>
+    <%= render :partial => 'services' %>
+  </div>
+  
+  <div class='box'>
+    <h4>  Status of Items  </h4>
+    <%= render :partial => 'items' %>
+  </div>
+  
+  <div class='box'>
+    <h4>    Folder  </h4>
+    <% for item in @project_folder.elements %>
+      <li>
+        <%= image_tag(item.icon) %>
+        <%= link_to item.name,
+          content_url( :action => 'show',
+          :id => item) %>
+        (<%= format_time(item.updated_at) %>)
+        <br />
+        <%= item.summary %>
+      </li>
+    <% end %>
+  </div>

@@ -2,6 +2,8 @@
   <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @master} %>
 <% end %>
 
-<h2><%= l('Timeline for users tasks') %></h2>
+<h1 class='icon icon-user-large' style='text-indent:0.5em'>
+    <%= l('Timeline for users tasks') %>
+</h1>
 
 <%= render :partial=>'/shared/timeline' %>

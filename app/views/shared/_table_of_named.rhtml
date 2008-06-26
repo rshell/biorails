@@ -1,6 +1,6 @@
-<!-- 
+<!--
    General table of Named Items display
-   
+
    :items  as a Array of Named records
    :edit  Action for editing
    :show  Action for showing
@@ -8,28 +8,30 @@
 -->
  <%if items.first %>
  <% clazz = items.first.class %>
- <thead class="tableHeader">  
+ <thead class="tableHeader">
   <tr>
   <% for column in clazz.content_columns %>
     <th><%= column.human_name %></th>
   <% end %>
     <th>Actions </th>
   </tr>
-</thead>  
-    
+</thead>
+
 <tbody class="tableBody">
 <% for row in items %>
   <tr>
   <% for column in clazz.content_columns %>
     <td>
-       <% if column.name == 'name'  %>           
+       <% if column.name == 'name'  %>
             <%= link_to row.send(column.name),:controller => controller, :action => show, :id => row if show  %>
        <% else %>
           <%=h row.send(column.name) %>
-       <% end %>            
+       <% end %>
     </td>
   <% end %>
-    <td><%= link_to (subject_icon('edit.png'))+" Edit",:controller => controller, :action => edit, :id => row if edit%></td>
+    <td><%= link_to "<b class='icon icon-edit'>Edit</b>",
+        :controller => controller, :action => edit, :id => row if edit%>
+    </td>
   </tr>
 <% end %>
 </tbody>

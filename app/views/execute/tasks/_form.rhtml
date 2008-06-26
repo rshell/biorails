@@ -1,74 +1,78 @@
     <!--[form:experiment]-->
-    
-  <%= hidden_field( 'task','experiment_id') %>  
+
+  <%= hidden_field( 'task','experiment_id') %>
 
   <div class="row">
-  
+
      <div class="form-element">
-      <label for="task_name">Name</label>
+      <label for="task_name" class='icon icon-name'>
+        Name
+      </label>
       <%= text_field 'task', 'name' , {:class=>"text-input"} %>
      </div>
      <div class="form-element">
-      <label for="task_process">Experiment</label>
+       <label for="task_process" class='icon icon-experiment'>
+         Experiment
+       </label>
       <%= @task.experiment.name %>
      </div>
      <div class="form-element">
-      <label for="task_process">Protocol </label>
-      <%= @task.process.path %><br/> <i>[times run <%=@task.process.tasks.size %>]</i>
+       <label for="task_process" class='icon icon-protocol'>
+         Protocol
+       </label>
+      <%= @task.process.path %>
+        <br/>
+        <i>[times run <%=@task.process.tasks.size %>]</i>
      </div>
      <div class="form-element">
-      <label for="task_process">Study</label>
-      <%= @task.experiment.study.name %>
+       <label for="task_process" class='icon icon-assay'>
+         Assay
+       </label>
+      <%= @task.experiment.assay.name %>
      </div>
   </div>
 
-  <div class="row">  
+  <div class="row">
    <div class="form-element">
-     <label for="study_description">Description</label>
+     <label for="assay_description" class='icon icon-description'>
+       Description
+     </label>
      <%= text_area('task', 'description',{:rows=>5,:cols=>80})   %>
-   </div>   
-  </div>
-
-  <div class="row">
-     
-     <div class="form-element">
-      <label for="task_assigned_to">Assigned to</label>
-      <%= select_named 'task', 'assigned_to_user_id', User  %>
-     </div>
-     
-     <div class="form-element">
-        <label for="task_is_milestone">Is milestone</label>
-        <select id="task_is_milestone" name="task[is_milestone]"><option value="false">False</option><option value="true">True</option></select>
-     </div>   
-
-     <div class="form-element">
-        <label for="task_expected_hours">Expected hours</label>
-        <%= text_field 'task', 'expected_hours', 'size' => 6  %>
-     </div>   
-     
-     <div class="form-element">
-        <label for="task_done_hours">Done hours</label> 
-        <%= text_field 'task', 'done_hours', 'size' => 6  %>
-     </div>   
-     
+   </div>
   </div>
 
   <div class="row">
      <div class="form-element">
-        <label for="task_started_at">Start date</label>
-        <%= date_field 'task', 'started_at'  %>
-     </div>   
-
-     <div class="form-element">
-        <label for="task_ended_at">Expected End date</label>
-        <%= date_field 'task', 'expected_at'  %>
+       <label for="task_started_at" class='icon icon-date'>
+         Start date
+       </label>
+       <%= date_field 'task', 'started_at'  %>
      </div>
 
      <div class="form-element">
-        <label for="task_status_id">Status</label>
-        <%= select( :task, :status_id, @task.allowed_status_list)  %>
-     </div> 
-       
+       <label for="task_ended_at" class='icon icon-name' class='icon icon-date'>
+         Expected End
+       </label>
+       <%= date_field 'task', 'expected_at'  %>
+     </div>
+
+  </div>
+
+  <div class="row">
+    <hr />
+    <div class="form-element">
+      <label for="task_assigned_to" class='icon icon-user_lab'>
+        <b>Assigned to</b>
+      </label>
+        <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
+    </div>
+
+    <div class="form-element">
+      <label for="task_status_id" class='icon icon-status'>
+        <b>Status</b>
+      </label>
+      <%= select( :task, :status_id, @task.allowed_status_list)  %>
+    </div>
 
   </div>
 <!--[eoform:task]-->

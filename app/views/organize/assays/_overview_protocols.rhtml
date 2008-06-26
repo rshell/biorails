@@ -1,0 +1,41 @@
+<div class='panel'>
+<table class="report">
+  <thead>
+    <tr>
+      <th colspan='<%=assay.stages.size%>'>
+        <b class="icon icon-protocol">
+          Released Protocols (Single processes and multistep recipes)
+        </b>
+      </th>
+    </tr>
+    <tr>
+      <% for stage in assay.stages %>
+        <th>
+          <%=stage.name%>  [runs]
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <% for stage in assay.stages %>
+     <td>
+       <% for process in assay.protocols_in_stage(stage) %>
+            <% if process.multistep? %>
+              <%= link_to "<b class='icon icon-workflow'>#{process.name} </b>", 
+                   workflow_url( :action => 'show', :id=>process) %>
+            <%else%>
+              <%= link_to "<b class='icon icon-protocol'>#{process.name} </b>", 
+                   protocol_url( :action => 'show', :id=>process) %>
+            <% end%>
+            <br />            
+       <%end%>
+      </td>
+    <% end %>
+   </tr>
+  </tbody>
+</table>
+<br />
+</div>
+<%= link_to( "<b class='icon icon-protocol-add'> Add Process</b>   ", process_url(:action => 'new',  :id => @assay)) if @assay.allows?(:edit)%>
+<%= link_to("<b class='icon icon-protocol-add'> Add Recipe</b>  ",  workflow_url(:action => 'new',  :id => @assay)) if @assay.allows?(:edit)%>

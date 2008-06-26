@@ -46,8 +46,8 @@ class Clipboard
 # Load elements from store
 #
   def marshal_load(variables)
-    initialize_cache
     @elements = variables
+    initialize_cache
   end
   
 ##

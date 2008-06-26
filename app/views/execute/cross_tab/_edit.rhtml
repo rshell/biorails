@@ -1,0 +1,62 @@
+<% if @cross_tab%>
+
+<h2>
+  Cross Tab Query [<%=@cross_tab.name%>]
+</h2>
+<br />
+<div id='tabs-show'>
+</div>
+
+  
+<div id='tab-columns' class="tab-content x-hidden">
+<%=render :partial=>'columns'%>
+</div>
+
+<div id='tab-update' class="tab-content x-hidden">
+<%=render :partial=>'update'%>
+</div>
+  
+<div id='tab-preview' class="tab-content x-hidden">
+<%=render :partial=>'table'%>
+</div>
+
+
+
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+  var tabs = new Ext.TabPanel({
+      renderTo:'tabs-show',
+              activeTab: 0,
+              defaults: {
+                autoHeight: true,
+                autoWidth: true
+              },
+              items: [{
+                              title: 'Columns',
+                              contentEl: 'tab-columns'
+                     },{
+                              title: 'Update',
+                              contentEl: 'tab-update'
+                     },{
+                              title: 'Preview',
+                              contentEl: 'tab-preview'
+                      }]
+          });
+
+  var dropzone = new Ext.dd.DropTarget('tab-preview',{
+      ddGroup : 'crosstabDD',
+      notifyDrop : function(proxy,event,data){
+            try{ 
+                 new Ajax.Request( "<%=cross_tab_url(:action=>'add',:id=>@cross_tab) %>",
+                          {asynchronous:true, evalScripts:true,
+                           parameters: { node: data.node.attributes.id,
+                                         scope: data.node.attributes.scope }});                          
+              } catch (e) {
+                    console.log('Problem cannot add Parameter ');
+                    console.log(e);
+              } 
+        return true;  }});
+  });
+</script>
+<%end%>

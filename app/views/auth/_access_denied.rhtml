@@ -2,11 +2,13 @@
   <%= render :partial =>'menu/user_menu' , :locals=>{ :user => current_user} %>
 <% end %>
 
+<h1 class="icon icon-warning"> Access Denied </h1>
 
-<h2 class="icon icon-warning"> Access Denied </h2>
-
-<p>User <strong><%=session[:current_username] %></strong> does not have the rights to do this.</p>
+<p>
+  User <strong><%=session[:current_username] %></strong>
+  does not have the rights to do this.
+</p>
 <ul>
-<li>Controller: <%=params[:controller]%></li>
-<li>Action: <%=params[:action]%></li>
+  <li>Controller: <%=params[:controller]%></li>
+  <li>Action: <%=params[:action]%></li>
 </ul>

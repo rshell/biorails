@@ -3,63 +3,107 @@
 <% end %>
 
 
-<h2> Current profile for User <%= @user.name %> </h2>
-<table>
-<tr><th>Login</th><td> <%= @user.login %></td></tr>
-<tr><th>Short Name</th><td> <%= @user.name %></td></tr>
-<tr><th>Full name</th><td> <%= @user.fullname %></td></tr>
-<tr><th>Created At</th><td> <%= short_date @user.created_at %></td></tr>
-<tr><th>Updated At</th><td> <%= short_date @user.updated_at %></td></tr>
+<h1 class="icon icon-user-large" style='text-indent:0.5em'>
+    Current profile for User <%= @user.name %>
+</h1>
+<table class='report' style='width:40%'>
+<tr>
+  <th><b class='icon icon-login'>Login</b></th>
+  <td> <%= @user.login %></td>
+</tr>
+<tr>
+  <th><b class='icon icon-name'>Short Name</b></th>
+  <td> <%= @user.name %></td>
+</tr>
+<tr>
+  <th><b class='icon icon-description'>Full name</b></th>
+  <td> <%= @user.fullname %></td>
+</tr>
+<tr>
+  <th><b class='icon icon-date'>Created At</b></th>
+  <td> <%= short_date @user.created_at %></td>
+</tr>
+<tr>
+  <th><b class='icon icon-date'>Updated At</b></th>
+  <td> <%= short_date @user.updated_at %></td>
+</tr>
+<% if @ldap %>
+<tr>
+  <th><b class='icon icon-date'>LDAP Account</b></th>
+  <td>  <%= @ldap[:cn] %> </td>
+</tr>
+<tr>
+  <th><b class='icon icon-date'>E-mail (Ldap)</b></th>
+  <td> <%= @ldap[:mail] %></td>
+</tr>
+<tr>
+  <th><b class='icon icon-date'>Displayed Name (Ldap)</b></th>
+  <td> <%= @ldap[:displayName] %></td>
+</tr>
+<%else%>
+<tr>
+  <th><b class='icon icon-date'>LDAP Account</b></th>
+  <td> Missing </td>
+</tr>
+<%end%>
 </table>
 <br />
-<h2> Project Memberships </h2>
-<table class="report">
-<thead>
-<tr>
-   <th>Project</th>
-   <th>Role</th>
-   <th>Created</th>
-   <th>Updated</th>
-</tr>
-</thead>
-<tbody>
-<% for member in @user.memberships do %>
-    <tr>
-        <td><%= link_to member.project.name, project_url(:action=>'show',:id=>member.project) %></td>
-        <td><%= link_to member.role.name,role_url(:action=>'show',:id=>member.role) %></td>
+<h2 class='icon icon-team'> Team Memberships </h2>
+<div class='panel'>
+  <table class="report">
+    <thead>
+      <tr>
+        <th><b class='icon icon-team'>Team</b></th>
+        <th><b class='icon icon-role'>Role</b></th>
+        <th><b class='icon icon-date'>Created</b></th>
+        <th><b class='icon icon-date'>Updated</b></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for member in @user.memberships do %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <p class='icon icon-show'>
+            <%= link_to member.team.name, team_url(:action=>'show',:id=>member.team) %>
+          </p>        
+        </td>
+        <td>
+          <p class='icon icon-show'>
+            <%= link_to member.role.name,role_url(:action=>'show',:id=>member.role) %>
+          </p>
+        </td>
         <td><%= short_date member.created_at %></td>
         <td><%= short_date member.updated_at %></td>
-    </tr>
-<% end -%>
-</tbody>
-</table>
-<br/>
+      </tr>
+    <% end -%>
+    </tbody>
+  </table>
+</div>
+<br />
 
-<h2> User Permissions </h2>
+<h2 class='icon icon-permission'> User Permissions </h2>
+<div class='panel'>  <table class="report">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th colspan=16>Allowed Actions for Role</th>
+        </tr>
+    </thead>
+    <tbody>
+      <%if @user.role %>	
+      <% for subject in UserRole.subjects.keys.sort do %>
+          <tr>
+              <th><%=subject%></th>
+              <% for action in Permission.possible_actions(subject) %>
+                  <%if @user.role.allow?(subject,action) %>
+                      <td><%=action%></td>
+                  <%end%>
+              <% end -%>
+          </tr>
+      <% end -%>
+      <% end -%>
+    </tbody>
 
-<table class="report">
-<thead>
-    <tr>
-        <th>Subject</th>
-        <th colspan=16>Allowed Actions for Role</th>
-    </tr>
-</thead>
-<tbody>
-<%if @user.role %>	
-<% for subject in UserRole.subjects.keys.sort do %>
-    <tr>
-        <th><%=subject%></th>
-        <% for action in Permission.possible_actions(subject) %>
-            <%if @user.role.allow?(subject,action) %>
-                <td><%=action%></td>
-            <%end%>
-        <% end -%>
-    </tr>
-<% end -%>
-<% end -%>
-</tbody>
-
-</table>
-
-<hr/>
-
+  </table>
+  <br />
+</div>

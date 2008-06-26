@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: project_contents
 #
@@ -8,8 +8,8 @@
 #  type               :string(20)    
 #  name               :string(255)   
 #  title              :string(255)   
-#  body               :text          
-#  body_html          :text          
+#  body               :string(2048)  
+#  body_html          :string(2048)  
 #  author_ip          :string(100)   
 #  comments_count     :integer(11)   default(0)
 #  comment_age        :integer(11)   default(0)
@@ -77,18 +77,12 @@ class Content < ActiveRecord::Base
 
   def html_urls
     urls = Array.new
-    (body_html.to_s + extended_html.to_s).gsub(/<a [^>]*>/) do |tag|
+    (body_html.to_s).gsub(/<a [^>]*>/) do |tag|
       if(tag =~ /href="([^"]+)"/)
         urls.push($1)
       end
     end
     urls
-  end
-
-
-
-  def icon(options={} )
-        '/images/mime/html.png'
   end
   
   def summary
@@ -99,18 +93,6 @@ class Content < ActiveRecord::Base
      out << "]"  
   end
   
-##
-# calculate the signature of a record and return the result.
-# This is a MD5 checksum of the current fields in the record
-# 
-  def signature(fields =  nil )
-     fields ||= attributes.keys
-     keys = attributes.keys - ['content_hash']
-     data = keys.collect{|key| "#{key}:#{attributes[key]}"}.join(',')
-     Digest::MD5.hexdigest(data )
-  end
-
-
   # Rebuild all the set based on the parent_id and text_column name
   #
   def self.rebuild_sets

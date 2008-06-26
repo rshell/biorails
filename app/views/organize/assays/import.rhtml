@@ -1,0 +1,56 @@
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
+<%end %>
+
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
+<%end %>
+
+<% content_for :header_script do -%>
+<%end %>
+
+<%content_for :center do%>
+  <!-- container for the existing markup tabs -->
+  <div id="tabs1">
+    <div id="tab-import" class="x-hide-display">
+      <%= render :partial => 'import' %>
+    </div>
+    <div id="tab-share" class="x-hide-display">
+      <%= render :partial => 'share' %>
+    </div>
+  </div>
+<% end%>
+
+<% content_for :right do%>
+  <h2>Guide</h2>
+  <div class='panel'>
+    <p>
+      This allows the import of the assay definitions into a project.
+      This can include all the protocols, parameters and queues
+      in the assay. For this to work the central catalogue must
+      be consistent with the source database. In the cases of
+      the same systems this is easy. In the case of a new database
+      you may need to include catalogue references.
+      This whole process needs to be done with care.
+    </p>
+  </div>
+<% end %>
+
+<script>
+Ext.onReady(function(){
+      var tabs = new Ext.TabPanel({
+              renderTo:'tabs1',
+              activeTab: <%=@tab||0%>,
+              id: 'myTabs',
+              defaults: {
+                  autoHeight: true,
+                  autoWidth: true,
+                  autoScroll: true
+              },
+              items: [{       title: 'Import',
+                              contentEl: 'tab-import'
+                      },{     title: 'Share',
+                              contentEl: 'tab-share' }]
+          });
+});
+</script>

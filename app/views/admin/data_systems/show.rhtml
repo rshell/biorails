@@ -2,47 +2,44 @@
   <%= render :partial => 'menu'%>
 <% end %>
 
-    <h2 class="icon icon-data_system-large" style="text-indent:0.5em">
-        Data System [<strong><%=@data_system.name%></strong>]
-   </h2>
-    <div class='panel'>
-        <%= render :partial => 'shared/named',:locals =>{:item => @data_system} %>
-        
-        <p>
-         This is the list of current data lookups defined using this data system:- 
-        </p>
-        <table class="report">
-         <thead class="tableHeader">  
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Concept</th>
-            <th>Style</th>
-            <th>Content</th>
-            <th>Parameters</th>
-            <th>Processes</th>
-          </tr>
-        </thead>  
-           
-        <tbody>
-        <% for item in @data_system.data_elements %>
-          <tr>
-            <td><%= link_to item.name, data_element_url(:action=>'show',:id=>item.id) %></td>
-            <td> <%=item.description %>   </td>
-            <td> <%=item.concept.path %>   </td>
-            <td><%= item.style %></td>
-            <td> <%=item.content %>   </td>
-            <td> <%=item.study_parameters.size  %>  </td>
-            <td> <%=item.parameters.size %>   </td>
-          </tr>
-        <% end %>
-        </tbody>
-        </table>
-    </div>
-    <div class="panel">
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @data_system} %>
-    </div>
+<h1 class="icon icon-data_system-large" style="text-indent:0.5em">
+    Data Source [<strong><%=@data_system.name%></strong>]
+</h1>
+<div class='panel'>
+    <p><%= render :partial => 'shared/named',:locals =>{:item => @data_system} %></p>
 
+    <p>
+     The list of data lookups defined using within this data system:-
+    </p>
+    <table class="report">
+     <thead class="tableHeader">
+      <tr>
+        <th><b class='icon icon-name'>Name</b></th>
+        <th><b class='icon icon-description'>Description</b></th>
+        <th><b class='icon icon-data_concept'>Concept</b></th>
+        <th>Style</th>
+        <th>Content</th>
+        <th><b class='icon icon-parameter'>Parameters</b></th>
+        <th><b class='icon icon-protocol'>Protocols</b></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% for item in @data_system.data_elements %>
+      <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <td> <%= link_to "<b class='icon icon-show'>" + item.name + "</b>", data_element_url(:action=>'show',:id=>item.id) %></td>
+        <td> <%=item.description %>   </td>
+        <td> <%=item.concept.path %>   </td>
+        <td> <%= item.style %></td>
+        <td> <%=item.content %>   </td>
+        <td> <%=item.assay_parameters.size  %>  </td>
+        <td> <%=item.parameters.size %>   </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
- <%= link_to (subject_icon('destroy.png')) + ' Delete', { :action => 'remove', :id =>  @data_system },
-                        :confirm => 'Are you sure?',:method => "post" %>
+<div class="panel">
+<%= render :partial => 'shared/audit',:locals =>{ :item => @data_system} %>
+</div>
+<%= link_to "<p class='icon icon-del'>Delete</p>", { :action => 'remove', :id =>  @data_system }, :confirm => 'Are you sure?',:method => "post" %>

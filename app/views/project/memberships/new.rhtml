@@ -1,9 +1,16 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/project_menu',
+    :locals=>{ :project => current_project}  %>
   <div>
-  <span class='menu'>Membership</span>
-   <%= link_to 'List', :action => 'list' %>
-   <%= link_to 'new', :action => 'new' %>
+    <span class='menu'>
+      <b class='icon icon-team'>
+        Membership
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-list'>List</b>", :action => 'list' %>
+      <%= link_to "<b class='icon icon-add-user'>new</b>", :action => 'new' %>
+    </div>
   </div>
 <% end -%>
 
@@ -11,29 +18,35 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
 <%end%>
 
-
 <% dialog "Add member to project #{current_project.name} " do %>
- <% form_tag :action => 'create' do %>
-	<%=  hidden_field :membership, :project_id %>
+  <% form_tag :action => 'create' do %>
+    <%=  hidden_field :membership, :project_id %>
 
     <!--[form:membership]-->
-      <p>
-        <label for="membership_owner">User</label><br/>
-        <%= collection_select(:membership, :user_id ,current_project.non_members, :id, :name)  %>
-      </p>
-      <p>
-        <label for="membership_owner">Role</label><br/>
-        <%= select_named :membership, :role_id ,ProjectRole %>
-      </p>
-
-      <br />
-      <p>
-        <label for="membership_owner">Allow this user to manage the project as a owner ? </label>
-        <%= check_box    :membership, :owner  %>
-      </p>
-      <br />
+    <p>
+      <label for="membership_owner" class='icon icon-user'>
+        User
+      </label>
+      <br/>
+      <%= collection_select(:membership, :user_id,
+          current_project.non_members, :id, :name)  %>
+    </p>
+    <p>
+      <label for="membership_role" class='icon icon-role'>
+        Role
+      </label>
+      <br/>
+      <%= select_named :membership, :role_id ,ProjectRole %>
+    </p>
+    <br />
+    <p>
+      <label for="membership_owner">
+        Allow this user to manage the project as a owner ?
+      </label>
+      <%= check_box    :membership, :owner  %>
+    </p>
+    <br />
     <!--[eoform:membership]-->
-        
   <%= submit_tag "Create" %>
  <% end %>
 <% end %>

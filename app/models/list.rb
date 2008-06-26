@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: lists
 #
 #  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  description        :text          
+#  name               :string(255)   not null
+#  description        :string(1024)  default()
 #  type               :string(255)   
 #  expires_at         :datetime      
 #  lock_version       :integer(11)   default(0), not null
@@ -17,7 +17,7 @@
 #
 
 class List < ActiveRecord::Base
-  included Named
+   acts_as_dictionary :name 
 ##
 # This record has a full audit log created for changes 
 #   
@@ -48,10 +48,9 @@ class List < ActiveRecord::Base
    item.list = self
    case new_value
    when Hash
-       return nil unless value
-       item.data_type = nil
-       item.data_id   = value[:id]
-       item.data_name = value[:name] 
+       item.data_type = 'Hash'
+       item.data_id   = new_value[:id]
+       item.data_name = new_value[:name] 
 
     when Fixnum
        value = reference(new_value)      
@@ -72,9 +71,15 @@ class List < ActiveRecord::Base
        item.data_id   = new_value.data_id 
        item.data_name = new_value.data_name 
     else
-      self.data_type = new_value.data_type if new_value.respond_to?(:date_type)
-      self.data_id   = new_value.data_id if new_value.respond_to?(:date_id)
-      self.data_name = new_value.data_name if new_value.respond_to?(:date_name)
+      if (new_value.respond_to?(:date_type) and new_value.respond_to?(:date_name) and new_value.respond_to?(:date_id)) 
+        item.data_type = new_value.data_type
+        item.data_id   = new_value.data_id 
+        item.data_name = new_value.data_name 
+      else
+        item.data_type = new_value.class.to_s
+        item.data_id   = new_value.id
+        item.data_name = new_value.name 
+      end
    end
    self.items << item
    return item
@@ -94,7 +99,7 @@ class List < ActiveRecord::Base
 # 
  def reference(id)
    if self.data_element
-       self.data_element.reference(name)
+       self.data_element.reference(id)
    end
  end
  

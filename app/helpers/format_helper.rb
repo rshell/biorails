@@ -27,13 +27,12 @@ module FormatHelper
 #
   def short_date(date = nil)
     if date
-       date.strftime("%d-%b-%Y")
+       date.strftime("%Y-%b-%d")
     else
        "Not Set"
     end   
   rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+      logger.error ex.message   
       "#Err"
   end
   
@@ -45,11 +44,10 @@ module FormatHelper
    if time
      time.strftime("%H:%M:%S")
    else
-     "Not set"
+     "Not Set"
    end
   rescue Exception => ex
       logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
       "#Err"
   end
   
@@ -74,8 +72,7 @@ module FormatHelper
     end   
   rescue Exception => ex
       logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-       "Err."
+       "#Err"
   end
 
 

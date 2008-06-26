@@ -2,38 +2,29 @@
   <%= render :partial => 'menu'%>
 <% end %>
 
-<h1><%=@parameter_role.name%></h1>
 
-<p><%=@parameter_role.description%>
-</p>
-<%if @parameter_role.used? %>
-	<table class="report">
-		<tr>
-		<th>Study Name</th>
-		<th>Parameter Name </th>
-		<th>Parameter Type</th>
-		<th>Data Type</th>
-		<th>Data Format</th>
-		<th>Data Lookup</th>
-		</tr>
-		<%for item in  @parameter_role.study_parameters %>
-			<tr>
-			<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
-			<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
-			<td><%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %></td>
-			<td><%=item.data_type.name%></td>
-			<td><%=item.data_format.name if item.data_format_id %></td>
-			<td><%=item.data_element.name if item.data_element_id %></td>
-			</tr>
-		<%end%>
-	</table>
-<%else%>
- <i>This parameter role is not currently in use with existing studies or protocols.</i>
- [
- <%= link_to (subject_icon('destroy.png')) +'Delete', { :action => 'remove', :id =>  @data_format },                                
-                            :confirm => 'Are you sure?',:method => "post" %> ]
-	
-<%end%>
+<% content_for :center do%>
+  <h1 class="icon icon-parameter_role">
+    Parameter Role [<strong><%=@parameter_role.name%></strong>]
+  </h1>
+  <div class='box'>
+    <p> <b>Description: </b> <%=@parameter_role.description%> </p>
+  </div>  
+
+  <br />
+
+  <div class='box'>
+    <b> Usages in Assay Parameters</b>
+    <%if @parameter_role.used? %>
+      <%= render :partial=>'usages' %>
+    <%else%>
+  <i>This parameter role is not currently in use with existing assays or processes.</i>
+  [<%= link_to "<b class='icon icon-del'>Delete</b>", { :action => 'destroy', :id =>  @parameter_role }, :confirm => 'Are you sure?',:method => "post" %> ]
+    <%end%>
+  </div>
+  
+<% end %>
+
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

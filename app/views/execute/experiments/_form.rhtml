@@ -2,53 +2,65 @@
  <div class="row">
 
  <div class="form-element">
-  <label for="experiment_study_id">Study</label>
- <%= collection_select(:experiment, :study_id ,current_project.studies, :id, :name)%>
- </div>
- <%= observe_field 'experiment_study_id',:url => {:action =>'refresh_allowed_protocols'},  :update =>@experiment.dom_id('protocols') %>
-
- <div class="form-element">
-  <label for="experiment_name">Name</label>
+  <label for="experiment_name" class='icon icon-name'>
+    Name
+  </label>
   <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
  </div>
 
-
  <div class="form-element">
-  <label for="study_parameter_role">Default Protocol</label>
-  <div id="<%=@experiment.dom_id('protocols')%>">
-   <%= select_protocol(:experiment, :study_protocol_id, @study) %>
-   </div>
-  </div>
+  <label for="experiment_assay_id" class='icon icon-assay'>
+    Main Assay
+ </label>
+ <%= collection_select(:experiment, :assay_id ,current_project.linked_assays, :id, :name)%>
  </div>
 
-  <div class="row">
-    <div class="form-element">
-       <label for="study_description">Description</label>
-       <%= text_area('experiment', 'description',{:rows=>5, :cols=>100} 	) %>
-    </div>
-  </div>
+
+
+ <div class="form-element">
+  <label for="assay_default_protocol" class='icon icon-protocol'>
+    Default Protocol
+  </label>
+  <div id="<%=@experiment.dom_id('protocols')%>">
+      <%= select_process(:experiment, :protocol_version_id) %>
+   </div>
+ </div>
+</div>
 
 <div class="row">
+  <div class="form-element">
+     <label for="assay_description" class='icon icon-description'>
+       Description
+     </label>
+     <%= text_area('experiment', 'description',{:rows=>5, :cols=>80} 	) %>
+  </div>
+</div>
 
-     <div class="form-element">
-        <label for="experiment_started_at">Start date</label>
-        <%= date_field 'experiment', 'started_at'  %>
-     </div>   
-    
-     <div class="form-element">
-        <label for="experiment_ended_at">Expected End date</label>
-        <%= date_field 'experiment', 'expected_at'  %>
-     </div>
-    
-     <div class="form-element">
-        <label for="task_status_id">Status</label>
-        <%= select( :task, :status_id, @experiment.allowed_status_list)  %>
-     </div> 
-    
-     <div class="form-element">
-        <label for="task_status_id">Tasks [total | active | done ] Last </label>
-        <%= @experiment.status_summary %>
-        <%=format_date @experiment.finished_at %>
-     </div> 
-       
+<div class="row">
+   <div class="form-element">
+     <label for="experiment_started_at" class='icon icon-date'>
+        Start date
+      </label>
+      <%= date_field 'experiment', 'started_at'  %>
+   </div>
+
+   <div class="form-element">
+     <label for="experiment_ended_at" class='icon icon-description'>
+       Expected End date
+     </label>
+     <%= date_field 'experiment', 'expected_at'  %>
+   </div>
+
+   <div class="form-element">
+     <label for="task_status_id" class='icon icon-status'>
+       Status
+     </label>
+      <%= select( :task, :status_id, @experiment.allowed_status_list)  %>
+   </div>
+
+   <div class="form-element">
+      <label for="task_status_id">Tasks [total | active | done ] Last </label>
+      <%= @experiment.status_summary %>
+      <%=format_date @experiment.finished_at %>
+   </div>
 </div>

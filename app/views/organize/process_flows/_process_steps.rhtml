@@ -1,0 +1,34 @@
+<table class="report">
+  
+  <thead>
+    <tr>
+      <th><b class="icon icon-label">Label</b> </th>
+      <th><b class="icon icon-protocol-version">Version</b></th>
+      <th><b class="icon icon-context">No. Contexts</b></th>
+      <th><b class="icon icon-parameter">No. Parameters </b></th>
+      <th><b class="icon icon-task">No. Tasks</b></th>
+      <th><b class="icon icon-date">Date</b></th>
+      <th><b class="icon icon-user">User</b></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  <% for step in @process_flow.steps %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <%=link_to( version.name ,workflow_url(:action=>'show', :id => @assay_protocol, :version=>version.id)) %> </td>
+      <td>
+        <%=version.version %> <%=" [release]" if version == @assay_protocol.process%>
+      </td>
+      <td> <%=version.contexts.size %> </td>
+      <td> <%=version.parameters.size %> </td>
+      <td>
+        <%=version.tasks.size %>
+        <%=link_to( version.tasks[0].name , task_url(:action=>'show',:id=>version.tasks[0].id)) if version.tasks[0]%>
+      </td>
+      <td> <%=short_date(version.updated_at) %>   </td>
+      <td> <%=version.updated_by %>   </td>
+    <tr>
+    <% end %>
+  </tbody>
+</table>

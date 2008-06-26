@@ -1,0 +1,73 @@
+
+<% content_for :sidemenu do -%>
+  <%= render :partial => 'actions' %>
+<% end -%>
+
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','protocol_version']}  %>
+<%end %>
+
+<% content_for :status do %>
+  <%= render :partial => 'status' %>
+<%end%>
+
+<% content_for :center do -%>
+  <h1 class="icon icon-assay-large" style="text-indent:0.5em">
+    Assay  [<%=link_to " #{@assay.name} ", assay_url( :action =>'show',:id =>@assay.id) %>] 
+    Process [<strong><%=@protocol_version.name %></strong>]
+  </h1>
+  
+  <div id='tabs-process'>
+      <div id="tab-show" class="tab-content x-hidden">
+  <%= render :partial => 'show' %>
+      </div>
+      <div id="tab-edit" class="tab-content x-hidden">
+  <%= render :partial => 'edit' %>
+      </div>
+      <div id="tab-layout" class="tab-content x-hidden">
+  <%= render :partial => 'layout' %>
+      </div>
+      <div id="tab-metrics" class="tab-content x-hidden">
+      </div>
+  </div>
+
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+    
+  var tabs = new Ext.TabPanel({
+      renderTo:'tabs-process',
+              activeTab: <%=@tab||0%>,
+              defaults: {
+                              autoHeight: true,
+                              autoWidth: true,
+                              autoScroll: true,
+                              bodyStyle: 'padding:0px'
+              },
+              items: [{
+                              title: 'Overview',
+                              contentEl: 'tab-show'                              
+                      },{
+                              title: 'Update',
+                              contentEl: 'tab-edit'
+                      },{
+                              title: 'Layout',
+                              contentEl: 'tab-layout'
+                      },{
+                              title: 'Metrics',
+                              contentEl: 'tab-metrics',                              
+                              listeners:{
+                                  activate : function(panel){panel.getUpdater().refresh();}
+                             },
+                             autoLoad: "<%=process_url(:action=>'metrics', :format=>:ext, :id=>@protocol_version)%>"
+                      }]
+          });
+
+      var tree = new Biorails.Protocol.ParameterTree({el:'parameter-tree',assay_id: <%= @assay_protocol.assay.id %> });
+      tree.applyToMarkup('parameter-tree');
+
+});
+
+</script>
+
+<% end %>

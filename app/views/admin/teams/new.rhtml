@@ -1,10 +1,14 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial=>'actions'%>
+<% end -%>
+
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['team','user']} %>
 <% end -%>
 
 <% content_for :center do -%>
 
-<%dialog subject_icon('model/team.png')+'New team'  do %>
+<%dialog "New team"  do %>
   Create a new team for organization or users.
 
   <% form_tag :action => 'create' do %>

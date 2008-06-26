@@ -3,14 +3,19 @@
 <%end%>
 
 <% content_for :center do %>
- <% dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">New Experiment</h2>' do %>
-   <% form_tag :action => 'create' do %>
-      <%= render :partial => 'form' %>
-      <div class="row">
-          <%= submit_tag "Create" %>
-      </div>
-   <% end %>
- <% end %>
+ <% unless current_project.runnable? %>
+    <b>Project <%=current_project.name%> is not yet runnable as there are no released processes or recipes defined </b>
+ <% else %>
+    <% dialog 'New Experiment' do %>
+
+       <% form_tag :action => 'create' do %>
+          <%= render :partial => 'form' %>
+          <div class="row">
+              <%= submit_tag "Create" %>
+          </div>
+       <% end %>
+    <% end %>
+  <% end %>
 <%end%>
 
 <% content_for :right do -%>

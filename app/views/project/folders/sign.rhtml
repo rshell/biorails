@@ -1,5 +1,10 @@
+<!-- TODO - not sure how you get to this template, but think it still appears sometimes - work out how and either make
+  it useful or get rid of it! -->
 <% content_for :center do -%>
-    <%= render :partial => 'sign' %> 
+project
+<%= @project_folder %>
+<%= params[:id] %>
+  <%#= render :partial => 'show' , :locals=>{:project_folder=>'2'}%> 
 <% end %>    
 
 <% content_for :help do -%>
@@ -8,3 +13,4 @@
 <% content_for :status do -%>
     <%= render :partial => 'status' %>   
 <% end %>
+

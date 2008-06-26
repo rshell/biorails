@@ -1,0 +1,12 @@
+<div class="form-element">
+  <label for="assay_paramete_name" class='icon icon-name'>  Name  </label>
+  <% if @parameter_type.aliases.size>0 %>
+  <%=  collection_select( :assay_parameter, :name, @parameter_type.aliases, :name, :name, {:prompt => true}) %>
+  <%= observe_field 'assay_parameter_name', 
+          :url => assay_parameter_url(:action=>'refresh',:parameter_type_id=>@parameter_type.id, :id =>@assay.id),
+          :with =>'alias' %>
+
+  <%else %>
+  <%=  text_field( :assay_parameter, :name) %>
+  <%end%>
+</div>

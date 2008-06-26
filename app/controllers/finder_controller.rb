@@ -36,7 +36,6 @@ class FinderController < ApplicationController
     save_clipboard @clipboard
     respond_to do | format |
       format.json { render :json => @clipboard.to_json }
-      format.xml  { render :xml => @clipboard.to_xml }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'
@@ -51,7 +50,6 @@ class FinderController < ApplicationController
     save_clipboard @clipboard
     respond_to do | format |
       format.json { render :json => @clipboard.to_json }
-      format.xml  { render :xml => @clipboard.to_xml }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'
@@ -64,9 +62,9 @@ class FinderController < ApplicationController
     save_clipboard @clipboard = Clipboard.new    
     respond_to do | format |
       format.json { render :json => @clipboard.to_json }
-      format.xml  { render :xml => @clipboard.to_xml }
       format.html { render :partial => 'shared/clipboard' }
-      format.js  { render :update do | page |  
+      format.js  { 
+        render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'
          end 
       }
@@ -79,7 +77,6 @@ class FinderController < ApplicationController
   def clipboard
     respond_to do | format |
       format.json { render :json => @clipboard.to_json }
-      format.xml  { render :xml => @clipboard.to_xml }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'

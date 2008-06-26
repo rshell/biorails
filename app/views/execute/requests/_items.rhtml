@@ -1,21 +1,38 @@
 <table class='report' style='border: solid thin'>
-    <tr>
-         <th>name</th>         
-         <%for item in request.services %>
-         <th><%=link_to item.name+": "+item.queue.name , service_url( :action => 'show', :id => item) %> </th>
-         <% end %>
-         <th>action</th>                   
-    </tr>
-    <% grid = request.items_by_service %>
-    <%for item in request.items %>
-    <tr>
-         <td><%=item.data_name%> </td>
-         <%for service in request.services %>
-             <td class='state-<%=grid[item.data_name][service.name]||'new'%>' >
-                 <%=  grid[item.data_name][service.name] ||'not submitted '  %> 
-             </td>
-         <% end %>
-         <td><%= link_to 'Remove', request_url(:action => 'remove_item',:request_id=> request.id, :id => item.id ) %> </td>
-    </tr>
-     <% end %>
+  <tr>
+    <th>
+      <b class='icon icon-queue_item'>
+        Queue Item
+      </b>
+    </th>
+    <%for item in @user_request.services %>
+      <th>
+        <p class='icon icon-show'>
+          <%=link_to item.name+": "+item.queue.name ,
+          service_url( :action => 'show', :id => item) %>
+        </p>
+      </th>
+    <% end %>
+    <th>
+      <b class='icon icon-queue_item'>
+        Action
+      </b>
+    </th>
+  </tr>
+    <%for item in  @user_request.items %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%=item.data_name%> </td>
+        <%for service in @user_request.services %>
+          
+          <td class='state-<%= @user_request.item_status(item.data_name,service.name)||'new'%>' >
+            <%= @user_request.item_status(item.data_name,service.name)  %>
+          </td>
+        <% end %>
+          <td>
+            <p class='icon icon-del'>
+              <%= link_to "Remove",  request_url(:action => 'remove_item',:request_id=> @user_request.id,    :id => item.id ) %>
+            </p>
+          </td>
+      </tr>
+    <% end %>
 </table>

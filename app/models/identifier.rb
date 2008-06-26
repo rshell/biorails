@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: identifiers
 #
@@ -25,17 +25,53 @@
 #  
 class Identifier < ActiveRecord::Base
 
+  def project
+    Project.current
+  end
+    
+  def team
+    Team.current
+  end
+    
+  def user
+    User.current
+  end
+    
+  def Identifier.need_to_define(record,name)
+      return false unless record.attributes.include?(name.to_s)
+      record.send(name).blank?
+  rescue
+      return false      
+  end
 ##
-# Generate a Id based on the current record
+# Generate a name based on the current record
 # 
+  def set_name(record)
+    if Identifier.need_to_define(record,'name')
+       record.name =  next_id
+       logger.debug("generate name #{record.name}")
+    end 
+  end
+#
+# generate a description
+#
+  def set_description(record)
+    if Identifier.need_to_define(record,:description)
+      record.description = "#{record.class} #{record.name} created by #{User.current.name} for team #{Team.current.name}"
+       logger.debug("generate description #{record.description}")
+    end
+  end
+  
   def next_id
      self.current_counter = self.current_counter + self.current_step
-     my_id = "#{self.prefix}#{self.current_counter}#{self.postfix}"
-     my_id = eval(self.mask)  if self.mask
+     if self.mask.blank?
+       key =  "#{self.prefix}#{self.current_counter}#{self.postfix}"
+     else
+       key =  instance_eval(self.mask)  
+     end
      self.save
-     return my_id
+     return key
   end
-
 ##
 # Generate a name for a model class
 #   
@@ -51,6 +87,20 @@ class Identifier < ActiveRecord::Base
        end
        return generator.next_id
      end
+  end
+  
+  #
+  # Fill name,description,project and team records of a record
+  #
+  def self.fill_defaults(record)
+     generator = Identifier.find_by_name(record.class.to_s)
+     if generator
+       logger.debug("generate defaults for #{record.class}")
+       generator.set_name(record)    
+       generator.set_description(record)
+     end
+     record.team     = Team.current if Identifier.need_to_define(record,:team)
+     record.project  = Project.current if Identifier.need_to_define(record,:project)
   end
 ##
 # Next user specfic reference

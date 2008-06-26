@@ -1,24 +1,28 @@
 <table class='report' style='border: solid thin'>
-    <tr>
-         <th>Material Type</th>
-         <th>Material Name</th>
-         <th>Task</th>
-         <th>Result Type</th>
-         <th>Result value</th>
-         <th>Row Label</th>
-         <th>Updated At</th>
-         <th>Updated By</th>
-    </tr>
-    <%for item in request.numeric_results %>
-    <tr>
-         <td><%=item.data_type %> </td>
-         <td><%=item.data_name %> </td>
-         <td><%=link_to item.task_name, task_url(:action=>'show',:id=>item.task_id ) %> </td>
-         <td><%=item.parameter_name%> </td>
-         <td><%=item.data_value%> </td>
-         <td><%=item.row_label%> </td>
-         <td><%=item.updated_by%> </td>
-         <td><%=short_date item.updated_at%> </td>
-    </tr>
-    <% end %>
+  <tr>
+    <th><b class='icon icon-show'>Material Type</b></th>
+    <th><b class='icon icon-show'>Material Name</b></th>
+    <th><b class='icon icon-show'>Task</b></th>
+    <th>Result Type</th>
+    <th>Result value</th>
+    <th>Row Label</th>
+    <th>Updated At</th>
+    <th>Updated By</th>
+  </tr>
+  <%for item in request.numeric_results %>
+  <tr>
+    <td><%=item.data_type %> </td>
+    <td><%=item.data_name %> </td>
+    <td>
+      <p class='icon icon-show'>
+        <%=link_to item.task_name, task_url(:action=>'show',:id=>item.task_id ) %>
+      </p>
+    </td>
+    <td><%=item.parameter_name%> </td>
+    <td><%=item.data_value%> </td>
+    <td><%=item.row_label%> </td>
+    <td><%=item.updated_by%> </td>
+    <td><%=short_date item.updated_at%> </td>
+  </tr>
+  <% end %>
 </table>

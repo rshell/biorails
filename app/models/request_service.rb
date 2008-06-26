@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: request_services
 #
@@ -7,11 +7,10 @@
 #  request_id           :integer(11)   not null
 #  service_id           :integer(11)   not null
 #  name                 :string(128)   default(), not null
-#  description          :text          
+#  description          :string(1024)  default()
 #  expected_at          :datetime      
 #  started_at           :datetime      
 #  ended_at             :datetime      
-#  lock_version         :integer(11)   default(0), not null
 #  created_at           :datetime      not null
 #  updated_at           :datetime      not null
 #  status_id            :integer(11)   default(0), not null
@@ -20,6 +19,7 @@
 #  created_by_user_id   :integer(11)   default(1), not null
 #  requested_by_user_id :integer(11)   default(1)
 #  assigned_to_user_id  :integer(11)   default(1)
+#  lock_version         :integer(11)   
 #
 
 
@@ -32,13 +32,13 @@
 # 
 class RequestService < ActiveRecord::Base
   
-  include  CurrentPriority
+  has_priorities :priority_id
 
 ##
 # This scheduled item is in turn broken down as follows
 # 
   acts_as_scheduled :summary=>:items
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
+  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0},
                                }, 
                    :default_field => [:name],           
@@ -62,7 +62,7 @@ class RequestService < ActiveRecord::Base
   acts_as_audited :change_log
 
 ##
-#Study 
+#Assay 
   belongs_to :request
 ##
 # Results for this Item
@@ -71,12 +71,34 @@ class RequestService < ActiveRecord::Base
 ##
 #Current Request element is linked to a service provided
 #
-  belongs_to :queue, :class_name =>'StudyQueue', :foreign_key=>'service_id'
+  belongs_to :queue, :class_name =>'AssayQueue', :foreign_key=>'service_id'
 
   belongs_to :requested_by , :class_name=>'User', :foreign_key=>'requested_by_user_id'  
   belongs_to :assigned_to , :class_name=>'User', :foreign_key=>'assigned_to_user_id'  
 
-  
+  #
+  # Find objects matching the passed object
+  #
+  def self.matching(object =nil,options={})      
+        with_scope :find => options  do
+            case object
+            when Project             
+              find(:all, :include=>[:queue=>[:assay]],
+                  :conditions=>["assays.project_id=?",object.id] )
+            when AssayQueue     
+              find(:all, 
+                  :conditions=>["service_id= ?",object.id] )
+            when User
+              find(:all, :conditions=>["requested_by_user_id= ?",object.id] )
+            when Request              
+              find(:all, 
+                   :conditions=>["request_id = ?",object.id] ) 
+            when String             
+              find(:all, 
+                   :conditions=>["name like ?","#{object}%"] )
+            end     
+        end  
+   end
 ##
 # Submit a request to the queue
 # 
@@ -118,7 +140,11 @@ class RequestService < ActiveRecord::Base
     self.priority_id = params[:priority_id]     if params[:priority_id]
     self.assigned_to_user_id = params[:user_id] if params[:user_id]
     self.comments << params[:comments]         if params[:comments]
- end   
+ end  
+
+ def find_visible(*args)
+   find(*args)
+ end  
 ##
 # Submit the request
 #  
@@ -144,7 +170,7 @@ class RequestService < ActiveRecord::Base
   
   def percent_done
     if items.size>0
-      ((100*num_active)/2 + 100*num_finished)/items.size 
+      100*( (num_active)/2.0 + num_finished)/items.size 
     else
       0
     end

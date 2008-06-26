@@ -1,0 +1,45 @@
+<div class='panel'>
+  <table class="report">
+    <tr>
+      <th colspan='1' rowspan='2'><b class='icon icon-assay'>  Assay  </b>  </th>
+      <th colspan='3'> <b class='icon icon-protocol'>  Protocol  </b>  </th>
+      <th colspan='2'> <b class='icon icon-protocol_version'> Released Version  </b> </th>
+      <th colspan='1' rowspan='2'><b class='icon icon-protocol_version'>  Lastest Version   </b>  </th>
+      <th colspan='2' rowspan='2'><b class='icon icon-action'>    Actions     </b>   </th>
+    </tr>
+    <tr>
+      <th> <b class='icon icon-name'>        Name    </b>    </th>
+      <th> <b class='icon icon-assay_stage'> Stage    </b>     </th>
+      <th> <b class='icon icon-category'>    Type     </b>   </th>
+      <th> <b class='icon icon-protocol_version'>    Version   </b>  </th>
+      <th> <b class='icon icon-task'>   Experiments   </b>  </th>
+    </tr>
+    
+    <% for assay_protocol in @assay_protocols %>
+      <% if assay_protocol.is_a?(AssayWorkflow)%>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><%=h assay_protocol.assay.name %></td>
+            <td><%=h assay_protocol.name %></td>
+            <td><%=h assay_protocol.stage.name if assay_protocol.stage %></td>
+            <td><%=h assay_protocol.summary %></td>
+            <% if assay_protocol.released %>
+              <td> <%= link_to assay_protocol.released.name, 
+                    workflow_url(:action => 'show', :id => assay_protocol.released) %> </td>
+              <td> <%=assay_protocol.process.usages.size.to_s %> </td>
+            <%else %>
+              <td colspan='2'> Not released </td>
+            <% end%>
+            <td><%=assay_protocol.latest.path %> </td>
+            <td>
+                <p class='icon icon-show'>
+                  <%=link_to 'show',
+                  workflow_url(:action => 'show',:id => assay_protocol.latest) %>
+                </p>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+<hr />  
+<%= link_to "<b class='icon icon-protocol-add'>Add Recipe</b>",  workflow_url(:action => 'new',  :id => @assay) if @assay and @assay.allows?(:edit)%>

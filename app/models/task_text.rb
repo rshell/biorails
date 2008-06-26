@@ -1,16 +1,16 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_texts
 #
 #  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   
-#  parameter_id       :integer(11)   
-#  data_content       :text          
+#  task_context_id    :integer(11)   not null
+#  parameter_id       :integer(11)   not null
+#  data_content       :string(1000)  
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  task_id            :integer(11)   
+#  task_id            :integer(11)   not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
 #
@@ -20,7 +20,7 @@
 # See license agreement for additional rights
 ##
 class TaskText < ActiveRecord::Base
-  include TaskItem 
+  acts_as_task_item
 ##
 # This record has a full audit log created for changes 
 #   
@@ -47,23 +47,26 @@ class TaskText < ActiveRecord::Base
  belongs_to :parameter
 
  def value
-   return data_content 
+   return self.parameter.parse(data_content)
  end
 
- def value=(value)
-   self.data_content = value if self.data_content != value 
+ def value=(new_value)
+   self.data_content = self.parameter.format(new_value) 
  end
- 
+ #
+ # convert content text to Unit (numeric type)
+ #
  def to_unit
    Unit.new(data_content.to_s) 
+ rescue Exception => ex
+    nil
  end
- 
+ #
+ # Convert to formatted string
+ #
  def to_s
-    formatter = self.parameter.data_format.format_sprintf if self.parameter and self.parameter.data_format
-    if formatter && formatter.size>0 
-       return sprintf(formatter,data_content.to_s)
-    end
-    return data_content.to_s
+   return self.data_content if data_content 
+   self.parameter.default_value.to_s if self.parameter
  end  
   
 end

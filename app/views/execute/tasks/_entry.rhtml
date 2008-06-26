@@ -1,0 +1,30 @@
+<% if @task.is_finished %>
+This task is marked as <%= @task.status %> so cant be changed now. 
+<br />
+See update tab to change status
+<% else %>
+ <% for parameter_context in @task.process.contexts %>
+      <div class="parameter_context"  id="<%=parameter_context.dom_id%>" >
+      </div>
+
+      <script>
+      Ext.onReady(function() {
+
+      var data = <%=context_values(@task,parameter_context)%>;
+      var el = "<%=parameter_context.dom_id%>";
+
+        Ext.form.Field.prototype.msgTarget = 'side';
+
+        <% if parameter_context.default_count > 1 %>
+          var panel = Biorails.Task.ContextTable(data);
+        <% else %>
+          var panel = new Biorails.Task.ContextForm(data);
+        <% end %>
+        panel.render(el);
+        panel.syncSize();
+        });
+      </script>
+  <% end %>
+  <hr />
+  <%= link_to_remote "<b class='icon icon-task'>Make Flexible</b>",  :url => task_url( :action => 'make_flexible', :id => @task) %>
+<% end %>

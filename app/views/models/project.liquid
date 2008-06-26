@@ -1,0 +1,13 @@
+<h2>
+{{record.name}}
+</h2>
+<p>
+{{record.description}}
+</p>
+<ul>
+{% for item in project.folder.elements %}
+<li>
+{{ item.name}} : {{item.summary }} 
+</li>
+{% endfor %}
+</ul>

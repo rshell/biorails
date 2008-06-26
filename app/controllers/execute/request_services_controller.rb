@@ -9,24 +9,22 @@ class Execute::RequestServicesController < ApplicationController
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
 
-
+  before_filter :setup_request_service, :only => [ :show, :edit, :update,:destroy,:results] 
+  
   def index
     list
   end
-
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
+#
+# List of Requested services
+#
   def list
      @request_services = RequestService.paginate :order=>'name', :page => params[:page]
     render :action => 'list'
   end
-
-
+#
+# Results for a set request
+# 
   def results
-   @request_service = RequestService.find(params[:id])
-   @project_folder =@request_service.request.folder
    @report = Report.internal_report("Service Request Results",QueueResult) do | report |
       report.column('request_service_id').filter = @request_service.id.to_s
       report.set_filter(params[:filter])if params[:filter] 
@@ -35,35 +33,20 @@ class Execute::RequestServicesController < ApplicationController
    @data = @report.run(:page => params[:page])
    render :action => :report
   end
-
-
+#
+# Show a requested service to allow users to update the status and items
+#
   def show
-    @request_service = RequestService.find(params[:id])
-    @project_folder =@request_service.request.folder
-    
   end
-
-  def new
-    @request_service = RequestService.new
-  end
-
-  def create
-    @request_service = RequestService.new(params[:request_service])
-    if @request_service.save
-      flash[:notice] = 'RequestService was successfully created.'
-      redirect_to :action => 'list'
-    else
-      render :action => 'new'
-    end
-  end
-
+#
+# Default edit function not really used
+#
   def edit
-    @request_service = RequestService.find(params[:id])
-    @project_folder =@request_service.request.folder
   end
-
+#
+# Update a service request
+#
   def update
-    @request_service = RequestService.find(params[:id])
     if @request_service.update_attributes(params[:request_service])
       flash[:notice] = 'RequestService was successfully updated.'
       redirect_to :action => 'show', :id => @request_service
@@ -71,7 +54,6 @@ class Execute::RequestServicesController < ApplicationController
       render :action => 'edit'
     end
   end
-
 ##
 # Update the service 
 # 
@@ -87,7 +69,7 @@ class Execute::RequestServicesController < ApplicationController
       @request_service.save
     end
     respond_to do | format |
-      format.html { render :action => 'show' }
+      format.html { redirect_to :action => 'show', :id => @request_service }
       format.js   { render :update do | page |
         for item in @request_service.items
           page.replace_html item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => item } 
@@ -108,10 +90,10 @@ class Execute::RequestServicesController < ApplicationController
       @queue_item = QueueItem.find(params[:id])
       @queue_item.update_state(params)
       @queue_item.save
+      @request_service = @queue_item.service
     end
-
     respond_to do | format |
-      format.html { render :action => 'show' }
+      format.html { redirect_to :action => 'show', :id => @request_service }
       format.js   { render :update do | page |
           page.replace_html @queue_item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => @queue_item } 
           page.visual_effect :highlight, @queue_item.dom_id(:updated_at),:duration => 1.5
@@ -124,7 +106,6 @@ class Execute::RequestServicesController < ApplicationController
   # Remove the request service
   #
   def destroy
-    @request_service = RequestService.find(params[:id])
     @user_request = @request_service.request
     @request_service.destroy
     redirect_to request_url(:action => 'show', :id=>@user_request.id)
@@ -138,4 +119,15 @@ class Execute::RequestServicesController < ApplicationController
     redirect_to service_url(:action => 'show', :id=> @request_service.id)
   end
 
+protected
+
+  def setup_request_service
+     @request_service = RequestService.find(params[:id])
+     return show_access_denied unless @request_service   
+     @project_folder =@request_service.request.folder
+     return true
+  rescue
+     return show_access_denied
+  end  
+  
 end

@@ -10,8 +10,6 @@
 # This query is saved in Report and ReportColumn to create a reusable report defintion which can be
 # reused.
 # 
-require "faster_csv"
-require "csv"
 class Execute::ReportsController < ApplicationController
 
   use_authorization :reports,
@@ -21,12 +19,10 @@ class Execute::ReportsController < ApplicationController
 
  COLOURS = ['#40e0d0','#ffffb3','#ffe4b5','#e6f5d0','#e6e6fa','#e0ffff','#ffefdb','#dcdcdc',
                '#ffe1ff','#ffe4b5','#ffe4c4','#ffe4e1','#ffffd9','#ffffe0','#ffffe5',
-               '#fffff0','#ffec8b','#ffed6f','#ffeda0','#ffefd5','#ffefdb']
+               '#fffff0','#ffec8b','#ffed6f','#ffeda0','#ffefd5','#ffefdb'] unless defined? COLOURS
   
- GRAPHIZ_STYLES = ['dot','neato','twopi','fdp']
+ GRAPHIZ_STYLES = ['dot','neato','twopi','fdp'] unless defined? GRAPHIZ_STYLES
                
-helper :tree
-
   def index
     list
   end
@@ -37,9 +33,10 @@ helper :tree
 #
  def list
    @project = current_project
-   @report = Report.internal_report("ReportList",Report) do | report |
+   @internal = false
+   @system_report = Report.internal_report("ReportList",Report) do | report |
       report.column('project_id').filter_operation = "in" 
-      report.column('project_id').filter_text = "( 1 , #{@project.id} )"
+      report.column('project_id').filter_text = "in ( 1 , #{@project.id} )"
       report.column('project_id').is_visible = false
       report.column('name').customize(:order_num=>1)
       report.column('name').is_visible = true
@@ -50,10 +47,10 @@ helper :tree
       report.add_sort(params[:sort]) if params[:sort]
    end
    
-   @data = @report.run(:page => params[:page])
-   @hash = {   :report => @report.to_ext,
+   @data = @system_report.run(:page => params[:page])
+   @hash = {   :report => @system_report.to_ext,
                :rows  => @data.collect{|i|i.attributes},
-               :id => @report.id,
+               :id => @system_report.id,
                :page =>  params[:page]}
    respond_to do | format |
       format.html { render :action => 'list' }
@@ -71,58 +68,54 @@ helper :tree
 #  * params[:sort] this is used to change the sort order for the columns e eg "name,label:desc"
 # 
  def show
-    @report = Report.find(params[:id])
+    @report = Report.find(params[:id]) do | report |
+      report.set_filter(params[:filter])if params[:filter] 
+      report.add_sort(params[:sort]) if params[:sort]
+    end
+    @report.column('id').customize(:is_visible => false)
+    @internal = @report.internal
     
     @snapshot_name = Identifier.next_id(current_user.login)
     
     @columns = @report.displayed_columns
-    p @columns
-    p '*************'
     @data = @report.run(:page => params[:page])
-   @hash = {   :report => @report.to_ext,
-               :rows  => @data.collect{|i|i.attributes},
-               :id => @report.id,
-               :page => params[:page]      }
     respond_to do | format |
       format.html { render :action => 'show' }
-      format.json { render :json => @hash.to_json }
-      format.xml  { render :xml => @hash.to_xml }
-      format.js   { render :update do | page |
-           page.replace_html report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
-           page.replace_html report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
-         end }
+      format.ext { render :partial => 'show' }
+      format.json { render :json => {  :report => @report.to_ext, :rows  => @data.collect{|i|i.attributes},
+                                       :id => @report.id,       :page => params[:page]      }.to_json }
+      format.xml  { render :xml => {   :rows  => @data.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.js   { 
+         render :update do | page |
+           page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report, :data =>@data } 
+         end 
+         
+         }
     end
-
  end 
  
  
  def internal
+   return show_access_denied unless current_user.allows?(:edit,:dba)
    @project = current_project
-   @report = Report.internal_report("ReportList",Report) do | report |
-      report.column('project_id').filter = nil
-      report.column('project_id').is_visible = false
-      report.column('name').customize(:order_num=>1)
-      report.column('name').is_visible = true
-      report.column('name').action = :show
-      report.column('internal').filter = '1'
+   @internal = true
+   
+   @system_report = Report.internal_report("InternalReportList",Report) do | report |
+      report.column('project_id').customize(:filter => nil,:is_visible => false)
+      report.column('id').customize(:filter => nil,:is_visible => false)
+      report.column('name').customize(:order_num=>1, :is_visible => true, :action => :show)
+      report.column('internal').customize( :filter => '1',:is_visible => false)
       report.column('custom_sql').is_visible=false 
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
    
-   @data = @report.run(:page => params[:page])
+   @data = @system_report.run(:page => params[:page])
    respond_to do | format |
       format.html { render :action => 'list' }
       format.json { render :json => @data.to_json }
       format.xml  { render :xml => @data.to_xml }
     end
- end
-
-##
-# Open the report builder
-# 
- def builder
-   render :redirect => 'new', :id => params[:id] 
  end
 
 ##
@@ -133,9 +126,12 @@ helper :tree
  def new
    @models = Biorails::UmlModel.models
    @report = Report.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'Report')
-   if params[:id]    
-      @report.base_model = params[:id] if @allow_models.any?{|model|model[1]==params[:id]}         
-   end
+   @report.model = TaskResult
+    respond_to do |format|
+      format.html { render :action=>'new'}
+      format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}
+    end      
+
  end
 
  
@@ -161,8 +157,15 @@ helper :tree
 # Edit a existing report 
  def edit
    @report = Report.find(params[:id])  
+   @internal = @report.internal
    @has_many = true
    @data = @report.run(:page => 1)
+   respond_to do | format |
+      format.html { render :action => 'edit' }
+      format.ext { render :partial => 'edit' }
+      format.json { render :json => @data.to_json }
+      format.xml  { render :xml => @data.to_xml }
+    end
  end
 
 ##
@@ -174,20 +177,13 @@ helper :tree
 #  
  def update
    @report = Report.find(params[:id])
+   @internal = @report.internal
    @report.update_attributes(params[:report])
-    map = params[:columns]
-    if map
-      for key in map.keys
-        column = @report.column(key)
-        column.customize(map[key])
-        column.save
-      end
-    end
-    respond_to do |format|
-      format.html { render :action=>'edit'}
+   respond_to do |format|
+      format.html { redirect_to :action => 'edit', :id => @report}
       format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}
       format.js  { render :update do | page |
-           page.replace_html 'report-definition',  :partial => 'report_definition' 
+           page.main_panel  :partial => 'edit' 
          end
       }
     end      
@@ -196,7 +192,8 @@ helper :tree
 
  def print
     @report = Report.find(params[:id])
-    @data = @report.run  
+    @internal = @report.internal
+    @data = @report.run(:page=>1,:per_page=>1000)  
     respond_to do |format|
       format.html { render :action=>'print', :layout => false}
       format.pdf { render_pdf( "#{@report.name}.pdf", :action => 'print', :layout => false) }
@@ -208,24 +205,40 @@ helper :tree
 # 
  def snapshot    
     @report = Report.find(params[:id])
+    @internal = @report.internal
     @project_folder  =ProjectFolder.find(params[:folder_id])
-    params[:name] = Identifier.next_id(current_user.login) if params[:name].empty?
-    @data = @report.run    
+    name = params[:name]
+    name ||= Identifier.next_id(current_user.login) 
+
+    title = params[:title]
+    title ||= @report.name
+
+    @columns = @report.displayed_columns
+    @data = @report.run(:page => params[:page]||1)
     @html = render_to_string(:action=>'print', :layout => false)
-    @project_element = @project_folder.add_content(params[:name], params[:title],@html)
+    @project_element = @project_folder.add_content(name, title,@html)
     @project_element.reference = @report
     if @project_element.save
         redirect_to folder_url( :action =>'show',:id=>@project_folder )
     else
-        render :inline => @html
+        redirect_to report_url( :action =>'show',:id=>@report )
     end
  end
 
- 
+#
+# create a UML diagram for the report
+#
   def visualize
     @report = Report.find(params[:id])
+    @internal = @report.internal
+    respond_to do | format |
+      format.html { render :action => 'visualize' }
+      format.ext { render :partial => 'visualize' }
+    end    
   end
-   
+#
+# Delete a defined report from the system
+#
   def destroy
     Report.find(params[:id]).destroy
     redirect_to :action => 'list'
@@ -235,38 +248,7 @@ helper :tree
  # 
  def run
    show
-   render :action =>'show'
- end
-##
-# for for Ajax refresh after a change to the filter or sort parameters
-#  
- def refresh
-    @report = Report.find(params[:id])
-    @report.set_filter(params[:filter])if params[:filter] 
-    @report.add_sort(params[:sort]) if params[:sort]
-
-    @columns = @report.displayed_columns
-    @data = @report.run(:page => params[:page])
-
-   @hash = {   :rows  => @data.collect{|i|i.attributes},
-               :id => @report.id,
-               :total => @data_pages.item_count      ,
-               :limit => @data_pages.items_per_page,
-               :offset =>  @data_pages.current.offset }
-               
-    respond_to do | format |
-      format.html { render :action => 'show' }
-      format.json { render :json => @hash.to_json }
-      format.xml  { render :xml => @hash.to_xml }
-      format.js   { render :update do | page |
-           page.replace_html @report.dom_id("header"),  :partial => 'shared/report_header', :locals => {:report => @report, :data =>@data } 
-           page.replace_html @report.dom_id("body"),  :partial => 'shared/report_body', :locals => {:report => @report, :data =>@data } 
-         end }
-    end
-
- end
-
- 
+ end 
 ##
 # expand a element of the attribute tree
 # 
@@ -274,7 +256,7 @@ helper :tree
 #  * param[:link] 
 #
   def columns
-	@report = Report.find(params[:id])
+    @report = Report.find(params[:id])
     @model = @report.model
     @path = "" 
     if params[:node] && params[:node]!="."
@@ -299,7 +281,7 @@ def export
     output = StringIO.new
     CSV::Writer.generate(output, ',') do |csv|
       csv << @columns.collect{|col|col.label}
-      for row in @report.run
+      for row in @report.run(:page => 1,:per_page=>1000)
         values = @columns.collect{ |column| [column.value(row)].flatten }
         max = values.collect{ |item| item.size}.max
         for item  in (0..max-1)
@@ -314,35 +296,16 @@ def export
   end  
 
 ##
-# Refresh the columns in the report 
-#
-#  * params[:id] id of the report to show
-#  * params[:filter] is used as map parameter to filter {:status => 'low',:label => 'AB%'} 
-#  * params[:sort] this is used to change the sort order for the columns e eg "name,label:desc"
-# 
- def refresh_columns
-   @report = Report.find(params[:context])
-   @report.set_filter(params[:filter])if params[:filter] 
-   @report.add_sort(params[:sort]) if params[:sort]
-   
-   @successful=true
-   return render(:action => 'refresh_report.rjs') if request.xhr?
-   render :action=> 'edit', :id=>@report
- end
-
-##
 # customize details for a column
 # 
  def update_column   
-   column = ReportColumn.find(params[:id])
-   @report = column.report
-   column.customize({params[:field] => params[:value]}.symbolize_keys() )   
-   @successful=column.save
+   @column = ReportColumn.find(params[:id])
+   @report = @column.report
+   @successful= @column.customize({params[:field] => params[:value]} )   
     respond_to do | format |
       format.html { render( :inline => 'ok')}
-      format.json { render( :partial => column.to_json)}
-      format.xml { render( :partial => column.to_xml)}
-      #format.js { render(:action => 'refresh_report.rjs')}
+      format.json { render( :partial => @column.to_json)}
+      format.xml { render( :partial => @column.to_xml)}
     end
  end
 
@@ -362,8 +325,16 @@ def export
    @column.order_num =no
    @successful=@column.save     
    @report.reload
-   return render(:action => 'refresh_report.rjs') if request.xhr?
-   render :action=> 'edit', :id=>@report
+   respond_to do | format |
+      format.html { render :action => 'edit' }
+      format.json { render :json => @report.to_json }
+      format.xml  { render :xml => @report.to_xml }
+      format.js { render :update do | page |
+          page.main_panel(:partial => 'edit') if @successful
+          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
+        end 
+      }
+  end
  end 
 ##
 # add a column to the report
@@ -373,24 +344,36 @@ def export
    text = params[:column]
    text ||= request.raw_post || request.query_string
    logger.debug "add_column #{text}"
-   column = @report.column(text.split("~")[1])
-   @successful=column.save
-
-   return render(:action => 'refresh_report.rjs') if request.xhr?
-   render :action=> 'edit', :id=>@report
+   @column = @report.column(text.split("~")[1])
+   @successful=@column.save
+   respond_to do | format |
+      format.html { render :action => 'edit' }
+      format.json { render :json => @report.to_json }
+      format.xml  { render :xml => @report.to_xml }
+      format.js { render :update do | page |
+          page.replace_html( 'tab_columns',:partial => 'columns') if @successful
+          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
+        end 
+      }
+    end
  end
 ##
 # Remove a column from the report
 #  
  def remove_column
-   column = ReportColumn.find(params[:id])
-   @report = column.report
-   @successful=column.destroy
+   @column = ReportColumn.find(params[:id])
+   @report = @column.report
+   @successful=@column.destroy
+   @report.reload
    respond_to do | format |
-      format.html { render( :inline => 'ok')}
-      format.json { render( :partial => column.to_json)}
-      format.xml { render( :partial => column.to_xml)}
-      #format.js { render(:action => 'refresh_report.rjs')}
+      format.html { render :action => 'edit' }
+      format.json { render :json => @report.to_json }
+      format.xml  { render :xml => @report.to_xml }
+      format.js { render :update do | page |
+          page.main_panel(:partial => 'edit') if @successful
+          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
+        end 
+      }
     end
  end
 #
@@ -399,20 +382,9 @@ def export
 #
  def layout
    @report = Report.find(params[:id])  
-   @items =  @report.columns.collect do |column| 
-    {
-      :id => column.id,
-      :name => column.name,
-      :label => column.label,
-      :filter => column.filter,
-      :is_filterable => column.is_filterible,
-      :is_visible => column.is_visible, 
-      :is_sortable => column.is_sortable,
-      :sort_num => column.sort_num || 0,
-      :sort_dir =>  column.sort_direction
-    }  
-   end     
-   @data = {:report_id => @report.id,  :total => @items.size,:items => @items }
+   @data = {:report_id => @report.id,  
+            :total => @report.columns.size,
+            :items => @report.columns.collect{ |column| column.to_ext } }
   
     respond_to do | format |
       format.html {  render :text => @data.to_json}

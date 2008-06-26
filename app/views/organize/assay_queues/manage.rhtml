@@ -1,0 +1,82 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<div>
+  <span class='menu'>Service <%= @assay_queue.name %> </span>
+  <%= link_to 'New Service',  queue_url( :action => 'new', :id=>@assay  ) %>
+  <%= link_to 'Show',queue_url( :action => 'show', :id=>@assay_queue  ) %>
+  <%= link_to 'Edit', queue_url( :action => 'edit', :id=>@assay_queue.id  ) %>
+  <%= link_to 'List', queue_url( :action => 'list', :id=>@assay  ) %>
+  <%= link_to 'Report ',queue_url( :action => 'manage', :id=>@assay_queue  )%> 
+</div>
+<% end -%>
+
+<h1>
+    Service [<strong><%= @assay_queue.name %></strong>] Requests
+</h1>
+<div class='panel'>
+    <p>
+        <b>Desciption:</b> <%= @assay_queue.description %>
+    </p>
+    
+    <table class="report">
+      <tr>
+        <th>Label</th>
+        <th>Item</th>
+        <th>Requested By</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+        <th>Priority</th>    
+        <th>Accepted On</th>
+        <th>Wanted On</th>
+        <th>Complete On</th>
+        <th>Action</th>
+      </tr>
+    <% form_tag :action => 'filter' do %>
+      <tr>
+        <th><%= text_field 'filter', 'label' , {:size=> 8,:class=>"text-input"} %></th>
+        <th><%= text_field 'filter', 'item' , {:size=> 8,:class=>"text-input"} %></th>
+        <th><%= text_field 'filter', 'request_by' , {:size=> 8,:class=>"text-input"} %></th>
+        <th><%= text_field 'filter', 'assigned_to' , {:size=> 8,:class=>"text-input"} %></th>
+        <th><select id="filter_status" name="filter[status]">
+            <option value="">(All)</option>
+            <option value="New">New</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Working">Working</option>
+            <option value="Completed">Completed</option>
+            <option value="Rejected">Rejected</option>
+            </select>
+        </th>
+        <th><select id="filter" name="filter[priority]">
+            <option value="">(All)</option>
+            <option value="Low">Low</option>
+            <option value="Normal">Normal</option>
+            <option value="High">High</option>
+            </select>
+        </th>    
+        <th colspan=3>
+           After <%= date_field 'filter', 'from_date'  %>       
+        </th>
+        <th><%= submit_tag 'Filter' %></th>
+      </tr>
+   <% end %>
+      
+    <% for queue_item in @queue_items %>
+      <tr>
+        <td><%=h queue_item.name  %></td>
+        <td><%=link_to queue_item.data_name,:controller=> 'queue_items', :action => 'status', :id => queue_item %></td>
+        <td><%=h queue_item.requested_by.name if queue_item.requested_by %></td>
+        <td><%=h queue_item.assigned_to.name if queue_item.assigned_to  %></td>
+        <td><%=h queue_item.status  %></td>
+        <td><%=h queue_item.priority  %></td>
+        <td><%=short_date queue_item.started_at  %></td>
+        <td><%=short_date queue_item.expected_at  %></td>
+        <td><%=short_date queue_item.ended_at  %></td>
+        <td><%= link_to 'Edit', :controller=> 'queue_items', :action => 'edit', :id => queue_item %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+<div class='panel'>
+    <%= will_paginate  @queue_items%>    
+</div>
+

@@ -1,43 +1,61 @@
 
 <!--[form:data_system]-->
 
-<label for="data_system_data_context_id">Namespace:</label>
+<label for="data_system_data_context_id" class='icon icon-data_context'>
+  Dictionary:
+</label>
 <br />
 <%= collection_select(:data_system, :data_context_id, @data_system.allowed_contexts, :id, :name) %>
 <br />
 
-<label for="data_system_name">Name</label>
+<label for="data_system_name" class='icon icon-name'>
+  Name
+</label>
 <br />
 <%= text_field :data_system, 'name',  :class=>"text-input"  %>
 <br />
-  <label for="data_system_description">Description:</label>
+<label for="data_system_description"  class='icon icon-data_context'>
+  Description:
+</label>
 <br />
-          <%= text_area( 'data_system', 'description',:rows=>4,:cols=>80) %>
+  <%= text_area( 'data_system', 'description',:rows=>4,:cols=>80) %>
 <br />
 
-  <label for="data_system_adapter">Adaptor:</label>
+<label for="data_system_adapter" class='icon icon-login'>
+  Adaptor:
+</label>
 <br />
     <%= select(:data_system, :adapter, @data_system.allowed_adapters {|p| p})%>
 <br />
-  
-  <label for="data_system_host">Host:</label>
+
+<label for="data_system_host">
+  Host:
+</label>
 <br />
     <%= text_field :data_system, 'host', :size=> 32 , :class=>"text-input"  %>
 <br />
 
-  <label for="data_system_database">Database:</label>
+<label for="data_system_database"  class='icon icon-database'>
+  Database:
+</label>
 <br />
     <%= text_field :data_system, 'database', :size=> 32, :class=>"text-input"   %>
 <br />
-    <label for="data_system_username">Username:</label>
+<label for="data_system_username"  class='icon icon-user'>
+  Username:
+</label>
 <br />
     <%= text_field :data_system, 'username', :size=> 32, :class=>"text-input"   %>
 <br />
-    <label for="data_system_password">Password:</label>
+<label for="data_system_password" class='icon icon-permission'>
+  Password:
+</label>
 <br />
     <%= text_field :data_system, 'password', :size=> 32, :class=>"text-input"   %>
 <br />
-    <label for="data_system_test_object">Table to test existence of: </label>
+    <label for="data_system_test_object">
+      Table to test existence of:
+    </label>
 <br />
     <%= text_field :data_system, 'test_object', :size=> 32, :class=>"text-input"   %>
 <br />

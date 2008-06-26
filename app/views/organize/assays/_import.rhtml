@@ -1,0 +1,37 @@
+<%form_tag({:action =>'import_file',:id=> current_project.id} ,  {:multipart => true}) do %>
+    <div class="row">
+      <div class="form-element">
+        <label for="assay_name" class='icon icon-assay-import'>  Assay Definition file to import :-   </label>
+        <%=file_field_tag(:file,:size=>80) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-element">
+        <label for="assay_name" class='icon icon-name'>      New Name    </label>
+        <%= text_field_tag :name, nil , {:class=>"text-input"} %>
+      </div>
+    </div>
+    <div class="row">
+     The options for importing the assay :-
+        <dl>
+        <dt>  <%= check_box_tag 'assay_queue', true,     checked =true %>Create Queues </dt>
+        <dt>  <%= check_box_tag 'assay_protocol', true,  checked =true %>Create Protocols</dt>
+        </dl>
+        
+        <p>
+        In a number of cases if protocols have references to queue both will need to be included for the import to succeed.
+        Also with larger assays the import process may take 10-30 seconds to complete as it applies all the same validation
+        rules as manually created assay.
+        </p>
+    </div> 
+    
+    <div class="row">
+    <%= submit_tag("Import")%>
+    </div>
+    
+    <h4 class='icon icon-info'>Notes</h4>
+    <p>
+      With larger assays the import process may take 10-30 seconds to
+      complete as it applies all the same validation rules as a manually created assay definition.
+    </p>
+<% end %>

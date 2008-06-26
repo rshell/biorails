@@ -1,10 +1,16 @@
 <%= render :partial => '/menu/admin_menu'%>
 <div>
-<span class='menu'>Data Type</span>
-    <p class="icon icon-list"><%= link_to 'List',    data_type_url(:action => 'list') %></p>
-    <p class="icon icon-new"><%= link_to 'New',     data_type_url(:action => 'new') %> </p>
+  <span class='menu'>
+    <b class='icon icon-data_type'>
+      Data Type
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-list'>List</b>",data_type_url(:action => 'list') %>
+    <%= link_to "<b class='icon icon-new'>New</b>",data_type_url(:action => 'new') %>
     <% if @data_type && !@data_type.new_record? %>
-	    <p class="icon icon-edit"><%= link_to 'Edit',    data_type_url(:action => 'edit', :id => @data_type) %> </p>
-	    <p class="icon icon-show"><%= link_to 'Show',    data_type_url(:action => 'show',:id => @data_type) %></p>
+    <%= link_to "<b class='icon icon-edit'>Edit</b>",data_type_url(:action => 'edit', :id => @data_type) %>
+    <%= link_to "<b class='icon icon-show'>Show</b>",data_type_url(:action => 'show',:id => @data_type) %>
     <% end %>
+    </div>
 </div>

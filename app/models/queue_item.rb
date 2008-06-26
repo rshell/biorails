@@ -1,22 +1,21 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: queue_items
 #
 #  id                   :integer(11)   not null, primary key
 #  name                 :string(255)   
-#  comments             :text          
-#  study_queue_id       :integer(11)   
+#  comments             :string(1024)  default(), not null
+#  assay_queue_id       :integer(11)   
 #  experiment_id        :integer(11)   
 #  task_id              :integer(11)   
-#  study_parameter_id   :integer(11)   
+#  assay_parameter_id   :integer(11)   
 #  data_type            :string(255)   
 #  data_id              :integer(11)   
 #  data_name            :string(255)   
 #  expected_at          :datetime      
 #  started_at           :datetime      
 #  ended_at             :datetime      
-#  lock_version         :integer(11)   default(0), not null
 #  created_at           :datetime      not null
 #  updated_at           :datetime      not null
 #  request_service_id   :integer(11)   
@@ -26,6 +25,7 @@
 #  created_by_user_id   :integer(11)   default(1), not null
 #  requested_by_user_id :integer(11)   default(1)
 #  assigned_to_user_id  :integer(11)   default(1)
+#  lock_version         :integer(11)   
 #
 
 ##
@@ -39,8 +39,9 @@
 # 
 class QueueItem < ActiveRecord::Base
 
-  include CurrentPriority
-  include CatalogueReference
+  has_priorities :priority_id
+
+  acts_as_catalogue_reference
 
   acts_as_scheduled 
 
@@ -49,7 +50,7 @@ class QueueItem < ActiveRecord::Base
 #   
   acts_as_audited :change_log
 
-  validates_presence_of   :study_parameter_id
+  validates_presence_of   :assay_parameter_id
   
   validates_presence_of   :data_type
   validates_presence_of   :data_id
@@ -65,7 +66,7 @@ class QueueItem < ActiveRecord::Base
 ##
 # The Queue this request is linked too
 # 
- belongs_to :queue, :class_name=>'StudyQueue', :foreign_key =>'study_queue_id'
+ belongs_to :queue, :class_name=>'AssayQueue', :foreign_key =>'assay_queue_id'
 ##
 #Current Request element is linked to a service provided
 #
@@ -77,15 +78,15 @@ class QueueItem < ActiveRecord::Base
 # The experiment this request is planned to be forfilled in
  belongs_to :experiment
 ##
-# The study parameter definition the Item is linked back.
+# The assay parameter definition the Item is linked back.
 # Eg Compounds or Plates
 #  
- belongs_to :parameter, :class_name =>'StudyParameter',:foreign_key=>'study_parameter_id'
+ belongs_to :parameter, :class_name =>'AssayParameter',:foreign_key=>'assay_parameter_id'
 ##
 # get the request linked to item
 #
  def request
-   request_service.request if request_service
+   service.request if service
  end
 
  def data_element
@@ -99,17 +100,22 @@ class QueueItem < ActiveRecord::Base
     self.comments << params[:comments]          if params[:comments]
  end
 
-##
-#Build a list of test contexts associc (the analysts views) 
-#  
-  def task_contexts
-    sql =<<-SQL 
-      select * from task_contexts c,task_references r 
-      where c.id=r.task_context_id 
-      and r.data_type=? and r.data_id=?
-      order by c.parameter_context_id,c.task_id
-SQL
-    return TaskContext.find_by_sql([sql,self.object.class.to_s,self.object.id])
-  end
+  def used_by_task_reference(task_item)
+    if self.is_active and (self.task_id.nil? or self.task_id==task_item.task_id)
+      unless task_item.value 
+         task_item.value = self.value
+         task_item.save
+      end  
+      if task_item.value == self.value
+         self.task_id = task_item.task_id
+         self.experiment_id = task_item.task.experiment_id
+         self.status_id = PROCESSING if self.status_id < PROCESSING
+         self.save
+      else
+        logger.error "Cant assign #{task_item.value} != #{self.value}"
+        return nil
+      end     
+    end
+  end  
 
 end

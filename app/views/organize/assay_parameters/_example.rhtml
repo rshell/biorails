@@ -1,0 +1,53 @@
+<%if @assay_parameter.element %>
+  <p> This is a lookup based parameter for the concept <strong><%=@assay_parameter.element.concept.name%> </strong> (
+  <%=@assay_parameter.element.concept.description%>). In this assay this implemented as the lookup <strong> <%=@assay_parameter.element.name%>
+  </strong> ( <%=@assay_parameter.element.description%> ) from the system  <strong> <%=@assay_parameter.element.system.name%>.  
+  </strong> </p>
+  <p> To see how this will work in data entry please use the test entry field below:- </p>
+  <table class="sheet">
+      <tr>
+          <th>Lookup</th>
+          <th>Example</th>
+          <th>Result</th>
+      </tr>
+      <%for i in (1..5)%>
+      <tr>
+          <td class='cell' id='<%="cell_#{i}_1"%>'> <%=@assay_parameter.element.name%></td>
+          <td class='cell' id='<%="cell_#{i}_2"%>'>
+              <%=my_field_tag("test_#{i}_2","test_#{i}_2", @assay_parameter,{ :save=>"/assay_parameters/test_save/#{@assay_parameter.id}"} ) %>
+          </td>
+          <td class='cell' id='<%="cell_#{i}_3"%>'> <span>Unused</span></td>
+      </tr>
+      <%end%>
+  </table>  
+<%elsif @assay_parameter.data_format %>
+  <p> This is a <strong><%=@assay_parameter.data_type.name%></strong> ( <%=@assay_parameter.data_type.description%>) based parameter.
+  <%if @assay_parameter.data_format %>
+  It is using the data formating rule  <strong> <%=@assay_parameter.data_format.name  %> </strong> (
+  <%=@assay_parameter.data_format.description%>)
+  <%end%>
+  </p>
+  <p> To see how this will work in data entry please use the test entry field below. </p>
+
+  <table class="sheet">
+      <tr>
+          <th>Format</th>
+          <th>Example</th>
+          <th>Result</th>
+      </tr>
+  <%for i in (1..5)%>
+      <tr>
+          <td class='cell' id='<%="cell_#{i}_1"%>'> <%=@assay_parameter.data_format.name%></td>
+          <td class='cell' id='<%="cell_#{i}_2"%>'>
+              <%=my_field_tag("test_#{i}_2","test_#{i}_2", @assay_parameter,{ :save=>"/assay_parameters/test_save/#{@assay_parameter.id}"} ) %>
+          </td>
+          <td class='cell' id='<%="cell_#{i}_3"%>'> <span>Unused</span></td>
+      </tr>
+  <%end%>
+  </table>  
+  
+<%else%>
+<p>
+ No formating rules for this parameter
+</p>  
+<%end%>

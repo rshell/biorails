@@ -1,0 +1,1 @@
+page.replace_html  @assay_parameter.dom_id('format'),:partial => 'formats'

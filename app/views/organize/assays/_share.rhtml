@@ -1,0 +1,11 @@
+
+  <%form_tag({:action =>'share',:id=> current_project.id} , {:multipart => true}) do %>
+
+  Assay from other project :-
+  <br />
+    <%= select_tag( :assay_id ,options_from_collection_for_select(current_project.unlinked_assays, :id, :name))%>
+    <%= submit_tag("Add Link")%>
+
+
+
+<% end %>

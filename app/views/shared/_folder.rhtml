@@ -2,7 +2,7 @@
 <table class="report">
   <thead>
     <tr>
-        <th colspan='4'>Notes and Folders</th>    
+        <th colspan='4'><b class='icon icon-folder'>Notes and Folders</b></th>    
     </tr>
     <tr  id='folder_top'>
         <th><%=l(:section) %></th>
@@ -20,7 +20,8 @@
     	    <%= link_to item.name, element_to_url(item) %>
     	               
             <%if item.reference?%>
-    	       <%= link_to "["+subject_icon("model/#{item.style.downcase}")+"]", reference_to_url(item)  %>
+    	       <%= link_to "[" + "<b class='icon icon-model_" + item.style.downcase + "'></b>]",
+               reference_to_url(item) %>
     	    <%end %>
     	    </span>
         </td>  

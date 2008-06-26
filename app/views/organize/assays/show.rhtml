@@ -1,0 +1,120 @@
+
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+  <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+<% end %>
+
+<% content_for :center do -%>
+  <h1 class="icon icon-assay-large" style="text-indent:0.5em">
+    Assay Definition [<strong><%=@assay.name %></strong>] from [
+    <%=link_to @assay.project.name,project_url(:action=>'show',:id=>@assay.project)%>
+    ]
+  </h1>
+  <div id='tabs1'>
+    <div id="tab-show" class="tab-content x-hidden">
+      <%= render :partial => 'show' %>
+    </div>
+    <div id="tab-edit" class="tab-content x-hidden">
+      <%= render :partial => 'edit' %>
+    </div>
+    <div id="tab-parameters" class="tab-content x-hidden">
+    </div>
+    <div id="tab-queues" class="tab-content x-hidden">
+    </div>
+    <div id="tab-processes" class="tab-content x-hidden">
+    </div>
+    <div id="tab-workflows" class="tab-content x-hidden">
+    </div>
+    <div id="tab-experiments" class="tab-content x-hidden">
+    </div>
+    <div id="tab-view" class="tab-content x-hidden">
+    </div>
+    <div id="tab-metrics" class="tab-content x-hidden">
+    </div>
+  </div>
+<% end %>
+
+<% content_for :footer do -%>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @assay} %>
+<% end %>
+
+<% content_for :right do -%>
+  <%= render :partial => 'help_build_protocol' %>
+  <%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@folder} %>
+<% end %>
+
+<script type="text/javascript"> 
+
+    Ext.onReady(function(){
+        var tabs = new Ext.TabPanel({
+            renderTo:'tabs1',
+            activeTab: <%=@tab||0%>,
+            defaults: {
+                autoHeight: true,
+                autoWidth: true,
+                autoScroll: true,
+                bodyStyle: 'padding:5px'
+            },
+            items: [{
+                    title: 'Overview',
+                    contentEl: 'tab-show'
+                },{
+<% if @assay.allows?(:edit) %>					  
+                      title: 'Update',
+                      contentEl: 'tab-edit'
+                              
+                  },{
+<% end %>					  
+                    title: 'Parameters',
+                    contentEl: 'tab-metrics',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=assay_url(:action=>'parameters', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'Queues',
+                    contentEl: 'tab-queues',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=assay_url(:action=>'queues', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'Processes',
+                    contentEl: 'tab-processes',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=process_url(:action=>'list', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'Recipes',
+                    contentEl: 'tab-workflows',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=workflow_url(:action=>'list', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'Experiments',
+                    contentEl: 'tab-experiments',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=assay_url(:action=>'experiments', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'View',
+                    contentEl: 'tab-view',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=assay_url(:action=>'print', :format=>:ext, :id=>@assay)%>"
+                },{
+                    title: 'Metrics',
+                    contentEl: 'tab-metrics',
+                    listeners:{
+                        activate : function(panel){panel.getUpdater().refresh();}
+                    },
+                    autoLoad: "<%=assay_url(:action=>'metrics', :format=>:ext, :id=>@assay)%>"
+                }]
+        });
+
+    });
+</script>

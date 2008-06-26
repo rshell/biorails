@@ -1,0 +1,27 @@
+  <h2 class='icon icon-task-large' style='text-indent:0.5em;'>Import Data into Task</h2>
+  <p>
+    This is a CSV file importer for getting larger blocks of data into the
+    system. Click on following link to generate a CSV file.
+  </p>
+  <hr />
+  <p class='icon icon-xls'>
+    <%= link_to "Export Current Data",
+        task_url(:action => 'export', :id => @task ) %>
+  </p>
+  <p>
+    Once the CSV file is filled-in, it can be re-imported via the following file selector:-
+  </p>
+  <br />
+  <%form_tag( task_url(:action =>'import_file', :id=> @experiment) , {:multipart => true}) do %>
+  <%=file_field_tag(:file) %>
+  <br />
+  <%= submit_tag("Import")%>
+  <% end %>
+  <p>
+    Any imported data will update the existing data sheet assuming the data values
+    pass validation.  All data entries are audit-trailed as usual.
+  </p>
+  <%= error_messages_for("import") %>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task' ]} %>
+
+

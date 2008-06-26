@@ -1,0 +1,56 @@
+<b> Defined Aliases </b>
+<% form_tag :action => 'add', :id => @parameter_type.id do %>
+  <table class='report'>
+    <tr>
+      <th><b class='icon icon-name'>Name</b></th>
+      <th><b class='icon icon-description'>Description</b></th>
+      <th><b class='icon icon-parameter_role'>Parameter Role</b></th>
+      <%if @parameter_type.qualitive?%>
+        <th><b class='icon icon-dictionary'>Data Lookup</b></th>
+      <%else%>
+        <th><b class='icon icon-unit'>Unit</b></th>
+        <th><b class='icon icon-data_format'>Data Format</b></th>
+      <%end%>
+      <th><b class='icon icon-action'>Action</b></th>
+    </tr>
+    
+    <%for item in  @parameter_type.aliases %>
+      <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+        <td><%=item.name %></td>
+        <td><%=item.description %></td>
+        <td><%=item.role_name %></td>
+        <%if @parameter_type.qualitive?%>
+          <td><%=item.element_name  %></td>
+        <%else%>
+          <td><%=item.display_unit %></td>
+          <td><%=item.format_name %></td>
+        <%end%>
+        <td><%=link_to "<b class='icon icon-del'>remove</b>", parameter_type_url(:action=>'remove',:id=>item.id)  %></td>
+      </tr>
+    <%end%>
+
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+      <td > <%= text_field :parameter_type_alias, :name ,:size=>16 %></td>        
+      <td>  <%= text_field :parameter_type_alias, :description %></td>
+      <td>  <%= select_named(:parameter_type_alias, :parameter_role_id, ParameterRole) %> </td>
+      <%if @parameter_type.qualitive?%>
+        <td>
+          <%=select_data_element( :parameter_type_alias, :data_element_id, @parameter_type.data_concept)%>
+        </td>
+      <%else%>
+        <td>
+          <%if @parameter_type.has_dimension? %>
+            <%= select( :parameter_type_alias, :display_unit, @parameter_type.scaled_units )  %>
+          <%else%>
+            <%= text_field( :parameter_type_alias, :display_unit, {:size =>5, :class=>"text-input"})  %>
+          <%end%>          
+        </td>
+        <td>
+          <%=select_data_format( :parameter_type_alias, :data_format_id ,@parameter_type.data_type)%>
+        </td>
+      <% end %>
+      <td> <%= submit_tag 'Add' %></td>
+    </tr>
+    
+  </table>
+<% end %>

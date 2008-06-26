@@ -1,20 +1,20 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: data_elements
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(50)    default(), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  data_system_id     :integer(11)   not null
 #  data_concept_id    :integer(11)   not null
 #  access_control_id  :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  parent_id          :integer(10)   
+#  parent_id          :integer(11)   
 #  style              :string(10)    default(), not null
-#  content            :text          default(), not null
+#  content            :string(4000)  default()
 #  estimated_count    :integer(11)   
 #  type               :string(255)   
 #  updated_by_user_id :integer(11)   default(1), not null
@@ -40,7 +40,7 @@ class DataElement < ActiveRecord::Base
   validates_presence_of :data_system_id
   validates_presence_of :data_concept_id
   validates_presence_of :description
-  validates_format_of :name, :with => /^[A-Z,a-z,0-9,-,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,-_]'
+  validates_format_of :name, :with => /^[A-Z,a-z,0-9,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,_]'
 
   belongs_to :system,  :class_name=>'DataSystem',  :foreign_key=>'data_system_id'
   belongs_to :concept, :class_name=>'DataConcept', :foreign_key=>'data_concept_id'
@@ -55,16 +55,17 @@ class DataElement < ActiveRecord::Base
   attr_accessor :min
   attr_accessor :max
   
-  has_many :study_parameters, :dependent => :destroy
+  has_many :assay_parameters, :dependent => :destroy
   has_many :parameters, :dependent => :destroy
   has_many :task_references, :dependent => :destroy
   
   acts_as_tree :order => "name"  
+  
 ##
 # Test if the element is used
 #   
   def not_used
-    return (study_parameters.size==0 and parameters.size==0 )
+    return (assay_parameters.size==0 and parameters.size==0 )
   end 
 #
 # Allowed list of types
@@ -98,13 +99,6 @@ class DataElement < ActiveRecord::Base
   def decendents
      [self]+children.inject([]){|decendents,child|decendents+child.decendents}
   end
-   
-#
-# Overide context_columns to remove all the internal system columns.
-# 
-  def self.content_columns
-        @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }        
-  end
 #
 #  List values for this element   
 #    
@@ -119,8 +113,8 @@ class DataElement < ActiveRecord::Base
 # Lookup to find value in a list
 # 
   def lookup(name)
-    item = self.children.detect{|item|item.name.to_s == name.to_s}
-    item ||= self.children.detect{|item|item.id.to_s == name.to_s}
+    item = self.children.detect{|i|i.name.to_s == name.to_s}
+    item ||= self.children.detect{|i|i.id.to_s == name.to_s}
     logger.info "lookup for #{self.id}  with #{name} ==> #{item}"
     return item
   end
@@ -135,7 +129,7 @@ class DataElement < ActiveRecord::Base
 # convert a id to a DataValue
 # 
   def reference(id)
-    return self.children.detect{|item|item.id.to_s == id.to_s}
+    return self.children.find(id)
   end
   
   def like(name, limit=25, offset=0)
@@ -152,31 +146,6 @@ class DataElement < ActiveRecord::Base
      self.values.collect{|v|[v.send(display_field),v.send(id_field)]} 
   end    
 
-##
-# check it there are values for this element
-  def values_ok?
-    if style != 'child'
-      self.values.size>0 
-    else
-      true
-    end 
-  rescue
-    false
-  end 
-#
-# List of allowed concepts
-# 
-  def allowed_concepts
-      if parent 
-         allowed = parent.allowed_concepts
-      elsif concept 
-         allowed = concept.decendents
-      elsif system 
-         allowed = system.allowed_concepts
-      else  
-         allowed = [] 
-      end
-  end
 #
 #  List of data systems this element can be linked to
 #  
@@ -225,193 +194,9 @@ class DataElement < ActiveRecord::Base
          element =SqlElement.create(params)
       when 'model'
          element =ModelElement.create(params)
-      when 'view'
-         element =ViewModel.create(params)
       else 
        element =DataElement.create(params)
     end   
   end  
-
-  def error_messages
-    messages = []
-    if errors.on :children
-      messages << children.collect{|item|" [#{item.name}] #{ item.valid? ? 'ok' : item.errors.full_messages.to_sentence } " }
-     errors.each do |item|  
-        unless item[0].to_s =='children'
-          messages <<  "#{item[0]} #{item[1]}" 
-        end
-     end
-     messages.join("<br/>") 
-    else
-      errors.full_messages.to_sentence
-    end
-  end
-    
-end
-
-###############################################################################################
-# List  based in statement
-# 
-class ListElement < DataElement
-  after_save :populate 
-
-protected
-  def populate
-     estimated_count = 0
-     FasterCSV.parse(content) do |row|
-       row.each do |item|
-           add_child(item)
-       end
-     end
-  end
-
-end
-
-
-###############################################################################################
-# SQLType based in statement
-# 
-class SqlElement < DataElement
-
-##
-# Get the constents as SQL select statement
-  def statement
-    return @content
-  end
-
-  def to_array
-     return self.values.collect{|v|v.name}
-  end
-
-##
-#  List values for this element   
-  def values
-   self.system.reset_connection(DataValue)
-   @values = DataValue.find_by_sql(sql_select) if !@values
-   self.estimated_count = @values.size   
-   return @values;  
-  end    
   
-  def sql_select
-    sql = self.content
-    sql = sql.gsub(/:user_id/,User.current.id.to_s)
-    sql = sql.gsub(/:user_name/,User.current.login)
-    sql = sql.gsub(/:project_id/,Project.current.id.to_s)
-    sql = sql.gsub(/:project_name/,Project.current.name)
-    return sql
-#    if ProjectFolder.current
-#      sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
-#      sql = sql.gsub(/:folder_name/,ProjectFolder.current.name)
-#    end 
-  end
-##
-# Count the number of records returned with a select count(*) from (select ....)
-# 
-  def size
-    return  self.system.remote_connection.select_all("select count(*) from ("+content+") x")
-  end
-
-###
-# Lookup to find value in a list
-  def lookup(name)
-    return  self.system.remote_connection.select_one("select * from (#{content}) where name='"+name+"'")    
-  end
-
-##
-# Get by id  
-# 
-  def reference(id)
-    return  self.system.remote_connection.select_one(" select * from (#{content})  where  id='"+id+"'")    
-  end
-#
-# @todo rjs not sure on portability and preformance of this should move windowing code to db driver
-# 
-# oracle: SELECT * FROM (SELECT ROWNUM as ROW_NUM, x.* FROM (content) xwhere x.name like 'xxx' order by x.name ) WHERE row_num BETWEEN 20 AND 40; 
-# mysql/postgres: SELECT * FROM (Content) where name like 'xxx'  limit=20 start=0
-#
-  def like(name, limit=25, offset=0 )
-    sql = ""
-	if (self.system.remote_connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
-      sql = <<SQL
-        select * from 
-          (select x.*, ROWNUM row_num FROM (#{content}) x 
-           where  x.name like '#{name}%' order by x.name ) 
-        where row_num between #{offset} and #{(offset+limit)}
-SQL
-    else
-    sql = <<SQL      
-        select * from (#{content}) where  name like'#{name}%' order by name offset #{offset} limit #{limit}
-SQL
-    end
-    self.system.remote_connection.select_all(sql)
-  end
- 
-
-end
-
-###############################################################################################
-# DataElement linked back to defined Model in Rails. This is a simple dynamic link to 
-# a model class which used all the standard finder methods etc
-# 
-class ModelElement < DataElement
-
-  def model
-    return eval(self.content)
-  end
-
-  def to_array
-     return self.values.collect{|v|v.name}
-  end
-
-#
-#  List values for this element   
-#    
-  def values
-   @values = self.model.find(:all) unless @values
-   estimated_count = @values.size
-   return @values
-  end    
-
-  def size
-    return self.model.count
-  end
-###
-# Lookup to find value in a list
-# 
-  def lookup(name)
-    return self.model.find_by_name(name)
-  end
-##
-# Get by id  
-# 
-  def reference(id)
-    return self.model.find(id)
-  end
-
-###
-# find values like 
-#  
-  def like(name,limit=25,offset=0)
-    if name
-	   self.model.find(:all, :conditions=>['name like ?',name+'%'], :order=>'name', :limit=>limit, :offset=>offset)
-    else
-       self.model.find(:all,:limit=>100,:order=>'name', :limit=>limit, :offset=>offset)
-    end
-  end
-
-end
-
-
-###############################################################################################
-# This generate a dynamic model class and maps this to the base table or view 
-#
-class ViewElement < ModelElement
-
-  def model
-    model = DataValue.clone()
-    model.set_table_name(@content)
-    self.system.reset_connection(model)
-    return model
-  end
-
 end

@@ -1,14 +1,14 @@
 <table class='report' style='border: solid thin'>
   <tr>
-     <th>Material</th>         
-     <th>status</th>         
-     <th>priority</th>         
-     <th>Assigned To</th>         
-     <th>Comments</th>         
-     <th>Lastest At</th>         
-     <th>Accepted At</th>         
-     <th>Completed At</th>         
-     <th></th>         
+    <th><b class='icon icon-queue_item'>Material</b></th>         
+     <th><b class='icon icon-status'>Status</b></th>         
+     <th><b class='icon icon-priority'>Priority</b></th>         
+     <th><b class='icon icon-user_lab'>Assigned To</b></th>         
+     <th><b class='icon icon-note'>Comments</b></th>         
+     <th><b class='icon icon-date'>Required by</b></th>         
+     <th><b class='icon icon-date'>Accepted on</b></th>         
+     <th><b class='icon icon-date'>Completed on</b></th>         
+     <th><b class='icon icon-action'>Actions</b></th>         
   </tr>
  <%for queue_item in request_service.items %>
   <% form_tag :action => 'update_item',:id=> queue_item.id do %>

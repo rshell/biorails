@@ -2,38 +2,42 @@
   <%= render :partial=>'actions'%>
 <% end -%>
 
-<% content_for :help do -%>
-  <%= render :partial=>'help'%>
-<% end %>
-
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['membership']} %>
 <%end%>
 
-<% content_for :center do %>
+<% content_for :center do -%>
   <% dialog "Add member to team #{@team.name} " do %>
-   <% form_tag :action => 'create' do %>
-      <%=  hidden_field :membership, :team_id %>
+   <% form_tag :action => 'create',:id=>@team.id do %>
+          <%=  hidden_field :membership, :team_id %>
 
       <!--[form:membership]-->
         <p>
-          <label for="membership_owner">User</label><br/>
+          <label for="membership_owner" class='icon icon-user'>
+            User
+          </label>
+          <br/>
           <%= collection_select(:membership, :user_id ,@team.non_members, :id, :name)  %>
         </p>
         <p>
-          <label for="membership_owner">Role</label><br/>
-          <%= select_named :membership, :role_id ,ProjectRole %>
+          <label for="membership_owner" class='icon icon-role'>
+            Role
+          </label>
+          <br/>
+          <%= select_named :membership, :role_id, ProjectRole %>
         </p>
 
         <br />
         <p>
-          <label for="membership_owner">Allow this user to manage the project as a owner ? </label>
+          <label for="membership_owner">
+            Allow this user to manage the project as a owner ?
+          </label>
           <%= check_box    :membership, :owner  %>
         </p>
         <br />
       <!--[eoform:membership]-->
 
-    <%= submit_tag "Save" %>
+    <%= submit_tag "Create" %>
    <% end %>
   <% end %>
 <%end%>

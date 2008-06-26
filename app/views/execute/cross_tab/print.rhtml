@@ -1,0 +1,32 @@
+<div class='panel'>
+<table class='report'>
+<tr>
+  <th rowspan='3'>Task:Context</th>    
+  <% for col in @cross_tab_columns %>
+  <th> <%=col.assay.name%></th>
+  <%end%>  
+</tr>
+<tr> 
+  <% for col in @cross_tab_columns %>
+  <th> <%=col.process.name%></th>
+  <%end%>  
+</tr>  
+
+<tr> 
+  <% for col in @cross_tab_columns %>
+  <th> <%=col.name%>(<%=col.parameter.display_unit%>)</th>
+  <%end%>  
+</tr>  
+
+<% for row in @cross_tab_results %>
+  <% if (row.size>2) %>
+  <tr>
+    <th><%="#{row[-2]}:#{row[-1]}"%></th>    
+    <% for col in @cross_tab_columns %>
+    <td><%="#{row[col.parameter_id]}"%></td>
+    <%end%>  
+  </tr>  
+  <% end %>
+<% end %>
+</table>
+</div>

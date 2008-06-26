@@ -1,10 +1,19 @@
   <%= render :partial => '/menu/admin_menu'%>
 <div>
-<span class='menu'>Parameter Type</span>
-<%= link_to 'List',    parameter_type_url(:action => 'list') %>
-<%= link_to 'New',    parameter_type_url(:action => 'new') %> 
-<% if @parameter_type && !@parameter_type.new_record?%>
-<%= link_to 'Edit',    parameter_type_url(:action => 'edit', :id => @parameter_type) %> 
-<%= link_to 'Show',    parameter_type_url(:action => 'show',:id => @parameter_type) %>
-<% end %>
+  <span class='menu'><b class='icon icon-parameter_type'>
+      Parameter Type
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-list'>List</b>",
+      parameter_type_url(:action => 'list') %>
+    <%= link_to "<b class='icon icon-new'>New</b>",
+      parameter_type_url(:action => 'new') %>
+    <% if @parameter_type && !@parameter_type.new_record?%>
+      <%= link_to "<b class='icon icon-edit'>Edit</b>",
+          parameter_type_url(:action => 'edit', :id => @parameter_type) %>
+      <%= link_to "<b class='icon icon-show'>Show</b>",
+          parameter_type_url(:action => 'show',:id => @parameter_type) %>
+    <% end %>
+</div>
 </div>

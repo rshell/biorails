@@ -1,18 +1,17 @@
 <% content_for :sidemenu do%>
-  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-<div>
-    <span class='menu'>Report </span>
-    <%= link_to subject_icon('new.png')  + 'New',   :action => 'new' %>
-    <%= link_to subject_icon('list.png') + 'List',  :action => 'list' %>
-</div>
+  <%= render :partial =>'actions'  %>
 <% end %>
 
-<h2> <%=subject_icon('reports')%> Report [<strong><%=@report.name%></strong>]</h2>
-<div class='panel'>
-    <p>
-        <%=@report.description%>
-    </p>
-    <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
+<h1 class='icon icon-report-large' style='text-indent:0.5em'>
+  Query [<strong><%=@system_report.name%></strong>]</h1>
+<p>
+    <%=@system_report.description%>
+</p>
+<div id='<%=@system_report.dom_id(:show)%>'>                              
+<%=render :partial => 'shared/report',:locals=>{:report =>  @system_report, :data => @data} %>
 </div>
 
 
+<% content_for :messages do -%>
+  <%=render :partial =>'help',:locals => { :objects => ['report' ]} %>
+<%end%>

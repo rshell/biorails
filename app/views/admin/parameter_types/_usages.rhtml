@@ -1,0 +1,25 @@
+<b> Usage of Parameter Type in Assays</b>
+<table class='report'>
+  <tr>
+    <th><b class='icon icon-assay'>Assay</b></th>
+    <th><b class='icon icon-parameter_type'>Assay Parameter</b></th>
+    <th><b class='icon icon-parameter_role'>Parameter Role</b></th>
+    <th><b class='icon icon-data_type'>Data Type</b></th>
+    <th><b class='icon icon-data_format'>Data Format</b></th>
+    <th><b class='icon icon-dictionary'>Data Lookup</b></th>
+  </tr>
+  <%for item in  @parameter_type.assay_parameters %>
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+      <td><%=link_to item.assay.name, assay_url(:action=>:show ,          :id=>item.assay) %></td>
+      <td><%=link_to item.name,assay_parameter_url(:action=>:show ,:id=>item.id) %></td>
+      <td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
+      <td>
+        <b class='icon icon-data_type_<%=item.data_type.name%>'>
+          <%=item.data_type.name%>
+        </b>
+      </td>
+      <td><%=item.data_format.name if item.data_format_id %></td>
+      <td><%=item.data_element.name if item.data_element_id %></td>
+    </tr>
+  <%end%>
+</table>

@@ -1,12 +1,12 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: requests
 #
 #  id                   :integer(11)   not null, primary key
 #  name                 :string(128)   default(), not null
-#  description          :text          
-#  expected_at          :string(255)   
+#  description          :string(1024)  default(), not null
+#  expected_at          :datetime      
 #  lock_version         :integer(11)   default(0), not null
 #  created_at           :datetime      not null
 #  updated_at           :datetime      not null
@@ -15,11 +15,12 @@
 #  status_id            :integer(11)   default(0), not null
 #  priority_id          :integer(11)   
 #  project_id           :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  requested_by_user_id :integer(11)   default(1)
+#  updated_by_user_id   :integer(11)   default(0), not null
+#  created_by_user_id   :integer(11)   default(0), not null
+#  requested_by_user_id :integer(11)   default(0)
 #  started_at           :datetime      
 #  ended_at             :datetime      
+#  team_id              :integer(11)   default(0), not null
 #
 
 ##
@@ -41,13 +42,21 @@
 # 
 
 class Request < ActiveRecord::Base
-  included Named
-
-  include  CurrentPriority
+#
+# Basic rules for a Named Object
+#
+   acts_as_dictionary :name 
+#
+# Allow standard priority levels
+#
+   has_priorities :priority_id 
 ##
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
+#
+# Allow free text indexing of the name and description into common class
+# 
   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
                               :description=>{:store=>:yes,:boost=>0}},
                    :default_field => [:name],           
@@ -58,10 +67,13 @@ class Request < ActiveRecord::Base
 # Request is a summary of list of scheduled request for services
 # 
   acts_as_scheduled :summary=>:services
-
+#
+#  The request will exist as a scheduled item built out of a number of requested services 
+#
   has_many_scheduled :services,  :class_name=>'RequestService',:dependent => :destroy
 #
 # Generic rules for a name and description to be present
+#
   validates_uniqueness_of :name
 
   validates_presence_of :name
@@ -87,33 +99,54 @@ class Request < ActiveRecord::Base
 #  has many project elements associated with it
 #  
   has_many :elements, :class_name=>'ProjectElement' ,:as => :reference,:dependent => :destroy
-  
+#
+# All requests related to specific data element type like a 'Compound' or 'Sample'
+#
   belongs_to :data_element
-  
-  belongs_to :list , :dependent => :destroy
-  
- has_one :request, :class_name => 'Request', :foreign_key => 'list_id'
- 
+#
+# A request has a list of items submitted to it, this is managed as a list of items of a specific data_ement type
+#   has_one :list, :class_name => 'RequestList', :foreign_key => 'list_id'
+
+   belongs_to :list , :dependent => :destroy
+#
+# Intercept database saves
+#  * correct folder names on update
+#  * delete folder on self delete
+#  * make sure team assigned on create
+#
+   def before_update
+      ref = self.folder
+      if ref.name !=self.name
+        ref.name = self.name
+        ref.save!
+      end
+  end
+
+  def before_destroy
+     self.folder.destroy
+  end
+
+  def before_create 
+    self.team_id = self.project.team_id if self.project    
+  end
+#
+# Constructor uses current values for User,project and team in creation of a new Request
+# These can be overiden as parameters (:user_id=> ,:project_id => , team_id => )
+#
   def initialize(params= {})
       super(params)      
       self.status_id    ||= 0
-      self.started_at   ||= Time.new
-      self.requested_by ||= User.current
-      self.project      ||= Project.current
-      self.priority_id  ||= CurrentPriority::LOW    
+      self.started_at   = Time.new
+      self.requested_by_user_id = User.current.id
+      self.project_id      = Project.current.id
+      self.team_id         = Team.current.id
+      self.data_element_id ||= DataElement.find(:first).id 
   end
   
 ##
 # Create a List and its linked RequestList   
   def self.create(params)
      user_request = Request.new(params)
-     if  user_request
-        user_request.status_id    ||= 0
-        user_request.started_at   ||= Time.new
-        user_request.requested_by ||= User.current
-        user_request.project      ||= Project.current
-        user_request.priority_id  ||= CurrentPriority::LOW
-     end
      user_request.list = RequestList.create(:name=>user_request.name,:data_element_id=>user_request.data_element_id)
      if user_request.list
         user_request.save
@@ -122,7 +155,7 @@ class Request < ActiveRecord::Base
   end
   
 #
-# Get the folder for this study
+# Get the folder for this assay
 #
   def folder(item=nil)
     folder = self.project.folder(self)
@@ -147,7 +180,15 @@ class Request < ActiveRecord::Base
      end
      return @grid
   end
-  
+  #
+  # status
+  #
+  def item_status(object_name,service_name)
+    @grid ||= items_by_service  
+    return 'not known' unless @grid[object_name]    
+    return 'not submitted' unless @grid[object_name][service_name] 
+    @grid[object_name][service_name]     
+  end
 ##
 # get the array of items associated with this request  
   def items
@@ -209,9 +250,9 @@ class Request < ActiveRecord::Base
       and   pc.id = tc.parameter_context_id 
       and  tr.data_type= li.data_type
       and  tr.data_id = li.data_id
-      and  li.list_id = ?
+      and  li.list_id = #{list.id}
 SQL
-    return TaskValue.find_by_sql([sql,list.id])
+    return TaskValue.find_by_sql(sql)
   end
 
 ##
@@ -231,6 +272,9 @@ SQL
       request_service.save
       return request_service
     end
+  rescue Exception => ex
+    logger.error "Failed to add Service #{ex.message}"    
+    return nil
   end
 
 ##
@@ -288,25 +332,34 @@ SQL
   def allowed_elements
      sql = <<SQL
      select e.* from data_elements e 
-     where exists (select 1 from study_parameters p  
-        inner join study_queues q on q.study_parameter_id = p.id
+     where exists (select 1 from assay_parameters p  
+        inner join assay_queues q on q.assay_parameter_id = p.id
         where p.data_element_id = e.id)
 SQL
-     DataElement.find_by_sql(sql)
+     @allowed_elements ||= DataElement.find_by_sql(sql)
   end 
-
+#
+# its is possible to create a runnable request
+#
+  def runnable?
+    ((self.allowed_elements.size >0) and (self.allowed_services.size > 0))
+  end
+  
+  def self.runnable?
+    return AssayQueue.find(:first)
+  end
 ##
 # List of allowed service types for a set data_element_id
 # 
   def allowed_services
      sql = <<SQL
       select q.* 
-      from study_queues q 
-      inner join study_parameters p on q.study_parameter_id = p.id  
+      from assay_queues q 
+      inner join assay_parameters p on q.assay_parameter_id = p.id  
       inner join data_elements e on p.data_element_id = e.id  
       where e.id = ?
 SQL
-     StudyQueue.find_by_sql([sql,self.data_element_id])  
+     @allowed_services ||= AssayQueue.find_by_sql([sql,self.data_element_id])  
   end
   
 

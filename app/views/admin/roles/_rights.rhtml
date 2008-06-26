@@ -1,4 +1,4 @@
-<h2> Permissions for <%= @role.name %></h2>
+<h1 class='icon icon-role'> Permissions for <%= @role.name %></h1>
 
 <table class="report">
 <thead>
@@ -9,7 +9,7 @@
 </thead>
 <tbody>
 <% for subject in @role.class.subjects.keys.sort do %>
-    <tr>
+    <tr class="<%= cycle('odd', 'even') %>">
         <th><%=subject%></th>
         <% for action in Permission.possible_actions(subject) %>
             <%if @role.allow?(subject,action) %>

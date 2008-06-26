@@ -1,0 +1,22 @@
+<div panel='box'>
+  <form id='search' action="/inventory/orders/search"  method="post">
+    <div class='row'>      
+      <div class="form-element">
+        <label for="name">   Matches     </label>
+        <%= text_field_tag 'name', @name  %>
+      </div>
+      
+      <div class="form-element">
+        <label for="search_type">    Search Type    </label>
+        <%= select_tag(:search_type, options_for_select(@fields, @search_type))%>
+      </div>
+    </div>
+    <div class='row'>      
+      <div class="form-element">
+        <input name="commit" type="submit" value="Find" />
+      </div>
+    </div>
+  </form>
+</div>
+
+

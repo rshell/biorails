@@ -1,7 +1,7 @@
   <div class="actions">  
     <% new_params = params.merge(:action => 'new') %>
     <%= loading_indicator_tag(new_params) %>
-    <%= link_to_remote (subject_icon('new.png'))+" New",
+    <%= link_to_remote "<b class='icon icon-new'></b>New",
       { :url => new_params,
         :loading => "Element.show('#{loading_indicator_id(new_params)}');" },
       { :href => url_for(new_params), 

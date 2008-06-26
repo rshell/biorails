@@ -1,1 +1,0 @@
-page.replace  @study_parameter.dom_id('data_type'),:partial => 'data_type'

@@ -1,9 +1,9 @@
 <div class='main' id='maintitle'>
     <div class="title">
-        <%=subject_icon('plate')%> Plate Formats
+        Plate Formats
         <div class="actions">
             <ul>
-             <li><%= link_to subject_icon('new.png') + ' New Plate Format', :action => 'new' %></li>
+             <li><%= link_to 'New Plate Format', :action => 'new' %></li>
             </ul>
         </div>
     </div>
@@ -20,9 +20,9 @@
           <% for column in PlateFormat.content_columns %>
             <td><%=h plate_format.send(column.name) %></td>
           <% end %>
-            <td><%= link_to subject_icon('show.png') + 'Show', :action => 'show', :id => plate_format %></td>
-            <td><%= link_to subject_icon('edit.png') + 'Edit', :action => 'edit', :id => plate_format %></td>
-            <td><%= link_to subject_icon('destroy.png') + 'Destroy', { :action => 'destroy', :id => plate_format }, :confirm => 'Are you sure?',:method => "post" %></td>
+            <td><%= link_to 'Show', :action => 'show', :id => plate_format %></td>
+            <td><%= link_to 'Edit', :action => 'edit', :id => plate_format %></td>
+            <td><%= link_to 'Destroy', { :action => 'destroy', :id => plate_format }, :confirm => 'Are you sure?',:method => "post" %></td>
           </tr>
         <% end %>
         </table>

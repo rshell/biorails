@@ -1,36 +1,41 @@
-<h3>Usages of concept <%=@data_concept.name%> in parameter types</h3>
+<h3 class='icon icon-parameter'><%=@data_concept.name%>  Usage</h3>
+<%if @data_concept.elements? %>
+end
 <p>
-These are actual usages of the concept as a defined volcabary for Parameter Type. This is how catagorized data values are managed within the system.
- To manage the parameter type jump to this <%= link_to('list',{:controller=>'parameter_types', :action => 'list'})  %> .  
+This show parameter type using the <%=@data_concept.name%>. This is how lookup style parameter type are defined for use.
+To manage <%= link_to('[Parameter Types',{:controller=>'parameter_types', :action => 'list'})  %> use the hot link on the side menu
 </p>
 
  <table class="report" width='100%'>
-   <thead>  
+   <thead>
      <tr>
       <% for column in ParameterType.content_columns %>
         <th><%= column.human_name %></th>
       <% end %>
       <th>Actions </th>
      </tr>
-   </thead>  
-    
+   </thead>
+
    <tbody>
     <% for row in @data_concept.parameter_types %>
-    <tr>
-      <% for column in ParameterType.content_columns %>
-       <td>
-          <%=h row.send(column.name) %>
-       </td>
-       <% end %>
-       <td> 
-         <%= link_to( '<b class="icon icon-del"></b>Delete',
-               parameter_type_url(:action => 'destroy' ,:id=> row.id),
-               :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>   
-       </td>      
+    <tr class='<%= cycle('odd', 'even') %>'>
+    <% for column in ParameterType.content_columns %>
+      <td>
+      <%=h row.send(column.name) %>
+      </td>
+    <% end %>
+      <td>
+          <%= link_to("<p class='icon icon-del'>Delete</p>", parameter_type_url(:action => 'destroy' ,:id=> row.id),
+          :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>
+      </td>
      </tr>
     <% end %>
    </tbody>
-   
+
  </table>
- <%= link_to_remote(  '<b class="icon icon-add"></b>Add', :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>  
- 
+ <p class='icon icon-add'>
+   <%= link_to_remote( 'Add', :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>
+ </p>
+<%else%>
+Cant create a Parameter type linked to <%=@data_concept.name%> as there is no lookup implemented yet.
+<%end%>

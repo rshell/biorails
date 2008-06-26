@@ -2,11 +2,15 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['user']}  %>
 <%end %>
 
-<h2> <%=@request_service.name%> <%=@report.name%></h2>
+<h2>
+  <%=@request_service.name%> <%=@report.name%>
+</h2>
 
-<div class="panel">                              
-    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
+<div class="panel">
+    <%= render :partial => 'shared/report',
+      :locals => {:report => @report,
+      :data => @data,:show=>'show', :edit=>'edit' } %>
 </div>
-<hr/>    
-    <%= will_paginate  @data%>    
-    
+<hr/>
+<%= will_paginate  @data%>
+

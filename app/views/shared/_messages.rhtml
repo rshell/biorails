@@ -1,3 +1,5 @@
+
+<div class="panel">
 <!-- Output flash passed messages -->
 <% for name in [:error, :warning, :notice,:info, :trace] %>
   <% if flash[name] %>
@@ -9,11 +11,11 @@
 <% end %>
 
 <!-- Output error for specific objects -->
-<% unless objects.nil? %>
+<%  if objects and objects.is_a? Array%>
   <% for object in objects %>
      <div class="<%= "message" %>" >
         <%= error_messages_for object %>
      </div>
   <% end %>
 <% end %>    
-
+</div>

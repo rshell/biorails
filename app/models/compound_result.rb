@@ -1,27 +1,27 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: compound_results
 #
-#  id                    :integer(11)   default(0), not null, primary key
+#  id                    :integer(11)   not null, primary key
 #  row_no                :integer(11)   not null
 #  column_no             :integer(11)   
-#  task_id               :integer(11)   
-#  parameter_context_id  :integer(11)   
-#  task_context_id       :integer(11)   
+#  task_id               :integer(11)   not null
+#  parameter_context_id  :integer(11)   not null
+#  task_context_id       :integer(11)   not null
 #  data_element_id       :integer(11)   
-#  compound_parameter_id :integer(11)   
-#  compound_id           :integer(11)   
+#  compound_parameter_id :integer(11)   not null
+#  compound_id           :integer(11)   not null
 #  compound_name         :string(255)   
-#  protocol_version_id   :integer(11)   
+#  protocol_version_id   :integer(11)   not null
 #  label                 :string(255)   
 #  row_label             :string(255)   
-#  parameter_id          :integer(11)   
-#  parameter_name        :string(62)    
-#  data_value            :float         
-#  created_by_user_id    :integer(11)   default(1), not null
+#  parameter_id          :integer(11)   not null
+#  parameter_name        :string(62)    not null
+#  data_value            :float         not null
+#  created_by_user_id    :integer(11)   not null
 #  created_at            :datetime      not null
-#  updated_by_user_id    :integer(11)   default(1), not null
+#  updated_by_user_id    :integer(11)   not null
 #  updated_at            :datetime      not null
 #
 
@@ -32,8 +32,9 @@
 
 class CompoundResult < ActiveRecord::Base
   
- def initialize
-   @readonly == true
+ def initialize(*args)
+   super(*args)
+   @readonly = true
  end
 ##
 # link back to compounds
@@ -67,17 +68,6 @@ class CompoundResult < ActiveRecord::Base
 #  
  belongs_to :parameter
 
-##
-# returns actual object
- def object
-
-   return self.compound
- end 
-
- def name
-   return self.compound.name
- end
- 
  ##
  # Get the value for this result
  # 

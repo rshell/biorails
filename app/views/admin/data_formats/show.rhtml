@@ -5,31 +5,29 @@
 <div class='panel'>
 <h1 class="icon icon-data_format"><%=@data_format.name%></h1>
 
-<p><%=@data_format.description%></p>
-<% if @data_format.used?%>
-	<table class="report">
-		<tr>
-		<th>Study Name</th>
-		<th>Parameter Name </th>
-		<th>Parameter Type</th>
-		<th>Parameter Role</th>
-		<th>Data Type</th>
-		</tr>
-		<%for item in  @data_format.study_parameters %>
-			<tr>
-			<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
-			<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
-			<td><%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %></td>
-			<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
-			<td><%=item.data_type.name%></td>
-			</tr>
-		<%end%>
-	</table>
+  <p><%=@data_format.description%></p>
+  <% if @data_format.used?%>
+    <table class="report">
+      <tr>
+      <th>Assay Name</th>
+      <th>Parameter Name </th>
+      <th>Parameter Type</th>
+      <th>Parameter Role</th>
+      <th>Data Type</th>
+      </tr>
+      <%for item in  @data_format.assay_parameters %>
+        <tr>
+          <td><%=link_to item.assay.name,          assay_url(:action=>:show ,          :id=>item.assay) %></td>
+          <td><%=link_to item.name,                assay_parameter_url(:action=>:show ,:id=>item.id) %></td>
+          <td><%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %></td>
+          <td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
+          <td><%=item.data_type.name%></td>
+        </tr>
+      <%end%>
+    </table>
 <%else%>
- <i>This data format is not currently in use with existing studies or protocols.</i>
- [
- <%= link_to (subject_icon('destroy.png')) +'Delete', { :action => 'remove', :id =>  @data_format },                                
-                            :confirm => 'Are you sure?',:method => "post" %> ]
-	
+ <p><i>This data format is not currently in use with existing assays or processes.</i>
+   [<%= link_to "<b class='icon icon-del'>Delete</b>", { :action => 'destroy', :id =>  @data_format },
+  :confirm => 'Are you sure?',:method => "post" %>]</p>
 <%end%>
 </div>

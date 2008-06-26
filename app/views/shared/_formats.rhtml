@@ -1,8 +1,13 @@
 <ul class="contexts">
-<% for format in formats do -%>
-<li class="format">
-<div class="format_regex"><%=h format.format_regex %></div>
-<div class="name"><b><%=format.name %></b>:<%=h format.description %></div>
-</li>
-<% end -%>
+  <% for format in formats do -%>
+    <li class="format">
+      <div class="format_regex"><%=h format.format_regex %></div>
+      <div class="name">
+        <b>
+          <%=format.name %>
+        </b>:
+        <%=h format.description %>
+      </div>
+    </li>
+  <% end -%>
 </ul>

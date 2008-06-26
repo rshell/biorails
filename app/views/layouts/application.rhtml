@@ -1,16 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title><%= SystemSettings.app_title + (@html_title ? ": #{@html_title}" : "") %></title>
+<title><%= SystemSetting.app_title + (@html_title ? ": #{@html_title}" : "") %></title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="biorails" />
-<meta name="keywords" content="study,project,experiment,request,wiki,issue,tracker" />
-<!--[if IE]>
-    <style type="text/css">
-    body {behavior: url(<%= stylesheet_path "csshover.htc" %>);}
-    </style>
-<![endif]-->
-
+<meta name="keywords" content="assay,project,experiment,request,wiki,issue,tracker" />
 
 <%= stylesheet_link_tag "layout" %>
 <%= stylesheet_link_tag "icons" %>
@@ -18,40 +12,13 @@
 <%= stylesheet_link_tag "table" %>
 <%= stylesheet_link_tag "gantt" %>
 <%= stylesheet_link_tag "errors" %>
-<%= stylesheet_link_tag "menu" %>
-<%= stylesheet_link_tag "autocomplete" %>
-<%= stylesheet_link_tag "tabs" %>
 <%= stylesheet_link_tag "print", :media => "print" %>
-<%= stylesheet_link_tag 'tree' %>
-<%= stylesheet_link_tag 'calendar-green' %>
-<%= stylesheet_link_tag 'dialog' %>
-<%= stylesheet_link_tag 'datebocks_engine' %>
 
 <% if browser_is? :ie  %>
   <%= stylesheet_link_tag "ie" %>
 <%  else %>
   <%= stylesheet_link_tag "standard" %>
 <% end %>
-
-<!--%= javascript_include_tag "tiny_mce/tiny_mce" %-->
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag 'prototype' %>
-<%= javascript_include_tag 'effects' %>
-<%= javascript_include_tag 'dragdrop' %>
-<%= javascript_include_tag 'controls' %>
-<%= javascript_include_tag 'validator' %>
-<%= javascript_include_tag 'validators-en' %>
-<%= javascript_include_tag 'dtcontrols' %>
-<%= javascript_include_tag 'form_fields' %>
-<%= javascript_include_tag 'calendar/calendar' %>
-<%= javascript_include_tag 'calendar/calendar-setup' %>
-<%= javascript_include_tag 'calendar/lang/calendar-en' %>
-<%= javascript_include_tag 'datebocks_engine' %>
-<%= javascript_include_tag 'menu' %>
-<%= javascript_include_tag 'sidemenu' %>
-<%= javascript_include_tag 'tree' %>
-<%= javascript_include_tag 'dhtmlwindow' %>
-<%= javascript_include_tag 'application' %>
  
 <!-- page specific tags  ======================= -->
 <%= yield :includes %>
@@ -66,8 +33,8 @@
 <!--Start Header ======================= -->  
 
     <div class='left'>
-      <h1><%= SystemSettings.app_title %></h1>
-      <h2><%= SystemSettings.app_subtitle %> </h2>
+      <h1><%= SystemSetting.app_title %></h1>
+      <h2><%= SystemSetting.app_subtitle %> </h2>
     </div>
     <div class='right'>
       <%if logged_in?%>

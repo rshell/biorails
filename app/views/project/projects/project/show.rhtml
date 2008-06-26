@@ -1,0 +1,24 @@
+<!------------- Project Dashboard ------------------------>
+<% @project ||=current_project %>
+<% @team ||=current_team %>
+<% @folder ||=current_folder %>
+<% @user ||=current_folder %>
+
+<% content_for :sidemenu do -%>
+  <%= project_render :partial=>'actions'%>
+<% end -%>
+
+<% content_for :center do -%>  
+     <%=project_render :partial=>'show' %>
+<% end %>
+
+<% content_for :status do -%>
+  <%= project_render :partial=>'status'%>
+<% end %>
+
+<% content_for :help do -%>
+  <%= project_render :partial=>'help'%>
+<% end %>
+
+  
+

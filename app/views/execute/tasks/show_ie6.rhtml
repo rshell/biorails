@@ -1,0 +1,107 @@
+
+<% content_for :messages do -%>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
+<%end%>
+
+<% content_for :footer do -%>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+<% end %>
+
+<% content_for :right do %>
+     <%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@task.folder} %>
+<% end %>
+
+<% content_for :center do -%>
+
+  <h1 class='icon icon-task-large' style='text-indent:0.5em'>
+    Task [<strong><%=@task.name%></strong>] in Experiment
+    [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]
+  </h1>
+
+  <div id='tabs1' class='bio-std'>
+    <div id="tab-show" class="tab-content">    
+    </div>
+    <div id="tab-edit" class="tab-content x-hidden">    
+    </div>
+    <div id="tab-import" class="tab-content x-hidden">    
+    </div>
+    <div id="tab-sheet" class="tab-content x-hidden">    
+    </div>
+    <div id="tab-view" class="panel x-hidden">    
+    </div>
+    <div id="tab-report" class="tab-content x-hidden">    
+    </div>
+    <div id="tab-metrics" class="tab-content x-hidden">    
+    </div>
+  </div> 
+<%end%>
+
+<script type="text/javascript"> 
+  
+  Ext.onReady(function(){
+    var tabs = new Ext.TabPanel({
+      renderTo:'tabs1',
+      activeTab: <%=@tab||0%>,
+      width: Biorails.getWidth()-10,
+      defaults: {
+        autoHeight: true,
+        autoScroll: false
+      },
+      items: [{
+        title: 'Overview',
+        contentEl: 'tab-show',
+        listeners:{
+          activate : function(panel){
+            panel.getUpdater().refresh();
+          }
+        },
+        autoLoad: {url:"<%=task_url(:action=>'show',:format=>:ext,:id=>@task)%>",scripts:true}
+      },{
+      title: 'Update',
+      contentEl: 'tab-edit',
+      listeners:{
+        activate : function(panel){
+          panel.getUpdater().refresh();
+        }
+      },
+      autoLoad: {url:"<%=task_url(:action=>'edit',:format=>:ext,:id=>@task)%>",scripts:true}
+        },{
+           title: 'Import',
+           contentEl: 'tab-import',
+           listeners:{
+            activate : function(panel){                
+               panel.getUpdater().refresh();
+             }
+           },
+           autoLoad: {url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true}					
+        },{
+           title: 'Sheet',
+           contentEl: 'tab-sheet',          
+           listeners:{
+              activate : function(panel){
+                window.location = '<%=task_url(:action=>'sheet',:id=>@task)%>'
+              }
+           }
+        },{
+           title: 'View',
+           contentEl: 'tab-view',
+            listeners:{
+              activate : function(panel){
+                panel.getUpdater().refresh();
+              }
+            },
+            autoLoad: {url:"<%=task_url(:action=>'print',:format=>:ext,:id=>@task)%>",scripts:true}
+        },{
+           title: 'Metrics',
+           contentEl: 'tab-metrics',
+           listeners:{
+                  activate : function(panel){
+                    panel.getUpdater().refresh();
+                  }
+                },
+           autoLoad: { url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}
+        }]		  
+  });
+});
+</script>    
+

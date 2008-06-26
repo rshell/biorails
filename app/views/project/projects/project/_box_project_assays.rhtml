@@ -1,0 +1,22 @@
+<h2 class="icon icon-assay-large" style="text-indent:0.5em">
+<%=l('Assay Definitions')%>
+</h2>
+
+<table id="assay_list" class="report">
+  <thead>
+    <tr class='header'>
+      <th><b class='icon icon-assay'>Name</b></th>
+      <th><b class='icon icon-date'>Date</b></th>
+      <th><b class='icon icon-description'>Description</b></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for item in @project.latest(Assay,5) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= link_to item.name, assay_url( :action => 'show', :id => item) %></td>
+      <td><%= short_date(item.updated_at) %></td>
+      <td><%= item.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

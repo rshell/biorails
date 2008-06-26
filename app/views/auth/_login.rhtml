@@ -1,22 +1,21 @@
-
 <center>
 <div class="box login">
 <%= error_messages_for 'user' %>
 
-<% dialog subject_icon('/images/logo/logo_full.png') do %>
-  
+<% dialog subject_icon('logo/logo_full.png') do %>
+  <%= flash[:notice]%>
     <% form_tag :controller=>:auth, :action=>:login do %>
     <div class="row">
-      <!--[form:study]-->
+      <!--[form:assay]-->
       <div class="form-element">
-         <label for="study_name">Login:</label>
+         <label for="assay_name">Login:</label>
         <%= text_field_tag 'login', params[:login], :class => 'big' %>
       </div>
      </div>
 
     <div class="row">
       <div class="form-element">
-       <label for="study_description">Password:</label>
+       <label for="assay_description">Password:</label>
         <%= password_field_tag 'password', {}, :class => 'big' %>
       </div>
     </div>
@@ -28,3 +27,6 @@
   <% end %>
   </div>
   </center>
+<script language="JavaScript">
+javascript:window.history.forward(1);
+</script>

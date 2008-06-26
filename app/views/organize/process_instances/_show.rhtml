@@ -1,0 +1,91 @@
+<table class="report">
+  <tr>
+    <th class='label' >Label  </th><td> <%= @protocol_version.name %></td>
+    <th class='label'> Status </th>
+    <td> <%= @protocol_version.status%> [
+      <% if @protocol_version.released? %> 
+        <%= link_to("Withdraw", process_url(:action =>'withdraw',:id => @protocol_version)) %>
+      <%else%>
+        <%= link_to("Release", process_url(:action =>'release',:id => @protocol_version)) %>
+      <% end%> 
+      ]
+    </td>
+  </tr>
+  <tr>
+    <th class='label'> Summary </th> <td colspan='3'>  <%= @protocol_version.summary %>   </td>
+  </tr>
+  <tr>
+    <th class='label'>Protocol </th> <td>   <%= @assay_protocol.name %>    </td>
+    <th class='label'>Catagory </th> <td>    <%= @assay_protocol.protocol_catagory %> </td>
+  </tr>
+  <tr>
+    <th class='label'> Description</th> <td colspan='3'><%= @assay_protocol.description %> </td>
+  </tr>
+  <tr>
+    <th class='label'> Lit.Ref.</th> <td colspan='3'>  <%= @assay_protocol.literature_ref %>   </td>
+  </tr>
+</table>
+<br/>
+<table class="report">
+  <thead>
+    <tr>
+      <% for role in @protocol_version.allowed_roles %>
+        <th>
+          <b class="icon icon-<%=role.name%>">
+            <%=role.name%>
+          </b>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="params" valign="top">
+      <% for role in @protocol_version.allowed_roles %>
+        <td id="parameter_<%=role.id %>" valign="top">
+          <% @list = @protocol_version.role_parameters(role) %>
+          <% if @list.size==0 %>
+            ...
+          <% else %>
+             <dl> <%=  @list.collect{ |param| "<dt> #{param.name} (#{param.context.label}) </dt>"}.join("\n") %>   </dl>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="report">
+  <thead>
+    <tr>
+      <th><b class="icon icon-label">Label</b> </th>
+      <th><b class="icon icon-protocol-version">Version</b></th>
+      <th>Status</th>
+      <th><b class="icon icon-context">Summary</b></th>
+      <th><b class="icon icon-task">No. Usages</b></th>
+      <th><b class="icon icon-date">Date</b></th>
+      <th><b class="icon icon-user">User</b></th>
+      <th><b class="icon icon-action">Select</b> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for version in @assay_protocol.versions %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <th><%= link_to( version.name ,:action=>'show',:id => version)%></th>
+          <td>  <%=version.version %> </td>
+          <td>      <%=version.status%>     </td>
+          <td> <%= (version == @protocol_version) ? "see above" : version.summary %> </td>
+          <td> <%=version.usages.size %>   [  <%=version.usages[0].name if version.usages[0]%> ]     </td>
+          <td> <%=short_date(version.updated_at) %>   </td>
+          <td> <%=version.updated_by %>   </td>
+          <td> <%= (version == @protocol_version) ? "<b>current</b>" : link_to('show' ,:action=>'show',:id => version) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr/>
+  <%= link_to "<b class='icon icon-del'>Purge</b>",    process_url(:action =>'purge',:id => @protocol_version) %>
+  <%= link_to "<b class='icon icon-add'>New version</b>", process_url(:action =>'copy',:id => @protocol_version) %>
+      
+  

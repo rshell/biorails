@@ -1,17 +1,17 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial=>'actions'%>
+  <%= render :partial=>@project.partial_template('actions')%>
 <% end -%>
 
-<% content_for :center do -%>
-     <%=render :partial =>'show' %>
+<% content_for :center do -%>  
+     <%=render :partial=>@project.partial_template('show') %>
 <% end %>
 
 <% content_for :status do -%>
-  <%= render :partial=>'status'%>
+  <%= render :partial=>@project.partial_template('status')%>
 <% end %>
 
 <% content_for :help do -%>
-  <%= render :partial=>'help'%>
+  <%= render :partial=>@project.partial_template('help')%>
 <% end %>
 
   

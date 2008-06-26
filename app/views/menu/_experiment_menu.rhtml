@@ -1,20 +1,24 @@
 <% unless experiment.nil? %>
-    <div>
-      <span class='menu'><b><%=experiment.name%></b></span>
-      <%unless experiment.new_record? %>
-       <p class="icon icon-experiment"><%= link_to 'Overview', experiment_url( :action => 'show', :id => experiment) %></p>
-       <p class="icon icon-folder"><%= link_to 'Folder',   folder_url(:action => 'show', :id => experiment.folder  )%></p>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-experiment'>
+        <%=experiment.name%>
+      </b>
+    </span>
+    <%unless experiment.new_record? %>
+      <div class='boldnotbold'>
+        <%= link_to( "<b class='icon icon-experiment'>Overview</b>",
+        experiment_url( :action => 'show', :id => experiment)) if current_project.allows?(:show,:experiments) %>
 
-       <p class="icon icon-calendar"><%= link_to 'Calendar', experiment_url( :action => 'calendar', :id => experiment) %></p>
-       <!--%= link_to 'Timeline', experiment_url( :action => 'timeline', :id => experiment) %-->
-       <p class="icon icon-edit"><%= link_to 'Edit',     experiment_url( :action => 'edit', :id => experiment) %></p>
-       <p class="icon icon-del"><%= link_to 'Delete ',  experiment_url( :action => 'destroy', :id => experiment ), 
-                    :confirm => 'Are you sure?',:method => "post" if experiment.tasks.size==0%></p>
-       <p class="icon icon-experiment-copy"><%= link_to 'Copy Experiment', experiment_url( :action => 'copy' , :id => experiment) %></p>
-       <p class="icon icon-task-add"><%= link_to 'Add Task', task_url( :action => 'new' , :id => experiment) %></p>
-       <p class="icon icon-file-add"><%= link_to 'Add File', asset_url( :action => 'new' , :id => experiment.folder  ) %></p>
-       <p class="icon icon-article-add"><%= link_to 'Add Article', content_url( :action => 'new' , :id => experiment.folder  ) %></p>
-       <%end %>
-    </div>
+        <%= link_to "<b class='icon icon-folder'>Folder</b>",
+        folder_url(:action => 'show', :id => experiment.folder  )%>
+
+        <%= link_to("<b class='icon icon-experiment-add'>Copy Experiment</b>",
+        experiment_url( :action => 'copy' , :id => experiment)) if current_project.allows?(:copy,:experiments) %>
+
+        <%= link_to( "<b class='icon icon-del'>Delete</b>",  experiment_url( :action => 'destroy', :id => experiment ),
+        :confirm => 'Are you sure?',:method => "post") if experiment.tasks.size==0 and current_project.allows?(:show,:experiments) %>
+      </div>
+  <%end %>
+  </div>
 <%end%>
-

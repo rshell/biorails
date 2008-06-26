@@ -66,24 +66,45 @@ class BiorailsApi < ActionWebService::API::Base
     api_method  :project_element_list,
                 :expects => [ {:session_id => :string},{:project_id => :int} ],
                 :returns => [[Element]]
- 
+
+    api_method  :folder_element_list,
+                :expects => [ {:session_id => :string},{:folder_id => :int} ],
+                :returns => [[Element]]
+  
     api_method  :project_folder_list,
                 :expects => [ {:session_id => :string},{:project_id => :int} ],
-                :returns => [[Element]]
- 
+                :returns => [[Element]] 
 
     api_method  :experiment_list,
-                :expects => [ {:session_id => :string},{:study_id => :int} ],
+                :expects => [ {:session_id => :string},{:assay_id => :int} ],
                 :returns => [[Experiment]]
  
-    api_method  :study_protocol_list,
-                :expects => [ {:session_id => :string},{:study_id => :int}],
-                :returns => [[StudyProtocol]]
+    api_method  :assay_protocol_list,
+                :expects => [ {:session_id => :string},{:assay_id => :int}],
+                :returns => [[AssayProtocol]]
+
+    api_method  :assay_workflow_list,
+                :expects => [ {:session_id => :string},{:assay_id => :int}],
+                :returns => [[AssayWorkflow]]
 
     api_method  :protocol_version_list,
-                :expects => [ {:session_id => :string},{:study_protocol_id => :int} ],
+                :expects => [ {:session_id => :string},{:assay_protocol_id => :int} ],
                 :returns => [[ProtocolVersion]]
 
+    api_method  :process_instance_list,
+                :expects => [ {:session_id => :string},{:project_id => :int} ],
+                :returns => [[ProcessInstance]]
+                
+    api_method  :process_flow_list,
+                :expects => [ {:session_id => :string},{:project_id => :int} ],
+                :returns => [[ProcessFlow]]
+                
+
+  api_method  :process_step_list,
+                :expects => [ {:session_id => :string},{:protocol_version_id => :int} ],
+                :returns => [[ProcessStep]]
+
+  
     api_method  :parameter_context_list,
                 :expects => [ {:session_id => :string},{:protocol_version_id => :int} ],
                 :returns => [[ParameterContext]]
@@ -92,9 +113,9 @@ class BiorailsApi < ActionWebService::API::Base
                 :expects => [ {:session_id => :string},{:protocol_version_id => :int},{:parameter_context_id => :int} ],
                 :returns => [[Parameter]]
  
-    api_method  :study_list,
+    api_method  :assay_list,
                 :expects => [ {:session_id => :string},{:project_id => :int} ],
-                :returns => [[Study]]
+                :returns => [[Assay]]
     
     api_method  :task_list,
                 :expects => [ {:session_id => :string},{:experiment_id => :int} ],
@@ -105,15 +126,20 @@ class BiorailsApi < ActionWebService::API::Base
                 :returns => [[Task]]
 
     api_method  :task_context_list,
-                :expects => [ {:session_id => :string},{:task_id => :int}],
+                :expects => [ {:session_id => :string},{:task_id => :int} ],
                 :returns => [[TaskContext]]
 
     api_method  :task_value_list,
-                :expects => [ {:session_id => :string},{:task_id => :int}],
+                :expects => [ {:session_id => :string},{:task_id => :int} ],
                 :returns => [[TaskItem]]
 
+    api_method  :task_value_list_by_context,
+                :expects => [ {:session_id => :string},{:task_id => :int},{:parameter_context_id => :int} ],
+                :returns => [[TaskItem]]
+
+
     api_method :task_export,
-               :expects => [ {:session_id => :string},{:task_id => :int}],
+               :expects => [ {:session_id => :string},{:task_id => :int} ],
                :returns => [:string]
 
     api_method :task_import,
@@ -124,17 +150,21 @@ class BiorailsApi < ActionWebService::API::Base
                :expects => [ {:session_id => :string},{:project_id => :int} ],
                :returns =>  [Project]
     
-    api_method :get_study,
-               :expects => [ {:session_id => :string},{:study_id => :int} ],
-               :returns =>  [Study]
+    api_method :get_assay,
+               :expects => [ {:session_id => :string},{:assay_id => :int} ],
+               :returns =>  [Assay]
 
-   api_method :get_study_xml,
-               :expects => [ {:session_id => :string},{:study_id => :int} ],
+   api_method :get_assay_xml,
+               :expects => [ {:session_id => :string},{:assay_id => :int} ],
                :returns =>  [:string]
 
-    api_method :get_study_protocol,
-               :expects => [ {:session_id => :string},{:study_protocol_id => :int} ],
-               :returns =>  [StudyProtocol]
+    api_method :get_assay_protocol,
+               :expects => [ {:session_id => :string},{:assay_protocol_id => :int} ],
+               :returns =>  [AssayProtocol]
+
+    api_method :get_assay_workflow,
+               :expects => [ {:session_id => :string},{:assay_protocol_id => :int} ],
+               :returns =>  [AssayWorkflow]
 
     api_method :get_protocol_version,
                :expects => [ {:session_id => :string},{:protocol_version_id => :int} ],
@@ -165,21 +195,36 @@ class BiorailsApi < ActionWebService::API::Base
                :returns =>  [Content]
 
    api_method :get_report,
-               :expects => [ {:session_id => :string},{:report_id => :int} ],
+               :expects => [ {:session_id => :string},{:report_id => :int},{:page => :int} ],
                :returns =>  [:string]
+
+   api_method :get_report,
+               :expects => [ {:session_id => :string},{:report_id => :int},{:page => :int} ],
+               :returns =>  [:string]
+
+
+  api_method :next_identifier,
+             :expects => [ {:session_id => :string},{:name => :string}],
+             :returns => [:string]
 
   api_method :add_experiment,
              :expects => [ {:session_id => :string},{:project_id => :int},{:protocol_version_id => :int},{:name => :string},{:description => :string} ],
              :returns => [Experiment]
 
+  api_method :set_task_value,
+               :expects => [ {:session_id => :int},{:task_context_id => :int},{:parameter_id => :int},{:data => :string} ],
+               :returns => [TaskItem]
+
   api_method :add_task,
                :expects => [ {:session_id => :string},{:experiment_id => :int},{:protocol_version_id => :int},{:task_name => :string} ],
                :returns => [Task]
-    
+ 
   api_method :add_task_context,
-               :expects => [ {:session_id => :string},{:task_id => :int},{:parameter_context_id => :int},{:values => [:string]} ],
+               :expects => [ {:session_id => :int},{:task_id => :int},{:parameter_context_id => :int} ],
                :returns => [TaskContext]
 
+
+ 
   api_method :set_asset,
                :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],
                :returns =>  [Asset]

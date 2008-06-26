@@ -1,17 +1,22 @@
-<% form_remote_tag :url => report_url( :action => 'refresh',:id =>report.id, :page => nil ) do %>
-  <table id='<%=report.dom_id%>' class="report" 
-       url="<%=report_url( :action => 'refresh',:id =>report.id)%>" 
-	   width='100%'>
+<% form_remote_tag :url => report_url( :action => 'show',:id =>report.id, :page => 1 ) do %>
 
-  <thead id='<%=report.dom_id("header")%>'>
-    <%= render :partial => 'shared/report_header', :locals => {:report => report, :data =>data } %> 
-  </thead>  
+    <table id='<%=report.dom_id%>' class="report"
+      url="<%=report_url( :action => 'refresh',:id =>report.id)%>"
+      width='100%'>
+    <thead id='<%=report.dom_id("header")%>'>
+      <%= render :partial =>'shared/report_header',   :locals => {:report => report, :data =>data } %>
+    </thead>
 
-  <tbody id='<%=report.dom_id("body")%>'>  
-    <%= render :partial => 'shared/report_body', :locals => {:report => report,:data =>data } %> 
-  </tbody>
-</table>
-<% end %>  
- 
-
-  
+    <tbody id='<%=report.dom_id("body")%>'>
+      <%= render :partial =>'shared/report_body',:locals => {:report => report,:data =>data } %>
+    </tbody>
+  </table>
+<br />
+<%= will_paginate(data, :renderer => 'WillPaginate::RemoteLinkRenderer') %>
+    
+<% end %>
+<hr />
+<%= link_to "<b class='icon icon-print'>Print</b>",       report_url(:action => 'print', :id => @report) %>
+<%= link_to "<b class='icon icon-pdf'>Export As PDF</b>", report_url(:action => 'print',:format=>:pdf, :id => @report) %>
+<%= link_to "<b class='icon icon-xls'>Export as XLS</b>", report_url(:action => 'export', :id => @report)  %>
+<br />

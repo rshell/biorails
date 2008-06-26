@@ -1,0 +1,51 @@
+
+<!--[form:assay_queue]-->
+<div class="row">
+  <div class="form-element">
+    <label for="assay_queue_name" class='icon icon-name'>
+      Name
+    </label>
+    <%= text_field 'assay_queue', 'name' , {:size => 40,:class=>"text-input"} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="assay_queue_description" class='icon icon-description'>
+      Description:
+    </label>
+    <%= text_area('assay_queue', 'description',{:rows=>5, :cols=>80} ) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="assay_parameter_id" class='icon icon-parameter'>
+      Accepts Items of Type :
+    </label>
+    <%= collection_select(:assay_queue, :assay_parameter_id,
+        @assay.parameters_for_data_type(5), :id, :name) %>
+  </div>
+
+  <div class="form-element">
+    <label for="assay_queue_assigned_to" class='icon icon-user_lab'>
+      Assigned to:
+    </label>
+    <%= select_named 'assay_queue', 'assigned_to_user_id', User  %>
+  </div>
+
+  <div class="form-element">
+    <label for="assay_protocol_stage_id" class='icon icon-assay_stage'>
+      Stage:
+    </label>
+    <%= collection_select('assay_queue', 'assay_stage_id', @assay.stages, :id, :name) %>
+  </div>
+</div>
+<br />
+ <div class="row">
+  <div class="form-element">
+      <%= submit_tag "Save" %>
+  </div>
+ </div>
+<br />
+<!--[eoform:assay_queue]-->

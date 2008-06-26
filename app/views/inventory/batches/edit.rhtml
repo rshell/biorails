@@ -1,29 +1,42 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('batches')%> Editing Batch [<strong><%=@batch.name %></strong>]
-        <div class="actions">
-            <ul>
-              <li><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => @batch %></li>
-              <li><%= link_to (subject_icon('list.png')) + 'List', :action => 'list' %></li>
-            </ul>
-        </div>
+<% content_for :sidemenu do -%>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-action'>
+        Actions
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-show'>Show</b>",
+        :action => 'show', :id => @batch %>
+      <%= link_to "<b class='icon icon-list'>List</b>",
+        :action => 'list' %>
     </div>
-    
-    <div class='panel'>
-    <fieldset class='dialog'>
+  </div>
 
-        <div>
-            <%= error_messages_for 'batch' %>
-        </div>
-        
-        <div class='dialog'>
-            <% form_tag :action => 'update', :id => @batch do %>
-              <%= render :partial => 'form' %>
-            <div class='row'>
-              <%= submit_tag 'Edit' %>
-              </div>
-            <% end %>
-        </div>
-    </fieldset>
+<% end %>
+
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['batch' ]} %>
+<%end%>
+
+<% content_for :center do -%>
+
+  <% dialog "Edit Batch" do %>
+    <% form_tag :action => 'update', :id => @batch do %>
+    <%= render :partial => 'form' %>
+    <div class='row'>
+      <%= submit_tag 'Save' %>
     </div>
-</div>
+    <% end %>
+  <% end %>
+
+<%end%>
+
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :footer do -%>
+   <%= render :partial => 'shared/audit',:locals =>{ :item => @batch} %>
+<% end %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" debug="true">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>BioRails (Rev. <%=Biorails::Version::STRING%>) </title>
+    <link rel="biorails icon" href="/images/logo/favicon.ico" />
+    
+    <%= stylesheet_link_merged :base %>
+    <%= stylesheet_link_tag "xtheme-#{SystemSetting.theme}.css" %>  
+    <%= javascript_include_merged :base %>
+    
+    <!-- Executed in header before other js includes so Biorails initialized for use in other scripts!-->
+    <%= yield :header_script %>	
+  </head>
+  <body>
+    
+    <!--center Block =======================-->   
+    <div id="center-panel">
+      
+      <div id="messages" class='panel'>
+        <% if @content_for_messages %>
+          <div class='box'>
+           <%=yield :messages %>
+           </div>
+        <%  end %> 
+      </div>
+      
+      <div id='status' class='bio-std'>
+        <%= yield :status %>
+      </div>
+
+      <div id='center' class='bio-std'>
+        <%= yield :center %>
+        <%= yield %>
+      </div>
+    </div>
+    
+
+    
+  </body>
+  
+</html>
+

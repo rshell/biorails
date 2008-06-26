@@ -3,25 +3,11 @@
 
 <div class="row">
  <div class="form-element">
-  <label for="system_setting_name">Setting name</label>
-     <%= text_field 'system_setting', 'name'  %>
+  <label for="system_settings_value"><%=h system_setting.name%></label>
+     <%= text_field 'system_setting', 'value',:cols=>80  %>
   </div>
 </div>
 
-<div class="row">
- <div class="form-element">
-   <label for="system_setting_description">Setting description</label>
-    <%= text_area 'system_setting', 'description' , {:cols=>80, :rows=>5} %>
-  </div>
 </div>
-
-<div class="row">
- <div class="form-element">
-   <label for="system_setting_value">Value</label>
-     <%= text_field 'system_setting', 'text'  %>
-  </div>
-</div>
-
-
 <!--[eoform:system_settings]-->
 

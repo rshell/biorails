@@ -1,0 +1,14 @@
+<div id="project_type-grid"></div>
+
+<%= ext_datastore_for :project_type %>
+
+<% javascript_tag do -%>
+  var project_type_column_model = new Ext.grid.ColumnModel([
+    {id: 'id', header: "#", width: 20, dataIndex: 'id'},
+    {id: 'name', header: "name", width: 20, dataIndex: 'name'},
+    {id: 'description', header: "description", width: 40, dataIndex: 'description'},
+
+  ]);
+<% end -%>
+
+<%= ext_grid_for :project_type, :element => 'project_type-grid' %>

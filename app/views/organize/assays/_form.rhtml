@@ -1,0 +1,52 @@
+<div class="row">
+    <!--[form:assay]-->
+    <div class="form-element">
+       <label for="assay_name" class='icon icon-name'>
+         Name
+       </label>
+       <%= text_field 'assay', 'name' , {:class=>"text-input"} %>
+    </div>
+   </div>
+
+  <div class="row">
+   <div class="form-element">
+     <label for="assay_description" class='icon icon-description'>
+       Description
+     </label>
+     <%= text_area('assay', 'description', {:rows=>5,:cols=>80})  %>
+  </div>
+  </div>
+
+  <div class="row">
+   <div class="form-element">
+     <label for="assay_research_area" class='icon icon-research_area'>
+       Research area
+     </label>
+     <%= select_data_value 'assay', 'research_area' ,'ResearchArea' %>
+   </div>
+  </div>
+
+
+<div class="row">
+     <div class="form-element">
+        <label for="assay_started_at" class='icon icon-date'>
+          Start date
+        </label>
+        <%= date_field 'assay', 'started_at'  %>
+     </div>
+
+     <div class="form-element">
+        <label for="assay_expected_at"  class='icon icon-date'>
+          Expected End date
+        </label>
+        <%= date_field 'assay', 'expected_at'  %>
+     </div>
+
+     <div class="form-element">
+        <label for="assay_status_id"  class='icon icon-status'>
+          Status
+        </label>
+        <%= select( :assay, :status_id, @assay.allowed_status_list)  %>
+
+     </div>
+  </div>

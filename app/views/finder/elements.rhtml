@@ -1,10 +1,10 @@
-<% if @hits 
+<% if @hits
    fold = nil
-   for item in @hits 
-	 if item.parent != fold 
-	    fold = item.parent 
+   for item in @hits
+	 if item.parent != fold
+	    fold = item.parent
 	    if item.project_id != current_project.id %>
-	       <%=image_tag('action/lookup.png')%>
+                <b class="icon icon-data_type_dictionary">&nbsp;</b>
 	    <%end %>
 	        <u><b><%=item.parent.path%></b></u>
 	        <br/>
@@ -12,18 +12,18 @@
 	   <span id='<%=item.dom_id%>' class='project_element'>
 	    	    <%=image_tag(item.icon( {:images=>true} ) ) %>
 	            <%if item.project_id == current_project.id %>
-	    	    <%= link_to_remote item.name, :url=>element_to_url(item) %> 
+	    	    <%= link_to_remote item.name, :url=>element_to_url(item) %>
 	    	    <%else%>
 	    	    <%= item.name%>
-	    	    <%end%>           
+	    	    <%end%>
 	    </span>
-	    <%=link_to_remote subject_icon("add.gif"),
+            <%=link_to_remote <b class="icon icon-new">&nbsp;</b>,
 	        :url => folder_url(:action=>'add_element',
-            :id=>@project_folder,:element=>item.id )
-	     %>             
-	
+                :id=>@project_folder,:element=>item.id )
+	     %>
+
 	    <br/>
 	   <%= draggable_element(item.dom_id ,:scroll=> true,:ghosting => true, :revert=> true) %>
-	   
+
 	<% end %>
  <% end %>

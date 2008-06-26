@@ -6,27 +6,31 @@
 <%= hidden_field :data_element, :data_concept_id  %>
 
 <div class="row">
-          <label for="data_element_data_system_id">System</label>
-          <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
+  <label for="data_element_data_system_id">System</label>
+  <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
 
-          <label for="data_element_name">Name</label>
-          <%= text_field 'data_element', 'name'  %>
+    <label for="data_element_name" class='icon icon-description'>
+      Name
+    </label>
+  <%= text_field 'data_element', 'name'  %>
 
-          <label for="data_element_estimated_count">Estimated No. Values</label>
-          <%= text_field(:data_element, :estimated_count) %>
+  <label for="data_element_estimated_count">Estimated No. Values</label>
+  <%= text_field(:data_element, :estimated_count) %>
 </div>
 
 <div class="row">
-      <label for="data_element_description">Description</label>
-      <%= text_area( 'data_element', 'description'  	)%>
+  <label for="data_element_description" class='icon icon-description'>
+    Description
+  </label>
+  <%= text_area( 'data_element', 'description'  	)%>
 </div>
 
 <%if  @data_element.new_record? %>
 <div class="row">
-    <div class="form-element">
-      <label for="data_element_style">Style</label>
-      <%= select(:data_element, :style, @data_element.allowed_styles {|p| p})%>
-    </div>
+  <div class="form-element">
+    <label for="data_element_style">Style</label>
+    <%= select(:data_element, :style, @data_element.allowed_styles {|p| p})%>
+  </div>
 </div>
 <% end %>
 

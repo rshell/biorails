@@ -1,0 +1,43 @@
+<% dialog "New Parameter" do %>
+  <% form_tag :action => 'create', :id => @assay.id do %>
+
+    <!--[form:assay_parameter]-->
+    <% hidden_field :assay_parameters, :assay_id %>
+
+    <div class="row" id='form_parameter_type'>
+      <div class="form-element">
+        <label for="assay_parameter_type" class='icon icon-parameter_type'> Parameter Type:</label>
+        <%= select_named(:assay_parameter, :parameter_type_id, ParameterType) %>
+        <%= observe_field 'assay_parameter_parameter_type_id', 
+          :url => assay_parameter_url(:action=>'refresh', :id =>@assay.id),:with =>'parameter_type_id' %>
+      </div>
+    </div>
+
+    <div class="row" id='form_alias'>
+      <%= render(:partial => 'form_alias') if @parameter_type %>
+    </div>
+
+    <div class="row" id='form_description'>
+      <%= render(:partial => 'form_description') if @parameter_type  %>
+    </div>
+
+    <div class="row" id='form_config'>
+      <%= render( :partial => 'form_config') if @parameter_type %>
+    </div>
+
+    <div class="row" id='form_rules'>
+      <%= render( :partial => 'form_rules') if @parameter_type %>
+    </div>
+
+    <div class="row" id='form_buttons'>
+      <%= render( :partial => 'form_buttons') if @parameter_type %>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+  <% end %>
+<% end %>
+
+<!--[eoform:assay_parameter]-->

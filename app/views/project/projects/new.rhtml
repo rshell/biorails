@@ -3,15 +3,17 @@
 <% end -%>
 
 <% content_for :center do -%>
+  <%dialog "New Project"  do %>
+    <p>
+      Create a new project for organization and
+      execution of a block of work
+    </p>
 
-<%dialog '<h2 class="icon icon-project-large" style="text-indent:0.5em">New Project</h2>'do %>
-  <p>Create a new project for organization and execution of a block of work</p>
-
-  <% form_tag :action => 'create' do %>
-    <%= render :partial => 'form' %>
-    <div class="row">
+    <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <div class="row">
         <%= submit_tag "Save" %>
-    </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>

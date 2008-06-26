@@ -24,10 +24,6 @@ class Admin::ParameterRolesController < ApplicationController
     render :action => 'list'
   end
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
   def list
      @parameter_roles = ParameterRole.paginate(:page => params[:page])
   end
@@ -41,7 +37,7 @@ class Admin::ParameterRolesController < ApplicationController
   end
 
   def create
-    @parameter_role = ParameterRole.new(params[:parameter_roles])
+    @parameter_role = ParameterRole.new(params[:parameter_role])
     if @parameter_role.save
       flash[:notice] = 'ParameterRole was successfully created.'
       redirect_to :action => 'list'
@@ -56,7 +52,7 @@ class Admin::ParameterRolesController < ApplicationController
 
   def update
     @parameter_role = ParameterRole.find(params[:id])
-    if @parameter_role.update_attributes(params[:parameter_roles])
+    if @parameter_role.update_attributes(params[:parameter_role])
       flash[:notice] = 'ParameterRole was successfully updated.'
       redirect_to :action => 'show', :id => @parameter_role
     else

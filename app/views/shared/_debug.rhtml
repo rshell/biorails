@@ -16,7 +16,7 @@ margin: 0;
 </style>
 <div id="debug-container">
 <% if params[:debug] == "true" %>
-  <p><strong><%= link_to (subject_icon('bugon')) + " Debug ON", :debug => false %></strong></p>
+  <p><strong><%= link_to "<b class='icon icon-bug'></b>Debug ON", :debug => false %></strong></p>
 	<div id='debug'></div>
 	<script type="text/javascript">
 	 Ajax.Responders.register({

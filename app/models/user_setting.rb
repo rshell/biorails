@@ -1,16 +1,17 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: user_settings
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(30)    default(), not null
-#  description        :string(255)   default(), not null
 #  value              :string(255)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
+#  user_id            :integer(11)   
+#  tip                :string(255)   
 #
 
 ## 

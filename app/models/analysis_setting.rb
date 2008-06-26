@@ -1,13 +1,13 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: analysis_settings
 #
 #  id                 :integer(11)   not null, primary key
 #  analysis_method_id :integer(11)   
 #  name               :string(62)    
-#  script_body        :text          
-#  options            :text          
+#  script_body        :string(2048)  
+#  options            :string(2048)  
 #  parameter_id       :integer(11)   
 #  data_type_id       :integer(11)   
 #  level_no           :integer(11)   
@@ -53,9 +53,9 @@ class AnalysisSetting < ActiveRecord::Base
   
   def io_style
    case io_mode
-   when 1 : '[in]'
-   when 2 : '[out]'
-   when 3 : '[in/out]'
+   when 1 then '[in]'
+   when 2 then '[out]'
+   when 3 then '[in/out]'
    else 
      '[script]'
    end
@@ -72,17 +72,8 @@ class AnalysisSetting < ActiveRecord::Base
     when 1
       'Array '+ io_style
     else
-      'Manual'+ io_style
+      'Manual '+ io_style
     end
   end
   
-  def update(params={})
-    params.stringify_keys!
-    for item in params.keys
-       logger.info " #{item}=  #{params[item]} "       
-       send(item.to_s + '=', params[item] ) 
-    end
-    self.column_no = self.parameter.column_no if self.parameter
-   logger.info "column =  #{column_no} "           
-  end
 end

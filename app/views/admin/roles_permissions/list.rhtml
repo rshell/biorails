@@ -1,4 +1,4 @@
-<h2>Listing roles_permissions</h2>
+<h1 class="icon icon-perimission">Listing roles_permissions</h1>
 
 <table>
   <tr>
@@ -6,20 +6,32 @@
     <th><%= column.human_name %></th>
   <% end %>
   </tr>
-  
+
 <% for roles_permission in @roles_permissions %>
   <tr>
   <% for column in RolesPermission.content_columns %>
     <td><%=h roles_permission.send(column.name) %></td>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => roles_permission %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => roles_permission %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => roles_permission }, :confirm => 'Are you sure?' %></td>
+    <td>
+      <b class='icon icon-show'>
+        <%= link_to "Show", :action => 'show', :id => roles_permission %>
+      </b>
+    </td>
+    <td>
+      <b class='icon icon-edit'>
+        <%= link_to "Edit", :action => 'edit', :id => roles_permission %>
+      </b>
+    </td>
+    <td>
+      <b class='icon icon-del'>
+        <%= link_to "Destroy", { :action => 'destroy', :id => roles_permission }, :confirm => 'Are you sure?' %>
+      </b>
+    </td>
   </tr>
 <% end %>
 </table>
-<%= will_paginate  @roles_permissions%>    
+<%= will_paginate  @roles_permissions%>
 
 <br />
 
-<%= link_to 'New roles_permission', :action => 'new' %>
+<%= link_to "<b class='icon icon-new'>New Role Permission</b>", :action => 'new' %>

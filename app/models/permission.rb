@@ -1,10 +1,10 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: permissions
 #
 #  id      :integer(11)   not null, primary key
-#  checked :boolean(1)    not null
+#  checked :boolean(1)    
 #  subject :string(255)   default(), not null
 #  action  :string(255)   default(), not null
 #
@@ -100,7 +100,7 @@ class Permission < ActiveRecord::Base
      for subject in Permission.possible_subjects.keys
        for action in Permission.possible_actions(subject)
          unless Permission.location(subject,action)
-           permission = Permission.new(:subject=>subject,:action=>action)
+           permission = Permission.new(:subject=>subject.to_s,:action=>action.to_s)
            permission.checked =  true
            permission.save
          end

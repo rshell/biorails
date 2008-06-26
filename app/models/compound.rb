@@ -42,9 +42,6 @@ class Compound < ActiveRecord::Base
   
   validates_uniqueness_of :name
   validates_presence_of :name
-  validates_presence_of :description
-  validates_presence_of :registration_date
-
  #
   # Convert to jpg with 
   #     filename = id.png

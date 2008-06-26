@@ -1,0 +1,19 @@
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
+<%end %>
+
+<% content_for :center do -%>
+
+<%dialog "New Assay" do %>
+    <% form_tag :action => 'create' do %>
+    <%= render :partial => 'form' %>
+    <div class="row">
+        <%= submit_tag "Save" %>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>

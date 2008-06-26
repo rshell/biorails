@@ -1,16 +1,17 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 class Project::ContentController < ApplicationController
 
-  use_authorization :folders,
+  use_authorization :project,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
 
   def index
     show
   end
-
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
 
 ## 
 # Display a article
@@ -20,12 +21,9 @@ class Project::ContentController < ApplicationController
     @project_folder  = @project_element.parent    
     respond_to do |format|
       format.html { render :action=>'show'}
+      format.ext { render :action=>'show',:layout=>false}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
-      format.js  { render :update do | page |
-           page.hide_folder
-           page.status_panel :partial=> 'messages'
-           page.main_panel   :partial=> 'show'
-         end
+      format.js  {  render :action=>'show', :layout=>false
       }
     end  
   end
@@ -40,8 +38,8 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'diff'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { render :update do | page |
-           page.status_panel :partial=> 'messages'
            page.replace_html 'diff',  :partial=> 'diff'
+           page.status_panel :partial=> 'messages'
          end
       }
     end      
@@ -57,7 +55,6 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'new'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
       format.js  { render :update do | page |
-           page.hide_folder
            page.status_panel :partial=> 'messages'
            page.main_panel  :partial=> 'new'
          end
@@ -71,11 +68,10 @@ class Project::ContentController < ApplicationController
     load_folder
     ProjectElement.transaction do
       @project_element = @project_folder.add_content(params[:project_element][:name],params[:project_element][:title],
-                                                     params[:project_element][:to_html])   
-      logger.debug @project_element.to_yaml
+                                                     params[:project_element][:body_html])   
       @project_element.valid?
       unless @project_element.save
-           flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
+          # flash[:error] = "Validation failed  #{@project_element.content.errors.full_messages.to_sentence} #{@project_element.errors.full_messages.to_sentence}"
            respond_to do |format|
             format.html { render :action=>'new'}
             format.xml  { render :xml => @project_element.to_xml(:include=>[:project])}
@@ -108,7 +104,6 @@ class Project::ContentController < ApplicationController
       format.html { render :action=>'edit'}
       format.xml  { render :xml => @project_element.to_xml(:include=>[:content])}
       format.js  { render :update do | page |
-           page.hide_folder
            page.status_panel :partial=> 'messages'
            page.main_panel   :partial=> 'edit'
          end
@@ -120,13 +115,13 @@ class Project::ContentController < ApplicationController
 # Save a article
 # 
   def update
-   @project_element = current_user.element(params[:id], :include=>[ :parent, :content])
+   @project_element = ProjectElement.find(params[:project_element][:id]) #current_user.element(params[:id], :include=>[ :parent, :content])
    ProjectElement.transaction do
      @project_folder  = @project_element.parent    
-     @project_element.update_element(params[:project_element])
+     @project_element.update_content(params[:project_element])
      unless @project_element.save
         logger.error " Errors #{@project_element.errors.full_messages.to_sentence}"
-        flash[:error] = "failed to save content"
+        flash[:error] = "Failed to save content <br/> #{@project_element.errors.full_messages.to_sentence}"
      end
    end
    respond_to do |format|

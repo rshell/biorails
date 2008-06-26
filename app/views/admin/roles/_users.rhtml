@@ -1,17 +1,21 @@
-<h2> User with Roles </h2>
+<h1 class='icon icon-role'> User with Roles </h1>
 
-<table class="report">
+<table class="report" style=width:50%>
 <thead>
 <tr>
-   <th>User</th>
-   <th>Created</th>
-   <th>Updated</th>
+   <th><b class='icon icon-user'>User</b></th>
+   <th><b class='icon icon-date'>Created</b></th>
+   <th><b class='icon icon-date'>Updated</b></th>
 </tr>
 </thead>
 <tbody>
 <% for user in @role.users do %>
-    <tr>
-        <td><%= link_to user.name, user_url(:action=>'show',:id=>user.id) %></td>
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+        <td>
+          <b class='icon icon-show'>
+            <%= link_to user.name, user_url(:action=>'show',:id=>user.id) %>
+          </b>
+        </td>
         <td><%= short_date user.created_at %></td>
         <td><%= short_date user.updated_at %></td>
     </tr>

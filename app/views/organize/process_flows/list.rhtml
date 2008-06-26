@@ -1,0 +1,32 @@
+<% content_for :sidemenu do -%>
+    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+    <%= render(:partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay}) if @assay %>
+<% end %>
+
+<% content_for :center do%>
+  <h1 class='icon icon-protocol-large' style='text-indent:0.5em'>
+    Protocols In <%= @assay ? @assay.name : current_project.name %>
+  </h1>
+    <%= render :partial =>'list' %>
+  <hr/>
+<%end %>
+
+<% content_for :right do%>
+  <div class=" x-panel-header x-accordion-hd"  >
+    <span class="icon icon-protocol x-panel-header-text" >
+     Protocol Guidance
+       </span>
+  </div>
+  <div class="panel">
+  <p>
+    This form shows all the protocols in the current project.
+    Protocols manage the complex rules for data entry.
+  </p>
+  <p>
+    Protocols can be created manually or imported from a file or from other assays.
+    All changes to protocols are versioned and un-used versions of a
+    protocol are available for editing.
+    There is a single <strong>released</strong> version for the assay.
+  </p>
+  </div>
+<%end%>

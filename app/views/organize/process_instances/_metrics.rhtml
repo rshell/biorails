@@ -1,0 +1,72 @@
+<div class='panel'>
+  <table class="report">
+    <tr>
+      <th class="label">
+        <b class='icon icon-name'>
+          Name
+        </b>
+      </th>
+      <td colspan='3'>
+        <%= @assay_protocol.name %>
+      </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-description'>
+          Description
+        </b>
+      </th>
+      <td colspan='3'>
+        <%= @assay_protocol.description %>
+      </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-litref'>
+          Lit.Ref.
+        </b>
+      </th>
+      <td colspan='3'>
+        <%= @assay_protocol.literature_ref %>
+      </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-category'>
+          Category
+        </b>
+      </th>
+      <td>
+        <%= @assay_protocol.protocol_catagory %>
+      </td>
+      <th class="label">
+        <b class='icon icon-status'>
+          Status
+        </b>
+      </th>
+      <td>
+        <%= @assay_protocol.protocol_status %>
+        </td>
+    </tr>
+    <tr>
+      <th class="label">
+        <b class='icon icon-label'>
+          Label
+        </b>
+      </th>
+      <td>
+        <%= @protocol_version.name %>
+        <%=" [released]" if @protocol_version == @assay_protocol.process%>
+      </td>
+      <th class="label">
+        <b class='icon icon-protocol_version'>
+          Version
+        </b>
+      </th>
+      <td>
+        <%= @protocol_version.version %>
+      </td>
+    </tr>
+  </table>
+  <%= render :partial => 'stats' %>
+</div>

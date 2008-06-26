@@ -8,17 +8,13 @@
 <%end%>
 
 <% content_for :center do %>
-  <%dialog 'Editing parameter Type' do %>    
-
+  <%dialog "Editing parameter Type" do %>
 	<% validated_form_tag :action => 'update', :id => @parameter_type do %>
 	  <%= render :partial => 'form' %>
-	  <%= submit_tag 'Edit' %>
+	  <%= submit_tag 'Save' %>
 	<% end %>
+  <% end %>
 <% end %>
-
-<% end %>
-
-
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

@@ -1,0 +1,13 @@
+<%if @assay.has_parameter_of_data_type? 5 %> 
+
+  <% dialog "New Service Queue in [#{@assay.name}]" do %>
+    <% form_tag :action => 'create',:id=>@assay.id do %>
+      <%= render :partial => 'form' %>
+    <% end %>
+   <% end %>
+
+<%else%>   
+ 
+  <%= render :partial => 'no_usable_parameter' %>
+
+<%end%>

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: role_permissions
 #
@@ -15,16 +15,7 @@
 # See license agreement for additional rights
 # 
 
-class RolePermission < ActiveRecord::Base
-  
+class RolePermission < ActiveRecord::Base  
   belongs_to :role
   belongs_to :permission
- 
-  def action
-    self.permission.action if self.permission
-  end
-
-  def subject
-    self.permission.subject if self.permission
-  end
 end

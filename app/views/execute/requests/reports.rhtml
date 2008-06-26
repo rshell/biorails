@@ -1,15 +1,19 @@
 <div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('services')%> Reports on requests
-         <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('list.png')) + 'Refresh', :action => 'reports' %></li>
-                <li><%= link_to (subject_icon('new.png')) + 'New',:controller=>'reports', :action => 'new' %></li>
-            </ul>
-        </div>
+  <div class="title">
+    <h1 class='icon icon-request-large' style='text-indent:0.5em;'>
+      Reports on requests
+    </h1>
+    <div class="actions boldnotbold">
+      <ul>
+        <%= link_to "<b class='icon icon-list'>Refresh</b>",
+          :action => 'reports' %></li>
+        <%= link_to "<b class='icon icon-new'>New</b>",
+          :controller=>'reports', :action => 'new' %>
+      </ul>
     </div>
-    <div class='panel'>
-        <%=render :partial => 'shared/report', :locals=>{:report=>@report,:data=>@report.run} %>
-    </div>
+  </div>
+  <div class='panel'>
+    <%=render :partial => 'shared/report', :locals=>{:report=>@report,:data=>@report.run} %>
+  </div>
 </div>
 

@@ -1,2 +1,0 @@
-module Inventory::TreatmentGroupsHelper
-end

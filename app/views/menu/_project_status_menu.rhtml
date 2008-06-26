@@ -1,14 +1,15 @@
 <div>
-  <span class='menu'><b>Actions</b></span>
-  <p class="icon icon-study-add"><%= link_to 'Add Study', study_url(:action => 'new', :project_id=>project.id) %></p>
-  <p class="icon icon-study-import"><%= link_to 'Import Study', study_url(:action => 'import', :project_id=>project.id) %></p>
-  <% if project.runnable? %> 
-    <p class="icon icon-experiment-add"><%= link_to 'Add Experiment',  experiment_url(:action => 'new', :project_id=>project.id) %></p>
-    <p class="icon icon-task-add"><%= link_to 'Add Task',  task_url(:action => 'new') %></p>
-  <%else%>
-    <p class="icon icon-warning"> No runnable study</p>
-  <%end %>
-
-  <p class="icon icon-request-add"><%= link_to 'Add Request', request_url(:action => 'new', :project_id=>project.id) %></p>
-  <p class="icon icon-report-add"><%= link_to 'Add Report', report_url(:action => 'new', :project_id=>project.id) %></p>
+  <span class='menu'>
+    <b class='icon icon-action'>
+      Actions
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to("<b class='icon icon-assay-add'>Add Assay</b>", 
+            assay_url(:action => 'new')) if current_project.allows?(:new,:assays) %>
+    <%= link_to( "<b class='icon icon-experiment-add'>Add Experiment</b>",  
+            experiment_url(:action => 'new'))  if current_project.allows?(:new,:experiments)  %>
+    <%= link_to( "<b class='icon icon-request-add'>Add Request</b>", 
+            request_url(:action => 'new')) if current_project.allows?(:new,:requests) %>
+  </div>
 </div>

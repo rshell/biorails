@@ -1,0 +1,20 @@
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-assay_stage'>
+        Assay Stage
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-list'>List</b>", :action => 'list' %>
+    </div>
+  </div>
+<% end %>
+
+<% dialog 'New Assay Stage' do %>
+	<% form_tag :action => 'create' do %>
+	  <%= render :partial => 'form' %>
+	  <%= submit_tag "Create" %>
+	<% end %>
+<% end %>

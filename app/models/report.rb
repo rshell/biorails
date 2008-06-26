@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: reports
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(128)   default(), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  base_model         :string(255)   
 #  custom_sql         :string(255)   
 #  lock_version       :integer(11)   default(0), not null
@@ -25,7 +25,7 @@
 # 
 
 class Report < ActiveRecord::Base
-  included Named
+   acts_as_dictionary :name 
 ##
 # This record has a full audit log created for changes 
 #   
@@ -88,9 +88,10 @@ class Report < ActiveRecord::Base
  end
 #
 # Add a column to a report based on a dot separated path name.
-# eg. experiment.study.name this allow for the fun of trees of values
+# eg. experiment.assay.name this allow for the fun of trees of values
 # 
- def add_column(column_name,params={})
+ def add_column(column_name, options={})
+    return nil unless column_name
     column = ReportColumn.new(:report=> self,
                               :is_filterible =>  false, 
                               :is_sortable => true,
@@ -111,17 +112,12 @@ class Report < ActiveRecord::Base
              column.is_filterible = false
              column.is_sortable = false
            end
-       end
-         
+       end         
     else
        column.join_model = nil
     end
     self.columns << column
     return column
-
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
  end
 #
 # Number of decimal places to display
@@ -142,28 +138,7 @@ class Report < ActiveRecord::Base
      for col in model.content_columns
         report.add_column(col.name)
      end
-     return report
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
- end
-#
-# Set the base model for the report. Only if there are not columns defined 
-# and no existing model 
-#
- def model= (value)
-   unless @model
-     @model = value
-     self.base_model = @model.to_s
-   else
-     logger.warn("cant change the model of a report once set")
-   end
-   @params = {}
-   @params[:controller]=value.to_s.tableize
-   @params[:action]='show'
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+     return report 
  end
 #
 # get the current model
@@ -184,8 +159,8 @@ class Report < ActiveRecord::Base
 # 
 # eg. set_filter({:name => 'Fred%',:user =>'rshell'})
 # 
- def set_filter(params={})
-    params.each do  | key,value |
+ def set_filter(options={})
+    options.each do  | key,value |
         column(key.to_s).filter = value unless value.nil? or value.size==0
     end
  end
@@ -197,8 +172,7 @@ class Report < ActiveRecord::Base
 # add_sort('user desc') --> user desc,name asc
 #  
  def add_sort(sort_list)
-    params = sort_list.split(",").reverse
-    for item in params
+    for item in sort_list.split(",").reverse
       sort_columns.each{|c|c.sort_num += 1}
       c = column( item.split(":")[0])
       c.sort_num = 1
@@ -211,29 +185,19 @@ class Report < ActiveRecord::Base
 #  
 def sort_columns
    return self.columns.reject{|column|column.sort_num.nil?}.sort{|a,b| a.sort_num <=> b.sort_num}
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
 end
 #
 # Get a list of active filter columns in the report. Based on whether there is a filter_text
 # value in column
 # 
 def filter_columns
-   return self.columns.reject{|column|column.filter_operation.nil?}
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+   return self.columns.reject{|column|column.filter_operation.nil?}   
 end
 #
 # Get a sorted list of all the columns in the query
 # 
  def displayed_columns 
     return self.columns.reject{|column|!column.is_visible}.sort{|a,b| a.order_num <=> b.order_num}
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")  
-      return  self.columns 
  end
 #
 # output a list of model links to include in find method
@@ -250,9 +214,6 @@ end
    else 
      nil
    end
- rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
  end
 #
 # order clause for report
@@ -282,13 +243,7 @@ end
    for column in filter_columns
      case column.filter_operation.to_s
      when 'in'
-       cond << "#{column.table_attribute} #{column.filter_operation} #{column.filter_text}"
-     when 'not in'
-       cond << "#{column.table_attribute} #{column.filter_operation} #{column.filter_text}"
-     when 'exists'
-       cond << "#{column.table_attribute} #{column.filter_operation} #{column.filter_text}"
-     when 'not exists'
-       cond << "#{column.table_attribute} #{column.filter_operation} #{column.filter_text}"
+       cond << "#{column.table_attribute} #{column.filter_text}"
      else
        cond << " #{column.table_attribute} #{column.filter_operation} ? "
        values <<  column.filter_text 
@@ -306,12 +261,14 @@ end
 #
 #Execute the Query Applying all the filter and sort rules for the columns 
 #
- def run( params= {})
+ def run( new_params= {})
    @model = self.model
    if @model
-     p '***************'
-     p params = params.merge({:conditions => conditions, :order => order, :include => includes })
-     return @model.paginate(:all, params ) 
+     @options = params.merge(new_params)
+     @options = @options.merge({:conditions => conditions, :order => order, :include => includes })
+     data = @model.paginate(:all, @options ) 
+     data.total_entries= @model.count({:conditions => conditions, :include => includes})         
+     return data
    end  
  end 
 
@@ -338,40 +295,20 @@ end
           if report.has_column?('name')
              report.column('name').is_filterible = true
           end
-          unless report.save
-             logger.warn("failed to save report:"+report.errors.full_messages().join("\n"))
-             logger.debug(report.to_yaml)             
-          end
+          report.save!
       else
-          logger.info " Using current report #{name} for model #{model.class}"             
+          logger.info " Using current report #{name} for model #{model.class_name}"             
       end #built report
       yield report if block_given?   
       return report
     end # commit transaction
   end
 
-##
-# Generate a default report to display all the reports in the list of types
-#
-  def self.reports_on_models(list,name = nil)
-   list = list.collect{|i|i.to_s}
-   name ||= "List_for_#{list.join('_')}"
-   report = Report.find(:first,:conditions=>['name=? and base_model=?',name,'Report'])
-   unless report
-     report = Report.new
-     report.model = Report
-     report.name = name
-     report.description = "#{name} list of all #{list.join(',')} based reports on the system"
-     report.column('custom_sql').is_visible=false
-     report.column('id').is_visible = false
-     column = report.column('base_model')
-     column.filter_operation = 'in'
-     column.filter_text = "("+list.join(",")+")"
-     column.is_filterible = false
-     report.save
-   end
-   return report
-  end
+  def self.find_all_using_model(name)
+    find(:all,:conditions=>[
+       'base_model=? or exists (select 1 from report_columns 
+         where report_columns.report_id=reports.id and report_columns.join_model=?)',name.to_s,name.to_s.downcase])
+  end  
 
   def to_ext
     item = {:name => self.name,

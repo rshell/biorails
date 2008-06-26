@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: containers
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(128)   default(), not null
-#  description        :text          
+#  description        :string(1024)  default(), not null
 #  plate_format_id    :integer(11)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
@@ -20,7 +20,7 @@
 # 
 
 class Container < ActiveRecord::Base
-  included Named
+   acts_as_dictionary :name 
 ##
 # This record has a full audit log created for changes 
 #   
@@ -37,58 +37,7 @@ class Container < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   
-  belongs_to :plate_format
  
-  has_many :items, :order => 'slot_no asc'
-
-##
-# get a plate layout for the container
-#   
-  def layout
-    if self.plate_format
-      return Layout.new(self)
-    end
-  end
-
-##
-# Get a list of all the items in the container  
-# 
-  def list
-    return self.items.collect{|i|i.subject}
-  end
-##
-# get a specific subject from the container
-#  
-  def subject(id)
-    return self.items[id]
-  end
-  
-end
-
-##
-# This is a simple to use 2D structure help with plate type containers
-#
-class Layout 
-  attr_accessor :wells
-  
-  def initialize(container)
-     @wells = [][]
-     for well in container.plate_format.wells
-        @wells[well.row_no][well.column_no] = [well,container.subject(well.slot_no)]
-     end
-  end
-  
-  def contains(row,col)
-    return @wells[row][col][1]
-  end
-  
-  def well(row,col)
-    return @wells[row][col]
-  end
-
-  def format(row,col)
-    return @wells[row][col][0]
-  end
 
 end
 

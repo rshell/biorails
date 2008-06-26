@@ -1,0 +1,27 @@
+<h1>Listing project_type</h1>
+<div class='panel'>
+
+<table class='report'>
+  <tr>
+        
+    <th>name</th> 
+        
+    <th>description</th> 
+        
+    <th>dashboard</th> 
+    
+    <th>actions</th> 
+  </tr>
+  <% for project_type in @project_types %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= link_to project_type.name,project_type_url(:action=>:show,:id=>project_type),:method => :get %> </td>
+    
+    <td><%=h project_type.description %></td>    
+    
+    <td><%=h project_type.dashboard %></td>    
+    
+    <td><%= link_to 'edit',project_type_url(:action=>:edit, :id=>project_type) %> </td>
+  </tr>
+  <% end %>
+</table>
+</div>

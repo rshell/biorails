@@ -1,34 +1,36 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 class AuthController < ApplicationController
 
 
 # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
 
   def login
-    clear_session
     if request.get?
       render :action=>'login',:layout=> 'simple'
     else
       user = User.authenticate(params[:login],params[:password])
-      if user and user.enabled?        
-        logger.info "User #{params[:login][:name]} successfully logged in"
+      if user and user.enabled?  
+        user.clear_login_failures      
         set_user(user)
-        set_project(user.projects[0])
-        redirect_to session[:current_url] || home_url(:action=>'show')          
+        set_project(user.projects[0])          
+        logger.info "User #{params[:login]} successfully login"
+        logger.debug session.data.to_json
+        redirect_to( session[:last_url] || home_url(:action=>'show') )
       else
-        login_failed
+        logger.info "User #{params[:login]} login failed"
+        User.register_login_failure(params[:login])
+        clear_session
+        login_failed 
       end
-    end
+    end    
+  rescue 
+    clear_session
+    login_failed 
   end  # def login
-  
-  def forgotten  
-    logger.warn("TODO setup SMTP mail and send new password for "+params[:mail])    
-    redirect_to :action=>'login'
-  end
-
-  def login_failed
-    flash.now[:error] = "Incorrect Name/Password"
-    render :action => 'forgotten',:layout=> 'simple'
-  end
 
   def logout
     logger.info "logout #{session[:user_id]}"
@@ -36,7 +38,11 @@ class AuthController < ApplicationController
     render :action=>'login',:layout=> 'simple'
   end
 
-  def access_denied
-    logger.error "User access denied"
+protected  
+
+  def login_failed
+    flash.now[:error] = "Incorrect Name/Password"
+    render :action => 'forgotten',:layout=> 'simple'
   end
+
 end

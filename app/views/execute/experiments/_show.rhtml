@@ -1,26 +1,60 @@
-<h2 class="icon icon-experiment-large" style="text-indent:0.5em">
-   Experiment [<strong><%=@experiment.name %></strong>] in study 
-        [<%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study.id)  %>]
-</h2>
 <table class="report">
-  <tr><th class="label"><b class="icon icon-name">Name</b></th>
-      <td colspan='3'> <%= @experiment.name %></td>
+  <tr>
+      <th class="label">
+        <b class="icon icon-name">
+          Name
+        </b>
+      </th>
+      <td colspan='3'>
+        <%= @experiment.name %>
+      </td>
   </tr>
   <tr>
-     <th class="label"><b class="icon icon-description">Description</b></th>
-     <td colspan='3'> <%= @experiment.description %></td>
+     <th class="label">
+       <b class="icon icon-description">
+         Description
+       </b>
+     </th>
+     <td colspan='3'>
+       <%= @experiment.description %>
+     </td>
   </tr>
   <tr>
-    <th class="label"><b class="icon icon-study">Study</b></th>
-    <td><%= link_to @experiment.study.name, study_url( :action => 'show', :id => @experiment.study)  %></td>
-    <th class="label"><b class="icon icon-protocol_version">Default Prot. Ver.</b></th>
-    <td> <%= @experiment.process.path  %></td>
+    <th class="label">
+      <b class="icon icon-assay">
+        Assay
+      </b>
+    </th>
+    <td>
+      <%= link_to @experiment.assay.name,
+          assay_url( :action => 'show', :id => @experiment.assay)  %>
+      </td>
+    <th class="label">
+      <b class="icon icon-protocol_version">
+         Protocol
+      </b>
+    </th>
+    <td>
+      <%= @experiment.process.summary if @experiment.process %>
+    </td>
   </tr>
   <tr>
-    <th class="label"><b class="icon icon-date">Started</b></th>
-    <td><%=format_date @experiment.started_at  %></td>
-    <th class="label"><b class="icon icon-date">Expected End</b></th>
-    <td> <%=format_date @experiment.expected_at %></td>
+    <th class="label">
+      <b class="icon icon-date">
+        Started
+      </b>
+    </th>
+    <td>
+      <%=short_date @experiment.started_at%>
+    </td>
+    <th class="label">
+      <b class="icon icon-date">
+        Expected End
+      </b>
+    </th>
+    <td>
+      <%=short_date @experiment.expected_at %>
+    </td>
   </tr>
 </table>
 <br/>
@@ -28,17 +62,25 @@
     <tr>
         <th><b class="icon icon-task">Task</b></th>
         <th><b class="icon icon-protocol">Protocol</b></th>
-        <th>Status</th>
-        <th>Started</th>
-        <th>Expected (End)</th>
+        <th><b class='icon icon-status'>Status</b></th>
+        <th><b class='icon icon-date'>Started</b></th>
+        <th><b class='icon icon-date'>Expected (End)</b></th>
     </tr>
     <% for item in @experiment.tasks%>
-    <tr>
-        <td><%= link_to item.name, task_url( :action => 'show', :id => item.id) %></td>
-        <td><%= item.protocol_name%></td>
-        <td><%= item.status%></td>
+    <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <p class='icon icon-show'>
+            <%= link_to item.name, task_url( :action => 'show', :id => item.id) %>
+          </p>
+          </td>
+        <td><%= item.protocol_name%> </td>
+          <td>
+            <p class='icon icon-status_<%= item.status %>'>
+                <%= item.status%>
+            </p>
+          </td>
         <td><%=short_date item.started_at%></td>
-        <td><%=short_date item.ended_at%></td>
+        <td><%=short_date item.expected_at%></td>
     </tr>
     <%end%>
 </table>

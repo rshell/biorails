@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: roles
 #
@@ -7,9 +7,9 @@
 #  name               :string(255)   default(), not null
 #  parent_id          :integer(11)   
 #  description        :string(1024)  default(), not null
-#  cache              :text          
-#  created_at         :timestamp     not null
-#  updated_at         :timestamp     not null
+#  cache              :string(4000)  default()
+#  created_at         :datetime      not null
+#  updated_at         :datetime      not null
 #  created_by_user_id :integer(11)   default(1), not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  type               :string(255)   
@@ -32,16 +32,20 @@ class Role < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
 
-  has_many :permissions, :class_name=>'RolePermission',:include=>'permission'
+  has_many :permissions, :class_name=>'RolePermission'
   has_many :users
-  has_many :memberships, :include=>[:user,:project]
+  has_many :memberships, :include=>[:user,:team]
 
-  
+  def initialize(params= {})
+      super(params) 
+      self.cache = {}      
+  end
+
 ###
 # Test if the role permissions is cached?
 # 
  def cached?
-   !cache.nil?
+   self.cache.size > 0
  end
 
   def self.subjects
@@ -62,25 +66,14 @@ class Role < ActiveRecord::Base
    rebuild unless cached?
    cache[subject].keys   
  end  
-##
-# List of possible actions for over all controller
-#  
- def possible_actions
-   rebuild unless cached?
-   all = []
-   for subject in possible_subjects
-     all << cache[subject].keys
-     all = all.uniq
-   end
-   return all
- end
+ 
 ##
 # Get a permission for a subject and actions
 #   
  def allow?(subject,action)
-   rebuild unless cached?
+   self.rebuild unless self.cached?
    return false if self.cache[subject.to_s].nil?
-   if ( cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true)
+   if ( self.cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true)
        return true
    end
    return false
@@ -89,10 +82,10 @@ class Role < ActiveRecord::Base
  
  def permission?(user,subject,action)
    if  allow?(subject,action)
-     logger.info("passed permission? #{user.to_s} #{subject} #{action}")
+     logger.debug("passed permission? #{user.to_s} #{subject} #{action}")
      return  true
    else
-     logger.info("failed permission? #{user.to_s} #{subject} #{action}")
+     logger.debug("failed permission? #{user.to_s} #{subject} #{action}")
      return false
    end
  end
@@ -111,7 +104,7 @@ class Role < ActiveRecord::Base
        logger.debug "granted #{subject} #{action}"
        return true
     end    
-   logger.debug "had  #{subject} #{action}"
+    logger.debug "had  #{subject} #{action}"
     return false
  end
 
@@ -139,11 +132,11 @@ class Role < ActiveRecord::Base
       logger.debug "subject #{subject}==========================================================="
       logger.debug rights[subject].to_s
        for action in Permission.possible_actions(subject)
-      logger.debug "action #{subject}:#{action}"
+       logger.info "action #{subject}:#{action}"
          if rights[subject] and ( rights[subject][action] || rights[subject]['*'])
-             grant(subject,action)
-         elsif allow?(subject,action)
-             deny(subject,action)
+             self.grant(subject,action)
+         elsif self.allow?(subject,action)
+             self.deny(subject,action)
          end
        end
      end
@@ -171,7 +164,7 @@ class Role < ActiveRecord::Base
  def deny_all(subjects = nil)
    subjects ||= Permission.possible_subjects.keys 
    for subject in subjects
-     for action in Role.possible_actions(subject)
+     for action in Permission.possible_actions(subject)
         deny(subject,action)
      end
    end
@@ -185,11 +178,12 @@ class Role < ActiveRecord::Base
      logger.info "rebuild rights cache"
      self.cache= {}
      for subject in Permission.possible_subjects.keys
-        cache[subject] = {}
+        self.cache[subject.to_s] = {}
      end
-     for item in permissions
-        cache[item.subject] ||= {}
-        cache[item.subject][item.action] = true
+     for item in self.permissions
+        self.cache[item.subject.to_s] ||= {}
+        self.cache[item.subject.to_s][item.action.to_s] = true
+        logger.info "add #{item.subject}:#{item.action}"
      end          
      self.save
  end

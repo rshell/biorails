@@ -1,0 +1,11 @@
+<h2> Project {{record.name}} </h2>
+<p>
+{{record.description}}
+</p>
+<ul>
+{% for item in assay.protocols %}
+<li>
+{{ item.name}} : {{item.description }} 
+</li>
+{% endfor %}
+</ul>

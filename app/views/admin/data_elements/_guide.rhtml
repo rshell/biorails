@@ -1,45 +1,44 @@
-<h2> Guide </h2>
+<h1 class='icon icon-data_element'> Data Elements Guide </h1>
  <div class='panel'>
-        <% unless @data_element.not_used %>
-        <h2> Be Carefull Its in use!</h2>
-        
-        <div class='box' ><b>
-        <p>
-        Editing a lookup may effect all future use of this looking in data entry.
-        Historic data will still contain old cached in/name values and may be inconsistence if you 
-        change the list.        
-        </p>
-        <p>
-        There are <%=@data_element.task_references.size %> results, <%=@data_element.parameters.size %> protocol parameters and 
-        <%=@data_element.study_parameters.size %> study parameters effected by this change.
-        </p>
-        </b></div>
-        <% end %>
-        <h3> Data Element </h3>
-        This is a physical implementation of a concept used in the system. This may be internal to the database of linked to 
-        external data source. In general a element provides a list of id,name elements for use in lookups elsewhere in the system.
-        The following Types of element may be defined:-
-       
-        <h4>Lists [Internal]</h4>
-        <p> This is a <strong>comma</strong> separated list of values with string is speach marks like 
-          'Male','Female' or numbers like 1,2,3,4,5,6 or mixed 1,2,3,3,4,'NA' but not '1.2' or '%$£'. These values are stored as 
-          a set of child data elements in the system. <i>Remember to quote strings!</i>
-        </p>
-        <h4>Models [Internal]</h4>
-        <p> 
-        This is the name of a model class to use as a source of a list of values. This is commonly used for internal inventory 
-		and links between items, examples would be a reference study or experiment name that needs to be entered.
-        </p>
-        <h4>Views [Internal/External]</h4>
-        <p>
-        This is used to dynamically link to a table or view in another systems. Most commonly this 
-        is used for external inventory and links to predefined lookup tables from other systems. The source
-        view must have a single unique column called 'id' and column called 'name' for use in lookups.
-        </p>
-        <h4>Sql Select [Internal/External]</h4>
-        <p>
-        This is a simple SQL select statement returning at minimum a 'id' and 'name' columns for use. The 
-        statement should not involve orders or groups (Use views for theses). As in use a "and id=nnn" or 
-        " and name like'xxx%'" may be appended. 
-        </p>
+    <% unless @data_element.not_used %>
+      <h2> Be Carefull Its in use!</h2>
+
+      <div class='box' ><b>
+      <p>
+      Editing a lookup may effect all future use of this looking in data entry.
+      Historic data will still contain old cached in/name values and may be inconsistence if you
+      change the list.
+      </p>
+      <p>
+      There are <%=@data_element.task_references.size %> results, <%=@data_element.parameters.size %> process parameters and
+      <%=@data_element.assay_parameters.size %> assay parameters effected by this change.
+      </p>
+      </b></div>
+      <% end %>
+      <h3> Data Element </h3>
+      This is a physical implementation of a concept used in the system. This may be internal to the database of linked to
+      external data source. In general a element provides a list of id,name elements for use in lookups elsewhere in the system.
+      The following Types of element may be defined:-
+
+      <h4>Lists [Internal]</h4>
+      <p> This is a <strong>comma</strong> separated list of values with string is speach marks like 'Male','Female' or numbers like 1,2,3,4,5,6 or mixed 1,2,3,3,4,'NA' but not '1.2' or "$£". These values are stored as a set of child data elements in the system. <i>Remember to quote strings!</i>
+      </p>
+
+      <h4>Models [Internal]</h4>
+      <p>
+      This is the name of a model class to use as a source of a list of values. This is commonly used for internal inventory
+              and links between items, examples would be a reference assay or experiment name that needs to be entered.
+      </p>
+      <h4>Views [Internal/External]</h4>
+      <p>
+      This is used to dynamically link to a table or view in another systems. Most commonly this
+      is used for external inventory and links to predefined lookup tables from other systems. The source
+      view must have a single unique column called 'id' and column called 'name' for use in lookups.
+      </p>
+      <h4>Sql Select [Internal/External]</h4>
+      <p>
+      This is a simple SQL select statement returning at minimum a 'id' and 'name' columns for use. The
+      statement should not involve orders or groups (Use views for theses). As in use a "and id=nnn" or
+      " and name like'xxx'" may be appended.
+      </p>
 </div>

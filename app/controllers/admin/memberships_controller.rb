@@ -1,6 +1,11 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 class Admin::MembershipsController < ApplicationController
 
-  use_authorization :membership,
+  use_authorization :teams,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights =>  :current_project  
 
@@ -9,12 +14,9 @@ def index
     render :action => 'list'
   end
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
   def list
-    @team = current_project.team
+    @team = Team.find(params[:id]) if params[:id]
+    @team ||= current_project.team
     @memberships = Membership.paginate  :conditions=>['team_id=?',@team.id], :order=>'role_id,updated_at', :page => params[:page]
   end
 
@@ -24,17 +26,17 @@ def index
   end
 
   def new    
-    @team = current_project.team
+    @team = Team.find(params[:id]||params[:team_id])
     @membership = Membership.new(:team_id=>current_team)
   end
 
   def create
-    @team = current_project.team
+    @team = Team.find(params[:id]||params[:team_id])
     @membership = Membership.new(params[:membership])
-    @team.memberships  << @membership    
+    @team.memberships << @membership
     if @membership.save
       flash[:notice] = 'Membership was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to :action => 'list',:id=>@team
     else
       render :action => 'new'
     end
@@ -50,7 +52,7 @@ def index
     @team = @membership.team
     if @membership.update_attributes(params[:membership])
       flash[:notice] = 'Membership was successfully updated.'
-      redirect_to :action => 'list'
+      redirect_to :action => 'list',:id=>@team
     else
       render :action => 'edit'
     end
@@ -59,12 +61,12 @@ def index
   def destroy
     @membership = Membership.find(params[:id])
     @team = @membership.team
-    if @membership.project_id == 1
+    if @membership.team_id == 1
         flash[:warning]="Cant delete user from the default public group"
-        redirect_to :action => 'list'
+        redirect_to :action => 'list',:id=>@team
     else
         @membership.destroy
-        redirect_to :action => 'list'
+        redirect_to :action => 'list',:id=>@team
     end
   end
 end

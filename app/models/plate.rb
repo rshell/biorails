@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: plates
 #
 #  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  description        :text          
+#  name               :string(255)   not null
+#  description        :string(1024)  default(), not null
 #  external_ref       :string(255)   
 #  quantity_unit      :string(255)   
 #  quantity_value     :float         
@@ -24,7 +24,7 @@
 #
 
 class Plate < ActiveRecord::Base
-  included Named
+   acts_as_dictionary :name 
 ##
 # This record has a full audit log created for changes 
 #   

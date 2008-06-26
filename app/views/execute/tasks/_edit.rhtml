@@ -1,0 +1,9 @@
+<div class='box'>
+<% form_tag :action => 'update', :id => @task do %>
+    <%= render :partial => 'form' %>
+    <div class="row">
+      <%= submit_tag 'Save' %>
+    </div>
+   <% end %>
+</div>
+

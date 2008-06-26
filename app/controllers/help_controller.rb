@@ -1,23 +1,12 @@
+# ##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+
 class HelpController < ApplicationController
 
   def index
+      redirect_to SystemSetting.help_root
   end
-
-  def service
-    @controllers = Biorails::UmlModel.controllers
-  end
-  
-  def model
-    @models = Biorails::UmlModel.models
-    @name = params[:id]||params[:model]
-    @options= {}
-    @options[:model]=@name
-  end
-  
-  def controller
-    @controllers = Biorails::UmlModel.controllers.keys
-    @name = params[:id]
-  end  
   
 ##
 # This is a simple call to visualize the model the report is based on with all its related models
@@ -47,7 +36,11 @@ class HelpController < ApplicationController
     @options[:type] = 'image/png'
     @options[:filename] = "model_#{@report.model.to_s.tableize}.png"
     @image_file = Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),@report.model,params)
-    send_file(@image_file.to_s,@options)   
+    
+    logger.info @image_file
+    logger.info "**************************"
+    
+    send_file(@image_file.to_s,@options) 
   end 
   
 ##
@@ -68,10 +61,14 @@ class HelpController < ApplicationController
 # @todo rjs close security hole on eval of command line 
 # 
   def diagram
-    model = eval(params[:id])
+    
+    model = eval(params[:id]||params[:model]||'Task')
     @models = Biorails::UmlModel.models
     @image_file =  Biorails::UmlModel.create_model_diagram(File.join(RAILS_ROOT, "public/images"),model,params)
-    send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png')
+    logger.info('************')
+    logger.info(@image_file)
+  
+    send_file(@image_file.to_s,:disposition => 'inline',   :type => 'image/png') 
   end 
 
   

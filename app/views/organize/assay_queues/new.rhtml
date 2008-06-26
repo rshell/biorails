@@ -1,0 +1,16 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'actions' %>
+<% end -%>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
+<%end%>
+
+<% content_for :help do -%>
+  <%=render :partial=>'help'%>
+<%end%>
+
+<% content_for :center do -%>
+  <%= render :partial => 'new' %>
+<%end%>
+

@@ -1,0 +1,29 @@
+<div>
+  <span class='menu'>
+    <b class='icon icon-project_type'>
+      project_type
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-list'>List</b>",    
+                                  project_type_url(),
+                                  :method => :get  %>  
+    <% if @project_type %>
+      <% unless @project_type.new_record?%>
+        <%= link_to  "<b class='icon icon-show'>Show</b>",  
+                                  project_type_url(:action=>:show, :id=>@project_type),
+                                  :method => :get%>
+        <%= link_to "<b class='icon icon-edit'>Edit</b>",  
+                                  project_type_url(:action=>:edit, :id=>@project_type),
+                                  :method => :get  %>
+        <%= link_to "<b class='icon icon-del'>Delete</b> ",
+                                  project_type_url(:action=>:destroy, :id=>@project_type), 
+                                  :confirm => 'Are you sure?', 
+                                  :method => :delete %>
+      <% end %>
+    <% else %>  
+      <%= link_to "<b class='icon icon-new'>new</b>",   project_type_url(:action=>:new),:method => :get %>
+    <% end %>
+  </div>
+</div>
+

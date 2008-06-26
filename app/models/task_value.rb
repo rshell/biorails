@@ -1,17 +1,17 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_values
 #
 #  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   
-#  parameter_id       :integer(11)   
-#  data_value         :float         
+#  task_context_id    :integer(11)   not null
+#  parameter_id       :integer(11)   not null
+#  data_value         :float         not null
 #  display_unit       :string(255)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  task_id            :integer(11)   
+#  task_id            :integer(11)   not null
 #  storage_unit       :string(255)   
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
@@ -36,10 +36,10 @@ class TaskValue < ActiveRecord::Base
   acts_as_audited :change_log
 ##
 # This add all the common functions for TaskItem
-  include TaskItem 
+  acts_as_task_item
 ##
 # this work dimension of the value and contains information on when the data
-# was captured, its validation status, experiment and study . All values must 
+# was captured, its validation status, experiment and assay . All values must 
 # linked to a task  
   validates_presence_of :task
 ##
@@ -68,41 +68,45 @@ class TaskValue < ActiveRecord::Base
  ##
  # For generic use all TaskItem proviide get and set of a value.
  def value=(new_value)  
-   @quantity = new_value.to_unit
-   logger.info "value = #{@quantity} "
-   @quantity = Unit.new(new_value,self.parameter.display_unit)  if @quantity.units == "" and self.parameter.display_unit 
-   if @quantity.units==""
-      logger.info "value no unit= #{@quantity}"
-      self.data_value  = new_value 
-      self.storage_unit =""
-      self.display_unit =""
-   else
+   @quantity = self.parameter.parse(new_value)
+   if @quantity.is_a?(Unit)
       logger.info "value with unit= #{@quantity}  #{parameter.display_unit} => #{@quantity.to_base.units}"
       self.data_value  = @quantity.to_base.scalar
       self.storage_unit =@quantity.to_base.units
       self.display_unit =@quantity.units     
+   else   
+      logger.info "value no unit= #{@quantity}"
+      self.data_value  = @quantity 
+      self.storage_unit =""
+      self.display_unit =""
    end
  end 
-
+ #
+ # Get the value, should return a Quantity with a unit for use in calculations
+ #
  def value
-   return self.data_value 
- end
-
+   return self.to_unit
+ end  
+ #
+ # Convert the value to a unit for use is calculations
+ #
  def to_unit
     return @quantity if @quantity
     @quantity = Unit.new(self.data_value,self.storage_unit)
-    @quantity = @quantity.to(self.display_unit||"") unless @quantity.units ==self.display_unit || self.display_unit="" || self.display_unit.nil?  
+    @quantity = @quantity.to(self.display_unit||"") unless @quantity.units ==self.display_unit || self.display_unit=="" || self.display_unit.nil?  
     return @quantity
  end
- 
+ #
+ # Convert to a string with a unit postfix is a custom unit (display_unit !=parameter.display_unit) has been used.
+ # This uses the formating rules defined in the data_format to govern how the output looks
+ #
  def to_s
-    return "" if self.data_value.nil? 
-    v = self.to_unit
-    if self.parameter and self.parameter.data_format
-       formatter = self.parameter.data_format 
-       return formatter.format(v) 
+    if self.parameter
+      return self.parameter.default_value.to_s unless self.data_value
+      self.parameter.format(self.to_unit) 
+    else  
+      self.data_value.to_s
     end
-    return v.to_s
   end
  
 end

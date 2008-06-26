@@ -1,0 +1,10 @@
+<%dialog "New Recipe in Assay [" + @assay.name + "]" do %>
+<% form_tag :action => 'create', :id => @assay.id do %>
+  <div class="row">
+    <%= render :partial => 'form' %>
+  </div>
+  <div class="row">
+      <%= submit_tag "Save" %>
+  </div>
+<% end %>
+<%end%>

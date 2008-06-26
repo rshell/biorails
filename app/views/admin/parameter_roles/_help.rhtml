@@ -1,14 +1,34 @@
-<h1>Parameter Roles</h1>
+<div class=" x-panel-header x-accordion-hd"  >
+  <span class="icon icon-parameter_role x-panel-header-text" >
+     Parameter Roles
+     </span>
+</div>
+<div class="panel">
+
 <p>
-	Parameter roles define how a parameters are <strong>used</strong> in a <i>study design</i>.
-	Roles are also designed to allow parameterised data to be <i>partitioned</i> to aid filtering and transfer to other systems.
-	For example, in general practice, data entry or transactional systems need to capture a lots more data then is kept for long 
-	term data warehousing. For example we need to capture settings, observation, conditions and results but only wish to 
-	transfer results to other systems.
+  Parameter roles define how parameters are <strong>used</strong> in an <i>assay design</i> and allow parameterised data to be <i>partitioned</i> to aid filtering.
+  In general practice, data entry or transactional systems need to capture a lot more data than is required for long
+  term data warehousing. By using parameter roles we can distinguish - for example - capture settings, and observation conditions from results. We can then filter the data so that only the results get transferred to long term warehousing systems.
 </p>
-<h5>Examples</h5>
+<br />
+<h2>Examples</h2>
+<h3>
+  Inputs:
+</h3>
 <ul>
-	<li><strong>Inputs:</strong> raw data, observations, measurements and files etc </li>
-	<li><strong>Context:</strong> settings, conditions and inventory references etc</li>
-	<li><strong>Output:</strong> results, conclusions etc</li>
+  <li><b class='icon icon-observation'>raw data</b></li>
+  <li><b class='icon icon-observation'>observations</b></li>
+  <li><b class='icon icon-observation'>measurements and files etc</b></li>
 </ul>
+<h3>Context</h3>
+<ul>
+  <li><b class='icon icon-setting'>settings</b></li>
+  <li><b class='icon icon-condition'>conditions</b></li>
+  <li><b class='icon icon-compound'>inventory references etc</b></li>
+</ul>
+<h3>Output</h3>
+<ul>
+  <li><b class='icon icon-result'>results</b></li>
+  <li><b class='icon icon-result'>conclusions etc</b></li>
+</ul>
+</div>

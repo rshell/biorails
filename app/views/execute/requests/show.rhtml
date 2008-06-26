@@ -1,57 +1,15 @@
- <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request']} %>
+<% content_for :messages do -%>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['user_request']} %>
+<%end%>
 
 <% content_for :center do -%>
-
- <h2>  Request <%=subject_icon('services')%> <%= @user_request.name %>    </h2>
-
- <div class='panel'>
-    <%= render :partial => 'request', :locals => { :request => @user_request } %>  
-    
-    <h4>Services requested </h4>
-
-    <div class='box'>
-    <%= render :partial => 'services', :locals => { :request =>@user_request } %>  
-    </div>  
-
-    <h4>Status of Items </h4>
-    <div class='box'>
-        <%= render :partial => 'items', :locals => { :request => @user_request } %>
-    </div>  
-
-    <h4> Folder </h4>
-
-    <div class='box'>
-       <% for item in @project_folder.elements %>
-			<li>
-			<%= image_tag(item.icon) %>
-			<%= link_to item.name, content_url( :action => 'show', :id => item) %> (<%= format_time(item.updated_at) %>)<br />
-			<%= item.summary %>
-			</li>
-	   <% end %>
-    </div>    
-    
-</div>
-
-
+   <%= render :partial => 'show' %>
 <%end%>
 
 <% content_for :footer do %>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
 <%end%>
-    
-<% content_for :right do %>
-<h2><%=l(:guide)%></h2>
-<div class="panel">
-	<p>
-		A <strong>request</strong> is composed of a list of materials or items submitted for processing 
-		against one or more services.  Examples would be submitting <i>compounds</i> for a collection of 
-		<i>pre-clinical safety studies</i> or a single <i>target</i> for a <i>screening campaign</i> against the entire 
-		compound library.
-	</p>
-	<p>	
-		The request can be modified by removing adding new items and services over time.
-		The request is therefore a method of <strong>cascade management</strong> used for tracking compounds 
-		across the system.
-	</p>
-</div> 
-<%end %>    
+
+<% content_for :help do %>
+   <%= render :partial => 'help' %>
+<%end %>

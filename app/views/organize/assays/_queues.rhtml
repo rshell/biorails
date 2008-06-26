@@ -1,0 +1,53 @@
+<div class='panel'>
+    <table class="report">
+      <tr>
+        <th>
+          <b class='icon icon-name'>
+            Name
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-description'>
+            Description
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-parameter'>
+            Parameter
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-user_lab'>
+            Assigned
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-status'>
+            Status
+          </b>
+        </th>
+        <th>
+          <b class='icon icon-lab'>
+            Actions
+          </b>
+        </th>
+      </tr>
+      <% for queue in @assay.queues %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            <%= link_to queue.name,
+                queue_url( :action => 'show', :id => queue) %>
+            </td>
+          <td><%= queue.description %></td>
+          <td><%=h queue.parameter.name %></td>
+          <td><%=h queue.assigned_to.name %></td>
+          <td><%=h queue.status_summary %></td>
+          <td>
+            <%= link_to "<b class='icon icon-edit'>Edit</b>",
+              queue_url(:action => 'edit', :id => queue) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+<%= link_to("<b class='icon icon-queue-add'>Add Queue</b>", queue_url(:action => 'new',  :id => @assay)) if @assay.allows?(:edit)%>

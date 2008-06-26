@@ -1,20 +1,36 @@
-<h2>Listing request_services</h2>
+<h1 class='icon icon-request-large' style='text-indent:0.5em'>Listing Requests</h1>
 
-<table>
+<table class='report'>
   <tr>
   <% for column in RequestService.content_columns %>
-    <th><%= column.human_name %></th>
+    <th>
+      <%= column.human_name %>
+    </th>
   <% end %>
+  <th colspan="3">
+    <b class='icon icon-action'>
+      Actions
+    </b>
+  </th>
   </tr>
-  
+
 <% for request_service in @request_services %>
   <tr>
   <% for column in RequestService.content_columns %>
     <td><%=h request_service.send(column.name) %></td>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => request_service %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => request_service %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => request_service }, :confirm => 'Are you sure?', :method => :post %></td>
+    <td><p class='icon icon-show'><%= link_to "Show",
+        :action => 'show',
+        :id => request_service %></p>
+    </td>
+    <td><p class='icon icon-edit'><%= link_to "Edit",
+        :action => 'edit',
+        :id => request_service %></p>
+    </td>
+    <td><p class='icon icon-del'><%= link_to "Destroy",
+        { :action => 'destroy', :id => request_service },
+          :confirm => 'Are you sure?', :method => :post %></b>
+    </td>
   </tr>
 <% end %>
 </table>
@@ -23,4 +39,4 @@
 
 <br />
 
-<%= link_to 'New request_service', :action => 'new' %>
+<%= link_to "<b class='icon icon-request-add'>New Request</b>", :action => 'new' %>

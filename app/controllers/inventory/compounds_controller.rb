@@ -6,25 +6,17 @@
 
 class Inventory::CompoundsController < ApplicationController
 
-  use_authorization :inventory,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights =>  :current_user  
-
-  cattr_reader :per_page
-  @@per_page = 10
-    
+  def index
+    list
+    render :action => 'list'
+  end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :update ],
          :redirect_to => { :action => :list }
 
-  def index
-    list
-  end
-
   def list
-    @compounds = Compound.paginate :order=>'name', :page => params[:page]
-    render :action => 'list'
+    @compounds = Compound.paginate :order=>'name desc', :page => params[:page]
   end
 
   def show
@@ -41,9 +33,7 @@ class Inventory::CompoundsController < ApplicationController
   end
 
   def create
-    @compound = Compound.new(params[:compound])
-
-     
+    @compound = Compound.new(params[:compound])     
     if @compound.save
       flash[:notice] = 'Compound was successfully created.'
       redirect_to :action => 'show', :id => @compound.id

@@ -1,16 +1,18 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: system_settings
 #
 #  id                 :integer(11)   not null, primary key
 #  name               :string(30)    default(), not null
-#  description        :string(255)   default(), not null
-#  text               :string(255)   default(0), not null
+#  value              :string(255)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
+#  tip                :string(255)   
+#
+
 #
 
 ##
@@ -22,7 +24,6 @@
 # * SystemSetting['xxx'] 
 # * SystemSetting.xxx  
 # * SystemSettings.names   
-# be over ridden via records in the system_settings table.
 #
 # To create new seeting a default must be created in the yml setting files
 #
@@ -31,7 +32,19 @@ class SystemSetting < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
+  acts_as_settings :filename => SYSTEM_SETTINGS || "#{RAILS_ROOT}/config/system_settings.yml"
+  
+  validates_presence_of   :name
+  validates_uniqueness_of :name
+  validates_presence_of   :value
 
-  acts_as_settings :filename => "#{RAILS_ROOT}/config/system_settings.yml"
-
+  
+  def self.all
+    self.names.sort.collect{|name|self.get(name)}
+  end
+  
+  def displayed_value
+    (self.value.empty? ? "?" : self.value.to_s)
+  end
+  
 end

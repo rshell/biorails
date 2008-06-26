@@ -2,41 +2,34 @@
   <%= render :partial => 'menu'%>
 <% end %>
 
+<% content_for :center do%>
+  <h1 class='class icon icon-parameter_type'> Parameter Type [ <%=@parameter_type.name%> ]</h1>
+  <div class='box'>
+    <p> <b>Description: </b> <%=@parameter_type.description%> </p>
+    <p> <b>Data Type: </b>   <%=@parameter_type.data_type.name%> </p>
+    <p> <b>Quality being measured: </b>  <%=@parameter_type.storage_unit%> </p>
+  </div>  
 
+  <br />
+  <div class='box'>
+      <%= render :partial=>'aliases' %>    
+  </div>  
+  <br />
 
-<h1><%=@parameter_type.name%></h1>
-
-<p><%=@parameter_type.description%>
-</p>
-<%if @parameter_type.used? %>
-	<table class="report">
-	<tr>
-	<th>Study Name</th>
-	<th>Parameter Name </th>
-	<th>Parameter Role</th>
-	<th>Data Type</th>
-	<th>Data Format</th>
-	<th>Data Lookup</th>
-	</tr>
-	<%for item in  @parameter_type.study_parameters %>
-		<tr>
-		<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
-		<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
-		<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
-		<td><%=item.data_type.name%></td>
-		<td><%=item.data_format.name if item.data_format_id %></td>
-		<td><%=item.data_element.name if item.data_element_id %></td>
-		</tr>
-	<%end%>
-	</table>
-<%else%>
- <i>This parameter type is not currently in use with existing studies or protocols.</i>
- [
- <%= link_to (subject_icon('destroy.png')) +'Delete', { :action => 'remove', :id =>  @data_format },                                
-                            :confirm => 'Are you sure?',:method => "post" %> ]
-	
-<%end%>
+  <div class='box'>
+    <%if @parameter_type.used? %>
+      <%= render :partial=>'usages' %>
+    <%else%>
+      <p>   This parameter type is not currently in use with existing assays or processes.
+        [   <%= link_to "<b class='icon icon-del'>Delete</b>",
+          { :action => 'remove', :id =>  @data_format },
+          :confirm => 'Are you sure?',:method => "post" %> ]
+      </p>
+      <br />
+    <%end%>
+  </div>
+<% end %>
 
 <% content_for :right do -%>
-<%= render :partial=>'help' %>
+  <%= render :partial=>'help' %>
 <%end%>

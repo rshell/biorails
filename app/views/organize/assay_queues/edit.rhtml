@@ -1,0 +1,18 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'actions' %>
+<% end -%>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
+<%end%>
+<% content_for :footer do -%>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @assay_queue} %>
+<%end%>
+
+
+<% dialog "New Service in [#{@assay.name}]" do %>
+  <% form_tag :action => 'update', :id => @assay_queue do %>
+  <%= render :partial => 'form' %>
+  <% end %>
+<% end %>
+

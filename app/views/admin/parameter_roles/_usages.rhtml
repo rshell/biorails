@@ -1,0 +1,35 @@
+<table class="report">
+  <tr>
+    <th><b class='icon icon-assay'>Assay Name</b></th>
+    <th><b class='icon icon-parameter'>Assay Parameter</b></th>
+    <th><b class='icon icon-parameter_type'>Parameter Type</b></th>
+    <th><b class='icon icon-data_type'>Data Type</b></th>
+    <th><b class='icon icon-data_format'>Data Format</b></th>
+    <th><b class='icon icon-data_concept'>Data Lookup</b></th>
+  </tr>
+  <%for item in  @parameter_role.assay_parameters %>
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+      <td>
+        <p class='icon icon-show'>
+          <%=link_to item.assay.name, assay_url(:action=>:show , :id=>item.assay) %>
+        </p>
+      </td>
+      <td>
+        <p class='icon icon-show'>
+          <%=link_to item.name, assay_parameter_url(:action=>:show ,:id=>item.id) %>
+        </p>
+      </td>
+      <td>
+        <p class='icon icon-show'>
+          <%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %>
+        </p>
+      </td>
+      <td><p class='icon icon-data_type_<%=item.data_type.name%>'>
+          <%=item.data_type.name%>
+        </p>
+      </td>
+      <td><%=item.data_format.name if item.data_format_id %></td>
+      <td><%=item.data_element.name if item.data_element_id %></td>
+    </tr>
+  <%end%>
+</table>

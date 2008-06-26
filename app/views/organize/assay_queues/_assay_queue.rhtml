@@ -1,0 +1,52 @@
+<table class="report">
+  <tr>
+    <th class="label">
+      <b class='icon icon-name'>
+        Name
+      </b>
+    </th>
+    <td colspan='5'>
+      <%= assay_queue.name %>
+    </td>
+  </tr>
+  <tr>
+    <th class="label">
+      <b class='icon icon-description'>
+        Description
+      </b>
+    </th>
+    <td colspan='5'>
+      <%= assay_queue.description %>
+    </td>
+  </tr>
+  <tr>
+    <th class="label">
+      <b class='icon icon-assay_stage'>
+        Stage
+      </b>
+    </th>
+    <td>
+      <%= assay_queue.stage.name if assay_queue.stage %>
+    </td>
+    <th class="label">
+      <b class='icon icon-user_lab'>
+        Managed By
+      </b>
+    </th>
+    <td>
+      <%= assay_queue.assigned_to.name %>
+    </td>
+    <th class="label">
+      <b class='icon icon-assay'>
+        Assay
+      </b>
+    </th>
+    <td>
+      <p class='icon icon-queue'>
+        <%=link_to assay_queue.assay.name,
+          assay_url(:action => 'show', :id => assay_queue.assay) %>
+      </p>
+    </td>
+  </tr>
+</table>
+

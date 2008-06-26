@@ -1,11 +1,9 @@
 <%if @team && @membership %>
 
-  <h2> Members Profile for <%=@membership.user.name%> </h2>
+  <h1 class='icon icon-user'> Members Profile for <%=@membership.user.name%> </h1>
   <p><b> Team:</b> <%= @membership.team.name %></p>
   <p><b> User:</b> <%= @membership.user.name %></p>
   <p><b> Role:</b> <%= @membership.role.name %></p>
-
-
 
 <div class="splitcontentleft">
   <div class="box">
@@ -13,9 +11,9 @@
      <table id="team_projects" class="report">
       <thead>
         <tr class='header'>
-          <th>Name</th>
-          <th>Created By</th>
-          <th>Status</th>
+          <th><b class='icon icon-project'>Name</b></th>
+          <th><b class='icon icon-user'>Created By</b></th>
+          <th><b class='icon icon-status'>Status</b></th>
         </tr>
       </thead>
       <tbody>
@@ -29,42 +27,42 @@
       </tbody>
     </table>
 
-  </div>      
+  </div>
 
   <div class="box">
-    <h3 class="icon icon-study"><%=l('Studies')%></h3>
-     <table id="team_studies" class="report">
+    <h3 class="icon icon-assay"><%=l('Assays')%></h3>
+     <table id="team_assays" class="report">
       <thead>
         <tr class='header'>
-          <th>Name</th>
-          <th>Created By </th>
-          <th>Status</th>
+          <th><b class='icon icon-assay'>Name</b></th>
+          <th><b class='icon icon-user'>Created By</b></th>
+            <th><b class='icon icon-status'>Status</b></th>
         </tr>
       </thead>
       <tbody>
-        <% for item in @membership.studies %>
+        <% for item in @membership.assays %>
           <tr class="<%= cycle('odd', 'even') %>">
-            <td> <%=link_to item.name ,study_url(:action=>'show',:id=>item.id) %></td>
+            <td> <%=link_to item.name ,assay_url(:action=>'show',:id=>item.id) %></td>
             <td> <%=item.created_by%></td>
             <td> <%=h item.status %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  </div>      
-    
+  </div>
+
 </div>
 
-<div class="splitcontentright">    
+<div class="splitcontentright">
 
   <div class="box">
-    <h3 class="icon icon-study"><%=l('Experiments')%></h3>
-     <table id="team_studies" class="report">
+    <h3 class="icon icon-experiment"><%=l('Experiments')%></h3>
+     <table id="team_assays" class="report">
       <thead>
         <tr class='header'>
-          <th>Name</th>
-          <th>Created By </th>
-          <th>Status</th>
+          <th><b class='icon icon-experiment'>Name</b></th>
+          <th><b class='icon icon-user'>Created By </b></th>
+          <th><b class='icon icon-status'>Status</b></th>
         </tr>
       </thead>
       <tbody>
@@ -77,16 +75,16 @@
         <% end %>
       </tbody>
     </table>
-  </div>      
+  </div>
 
   <div class="box">
     <h3 class="icon icon-request"><%=l('Request')%></h3>
      <table id="team_request" class="report">
       <thead>
         <tr class='header'>
-          <th>Name</th>
-          <th>Created By </th>
-          <th>Status</th>
+          <th><b class='icon icon-request'>Name</b></th>
+          <th><b class='icon icon-user'>Created By</b> </th>
+          <th><b class='icon icon-status'>Status</b></th>
         </tr>
       </thead>
       <tbody>
@@ -99,16 +97,16 @@
         <% end %>
       </tbody>
     </table>
-  </div>      
+  </div>
 
   <div class="box">
     <h3 class="icon icon-task"><%=l('Task')%></h3>
      <table id="team_task" class="report">
       <thead>
         <tr class='header'>
-          <th>Name</th>
-          <th>Created By </th>
-          <th>Status</th>
+          <th><b class='icon icon-task'>Name</b></th>
+          <th><b class='icon icon-user'>Created By </b></th>
+          <th><b class='icon icon-status'>Status</b></th>
         </tr>
       </thead>
       <tbody>
@@ -121,9 +119,9 @@
         <% end %>
       </tbody>
     </table>
-  </div>      
+  </div>
 
 
-</div>  
+</div>
 
 <%end%>

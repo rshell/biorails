@@ -3,14 +3,14 @@
 <% end %>
 
 <% content_for :right do%>
-  <%= render :partial => 'menu'%>
+  <%= render :partial => 'help'%>
 <% end %>
 
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['data_type']} %>
 <%end%>
 
-<% dialog 'Data Type' do %>
+<% dialog "New Data Type" do %>
 <% form_tag :action => 'create' do %>
   <%= render :partial => 'form' %>
   <%= submit_tag "Create" %>

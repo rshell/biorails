@@ -1,0 +1,15 @@
+<%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
+<%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay =>  @assay} %>
+<div>
+  <span class='menu'>
+    <b class='icon icon-queue'>
+      Service Queue
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to "<b class='icon icon-service-add'>New Service</b>",
+      queue_url( :action => 'new', :id=>@assay  ) %>
+    <%= link_to "<b class='icon icon-list'>List</b>",
+      queue_url( :action => 'list', :id=>@assay  ) %>
+  </div>
+</div>

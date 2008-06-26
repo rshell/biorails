@@ -1,11 +1,11 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: data_types
 #
 #  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  description        :string(255)   
+#  name               :string(255)   default(), not null
+#  description        :string(1024)  default(), not null
 #  value_class        :string(255)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
@@ -20,7 +20,7 @@
 # 
 
 class DataType < ActiveRecord::Base
-  included Named
+   acts_as_dictionary :name 
 
 ##
 # This record has a full audit log created for changes 
@@ -30,6 +30,8 @@ class DataType < ActiveRecord::Base
 # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
+  validates_uniqueness_of :name
+  
 ##
 #  In usage a DataType has a collection of DataFormat models which are used
 #  to govern data entry. This is basically a managment library of regex masks
@@ -37,6 +39,6 @@ class DataType < ActiveRecord::Base
 #  
   has_many :data_formats, :dependent => :destroy
   has_many :parameters, :dependent => :destroy
-  has_many :study_parameters, :dependent => :destroy
+  has_many :assay_parameters, :dependent => :destroy
   
 end

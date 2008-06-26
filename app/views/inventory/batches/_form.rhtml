@@ -2,45 +2,51 @@
 
 <!--[form:batch]-->
 <div class="row">
-    <div class="form-element">
-        <label for="batch_name">Name</label>
-        <%= text_field 'batch', 'name'  %>
-    </div>
-    <div class="form-element">
-        <label for="compound_name">CompoundName</label>
-        <%= text_field_with_auto_complete :compound, :name %>
-    </div>
+  <div class="form-element">
+    <label for="batch_name">
+      Name
+    </label>
+    <%= text_field 'batch', 'name'  %>
+  </div>
+  <div class="form-element">
+    <label for="compound_name" class="icon icon-compound">
+      CompoundName
+    </label>
+    <!--%= in_place_editor_field :compound, :name %-->
+    <%= text_field 'batch', 'compound'  %>
+  </div>
 
 </div>
 
 
 <div class="row">
-    <div class="form-element">
-        <label for="batch_description">Description</label>
-        <%= text_area 'batch', 'description'  %>
-    </div>
+  <div class="form-element">
+    <label for="batch_description">Description</label>
+    <%= text_area 'batch', 'description'  %>
+  </div>
 </div>
 
 <div class="row">
-    <div class="form-element">
-        <label for="batch_external_ref">External ref</label>
-        <%= text_field 'batch', 'external_ref'  %>
-    </div>
-    
-    <div class="form-element">
-        <label for="batch_quantity_unit">Quantity unit</label>
-        <%= text_field 'batch', 'quantity_unit'  %>
-    </div>
-    
-    <div class="form-element">
-        <label for="batch_quantity_value">Quantity value</label>
-        <%= text_field 'batch', 'quantity_value'  %>
-    </div>
-    
-    <div class="form-element">
-        <label for="batch_url">Url</label>
-        <%= text_field 'batch', 'url'  %>
-    </div>
+  <div class="form-element">
+    <label for="batch_external_ref">External ref</label>
+    <%= text_field 'batch', 'external_ref'  %>
+  </div>
+  <div class="form-element">
+    <label for="batch_url">Url</label>
+    <%= text_field 'batch', 'url'  %>
+  </div>
 </div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="batch_quantity_unit">Quantity unit</label>
+    <%= text_field 'batch', 'quantity_unit'  %>
+  </div>
+  <div class="form-element">
+    <label for="batch_quantity_value">Quantity value</label>
+    <%= text_field 'batch', 'quantity_value'  %>
+  </div>
+</div>
+
 <!--[eoform:batch]-->
 

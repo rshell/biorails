@@ -1,10 +1,10 @@
 
 <% content_for :sidemenu do%>
-  <%=   render :partial =>'menu/default_left_menu' %>    
+   <%= render :partial =>'/menu/project_menu' ,   :locals=>{ :project => current_project}  if current_project %>
   <div>
     <span class='menu'>Compound </span>
-    <%= link_to subject_icon('new.png')  + 'New',   :action => 'new' %>
-    <%= link_to subject_icon('list.png') + 'List',  :action => 'list' %>
+    <%= link_to 'New',   :action => 'new' %>
+    <%= link_to 'List',  :action => 'list' %>
   </div>
 <% end %>
 
@@ -25,12 +25,11 @@
     <% for @compound in @compounds %>
       <tr>
      <!--<td><img src="<%= url_for :action => "marvin_image_for", :smiles => @compound.smiles %>"></img></td>-->
-      <td><%=chemistry_png(@compound,100,100) %></td>
+      <td></td>
       <td><%=link_to  @compound.name, :action => 'show', :id => @compound  %></td>
       <td><%=h truncate(@compound.description, 10, truncate_string='...') %></td>
       <td><%=h @compound.formula %></td>
       <td><%=h @compound.mass %></td>
-      <td><%=h @compound.iupacname %></td>
       <!---<td><%=h @compound.smiles %></td>-->
       <td>
       <%= short_date(@compound.registration_date) %>

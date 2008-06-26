@@ -1,43 +1,44 @@
 <div class='Main'>
-    <div class="title" id="task">
-        <%=subject_icon('model/task.png')%> List Tasks 
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('new.png'))+'New task', :action => 'new' %></li>
-            </ul>
-        </div>
-    </div>
-    <div class='panel'>
-        <table class="report">
-          <tr>
-            <th>Experiment</th>
-            <th>Task</th>
-            <th>Protocol</th>
-            <th>Process</th>
-            <th>Assigned</th>
-            <th>Starts</th>
-            <th>End</th>
-            <th>Rows</th>
-            <th>Done%</th>
-            <th></th>
-          </tr>
-          
-        <% for task in @tasks %>
-          <tr>
-            <td><%= link_to task.experiment.name , :controller => 'experiments', :action => 'show', :id => task.experiment.id %></td>
-            <td><%= link_to task.name, :action => 'show', :id => task.id %></td>
-            <td><%= link_to task.protocol.name, :controller => 'study_protocols', :action => 'show', :id => task.protocol.id %></td>
-            <td><%=h task.process.name %></td>
-            <td><%=h task.assigned_to %></td>
-            <td><%= short_date( task.started_at) %></td>
-            <td><%= short_date( task.ended_at ) %></td>
-            <td><%=h task.contexts.size %></td>
-            <td><%=h task.done*100 %></td>
-            <td><%= link_to (subject_icon('destroy.png'))+'Destroy', { :action => 'destroy', :id => task }, :confirm => 'Are you sure?',:method => "post" %></td>
-          </tr>
-        <% end %>
-        </table>
+  <div class="title" id="task">
+    <h1 class='icon icon-task-large' style='text-indent:0.5em;'>
+      List Tasks
+    </h1>
+  </div>
+  <div class='panel'>
+    <table class="report">
+        <tr>
+          <th><b class='icon icon-experiment'>Experiment</b></th>
+          <th><b class='icon icon-experiment'>Task</b></th>
+          <th><b class='icon icon-experiment'>Protocol</b></th>
+          <th><b class='icon icon-experiment'>Assigned</b></th>
+          <th><b class='icon icon-experiment'>Starts</b></th>
+          <th><b class='icon icon-experiment'>End</b></th>
+          <th>Rows</th>
+          <th></th>
+        </tr>
+
+      <% for task in @tasks %>
+        <tr>
+          <td>  <%= link_to task.experiment.name ,experiment_url( :action => 'show',:id => task.experiment_id) %></td>
+          <td>  <%= link_to task.name,            task_url(:action => 'show', :id => task.id) %></td>
+          <td>  <%= link_to task.process.name,process_instance_url(:action => 'show',:id => task.protocol_version_id) %>        </td>
+          <td><%=h task.assigned_to %></td>
+          <td><%= short_date( task.started_at) %></td>
+          <td><%= short_date( task.ended_at ) %></td>
+          <td><%=h task.contexts.size %></td>
+          <td>
+            <p class='icon icon-del'>
+              <%= link_to 'Destroy', {
+                :action => 'destroy',
+                :id => task },
+                :confirm => 'Are you sure?',
+                :method => "post" %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   <%= will_paginate @tasks %>
-    </div>
+  </div>
 
 </div>

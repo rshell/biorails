@@ -2,15 +2,11 @@
   <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project}  %>
   <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
 <% end -%>
-<% content_for :help do -%>
-  <h2>Timeline</h2>
-  Simple Project Timeline to show what task are expected when
-<% end -%>
 
 <% content_for :status do -%>
-<%=render :partial =>'gantt_status' %>
+  <%=render :partial =>'gantt_status' %>
 <% end -%>
 
 <% content_for :center do -%>
-<%=render :partial =>'gantt' %>
+  <%=render :partial =>'gantt' %>
 <% end -%>

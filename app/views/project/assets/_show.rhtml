@@ -1,28 +1,40 @@
-<br/>
-<h2 class="icon icon-file-large" style="text-indent:0.5em">
-File: 
-    <% if @project_folder.parent %>
-    <%= link_to_remote ".."+ @project_folder.parent.path, :url=>folder_url( :action => 'show',:id=> @project_folder.parent_id) if  @project_folder.parent%>
-    <%= link_to_remote "/"+ @project_folder.name,         :url=>folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder%>
-    <%else%>
-    <%= link_to_remote "/"+@project_folder.name, :url=>folder_url( :action => 'show',:id=> @project_folder.id) %>
-    <% end%>
-
-<%= "/"+ @project_asset.name %>
-
-</h2>
 <%if @project_asset.asset.image? %>
-<%= @project_asset.asset.image_tag  %>
+  <%= @project_asset.asset.image_tag  %>
 <%end %>
-<h3 style="margin-top:1em">File details</h3>
+
+<h2 style="margin-top:1em">File details</h2>
+
 <ul>
-<li><b>Title: </b><%=in_place_editor_field :project_asset,:title,{} ,{:cols=>80}%> </li>
-<li><b>Caption: </b><%=in_place_editor_field :project_asset, :description,{},{:cols=>100,:rows=>4} %> </li>
-<li><b>Download: </b> <%= link_to @project_asset.asset.filename, @project_asset.url %></li>
-<li><b>Mime Type: </b><%=@project_asset.asset.content_type%> </li>
-<li><b>Summary: </b>  <%=  @project_asset.summary %>
-</li>
-<li><b>MD5 Signature: </b><%=@project_asset.asset.signature%> </li>
-<li><b>created: </b><%=@project_asset.created_at%> <%=@project_asset.created_by%> </li>
-<li><b>updated: </b><%=@project_asset.updated_at%> <%=@project_asset.updated_by%> </li>
+  <li>
+    <b>Title:</b>
+    <%=@project_asset.title%>
+  </li>
+  <li>
+    <b>Caption:</b>
+    <%=@project_asset.description %>
+  </li>
+  <li>
+    <b>Download:</b>
+    <%= link_to @project_asset.asset.filename, @project_asset.url %>
+  </li>
+  <li>
+    <b>Mime Type:</b>
+    <%=@project_asset.asset.content_type%>
+  </li>
+  <li>
+    <b>Summary:</b>
+    <%=  @project_asset.summary %>
+  </li>
+  <li>
+    <b>MD5 Signature:</b>
+    <%=@project_asset.asset.signature%>
+  </li>
+  <li>
+    <b>created:</b>
+    <%=@project_asset.created_at%> <%=@project_asset.created_by%>
+  </li>
+  <li>
+    <b>updated:</b>
+    <%=@project_asset.updated_at%> <%=@project_asset.updated_by%>
+  </li>
 </ul>

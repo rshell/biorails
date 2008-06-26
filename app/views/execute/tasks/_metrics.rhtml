@@ -1,0 +1,56 @@
+<table class="report">
+  <tr>
+    <th colspan='13'>
+  </tr>
+  <tr>
+    <th colspan='3'><b class='icon icon-parameter'>Parameter</b></th>
+    <th colspan='5'><b class='icon icon-task-small'>Current (Task)</b></th>
+    <th colspan='5'><b class='icon icon-protocol_version'>Historic (Proc. ver)</b></th>
+  </tr>
+  <tr>
+    <th rowspan='1' scope="col">Alias</th>
+    <th rowspan='1' scope="col"><b class='icon icon-parameter_type'>Type</b></th>
+    <th rowspan='1' scope="col"><b class='icon icon-parameter_role'>Role</b></th>
+
+    <th rowspan='1' scope="col">Total</th>
+    <th rowspan='1' scope="col">Ave</th>
+    <th rowspan='1' scope="col">Std.Dev.</th>
+    <th rowspan='1' scope="col">Min</th>
+    <th rowspan='1' scope="col">Max</th>
+
+    <th rowspan='1' scope="col">Total</th>
+    <th rowspan='1' scope="col">Ave</th>
+    <th rowspan='1' scope="col">Std.Dev.</th>
+    <th rowspan='1' scope="col">Min</th>
+    <th rowspan='1' scope="col">Max</th>
+  </tr>
+<%for row in @task.statistics%>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td>
+      <p class='icon icon-data_type_<%=row.data_type.name%>'>
+        <%= row.data_type.name if row.data_type  %>
+        <%=row.parameter.name if row.parameter %>
+      </p>
+    </td>
+    <td> <%=row.type.name if row.type %>   </td>
+    <td>
+      <p class='icon icon-<%=row.role.name%>'>
+          <%=row.role.name if row.role %>
+      </p>
+    </td>
+    <td> <%=row.num_values %>  </td>
+    <td> <%=number_round row.avg_values %>   </td>
+    <td> <%=number_round row.stddev_values %>   </td>
+    <td> <%=row.min_values %>   </td>
+    <td> <%=row.max_values %>   </td>
+    <td> <%=row.num_process %>  </td>
+    <td> <%=number_round row.avg_process %>   </td>
+    <td> <%=number_round row.stddev_process %> </td>
+    <td> <%=row.min_process  %>  </td>
+    <td> <%=row.max_process  %>  </td>
+  </tr>
+<%end%>
+  <tr>
+    <th colspan="13" scope="col"></th>
+  </tr>
+</table>

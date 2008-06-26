@@ -1,27 +1,25 @@
-##
+# ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-#
+# See license agreement for additional rights ##
+# 
 class Execute::TasksController < ApplicationController
 
   use_authorization :tasks,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+    :actions => [:list,:show,:new,:create,:edit,:update,:make_flexible],
+    :rights => :current_project
 
   helper SheetHelper
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
+  before_filter :setup_task,
+    :only => [ :show, :edit,:assign,:update_queue,:copy, :update,:destroy,:print,:import, :export,:modify,:folder,
+    :sheet,:entry,:export,:metrics,:analysis,:report,:make_flexible]
 
   def index
     list
   end
 
-##
-# List tasks in the the current experiment
-# 
+  # ## List tasks in the the current experiment
+  # 
   def list
     @tasks = Task.paginate :order=>'updated_at desc', :page => params[:page]
     respond_to do | format |
@@ -30,71 +28,93 @@ class Execute::TasksController < ApplicationController
       format.pdf  { render_pdf :action => 'list',:layout=>false }
       format.json { render :json => @tasks.to_json}
       format.xml  { render :xml => @tasks.to_xml }
-     end
+    end
   end
 
-##
-# This will show the task and provide a read only view of the entered data on the screen
-# 
+  # ## This will show the task and provide a read only view of the entered data
+  # on the screen
+  # 
   def show
-    set_task
     respond_to do | format |
-      format.html { render :action => 'show' }
+      format.html {
+        if browser_is? :ie6
+          render :action => 'show_ie6'
+        else
+          render :action => 'show'
+        end
+      }
       format.ext { render :partial => 'show',:layout=>false }
       format.pdf  { render_pdf "#{@task.name}.pdf", :partial => 'show',:layout=>false }
       format.csv { render :text => @task.to_csv}
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
-     end
-    
+    end    
   end
-
-##
-# show statics on task
+  # 
+  # Auto Assign queued items
+  # 
+  def assign
+    @task.assign_queued_items
+    redirect_to :action => 'show',  :id=> @task  
+  end  
+  
+  def update_queue
+    if params[:any]=='y'
+      @task.update_queued_items(@task.possible_queue_items)
+    else
+      @task.update_queued_items(@task.queue_items)
+    end      
+    redirect_to :action => 'show',  :id=> @task  
+  end  
+  
+  # ## show statics on task
   def metrics
-    set_task
     respond_to do | format |
       format.html { render :action => 'metrics' }
-      format.ext { render :action => 'metrics',:layout=>false }
+      format.ext { render :partial => 'metrics',:layout=>false }
       format.pdf  { render_pdf :action => 'metrics',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
-     end
+    end
   end
 
-##
-# show data entry sheet readonly
-  def view
-    set_task
+  # ## Printed output for a model
+  # 
+  def print
     respond_to do | format |
-      format.html { render :action => 'view' }
-      format.ext { render :action => 'view',:layout=>false }
-      format.pdf  { render_pdf :action => 'view',:layout=>false }
+      format.html { render :text => @task.to_html }
+      format.ext  { render :text => @task.to_html }
+      format.pdf  { html_send_as_pdf(@task.name, @task.to_html) }
       format.csv { render :json => @task.grid.to_csv}
-      format.json { render :json => @task.to_json}
+      format.json { render :json => @task.to_json }
       format.xml  { render :xml => @task.to_xml }
-     end
-  end
+    end
+  end 
 
-##
-# show data entry sheet 
+  # ## show data entry sheet
   def sheet
-    set_task
+    @tab=3
+    @task.populate
     respond_to do | format |
-      format.html { render :action => 'sheet'}
-      format.ext { render :action => 'sheet',:layout=>false }
+      format.html {
+        if browser_is? :ie6
+          render :action => 'sheet_ie6'
+        else
+          render :action => 'sheet'
+        end
+      }
+      format.ext { render :partial => 'sheet',:layout=>false }
       format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
-     end
+    end
   end
 
-##
-# show data entry sheet 
+  # ## show data entry sheet
   def entry
-    set_task
+    @task.populate
     respond_to do | format |
       format.html { render :action => 'entry'}
       format.ext { render :action => 'entry',:layout=>false }
@@ -102,142 +122,117 @@ class Execute::TasksController < ApplicationController
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
-     end
+    end
   end  
   
 
- #
- # Get a table of data for a context definition
- #
- def context
-   @parameter_context = ParameterContext.find(params[:id])
-   render :inline => '<%= context_model(@parameter_context) %>'
- end  
- #
- # Get a table of data for a context definition
- #
- def values
-   @task_context = TaskContext.find(params[:id])
-   render :inline => '<%= context_values( @task_context.task , @task_context.definition ) %>'
- end    
+  # 
+  # Get a table of data for a context definition
+  # 
+  def context
+    @parameter_context = ParameterContext.find(params[:id])
+    render :inline => '<%= context_model(@parameter_context) %>'
+  end  
+  # 
+  # Get a table of data for a context definition
+  # 
+  def values
+    @task_context = TaskContext.find(params[:id])
+    render :inline => '<%= context_values( @task_context.task , @task_context.definition ) %>'
+  end    
   
-##
-# show data task analysis options
-# 
+  # ## show data task analysis options {"run"=>"yes", "commit"=>"Run",
+  # "action"=>"analysis", "id"=>"10549",
+  # "setting"=>{"x"=>{"parameter_id"=>"10657"},
+  #             "title"=>{"default_value"=>"x/y plot"},
+  #             "y"=>{"parameter_id"=>"10658"},
+  #             "filename"=>{"default_value"=>"plot_xy.jpg"},
+  #             "label"=>{"parameter_id"=>"10655"}},
+  # "controller"=>"execute/tasks"}
+
   def analysis
-    set_task
     @level1 =  @task.process.parameters.reject{|i|i.context.parent.nil?}.collect{|i|["#{i.name} [#{i.data_type.name}]" ,i.id]}
     @level0 =  @task.process.parameters.reject{|i|!i.context.parent.nil?}.collect{|i|["#{i.name} [#{i.data_type.name}]",i.id]}
-    @analysis = AnalysisMethod.setup(params)
+    @analysis = @task.process.analysis_method
+    @analysis.configure(params[:setting],@task) if params[:setting]
     @analysis.run(@task)  if params[:run]
     respond_to do | format |
       format.html { render :action => 'analysis'}
-      format.ext { render :action => 'analysis',:layout=>false }
+      format.ext { render :partial => 'analysis',:layout=>false }
       format.xml  { render :xml =>  @task.to_xml}
       format.text  { render :xml =>  @task.to_csv}
-      format.js   { render :update do | page |
-           page.replace_html 'analysis-form',  :partial => 'analysis' 
-           page.replace_html 'analysis-run',  :inline => @analysis.report(@task) if @analysis.has_run? 
-         end }
+      format.js   { 
+        render :update do | page |
+          page.replace_html 'analysis-form',  :partial => 'analysis' 
+          page.replace_html 'analysis-run',  :inline => @analysis.report(@task) if @analysis.run? 
+        end
+      }
     end
   end
 
-##
-# show task notces,comments etc
+  # ## show task notces,comments etc
   def folder
-    set_task
     @project_folder = @task.folder  
   end
-##
-# show reporting options
-# 
+  # ## show reporting options
+  # 
   def report
     show
   end
 
-###
-# If a process is linked to only a single task it can be mmodified on the fly. In this
-# case control is passed to study protocol editor otherwize a warning is presented
-  def modify 
-    @task = current_user.task( params[:id] )
-    @task.updated_by = current_user.name
-    session[:data_sheet] = nil
-    flash[:modify] = @task.id   
-    if  @task.process.tasks.size==1
-        flash[:return] = { :controller => 'tasks', :action=>'show', :id=>@task.id }
-        redirect_to :action => 'edit',:controller=>'study_protocol',
-                :id=> @task.protocol.id,  :version => @task.process.id  
-    else
-       flash[:warning] = "process #{@task.process.name} linked to multple task so cant be edited"
-       render :action=>'show'
-    end
-  end
-##
-# Create a new task in the the current experiment
-#
+  # ## Create a new task in the the current experiment
+  # 
   def new
     set_experiment(params[:id])
-    @task = @experiment.new_task
+    @task = @experiment.add_task
   end
 
 
-##
-# Post of new to task back to the database
-#
+  # ## Post of new to task back to the database
+  # 
   def create
     @task = Task.new(params[:task])
     @task.protocol = @task.process.protocol if @task.process
     @task.project = current_project
     set_experiment(@task.experiment_id)
     if @task.save
-      @project_folder = @task.folder
+      ProjectFolder.current = @task.folder
       session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
-      redirect_to task_url(:action => 'show', :id=>@task.id)
+      redirect_to task_url(:action => 'show', :id=>@task.id,:tab=>3)
     else
       render :action => 'new'
     end
   end
   
-##
-# Update the details on the current task
-# 
-# This is used for validation of task and changing of schedule
-# 
+  # ## Update the details on the current task
+  # 
+  # This is used for validation of task and changing of schedule
+  # 
   def edit
-    set_task
     respond_to do | format |
       format.html { render :action => 'edit' }
-      format.ext { render :action => 'edit',:layout=>false }
+      format.ext { render :partial => 'edit',:layout=>false }
       format.pdf  { render_pdf :action => 'edit',:layout=>false }
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
-     end
+    end
   end
 
-##
-# copy a task
+  # ## copy a task
   def copy
-    old_task = current( Task, params[:id] )
+    old_task = @task
     @task = old_task.copy
     @task.experiment = nil
     @task.started_at = Time.now
-    @task.ended_at =  Time.now + (old_task.ended_at-old_task.started_at)
+    @task.ended_at =  Time.now + (old_task.finished_at-old_task.started_at)
     old_task.experiment.tasks << @task
-    @data_sheet = TreeGrid.from_task(@task)
     @task.save
-      redirect_to :action => 'show', :id => @task
+    redirect_to :action => 'show', :id => @task
   end
   
-  
-  def transform
-    @task = Task.find(params[:id])
-    render :partial => 'stats'
-  end
-  
-##
-# Post from edit to update database
-#
+  # ## Post from edit to update database
+  # 
   def update
     session[:data_sheet] =nil
     @task = current_user.task(params[:id])
@@ -249,145 +244,190 @@ class Execute::TasksController < ApplicationController
       render :action => 'edit'
     end
   end
-
-##
-# destroy the task
-#
+  # ## destroy the task
+  # 
   def destroy
     session[:data_sheet] =nil
-    @task = current_user.task(params[:id])
     @experiment = @task.experiment
     @task.destroy
     redirect_to :controller =>'experiments',:action => 'show',:id => @experiment.id
-  end
-  
-#
-#  export Report of Elements as CVS
-#  
+  end 
+  # 
+  #  export Report of Elements as CVS
+  # 
   def export
-    set_task
     filename = "#{@task.experiment.name}-#{@task.name}.csv"
     send_data( @task.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
-                            :filename => filename)   
-  rescue Exception => ex
-      logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
-      redirect_to :action => 'show', :id => @task
+      :filename => filename)   
   end  
-
-##
-# Import form
+  # ## Import form
   def import
-    set_task
     respond_to do | format |
       format.html { render :action => 'import' }
-      format.ext { render :action => 'import',:layout=>false }
-     end
+      format.ext { render :partial => 'import',:layout=>false }
+    end
   end
-
-##
-# Import file into the task
-# 
-# first  
-# Task   study,experiment,task,status
-# note   description
-# Header label  [name,]
-# Data   row    [value,]
-# 
+  # ## Import file into the task
+  # 
+  # first Task   assay,experiment,task,status note   description Header label
+  # [name,] Data   row    [value,]
+  # 
   def import_file
-    set_task
+    set_experiment(params[:id])
     file = params[:file] || params['File']
     if file.is_a? StringIO or file.is_a? File
       Experiment.transaction do 
-        @experiment = @task.experiment
+        #        @experiment = @task.experiment
         @task = @experiment.import_task(file)  
       end
-      session.data[:current_params]=nil    
       flash[:info]= "import task #{@task.name}" 
-      redirect_to  task_url( :action => 'view', :id => @task)
+      redirect_to :action => 'show', :id=>@task.id,:tab=>3
     else
-      session.data[:current_params]=nil    
       flash[:error] ="Appears that there was to file selected. "
       render :action => 'import'   
     end 
-
   rescue  Exception => ex
-     session.data[:current_params]=nil
-     logger.error ex.message
-     logger.error ex.backtrace.join("\n") 
-     flash[:error] = "Import Failed:" + ex.message
-     flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
-     render :action => 'import'   
+    logger.error ex.message
+    logger.error ex.backtrace.join("\n") 
+    flash[:error] = "Import Failed:" + ex.message
+    flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
+    render :action => 'import'   
+  end
+  # 
+  # Make the task flexible to can add columns
+  # 
+  def make_flexible
+    @successful  = false
+    begin
+      @task.make_flexible
+      @successful  = true
+    rescue
+    end
+    respond_to do | format |
+      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3}
+      format.xml  { render :xml => @task.to_xml }
+    end
   end
   
-
-  def cell_value
-    @task = Task.find(params[:id])
-    @task.cell()
-  end
-##
-# Handle cell change events to save data back to the database
-# 
-# param[:id] = task
-# param[:row]= row_no (test_context.row_no)
-# param[:col]= column_no for parameter
-# param[:cell]= dom_id for the cell changes
-# 
-# content of message is the data for the value
-# 
-  def cell_change
-   begin
-    @successful = false 
-    @dom_id = params[:element]  
-    @row =@dom_id.split('_')[2].to_i
-    @col = @dom_id.split('_')[3].to_i
-
-    @task = Task.find(params[:id])    
-    @grid = @task.grid
-    @cell = @grid.cell(@row,@col)
-    @cell.value = URI.unescape(params[:value])    
-    @successful = @cell.save
-
-  rescue Exception => ex
-    flash[:error]="Problems with save of cell "+@dom_id
-    logger.debug ex.backtrace.join("\n")  
-    logger.error "Problem with save"+ $!.to_s
-  end  
-  respond_to do | format |
-    format.html { render :action => 'task'}
-    format.xml  { render :xml =>  @task.to_xml}
-    format.text  { render :xml =>  @task.to_csv}
-    format.js   { render :update do | page |
-          if  @successful 
-            page[@dom_id].value=@cell.value
-            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#99FF99'",:restorecolor=>"'#99FF99'"}
+  # 
+  # Add a row to a context appending to the end of the block the passed previous
+  # context was in
+  # 
+  def add_row
+    @successful  = false
+    begin
+      prev_context = TaskContext.find(params[:id])
+      @task = prev_context.task
+      @context = prev_context.append_copy
+      @successful  = true
+    rescue
+      logger.warn $!.to_s
+      flash[:error]= $!.to_s
+    end
+    respond_to do | format |
+      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3 }
+      format.xml  { render :xml => @task.to_xml }
+      format.js   { 
+        render :update do | page |
+          if @successful
+            page.replace_html "#{@task.dom_id('entry')}",:partial => 'entry' 
           else
-            page.visual_effect :highlight, @dom_id, {:endcolor=>"'#FFAAAA'",:restorecolor=>"'#FFAAAA'"}
-          end      
-       end }
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
+          end
+        end          
+      }
+    end
   end
+  # 
+  # List of possible column parameters to add at this point
+  # 
+  def list_columns
+    @task_context = TaskContext.find(params[:id])
+    @value   = params[:query] || ""
+    @choices =  @task_context.assay.parameters
+    @list = {:element_id=>params[:id],
+      :matches=>@value,
+      :total=>@choices.size ,
+      :items =>@choices.collect{|i|{ :id=>i.id,:name=>i.name}}
+    }
+    render :text => @list.to_json
+  end  
+  # 
+  # If the task is flexible the add a column to it
+  # 
+  def add_column
+    @successful  = false
+    begin
+      @task_context = TaskContext.find(params[:id])
+      @task = @task_context.task
+      if @task.flexible?
+        @task_context.add_parameter(params[:name])
+        @successful  = true
+      else
+        flash[:error]= 'this is not a flexible process' 
+        logger.warn("not a flexible task")        
+      end
+    rescue 
+    end
+    respond_to do | format |
+      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3 }
+      format.xml  { render :xml => @task.to_xml }
+      format.js   { 
+        render :update do | page |
+          if @successful
+            page.replace_html @task.dom_id('entry'),:partial => 'entry' 
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
+          end
+        end        
+      }
+    end
   end
-
-protected
+  # 
+  # update a cell valuei in the task
+  # 
+  def cell_value
+    item = {:row=>params[:row],:column =>params[:column],:passed=>params[:value]}
+    begin
+      Task.transaction do
+        @context = TaskContext.find(params[:id],:include=>[:task,:values,:texts,:references])
+        item = item.merge(@context.set_value(from_dom_id(params[:field]),params[:value]))
+      end
+    rescue Exception => ex
+      logger.warn ex.backtrace.join("\n")  
+      item[:errors] = ex.message
+    end  
+    logger.info "returned value #{item.to_json}"
+    logger.warn item[:errors] if item[:errors]
+    render :text =>  item.to_json
+  end
   
-  def set_task
+
+  protected
+  
+  def setup_task
+    @tab = params[:tab]||0
     @task = current_user.task( params[:id] )
-    @experiment =@task.experiment
-    ProjectFolder.current = @folder = @task.folder
+    if @task 
+      @experiment =@task.experiment    
+      ProjectFolder.current = @task.folder
+      if set_project(@experiment.project) 
+        if set_team(@experiment.team)
+          return true
+        end
+      end
+    else
+      return show_access_denied
+    end
+    return false
   end
   
   def set_experiment(experiment_id)
+    @tab = params[:tab]||0
     if experiment_id
       @experiment = current_user.experiment(experiment_id )
     else
       @experiment = current_project.experiments.last    
-    end
-    @protocol_options= []
-    @current_project.protocols.each do |item|
-      @protocol_options << ["#{item.study.name}/#{item.process.name} [release]",item.process.id]
-      unless item.process.id == item.lastest.id
-         @protocol_options << ["#{item.study.name}/#{item.lastest.name} [lastest]",item.lastest.id]
-      end
     end
   end
 end

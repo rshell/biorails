@@ -10,7 +10,7 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['role']} %>
 <%end%>
 
-<% dialog ' Create Role'do %>
+<% dialog "Create Role" do %>
 	<% form_tag :action => 'create' do %>
 	  <%= render :partial => 'new' %>
 	  <%= submit_tag "Create" %>

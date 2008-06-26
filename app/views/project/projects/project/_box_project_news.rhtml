@@ -1,0 +1,21 @@
+<h2 class="icon icon-news-large" style="text-indent:0.5em">
+    <%=l('News (Recent Articles)')%>
+</h2>
+<table id="project_news" class="report">
+  <thead>
+    <tr class='header'>
+      <th><b class='icon icon-note'>Article</b></th>
+      <th><b class='icon icon-date'>Date</b></th>
+      <th><b class='icon icon-description'>Summary</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for item in @project.news(5) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+        <td><%=link_to item.name, element_to_url(item) %></td>
+        <td><%= short_date(item.updated_at) %></td>
+        <td><%= item.summary %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,3 +1,22 @@
+# == Schema Information
+# Schema version: 306
+#
+# Table name: teams
+#
+#  id                 :integer(11)   not null, primary key
+#  name               :string(30)    default(), not null
+#  description        :string(2048)  default(), not null
+#  status_id          :integer(11)   default(0), not null
+#  public_role_id     :integer(11)   default(1), not null
+#  external_role_id   :integer(11)   default(1)
+#  email              :string(255)   
+#  lock_version       :integer(11)   default(0), not null
+#  created_at         :datetime      not null
+#  created_by_user_id :integer(11)   default(1), not null
+#  updated_at         :datetime      not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#
+
 #
 # Teams are used to manage access to data in the system. 
 # A team has a set membership with each member having a set role which govens 
@@ -6,7 +25,7 @@
 # there rights. There can be more then one owner to cover to multiple sites
 # holidays etc.
 # 
-# Teams own projects,studies,experiments,requests etc.
+# Teams own projects,assays,experiments,requests etc.
 # 
 # When doing CRUD of a object the following are checked
 # 
@@ -59,9 +78,9 @@ class Team < ActiveRecord::Base
 #
   has_many :projects, :class_name=>'Project',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
 #
-# List of all the studies
+# List of all the assays
 #
-  has_many :studies, :class_name=>'Study',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
+  has_many :assays, :class_name=>'Assay',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
 #
 # List of all the experiments
 #
@@ -81,14 +100,15 @@ class Team < ActiveRecord::Base
 # Get the member details
 #  
   def member(user)
-    Membership.find(:first,:conditions=>['team_id=? and user_id=?',self.id,user.id],:include=>:role)
+    memberships.find(:first,:conditions=>['user_id=?',user.id],:include=>:role)
   end
 #
 # test wheather is the the owner of the project
 #
   def owner?(user)
-    member_details = Membership.find(:first,:conditions=>['team_id=? and user_id=?',self.id,user.id],:include=>:role)
-    return (member_details and member_details.is_owner)
+    member =member(user)
+    return false unless member
+    member.owner?
   end
 
 #

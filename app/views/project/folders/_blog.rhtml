@@ -1,38 +1,45 @@
 <%= render :partial => 'title' %>
-
 <br/>
 <% if folder %>
 <h2>
-<% if  folder.reference? %>
-<%= link_to  folder.style, element_to_url(folder) %>
-<% else %>
-<%=  folder.style%>
-<% end %>
-<%= link_to "/"+ folder.parent.path, folder_url( :action => 'show',:id=>folder.parent_id) if  folder.parent%>
-<%= link_to "/"+ folder.name,        folder_url( :action => 'show',:id=>folder.id) %>
+  <% if  folder.reference? %>
+    <%= link_to  folder.style, element_to_url(folder) %>
+  <% else %>
+    <%=  folder.style%>
+  <% end %>
+  <%= link_to "/"+ folder.parent.path, folder_url( :action => 'show',:id=>folder.parent_id) if  folder.parent%>
+  <%= link_to "/"+ folder.name,
+      folder_url( :action => 'show',:id=>folder.id) %>
 </h2>
-<% for item in folder.lastest %>  
-<div class='box'>  
-	<% if item.asset? and item.asset.image? %>
-	
-	<h2>Figure: <%= link_to item.name, element_to_url(item)  %> (<%= format_time(item.updated_at) %>)</h2>
-	<p>  <%=  link_to image_tag(item.asset.public_filename(:normal)), element_to_url(item) %>	</p>  
-	    	  
-	<% elsif item.textual? %>
-	
-	<h2> Article:  <%= link_to item.title, content_url(:action=>'edit',:id=>item.id)  %>  (<%= format_time(item.updated_at) %>) 	</h2>
-	<p>       <%= item.to_html %>	</p>
-	
-	<% else %>
-	
-	<% end %>
-</div>	
-<% end %>
-<%else%>
-No Folder found
+
+<% for item in folder.latest %>
+  <div class='box'>
+    <% if item.asset? and item.asset.image? %>
+
+      <h2>Figure: <%= link_to item.name, element_to_url(item)  %> (<%= format_time(item.updated_at) %>)</h2>
+      <p>
+        <%=link_to image_tag(item.asset.public_filename(:normal)),
+                  element_to_url(item) %>
+      </p>
+    <% elsif item.textual? %>
+
+      <h2>
+        Article:  <%= link_to item.title, content_url(:action=>'edit',:id=>item.id)  %>  (<%= format_time(item.updated_at) %>)
+      </h2>
+      <p>
+        <%= item.to_html %>
+      </p>
+
+      <% else %>
+
+    <% end %>
+  </div>
+  <% end %>
+  <%else%>
+    No Folder found
 <% end %>
 
 
-	
+
 
 

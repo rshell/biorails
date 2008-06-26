@@ -1,0 +1,29 @@
+<table class="report">
+  <tr>
+  <th colspan='4'>
+    <b><%= @data_type.name %>:</b><%= @data_type.description %>
+  </th>
+  <tr>
+    <th><b class='icon icon-name'>Name</b></th>
+    <th>Test Field</th>
+    <th>Regex Rule </th>
+    <th><b class='icon icon-action'>Action</b></th>
+  </tr>
+<% for data_format in @data_formats %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= link_to data_format.name,data_format_url( :action => 'show', :id => data_format) %></td>
+    <td><%= my_field_tag(
+             data_format.dom_id('test'),data_format.dom_id('test'),data_format,
+            {:save=>data_format_url(:"test",:id=>data_format.id)})  %>
+     <span id='result_<%=data_format.id%>'> ? </span>
+    </td>
+    <td><%=h data_format.description %></td>
+      <td>
+        <p class='icon icon-action'>
+          <%= link_to 'Edit',data_format_url( :action => 'edit', :id => data_format) %>
+        </p>
+      </td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @data_formats %>

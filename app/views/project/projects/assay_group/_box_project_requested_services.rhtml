@@ -1,0 +1,23 @@
+<h2 class="icon icon-request-large" style="text-indent:0.5em">
+Service Requests for group 
+</h2>
+<table id="requests_list" class="report">
+  <thead>
+    <tr class='header'>
+      <th><b class='icon icon-request'>Request</b></th>
+      <th><b class='icon icon-request'>Queue</b></th>
+      <th><b class='icon icon-date'>Date</b></th>
+      <th><b class='icon icon-note'>Summary</b></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for item in @project.outstanding_requested_services(5) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= link_to item.name, request_url( :action => 'show', :id => item) %></td>
+      <td><%= link_to item.queue.name, assay_queue_url( :action => 'show', :id => item.queue) %></td>
+      <td><%= short_date(item.updated_at) %></td>
+      <td><%= item.status_summary %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+
+Dear <%= @signature.signer.name %>,
+<br />
+<%= SystemSetting.witness_request_text %>
+<br />
+
+<%= link_to @signature.path, signature_url(:host=>'localhost', :action=>:edit, :id=>@signature.id) %> Document to witness
+<br />
+
+Yours,
+<%= @signature.creator.name %>
+

@@ -2,31 +2,31 @@
     <%= render :partial => 'menu'%>
 <% end %>
 
+<% content_for :right do%>
+  <%= render :partial => 'help'%>
+<% end %>
 
 <% content_for :center do%>
-  <div class='panel'>
-<h1 class="icon icon-data_format">Data Formating Rules</h1>
-<p>
-  Data Formatting rules use a <b>regular expression</b> mask for input filtering and 
-  a <b>printf</b> mask for output layout of data.
-</p>
-<table class="report">
-  <tr>
-    <th>name</th>
-    <th>Test Field</th>
-    <th>Regex Rule </th>
-    <th>Action</th>
-  </tr>  
-<% for data_format in @data_formats %>
-  <tr>
-    <td><%= link_to data_format.name,data_format_url( :action => 'show', :id => data_format) %></td>
-    <td><%= text_field_tag data_format.dom_id('test'),'',{:size=>30,:class=>"text-input",
-           :onkeyup=> "RegExMatchOnKey( '#{data_format.format_regex}', $('#{data_format.dom_id('test')}' ) )"}  %></td>
-    <td><%=h data_format.description %></td>
-    <td><%= link_to 'edit',data_format_url( :action => 'edit', :id => data_format) %></td>
-  </tr>
-<% end %>
-</table>
-       <%= will_paginate @data_formats %>    
-<%end%>
+
+  <h1 class="icon icon-data_format">Data Formating Rules</h1>
+  
+  <div class='box'>
+    <p>
+      <b>Description:</b>
+    Data Formatting rules use a <b>regular expression</b> mask for input filtering and
+    a <b>printf</b> mask for output layout of data.   
+  </p>
 </div>
+
+  <div class='box'>
+    <div class='pagination'>
+    <%=  link_to "Text ",data_format_url(:action=>'list',:id=>'1') %>
+    <%=  link_to "Number ",data_format_url(:action=>'list',:id=>'2') %>
+    <%=  link_to "Date ",data_format_url(:action=>'list',:id=>'3') %>
+    <%=  link_to "Url ",data_format_url(:action=>'list',:id=>'6') %>
+  </div>
+  <%= render :partial => 'list'%>
+</div>
+
+<%end%>
+

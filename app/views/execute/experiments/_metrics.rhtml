@@ -1,0 +1,47 @@
+<table class="report">
+  <tr>
+    <th colspan=13>
+  </tr>
+  <tr>
+    <th colspan=1 rowspan=2><b class="icon icon-parameter">Parameter</b></th>
+    <th colspan=5><b class="icon icon-experiment">Current (Experiment)</b></th>
+    <th colspan=5><b class="icon icon-assay">Historic (Assay)</b></th>
+  </tr>
+  <tr>
+
+    <th rowspan=1 scope="col">Total</th>
+    <th rowspan=1 scope="col">Ave</th>
+    <th rowspan=1 scope="col">Std.Dev.</th>
+    <th rowspan=1 scope="col">Min</th>
+    <th rowspan=1 scope="col">Max</th>
+
+    <th rowspan=1 scope="col">Total</th>
+    <th rowspan=1 scope="col">Ave</th>
+    <th rowspan=1 scope="col">Std.Dev.</th>
+    <th rowspan=1 scope="col">Min</th>
+    <th rowspan=1 scope="col">Max</th>
+  </tr>
+<%for row in @experiment.statistics%>
+   <tr class="<%= cycle('odd', 'even') %>">
+    <td>
+      <p class='icon icon-<%=row.role.name if row.role%>'>
+        <%=link_to(row.assay_parameter.name, 
+          parameter_url(:action=>'show', :id=>row.assay_parameter.id )) if row.assay_parameter %>
+      </p>
+    </td>
+    <td> <%=number_round row.num_values %>  </td>
+    <td> <%=number_round row.avg_values %>   </td>
+    <td> <%=number_round row.stddev_values %>   </td>
+    <td> <%=row.min_values %>   </td>
+    <td> <%=row.max_values %>   </td>
+    <td> <%=row.num_assay %>  </td>
+    <td> <%=number_round row.avg_assay %>   </td>
+    <td> <%=number_round row.stddev_assay %> </td>
+    <td> <%=row.min_assay  %>  </td>
+    <td> <%=row.max_assay  %>  </td>  
+  </tr>
+<%end%>
+  <tr>
+    <th colspan="13" scope="col"></th>
+  </tr>    
+</table>

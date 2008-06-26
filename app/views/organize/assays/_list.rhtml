@@ -1,0 +1,46 @@
+<div class='panel'>
+  <table class="report">
+    <thead>
+      <tr>
+        <th colspan='4'> <b class='icon icon-assay'>      Assay     </b> </th>
+        <th colspan='2'> <b class='icon icon-assay'>      Owner     </b> </th>
+        <th colspan='3'> <b class='icon icon-assay'>      Contains   </b> </th>
+      </tr>
+      <tr>
+        <th> <b class='icon icon-name'>      Name       </b> </th>
+        <th> <b class='icon icon-name'>      Description</b> </th>
+        <th> <b class='icon icon-status'>    Status     </b> </th>
+        <th> <b class='icon icon-date'>      Updated    </b> </th>
+        <th> <b class='icon icon-team'>      Team       </b> </th>
+        <th> <b class='icon icon-project'>   Project    </b> </th>
+        <th> <b class='icon icon-protocol'>  Protocols  </b> </th>
+        <th> <b class='icon icon-parameter'> Parameters </b> </th>
+        <th> <b class='icon icon-queue'>     Queues     </b>  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for assay in @project.linked_assays %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <td><%= link_to assay.name,  assay_url( :action => 'show', :id=>assay.id) %>         </td>
+          <td><%= assay.description %></td>
+          <td> <%=assay.status %>    </td>
+          <td><%= short_date assay.updated_at %>  </td>
+          <%if assay.project == current_project %>
+          <td colspan='2'> Current Project </td>
+          <%else%>
+          <td><%= assay.team.name   %></td>
+          <td><%= link_to assay.project.name,  project_url( :action => 'show', :id=>assay.project_id) %> </td>
+          <%end%>
+          <td> <%=assay.protocols.size %> </td>
+          <td> <%=assay.parameters.size %> </td>
+          <td> <%=assay.queues.size %> </td>
+        </tr>
+      <%end%>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan='10'>   </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'menu' %>
+<% end -%>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',
+    :locals => { :objects => ['assay','assay_parameter' ]} %>
+<%end%>
+
+<%dialog " Import Parameters for Assay #{@assay.name}" do %>
+  <%form_tag( {:action =>'import_file', :id=> @assay.id }, :multipart => true) do %>
+  <%=file_field_tag(:file,:size=>64) %>
+  <br />
+  <br />
+  <%= check_box_tag 'types', 'create',checked =false %>Create Parameter types
+  <br />
+  <%= check_box_tag 'roles', 'create',checked =false %>Create Parameter roles
+  <br />
+  <br />
+  <%= submit_tag("Import")%>
+  <% end %>
+<% end %>
+
+<% content_for :right do -%>
+    <h3>Guidance</h3>
+    <p>
+        Import expects a CVS file with following column titles :-
+      </p>
+       <ol stle='list-style: decimal inside'>
+        <li>type_id</li>
+        <li>type_name</li>
+        <li>role_id</li>
+        <li>role_name</li>
+        <li>Alias</li>
+        <li>Default</li>
+      </ol>
+<%end%>
+

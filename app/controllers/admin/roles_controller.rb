@@ -1,3 +1,8 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 # This manages the creation of Roles
 #
 
@@ -6,10 +11,6 @@ class Admin::RolesController < ApplicationController
   use_authorization :users,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user
-
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
 
   def index
     list

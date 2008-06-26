@@ -1,17 +1,22 @@
 <% unless request.nil?  %>
 <div>
-  <span class='menu'>Request</span>
-    <%= link_to subject_icon('list.png')+'List',request_url(  :action => 'list') %>
-      <% unless request.new_record? %>
-    
-    <%= link_to subject_icon('new.png')+ 'New',request_url(  :action => 'new') %>
-    <%= link_to subject_icon('show.png')+ 'Show',request_url(  :action => 'show',:id => request ) %>
-    <%= link_to subject_icon('show.png')+ 'Results',request_url(  :action => 'results',:id => request ) %>
-    <%= link_to subject_icon('edit.png')+ 'Edit',request_url(  :action => 'edit',:id => request ) %>
-    <%= link_to subject_icon('destroy.png')+'Delete', request_url( :action => 'destroy',:id => request ), :confirm => 'Are you sure?',:method => "post" %>
+  <span class='menu'>
+    <b class="icon icon-request">
+      Request
+    </b>
+  </span>
+  <div class='boldnotbold'>
+    <%= link_to("<b class='icon icon-list'>List</b>",request_url(  :action => 'list')) %>
+    <% unless request.new_record? %>
+      <%= link_to("<b class='icon icon-new'>New</b>",  request_url(  :action => 'new')) if current_project.allows?(:new,:requests) %>
+      <%= link_to("<b class='icon icon-show'>Show</b>",request_url(  :action => 'show',:id => request )) if current_project.allows?(:show,:requests)%>
+      <%= link_to("<b class='icon icon-result'>Results</b>",  request_url(  :action => 'results',:id => request )) if current_project.allows?(:results,:requests) %>
+      <%= link_to("<b class='icon icon-edit'>Edit</b>",  request_url(  :action => 'edit',:id => request )) if current_project.allows?(:edit,:requests)%>
+      <%= link_to("<b class='icon icon-del'>Delete</b>",
+          request_url( :action => 'destroy',:id => request ), :confirm => 'Are you sure?',:method => "post") if current_project.allows?(:destroy,:requests)%>
     <%end%>
+  </div>
 </div>
 <% end %>
 
 
-        

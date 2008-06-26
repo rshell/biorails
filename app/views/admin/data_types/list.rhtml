@@ -6,23 +6,35 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-<div class='panel'>
-<h1 class="icon icon-data_type">Listing Data Types</h1>
-<table class="report">
-  <tr>
-    <th>name</th>
-    <th>Description</th>
-    <th>Action</th>
-  </tr>
-  
-	<% for data_type in @data_types %>
-	  <tr>
-	    <td><%= link_to data_type.name,data_type_url( :action => 'show', :id => data_type) %></td>
-	    <td><%=h data_type.description%></td>
-	    <td><%= link_to '<b class="icon icon-edit"></b>edit',data_type_url( :action => 'edit', :id => data_type) %></td>
-	  </tr>
-	<% end %>
-</table>
+<% content_for :center do %>
+  <h1 class='icon icon-data_type'>Listing Data Types</h1>
+  <div class='panel'>
+    <table class="report">
+      <thead>
+        <tr>
+          <th><b class='icon icon-name'>Name</b></th>
+          <th><b class='icon icon-description'>Description</b></th>
+          <th><b class='icon icon-action'>Action</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for data_type in @data_types %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            <p class='icon icon-data_type_<%=data_type.name%>'>
+              <%= link_to data_type.name, data_type_url( :action => 'show', :id => data_type) %>
+            </p>
+          </td>
+          <td><%=h data_type.description%></td>
+            <td>
+              <p class='icon icon-edit'>
+                <%= link_to "Edit",data_type_url( :action => 'edit', :id => data_type)%>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<%end%>
 
-       <%= will_paginate @data_types %>    
-</div>

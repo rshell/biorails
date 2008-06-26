@@ -1,19 +1,19 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_references
 #
 #  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   
-#  parameter_id       :integer(11)   
+#  task_context_id    :integer(11)   not null
+#  parameter_id       :integer(11)   not null
 #  data_element_id    :integer(11)   
-#  data_type          :string(255)   
-#  data_id            :integer(11)   
+#  data_type          :string(255)   not null
+#  data_id            :integer(11)   not null
 #  data_name          :string(255)   
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  task_id            :integer(11)   
+#  task_id            :integer(11)   not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
 #
@@ -27,8 +27,11 @@
 #  
 #
 class TaskReference < ActiveRecord::Base
-  include TaskItem 
-  include CatalogueReference
+
+  acts_as_task_item
+
+  acts_as_catalogue_reference
+
 ##
 # This record has a full audit log created for changes 
 #   
@@ -70,7 +73,14 @@ class TaskReference < ActiveRecord::Base
    parameter.data_element
  end
 
-  def to_s
+ def to_unit
+   Unit.new(data_name.to_s) 
+ rescue 
+    nil
+ end
+ 
+ def to_s
+   return self.parameter.default_value.to_s if self.data_name.empty? 
    data_name.to_s
  end
 

@@ -6,25 +6,36 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-<div class='panel'>
-<h1 class="icon icon-data_type"><%=@data_type.name%></h1>
+<% content_for :center do -%>
 
-<p><%=@data_type.description%>
-</p>
-<table class="report">
-<tr>
-<th>Study Name</th>
-<th>Parameter Name </th>
-<th>Parameter Type</th>
-<th>Parameter Role</th>
-</tr>
-<%for item in  @data_type.study_parameters %>
-<tr>
-<td><%=link_to item.study.name,          study_url(:action=>:show ,          :id=>item.study) %></td>
-<td><%=link_to item.name,                study_parameter_url(:action=>:show ,:id=>item.id) %></td>
-<td><%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %></td>
-<td><%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %></td>
-</tr>
+  <h1 class="icon icon-data_type"><%=@data_type.name%> Data Type</h1>
+  <div class='panel'>
+  <p>
+    <%=@data_type.description%>
+  </p>
+  <table class="report">
+    <tr>
+      <th><b class='icon icon-assay'>Assay Name</b></th>
+      <th><b class='icon icon-parameter'>Parameter Name</b></th>
+      <th><b class='icon icon-parameter_type'>Parameter Type</b></th>
+      <th><b class='icon icon-parameter_role'>Parameter Role</b></th>
+    </tr>
+    <%for item in  @data_type.assay_parameters %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <%=link_to item.assay.name, assay_url(:action=>:show , :id=>item.assay) %>
+      </td>
+      <td>
+        <%=link_to item.name, assay_parameter_url(:action=>:show ,:id=>item.id) %>
+      </td>
+      <td>
+        <%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) %>
+      </td>
+      <td><p class='icon icon-<%=item.role.name%>'>
+        <%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %>
+      </td>
+    </tr>
+  <%end%>
+  </table>
+  </div>
 <%end%>
-</table>
-</div>

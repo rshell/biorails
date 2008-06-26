@@ -1,0 +1,80 @@
+  <!--[form:assay_protocol]-->
+
+<%= hidden_field 'assay_protocol', 'id'  %>
+<%= hidden_field('assay_protocol','assay_id')%>
+<%= hidden_field('assay_protocol','current_process_id')%>
+<%= hidden_field 'process_flow', 'assay_protocol_id' %>
+<%= hidden_field 'process_flow', 'version'  %>
+
+<%unless !@process_flow or @process_flow.new_record?%>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="'process_step_start_offset_hours">
+      Version Label
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'process_flow', 'name' %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="'process_step_start_offset_hours">
+      Expected Hours
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'process_flow', 'expected_hours' %>
+    </div>
+</div>
+<%end%>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="assay_protocol_stage_id">
+      Stage of <%=@assay_protocol.assay.name%>
+    </label>
+    <div class="x-form-element">
+     <%= collection_select('assay_protocol', 'assay_stage_id', @assay_protocol.assay.stages, :id, :name) %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_name">
+      Protocol Name
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'assay_protocol', 'name' , {:class=>"text-input"} %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_description">
+      Description
+    </label>
+    <div class="x-form-element" >
+       <%= text_area( 'assay_protocol', 'description',{:rows=>5, :cols=>80})  %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label  class="x-form-item-label" for="process_definition_protocol_catagory">
+      Protocol category
+    </label>
+    <div class="x-form-element">
+      <%= select_data_value 'assay_protocol', 'protocol_catagory'  ,'ProtocolCatagory' %>
+    </div>
+</div>
+<div class="x-form-item">
+
+    <label class="x-form-item-label" for="process_definition_protocol_status">
+      Protocol status
+    </label>
+    <div class="x-form-element">
+      <%= select_data_value 'assay_protocol', 'protocol_status'  ,'ProtocolStatus' %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_definition_literature_ref">
+      Literature ref
+    </label>
+    <div class="x-form-element">
+      <%= text_area 'assay_protocol', 'literature_ref' , {:rows=>5, :cols=>80} %>
+    </div>
+</div>

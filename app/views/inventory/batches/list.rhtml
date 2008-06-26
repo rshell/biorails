@@ -31,7 +31,7 @@
 
 <div class="panel>
     <%= link_to (subject_icon('new.png')) + 'New', :action => 'new' %>
-    <%= pagination_links(@batch_pages) %>
+    <%= will_paginate @batches %>
 </div>
 <% end %>
 

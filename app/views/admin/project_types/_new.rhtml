@@ -1,0 +1,9 @@
+<%dialog "<h1 class='icon icon-project_type'>New project_type</h1>" do %>    
+
+<% form_for(@project_type, :url => project_type_url(:action=>:create) ) do |f| %>
+  <%= render :partial => 'form' ,:locals=>{:form=>f} %>
+<% end %>
+
+<% end %>
+
+

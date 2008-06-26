@@ -1,0 +1,44 @@
+  <%=render :partial =>'shared/messages',:locals => { :objects => [:process_step]} %>
+<!--[form:assay_protocol]-->
+<%= hidden_field 'process_step', 'process_flow_id'  %>
+<%= hidden_field 'process_step', 'protocol_version_id'  %>
+
+<%= hidden_field 'process_step', 'id' %>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_step_name">
+      Name
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'process_flow', 'name' , {:class=>"text-input"} %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_step_description">
+      Comments
+    </label>
+    <div class="x-form-element" >
+       <%= text_area( 'process_step', 'description',{:rows=>3, :cols=>40}	)  %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label  class="x-form-item-label" for="'process_step_start_offset_hours">
+      Start ([hours], days, weeks)
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'process_step', 'start_offset' %>
+    </div>
+</div>
+
+<div class="x-form-item">
+    <label class="x-form-item-label" for="'process_step_start_offset_hours">
+      Expected Hours
+    </label>
+    <div class="x-form-element">
+      <%= text_field 'process_step', 'expected' %>
+    </div>
+</div>
+
+

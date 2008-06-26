@@ -1,3 +1,7 @@
-  page.replace_html 'current_items',  :partial => 'list_items', :locals => { :request => @user_request } 
-  page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['request','list'] }
-  
+  page.replace_html 'current_items',
+  :partial => 'list_items',
+  :locals => { :request => @user_request }
+
+  page.replace_html "messages",
+  :partial => 'shared/messages',
+  :locals => { :objects => ['request','list'] }

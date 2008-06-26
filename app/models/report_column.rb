@@ -1,12 +1,12 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: report_columns
 #
 #  id                 :integer(11)   not null, primary key
 #  report_id          :integer(11)   not null
 #  name               :string(128)   default(), not null
-#  description        :text          
+#  description        :string(1024)  default()
 #  join_model         :string(255)   
 #  label              :string(255)   
 #  action             :string(255)   
@@ -48,28 +48,33 @@ class ReportColumn < ActiveRecord::Base
 #
 #
   def customize(params={})
-    params.symbolize_keys() { |i|  }
     logger.info(params.to_xml)
     logger.info "old ReportColumn.customize Id:#{id} Label:#{label} show:#{is_visible} order:#{order_num} sort:#{is_sortable} sort_n:#{sort_num} sort_dir:#{sort_direction} filterable:#{is_filterible} filter:#{filter}"
-    if params.size>0
-      self.is_visible = params[:is_visible]=='1' || params[:is_visible]=='true'
-      self.label = params[:label]                    if params[:label]
-      self.order_num = params[:order_num]            if params[:order_num]
-  
-      self.is_filterible =  params[:is_filterible]=='1' || params[:is_filterible]=='true'
-      self.filter =  params[:filter]                 if  params[:filter] 
-      self.filter =  params[:action]                 if  params[:action] 
-      
-      self.is_sortable =  params[:is_sortable]=='1'|| params[:is_sortable]=='true'
-      if ['asc','desc'].any?{|i|i==params[:sort_direction]} and params[:sort_num].to_i > 0
-          self.sort_direction = params[:sort_direction] || 'asc'
-          self.sort_num ||= params[:sort_num].to_i || self.order_num+1
-      else   
-          self.sort_direction = nil
-          self.sort_num = nil
-      end   
-    end
+      params.map do |key,item|
+        logger.debug " #{key}=#{item}"
+        case key.to_sym
+        when :is_visible      
+          logger.debug "old value #{is_visible}"
+           self.is_visible= ['1','true','Y','y',true].include?(item.to_s)
+          logger.debug "new value #{is_visible}"
+        when :label           then  self.label= item      
+        when :order_num       then  self.order_num= item
+        when :is_filterible,:is_filterable   then  self.is_filterible = ['1','true','Y','y',true].include?(item.to_s)
+        when :filter          then  self.filter = item
+        when :action          then  self.action = item
+        when :is_sortable     then  self.is_sortable =  ['1','true','Y','y',true].include?(item.to_s)
+        when :sort_direction 
+          if ['asc','desc'].include?(item)
+                self.sort_direction = item
+                self.sort_num ||= params[:sort_num].to_i || self.order_num+1
+            else   
+                self.sort_direction = nil
+                self.sort_num = nil
+            end   
+        end
+    end 
     logger.info "new ReportColumn.customize Id:#{id} Label:#{label} show:#{is_visible} order:#{order_num} sort:#{is_sortable} sort_n:#{sort_num} sort_dir:#{sort_direction} filterable:#{is_filterible} filter:#{filter}"
+    self.save
   end
   
 ##
@@ -83,7 +88,7 @@ class ReportColumn < ActiveRecord::Base
        logger.info " #{report.model.reflections[join_model.to_sym].class_name}"
        return report.model.reflections[join_model.to_sym].class_name.tableize.to_s + "." + attribute.to_s
     else
-       return report.model.table_name.to_s + "." + attribute.to_s
+       return report.model.class_name.tableize.to_s + "." + attribute.to_s
     end
   end
 
@@ -100,11 +105,20 @@ class ReportColumn < ActiveRecord::Base
      else 'asc'
      end
   end
-  
+  #
+  # Format values for the column based on default rules for data types
+  #
   def format(value)
-     if value.nil?
-         '<null>'  
-     elsif value.kind_of? Numeric
+     case value 
+     when NilClass
+         '<null>'         
+     when Date
+       value.strftime("%Y-%b-%d")
+     when DateTime
+       value.strftime("%Y-%b-%d")
+     when Time
+       value.strftime("%Y-%b-%d")
+     when Numeric
          if value.abs > 0.01
            sprintf("%9.2f", value).to_s
          else
@@ -149,21 +163,22 @@ class ReportColumn < ActiveRecord::Base
 # eg. row.experiments.tasks.name -> [[a,b,c],[e,f,g]]
 # 
 #   
-  def values(object,elements) 
+  def values(data_row,elements) 
     out = []
-    while elements.size>0 and !object.nil? do
-      object = object.send(elements.pop)        
-      if object.class == Array
-        for item in object
+    while elements.size>0 and !data_row.nil? do
+      data_row = data_row.send(elements.pop)        
+      if data_row.class == Array
+        for item in data_row
            out << values(item, elements.clone)
         end 
         return out
       end 
      end  
-     return object
+     return data_row
   rescue Exception => ex
       logger.error ex.message
-      logger.error ex.backtrace.join("\n")    
+      logger.debug ex.backtrace.join("\n")    
+      "#Error"
   end
   
 
@@ -187,7 +202,7 @@ class ReportColumn < ActiveRecord::Base
     when /%/
        self.filter_operation = "like"
        self.filter_text = value
-    when /^in/ 
+    when /^in/,/^IN/ 
        self.filter_operation = "in"
        self.filter_text = value
     when "" 
@@ -209,7 +224,7 @@ class ReportColumn < ActiveRecord::Base
     case self.filter_operation
     when nil
       nil
-    when "in
+    when 'in'
       "#{self.filter_text}"
     when '=','like'
       self.filter_text
@@ -219,13 +234,17 @@ class ReportColumn < ActiveRecord::Base
   end
 
   def to_ext
-    item = {:dataIndex => self.name,
-            :width => 100,
-            :id=>self.id,
-            :header => self.name,
-            :filterable => self.is_filterible,
-            :sortable => self.is_sortable,
-            :filter => self.filter}
+    item = {
+       :id => self.id,
+      :name => self.name,
+      :label => self.label,
+      :filter => self.filter,
+      :is_filterible => self.is_filterible,
+      :is_visible => self.is_visible, 
+      :is_sortable => self.is_sortable,
+      :sort_num => self.sort_num || 0,
+      :sort_direction =>  self.sort_direction
+    }
   end
   
 end

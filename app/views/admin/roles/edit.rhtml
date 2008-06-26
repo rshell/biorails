@@ -10,9 +10,9 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-<%dialog 'Edit Role' do %>
+<%dialog "Edit Role" do %>
 <% form_tag :action => 'update', :id => @role do %>
   <%= render :partial => 'edit' %>
-  <%= submit_tag 'Edit' %>
+  <%= submit_tag 'Save' %>
 <% end %>
 <%end%>

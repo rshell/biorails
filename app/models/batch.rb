@@ -26,7 +26,6 @@
 # See license agreement for additional rights
 # 
 class Batch < ActiveRecord::Base
-  included Named
 ##
 # This record has a full audit log created for changes 
 #   

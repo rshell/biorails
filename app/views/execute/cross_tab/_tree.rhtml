@@ -1,0 +1,68 @@
+<div id="tree_projectcategory" ></div>
+ 
+<script type="text/javascript">
+  Ext.onReady(function(){
+    
+    // Define Tree.
+    var tree_loader = new Ext.tree.TreeLoader({
+            baseParams:{scope: 'root', team_id: '<%=@cross_tab.team_id%>'},
+            dataUrl   :"<%=cross_tab_url(:action=>'tree',:id=>@cross_tab) %>"
+        });
+		
+    tree_loader.on("beforeload", function(tree_loader, node) {
+        tree_loader.baseParams.scope = node.attributes.scope;
+    }, this);
+        
+    var parameter_tree = new Ext.tree.TreePanel({
+        title            : 'Column Selector',
+        collapsible      : false,
+        animCollapse     : false,
+        border           : true,
+        id               : "tree_projectcategory",
+        el               : "tree_projectcategory",
+        autoScroll       : true,
+        animate          : false,
+        enableDD         : true,
+        ddGroup : 'crosstabDD',
+        containerScroll  : true,
+        height           : 600,
+        loader           : tree_loader
+    });
+ 
+    parameter_tree.on("dblclick", function(node,event) {
+        try{ 
+           new Ajax.Request( "<%=cross_tab_url(:action=>'add',:id=>@cross_tab) %>",
+                    {asynchronous:true, evalScripts:true,
+                     parameters: { node: node.attributes.id,
+                                   scope: node.attributes.scope }});                          
+        } catch (e) {
+              console.log('Problem cannot add Parameter ');
+              console.log(e);
+        } 
+        return true;  
+        
+    }, this);
+        
+    // SET the root node.
+    var tree_root = new Ext.tree.AsyncTreeNode(
+    {
+        text		: '<%=@cross_tab.project.name%>',
+        draggable	: false,
+        iconCls         : 'icon-project',
+        id		: 'root',
+        children        : [
+            { id: 'roles',     scope: 'root', iconCls:'icon-parameter_role' , text: 'By Role'    },
+            { id: 'types',     scope: 'root', iconCls:'icon-parameter_type' , text: 'By Type'    },
+            { id: 'assays',   scope: 'root', iconCls:'icon-assay' , text: 'By Assay'},
+            { id: 'protocols', scope: 'root', iconCls:'icon-protocol' , text: 'By Protocol'},
+            { id: 'process',   scope: 'root', iconCls:'icon-process_instance' , text: 'By Process' },
+            { id: 'parameters',scope: 'root', iconCls:'icon-assay_parameter' , text: 'By Alias'  }]
+    });
+ 
+    // Render the tree.
+    parameter_tree.setRootNode(tree_root);
+    parameter_tree.render();
+    tree_root.expand();
+});	
+</script>
+  

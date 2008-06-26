@@ -1,24 +1,44 @@
-<h1>Parameter Types</h1>
+<h1 class='icon icon-parameter_type'>Parameter Types</h1>
 <p>
-	Parameter types defined a <i>class</i> of data captured in the the system. 
-	Defininition of a parameter type should be considered with the long term needs for 
-	warehousing and data archiving and be standardised across the organization. 
-	Commonly use types are items like Dose, xC50 etc. 
+  Parameter types define a <i>class</i> of data captured in the the system.
+  Definition of a parameter type must be standardised across the
+  organization and requires consideration of long term
+  warehousing and data archiving requirements.
+  Commonly used Parameter types are Dose, xC50 etc.
 </p>
 <p>
-The parameter type may be <i>aliased</i> as a <i>study parameter</i> level to allow for localized naming and specialisation
-like xC50 to IC50,ED50 etc. Also as parameters in protocol must be unique there may be some futher subfixes or aliasing 
-done in each protocol. In use as a <i>study paramater</i>, a parameter type is linked to parameter role to facilitate the partitioning data.
+  A parameter type may be <i>aliased</i> at the <i>assay parameter</i> level to
+  allow for localized naming and specialisation - xC50 to IC50,ED50 for example. Also, as parameters in a process must be unique, some further aliasing may be required in each protocol.
+  In use, as an <i>assay parameter</i>, a parameter type
+  is linked to a parameter role to facilitate the partitioning data.
 </p>
-<p> 
-	When allocated to a <i>study design</i>, a parameter type can be also be linked to a <i>dimension</i> to limit the 
-	choice of units and allow automatically conversion of scalar units on storage. Key dimensions are:-
+<p>
+  When allocated to an <i>assay design</i>, a parameter type can be also be
+  linked to a <i>dimension</i> to limit the
+  choice of units and allow automatically conversion of scalar units on storage.
 </p>
-<ul>
-	<li>Substance [pmol .. mol]</li>
-	<li>Concentration [pM .. M, wt%]</li>
-	<li>Rate [cpm]</li>
-	<li>Rate [cpm]</li>
-	<li>Time [sec, min, hour, day, week, year]</li>
-	<li>Temperature [tempC, tempF, tempK]</li>
+<br />
+<h2>
+  Key dimensions are:-
+</h2>
+<ul style='list-style: disc inside; text-indent:0.5em;'>
+  <li>Substance [pmol .. mol]</li>
+  <li>Concentration [pM .. M, wt%]</li>
+  <li>Rate [cpm]</li>
+  <li>Rate [cpm]</li>
+  <li>Time</li>
+    <ul style='list-style: disc inside; text-indent:2em;'>
+      <li>sec</li>
+      <li>min</li>
+      <li>hour</li>
+      <li>day</li>
+      <li>week</li>
+      <li>year</li>
+    </ul>
+  <li>Temperature</li>
+  <ul style='list-style: disc inside; text-indent:2em;'>
+    <li>tempC</li>
+    <li>tempF</li>
+    <li>tempK</li>
+  </ul>
 </ul>

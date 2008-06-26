@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: project_elements
 #
@@ -20,8 +20,12 @@
 #  content_id             :integer(11)   
 #  published_hash         :string(255)   
 #  project_elements_count :integer(11)   default(0), not null
-#  left_limit             :integer(11)   default(0), not null
-#  right_limit            :integer(11)   default(0), not null
+#  left_limit             :integer(11)   default(1), not null
+#  right_limit            :integer(11)   default(2), not null
+#  team_id                :integer(11)   default(0), not null
+#  published_version_no   :integer(11)   default(0), not null
+#  version_no             :integer(11)   default(0), not null
+#  previous_version       :integer(11)   default(0), not null
 #
 
 ##
@@ -62,7 +66,7 @@ class ProjectElement < ActiveRecord::Base
 
   acts_as_audited :change_log
   
-  acts_as_ferret :fields => [ :name, :title, :summary, :description], :single_index => true, :store_class_name => true
+  acts_as_ferret :fields => [ :name, :title, :summary, :description], :default_field=>[:name], :single_index => true, :store_class_name => true
   
 # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
@@ -71,40 +75,41 @@ class ProjectElement < ActiveRecord::Base
   validates_presence_of   :position
  
 
+  attr_accessor :default_image_size
 ##
 # Base reference to ownering project.
 # project membership is used to goven access rights
 #   
   belongs_to :project
-
+#
+# access control managed via team
+# 
+  access_control_via  :team  
 ##
 #All references 
   belongs_to :reference, :polymorphic => true 
   belongs_to :asset,   :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
   belongs_to :content, :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
 
-  has_many :signatures
-##
-# Parent of a record is a   
-  def folder
-    parent
-  end
+  has_many :signatures, :order=> 'id desc',:dependent => :destroy
+    
+#
+# make sure project and team are set
+# 
+  def before_create 
+    if self.parent
+      self.project ||= self.parent.project         
+      self.team ||= self.parent.team
+    end
+    self.project ||= Project.current          
+    self.team ||= Team.current
+  end 
+
 
   def asset?
     !(attributes['asset_id'].nil?)
   end
-  
- #
-# Finder for visible versions of the model for the scope of the current user
-#
-  def self.visible(*args)
-    self.with_scope( :find => {
-      :conditions=> ['exists (select 1 from memberships m where m.user_id=? and m.team_id = project_elements.team_id)',User.current.id]
-        })  do
-        self.find(*args)
-    end
-  end  
-  
+
   def path(prefix = nil)
     root= self.self_and_ancestors.collect{|i|i.name}
     root[0]=prefix if prefix
@@ -114,6 +119,31 @@ class ProjectElement < ActiveRecord::Base
   def description
     return name
   end
+
+  #
+  # Items are regarded as published if they have a published_hash reflexing a signed document
+  #
+  def published?
+    !self.signatures.find( :first , :conditions=> ['signature_state=? and signature_role= ?', 'SIGNED','WITNESS'] ).nil?
+  end
+  #
+  # There is a signature with the element
+  #
+  def signed?
+    self.signatures.exists?( ['signature_state=?', 'SIGNED'] )
+  end
+
+ def signed(limit=5)
+    self.signatures.find( :all , :conditions=> ['signature_state=?', 'SIGNED'],:limit=>limit )
+ end
+
+ def image_tag
+   if self.asset
+     self.asset.image_tag(default_image_size,600)
+   else
+     ""     
+   end
+ end  
 ##
 # This has a content? entries
 #  
@@ -135,24 +165,28 @@ class ProjectElement < ActiveRecord::Base
      return name
   end  
 
+##
+# Summay of the content
+
   def summary
+     return content.summary if content
+     return asset.summary if asset
      return name
   end
 
-  def to_html
-     return name
+  def url
+   self.asset.public_filename  if self.asset
   end
-
 ##
 # Show the style of the project element
 # 
   def style
     if attributes['reference_type']
       case attributes['reference_type']
-      when 'ProjectElement': "link"
-      when 'ProjectContent': "note"
-      when 'ProjectAsset':   "file"
-      when 'StudyProtocol':  "protocol"
+      when 'ProjectElement' then "link"
+      when 'ProjectContent' then "note"
+      when 'ProjectAsset' then   "file"
+      when 'AssayProtocol' then  "protocol"
       else
        attributes['reference_type'].downcase
       end
@@ -217,8 +251,12 @@ class ProjectElement < ActiveRecord::Base
     child_count
  end
   
-  def ancestors
+ def ancestors
     (self.content ? self.content.ancestors : [])
-  end
+ end
+
+   def to_liquid
+    ProjectElementDrop.new self
+  end 
 
 end

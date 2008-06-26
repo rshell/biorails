@@ -3,16 +3,9 @@
 <%end%>
 
 <% content_for :center do -%>
-  <% dialog subject_icon('model/task.png')+'Edit Task' do %> 
-    <% form_tag :action => 'update', :id => @task do %>
-    <%= render :partial => 'form' %>
-    <div class="row">
-      <%= submit_tag 'Save' %>
-    </div>
-   <% end %>
-  <%end%>
+    <%= render :partial => 'edit' %>
 <%end%>
- 
+
 
 <% content_for :right do -%>
     <%= render :partial => 'help' %>
@@ -23,4 +16,3 @@
 <% end %>
 
 
-    

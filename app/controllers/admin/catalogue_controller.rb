@@ -1,4 +1,4 @@
-##
+ ##
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 ##
@@ -30,11 +30,7 @@ class Admin::CatalogueController < ApplicationController
     @data_concept  = @context = DataContext.find(:first)
     render :action => 'list'
   end
-
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :create, :update,:added ],
-         :redirect_to => { :action => :list }
-         
+     
 ##
 # List the Concepts in the the current context
 # 
@@ -52,38 +48,8 @@ def list
   end  
 end
 
-CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter_type,:parameter_role]
+CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter_type,:parameter_role] unless defined? CATALOG_MODELS
 
-##
-#Import a a context xml file
-#
- def import 
-    render :action => 'import'   
- end
-
-##
-#Import a a study xml file
-#
- def import_file 
-   Study.transaction do
-      options = {:override=>{:name=>params[:name] },
-                 :create  => CATALOG_MODELS,
-                 :include => [:children,:elements,:parameter_types]}
-      
-      @context = DataContext.from_xml(params[:file]||params['File'],options)  
-      unless @context.save 
-        flash[:error] = "Import Failed "
-        return render( :action => 'import'  ) 
-      end 
-    end
-    flash[:info]= "Import Catalogue #{@context.name}" 
-    redirect_to( catalogue_url(:action => 'list', :id => @context))
-
- rescue Exception => ex
-    logger.error "current error: #{ex.message}"
-    flash[:error] = "Import Failed #{ex.message}"
-    return render( :action => 'import'  ) 
- end
 ##
 # Show details of the the current concept. This is now a usages ajax to update the 
 # current-% panels on the client with correct information for the current concept
@@ -91,8 +57,12 @@ CATALOG_MODELS = [:data_element,:data_concept,:data_type,:data_format,:parameter
 def show 
    @data_concept = DataConcept.find(params[:id])
    @context = @data_concept.context
-   return render(:action => 'show.rjs') if request.xhr?
-   render :action => 'show'
+   respond_to do | format |
+     format.html { render(:action => 'list') }
+     format.json { render(:json => @data_concept.to_json) }
+     format.js   { render(:action => 'show.rjs') }
+     format.xml  { send_data(@context.to_xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @context.name+'.xml')    }
+   end  
 end
 
 ##
@@ -166,24 +136,26 @@ end
 # Create a new DataElement for the concept to link in a list of real entities into the catalogue
 #
 def create_element 
-  DataElement.transaction do 
-    @current_tab =1
-    @data_concept = DataConcept.find(params[:id])
-    @data_element = DataElement.create_from_params(params['data_element']) 
-    @data_element.concept = @data_concept
-    if @data_element.save
-      flash[:notice] = 'DataElement was successfully created.'
-      return render(:action => 'show.rjs') if request.xhr?
-      redirect_to :action => 'list', :id => @data_element.concept
-    else
-      raise "Could not save element <br/th> #{@data_element.error_messages}"
-    end
-   end
+  begin
+    DataElement.transaction do 
+      @current_tab =1
+      @data_concept = DataConcept.find(params[:id])
+      @data_element = DataElement.create_from_params(params['data_element']) 
+      @data_element.concept = @data_concept
+      if @data_element.save
+        flash[:notice] = 'DataElement was successfully created.'
+        return render(:action => 'show.rjs') if request.xhr?
+        return redirect_to( :action => 'list', :id => @data_element.concept)
+       end
+     end
    rescue Exception => ex
-      @data_element.style ||='list'
+      @data_concept ||= DataConcept.find(:first)
+      @data_element ||= DataElement.new
+      @data_element.style ='list'
       flash[:error] = 'Failed:'+ ex.message
-      return render( :action => 'new_element')   if request.xhr?
-      render( :partial => 'new_element')
+   end
+   return render( :action => 'new_element')   if request.xhr?
+   render( :partial => 'new_element')
 end
 
 

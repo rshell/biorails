@@ -1,14 +1,29 @@
-<% unless project.nil?  %>
-<div>
-  <span class='menu'><%=  project.name %></span> 
-  <p class="icon icon-project"><%= link_to l(:Overview), project_url(:action => 'show', :id => project)%></p>
-  <p class="icon icon-folder"><%= link_to l(:Folders), folder_url( :action => 'show', :id => project.home) %></p>
-  <p class="icon icon-calendar"><%= link_to l(:Calendar), project_url(:action => 'calendar', :id => project) %></p>
-  <p class="icon icon-timeline"><%= link_to l(:Timeline), project_url( :action => 'gantt', :id => project) %></p>
-  <p class="icon icon-report"><%= link_to l(:Reports), report_url( :action => 'list', :project_id => project) %></p>
-  <p class="icon icon-team"><%= link_to l('Team Members')+" [#{project.members.size}]",   member_url(:action => 'list', :id => project.team_id) %></p>  
-  <p class="icon icon-study"><%= link_to l('Study Designs')+" [#{project.studies.size}]",  study_url( :action => 'list', :project_id => project) %></p>
-  <p class="icon icon-experiment"><%= link_to l(:Experiments)+" [#{project.experiments.size}]", experiment_url( :action => 'list', :project_id => project) %></p>
-
-</div>
+<% unless current_project.nil?  %>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-project'>
+        <%=  current_project.name %>
+      </b>
+    </span>
+ <div class='boldnotbold'>
+    <%= link_to( "<b class='icon icon-project'>" + l(:Overview) + "</b>", 
+                    project_url(:action => 'show', :id => current_project)) %>
+    <%= link_to( "<b class='icon icon-edit'>" + l(:Update) + "</b>",      
+                    project_url( :action => 'edit', :id => current_project)) if current_project.owner? %>
+    <%= link_to( "<b class='icon icon-folder'>" + l(:Folders) + "</b>",      
+                    folder_url( :action => 'show', :id => current_project.home)) %>
+    <%= link_to( "<b class='icon icon-calendar'>" + l(:Calendar) + "</b>",   
+                    project_url(:action => 'calendar', :id => current_project)) if current_project.allows?(:calendar,:project) %>
+    <%= link_to( "<b class='icon icon-timeline'>" + l(:Timeline) + "</b>",    
+                    project_url( :action => 'gantt', :id => current_project)) if current_project.allows?(:calendar,:project) %>
+    <%= link_to( "<b class='icon icon-sign'>" + l(:Published) + "</b>",  
+        signature_url( :action => 'published')) %>
+    <%= link_to( "<b class='icon icon-report'>" + l(:Queries) + "</b>",  
+        report_url( :action => 'list', :current_project_id => current_project)) if current_user.allows?(:show,:reports) %>
+    <%= link_to( "<b class='icon icon-assay'>" + l('Assay Definitions')+" [#{current_project.linked_assays.size}]" + "</b>",
+          assay_url( :action => 'list')) if current_project.allows?(:show,:assays) %>
+    <%= link_to( "<b class='icon icon-experiment'>" + l(:Experiments)+" [#{current_project.experiments.size}]" + "</b>",
+          experiment_url( :action => 'list')) if current_project.allows?(:show,:experiments) %>
+  </div>
+  </div>
 <% end %>

@@ -1,0 +1,33 @@
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','process_flow']}  %>
+<%end %>
+
+<% content_for :center do%>
+  <% if current_project.runnable? %>
+  <%= render :partial => 'new' %>
+  <% else %>
+    <div class="panel">
+      <h2 class='icon icon-warning'>Cannot Create a Recipe</h2>
+      <p>
+        A <i>Recipe</i> cannot be created until there is at least one released 
+        <i>Process</i> available either in this assay definition or made available 
+        to the project.
+        <%= link_to "<b class='icon icon-protocol-add'>Add a Process</b>", process_url(:action => 'new',  :id => @assay)%>
+        to this assay definition first.  Don't forget to release it!
+      </p>
+    </div>
+  <% end %>
+<%end%>
+
+<% content_for :right do%>
+<h1 class='icon icon-protocol'>
+  Protocol building Guidance
+</h1>
+<p>Creation of a new protocol is a 3 step operation.</p>
+  <ol style='list-style:decimal inside'>
+    <li> A protocol is given a name and a description (minimum)  </li>
+    <li> A <i>layout</i> is created from the assay's parameters to define the <i>data entry sheet</i>. </li>
+    <li> The process is released in order to make it available in experments or to build recipes.</li>
+  </ol>
+
+<%end%>

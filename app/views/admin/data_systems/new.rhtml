@@ -2,21 +2,18 @@
   <%= render :partial => 'menu'%>
 <% end %>
 
-
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['data_system']} %>
 <%end%>
 
 <% content_for :center do%>
-	<%dialog subject_icon('systems')+'Data System' do%>
-	    <% validated_form_tag :action => 'create', :id => @data_system do %>
-	      <%= render :partial => 'form' %>
-          <%= submit_tag 'Save' %>
-	    <% end %>
-	<% end %>
+  <%dialog "New Data Source" do%>
+      <% validated_form_tag :action => 'create', :id => @data_system do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag 'Save' %>
+      <% end %>
+  <% end %>
 <% end %>
-
-
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

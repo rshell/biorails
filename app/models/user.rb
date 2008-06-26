@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: users
 #
@@ -24,9 +24,8 @@
 #  created_by_user_id :integer(11)   default(1), not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  is_disabled        :boolean(1)    
+#  private_key        :binary        
 #
-
-require 'digest/sha1'
 
 ##
 # User record
@@ -34,7 +33,7 @@ require 'digest/sha1'
 # The user is a member of a number of projects. In a project the membership governs by a role 
 class User < ActiveRecord::Base
 
-    class AccessDenied < RuntimeError
+   class AccessDenied < RuntimeError
       
     end
     
@@ -65,11 +64,10 @@ class User < ActiveRecord::Base
 # 
   attr_accessor :password
   attr_accessor :password_confirmation
+# validates_confirmation_of :password
 
   validates_presence_of   :name
   validates_presence_of   :role 
-  validates_confirmation_of :password
-
   validates_length_of     :login, :within => 3..40
   validates_format_of     :login, :with => /^[a-z0-9_\-@\.]+$/i
   validates_uniqueness_of :login, :case_sensitve => false
@@ -79,7 +77,6 @@ class User < ActiveRecord::Base
 
 # validates_format_of   :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 
-
 ##
 # User a linked into projects
 #   
@@ -87,13 +84,13 @@ class User < ActiveRecord::Base
 ##
 # Has membership of a a number of projects with a set role in each
 #   
-  has_many   :memberships, :include => [ :teams, :role ], :dependent => :delete_all
+  has_many   :memberships, :include => [ :team, :role ], :dependent => :delete_all
 ##
 # Users are linked into the system as a the owner of a number of record types
 # 
   has_many :requests ,   :class_name=>'Request',      :foreign_key=> 'requested_by_user_id'
-  has_many :studies ,    :class_name=>'Study',        :foreign_key=> 'created_by_user_id'
-  has_many :protocols ,  :class_name=>'StudyProtocol',:foreign_key=> 'created_by_user_id'
+  has_many :assays ,    :class_name=>'Assay',        :foreign_key=> 'created_by_user_id'
+  has_many :protocols ,  :class_name=>'AssayProtocol',:foreign_key=> 'created_by_user_id'
 
   has_many_scheduled :requested_services ,:class_name=>'RequestService', :foreign_key=> 'requested_by_user_id'  
   has_many_scheduled :experiments ,:class_name=>'Experiment',   :foreign_key=> 'created_by_user_id'  
@@ -106,12 +103,50 @@ class User < ActiveRecord::Base
   has_many :files,    :class_name=>'ProjectAsset',   :foreign_key=> 'created_by_user_id'  
 ##
 # Has a record of all the changes they have performed
-
   has_many :audits  
-
-  def projects 
-    Project.find(:all,:include=>[:team => [:memberships]],:conditions=>['memberships.user_id=?',self.id]) 
-  end  
+##
+# Users can sign and witness documents - so they can both create a signature object, and sign it
+  has_many :created_signatures, :class_name=>"Signature", :foreign_key=>"created_by_user_id"
+  has_many :signed_signatures, :class_name=>"Signature", :foreign_key=>"user_id"
+  
+  #class method - we will not have a user object if the login failed
+  def self.register_login_failure(username)
+       user =  User.find(:first,:conditions => ['login=?',username])
+       return false unless user
+     unless user.login_failures < SystemSetting.max_login_attempts
+       Notification.deliver_excessive_login_failures(user)
+    end
+    user.update_attribute(:login_failures, user.login_failures+1)
+   end
+   
+  #give all users a cryptographic key
+  def before_create 
+    generate_key
+  end
+  
+ def fill_from_ldap
+   ldap = User.ldap_user(login)
+   if ldap
+     self.name = ldap.cn.to_s
+     self.email = ldap[:mail].to_s
+     self.fullname == ldap.displayName.to_s || ldap.cn.to_s
+   end
+ rescue Exception=>ex
+   logger.warn("Failed to find all attributes in LDAP #{ex.message}")   
+ end  
+ 
+ def self.create_user(username,password=nil,role_id=1)
+   user = User.new
+   user.role_id = Biorails::Record::DEFAULT_USER_ROLE
+   user.login = username
+   user.name = username
+   user.fill_from_ldap
+   if user.save
+     user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID, :role_id=> role_id)
+     user.reload
+   end
+   user
+ end    
 ##
 # This record has a full audit log created for changes 
 #   
@@ -142,9 +177,9 @@ class User < ActiveRecord::Base
   def create_project(params={})
      Project.transaction do 
        project = Project.new(params)
-       project.summary||= "New Project #{params[:name]} created by user #{self.name}"
-       project.team_id = Team.current.id
-       project.save!     
+       project.description||= "New Project #{params[:name]} created by user #{self.name}"
+       project.team_id ||= Team.current.id
+       project.save     
        return project
      end
   end
@@ -158,7 +193,7 @@ class User < ActiveRecord::Base
      Team.transaction do 
        team = Team.new(params)
        team.description ||= "New Team #{params[:name]} created by user #{self.name}"
-       team.save!    
+       team.save    
        self.memberships.create(:team_id => team.id,:role_id=>ProjectRole.owner.id,:owner=> true)       
        return team
      end
@@ -167,30 +202,45 @@ class User < ActiveRecord::Base
 ##
 # reset the password for the user
    def reset_password( old_value, new_value )
-      if authenticated?(old_value)
+      if password?(old_value)
         self.set_password(new_value)
+        return true
+      else
+        return false        
       end
    end  
    
+   def clear_login_failures
+     update_attribute(:login_failures, 0)
+   end
   
   def news(count =5 )
     ProjectElement.find(:all,:conditions => ['content_id is not null and updated_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)   
   end
-   
+  #
+  # Projects the user can see via admin or membership rights
+  #
+  def projects(limit=10) 
+    return Project.find(:all) if self.admin?
+    Project.find(:all,
+                 :limit => limit,
+                 :order => 'projects.updated_at desc',
+                 :include=>[:team => [:memberships]],:conditions=>['memberships.user_id=?',self.id]) 
+  end  
   ##   
   #
   # Get a project for the current user
   #
-  def project(*args)
-    return Project.find(*args) if self.admin?
-    return projects.find(*args)
+  def project(id)
+    return Project.find_by_id(id) if self.admin?
+    Project.find(:first,:include=>[:team => [:memberships]],:conditions=>['projects.id =? and memberships.user_id=?',id,self.id]) 
   end
   
   #
   # Get a element for this user, limits to projects the user is a member of
   #  
   def element(*args)
-     ProjectElement.find(*args)
+     ProjectElement.find_visible(*args)
   end
   #
   # Get a folder for this user, limits to projects the user is a member of
@@ -199,34 +249,95 @@ class User < ActiveRecord::Base
      ProjectFolder.find(*args)
   end
   #
-  # Get a study for this user, limits to projects the user is a member of
+  # Get a assay for this user, limits to projects the user is a member of
   #  
-  def study(*args)
-     Study.find(*args)
+  def assay(*args)
+     Assay.find_visible(*args)
   end
   #
-  # Get a study for this user, limits to projects the user is a member of
+  # Get a assay for this user, limits to projects the user is a member of
   #  
-  def protocol(*args)
-    StudyProtocol.find(*args)
+  def protocol(key)
+    cond = <<SQL
+    exists (select 1 from memberships m where m.user_id=#{self.id} and m.team_id=assays.team_id)
+    or assay_protocols.created_by_user_id =#{self.id}
+SQL
+      AssayProtocol.find(key,:include=>[:assay],:conditions => cond )
+   rescue Exception => ex
+     logger.info "Failed to find object "+ex.message
+     return nil
   end
 
+  def process_flow(key)
+    cond = <<SQL
+    exists (select 1 from memberships m where m.user_id=#{self.id} and m.team_id=assays.team_id)
+    or protocol_versions.created_by_user_id =#{self.id}
+SQL
+      ProcessFlow.find(key,:include=>[:protocol=>[:assay]],:conditions => cond )
+   rescue Exception => ex
+     logger.info "Failed to find object "+ex.message
+     return nil
+  end
+  
+  def process_instance(key)
+    cond = <<SQL
+    exists (select 1 from memberships m where m.user_id=#{self.id} and m.team_id=assays.team_id)
+    or protocol_versions.created_by_user_id =#{self.id}
+SQL
+      ProcessInstance.find(key,:include=>[:protocol=>[:assay]],:conditions => cond )
+   rescue Exception => ex
+     logger.info "Failed to find object "+ex.message
+     return nil
+  end
+  
+  #
+  # Get a linked request
+  #
+  def requested_service(key)
+    cond = <<SQL
+    exists (select 1 from memberships m where m.user_id=#{self.id} and m.team_id=requests.team_id)
+    or requested_services.created_by_user_id =#{self.id}
+SQL
+      RequestService.find(key,:include=>[:request,:queue],:conditions => cond )
+   rescue Exception => ex
+     logger.info "Failed to find object "+ex.message
+     return nil
+  end
+  #
+  # Get a linked request
+  #
+  def assay_queue(key)
+    cond = <<SQL
+     exists (select 1 from memberships m where m.user_id=#{self.id} and m.team_id=assays.team_id)
+     or assay_queues.created_by_user_id =#{self.id}
+SQL
+      AssayQueue.find(key,:include=>[:assay],:conditions => cond )
+   rescue Exception => ex
+     logger.info "Failed to find object "+ex.message
+     return nil
+  end
+  #
+  # Get a linked request
+  #
+  def request(*args)
+    Request.find_visible(*args)
+  end
   #
   # Get a experiment for this user, limits to projects the user is a member of
   #  
   def experiment(*args)
-     Experiment.find(*args)
+     Experiment.find_visible(*args)
   end
   #
   # Get a task for this user, limits to projects the user is a member of
   #
   def task(*args)
-    Task.visible(*args)
+    Task.find_visible(*args)
   end
 ###
-# Get the lastest n record of a type linked to this user   
+# Get the latest n record of a type linked to this user   
 # 
-  def lastest(model = Task, count=5, field=nil)
+  def latest(model = Task, count=5, field=nil)
     if field and model.columns.any?{|c|c.name==field.to_s} and model.columns.any?{|c|c.name=='updated_at'}
        model.find(:all,:conditions => ["#{field.to_s}=?",self.id] , :order=>'updated_at desc',:limit => count)
        
@@ -248,11 +359,11 @@ class User < ActiveRecord::Base
   end
  
  def disabled?
-   self.is_disabled
+   !enabled?
  end
 
  def enabled?
-    !disabled?
+    self.deleted_at.nil?
  end
 
  def admin?
@@ -272,20 +383,72 @@ end
 # get the role for the user in a role
 #  
   def membership(project)
-    Membership.find(:first,:conditions=>['project_id=? and user_id=?',project.id,self.id],:include=>:role)
+    Membership.find(:first,:conditions=>['team_id=? and user_id=?',project.team.id,self.id],:include=>:role)
   end	
   	  
 #
 # Get the cached current user for this context
 # 
   def User.current
-    @@current || User.find(Biorails::Record::DEFAULT_GUEST_USER_ID)
+    @@current ||= User.find(Biorails::Record::DEFAULT_GUEST_USER_ID)
   end
 
   def User.selector
      User.find(:all).collect{|item|[item.name,item.id]}
   end
+    
+  def has_published_documents?
+    return Signature.find(:first,
+              :include=>[:project_element=>[:team => [:memberships]]],
+              :order=>'project_elements.updated_at desc',
+              :conditions=>{'project_elements.created_by_user_id'=>self.id,
+                            'memberships.user_id'=>self.id,
+                            'signatures.signature_role'=>'AUTHOR'})
+
+  end      
   
+  def to_xml(options = {})
+         my_options = options.dup
+         my_options[:except] = [:private_key,:public_key,:token,:activation_code,:password_salt,:password_hash]
+         my_options[:include] = [:teams, :projects]
+        Alces::XmlSerializer.new(self, my_options ).to_s
+  end
+  #
+  # Get the project key
+  #
+  def public_key
+    return @public_key if @public_key
+    @public_key = private_key.public_key
+  rescue 
+    logger.error "Failed to get public key for user #{self.id}"    
+  end
+  #
+  # generate a key pair
+  #
+  def generate_key
+    self.private_key= OpenSSL::PKey::RSA.generate(4096).to_s
+  rescue 
+    logger.error "Failed to generate private key for user #{self.id} has gem install crypt ? been done "        
+  end
+  #
+  # get the private key generating on fly if needed
+  #
+  def private_key
+     return @private_key if  @private_key
+     unless self.attributes["private_key"]
+       logger.warn "No key generating on the fly"
+       self.generate_key
+       self.save!
+     end
+     @private_key =  OpenSSL::PKey::RSA.new(self.attributes["private_key"])
+  rescue 
+    logger.error "Failed to get public key for user #{self.id}"    
+  end
+  
+  def to_s
+    return name
+  end
+
 end
 
 

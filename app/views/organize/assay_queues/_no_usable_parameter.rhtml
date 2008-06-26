@@ -1,0 +1,23 @@
+
+<h1 class = 'icon icon-warning'> Sorry, adding a queue is not yet possible </h1>
+<div class='panel'>
+  <br />
+  <p>
+    This assay does not contain any dictionary based assay parameters. 
+    More setup work is required. Please check the following to fix the problem
+  </p>
+  <br />
+  <ol>
+    <li>
+      Check that appropriate
+      <%= link_to "<b> Parameter Types </b>",  parameter_type_url(:action => 'list')%> are set up.
+    </li>
+    <li>
+      Then create a new dictionary based parameter with 
+      <%= link_to "<b>Add Parameter</b>",  parameter_url(:action => 'new',  :id => @assay)%>
+    </li>
+    <li>
+      Then the assay is ready to create a queue
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,8 @@
+  <h1 class='icon icon-service-large' style='text-indent:0.5em'>
+    Service Queue [<%= @assay_queue.name %>] in Assay [<%= @assay_queue.assay.name %>]
+  </h1>
+  <div class='panel'>
+    <%= render :partial => 'assay_queue', :locals => { :assay_queue => @assay_queue } %>
+
+    <%= render :partial => 'request_services', :locals => { :request_services => @assay_queue.requests } %>
+  </div>

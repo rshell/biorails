@@ -1,23 +1,23 @@
 # == Schema Information
-# Schema version: 281
+# Schema version: 306
 #
 # Table name: task_results
 #
-#  id                   :integer(11)   default(0), not null, primary key
+#  id                   :integer(11)   primary key
 #  protocol_version_id  :integer(11)   
-#  parameter_context_id :integer(11)   default(0), not null
+#  parameter_context_id :integer(11)   
 #  label                :string(255)   
 #  row_label            :string(255)   
-#  row_no               :integer(11)   default(0), not null
+#  row_no               :integer(11)   
 #  column_no            :integer(11)   
 #  task_id              :integer(11)   
 #  parameter_id         :integer(11)   
 #  parameter_name       :string(62)    
-#  data_value           :binary        
-#  created_by_user_id   :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_by_user_id   :integer(11)   default(0), not null
-#  updated_at           :datetime      not null
+#  data_value           :string(1000)  
+#  created_by_user_id   :integer(11)   
+#  created_at           :datetime      
+#  updated_by_user_id   :integer(11)   
+#  updated_at           :datetime      
 #
 
 ##
@@ -34,8 +34,9 @@
 #  
 class TaskResult < ActiveRecord::Base
 
- def initialize
-   @readonly == true
+ def initialize(*args)
+   super(*args)
+   @readonly = true
  end
 
 ##

@@ -1,43 +1,54 @@
 <%= hidden_field :data_format, :lock_version  %>
 
     <!--[form:data_format]-->
-      <label for="data_format_data_type">Data type</label>
-      <br />
-      <%= select_named( :data_format, :data_type_id ,DataType) %>
-      <br />
-    
-      <label for="data_format_name">Name</label>
-      <br />
-      <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
-      <br />
-    
-      <label for="data_format_default_value">Default value</label>
-      <br />
-      <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
-      <br />
+    <label for="data_format_data_type" class='icon icon-data_type'>
+      Data type
+    </label>
+    <br />
+    <%= select( :data_format, :data_type_id ,[["Text",1],['Number',2],['Date',3],['Url',6]]) %>
+    <br />
 
-      <label for="data_format_description">Description</label>
-      <br />
-      <%= text_area :data_format, 'description',{:rows=>2, :cols=>100}   %>
-      <br />
-      <label for="data_format_format_regex">Input regex rule </label>
-      <br />
-      <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
-           :onblur => "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )",
-           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
-      <br />
+    <label for="data_format_name" class='icon icon-name'>
+      Name
+    </label>
+    <br />
+    <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
+    <br />
 
-      <label for="data_format_format_regex">Output prinf format (Numeric values)</label>
-      <br />
-      <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
-      <br />
-      <label for="data_format_test">Test String
-            <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>       
-      </label>
-      <br />
-      <%= text_field_tag 'test_match','',{:size=>50,:class=>"text-input",
-           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"}  %>
-      <br />
+    <label for="data_format_default_value">
+      Default value
+    </label>
+    <br />
+    <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
+    <br />
+
+    <label for="data_format_description" class='icon icon-description'>
+      Description
+    </label>
+    <br />
+    <%= text_area :data_format, 'description',{:rows=>2, :cols=>80}   %>
+    <br />
+    <label for="data_format_format_regex">
+      Input regex rule
+    </label>
+    <br />
+    <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
+          :onblur => "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )",
+          :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
+    <br />
+
+    <label for="data_format_format_regex">Output prinf format (Numeric values)</label>
+    <br />
+    <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
+    <br />
+    <label for="data_format_test">
+      Test String
+      <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>
+    </label>
+    <br />
+    <%= text_field_tag 'test_match','',{:size=>50,:class=>"text-input",
+    :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"}  %>
+    <br />
 
 <!--[eoform:data_format]-->
 

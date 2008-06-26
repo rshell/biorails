@@ -6,12 +6,19 @@
   <%= render :partial => 'help'%>
 <% end %>
 
-<h2> Role [<%= @role.name %>] </h2>
-<table>
-<tr><th>Description:</th><td> <%= @role.description %></td></tr>
-<tr><th>Created At:</th><td> <%= short_date @role.created_at %></td></tr>
-<tr><th>Updated At:</th><td> <%= short_date @role.updated_at %></td></tr>
-</table>
+<h1 class='icon icon-role'> Role [<%= @role.name %>] </h1>
+<table class='report' style=width:50%>
+  <tr>
+    <th><b class='icon icon-description'>Description:</b></th>
+    <td> <%= @role.description %></td></tr>
+  <tr>
+    <th><b class='icon icon-date'>Created At:</b></th>
+    <td> <%= short_date @role.created_at %></td></tr>
+  <tr>
+    <th><b class='icon icon-date'>Updated At:</b></th>
+    <td> <%= short_date @role.updated_at %></td>
+    </tr>
+  </table>
 <hr />
 <%=render :partial=>'members' if @role.is_a? ProjectRole%>
 <%=render :partial=>'users' if @role.is_a? UserRole%>

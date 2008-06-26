@@ -1,26 +1,38 @@
 <table class="report">
   <tr>
-      <th class="label"><%=subject_icon('name.png')%> Name</th>
-      <td> <%= request.name %></td>
+    <th class="label">
+      <b class='icon icon-name'>    Name   </b>
+    </th>
+    <td> <%=  @user_request.name %></td>
   </tr>
   <tr>
-      <th class="label"><%=subject_icon('description.png')%> Description</th>
-      <td> <%= request.description %></td>
+    <th class="label">
+      <b class='icon icon-name'>     Description  </b>
+    </th>
+    <td> <%=  @user_request.description %></td>
   </tr>
   <tr>
-      <th class="label"> Status </th>
-      <td> <%= request.status %></td>
+    <th class="label">
+      <b class='icon icon-status'>    Status   </b>
+    </th>
+    <td> <%=  @user_request.status %></td>
   </tr>
   <tr>
-      <th class="label"> Priority </th>
-      <td> <%= request.priority %></td>
+    <th class="label">
+      <b class='icon icon-priority'>  Priority </b>
+    </th>
+    <td> <%=  @user_request.priority %></td>
   </tr>
   <tr>
-      <th class="label"><%=subject_icon('purpose.png')%> Requested For</th>
-      <td> <%= request.expected_at %></td>
+    <th class="label">
+      <b class='icon icon-date'>     Expected   </b>
+    </th>
+    <td> <%= short_date @user_request.expected_at %></td>
   </tr>
   <tr>
-      <th class="label"><%=subject_icon('purpose.png')%> Requested By</th>
-      <td> <%= request.requested_by.name %></td>
+    <th class="label">
+      <b class='icon icon-user'>   Requestee    </b>
+    </th>
+    <td> <%=  @user_request.requested_by.name %></td>
   </tr>
 </table>

@@ -2,10 +2,19 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['user']}  %>
 <%end %>
 
-<h2> <%=@user_request.name%> <%=@report.name%></h2>
+<h1 class='icon icon-result'>
+  <%=@user_request.name%> <%=@report.name%>
+</h1>
 
-<div class="panel">                              
-    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
+<div class="panel">
+<br />
+<p>
+  Results are <i>published</i> to this report when the
+  linked task has its status changed.
+</p>
+<br />
+<%= render :partial => 'shared/report',
+  :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>
 </div>
-<hr/>    
-    <%= will_paginate  @data%>    
+
+<%= will_paginate  @data%>

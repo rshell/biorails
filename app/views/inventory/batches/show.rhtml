@@ -1,15 +1,21 @@
-<div class='main' id='maintitle'>
-    <div class="title">
-        <%=subject_icon('batches')%> Batch [<%=@batch.name %>]
-        <div class="actions">
-            <ul>
-                <li><%= link_to (subject_icon('edit.png')) +'Edit', :action => 'edit', :id => @batch %></li>
-                <li><%= link_to (subject_icon('list.png')) +'List', :action => 'list' %></li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="panel">                              
-        <%= render :partial => 'batch', :locals => { :batch => @batch } %>  
+<h1 class="icon icon-batch">Batch [<%=@batch.name %>]</h1>
+
+  <div class="panel">
+      <%= render :partial => 'batch', :locals => { :batch => @batch } %>
+  </div>
+
+<% content_for :sidemenu do%>
+ <div>
+    <span class='menu'>
+      <b class='icon icon-compound'>
+        Compound
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-edit'>Edit</b>", :action => 'edit', :id => @batch %>
+      <%= link_to "<b class='icon icon-list'>List</b>", :action => 'list' %>
+      <!--%= link_to "<b class='icon icon-new'>New</b>", :action => 'new' %-->
     </div>
-</div>
+  </div>
+<%end%>

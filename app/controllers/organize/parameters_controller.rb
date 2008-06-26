@@ -1,6 +1,11 @@
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
+
 class Organize::ParametersController < ApplicationController
   
-  use_authorization :study_parameters,
+  use_authorization :assay_parameters,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_project
                     
@@ -9,17 +14,13 @@ class Organize::ParametersController < ApplicationController
     render :action => 'list'
   end
 
-  # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
-
   def list
-   @report = Report.internal_report("ParameterList",Study) do | report |
+   @report = Report.internal_report("ParameterList",Assay) do | report |
       report.column('column_no').is_visible = false
       report.column('sequence_num').is_visible = false
       report.column('display_unit').is_visible = false
       report.column('qualifier_style').is_visible = false
-      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.assay.name').label= 'assay'
       report.column('process.protocol.name').label ='protocol'
       report.column('process.name').label ='version'
       report.column('data_type.name').label ='data'
@@ -31,7 +32,7 @@ class Organize::ParametersController < ApplicationController
    end
    @data = @report.run(:page => params[:page])
   end
-
+  
   def show
     @parameter = Parameter.find(params[:id])
     protocol_list
@@ -44,7 +45,7 @@ protected
 
   def protocol_list
    @report = Report.internal_report("ParameterProtocols",Parameter) do | report |
-      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.assay.name').label= 'assay'
       report.column('process.protocol.name').label ='protocol'
       report.column('process.name').label ='version'
       report.column('data_type.name').label ='data'
@@ -64,7 +65,7 @@ protected
 # 
   def task_metrics
    @report = Report.internal_report("ProcessStatistics",ProcessStatistics) do | report |
-      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.assay.name').label= 'assay'
       report.column('process.protocol.name').label ='protocol'
       report.column('process.name').label ='version'
       report.column('data_type.name').label ='data'
@@ -83,7 +84,7 @@ protected
 # 
   def parameter_results
    @report = Report.internal_report("ParameterResults",TaskResult) do | report |
-      report.column('process.protocol.study.name').label= 'study'
+      report.column('process.protocol.assay.name').label= 'assay'
       report.column('process.protocol.name').label ='protocol'
       report.column('process.name').label ='version'
       report.column('data_type.name').label ='data'

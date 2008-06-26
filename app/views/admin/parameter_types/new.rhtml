@@ -8,7 +8,7 @@
 
 <% content_for :center do %>
 
-  <%dialog 'New Parameter Type' do %>    
+  <%dialog "New Parameter Type" do %>    
     <% validated_form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
       <br />
@@ -17,8 +17,6 @@
     <% end %>
   <% end %>
 <% end %>
-
-
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

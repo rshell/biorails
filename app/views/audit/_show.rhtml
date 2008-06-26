@@ -1,7 +1,11 @@
 <% if @audits.size>0 %>
-<h4 class="icon icon-history">Change log for <%= @root.class%>.id=<%=@root.id%></h4>
 <table class='report'>
   <thead>
+    <tr>
+    <th colspan="<%=3+@root.class.content_columns.size%>">
+        Change log for <%= @root.class%>.id=<%=@root.id%>
+    </th>
+    </tr>
     <tr>
         <th>Action</th>
         <th>User</th>
@@ -15,10 +19,10 @@
   </thead>
   <tbody>
   <% for audit in @audits%>
-    <tr>
+    <tr class="<%= cycle('odd', 'even') %>">
         <th><b><%= audit.action %></b></th>
         <th><%= audit.user.name %></th>
-        <th><%=format_date audit.created_at %></th>
+        <th><%=short_date audit.created_at %></th>
         <% for column in @root.class.content_columns %>
            <% change = audit.changes[column.name] %>
            <% unless change %>

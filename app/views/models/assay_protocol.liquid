@@ -1,0 +1,8 @@
+<h2>{{record.name}}</h2>
+<p>{{record.description}}</p>
+
+<p>{{record.folder.name}}</p>
+
+{% tablerow item in record.versions %}
+ {{ item.name }}
+{% endtablerow %}

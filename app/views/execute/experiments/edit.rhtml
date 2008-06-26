@@ -4,14 +4,7 @@
 
 <% content_for :center do -%>
 
- <% dialog '<h2 class="icon icon-experiment-large" style="text-indent:0.5em">Edit Experiment</h2>' do %>
-   <% form_tag :action => 'update', :id => @experiment do %>
-    <%= render :partial => 'form' %>
-    <div class="row">
-    <%= submit_tag 'Edit' %>
-    </div>
-  <% end %>
-<% end %>
+  <%= render :partial => 'edit' %>
 
 <%end%>
 
@@ -22,4 +15,3 @@
 <% content_for :footer do -%>
    <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
 <% end %>
-

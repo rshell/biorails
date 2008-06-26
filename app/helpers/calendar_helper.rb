@@ -1,4 +1,7 @@
-
+##
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+##
 
 module CalendarHelper
   
@@ -42,7 +45,7 @@ module CalendarHelper
     out<< "</thead>"
 
     day = schedule.first_date
- 	  out << '<tr style="height:100px">'
+ 	  out << '<tr style="height:70px">'
     while day <= schedule.last_date
         if day.cwday == 1 
      	    out << '<th class="sow">' << day.cweek.to_s << "</th>"
@@ -52,14 +55,14 @@ module CalendarHelper
     	out << " <p class='day'>"  << ( day==Date.today ? "<b>#{day.day}</b>" : day.day.to_s)   << " </p>"	
     	for item in schedule.for_day(day)
     	    out << "<div class='tooltip'> <p class='state_#{item.status}'>"
-            out << image_tag('schedule/arrow_from.png')  if item.starting?(day)
+            out << image_tag('enterprise/calendar/arrow_from-small.png') if item.starting?(day)
     	    if block_given?    
        	      out << capture(item,&proc)
     	    else
     	      out << item.name
     	    end
-		     out <<    image_tag('schedule/arrow_to.png')  if item.ending?(day)
-		     out << '</p></div>'
+	     out << image_tag('enterprise/calendar/arrow_to-small.png') if item.ending?(day)
+	     out << '</p></div>'
     	end
         out << "</td>\n"
         if (day.cwday >= 7 and day!=schedule.finished_at)
@@ -75,43 +78,6 @@ module CalendarHelper
     out<< "</tr>"
     out << "</table>"
     concat(out,proc.binding)
-  end
- 
- 
-  def gantt( items, options = {}, &block)
-    raise ArgumentError, "No started date given" unless defined? options[:started]
-    raise ArgumentError, "No ended date given" unless defined? options[:ended]
- 
-    schedule = CalendarData.new(options[:started],options[:ended])
-    schedule.fill(items)
-    out = "<table class='calendar'>"
-    day = schedule.started_at
- 	  out << '<tr style="height:100px">'
-    while day <= schedule.finished_at	
-        if day.cwday == 1 
-     	    out << "<th>" << day.cweek << "</th>"
-        end
-        out << "<td valign='top'  "
-        out << "    style='width:14%; "  << ( Date.today == day ? "background:#FDFED0;'>" : "'>")
-    	out << " <p class='textright'>"  << ( day==Date.today ? "<b>#{day.day}</b>" : day.day) 
-    	out << " </p>"	
-    	for item in for_day(day)
-    	    if block_given?    
-    	        yield out,item     
-    	    else
-    	      out << item.name
-    	    end
-    	end
-        out << "</td>\n"
-        if (day.cwday >= 7 and day!=schedule.finished_at)
-        	out << "</tr>\n"
-        	out << '<tr style="height:100px">' 
-    	end
-    	day = day + 1
-    end 
-    out << "</tr>"
-    out << "</table>"
-    concat(out)
   end
   
 end
