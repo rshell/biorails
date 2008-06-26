@@ -7,10 +7,17 @@ namespace :biorails do
     ActiveRecord::Base.establish_connection 
     Biorails::TEMPLATE_MODELS.each do |model| 
        filename = File.join(path,model.to_s.tableize + '.yml')
-       Biorails::Dba.import_model(model,filename) if File.exists? filename
+       n = Biorails::Dba.import_model(model,filename) if File.exists? filename
+       p "imported #{n} from #{filename}"
     end 
   end
-
+  
+  desc "Dump biorails database to a file"
+  task :backup => :environment do
+      database, user, password = retrieve_db_info
+      Biorails::Dba.backup_db(database, user, password)
+  end 
+   
   desc 'Import all the catalogue information from another schema DIR=directory for set source' 
   task :import_catalog => :environment do 
     path = (ENV['DIR'] ? ENV['DIR'] : File.join(RAILS_ROOT,'db','export') )
@@ -91,7 +98,7 @@ namespace :biorails do
       puts "Free Text indexing Inventory tables"
       Project.rebuild_index(Compound,Batch,Plate,Container)
       puts "Feee Text indexing Projects"
-      Project.rebuild_index(Study,StudyProtocol,StudyParameter,StudyQueue,Project,ProjectElement,Experiment,Task,Request,RequestService)
+      Project.rebuild_index(Assay,AssayProtocol,AssayParameter,AssayQueue,Project,ProjectElement,Experiment,Task,Request,RequestService)
   end
 
   desc "Purge the Database of old data"

@@ -11,21 +11,6 @@ module Biorails
   def UmlModel.logger
     ActionController::Base.logger rescue nil
   end
-##
-# get the list of possible public actions for this controller
-# 
-#  returns a array of methods names
-# 
-  def UmlModel.actions(name)
-    if name
-      controller = eval("#{name}_controller".camelcase) 
-      methods = controller.public_instance_methods - ApplicationController.public_instance_methods
-      return methods.sort
-    end
-  rescue Exception => ex
-    logger.warning "Failed to find actions #{ex.message}"
-    return []
-  end
 
 ##
 # List of all controllers in the system
@@ -201,7 +186,7 @@ module Biorails
   
       # neato or dot
       if system "#{cmd} -Tpng -o\"#{img_file}\" \"#{dot_file}\""
-        puts "Generated #{img_file}"
+        logger.info "Generated #{img_file}"
         return img_file
       else
         puts "Failed to execute the '#{cmd}' command! Need grapviz (www.graphviz.org) installed and on path "
