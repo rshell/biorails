@@ -27,7 +27,7 @@ class InitialTables < ActiveRecord::Migration
     t.column "data_type_id",       :integer
     t.column "level_no",           :integer
     t.column "column_no",          :integer
-    t.column "mode",               :integer
+    t.column "io_mode",               :integer
     t.column "mandatory",          :string,                 :default => "N"
     t.column "default_value",      :string
     t.column "created_at",         :datetime,                                :null => false
@@ -36,22 +36,12 @@ class InitialTables < ActiveRecord::Migration
     t.column "created_by_user_id", :integer,                :default => 1,   :null => false
   end
 
-  create_table "audit_logs", :force => true do |t|
-    t.column "auditable_id",   :integer
-    t.column "auditable_type", :string
-    t.column "user_id",        :integer
-    t.column "action",         :string
-    t.column "changes",        :text
-    t.column "created_by",     :string
-    t.column "created_at",     :datetime
-  end
-
   create_table "audits", :force => true do |t|
     t.column "auditable_id",   :integer
     t.column "auditable_type", :string
     t.column "user_id",        :integer
     t.column "user_type",      :string
-    t.column "session",        :string
+    t.column "session_id",        :string
     t.column "action",         :string
     t.column "changes",        :text
     t.column "created_at",     :datetime
@@ -60,26 +50,6 @@ class InitialTables < ActiveRecord::Migration
   add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
   add_index "audits", ["created_at"], :name => "audits_created_at_index"
-
-  create_table "authentication_systems", :force => true do |t|
-    t.column "name",               :string,   :limit => 50, :default => "",            :null => false
-    t.column "description",        :text
-    t.column "type",               :string,                 :default => "DataConcept", :null => false
-    t.column "host",               :string,   :limit => 60
-    t.column "port",               :integer
-    t.column "account",            :string,   :limit => 60
-    t.column "account_password",   :string,   :limit => 60
-    t.column "base_dn",            :string
-    t.column "attr_login",         :string,   :limit => 30
-    t.column "attr_firstname",     :string,   :limit => 30
-    t.column "attr_lastname",      :string,   :limit => 30
-    t.column "attr_mail",          :string,   :limit => 30
-    t.column "lock_version",       :integer,                :default => 0,             :null => false
-    t.column "created_at",         :datetime,                                          :null => false
-    t.column "updated_at",         :datetime,                                          :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,             :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,             :null => false
-  end
 
   create_table "batches", :force => true do |t|
     t.column "compound_id",        :integer,  :default => 0, :null => false
@@ -97,22 +67,6 @@ class InitialTables < ActiveRecord::Migration
   end
 
   add_index "batches", ["compound_id"], :name => "batches_compound_fk"
-
-  create_table "catalog_logs", :force => true do |t|
-    t.column "user_id",        :integer
-    t.column "auditable_id",   :integer
-    t.column "auditable_type", :string
-    t.column "action",         :string
-    t.column "name",           :string
-    t.column "comment",        :string
-    t.column "created_by",     :string
-    t.column "created_at",     :datetime
-  end
-
-  add_index "catalog_logs", ["user_id"], :name => "catalog_logs_user_id_index"
-  add_index "catalog_logs", ["auditable_type", "auditable_id"], :name => "catalog_logs_auditable_type_index"
-  add_index "catalog_logs", ["created_at"], :name => "catalog_logs_created_at_index"
-
 
   create_table "compounds", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -166,22 +120,6 @@ class InitialTables < ActiveRecord::Migration
   add_index "data_concepts", ["name"], :name => "data_concepts_name_idx"
   add_index "data_concepts", ["access_control_id"], :name => "data_concepts_acl_idx"
   add_index "data_concepts", ["data_context_id"], :name => "data_concepts_fk1"
-
-  create_table "data_contexts", :force => true do |t|
-    t.column "name",               :string,   :limit => 50, :default => "", :null => false
-    t.column "description",        :text
-    t.column "access_control_id",  :integer
-    t.column "lock_version",       :integer,                :default => 0,  :null => false
-    t.column "created_at",         :datetime,                               :null => false
-    t.column "updated_at",         :datetime,                               :null => false
-    t.column "updated_by_user_id", :integer,                :default => 1,  :null => false
-    t.column "created_by_user_id", :integer,                :default => 1,  :null => false
-  end
-
-  add_index "data_contexts", ["updated_at"], :name => "data_contexts_idx2"
-  add_index "data_contexts", ["created_at"], :name => "data_contexts_idx4"
-  add_index "data_contexts", ["name"], :name => "data_contexts_name_idx"
-  add_index "data_contexts", ["access_control_id"], :name => "data_contexts_acl_idx"
 
   create_table "data_elements", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -270,26 +208,6 @@ class InitialTables < ActiveRecord::Migration
     t.column "data", :binary
   end
 
-  create_table "experiment_logs", :force => true do |t|
-    t.column "experiment_id",  :integer
-    t.column "task_id",        :integer
-    t.column "user_id",        :integer
-    t.column "auditable_id",   :integer
-    t.column "auditable_type", :string
-    t.column "action",         :string
-    t.column "name",           :string
-    t.column "comment",        :string
-    t.column "created_by",     :string
-    t.column "created_at",     :datetime
-  end
-
-  add_index "experiment_logs", ["experiment_id"], :name => "experiment_logs_experiment_id_index"
-  add_index "experiment_logs", ["user_id"], :name => "experiment_logs_user_id_index"
-  add_index "experiment_logs", ["auditable_type", "auditable_id"], :name => "experiment_logs_auditable_type_index"
-  add_index "experiment_logs", ["created_at"], :name => "experiment_logs_created_at_index"
-
-
-
   create_table "experiments", :force => true do |t|
     t.column "name",                :string,   :limit => 128, :default => "", :null => false
     t.column "description",         :text
@@ -343,22 +261,11 @@ class InitialTables < ActiveRecord::Migration
     t.column "created_by_user_id", :integer,  :default => 1, :null => false
   end
 
-  create_table "logging_events", :force => true do |t|
-    t.column "level",       :string
-    t.column "source",      :string
-    t.column "class_ref",   :string
-    t.column "id_ref",      :string
-    t.column "name",        :string
-    t.column "description", :string
-    t.column "comments",    :string
-    t.column "data",        :text
-  end
-
   create_table "memberships", :force => true do |t|
     t.column "user_id",            :integer,  :default => 0,     :null => false
     t.column "project_id",         :integer,  :default => 0,     :null => false
     t.column "role_id",            :integer,  :default => 0,     :null => false
-    t.column "owner",              :boolean,  :default => false
+    t.column "is_owner",           :boolean,  :default => false
     t.column "created_at",         :datetime,                    :null => false
     t.column "updated_at",         :datetime,                    :null => false
     t.column "updated_by_user_id", :integer,  :default => 1,     :null => false
@@ -373,9 +280,9 @@ class InitialTables < ActiveRecord::Migration
     t.column "default_count",       :integer, :default => 1
   end
 
-  add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_process_instance_id_index"
-  add_index "parameter_contexts", ["parent_id"], :name => "parameter_contexts_parent_id_index"
-  add_index "parameter_contexts", ["label"], :name => "parameter_contexts_label_index"
+  add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_idx1"
+  add_index "parameter_contexts", ["parent_id"], :name => "parameter_contexts_idx2"
+  add_index "parameter_contexts", ["label"], :name => "parameter_contexts_idx3"
 
   create_table "parameter_roles", :force => true do |t|
     t.column "name",               :string,   :limit => 50, :default => "", :null => false
@@ -429,11 +336,11 @@ class InitialTables < ActiveRecord::Migration
   end
 
   add_index "parameters", ["name"], :name => "parameters_name_index"
-  add_index "parameters", ["protocol_version_id"], :name => "parameters_process_instance_id_index"
-  add_index "parameters", ["parameter_context_id"], :name => "parameters_parameter_context_id_index"
-  add_index "parameters", ["parameter_type_id"], :name => "parameters_parameter_type_id_index"
-  add_index "parameters", ["parameter_role_id"], :name => "parameters_parameter_role_id_index"
-  add_index "parameters", ["updated_at"], :name => "parameters_updated_at_index"
+  add_index "parameters", ["protocol_version_id"], :name => "parameters_idx1"
+  add_index "parameters", ["parameter_context_id"], :name => "parameters_idx2"
+  add_index "parameters", ["parameter_type_id"], :name => "parameters_idx3"
+  add_index "parameters", ["parameter_role_id"], :name => "parameters_idx4"
+  add_index "parameters", ["updated_at"], :name => "parameters_idx5"
 
   create_table "permissions", :force => true do |t|
     t.column "checked", :boolean, :default => false, :null => false
@@ -500,8 +407,8 @@ class InitialTables < ActiveRecord::Migration
     t.column "created_by_user_id", :integer,                :default => 1,  :null => false
   end
 
-  add_index "process_definitions", ["name"], :name => "process_definitions_name_index"
-  add_index "process_definitions", ["updated_at"], :name => "process_definitions_updated_at_index"
+  add_index "process_definitions", ["name"], :name => "process_definitions_idx1"
+  add_index "process_definitions", ["updated_at"], :name => "process_definitions_idx2"
 
   create_table "process_instances", :force => true do |t|
     t.column "process_definition_id", :integer,                              :null => false
@@ -515,9 +422,9 @@ class InitialTables < ActiveRecord::Migration
     t.column "created_by_user_id",    :integer,               :default => 1, :null => false
   end
 
-  add_index "process_instances", ["name"], :name => "process_instances_name_index"
-  add_index "process_instances", ["process_definition_id"], :name => "process_instances_process_definition_id_index"
-  add_index "process_instances", ["updated_at"], :name => "process_instances_updated_at_index"
+  add_index "process_instances", ["name"], :name => "process_instances_idx1"
+  add_index "process_instances", ["process_definition_id"], :name => "process_instances_idx2"
+  add_index "process_instances", ["updated_at"], :name => "process_instances_idx3"
 
   create_table "project_assets", :force => true do |t|
     t.column "project_id",         :integer
@@ -811,24 +718,6 @@ class InitialTables < ActiveRecord::Migration
   add_index "studies", ["name"], :name => "studies_name_index"
   add_index "studies", ["updated_at"], :name => "studies_updated_at_index"
 
-  create_table "study_logs", :force => true do |t|
-    t.column "study_id",       :integer
-    t.column "user_id",        :integer
-    t.column "auditable_id",   :integer
-    t.column "auditable_type", :string
-    t.column "action",         :string
-    t.column "name",           :string
-    t.column "comment",        :string
-    t.column "changes",        :text
-    t.column "created_by",     :string
-    t.column "created_at",     :datetime
-  end
-
-  add_index "study_logs", ["study_id"], :name => "study_logs_study_id_index"
-  add_index "study_logs", ["user_id"], :name => "study_logs_user_id_index"
-  add_index "study_logs", ["auditable_type", "auditable_id"], :name => "study_logs_auditable_type_index"
-  add_index "study_logs", ["created_at"], :name => "study_logs_created_at_index"
-
   create_table "study_parameters", :force => true do |t|
     t.column "parameter_type_id",  :integer
     t.column "parameter_role_id",  :integer
@@ -1088,16 +977,6 @@ class InitialTables < ActiveRecord::Migration
   end
 
   add_index "users", ["role_id"], :name => "fk_user_role_id"
-
-  create_table "work_status", :force => true do |t|
-    t.column "name",               :string
-    t.column "description",        :string
-    t.column "lock_version",       :integer,  :default => 0, :null => false
-    t.column "created_at",         :datetime,                :null => false
-    t.column "updated_at",         :datetime,                :null => false
-    t.column "updated_by_user_id", :integer,  :default => 1, :null => false
-    t.column "created_by_user_id", :integer,  :default => 1, :null => false
-  end
 
  end
  

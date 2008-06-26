@@ -17,7 +17,7 @@ class RebuildViews < ActiveRecord::Migration
   execute_ignore_error 'drop view study_statistics'
   execute_ignore_error 'drop view study_statistics'
   
-  execute <<SQL
+  execute_ignore_error <<SQL
 create view study_statistics as 
 select e.study_id,p.parameter_role_id,p.parameter_type_id,p.data_type_id,
     avg(r.data_value) avg_values,
@@ -64,7 +64,7 @@ SQL
   execute_ignore_error 'drop table experiment_statistics'
   execute_ignore_error 'drop view experiment_statistics'
 
-  execute <<SQL
+  execute_ignore_error <<SQL
 create view experiment_statistics as 
 select  t.experiment_id*1000000+p.study_parameter_id id,
         t.experiment_id,
@@ -138,7 +138,7 @@ SQL
   execute_ignore_error 'drop table process_statistics'
   execute_ignore_error 'drop view process_statistics'
 
-    execute <<SQL
+ execute_ignore_error <<SQL
 create view process_statistics as 
 select p.id,
        p.study_parameter_id,
@@ -208,7 +208,7 @@ SQL
   execute_ignore_error 'drop table task_statistics'
   execute_ignore_error 'drop view task_statistics'
    
-  execute <<SQL
+  execute_ignore_error <<SQL
 create view task_statistics as 
 select (r.task_id*100000+r.parameter_id) id,r.task_id,r.parameter_id,p.parameter_role_id,p.parameter_type_id,p.data_type_id,
     avg(r.data_value) avg_values,
@@ -249,7 +249,7 @@ SQL
   execute_ignore_error 'drop table task_result_values'
   execute_ignore_error 'drop view task_result_values'
 
-    execute <<SQL
+    execute_ignore_error <<SQL
       create view task_result_values as
       select ti.id id,
              tc.row_no,
@@ -287,7 +287,7 @@ SQL
   execute_ignore_error 'drop table task_result_texts'
   execute_ignore_error 'drop view task_result_texts'
 
-    execute <<SQL
+    execute_ignore_error <<SQL
       create view task_result_texts as
       select ti.id id,
              tc.row_no,
@@ -325,7 +325,7 @@ SQL
   execute_ignore_error 'drop table task_results'
   execute_ignore_error 'drop view task_results'
 
-    execute <<SQL
+    execute_ignore_error <<SQL
       create view task_results as
       select ti.id id,
              pc.protocol_version_id,
@@ -424,7 +424,7 @@ SQL
   execute_ignore_error 'drop table compound_results'
   execute_ignore_error 'drop view compound_results'
 
-    execute <<SQL
+    execute_ignore_error <<SQL
       create view compound_results as
       select ti.id id,
              tc.row_no,
@@ -462,7 +462,7 @@ SQL
   execute_ignore_error 'drop table parameter_facts'
   execute_ignore_error 'drop view parameter_facts'
 
-    execute <<SQL
+    execute_ignore_error <<SQL
 create view parameter_facts as 
 select p.id,
        p.name parameter_name,

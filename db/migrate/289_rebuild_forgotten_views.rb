@@ -11,7 +11,7 @@ class RebuildForgottenViews < ActiveRecord::Migration
   execute_ignore_error 'drop table queue_results'
   execute_ignore_error 'drop view queue_results'
   
-  execute <<SQL
+  execute_ignore_error <<SQL
 create view queue_results as
     select ti.id id,
          tc.row_no,
@@ -101,7 +101,7 @@ SQL
   execute_ignore_error 'drop table queue_result_values'
   execute_ignore_error 'drop view queue_result_values'
   
-  execute <<SQL
+  execute_ignore_error <<SQL
   create view queue_result_values as
   select ti.id id,
          tc.row_no,
@@ -147,7 +147,7 @@ SQL
   execute_ignore_error 'drop table queue_result_texts'
   execute_ignore_error 'drop view queue_result_texts'
   
-  execute <<SQL
+  execute_ignore_error <<SQL
   create view queue_result_texts as
   select ti.id id,
          tc.row_no,
