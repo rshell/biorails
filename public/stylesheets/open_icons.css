@@ -20,20 +20,20 @@
 .icon-copy 	          { background-image:url(/images/open/actions/copy.png) !important; }
 .icon-del 	          { background-image:url(/images/open/actions/delete.png) !important; }
 .icon-edit 	          { background-image:url(/images/open/actions/edit.png) !important; }
-.icon-export 	          { background-image:url(/images/open/actions/actions/exportt.png) !important; }
-.icon-import 	          { background-image:url(/images/open/actions/actions/import.png) !important; }
+.icon-export 	          { background-image:url(/images/open/actions/export.png) !important; }
+.icon-import 	          { background-image:url(/images/open/actions/import.png) !important; }
 .icon-list 	          { background-image:url(/images/open/actions/list.png) !important; }
 .icon-logout 	          { background-image:url(/images/open/actions/logout.png) !important; }
 .icon-metric 	          { background-image:url(/images/open/actions/metric.png) !important;}
 .icon-move 	          { background-image:url(/images/open/actions/move.png) !important; }
 .icon-navigation          { background-image:url(/images/open/actions/navigation.png)  !important; }
 .icon-new 	          { background-image:url(/images/open/actions/new.png) !important; }
-.icon-paste 	          { background-image: url(/images/open/actions/paste.png) !important; }
+.icon-paste 	          { background-image:url(/images/open/actions/paste.png) !important; }
 .icon-preview 	          { background-image:url(/images/open/actions/list.png) !important; }
 .icon-refresh             { background-image:url(/images/open/actions/refresh.png) !important; }
 .icon-release             { background-image:url(/images/open/actions/release.png) !important; }
 .icon-save 	          { background-image:url(/images/open/actions/save.png) !important; }
-.icon-show                { background-image: url(/images/open/actions/show.png) !important; }
+.icon-show                { background-image:url(/images/open/actions/show.png) !important; }
 .icon-warning 	          { background-image:url(/images/open/actions/warning.png) !important;}
 .icon-zoom_in 	          { background-image:url(/images/open/actions/zoom_in.png) !important; }
 .icon-zoom_in-large       { background-image:url(/images/open/actions/zoom_in-large.png) ;

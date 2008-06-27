@@ -1,0 +1,22 @@
+ div.sidemenu div li {
+    padding: 2px 0 2px 0;
+    background-color: #ffffff;
+    list-style: none;
+}
+
+/*div #status ol {
+    list-style:decimal inside;
+    padding-left: 1em;
+}
+div #status ul {
+    list-style:disc inside;
+    padding-left: 1em;
+}
+
+div #centre-panel li {
+    list-style: none;}
+
+/*div .x-tree-node li {list-style:none;}*/
+
+div .x-tree li {list-style:none;}
+
