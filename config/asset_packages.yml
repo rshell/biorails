@@ -1,0 +1,34 @@
+--- 
+javascripts: 
+- base: 
+  - ext2/adapter/prototype/prototype
+  - ext2/adapter/prototype/scriptaculous
+  - ext2/adapter/prototype/effects
+  - ext2/adapter/prototype/controls
+  - ext2/adapter/prototype/ext-prototype-adapter
+  - ext2/ext-all
+  - ext2/ext_searchfield
+  - ext2/ext_datetime
+  - biorails/menu/EditableItem
+  - biorails/menu/RangeMenu
+  - biorails/grid/GridFilters
+  - biorails/grid/filter/Filter
+  - biorails/grid/filter/StringFilter
+  - biorails/grid/filter/DateFilter
+  - biorails/grid/filter/ListFilter
+  - biorails/grid/filter/NumericFilter
+  - biorails/grid/filter/BooleanFilter
+  - biorails/biorails
+  - biorails/biorails_folders
+  - biorails/biorails_controls
+  - biorails/biorails_protocol
+  - biorails/biorails_reports
+  - biorails/biorails_task
+stylesheets: 
+- base: 
+  - ext-all
+  - open_icons
+  - forms
+  - table
+  - errors
+  - biorails3
