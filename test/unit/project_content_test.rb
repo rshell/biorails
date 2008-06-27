@@ -70,7 +70,6 @@ class ProjectContentTest < Test::Unit::TestCase
   
   def test_project_content_build
     element=  @model.build(:body_html=>"test text", :name => 'name', :position=>"2", :project_id=>"1", :title=>'title', :body=>'this is a body')
-    assert_not_nil element.content.content_hash
     assert_equal "test text", element.content.body_html
     assert element.content.valid?
     assert element.save
@@ -84,7 +83,6 @@ class ProjectContentTest < Test::Unit::TestCase
     assert_equal "test text", first.content.body_html
     assert first.content.valid?
     first.update_content(:body_html=>"test text", :name => 'name', :position=>"2", :project_id=>"1", :title=>'title', :body=>'this is a body')
-    assert_not_nil first.content.content_hash
     assert_equal "name", first.content.name
     assert_equal "test text", first.content.body_html
     assert first.content.valid?
