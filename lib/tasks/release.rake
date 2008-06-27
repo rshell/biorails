@@ -51,6 +51,5 @@ task :cruise do
     ENV['SHOW_ONLY'] = 'models,lib,helpers,controllers'
     task = Rake::Task["test:biorails:rcov"].invoke
     mv 'coverage/biorails', "#{out}/biorails test coverage" if out  
-    Rake::Task["biorails:restart"].invoke
     task
 end
