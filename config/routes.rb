@@ -1,41 +1,62 @@
 ActionController::Routing::Routes.draw do |map|
-  # Add your own custom routes here.
+
+
+  map.resources :mooses
   # The priority is based upon order of creation: first created -> highest priority.
-  
-  # Here's a sample route:
-  # map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+
+  # Sample of regular route:
+  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
 
-  # You can have the root of your site routed by hooking up '' 
-  # -- just remember to delete public/index.html.
-  # map.connect '', :controller => "welcome"
-  map.connect '', :controller => "home", :action => "show"
-  # map.connect '', :controller => 'roles', :action => 'list'
+  # Sample of named route:
+  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   map.resources :products
+
+  # Sample resource route with options:
+  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+
+  # Sample resource route with sub-resources:
+  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+
+  # Sample resource route within a namespace:
+  #   map.namespace :admin do |admin|
+  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+  #     admin.resources :products
+  #   end
+
+  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+   map.root :controller => "home"
+
+  # See how all your routes lay out with "rake routes"
+
+  # Install the default routes as the lowest priority.
+  map.connect '', :controller => 'home', :action => 'show'
+  map.connect '/', :controller => 'home', :action => 'show'
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'
-  map.connect ':controller/service.wsdl', :action => 'wsdl'
 
-##
-# signed documents
-#
-  map.document '/folders/sign/document//public', :controller => 'page', :action=>'show_pdf'
 ##
 # administration elements
 # 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
-  map.database  'admin/database/:action/:id', :controller => 'admin/database'
   map.data_format 'admin/format/:action/:id', :controller => 'admin/data_formats'
   map.data_element 'admin/element/:action/:id', :controller => 'admin/data_elements'
   map.data_system 'admin/system/:action/:id', :controller => 'admin/data_systems'
   map.data_type  'admin/data/:action/:id', :controller => 'admin/data_types'
   map.parameter_type 'admin/parameters/:action/:id', :controller => 'admin/parameter_types'
   map.parameter_role 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
-  map.study_stage 'admin/stage/:action/:id', :controller => 'admin/study_stages'
+  map.assay_stage 'admin/stage/:action/:id', :controller => 'admin/assay_stages'
+  map.system_setting 'admin/settings/:action/:id', :controller => 'admin/system_settings'
 
+  map.project_type 'project_types/:action/:id', :controller => 'admin/project_types' 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
   map.team 'admin/teams/:action/:id', :controller => 'admin/teams'
+  map.teams 'admin/teams/:action/:id', :controller => 'admin/teams'
   map.member  'admin/members/:action/:id', :controller => 'admin/memberships'
 
   map.auth 'auth/:action/:id' , :controller => 'auth'
@@ -55,26 +76,26 @@ ActionController::Routing::Routes.draw do |map|
   map.asset   'asset/:action/:id', :controller => 'project/assets'
   map.signature   'signatures/:action/:id', :controller => 'project/signatures'
 ##
-# Studies
+# Organization
 #  
-  map.study     'studies/:action/:id', :controller => 'organize/studies'
-  map.protocol  'protocols/:action/:id', :controller => 'organize/study_protocols'
-  map.parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
-  map.study_parameter 'parameters/:action/:id', :controller => 'organize/study_parameters'  
+  map.assay     'assays/:action/:id',   :controller => 'organize/assays'
+  map.workflow  'workflows/:action/:id',     :controller => 'organize/process_flows'
+  map.process   'processes/:action/:id', :controller => 'organize/process_instances'
+  map.process_instance   'processes/:action/:id', :controller => 'organize/process_instances'
+  map.protocol  'protocols/:action/:id', :controller => 'organize/process_instances'
+  map.parameter 'parameters/:action/:id', :controller => 'organize/assay_parameters'  
+  map.assay_parameter 'parameters/:action/:id', :controller => 'organize/assay_parameters'  
   map.protocol_parameter 'protocol_parameters/:action/:id', :controller => 'organize/parameters'  
-  map.study_queue     'queues/:action/:id', :controller => 'organize/study_queues'
-  map.queue     'queues/:action/:id', :controller => 'organize/study_queues'
+  map.assay_queue     'queues/:action/:id', :controller => 'organize/assay_queues'
+  map.queue     'queues/:action/:id', :controller => 'organize/assay_queues'
   map.queue_item 'queue_items/:action/:id', :controller => 'organize/queue_items'
 ##
 # Inventory
 #  
   map.compound  'compound/:action/:id',:controller => 'inventory/compounds'  
   map.batch     'batch/:action/:id',:controller => 'inventory/batches'  
-  map.sample    'sample/:action/:id',:controller => 'inventory/samples'  
   map.plate     'plate/:action/:id',:controller => 'inventory/plates'  
-  map.container 'container/:action/:id',:controller => 'inventory/containers'  
-  map.specimen  'specimen/:action/:id',:controller => 'inventory/specimens'  
-  map.treatment_group 'treatment_group/:action/:id',:controller => 'inventory/treatment_groups'  
+
 ##
 # Execution
 #
@@ -82,12 +103,11 @@ ActionController::Routing::Routes.draw do |map|
   map.task       'tasks/:action/:id',       :controller => 'execute/tasks'
   map.report     'reports/:action/:id',     :controller => 'execute/reports'
   map.request    'requests/:action/:id',    :controller => 'execute/requests'
+  map.cross_tab  'sar/:action/:id',         :controller => 'execute/cross_tab'
 
   map.service    'services/:action/:id',    :controller => 'execute/request_services'
   map.request_service    'services/:action/:id',    :controller => 'execute/request_services'
   
-  # Normal controller/action route.
-  map.connect ':controller/:action/:id'
 
 ##
 # Public Pages
@@ -97,6 +117,8 @@ ActionController::Routing::Routes.draw do |map|
 # /content/permilink  This is a content addressable html element  (permilink == md5 of record)
 # 
   map.home    'home/:action/:id' , :controller => 'home'
-  map.connect ':*path', :controller => "page", :action => "locate"
- 
+  map.connect ':controller/service.wsdl', :action => 'wsdl'
+  
+  # Normal controller/action route.
+  map.connect ':controller/:action/:id'
 end

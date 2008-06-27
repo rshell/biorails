@@ -7,7 +7,6 @@
   </span>
   <div class='boldnotbold'>
   <%= link_to "<b class='icon icon-list'>List Local </b>", user_url( :action => 'list') %>
-  <%= link_to "<b class='icon icon-list'>List LDAP  </b>", user_url( :action => 'ldap',:id=>'a') %>
   <%= link_to "<b class='icon icon-user-add'>New</b>", user_url( :action => 'new') %>
   <% if @user && !@user.new_record?%>
     <%= link_to "<b class='icon icon-edit'>Edit</b>",    user_url( :action => 'edit',:id=>@user.id) %>

@@ -46,14 +46,7 @@ Biorails.Document = function(config){
                     window.open(item.href);
                 }, 
                 iconCls:'icon-print-preview'
-            },'-',{
-                text:'Sign',
-                tooltip:'Sign as the author',
-                href: '/signatures/new/'+config.folder_id,                                
-                handler : function(item){
-                    window.location = item.href;
-                }, 
-                iconCls:'icon-sign'
+            },'-'
             },'-',{
                 text:'Print',
                 tooltip:'Print the folder as a report',
@@ -194,15 +187,7 @@ Biorails.Folder = function(config){
                 window.open(item.href);
             }, 
             iconCls: 'icon-print-preview'
-        },'-',{
-            text:'Sign',
-            tooltip:'Sign as the author',
-            href: '/signatures/new/'+config.folder_id,   
-            handler : function(item){
-                window.location = item.href;
-            }, 
-            iconCls:'icon-sign'
-        },'-',{
+        },'-','-',{
             text:'Print',
             xtype:'tbbutton',
             tooltip:'Print the folder as a report',

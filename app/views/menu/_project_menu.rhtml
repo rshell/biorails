@@ -16,8 +16,6 @@
                     project_url(:action => 'calendar', :id => current_project)) if current_project.allows?(:calendar,:project) %>
     <%= link_to( "<b class='icon icon-timeline'>" + l(:Timeline) + "</b>",    
                     project_url( :action => 'gantt', :id => current_project)) if current_project.allows?(:calendar,:project) %>
-    <%= link_to( "<b class='icon icon-sign'>" + l(:Published) + "</b>",  
-        signature_url( :action => 'published')) %>
     <%= link_to( "<b class='icon icon-report'>" + l(:Queries) + "</b>",  
         report_url( :action => 'list', :current_project_id => current_project)) if current_user.allows?(:show,:reports) %>
     <%= link_to( "<b class='icon icon-assay'>" + l('Assay Definitions')+" [#{current_project.linked_assays.size}]" + "</b>",

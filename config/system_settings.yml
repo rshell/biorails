@@ -1,38 +1,105 @@
 app_title:
-  default: Biorails
-  description: The site name may be displayed by your template across the top of the page
+  default: BioRails
+  tip: The site name may be displayed by your template across the top of the page
 app_subtitle:
-  default: Project organization and data management
-  description: Optional subheading for site, which may be displayed underneath the site name
+  default: Project organisation and data management
+  tip: Optional subheading for site, which may be displayed underneath the site name.
+footer_message:
+  default:
+  tip: Your credits message, displayed at the bottom of the page.
 welcome_text:
-  default: Welcome to Biorails
-  description: Text to display when application starts
+  default: Welcome to BioRails
+  tip:
 hash_format:
   default: MD5
-  description: Algorithm to use for encoding documents to be signed
-author_assert_text: 
+  tip: May be one of <%= Signature.SignatureFormats %>
+max_login_attempts:
+  default: 3
+  tip: Administrators will be sent an email when users fail to log in more than max_login_attempts times consecutively
+author_assert_text:
   default: I assert that the document below is my work and affirm this by attaching my electronic signature
-  description: Text to display when an author is signing a document
-witness_assert_text: 
-  default: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
-  description: Text to display when a witness is signing a document
+  tip: Text that an author signs
+witness_assert_text:
+  default: I witness that this document is the work of the signing author(s) and  affirm this by attaching my electronic signature
+  tip: Test that a witness signs
+witness_request_text:
+  default: Please follow the link below to witness that I am the author of the attached document
+  tip: Text displayed in emails automatically generated from author to witness
+witness_refused_text:
+  default: I cannot witness your signature to the document below.  The reason is:-
+  tip: Text displayed in emails sent from witness to author when a witness refuses to sign
 login_required:
   default: 0
-  description: 0 if a login is required or 1 if not
+  tip: 
 self_registration:
   default: 1
+  tip:
 lost_password:
   default: 1
+  tip:
 attachment_max_size:
   default: 5120
+  tip:
 mail_from:
-  default: info@biorails.org
+  default: thawkins@biorails.org
+  tip:
 text_formatting:
   default: textile
-  description:  markup language for web pages
+  tip:
 default_language:
   default: en
+  tip:
+default_witness: 
+  default: 4
+  tip:
 host_name:
-  default: localhost:3000
+  default: http://192.168.1.100:3000
+  tip:
+published_folder:
+  default: documents
+  tip:
 asset_path:
   default: /assets
+  tip:
+public_project_id:
+  default: 1
+  tip: ID for the default project to publish data to (create published linked for all to see
+theme:
+  default: slate
+  tip: Allowed options for general themes are default, olive, purple, gray, black, slate
+help_root:
+  default: http://biorails.org/lundbeck/wiki/Help/BR3
+  tip: Default root location for help files
+ntp_server:
+  default: uk.pool.ntp.org
+  tip: Default ntp server for time stamps on signatures,internal one make the system faster. None and server clock is used
+ldap_host:
+  default: 
+  tip: Name or address of the LDAP server to use
+ldap_port:
+  default: 
+  tip:  port to access the ldap server on
+ldap_base:
+  default: "ou=Users,dc=alces,dc=co,dc=uk"
+  tip: Base of User lookup normally linked to company domain
+ldap_username:
+  default: 
+  tip: connection username for login to LDAP server if mandated for site
+ldap_password:
+  default: 
+  tip: connection passwrod for login to LDAP server if mandated for site
+ldap_login_field:
+  default: uid
+  tip: Ldap Field to user as the username normally uid
+ldap_auto_register:
+  default: true
+  tip: Whether to automatically create default biorails user for valid ldap users
+animal_server:
+  default: https://research.lundbeck.com/perl/ddis/animate/
+  tip: base url link for animal management system
+character_set:
+  default: iso-8859-1
+  tip: Character set to user conversion of text from utf-8 to 8 bit for pdf output (ISO-8859-1 for most of europe)
+max_table_columns:
+  default: 10
+  tip: Maximum number of columns to attempt to fix across in task tables
