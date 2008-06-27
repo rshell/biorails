@@ -1,82 +1,10 @@
 <h1 class="icon icon-user-large" style="text-indent:0.5em">Dashboard of <%=@user.name%></h1>
 <div class="splitcontentleft">
   
-  <% unless @signatures_authored_by.empty? %>
-    <div class="box">
-      <h3 class="icon icon-pdf" style="text-indent:0.5em">
-        <%=link_to l('Documents: Recently published'),signature_url( :action=>'list_authored') %>
-      </h3>
-      <table class="report">
-        <tr class='header'>
-          <th><b class='icon icon-project'>Project</b></th>
-          <th><b class='icon icon-date'>Date</b></th>
-          <th><b class='icon icon-user'>Author</b></th>
-          <th><b class='icon icon-pdf'>PDF</b></th>
-        </tr>
-        <% for signature in @signatures_authored_by %>
-          <tr class="<%= cycle('odd', 'even') %>">
-            <td><%= signature.project_element.name %> </td>
-            <td><%= short_date(signature.created_at) %></td>
-            <td><%= signature.signer.name %></td>
-            <td><%=  link_to "Version #{version_no(signature.filename)}", signature.file_url %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
+
   
-  <% unless @signatures_to_witness.empty? %>
-    <div class="box">
-      <h3 class="icon icon-sign-large" style="text-indent:0.5em"> 
-        <%=link_to l('Documents: Pending witness'),signature_url( :action=>'list_pending') %>
-      </h3>
-      <table class="report">
-        <tr class='header'>
-          <th><b class='icon icon-project'>Project</b></th>
-          <th><b class='icon icon-note'>Documents</b></th>
-          <th><b class='icon icon-date'>Date requested</b></th>
-        </tr>
-        <% for signature in @signatures_to_witness %>
-          <tr class="<%= cycle('odd', 'even') %>">
-            <td><%=  signature.project_element.project.name %>
-            </td>
-            <td>
-              <%=link_to signature.project_element.path, signature_url(:action=>:witness,:id =>signature)  %>                        
-            </td>
-            <td><%= short_date(signature.created_at) %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
+
   
-  <% unless @signatures_for_witness.empty? %>
-    <div class="box">
-    
-      <h3 class="icon icon-sign-large" style="text-indent:0.5em"> 
-        <%=link_to l('Documents: Awaiting approval'),signature_url( :action=>'list_waiting') %>
-      </h3>
-      <table class="report">
-        <tr class='header'>
-          <th><b class='icon icon-project'>Project</b></th>
-          <th><b class='icon icon-note'>Documents</b></th>
-          <th><b class='icon icon-sign'>Witness</b></th>
-          <th><b class='icon icon-date'>Date created</b></th>
-        </tr>
-        <% for signature in @signatures_for_witness %>
-          <tr class="<%= cycle('odd', 'even') %>">
-            <td><%=  ProjectElement.find(signature.project_element_id).project.name %>
-            </td>
-            <td>
-              <%=link_to ProjectElement.find(signature.project_element_id).name, :controller=>'signatures', :action=>'abandon', :id=>signature.id %>
-            </td>
-            <td><%= signature.signer.name %></td>
-            <td><%= short_date(signature.created_at) %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
         
   <div class="box">
     <h3 class="icon icon-news-large" style="text-indent:0.5em">

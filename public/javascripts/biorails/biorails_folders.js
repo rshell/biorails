@@ -46,7 +46,6 @@ Biorails.Document = function(config){
                     window.open(item.href);
                 }, 
                 iconCls:'icon-print-preview'
-            },'-'
             },'-',{
                 text:'Print',
                 tooltip:'Print the folder as a report',
@@ -217,7 +216,7 @@ function showInPopup(item){
                 resizable: true,
                 html: req.responseText,
                 frame: true,
-                modal: !Ext.isIE6,
+                modal: true,
                 autoScroll: true,
                 border: false,
                 bodyBorder: false,

@@ -30,7 +30,6 @@ class ProjectAssetTest < Test::Unit::TestCase
       asset.project =project
       assert asset.valid?
       assert asset.save
-      assert_not_nil asset.published_hash
       assert_not_nil asset.asset.content_hash
   end  
 

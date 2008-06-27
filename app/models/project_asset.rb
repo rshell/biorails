@@ -67,14 +67,12 @@ class ProjectAsset < ProjectElement
     asset.save
     my_element.asset_id = asset.id
     my_element.asset = asset
-    my_element.published_hash=Signature.generate_checksum(my_element.to_xml)
     return my_element
   end
   
 
   def before_save
     if self.asset
-    self.asset.content_hash=Signature.generate_checksum(self.asset.to_xml)
     self.asset.save
     end
   end

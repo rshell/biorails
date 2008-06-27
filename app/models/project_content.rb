@@ -55,12 +55,10 @@ class ProjectContent < ProjectElement
     content.body      =    options[:body]        
     content.project_id=    options[:project_id]
     content.body_html =    options[:body_html].gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "")  
-    content.content_hash= Signature.generate_checksum(content.to_xml) 
     content.valid?
     logger.debug content.to_yaml
     content.save
     element.content = content
-    element.published_hash = Signature.generate_checksum(element.to_xml)
     return element
   end
 
@@ -78,7 +76,6 @@ class ProjectContent < ProjectElement
       self.content.body       =  options[:body]        
       self.content.body_html  =  options[:body_html]        
       self.content.project_id =  self.project_id   
-      self.content.content_hash =  Signature.generate_checksum(self.content.to_xml)
       return self unless self.content.save      
       self.content.move_to_child_of(old)  
       self.save

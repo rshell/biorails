@@ -36,13 +36,7 @@ class Execute::TasksController < ApplicationController
   # 
   def show
     respond_to do | format |
-      format.html {
-        if browser_is? :ie6
-          render :action => 'show_ie6'
-        else
-          render :action => 'show'
-        end
-      }
+      format.html {render :action => 'show'}
       format.ext { render :partial => 'show',:layout=>false }
       format.pdf  { render_pdf "#{@task.name}.pdf", :partial => 'show',:layout=>false }
       format.csv { render :text => @task.to_csv}
@@ -97,13 +91,7 @@ class Execute::TasksController < ApplicationController
     @tab=3
     @task.populate
     respond_to do | format |
-      format.html {
-        if browser_is? :ie6
-          render :action => 'sheet_ie6'
-        else
-          render :action => 'sheet'
-        end
-      }
+      format.html {render :action => 'sheet' }
       format.ext { render :partial => 'sheet',:layout=>false }
       format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}

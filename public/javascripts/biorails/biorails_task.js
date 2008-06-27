@@ -79,7 +79,7 @@ Biorails.Task = function() {
                     layout:'fit',
                     width: 350,
                     height:150,
-                    modal: !Ext.isIE6,
+                    modal: true,
                     resizable: false,
                     frame: true,
                     border: false,
@@ -280,6 +280,7 @@ Biorails.Task.ContextTable = function(config) {
         autoExpandMin:50,
         autoScroll: false,
         autoHeight: true,
+        autoWidth: true,
         autoShow: true,
         stripeRows: true,
         selModel: new Ext.grid.RowSelectionModel({singleSelect:true}),
@@ -298,12 +299,6 @@ Biorails.Task.ContextTable = function(config) {
         animCollapse: false,
         iconCls: 'icon-grid'
     }	
-    if (Ext.isIE6) {
-        options['width']= Biorails.getWidth()-20;
-    } else { 
-        options['autoWidth']=true;
-        options['autoScroll']=false;
-    }
     grid = new Ext.grid.EditorGridPanel(options);
 //    grid.syncSize();
     /**

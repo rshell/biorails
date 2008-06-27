@@ -80,11 +80,4 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-
-  def test009_choices
-    get :choices,:query=>'r'
-    assert_response :success
-  end
-
-  
 end

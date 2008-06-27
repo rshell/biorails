@@ -25,9 +25,6 @@ class HomeController < ApplicationController
   # 
   def show
     @user = current_user    
-    @signatures_authored_by = Signature.find_authored_by(@user.id, 5)
-    @signatures_for_witness = Signature.find_pending_witness_for(@user.id, 5)
-    @signatures_to_witness = Signature.find_pending_witness_by(@user.id, 5)
     flash[:notice]='This user has no published document' unless  current_user.has_published_documents?
 
     respond_to do | format |

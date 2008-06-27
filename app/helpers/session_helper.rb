@@ -75,7 +75,6 @@ DATA
         menu_item("Assay Definitions", 'icon-assay' ,'/assays',current_project.allows?(:show,:assays)),
         menu_item("Experiments",  'icon-experiment' ,'/experiments',current_project.allows?(:show,:experiments)),
         menu_item("Queries",          'icon-report' ,'/reports',current_project.allows?(:show,:reports)),
-        menu_item("Signed Documents",   'icon-sign' ,'/signatures/list',current_project.allows?(:show,:project)),
      ])
    end
 #
