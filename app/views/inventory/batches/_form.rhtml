@@ -10,7 +10,7 @@
   </div>
   <div class="form-element">
     <label for="compound_name" class="icon icon-compound">
-      CompoundName
+      Compound
     </label>
     <!--%= in_place_editor_field :compound, :name %-->
     <%= text_field 'batch', 'compound'  %>
@@ -22,7 +22,7 @@
 <div class="row">
   <div class="form-element">
     <label for="batch_description">Description</label>
-    <%= text_area 'batch', 'description'  %>
+    <%= text_field 'batch', 'description',:size=>80  %>
   </div>
 </div>
 

@@ -113,6 +113,7 @@ class Test::Unit::TestCase
   #- Inventory
   Biorails::Dba.import_model :compounds
   Biorails::Dba.import_model :batches
+  Biorails::Dba.import_model :plates
   Biorails::Dba.import_model :lists
   Biorails::Dba.import_model :list_items
   

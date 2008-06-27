@@ -91,9 +91,9 @@ ActionController::Routing::Routes.draw do |map|
 ##
 # Inventory
 #  
-  map.compound  'compound/:action/:id',:controller => 'inventory/compounds'  
-  map.batch     'batch/:action/:id',:controller => 'inventory/batches'  
-  map.plate     'plate/:action/:id',:controller => 'inventory/plates'  
+  map.compound  'compounds/:action/:id',:controller => 'inventory/compounds'  
+  map.batch     'batches/:action/:id',:controller => 'inventory/batches'  
+  map.plate     'plates/:action/:id',:controller => 'inventory/plates'  
 
 ##
 # Execution

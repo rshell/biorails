@@ -27,9 +27,11 @@ class Inventory::BatchesController < ApplicationController
 
   def create
     @batch = Batch.new(params[:batch])
-    name = params[:compound][:name]
-    @compound = Compound.find_by_name(name)
-    @compound.batches << @batch
+    if params[:compound]
+      name = params[:compound][:name]
+      @compound = Compound.find_by_name(name)
+      @compound.batches << @batch
+    end
     if @batch.save
       flash[:notice] = 'Batch was successfully created.'
       redirect_to :action => 'list'
@@ -51,8 +53,7 @@ class Inventory::BatchesController < ApplicationController
       render :action => 'edit'
     end
   end
-
-
+  
   def auto_complete_for_compound_name
     text = params[:compound][:name]
     @compounds = Compound.find(:all, :limit => 12, :conditions => ['name like ?', text + '%'])
