@@ -4,14 +4,14 @@
 create user biorails identified by 'moose';
 create user 'biorails'@'localhost' identified by 'moose';
 
-create database biorails2_development;
-grant all on biorails2_development.* to 'root'@'localhost';
-grant all on biorails2_development.* to 'biorails'@'localhost';
+create database biorails_development;
+grant all on biorails_development.* to 'root'@'localhost';
+grant all on biorails_development.* to 'biorails'@'localhost';
 
-create database biorails2_test;
-grant all on biorails2_test.* to 'root'@'localhost';
-grant all on biorails2_test.* to 'biorails'@'localhost';
+create database biorails_test;
+grant all on biorails_test.* to 'root'@'localhost';
+grant all on biorails_test.* to 'biorails'@'localhost';
 
-create database biorails2_production;
-grant all on biorails2_production.* to 'root'@'localhost';
-grant all on biorails2_production.* to 'biorails'@'localhost';
+create database biorails_production;
+grant all on biorails_production.* to 'root'@'localhost';
+grant all on biorails_production.* to 'biorails'@'localhost';
