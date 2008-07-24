@@ -1,6 +1,6 @@
 ##
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights 
+# See license agreement for additional rights
 ##
 
 module SessionHelper
@@ -8,7 +8,7 @@ module SessionHelper
 # toolbar menu
 #
   def toolbar_menu(title,icon,url,items=[])
-<<DATA    
+<<DATA
  {iconCls: '#{icon}',handler: function(){window.location='#{url}' },scope: this },
  {text: '#{title}', menu: { items: [#{items.join(',')}] } }
 DATA
@@ -20,15 +20,15 @@ DATA
 #
 # Simple menu item
 #
-  def menu_item(title,icon,url,enable=true)   
+  def menu_item(title,icon,url,enable=true)
     if enable
       " {text: '#{title}', iconCls: '#{icon}',    href:'#{url}',scope: this }\n"
     else
       " {text: '#{title}', cls:'x-item-disabled'  ,scope: this }\n"
     end
-  end  
+  end
 #
-# Json for home menu 
+# Json for home menu
 #
    def admin_menu_items
      toolbar_menu('Administration','icon-catalogue','/admin/catalogue',[
@@ -46,9 +46,9 @@ DATA
         menu_item("Roles",'icon-role' ,'/admin/role',current_user.allows?(:edit,:dba)),
         menu_item("Users",'icon-user' ,'/admin/users',current_user.allows?(:edit,:users))
        ])
-   end   
+   end
    #
-# Json for home menu 
+# Json for home menu
 #
    def home_menu_items
      toolbar_menu("Home [#{current_user.name}]",'icon-home','/home',[
@@ -64,7 +64,7 @@ DATA
      ])
    end
 #
-# Json for home menu 
+# Json for home menu
 #
    def project_menu_items
      toolbar_menu("#{current_project.project_type.name} [#{current_project.name}]",'icon-project','/projects/show',[
@@ -78,7 +78,7 @@ DATA
      ])
    end
 #
-# Json for home menu 
+# Json for home menu
 #
    def design_menu_items
      toolbar_menu('Design','icon-assay','assays',[
@@ -89,27 +89,27 @@ DATA
       ])
    end
 #
-# Json for home menu 
+# Json for home menu
 #
    def inventory_menu_items
      toolbar_menu('Inventory','icon-compound','/inventory/compounds',[
         menu_item("Compounds", 'icon-compound' ,'/inventory/compounds',current_user.allows?(:show,:inventory)),
         menu_item("Batches"  , 'icon-batch'    ,'/inventory/batches',current_user.allows?(:show,:inventory)),
-        menu_item("Plates"  , 'icon-batch'    ,'/inventory/plates',current_user.allows?(:show,:inventory)),
+        menu_item("Plates"  , 'icon-plate'    ,'/inventory/plates',current_user.allows?(:show,:inventory)),
      ])
-   end   
+   end
 
 #
-# Json for home menu 
+# Json for home menu
 #
    def change_project_menu
      menu('Open Project',
        current_user.projects.collect do |project|
           menu_item( "#{project.name} [#{project.project_type.name}]"  , 'icon-project'    ,project_url(:action=>'show',:id=>project.id))
        end)
-   end   
+   end
 
-   
+
   def toolbar_items
     if current_user.allows?(:edit,:catalogue)
      <<DATA
@@ -129,7 +129,7 @@ DATA
    end
 ##
 # Convert a type/id reference into a url to the correct controlelr
-#    
+#
   def link_to_object( element, link_name=nil ,options = {:action=>'show'})
     name = link_name
     name ||= element.name if element.respond_to?(:name)
@@ -145,25 +145,25 @@ DATA
           link_to_model(element.class,element.id,name,options)
       end
     end
-  end   
+  end
 
 ##
 # Convert a type/id reference into a url to the correct controlelr
-#    
+#
   def link_to_model( model,id, link_name=nil ,options = {:action=>'show'})
-    name = link_name || model.to_s 
+    name = link_name || model.to_s
     if model and id
       case  model.to_s.camelcase
       when 'Project' then        link_to  name, project_url( options.merge({ :id=>id} ) )
       when 'ProjectElement' then  link_to  name, folder_url( options.merge({ :id=>id} ) )
       when 'ProjectFolder'then   link_to  name, folder_url( options.merge({ :id=>id} ) )
-      
+
       when 'Assay' then          link_to name , assay_url(      options.merge({ :id=>id}) )
       when 'AssayProtocol' then   link_to name , protocol_url(   options.merge({ :id=>id})  )
       when 'AssayQueue'then      link_to name , queue_url(      options.merge({ :id=>id})  )
       when 'QueueItem' then       link_to name , queue_item_url( options.merge({ :id=> id}) )
       when 'AssayParameter' then link_to name , assay_parameter_url( options.merge({:id=>id}) )
-  
+
       when 'Experiment' then      link_to name , experiment_url(   options.merge({:id=>id})  )
       when 'Task' then            link_to name , task_url(         options.merge({:id=>id})  )
       when 'Report' then          link_to name , report_url(       options.merge({:id=>id})  )
@@ -180,7 +180,7 @@ DATA
          name
       end
     end
-  end   
+  end
 
 end
 

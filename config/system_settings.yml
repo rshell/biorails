@@ -30,7 +30,7 @@ witness_refused_text:
   tip: Text displayed in emails sent from witness to author when a witness refuses to sign
 login_required:
   default: 0
-  tip: 
+  tip:
 self_registration:
   default: 1
   tip:
@@ -49,7 +49,7 @@ text_formatting:
 default_language:
   default: en
   tip:
-default_witness: 
+default_witness:
   default: 4
   tip:
 host_name:
@@ -65,7 +65,7 @@ public_project_id:
   default: 1
   tip: ID for the default project to publish data to (create published linked for all to see
 theme:
-  default: slate
+  default: default
   tip: Allowed options for general themes are default, olive, purple, gray, black, slate
 help_root:
   default: http://biorails.org/lundbeck/wiki/Help/BR3
@@ -74,19 +74,19 @@ ntp_server:
   default: uk.pool.ntp.org
   tip: Default ntp server for time stamps on signatures,internal one make the system faster. None and server clock is used
 ldap_host:
-  default: 
+  default:
   tip: Name or address of the LDAP server to use
 ldap_port:
-  default: 
+  default:
   tip:  port to access the ldap server on
 ldap_base:
   default: "ou=Users,dc=alces,dc=co,dc=uk"
   tip: Base of User lookup normally linked to company domain
 ldap_username:
-  default: 
+  default:
   tip: connection username for login to LDAP server if mandated for site
 ldap_password:
-  default: 
+  default:
   tip: connection passwrod for login to LDAP server if mandated for site
 ldap_login_field:
   default: uid
