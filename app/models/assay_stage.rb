@@ -1,5 +1,14 @@
+# == Description
+# Simple internal dictionary of Stages within a assay. These are used to partition
+# protocols and provide a general cascade in the reporting views.
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 # == Schema Information
-# Schema version: 306
+# Schema version: 338
 #
 # Table name: assay_stages
 #
@@ -12,16 +21,6 @@
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
 #
-
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-#
-##
-# Simple internal dictionary of Stages within a assay. These are used to partition
-# protocols and provide a general cascade in the reporting views.
-# 
 class AssayStage < ActiveRecord::Base
   
    acts_as_dictionary :name 

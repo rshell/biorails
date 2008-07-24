@@ -351,7 +351,7 @@ def export
       format.json { render :json => @report.to_json }
       format.xml  { render :xml => @report.to_xml }
       format.js { render :update do | page |
-          page.replace_html( 'tab_columns',:partial => 'columns') if @successful
+          page.main_panel(:partial => 'edit') if @successful
           page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
         end 
       }

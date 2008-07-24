@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 336) do
+ActiveRecord::Schema.define(:version => 338) do
 
   create_table "analysis_methods", :force => true do |t|
     t.string   "name",                :limit => 128,  :default => "", :null => false
@@ -928,6 +928,7 @@ ActiveRecord::Schema.define(:version => 336) do
     t.integer  "updated_by_user_id",                 :default => 1,  :null => false
     t.integer  "created_by_user_id",                 :default => 1,  :null => false
     t.integer  "project_type_id",                    :default => 1
+    t.integer  "parent_id"
   end
 
   add_index "projects", ["created_at"], :name => "projects_idx10"

@@ -77,10 +77,10 @@ class AnalysisMethod < ActiveRecord::Base
   # report on status on analysis
   #
   def report
-    return "" unless @process
+    return "failed" unless @process
     @process.to_html    
   rescue Exception =>ex
-    logger.warn "report generation aborted #{ex.message}"    
+    logger.warn "report generation aborted #{ex.message}" 
   end
      
   def configure(options={},task=nil)    

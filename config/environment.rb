@@ -25,23 +25,18 @@ require 'base64'
 require 'csv'
 require 'zlib'
 require 'stringio'
-require 'digest/md5'
-require 'digest/sha1'
 require 'mime/types'
 require 'pathname'
 require 'htmldoc'
 require 'rubygems/package'
 require 'matrix'
-require 'uuidtools'
-require 'archive/tar/minitar'
-require 'zip/zipfilesystem'
-require 'net/ldap' # gem install ruby-net-ldap
+
 #require 'mini_magick'
 # now added as plugin require 'liquid'
 
 ## Native linked
 require "faster_csv"
-require 'ntp'
+
 
 
 #http://www.kanske.com/2007/03/22/more-ruby-fun-uuidtools-and-uuid-gems-and-mac-addresses/
@@ -119,17 +114,6 @@ GLoc.set_config(:raise_string_not_found_errors => false)
 # Add functions from /lib/models.rb to the Active Record
 #
 ActiveRecord::Base.send(:include, ModelExtras)
-
-ActionMailer::Base.smtp_settings = {
-  :tls => true,
-  :address => 'smtp.gmail.com',
-  :port => '587',
-  :domain => 'biorails.org',
-  :authentication => :plain,
-  :user_name => 'demo@biorails.org',
-  :password => 'smtp!123456'
- }
-    
     
 # Time.now.to_ordinalized_s :long
 # => "February 28th, 2006 21:10"

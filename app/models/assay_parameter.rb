@@ -1,32 +1,34 @@
-# == Schema Information
-# Schema version: 306
-# 
-# Table name: assay_parameters
-# 
-#  id                 :integer(11)   not null, primary key
-#  parameter_type_id  :integer(11)   not null
-#  parameter_role_id  :integer(11)   not null
-#  assay_id           :integer(11)   default(1)
-#  name               :string(255)   default(), not null
-#  default_value      :string(255)
-#  data_element_id    :integer(11)
-#  data_type_id       :integer(11)   not null
-#  data_format_id     :integer(11)
-#  description        :string(1024)  default(), not null
-#  display_unit       :string(255)
-#  created_by_user_id :integer(11)   default(1), not null
-#  updated_by_user_id :integer(11)   default(1), not null
-# 
-
-# ##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights ##
-# 
-# ## As the list of parameters and roles will be rather large as part of a stury
+# == Description
+# As the list of parameters and roles will be rather large as part of a stury
 # definition a sub set is choice and the value roles for them in the assay are
 # defined/ This helps with later reporting to simply allow assays to be
 # profiled.
 # 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+# == Schema Information
+# Schema version: 338
+#
+# Table name: assay_parameters
+#
+#  id                 :integer(11)   not null, primary key
+#  parameter_type_id  :integer(11)   not null
+#  parameter_role_id  :integer(11)   not null
+#  assay_id           :integer(11)   
+#  name               :string(255)   default(), not null
+#  default_value      :string(255)   
+#  data_element_id    :integer(11)   
+#  data_type_id       :integer(11)   not null
+#  data_format_id     :integer(11)   
+#  description        :string(1024)  default(), not null
+#  display_unit       :string(255)   
+#  created_by_user_id :integer(11)   default(1), not null
+#  updated_by_user_id :integer(11)   default(1), not null
+#
+ 
 class AssayParameter < ActiveRecord::Base
 
   acts_as_dictionary :name 

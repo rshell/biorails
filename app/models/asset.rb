@@ -1,5 +1,19 @@
+# == Description
+# ProjectAsset is the gatekeeping between internally kept data and external files. In initial version the application
+# server file system is used for storage but it is expected that the following may be added as neededd:-
+# 
+#  * Subversion 
+#  * In Database blobs
+#  * Web Service to document/file management systems
+#  * Link to 3rd part applications like ELN's
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 # == Schema Information
-# Schema version: 306
+# Schema version: 338
 #
 # Table name: project_assets
 #
@@ -21,21 +35,9 @@
 #  updated_at         :datetime      not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
-#  caption            :string(2048)  
+#  caption            :text          
 #  db_file_id         :integer(11)   
 #
-
-##
-# ProjectAsset is the gatekeeping between internally kept data and external files. In initial version the application
-# server file system is used for storage but it is expected that the following may be added as neededd:-
-# 
-#  * Subversion 
-#  * In Database blobs
-#  * Web Service to document/file management systems
-#  * Link to 3rd part applications like ELN's
-# 
-# 
-# 
 
 class Asset < ActiveRecord::Base
    include ActionView::Helpers::NumberHelper

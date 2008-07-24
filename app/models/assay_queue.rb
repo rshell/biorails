@@ -1,14 +1,28 @@
+##
+# == Description
+# 
+# This is queue of work associated with the assay. This is separated from processes as 
+# in really defined as start or end link in a process.
+# 
+# Queues of simple named items accepting a single type of data for processing in the assay.
+# This is governed in the same major as with fields on the process data entry grids
+# 
+# == Copyright
+#
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
 # == Schema Information
-# Schema version: 306
+# Schema version: 338
 #
 # Table name: assay_queues
 #
 #  id                  :integer(11)   not null, primary key
 #  name                :string(128)   default(), not null
 #  description         :string(1024)  default(), not null
-#  assay_id            :integer(11)   not null
+#  assay_id            :integer(11)   
 #  assay_stage_id      :integer(11)   
-#  assay_parameter_id  :integer(11)   not null
+#  assay_parameter_id  :integer(11)   
 #  assay_protocol_id   :integer(11)   
 #  status              :string(255)   default(new), not null
 #  priority            :string(255)   default(normal), not null
@@ -20,17 +34,6 @@
 #  assigned_to_user_id :integer(11)   default(1)
 #
 
-##
-# This is queue of work associated with the assay. This is separated from processes as 
-# in really defined as start or end link in a process.
-# 
-# Queues of simple named items accepting a single type of data for processing in the assay.
-# This is governed in the same major as with fields on the process data entry grids
-# 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
 
 class AssayQueue < ActiveRecord::Base
   

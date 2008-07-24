@@ -88,17 +88,6 @@ class ProjectFolderTest < Test::Unit::TestCase
     assert item.image?
   end
   
-  def test_pdf_creation
-    project=Project.find(1)
-    folder=project.folders.find(:first)
-    file = File.join(RAILS_ROOT,'test','fixtures','files','rails.png')
-    folder.add_asset(file,'rails.jpg','image/png') 
-    path = folder.make_pdf_for_signing
-    assert path,"got a file name"
-    assert File.exists?(File.join(folder.project_filepath, path + '.pdf')),"no file #{path}.pdf found"
-    assert File.exists?(File.join(folder.project_filepath, path + '.zip')),"no file #{path}.zip found"
-  end
-  
   def test_make_pdf
     project=Project.find(2)
     folder=project.home
@@ -107,14 +96,6 @@ class ProjectFolderTest < Test::Unit::TestCase
     filename=File.join('tmp',"#{folder.dom_id}.pdf")
     assert folder.make_pdf(filename), "no return for make_pdf #{filename}"
     assert File.exists?(filename),"no file #{filename} found"
-  end
-
-  def test_make_pdf_for_signing
-    project=Project.find(2)
-    folder=project.home
-    path = folder.make_pdf_for_signing
-    assert File.exists?(File.join(folder.project_filepath, path + '.pdf')),"no file #{path}.pdf found"
-    assert File.exists?(File.join(folder.project_filepath, path + '.zip')),"no file #{path}.zip found"
   end
     
   def test_versioning

@@ -1,45 +1,78 @@
+# == Description
+# An assay definition provides the organisation for capturing structured data within experiments. 
+# Each assay definition has its own name space built 
+# from the catalogue by assigning parameter types, with roles as assay parameters.  
+# Once the parameters are assigned, services can be registered against which users 
+# can make requests.  These services are implemented as service queue parameters. 
+# These queue parameters can be built into the assays processes as a way of automatically 
+# returning data against items submitted in a request to a service. 
+#
+# === Structure
+# Once the parameters are assigned, Process processes can be built. These processes are implemented 
+# as data entry sheets within tasks . The idea is that there are likely to be a collection of 
+# processes used to run an experiment.  Some of these processes may be used to set up the experiment, 
+# others to capture data and others to analyse the data within an experiment.  
+# The processes therefore map to the steps that must be executed in order to run an experiment.  
+# These steps can be formalised in a work-flow recipe, where the processes can be added with default 
+# owners and starting points from the start of the experiment.
+#  
+# === Content
+# An assay definition will automatically have a folder and show up on the project tree.  
+# Documentation for running the assays (executing experiments) can be stored here as articles or 
+# files, word documents for example).
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 # == Schema Information
-# Schema version: 306
-# 
+# Schema version: 338
+#
 # Table name: assays
-# 
+#
 #  id                 :integer(11)   not null, primary key
 #  name               :string(128)   default(), not null
 #  description        :string(1024)  default(), not null
-#  category_id        :integer(11)
-#  research_area      :string(255)
-#  purpose            :string(255)
+#  category_id        :integer(11)   
+#  research_area      :string(255)   
+#  purpose            :string(255)   
+#  started_at         :datetime      
+#  ended_at           :datetime      
+#  expected_at        :datetime      
+#  team_id            :integer(11)   not null
+#  project_id         :integer(11)   not null
+#  status_id          :integer(11)   default(0), not null
 #  lock_version       :integer(11)   default(0), not null
 #  created_at         :datetime      not null
 #  updated_at         :datetime      not null
-#  project_id         :integer(11)   not null
 #  updated_by_user_id :integer(11)   default(1), not null
 #  created_by_user_id :integer(11)   default(1), not null
-#  started_at         :datetime
-#  ended_at           :datetime
-#  expected_at        :datetime
-#  status_id          :integer(11)   default(0), not null
-#  team_id            :integer(11)   default(0), not null
-# 
+#
 
 class Assay < ActiveRecord::Base
-  
+  #
+  # Add Catalog dictionary methods (lookup,like,name) based on the :name field
+  #
   acts_as_dictionary :name 
-  # ## This item can be scheduled
+  #
+  #This item can be scheduled
   # 
   acts_as_scheduled :summary=>:experiments
-  # ## This record has a full audit log created for changes
+  #
+  # This record has a full audit log created for changes
   # 
   acts_as_audited :change_log
-  
+  #
+  # Rules to Free Text searching 
+  #
   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
     :description=>{:store=>:yes,:boost=>0},
     :research_area=>{:boost=>1},
     :purpose=>{:boost=>0} }, 
     :default_field => [:name],           
     :single_index => true, 
-    :store_class_name => true 
-
+    :store_class_name => true
   # 
   # Generic rules for a name and description to be present
   # 
@@ -58,27 +91,30 @@ class Assay < ActiveRecord::Base
   # access control managed via team
   # 
   access_control_via  :team  
-  
-  # ## Link to view for summary stats for assay
+  #
+  # Link to view for summary stats for assay
   # 
   has_many :stats, :class_name => "AssayStatistics"
-
-  # ## Assay Has a number of queues associated with it
+  #
+  # Assay Has a number of queues associated with it
   # 
   has_many :queues, :class_name => "AssayQueue",:dependent => :destroy
 
-  # ##
+  # 
   #  has many project elements associated with it
   # 
   has_many :elements, :class_name=>'ProjectElement' ,:as => :reference, :dependent => :destroy
-
-  # ## The assay has a collection of protocols assocated with it
+  #
+  # The assay has a collection of protocols assocated with it
   # 
   has_many :protocols ,
     :class_name => "AssayProtocol",
     :foreign_key => "assay_id",
     :order => "assay_stage_id desc",
     :dependent => :destroy do    
+    #
+    # Limit protocols to only live in use versions
+    #
     def live
       find(:all,:conditions=> <<SQL
        exists (select 1 from tasks,protocol_versions 
@@ -183,7 +219,7 @@ SQL
     return member.owner? || member.role.allow?(self.class.table_name,action)
   end  
   # 
-  # 
+  # Is the assy ok for use externally
   # 
   def published?
     return is_setup?

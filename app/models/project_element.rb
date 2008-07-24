@@ -169,9 +169,10 @@ class ProjectElement < ActiveRecord::Base
 # Summay of the content
 
   def summary
-     return content.summary if content
-     return asset.summary if asset
-     return name
+     return self.content.summary if content
+     return self.asset.summary if asset
+     return self.title  unless self.title.blank?
+     name
   end
 
   def url

@@ -1,8 +1,40 @@
-# This links a protocol_version into a Assay as a Protocol to be run in the assay
+# == Description
+# This links a protocol_version into a Assay as a ProtocolVersion to be run in the assay
 # There are a number of sub types of a AssayProtocol
-# Entry/ProcessDefinition with a implementation as a ProtocolVersion
-# ReportDefinition this a report run in the context of a experiment
-# AnalysisDefinition this is a data transformation run in the context of a experiment
+#  * AssayProcess which describe a single step process
+#  * AssayWorkflow which describe a multiple step recipe
+#  
+# 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
+# == Schema Information
+# Schema version: 338
+#
+# Table name: assay_protocols
+#
+#  id                    :integer(11)   not null, primary key
+#  assay_id              :integer(11)   
+#  assay_stage_id        :integer(11)   
+#  current_process_id    :integer(11)   
+#  process_definition_id :integer(11)   
+#  process_style         :string(128)   default(Entry), not null
+#  name                  :string(128)   default(), not null
+#  description           :string(1024)  default()
+#  literature_ref        :string(1024)  default()
+#  protocol_catagory     :string(20)    
+#  protocol_status       :string(20)    
+#  lock_version          :integer(11)   default(0), not null
+#  created_at            :datetime      not null
+#  updated_at            :datetime      not null
+#  updated_by_user_id    :integer(11)   default(1), not null
+#  created_by_user_id    :integer(11)   default(1), not null
+#  type                  :string(255)   default(StudyProcess), not null
+#
+
+
 
  
 class AssayProtocol < ActiveRecord::Base

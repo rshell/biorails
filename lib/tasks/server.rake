@@ -72,16 +72,14 @@ end
     system('mongrel_rails cluster::stop')  
   end
   
-  desc 'Check that we can access the network'
-  task :check_network => :environment do
-   unless Signature.time_source.equal? Signature::REMOTE_TIME_SERVER
-     p 'The server cannot access the internet.  The local clock will be used.  If you want to use a remote time server, the server must have internet access'
- else
-   p 'The network is up'
-  end
-  end
   
+  desc "Check for gems"
   task :check_gems => :environment do
+    
+  end
+
+  desc "Check for network"
+  task :check_network => :environment do
     
   end
   
@@ -126,5 +124,6 @@ end
       puts "#{emptytables.join(", ") } have no data in them yet"
     end 
   end 
+  
   task :check=>[:check_gems,:check_network, :check_models]
 end
