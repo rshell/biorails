@@ -88,6 +88,18 @@
 /* Calendar */
 .icon-calendar 	          { background-image:url(/images/open/calendar/calendar.png) !important; }
 .icon-timeline 	          { background-image:url(/images/open/calendar/timeline.png) !important; }
+.icon-arrow_from 	  { background-image:url(/images/open/calendar/arrow_from.png) !important; }
+.icon-arrow_to            { background-image:url(/images/open/calendar/arrow_to.png) !important; }
+.icon-arrow_bw            { background-image:url(/images/open/calendar/arrow_bw.png) !important; }
+.icon-arrow_from-small	  { background-image:url(/images/open/calendar/arrow_from-small.png) !important;
+                            padding-right: 2px;
+                          }
+.icon-arrow_to-small      { background-image:url(/images/open/calendar/arrow_to-small.png) !important;
+                            padding-right: 2px;
+                          }
+.icon-arrow_down 	  { background-image:url(/images/open/calendar/arrow_down.png) !important;}
+.icon-time 	          { background-image:url(/images/open/calendar/time.png) !important; }
+
 
 /* Content */
 .icon-article             { background-image:url(/images/open/content/note.png)  !important; }
@@ -273,6 +285,7 @@
 
 
 /* Task */
+.icon-analysis            { background-image:url(/images/open/task/analysis.png) !important; }
 .icon-task                { background-image:url(/images/open/task/task.png) !important; }
 .icon-task-add            { background-image:url(/images/open/task/task-add.png) !important; }
 .icon-task-small          { background-image:url(/images/open/task/task-small.png) !important; }
