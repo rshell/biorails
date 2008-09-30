@@ -170,11 +170,6 @@ class TaskBuildTest < Test::Unit::TestCase
     assert context1.save, "context1 save failed"        
     context2 = task.add_context(definition)
     assert context2.save, "context2 save failed"        
-    context3 = task.add_context(definition)
-    assert context3.save, "context3 save failed"        
-    context4 = task.add_context(definition)
-    assert context4.valid?, "context4 not valid "+context4.errors.full_messages.to_sentence
-    assert context4.save, "context4 save failed"  
     
     item = context1.item("Concentration")
     item.value = "10"
@@ -185,21 +180,10 @@ class TaskBuildTest < Test::Unit::TestCase
     item.value = "10 mM"
     assert item.save, "item2 Concentration save failed"        
     correct_value2 = item.value
-
-    item = context3.item("Concentration")
-    item.value = "10 uM"
-    assert item.save, "item3 save failed"        
-    
-    item = context4.item("Concentration")
-    item.value = "10 nM"
-    assert item.valid?, "item4 not valid "+item.errors.full_messages.to_sentence
-    assert item.save, "item4 save failed"        
-    
+   
     task = Task.find(task.id)
     assert task.item(context1.label,"Concentration").value == correct_value,"failed 1 #{correct_value} != #{task.item(context1.label,"Concentration")}"
     assert task.item(context2.label,"Concentration").value == "10 mM".to_unit,"failed 2 10 mM != #{task.item(context1.label,"Concentration")}"
-    assert task.item(context3.label,"Concentration").value == "10 uM".to_unit,"failed 3 10 uM != #{task.item(context1.label,"Concentration")}"
-    assert task.item(context4.label,"Concentration").value == "10 nM".to_unit,"failed 4 10 nM != #{task.item(context1.label,"Concentration")}"
   end
   
 end

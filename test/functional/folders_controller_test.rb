@@ -154,14 +154,6 @@ class FoldersControllerTest < Test::Unit::TestCase
     assert_template 'new'
   end
   
-  def test_sign
-    get :sign, :id => @item.id
-    assert_response :success
-    assert_template 'sign'
-    # asserts not valid in all cases
-    #assert_equal '/signatures/show_signable_document/1',session[:current_url]
-    #assert_equal 'http://test.host/auth/login?method=post', redirect_to_url
-  end
   #
   # Test a new call to controller
   #
