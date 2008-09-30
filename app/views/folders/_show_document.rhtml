@@ -1,0 +1,29 @@
+<%= render :partial=>'header'%>		
+
+<div id='<%= @project_folder.dom_id %>'>
+</div>
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+var el = "<%= @project_folder.dom_id%>";
+	options = {  folder_id: <%= @project_folder.id %>,
+                    layout: 'fit',
+                    border:true,
+                    height: Biorails.getHeight()-80,
+                    autoShow: true,
+                    autoScroll: true,
+                    autoDestroy: true,
+                    shim: true,
+                    monitorResize: true};
+
+    if (Ext.isIE6) { 
+	    options['width']= Biorails.getWidth() 
+    } else { 
+        options['autoWidth']=true;
+    };
+	
+    var el = "<%= @project_folder.dom_id%>";
+    var panel = new Biorails.Document(options);
+   panel.render(el)             
+ });
+</script>

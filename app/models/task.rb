@@ -722,8 +722,7 @@ SQL
             list << parameter.default_value
           end
         end
-        csv << list
-        
+        csv << list        
       end
       csv << ['end']      
     end

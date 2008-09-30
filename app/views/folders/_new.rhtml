@@ -1,0 +1,31 @@
+<%= render :partial=>'header'%>	
+<% dialog l(:label_folder_new) do %>
+
+<% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:center do %>
+    <%= hidden_field 'project_folder', 'parent_id'  %>
+    <%= hidden_field 'project_folder', 'project_id'  %>
+
+<div class="row">
+  <div class="form-element">
+    <label for="name">
+      <%=l(:label_name_ref)%>
+    </label>
+    <%= text_field  :project_folder,'name' , {:size=>20, :class=>"text-input"} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="title" >
+      <%=l(:label_title_heading)%>
+    </label>
+    <%= text_field  :project_folder,'title' , {:size=>80, :class=>"text-input"} %>
+  </div>
+</div>
+
+
+  <div class="row">
+    <%= submit_tag l(:button_save) %>
+  </div>
+ <% end %>
+<% end %>

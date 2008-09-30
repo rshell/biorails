@@ -1,0 +1,51 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
+<% end %>
+<% content_for :center do %>
+<%= render :partial => 'admin/header' %>
+    <h2><%=l(:label_scheduled) %>
+        <%=l(:label_states) %>
+    </h2>
+    <div class='panel'>
+        <table class="report">
+            <thead>
+                <tr>
+                    <th>
+                        <%=l(:name) %>
+                    </th>
+                    <th>
+                        <%=l(:level) %>
+                    </th>
+                    <th>
+                        <%=l(:action) %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for state in @states %>
+                <tr class="state-level<%= state.level_no %>">
+                    <td>
+                        <b class="boldnotbold icon icon-status_<%=state.name.downcase%>"><%= link_to state.name, :action => 'edit', :id => state %>
+                        </b>
+                    </td>
+                    <td>
+                        <%= state.level_no %>. <%= state.level_text %>
+                    </td>
+                    <td align="center" style="width:10%;">
+                        <%= link_to l(:button_delete), { :action => 'destroy', :id => state }, :confirm => l(:text_are_you_sure), :class => "icon icon-del" %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <hr /><%= link_to l(:new), {:action => 'new'}, :class => 'icon icon-add' %>
+    </div>
+    <h2><%=l(:label_scheduled) %>
+        <%=l(:label_flows) %>
+    </h2>
+    <%= render :partial=>'workflow' %>
+
+<% end %>

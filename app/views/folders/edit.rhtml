@@ -1,0 +1,9 @@
+<% content_for :status do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['project','project_folder','project_element','project_content']}  %>
+<% end -%>
+
+<% content_for :center do -%>
+  <h2><%=l(:label_folder_edit)%></h2>
+  <%= render :partial => 'edit' %>
+
+<% end -%>

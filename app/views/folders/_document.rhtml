@@ -1,0 +1,18 @@
+<div class='panel'>
+ <%= @project_folder.to_html %>
+<% for item in folder.children %>
+      <%= item.to_html %>
+<% end %>
+<hr />
+<h3 class='icon icon-litref'>
+  <%=l(:label_ref_to_source_materials)%>
+</h3>
+ <% for item in folder.elements %>
+  <ul>
+    <li>
+      <p class="icon icon-model_<%=item.style%>"><%= link_to item.name, element_to_url(item) %> (<%=item.style%>)
+      </p>
+    </li>
+  </ul>
+ <% end %>
+</div>

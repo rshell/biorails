@@ -1,0 +1,43 @@
+<HEAD>
+  <LINK href="/stylesheets/biorails_printing.css" rel="stylesheet" type="text/css">
+</HEAD>
+
+  <h1 id='heading'><%= @project_folder.style.titlecase %>
+      [<%= @project_folder.name %>] <%=l(:label_report) %>
+  </h1>
+  <h2 class='abstract'><%=l(:label_abstract) %>
+  </h2>
+  <p>
+      This document was generated automatically from the BioRails Folder system against the
+      [<%= @project_folder.name %>] folder by 
+      <%=current_user.fullname %>.
+  </p>
+  <h3><%=l(:label_folder_path) %>:</h3>
+  <div class='box'>
+      <%=breadcrumb_list @project_folder %>
+  </div>
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@project_folder} %>
+  <h2 class='abstract'><%l(:label_contents) %>
+  </h2>
+  <%= @project_folder.html %>
+  <% for item in folder.children %>
+  <div>
+      <%= item.html %>
+  </div>
+  <% end %>
+  <hr/>
+  <div class='reflist'>
+      <h3 class='icon icon-litref'><%=l(:label_ref_to_source_materials) %>
+      </h3>
+      <% for item in folder.elements %>
+      <ul>
+          <li>
+              <%= link_to item.name, element_to_url(item) %>(<%=item.style %>)
+          </li>
+      </ul>
+      <% end %>
+  </div>
+  <footer>
+      <%=SystemSetting.footer_message %>
+  </footer>
+

@@ -92,10 +92,10 @@ class TaskValue < ActiveRecord::Base
    end
  end 
  #
- # Get the value, should return a Quantity with a unit for use in calculations
+ # Get the value, converted to consistent base units
  #
  def value
-   return self.to_unit
+   return Unit.new(self.data_value,self.storage_unit)
  end  
  #
  # Convert the value to a unit for use is calculations

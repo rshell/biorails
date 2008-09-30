@@ -1,0 +1,20 @@
+  <div class="row">
+    <div class="form-element">
+      <label for="state_name">
+        <%=l(:label_name)%>
+      </label>
+      <%= text_field 'state', 'name',:size=>'30'  %>
+    </div>
+     <div class="form-element">
+      <label for="state_level"><%=l(:level)%></label>
+        <%= select 'state', 'level',State::LEVELS.map{|key,value|["#{key}. #{value}",key]}%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="state_name">
+        <%=l(:label_description)%>
+      </label>
+      <%= text_area 'state', 'description',:rows => 2   %>
+    </div>
+  </div>

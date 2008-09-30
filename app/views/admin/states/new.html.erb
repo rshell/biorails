@@ -1,0 +1,23 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
+<% end %>
+<% content_for :messages do %>
+<%= error_messages_for 'state' %>
+<% end %>
+<% content_for :center do %>
+<%= render :partial => 'admin/header' %>
+    <h2><%=l(:label_state_new) %>
+    </h2>
+    <div class="panel">
+        <% form_tag({:action => 'create'}, :class => "tabular") do %>
+        <%= render :partial=>'form' %>
+        <div class="row">
+            <%= submit_tag l(:button_create) %>
+            <%= link_to l(:label_cancel), state_url(:action => 'list') %>
+        </div>
+        <% end %>
+    </div>
+<% end %>

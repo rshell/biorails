@@ -1,0 +1,21 @@
+<div id='<%= @project_folder.dom_id %>'>
+</div>
+<script type="text/javascript"> 
+
+Ext.onReady(function(){
+    options = {  folder_id: "<%= @project_folder.id %>",
+             layout: 'fit',
+              border:true,
+              autoShow: true,
+              autoScroll: true,
+              autoDestroy: true,
+              shim: true,
+              autoWidth: true,
+              autoHeight: true, 
+              renderTo: "<%= @project_folder.dom_id%>",
+              monitorResize: true};
+
+    var panel = new Biorails.Folder.Panel(options);
+    var store = Ext.StoreMgr.get('folderStore').load();
+ });
+</script>  

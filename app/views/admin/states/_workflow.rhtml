@@ -1,0 +1,49 @@
+<div class="panel">
+<% if @label %>
+    <div class='pagination'>
+    <b>
+      <%=@labels.inject(""){|out,item|out<<link_to_if(@label!=item,item,state_url(:action=>'list',:flow=>item))}%>
+    </b>
+  </div>
+ <% form_tag({:action => 'workflow', :flow => @label }, :id => 'workflow_form' ) do %>
+  <table class='report'>
+    <tr>
+      <th>
+        Allowed Changes
+      </th>
+      <th align="center" colspan="<%= @states.length %>"><strong>Next State</strong></th>
+    </tr>
+    <tr>
+      <th align="center">
+        <strong>
+          <%=l(:label_current_state)%>
+        </strong>
+      </th>
+      <% for new_state in @states %>
+        <th align="center">
+              <%= new_state.name %>
+        </th>
+      <% end %>
+    </tr>
+    <% for old_state in @states %>
+      <tr>
+        <th><%= old_state.name %></th>
+        <% for new_state in @states -%>
+          <%if new_state.id!=old_state.id %>
+            <td align="center" class="state-level<%= (new_state.id>=old_state.id ? new_state.level_no : old_state.level_no) %>">
+              <input type="checkbox" name="state[<%= old_state.id %>][]" value="<%= new_state.id %>"
+                 <%= 'checked="checked"' if old_state.allow?(new_state.id,@label) %>>	
+            </td>
+          <% else %>      
+            <th><%= old_state.name %></th>
+          <% end -%>
+        <% end -%>
+      </tr>
+    <% end %>
+  </table>
+  <hr />
+  <%= submit_tag l(:update ) %>
+ <% end %>
+</div>
+
+<% end %>

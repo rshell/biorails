@@ -1,0 +1,41 @@
+<div class="x-panel">
+  <div class="x-panel-header x-accordion-hd">
+<span class='icon icon-calendar x-panel-header-text'>
+  <b><%=@folder.path%> Gantt Chart</b>
+</span>
+</div>
+ Simple Project Timeline to show what task are expected when
+    <br />
+  <% form_remote_tag :url => {:action=>:gantt, :id=>@project,:zoom => @zoom} do %>
+    <input type="text" name="months" size="2" value="<%= @months %>" />
+    <%= l(:label_months_from) %>
+    <%= link_to_remote "<b class='icon icon-zoom-in'></b>" ,
+          :url=> {:zoom => (@zoom+1), :year => @year_from,
+          :month => @month_from, :months => @months} if @zoom < 4 %>
+  <%= link_to_remote "<b class='icon icon-zoom-in'></b>" ,
+      :url=>{ :zoom => (@zoom-1), :year => @year_from,
+      :month => @month_from, :months => @months} if @zoom > 1 %>
+      <br/>
+      <%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
+      <%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
+      <br/>
+      <%= hidden_field_tag 'zoom', @zoom %>
+  <fieldset>
+    <legend>
+      Status values
+    </legend>
+    <dl>
+      <% for state in Task.schedule_states.keys.sort  %>
+        <li  class='state-<%=Task.schedule_states[state]%>'>
+           <%= check_box_tag "states[#{state}]",
+               Task.schedule_states[state],
+               checked = @options['states'][state.to_s] %>
+            <%=Task.schedule_states[state]%>
+        </li>
+      <% end %>
+    </dl>
+  </fieldset>
+  <br/>
+  <%= submit_tag l(:button_submit), :class => "button-small" %>
+  <% end %>
+</div>

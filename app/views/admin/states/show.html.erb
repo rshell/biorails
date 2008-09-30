@@ -1,0 +1,38 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
+<% end %>
+<% content_for :center do %>
+<%= render :partial => 'admin/header' %>
+<h2 class='icon icon-status'> state [<%= @state.name %>] </h2>
+<div class="box">
+    <table class='report' style=width:50%>
+        <tr>
+            <th>
+                <%=l(:label_description) %>
+            </th>
+            <td>
+                <%= @state.description %>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <%=l(:label_created) %>
+            </th>
+            <td>
+                <%= short_date @state.created_at %>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <%=l(:label_updated) %>
+            </th>
+            <td>
+                <%= short_date @state.updated_at %>
+            </td>
+        </tr>
+    </table>
+    <hr/><%= render :partial=>'changes' %>
+</div><% end %>

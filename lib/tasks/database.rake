@@ -91,10 +91,16 @@ namespace :biorails do
       end 
     end 
   
-    desc "Rebuild all indexes"
+    desc "Rebuild all indexes, balances tree for folder,task rows etc and rebuild ferret free text indexes"
     task :reindex => :environment do
       puts "Resorting folder..."
       ProjectElement.rebuild_sets
+      puts "Resorting Parameter context..."
+      ParameterContext.rebuild_sets
+      puts "Resorting Text Content versions..."
+      Content.rebuild_sets
+      puts "Resorting Task rows..."
+      TaskContext.rebuild_sets
       puts "Free Text indexing Inventory tables"
       Project.rebuild_index(Compound,Batch,Plate,Container)
       puts "Feee Text indexing Projects"

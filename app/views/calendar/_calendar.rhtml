@@ -1,0 +1,24 @@
+<%= render :partial => 'header' %>
+<div class='panel'>
+  <%= month_navigator(@calendar)  %>
+  <% calendar(@calendar) do |item|  %>
+  <small class="icon icon-<%=item.class.table_name.singularize%>-small"> <%=link_to_object( item )%>
+  </small>
+  <span class='tip'>
+      <strong> <%=item.class.to_s %>  <%=item.name%> [<%=item.status%>] </strong>
+      <ul>
+        <li>
+          Started: <%= short_date item.started_at %>
+        </li>
+        <li>
+          Expected: <%= short_date item.expected_at %>
+        </li>
+        <li>
+          Ended: <%= short_date item.ended_at  %>
+        </li>
+      </ul>
+    <%= item.description if item.respond_to?(:description) %>
+    <%= item.summary  if item.respond_to?(:summary) %>
+  </span>
+
+<% end %>

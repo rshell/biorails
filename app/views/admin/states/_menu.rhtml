@@ -1,0 +1,14 @@
+<%= render :partial => '/menu/admin_menu'%>
+<div>
+  <span class='menu' >
+    <b class='icon icon-state'>
+      State
+    </b>
+  </span>
+    <%= link_to l(:label_list), state_url( :action => 'list') %>
+    <%= link_to l(:label_new),state_url( :action => 'new') %>
+    <%if @state && !@state.new_record?%>
+      <%= link_to l(:label_show),state_url( :action => 'show',:id=>@state.id) %>
+      <%= link_to l(:label_edit), state_url( :action => 'edit',:id=>@state.id) %>
+    <%end%>
+</div>
