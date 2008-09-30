@@ -1,0 +1,31 @@
+<%=render :partial => 'header' %>
+<% dialog "#{l(:label_file_edit)} [#{@project_element.name}]" do %>
+<% form_for(:project_element , :url=>asset_url(:action=>'update',:id=>@project_element)) do |f| -%>
+<%= hidden_field 'project_element', 'path' %>
+<%= hidden_field 'project_element', 'project_id' %>
+<%= hidden_field 'project_element', 'id' %>
+<%= hidden_field 'project_element', 'position' %>
+<div class="row">
+    <div class="form-element">
+        <label for="project_element_name">
+            <%=l(:label_name_ref) %>
+        </label>
+        <%= f.text_field 'name' , {:size=>20, :class=>"text-input"} %>
+    </div>
+</div>
+<div class="row">
+    <div class="form-element">
+        <label for="project_element_name">
+            <%=l(:label_title_heading) %>
+        </label>
+        <%= f.text_field  'title' , {:size=>80, :class=>"text-input"} %>
+    </div>
+</div>
+<div class="row">
+    <%= submit_tag l(:button_save) %>
+</div>
+<% end %>
+<%if @project_element.image? %>
+<%= @project_element.image_tag %>
+<%end %>
+<%end %>

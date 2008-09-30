@@ -1,0 +1,13 @@
+<h3>Signatures for <%= @project_name %>, <%= @element_name %></h3>
+<table class='report'>
+  <tr>
+  <th>Role</th>
+  <th>Status</th>
+  <th>Creator</th>
+  <th>Signature</th>
+  <th>Created on</th>
+  <th>Signed on</th>
+  <th>Check</th>
+  </tr>
+<%= render :partial=>'signature', :collection=>@signatures %>
+<table>

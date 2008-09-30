@@ -1,0 +1,6 @@
+<%= render :partial => 'folders/header'%>
+<% form_tag element_url(:action => 'create',  :id=>@project_folder.id) do %>
+<% dialog l(:label_article_new) do %>
+   <%= render :partial => 'form' %>
+<% end %>
+<% end %>

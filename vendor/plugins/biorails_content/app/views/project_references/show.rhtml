@@ -1,0 +1,24 @@
+<% content_for :center do -%>
+<h1 class="icon icon-file-large" style="text-indent:0.5em">
+  File:
+  <% if @project_folder.parent %>
+    <%= link_to_remote ".."+ @project_folder.parent.path,
+        :url=>folder_url( :action => 'show',
+        :id=> @project_folder.parent_id) if  @project_folder.parent%>
+    <%= link_to_remote "/"+ @project_folder.name,
+        :url=>folder_url(
+        :action => 'show',
+        :id=> @project_folder.id) if  @project_folder%>
+  <%else%>
+    <%= link_to_remote "/"+@project_folder.name,
+        :url=>folder_url( :action => 'show',
+        :id=>  @project_folder.id) %>
+  <%end%>
+  <%= "/"+ @project_element.name %>
+</h1>
+  <%= render :partial => 'show' %>
+<% end %>
+
+<% content_for :help do -%>
+  <%= render :partial => 'help',:locals=>{:folder=>@project_folder} %>
+<% end %>

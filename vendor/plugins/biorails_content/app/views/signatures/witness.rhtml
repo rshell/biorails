@@ -1,0 +1,10 @@
+<% content_for :center do -%>
+    <%= render :partial => 'witness' %> 
+<% end %>    
+
+<% content_for :help do -%>
+    <%= render :partial => 'help' %>   
+<% end %>
+<% content_for :status do -%>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
+<% end %>

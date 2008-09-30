@@ -1,0 +1,19 @@
+<div class="content_header content">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-model_<%=@project_folder.style.downcase%>'><%=l(:label_signatures_for) %>
+        <%=@project_folder.style.titlecase %>
+        <% if @project_folder.parent %>
+        <%=l(:label_folder) %>
+        [<%= link_to  @project_folder.name, folder_url( :action => 'show',:id=> @project_folder.id) if  @project_folder %>]<%else %>
+        [<%= link_to @project_folder.path, project_url( :action => 'show',:id=> @project_folder.id) %>]<% end %>
+    </h1>
+    <br/>
+    <p>
+        A <%=@project_folder.summary %><%=l(:label_in_the) %><%=link_to @project_folder.project.name,
+        folder_url(:action=>'show',:id=>@project_folder) %> project, owned by team <%=@project_folder.path %>
+    </p>
+    <br/>
+</div>
+<div class='breadcrumb'>
+    <%=breadcrumb_list @project_folder %>
+</div>

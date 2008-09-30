@@ -1,0 +1,16 @@
+<% content_for :center do -%>
+<%if @user%>
+  <%= render :partial=>'shared/user_header'%>
+<%else%>
+  <%= render :partial=>'projects/header'%>
+<%end%>
+    <%= render :partial => 'list' %>
+<% end %>
+
+<% content_for :help do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :messages do -%>
+ <%= render :partial => 'shared/messages',:locals=>{:signature,:project_element} %>
+<% end %>

@@ -1,0 +1,60 @@
+<div class='panel'>
+<% unless @signatures.empty? %>
+<table class='report'>
+    <%group1 = "" %>
+    <%group2 = "" %>
+    <%for signature in @signatures %>
+    <%if group2 !=signature.project_element_id %>
+    <tr>
+        <td colspan='6'>
+            <h3><%=signature.project.name %>:
+	<%=link_to( signature.project_element.path,folder_url(:action=>'show',:id=>signature.project_element)) %>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <%=l(:label_version) %>
+        </th>
+        <th>
+            <%=l(:label_role) %>
+        </th>
+        <th>
+            <%=l(:label_signature) %>
+        </th>
+        <th>
+            <%=l(:label_date) %>
+        </th>
+        <th>
+            <%=l(:label_verify) %>
+        </th>
+    </tr>
+    <% group2 =signature.project_element_id %>
+    <%end %>
+    <tr>
+        <td>
+            <%= link_to "Version #{version_no(signature.filename)}", signature.file_url %>
+        </td>
+        <td>
+            <%=signature.signature_role %>
+        </td>
+        <td>
+            <%= signature.signer.name %>
+        </td>
+        <td>
+            <%= short_date(signature.signed_date) %>
+        </td>
+        <td>
+            <%= link_to 'test?', :action=>'show', :id=>signature.project_element_id , :signature_id=>signature.id %>
+        </td>
+    </tr>
+    <%end %>
+</table>
+<% else %>
+<div class='box'>
+<strong class='icon icon-info'><%=l(:label_none_found) %></strong>
+</div>
+<% end %>
+
+<%= link_to "Review", signature_url(:action=>'list'), :class=>'icon icon-sign' if @project %>
+</div>

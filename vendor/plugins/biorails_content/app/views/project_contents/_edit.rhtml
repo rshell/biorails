@@ -1,0 +1,6 @@
+<%= render :partial => 'header'%>
+<% form_tag element_url(:action => 'update',  :id=>@project_element.id) do %>
+  <% dialog l(:label_article_edit) do %>
+    <%= render :partial => 'form' %>
+  <% end %>
+<% end %>

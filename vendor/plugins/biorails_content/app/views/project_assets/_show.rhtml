@@ -1,0 +1,66 @@
+<%= render :partial => 'header' %>
+<div class='panel'>
+    <div class='panel'>
+        <table class="report">
+            <tr>
+                <th>
+                    <%=l(:label_title) %>
+                </th>
+                <td>
+                    <%=@project_element.title %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_caption) %>
+                </th>
+                <td>
+                    <%=@project_element.summary %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_download_file) %>
+                </th>
+                <td>
+                    <b><%= link_to @project_element.name, @project_element.url %></b>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_mime_type) %>
+                </th>
+                <td>
+                    <%=@project_element.content_type %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_summary) %>
+                </th>
+                <td>
+                    <%= @project_element.summary %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_created) %>
+                </th>
+                <td>
+                    <%=@project_element.created_at %><%=@project_element.created_by %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_updated) %>
+                </th>
+                <td>
+                    <%=@project_element.updated_at %><%=@project_element.updated_by %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <%if @project_element.image? %>
+    <%= link_to @project_element.html, @project_element.url %>
+    <%end %>
+</div>

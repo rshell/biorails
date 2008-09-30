@@ -1,0 +1,25 @@
+<h1 class='icon icon-folder'><%=l(:Folder) %></h1>
+<div class="panel">
+    <p>
+    	<%=l(:help_element)%>
+        Unstructured data in the project is divided up
+        into a number of section. Each section may work
+        as a folder, blog or a component document.
+    </p>
+    <br/>
+    <h2><%=l(:label_latest_uploads)%></h2>
+    <% for item in @project_folder.assets(10) %>
+    <fieldset>
+        <%= link_to image_tag( item.icon( {:images=>true} )), element_url(item) %>
+        <p>
+            <%= item.name %>
+        </p>
+        <p>
+        <%= item.summary %>
+        </P>
+        <p class='icon icon-del'>
+            <%= link_to l(:label_delete), folder_url( :action => 'destroy', :id => item ),:class => "button" %>
+        </p>
+    </fieldset>
+    <% end %>
+</div>

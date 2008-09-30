@@ -1,0 +1,20 @@
+<%if @project_element.image? %>
+  <%= @project_element.html %>
+<%end %>
+
+<h2 style="margin-top:1em">File details</h2>
+
+<ul>
+  <li>
+    <b>Title:</b>
+    <%=@project_element.title%>
+  </li>
+  <li>
+    <b>created:</b>
+    <%=@project_element.created_at%> <%=@project_element.created_by%>
+  </li>
+  <li>
+    <b>updated:</b>
+    <%=@project_element.updated_at%> <%=@project_element.updated_by%>
+  </li>
+</ul>

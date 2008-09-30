@@ -1,0 +1,16 @@
+<div class="content_header content">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-article'><%=@project_element.style.titlecase %>
+        <% if @project_element.parent %>
+        <%=l(:label_article) %>
+        [<%= link_to  @project_element.name, folder_url( :action => 'show',:id=> @project_element.id) if  @project_folder %>]<%else %>
+        [<%= link_to @project_element.path, project_url( :action => 'show',:id=> @project_element.id) %>]<% end %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @project_folder  ), :class=>'icon icon-folder' %>
+    </div>
+    <br/>
+</div>
+<%=breadcrumb_list @project_folder %>

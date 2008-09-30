@@ -1,0 +1,5 @@
+<% form_tag element_url(:action => 'update',  :id=>@project_element.id) do %>
+<% dialog "Edit Wiki Article in folder: #{link_to "/"+ @project_folder.path, folder_url( :action => 'show',:id=>@project_folder)}" do %>
+   <%= render :partial => 'form' %>
+<% end %>
+<% end %>
