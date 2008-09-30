@@ -1,0 +1,19 @@
+<div class="content_header execution">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-request-large'><%= link_to("#{l(:label_request)} #{l(:label_service)} [#{@request_service.name}]", request_url( :action => :show, :id => @request_service.id)) %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to l(:label_folder), folder_url( :action => 'show', :id => @request_service.folder), :class=>'icon icon-folder' %>
+        <%= link_to l(:label_request), request_url(:action => 'show', :id => @request_service.request), :class=>'icon icon-request' if @request_service.request %>
+    </div>
+    <div class='actions_right'>
+        <% unless @request_service.new_record? %>
+        <%= link_to( l(:label_results), service_url(:action => 'results', :id => @request_service), :class=>'icon icon-result') %>
+        <%= link_to l(:label_queue), queue_url(:action => 'show', :id => @request_service.queue), :class=>'icon icon-queue' %>
+        <%end %>
+    </div>
+    <br/>
+</div>
+<%=breadcrumb_list @request_service.folder %>

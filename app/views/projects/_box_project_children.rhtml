@@ -1,0 +1,18 @@
+<div class='box'>
+  <strong><%=link_to l(:label_project_children), project_url( :action => 'list'), :class=>'icon icon-project' %></strong>
+  <% unless @project.children.empty? %>
+    <dl>
+      <% for item in @project.contained(Project,5)%>
+        <dt><%=item.project_type.name%>:
+          <%= link_to item.name, project_url( :action => 'show', :id => item.id) %>
+          </dt>
+        <dd> <%=item.summary%>
+          </dd>
+       <% end %>
+    </dl>
+  <% else %>
+    <p><%= l(:label_no_children, @project.style) %></p>
+  <% end %>
+ 
+    <hr/><%= link_to( l(:label_project_daughter_add), project_url(:action => 'new'), :class=>'icon icon-add') %>
+</div>

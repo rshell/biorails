@@ -1,14 +1,12 @@
-
-<% dialog "New Concept" do%>
-  <p>
-  Enter the details for the new concept under [<%=@data_concept.parent.path%>] below:-
-  </p>
-  <%= form_remote_tag :url => {:action => 'create', :id => @data_concept.parent} %>
-  <%= render :partial => 'form_concept' %>
-  <div class="row">
-  <%= submit_tag 'Save' %>
-  <%=link_to_remote "<b class='icon icon-cancel'>Cancel</b>", 
-    :url =>{:action=>'show',:id => @data_concept.parent.id} %>
-  </div>
-<% end%>
-
+<% dialog l(:label_concept) do %>
+<p>
+    <%=l(:text_enter_concept_details) %>
+    [<%=@data_concept.parent.path %>]<%=l(:text_below) %>
+</p>
+<%= form_remote_tag :url => {:action => 'create', :id => @data_concept.parent} %>
+<%= render :partial => 'form_concept' %>
+<div class="row">
+    <%= submit_tag l(:button_save) %>
+    <%=link_to_remote l(:label_cancel),  :url =>{:action=>'show',:id => @data_concept.parent.id} %>
+</div>
+<% end %>

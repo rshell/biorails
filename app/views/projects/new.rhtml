@@ -1,0 +1,19 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['project','user']} %>
+<% end -%>
+
+<% content_for :center do -%>
+<%=render :partial =>'shared/user_header'%>
+  <%dialog l(:label_project_new)  do %>
+    <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <div class="row">
+        <%= submit_tag "Save" %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+

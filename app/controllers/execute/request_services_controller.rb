@@ -1,13 +1,19 @@
-##
+# == Request service controller 
+# 
+#
+#
+#
+# == Copyright
+# 
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 #
 class Execute::RequestServicesController < ApplicationController
 
-  use_authorization :requests,
+  use_authorization :execution,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
   before_filter :setup_request_service, :only => [ :show, :edit, :update,:destroy,:results] 
   

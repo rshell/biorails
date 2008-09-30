@@ -19,7 +19,6 @@ class MembershipTest < Test::Unit::TestCase
   def test_find
      first = @model.find(:first)
      assert first.id
-     assert first.role
      assert first.user
      assert first.team
   end

@@ -1,11 +1,46 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
- id: 1
- name: 'project'
- dashboard: 'project'
- description: 'a project'
-two:
-  id: 2
-  name: 'group'
-  dashboard: 'group'
-  description: ' a group'
+# == Schema Information
+# Schema version: 359
+#
+# Table name: project_types
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(30)      not null
+#  description        :string(255)     not null
+#  dashboard          :string(255)     not null
+#  publish_to_team_id :integer(4)      default(1), not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#
+
+--- 
+00000000001_project_type: !ruby/object:ProjectType 
+  attributes: 
+    name: project
+    updated_at: 2008-08-14 10:29:26
+    dashboard: project
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "1"
+    description: a project
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-08-04 09:41:31
+  attributes_cache: {}
+
+00000000002_project_type: !ruby/object:ProjectType 
+  attributes: 
+    name: group
+    updated_at: 2008-08-14 10:29:26
+    dashboard: assay_group
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "2"
+    description: " a group"
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-08-04 09:41:31
+  attributes_cache: {}
+

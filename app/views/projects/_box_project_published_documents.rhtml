@@ -1,0 +1,19 @@
+<div class='box'>
+  <strong><%=link_to l('Published documents '),signature_url(:action=>'published'), :class=>'icon icon-pdf' %>
+    </strong>
+  <% @published_documents = Signature.find_published_for_project(current_project.id,5) %>
+  <dl>
+    <% for signature in @published_documents %>
+      <dt>
+        <%= link_to "#{signature.project_element.name} (Version #{version_no(signature.filename)})", signature.file_url %>
+        <dt>
+      <dd>
+        <%= l(:label_witness) %>: 
+        <%= signature.signer.name %>
+        (<%= short_date(signature.created_at) %>)
+        [<%= link_to l(:label_open_folder), folder_url(:action=>'show', :id=> signature.project_element.id) %>]
+        <dd>
+    <% end %>
+  </dl>
+</div>
+

@@ -1,20 +1,28 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: analysis_methods
 #
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :string(2048)  
-#  class_name          :string(255)   default(), not null
-#  protocol_version_id :integer(11)   
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
+#  id                  :integer(4)      not null, primary key
+#  name                :string(128)     default(""), not null
+#  description         :string(1024)    default("")
+#  class_name          :string(255)     default(""), not null
+#  protocol_version_id :integer(4)
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  created_by_user_id  :integer(4)      default(1), not null
 #
 
+# == Description
+# This registers a Analysis Methods (Externally plugged in piece of code)
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 
 class AnalysisMethod < ActiveRecord::Base
 
@@ -52,7 +60,8 @@ class AnalysisMethod < ActiveRecord::Base
   def processor
     Analysis.register(Alces::Processor::PlotXy)
     Analysis.register(Alces::Processor::Dummy)
-    Analysis.get(self.class_name)
+#    Analysis.get(self.class_name)
+    Alces::Processor::Dummy
   end
   #
   # run a analysis
@@ -61,11 +70,11 @@ class AnalysisMethod < ActiveRecord::Base
      logger.info("Run Analysis #{self.name} on #{task.name}")
      @process = processor.new(task,self)
      @process.run
-  rescue Exception =>ex
-     @process = nil
-     logger.error ex.backtrace.join("\n") 
-     logger.warn "Analysis run aborted #{ex.message}"    
-     false
+#  rescue Exception =>ex
+#     @process = nil
+#     logger.error ex.backtrace.join("\n") 
+#     logger.warn "Analysis run aborted #{ex.message}"    
+#     false
   end
   #
   # Has a analysis been run
@@ -77,10 +86,10 @@ class AnalysisMethod < ActiveRecord::Base
   # report on status on analysis
   #
   def report
-    return "failed" unless @process
+    return "" unless @process
     @process.to_html    
   rescue Exception =>ex
-    logger.warn "report generation aborted #{ex.message}" 
+    logger.warn "report generation aborted #{ex.message}"    
   end
      
   def configure(options={},task=nil)    

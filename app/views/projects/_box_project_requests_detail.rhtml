@@ -1,0 +1,37 @@
+<div class="box">
+  <strong><%=link_to "#{l(:label_latest)} #{l(:label_requests)}", request_url(:action=>:list), :class=>"icon icon-request" %></strong>
+  <% unless @project.requests.empty? %>
+  <% for request in @project.latest(Request,5,'requested_by_user_id') %>
+  <h3><%=link_to request.name, request_url(:action => :show, :id => request) %>
+  (<%=short_date request.created_at %>)</h3>
+  <table class='report' style='border: solid thin'>
+    <tr>
+      <th>
+        <%=l(:label_item) %>
+      </th>
+      <%for item in request.services %>
+      <th>
+        <%=link_to item.name+": <br />" +item.queue.name ,
+        service_url( :action => 'show', :id => item) %>
+      </th>
+      <% end %>
+    </tr>
+    <%for item in  request.items %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <%=item.data_name %>
+      </td>
+      <%for service in request.services %>
+      <td class='state-<%= request.item_status(item.data_name,service.name)||'new'%>'>
+        <%= request.item_status(item.data_name,service.name) %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+  <%end %>
+  <% else %>
+    <p><%=l(:label_no_requests_in, @project.style)%></p>
+  <% end %>
+  <hr /><%= link_to( l(:label_request_add),  request_url(:action => :new), :class=>'icon icon-add') %>
+</div>

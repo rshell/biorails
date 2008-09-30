@@ -51,7 +51,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     assert_equal nil,parameter.parse('2001-13-1')
     assert_equal '2001-01-21',parameter.format(Date.civil(2001,1,21))
     
-    new_task =   @experiment.add_task(:protocol_version_id=>@process_instance.id)
+    new_task =   @experiment.add_task(:description=>'dddd',:protocol_version_id=>@process_instance.id)
     assert_save_ok new_task
     new_task.populate
     assert_equal @parameter_context,new_task.contexts[0].definition
@@ -111,7 +111,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     assert_equal "10 kg".to_unit,parameter.parse('10 kg')
     assert_equal "10 mM".to_unit,parameter.format('10 mM'.to_unit)    
 
-    new_task =   @experiment.add_task(:protocol_version_id=>@process_instance.id)
+    new_task =   @experiment.add_task(:description=>'xxxx',:protocol_version_id=>@process_instance.id)
     assert_save_ok new_task
     new_task.populate
     assert_equal @parameter_context,new_task.contexts[0].definition
@@ -165,7 +165,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     assert_equal "10 mm",parameter.format('10 mm'.to_unit)    
     assert_equal "10",parameter.format('10 cm'.to_unit)    
     
-    new_task =   @experiment.add_task(:protocol_version_id=>@process_instance.id)
+    new_task =   @experiment.add_task(:description=>'xxxx',:protocol_version_id=>@process_instance.id)
     assert_save_ok new_task
     new_task.populate
     assert_equal @parameter_context,new_task.contexts[0].definition
@@ -324,7 +324,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     assert_equal @task,parameter.parse(@task.name)
     assert_equal @task.name,parameter.format(@task)
 
-    new_task =   @experiment.add_task(:protocol_version_id=>@process_instance.id)
+    new_task =   @experiment.add_task(:description=>'test',:protocol_version_id=>@process_instance.id)
     assert_save_ok new_task
     new_task.populate
     assert_equal @parameter_context,new_task.contexts[0].definition

@@ -1,3 +1,30 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tab_columns
+#
+#  id                 :integer(4)      not null, primary key
+#  cross_tab_id       :integer(4)      not null
+#  name               :string(64)
+#  title              :string(64)
+#  parameter_id       :integer(4)
+#  assay_parameter_id :integer(4)
+#  parameter_type_id  :integer(4)      not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_at         :datetime
+#  updated_by_user_id :integer(4)      default(1), not null
+#
+
+# == Description
+# Rules for use of a column in a report
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class CrossTabColumn < ActiveRecord::Base
 
   belongs_to :cross_tab, :class_name=>'CrossTab'

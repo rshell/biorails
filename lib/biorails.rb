@@ -3,39 +3,43 @@
 # 
 # Created on 23-Aug-2007, 20:16:48
 # 
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+# General High level changes done needed new version number:-
+# 13/jul/2008 RJS   Moved inventory to plugin
+# 14/jul/2008 RJS   Working on embedded Rdocs
+# 28/sep/2008 RJS   Close to 3.1 lots of minor rhtml changes going in
+# 30/sep/2008 RJS   Removed references to team and double checked acl code
+
  
-module Biorails
- 
-  TEMPLATE_MODELS = [UserRole,ProjectType,ProjectRole,User,Identifier,Permission,RolePermission,
-    DataContext,DataConcept,DataSystem,
+module Biorails 
+  
+  TEMPLATE_MODELS = [UserRole,ProjectType,ProjectRole,User,Identifier,RolePermission,
+    DataContext,DataConcept,DataSystem,ElementType,State,StateChange,
     ListElement,ModelElement,SqlElement,DataType,
     DataFormat,ParameterType,ParameterRole,AssayStage,ProjectType,
     Team,Project,Membership,
     Assay,AssayParameter,AssayQueue,
     AssayProcess,AssayWorkflow,
-    ProcessInstance,ProcessFlow,ProcessStep,ProcessStepLink,
+    ProcessInstance,ProcessFlow,ProcessStep,ProcessStepLink,  
     ParameterContext,Parameter]
   
-  PROJECT_MODELS = [Project,ProjectElement,Asset,Content,DbFile]
+  PROJECT_MODELS = [AccessControlList,AccessControlElement,Project,ProjectElement,Asset,Content,DbFile]
 
   RESULTS_MODELS = [Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
 
   CATALOG_MODELS = [DataContext,DataConcept,DataSystem,
-        ListElement,ModelElement,SqlElement,
+        ListElement,ModelElement,SqlElement,ElementType,State,StateChange,
         DataType,DataFormat,ParameterType,ParameterRole,AssayStage,ProjectType]
 
-  ALL_MODELS = [UserRole,ProjectType,ProjectRole,User,Identifier,Permission,RolePermission,
+  ALL_MODELS = [UserRole,ProjectType,ProjectRole,User,Identifier,RolePermission,
     UserSetting,SystemSetting,
     DataContext,DataConcept,DataSystem,
-    ListElement,ModelElement,SqlElement,    
+    ListElement,ModelElement,SqlElement,ElementType,State,StateChange,    
     DataType,DataFormat,
     ParameterType,ParameterRole,AssayStage,ProjectType,
     AssayStage,
     Compound,Batch,
     Team,Project,Membership,
-    ProjectElement,Asset,Content,DbFile,
+    AccessControlList,AccessControlElement,ProjectElement,Asset,Content,DbFile,
     Assay,
     AssayParameter,AssayQueue,
     AssayProcess,AssayWorkflow,
@@ -45,7 +49,7 @@ module Biorails
     Request,RequestService,QueueItem,
     Report,ReportColumn,
     Experiment,Task,TaskContext,TaskValue,TaskText,TaskReference]
-  
+    
     def self.utf8_to_codepage(text)
       @@character_set ||= SystemSetting.character_set
       return text if  @@character_set == 'UTF-8'
@@ -226,7 +230,7 @@ module Biorails
   
   module Version
     MAJOR  = 3
-    MINOR  = 0
+    MINOR  = 1
     TINY   = "$Rev$".split(" ")[1]
     URL    = "$HeadURL$"
     DATE   = "$Date$"
@@ -234,4 +238,56 @@ module Biorails
     TITLE  = "Biorails".freeze
   end
       
+end
+#
+# Json for home menu 
+#
+Biorails::Toolbar.add_menu(1,"Home ",'icon-home','/home') do |menu|
+    menu.add_item("Dashboard",   'icon-home' ,'/home')
+    menu.project_list
+    menu.add_item("Recent News", 'icon-news' ,'/home/news'    )
+    menu.add_item("Projects", 'icon-project' ,'/projects/list')
+    menu.add_item("Todo",     'icon-todo'    ,'/home/todo'    )
+    menu.add_item("Tasks",    'icon-task'    ,'/home/tasks'   )
+    menu.add_item("Requests", 'icon-request' ,'/home/requests')
+    menu.add_item("Calendar", 'icon-calendar','/home/calendar')
+    menu.add_item("Timeline", 'icon-timeline','/home/gantt'   )
+end
+#
+# Json for home menu 
+#
+Biorails::Toolbar.add_menu(2,"Project",'icon-project','/projects/show') do |menu|
+    menu.add_item("Dashboard", 'icon-home'     ,'/projects/show')
+    menu.add_item("Calendar",  'icon-calendar' ,'/projects/calendar')
+    menu.add_item("Timeline",  'icon-timeline' ,'/projects/gantt')
+    menu.add_item("Folders",   'icon-folder'   ,'/folders')
+    menu.add_item("Assay Definitions", 'icon-assay' ,'/assays')
+    menu.add_item("Experiments",  'icon-experiment' ,'/experiments')
+    menu.add_item("Queries",      'icon-report' ,'/reports')
+    menu.add_item("Signed Documents", 'icon-sign','/signatures/list')
+end
+#
+# Json for home menu 
+#
+Biorails::Toolbar.add_menu(3,'Design','icon-assay','assays') do |menu|
+     menu.add_item("Assays",    'icon-home' ,'/assays')       
+     menu.add_item("Services",  'icon-service' ,'/queues'   )
+     menu.add_item("Processes", 'icon-protocol' ,'/processes')
+     menu.add_item("Recipes", 'icon-workflow' ,'/workflows')
+end
+
+Biorails::Toolbar.add_menu(10,'Administration' 'icon-catalogue','/admin/catalogue') do |menu|
+    menu.add_item("Catalogue",   'icon-catalogue' ,   '/admin/catalogue')
+    menu.add_item("System Reports", 'icon-report' ,   '/execute/reports/internal' )
+    menu.add_item("System Settings", 'icon-settings' ,'/admin/system_settings/list' )
+    menu.add_item("Data Sources",'icon-data_system' , '/admin/system' )
+    menu.add_item("Data Types", 'icon-data_type' ,    '/admin/data' )
+    menu.add_item("Data Formats",'icon-data_format' , '/admin/format' )
+    menu.add_item("Project Types",'icon-project' ,    '/admin/project_types' )
+    menu.add_item("Assay Stage",'icon-assay_stage' ,  '/admin/stage')
+    menu.add_item("Parameter Types",'icon-parameter_type' ,'/admin/parameters')
+    menu.add_item("Parameter Roles",'icon-parameter_role' ,'/admin/usage')
+    menu.add_item("Teams",'icon-team' ,'/admin/teams')
+    menu.add_item("Roles",'icon-role' ,'/admin/role')
+    menu.add_item("Users",'icon-user' ,'/admin/users')
 end

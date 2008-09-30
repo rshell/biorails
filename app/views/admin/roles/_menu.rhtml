@@ -2,15 +2,13 @@
 <div>
   <span class='menu' >
     <b class='icon icon-role'>
-      Role Access
+      <%=l(:label_role_access)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-list'>List</b>", role_url( :action => 'list') %>
-    <%= link_to "<b class='icon icon-new'>New</b>",role_url( :action => 'new') %>
-    <%if @role && !@role.new_record?%>
-      <%= link_to "<b class='icon icon-role'>Show</b>",role_url( :action => 'show',:id=>@role.id) %>
-      <%= link_to "<b class='icon icon-edit'>Edit</b>", role_url( :action => 'edit',:id=>@role.id) %>
-    <%end%>
-  </div>
+  <%= link_to l(:label_list), role_url( :action => 'list') %>
+  <%= link_to l(:label_new),role_url( :action => 'new') %>
+  <%if @role && !@role.new_record?%>
+    <%= link_to l(:label_show),role_url( :action => 'show',:id=>@role.id) %>
+    <%= link_to l(:label_edit), role_url( :action => 'edit',:id=>@role.id) %>
+  <%end%>
 </div>

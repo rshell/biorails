@@ -28,7 +28,7 @@ def setup
      first = @model.find(:first)
      task = Task.find(:first)
      assert first.id
-     asset first.run(task)
+     first.run(task)
      assert first.report
   end
     
@@ -79,10 +79,11 @@ def setup
   def test_run
     Analysis.register(Alces::Processor::Dummy)    
     first = @model.find(:first)
-    first.class_name ="Alces::Processor::Dummy"
     task = Task.find(:first)
+    first.class_name ="Alces::Processor::Dummy"
     first.save
-    assert first.run(task)   
+    assert_ok first
+    first.run(task)    
     assert_ok first
     assert first.process
     assert first.report    

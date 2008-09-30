@@ -1,0 +1,94 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+<%= render :partial => 'admin/header' %>
+    <h2 class='icon icon-user-large' style='text-indent:0.5em'><%=l(:label_users_ldap) %>
+    </h2>
+    <div class="panel">
+        <% for letter in ('a'..'z') %>
+        [<%=link_to letter ,user_url(:action=>'ldap',:id=> letter) %>]<%end %>
+        <table class='report'>
+            <tr>
+                <th colspan='1'>
+                    <%=l(:label_user) %>
+                </th>
+                <th colspan='3'>
+                    <%=l(:label_biorails) %>
+                </th>
+                <th colspan='4'>
+                    <%=l(:label_LDAP) %>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <%=l(:label_login) %>
+                </th>
+                <th>
+                    <%=l(:label_name) %>
+                </th>
+                <th>
+                    <%=l(:label_role) %>
+                </th>
+                <th>
+                    <%=l(:label_updated_at) %>
+                </th>
+                <th>
+                    <%=l(:label_email) %>
+                </th>
+                <th>
+                    <%=l(:label_department) %>
+                </th>
+                <th>
+                    <%=l(:label_telephone) %>
+                </th>
+                <th>
+                    <%=l(:label_mobile) %>
+                </th>
+            </tr>
+            <% for entry in @users %>
+            <% user = User.find_by_login(entry.cn.to_s) %>
+            <tr class="<%= cycle('odd', 'even') %>">
+                <td>
+                    <%= entry.cn %>
+                </td>
+                <%if user %>
+                <td>
+                    <p class='icon icon-user'>
+                        <%= link_to user.login, :action => 'show', :id => user.id %>
+                    </p>
+                </td>
+                <td>
+                    <%= user.role.name if user.role %>
+                </td>
+                <td>
+                    <%= short_date user.updated_at %>
+                </td>
+                <%else %>
+                <th colspan='2'>
+                    <%=entry[SystemSetting.ldap_login_field] %>Not Registered
+                </th>
+                <td>
+                    <p class='icon icon-user-add'>
+                        <%= link_to l(:label_new), :action => 'new',:login=>entry.cn %>
+                    </p>
+                </td>
+                <%end %>
+                <td>
+                    <%= entry[:mail]||'<none>' %>
+                </td>
+                <td>
+                    <%= entry[:department]||'<none>' %>
+                </td>
+                <td>
+                    <%= entry[:telephoneNumber]||'<none>' %>
+                </td>
+                <td>
+                    <%= entry[:mobile]||'<none>' %>
+                </td>
+            </tr>
+            <% end -%>
+        </table><hr />  <%= link_to l(:label_list_local), user_url( :action => 'list'), :class=>'icon icon-list' %>
+    </div>
+<% content_for :right do -%>
+<%= render :partial=>'help' %>
+<%end %>

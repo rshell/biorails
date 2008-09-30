@@ -205,7 +205,7 @@ Biorails = function(){
     
     // region -----------------------West------------------------------
     _actions_panel = new Ext.Panel({
-        title:'Menu Actions', iconCls:'icon-action', contentEl: 'actions-panel', border:false, autoScroll: true  
+        title:'Menu Actions', iconCls:'icon-action',id: 'actions-id', contentEl: 'actions-panel', border:false, autoScroll: true  
     } );
 
     _work_panel = new Ext.Panel({
@@ -432,27 +432,6 @@ Biorails = function(){
          */
         setContext : function(config){ ReadConfig(config);  },
 
-        /*
-         * Setup the Project tree on the navigation panel
-         */
-        projectTree : function(config){
-
-            var tree = new Ext.tree.TreePanel('project-tree', {
-                animate: true,
-                enableDrag: true,
-                ddGroup: "GridDD",
-                stateId:'ProjectTree',   //stateId override
-                loader: new Ext.tree.TreeLoader(),
-                stateEvents:['hide','show','destroy','collapsenode'],
-                lines: true,
-                selModel: new Ext.tree.MultiSelectionModel(),
-                containerScroll: false });
-
-            var root = new Ext.tree.AsyncTreeNode(config);
-            tree.setRootNode(root);
-            tree.render();
-            root.expand()
-        },
         /*
          * Set the active panel in the UI
          */

@@ -9,7 +9,7 @@
   <label for="data_element_data_system_id">System</label>
   <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
 
-    <label for="data_element_name" class='icon icon-description'>
+    <label for="data_element_name">
       Name
     </label>
   <%= text_field 'data_element', 'name'  %>
@@ -19,7 +19,7 @@
 </div>
 
 <div class="row">
-  <label for="data_element_description" class='icon icon-description'>
+  <label for="data_element_description">
     Description
   </label>
   <%= text_area( 'data_element', 'description'  	)%>

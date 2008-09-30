@@ -8,23 +8,22 @@
 
 <p>
   An assay definition is an organisational unit used to
-  register service queues and protocols against which tasks
-  are executed.
+  register Service Queues and Methods against which tasks
+  are executed within Experiments.
+</p><br/>
+<p>
+  Assays can be defined in this <%= current_project.style.downcase %> or
+  linked in from other projects.  There must be assays defined
+  within this <%=current_project.style.downcase %> in order to run an
+  experiment.
 </p>
 <br />
-<p>To define an Asasy:</p>
-<ol style="list-style:decimal inside; text-indent:0.5em">
-  <li>
-    <b class='icon icon-parameter-small'>Parameters: </b>
-    <p>Define the parameters and their roles that will be used by the protocol</p>
-  </li>
-  <li>
-    <b class='icon icon-queue-small'>Queues: </b>
-    <p>Define service queues based on the assay parameters
-  </li>
-  <li>
-    <b class='icon icon-protocol-small'>Protocols: </b>
-    <p>Build protocols from the parameters
-  </li>
-</ol>
+  <% unless current_project.linked_assays.size==0%>
+    As assays have been defined within this <%=current_project.style.downcase %> we can
+    <%= link_to("add an experiment",  experiment_url(:action => 'new'))  %>
+  <%else%>
+    There are no assays defined within this <%=current_project.style.downcase %>, you will need to
+      <%= link_to( "add",    assay_url( :action => 'list')) %>
+          or link to one in order to run an experiment.
+<%end%>
 </div>

@@ -9,10 +9,11 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
   def setup
     @controller = Execute::ExperimentsController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 1
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @first = Experiment.find(:first)
+    @request.session[:current_element_id] =@first.project_element_id
+    @request.session[:current_project_id] = @first.project_id
+    @request.session[:current_user_id] = 3
   end
 
   def test_setup
@@ -91,7 +92,7 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
   end
 
   def test_new
-    get :new, :id => Assay.find(:first).id
+    get :new, :id => Assay.list(:first).id
     assert_response :success
     assert_template 'new'
     assert_not_nil assigns(:experiment)

@@ -1,24 +1,13 @@
 <div>
-  <span class='menu'><b class="icon icon-data_system">System</b></span>
- <div class='boldnotbold'>
-  <%= link_to "<b class='icon icon-catalogue'>Catalogue</b>",
-        catalogue_url( :action => 'list') %>
-  <%= link_to "<b class='icon icon-data_system'>Data Sources</b>",
-        url_for(:controller=>'admin/data_systems',:action => 'list') %>
-  <%= link_to "<b class='icon icon-data_format'>Data Formats</b>",
-        url_for(:controller=>'admin/data_formats',:action => 'list' )%>
-  <%= link_to "<b class='icon icon-parameter_role'>Parameter Role</b>",
-        url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
-  <%= link_to "<b class='icon icon-parameter_type'>Parameter Types</b>",
-        url_for(:controller=>'admin/parameter_types',:action => 'list' )%>
-  <%= link_to "<b class='icon icon-user'>Users</b>",
-        :controller=>'users', :action => 'index' %>
-  <%= link_to "<b class='icon icon-role'>Roles</b>",
-        :controller=>'roles', :action => 'list' %>
-  <%= link_to "<b class='icon icon-report'>System Reports</b>",
-        report_url( :action => 'internal') %>
-  <%= link_to "<b class='icon icon-uml'>Database Uml</b>",
-        help_url( :action => 'uml') %>
-</div>
+  <span class='menu'><b class="icon icon-data_system"><%=l(:label_administration)%></b></span>
+  <%= link_to l(:label_catalogue), catalogue_url( :action => 'list') %>
+  <%= link_to l(:label_data_sources), url_for(:controller=>'admin/data_systems',:action => 'list') %>
+  <%= link_to l(:label_data_formats), url_for(:controller=>'admin/data_formats',:action => 'list' )%>
+  <%= link_to l(:label_parameter_roles),  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
+  <%= link_to l(:label_parameter_types), url_for(:controller=>'admin/parameter_types',:action => 'list' )%>
+  <%= link_to l(:label_users),  :controller=>'users', :action => 'index' %>
+  <%= link_to l(:label_roles), :controller=>'roles', :action => 'list' %>
+  <%= link_to l(:label_system_reports), report_url( :action => 'internal') %>
+  <%= link_to l(:label_database_uml), help_url( :action => 'uml') %>
 
 </div>

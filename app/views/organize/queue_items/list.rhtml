@@ -1,26 +1,31 @@
 <h1>Listing queue_items</h1>
-
 <table>
-  <tr>
-  <% for column in QueueItem.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
-  </tr>
-  
-<% for queue_item in @queue_items %>
-  <tr>
-  <% for column in QueueItem.content_columns %>
-    <td><%=h queue_item.send(column.name) %></td>
-  <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => queue_item %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => queue_item %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => queue_item }, :confirm => 'Are you sure?', :method => :post %></td>
-  </tr>
-<% end %>
+    <tr>
+        <% for column in QueueItem.content_columns %>
+        <th>
+            <%= column.human_name %>
+        </th>
+        <% end %>
+    </tr>
+    <% for queue_item in @queue_items %>
+    <tr>
+        <% for column in QueueItem.content_columns %>
+        <td>
+            <%=h queue_item.send(column.name) %>
+        </td>
+        <% end %>
+        <td>
+            <%= link_to l(:label_show), :action => 'show', :id => queue_item %>
+        </td>
+        <td>
+            <%= link_to l(:label_edit), :action => 'edit', :id => queue_item %>
+        </td>
+        <td>
+            <%= link_to l(:label_delete), { :action => 'destroy', :id => queue_item }, :confirm => l(:text_are_you_sure), :method => :post %>
+        </td>
+    </tr>
+    <% end %>
 </table>
-
-<%= will_paginate  @queue_items%>    
-
-<br />
-
-<%= link_to 'New queue_item', :action => 'new' %>
+<%= will_paginate  @queue_items %>
+<br/>
+<%= link_to l(:label_new), :action => 'new' %>

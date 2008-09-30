@@ -1,27 +1,39 @@
-<h1>Listing Cross Tab</h1>
+<%= render :partial=>'projects/header' %>
+<h2 class="icon icon-crosstab"><%=l(:label_cross_tabs) %>
+</h2>
 <div class='panel'>
-
-<table class='report'>
-  <tr>
-        
-    <th>name</th> 
-    <th>project</th> 
-    <th>team</th> 
-        
-    <th>description</th> 
-       
-    <th>actions</th> 
-  </tr>
-  <% for cross_tab in @cross_tabs %>
-  <tr class="<%= cycle('odd', 'even') %>">
-    <td><%= link_to cross_tab.name,cross_tab_url(:action=>:show,:id=>cross_tab),:method => :get %> </td>
-    
-    <td><%=h cross_tab.project.name if cross_tab.project %></td>    
-    <td><%=h cross_tab.team.name if cross_tab.team %></td>    
-    <td><%=h cross_tab.description %></td>    
-    
-    <td><%= link_to 'edit',cross_tab_url(:action=>:edit, :id=>cross_tab) %> </td>
-  </tr>
-  <% end %>
-</table>
+  <table class='report'>
+    <tr>
+      <th>
+        <%=l(:label_name) %>
+      </th>
+      <th>
+        <%=l(:label_project) %>
+      </th>
+      <th>
+        <%=l(:label_description) %>
+      </th>
+      <th>
+        <%=l(:label_action) %>
+      </th>
+    </tr>
+    <% for cross_tab in @cross_tabs %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <%= link_to cross_tab.name,cross_tab_url(:action=>:show,:id=>cross_tab),:method => :get %>
+      </td>
+      <td>
+        <%=h cross_tab.project.name if cross_tab.project %>
+      </td>
+      <td>
+        <%=h cross_tab.description %>
+      </td>
+      <td>
+        <%= link_to l(:label_edit),cross_tab_url(:action=>:edit, :id=>cross_tab), :class=>'icon icon-edit' %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  
+  <hr /><%= link_to( l(:label_new), cross_tab_url(:action=>:new),:method => :get, :project => current_project, :class=>'icon icon-new') %>
 </div>

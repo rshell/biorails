@@ -6,10 +6,6 @@
       Parameters
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-xls'>Export</b>",
-      :controller =>'assay_parameters', :action => 'export', :id=>@assay %>
-    <%= link_to "<b class='icon icon-xls'>Import</b>",
-      :controller =>'assay_parameters', :action => 'import', :id=>@assay %>
-  </div>
+    <%= link_to l(:label_export), :controller =>'assay_parameters', :action => 'export', :id=>@assay %>
+    <%= link_to l(:label_import), :controller =>'assay_parameters', :action => 'import', :id=>@assay %>
 </div>

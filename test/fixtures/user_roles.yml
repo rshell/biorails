@@ -2,54 +2,12 @@
 00000000006_user_role: !ruby/object:UserRole 
   attributes: 
     name: manager
-    updated_at: 2007-06-11 12:27:59
-    cache: |
-      --- 
-      memberships: {}
+    updated_at: 2008-08-14 10:28:52
+    cache: |+
+      --- {}
       
-      user: 
-        "*": true
-      project_queues: {}
-      
-      auth: {}
-      
-      help: {}
-      
-      project_studies: {}
-      
-      catalogue: 
-        list: true
-        show: true
-      dba: {}
-      
-      project: {}
-      
-      audit: {}
-      
-      project_experiments: {}
-      
-      biorails: {}
-      
-      page: {}
-      
-      users: 
-        list: true
-        show: true
-      report: 
-        "*": true
-      home: 
-        "*": true
-      finder: {}
-      
-      charts: {}
-      
-      project_requests: {}
-      
-      inventory: 
-        "*": true
-
-    type: UserRole
     updated_by_user_id: "3"
+    type: UserRole
     id: "6"
     description: General Power user role with delete rights
     created_by_user_id: "3"
@@ -60,143 +18,12 @@
 00000000003_user_role: !ruby/object:UserRole 
   attributes: 
     name: Administrator
-    updated_at: 2007-06-11 12:47:32
-    cache: |
-      --- 
-      studies: {}
+    updated_at: 2008-08-14 10:28:52
+    cache: |+
+      --- {}
       
-      experiments: {}
-      
-      memberships: {}
-      
-      user: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      auth: {}
-      
-      help: {}
-      
-      catalogue: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      protocol: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      assay: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      dba: 
-        "*": true
-      project: {}
-      
-      assay_parameters: {}
-      
-      ~: 
-        ~: true
-      system: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      audit: {}
-      
-      cataloge: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      assay_queues: {}
-      
-      queue_items: {}
-      
-      tasks: {}
-      
-      biorails: {}
-      
-      experiment: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      page: {}
-      
-      requests: {}
-      
-      users: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      request: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      reports: 
-        "*": true
-      assay_protocols: {}
-      
-      home: 
-        calendar: true
-        blog: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
-        "*": true
-      report: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      finder: {}
-      
-      charts: {}
-      
-      project_requests: {}
-      
-      inventory: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-        "*": true
-
-    type: UserRole
     updated_by_user_id: "3"
+    type: UserRole
     id: "3"
     description: Systems Catalogue Administrator
     created_by_user_id: "1"
@@ -207,67 +34,12 @@
 00000000007_user_role: !ruby/object:UserRole 
   attributes: 
     name: User
-    updated_at: 2007-06-11 12:48:39
-    cache: |
-      --- 
-      studies: {}
+    updated_at: 2008-08-14 10:28:52
+    cache: |+
+      --- {}
       
-      memberships: {}
-      
-      experiments: {}
-      
-      auth: {}
-      
-      help: {}
-      
-      catalogue: 
-        list: true
-        show: true
-      dba: {}
-      
-      project: {}
-      
-      assay_parameters: {}
-      
-      audit: {}
-      
-      assay_queues: {}
-      
-      biorails: {}
-      
-      tasks: {}
-      
-      queue_items: {}
-      
-      page: {}
-      
-      requests: {}
-      
-      users: 
-        list: true
-        show: true
-      assay_protocols: {}
-      
-      reports: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      home: 
-        "*": true
-      finder: {}
-      
-      charts: {}
-      
-      project_requests: {}
-      
-      inventory: 
-        "*": true
-
-    type: UserRole
     updated_by_user_id: "3"
+    type: UserRole
     id: "7"
     description: "Standard User "
     created_by_user_id: "3"

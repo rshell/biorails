@@ -20,16 +20,16 @@
     
     <table class="report">
       <tr>
-        <th>Label</th>
-        <th>Item</th>
-        <th>Requested By</th>
-        <th>Assigned To</th>
-        <th>Status</th>
-        <th>Priority</th>    
-        <th>Accepted On</th>
-        <th>Wanted On</th>
-        <th>Complete On</th>
-        <th>Action</th>
+        <th><%=l(:label_label)%></th>
+        <th><%=l(:label_item)%></th>
+        <th><%=l(:label_requested_by)%></th>
+        <th><%=l(:label_assigned_to)%></th>
+        <th><%=l(:label_status)%></th>
+        <th><%=l(:label_preiority)%></th>
+        <th><%=l(:label_accepted)%></th>
+        <th><%=l(:label_required_by)%></th>
+        <th><%=l(:label_completed)%></th>
+        <th><%=l(:label_action)%></th>
       </tr>
     <% form_tag :action => 'filter' do %>
       <tr>

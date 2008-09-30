@@ -1,14 +1,27 @@
-##
+# == Description
+# This provides actions to view the audit trail for a even model
+#
+# == Copyright
+# 
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights 
-##
-
+# See license agreement for additional rights ##
+#
 class AuditController < ApplicationController
 
   use_authorization :audit,
                     :actions => [:show],
                     :rights => :current_user  
-
+#
+# This displays the audit trail for last 100 changes to a given record
+# Eg for changes to project 1 its :-
+# 
+#  /audit/show/1?auditable_type=Project
+#  
+#  @params
+# * params[:auditable_type] Class name
+# * params[:id] Id
+# 
+#
   def show
     @audits = Audit.find(:all,
       :conditions=>['auditable_type=? and auditable_id =?',params[:auditable_type],params[:id]],

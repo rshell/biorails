@@ -37,12 +37,14 @@
   background: #ffc7b6;
   padding: 10px;
   color: #510;
+  width: 100%;
 }
 
 .flash_notice, .flash_info {
   background: #cfc;
   padding: 10px;
   color: #051;
+  width:100%;
   }
 
 #errorExplanation ul, 

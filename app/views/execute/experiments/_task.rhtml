@@ -1,0 +1,20 @@
+<td>
+    <p class='icon icon-show'>
+        <%= link_to task.name, task_url( :action => 'show', :id => task.id) %>
+    </p>
+</td>
+<td>
+    <%= task.protocol_name %>
+</td>
+<td>
+    <%= assigned_user_combo(task) %>
+</td>
+<td>
+    <%= states_combo(task.folder,:task) %>
+</td>
+<td>
+    <%=short_date task.started_at %>
+</td>
+<td>
+    <%=short_date task.expected_at %>
+</td>

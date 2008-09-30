@@ -34,8 +34,7 @@
 <td><%=short_date queue_item.ended_at  %></td>
 <td>
   <p class='icon icon-del'>
-    <%= link_to "Delete",
-      :action => 'destroy', :id => queue_item %>
+    <%= link_to l(:label_delete), :action => 'destroy', :id => queue_item %>
   </p>
 </td>
 

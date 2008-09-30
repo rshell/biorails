@@ -1,22 +1,8 @@
 <div class=" x-panel-header x-accordion-hd"  >
   <span class="icon icon-data_system x-panel-header-text" >
-     Data Sources
+     <%=l(:label_data_sources)%>
      </span>
 </div>
 <div class="panel">
-<p>
-  Data sources define links to other systems containing data used in a lookup
-  lists.The Source <i>Data systems</i> linked into this instance of BioRails.
-  For each system a number of <i>data elements</i> can be defined.
-  These elements then provide a lookup-list of values
-  for display and use in data entry sheets. For example,
-  there could be a link to the internal compounds model and separate
-external enterprise level  compound registration systems.
-</p>
-<br />
-<h2>Connection types</h2>
-<ul style='list-style: disc inside; text-indent:0.5em;'>
-  <li>Oracle:  host is ignored and database = tnsname or //node/sid </li>
-  <li>Mysql:  host is dns name and database database schema name </li>
-</ul>
+<%=l(:help_data_systems)%>
 </div>

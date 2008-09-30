@@ -1,30 +1,40 @@
 # == Schema Information
-# Schema version: 306
-# 
+# Schema version: 359
+#
 # Table name: experiments
-# 
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :string(1024)  default(), not null
-#  category_id         :integer(11)
-#  status_id           :integer(11)   default(0), not null
-#  assay_id            :integer(11)   not null
-#  protocol_version_id :integer(11)
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  assay_protocol_id   :integer(11)   not null
-#  project_id          :integer(11)   not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
+#
+#  id                  :integer(4)      not null, primary key
+#  name                :string(128)     default(""), not null
+#  description         :string(1024)    default(""), not null
+#  category_id         :integer(4)
+#  status_id           :integer(4)      default(0), not null
+#  assay_id            :integer(4)
+#  protocol_version_id :integer(4)
+#  assay_protocol_id   :integer(4)
+#  project_id          :integer(4)      not null
+#  team_id             :integer(4)      not null
 #  started_at          :datetime
 #  ended_at            :datetime
 #  expected_at         :datetime
-#  team_id             :integer(11)   default(0), not null
-# 
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  created_by_user_id  :integer(4)      default(1), not null
+#  process_flow_id     :integer(4)
+#  project_element_id  :integer(4)
+#
 
-# ##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# == Description
+#
+# An experiment is the execution of an assay definition. 
+# There may be one or more experiments run within a study. Each experiment may be
+# executed in a set of steps or tasks defined in the assay. In BioRails, it is these tasks
+# that return structured data to the database. 
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 # 
 class Experiment < ActiveRecord::Base
@@ -47,11 +57,12 @@ class Experiment < ActiveRecord::Base
   # 
   # Owner project
   # 
-  acts_as_folder :project  
-  # 
-  # access control managed via team
-  # 
-  access_control_via  :team  
+  belongs_to :project  
+  belongs_to :team
+
+  acts_as_folder_linked :project, :under =>'experiments'
+
+ 
   # ## The experiment is a summary of the tasks
   # 
   acts_as_scheduled  :summary=>:tasks
@@ -66,6 +77,7 @@ class Experiment < ActiveRecord::Base
   validates_presence_of   :name
   validates_presence_of   :description
   validates_presence_of   :assay_id
+  validates_presence_of   :protocol_version_id
   validates_presence_of   :project_id
   #  validates_presence_of   :started_at
   #  validates_presence_of   :expected_at
@@ -108,9 +120,29 @@ class Experiment < ActiveRecord::Base
   # 
   # make sure project and team are set
   # 
-  def before_create 
+  before_create :set_default_project_and_team
+
+  def set_default_project_and_team    
     self.project ||= Project.current          
     self.team ||= Team.current
+  end
+
+  # 
+  # After create copy all the element from the process folder to the task folder
+  # 
+ after_create :after_create_move_template_element
+ 
+  def  after_create_move_template_element
+    after_create_generate_folder
+    link_to_process_folder  unless Biorails::Dba.importing?
+  end
+  # 
+  # add links to process folder to pick up defaults
+  # 
+  def link_to_process_folder
+    self.process.folder.elements.each do |element|
+      self.folder.add_reference(element.name,element) 
+    end
   end
   # 
   # Constructor uses current values for User,project and team in creation of a
@@ -119,9 +151,7 @@ class Experiment < ActiveRecord::Base
   # 
   def initialize(options = {})
     super(options)      
-    Identifier.fill_defaults(self)    
-    self.started_at  ||= Time.new
-    self.expected_at ||= Time.new + 7.day
+    Identifier.fill_defaults(self)
   end   
   
   # ## first task to start in the experiment
@@ -143,24 +173,7 @@ class Experiment < ActiveRecord::Base
       self.tasks.max{|i,j|i.started_at <=> j.started_at}
     end 
   end 
-  # ## start of first task
-  # 
-  def started_at
-    if tasks.size > 0 
-      return first_task.started_at
-    else
-      return self.attributes['started_at']
-    end
-  end
-  # ## end of last task
-  # 
-  def ended_at
-    if tasks.size >0 
-      return last_task.ended_at
-    else
-      return nil  
-    end  
-  end
+
   # ## Get the named experiment from the list attrached to the assay
   # 
   def task(name)
@@ -220,27 +233,21 @@ SQL
       flow  ||= self.process
       start ||= Time.now
       unless flow.multistep?
-        task = Task.new(:name => flow.name,  :protocol_version_id=>flow.id);
-        task.process = flow
-        task.protocol= flow.protocol 
-        task.project = Project.current
-        task.done_hours = 0
-        task.assigned_to_user_id = User.current.id
+        
+        task = add_task(:name => flow.name, :protocol_version_id=>flow.id);
+        task.description = flow.description
         task.expected_hours = flow.expected_hours
         task.started_at =  (start )
         task.expected_at = (start + flow.expected_hours.hours  )          
         self.tasks << task
         task.save!
-      else
+      else       
         for step in flow.steps
           if step.process.multistep? and step != self.process
             self.run(step.process,start) 
           else
-            task = Task.new(:name => step.name,  :protocol_version_id=>step.protocol_version_id);
-            task.process = step.process
-            task.protocol= step.flow.protocol 
-            task.project = Project.current
-            task.assigned_to_user_id = User.current.id
+            task = add_task(:name => step.name,  :protocol_version_id=>step.protocol_version_id);
+            task.description = step.description
             task.done_hours = 0
             task.expected_hours = step.expected_hours
             task.started_at =  (start + step.start_offset_hours.hours )
@@ -282,9 +289,11 @@ SQL
     task = Task.new(options)
     task.experiment = self
     task.process  ||= self.default_process
-    task.protocol ||= self.process.protocol
     task.project  ||= self.project
-    task.assigned_to_user_id = User.current.id if task.assigned_to_user_id.blank?
+    task.project = Project.current
+    task.done_hours = 0
+    task.description ||="A run of #{self.process.description}"
+    task.assigned_to_user_id = User.current.id
     logger.info "New Task[#{task.id}] is #{task.name}"
     return task
   end
@@ -473,4 +482,12 @@ SQL
     self.errors.add_to_base " file line [" + @line.to_s + "] import failed: " + ex.message
   end
 
+  def to_html_cached?
+    (respond_to?(:project_element) and respond_to?(:updated_at)  and project_element and 
+       (project_element.content and self.updated_at <= project_element.content.updated_at
+       ) and not 
+       (self.tasks.exists?(['updated_at > ?',project_element.content.updated_at])  
+       )
+    )
+  end   
 end

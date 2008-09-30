@@ -1,45 +1,61 @@
-<h3 class='icon icon-data_element'><%=@data_concept.name%> Implementations </h3>
+<h3 class='icon icon-data_element'><%=@data_concept.name %> <%=l(:label_implementations) %></h3>
 <p>
-  These are data-element lookup lists of values associated with a concept. 
-  These implementations are defined either internally, as lists and models, or linked to external databases.
-  To managed the external data via the 
-  <%= link_to('[Data Sources]',{:controller=>'data_systems', :action => 'list'})  %>
-  link on the side menu.
+    <%=l(:text_context_intro) %> <%= link_to(l(:label_data_sources),{:controller=>'data_systems', :action => 'list'}) %>
 </p>
- <table class="report" width='100%'>
-   <thead>
-     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Style</th>
-      <th>Data System</th>
-      <th>Protocols</th>
-      <th>Assays</th>
-      <th>Actions</th>
-     </tr>
-   </thead>
-
-   <tbody>
-    <% for row in @data_concept.elements %>
-    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-      <td> <%=link_to row.name ,:controller=>'data_elements',:action=>'show',:id=>row.id %></td>
-      <td> <%=row.description %> </td>
-      <td> <%=row.style %> </td>
-      <td> <%=row.name %> </td>
-      <td> <%=row.parameters.size %> </td>
-      <td> <%=row.assay_parameters.size %></td>
-      <td>
-        
-         <%= link_to_remote("<p class='icon icon-del'>Delete</p>",:url => { :action => 'remove_element' ,:id=> row.id},
-                               :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>
-
-      </td>
-    </tr>
-    <% end %>
-   </tbody>
-
- </table>
- <p class='icon icon-new'>
-   <%= link_to_remote('Add', :url => { :action => 'new_element' ,:id=> @data_concept.id }) %>
- </p>
-
+<table class="report" width='100%'>
+    <thead>
+        <tr>
+            <th>
+                <%=l(:label_name) %>
+            </th>
+            <th>
+                <%=l(:label_description) %>
+            </th>
+            <th>
+                <%=l(:label_style) %>
+            </th>
+            <th>
+                <%=l(:label_data_system) %>
+            </th>
+            <th>
+                <%=l(:label_methods) %>
+            </th>
+            <th>
+                <%=l(:label_assays) %>
+            </th>
+            <th>
+                <%=l(:label_actions) %>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for row in @data_concept.elements %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+            <td>
+                <%=link_to row.name ,:controller=>'data_elements',:action=>'show',:id=>row.id %>
+            </td>
+            <td>
+                <%=row.description %>
+            </td>
+            <td>
+                <%=row.style %>
+            </td>
+            <td>
+                <%=row.name %>
+            </td>
+            <td>
+                <%=row.parameters.size %>
+            </td>
+            <td>
+                <%=row.assay_parameters.size %>
+            </td>
+            <td>
+                <%= link_to_remote(l(:label_delete),:url => { :action => 'remove_element' ,:id=> row.id}, :confirm => l(:text_are_you_sure),:method => "post" ) if row.not_used %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<p class='icon icon-add'>
+    <%= link_to_remote(l(:label_add), :url => { :action => 'new_element' , :id=> @data_concept.id }) %>
+</p>

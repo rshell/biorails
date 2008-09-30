@@ -1,22 +1,36 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_types
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(255)   default(), not null
-#  description        :string(1024)  default(), not null
-#  value_class        :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  value_class        :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+# == Description
+#Data types are obviously, the types of data used within the system. There are
+#  * text 	text strings
+#  * numeric	numbers
+#  * date	Date on the calendar
+#  * time	Time on the clock
+#  * dictionary	Catalogue lookup
+#  * url	reference
+#  * file	Binary file
+#
+#New types can be added, however data types are so fundamental to the system that 
+# a coding project would be required in order to utilise a new one! 
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 # 
 
 class DataType < ActiveRecord::Base

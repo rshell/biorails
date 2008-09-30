@@ -1,26 +1,23 @@
+<div class='box'>
 <table class="report">
   <tr>
-    <th class='label' >Label  </th><td> <%= @process_flow.name %></td>
-    <th class='label'> Status </th>
+    <th class='label' ><%=l(:label_label)%></th><td> <%= @process_flow.name %></td>
+    <th class='label'> <%=l(:label_status)%> </th>
     <td> <%= @process_flow.status%> [
       <% if @process_flow.released? %> 
-        <%= link_to("Withdraw", workflow_url(:action =>'withdraw',:id => @process_flow)) %>
+        <%= link_to("Withdraw", process_flow_url(:action =>'withdraw',:id => @process_flow)) %>
       <%else%>
-        <%= link_to("Release", workflow_url(:action =>'release',:id => @process_flow)) %>
+        <%= link_to("Release", process_flow_url(:action =>'release',:id => @process_flow)) %>
       <% end%> 
       ]
     </td>
   </tr>
   
   <tr>
-    <th class='label'>Protocol </th> <td>   <%= @assay_protocol.name %>    </td>
-    <th class='label'>Catagory </th> <td>    <%= @assay_protocol.protocol_catagory %> </td>
+    <th class='label'><%=l(:label_recipe)%></th> <td>   <%= @assay_protocol.name %>    </td>
   </tr>
   <tr>
-    <th class='label'> Description</th> <td colspan='3'><%= @assay_protocol.description %> </td>
-  </tr>
-  <tr>
-    <th class='label'> Lit.Ref.</th> <td colspan='3'>  <%= @assay_protocol.literature_ref %>   </td>
+    <th class='label'> <%=l(:label_description)%></th> <td colspan='3'><%= @process_flow.description %> </td>
   </tr>
   <br/>
 </table>
@@ -30,23 +27,24 @@
 <table class="report">
   <thead>
     <tr>
-      <th><b class="icon icon-label">Label</b> </th>
-      <th><b class="icon icon-protocol-version">Version</b></th>
-      <th>Status</th>
-      <th><b class="icon icon-context">Summary</b></th>
-      <th><b class="icon icon-task">No. Usages</b></th>
-      <th><b class="icon icon-date">Date</b></th>
-      <th><b class="icon icon-user">User</b></th>
+      <th><%=l(:label_label)%></th>
+      <th><%=l(:label_version)%></th>
+      <th><%=l(:label_status)%></th>
+      <th><%=l(:label_summary)%></th>
+      <th><%=l(:label_no_usages)%></th>
+      <th><%=l(:label_date)%></th>
+      <th><%=l(:label_user)%></th>
     </tr>
   </thead>
   <tbody>
     <% for version in @assay_protocol.versions %>
       <tr class="<%= cycle('odd', 'even') %>">
-        <th><%= link_to( version.name ,:action=>'show',:id => version)%>
-            <%= " * " if  version == @process_flow %>
+        <th>
+            <%= link_to( version.name + "#{' * ' if  version == @process_flow}",:action=>'show',:id => version)%>
+            
           </th>
           <td>  <%=version.version %> </td>
-          <td>      <%=version.status%>     </td>
+          <td>  <%=version.status%>     </td>
           <td> <%=version.summary %> </td>
           <td> <%=version.usages.size %>   [  <%=version.usages[0].name if version.usages[0]%> ]     </td>
           <td> <%=short_date(version.updated_at) %>   </td>
@@ -57,7 +55,7 @@
   </table>
   <hr/>
   <p>
-    <%= link_to "<b class='icon icon-del'>Purge</b>",    workflow_url(:action =>'purge',:id => @process_flow) %>
-    <%= link_to "<b class='icon icon-add'>New version</b>", workflow_url(:action =>'copy',:id => @process_flow) %>
+    <%= link_to l(:label_purge),    process_flow_url(:action =>'purge',:id => @process_flow), :class=>'icon icon-del' %>
+    <%= link_to l(:label_new_version), process_flow_url(:action =>'copy',:id => @process_flow), :class=>'icon icon-add' %>
   </p>
-
+</div>

@@ -1,35 +1,36 @@
 # == Schema Information
-# Schema version: 306
-# 
+# Schema version: 359
+#
 # Table name: tasks
-# 
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :string(1024)  default(), not null
-#  experiment_id       :integer(11)   not null
-#  protocol_version_id :integer(11)   not null
-#  status_id           :integer(11)   default(0), not null
+#
+#  id                  :integer(4)      not null, primary key
+#  name                :string(128)     default(""), not null
+#  description         :string(1024)    default(""), not null
+#  team_id             :integer(4)      default(0), not null
+#  project_id          :integer(4)      not null
+#  assay_protocol_id   :integer(4)
+#  experiment_id       :integer(4)      not null
+#  protocol_version_id :integer(4)      not null
+#  assigned_to_user_id :integer(4)      default(1)
 #  is_milestone        :boolean(1)
-#  priority_id         :integer(11)
+#  status_id           :integer(4)      default(0), not null
+#  priority_id         :integer(4)
 #  started_at          :datetime
+#  expected_at         :datetime
 #  ended_at            :datetime
 #  expected_hours      :float
 #  done_hours          :float
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  assay_protocol_id   :integer(11)
-#  project_id          :integer(11)   not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
-#  assigned_to_user_id :integer(11)   default(1)
-#  expected_at         :datetime
-#  team_id             :integer(11)   default(0), not null
-# 
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime        not null
+#  created_by_user_id  :integer(4)      default(1), not null
+#  updated_at          :datetime        not null
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  parent_id           :integer(4)
+#  type                :string(255)     default("Task")
+#  project_element_id  :integer(4)
+#
 
-# 
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+# == Description
 # 
 # This is a Task recording data from running of a process instance.  The task
 # is the basic unit of work for data capture in a experiment/assay/project. All
@@ -37,6 +38,12 @@
 # 
 # Most of timeline and calender use tasks a the basic useds.
 # 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class Task < ActiveRecord::Base
   # 
   # Moved Priority and Status enumeriation code to /lib modules
@@ -45,13 +52,12 @@ class Task < ActiveRecord::Base
   # 
   # access control managed via team
   # 
-  access_control_via  :team 
-
-  belongs_to :project
+  acts_as_folder_linked :experiment
   # 
   # Owner project
   # 
-  acts_as_folder :experiment
+  belongs_to :project
+  belongs_to :team
   # 
   # is something that can be scheduled in a calendar
   # 
@@ -69,9 +75,7 @@ class Task < ActiveRecord::Base
     :default_field => [:name],           
     :single_index => true, 
     :store_class_name => true 
-  
-  
-  
+    
   attr_accessor :rows
   # 
   # Validation rules for the task
@@ -82,7 +86,6 @@ class Task < ActiveRecord::Base
   validates_presence_of :project_id
   validates_presence_of :experiment_id
   validates_presence_of :protocol_version_id
-  validates_presence_of :assay_protocol_id
   validates_presence_of :started_at
   validates_presence_of :expected_at  
   validates_presence_of :status_id
@@ -97,15 +100,13 @@ class Task < ActiveRecord::Base
   # ## Current process this task in running for data entry
   # 
   belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
- 
-  belongs_to :protocol, :class_name =>'AssayProtocol', :foreign_key=>'assay_protocol_id'
 
   has_many :queue_items, :class_name =>'QueueItem', :foreign_key=>'task_id'
    
   # ## In the Process sets of parameters are grouped into a context of usages
   # 
   has_many :contexts, :class_name =>'TaskContext', :dependent => :destroy, 
-    :order => 'row_no,task_contexts.id',:include => ['definition'] do
+    :order => 'task_contexts.row_no,task_contexts.id' do
     # 
     #  get records matching by row_no, label of ParameterContext
     # 
@@ -146,77 +147,62 @@ class Task < ActiveRecord::Base
   # for processing.
   # 
   # 
-  has_many :values, :class_name=>'TaskValue', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
-    def matching(object,options={})      
-      with_scope :find => options  do
+  has_many :values, :class_name=>'TaskValue' do
+    def ordered
+      find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
+    end
+    
+    def matching(object)      
         find(:all,
           :order =>'task_contexts.row_no,parameters.column_no',
+          :include => ['context','parameter'],
           :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
-      end  
     end
   end 
 
 
-  has_many :texts, :class_name=>'TaskText', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
-    def matching(object,options={})      
-      with_scope :find => options  do
+  has_many :texts, :class_name=>'TaskText' do
+
+    def ordered
+      find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
+    end
+
+    def matching(object)      
         find(:all,
           :order =>'task_contexts.row_no,parameters.column_no',
+          :include => ['context','parameter'],
           :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
-      end  
     end
   end 
 
 
-  has_many :references, :class_name=>'TaskReference', :order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'] do
-    def matching(object,options={})      
-      with_scope :find => options  do
+  has_many :references, :class_name=>'TaskReference' do
+
+    def ordered
+      find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
+    end
+    
+    def matching(object)      
         find(:all,
           :order =>'task_contexts.row_no,parameters.column_no',
+          :include => ['context','parameter'],
           :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
-      end  
     end
   end 
   # 
   # make sure project and team are set
   # 
-  def before_validation_on_create
-    self.project ||= Project.current          
-    self.team ||= Team.current
-    self.assigned_to  ||= User.current
-    self.protocol ||= self.process.protocol if self.process
-  end
-
+  before_validation :fill_record_details
   # 
   # After create copy all the element from the process folder to the task folder
   # 
-  def after_create
-    link_to_process_folder  unless Biorails::Dba.importing?
-  end
-  # 
-  # add links to process folder to pick up defaults
-  # 
-  def link_to_process_folder
-    self.process.folder.elements.each do |element|
-      self.folder.add_reference(element.name,element) 
-    end
-  end
+  after_create :link_to_process_folder
+
   # 
   # before update of the task make use the name is in sync of the folder
   # 
-  def before_update
-    ref = self.folder
-    if ref.name !=self.name
-      ref.name = self.name
-      ref.save!
-    end
-    # Set the Ended date id the task is finshed and delete the entry if not
-    if self.is_finished
-      self.ended_at = Time.now
-    else
-      self.ended_at = ''
-    end  
-  end
+  before_update :resync_with_folder_element_name
+  before_update :fill_records_ended_at_time
   # 
   # Constructor uses current values for User,project and team in creation of a
   # new Experimtn These can be overiden as parameters (:user_id=> ,:project_id
@@ -229,12 +215,20 @@ class Task < ActiveRecord::Base
     self.done_hours  ||= 0
     self.started_at  ||= Time.new
     self.expected_at ||= Time.new+1.day
-    if self.process
-      self.assay_protocol_id ||= self.process.assay_protocol_id 
-    elsif self.protocol   
-      self.protocol_version_id ||= self.protocol.current_process_id 
-    end
   end 
+  
+  #
+  # get the protocol via 
+  #
+  def protocol
+    self.process.protocol if self.process
+  end
+  #
+  # Set the process to best available from the protocol
+  #
+  def protocol=(value)
+    self.process= value.released ||  value.latest
+  end
   # ## Get summary stats to compare task with all runs in the process. This is
   # basically a set of TaskStatistics with added details on the linked values at
   # the process level.
@@ -296,6 +290,14 @@ SQL
   def flexible?
     return ( self.process and process.flexible? )
   end
+
+#
+# Path unique name for task
+#  
+ def path
+   "#{self.experiment.name}:#{self.name}"
+ end  
+  
   # 
   # make the task flexible generating a protocol with is only linked to this
   # single task so it can be edited
@@ -344,13 +346,10 @@ SQL
         context.parent = parent if parent
         context.row_no = self.contexts.count
         context.definition = parameter_context
-        self.contexts << context 
         if parent
           parent.add_child(context)
-        else
-          context.left_limit = (self.contexts.maximum(:right_limit)||0)+1
-          context.right_limit = context.left_limit + 1
         end
+        self.contexts << context 
         logger.info "created root context #{context.id}  #{context.row_no}  #{context.label}" 
         context.populate
         context.save!
@@ -477,7 +476,7 @@ SQL
       row_defaults[p.dom_id] = p.default_value 
     end
     # ## Setup default rows
-    selected_rows = self.contexts.matching(definition) 
+    selected_rows = self.contexts.select{|i|i.parameter_context_id == definition.id} 
     selected_rows.each do | context|
       data[context.label] ||= row_defaults.clone            
       data[context.label][:id] = context.id
@@ -509,6 +508,17 @@ SQL
     @rows = rows_indexed_by(:row_no)  
     return @rows   
   end
+
+  def to_html_cached?
+    (respond_to?(:project_element) and respond_to?(:updated_at)  and project_element and 
+       (project_element.content and self.updated_at <= project_element.content.updated_at
+       ) and not 
+       (self.values.exists?(['updated_at > ?',project_element.content.updated_at]) or 
+        self.texts.exists?(['updated_at > ?',project_element.content.updated_at])  or 
+        self.references.exists?(['updated_at > ?',project_element.content.updated_at]) 
+       )
+    )
+  end  
   # 
   # Build a in memory two way hash(rows/cols) of all the values in the task
   # 
@@ -516,45 +526,50 @@ SQL
     @rows ||= rows_indexed_by(:row_no)
     return @rows.keys.sort.collect{|key|@rows[key]}
   end
- 
-  # 
-  # Get a Row (TaskContext) my position in int
-  # 
-  def row(row_label)  
+  #
+  # Get rows matching the passed item
+  # String => label
+  # Fixnum => parameter_context_id
+  # ParameterContext => definition
+  #
+  def rows_for(item)
+    case item
+    when ParameterContext  
+        rows.select{|i|i.parameter_context_id == item.id} 
+     when String
+        rows.select{|i|i.label == item} 
+    when Fixnum
+        rows.select{|i|i.parameter_context_id == item} 
+    else
+      []
+    end      
+  end
+  
+  def grid
     @grid ||= self.grid_indexed_by(:label, :name) 
-    return @grid[row_label]
-  end 
-  # 
-  # Get a Cell position
-  # 
-  def cell(row_label,parameter_name)
-    @grid ||= self.grid_indexed_by(:label, :name) 
-    return @grid[row_label][parameter_name] if @grid[row_label]
   end
   # 
   # Generate grid based hash[context.label][parameter.name] for use in
   # processing of data entry
   # 
   def to_grid
-    row_defaults ={}
     @grid = {}  
     self.populate
-    # ## Setup default values for cells
-    process.parameters.each do |parameter|
-      row_defaults[parameter.name] = parameter.default_value 
-    end
-    # ## Setup default rows
-    self.contexts.each do | context|
-      @grid[context.label] ||= row_defaults.clone            
-    end
-    for item in self.items
-      if @grid[item.context.label]
-        @grid[item.context.label][item.parameter.name] = item.to_s        
-      end
-    end
-    return @grid
+    return grid
   end
  
+  # 
+  # Get a Row (TaskContext) my position in int
+  # 
+  def row(row_label)  
+    return grid[row_label]
+  end 
+  # 
+  # Get a Cell position
+  # 
+  def cell(row_label,parameter_name)
+    return grid[row_label][parameter_name] if grid[row_label]
+  end
 
   # 
   # Convert task to a simple matrix for easy analysis use column=0 row labels
@@ -594,9 +609,9 @@ SQL
   def items
     return @items if @items
     @items = Array.new
-    @items.concat(values)
-    @items.concat(texts)
-    @items.concat(references)
+    @items.concat(values.ordered)
+    @items.concat(texts.ordered)
+    @items.concat(references.ordered)
     # #@items = @items.sort{|a,b|a.context.row_no <=> b.context.row_no}
   end   
   # 
@@ -629,7 +644,6 @@ SQL
     task.name = self.name
     task.description = self.description
     task.process = self.process
-    task.protocol= self.protocol 
     task.project = self.project
     task.priority_id = self.priority_id
     task.assigned_to_user_id = self.assigned_to_user_id
@@ -685,7 +699,7 @@ SQL
         csv << ['url', self.experiment.id ,'/experiments/import_file/'+self.experiment.id.to_s] 
         csv << %w(start id name status experiment protocol assay version)
         csv << ['task',self.id, self.name,  self.status, 
-          self.experiment.name, self.protocol.name,
+          self.experiment.name, self.process.protocol.name,
           self.experiment.assay.name,  self.process.version]
       else 
         csv << ['url', '<experiment>' ,'/experiments/import_file/'+self.experiment.id.to_s] 
@@ -746,9 +760,8 @@ SQL
     process.parameters.each do |parameter|
       row_defaults[parameter.send(column_index)] = parameter.default_value 
     end
-    my_rows = self.rows
     # ## Setup default rows
-    my_rows.each do | context|
+    contexts.each do | context|
       data[context.send(row_index)] ||= row_defaults.clone            
     end
 
@@ -758,4 +771,43 @@ SQL
     end
     return data
   end
+  
+ protected
+      
+  def resync_with_folder_element_name  
+    ref = self.folder
+    if ref.name !=self.name
+      ref.name = self.name
+      ref.save!
+    end
+  end
+
+  def fill_records_ended_at_time
+    # Set the Ended date id the task is finshed and delete the entry if not
+    if self.is_finished
+      self.ended_at = Time.now
+    else
+      self.ended_at = ''
+    end  
+  end
+  
+  def fill_record_details  
+    self.project ||= Project.current          
+    self.team ||= Team.current
+    self.assigned_to  ||= User.current
+    if self.process
+      self.description = self.process.description  if self.description.blank?
+    end
+  end
+    
+  # 
+  # add links to process folder to pick up defaults
+  # 
+  def link_to_process_folder
+    unless Biorails::Dba.importing?
+      self.process.folder.elements.each do |element|
+        self.folder.add_reference(element.name,element) 
+      end
+    end
+  end 
 end

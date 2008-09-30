@@ -9,11 +9,12 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
   def setup
     @controller = Execute::ReportsController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 1
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @first = Report.find(2)
     @folder = ProjectFolder.find(:first)
+    @request.session[:current_element_id] = @folder.id
+    @request.session[:current_project_id] = @folder.project.id
+    @request.session[:current_user_id] =3
   end
 
   def test_setup
@@ -27,23 +28,21 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
   def test_index
     get :index
     assert_response :success
-    assert_template 'list'
+    assert_template 'show'
   end
 
   def test_list
     get :list
     assert_response :success
-    assert_template 'list'
-    assert_not_nil assigns(:system_report)
-    assert_not_nil assigns(:data)
+    assert_template 'show'
+    assert_not_nil assigns(:report)
   end
 
   def test_internal
     get :internal
     assert_response :success
-    assert_template 'list'
-    assert_not_nil assigns(:system_report)
-    assert_not_nil assigns(:data)
+    assert_template 'show'
+    assert_not_nil assigns(:report)
   end
 
   def test_show

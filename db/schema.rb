@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 338) do
+ActiveRecord::Schema.define(:version => 359) do
+
+  create_table "access_control_elements", :force => true do |t|
+    t.integer "access_control_list_id"
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.integer "role_id"
+  end
+
+  create_table "access_control_lists", :force => true do |t|
+    t.string  "content_hash"
+    t.integer "team_id"
+  end
 
   create_table "analysis_methods", :force => true do |t|
     t.string   "name",                :limit => 128,  :default => "", :null => false
@@ -70,6 +82,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.string  "display_unit"
     t.integer "created_by_user_id",                 :default => 1,  :null => false
     t.integer "updated_by_user_id",                 :default => 1,  :null => false
+    t.integer "project_element_id"
   end
 
   add_index "assay_parameters", ["assay_id"], :name => "study_parameters_idx1"
@@ -99,6 +112,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "updated_by_user_id",                    :default => 1,              :null => false
     t.integer  "created_by_user_id",                    :default => 1,              :null => false
     t.string   "type",                                  :default => "StudyProcess", :null => false
+    t.integer  "project_element_id"
   end
 
   add_index "assay_protocols", ["assay_id"], :name => "study_protocols_idx1"
@@ -125,6 +139,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "updated_by_user_id",                  :default => 1,        :null => false
     t.integer  "created_by_user_id",                  :default => 1,        :null => false
     t.integer  "assigned_to_user_id",                 :default => 1
+    t.integer  "project_element_id"
   end
 
   add_index "assay_queues", ["created_at"], :name => "study_queues_idx11"
@@ -171,6 +186,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.datetime "updated_at",                                         :null => false
     t.integer  "updated_by_user_id",                 :default => 1,  :null => false
     t.integer  "created_by_user_id",                 :default => 1,  :null => false
+    t.integer  "project_element_id"
   end
 
   add_index "assays", ["name"], :name => "studies_idx1"
@@ -337,7 +353,6 @@ ActiveRecord::Schema.define(:version => 338) do
 
   create_table "cross_tabs", :force => true do |t|
     t.integer  "project_id",                                      :null => false
-    t.integer  "team_id",                                         :null => false
     t.string   "name",               :limit => 64,                :null => false
     t.string   "description",                                     :null => false
     t.integer  "lock_version",                     :default => 0, :null => false
@@ -345,11 +360,11 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "created_by_user_id",               :default => 1, :null => false
     t.datetime "updated_at"
     t.integer  "updated_by_user_id",               :default => 1, :null => false
+    t.integer  "project_element_id"
   end
 
   add_index "cross_tabs", ["name"], :name => "cross_tabs_idx3", :unique => true
   add_index "cross_tabs", ["project_id"], :name => "cross_tabs_idx1"
-  add_index "cross_tabs", ["team_id"], :name => "cross_tabs_idx2"
 
   create_table "data_concepts", :force => true do |t|
     t.integer  "parent_id"
@@ -422,10 +437,33 @@ ActiveRecord::Schema.define(:version => 338) do
   add_index "data_formats", ["updated_at"], :name => "data_formats_idx8"
   add_index "data_formats", ["data_type_id"], :name => "data_formats_idx9"
 
+  create_table "data_import_definitions", :force => true do |t|
+    t.string  "name",                                           :null => false
+    t.string  "description",                                    :null => false
+    t.string  "default_folder_path",  :default => ".",          :null => false
+    t.string  "file_format",          :default => "--- :csv\n", :null => false
+    t.integer "file_header_count",    :default => 0,            :null => false
+    t.integer "data_header_count",    :default => 0,            :null => false
+    t.integer "data_header_name_row", :default => 0,            :null => false
+    t.integer "data_header_name_col", :default => 0,            :null => false
+    t.integer "data_areas_count",     :default => 0,            :null => false
+    t.boolean "data_areas_across",    :default => false,        :null => false
+    t.integer "data_start_col",       :default => 0,            :null => false
+    t.integer "data_col_count",       :default => 0,            :null => false
+    t.integer "data_row_count",       :default => 0,            :null => false
+    t.boolean "data_read_across",     :default => false,        :null => false
+    t.integer "file_footer_count",    :default => 0,            :null => false
+    t.integer "lock_version",         :default => 0,            :null => false
+    t.time    "created_at"
+    t.integer "created_by_user_id",   :default => 1,            :null => false
+    t.time    "updated_at"
+    t.integer "updated_by_user_id",   :default => 1,            :null => false
+  end
+
   create_table "data_relations", :force => true do |t|
-    t.integer "from_concept_id", :limit => 32, :null => false
-    t.integer "to_concept_id",   :limit => 32, :null => false
-    t.integer "role_concept_id", :limit => 32, :null => false
+    t.integer "from_concept_id", :null => false
+    t.integer "to_concept_id",   :null => false
+    t.integer "role_concept_id", :null => false
   end
 
   add_index "data_relations", ["from_concept_id"], :name => "data_relations_from_idx"
@@ -479,6 +517,17 @@ ActiveRecord::Schema.define(:version => 338) do
     t.binary "data"
   end
 
+  create_table "element_types", :force => true do |t|
+    t.string   "name",               :limit => 30, :default => "",      :null => false
+    t.string   "description",                      :default => "_show", :null => false
+    t.string   "class_name",                       :default => "0",     :null => false
+    t.integer  "publish_to_team_id",               :default => 1,       :null => false
+    t.datetime "created_at",                                            :null => false
+    t.integer  "created_by_user_id",               :default => 1,       :null => false
+    t.datetime "updated_at",                                            :null => false
+    t.integer  "updated_by_user_id",               :default => 1,       :null => false
+  end
+
   create_table "experiments", :force => true do |t|
     t.string   "name",                :limit => 128,  :default => "", :null => false
     t.string   "description",         :limit => 1024, :default => "", :null => false
@@ -498,6 +547,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "updated_by_user_id",                  :default => 1,  :null => false
     t.integer  "created_by_user_id",                  :default => 1,  :null => false
     t.integer  "process_flow_id"
+    t.integer  "project_element_id"
   end
 
   add_index "experiments", ["updated_at"], :name => "experiments_idx10"
@@ -564,7 +614,6 @@ ActiveRecord::Schema.define(:version => 338) do
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id",            :default => 0,     :null => false
-    t.integer  "role_id",            :default => 0,     :null => false
     t.boolean  "is_owner",           :default => false
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
@@ -574,25 +623,25 @@ ActiveRecord::Schema.define(:version => 338) do
   end
 
   add_index "memberships", ["user_id"], :name => "memberships_idx2"
-  add_index "memberships", ["role_id"], :name => "memberships_idx4"
   add_index "memberships", ["created_at"], :name => "memberships_idx6"
   add_index "memberships", ["updated_at"], :name => "memberships_idx7"
   add_index "memberships", ["updated_by_user_id"], :name => "memberships_idx8"
   add_index "memberships", ["created_by_user_id"], :name => "memberships_idx9"
 
   create_table "parameter_contexts", :force => true do |t|
-    t.integer  "protocol_version_id",                :null => false
+    t.integer  "protocol_version_id",                        :null => false
     t.integer  "parent_id"
     t.integer  "level_no",            :default => 0
     t.string   "label"
     t.integer  "default_count",       :default => 1
-    t.integer  "left_limit",          :default => 0, :null => false
-    t.integer  "right_limit",         :default => 0, :null => false
-    t.integer  "lock_version",        :default => 1, :null => false
+    t.integer  "left_limit",          :default => 0,         :null => false
+    t.integer  "right_limit",         :default => 0,         :null => false
+    t.integer  "lock_version",        :default => 1,         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "updated_by_user_id",  :default => 1, :null => false
-    t.integer  "created_by_user_id",  :default => 1, :null => false
+    t.integer  "updated_by_user_id",  :default => 1,         :null => false
+    t.integer  "created_by_user_id",  :default => 1,         :null => false
+    t.string   "output_style",        :default => "default", :null => false
   end
 
   add_index "parameter_contexts", ["protocol_version_id"], :name => "parameter_contexts_ide1"
@@ -758,11 +807,6 @@ ActiveRecord::Schema.define(:version => 338) do
   add_index "plates", ["name"], :name => "plates_idx2"
   add_index "plates", ["created_at"], :name => "plates_idx9"
 
-  create_table "plugin_schema_info", :id => false, :force => true do |t|
-    t.string  "plugin_name"
-    t.integer "version"
-  end
-
   create_table "process_step_links", :force => true do |t|
     t.integer "from_process_step_id"
     t.integer "to_process_step_id"
@@ -831,8 +875,6 @@ ActiveRecord::Schema.define(:version => 338) do
     t.text     "body"
     t.text     "body_html"
     t.string   "author_ip",          :limit => 100
-    t.integer  "comments_count",                    :default => 0
-    t.integer  "comment_age",                       :default => 0
     t.boolean  "published",                         :default => false
     t.string   "content_hash"
     t.datetime "lock_timeout"
@@ -845,6 +887,9 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "left_limit"
     t.integer  "right_limit"
     t.integer  "parent_id"
+    t.string   "content_type"
+    t.integer  "content_size"
+    t.integer  "db_file_id"
   end
 
   add_index "project_contents", ["lock_user_id"], :name => "project_contents_idx14"
@@ -871,14 +916,13 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "created_by_user_id",                   :default => 1,                :null => false
     t.integer  "asset_id"
     t.integer  "content_id"
-    t.string   "published_hash"
     t.integer  "project_elements_count",               :default => 0,                :null => false
     t.integer  "left_limit",                           :default => 1,                :null => false
     t.integer  "right_limit",                          :default => 2,                :null => false
-    t.integer  "team_id",                              :default => 0,                :null => false
-    t.integer  "published_version_no",                 :default => 0,                :null => false
-    t.integer  "version_no",                           :default => 0,                :null => false
-    t.integer  "previous_version",                     :default => 0,                :null => false
+    t.integer  "state_id"
+    t.integer  "element_type_id"
+    t.string   "title"
+    t.integer  "access_control_list_id"
   end
 
   add_index "project_elements", ["name", "parent_id"], :name => "parent_id", :unique => true
@@ -929,6 +973,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "created_by_user_id",                 :default => 1,  :null => false
     t.integer  "project_type_id",                    :default => 1
     t.integer  "parent_id"
+    t.integer  "project_element_id"
   end
 
   add_index "projects", ["created_at"], :name => "projects_idx10"
@@ -943,7 +988,7 @@ ActiveRecord::Schema.define(:version => 338) do
   create_table "protocol_versions", :force => true do |t|
     t.integer  "assay_protocol_id"
     t.string   "name",               :limit => 77
-    t.integer  "version",            :limit => 6,                                 :null => false
+    t.integer  "version",                                                         :null => false
     t.integer  "lock_version",                     :default => 0,                 :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -955,6 +1000,8 @@ ActiveRecord::Schema.define(:version => 338) do
     t.string   "type",                             :default => "ProcessInstance"
     t.float    "expected_hours",                   :default => 24.0,              :null => false
     t.string   "status",                           :default => "new"
+    t.integer  "project_element_id"
+    t.string   "description"
   end
 
   add_index "protocol_versions", ["name"], :name => "process_versions_idx1"
@@ -1055,6 +1102,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.boolean  "internal"
     t.integer  "project_id"
     t.string   "action"
+    t.integer  "project_element_id"
   end
 
   add_index "reports", ["updated_by_user_id"], :name => "reports_idx10"
@@ -1084,6 +1132,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "created_by_user_id",                   :default => 1,  :null => false
     t.integer  "requested_by_user_id",                 :default => 1
     t.integer  "assigned_to_user_id",                  :default => 1
+    t.integer  "project_element_id"
   end
 
   add_index "request_services", ["created_at"], :name => "request_services_idx10"
@@ -1104,7 +1153,6 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "list_id"
     t.integer  "data_element_id"
     t.integer  "project_id"
-    t.integer  "team_id",                              :default => 0,  :null => false
     t.integer  "status_id",                            :default => 0,  :null => false
     t.integer  "priority_id"
     t.datetime "started_at"
@@ -1116,6 +1164,7 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "created_by_user_id",                   :default => 0,  :null => false
     t.datetime "updated_at",                                           :null => false
     t.integer  "updated_by_user_id",                   :default => 0,  :null => false
+    t.integer  "project_element_id"
   end
 
   add_index "requests", ["status_id"], :name => "requests_idx10"
@@ -1186,9 +1235,10 @@ ActiveRecord::Schema.define(:version => 338) do
     t.integer  "time_source"
     t.string   "content_hash",       :limit => 2048
     t.datetime "created_at"
-    t.integer  "created_by_user_id", :limit => 38
+    t.integer  "created_by_user_id"
     t.datetime "updated_at"
-    t.integer  "updated_by_user_id", :limit => 38
+    t.integer  "updated_by_user_id"
+    t.integer  "file_version",                       :default => 0, :null => false
   end
 
   create_table "specimens", :force => true do |t|
@@ -1219,6 +1269,31 @@ ActiveRecord::Schema.define(:version => 338) do
   add_index "specimens", ["name"], :name => "specimens_idx2"
   add_index "specimens", ["updated_by_user_id"], :name => "specimens_idx20"
   add_index "specimens", ["created_by_user_id"], :name => "specimens_idx21"
+
+  create_table "state_changes", :force => true do |t|
+    t.integer  "old_state_id",                              :null => false
+    t.integer  "new_state_id",                              :null => false
+    t.string   "flow",               :default => "default"
+    t.integer  "lock_version",       :default => 0,         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "updated_by_user_id", :default => 1,         :null => false
+    t.integer  "created_by_user_id", :default => 1,         :null => false
+  end
+
+  create_table "states", :force => true do |t|
+    t.string   "name",                                      :null => false
+    t.string   "description",                               :null => false
+    t.boolean  "is_default",         :default => false
+    t.integer  "position",           :default => 0,         :null => false
+    t.integer  "level_no",           :default => 0,         :null => false
+    t.string   "scope",              :default => "default", :null => false
+    t.integer  "lock_version",       :default => 0,         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "updated_by_user_id", :default => 1,         :null => false
+    t.integer  "created_by_user_id", :default => 1,         :null => false
+  end
 
   create_table "system_settings", :force => true do |t|
     t.string   "name",               :limit => 30, :default => "",  :null => false
@@ -1350,27 +1425,30 @@ ActiveRecord::Schema.define(:version => 338) do
   add_index "task_values", ["created_at"], :name => "task_values_idx7"
 
   create_table "tasks", :force => true do |t|
-    t.string   "name",                :limit => 128,  :default => "", :null => false
-    t.string   "description",         :limit => 1024, :default => "", :null => false
-    t.integer  "team_id",                             :default => 0,  :null => false
-    t.integer  "project_id",                                          :null => false
+    t.string   "name",                :limit => 128,  :default => "",     :null => false
+    t.string   "description",         :limit => 1024, :default => "",     :null => false
+    t.integer  "team_id",                             :default => 0,      :null => false
+    t.integer  "project_id",                                              :null => false
     t.integer  "assay_protocol_id"
-    t.integer  "experiment_id",                                       :null => false
-    t.integer  "protocol_version_id",                                 :null => false
+    t.integer  "experiment_id",                                           :null => false
+    t.integer  "protocol_version_id",                                     :null => false
     t.integer  "assigned_to_user_id",                 :default => 1
     t.boolean  "is_milestone"
-    t.integer  "status_id",                           :default => 0,  :null => false
+    t.integer  "status_id",                           :default => 0,      :null => false
     t.integer  "priority_id"
     t.datetime "started_at"
     t.datetime "expected_at"
     t.datetime "ended_at"
     t.float    "expected_hours"
     t.float    "done_hours"
-    t.integer  "lock_version",                        :default => 0,  :null => false
-    t.datetime "created_at",                                          :null => false
-    t.integer  "created_by_user_id",                  :default => 1,  :null => false
-    t.datetime "updated_at",                                          :null => false
-    t.integer  "updated_by_user_id",                  :default => 1,  :null => false
+    t.integer  "lock_version",                        :default => 0,      :null => false
+    t.datetime "created_at",                                              :null => false
+    t.integer  "created_by_user_id",                  :default => 1,      :null => false
+    t.datetime "updated_at",                                              :null => false
+    t.integer  "updated_by_user_id",                  :default => 1,      :null => false
+    t.integer  "parent_id"
+    t.string   "type",                                :default => "Task"
+    t.integer  "project_element_id"
   end
 
   add_index "tasks", ["name"], :name => "tasks_idx1"

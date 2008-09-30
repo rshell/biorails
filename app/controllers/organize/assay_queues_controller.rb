@@ -1,12 +1,17 @@
-##
+# == Assay Queue Controller
+# This manages a creation and editing of a queue for accepting stuff to 
+# be processed. The AssayQueue is linked to specific data catalogue type 
+# which defines the type of sample accepted.
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
 #
 class Organize::AssayQueuesController < ApplicationController
-  use_authorization :assay_queues,
+
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
           
   before_filter :setup_assay , :only => [ :new, :create]
@@ -22,7 +27,7 @@ class Organize::AssayQueuesController < ApplicationController
   #
   def list
     if params[:id]
-      @assay = current( Assay, params[:id] )
+      @assay =  Assay.load(params[:id] )
       @assay_queues = AssayQueue.paginate  :conditions => ["assay_id=?",params[:id]], :order=>'name', :page => params[:page]
     else
       @assay_queues = AssayQueue.paginate :conditions => ["assay_id in (select id from assays where project_id = ?)",current_project.id], :order=>'name', :page => params[:page]
@@ -145,7 +150,7 @@ protected
   # Setup for a assay with check access
   #
   def setup_assay
-    @assay = current_user.assay(params[:id])    
+    @assay = Assay.load(params[:id])    
     @assay ||= current_project.assay(params[:id])      
     unless @assay
       return show_access_denied      
@@ -155,7 +160,7 @@ protected
   # Setup for a specific assay queue with check access
   #
   def setup_assay_queue
-    @assay_queue = current_user.assay_queue(params[:id])
+    @assay_queue = AssayQueue.load(params[:id])
     unless @assay_queue
       return show_access_denied      
     end

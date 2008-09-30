@@ -1,0 +1,28 @@
+<%dialog "Update Project"  do %>
+<div class='box'>
+    <% form_tag :action => 'update',:id=>@project do %>
+    <div class="row">
+        <!--[form:project]-->
+        <div class="form-element">
+            <label for="project_name" class='icon icon-name'>
+                Name 
+            </label>
+            <%= text_field 'project', 'name' , {:class=>"text-input"} %>
+        </div>
+        <%= hidden_field(:project, :project_type_id) %>
+    </div>
+    <div class="row">
+        <div class="form-element">
+            <label for="project_description" class='icon icon-description'>
+                <%=l(:label_description) %>
+            </label>
+            <%= text_area('project', 'description', {:rows=>5,:cols=>80}) %>
+        </div>
+    </div>
+    <div class="row">
+        <%= submit_tag l(:button_save) %>
+    </div>
+    <% end %>
+    <%= button_to l(:button_cancel), project_url(:action=>'show',:id=>@project) %>
+</div>
+<% end %>

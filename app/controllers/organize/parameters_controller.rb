@@ -1,13 +1,16 @@
-##
-# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights 
-##
-
+# ==Paramerer Controller
+# This manages the display of a parameter
+# 
+# == Copyright
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+#
+#
 class Organize::ParametersController < ApplicationController
   
-  use_authorization :assay_parameters,
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
                     
   def index
     list

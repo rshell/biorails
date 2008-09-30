@@ -1,0 +1,19 @@
+<div class="box">
+  <b>
+    <%=link_to l(:label_documents_awaiting_approval),signature_url( :action=>'list_waiting'), :class=>'icon icon-witness' %>
+  </b>
+  <dl>
+    <% for signature in @signatures_for_witness %>
+    <dt>
+      <a class='icon icon-document-delete'>
+        <%=link_to ProjectElement.find(signature.project_element_id).name, :controller=>'signatures', :action=>'abandon', :id=>signature.id %>
+      </a>
+    </dt>
+    <dd>
+      <%= ProjectElement.find(signature.project_element_id).project.name %>
+      <%= signature.signer.name %>
+      (<%= short_date(signature.created_at) %>)
+    </dd>
+    <% end %>
+  </dl>
+</div>

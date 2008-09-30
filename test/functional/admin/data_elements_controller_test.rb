@@ -5,14 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/admin/data_elements_controller"
 class Admin::DataElementsController; def rescue_action(e) raise e end; end
 
 class Admin::DataElementsControllerTest < Test::Unit::TestCase
-  # # fixtures :data_elements
-  # # fixtures :data_concepts
-  # # fixtures :data_systems
-  # # fixtures :data_formats
-  # # fixtures :users
-  # # fixtures :projects
-  # # fixtures :roles
-  # # fixtures :role_permissions
 
   def setup
     @controller = Admin::DataElementsController.new

@@ -1,6 +1,36 @@
+# == Schema Information
+# Schema version: 359
 #
-# Process Flow instances
+# Table name: protocol_versions
 #
+#  id                 :integer(4)      not null, primary key
+#  assay_protocol_id  :integer(4)
+#  name               :string(77)
+#  version            :integer(4)      not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#  how_to             :text
+#  report_id          :integer(4)
+#  analysis_method_id :integer(4)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  type               :string(255)     default("ProcessInstance")
+#  expected_hours     :float           default(24.0), not null
+#  status             :string(255)     default("new")
+#  project_element_id :integer(4)
+#  description        :string(255)
+#
+
+# == Description
+#
+# This is a implementation of a multiple simple procerss flow. Its is basically
+# a delta time offset ordered list of stesp to perform
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
 class ProcessFlow < ProtocolVersion
   @@log=Logger.new(STDOUT)

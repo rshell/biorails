@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/organize/process_flows_controller"
 class Organize::ProcessFlowsController; def rescue_action(e) raise e end; end
 
 class Organize::ProcessFlowsControllerTest < Test::Unit::TestCase
-  # fixtures :assay_protocols
 
   def setup
     @controller = Organize::ProcessFlowsController.new
@@ -53,16 +52,20 @@ class Organize::ProcessFlowsControllerTest < Test::Unit::TestCase
   end
 
   def test_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
+    User.current = User.find(9)
+    Project.current = Project.find(3)
+    @request.session[:current_project_id] =Project.current.id
+    @request.session[:current_user_id] = User.current.id
+    assert_nil Project.current.member(User.current)
+    assert_nil ProcessFlow.load(@item.id)
     get :show, :id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'access_denied'
   end
     
   def list_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
+    @request.session[:current_project_id] =2
+    @request.session[:current_user_id] = 9    
     get :list, :id => @assay.id
     assert_response :redirect
     assert_redirected_to :action => 'access_denied'

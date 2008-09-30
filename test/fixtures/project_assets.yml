@@ -1,28 +1,28 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: project_assets
 #
-#  id                 :integer(11)   not null, primary key
-#  project_id         :integer(11)   
-#  title              :string(255)   
-#  parent_id          :integer(11)   
-#  content_type       :string(255)   
-#  filename           :string(255)   
-#  thumbnail          :string(255)   
-#  size_bytes         :integer(11)   
-#  width              :integer(11)   
-#  height             :integer(11)   
-#  thumbnails_count   :integer(11)   default(0)
-#  published          :boolean(1)    
-#  content_hash       :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  caption            :string(2048)  
-#  db_file_id         :integer(11)   
+#  id                 :integer(4)      not null, primary key
+#  project_id         :integer(4)
+#  title              :string(255)
+#  parent_id          :integer(4)
+#  content_type       :string(255)
+#  filename           :string(255)
+#  thumbnail          :string(255)
+#  size_bytes         :integer(4)
+#  width              :integer(4)
+#  height             :integer(4)
+#  thumbnails_count   :integer(4)      default(0)
+#  published          :boolean(1)
+#  content_hash       :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  caption            :text
+#  db_file_id         :integer(4)
 #
 
 ---
@@ -40,10 +40,10 @@
     id: "30"
     right_limit: "1"
     created_by_user_id: "3"
-    published_hash:
     position: "2"
     parent_id: "1"
     asset_id: "2"
+    element_type_id: 2
     created_at: 2007-07-25 11:59:39
 6_project_asset: !ruby/object:ProjectAsset
   attributes: 
@@ -61,8 +61,8 @@
     reference_type:
     created_by_user_id: "3"
     reference_id:
-    published_hash:
     position: "0"
     parent_id: "1"
     asset_id: "1"
+    element_type_id: 2
     created_at: 2007-10-13 10:29:11

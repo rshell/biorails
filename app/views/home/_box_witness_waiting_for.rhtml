@@ -1,0 +1,40 @@
+<%#unless @signatures_for_witness.empty? %>
+<div class="box">
+    <h3 class="icon icon-sign"><%=link_to l(:label_documents_awaiting_approval),signature_url( :action=>'list_waiting') %>
+    </h3>
+    <table class="report">
+        <tr class='header'>
+            <th>
+                <%=l(:label_documents) %>
+            </th>
+            <th>
+                <%=l(:label_project) %>
+            </th>
+            <th>
+                <%=l(:label_date) %>
+            </th>
+            <th>
+                <%=l(:label_witness) %>
+            </th>
+        </tr>
+        <% for signature in @signatures_to_witness %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <b class='icon icon-document-delete'>
+                <%=link_to signature.project_element.name, :controller=>'signatures', :action=>'abandon', :id=>signature.id %>
+                </b>
+            </td>
+            <td>
+                <%= signature.project_element.path %>
+            </td>
+            <td>
+                <%= short_date(signature.created_at) %>
+            </td>
+            <td>
+                <%= signature.signer.name %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<%#end %>

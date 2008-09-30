@@ -1,35 +1,35 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_values
 #
-#  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   not null
-#  parameter_id       :integer(11)   not null
-#  data_value         :float         not null
-#  display_unit       :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  task_id            :integer(11)   not null
-#  storage_unit       :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  task_context_id    :integer(4)      not null
+#  parameter_id       :integer(4)      not null
+#  data_value         :float           not null
+#  display_unit       :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  task_id            :integer(4)      not null
+#  storage_unit       :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
 --- 
 00000000028_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:22
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "15"
     id: "28"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:22
     data_value: "0.1"
   attributes_cache: {}
@@ -37,15 +37,15 @@
 00000000021_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:08
+    updated_at: 2008-08-14 10:29:58
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "14"
     id: "21"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:08
     data_value: "200"
   attributes_cache: {}
@@ -53,15 +53,15 @@
 00000000017_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:51
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "16"
     id: "17"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:51
     data_value: "0.01"
   attributes_cache: {}
@@ -69,15 +69,15 @@
 00000000010_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:42:55
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "1"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "8"
     id: "10"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:42:55
     data_value: "17"
   attributes_cache: {}
@@ -85,15 +85,15 @@
 00000000009_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:42:53
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "1"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "7"
     id: "9"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:42:53
     data_value: "15"
   attributes_cache: {}
@@ -101,15 +101,15 @@
 00000000006_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:42:47
+    updated_at: 2008-08-14 10:29:57
     display_unit: mM
     task_id: "1"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "5"
     id: "6"
     parameter_id: "1"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:42:47
     data_value: "11"
   attributes_cache: {}
@@ -117,15 +117,15 @@
 00000000027_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:21
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "14"
     id: "27"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:21
     data_value: "0.2"
   attributes_cache: {}
@@ -133,15 +133,15 @@
 00000000020_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:06
+    updated_at: 2008-08-14 10:29:58
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "13"
     id: "20"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:06
     data_value: "500"
   attributes_cache: {}
@@ -149,15 +149,15 @@
 00000000016_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:50
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "15"
     id: "16"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:50
     data_value: "0.001"
   attributes_cache: {}
@@ -165,15 +165,15 @@
 00000000005_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:27:33
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "4"
     id: "5"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:27:33
     data_value: "3"
   attributes_cache: {}
@@ -181,15 +181,15 @@
 00000000015_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:48
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "14"
     id: "15"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:48
     data_value: "0.0001"
   attributes_cache: {}
@@ -197,15 +197,15 @@
 00000000004_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:27:32
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "3"
     id: "4"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:27:32
     data_value: "2"
   attributes_cache: {}
@@ -213,15 +213,15 @@
 00000000014_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:47
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "13"
     id: "14"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:47
     data_value: 1e-05
   attributes_cache: {}
@@ -229,15 +229,15 @@
 00000000003_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:27:30
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "2"
     id: "3"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:27:30
     data_value: "1"
   attributes_cache: {}
@@ -245,15 +245,15 @@
 00000000013_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:43
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "12"
     id: "13"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:43
     data_value: 1e-06
   attributes_cache: {}
@@ -261,15 +261,15 @@
 00000000002_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: m
-    updated_at: 2007-12-12 11:27:28
+    updated_at: 2008-08-14 10:29:57
     display_unit: in
     task_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "1"
     id: "2"
     parameter_id: "2"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:27:28
     data_value: "0.0254"
   attributes_cache: {}
@@ -277,15 +277,15 @@
 00000000001_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:27:24
+    updated_at: 2008-08-14 10:29:57
     display_unit: mM
     task_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "1"
     id: "1"
     parameter_id: "1"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:27:24
     data_value: "10"
   attributes_cache: {}
@@ -293,15 +293,15 @@
 00000000026_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:19
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "13"
     id: "26"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:19
     data_value: "0.5"
   attributes_cache: {}
@@ -309,15 +309,15 @@
 00000000025_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:14
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "12"
     id: "25"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:14
     data_value: "0.6"
   attributes_cache: {}
@@ -325,15 +325,15 @@
 00000000024_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:12
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "11"
     id: "24"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:12
     data_value: "0.8"
   attributes_cache: {}
@@ -341,15 +341,15 @@
 00000000019_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:05
+    updated_at: 2008-08-14 10:29:58
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "12"
     id: "19"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:05
     data_value: "600"
   attributes_cache: {}
@@ -357,15 +357,15 @@
 00000000008_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:42:51
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "1"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "6"
     id: "8"
     parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:42:51
     data_value: "13"
   attributes_cache: {}
@@ -373,15 +373,15 @@
 00000000029_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:28
+    updated_at: 2008-08-14 10:29:58
     display_unit: "%"
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "16"
     id: "29"
     parameter_id: "12"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:28
     data_value: "0.05"
   attributes_cache: {}
@@ -389,15 +389,15 @@
 00000000023_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:11
+    updated_at: 2008-08-14 10:29:58
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "16"
     id: "23"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:11
     data_value: "50"
   attributes_cache: {}
@@ -405,15 +405,15 @@
 00000000018_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:49:54
+    updated_at: 2008-08-14 10:29:57
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "11"
     id: "18"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:54
     data_value: "800"
   attributes_cache: {}
@@ -421,15 +421,15 @@
 00000000012_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:49:42
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "11"
     id: "12"
     parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:42
     data_value: 1e-07
   attributes_cache: {}
@@ -437,15 +437,15 @@
 00000000007_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: m
-    updated_at: 2007-12-12 11:42:48
+    updated_at: 2008-08-14 10:29:57
     display_unit: in
     task_id: "1"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "5"
     id: "7"
     parameter_id: "2"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:42:48
     data_value: "0.3048"
   attributes_cache: {}
@@ -453,15 +453,15 @@
 00000000022_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2007-12-12 11:50:09
+    updated_at: 2008-08-14 10:29:58
     display_unit: ""
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "15"
     id: "22"
     parameter_id: "11"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:50:09
     data_value: "100"
   attributes_cache: {}
@@ -469,15 +469,15 @@
 00000000011_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2007-12-12 11:50:41
+    updated_at: 2008-08-14 10:29:57
     display_unit: uM
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "1"
     task_context_id: "10"
     id: "11"
     parameter_id: "7"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     created_at: 2007-12-12 11:49:32
     data_value: 1e-05
   attributes_cache: {}

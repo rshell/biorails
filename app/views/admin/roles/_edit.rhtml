@@ -1,40 +1,40 @@
 <!--[form:role]-->
 <p>
-  <label for="role_name" class='icon icon-name'>
-    Name:
+  <label for="role_name">
+    <%=l(:label_name)%>:
   </label>
   <br/>
   <%= text_field 'role', 'name' %>
 </p>
 
 <p>
-  <label for="role_description" class='icon icon-description'>
-    Description:
+  <label for="role_description" >
+    <%=l(:label_description)%>:
   </label>
   <br/>
   <%= text_area 'role', 'description', :rows => 2 %>
 </p>
   <!--%= hidden_field :role,:lock_version  %-->
-
-
-<h1 class='icon icon-permission'> Permissions for <%= @role.name %></h1>
+<h1 class='icon icon-permission'> <%=l(:label_permissions)%>
+  <%= @role.name %>
+</h1>
 <table class="report">
   <thead>
     <tr>
-      <th>Subject</th>
-      <th colspan=10>Actions</th>
+      <th width='15%'><%=l(:label_subject)%></th>
+      <th colspan=10><%=l(:label_actions)%></th>
     </tr>
   </thead>
   <tbody>
     <% for subject in @role.class.subjects.keys.sort do %>
     <tr>
-      <% actions = Permission.possible_actions(subject) - ['*']  %>
+      <% actions = Role.possible_actions(subject)  %>
       <th><%=subject%></th>
         <% for action in actions  %>
           <th> <%=action%> </th>
         <% end -%>
     </tr>
-    <td>All  <%= check_box_tag "allowed[#{subject}][*]",true , @role.allow?(subject,'*') %></td>
+    <th></th>
     <% for action in actions %>
     <td>
       <%= check_box_tag "allowed[#{subject}][#{action}]",true , @role.allow?(subject,action)  %>

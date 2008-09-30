@@ -1,138 +1,144 @@
 --- 
 00000000012_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-67
-    updated_at: 2007-12-11 13:39:37
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "12"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:39:37
   attributes_cache: {}
 
 00000000008_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-63
-    updated_at: 2007-12-11 13:19:45
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "8"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:19:45
   attributes_cache: {}
 
 00000000013_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-68
-    updated_at: 2007-12-11 15:56:52
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "13"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 15:56:52
   attributes_cache: {}
 
 00000000014_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-69
-    updated_at: 2007-12-11 15:58:29
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "14"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 15:58:29
   attributes_cache: {}
 
 00000000010_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-65
-    updated_at: 2007-12-11 13:35:35
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "10"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:35:35
   attributes_cache: {}
 
 00000000003_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-59
-    updated_at: 2007-12-11 11:15:46
+    updated_at: 2008-08-14 10:29:34
     body_html: |-
       A dress (also frock, gown) is a garment consisting of a skirt with an attached bodice or with a matching bodice giving the effect of a one-piece garment.
       
@@ -144,78 +150,81 @@
     title: Definition of a dress
     left_limit: "1"
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "1"
-    type: 
     id: "3"
     right_limit: "4"
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 11:15:22
   attributes_cache: {}
 
 00000000026_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-80
-    updated_at: 2007-12-11 19:19:50
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "26"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 19:19:50
   attributes_cache: {}
 
 00000000011_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-66
-    updated_at: 2007-12-11 13:37:33
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "11"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:37:33
   attributes_cache: {}
 
 00000000004_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: rjs-362
-    updated_at: 2007-12-11 11:15:46
+    updated_at: 2008-08-14 10:29:34
     body_html: |-
       <p>A <b>dress</b> (also <b>frock</b>, <b>gown</b>) is a garment consisting of a skirt with an attached <a href="http://en.wikipedia.org/wiki/Bodice" title="Bodice">bodice</a> or with a matching bodice giving the effect of a one-piece garment.</p>
       <p>In <a href="http://en.wikipedia.org/wiki/Western_culture" title="Western culture">Western culture</a>, dresses are usually considered <a href="http://en.wikipedia.org/wiki/Woman" title="Woman">women's</a> clothing.</p>
@@ -225,512 +234,531 @@
     title: Definition of a dress
     left_limit: "2"
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "1"
-    type: 
     id: "4"
     right_limit: "3"
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: "3"
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 11:15:46
   attributes_cache: {}
 
 00000000027_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-81
-    updated_at: 2007-12-11 19:34:02
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "27"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 19:34:02
   attributes_cache: {}
 
 00000000023_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-77
-    updated_at: 2007-12-11 17:58:20
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "23"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 17:58:20
   attributes_cache: {}
 
 00000000005_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-60
-    updated_at: 2007-12-11 12:12:13
+    updated_at: 2008-08-14 10:29:34
     body_html: Here is an article in folder 1
     project_id: "2"
     body: 
     title: First article in folder 1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "5"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 12:12:13
   attributes_cache: {}
 
 00000000001_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-57
-    updated_at: 2007-12-08 11:13:54
+    updated_at: 2008-08-14 10:29:34
     body_html: This is the first Article in the system and was originally posted in the Global project
     project_id: "1"
     body: 
     title: First Article
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "1"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-08 11:13:54
   attributes_cache: {}
 
 00000000024_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-78
-    updated_at: 2007-12-11 18:23:50
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "24"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 18:23:50
   attributes_cache: {}
 
 00000000017_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Article1
-    updated_at: 2007-12-11 16:18:48
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Article1Title
     left_limit: "2"
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "1"
-    type: 
     id: "17"
     right_limit: "3"
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: "15"
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:18:48
   attributes_cache: {}
 
 00000000002_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-58
-    updated_at: 2007-12-10 21:03:14
+    updated_at: 2008-08-14 10:29:34
     body_html: This is the first article in the Experiment
     project_id: "2"
     body: 
     title: First Article
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "2"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-10 21:03:14
   attributes_cache: {}
 
 00000000025_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-79
-    updated_at: 2007-12-11 18:33:51
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "25"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 18:33:51
   attributes_cache: {}
 
 00000000018_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-72
-    updated_at: 2007-12-11 16:21:00
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "18"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:21:00
   attributes_cache: {}
 
 00000000019_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-73
-    updated_at: 2007-12-11 16:21:49
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "19"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:21:49
   attributes_cache: {}
 
 00000000015_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-70
-    updated_at: 2007-12-11 16:18:48
+    updated_at: 2008-08-14 10:29:34
     body_html: The title of the first article
     project_id: "2"
     body: 
     title: Article1Title
     left_limit: "1"
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "1"
-    type: 
     id: "15"
     right_limit: "4"
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:12:19
   attributes_cache: {}
 
 00000000020_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-74
-    updated_at: 2007-12-11 16:34:40
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "20"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:34:40
   attributes_cache: {}
 
 00000000016_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-71
-    updated_at: 2007-12-11 16:17:36
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "16"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:17:36
   attributes_cache: {}
 
 00000000009_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-64
-    updated_at: 2007-12-11 13:22:59
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "9"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:22:59
   attributes_cache: {}
 
 00000000028_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-82
-    updated_at: 2007-12-12 12:22:20
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "28"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-12 12:22:20
   attributes_cache: {}
 
 00000000021_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-75
-    updated_at: 2007-12-11 16:36:12
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "21"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:36:12
   attributes_cache: {}
 
 00000000006_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-61
-    updated_at: 2007-12-11 13:11:43
+    updated_at: 2008-08-14 10:29:34
     body_html: "&lt;p&gt;A &lt;b&gt;dress&lt;/b&gt; (also &lt;b&gt;frock&lt;/b&gt;, &lt;b&gt;gown&lt;/b&gt;) is a garment consisting of a skirt with an attached &lt;a href=&quot;http://en.wikipedia.org/wiki/Bodice&quot; title=&quot;Bodice&quot;&gt;bodice&lt;/a&gt; or with a matching bodice giving the effect of a one-piece garment.&lt;/p&gt;&#xd;&lt;p&gt;In &lt;a href=&quot;http://en.wikipedia.org/wiki/Western_culture&quot; title=&quot;Western culture&quot;&gt;Western culture&lt;/a&gt;, dresses are usually considered &lt;a href=&quot;http://en.wikipedia.org/wiki/Woman&quot; title=&quot;Woman&quot;&gt;women&apos;s&lt;/a&gt; clothing.&lt;/p&gt;&#xd;&lt;p&gt;The &lt;a href=&quot;http://en.wikipedia.org/wiki/Hemline&quot; title=&quot;Hemline&quot;&gt;hemline&lt;/a&gt; dresses can be as high as the upper &lt;a href=&quot;http://en.wikipedia.org/wiki/Thigh&quot; title=&quot;Thigh&quot;&gt;thigh&lt;/a&gt; or as low as the ground, depending on the whims of &lt;a href=&quot;http://en.wikipedia.org/wiki/Fashion&quot; title=&quot;Fashion&quot;&gt;fashion&lt;/a&gt; and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Modesty&quot; title=&quot;Modesty&quot;&gt;modesty&lt;/a&gt; or personal taste of the wearer.&lt;/p&gt;"
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "6"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:11:43
   attributes_cache: {}
 
 00000000022_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-76
-    updated_at: 2007-12-11 16:39:18
+    updated_at: 2008-08-14 10:29:34
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "22"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 16:39:18
   attributes_cache: {}
 
 00000000007_content: !ruby/object:Content 
   attributes: 
+    content_type: 
     name: Art-62
-    updated_at: 2007-12-11 13:15:18
+    updated_at: 2008-08-14 10:29:34
     body_html: "&lt;p&gt;A &lt;b&gt;dress&lt;/b&gt; (also &lt;b&gt;frock&lt;/b&gt;, &lt;b&gt;gown&lt;/b&gt;) is a garment consisting of a skirt with an attached &lt;a href=&quot;http://en.wikipedia.org/wiki/Bodice&quot; title=&quot;Bodice&quot;&gt;bodice&lt;/a&gt; or with a matching bodice giving the effect of a one-piece garment.&lt;/p&gt;&#xd;&lt;p&gt;In &lt;a href=&quot;http://en.wikipedia.org/wiki/Western_culture&quot; title=&quot;Western culture&quot;&gt;Western culture&lt;/a&gt;, dresses are usually considered &lt;a href=&quot;http://en.wikipedia.org/wiki/Woman&quot; title=&quot;Woman&quot;&gt;women&apos;s&lt;/a&gt; clothing.&lt;/p&gt;&#xd;&lt;p&gt;The &lt;a href=&quot;http://en.wikipedia.org/wiki/Hemline&quot; title=&quot;Hemline&quot;&gt;hemline&lt;/a&gt; dresses can be as high as the upper &lt;a href=&quot;http://en.wikipedia.org/wiki/Thigh&quot; title=&quot;Thigh&quot;&gt;thigh&lt;/a&gt; or as low as the ground, depending on the whims of &lt;a href=&quot;http://en.wikipedia.org/wiki/Fashion&quot; title=&quot;Fashion&quot;&gt;fashion&lt;/a&gt; and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Modesty&quot; title=&quot;Modesty&quot;&gt;modesty&lt;/a&gt; or personal taste of the wearer.&lt;/p&gt;"
     project_id: "2"
     body: 
     title: Content1
     left_limit: 
     published: "0"
+    type: 
     updated_by_user_id: "1"
     lock_version: "0"
-    type: 
     id: "7"
     right_limit: 
     lock_timeout: 
+    db_file_id: 
+    content_size: 
     created_by_user_id: "1"
-    comments_count: "0"
     parent_id: 
     lock_user_id: 
     content_hash: 
-    comment_age: "0"
     author_ip: 
     created_at: 2007-12-11 13:15:18
   attributes_cache: {}

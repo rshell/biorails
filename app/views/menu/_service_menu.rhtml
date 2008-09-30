@@ -5,17 +5,11 @@
         <%= request_service.name %>
       </b>
     </span>
-    <div class='boldnotbold'>
-      <%= link_to "<b class='icon icon-request'>Request</b>",
-          request_url(:action => 'show', :id => request_service.request) if request_service.request %>
-      <% unless request_service.new_record? %>
-        <%= link_to( "<b class='icon icon-show'>Show</b>",
-            service_url(:action => 'show', :id => request_service)) if current_project.allows?(:show,:assay_queues) %>
-        <%= link_to( "<b class='icon icon-result'>Results</b>",
-            service_url(:action => 'results', :id => request_service)) if current_project.allows?(:show,:assay_queues)%>
-        <%= link_to "<b class='icon icon-queue'>Queue</b>",
-            queue_url(:action => 'show', :id => request_service.queue) if current_project.allows?(:show,:assay_queues) %>
-      <%end %>
-    </div>
+    <%= link_to l(:label_request), request_url(:action => 'show', :id => request_service.request) if request_service.request %>
+    <% unless request_service.new_record? %>
+      <%= link_to( l(:label_show), service_url(:action => 'show', :id => request_service))  %>
+      <%= link_to( l(:label_results), service_url(:action => 'results', :id => request_service)) %>
+      <%= link_to l(:label_queue), queue_url(:action => 'show', :id => request_service.queue)  %>
+    <%end %>
   </div>
 <% end %>

@@ -10,7 +10,7 @@
     </th>
     <th colspan='5'>
       <b class='icon icon-protocol'>
-        Current (Protocol)
+        <%=l(:label_current)%> (<%=l(:label_process)%>)
       </b>
     </th>
   </tr>
@@ -26,8 +26,7 @@
 <%for row in @protocol_version.stats%>
    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
     <td>
-      <%=link_to(  "<b class='icon icon-"+row.role.name+"'></b>" + row.parameter.name,
-        :controller=>'parameters',:action=>'show',:id=>row.id ) if row %>
+      <a class="icon icon-<%=row.role.name%>" ><%=link_to(  row.parameter.name, :controller=>'parameters',:action=>'show',:id=>row.id) if row %></a>
     </td>
     <td> <%=row.parameter.style if row.parameter %>  </td>
     <td> <%=number_round row.num_values %>  </td>

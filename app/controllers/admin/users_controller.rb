@@ -4,15 +4,12 @@
 ##
 
 class Admin::UsersController < ApplicationController
-  
-
+ 
 ##
 #  
   use_authorization :users,
                     {:actions => [:list,:show,:new,:create,:edit,:update,:destroy],
                     :rights => :current_user }
-
-
 
  ##
  # List all the users on the systems. Currently not paginated 
@@ -41,6 +38,14 @@ class Admin::UsersController < ApplicationController
     @user.login = params[:login]
     @user.role_id= Biorails::Record::DEFAULT_USER_ROLE
   end
+ #
+ # List of possible username options from LDAP server
+ #
+   def choices
+    @value   = params[:query] || ""
+     render :text =>[].to_json
+  end  
+  
 
   ##
   # create a  user based on a set of hash of attibutes in param[:user]
@@ -49,7 +54,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.set_password( params[:user][:password]) unless  params[:user][:password].empty?  
     if @user.save
-    @user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID, :role_id=> params[:project][:role_id])
+    @user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID)
     flash[:notice] = "User created."
     redirect_to :action => 'index'
     else

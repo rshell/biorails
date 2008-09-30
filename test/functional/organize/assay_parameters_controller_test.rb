@@ -5,21 +5,22 @@ require "#{RAILS_ROOT}/app/controllers/organize/assay_parameters_controller"
 class Organize::AssayParametersController; def rescue_action(e) raise e end; end
 
 class Organize::AssayParametersControllerTest < Test::Unit::TestCase
-  # fixtures :assay_parameters
 
   def setup
     @controller = Organize::AssayParametersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    @project = Project.find(2)
-    @user = User.find(3)
-    @assay = @project.assays[0]
+    Project.current = @project = Project.find(2)
+    User.current = @user = User.find(3)
+    @assay = Assay.find(:first)
     @parameter_type1 = ParameterType.find(:first)
     @parameter_type_alias = ParameterTypeAlias.find(:first)
     @parameter_type2 = @parameter_type_alias.type
     @item = @assay.parameters[0]
-    @request.session[:current_project_id] = @project.id
-    @request.session[:current_user_id] = @user.id
+    @request.session[:current_element_id] =@assay.project_element_id
+    @request.session[:current_project_id] = @assay.project_id
+    @request.session[:current_user_id] = 3  
+    
   end
 
   def test_setup
@@ -137,7 +138,7 @@ class Organize::AssayParametersControllerTest < Test::Unit::TestCase
   def test_create_add_valid
     num_assay_parameters = AssayParameter.count
     post :create, :id=>@assay.id, :commit=>'Add', :assay_parameter=>{:name=>"Concentration_knd", :display_unit=>"", :default_value=>"", :data_format_id=>"4", :parameter_role_id=>"6", :parameter_type_id=>"24", :data_type_id=>"2", :description=>"Concentration of compounds etc"}
-    assert_redirected_to :action=>'list'
+    assert_redirected_to :action=>'new'
     assert flash[:notice]
     assert_equal num_assay_parameters+1, AssayParameter.count
   end

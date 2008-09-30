@@ -1,52 +1,64 @@
+<%= render :partial => 'admin/header' %>
 
-<h1 class="icon icon-settings">Edit System Settings</h1>
+    <h2 class="icon icon-settings"><%=l(:label_system_settings) %>
+    </h2>
+    <div class='panel'>
+        <table class='report'>
+            <tr>
+                <th>
+                    <%=l(:label_name) %>
+                </th>
+                <th>
+                    <%=l(:label_value) %>
+                </th>
+            </tr>
+            <tr class='odd'>
+                <td>
+                    <div class="tooltip">
+                        <%=l(:label_biorails_version) %>
+                        <span class="tip"><%=l(:tip_biorails_version) %>
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <%= Biorails::Version::STRING %>
+                </td>
+            </tr>
+            <tr class='even'>
+                <td>
+                    <div class="tooltip">
+                        <%=l(:label_schema_number) %>
+                        <span class="tip"><%=l(:tip_migration_number) %>
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <%= ActiveRecord::Migrator.current_version %>
+                </td>
+            </tr>
+            <% for system_setting in @system_settings %>
+            <tr class="<%= cycle('odd', 'even') %>">
+                <td>
+                    <div class="tooltip">
+                        <%= h(system_setting.name.humanize) %>
+                        <span class="tip"><%= h(system_setting.tip) %>
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <p id="<%= system_setting.name %>">
+                        <%= system_setting.value %>
+                    </p>
+                    <script type="text/javascript">
+                        new Ajax.InPlaceEditor('<%= system_setting.name %>', '/admin/system_settings/update/<%= system_setting.name %>', {
+                            callback: function(form, value){
+                                return '<%=system_setting.name%>=' + escape(value)
+                            }
+                        })
+                    </script>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
 
-<table class='report'>
-  <tr>
-    <th>Name</th>
-    <th>Value</th>
-  </tr>
-  <tr class='odd'>
-    <td>
-      <div class="tooltip">
-        BioRails Version
-        <span class="tip">
-           Release Version of Biorails
-        </span>
-      </div>
-    </td>
-    <td><%= Biorails::Version::STRING  %></td>
-  </tr>
-  <tr class='even'>
-    <td>
-      <div class="tooltip">
-        Schema Number
-        <span class="tip">
-           Migration number, best way of tracking a version
-        </span>
-      </div>
-    </td>
-    <td><%= ActiveRecord::Migrator.current_version %></td>
-  </tr>
-<% for system_setting in @system_settings %>
-  <tr class="<%= cycle('odd', 'even') %>">
-    <td>
-       <div class="tooltip">         
-    <%= h(system_setting.name.humanize) %>
-      <span class="tip">
-         <%= h(system_setting.tip) %>
-      </span>
-        </div>
-    </td>
-    <td><p id="<%= system_setting.name %>"><%= system_setting.value %></p>
-    <script type="text/javascript">
-     new Ajax.InPlaceEditor('<%= system_setting.name %>', '/admin/system_settings/update/<%= system_setting.name %>',{ callback: function(form, value) { return '<%=system_setting.name%>=' + escape(value) }})
-     
-    </script>
-    </td>
-  </tr>
-<% end %>
-
-</table>
-
-<br />

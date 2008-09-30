@@ -1,0 +1,89 @@
+<table class="report">
+  <thead>
+      <tr>
+          <th colspan=3>
+              <%=l(:label_service) %>
+          </th>
+          <th>
+              <%=l(:label_assigned_to) %>
+          </th>
+          <th colspan=3>
+              <%=l(:label_status) %>
+          </th>
+          <th rowspan=2>
+              <%=l(:label_actions) %>
+          </th>
+      </tr>
+      <tr>
+          <th>
+              <%=l(:label_name) %>
+          </th>
+          <th>
+              <%=l(:label_description) %>
+          </th>
+          <th>
+              <%=l(:label_assay) %>
+          </th>
+          <th>
+              <%=l(:label_to_user) %>
+          </th>
+          <th>
+              <%=l(:label_default_status) %>
+          </th>
+          <th>
+              <%=l(:stat_count) %>
+          </th>
+          <th>
+              <%=l(:label_usages) %>
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <% for assay_queue in @assay_queues %>
+      <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+              <a class='icon icon-queue'><%= link_to assay_queue.path, :action => 'show', :id => assay_queue %>
+              </a>
+          </td>
+          <td>
+              <%=h assay_queue.description %>
+          </td>
+          <td>
+              <%= link_to assay_queue.assay.name,assay_url( :action => 'show', :id => assay_queue.assay_id), :class=>'icon icon-assay' %>
+          </td>
+          <td>
+              <%=h assay_queue.assigned_to.name %>
+          </td>
+          <td>
+              <p class="icon icon-status_<%=h assay_queue.status %>">
+                  <%=h assay_queue.status %>
+              </p>
+          </td>
+          <td>
+              <%for row in assay_queue.status_counts %>
+              <p class='icon icon-status_<%=row.status%>'>
+                  <%= row.status %>
+                  [<%=row.num %>]
+              </p>
+              <br/>
+              <%end %>
+          </td>
+          <td>
+              <%for row in assay_queue.priority_counts %>
+              <p class='icon icon-priority_" + <%=row.priority%>'>
+                  <%=row.priority %>
+                  [<%=row.num %>]
+              </p>
+              <br/>
+              <%end %>
+          </td>
+          <td>
+              <span class='icon icon-edit'><%= link_to '&nbsp;&nbsp;&nbsp;&nbsp;', :action => 'edit', :id => assay_queue %>
+              </span>
+          </td>
+      </tr>
+      <% end %>
+      <tbody>
+      </table>
+      <%= link_to( l(:label_add), queue_url( :action => 'new', :id=>@assay  ), :class=>'icon icon-service-add') if @assay %>
+      <%= will_paginate @assay_queues %>

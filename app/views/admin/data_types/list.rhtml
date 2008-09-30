@@ -1,40 +1,45 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-<% content_for :right do%>
-  <%= render :partial => 'help'%>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
 <% end %>
-
 <% content_for :center do %>
-  <h1 class='icon icon-data_type'>Listing Data Types</h1>
-  <div class='panel'>
-    <table class="report">
-      <thead>
-        <tr>
-          <th><b class='icon icon-name'>Name</b></th>
-          <th><b class='icon icon-description'>Description</b></th>
-          <th><b class='icon icon-action'>Action</b></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for data_type in @data_types %>
-        <tr class="<%= cycle('odd', 'even') %>">
-          <td>
-            <p class='icon icon-data_type_<%=data_type.name%>'>
-              <%= link_to data_type.name, data_type_url( :action => 'show', :id => data_type) %>
-            </p>
-          </td>
-          <td><%=h data_type.description%></td>
-            <td>
-              <p class='icon icon-edit'>
-                <%= link_to "Edit",data_type_url( :action => 'edit', :id => data_type)%>
-              </p>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-<%end%>
-
+<%= render :partial => 'admin/header' %>
+<h2 class='icon icon-data_type'><%=l(:label_data_types) %>
+</h2>
+<div class="panel">
+  <table class="report">
+    <thead>
+      <tr>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <th>
+          <%=l(:label_description) %>
+        </th>
+        <th>
+          <%=l(:label_action) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for data_type in @data_types %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <p>
+            <%= link_to data_type.name, data_type_url( :action => 'show', :id => data_type), :class=>"icon icon-data_type_#{data_type.name}" %>
+          </p>
+        </td>
+        <td>
+          <%=h data_type.description %>
+        </td>
+        <td>
+          <%= link_to l(:label_edit),data_type_url( :action => 'edit', :id => data_type), :class=>'icon icon-edit' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr/><%= link_to l(:label_new) ,data_type_url(:action => 'new'), :class=>'icon icon-new' %>
+</div><%end %>

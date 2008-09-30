@@ -5,13 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/admin/users_controller"
 class Admin::UsersController; def rescue_action(e) raise e end; end
 
 class Admin::UsersControllerTest < Test::Unit::TestCase
-  # # fixtures :projects
-  # # fixtures :project_elements
-  # # fixtures :users
-  # # fixtures :roles
-  # # fixtures :role_permissions
-  # # fixtures :permissions
-  # # fixtures :projects
 
   def setup
     @controller = Admin::UsersController.new
@@ -40,13 +33,13 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
   end
 
   def test004_create
-    post :create, :user => {:name =>'poweruser',:password =>'test3', :login =>'poweruser', :role_id => 7},:project=>{:role_id=>1}
+    post :create, :user => {:name =>'poweruser',:password =>'test3', :login =>'poweruser', :role_id => 7}
     assert_response :redirect
     assert_ok(assigns(:user))
   end
   
   def test_create_invalid_user
-    @params = {:user => {:name =>nil,:password =>'test3', :role_id => 1},:project=>{:role_id=>4}}
+    @params = {:user => {:name =>nil,:password =>'test3', :role_id => 1}}
     post :create, @params, @session
     assert_not_nil assigns(:user)
     assert !assigns(:user).valid? 
@@ -80,4 +73,11 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
+
+  def test009_choices
+    get :choices,:query=>'r'
+    assert_response :success
+  end
+
+  
 end

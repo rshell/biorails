@@ -17,7 +17,7 @@
 	    	    <%= item.name%>
 	    	    <%end%>
 	    </span>
-            <%=link_to_remote <b class="icon icon-new">&nbsp;</b>,
+            <%=link_to_remote '<b class="icon icon-new">&nbsp;</b>',
 	        :url => folder_url(:action=>'add_element',
                 :id=>@project_folder,:element=>item.id )
 	     %>

@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/admin/parameter_types_controller"
 class Admin::ParameterTypesController; def rescue_action(e) raise e end; end
 
 class Admin::ParameterTypesControllerTest < Test::Unit::TestCase
-  # # fixtures :parameter_types
 
   NEW_PARAMETER_TYPE = {}	# e.g. {:name => 'Test ParameterType', :description => 'Dummy'}
   REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect

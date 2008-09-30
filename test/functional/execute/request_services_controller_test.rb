@@ -9,10 +9,12 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
   def setup
     @controller = Execute::RequestServicesController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 2
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @first = RequestService.find(:first)
+    @folder = ProjectFolder.find(:first)
+    @request.session[:current_element_id] =@folder.id
+    @request.session[:current_project_id] = @folder.project.id
+    @request.session[:current_user_id] =3
   end
 
   def test_setup

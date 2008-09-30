@@ -1,16 +1,26 @@
 
 <!--[form:role]-->
-<p><label for="role_name">Name</label><br/>
-<%= text_field 'role', 'name'  %></p>
-
-<p><label for="role_name">Type of Role </label><br/>
-<%= select_tag :role_type ,options_for_select([["System wide user rights ", "UserRole"], ["Project scope rights", "ProjectRole"]])  %></p>
-
-
-<p><label for="role_description">Description</label><br/>
-<%= text_area 'role', 'description', :rows => 3 %> </p>
-
-
+<p>
+    <label for="role_name">
+        <%=l(:label_name)%>
+    </label>
+    <br/>
+    <%= text_field 'role', 'name'  %>
+</p>
+<p>
+    <label for="role_name">
+        <%=l(:label_type)%>
+    </label>
+    <br/>
+    <%= select_tag :role_type ,options_for_select([["System wide user rights ", "UserRole"], ["Project scope rights", "ProjectRole"]])  %>
+</p>
+<p>
+    <label for="role_description">
+        <%=l(:label_description)%>
+    </label>
+    <br/>
+    <%= text_area 'role', 'description', :rows => 3 %> 
+</p>
 
 <!--[eoform:role]-->
 

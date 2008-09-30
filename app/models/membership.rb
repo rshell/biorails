@@ -1,20 +1,29 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: memberships
 #
-#  id                 :integer(11)   not null, primary key
-#  user_id            :integer(11)   default(0), not null
-#  role_id            :integer(11)   default(0), not null
-#  is_owner           :boolean(1)    
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  team_id            :integer(11)   default(0), not null
+#  id                 :integer(4)      not null, primary key
+#  user_id            :integer(4)      default(0), not null
+#  role_id            :integer(4)      default(0), not null
+#  is_owner           :boolean(1)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  team_id            :integer(4)      default(0), not null
 #
 
+# == Description
+# This represents a User's membership of a Team and assigns a Actice Role to govern acess control.
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class Membership < ActiveRecord::Base
+  attr_accessor :role_id  # historic field now removed, kept here so old fixtures can be reloaded as needed
 ##
 # This record has a full audit log created for changes 
 #   
@@ -23,17 +32,16 @@ class Membership < ActiveRecord::Base
   validates_uniqueness_of :user_id,:scope=>'team_id'
   validates_presence_of :user
   validates_presence_of :team
-  validates_presence_of :role
   
   belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
   belongs_to :team, :class_name=>'Team', :foreign_key =>'team_id'
-  belongs_to :role, :class_name=>'Role', :foreign_key =>'role_id' 
-##
-# Test if this role allows this action to this subject eg.
-# 
-#  allows?('assay','new')
- def allows?(subject,action)  
-   return (self.owner? or self.role.allow?(subject,action))
+
+  after_save :sync_owners
+  
+ def sync_owners
+    if owner? 
+       team.access_control_list.grant(user,ProjectRole.owner) 
+    end      
  end
  
  def owner?
@@ -47,6 +55,6 @@ class Membership < ActiveRecord::Base
  def owner
    self.is_owner.to_s  == self.connection.quoted_true
  end
-
+ 
  
 end

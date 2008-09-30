@@ -1,11 +1,11 @@
 <% unless @task.process.analysis_method %>
-  No Predefined Analysis method defined for this protocol
+  <%=l(:label_no_predifined_analysis)%></>
 <%else%>
   <% form_tag  task_url(:action => 'analysis', :id => @task.id,:run=>"yes") do %>
     <div class="row">
       <div class="form-element">
         <label for="analysis_class_name">
-          Analysis Method [<%=@analysis.name%>] <%=@analysis.description%>
+          <%=l(:label_analaysis_method)%> [<%=@analysis.name%>] <%=@analysis.description%>
         </label>
         <br />
       </div>
@@ -15,19 +15,19 @@
         <tr>
           <th>
             <b class='icon icon-name'>
-              Name
+              <%=l(:label_name)%>
             </b>
           </th>
           <th>
             <b class='icon icon-description'>
-              Type
+              <%=l(:label_type)%>
             </b>
           </th>
-          <th>Mode</th>
-          <th>Default</th>
+          <th><%=l(:label_mode)%></th>
+          <th><%=l(:label_default)%></th>
           <th>
             <b class='icon icon-parameter'>
-              Parameter
+              <%=l(:label_parameter)%>
             </b>
           </th>
         </tr>
@@ -59,7 +59,7 @@
       </table>
     </div>
     <div class='row'>
-      <%= submit_tag 'Run' %>
+      <%= submit_tag l(:label_run) %>
     </div>
   <% end %>
 

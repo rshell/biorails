@@ -1,35 +1,26 @@
-<div class='panel'>
-<table class="report">
-  <thead>
-    <tr>
-      <th colspan='<%=@assay.stages.size%>'>
-        <b class="icon icon-queue">
-          Queues [all/new/active/complete]
-        </b>
-      </th>
-    </tr>
-    <tr>
-    <% for stage in @assay.stages %>
-      <th>
-        <%=stage.name%>
-      </th>
-    <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% for stage in @assay.stages %>
-      <td valign='top'>
-        <% for queue in @assay.queues_in_stage(stage) %>
-          <%= link_to "<b class='icon icon-queue'>" + queue.name + "</b>" ,
-            queue_url( :action => 'show', :id=>queue) %>
-          <%= queue.status_summary %>
-          <br/>
-        <%end%>
-      </td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
+    <h3><%=l(:label_queues_and_status) %>
+    </h3>
+    <div class='box'>
+    <table class="report">
+        <thead>
+            <tr>
+                <th>
+                    <%= l(:label_queues) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+                <% for stage in @assay.stages %>
+                    <% for queue in @assay.queues_in_stage(stage) %>
+                      <tr><td>
+                        <%= link_to queue.name ,
+                        queue_url( :action => 'show', :id=>queue) %>
+                        <%= queue.status_summary %>
+                      </td></tr>
+                    <%end %>
+                <% end %>
+        </tbody>
+    </table>
+    <hr/>
+    <%= link_to( l(:label_queue_add),   queue_url(:action => 'new',  :id => @assay), :class=>'icon icon-queue-add') %>
 </div>
-<%= link_to( "<b class='icon icon-queue-add'>Add Queue</b>",   queue_url(:action => 'new',  :id => @assay)) if @assay.allows?(:edit)%>

@@ -1,22 +1,17 @@
 <div>
   <span class='menu'>
     <b class='icon icon-team'>
-      Teams
+      <%=l(:label_teams)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-list'>List</b>",     team_url(:action => 'list') %>  
+    <%= link_to l(:label_list), team_url(:action => 'list') %>
     <% if @team %>
-      <%= link_to  "<b class='icon icon-team'>Show</b>",  team_url( :action => 'show', :id => @team) if current_team.allows?(:show,:teams)%>
-      <%= link_to "<b class='icon icon-edit'>Edit</b>",   team_url( :action => 'edit', :id => @team) if current_team.allows?(:edit,:teams)%>
+      <%= link_to l(:label_show), team_url( :action => 'show', :id => @team)%>
+      <%= link_to l(:label_edit), team_url( :action => 'edit', :id => @team) %>
       <%  unless @team.in_use?  %>
-        <%= link_to( "<b class='icon icon-del'>Delete</b> [#{@team.name}]",
-            team_url({ :action => 'destroy', :id => @team }),
-            :confirm => 'Are you sure?',:method => "post") if current_team.allows?(:destroy,:teams) %>
+        <%= link_to( l(:label_delete)+"[#{@team.name}]", team_url({ :action => 'destroy', :id => @team }), :confirm => l(:text_are_you_sure),:method => "post")  %>
       <% end %>
     <% else %>  
-    <%= link_to( "<b class='icon icon-new'>New Team</b>",   team_url(:action => 'new')) if current_team.allows?(:new,:teams)%>
-    
+    <%= link_to( l(:label_new),   team_url(:action => 'new')) %>
     <% end %>
-  </div>
 </div>

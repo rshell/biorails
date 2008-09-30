@@ -74,7 +74,12 @@ class Admin::ParameterRolesControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'show', :id => @item.id
   end
 
-
+  def test_destroy
+    assert_not_nil ParameterRole.find(@item.id)
+    post :destroy, :id => @item.id
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+  end
 
   def test_edited_item_is_invalid_because_name_missing
      post :update, :id => @item.id, :parameter_role=>{:name=>nil}

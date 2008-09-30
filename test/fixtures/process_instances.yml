@@ -1,104 +1,106 @@
-# == Schema Information
-# Schema version: 306
-#
-# Table name: process_instances
-#
-#  id                 :integer(11)   not null, primary key
-#  assay_protocol_id  :integer(11)   
-#  name               :string(77)    
-#  version            :integer(6)    not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      
-#  updated_at         :datetime      
-#  how_to             :string(2048)  
-#  report_id          :integer(11)   
-#  analysis_id        :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 --- 
-00000000003_process_instance: !ruby/object:ProcessInstance 
-  attributes: 
-    name: Protocol3:1
-    analysis_method_id: "1"
-    updated_at: "11:03:26"
-    updated_by_user_id: "3"
-    lock_version: "1"
-    assay_protocol_id: "3"
-    id: "3"
-    report_id: 
-    status: "new"
-    version: "1"
-    created_by_user_id: "3"
-    how_to: 
-    created_at: "11:03:26"
-  attributes_cache: {}
-
-00000000002_process_instance: !ruby/object:ProcessInstance 
-  attributes: 
-    name: Protocol2:1
-    analysis_method_id: "1"
-    updated_at: "20:25:38"
-    updated_by_user_id: "3"
-    lock_version: "1"
-    assay_protocol_id: "2"
-    id: "2"
-    report_id: 
-    version: "1"
-    created_by_user_id: "3"
-    how_to: 
-    created_at: "20:25:37"
-  attributes_cache: {}
-
-00000000001_process_instance: !ruby/object:ProcessInstance 
-  attributes: 
-    name: Protocol1:1
-    analysis_method_id: "1"
-    updated_at: "11:12:10"
-    updated_by_user_id: "3"
-    lock_version: "1"
-    assay_protocol_id: "1"
-    id: "1"
-    report_id: 
-    status: "new"
-    version: "1"
-    created_by_user_id: "3"
-    how_to: 
-    created_at: "11:12:10"
-  attributes_cache: {}
-
 00000000005_process_instance: !ruby/object:ProcessInstance 
   attributes: 
-    name: Protocol1:2
+    status: released
     analysis_method_id: "1"
-    updated_at: "16:54:04"
-    updated_by_user_id: "3"
-    lock_version: "0"
-    assay_protocol_id: "1"
+    name: Protocol1:2
+    expected_hours: "24"
+    updated_at: 2008-08-14 10:29:50
+    type: ProcessInstance
+    updated_by_user_id: "1"
+    lock_version: "5"
     id: "5"
-    status: "released"
+    description: new protocol created for assay Assay1
     report_id: 
     version: "2"
-    created_by_user_id: "3"
+    project_element_id: "110"
+    created_by_user_id: "1"
     how_to: 
-    created_at: "16:54:04"
+    created_at: 2008-08-04 09:30:00
+    assay_protocol_id: "1"
   attributes_cache: {}
 
 00000000004_process_instance: !ruby/object:ProcessInstance 
   attributes: 
-    name: Protocol2:2
+    status: new
     analysis_method_id: "1"
-    updated_at: "17:58:15"
-    updated_by_user_id: "3"
-    lock_version: "0"
-    status: "new"
-    assay_protocol_id: "2"
+    name: Protocol2:2
+    expected_hours: "24"
+    updated_at: 2008-08-14 10:29:50
+    type: ProcessInstance
+    updated_by_user_id: "1"
+    lock_version: "5"
     id: "4"
+    description: new protocol created for assay Assay2
     report_id: 
     version: "2"
-    created_by_user_id: "3"
+    project_element_id: "109"
+    created_by_user_id: "1"
     how_to: 
-    created_at: "17:58:15"
+    created_at: 2008-08-04 09:29:59
+    assay_protocol_id: "2"
+  attributes_cache: {}
+
+00000000003_process_instance: !ruby/object:ProcessInstance 
+  attributes: 
+    status: new
+    analysis_method_id: "1"
+    name: Protocol3:1
+    expected_hours: "24"
+    updated_at: 2008-08-14 10:29:49
+    type: ProcessInstance
+    updated_by_user_id: "1"
+    lock_version: "6"
+    id: "3"
+    description: new protocol created for assay Assay2
+    report_id: 
+    version: "1"
+    project_element_id: "108"
+    created_by_user_id: "1"
+    how_to: 
+    created_at: 2008-08-04 09:29:58
+    assay_protocol_id: "3"
+  attributes_cache: {}
+
+00000000002_process_instance: !ruby/object:ProcessInstance 
+  attributes: 
+    status: new
+    analysis_method_id: "1"
+    name: Protocol2:1
+    expected_hours: "24"
+    updated_at: 2008-08-14 10:29:49
+    type: ProcessInstance
+    updated_by_user_id: "1"
+    lock_version: "6"
+    id: "2"
+    description: new protocol created for assay Assay2
+    report_id: 
+    version: "1"
+    project_element_id: "107"
+    created_by_user_id: "1"
+    how_to: 
+    created_at: 2008-08-04 09:29:58
+    assay_protocol_id: "2"
+  attributes_cache: {}
+
+00000000001_process_instance: !ruby/object:ProcessInstance 
+  attributes: 
+    status: new
+    analysis_method_id: "1"
+    name: Protocol1:1
+    expected_hours: "24"
+    updated_at: 2008-08-14 10:29:49
+    type: ProcessInstance
+    updated_by_user_id: "1"
+    lock_version: "6"
+    id: "1"
+    description: new protocol created for assay Assay1
+    report_id: 
+    version: "1"
+    project_element_id: "106"
+    created_by_user_id: "1"
+    how_to: 
+    created_at: 2008-08-04 09:29:57
+    assay_protocol_id: "1"
   attributes_cache: {}
 

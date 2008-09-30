@@ -1,33 +1,29 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: requests
 #
-#  id                   :integer(11)   not null, primary key
-#  name                 :string(128)   default(), not null
-#  description          :string(1024)  default(), not null
-#  expected_at          :datetime      
-#  lock_version         :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  list_id              :integer(11)   
-#  data_element_id      :integer(11)   
-#  status_id            :integer(11)   default(0), not null
-#  priority_id          :integer(11)   
-#  project_id           :integer(11)   
-#  updated_by_user_id   :integer(11)   default(0), not null
-#  created_by_user_id   :integer(11)   default(0), not null
-#  requested_by_user_id :integer(11)   default(0)
-#  started_at           :datetime      
-#  ended_at             :datetime      
-#  team_id              :integer(11)   default(0), not null
+#  id                   :integer(4)      not null, primary key
+#  name                 :string(128)     default(""), not null
+#  description          :string(1024)    default(""), not null
+#  list_id              :integer(4)
+#  data_element_id      :integer(4)
+#  project_id           :integer(4)
+#  status_id            :integer(4)      default(0), not null
+#  priority_id          :integer(4)
+#  started_at           :datetime
+#  ended_at             :datetime
+#  expected_at          :datetime
+#  lock_version         :integer(4)      default(0), not null
+#  requested_by_user_id :integer(4)      default(0)
+#  created_at           :datetime        not null
+#  created_by_user_id   :integer(4)      default(0), not null
+#  updated_at           :datetime        not null
+#  updated_by_user_id   :integer(4)      default(0), not null
+#  project_element_id   :integer(4)
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
-##
+# == Description
 # This is the high level go fore and submit a list of stuff to a list of services.
 # The request can be seen as a 3 level item as follows :-
 # 
@@ -38,10 +34,15 @@
 # At present a list of items in the request is not kept separate from the list of queued items
 # in services. This may be needed as a enhancement for resolution of multiple request to a 
 #  single action in a service. At present business rule of multiple request are manually handled is used instead.
+#
+# == Copyright
 # 
-# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 
 class Request < ActiveRecord::Base
+  attr_accessor :team_id  # historic field now removed, kept here so old fixtures can be reloaded as needed
 #
 # Basic rules for a Named Object
 #
@@ -88,9 +89,10 @@ class Request < ActiveRecord::Base
 #  
   belongs_to :project  
 #
-# access control managed via team
-# 
-  access_control_via  :team
+# access control managed via folder
+# Owner project
+#  
+ acts_as_folder_linked  :project, :under=>'requests'
 #
 # Requested at a user
 #

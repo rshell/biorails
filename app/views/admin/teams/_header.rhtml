@@ -1,0 +1,17 @@
+<div class="content_header admin">
+  <h1 class="icon icon-team-large" style='text-indent:0.5em;'>
+       <%=l(:label_team) %> [<%= @team.name %>]
+  </h1>
+  <br/>
+  <br/>
+  <b><%=l(:label_summary) %>:</b>  <%= @team.description %>
+  <br/>
+  <div class='actions_right'>
+    <%= link_to l(:label_list), team_url(:action => 'list'), :class=>'icon icon-list' %>
+    <%= link_to l(:label_edit), team_url( :action => 'edit', :id => @team), :class=>'icon icon-edit' %>
+    <% unless @team.in_use? %>
+    <%= link_to( l(:label_delete), team_url({ :action => 'destroy', :id => @team }), :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' ) %>
+    <% end %>
+  </div>
+  <br/>
+</div>

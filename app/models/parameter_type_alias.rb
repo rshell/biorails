@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: parameter_type_aliases
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  parameter_type_id  :integer(4)      not null
+#  parameter_role_id  :integer(4)
+#  data_format_id     :integer(4)
+#  data_element_id    :integer(4)
+#  display_unit       :string(255)     default("")
+#  status             :string(255)     default("new")
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+
+# == Description
 #
 # This is used to allow central IT departments better controll over the usage of parameter type in the system
 # The alias represents a template for the usage of parameter_type as a assay parameter. In the alias the 
@@ -5,6 +26,10 @@
 #
 # At the parameter type level the alias list can be declared as fixed, default or open.
 # 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
 class ParameterTypeAlias < ActiveRecord::Base
   acts_as_dictionary :name 

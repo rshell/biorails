@@ -1,27 +1,27 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_formats
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default(), not null
-#  default_value      :string(255)   
-#  format_regex       :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  data_type_id       :integer(11)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  format_sprintf     :string(255)   
+#  id                 :integer(4)      not null, primary key
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  default_value      :string(255)
+#  format_regex       :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  data_type_id       :integer(4)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  format_sprintf     :string(255)
 #
 
 --- 
 00000000003_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Line
-    updated_at: 0000-00-00 00:00:00
+    updated_at: 2008-08-14 10:29:25
     default_value: 
     updated_by_user_id: "1"
     data_type_id: "1"
@@ -31,15 +31,15 @@
     format_sprintf: 
     created_by_user_id: "1"
     format_regex: "[^\"\\r\\n]*"
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000004_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Decimal
-    updated_at: 2007-10-11 11:51:21
+    updated_at: 2008-08-14 10:29:25
     default_value: "0.0"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "9"
     id: "4"
@@ -53,7 +53,7 @@
 00000000001_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Text
-    updated_at: 2007-02-07 14:10:25
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
     updated_by_user_id: "1"
     data_type_id: "1"
@@ -63,15 +63,15 @@
     format_sprintf: 
     created_by_user_id: "1"
     format_regex: .
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000013_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Percentage
-    updated_at: 2007-06-06 20:26:16
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"
     id: "13"
@@ -81,13 +81,13 @@
     format_sprintf: "%d"
     created_by_user_id: "1"
     format_regex: "[-+]?[0-9]*\\.?[0-9]"
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:32
   attributes_cache: {}
 
 00000000002_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Alpha
-    updated_at: 0000-00-00 00:00:00
+    updated_at: 2008-08-14 10:29:25
     default_value: 
     updated_by_user_id: "1"
     data_type_id: "1"
@@ -97,21 +97,21 @@
     format_sprintf: 
     created_by_user_id: "1"
     format_regex: 
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000028_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Amount
-    updated_at: 2007-06-06 20:22:12
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
     id: "28"
     description: "Mols of stuff "
     format_sprintf: "%d"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     format_regex: ^[-+]?[0-9]*\.?[0-9] ?[(m,u,n,p)]mol$
     created_at: 2007-06-06 20:22:12
   attributes_cache: {}
@@ -119,15 +119,15 @@
 00000000025_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Name
-    updated_at: 2007-05-28 15:02:59
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "3"
     lock_version: "1"
     id: "25"
     description: Name without spaces
     format_sprintf: ""
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     format_regex: ^[A-Z,a-z,0-9]*$
     created_at: 2007-05-25 21:07:28
   attributes_cache: {}
@@ -135,15 +135,15 @@
 00000000026_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Quantiy
-    updated_at: 2007-06-06 20:15:15
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
     id: "26"
     description: Basic numeric value followed by a unit
     format_sprintf: "%d"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
     created_at: 2007-06-06 20:15:15
   attributes_cache: {}
@@ -151,9 +151,9 @@
 00000000008_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Integer
-    updated_at: 2007-06-12 16:33:51
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "4"
     id: "8"
@@ -161,21 +161,21 @@
     format_sprintf: "%d"
     created_by_user_id: "1"
     format_regex: ^[-+]?[0-9]*$
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000027_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Concentration
-    updated_at: 2007-06-08 11:24:56
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"
     id: "27"
     description: Concentration in molar units
     format_sprintf: "%d"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     format_regex: ^[-+]?[0-9]*\.?[0-9]* ?[m,u,u,p]?M?$
     created_at: 2007-06-06 20:20:26
   attributes_cache: {}
@@ -183,9 +183,9 @@
 00000000011_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Positive
-    updated_at: 2007-05-31 14:18:52
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"
     id: "11"
@@ -196,29 +196,29 @@
     format_sprintf: ""
     created_by_user_id: "1"
     format_regex: ^[0-9,.]*$
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000012_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Percent 5.2
-    updated_at: 2007-10-11 11:50:58
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "3"
     id: "12"
     description: "Description:  \tvalidates to 5 digits and 2 decimal places but not allowing zero"
     format_sprintf: "%5.2d"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     format_regex: (?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,2})?$
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:32
   attributes_cache: {}
 
 00000000007_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Scientific Notation
-    updated_at: 0000-00-00 00:00:00
+    updated_at: 2008-08-14 10:29:25
     default_value: 
     updated_by_user_id: "1"
     data_type_id: "2"
@@ -228,15 +228,15 @@
     format_sprintf: 
     created_by_user_id: "1"
     format_regex: "[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?"
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:31
   attributes_cache: {}
 
 00000000024_data_format: !ruby/object:DataFormat 
   attributes: 
     name: URL
-    updated_at: 2007-05-25 19:08:50
+    updated_at: 2008-08-14 10:29:25
     default_value: ""
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     data_type_id: "6"
     lock_version: "1"
     id: "24"
@@ -246,6 +246,6 @@
     format_sprintf: 
     created_by_user_id: "1"
     format_regex: (http://)[a..Z]*
-    created_at: 0000-00-00 00:00:00
+    created_at: 2008-08-04 09:29:32
   attributes_cache: {}
 

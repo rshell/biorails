@@ -1,0 +1,12 @@
+<div class='box'>
+  <strong><%= link_to( l(:label_experiments), experiment_url( :action => 'list'), :class=>'icon icon-experiment') %></strong>
+  <% for item in @project.latest(Experiment,5) %>
+    <dl>
+      <dt><%= link_to item.name, experiment_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>
+        </dt>
+    </dl>
+    <% end %>
+  <hr /><% unless current_project.linked_assays.size == 0 %>
+  <%= link_to( l(:label_experiment_add), experiment_url( :action => :new, :id => current_project.id), :class=>'icon icon-add') %>
+  <% end %>
+</div>

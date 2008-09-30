@@ -1,40 +1,51 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: parameters
 #
-#  id                   :integer(11)   not null, primary key
-#  protocol_version_id  :integer(11)   not null
-#  parameter_type_id    :integer(11)   not null
-#  parameter_role_id    :integer(11)   not null
-#  parameter_context_id :integer(11)   not null
-#  column_no            :integer(11)   
-#  sequence_num         :integer(11)   
-#  name                 :string(62)    default(), not null
-#  description          :string(1024)  
-#  display_unit         :string(20)    
-#  data_element_id      :integer(11)   
-#  qualifier_style      :string(1)     
-#  access_control_id    :integer(11)   default(0), not null
-#  lock_version         :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  mandatory            :string(255)   default(N)
-#  default_value        :string(255)   
-#  data_type_id         :integer(11)   not null
-#  data_format_id       :integer(11)   
-#  assay_parameter_id   :integer(11)   not null
-#  assay_queue_id       :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  left_limit           :integer(11)   default(0), not null
-#  right_limit          :integer(11)   default(0), not null
+#  id                   :integer(4)      not null, primary key
+#  protocol_version_id  :integer(4)      not null
+#  parameter_type_id    :integer(4)      not null
+#  parameter_role_id    :integer(4)      not null
+#  parameter_context_id :integer(4)      not null
+#  column_no            :integer(4)
+#  sequence_num         :integer(4)
+#  name                 :string(62)      default(""), not null
+#  description          :string(1024)
+#  display_unit         :string(20)
+#  data_element_id      :integer(4)
+#  qualifier_style      :string(1)
+#  access_control_id    :integer(4)      default(0), not null
+#  lock_version         :integer(4)      default(0), not null
+#  mandatory            :string(255)     default("N")
+#  default_value        :string(255)
+#  data_type_id         :integer(4)      not null
+#  data_format_id       :integer(4)
+#  assay_parameter_id   :integer(4)
+#  assay_queue_id       :integer(4)
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  updated_by_user_id   :integer(4)      default(1), not null
+#  created_by_user_id   :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
+# These are the inputs, outputs and settings of a process implementation.
+#
+# For example, a protocol has a number of parameters for:
+#
+#  * Setting Parameters
+#      o Operational settings - defining the operating conditions under which an experiment 
+#         would be run, eg temperature range, time of day, species.
+#      o Calculation settings - global calculation settings for operations such as 
+#        statistical fitting eg model or number of iterations for example 
+#  * Output Parameters
+#      o The results and result context against the experiment subject 
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
 class Parameter < ActiveRecord::Base
 
@@ -79,6 +90,17 @@ class Parameter < ActiveRecord::Base
  has_many :task_texts,      :dependent => :destroy
  has_many :analysis_settings, :dependent => :destroy
 
+ before_destroy :can_destroy_if_not_used_or_release
+   
+ def can_destroy_if_not_used_or_release
+   if (process and not process.flexible?)
+     logger.error  errors.add_to_base("Cannot deleted parameter #{name} as in use") 
+     return false
+   else
+     true
+   end
+ end 
+ 
  def path(scope)
      out = "#{name} "  
      if self.queue

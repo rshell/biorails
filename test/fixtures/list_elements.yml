@@ -1,130 +1,10 @@
 --- 
-00000000070_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: FolderTest
-    updated_at: 2007-06-13 12:28:31
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "4"
-    id: "70"
-    description: folders
-    content: "1,2,3,4"
-    data_concept_id: "51"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-06-13 12:28:31
-  attributes_cache: {}
-
-00000000080_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Catagory
-    updated_at: 2007-06-06 21:17:22
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "4"
-    id: "80"
-    description: Protocol Catagory
-    content: Screen,Dose,Profile,Tox
-    data_concept_id: "52"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-06-06 21:17:22
-  attributes_cache: {}
-
-00000000090_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Status
-    updated_at: 2007-06-06 21:15:56
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "3"
-    id: "90"
-    description: Protocol Status
-    content: New,Active,Finished
-    data_concept_id: "53"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-06-06 21:15:55
-  attributes_cache: {}
-
-00000000100_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Organ
-    updated_at: 2007-11-05 23:07:36
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "4"
-    id: "100"
-    description: Organ
-    content: liver, intestine, skin, lungs
-    data_concept_id: "47"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-11-05 23:07:35
-  attributes_cache: {}
-
-00000000110_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Species
-    updated_at: 2007-10-11 11:10:18
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "6"
-    id: "110"
-    description: Default species
-    content: Human, Rat, Mouse,  Dog, Cynomolgus, Rhesus
-    data_concept_id: "47"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-10-11 11:10:17
-  attributes_cache: {}
-
-00000000120_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: CompoundRole
-    updated_at: 2007-10-11 10:54:04
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "5"
-    id: "120"
-    description: Role any compound may take within an Experiment
-    content: Blank, Test, Positive, Negative, Standard
-    data_concept_id: "6"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-10-11 10:54:03
-  attributes_cache: {}
-
 00000000130_list_element: !ruby/object:ListElement 
   attributes: 
     name: Route
-    updated_at: 2007-06-13 12:30:28
+    updated_at: 2008-08-14 10:29:29
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: ListElement
     lock_version: "1"
     data_system_id: "1"
@@ -133,7 +13,7 @@
     description: Adding routes of admin
     content: iv,im,o
     data_concept_id: "56"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     parent_id: 
     style: list
     created_at: 2007-06-13 12:30:28
@@ -142,9 +22,9 @@
 00000000140_list_element: !ruby/object:ListElement 
   attributes: 
     name: weight
-    updated_at: 2007-06-06 14:47:18
+    updated_at: 2008-08-14 10:29:30
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: ListElement
     lock_version: "1"
     data_system_id: "1"
@@ -153,38 +33,18 @@
     description: Weight
     content: g,kg,mg,ug,ng,pg
     data_concept_id: "26"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     parent_id: 
     style: list
     created_at: 2007-06-06 14:47:17
   attributes_cache: {}
 
-00000000150_list_element: !ruby/object:ListElement 
-  attributes: 
-    name: Area
-    updated_at: 2007-06-06 20:42:43
-    access_control_id: 
-    updated_by_user_id: "3"
-    type: ListElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "4"
-    id: "150"
-    description: Research Areas
-    content: A,B,C,D
-    data_concept_id: "54"
-    created_by_user_id: "3"
-    parent_id: 
-    style: list
-    created_at: 2007-06-06 20:42:42
-  attributes_cache: {}
-
 00000000160_list_element: !ruby/object:ListElement 
   attributes: 
     name: Controls
-    updated_at: 2007-10-11 12:07:40
+    updated_at: 2008-08-14 10:29:30
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: ListElement
     lock_version: "1"
     data_system_id: "1"
@@ -193,18 +53,38 @@
     description: No Inhib, Blank etc
     content: NoInhibitor, Blank
     data_concept_id: "6"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     parent_id: 
     style: list
     created_at: 2007-10-11 12:07:40
   attributes_cache: {}
 
-0000000170_list_element: !ruby/object:ListElement 
+00000000120_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: CompoundRole
+    updated_at: 2008-08-14 10:29:29
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "5"
+    id: "120"
+    description: Role any compound may take within an Experiment
+    content: Blank, Test, Positive, Negative, Standard
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-11 10:54:03
+  attributes_cache: {}
+
+00000000170_list_element: !ruby/object:ListElement 
   attributes: 
     name: Strain
-    updated_at: 2007-10-13 15:00:26
+    updated_at: 2008-08-14 10:29:30
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: ListElement
     lock_version: "1"
     data_system_id: "1"
@@ -213,18 +93,98 @@
     description: Strains of species
     content: SpragueDawley, WistarHans
     data_concept_id: "47"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     parent_id: 
     style: list
     created_at: 2007-10-13 15:00:26
   attributes_cache: {}
 
+00000000150_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Area
+    updated_at: 2008-08-14 10:29:30
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "150"
+    description: Research Areas
+    content: A,B,C,D
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 20:42:42
+  attributes_cache: {}
+
+00000000080_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Catagory
+    updated_at: 2008-08-14 10:29:28
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "80"
+    description: Protocol Catagory
+    content: Screen,Dose,Profile,Tox
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:17:22
+  attributes_cache: {}
+
+00000000090_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Status
+    updated_at: 2008-08-14 10:29:28
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "90"
+    description: Protocol Status
+    content: New,Active,Finished
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:15:55
+  attributes_cache: {}
+
+00000000100_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Organ
+    updated_at: 2008-08-14 10:29:28
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "100"
+    description: Organ
+    content: liver, intestine, skin, lungs
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-11-05 23:07:35
+  attributes_cache: {}
+
 00000000180_list_element: !ruby/object:ListElement 
   attributes: 
     name: Molar
-    updated_at: 2007-06-06 14:45:45
+    updated_at: 2008-08-14 10:29:31
     access_control_id: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     type: ListElement
     lock_version: "1"
     data_system_id: "1"
@@ -233,9 +193,49 @@
     description: Molar Units
     content: M,mM,uM,pM,nM
     data_concept_id: "26"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     parent_id: 
     style: list
     created_at: 2007-06-06 14:45:45
+  attributes_cache: {}
+
+00000000110_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Species
+    updated_at: 2008-08-14 10:29:29
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "6"
+    id: "110"
+    description: Default species
+    content: Human, Rat, Mouse,  Dog, Cynomolgus, Rhesus
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-11 11:10:17
+  attributes_cache: {}
+
+00000000070_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: FolderTest
+    updated_at: 2008-08-14 10:29:27
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "70"
+    description: folders
+    content: "1,2,3,4"
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-13 12:28:31
   attributes_cache: {}
 

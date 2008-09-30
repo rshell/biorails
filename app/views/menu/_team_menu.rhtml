@@ -1,21 +1,14 @@
 <div>
   <span class='menu'>
     <b class="icon icon-team">
-      Teams
+      <%=l(:label_teams)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-list'>List</b>", :action => 'list' %>
-    <% if @team %>
-      <%= link_to( "<b class='icon icon-edit'>Edit [#{@team.name}]</b>",
-          :action => 'edit', :id => @team) if current_team.allows?(:edit,:teams) %>
-      <%= link_to( "<b class='icon icon-user-add'>Add to [#{@team.name}]</b>",
-          member_url(   :action => 'new', :id=>@team.id))  if current_team.allows?(:new,:teams) %>
-      <%  unless @team.in_use?  %>
-        <%= link_to( "<b class='icon icon-del'>Delete [#{@team.name}]</b>",
-          { :action => 'destroy', :id => @team },
-            :confirm => 'Are you sure?',:method => "post") if current_team.allows?(:destroy,:teams)  %>
-      <% end %>
+  <%= link_to l(:label_list), :action => 'list' %>
+  <% if @team %>
+    <%= link_to( "#{l(:label_edit)} [#{@team.name}]", :action => 'edit', :id => @team)  %>
+    <%  unless @team.in_use?  %>
+      <%= link_to( "#{l(:label_delete)} [#{@team.name}]", { :action => 'destroy', :id => @team },  :confirm => l(:text_are_you_sure),:method => "post")  %>
     <% end %>
-  </div>
+  <% end %>
 </div>

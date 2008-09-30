@@ -1,36 +1,44 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: queue_results
 #
-#  id                     :integer(11)   primary key
-#  row_no                 :integer(11)   
-#  column_no              :integer(11)   
-#  task_id                :integer(11)   
-#  queue_item_id          :integer(11)   
-#  request_service_id     :integer(11)   
-#  assay_queue_id         :integer(11)   
-#  requested_by_user_id   :integer(11)   
-#  assigned_to_user_id    :integer(11)   
-#  parameter_context_id   :integer(11)   
-#  task_context_id        :integer(11)   
-#  reference_parameter_id :integer(11)   
-#  data_element_id        :integer(11)   
-#  data_type              :string(255)   
-#  data_id                :integer(11)   
-#  subject                :string(255)   
-#  parameter_id           :integer(11)   
-#  protocol_version_id    :integer(11)   
-#  label                  :string(255)   
-#  row_label              :string(255)   
-#  parameter_name         :string(62)    
-#  data_value             :string(1000)  
-#  created_by_user_id     :integer(11)   
-#  created_at             :datetime      
-#  updated_by_user_id     :integer(11)   
-#  updated_at             :datetime      
+#  id                     :integer(4)      default(0), not null, primary key
+#  row_no                 :integer(4)      default(0), not null
+#  column_no              :integer(4)
+#  task_id                :integer(4)      default(0), not null
+#  queue_item_id          :integer(4)      default(0), not null
+#  request_service_id     :integer(4)
+#  assay_queue_id         :integer(4)
+#  requested_by_user_id   :integer(4)
+#  assigned_to_user_id    :integer(4)
+#  parameter_context_id   :integer(4)      default(0), not null
+#  task_context_id        :integer(4)      default(0), not null
+#  reference_parameter_id :integer(4)      default(0), not null
+#  data_element_id        :integer(4)
+#  data_type              :string(255)     default(""), not null
+#  data_id                :integer(4)      default(0), not null
+#  subject                :string(255)
+#  parameter_id           :integer(4)      default(0), not null
+#  protocol_version_id    :integer(4)      default(0), not null
+#  label                  :string(255)
+#  row_label              :string(255)
+#  parameter_name         :string(62)      default(""), not null
+#  data_value             :binary(21474836
+#  created_by_user_id     :integer(4)      default(0), not null
+#  created_at             :datetime        not null
+#  updated_by_user_id     :integer(4)      default(0), not null
+#  updated_at             :datetime        not null
 #
 
+# == Description
+# Base Class for external analysis
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class QueueResult < ActiveRecord::Base
 
  def initialize(*args)

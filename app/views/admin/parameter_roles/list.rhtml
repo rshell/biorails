@@ -1,50 +1,47 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-<h1 class="icon icon-parameter_role">Parameter Roles</h1>
-<p>
-  Roles for partitioning of parameter types by styles
-  of usage in a given context.
-</p>
-<table class="report">
-  <tr>
-    <th>
-      <b class='icon icon-parameter_role'>
-        Name
-      </b>
-    </th>
-    <th>
-      <b class='icon icon-description'>
-        Description
-      </b>
-    </th>
-      <th>
-        <b class='icon icon-action'>
-          Action
-        </b>
-      </th>
-  </tr>
-
-<% for parameter_role in @parameter_roles %>
-  <tr class="<%= cycle('odd', 'even') %>">
-      <td><p class='icon icon-<%=parameter_role.name%>'>
-      <%= link_to parameter_role.name, parameter_role_url( :action => 'show', :id => parameter_role) %>
-    </td>
-    <td><%=h parameter_role.description%></td>
-      <td><p class='icon icon-edit'>
-            <%= link_to "Edit",parameter_role_url( :action => 'edit', :id => parameter_role) %>
-          </p>
-      </td>
-  </tr>
-<% end %>
-<tr>
-<td colspan=2>
-</td>
-</tr>
-</table>
-<%= will_paginate @parameter_roles %>
+<%= render :partial => 'admin/header' %>
+<h2 class="icon icon-parameter_role"><%=l(:label_parameter_roles) %>
+</h2>
+<div class="panel">
+  <div class='box'>
+    <%=l(:text_parameter_role_intro) %>
+  </div>
+    <table class="report">
+      <tr>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <th>
+          <%=l(:label_description) %>
+        </th>
+        <th>
+          <%=l(:label_action) %>
+        </th>
+      </tr>
+      <% for parameter_role in @parameter_roles %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%= link_to parameter_role.name, parameter_role_url( :action => 'show', :id => parameter_role), :class=>"icon icon-#{parameter_role.name}" %>
+        </td>
+        <td>
+          <%=h parameter_role.description %>
+        </td>
+        <td>
+          <%= link_to l(:label_edit),parameter_role_url( :action => 'edit', :id => parameter_role), :class=>'icon icon-edit' %>
+        </td>
+      </tr>
+      <% end %>
+      <tr>
+        <td colspan=2>
+        </td>
+      </tr>
+    </table>
+    <%= will_paginate @parameter_roles %>
+  <hr/><%= link_to l(:label_new),  parameter_role_url(:action => 'new'), :class=>'icon icon-new' %>
+</div>
 
 <% content_for :right do -%>
 <%= render :partial=>'help' %>
-<%end%>
+<%end %>

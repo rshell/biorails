@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/organize/process_instances_controller"
 class Organize::ProcessInstancesController; def rescue_action(e) raise e end; end
 
 class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
-  # fixtures :assay_protocols
 
   def setup
     @controller = Organize::ProcessInstancesController.new
@@ -49,8 +48,12 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
   end
 
   def test_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
+    User.current = User.find(9)
+    Project.current = Project.find(3)
+    @request.session[:current_project_id] =Project.current.id
+    @request.session[:current_user_id] = User.current.id
+    assert_nil Project.current.member(User.current)
+    assert_nil ProcessInstance.load(@item.id) 
     get :show, :id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'access_denied'
@@ -195,20 +198,6 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action=>'show'
   end
-  
-  def test_update_makes_invalid_with_missing_name
-    post :update, :id => @assay.id, :assay_protocol => {:name=>''}
-    assert_response :success
-    assert_not_nil assigns(:assay_protocol)
-    assert_not_nil assigns(:protocol_version)
-    assert !assigns(:assay_protocol).valid? 
-    assert assigns(:assay_protocol).errors
-    assert assigns(:assay_protocol).errors[:name]
-    assert_empty_error_field('assay_protocol[name]')
-    assert_tag :tag=>'li', :content=>"Name can't be blank"
-  end
-  
- 
 
   def test_update_fixed_context
     assert !@item.flexible?

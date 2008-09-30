@@ -35,12 +35,16 @@ end
     system('gem install rubyzip ')
     system('gem install ruby-net-ldap ')
     system('gem install htmldoc ')
+    system('gem install mini_magick')
  #
  # Following build native libraries and can fail on some platforms
  #
     system('gem install ferret ')
     system('gem install mongrel ')
     system('gem install mongrel_cluster ')
+    system('gem install hpricot')
+    system('gem install mocha')
+
   end
   
   desc "Sync with subversion and restart server"
@@ -72,14 +76,16 @@ end
     system('mongrel_rails cluster::stop')  
   end
   
-  
-  desc "Check for gems"
-  task :check_gems => :environment do
-    
-  end
-
-  desc "Check for network"
+  desc 'Check that we can access the network'
   task :check_network => :environment do
+   unless Signature.time_source.equal? Signature::REMOTE_TIME_SERVER
+     p 'The server cannot access the internet.  The local clock will be used.  If you want to use a remote time server, the server must have internet access'
+ else
+   p 'The network is up'
+  end
+  end
+  
+  task :check_gems => :environment do
     
   end
   
@@ -124,6 +130,5 @@ end
       puts "#{emptytables.join(", ") } have no data in them yet"
     end 
   end 
-  
   task :check=>[:check_gems,:check_network, :check_models]
 end

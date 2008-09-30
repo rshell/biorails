@@ -1,7 +1,10 @@
-##
+# == Format Helper
+# This is used to provide simple formats for date,time and numbers.
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 module FormatHelper
  
  

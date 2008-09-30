@@ -1,0 +1,91 @@
+<div id='random-div-to-make-ie6-work'>
+</div>
+<div class="row">
+    <div class="form-element">
+        <label for="user_login">
+            <%=l(:label_name) %>
+        </label>
+        <%= f.text_field :login %>
+    </div>
+    <div class="form-element">
+        <label for="user_role" class='icon icon-role'>
+            <%=l(:label_access_level) %>
+        </label>
+        <%= select_named( :user, :role_id ,UserRole) %>
+    </div>
+    <%if @user.new_record? %>
+    <div class="form-element">
+        <label for="project_role" class='icon icon-role'>
+            <%=l(:label_root_team_role)%>
+        </label>
+        <%= select_named( :project, :role_id ,ProjectRole) %>
+    </div>
+    <% end %>
+</div>
+<div class="row">
+    <div class="form-element">
+        <%= f.check_box :is_disabled %>
+        <label>
+            <%=l(:label_user_disable) %>
+        </label>
+    </div>
+</div>
+<div class="row">
+    <div class="form-element">
+        <%= f.check_box :admin %>
+        <label>
+            <%=l(:label_user_system_liability) %>
+        </label>
+    </div>
+</div>
+<div class="row">
+    <%= submit_tag(l(:button_save)) %>
+</div>
+<script type="text/javascript">
+    Ext.onReady(function(){
+        Ext.QuickTips.init();
+        var store = new Ext.data.Store({
+            proxy: new Ext.data.HttpProxy({
+                url: '/admin/users/choices/',
+                method: 'get'
+            }),
+            reader: new Ext.data.JsonReader({
+                root: 'items',
+                totalProperty: 'total'
+            }, [{
+                name: 'id',
+                type: 'int'
+            }, {
+                name: 'name'
+            }])
+        });
+        user_combo = new Ext.form.ComboBox({
+            mode: 'remote',
+            store: store,
+            width: 200,
+            applyTo: 'user_login',
+            triggerAction: 'all',
+            forceSelection: true,
+            editable: true,
+            loadingText: 'Looking Up ...',
+            valueField: 'name',
+            displayField: 'name'
+        });
+        
+        access_combo = new Ext.form.ComboBox({
+            typeAhead: true,
+            triggerAction: 'all',
+            width: 200,
+            forceSelection: true,
+            transform: 'user_role_id'
+        });
+        
+        project_combo = new Ext.form.ComboBox({
+            typeAhead: true,
+            triggerAction: 'all',
+            width: 200,
+            forceSelection: true,
+            transform: 'project_role_id'
+        });
+    });
+</script>

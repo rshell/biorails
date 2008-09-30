@@ -37,11 +37,16 @@
       </tr>
   <%for i in (1..5)%>
       <tr>
-          <td class='cell' id='<%="cell_#{i}_1"%>'> <%=@assay_parameter.data_format.name%></td>
-          <td class='cell' id='<%="cell_#{i}_2"%>'>
-              <%=my_field_tag("test_#{i}_2","test_#{i}_2", @assay_parameter,{ :save=>"/assay_parameters/test_save/#{@assay_parameter.id}"} ) %>
+          <th width='20%' class='cell' id='<%="cell_#{i}_1"%>'> 
+              <%=@assay_parameter.data_format.name%>
+          </th>
+          <td width='40%' class='cell' id='<%="cell_#{i}_2"%>'>
+              <%=my_field_tag("test_#{i}","test_#{i}", @assay_parameter,
+                     { :save=>assay_parameter_url(:action=>:test_save,:id=>@assay_parameter.id)} ) %>
           </td>
-          <td class='cell' id='<%="cell_#{i}_3"%>'> <span>Unused</span></td>
+          <td width='40%' class='cell' id='<%="result_#{i}"%>'> 
+               <span>Unused</span>
+          </td>
       </tr>
   <%end%>
   </table>  

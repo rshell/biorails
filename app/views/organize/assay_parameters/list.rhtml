@@ -1,16 +1,28 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial =>'menu' %>
+    <%= render :partial =>'menu' %>
 <% end -%>
 
 <% content_for :messages do -%>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['assay' ]} %>
-<%end%>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['assay' ]} %>
+<%end %>
 
-<% content_for :center do%>
-  <%= render :partial =>'list' %>
-<%end%>
+<% content_for :center do %>
+   <%= render :partial=>'organize/assays/header' %>
+<div class='box'>
+   <h2 class='icon icon-parameter'><%=l(:label_parameters) %></h2>
+   <%= render :partial =>'list' %>
+  <hr />
+  <div class='actions_left'>
+    <span class='icon icon-add'><%= link_to l(:label_add), :controller =>'assay_parameters', :action => 'new', :id=>@assay %></span>
+  </div>
+  <div class='actions_right'>
+    <span class='icon icon-export'><%= link_to l(:label_export), :controller =>'assay_parameters', :action => 'export', :id=>@assay %></span>
+    <span class='icon icon-import'><%= link_to l(:label_import), :controller =>'assay_parameters', :action => 'import', :id=>@assay %></span>
+  </div>
+  <br/>
+  </div>
+<%end %>
 
-<% content_for :help do%>
-  <%= render :partial =>'help_list' %>
-<%end%>
-
+<% content_for :help do %>
+    <%= render :partial =>'help_list' %>
+<%end %>

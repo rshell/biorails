@@ -13,6 +13,9 @@ class AssayTest < Test::Unit::TestCase
   def setup
     # Retrieve ## Biorails::Dba.import_model via their name
     @first = Assay.find(1)
+    User.current = User.find(3)
+    Project.current = Project.find(2)
+    ProjectFolder.current = @first.project_element
   end
   
   def test_should_find_protocol_by_name 
@@ -58,7 +61,7 @@ class AssayTest < Test::Unit::TestCase
   def test001_raw_validation
     assay = Assay.new
      # If Assay has validation, then use the following:
-    assert !assay.valid?, "Assay should not be valid without initialisation parameters"
+    assert assay.valid?, "Assay should be valid without initialisation parameters"
   end
 
   def test002_new
@@ -318,6 +321,49 @@ class AssayTest < Test::Unit::TestCase
     warnings = new_assay.import_parameters(file)
     assert_equal 4,new_assay.parameters.size
     assert_equal 0, warnings.size
+  end
+
+
+  def test_class_load
+     x = Assay.load(@first.id)
+     assert_equal @first,x
+  end
+
+  def test_class_list_all
+     assert list = Assay.list(:all)
+     assert list.size>0
+  end
+  
+  def test_class_list_id
+     assert x = Assay.list(@first.id)
+     assert_equal @first,x
+  end
+
+  def test_class_find_visible
+     assert list = Assay.find_visible(:all)
+     assert list.size>0
+  end
+
+  def test_instance_folder
+     assert folder = @first.folder
+     assert folder.is_a?(ProjectFolder)
+     assert_equal @first.name, folder.name
+  end
+
+  def test_instance_owner
+     assert folder = @first.folder
+     assert folder.is_a?(ProjectFolder)
+     assert_equal @first.name, folder.name
+  end
+
+  def test_instance_changable?
+     assert Assay.new.changable?
+     assert @first.changable?
+  end
+
+  def test_instance_visible?
+     assert Assay.new.visible?
+     assert @first.visible?
   end
 
 end

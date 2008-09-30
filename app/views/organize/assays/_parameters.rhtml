@@ -1,47 +1,41 @@
-<div class='panel'>
+<div class='box'>
     <table class="report">
-      <tr>
-        <th>
-          <b class='icon icon-name'>
-            Alias
-          </b>
-        </th>
-        <th>
-          <b class='icon icon-description'>
-            Description
-          </b>
-        </th>
-        <th>
-          <b class='icon icon-parameter-type'>
-            Global Type
-          </b>
-        </th>
-        <th>
-          <b class='icon icon-parameter-type'>
-            Data Type
-          </b>
-        </th>
-        <th>
-          <b class='icon icon-paramerer-role'>
-            Role
-          </b>
-        </th>
-      </tr>
-      <% for parameter in @assay.parameters %>
-        <tr class="<%= cycle('odd', 'even') %>">
-          <td>
-            <%= link_to parameter.name,
-                assay_parameter_url( :action => 'show', :id => parameter) %>
-            </td>
-          <td><%= parameter.description %></td>
-          <td><%=h parameter.type.name %></td>
-          <td><%=h parameter.data_type.name %></td>
-          <td><%=h parameter.role.name %></td>
+        <tr>
+            <th>
+                <%=l(:label_alias) %>
+            </th>
+            <th>
+                <%=l(:description) %>
+            </th>
+            <th>
+                <%=l(:label_parameter_type) %>
+            </th>
+            <th>
+                <%=l(:label_data_type) %>
+            </th>
+            <th>
+                <%=l(:label_role) %>
+            </th>
         </tr>
-      <% end %>
+        <% for parameter in @assay.parameters %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <%= link_to parameter.name, assay_parameter_url( :action => 'show', :id => parameter) %>
+            </td>
+            <td>
+                <%= parameter.description %>
+            </td>
+            <td>
+                <%=h parameter.type.name %>
+            </td>
+            <td>
+                <%=h parameter.data_type.name %>
+            </td>
+            <td>
+                <%=h parameter.role.name %>
+            </td>
+        </tr>
+        <% end %>
     </table>
-</div>
-
-<%= link_to( "<b class='icon icon-parameter_type-add'>Add Parameter</b>", parameter_url(:action => 'new',  :id => @assay)) if @assay.allows?(:new)%>
-
-
+</div><hr />
+<%= link_to( "&nbsp; #{l(:label_parameters_manage)}",parameter_url(:action => 'list' , :id => @assay))   if @assay%>

@@ -1,50 +1,50 @@
-<div class=" x-panel-header x-accordion-hd"  >
-  <span class="icon icon-project x-panel-header-text" >
-    <%=@user.name%>'s Tasks 
-  </span>
-</div> 
+<div class=" x-panel-header x-accordion-hd">
+    <span class="icon icon-project x-panel-header-text"><%=@user.name %>'s <%=l(:label_tasks) %>
+    </span>
+</div>
 <div class='panel'>
-<h3 class="icon icon-green">Current</h3>
+    <h3 class="icon icon-green"><%=l(:label_current) %>
+    </h3>
     <table>
-    <% for item in @user.tasks.current(5) %>
+        <% for item in @user.tasks.current(5) %>
         <tr>
-          <td>
-            <%= link_to item.name, task_url( :action => 'show', :id => item) %>
-          </td>
-          <td>
-            Due:
-            <%= short_date(item.ended_at) %>
-          </td>
+            <td>
+                <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+            </td>
+            <td>
+                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+            </td>
         </tr>
-    <% end %>
+        <% end %>
     </table>
-<br />
-<h3 class="icon icon-red">Overdue</h3>
+    <br/>
+    <h3 class="icon icon-red"><%=l(:label_overdue) %>
+    </h3>
     <table>
-    <% for item in @user.tasks.overdue(5) %>
+        <% for item in @user.tasks.overdue(5) %>
         <tr>
-          <td>
-            <%= link_to item.name, task_url( :action => 'show', :id => item) %>
-          </td>
-          <td>
-            Due:<%= short_date(item.ended_at) %>
-          </td>
+            <td>
+                <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+            </td>
+            <td>
+                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+            </td>
         </tr>
-    <% end %>
+        <% end %>
     </table>
-<br />
-<h3 class="icon icon-amber">Coming</h3>
-<table>
-<% for item in @user.tasks.future(5) %>
-    <tr>
-      <td>
-        <%= link_to item.name, task_url( :action => 'show', :id => item) %>
-      </td>
-      <td>
-        Due
-        <%= short_date(item.ended_at) %>
-      </td>
-    </tr>
-<% end %>
-</table>
+    <br/>
+    <h3 class="icon icon-amber"><%=l(:label_coming) %>
+    </h3>
+    <table>
+        <% for item in @user.tasks.future(5) %>
+        <tr>
+            <td>
+                <%= link_to item.name, task_url( :action => 'show', :id => item) %>
+            </td>
+            <td>
+                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
 </div>

@@ -1,113 +1,62 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: reports
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default(), not null
-#  base_model         :string(255)   
-#  custom_sql         :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  style              :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  internal           :boolean(1)    
-#  project_id         :integer(11)   
-#  action             :string(255)   
+#  id                 :integer(4)      not null, primary key
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  base_model         :string(255)
+#  custom_sql         :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  style              :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  internal           :boolean(1)
+#  project_id         :integer(4)
+#  action             :string(255)
+#  project_element_id :integer(4)
 #
 
 --- 
-00000000051_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: Request Results
-    project_id: 
-    updated_at: 2007-10-14 20:10:42
-    action: 
-    updated_by_user_id: "1"
-    lock_version: "1"
-    base_model: QueueResult
-    id: "51"
-    description: Default reports for display as /QueueResult/list
-    created_by_user_id: "1"
-    style: System
-    created_at: 2007-10-14 20:10:41
-  attributes_cache: {}
-
-00000000036_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: My News
-    project_id: 
-    updated_at: 2007-05-28 18:15:06
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: ProjectElement
-    id: "36"
-    description: Default reports for display as /ProjectElement/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:15:06
-  attributes_cache: {}
-
 00000000003_report: !ruby/object:Report 
   attributes: 
     internal: 
     custom_sql: 
     name: All-Reports
     project_id: 
-    updated_at: 2007-04-24 14:58:56
+    updated_at: 2008-08-14 10:29:20
     action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
+    updated_by_user_id: "1"
+    lock_version: "3"
     base_model: Report
     id: "3"
     description: List of all reports on the system
-    created_by_user_id: "3"
+    project_element_id: 
+    created_by_user_id: "1"
     style: Report
     created_at: 2007-04-24 14:52:18
   attributes_cache: {}
 
-00000000038_report: !ruby/object:Report 
+00000000061_report: !ruby/object:Report 
   attributes: 
-    internal: "1"
+    internal: 
     custom_sql: 
-    name: Service Request Results
-    project_id: 
-    updated_at: 2007-10-14 20:10:04
-    action: ""
+    name: R-55
+    project_id: "1"
+    updated_at: 2008-08-14 10:29:20
+    action: 
     updated_by_user_id: "1"
     lock_version: "4"
-    base_model: QueueResult
-    id: "38"
-    description: Default reports for display as /QueueResult/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-29 11:34:17
-  attributes_cache: {}
-
-00000000016_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: AssayList2
-    project_id: 
-    updated_at: 2007-04-26 21:03:52
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Assay
-    id: "16"
-    description: Default reports for display as /Assay/list
-    created_by_user_id: "3"
+    base_model: Task
+    id: "61"
+    description: new Task based report
+    project_element_id: 
+    created_by_user_id: "1"
     style: 
-    created_at: 2007-04-26 21:03:52
+    created_at: 2008-08-06 14:35:18
   attributes_cache: {}
 
 00000000002_report: !ruby/object:Report 
@@ -116,214 +65,17 @@
     custom_sql: 
     name: ReportList
     project_id: 
-    updated_at: 2007-04-24 14:44:52
+    updated_at: 2008-08-14 10:29:20
     action: 
-    updated_by_user_id: "3"
-    lock_version: "0"
+    updated_by_user_id: "1"
+    lock_version: "2"
     base_model: Report
     id: "2"
     description: Default reports for display as /Report/list
-    created_by_user_id: "3"
+    project_element_id: 
+    created_by_user_id: "1"
     style: Report
     created_at: 2007-04-24 14:44:52
-  attributes_cache: {}
-
-00000000034_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: "My Todo List "
-    project_id: 
-    updated_at: 2007-05-28 18:11:31
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: QueueItem
-    id: "34"
-    description: Default reports for display as /QueueItem/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:11:30
-  attributes_cache: {}
-
-00000000022_report: !ruby/object:Report 
-  attributes: 
-    internal: 
-    custom_sql: 
-    name: Screening Results
-    project_id: 
-    updated_at: 2007-05-01 09:06:07
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "2"
-    base_model: TaskValue
-    id: "22"
-    description: Screening results
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-05-01 09:04:48
-  attributes_cache: {}
-
-00000000053_report: !ruby/object:Report 
-  attributes: 
-    internal: 
-    custom_sql: 
-    name: Project-X Membership
-    project_id: "2"
-    updated_at: 2007-12-11 10:37:35
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "8"
-    base_model: Membership
-    id: "53"
-    description: Membership of project X
-    created_by_user_id: "3"
-    style: Report
-    created_at: 2007-12-10 21:06:40
-  attributes_cache: {}
-
-00000000035_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: My Articles
-    project_id: 
-    updated_at: 2007-05-28 18:11:58
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: ProjectContent
-    id: "35"
-    description: Default reports for display as /ProjectContent/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:11:57
-  attributes_cache: {}
-
-00000000031_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: UserArticles
-    project_id: 
-    updated_at: 2007-05-28 17:49:05
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: ProjectContent
-    id: "31"
-    description: Default reports for display as /ProjectContent/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 17:49:04
-  attributes_cache: {}
-
-00000000045_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: My Tasks
-    project_id: 
-    updated_at: 2007-06-27 22:41:37
-    action: 
-    updated_by_user_id: "1"
-    lock_version: "1"
-    base_model: Task
-    id: "45"
-    description: Default reports for display as /Task/list
-    created_by_user_id: "1"
-    style: System
-    created_at: 2007-06-27 22:41:35
-  attributes_cache: {}
-
-00000000018_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: ParameterProtocols
-    project_id: 
-    updated_at: 2007-04-30 15:09:18
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Parameter
-    id: "18"
-    description: Default reports for display as /Parameter/list
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-04-30 15:09:18
-  attributes_cache: {}
-
-00000000039_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: Service Queue Results
-    project_id: 
-    updated_at: 2007-05-29 11:43:44
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: QueueResult
-    id: "39"
-    description: Default reports for display as /QueueResult/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-29 11:43:43
-  attributes_cache: {}
-
-00000000033_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: Stuff Wanted
-    project_id: 
-    updated_at: 2007-05-28 18:00:47
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: QueueItem
-    id: "33"
-    description: Default reports for display as /QueueItem/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:00:47
-  attributes_cache: {}
-
-00000000017_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: ExperimentList
-    project_id: 
-    updated_at: 2007-04-26 21:08:09
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Experiment
-    id: "17"
-    description: Default reports for display as /Experiment/list
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-04-26 21:05:42
-  attributes_cache: {}
-
-00000000032_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: "Stuff Todo "
-    project_id: 
-    updated_at: 2007-05-28 18:00:30
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: QueueItem
-    id: "32"
-    description: Default reports for display as /QueueItem/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:00:29
   attributes_cache: {}
 
 00000000005_report: !ruby/object:Report 
@@ -332,123 +84,35 @@
     custom_sql: 
     name: List_of_Assay
     project_id: 
-    updated_at: 2007-04-24 21:27:22
+    updated_at: 2008-08-14 10:29:20
     action: 
     updated_by_user_id: "1"
-    lock_version: "2"
+    lock_version: "4"
     base_model: Assay
     id: "5"
     description: Default reports for display as /Assay/list
-    created_by_user_id: "3"
+    project_element_id: 
+    created_by_user_id: "1"
     style: 
     created_at: 2007-04-24 20:45:49
   attributes_cache: {}
 
-00000000037_report: !ruby/object:Report 
+00000000060_report: !ruby/object:Report 
   attributes: 
-    internal: "1"
+    internal: 
     custom_sql: 
-    name: My Projects
-    project_id: 
-    updated_at: 2007-05-28 18:18:21
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Membership
-    id: "37"
-    description: Default reports for display as /Membership/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 18:18:21
-  attributes_cache: {}
-
-00000000020_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: ExperimentStatistics
-    project_id: 
-    updated_at: 2007-04-30 15:09:19
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: ExperimentStatistics
-    id: "20"
-    description: Default reports for display as /ExperimentStatistics/list
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-04-30 15:09:19
-  attributes_cache: {}
-
-00000000019_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: ParameterStatistics
-    project_id: 
-    updated_at: 2007-04-30 15:09:19
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: ProcessStatistics
-    id: "19"
-    description: Default reports for display as /ProcessStatistics/list
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-04-30 15:09:19
-  attributes_cache: {}
-
-00000000015_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: AssayList
-    project_id: 
-    updated_at: 2007-04-26 21:03:13
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Assay
-    id: "15"
-    description: Default reports for display as /Assay/list
-    created_by_user_id: "3"
-    style: 
-    created_at: 2007-04-26 21:03:12
-  attributes_cache: {}
-
-00000000052_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: RequestList
-    project_id: 
-    updated_at: 2007-10-14 20:11:43
+    name: R-54
+    project_id: "1"
+    updated_at: 2008-08-14 10:29:20
     action: 
     updated_by_user_id: "1"
-    lock_version: "1"
-    base_model: Request
-    id: "52"
-    description: Default reports for display as /Request/list
+    lock_version: "4"
+    base_model: Project
+    id: "60"
+    description: new Project based report
+    project_element_id: 
     created_by_user_id: "1"
-    style: System
-    created_at: 2007-10-14 20:11:42
-  attributes_cache: {}
-
-00000000029_report: !ruby/object:Report 
-  attributes: 
-    internal: "1"
-    custom_sql: 
-    name: UserProjects
-    project_id: 
-    updated_at: 2007-05-28 17:38:48
-    action: 
-    updated_by_user_id: "3"
-    lock_version: "1"
-    base_model: Membership
-    id: "29"
-    description: Default reports for display as /Membership/list
-    created_by_user_id: "3"
-    style: System
-    created_at: 2007-05-28 17:38:47
+    style: 
+    created_at: 2008-08-06 14:35:03
   attributes_cache: {}
 

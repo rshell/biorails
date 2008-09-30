@@ -1,41 +1,47 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_elements
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(1024)  default(), not null
-#  data_system_id     :integer(11)   not null
-#  data_concept_id    :integer(11)   not null
-#  access_control_id  :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  parent_id          :integer(11)   
-#  style              :string(10)    default(), not null
-#  content            :string(4000)  default()
-#  estimated_count    :integer(11)   
-#  type               :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(50)      default(""), not null
+#  description        :string(1024)    default(""), not null
+#  data_system_id     :integer(4)      not null
+#  data_concept_id    :integer(4)      not null
+#  access_control_id  :integer(4)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  parent_id          :integer(4)
+#  style              :string(10)      default(""), not null
+#  content            :string(4000)    default("")
+#  estimated_count    :integer(4)
+#  type               :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-
-
-###############################################################################################
-# SQLType based in statement
+# == Description
+# This is a SQL based sub type of a DataElement. Its content is a SQL statement
+# returning id,name and description fields for values of a DataElement. Its
+# used for addition of external inventories to biorails.
+#
+# == Copyright
 # 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class SqlElement < DataElement
 #
 # Check the SQL is valid 
 #
   def validate
-    logger.info "Checkling sql #{content}"
+    logger.info "Checkling sql #{sql_select}"
     self.lookup('1')
     return (!self.system.nil?)
   rescue Exception => ex
-    errors.add(:content,"Invalid SQL  '#{content}' error: #{ex.message}")
+    errors.add(:content,"Invalid SQL  '#{sql_select}' error: #{ex.message}")
     return false
   end
 ##
@@ -62,10 +68,14 @@ class SqlElement < DataElement
   
   def sql_select
     sql = self.content
-    sql = sql.gsub(/:user_id/,User.current.id.to_s)
-    sql = sql.gsub(/:user_name/,User.current.login)
-    sql = sql.gsub(/:project_id/,Project.current.id.to_s)
-    sql = sql.gsub(/:project_name/,Project.current.name)
+    unless Biorails::Dba.importing?
+        sql = sql.gsub(/; *$/,'')  # remove final sql separator
+        sql = sql.gsub(/"/,"'")  # convert " to correct '
+        sql = sql.gsub(/:user_id/,User.current.id.to_s)
+        sql = sql.gsub(/:user_name/,User.current.login)
+        sql = sql.gsub(/:project_id/,Project.current.id.to_s)
+        sql = sql.gsub(/:project_name/,Project.current.name)
+    end
     return sql
 #    if ProjectFolder.current
 #      sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
@@ -77,7 +87,7 @@ class SqlElement < DataElement
 # 
   def size
     return 0 unless (self.system.can_connect?)
-    list = self.system.remote_connection.select_all("select count(*) num from ("+content+") x")
+    list = self.system.remote_connection.select_all("select count(*) num from ("+sql_select+") x")
     return 0 unless list[0]
     list[0]["num"] 
   end
@@ -86,7 +96,10 @@ class SqlElement < DataElement
 # Lookup to find value in a list
   def lookup(name)
     return nil unless (self.system.can_connect?)
-    return  self.system.remote_connection.select_one("select * from (#{content}) x where x.name='"+name+"'")    
+    item = self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name+"'")
+    item ||= self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name.to_s.downcase+"'")
+    item ||= self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name.to_s.upcase+"'")
+    return item    
   rescue Exception => ex
      logger.error "ERROR: lookup of #{name} failed, #{ex.message}"    
      nil
@@ -97,7 +110,7 @@ class SqlElement < DataElement
 # 
   def reference(id)
     return nil unless (self.system.can_connect?)
-    self.system.remote_connection.select_one(" select * from (#{content}) x where  x.id='#{id}'")    
+    self.system.remote_connection.select_one(" select * from (#{sql_select}) x where  x.id='#{id}'")
   rescue Exception => ex
      logger.error "ERROR: lookup of #{name} failed, #{ex.message}"    
      nil
@@ -114,13 +127,13 @@ class SqlElement < DataElement
     if (! defined?(ActiveRecord::ConnectionAdapters::OracleAdapter).nil? && self.system.remote_connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
       sql = <<SQL
         select * from 
-          (select x.*, ROWNUM row_num FROM (#{content}) x 
+          (select x.*, ROWNUM row_num FROM (#{sql_select}) x
            where  lower(x.name) like '#{name.downcase}%' order by x.name ) 
         where row_num between #{offset} and #{(offset+limit)}
 SQL
    else
       sql = <<SQL      
-       select * from (#{content}) x where  lower(x.name) like '#{name.downcase}%' order by name limit #{limit} offset #{offset} 
+       select * from (#{sql_select}) x where  lower(x.name) like '#{name.downcase}%' order by name limit #{limit} offset #{offset}
 SQL
    end
     self.system.remote_connection.select_all(sql)

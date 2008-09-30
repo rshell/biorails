@@ -1,44 +1,26 @@
 user_1: !ruby/object:User 
   attributes: 
-    name: guest
-    updated_at: 2007-08-23 22:25:03
-    activated_at: 
-    deleted_at: 
-    token: 
+    name: demo
     updated_by_user_id: "1"
     admin: "0"
-    token_expires_at: 
-    activation_code: 
-    fullname: 
-    password_salt: 
+    fullname: Demonstration User 
     role_id: "7"
     id: "1"
-    filter: 
     password_hash: cebc21d4c7bcef9624474cda20ebb609e4c2779f
     created_by_user_id: "1"
     state_id: 
     login: guest
-    created_at: 
-    email: 
+    email: demo@biorails.org
 user_2: !ruby/object:User 
   attributes: 
     name: admin
-    updated_at: 2007-08-23 22:25:04
-    activated_at: 
-    deleted_at: 
-    token: 
     updated_by_user_id: "1"
     admin: "1"
-    token_expires_at: 
-    activation_code: 
-    fullname: 
+    fullname: Administration User 
     password_salt: 314033922d5fd52b653ee385d9682e9b2bfbff0b
     role_id: "3"
     id: "2"
-    filter: 
     password_hash: 38591e7d32f1a68f4b6977d7026a2031f4d7d6ec
     created_by_user_id: "1"
-    state_id: 
     login: admin
-    created_at: 
-    email: 
+    email: admin@biorails.org

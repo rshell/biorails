@@ -1,16 +1,15 @@
 <p class="audit">
-  <b>Audit:</b>
-  <% if item %>
+    <b>Audit:</b>
+    <% if item %>
     <%= link_to_remote '[history]',
-        :url=>audit_url(
-          :action=>'show',
-          :auditable_type=> item.class.to_s,
-          :id => item.id ) if item.respond_to?(:change_log) %>
+    :url=>audit_url(
+    :action=>'show',
+    :auditable_type=> item.class.to_s,
+    :id => item.id ) if item.respond_to?(:change_log) %>
     <%= ' created on '+item.created_at.strftime("%d-%m-%Y %H:%M") if item.created_at %>
-    <%= ' by '+ item.created_by if item.created_by  %>
+    <%= ' by '+ item.created_by if item.created_by %>
     <%= ' updated on '+item.updated_at.strftime("%d-%m-%Y %H:%M") if item.updated_at %>
     <%= ' by '+item.updated_by if item.updated_by %>
-  <% else %>
-    not yet saved
-  <% end %>
+    <% else %>
+    not yet saved<% end %>
 </p>

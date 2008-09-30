@@ -11,7 +11,7 @@ class Admin::RolesControllerTest < Test::Unit::TestCase
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 1
-    @request.session[:current_user_id] = 2
+    @request.session[:current_user_id] = 3
     @user_role = UserRole.find(:first)
     @project_role = ProjectRole.find(:first)
   end

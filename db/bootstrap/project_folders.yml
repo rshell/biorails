@@ -33,21 +33,12 @@
 00000000001_project_folder: !ruby/object:ProjectFolder
   attributes:
     id: "1"
-    parent_id:
     project_id: 1
     type: ProjectFolder
     position: "1"
-    name: Global
-    reference_id:
+    name: Public
     reference_type: Project
     lock_version: "1"
     asset_id:
     content_id:
-    published_hash:
-    project_elements_count: "0"
-    left_limit: "1"
-    right_limit: "28"
     team_id: "1"
-    published_version_no: "0"
-    version_no: 0
-    previous_version: "0"

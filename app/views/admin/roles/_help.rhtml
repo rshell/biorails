@@ -1,17 +1,23 @@
 <div class=" x-panel-header x-accordion-hd"  >
   <span class="icon icon-role x-panel-header-text" >
-     Roles
-     </span>
+     <%=l(:label_roles)%>
+  </span>
 </div>
 <div class="panel">
-<p>
-  Roles defined what a user is allowed to do in a
-  certain context. In a standard implementation
-  there are System wide roles which appear globally
-  across the whole installation; and project roles
-  which appear to membership of a project. The
-  project roles are assigned by the project
-  management and are designed to allow IT to
-  delegate project management out.
-</p>
+  <p>
+    System roles govern the user's access rights on the system, ie the modules they can access.
+    With each module (Subject, Catalogue, Execution, Organisation etc) the allowed actions are
+  </p>
+  <ul>
+    <li>build - allow the user to define the objects</li>
+    <li>use - allow the user to use the objects</li>
+  </ul>
+  <p>
+      Users have a <strong>project roles</strong> applied at the folder level through the folder's access control list.
+      This defines what a user can do with
+    </p>
+    <ul>
+      <li>Data: create, update, destroy, share, assign, verify</li>
+      <li>Document: sign, witness, publish, withdraw</li>
+    </ul>
 </div>

@@ -2,10 +2,26 @@ require "config/environment"
 
 MODEL_DIR   = File.join(RAILS_ROOT, "app/models")
 FIXTURE_DIR = File.join(RAILS_ROOT, "test/fixtures")
+RSPEC_DIR   = File.join(RAILS_ROOT, "spec/models")
+RSPEC_FIXTURES = File.join(RAILS_ROOT, "spec/fixtures")
 
 module AnnotateModels
 
   PREFIX = "== Schema Information"
+  
+  # Simple quoting for the default column value
+  def self.quote(value)
+    case value
+      when NilClass                 then "NULL"
+      when TrueClass                then "TRUE"
+      when FalseClass               then "FALSE"
+      when Float, Fixnum, Bignum    then value.to_s
+      # BigDecimals need to be output in a non-normalized form and quoted.
+      when BigDecimal               then value.to_s('F')
+      else
+        value.inspect
+    end
+  end
 
   # Use the column information in an ActiveRecord class
   # to create a comment block containing a line for
@@ -18,7 +34,7 @@ module AnnotateModels
     max_size = klass.column_names.collect{|name| name.size}.max + 1
     klass.columns.each do |col|
       attrs = []
-      attrs << "default(#{col.default})" if col.default
+      attrs << "default(#{quote(col.default)})" if col.default
       attrs << "not null" unless col.null
       attrs << "primary key" if col.name == klass.primary_key
 
@@ -28,7 +44,8 @@ module AnnotateModels
       else
         col_type << "(#{col.limit})" if col.limit
       end 
-      info << sprintf("#  %-#{max_size}.#{max_size}s:%-13.13s %s\n", col.name, col_type, attrs.join(", "))
+      info << sprintf("#  %-#{max_size}.#{max_size}s:%-15.15s %s", col.name, col_type, attrs.join(", ")).rstrip
+      info << "\n"
     end
 
     info << "#\n\n"
@@ -60,9 +77,18 @@ module AnnotateModels
     
     model_file_name = File.join(MODEL_DIR, klass.name.underscore + ".rb")
     annotate_one_file(model_file_name, info)
+    
+    if File.join(RAILS_ROOT, "spec")
+      rspec_file_name = File.join(RSPEC_DIR, klass.name.underscore + "_spec.rb")
+      annotate_one_file(rspec_file_name, info)
+      
+      rspec_fixture = File.join(RSPEC_FIXTURES, klass.table_name + ".yml")
+      annotate_one_file(rspec_fixture, info)
+    end
 
-    fixture_file_name = File.join(FIXTURE_DIR, klass.table_name + ".yml")
-    annotate_one_file(fixture_file_name, info)
+    Dir.glob(File.join(FIXTURE_DIR, "**", klass.table_name + ".yml")) do | fixture_file_name |
+      annotate_one_file(fixture_file_name, info)
+    end
   end
 
   # Return a list of the model files to annotate. If we have 
@@ -89,20 +115,25 @@ module AnnotateModels
 
   def self.do_annotations
     header = PREFIX.dup
-    version = ActiveRecord::Migrator.current_version
+    version = ActiveRecord::Migrator.current_version rescue 0
     if version > 0
       header << "\n# Schema version: #{version}"
     end
     
     self.get_model_names.each do |m|
       class_name = m.sub(/\.rb$/,'').camelize
-      klass = class_name.split('::').inject(Object){ |klass,part| klass.const_get(part) } rescue nil 
-      if klass && klass < ActiveRecord::Base && ! klass.abstract_class?
-        puts "Annotating #{class_name}"
-        self.annotate(klass, header)
-      else
-        puts "Skipping #{class_name}"
+      begin
+        klass = class_name.split('::').inject(Object){ |klass,part| klass.const_get(part) }
+        if klass < ActiveRecord::Base && !klass.abstract_class?
+          puts "Annotating #{class_name}"
+          self.annotate(klass, header)
+        else
+          puts "Skipping #{class_name}"
+        end
+      rescue Exception => e
+        puts "Unable to annotate #{class_name}: #{e.message}"
       end
+      
     end
   end
 end

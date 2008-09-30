@@ -11,8 +11,7 @@ class ProjectReferenceTest < Test::Unit::TestCase
   def test_new
     folder=ProjectReference.new(:name=>'test')
     assert folder.name
-    assert folder.summary  
-    assert folder.description  
+    assert folder.summary    
     assert folder.to_html 
   end
 
@@ -21,8 +20,9 @@ class ProjectReferenceTest < Test::Unit::TestCase
     item = DataFormat.find(1)
     reference = folder.add_reference("XXXXX",item)
     assert reference
+    assert_equal reference.reference,item
     assert reference.valid?
-    assert reference.description
+    assert_equal "XXXXX",reference.name
     assert reference.icon
     assert reference.to_html
     assert reference.summary

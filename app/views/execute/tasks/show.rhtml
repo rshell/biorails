@@ -1,10 +1,11 @@
 
 <% content_for :messages do -%>
-    <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
 <%end%>
 
 <% content_for :footer do -%>
-  <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@task.folder} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @task} %>
 <% end %>
 
 <% content_for :right do %>
@@ -13,103 +14,14 @@
 
 <% content_for :center do -%>
 
-  <h1 class='icon icon-task-large' style='text-indent:0.5em'>
-    Task [<strong><%=@task.name%></strong>] in Experiment
-    [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]
-  </h1>
-
-  <div id='tabs1'>
-    <div id="tab-show" class="tab-content">    </div>
-    <div id="tab-edit" class="tab-content x-hidden">    </div>
-    <div id="tab-import" class="tab-content x-hidden">    </div>
-    <div id="tab-sheet" class="tab-content x-hidden">    </div>
-    <div id="tab-view" class="tab-content x-hidden">    </div>
-    <div id="tab-report" class="tab-content x-hidden">    </div>
-    <div id="tab-metrics" class="tab-content x-hidden">    </div>
-  </div> 
+<%= render :partial=>'header'%>		
+<%= tab_strip("task-tabs",@tab,[ 
+ {:name =>l(:label_overview)    , :url=> task_url(:action=>'show',   :format=>:ext, :id=>@task) },
+ {:name =>l(:label_sheet)   , :url=> task_url(:action=>'sheet',  :format=>:ext, :id=>@task) },
+ {:name =>l(:label_folders) , :url=>folder_url(:action=>'show', :format=>:ext, :id=>@task.folder)},
+ {:name =>l(:label_view)     , :url=> task_url(:action=>'print',  :format=>:ext, :id=>@task) },
+ {:name =>l(:label_import) , :url=> task_url(:action=>'import', :format=>:ext, :id=>@task) },
+ {:name =>l(:label_metrics)  , :url=> task_url(:action=>'metrics',:format=>:ext, :id=>@task) } ,
+ {:name =>l(:label_access)  ,  :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@task.folder)} ])  %>
 <%end%>
-<%
-# tab_strip("xxx") do |tabs| 
-#   tabs << {:name =>'show'    , :div=> :tab-show }
-#   tabs << {:name =>'edit'    , :url=> task_url(:action=>'task',:format=>:ext,:id=>@task) }
-#   tabs << {:name =>'import'  , :url=> task_url(:action=>'import',   :format=>:ext,:id=>@task) }
-#   tabs << {:name =>'entry'   , :url=> task_url(:action=>'sheet',    :format=>:ext,:id=>@task) }
-#   tabs << {:name =>'review'  , :url=> task_url(:action=>'view',     :format=>:ext,:id=>@task)}
-#   tabs << {:name =>'analysis', :url=> task_url(:action=>'analysis', :format => :ext, :id=> @task) }
-#   tabs << {:name =>'metrics' , :url=> task_url(:action=>'metrics',  :format=>:ext,:id=>@task)}
-# end
-# 
-%>
-
-<script type="text/javascript"> 
-  
-  Ext.onReady(function(){
-    var tabs = new Ext.TabPanel({
-      renderTo:'tabs1',
-      activeTab: <%=@tab||0%>,
-      width: Biorails.getWidth()-10,
-      defaults: {
-        autoHeight: true,
-        autoScroll: false
-      },
-      items: [{
-        title: 'Overview',
-        contentEl: 'tab-show',
-        listeners:{
-          activate : function(panel){
-            panel.getUpdater().refresh();
-          }
-        },
-        autoLoad: {url:"<%=task_url(:action=>'show',:format=>:ext,:id=>@task)%>",scripts:true}
-      },{
-        title: 'Update',
-        contentEl: 'tab-edit',
-        listeners:{
-          activate : function(panel){
-            panel.getUpdater().refresh();
-          }
-        },
-        autoLoad: {url:"<%=task_url(:action=>'edit',:format=>:ext,:id=>@task)%>",scripts:true}
-      },{
-           title: 'Import',
-           contentEl: 'tab-import',
-           listeners:{
-            activate : function(panel){
-               panel.getUpdater().refresh();
-             }
-           },
-           autoLoad: {url:"<%=task_url(:action=>'import',:format=>:ext,:id=>@task)%>",scripts:true}					
-      },{
-           title: 'Sheet',
-           contentEl: 'tab-sheet',
-           listeners:{
-            activate : function(panel){
-              panel.getUpdater().refresh();
-            }
-           },
-           autoLoad: {url:"<%=task_url(:action=>'sheet',:format=>:ext,:id=>@task)%>",scripts:true}
-        },{
-           title: 'View',
-           contentEl: 'tab-view',
-           listeners:{
-              activate : function(panel){
-                panel.getUpdater().refresh();
-              }
-           },
-           autoLoad: {url:"<%=task_url(:action=>'print',:format=>:ext,:id=>@task)%>",scripts:true}
-        },{
-           title: 'Metrics',
-           contentEl: 'tab-metrics',
-           listeners:{
-                  activate : function(panel){
-                    panel.getUpdater().refresh();
-                  }
-                },
-           autoLoad: { url:"<%=task_url(:action=>'metrics',:format=>:ext,:id=>@task)%>",scripts:true}
-        }]		  
-  });
-});
-</script>    
-
-
 

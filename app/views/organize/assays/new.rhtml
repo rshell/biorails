@@ -4,11 +4,14 @@
 
 <% content_for :center do -%>
 
-<%dialog "New Assay" do %>
+<%= render :partial=>'projects/header'%>
+
+<%dialog l(:label_assay_new) do %>
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
-        <%= submit_tag "Save" %>
+      <%= submit_tag l(:button_save) %>
+      <%= link_to l(:label_cancel), assay_url( :action => 'list', :project_id => current_project) %>
     </div>
     <% end %>
   <% end %>

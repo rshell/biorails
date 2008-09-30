@@ -1,0 +1,36 @@
+<div class='box'>
+  <strong><%=link_to l('Published documents '),signature_url(:action=>'published'), :class=>'icon icon-pdf' %><strong>
+  <% unless @published_documents.empty? %>
+    <% @published_documents = Signature.find_published_for_project(current_project.id,5) %>
+    <table id="project_documents" class="report">
+        <thead>
+            <tr class='header'>
+                <th>
+                    <%=l(:label_documents) %>
+                </th>
+                <th>
+                    <%=l(:label_date) %>
+                </th>
+                <th>
+                    <%=l(:label_author) %>
+                </th>
+            </tr>
+        </thead>
+        <% for signature in @published_documents %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <%= link_to "#{signature.project_element.name} : Version #{version_no(signature.filename)}", signature.file_url %>
+            </td>
+            <td>
+                <%= short_date(signature.created_at) %>
+            </td>
+            <td>
+                <%= signature.signer.name %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+  <% else %>
+    <%= l(:label_no_published_docs_in, @project.style) %>
+  <% end %>
+</div>

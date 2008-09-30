@@ -1,9 +1,9 @@
-<h1 class='icon icon-permission'>Editing permission</h1>
+<h2 class='icon icon-permission'><%=l(:label_permissions_edit)%></h2>
 
 <% form_tag :action => 'update', :id => @permission do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Save' %>
+  <%= submit_tag l(:button_save) %>
 <% end %>
 
-<%= link_to "<b class='icon icon-show'>Show</b>", :action => 'show', :id => @permission %> |
-<%= link_to "<b class='icon icon-list'>Back</b>", :action => 'list' %>
+<%= link_to l(:label_show), :action => 'show', :id => @permission %> |
+<%= link_to l(:label_back), :action => 'list' %>

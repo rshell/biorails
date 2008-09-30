@@ -1,7 +1,4 @@
-<h1 class="icon icon-experiment-large" style="text-indent:0.5em">
-   Experiment [<strong><%=@experiment.name %></strong>] in assay
-   [<%= link_to @experiment.assay.name, assay_url( :action => 'show', :id => @experiment.assay.id)  %>]
-</h1>
+<%= render :partial=>'header'%>
 <div id="tab-parameters">
-        <%= render :partial => 'metrics' %>
+  <%= render :partial => 'metrics' %>
 </div>

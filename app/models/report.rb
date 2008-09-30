@@ -1,29 +1,33 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: reports
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default(), not null
-#  base_model         :string(255)   
-#  custom_sql         :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  style              :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  internal           :boolean(1)    
-#  project_id         :integer(11)   
-#  action             :string(255)   
+#  id                 :integer(4)      not null, primary key
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  base_model         :string(255)
+#  custom_sql         :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  style              :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  internal           :boolean(1)
+#  project_id         :integer(4)
+#  action             :string(255)
+#  project_element_id :integer(4)
 #
 
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+# == Description
+# This is a simple SQL based report 
+#
+# == Copyright
 # 
-
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class Report < ActiveRecord::Base
    acts_as_dictionary :name 
 ##
@@ -36,14 +40,40 @@ class Report < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
 
-  has_many :columns, :class_name=>'ReportColumn', :order=>'order_num,name', :dependent => :destroy 
+  has_many :columns, 
+           :class_name=>'ReportColumn', 
+           :order=>'order_num,name', 
+           :dependent => :destroy 
 
   belongs_to :project
+#
+# Owner project
+#  
+ acts_as_folder_linked  :project, :under =>'reports'
 
   attr_accessor :default_action
   attr_accessor :params
   attr_accessor :decimal_places
-  
+  attr_accessor :limit
+  attr_accessor :page
+  attr_accessor :start
+
+ def initialize(*args)
+   super(*args)
+ end
+ 
+ def limit
+   @limit ||= 15
+ end
+ 
+ def start
+   @start ||= 0
+ end
+ 
+ def page
+   @page ||=1
+ end
+ 
  def params
    @params ||= {}
  end
@@ -130,7 +160,8 @@ class Report < ActiveRecord::Base
 # 
  def Report.for_model(model,options={})
      report = Report.new(options)
-     report.name        = Identifier.next_id(Report)
+     report.project_id = Project.current.id
+     report.name   = Identifier.next_id(Report)
      report.description = "new #{model.to_s} based report"
      report.base_model = model.to_s
      report.model = model
@@ -179,6 +210,24 @@ class Report < ActiveRecord::Base
       c.sort_direction = item.split(":")[1]||c.next_direction
     end
  end
+ 
+ def add_ext_filter(params)
+    @start  = (params[:start] || 0).to_i
+    @limit  = (params[:limit] || 15).to_i 
+    @page =  1+ (@start/@limit).to_i
+    sort_columns.each{|col|col.sort_num=nil}
+    c = columns.detect{|col|col.id.to_s == params[:sort]}
+    if c
+      c.sort_num = 1
+      c.sort_direction = params[:dir] || 'ASC'
+    end
+    if params[:filter]
+      params[:filter].values.each do |item|
+         c = columns.detect{|col|col.id.to_s == item[:field]}
+         c.filter= item[:data][:value] if c and item[:data]        
+      end
+   end
+ end
 #
 # Get the current sort key of the query
 # returns a array of columns used to sort the data in order they are applied
@@ -198,6 +247,44 @@ end
 # 
  def displayed_columns 
     return self.columns.reject{|column|!column.is_visible}.sort{|a,b| a.order_num <=> b.order_num}
+ end
+#
+# extjs format filter for grid
+#
+ def ext_filters_json
+   out = []
+   n=0
+   columns.collect do |rec| 
+     if rec.is_visible and rec.is_filterible
+       out[n] = {:type => "string",:name=> rec.name,:dataIndex => "#{rec.id}"}.to_json
+       n +=1
+     end
+   end
+   "["+out.join(",\n")+"]"
+ end
+#
+# extjs formated column record
+#
+ def ext_columns_json
+   items = [{:name=>:url}]
+   columns.each{|rec| items << {:name => "#{rec.id}"} }
+   items.to_json
+ end
+#
+# extjs formated model definition for a grid
+#
+ def ext_model_json
+   out = []
+   n=0
+   displayed_columns.each do |column| 
+     out[n] ={ :header=> column.label,
+              :tooltip => "based on #{column.name} ",
+              :align=>:left,  
+              :sortable=> true, 
+              :dataIndex => column.id}.to_json
+     n+=1         
+   end
+   "["+out.join(",\n")+"]"
  end
 #
 # output a list of model links to include in find method
@@ -261,7 +348,7 @@ end
 #
 #Execute the Query Applying all the filter and sort rules for the columns 
 #
- def run( new_params= {})
+ def run( new_params= {:page=>1})   
    @model = self.model
    if @model
      @options = params.merge(new_params)
@@ -271,7 +358,6 @@ end
      return data
    end  
  end 
-
 ##
 # Default report to build if none found in library
 #    
@@ -310,6 +396,7 @@ end
          where report_columns.report_id=reports.id and report_columns.join_model=?)',name.to_s,name.to_s.downcase])
   end  
 
+ 
   def to_ext
     item = {:name => self.name,
             :id=>self.id,

@@ -35,7 +35,7 @@ class ReportTest < Test::Unit::TestCase
   end
 
   def test_update
-    first = @model.find(:first)
+    assert_ok first = @model.find(:first)
     assert first.save  
   end
 

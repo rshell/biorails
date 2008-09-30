@@ -1,0 +1,14 @@
+<div class="content_header admin">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-admin-large'><%= link_to l(:label_administration),   catalogue_url( :action => 'list') %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to l(:label_parameter_roles), parameter_role_url(:action => 'list' ),  :class=>'icon icon-parameter_role' %>
+        <%= link_to l(:label_parameter_types), parameter_type_url(:action => 'list' ),  :class=>'icon icon-parameter_type' %>
+    </div>
+    <div class='actions_right'>
+    </div>
+	<br/>
+</div>

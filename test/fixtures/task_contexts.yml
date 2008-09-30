@@ -1,18 +1,18 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_contexts
 #
-#  id                   :integer(11)   not null, primary key
-#  task_id              :integer(11)   not null
-#  parameter_context_id :integer(11)   not null
-#  label                :string(255)   
-#  is_valid             :boolean(1)    
-#  row_no               :integer(11)   not null
-#  parent_id            :integer(11)   
-#  sequence_no          :integer(11)   not null
-#  left_limit           :integer(11)   default(1)
-#  right_limit          :integer(11)   default(2)
+#  id                   :integer(4)      not null, primary key
+#  task_id              :integer(4)      not null
+#  parameter_context_id :integer(4)      not null
+#  label                :string(255)
+#  is_valid             :boolean(1)
+#  row_no               :integer(4)      not null
+#  parent_id            :integer(4)
+#  sequence_no          :integer(4)      not null
+#  left_limit           :integer(4)      default(1)
+#  right_limit          :integer(4)      default(2)
 #
 
 --- 

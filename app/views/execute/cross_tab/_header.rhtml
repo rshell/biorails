@@ -1,0 +1,19 @@
+<div class="content_header execution">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-crosstab-large'><%= link_to( "#{l(:label_crosstab)} [#{@cross_tab.name}]", cross_tab_url( :action => :show, :id => @cross_tab.id)) %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to( l(:label_folder), folder_url( :action => :show, :id => @cross_tab.folder), :class=>'icon icon-folder') %>
+    </div>
+    <div class='actions_right'>
+        <%if @cross_tab and !@cross_tab.new_record? %>
+        <%= link_to( l(:label_list), cross_tab_url(), :class=>'icon icon-list') %>
+        <%= link_to( l(:label_edit), cross_tab_url(:action=>:edit, :id=>@cross_tab), :class=>'icon icon-edit') %>
+        <%= link_to( l(:label_delete), cross_tab_url(:action=>:destroy, :id=>@cross_tab), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del') %>
+        <%end %>
+    </div>
+    <br/>
+</div>
+<%=breadcrumb_list @cross_tab.folder %>

@@ -1,10 +1,11 @@
-<%dialog "New Recipe in Assay [" + @assay.name + "]" do %>
-<% form_tag :action => 'create', :id => @assay.id do %>
-  <div class="row">
-    <%= render :partial => 'form' %>
-  </div>
-  <div class="row">
-      <%= submit_tag "Save" %>
-  </div>
-<% end %>
-<%end%>
+  <%dialog l(:label_recipe_new) do %>
+  <% form_tag :action => 'create', :id => @assay.id do %>
+    <div class="row">
+      <%= render :partial => 'form' %>
+    </div>
+    <div class="row">
+        <%= submit_tag "Save" %>
+        <%= link_to l(:label_cancel), assay_url(:action => 'show',  :id => @assay)%>
+    </div>
+  <% end %>
+  <%end%>

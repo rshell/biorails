@@ -1,34 +1,44 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_values
 #
-#  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   not null
-#  parameter_id       :integer(11)   not null
-#  data_value         :float         not null
-#  display_unit       :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  task_id            :integer(11)   not null
-#  storage_unit       :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  task_context_id    :integer(4)      not null
+#  parameter_id       :integer(4)      not null
+#  data_value         :float           not null
+#  display_unit       :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  task_id            :integer(4)      not null
+#  storage_unit       :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-###
-# This is the key numeric facts table for data capture in the sustem.  basically 
+# == Description
+# This is the key numeric facts table for data capture in the system.  basically 
 # one row is created here for each value cell filled in ok the data entry grid.
 # 
 #  This will be the basic source for most ETL work to move data to warehouses
 #  and marts. There are a numbere task_results% and %statistics% views already
-#  built out of it in the system
+#  built out of it in the system.
+#  
+#  Values as a regarded as a quantity and stored with a unit. To allow easy searching
+#  for storage quantities are stored in common bases units such as kg,m etc. Other
+#  sub types are automatically converted. Text values a converted intelligently
+#  eg 10 cm => data_value=0.1 storage_unit=m display_unit=cm
 #
+#  The string reader know basic units logic can will understand combinations of units like
+#  m/s for meters per sec.
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class TaskValue < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 

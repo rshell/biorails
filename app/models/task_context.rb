@@ -1,26 +1,34 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_contexts
 #
-#  id                   :integer(11)   not null, primary key
-#  task_id              :integer(11)   not null
-#  parameter_context_id :integer(11)   not null
-#  label                :string(255)   
-#  is_valid             :boolean(1)    
-#  row_no               :integer(11)   not null
-#  parent_id            :integer(11)   
-#  sequence_no          :integer(11)   not null
-#  left_limit           :integer(11)   default(1)
-#  right_limit          :integer(11)   default(2)
+#  id                   :integer(4)      not null, primary key
+#  task_id              :integer(4)      not null
+#  parameter_context_id :integer(4)      not null
+#  label                :string(255)
+#  is_valid             :boolean(1)
+#  row_no               :integer(4)      not null
+#  parent_id            :integer(4)
+#  sequence_no          :integer(4)      not null
+#  left_limit           :integer(4)      default(1)
+#  right_limit          :integer(4)      default(2)
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-# This is a row in the web based data entry
+# == Description
+# This is a row in the web based data entry. A single context is the smallest 
+# pick data that makes sense. Normally it would consists oa a number of values
+# marking up the subject of and values linked to this subject.
+# 
+# The context is the object used for addition of new values to database then item
+# method returning the new default or entered value for any item in the context.
 #
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class TaskContext < ActiveRecord::Base
 
  attr_accessor :columns
@@ -50,11 +58,8 @@ class TaskContext < ActiveRecord::Base
 # * +full_set+ - array of itself and all children and nested children
 #
   acts_as_fast_nested_set :parent_column => 'parent_id',
-                     :left_column => 'left_limit',
-                     :right_column => 'right_limit',
                      :order => 'task_id,left_limit',
-                     :scope => :task_id,
-                     :text_column => 'label' 
+                     :scope => :task_id
   
 ##
 # The task this context belongs too
@@ -145,6 +150,7 @@ class TaskContext < ActiveRecord::Base
         cell.value = value
         if cell.save
           item[:value] = cell.to_s
+          task.updated_at = cell.updated_at
         else
            item[:errors] = "cant update cell #{cell.errors.full_messages.to_sentence}"
         end
@@ -274,30 +280,9 @@ class TaskContext < ActiveRecord::Base
    end     
    return obj
  end
-  #
-  # Rebuild all the set based on the parent_id and text_column name
-  #
-  def self.rebuild_sets
-    self.roots.each do |root|
-      root.left_limit = 1
-      root.right_limit = 2 
-      root.save!
-      root.rebuild_set
-    end
-    roots.size
-  end
-        
-  def rebuild_set
-    TaskContext.transaction do    
-      items = TaskContext.find(:all, :conditions => ["task_id=? AND parent_id = ?",self.task_id, self.id],:order => 'parent_id,id')                                       
-      for child in items 
-         self.add_child(child)             
-      end  
-      for child in items 
-         child.rebuild_set
-      end  
-    end
-    child_count
+
+ def to_s
+  '['+ self.id.to_s + ']'  + self.path
  end
  
 protected
@@ -334,8 +319,5 @@ protected
     return item
  end 
  
- def to_s
-  '['+ self.id.to_s + ']'  + self.path
- end
 
 end

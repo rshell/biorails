@@ -1,41 +1,34 @@
 <% content_for :center do -%>
-  <h1 class='icon icon-request-large' style='text-indent:0.5em'>
-    Request <%= @request_service.name %>
-  </h1>
-  <div class='panel'>
+<%= render :partial=>'header' %>
+<div class='panel'>
     <%= render :partial => 'request_service',
-      :locals => { :request_service => @request_service } %>
+    :locals => { :request_service => @request_service } %>
     <br/>
     <%= render :partial => 'items',
-      :locals => { :request_service => @request_service } %>
-  </div>
-<%end%>
-
+    :locals => { :request_service => @request_service } %>
+</div>
+<%end %>
 <% content_for :footer do %>
-  <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
-<%end%>
-
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@request_service.folder} %>
+<%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
+<%end %>
 <% content_for :right do %>
-  <h2>
-    <%=l(:Request)%>
-  </h2>
-  <p>
-    Actual request for service provided in a project.
-  </p>
-  <div class="panel">
-    <p>Notes:-</p>
+<div class=" x-panel-header x-accordion-hd">
+    <span class="icon icon-team x-panel-header-text"><%=l(:label_request)%> <%=l(:label_service) %>
+    </span>
+</div>
+<div class='panel'>
     <ul>
-    <% for item in @project_folder.elements %>
-      <li>
-        <%= image_tag(item.icon) %>
-        <%= link_to item.name,
+        <% for item in @project_folder.elements %>
+        <li>
+            <%= image_tag(item.icon) %>
+            <%= link_to item.name,
             content_url( :action => 'show', :id => item) %>
             (<%= format_time(item.updated_at) %>)
-            <br />
-        <%= item.summary %>
-      </li>
-    <% end %>
+            <br/>
+            <%= item.summary %>
+        </li>
+        <% end %>
     </ul>
-  </div>
+</div>
 <%end %>
-

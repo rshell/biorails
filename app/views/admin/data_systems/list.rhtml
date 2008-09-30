@@ -1,53 +1,78 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-<% content_for :right do%>
-  <%= render :partial => 'help'%>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
 <% end %>
-
-
-<% content_for :center do%>
-<h1 class='icon icon-data_system'>
-    Data Sources
-</h1>
-<p>
-  The data sources contain the mappings of
-  parameters to other data systems for internal and remote data dictionaries and other lookups.
-</p>
-<table class="report">
-  <tr>
-    <th><b class='icon icon-name'>Name</b></th>
-    <th><b class='icon icon-description'>Description</b></th>
-    <th><b class='icon icon-login'>Adapter</b></th>
-    <th><b class='icon icon-user'>Username</b></th>
-    <th><b class='icon icon-database'>Database</b></th>
-    <th><b class='icon icon-compound'>Test Object</b></th>
-    <th><b class='icon icon-compound'>Status</b></th>
-    <th><b class='icon icon-action'>Action</b></th>
-  </tr>
-<% for item in @data_systems %>
-  <tr class='<%= cycle('odd', 'even') %>'>
-    <td>
-      <p class='icon icon-data_system'>
-        <%= link_to item.name, data_system_url( :action => 'show', :id => item) %>
-      </p>
-    </td>
-    <td><%=h item.description %></td>
-    <td><%=h item.adapter %></td>
-    <td><%=h item.username %></td>
-    <td><%=h item.database %></td>
-    <td><%=h item.test_object %>  </td>
-    <td><%=(item.can_connect? ? '<span class="icon icon-database">ok</span>' :'<b class="icon icon-warning">No Object </b>') %>  </td>
-    <td>
-      <p class='icon icon-edit'>
-        <%= link_to "Edit",data_system_url( :action => 'edit', :id => item) %>
-      </p>
-    </td>
-  </tr>
-<% end %>
-</table>
-<%= will_paginate @data_systems %>
-<%end%>
-
-
+<% content_for :center do %>
+<%= render :partial => '/admin/header' %>
+    <h2 class='icon icon-data_system'><%=l(:label_data_sources) %>
+    </h2>
+<div class="panel boldnotbold">
+    <div class='box'>
+        <%=l(:text_data_source_intro) %>
+    </div>
+        <table class="report">
+            <tr>
+                <th>
+                    <%=l(:label_data_sources) %>
+                </th>
+                <th>
+                    <%=l(:label_description) %>
+                </th>
+                <th>
+                    <%=l(:label_data_adaptor) %>
+                </th>
+                <th>
+                    <%=l(:label_username) %>
+                </th>
+                <th>
+                    <%=l(:label_database) %>
+                </th>
+                <th>
+                    <%=l(:label_test_object) %>
+                </th>
+                <th>
+                    <%=l(:label_status) %>
+                </th>
+                <th>
+                    <%=l(:label_action) %>
+                </th>
+            </tr>
+            <% for item in @data_systems %>
+            <tr class='<%= cycle('odd', 'even') %>'>
+                <td>
+                    <%= link_to item.name, data_system_url( :action => 'show', :id => item) %>
+                </td>
+                <td>
+                    <%=h item.description %>
+                </td>
+                <td>
+                    <%=h item.adapter %>
+                </td>
+                <td>
+                    <%=h item.username %>
+                </td>
+                <td>
+                    <%=h item.database %>
+                </td>
+                <td>
+                    <%=h item.test_object %>
+                </td>
+                <td>
+                    <%=(item.can_connect? ? '<span class="icon icon-database">ok</span>': '<b class="icon icon-warning">No Object </b>') %>
+                </td>
+                <td>
+                    <%= link_to l(:label_edit),data_system_url( :action => 'edit', :id => item), :class=>'icon icon-edit' %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <%= will_paginate @data_systems %>
+ 
+    <hr/>
+    <b class='icon icon-new'>
+        <%= link_to l(:label_new), :action => 'new' %>
+    </b>
+</div>
+<%end %>

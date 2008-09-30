@@ -5,20 +5,15 @@ require "#{RAILS_ROOT}/app/controllers/execute/requests_controller"
 class Execute::RequestsController; def rescue_action(e) raise e end; end
 
 class Execute::RequestsControllerTest < Test::Unit::TestCase
-  # # fixtures :requests
-  # # fixtures :users
-  # # fixtures :projects
-  # # fixtures :roles
-  # # fixtures :memberships
-  # # fixtures :role_permissions
 
   def setup
     @controller = Execute::RequestsController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 1
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @first = Request.find(:first)
+    @request.session[:current_element_id] =@first.project_element_id
+    @request.session[:current_project_id] = @first.project_id
+    @request.session[:current_user_id] = 3
   end
 
   def test_setup
@@ -119,7 +114,6 @@ class Execute::RequestsControllerTest < Test::Unit::TestCase
     assert_template 'report'
     assert_not_nil assigns(:user_request)
     assert_not_nil assigns(:report)
-    assert_not_nil assigns(:data)
   end
 
   def test_add_item

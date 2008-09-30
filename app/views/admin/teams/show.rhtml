@@ -3,12 +3,13 @@
 <% end -%>
 
 <% content_for :center do -%>
-     <%=render :partial =>'show' %>
+  <%=render :partial =>'show' %>
 <% end %>
+
+<% content_for :messages do -%>
+    <%=render :partial =>'shared/messages',:locals => { :objects => [:team,:membership ]} %>
+<%end%>
 
 <% content_for :help do -%>
   <%= render :partial=>'help'%>
 <% end %>
-
-  
-

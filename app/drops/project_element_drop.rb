@@ -1,3 +1,20 @@
+# == Project Element Drop
+# Drops are error safe macros for the liquid template language. These are used 
+# to map models into the Liquid with a safe limited scope
+# 
+# This allow the following links to be followed
+# * folder_content
+# * content
+# * image
+# * dom_id
+# * assert_path
+# * asset_url
+# * is_signed
+#  
+# == Copyright
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+# 
 class ProjectElementDrop < BaseDrop
  #
  # Special base handling for timestamps
@@ -14,17 +31,11 @@ class ProjectElementDrop < BaseDrop
  end
  
  def folder_content
-   @source.children.collect{|i|i.to_html}.join("\n")
+   @source.children.collect{|i|i.html}.join("\n")
  end
  
- def content
-   if @source.content
-     liquify(@source.content.body_html)
-   elsif @source.asset
-     liquify(@source.description)
-   elsif @source.reference
-     liquify(@source.reference.to_html)
-   end  
+ def html
+   liquify(@source.html)
  end
  
  def image

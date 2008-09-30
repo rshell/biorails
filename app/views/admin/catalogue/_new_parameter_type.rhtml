@@ -1,7 +1,7 @@
-<% dialog "New Parameter Type" do %>
-  <%= form_remote_tag :url => { :action => 'create_usage', :id => @data_concept} %>
-  <%= render :partial =>'form_parameter_type' %>
-  <div class="row">
-    <%= submit_tag 'Save' %>  
-  </div>
-<%end%>
+<% dialog l(:label_parameter_type) do %>
+<%= form_remote_tag :url => { :action => 'create_usage', :id => @data_concept} %>
+<%= render :partial =>'form_parameter_type' %>
+<div class="row">
+    <%= submit_tag l(:button_save) %>
+</div>
+<%end %>

@@ -2,26 +2,18 @@
   <div>
     <span class='menu'>
       <b class='icon icon-project'>
-        <%=  current_project.name %>
+        <%=h  current_project.name %>
       </b>
     </span>
- <div class='boldnotbold'>
-    <%= link_to( "<b class='icon icon-project'>" + l(:Overview) + "</b>", 
-                    project_url(:action => 'show', :id => current_project)) %>
-    <%= link_to( "<b class='icon icon-edit'>" + l(:Update) + "</b>",      
-                    project_url( :action => 'edit', :id => current_project)) if current_project.owner? %>
-    <%= link_to( "<b class='icon icon-folder'>" + l(:Folders) + "</b>",      
-                    folder_url( :action => 'show', :id => current_project.home)) %>
-    <%= link_to( "<b class='icon icon-calendar'>" + l(:Calendar) + "</b>",   
-                    project_url(:action => 'calendar', :id => current_project)) if current_project.allows?(:calendar,:project) %>
-    <%= link_to( "<b class='icon icon-timeline'>" + l(:Timeline) + "</b>",    
-                    project_url( :action => 'gantt', :id => current_project)) if current_project.allows?(:calendar,:project) %>
-    <%= link_to( "<b class='icon icon-report'>" + l(:Queries) + "</b>",  
-        report_url( :action => 'list', :current_project_id => current_project)) if current_user.allows?(:show,:reports) %>
-    <%= link_to( "<b class='icon icon-assay'>" + l('Assay Definitions')+" [#{current_project.linked_assays.size}]" + "</b>",
-          assay_url( :action => 'list')) if current_project.allows?(:show,:assays) %>
-    <%= link_to( "<b class='icon icon-experiment'>" + l(:Experiments)+" [#{current_project.experiments.size}]" + "</b>",
-          experiment_url( :action => 'list')) if current_project.allows?(:show,:experiments) %>
-  </div>
+    <%= link_to( l(:label_overview), project_url(:action => 'show', :id => current_project)) %>
+    <%= link_to( l(:label_update), project_url( :action => 'edit', :id => current_project)) if current_project.changable? %>
+    <%= link_to( l(:label_folders), folder_url( :action => 'show', :id => current_project.home)) %>
+    <%= link_to( l(:label_calendar), calendar_url(:action => 'show', :id => current_project.folder)) %>
+    <%= link_to( l(:label_timeline), calendar_url( :action => 'gantt', :id => current_project.folder))  %>
+    <%= link_to( l(:label_published), signature_url( :action => 'published')) %>
+    <%= link_to( l(:label_reports), report_url( :action => 'list', :current_project_id => current_project))  %>
+    <%= link_to( l(:label_crosstabs), cross_tab_url( :action => 'list', :current_project_id => current_project)) %>
+    <%= link_to( l(:label_assays) , assay_url( :action => 'list',:id=>current_project)) %>
+    <%= link_to( l(:label_experiments), experiment_url( :action => 'list',:id=>current_project))  %>
   </div>
 <% end %>

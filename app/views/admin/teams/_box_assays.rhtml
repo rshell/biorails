@@ -1,0 +1,27 @@
+<div class="box" >
+  <h3 class="icon icon-assay"><%=l(:label_assays) %></h3>
+  <table id="team_assays" class="report">
+    <thead>
+      <tr class='header'>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <th>
+          <%=l(:label_created_by) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for item in @team.assays %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%=link_to item.name, assay_url(:action=>'show',:id=>item.id), :class=>"icon icon-show" %>
+        </td>
+        <td>
+          <%=item.created_by %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

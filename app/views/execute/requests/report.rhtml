@@ -2,19 +2,17 @@
 <%= render :partial => 'shared/messages', :locals => { :objects => ['user']}  %>
 <%end %>
 
-<h1 class='icon icon-result'>
-  <%=@user_request.name%> <%=@report.name%>
-</h1>
+<% content_for :center do -%>
+  <%= render :partial=>'header'%>
+  <div class="panel">
+    <br />
+    <%=l(:text_result_publishing_rules)%>
+    <br />
+    <%= render :partial => 'shared/report', :locals => {:report => @report,:show=>'show', :edit=>'edit' } %>
+  </div>
+<%end %>
 
-<div class="panel">
-<br />
-<p>
-  Results are <i>published</i> to this report when the
-  linked task has its status changed.
-</p>
-<br />
-<%= render :partial => 'shared/report',
-  :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>
-</div>
 
-<%= will_paginate  @data%>
+<% content_for :right do %>
+<%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@user_request.folder} %>
+<%end %>

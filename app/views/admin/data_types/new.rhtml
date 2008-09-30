@@ -10,9 +10,12 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['data_type']} %>
 <%end%>
 
-<% dialog "New Data Type" do %>
+<%= render :partial => 'admin/header'%>
+<% dialog l(:label_data_type_new) do %>
 <% form_tag :action => 'create' do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+  <%= submit_tag l(:button_create) %>
+  <%= link_to l(:label_cancel),data_type_url(:action => 'list') %>
+
 <% end %>
 <% end %>

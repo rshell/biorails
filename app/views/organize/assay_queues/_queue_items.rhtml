@@ -1,22 +1,21 @@
+<% form_tag :action => 'update_item' do %>
 <table class='report' style='border: solid thin'>
   <tr>
-    <th>Request</th>         
-     <th>Material</th>         
-     <th>Status</th>         
-     <th>Priority</th>         
-     <th>Assigned</th>         
-     <th>Comments</th>         
-     <th>Required By</th>         
-     <th>Accepted On</th>         
-     <th>Completed On</th>         
-     <th>Actions</th>         
+    <th><%=l(:label_request)%></th>
+     <th><%=l(:label_item)%></th>         
+     <th><%=l(:label_status)%></th>         
+     <th><%=l(:label_priority)%></th>         
+     <th><%=l(:label_assigned_to)%></th>         
+     <th><%=l(:label_comments)%></th>         
+     <th><%=l(:label_required_by)%></th>         
+     <th><%=l(:label_accepted)%></th>         
+     <th><%=l(:label_completed)%></th>
+     <th><%=l(:label_actions)%></th>         
   </tr>
  <%for queue_item in queue_items %>
-  <% form_tag :action => 'update_item',:id=> queue_item.id do %>
-        <tr id='<%=queue_item.dom_id(:updated_at)%>' class="<%= cycle('odd', 'even') %>">
-          <%= render :partial => '/organize/assay_queues/queue_item', :locals => { :queue_item => queue_item} %>  
-        </tr>
-   <% end %>   
-
+   <tr id='<%=queue_item.dom_id(:updated_at)%>' class="<%= cycle('odd', 'even') %>">
+     <%= render :partial => '/organize/assay_queues/queue_item', :locals => { :queue_item => queue_item} %>  
+   </tr>
  <% end %>
 </table>
+<% end %>   

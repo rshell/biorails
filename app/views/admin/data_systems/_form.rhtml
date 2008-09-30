@@ -2,59 +2,57 @@
 <!--[form:data_system]-->
 
 <label for="data_system_data_context_id" class='icon icon-data_context'>
-  Dictionary:
+  <%=l(:label_context)%>
 </label>
-<br />
 <%= collection_select(:data_system, :data_context_id, @data_system.allowed_contexts, :id, :name) %>
 <br />
 
-<label for="data_system_name" class='icon icon-name'>
-  Name
+<label for="data_system_name">
+  <%=l(:label_name)%>
 </label>
 <br />
 <%= text_field :data_system, 'name',  :class=>"text-input"  %>
 <br />
-<label for="data_system_description"  class='icon icon-data_context'>
-  Description:
+<label for="data_system_description">
+  <%=l(:label_description)%>
 </label>
 <br />
   <%= text_area( 'data_system', 'description',:rows=>4,:cols=>80) %>
 <br />
 
 <label for="data_system_adapter" class='icon icon-login'>
-  Adaptor:
+  <%=l(:label_data_adaptor)%>
 </label>
-<br />
     <%= select(:data_system, :adapter, @data_system.allowed_adapters {|p| p})%>
 <br />
 
 <label for="data_system_host">
-  Host:
+  <%=l(:label_data_host)%>
 </label>
 <br />
     <%= text_field :data_system, 'host', :size=> 32 , :class=>"text-input"  %>
 <br />
 
-<label for="data_system_database"  class='icon icon-database'>
-  Database:
+<label for="data_system_database">
+  <%=l(:label_database)%>
 </label>
 <br />
     <%= text_field :data_system, 'database', :size=> 32, :class=>"text-input"   %>
 <br />
-<label for="data_system_username"  class='icon icon-user'>
-  Username:
+<label for="data_system_username">
+  <%=l(:label_username)%>
 </label>
 <br />
     <%= text_field :data_system, 'username', :size=> 32, :class=>"text-input"   %>
 <br />
-<label for="data_system_password" class='icon icon-permission'>
-  Password:
+<label for="data_system_password">
+  <%=l(:label_password)%>
 </label>
 <br />
     <%= text_field :data_system, 'password', :size=> 32, :class=>"text-input"   %>
 <br />
     <label for="data_system_test_object">
-      Table to test existence of:
+      <%=l(:label_test_object)%>
     </label>
 <br />
     <%= text_field :data_system, 'test_object', :size=> 32, :class=>"text-input"   %>

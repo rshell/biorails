@@ -1,6 +1,14 @@
+# == Base Class for a Liquid Drop
+# Drops are error safe macros for the liquid template language. These are used 
+# to map models into the Liquid with a safe limited scope
 # 
-# Based on mephiso code by Rick Olson
-#   License =>  public domain
+# This is based on the custom liquid tempplate ideas from mephiso code by Rick Olsonb
+#  
+# == Copyright
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+#
+## 
 #
 class BaseDrop < Liquid::Drop
   include ActionView::Helpers::TextHelper

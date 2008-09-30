@@ -1,9 +1,7 @@
 <table class="report">
   <tr>
     <th class="label">
-      <b class='icon icon-name'>
-        Name
-      </b>
+        <%=l(:label_name)%>
     </th>
     <td colspan='5'>
       <%= assay_queue.name %>
@@ -11,9 +9,7 @@
   </tr>
   <tr>
     <th class="label">
-      <b class='icon icon-description'>
-        Description
-      </b>
+        <%=l(:label_description)%>
     </th>
     <td colspan='5'>
       <%= assay_queue.description %>
@@ -21,31 +17,22 @@
   </tr>
   <tr>
     <th class="label">
-      <b class='icon icon-assay_stage'>
-        Stage
-      </b>
+        <%=l(:label_stage)%>
     </th>
     <td>
       <%= assay_queue.stage.name if assay_queue.stage %>
     </td>
     <th class="label">
-      <b class='icon icon-user_lab'>
-        Managed By
-      </b>
+        <%=l(:label_managed_by)%>
     </th>
     <td>
       <%= assay_queue.assigned_to.name %>
     </td>
     <th class="label">
-      <b class='icon icon-assay'>
-        Assay
-      </b>
+        <%=l(:label_assay)%>
     </th>
     <td>
-      <p class='icon icon-queue'>
-        <%=link_to assay_queue.assay.name,
-          assay_url(:action => 'show', :id => assay_queue.assay) %>
-      </p>
+        <%=link_to assay_queue.assay.name, assay_url(:action => 'show', :id => assay_queue.assay) %>
     </td>
   </tr>
 </table>

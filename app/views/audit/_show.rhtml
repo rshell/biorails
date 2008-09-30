@@ -3,13 +3,17 @@
   <thead>
     <tr>
     <th colspan="<%=3+@root.class.content_columns.size%>">
-        Change log for <%= @root.class%>.id=<%=@root.id%>
+        <%=l(:text_audit_trail_for)%> <%= @root.class%>.id=<%=@root.id%>
     </th>
     </tr>
     <tr>
-        <th>Action</th>
-        <th>User</th>
-        <th>Created</th>
+        <th>
+          <%=l(:label_action)%>
+        </th>
+        <th>
+          <%=l(:label_user)%>
+        </th>
+        <th><%=l(:label_created_at)%></th>
         <% for column in @root.class.content_columns %>
            <th>
            <%= column.name.to_s %> 
@@ -42,5 +46,5 @@
   </tbody>
 </table>
 <%else%>
-No old versions founds
+<%=l(:text_no_old_versions)%>
 <%end%>

@@ -1,3 +1,25 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tab_joins
+#
+#  id                        :integer(4)      not null, primary key
+#  cross_tab_id              :integer(4)      not null
+#  from_parameter_context_id :integer(4)      not null
+#  to_parameter_context_id   :integer(4)      not null
+#  from_parameter_id         :integer(4)
+#  to_parameter_id           :integer(4)
+#  join_rule                 :string(255)
+#
+
+# == Description
+# Join rule for between contexts in a report
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class CrossTabJoin < ActiveRecord::Base
   belongs_to :cross_tab, :class_name=>'CrossTab'  
   belongs_to :from,     :foreign_key=>'from_parameter_id',:class_name=>'Parameter'

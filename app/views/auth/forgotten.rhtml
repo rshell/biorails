@@ -1,31 +1,9 @@
 <center>
   <div class="box login">
-    <h1 class='icon icon-warning'>
-      Login Failed
+    <h1 class='icon icon-warning'><%=l(:text_login_failed) %>
     </h1>
-    <h2>
-      <b>
-        <%= link_to '[Click here to Try Again] ',  :action => 'login' %>
-        </b>
-      </h2>
-    <p>
-      Or type in your username/email address to get a new
-      password sent to you by the administrator.
-    </p>
+    <b><%= link_to "[ #{l(:text_click_here_to_try_again)}] ",  :action => 'login' %>
+    </b>
 
-    <% form_tag( auth_url(:action=> "forgotten"), :class => "tabular") do %>
-      <p>
-        <label for="mail" class='icon icon-mail'><%=l(:field_mail)%>
-            <span class="required">
-            </span>
-          </label>
-        <%= text_field_tag 'mail', nil, :size => 80 %></p>
-
-      <p>
-        <center>
-          <%= submit_tag l(:button_submit) %>
-        </center>
-      </p>
-    <% end %>
   </div>
 </center>

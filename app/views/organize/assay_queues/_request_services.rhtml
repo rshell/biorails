@@ -1,20 +1,38 @@
 <table class='report' style='border: solid thin'>
-    <tr>
-      <th><b class='icon icon-request'>Request</b></th>
-      <th><b>Ref</b></th>
-      <th><b class='icon icon-date'>Required_by</b></th>
-      <th><b class='icon icon-status'>Status</b></th>
-      <th><b class='icon icon-priority'>Priority</b></th>
-      <th><b class='icon icon-user_lab'>Assignee</b></th>
-      <th><b class='icon icon-user_lab'>Updated</b></th>
-      <th><b class='icon icon-date'>Accepted</b></th>
-      <th><b class='icon icon-user_lab'>Completed</b></th>
-    </tr>
-    <%for request_service in request_services %>
-    <tr id='<%=request_service.dom_id(:updated_at)%>'>
-        <%= render :partial => 'request_service', :locals => { :request_service => request_service } %>
-    </tr>
-
-    <% end %>
+  <tr>
+    <th>
+      <%=l(:label_request)%>
+    </th>
+    <th>
+      <%=l(:label_ref)%>
+    </th>
+    <th>
+      <%=l(:label_required_by)%>
+    </th>
+    <th>
+      <%=l(:label_status)%>
+    </th>
+    <th>
+      <%=l(:label_priority)%>
+    </th>
+    <th>
+      <%=l(:label_assignee)%>
+    </th>
+    <th>
+      <%=l(:label_updated)%>
+    </th>
+    <th>
+      <%=l(:label_accepted)%>
+    </th>
+    <th>
+      <%=l(:label_completed)%>
+    </th>
+  </tr>
+  <%for request_service in request_services %>
+  <tr id='<%=request_service.dom_id(:updated_at)%>'>
+    <%= render :partial => 'request_service', :locals => { :request_service => request_service } %>
+  </tr>
+  
+  <% end %>
 </table>
 

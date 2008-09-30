@@ -20,7 +20,6 @@ module ApplicationHelper
     end
   end
 
-
   # 
   # Customer version of error_messages display
   # 
@@ -137,16 +136,79 @@ module ApplicationHelper
     end
   end
   
+##
+# Convert a type/id reference into a url to the correct controlelr
+#    
+  def link_to_object( object, link_name=nil ,options = {:action=>'show'})
+    return "[none]" unless object
+    name = link_name
+    name ||= object.name if object.respond_to?(:name)
+    name ||= object.name if object.respond_to?(:data_name)
+    name ||= object.class.to_s
+    if object
+        link_to(name,object_to_url(object,options) )
+    end
+  end   
+  
+  
+  ##
+# Convert a type/id reference into a url to the correct controlelr
+#    
+  def object_to_url( object,options = {:action=>'show'})
+    return "" unless object
+    id = object.id
+    if object
+      case  object
+      when ProjectAsset then    asset_url(   options.merge(  { :id=>id ,:folder_id=>object.parent_id}) )
+      when ProjectContent then  content_url( options.merge({ :id=>id ,:folder_id=>object.parent_id}) )
+      when ProjectElement then  folder_url(  options.merge( { :id=>id ,:folder_id=>object.parent_id}) )
+
+      when QueueItem then       queue_item_url( options.merge({ :id=> id}) )
+      when ProcessInstance then process_instance_url(   options.merge({ :id=> object.id}) )
+      when ProcessFlow     then process_flow_url(   options.merge({ :id=> object.id}) )
+      when RequestService then  request_url(options.merge({:id=>object.request.id}) )
+
+      when Project then         project_url( options.merge({ :id=>id} ) )
+      when ProjectElement then  folder_url( options.merge({ :id=>id} ) )
+      when ProjectFolder then   folder_url( options.merge({ :id=>id} ) )
+      
+      when Assay then           assay_url(  options.merge({ :id=>id}) )
+      when AssayProtocol then   assay_url(   options.merge({ :id=>object.assay_id})  )
+      when AssayQueue then      queue_url(  options.merge({ :id=>id})  )
+      when QueueItem then       queue_item_url( options.merge({ :id=> id}) )
+      when AssayParameter then  assay_parameter_url( options.merge({:id=>id}) )
+  
+      when Experiment then      experiment_url(   options.merge({:id=>id})  )
+      when Task then            task_url(         options.merge({:id=>id})  )
+      when Report then          report_url(       options.merge({:id=>id})  )
+      when Request then         request_url(      options.merge({:id=>id})  )
+#
+# @todo hooks from plugins 
+#
+      when Compound then       compound_url(       options.merge({:id=>id})  )
+      when Batch then          batch_url(          options.merge({:id=>id})  )
+      when Plate then          plate_url(          options.merge({:id=>id}) )
+       
+      else 
+        # catch all guess controller from model name
+        #
+        url_for( options.merge({:controller=>object.class.to_s.tableize,:action=>'show', :id=>id}) )
+      end
+    end
+  end  
    
   # ## Convert a element in to a url call to display it
   # 
   def element_to_url(element)
-    if element.content_id
-      content_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
-    elsif element.asset_id
-      asset_url(:action=>'show',:id=>element.id, :folder_id=>element.parent_id )
-    else
+    case element
+    when ProjectFolder
       folder_url(:action=>'show', :id=> element.id )
+    when ProjectContent
+      content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
+    when ProjectAsset
+      asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
+    else
+      element_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
     end
   end  
 
@@ -159,7 +221,8 @@ module ApplicationHelper
     when 'ProjectAsset'  then   asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
     when 'Assay'  then          assay_url(:action=>'show', :id=> element.reference_id )
     when 'AssayParameter' then  assay_parameter_url(:action=>'show', :id=> element.reference_id )
-    when 'AssayProtocol' then   protocol_url(:action=>'show', :id=> element.reference_id )
+    when 'AssayProtocol' then   object_to_url(element.reference.latest )
+    when 'ProtocolVersion' then object_to_url(element.reference )
     when 'Experiment' then      experiment_url(:action=>'show', :id=> element.reference_id )
     when 'Task' then            task_url(:action=>'show', :id=> element.reference_id )
     when 'Report' then          report_url(:action=>'show', :id=> element.reference_id )
@@ -169,5 +232,138 @@ module ApplicationHelper
       element_to_url(element)
     end
   end  
+  #
+  # Complete tree for project
+  #  
+  def project_tree(folder)
+    branch = folder.self_and_ancestors
+    root  = branch[0]
+    elements = root.full_set
+    tree = {}
+    items = []
+    elements.each do |rec| 
+      item = element_to_hash(rec) 
+      tree[rec.id] = item        
+      if (branch.include?(rec))       
+        item[:expanded] = true
+      end
+      if rec.parent_id  
+        parent = tree[rec.parent_id] 
+        parent[:children] ||=[]
+        parent[:children] << item
+      else
+        items << item  
+      end
+    end  
+    items.to_json          
+  end  
+  #
+  #
+  #
+  def elements_to_open(elements,chain=nil)
+    chain ||= []
+    open_element = chain.first        
+    items =[]
+    elements.each do |rec| 
+        item = element_to_hash(rec)     
+          if (open_element == rec)       
+             item[:expanded] = true
+             item[:children] = elements_to_open(rec.children,chain[1..10000]) 
+          end
+      items << item  
+    end       
+    return items
+  end
+  #
+  #
+  #
+  def elements_to_json_level(elements)
+    items = elements.collect { |rec|    element_to_hash(rec) } 
+    items.to_json      
+  end
+  #
+  # Create a tree with a open branch based on the chain
+  #
+  def elements_to_json_tree(elements,chain)
+    items = elements_to_open(elements,chain)
+    items.to_json      
+  end
+  #
+  # Convert a element to a hash to transfer to javascript
+  #
+  def element_to_hash(rec)
+      {
+      :id => rec.id,
+      :text => rec.name,
+      :href => reference_to_url(rec),
+      :icon => rec.icon,
+      :iconCls =>  "icon-#{rec.class.to_s.underscore}",
+      :allowDrag => true,
+      :allowDrop => (rec.class == ProjectFolder),	
+      :leaf => !(rec.class == ProjectFolder), 
+      :qtip => rec.summary		
+      }    
+  end
+
+  def tab_item(params={})
+    if params[:partial]
+    out = <<-HTML
+       { title: "#{params[:title]||params[:name]}",
+          contentEl: "tab-#{params[:name]}"  }
+HTML
+    else  
+    out = <<-HTML
+       { title: "#{params[:title]||params[:name]}",
+         contentEl: "tab-#{params[:name]}",
+         listeners: { activate: function(panel){
+                         panel.getUpdater().refresh();} 
+                    },
+         autoLoad: {url: "#{params[:url]}", scripts: true}  }
+HTML
+    end
+  end  
+
+# tab_strip("xxx",[
+#  {:name =>'show'    , :div=> :tab-show }
+#  {:name =>'import'  , :url=> task_url(:action=>'import',   :format=>:ext,:id=>@task) }
+#  {:name =>'entry'   , :url=> task_url(:action=>'sheet',    :format=>:ext,:id=>@task) }
+#  {:name =>'review'  , :url=> task_url(:action=>'view',     :format=>:ext,:id=>@task)}
+#  {:name =>'analysis', :url=> task_url(:action=>'analysis', :format => :ext, :id=> @task) }
+#  {:name =>'metrics' , :url=> task_url(:action=>'metrics',  :format=>:ext,:id=>@task)}])
+# end
+# 
+  def tab_strip(name,active=0,tabs=[])
+    html_divs= tabs.collect do |tab| 
+      if tab[:partial] 
+        out = render(:partial => tab[:partial])
+      else
+        out = ""
+      end
+      " <div id='tab-#{tab[:name]}' class='tab-content x-hidden'>  #{out} </div>"
+    end
+    
+    items= tabs.collect{|tab|tab_item(tab)}.join(",")
+    out = <<-HTML
+    <div id="#{name}" class="tabs">
+       #{html_divs.join("\n")}
+    </div>  
+    
+    <script type="text/javascript"> 
+      Ext.onReady(function(){
+        var tabs = new Ext.TabPanel({
+          id: 'center-tabstrip',
+          renderTo:"#{name}",
+          activeTab: #{active},
+          autoWidth: true,
+          defaults: {
+            autoWidth: true,
+            autoHeight: true,
+            autoScroll: false
+          },
+          items: [#{items}]});
+    });
+    </script>  
+HTML
+  end
 
 end

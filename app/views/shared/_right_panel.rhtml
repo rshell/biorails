@@ -1,17 +1,14 @@
-<div id="right_content" class="content" <%='style="display: none;"' unless session[:right_panel] %> >
-  <div id="right_ctrl">
-      <h2>
-        <%=link_to_remote subject_icon('application_side_expand'),
-          :url => { :action => "right_hide", :controller => 'finder'}  %>
-          Context
-        </h2>
-  </div>
-  <div id="current_context">
-      <%= @context_for_layout %>
-  </div>
+<div id="right_content" class="content"<%='style="display: none;"' unless session[:right_panel] %>>
+    <div id="right_ctrl">
+        <h2><%=link_to_remote subject_icon('application_side_expand'),
+            :url => { :action => "right_hide", :controller => 'finder'} %>
+            Context</h2>
+    </div>
+    <div id="current_context">
+        <%= @context_for_layout %>
+    </div>
 </div>
-<div id="right_closed"  <%='style="display: none;"' if session[:right_panel] %> >
-  <%=link_to_remote "<b class='icon icon-tab_context'",
-  :url => { :action => "right_show", :controller => 'finder' } %>
+<div id="right_closed"<%='style="display: none;"' if session[:right_panel] %>>
+    <%=link_to_remote "<b class='icon icon-tab_context'",
+    :url => { :action => "right_show", :controller => 'finder' } %>
 </div>
-

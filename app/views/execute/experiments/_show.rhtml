@@ -1,38 +1,43 @@
 <table class="report">
   <tr>
-      <th class="label">
-        <b class="icon icon-name">
-          Name
-        </b>
-      </th>
-      <td colspan='3'>
-        <%= @experiment.name %>
-      </td>
-  </tr>
-  <tr>
-     <th class="label">
-       <b class="icon icon-description">
-         Description
-       </b>
-     </th>
-     <td colspan='3'>
-       <%= @experiment.description %>
-     </td>
+    <th class="label">
+      <%=l(:label_name)%>
+    </th>
+    <td colspan='2'>
+      <%= @experiment.name %>
+    </td>
+    <td>
+    </td>
+    <td>
+      <%= button_to(l(:edit),experiment_url(:action=>:edit,:id=>@experiment)) if @experiment.allow?(:data,:update) %>
+    </td>
   </tr>
   <tr>
     <th class="label">
-      <b class="icon icon-assay">
-        Assay
-      </b>
+      <%=l(:label_description)%>
+    </th>
+    <td colspan='3'>
+      <%= @experiment.description %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <%=l(:label_status)%>
+    </th>
+    <td colspan='3'>
+      <%=states_bar(@experiment.folder,:experiment)%> 
+    </td>
+  </tr>
+  <tr>
+    <th class="label">
+      <%=l(:label_assay_main)%>
     </th>
     <td>
       <%= link_to @experiment.assay.name,
-          assay_url( :action => 'show', :id => @experiment.assay)  %>
-      </td>
+        assay_url( :action => 'show', :id => @experiment.assay)  %>
+    </td>
     <th class="label">
-      <b class="icon icon-protocol_version">
-         Protocol
-      </b>
+      <%=l(:label_method)%>
     </th>
     <td>
       <%= @experiment.process.summary if @experiment.process %>
@@ -40,17 +45,13 @@
   </tr>
   <tr>
     <th class="label">
-      <b class="icon icon-date">
-        Started
-      </b>
+      <%=l(:label_date_start)%>
     </th>
     <td>
       <%=short_date @experiment.started_at%>
     </td>
     <th class="label">
-      <b class="icon icon-date">
-        Expected End
-      </b>
+      <%=l(:label_date_expected)%>
     </th>
     <td>
       <%=short_date @experiment.expected_at %>
@@ -58,29 +59,4 @@
   </tr>
 </table>
 <br/>
-<table class="report">
-    <tr>
-        <th><b class="icon icon-task">Task</b></th>
-        <th><b class="icon icon-protocol">Protocol</b></th>
-        <th><b class='icon icon-status'>Status</b></th>
-        <th><b class='icon icon-date'>Started</b></th>
-        <th><b class='icon icon-date'>Expected (End)</b></th>
-    </tr>
-    <% for item in @experiment.tasks%>
-    <tr class="<%= cycle('odd', 'even') %>">
-        <td>
-          <p class='icon icon-show'>
-            <%= link_to item.name, task_url( :action => 'show', :id => item.id) %>
-          </p>
-          </td>
-        <td><%= item.protocol_name%> </td>
-          <td>
-            <p class='icon icon-status_<%= item.status %>'>
-                <%= item.status%>
-            </p>
-          </td>
-        <td><%=short_date item.started_at%></td>
-        <td><%=short_date item.expected_at%></td>
-    </tr>
-    <%end%>
-</table>
+<%=render :partial =>'tasks' %>

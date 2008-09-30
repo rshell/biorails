@@ -1,8 +1,18 @@
+# == Project Drop
+# Drops are error safe macros for the liquid template language. These are used 
+# to map models into the Liquid with a safe limited scope
 # 
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
- 
-
+# This allow the following links to be followed
+# * folder
+# * assays
+# * experiments
+# * requests
+# * tasks
+#  
+# == Copyright
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+# 
 class ProjectDrop < BaseDrop
  #
  # Special base handling for timestamps
@@ -17,11 +27,7 @@ class ProjectDrop < BaseDrop
    super source
     @options  = options
  end
- 
- def folder
-   liquify(@source.contexts) 
- end
- 
+  
  def folder
    liquify(@source.home)    
  end

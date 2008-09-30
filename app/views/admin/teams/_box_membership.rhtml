@@ -1,0 +1,52 @@
+<div class="box" >
+<h3><%=l('Users')%></h3>
+<table id="team_members" class="report">
+    <thead>
+        <tr class='header'>
+            <th>
+                <%=l(:label_name_fullname) %>
+            </th>
+            <th>
+                <%=l(:label_owner) %>
+            </th>
+            <th>
+                <%=l(:label_action) %>
+            </th>
+            <th>
+                <%=l(:label_actions) %>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for item in @team.memberships %>
+        <tr class="<%= cycle('odd', 'even') %> ">
+            <td>
+               <%="#{item.user.login} [#{item.user.name}]" %>
+            </td>
+            <td>
+                <%=(item.owner? ? 'Yes' : 'No') %>
+            </td>
+            <td>
+                <%=link_to(l(:label_remove),
+                   team_url(:action=>'remove',:membership_id=>item.id,:id=>@team.id),
+                 :method=>:delete,:confirm=>"remove user #{item.user.name} from team?") %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<hr/>
+<%if  @team.non_members.size>0 %>
+   <% form_tag :action => 'add',:id=>@team.id do %>
+      <!--[form:membership]-->
+          <label for="membership_user_id">  <%=l(:label_user)%></label>
+          <%= collection_select(:membership, :user_id ,@team.non_members, :id, :name)  %>
+          <label for="membership_owner"><%=l(:label_owner)%></label>
+          <%= check_box    :membership, :owner  %>
+          <%= hidden_field_tag :team_id,@team.id  %>
+      <!--[eoform:membership]-->
+    <%= submit_tag l(:label_add) %>
+   <% end %>
+<% end %>
+
+</div>

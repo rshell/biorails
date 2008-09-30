@@ -1,40 +1,29 @@
-<h1> Assay definition is incomplete </h1>
+<h2> Assay definition is incomplete </h2>
 <div class='panel'>
-This assay does not appear to be fully configured yet. You need to complete the following steps:
-<br />
-<dl>
-  <dt>
-    <%= @assay.has_parameters? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-red'>[Must] </span>"  %>
-    Create a list of parameters:
-     <%= link_to "<b>Add Parameter</b>",  parameter_url(:action => 'new',  :id => @assay)%>
-  </dt>
-
-  <dt>
-    <%= @assay.has_protocols? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-red'>[Must] </span>"  %>
-     Create a protocol for data entry:
-     <%= link_to "<b>Add Process</b>",  process_url(:action => 'new',  :id => @assay)%> or
-     <%= link_to "<b>Add Recipe</b>",  workflow_url(:action => 'new',  :id => @assay)%>
-   </dt>
-</dl>
-Optionally (setup of service queues):
-<dl>
-   <% unless @assay.has_parameter_of_data_type?(5) %>
-   <dt>
-    <span class='icon icon-amber'>[Should] </span>
-    Create lookup based parameters needed by a queue:
-    <%= link_to "<b>Add Parameter</b>",  parameter_url(:action => 'new',  :id => @assay)%>
-   
-   </dt>
-   <% end %>
-  <dt>
-    <%= @assay.has_queues? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-amber'>[Should] </span>"  %>
-   
-    Create service queue to manage requests:
-    <%= link_to "<b>Add Queue</b>",     queue_url(:action => 'new',  :id => @assay)%>
-    
-  </dt>
-
-</dl>
-
-
+    This assay does not appear to be fully configured yet. You need to complete the following steps:
+    <br/>
+    <dl>
+        <dt>
+            <%= @assay.has_parameters? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-red'>[Must] </span>" %>
+            Create a list of parameters:<%= link_to_if @assay.changable?, "<b>Add Parameter</b>",  parameter_url(:action => 'new',  :id => @assay) %>
+        </dt>
+        <dt>
+            <%= @assay.has_protocols? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-red'>[Must] </span>" %>
+            Create a method for data entry:<b><%= link_to_if @assay.changable?, "Add Process",  process_instance_url(:action => 'new',  :id => @assay) %></b>
+            or<b><%= link_to_if @assay.changable?, "Add Recipe",  process_flow_url(:action => 'new',  :id => @assay) %></b>
+        </dt>
+    </dl>
+    Optionally (setup of service queues):
+    <dl>
+        <% unless @assay.has_parameter_of_data_type?(5) %>
+        <dt>
+            <span class='icon icon-amber'>[Should] </span>
+            Create lookup based parameters needed by a queue:<b><%= link_to_if @assay.changable?, "Add Parameter",  parameter_url(:action => 'new',  :id => @assay) %></b>
+        </dt>
+        <% end %>
+        <dt>
+            <%= @assay.has_queues? ? "<span class='icon icon-green'> [done] </span>" : "<span class='icon icon-amber'>[Should] </span>" %>
+            Create service queue to manage requests:<b><%= link_to_if @assay.changable?, "Add Queue",     queue_url(:action => 'new',  :id => @assay) %></b>
+        </dt>
+    </dl>
 </div>

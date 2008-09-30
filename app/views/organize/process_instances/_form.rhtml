@@ -1,30 +1,26 @@
-  <!--[form:assay_protocol]-->
-
-<%= hidden_field 'assay_protocol', 'id'  %>
-<%= hidden_field('assay_protocol','assay_id')%>
-<%= hidden_field('assay_protocol','current_process_id')%>
+<!--[form:assay_protocol]-->
+<%= hidden_field 'assay_protocol', 'id' %>
+<%= hidden_field('assay_protocol','assay_id') %>
+<%= hidden_field('assay_protocol','current_process_id') %>
 <%= hidden_field 'protocol_version', 'assay_protocol_id' %>
-<%= hidden_field 'protocol_version', 'version'  %>
-
-<%unless !@protocol_version or @protocol_version.new_record? %>
+<%= hidden_field 'protocol_version', 'version' %>
+<%if @assay_protocol and @assay_protocol.new_record? %>
 <div class="x-form-item">
-    <label class="x-form-item-label" for="protocol_version_name">
-      Version Label
+    <label class="x-form-item-label" for="protocol_name">
+        <%=l(:label_name) %>
     </label>
     <div class="x-form-element">
-      <%= text_field 'protocol_version', 'name' %>
+        <%= text_field 'assay_protocol', 'name' %>
     </div>
 </div>
-
 <div class="x-form-item">
-    <label class="x-form-item-label" for="protocol_version_expected_hours">
-      Expected Hours
+    <label class="x-form-item-label" for="assay_protocol_description">
+        <%=l(:label_description) %>
     </label>
     <div class="x-form-element">
-      <%= text_field 'protocol_version', 'expected_hours' %>
+        <%= text_area( 'assay_protocol', 'description',{:rows=>5, :cols=>80}	) %>
     </div>
 </div>
-<%end%>
 <div class="x-form-item">
     <label class="x-form-item-label" for="assay_protocol_assay_stage_id">
       Stage of <%=@assay_protocol.assay.name%>
@@ -33,67 +29,53 @@
      <%= select_named('assay_protocol', 'assay_stage_id', AssayStage) %>
     </div>
 </div>
-
+<%else %>
 <div class="x-form-item">
-    <label class="x-form-item-label" for="assay_protocol_name">
-      Protocol Name
+    <label class="x-form-item-label" for="protocol_version_name">
+        <%=l(:label_version_label) %>
     </label>
     <div class="x-form-element">
-      <%= text_field 'assay_protocol', 'name' , {:class=>"text-input"} %>
+        <%= text_field 'protocol_version', 'name' %>
     </div>
 </div>
-
+<div class="x-form-item">
+    <label class="x-form-item-label" for="protocol_version_expected_hours">
+        <%=l(:label_expected_hours) %>
+    </label>
+    <div class="x-form-element">
+        <%= text_field 'protocol_version', 'expected_hours' %>
+    </div>
+</div>
 <div class="x-form-item">
     <label class="x-form-item-label" for="assay_protocol_description">
-      Description
-    </label>
-    <div class="x-form-element" >
-       <%= text_area( 'assay_protocol', 'description',{:rows=>5, :cols=>80}	)  %>
-    </div>
-</div>
-
-<div class="x-form-item">
-    <label  class="x-form-item-label" for="assay_protocol_protocol_catagory">
-      Protocol category
+        <%=l(:label_description) %>
     </label>
     <div class="x-form-element">
-      <%= select_data_value 'assay_protocol', 'protocol_catagory'  ,'ProtocolCatagory' %>
+        <%= text_area( 'protocol_version', 'description',{:rows=>5, :cols=>80}	) %>
     </div>
 </div>
 <div class="x-form-item">
-
-    <label class="x-form-item-label" for="assay_protocol_protocol_status">
-      Protocol status
+    <label class="x-form-item-label" for="assay_protocol_assay_stage_id">
+      Stage of <%=@assay_protocol.assay.name%>
     </label>
     <div class="x-form-element">
-      <%= select_data_value 'assay_protocol', 'protocol_status'  ,'ProtocolStatus' %>
+     <%= select_named('assay_protocol', 'assay_stage_id', AssayStage) %>
     </div>
 </div>
-
+<%end %>
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_analysis_method_id">
-      Default Analysis Method
+        <%=l(:label_default_analysis_method) %>
     </label>
     <div class="x-form-element">
-      <%= select_values 'protocol_version', 'analysis_method_id'  ,AnalysisMethod%>
+        <%= select_values 'protocol_version', 'analysis_method_id'  ,AnalysisMethod %>
     </div>
 </div>
-
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_report_id">
-      Default Task Report
+        <%=l(:label_default_task_report) %>
     </label>
     <div class="x-form-element">
-      <%= select_values 'protocol_version', 'report_id'  ,Report.find_all_using_model(Task)%>
-    </div>
-</div>
-
-
-<div class="x-form-item">
-    <label class="x-form-item-label" for='assay_protocol_literature_ref'>
-      Literature ref
-    </label>
-    <div class="x-form-element">
-      <%= text_area 'assay_protocol', 'literature_ref' , {:rows=>5, :cols=>80} %>
+        <%= select_values 'protocol_version', 'report_id'  ,Report.find_all_using_model(Task) %>
     </div>
 </div>

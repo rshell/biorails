@@ -1,24 +1,24 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_systems
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(1024)  default(), not null
-#  data_context_id    :integer(11)   default(1), not null
-#  access_control_id  :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  adapter            :string(50)    default(mysql), not null
-#  host               :string(50)    default(localhost)
-#  username           :string(50)    default(root)
-#  password           :string(50)    default()
-#  database           :string(50)    default()
-#  test_object        :string(45)    default(), not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(50)      default(""), not null
+#  description        :string(1024)    default(""), not null
+#  data_context_id    :integer(4)      default(1), not null
+#  access_control_id  :integer(4)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  adapter            :string(50)      default("mysql"), not null
+#  host               :string(50)      default("localhost")
+#  username           :string(50)      default("root")
+#  password           :string(50)      default("")
+#  database           :string(50)      default("")
+#  test_object        :string(45)      default(""), not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
 

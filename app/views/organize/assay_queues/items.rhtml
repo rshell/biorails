@@ -6,23 +6,24 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
 <%end%>
 
+<%= render :partial => 'organize/assays/header'%>
 
-<h1 class='icon icon-queue-large' style='text-indent:0.5em'>
-  Service Queue  [<%= @assay_queue.name %>] in Assay [<%= @assay_queue.assay.name %>]
-</h1>
+<h2 class='icon icon-queue'>
+  <%=l(:label_service_queue)%> [<%= @assay_queue.name %>]
+</h2>
 <div class='panel'>
     <%= render :partial => 'assay_queue', :locals => { :assay_queue => @assay_queue } %>
     <table class='report' style='border: solid thin'>
       <tr>
-          <th>Request</th>
-          <th>Material</th>
-          <th>status</th>
-          <th>priority</th>
-          <th>Assigned To</th>
-          <th>Comments</th>
-          <th>latest At</th>
-          <th>Accepted At</th>
-          <th>Completed At</th>
+          <th><%=l(:label_request)%></th>
+          <th><%=l(:label_item)%></th>
+          <th><%=l(:label_status)%></th>
+          <th><%=l(:label_priority)%></th>
+          <th><%=l(:label_assigned_to)%></th>
+          <th><%=l(:label_comments)%></th>
+          <th><%=l(:label_updated)%></th>
+          <th><%=l(:label_accepted)%></th>
+          <th><%=l(:label_completed)%></th>
           <th></th>
       </tr>
       <tr>
@@ -37,7 +38,6 @@
       <% end %>
     </table>
   </div>
-
 
 <% content_for :footer do -%>
    <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>

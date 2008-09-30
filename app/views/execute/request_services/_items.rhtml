@@ -1,14 +1,30 @@
 <table class='report' style='border: solid thin'>
   <tr>
-    <th><b class='icon icon-queue_item'>Material</b></th>         
-     <th><b class='icon icon-status'>Status</b></th>         
-     <th><b class='icon icon-priority'>Priority</b></th>         
-     <th><b class='icon icon-user_lab'>Assigned To</b></th>         
-     <th><b class='icon icon-note'>Comments</b></th>         
-     <th><b class='icon icon-date'>Required by</b></th>         
-     <th><b class='icon icon-date'>Accepted on</b></th>         
-     <th><b class='icon icon-date'>Completed on</b></th>         
-     <th><b class='icon icon-action'>Actions</b></th>         
+    <th><b class='icon icon-queue_item'><%=l(:label_item)%></b></th>         
+     <th>
+       <%=l(:label_status)%>
+     </th>         
+     <th>
+       <%=l(:label_priority)%>
+     </th>         
+     <th>
+       <%=l(:label_assigned_to)%>
+     </th>         
+     <th>
+       <%=l(:label_comments)%>
+     </th>         
+     <th>
+       <%=l(:label_date_required)%>
+     </th>         
+     <th>
+       <%=l(:label_accepted)%>
+     </th>         
+     <th>
+       <%=l(:label_completed)%>
+     </th>         
+     <th>
+       <%=l(:label_action)%>
+     </th>         
   </tr>
  <%for queue_item in request_service.items %>
   <% form_tag :action => 'update_item',:id=> queue_item.id do %>

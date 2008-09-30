@@ -1,36 +1,37 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: request_services
 #
-#  id                   :integer(11)   not null, primary key
-#  request_id           :integer(11)   not null
-#  service_id           :integer(11)   not null
-#  name                 :string(128)   default(), not null
-#  description          :string(1024)  default()
-#  expected_at          :datetime      
-#  started_at           :datetime      
-#  ended_at             :datetime      
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  status_id            :integer(11)   default(0), not null
-#  priority_id          :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  requested_by_user_id :integer(11)   default(1)
-#  assigned_to_user_id  :integer(11)   default(1)
-#  lock_version         :integer(11)   
+#  id                   :integer(4)      not null, primary key
+#  request_id           :integer(4)      not null
+#  service_id           :integer(4)      not null
+#  name                 :string(128)     default(""), not null
+#  description          :string(1024)    default("")
+#  expected_at          :datetime
+#  started_at           :datetime
+#  ended_at             :datetime
+#  lock_version         :integer(4)      default(0), not null
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  status_id            :integer(4)      default(0), not null
+#  priority_id          :integer(4)
+#  updated_by_user_id   :integer(4)      default(1), not null
+#  created_by_user_id   :integer(4)      default(1), not null
+#  requested_by_user_id :integer(4)      default(1)
+#  assigned_to_user_id  :integer(4)      default(1)
+#  project_element_id   :integer(4)
 #
 
 --- 
 00000000002_request_service: !ruby/object:RequestService 
   attributes: 
     name: Req1-2
-    updated_at: 2007-12-12 11:41:28
+    updated_at: 2008-08-14 10:29:39
     ended_at: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     priority_id: "1"
-    lock_version: "4"
+    lock_version: "8"
     expected_at: 2007-12-26 00:00:00
     request_id: "1"
     service_id: "2"
@@ -38,7 +39,8 @@
     assigned_to_user_id: "3"
     requested_by_user_id: "5"
     description: 
-    created_by_user_id: "3"
+    project_element_id: "78"
+    created_by_user_id: "1"
     status_id: "1"
     created_at: 2007-12-12 11:36:22
     started_at: 2007-12-12 11:35:52
@@ -47,11 +49,11 @@
 00000000001_request_service: !ruby/object:RequestService 
   attributes: 
     name: Req1-1
-    updated_at: 2007-12-12 11:45:08
+    updated_at: 2008-08-14 10:29:38
     ended_at: 
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     priority_id: "1"
-    lock_version: "4"
+    lock_version: "8"
     expected_at: 2007-12-26 00:00:00
     request_id: "1"
     service_id: "1"
@@ -59,7 +61,8 @@
     assigned_to_user_id: "3"
     requested_by_user_id: "5"
     description: 
-    created_by_user_id: "3"
+    project_element_id: "77"
+    created_by_user_id: "1"
     status_id: "1"
     created_at: 2007-12-12 11:36:08
     started_at: 2007-12-12 11:35:52

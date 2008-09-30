@@ -1,10 +1,8 @@
 
 <ul>
   <% for item in request.items %>
-    <li><%=item.data_type %>: <%=item.data_name %>
-    <%= link_to_remote "<b class='icon icon-del'>&nbsp;</b>",
-      :url=> request_url( :action => 'remove_item',
-      :request_id => request.id, :id => item.id) %>
+    <li>
+      <a class='icon icon-del'><%= link_to_remote item.data_name, :url=> request_url( :action => 'remove_item', :request_id => request.id, :id => item.id) %></a>
     </li>
   <% end %>
 </ul>

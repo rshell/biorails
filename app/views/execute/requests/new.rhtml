@@ -1,35 +1,23 @@
 <% content_for :messages do -%>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request' ]} %>
-<%end%>
-
+<%=render :partial =>'shared/messages',:locals => { :objects => ['user_request' ]} %>
+<%end %>
 <% content_for :center do -%>
-  <% unless  Request.runnable? %>
-  <b> Cant create a valid request at present due to lack of services to use </b>
-  <% else %>
-    <% dialog 'New Request' do %>
-      <% form_tag :action => 'create' do %>
-          <%= render :partial => 'form' %>
-          <div class="row">
-              <%= submit_tag "Save" %>
-          </div>
-      <% end %>
-    <% end %>
-  <% end %>
-<%end%>
-
+<%= render :partial=>'projects/header' %>
+<% unless  Request.runnable? %>
+<b><%=l(:text_request_not_possible) %>
+</b>
+<% else %>
+<% dialog l(:label_request_new) do %>
+<% form_tag :action => 'create' do %>
+<%= render :partial => 'form' %>
+<div class="row">
+    <%= submit_tag l(:button_save) %>
+    <%= link_to(l(:label_cancel),request_url(  :action => 'list')) %>
+</div>
+<% end %>
+<% end %>
+<% end %>
+<%end %>
 <% content_for :right do %>
-  <h2 class='icon icon-request'><%=l(:guide)%></h2>
-  <div class="panel">
-    <p>
-      A user request is composed of a list of items
-      (such as compounds, samples or targets) to be
-      submitted for processing against a list of services.
-      In the request the user may add new items and
-      services over time if the initial request cascades
-      to produce further work. As such, the request
-      lifespan can be run for the length of the project
-      rather than as a number of one-offs.
-    </p>
-  </div>
-
+<%= render :partial => 'help' %>
 <%end %>

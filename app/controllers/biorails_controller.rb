@@ -1,8 +1,12 @@
-# ##
+# == Description
+# This is the Data Capture External API for import and export of task to other systems. 
+# Its is build wht AWS system to create a suitable soap style web services interface for
+# easy use with .net
+#
+# == Copyright
+
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
-##
-# This is the Data Capture External API for import and export of task to other systems
 # 
 class BiorailsController < ApplicationController
   wsdl_service_name 'Biorails'
@@ -124,7 +128,7 @@ class BiorailsController < ApplicationController
 #
     def assay_list(session_id,project_id)
        setup_session(session_id,project_id)
-       return @current_project.assays 
+       return @current_project.linked_assays 
     end
 ##
 # List all the Protocols in a assay
@@ -133,7 +137,7 @@ class BiorailsController < ApplicationController
 #     
     def assay_protocol_list(session_id,assay_id)        
        setup_session(session_id,nil)
-       assay = @current_user.assay(assay_id)
+       assay = Assay.load(assay_id)
        return [] unless assay
        protocols = AssayProcess.find(:all,:conditions=>['assay_id=?',assay_id],:order=>'name')
        return protocols;
@@ -145,7 +149,7 @@ class BiorailsController < ApplicationController
 #     
     def assay_workflow_list(session_id,assay_id)  
        setup_session(session_id,nil)
-       assay = @current_user.assay(assay_id)
+       assay = Assay.load(assay_id)
        return [] unless assay
        protocols = AssayWorkflow.find(:all,:conditions=>['assay_id=?',assay_id],:order=>'name')
        return protocols;
@@ -189,9 +193,7 @@ class BiorailsController < ApplicationController
 #    
     def process_steps_list(session_id,protocol_version_id)  
        setup_session(session_id)
-       return ProcessStep.find(:all,:conditions=>['process_flow_id=?',protocol_version_id],:order=>'version desc')
-    rescue 
-      return nil
+       return ProcessStep.find(:all,:conditions=>['process_flow_id=?',protocol_version_id],:order=>'id asc')
     end
 ##
 #List all parameter contexts in a process
@@ -250,7 +252,7 @@ class BiorailsController < ApplicationController
     # 
     def task_value_list_by_context( session_id, task_id, parameter_context_id )
        setup_session(session_id)
-       task = User.current.task(task_id)
+       task = Task.load(task_id)
        return [] unless task       
        items = []
        task.items.collect do | item |
@@ -275,7 +277,7 @@ class BiorailsController < ApplicationController
     # 
     def task_value_list(session_id,task_id)
        setup_session(session_id)
-       task = User.current.task(task_id)
+       task = Task.load(task_id)
        return [] unless task       
        return task.items.collect do | item |
            BiorailsApi::TaskItem.new(
@@ -358,7 +360,7 @@ class BiorailsController < ApplicationController
     # Export a task 
     def task_export(session_id,task_id)
        setup_session(session_id)
-       task = User.current.task(task_id)
+       task = Task.load(task_id)
        return "" unless task
        task.to_csv
     end
@@ -367,8 +369,8 @@ class BiorailsController < ApplicationController
     # Import a task
     def task_import(session_id,experiment_id,text_data)
        setup_session(session_id)
-       experiment = User.current.experiment(experiment_id)
-       raise("Experiment [#{experiment_id} is not visible for user #{User.current.login}") unless experiment
+       experiment = Experiment.load(experiment_id)
+       raise("Experiment [#{experiment_id}] is not visible for user [#{User.current.login}]") unless experiment
        experiment.import_task(text_data) 
     end
     #
@@ -475,15 +477,25 @@ class BiorailsController < ApplicationController
        setup_session(session_id)
        ProjectElement.transaction do
           folder = ProjectFolder.find(folder_id)    
-          element = folder.add_asset( filename, title, mime_type, Base64.decode64(base64) )
+          File.makedirs File.join(Alces::Attachments.tempfile_path,folder.path)
+          file = File.new(File.join(Alces::Attachments.tempfile_path,folder.path,File.basename(filename)),"w") 
+          file.binmode
+          file.write Base64.decode64(base64)
+          file.close
+          element = folder.add_element(ElementType::FILE,
+             {:name=>filename,
+              :title=>title,
+              :file=>file,
+              :file_name=>filename,
+              :file_type=>mime_type} )
           element.save!
           return BiorailsApi::Asset.new(
              :id => element.asset.id,
              :folder_id  => element.parent_id,
              :project_element_id  => element.id,
-             :name => element.asset.filename,
-             :title => element.asset.title,
-             :mime_type => element.asset.content_type,
+             :name => element.name,
+             :title => element.title,
+             :mime_type => element.content_type,
              :base64  => Base64.encode64(element.asset.db_file.data )
            )
        end
@@ -508,7 +520,11 @@ class BiorailsController < ApplicationController
        setup_session(session_id)
        ProjectElement.transaction do 
          folder = ProjectFolder.find(folder_id)
-         element = folder.add_content(name,title,html)
+         element = folder.add_element(ElementType::HTML,
+            {:name=>name,
+             :title=>title,
+             :content_type=>'text/html',
+             :content_data=>html})
          element.save!
          BiorailsApi::Content.new(
                :id => element.id,

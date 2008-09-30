@@ -1,27 +1,25 @@
 <div id='clipboard'>
-  <h2 class='icon icon-clipboard'>
-    Clipboard for <%=current_user.name%>
-  </h2>
-  <p>
-    <i>Drop items to add</i>
-    <%=link_to_remote '[Clear]',
-      :url => finder_url(:action=>"clear_clipboard")%>
-  </p>
-  <br />
-  <% if current_clipboard.size>0%>
-  <ol>
-    <% for item in current_clipboard %>
-     <li>
-      <span id='<%=item.dom_id%>' class='project_element'>
-              <%=image_tag(item.icon( {:images=>true} ) ) %>
-               <%=link_to item.name ,reference_to_url(item) %>
-      </span>
-      <%=link_to_remote "<b class='icon icon-add'>Add</b>",
-                :url => folder_url(:action=>'add_element',:id=>item.id,:folder=>current_folder ) %>
-      <%=link_to_remote "<b class='icon icon-del'>Delete</b>",
-                :url => finder_url(:action=>'remove_clipboard', :id=>item.id) %>
-     </li>
-    <% end %>
-  </ol>
-  <%end%>
+    <h2 class='icon icon-clipboard'><%=l(:label_clipboard) %>
+        <%=l(:label_for) %>
+        <%=current_user.name %>
+    </h2>
+    <p>
+        <i>Drop items to add</i>
+        <%=link_to_remote '[Clear]',
+        :url => finder_url(:action=>"clear_clipboard") %>
+    </p>
+    <br/>
+    <% if current_clipboard.size>0 %>
+    <ol>
+        <% for item in current_clipboard %>
+        <li>
+            <span id='<%=item.dom_id%>' class='project_element'><%=image_tag(item.icon( {:images=>true} ) ) %>
+                <%=link_to item.name ,reference_to_url(item) %>
+            </span>
+            <%=link_to_remote l(:label_add),:url => folder_url(:action=>'add_element',:id=>item.id,:folder=>current_element ) %>
+            <%=link_to_remote l(:label_delete), :url => finder_url(:action=>'remove_clipboard', :id=>item.id) %>
+        </li>
+        <% end %>
+    </ol>
+    <%end %>
 </div>

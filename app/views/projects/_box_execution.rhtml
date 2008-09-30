@@ -1,0 +1,48 @@
+<div class='box'>
+  <%= link_to( l(:label_experiments), experiment_url( :action => 'list'), :class=>'icon icon-experiment') %>
+  <% for item in @project.latest(Experiment,5) %>
+    <ul>
+      <li>
+        <%= link_to item.name, experiment_url( :action => 'show', :id => item) %>
+        [<%= "<b class='icon icon-status_#{item.status}'></b>" + item.status %>]
+      </li>
+    </tr>
+    <% end %>
+  <hr /><% unless current_project.linked_assays.size == 0 %>
+  <%= link_to( l(:label_experiment_add), experiment_url( :action => :new, :id => current_project.id), :class=>'icon icon-add') %>
+  <% end %>
+</div>
+  
+<%# unless @project.tasks.empty? %>
+  <div class="box">
+    <h2 class='icon icon-task'><%=link_to "#{@project.name}'s #{l(:label_tasks)}", task_url(:action => 'list') %>
+    </h2>
+    <h3 class="icon icon-red"><%=l(:label_overdue) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.overdue(8) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+    <h3 class="icon icon-green"><%=l(:label_current) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.current(8) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+    <h3 class="icon icon-amber"><%=l(:label_coming) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.future(5) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<%# end %>

@@ -2,20 +2,17 @@
 <div>
   <span class='menu'>
     <b class="icon icon-request">
-      Request
+      <%=l(:label_request)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to("<b class='icon icon-list'>List</b>",request_url(  :action => 'list')) %>
+    <%= link_to( l(:label_list),request_url(  :action => 'list')) %>
     <% unless request.new_record? %>
-      <%= link_to("<b class='icon icon-new'>New</b>",  request_url(  :action => 'new')) if current_project.allows?(:new,:requests) %>
-      <%= link_to("<b class='icon icon-show'>Show</b>",request_url(  :action => 'show',:id => request )) if current_project.allows?(:show,:requests)%>
-      <%= link_to("<b class='icon icon-result'>Results</b>",  request_url(  :action => 'results',:id => request )) if current_project.allows?(:results,:requests) %>
-      <%= link_to("<b class='icon icon-edit'>Edit</b>",  request_url(  :action => 'edit',:id => request )) if current_project.allows?(:edit,:requests)%>
-      <%= link_to("<b class='icon icon-del'>Delete</b>",
-          request_url( :action => 'destroy',:id => request ), :confirm => 'Are you sure?',:method => "post") if current_project.allows?(:destroy,:requests)%>
+      <%= link_to( l(:label_new), request_url(  :action => 'new'))  %>
+      <%= link_to( l(:label_show),request_url(  :action => 'show',:id => request )) %>
+      <%= link_to( l(:label_results), request_url(  :action => 'results',:id => request ))  %>
+      <%= link_to( l(:label_edit), request_url(  :action => 'edit',:id => request )) %>
+      <%= link_to( l(:label_delete), request_url( :action => 'destroy',:id => request ), :confirm => l(:text_are_you_sure),:method => "post") %>
     <%end%>
-  </div>
 </div>
 <% end %>
 

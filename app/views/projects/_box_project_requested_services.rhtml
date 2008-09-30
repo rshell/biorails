@@ -1,0 +1,15 @@
+<div class='box'>
+  <strong><%= link_to  l(:label_service_requests), service_url(:action => 'list'),  :class=>'icon icon-request' %></strong>
+    <dl>
+        <% for item in @project.outstanding_requested_services(5) %>
+        <dt>
+          <%= link_to item.name, request_url( :action => 'show', :id => item) %>
+          <%= link_to item.queue.name, assay_queue_url( :action => 'show', :id => item.queue) %>
+        </dt>
+        <dd>
+          <%= item.status_summary %>
+          (<%= short_date(item.updated_at) %>)
+        </dd>
+        <% end %>
+    </dl>
+</div>

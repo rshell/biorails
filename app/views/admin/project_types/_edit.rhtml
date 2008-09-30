@@ -1,8 +1,7 @@
-<%dialog "<h1 class='icon icon-project_type'>Edit project_type</h1>" do %>    
-
-<% form_for( @project_type, :url => project_type_url(:action=>:update, :id=>@project_type)) do |f| %>
-  <%= render :partial => 'form' ,:locals=>{:form=>f} %>
-<% end %>
-
-<%= error_messages_for :project_type %>
+<%= render :partial => 'admin/header'%>
+<%dialog l(:label_project_type) do %>    
+  <% form_for( @project_type, :url => project_type_url(:action=>:update, :id=>@project_type)) do |f| %>
+    <%= render :partial => 'form' ,:locals=>{:form=>f} %>
+  <% end %>
+  <%= error_messages_for :project_type %>
 <%end%>

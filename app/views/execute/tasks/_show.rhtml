@@ -1,21 +1,15 @@
-<%#
-# _show.rhtml
-#
-# Created on 05-Oct-2007, 10:46:35
-#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
 <%= render :partial => 'task' %>
-
-<h2 class='icon icon-queue_item'> Linked Requests Items </h2>
+<div class='panel'>
 <%if @task.queues? %> 
-<div class="box">
-  <%= render :partial =>'/organize/assay_queues/queue_items', :locals=>{:queue_items=>@task.queue_items} %>
-<hr />
-<%= link_to( "<b class='icon icon-queue'> Automatically Assign </b>", task_url( :action => 'assign',  :id => @task.id)) %>
-<%= link_to( "<b class='icon icon-queue'> Update Items </b>", task_url( :action => 'update_queue',  :id => @task.id)) %>
-<%= link_to( "<b class='icon icon-queue'> Update any matching </b>", task_url( :action => 'update_queue',:any=>'y',  :id => @task.id)) %>
+    <h3 class='icon icon-queue_item'>
+        <%=l(:label_associated_request_items)%>
+    </h3>
+  <div class="box">
+    <%= render :partial =>'/organize/assay_queues/queue_items', :locals=>{:queue_items=>@task.queue_items} %>
+  <hr />
+  <%= link_to( l(:label_auto_assign_items_to_task), task_url( :action => 'assign',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:label_update_requested_items), task_url( :action => 'update_queue',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:label_update_any_requested_items), task_url( :action => 'update_queue',:any=>'y',  :id => @task.id), :class=>'icon icon-queue') %>
 </div>
 <%end%>
-
+</div>

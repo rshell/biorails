@@ -1,115 +1,101 @@
 <%= error_messages_for 'request_service' %>
-
 <!--[form:request_service]-->
 <p>
-  <label for="request_service_status">
-    Status
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'status'  %>
+    <label for="request_service_status">
+        <%=l(:label_status)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'status' %>
 </p>
-
 <p>
-  <label for="request_service_priority">
-    Priority
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'priority'  %>
+    <label for="request_service_priority">
+        <%=l(:label_priority)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'priority' %>
 </p>
-
 <p>
-  <label for="request_service_name">
-    Name
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'name'  %>
+    <label for="request_service_name">
+        <%=l(:label_name)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'name' %>
 </p>
-
 <p>
-  <label for="request_service_description">
-    Description
-  </label>
-  <br/>
-  <%= text_area 'request_service', 'description'  %>
+    <label for="request_service_description">
+        <%=l(:label_description)%>
+    </label>
+    <br/>
+    <%= text_area 'request_service', 'description' %>
 </p>
-
 <p>
-  <label for="request_service_requested_by">
-    Requested by
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'requested_by'  %>
+    <label for="request_service_requested_by">
+        <%=l(:label_requested_by)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'requested_by' %>
 </p>
-
 <p>
-  <label for="request_service_expected_at">
-    Requested for
-  </label>
-  <br/>
-  <%= datetime_select 'request_service', 'expected_at'  %>
+    <label for="request_service_expected_at">
+        <%=l(:label_requested)%>
+    </label>
+    <br/>
+    <%= date_field 'request_service', 'expected_at' %>
 </p>
-
 <p>
-  <label for="request_service_assigned_to">
-    Assigned to
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'assigned_to'  %>
+    <label for="request_service_assigned_to">
+        <%=l(:label_assigned_to)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'assigned_to' %>
 </p>
-
 <p>
-  <label for="request_service_started_at">
-    Accepted at
-  </label>
-  <br/>
-  <%= datetime_select 'request_service', 'started_at'  %>
-  </p>
-
-<p>
-  <label for="request_service_ended_at">
-    Completed at
-  </label>
-  <br/>
-  <%= datetime_select 'request_service', 'ended_at'  %>
+    <label for="request_service_started_at">
+        <%=l(:label_accepted)%>
+    </label>
+    <br/>
+    <%= date_field 'request_service', 'started_at' %>
 </p>
-
 <p>
-  <label for="request_service_lock_version">
-    Lock version
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'lock_version'  %>
+    <label for="request_service_ended_at">
+        <%=l(:label_completed)%>
+    </label>
+    <br/>
+    <%= date_field 'request_service', 'ended_at' %>
 </p>
-
 <p>
-  <label for="request_service_created_by">
-    Created by
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'created_by'  %>
+    <label for="request_service_lock_version">
+        <%=l(:label_lock_version)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'lock_version' %>
 </p>
-
 <p>
-  <label for="request_service_created_at">
-    Created at
-  </label>
-  <br/>
-  <%= datetime_select 'request_service', 'created_at'  %>
+    <label for="request_service_created_by">
+        <%=l(:label_created_by)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'created_by' %>
 </p>
-
 <p>
-  <label for="request_service_updated_by">
-    Updated by
-  </label>
-  <br/>
-  <%= text_field 'request_service', 'updated_by'  %>
+    <label for="request_service_created_at">
+        <%=l(:label_created_at)%>
+    </label>
+    <br/>
+    <%= date_field 'request_service', 'created_at' %>
 </p>
-
 <p>
-  <label for="request_service_updated_at">
-    Updated at
-  </label>
-  <br/>
-  <%= datetime_select 'request_service', 'updated_at'  %>
+    <label for="request_service_updated_by">
+        <%=l(:label_updated_by)%>
+    </label>
+    <br/>
+    <%= text_field 'request_service', 'updated_by' %>
+</p>
+<p>
+    <label for="request_service_updated_at">
+        <%=l(:label_updeated_at)%>
+    </label>
+    <br/>
+    <%= date_field 'request_service', 'updated_at' %>
 </p>
 <!--[eoform:request_service]-->

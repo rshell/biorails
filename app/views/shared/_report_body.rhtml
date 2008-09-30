@@ -1,41 +1,38 @@
-<% columns = report.displayed_columns  %>
-
-<% action ||='show'%>
+<% columns = report.displayed_columns %>
+<% action ||='show' %>
 <%if report.displayed_columns.size>0 %>
-
 <% for row in data %>
-   <% classAttr = cycle("", "class=\"even\"",:name => "master") %>
-   <% grid = report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
-   <% max  = grid.collect{ |item| item.size}.max %>       
-
-   <tr <%=classAttr%> >
-   <% for column in columns %>
-      <% value = column.value(row) %>
-      <td valign='top'>
-      <% if (value.class == Array) %>
-         <table>
-         <% for item in value %>
-           <% childAttr = cycle("class=\"child-old\"", "class=\"child-even\"",:name => "child") %>
-           <tr <%=childAttr%> > 
-               <td > <%= column.format(item)  %> </td>
+<% classAttr = cycle("", "class=\"even\"",:name => "master") %>
+<% grid = report.displayed_columns.collect{ |column| [column.value(row)].flatten } %>
+<% max  = grid.collect{ |item| item.size}.max %>
+<tr<%=classAttr %>>
+    <% for column in columns %>
+    <% value = column.value(row) %>
+    <td valign='top'>
+        <% if (value.class == Array) %>
+        <table>
+            <% for item in value %>
+            <% childAttr = cycle("class=\"child-old\"", "class=\"child-even\"",:name => "child") %>
+            <tr<%=childAttr %>>
+                <td>
+                    <%= column.format(item) %>
+                </td>
             </tr>
-         <% end %>
-         </table>
-      <% else %>
-          <% if column.action %>
-              <%= link_to_object(row, column.format(value), {:action=>column.action} )  if row.id and column.action%>   
-          <% else%>          
-              <%= column.format(value) %>
-          <% end %>
-      <% end %>      
-         <% reset_cycle("child")  %>
-      </td>                    
-
-    <%end%>
-      <td>
-         <%= link_to_object( row, report.action , {:action=>'show' } )  if row and report.action %>   
-      </td>  
-  </tr>
+            <% end %>
+        </table>
+        <% else %>
+        <% if column.action %>
+        <%= link_to_object(row, column.format(value), {:action=>column.action} )  if row.id and column.action %>
+        <% else %>
+        <%= column.format(value) %>
+        <% end %>
+        <% end %>
+        <% reset_cycle("child") %>
+    </td>
+    <%end %>
+    <td>
+        <%= link_to_object( row, report.action , {:action=>'show' } )  if row and report.action %>
+    </td>
+</tr>
 <% end %>
-<%end%>
-
+<%end %>

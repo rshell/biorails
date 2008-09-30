@@ -1,3 +1,26 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tab_filters
+#
+#  id                  :integer(4)      not null, primary key
+#  cross_tab_id        :integer(4)      not null
+#  filter_op           :string(255)
+#  filter_text         :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  session_name        :string(255)     default("default")
+#  cross_tab_column_id :integer(4)
+#
+
+# == Description
+# Rule for a filter in a report
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights 
+#
 class CrossTabFilter < ActiveRecord::Base
   
   belongs_to :cross_tab, :class_name=>'CrossTab'  

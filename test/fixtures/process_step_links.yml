@@ -1,7 +1,13 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
+# == Schema Information
+# Schema version: 359
 #
-# two:
-#   column: value
+# Table name: process_step_links
+#
+#  id                   :integer(4)      not null, primary key
+#  from_process_step_id :integer(4)
+#  to_process_step_id   :integer(4)
+#  mandatory            :boolean(1)
+#
+
+--- {}
+

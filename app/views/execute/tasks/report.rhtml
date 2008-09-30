@@ -1,5 +1,5 @@
 <h1 class="icon icon-task-large" style='text-indent:0.5em;'>
- Task [<strong><%=@task.name%></strong>] in Experiment
+ <%=(:label_task)%> [<strong><%=@task.name%></strong>] <%=(:label_in)%> <%=(:label_experiment)%>
  [<%=link_to " #{@task.experiment.name} ",
    :controller=>'experiments',
    :action =>'show',:id =>@task.experiment.id %>]

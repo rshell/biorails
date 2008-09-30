@@ -13,10 +13,14 @@
 class Admin::TeamsController < ApplicationController
 
   use_authorization :teams,
-    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-    :rights =>  :current_team  
-
-  helper :calendar
+    :actions => [:list,:show,:new,:grant,:deny,:create,:edit,:update,:destroy],
+    :rights =>  :current_user
+  
+  before_filter :setup_team,
+    :only => [ :show,:destroy, :add,:remove, :grant,:deny,:print,:edit,:update]
+  
+  before_filter :setup_teams,
+    :only => [ :index,:list]
   
   in_place_edit_for :team, :name
   in_place_edit_for :team, :description
@@ -26,8 +30,6 @@ class Admin::TeamsController < ApplicationController
   # 
   # 
   def index
-    @teams = Team.find(:all) if User.current.admin?
-    @teams ||= User.current.teams
     respond_to do |format|
       format.html { render :action=>'index'}
       format.xml  { render :xml => @teams.to_xml }
@@ -45,7 +47,6 @@ class Admin::TeamsController < ApplicationController
   # ## Generate a dashboard for the team
   # 
   def show
-    setup_team
     respond_to do | format |
       format.html { render :action => 'show'}
       format.xml  { render :xml => @team.to_xml }
@@ -57,8 +58,7 @@ class Admin::TeamsController < ApplicationController
   # Show new team form
   # 
   def new
-    @team = Team.new
-    @user = current_user
+    @team= Team.new
     respond_to do |format|
       format.html # new.rhtml
     end
@@ -70,10 +70,9 @@ class Admin::TeamsController < ApplicationController
       @team = current_user.create_team(params['team'])
       if @team.save
         flash[:notice] = "team was successfully created."
-        set_team(@team)
         respond_to do |format|
-          format.html { redirect_to  :action => 'show',:id => @team    }
-          format.xml  { head :created, :location => teams_url(@team   ) }
+          format.html { redirect_to  :action => 'show',:id => @team}
+          format.xml  { head :created, :location => teams_url(@team) }
         end   
       else
         respond_to do |format|
@@ -87,19 +86,64 @@ class Admin::TeamsController < ApplicationController
   # Edit the team
   # 
   def edit
-    setup_team
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @team.to_xml}
       format.json  { render :text => @team.to_json }
     end
   end
+  
+  def add
+    @membership = @team.memberships.new(params[:membership])
+    if @membership.save
+      flash[:notice] = 'Membership was successfully created.'
+    else
+      flash[:error] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
+    end
+    redirect_to :action => 'show',:id=>@team
+  end
+
+  def remove
+    @membership =@team.memberships.find(params[:membership_id])
+    if @membership.destroy
+      flash[:notice] = 'Membership was removed.'
+    else
+      flash[:warn] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
+    end
+    redirect_to :action => 'show',:id=>@team
+  end
+  
+# Add a team to the access control list
+# :id  the acess control list
+# :team_id
+# :role_id
+#
+  def grant
+    @ace = @acl.grant(params[:owner_id],params[:role_id],params[:owner_type])
+    if @ace.valid?
+      flash[:notice] = "Granted Access to #{@ace.to_s}"
+    else
+      flash[:warn] = "Failed to grant access #{@ace.errors.full_messages().join(',')}"
+    end
+    redirect_to :action => 'show',:id=>@team   
+  end
+  #
+  # Remove Access control element from the list
+  # :id = AccessControlElement.id
+  #
+  def deny
+    if @acl.deny(params[:owner_id],params[:role_id],params[:owner_type])
+      flash[:notice] = "Denied access to #{params[:owner_type]}[#{params[:owner_id]}]"
+    else
+      flash[:warn] = "Failed deny access to #{params[:owner_type]}[#{params[:owner_id]}]"
+    end
+    redirect_to :action => 'show',:id=>@team   
+  end  
   # 
   # Update model and change to show team
   # 
   def update
     Team.transaction do
-      setup_team
       if @team.update_attributes(params[:team])
         flash[:notice] = 'team was successfully updated.'
         respond_to do |format|
@@ -119,10 +163,8 @@ class Admin::TeamsController < ApplicationController
   # ## Destroy a team
   # 
   def destroy
-    setup_team
     unless @team.in_use?
       @team.destroy 
-      set_team(Team.find(1))    
     end
     respond_to do |format|
       format.html { redirect_to  :action => 'list' }
@@ -131,14 +173,19 @@ class Admin::TeamsController < ApplicationController
   end  
 
   protected
+    
+  def setup_teams
+    @user = current_user
+    @teams ||= Team.find(:all) if User.current.admin?
+    @teams ||= User.current.teams
+  end
 
   def setup_team
-    if params[:id]
-      @team = Team.find(params[:id])
-    else 
-      @team = current_team  
-    end
-    @memberships = @team.memberships
-  end
+    @user = current_user
+    @team ||= Team.find(params[:team_id]) unless params[:team_id].blank?
+    @team ||= Team.find(params[:id]) unless params[:id].blank?
+    @acl  = AccessControlList.from_team(@team)
+    return show_access_denied unless @team.owner?(User.current)
+  end  
       
 end

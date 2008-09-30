@@ -1,0 +1,34 @@
+<%if @report.internal %>
+<div class="content_header execution">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-report-large'><%= link_to( @report.name , report_url( :action => :show, :id => @report.id)) %>
+    </h1>
+    <br>
+    <br>
+    <div class='actions_left'>
+        <%= link_to l(:label_run),  report_url( :action => :show, :id => @report.id), :class=>'icon icon-run' %>
+    </div>
+    <br/>
+</div>
+<%else %>
+<div class="content_header administration">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-report-large'><%= link_to( "#{l(:label_report)} [#{@report.name}]", report_url( :action => :show, :id => @report.id)) %>
+    </h1>
+    <br>
+    <br>
+    <div class='actions_left'>
+        <%= link_to( l(:label_folder), folder_url( :action => :show, :id => @report.folder), :class=>'icon icon-folder') %>
+        <%= link_to( l(:label_run),  report_url( :action => :show, :id => @report.id), :class=>'icon icon-run') %>
+    </div>
+    <div class='actions_right'>
+
+        <%if @report and !@report.new_record? %>
+        <%= link_to( l(:label_edit), report_url(:action=>:edit, :id=>@report), :class=>'icon icon-edit') %>
+        <%= link_to( l(:label_list), report_url(), :class=>'icon icon-list') %>
+        <%= link_to( l(:label_delete), report_url(:action=>:destroy, :id=>@report), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del') %>
+        <%end %>
+    </div>
+    <br/>
+</div>
+<%end %>

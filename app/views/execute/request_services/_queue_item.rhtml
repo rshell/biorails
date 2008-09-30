@@ -1,48 +1,47 @@
 <td class='state-<%=queue_item.status%>'>
     <p class='icon icon-show'>
-      <%=link_to queue_item.data_name,
+        <%=link_to queue_item.data_name,
         queue_item_url( :action => 'show', :id => queue_item) %>
-    <p>
-</td>
-<td>
-  <%= select_tag 'status_id',
-      options_for_select(queue_item.allowed_status_list,queue_item.status_id),
-      {:id=>queue_item.dom_id('status_id')}  %>
-
-  <%= observe_field queue_item.dom_id('status_id'),
-      :url=>{:action=>'update_item',:id=>queue_item},
-      :with =>'status_id' %>
-
-</td>
-<td>
-  <%= select_tag 'priority_id',
-      options_for_select(queue_item.allowed_priority_list,queue_item.priority_id),
-      {:id=>queue_item.dom_id('priority_id')}  %>
-
-  <%= observe_field  queue_item.dom_id('priority_id'),
-      :url=>{:action=>'update_item',:id=>queue_item},
-      :with =>'priority_id' %>
-
-</td>
-<td>
-  <%= select_tag 'assigned_to_user_id',
-      options_for_select(User.selector, queue_item.assigned_to_user_id),
-      {:id=>queue_item.dom_id('user_id')}  %>
-
-  <%= observe_field  queue_item.dom_id('user_id'),
-      :url=>{:action=>'update_item',:id=>queue_item},
-      :with =>'user_id' %>
-
-</td>
-<td> <%=queue_item.comments  %></td>
-<td><%=short_date queue_item.updated_at%></td>
-<td><%=short_date queue_item.started_at  %></td>
-<td><%=short_date queue_item.ended_at  %></td>
-<td>
-  <p class='icon icon-del'>
-    <%= link_to "Delete", :action => 'destroy_item',
-      :id=>queue_item.service  , :item_id => queue_item.id %>
-  </p>
-</td>
-
-
+        <p>
+        </td>
+        <td>
+            <%= select_tag 'status_id',
+            options_for_select(queue_item.allowed_status_list,queue_item.status_id),
+            {:id=>queue_item.dom_id('status_id')} %>
+            <%= observe_field queue_item.dom_id('status_id'),
+            :url=>{:action=>'update_item',:id=>queue_item},
+            :with =>'status_id' %>
+        </td>
+        <td>
+            <%= select_tag 'priority_id',
+            options_for_select(queue_item.allowed_priority_list,queue_item.priority_id),
+            {:id=>queue_item.dom_id('priority_id')} %>
+            <%= observe_field  queue_item.dom_id('priority_id'),
+            :url=>{:action=>'update_item',:id=>queue_item},
+            :with =>'priority_id' %>
+        </td>
+        <td>
+            <%= select_tag 'assigned_to_user_id',
+            options_for_select(User.selector, queue_item.assigned_to_user_id),
+            {:id=>queue_item.dom_id('user_id')} %>
+            <%= observe_field  queue_item.dom_id('user_id'),
+            :url=>{:action=>'update_item',:id=>queue_item},
+            :with =>'user_id' %>
+        </td>
+        <td>
+            <%=queue_item.comments %>
+        </td>
+        <td>
+            <%=short_date queue_item.updated_at %>
+        </td>
+        <td>
+            <%=short_date queue_item.started_at %>
+        </td>
+        <td>
+            <%=short_date queue_item.ended_at %>
+        </td>
+        <td>
+            <a class='icon icon-del'>
+                <%= link_to l(:label_delete), :action => 'destroy_item',:id=>queue_item.service  , :item_id => queue_item.id %>
+            </a>
+        </td>

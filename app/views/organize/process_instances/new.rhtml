@@ -1,22 +1,16 @@
 <% content_for :messages do -%>
-  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','protocol_version']}  %>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','protocol_version']}  %>
 <%end %>
 
 <% content_for :center do%>
+  <%= render :partial=>'organize/assays/header'%>
   <%= render :partial => 'new' %>
 <%end%>
 
+
 <% content_for :right do%>
 <h1 class='icon icon-protocol'>
-  Protocol building Guidance
+<%=l(:help_process_building)%>
 </h1>
-<p>Creation of a new protocol is a 2 step operation.</p>
-  <ol style='list-style:decimal inside'>
-    <li>
-      A protocol is given a name and a description (minimum)
-    </li>
-    <li>
-      A <i>layout</i> is created from the assay's parameters to define the <i>data entry sheet</i>.
-    </li>
-  </ol>
+<%=l(:help_process_building_full)%>
 <%end%>

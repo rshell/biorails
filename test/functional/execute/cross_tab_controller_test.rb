@@ -9,11 +9,12 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def setup
     @controller = Execute::CrossTabController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 2
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @cross_tab = CrossTab.find(:first)
-    @project = Project.find(2)
+    @project = @cross_tab.project
+    @request.session[:current_element_id] =@cross_tab.project_element_id
+    @request.session[:current_project_id] = @cross_tab.project.id
+    @request.session[:current_user_id] = 3
   end
 
   def test00_setup
@@ -183,42 +184,42 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   
   
   def test_tree_live_processes
-    post :tree, :id => 1,:team_id=>1,:node=>:process
+    post :tree, :id => 1,:node=>:process
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
 
   def test_tree_live_parameters
-    post :tree, :id => 1,:team_id=>1,:node=>'parameters'
+    post :tree, :id => 1,:node=>'parameters'
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
 
   def test_tree_root_assays
-    post :tree, :id => 1,:team_id=>1,:node=>'assays'
+    post :tree, :id => 1,:node=>'assays'
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
 
   def test_tree_root_protocols
-    post :tree, :id => 1,:team_id=>1,:node=>'protocols'
+    post :tree, :id => 1,:node=>'protocols'
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
 
   def test_tree_root_types
-    post :tree, :id => 1,:team_id=>1,:node=>'types'
+    post :tree, :id => 1,:node=>'types'
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
 
   def test_tree_root_roles
-    post :tree, :id => 1,:team_id=>1,:node=>'roles'
+    post :tree, :id => 1,:node=>'roles'
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -226,7 +227,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
 
  def test_tree_for_assay
     assay = Assay.find(:first)
-    post :tree, :id => 1,:team_id=>1,:node=>assay.dom_id
+    post :tree, :id => 1,:node=>assay.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -234,7 +235,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
 
   def test_tree_for_assay_parameter
     item = AssayParameter.find(:first)
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id
+    post :tree, :id => 1,:node=>item.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -242,7 +243,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
 
   def test_tree_for_assay_protocol
     item = AssayProtocol.find(:first)
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id
+    post :tree, :id => 1,:node=>item.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -250,7 +251,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
 
   def test_tree_for_protocol_version
     item = ProcessInstance.find(:first)
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id
+    post :tree, :id => 1,:node=>item.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -258,7 +259,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
 
   def test_tree_for_parameter_context
     item = ParameterContext.find(:first)
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id
+    post :tree, :id => 1,:node=>item.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -267,7 +268,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_tree_for_parameter_context_using_type
     item = ParameterContext.find(:first)
     scope = item.parameters[0].type
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -276,7 +277,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_tree_for_parameter_context_using_type
     item = ParameterContext.find(:first)
     scope = item.parameters[0].type
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -285,7 +286,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_tree_for_parameter_context_using_type
     item = ParameterContext.find(:first)
     scope = item.parameters[0].type
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -294,7 +295,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_tree_for_parameter_context_using_role
     item = ParameterContext.find(:first)
     scope = item.parameters[0].role
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -303,7 +304,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_tree_for_parameter_context_using_assay_parameter
     item = ParameterContext.find(:first)
     scope = item.parameters[0].assay_parameter
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -313,7 +314,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
     p = Parameter.find(:first)
     scope = p.role
     item = p.type
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -323,7 +324,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
     p = Parameter.find(:first)
     scope = p.type
     item = p.process
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
@@ -333,14 +334,14 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
     p = Parameter.find(:first)
     scope = p.type
     item = p.process
-    post :tree, :id => 1,:team_id=>1,:node=>item.dom_id,:scope=>scope.dom_id
+    post :tree, :id => 1,:node=>item.dom_id,:scope=>scope.dom_id
     assert_response :success
     assert_not_nil assigns(:items)
     assert assigns(:items).is_a?(Array)
   end
   
   def test_tree_with_exception
-    post :tree, :id => 1,:team_id=>1,:node=>nil,:scope=>'xxx_23323'
+    post :tree, :id => 1,:node=>nil,:scope=>'xxx_23323'
     assert_response :success
   end
   
@@ -368,7 +369,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   end
 
   def test_tree_error
-    post :tree, :id => 1,:team_id=>1,:node=>'sfsfs_fdsfs',:scope=>'sfsas_2222'
+    post :tree, :id => 1,:node=>'sfsfs_fdsfs',:scope=>'sfsas_2222'
     assert_response :success     
   end
   
@@ -409,11 +410,5 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
     assert assigns(:cross_tab).valid?
   end
   
-  def test_snapshot_failed
-    get :snapshot, :id => @cross_tab.id, :folder_id => @project.home.id
-    assert_response :success  
-    assert_not_nil assigns(:project_element)
-    assert !assigns(:project_element).valid?
-  end
   
 end

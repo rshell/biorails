@@ -7,10 +7,13 @@
 <%end%>
 
 <% content_for :center do%>
-  <% dialog "Editing Parameter Role" do %>        
+<%= render :partial => 'admin/header' %>
+  <% dialog l(:label_parameter_role_edit) do %>     
+    <%=l(:label_parameter_role_new_full)%>   
     <% validated_form_tag :action => 'update', :id => @parameter_role do %>
       <%= render :partial => 'form' %>
-      <%= submit_tag 'Save' %>
+      <%= submit_tag l(:button_save) %>
+      <%= link_to l(:label_cancel),  parameter_role_url(:action => 'list') %>
     <% end %>
   <% end %>
 <% end %>

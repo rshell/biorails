@@ -1,11 +1,15 @@
-# ##
+# == Description
+# This manages general Help functions
+#
+# == Copyright
+# 
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
-
+#
 class HelpController < ApplicationController
 
   def index
-      redirect_to SystemSetting.help_root
+    redirect_to SystemSetting.help_root #+ @current_controller
   end
   
 ##

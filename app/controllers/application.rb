@@ -1,12 +1,20 @@
-# ##
-# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights ##
-
+# == Description
 # 
 # Main Application controller with a log of the key application aspects for user
-# authorization, authentatations etc.
+# authorization, authentatations etc. It basically provides a number 
+# of helper methods for use in your controllers :-
 # 
-
+# * current_user
+# * current_team
+# * current_project
+# 
+# These are automatically filled with session level context at the start of a request.
+#  
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class ApplicationController < ActionController::Base
 
   layout 'biorails3'
@@ -37,11 +45,13 @@ class ApplicationController < ActionController::Base
   # share session management methods with helpers
   # 
   helper_method :logged_in?
+  helper_method :has_rights?
+  helper_method :allows?
   helper_method :current_user
   helper_method :current_team
   helper_method :current_project
   helper_method :current_username
-  helper_method :current_folder
+  helper_method :current_element
   helper_method :current_clipboard
   helper_method :browser_is?
   helper_method :get_browser
@@ -78,9 +88,10 @@ class ApplicationController < ActionController::Base
   def setup_context
     begin  
       Notification.default_url_options[:host]= request.host
-      User.current          = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].nil? 
-      Project.current       = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].nil? 
-      ProjectFolder.current = @current_folder  = ProjectFolder.find(session[:current_folder_id]) unless session[:current_folder_id].nil? 
+      User.current          = @current_user    = User.find(session[:current_user_id])       unless session[:current_user_id].blank? 
+      Project.current       = @current_project = Project.find(session[:current_project_id]) unless session[:current_project_id].blank? 
+      ProjectFolder.current = @current_element = ProjectElement.load(session[:current_element_id]) unless session[:current_element_id].blank? 
+      @current_controller = controller_name
       @clipboard = session[:clipboard] ||= Clipboard.new
       return true
     rescue Exception => ex
@@ -96,12 +107,12 @@ class ApplicationController < ActionController::Base
   # 
   def clear_session
     logger.info("clear_session ")
-    @current_folder = nil
+    @current_element = nil
     @current_project = nil
     @current_user = nil
     session[:current_user_id] = nil
     session[:current_project_id] = nil
-    session[:current_folder_id] = nil
+    session[:current_element_id] = nil
     session[:clipboard] = nil
   rescue 
     nil
@@ -121,27 +132,36 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !session[:current_user_id].nil?
   end
+  
+  def has_rights?(subject='data')
+    logged_in? #and current_users.?(subject)
+  end
+  
+  def allows?(subject,action)
+    logged_in? and (current_user.allow?(subject,action) or current_element.allow?(subject,action))
+  end
 
   # ## Default authenticate called before all authorization activity to make
   # sure the user is logged
   # 
   def authenticate
-    if request.get? and params[:controller].to_s !="auth"
-        session[:last_url] = url_for(params)
+    if request.get? and params[:controller].to_s !="auth" and not request.xhr?
+        session[:last_url] = url_for(params) 
         logger.info "Current url =#{session[:last_url]}"
     end
     logged_in?
   end
 
+  def current_username
+    current_user.login
+  end
   # ## Reference to the current User
   # 
   def current_user
     if session and session[:current_user_id]
-      @current_user ||= User.find(session[:current_user_id]) 
-    else
-      @current_user = User.find(Biorails::Record::DEFAULT_GUEST_USER_ID)
+      User.current =  User.find(session[:current_user_id]) 
     end
-    User.current = @current_user
+    User.current
   end  
   
   # ## Reference to the current project 1st checks for a pass parameter of
@@ -166,14 +186,10 @@ class ApplicationController < ActionController::Base
   # 
   # 
   # 
-  def current_folder
-    if session[:current_folder_id]  
-      @current_folder ||= ProjectFolder.find(session[:current_folder_id])
-    else
-      @current_folder = current_project.home
+  def current_element
+    if session[:current_element_id]  
+      @current_element ||= ProjectElement.find(session[:current_element_id])
     end
-    logger.info("current_folder #{@current_folder.name}")
-    ProjectFolder.current = @current_folder
   end
   # 
   # Change the Current user in session
@@ -204,39 +220,24 @@ class ApplicationController < ActionController::Base
     @current_project = nil
   end  
   # 
-  # Change the current team in session
-  # 
-  def set_team(team)
-    logger.info("set_team #{team.name}")
-    if team.member(current_user)
-      session[:current_team_id] = team.id
-      @current_team = team
-    else
-      return show_access_denied      
-    end
-    return @current_team
-  rescue 
-    @current_team = nil
-  end 
-  # 
   # Change the Current folder in session
   # 
   # ## Simple helpers to get the current folder from the session or params
   # 
-  def set_folder( folder_id = nil)
-    @current_folder =  current_project.home if folder_id.nil?
-    @current_folder =  ProjectFolder.find(folder_id) 
-    if @current_folder
-      ProjectFolder.current = @current_folder
-      logger.info("set_folder #{@current_folder.name} ")
-      session[:current_folder_id] = @current_folder.id
-      return @current_folder
+  def set_element( element_id = nil)
+    @current_element =  current_project.home if element_id.nil?
+    @current_element =  ProjectElement.load(element_id) 
+    if @current_element
+      ProjectFolder.current = @current_element
+      logger.info("set_folder #{@current_element.name} ")
+      session[:current_element_id] = @current_element.id
+      return @current_element
     else
-      session[:current_folder_id] = nil
-      @current_folder = nil
+      session[:current_element_id] = nil
+      @current_element = nil
     end
   rescue 
-    @current_folder = nil
+    @current_element = nil
   end  
   # 
   # General error page for access control problems in the system

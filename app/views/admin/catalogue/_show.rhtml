@@ -1,33 +1,28 @@
 <div>
   <% if @data_concept.class==DataContext%>
-  <h3>
-    <b>Root Context [<%= link_to_remote 'Edit',
-        :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>]:
+  <h3 class='breadcrumb'>
+    <b>
+    	<%=l(:label_context)%> [<%= link_to_remote l(:label_edit), :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>]:
     </b>
     <%= @data_concept.name %>
   </h3>
     <% if @context.children.size <5 %>
       <p>
-        The database appears to be nearly empty
-        you may wish to <%=link_to "Import", catalogue_url(:action=>'import')%>
-        a predefined catalogue configuration .
+        <%=l(:notice_empty_database)%> 
+        [<%=link_to l(:label_import), catalogue_url(:action=>'import')%>].
       </p>
       <%else%>
       <p>
-        The Dictionary can be
-        <%=link_to "Exported", catalogue_url(:action=>'list',:format=>'xml')%>
-        to xml to transfer to another empty systems
-        to create a copy.
+        <%=l(:text_export_dictionary)%>
+        [<%=link_to l(:label_exported), catalogue_url(:action=>'list',:format=>'xml')%>]
       </p>
     <% end %>
   <%else%>
-    <h3>
-      <b>Concept [<%= link_to_remote 'Edit',
+    <h3 class='breadcrumb'>
+      <b><%=l(:label_concept)%>[<%= link_to_remote l(:label_edit),
           :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] :
       </b>
-      <%=link_to_remote @data_concept.parent.path+'/',
-          :url => {:action=>'show',
-          :id => @data_concept.parent.id}  if  @data_concept.parent %>
+      <%=link_to_remote "#{@data_concept.parent.path}/", :url => {:action=>'show', :id => @data_concept.parent.id}  if  @data_concept.parent %>
       <%= @data_concept.name %>
     </h3>
   <%end%>
@@ -35,5 +30,3 @@
       <%= @data_concept.description %>
   </p>
 </div>
-
-

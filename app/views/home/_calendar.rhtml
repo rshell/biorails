@@ -1,6 +1,6 @@
-<h1 class="icon icon-user-large" style="text-indent:0.5em"><%=@user.name%>'s Calendar</h1>
 <%  started = Date.civil(2007,3,1)  %>
 
+<div class='panel'>
 <%= month_navigator(@calendar)  %>
 
 <% calendar(@calendar) do |item|  %>
@@ -18,3 +18,4 @@
  </span>
 
 <% end %>
+</div>

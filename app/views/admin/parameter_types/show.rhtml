@@ -1,35 +1,39 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-<% content_for :center do%>
-  <h1 class='class icon icon-parameter_type'> Parameter Type [ <%=@parameter_type.name%> ]</h1>
+<% content_for :center do %>
+<%= render :partial => 'admin/header' %>
+<h2 class='class icon icon-parameter_type'><%=l(:label_parameter_type) %>
+[<%=@parameter_type.name %>]</h2>
+<div class="panel">
   <div class='box'>
-    <p> <b>Description: </b> <%=@parameter_type.description%> </p>
-    <p> <b>Data Type: </b>   <%=@parameter_type.data_type.name%> </p>
-    <p> <b>Quality being measured: </b>  <%=@parameter_type.storage_unit%> </p>
-  </div>  
-
-  <br />
-  <div class='box'>
-      <%= render :partial=>'aliases' %>    
-  </div>  
-  <br />
-
-  <div class='box'>
-    <%if @parameter_type.used? %>
-      <%= render :partial=>'usages' %>
-    <%else%>
-      <p>   This parameter type is not currently in use with existing assays or processes.
-        [   <%= link_to "<b class='icon icon-del'>Delete</b>",
-          { :action => 'remove', :id =>  @data_format },
-          :confirm => 'Are you sure?',:method => "post" %> ]
-      </p>
-      <br />
-    <%end%>
+    <p>
+      <b><%=l(:label_description) %>:</b>
+      <%=@parameter_type.description %>
+    </p>
+    <p>
+      <b><%=l(:label_data_type) %>:</b>
+      <%=@parameter_type.data_type.name %>
+    </p>
+    <p>
+      <b><%=l(:label_quality_being_measured) %>: </b>
+      <%=@parameter_type.storage_unit %>
+    </p>
   </div>
+  <hr />
+  <%= render :partial=>'aliases' %>
+  <div>
+    <%if @parameter_type.used? %>
+    <%= render :partial=>'usages' %>
+    <%else %>
+    <p>
+      <%=l(:text_unused_parameter_type) %>...<%= link_to"#{ l(:label_delete)}?",  { :action => 'remove', :id =>  @data_format }, :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>
+    </p>
+    <%end %>
+  </div>
+  <%= link_to l(:label_list),  parameter_type_url(:action => 'list'), :class=>'icon icon-list' %>
+</div>
 <% end %>
-
 <% content_for :right do -%>
-  <%= render :partial=>'help' %>
-<%end%>
+<%= render :partial=>'help' %>
+<%end %>

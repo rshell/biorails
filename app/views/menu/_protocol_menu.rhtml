@@ -5,15 +5,9 @@
         <%=protocol.name %>
       </b>
     </span>
-    <div class='boldnotbold'>
-      <%= link_to  "<b class='icon icon-protocol_add'>New</b>",
-        protocol_url( :action =>'export',:id => protocol) %>
-      <%= link_to "<b class='icon icon-protocol'>Show</b>",
-        protocol_url( :action =>'show',:id => protocol) %>
-      <%= link_to "<b class='icon icon-protocol-edit'>Edit</b>",
-        protocol_url( :action => 'edit', :id => protocol) %>
-      <%= link_to "<b class='icon icon-xml'>Export</b>",
-        protocol_url( :action =>'export',:id => protocol) %>
-    </div>
+    <%= link_to l(:label_new),    process_instance_url( :action =>'export',:id => protocol) %>
+    <%= link_to l(:label_show),   process_instance_url( :action =>'show',:id => protocol) %>
+    <%= link_to l(:label_edit),   process_instance_url( :action => 'edit', :id => protocol) %>
+    <%= link_to l(:label_export), process_instance_url( :action =>'export',:id => protocol) %>
   </div>
 <% end %>

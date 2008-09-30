@@ -1,4 +1,3 @@
-<div id=<%=@report.dom_id('show')%> >
-  <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @data} %>
-</div>
-<br />
+<%=render :partial => 'header'%>
+<%=render :partial => 'shared/report', :locals=>{:report =>  @report} %>
+

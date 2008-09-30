@@ -1,13 +1,21 @@
-##
+# == Description
+# Login/Out controller this manage the presentation of a login page to the 
+# user.
+#
+# == Copyright
+# 
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights 
-##
-
+# See license agreement for additional rights ##
+#
 class AuthController < ApplicationController
 
 
 # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
 
+  def index
+    login
+  end
+  
   def login
     if request.get?
       render :action=>'login',:layout=> 'simple'

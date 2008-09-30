@@ -1,25 +1,19 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
-    <span class='menu'>Dictionary</span>
-    <%= link_to "<b class='icon icon-del'>Delete</b>",
-            { :action => 'remove', :id =>  @data_context },
-            :confirm => 'Are you sure?',:method => "post" %>
-    <%= link_to "<b class='icon icon-add'>Add Concept</b>",
-            :action => 'new', :controller=>'data_concepts' ,
-            :data_context =>  @data_context %>
-    <%= link_to "<b class='icon icon-edit'>Edit</b>",
-            :action => 'edit', :id =>  @data_context %>
-    <%= link_to "<b class='icon icon-list'>List</b>",
-            :action => 'list' %>
+    <span class='menu'><%=l(:label_dictionary)%></span>
+    <%= link_to l(:label_delete),{ :action => 'remove', :id =>  @data_context }, :confirm => l(:text_are_you_sure),:method => "post" %>
+    <%= link_to l(:label_add), :action => 'new', :controller=>'data_concepts', :data_context =>  @data_context %>
+    <%= link_to l(:label_edit), :action => 'edit', :id =>  @data_context %>
+    <%= link_to l(:label_list), :action => 'list' %>
     </div>
 <% end %>
 
-
+<%= render :partial => 'admin/header' %>
 <div class='main' id='maintitle'>
-    <h1 class='icon icon-context'>
-        Dictionary <strong><%= @data_context.path %></strong>
-    </h1>
+    <h2 class='icon icon-context'>
+        <%=l(:label_dictionary)%> <strong><%= @data_context.path %></strong>
+    </h2>
     <div class='panel'>
         <%= render :partial => 'shared/named',:locals =>{:item => @data_context} %>
         <br/>

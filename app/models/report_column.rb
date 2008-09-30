@@ -1,39 +1,42 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: report_columns
 #
-#  id                 :integer(11)   not null, primary key
-#  report_id          :integer(11)   not null
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default()
-#  join_model         :string(255)   
-#  label              :string(255)   
-#  action             :string(255)   
-#  filter_operation   :string(255)   
-#  filter_text        :string(255)   
-#  subject_type       :string(255)   
-#  subject_id         :integer(11)   
-#  data_element       :integer(11)   
-#  is_visible         :boolean(1)    default(true)
-#  is_filterible      :boolean(1)    default(true)
-#  is_sortable        :boolean(1)    default(true)
-#  order_num          :integer(11)   
-#  sort_num           :integer(11)   
-#  sort_direction     :string(11)    
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  join_name          :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  report_id          :integer(4)      not null
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default("")
+#  join_model         :string(255)
+#  label              :string(255)
+#  action             :string(255)
+#  filter_operation   :string(255)
+#  filter_text        :string(255)
+#  subject_type       :string(255)
+#  subject_id         :integer(4)
+#  data_element       :integer(4)
+#  is_visible         :boolean(1)      default(TRUE)
+#  is_filterible      :boolean(1)      default(TRUE)
+#  is_sortable        :boolean(1)      default(TRUE)
+#  order_num          :integer(4)
+#  sort_num           :integer(4)
+#  sort_direction     :string(11)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  join_name          :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+# == Description
+# This is the display rules for a column in a report
+#
+# == Copyright
 # 
-
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class ReportColumn < ActiveRecord::Base
 
   belongs_to :report
@@ -57,10 +60,10 @@ class ReportColumn < ActiveRecord::Base
           logger.debug "old value #{is_visible}"
            self.is_visible= ['1','true','Y','y',true].include?(item.to_s)
           logger.debug "new value #{is_visible}"
-        when :label           then  self.label= item      
-        when :order_num       then  self.order_num= item
+        when :label           then  self.label= item.to_s      
+        when :order_num       then  self.order_num= item.to_i
         when :is_filterible,:is_filterable   then  self.is_filterible = ['1','true','Y','y',true].include?(item.to_s)
-        when :filter          then  self.filter = item
+        when :filter          then  self.filter = item.to_s
         when :action          then  self.action = item
         when :is_sortable     then  self.is_sortable =  ['1','true','Y','y',true].include?(item.to_s)
         when :sort_direction 

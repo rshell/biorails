@@ -130,7 +130,7 @@ module Alces
                   csv << a if a 
               end
           end          
-          return task.folder.add_asset(filename,filename,'text/csv',data.to_s)
+          return task.folder.add_asset(filename,data.to_s,'text/csv')
        end
        #
        # Rport on the analysis

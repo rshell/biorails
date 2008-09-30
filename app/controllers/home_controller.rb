@@ -1,13 +1,16 @@
-# ##
+# == Description
+# User Dashboard representing user centric actions including the default /home
+# display dashboard seen by a user.
+#
+# == Copyright
+# 
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
-
 #
-# User Dashboard controller
 #
 class HomeController < ApplicationController
 
-  use_authorization :home,
+  use_authorization :project,
     :actions => [:index,:show,:projects,:calendar,:timeline,:blog,:destroy],
     :rights => :current_user  
 
@@ -25,6 +28,9 @@ class HomeController < ApplicationController
   # 
   def show
     @user = current_user    
+    @signatures_authored_by = Signature.find_authored_by(@user.id, 5)
+    @signatures_for_witness = Signature.find_pending_witness_for(@user.id, 5)
+    @signatures_to_witness = Signature.find_pending_witness_by(@user.id, 5)
     flash[:notice]='This user has no published document' unless  current_user.has_published_documents?
 
     respond_to do | format |
@@ -67,20 +73,19 @@ class HomeController < ApplicationController
 
   def todo
     @user = current_user 
-    @report = Report.internal_report("'s Queued Items",QueueItem) do | report |
-      report.column('assigned_to_user_id').filter = @user.id
+    @report = Biorails::ReportLibrary.user_queued_items_list do | report |
+      report.column('assigned_to_user_id').filter =current_user.id
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
       report.column('name').action = :show
     end
     @report.column('id').is_visible = false
-    @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'report' }
-      format.xml  { render :xml => {   :rows  => @data.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
       format.js   { 
         render :update do | page |
-          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report, :data =>@data } 
+          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report } 
         end 
       }
     end
@@ -88,20 +93,17 @@ class HomeController < ApplicationController
 
   def requests
     @user = current_user    
-    @report = Report.internal_report("My Requested List",QueueItem) do | report |
-      report.column('requested_by_user_id').filter = @user.id
-      report.column('id').is_visible = false
-      report.column('name').action = :show
+    @report = Biorails::ReportLibrary.user_request_list do | report |
+      report.column('requested_by_user_id').filter = current_user.id
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
     end
-    @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'report' }
-      format.xml  { render :xml => {   :rows  => @data.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
       format.js   { 
         render :update do | page |
-          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report, :data =>@data } 
+          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report } 
         end 
       }
     end
@@ -109,20 +111,19 @@ class HomeController < ApplicationController
 
   def tasks
     @user = current_user    
-    @report = Report.internal_report("My Tasks",Task) do | report |
+    @report = Report.internal_report(l(:label_my_tasks),Task) do | report |
       report.column('created_by_user_id').filter = @user.id
       report.column('id').is_visible = false
       report.column('name').action = :show
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
     end
-    @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'report' }
-      format.xml  { render :xml => {   :rows  => @data.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
       format.js   { 
         render :update do | page |
-          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report, :data =>@data } 
+          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report} 
         end 
       }
     end
@@ -160,6 +161,27 @@ class HomeController < ApplicationController
     end
   end
   
+  
+  def password
+    @user = User.current
+    if params[:user]
+      unless (params[:user][:old_password].blank? or params[:user][:password].blank?)
+        @user.name = params[:user][:name]    
+        @user.fullname = params[:user][:fullname]         
+        if @user.reset_password(params[:user][:old_password],
+                                params[:user][:password],
+                                params[:user][:password_confirmation])
+           logger.warn flash[:info] = "Password changed!"        
+           return redirect_to(home_url())
+        else
+          logger.debug @user.errors.full_messages.join(",")
+        end
+      else
+          logger.warn flash[:info] = "Valid old and new password needed to update record"              
+      end
+    end
+    render :action=>'password'
+  end
 
 
   # Display of Gantt chart of task in  the project This will need to show
@@ -198,13 +220,17 @@ class HomeController < ApplicationController
   # 
   def tree
     if params[:node] != 'root'
-      @elements = current_user.element(:all, :conditions =>['parent_id = ?',params[:node] ],:order=>:left_limit)
+      @elements = ProjectElement.find_visible(:all, 
+         :conditions =>['project_elements.parent_id = ?',params[:node] ],
+         :order=>'project_elements.left_limit')
     else  
-      @elements = current_user.element(:all,:conditions=>'parent_id is null',:order=>:name)
+      @elements = ProjectElement.find_visible(:all,
+        :conditions=>'project_elements.parent_id is null',
+        :order=>'project_elements.name')
     end
     respond_to do | format |
-      format.html { render :partial => 'tree'}
-      format.json { render :partial => 'tree'}
+      format.html { render :inline => '<%= elements_to_json_level(@elements) %>'}
+      format.json { render :inline => '<%= elements_to_json_level(@elements) %>'}
     end
   end
 

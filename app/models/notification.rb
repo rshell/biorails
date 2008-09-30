@@ -45,7 +45,9 @@ class Notification < ActionMailer::Base
      @from       = user.email
      @sent_on    = sent_at
      @headers    = {}
-     part :content_type => "text/html", :body => render_message("excess_login_failures", :user => user)  
-    
+     part :content_type => "text/html", :body => render_message("excess_login_failures", :user => user)
+
   end
+
+
 end

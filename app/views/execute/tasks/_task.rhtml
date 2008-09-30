@@ -1,91 +1,104 @@
-  <table class="report">
+<table class="report">
     <tr>
-      <th class="label">
-        <b class='icon icon-name'>
-          Name</b>
-      </th>
-      <td>
-        <%=@task.name%>
-      </td>
-    </tr>
-    <tr>
-      <th class="label">
-        <b class='icon icon-description'>
-          Description
-        </b>
-      </th>
-      <td colspan='3'><%=@task.description%></td>
-    </tr>
-    <tr>
-      <th class="label">
-        <b class='icon icon-assay'>
-          Assay
-        </b>
-      </th>
-      <td>
-        <%= link_to @task.experiment.assay.name,
-            assay_url(:action => 'show', :id => @task.experiment.assay.id)  %>
-      </td>
-
-      <th class="label">
-        <b class='icon icon-protocol'>
-          Protocol
-        </b>
-      </th>
-      <td>
-        <%=  @task.protocol_name %>
+        <th class="label">
+            <%=l(:label_name) %>
+        </th>
+        <td>
+            <%=@task.name %>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+            <input type="button" id="task-edit-button" value="Edit" />
         </td>
     </tr>
     <tr>
-      <th class="label">
-        <b class='icon icon-experiment'>
-          Experiment
-        </b>
-      </th>
-      <td>
-        <%= link_to @task.experiment_name,
+        <th>
+            <%=l(:label_description) %>
+        </th>
+        <td colspan='3'>
+            <%=@task.description %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_status) %>
+        </th>
+        <td colspan='3'>
+            <%=states_bar(@task.folder,:task) %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_assay) %>
+        </th>
+        <td>
+            <%= link_to @task.experiment.assay.name,
+            assay_url(:action => 'show', :id => @task.experiment.assay.id) %>
+        </td>
+        <th class="label">
+            <%=l(:label_assay) %>
+        </th>
+        <td>
+            <%= @task.protocol_name %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_experiment) %>
+        </th>
+        <td>
+            <%= link_to @task.experiment_name,
             experiment_url( :action => 'show', :id => @task.experiment_id ) %>
-      </td>
-      <th class="label">
-        <b class='icon icon-protocol_version'>
-          Process Version
-        </b>
-      </th>
-      <td>
-        <%=link_to @task.process_name,
-            protocol_url(:action=>'show',:id => @task.protocol_version_id) %>
-            Protocol <%=(@task.flexible? ? '  [flexible]' : ' [fixed]')%>
-      </td>
+        </td>
+        <th class="label">
+            <%=l(:label_process_version) %>
+        </th>
+        <td>
+            <%=link_to @task.process_name,
+            process_instance_url(:action=>'show',:id => @task.process) %>
+            <%=l(:label_process) %><%=(@task.flexible? ? '  [flexible]' : ' [fixed]') %>
+        </td>
     </tr>
     <tr>
-      <th class="label">
-        <b class='icon icon-status'>
-          Status
-        </b>
-      </th>
-      <td>
-        <%=@task.status%>
-      </td>
-      <th class="label">
-        <b class='icon icon-date'>
-          Started
-        </b>
-      </th>
-      <td><%= short_date(@task.started_at) %></td>
+        <th class="label">
+            <%=l(:created_by) %>
+        </th>
+        <td>
+            <%=@task.created_by %>
+        </td>
+        <th class="label">
+            <%=l(:label_started) %>
+        </th>
+        <td>
+            <%= short_date(@task.started_at) %>
+        </td>
     </tr>
     <tr>
-      <th class="label">
-        <b class='icon icon-user_lab'>
-          Assigned To
-        </b>
-      </th>
-      <td><%=@task.assigned_to.name%></td>
-      <th class="label">
-        <b class='icon icon-date'>
-          Ended
-        </b>
-      </th>
-      <td>
-      <%= short_date(@task.ended_at) %></td>
+        <th class="label">
+            <%=l(:label_assigned_to) %>
+        </th>
+        <td>
+            <%=@task.assigned_to.name %>
+        </td>
+        <th class="label">
+            <%=l(:label_date_completed) %>
+        </th>
+        <td>
+            <%= short_date(@task.ended_at) %>
+        </td>
     </tr>
-  </table>
+</table>
+<script type="text/javascript">
+    Ext.onReady(function(){
+        Biorails.Dialog({
+            button: 'task-edit-button',
+            autoLoad: {
+                url: "<%=task_url(:action=>'edit',:format=>:ext,:id=>@task)%>",
+                scripts: true
+            }
+        })
+    });
+</script>

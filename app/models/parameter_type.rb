@@ -1,28 +1,32 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: parameter_types
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(1024)  default(), not null
-#  weighing           :integer(11)   default(0), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  data_concept_id    :integer(11)   
-#  data_type_id       :integer(11)   
-#  storage_unit       :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(50)      default(""), not null
+#  description        :string(1024)    default(""), not null
+#  weighing           :integer(4)      default(0), not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  data_concept_id    :integer(4)
+#  data_type_id       :integer(4)
+#  storage_unit       :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
+# This represents the global type paramter type definition. It repesents the 
+# basic dimension for capture of infomation. Its is expected to contain instances like
+# IC50,Concentration etc.
 #
-
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class ParameterType < ActiveRecord::Base
    acts_as_dictionary :name 
 ##
@@ -197,6 +201,9 @@ class ParameterType < ActiveRecord::Base
     else 
        []
     end
+  rescue 
+    logger.error "Failed to find unit"
+    []    
   end  
 #
 # Work out the default unit for the parameter type
@@ -208,13 +215,20 @@ class ParameterType < ActiveRecord::Base
     else
       ""
     end
+  rescue 
+    logger.error "Failed to find default unit"
+    ""    
   end  
 
   def ParameterType.find_by_role(role)
     ParameterType.find_by_sql( ['select t.* from parameter_types t, assay_parameters s '+
      'where t.id = s.parameter_type_id and s.parameter_role_id = ? ',role.id])
   end          
-  
+
+  def self.allowed_data_types
+    DataType.find([1,2,3,4,6,7]).collect{|i|["#{i.id}. #{i.name}",i.id]}
+  end
+
   def to_xml(options = {})
       my_options = options.dup
       my_options[:include] ||= [:data_type]

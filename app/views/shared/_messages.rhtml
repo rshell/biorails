@@ -1,21 +1,20 @@
-
 <div class="panel">
-<!-- Output flash passed messages -->
+    <!-- Output flash passed messages -->
 <% for name in [:error, :warning, :notice,:info, :trace] %>
-  <% if flash[name] %>
-    <div class="<%= "flash_#{name} message" %>" >
-      <strong><%= name.to_s.capitalize  %>:</strong> <%= flash[name] %> 
+    <% if flash[name] %>
+    <div class="<%= "flash_#{name} message" %>">
+        <strong><%= name.to_s.capitalize %>:</strong>
+        <%= flash[name] %>
     </div>
     <% flash[name] =nil %>
-  <% end %>
+    <% end %>
 <% end %>
-
-<!-- Output error for specific objects -->
-<%  if objects and objects.is_a? Array%>
-  <% for object in objects %>
-     <div class="<%= "message" %>" >
+    <!-- Output error for specific objects -->
+<% if objects and objects.is_a? Array %>
+    <% for object in objects %>
+    <div class="<%= "message" %>">
         <%= error_messages_for object %>
-     </div>
-  <% end %>
-<% end %>    
+    </div>
+    <% end %>
+<% end %>
 </div>

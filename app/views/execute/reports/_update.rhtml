@@ -4,13 +4,15 @@
   <%= hidden_field :report,:project_id %>
   <div class="row">
     <div class="form-element">
-      <label for="report_name" class='icon icon-name'>Name</label>
+      <label for="report_name">
+        <%=l(:label_name)%>
+      </label>
       <%= text_field 'report', 'name' , {:class=>"text-input"} %>
     </div>
   
     <div class="form-element">
-      <label for="report_name"  class='icon icon-count'>
-        Decimal Places
+      <label for="report_name">
+        <%=l(:label_decimal_places)%>
       </label>
       <%= select_tag 'report[decimal_places]', "<option>#{(0..9).to_a.join('</option><option>')}</option>" %>
     </div>
@@ -18,13 +20,13 @@
 
   <div class="row">
     <div class="form-element">
-      <label for="report_description" class='icon icon-description'>
-        Description
+      <label for="report_description">
+        <%=l(:label_description)%>
       </label>
       <%= text_area('report', 'description',{:rows=>5, :cols=>80} ) %>
     </div>
   </div>
   <div class="row">
-    <%= submit_tag 'Update' %>
+    <%= submit_tag l(:button_save) %>
   </div>
 <% end %>

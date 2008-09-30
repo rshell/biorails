@@ -1,27 +1,27 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: teams
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(30)    default(), not null
-#  description        :string(2048)  default(), not null
-#  status_id          :integer(11)   default(0), not null
-#  public_role_id     :integer(11)   default(1), not null
-#  external_role_id   :integer(11)   default(1)
-#  email              :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(30)      default(""), not null
+#  description        :string(2048)    default(""), not null
+#  status_id          :integer(4)      default(0), not null
+#  public_role_id     :integer(4)      default(1), not null
+#  external_role_id   :integer(4)      default(1)
+#  email              :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
 #
 
 --- 
 00000000004_team: !ruby/object:Team 
   attributes: 
     name: Project Z
-    updated_at: 2007-12-19 11:36:36
+    updated_at: 2008-08-14 10:29:31
     updated_by_user_id: "1"
     lock_version: "0"
     external_role_id: "1"
@@ -37,7 +37,7 @@
 00000000003_team: !ruby/object:Team 
   attributes: 
     name: Project Y
-    updated_at: 2007-12-19 11:36:36
+    updated_at: 2008-08-14 10:29:31
     updated_by_user_id: "1"
     lock_version: "0"
     external_role_id: "1"
@@ -50,10 +50,26 @@
     email: 
   attributes_cache: {}
 
+00000000009_team: !ruby/object:Team 
+  attributes: 
+    name: unused
+    updated_at: 2008-08-14 10:29:31
+    updated_by_user_id: "1"
+    lock_version: "0"
+    external_role_id: "1"
+    id: "9"
+    description: team can be deleted.
+    public_role_id: "1"
+    created_by_user_id: "1"
+    status_id: "0"
+    created_at: 2007-12-19 11:36:34
+    email: 
+  attributes_cache: {}
+
 00000000002_team: !ruby/object:Team 
   attributes: 
     name: Project X
-    updated_at: 2007-12-19 11:36:36
+    updated_at: 2008-08-14 10:29:31
     updated_by_user_id: "1"
     lock_version: "0"
     external_role_id: "1"
@@ -69,7 +85,7 @@
 00000000001_team: !ruby/object:Team 
   attributes: 
     name: Global
-    updated_at: 2007-12-19 11:36:34
+    updated_at: 2008-08-14 10:29:31
     updated_by_user_id: "1"
     lock_version: "0"
     external_role_id: "1"
@@ -81,21 +97,4 @@
     created_at: 2007-12-19 11:36:34
     email: 
   attributes_cache: {}
-  
-00000000009_team: !ruby/object:Team 
-  attributes: 
-    name: unused
-    updated_at: 2007-12-19 11:36:34
-    updated_by_user_id: "1"
-    lock_version: "0"
-    external_role_id: "1"
-    id: "9"
-    description: team can be deleted.
-    public_role_id: "1"
-    created_by_user_id: "1"
-    status_id: "0"
-    created_at: 2007-12-19 11:36:34
-    email: 
-  attributes_cache: {}
-
 

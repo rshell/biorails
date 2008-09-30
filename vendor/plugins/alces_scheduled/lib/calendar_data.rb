@@ -45,6 +45,19 @@ require 'date'
        @items = []
        @delta = 1.day
     end
+       
+    def add_model_from_folder_tree(klass,folder,states)
+      cond = <<-TEXT
+   status_id in ( #{ states.keys.join(',') } ) 
+   and #{folder.exists_within_sql_filter(klass)} 
+   and (   (#{klass.table_name}.started_at  between  ? and  ? ) 
+        or (#{klass.table_name}.expected_at between  ? and  ? ) ) 
+TEXT
+      list = klass.find(:all, :order => "#{klass.table_name}.started_at, #{klass.table_name}.ended_at", 
+                   :conditions => [ cond,  started_at, finished_at, started_at, finished_at] )
+      self.fill(list)                     
+    end
+    
     ##
     # Fill the calendar with items
     #  

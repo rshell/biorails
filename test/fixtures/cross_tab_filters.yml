@@ -1,3 +1,18 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tab_filters
+#
+#  id                  :integer(4)      not null, primary key
+#  cross_tab_id        :integer(4)      not null
+#  filter_op           :string(255)
+#  filter_text         :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  session_name        :string(255)     default("default")
+#  cross_tab_column_id :integer(4)
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # one:

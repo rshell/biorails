@@ -1,68 +1,95 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
 <% content_for :messages do -%>
-  <%=render :partial =>'shared/messages',:locals => { :objects => ['role']} %>
-<%end%>
-
-<% content_for :right do%>
-  <%= render :partial => 'help'%>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['role']} %>
+<%end %>
+<% content_for :right do %>
+<%= render :partial => 'help' %>
 <% end %>
+<%= render :partial => 'admin/header' %>
 
-<h1 class='icon icon-user-large' style='text-indent:0.5em'>User Roles</h1>
+<h2 class='icon icon-role'>
+  <%=l(:label_user) %>
+  <%=l(:label_roles) %>
+</h2>
 <div class='panel'>
-  <p>
-    Governs the user's default access rights on the system.
-    Basic access is to the user's and global <i>home pages</i>,
-    <i>catalogue</i> and other system-wide concepts such as
-    <i>inventory</i>.
-  </p>
-  <p>
-    <strong>Note:</strong>Users have team roles which
-    override access at the project level)
-  </p>
-  <div class='panel'>
-      <table class='report'>
-        <tr>
-              <th>Name</th><th>Description</th><th>Created At</th>
-              <th>Updated At</th>
-        </tr>
-      <% for role in @user_roles %>
-        <tr class="<%= cycle('odd', 'even') %>">
-              <td><%= link_to role.name, :action => 'show', :id => role %></td>
-              <td><%= role.description %></td>
-              <td><%=short_date role.created_at %></td>
-              <td><%=short_date role.updated_at %></td>
-        </tr>
-      <% end %>
-      </table>
-  </div>
-</div>
-
-<br />
-
-<h1  class='icon icon-team-large' style='text-indent:0.5em'>Team Roles</h1>
-<div class='panel'>
-  <p>
-    Governs what a user privileges as a member of a team, their team access rights.
-    This role is then applied to the projects owned by that team and thus control
-    operations such as <i>assay definition</i>, and <i>data entry</i>.
-  </p>
+  <h3 class='icon icon-user'><%=l(:label_user_roles) %>
+  </h3>
   <div class='panel'>
     <table class='report'>
       <tr>
-            <th>Name</th><th>Description</th><th>Created At</th>
-            <th>Updated At</th>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <th>
+          <%=l(:label_description) %>
+        </th>
+        <th>
+          <%=l(:label_created_at) %>
+        </th>
+        <th>
+          <%=l(:label_updated_at) %>
+        </th>
       </tr>
-
-    <% for role in @project_roles %>
+      <% for role in @user_roles %>
       <tr class="<%= cycle('odd', 'even') %>">
-            <td><%= link_to role.name, :action => 'show', :id => role %></td>
-            <td><%= role.description %></td>
-            <td><%=short_date role.created_at %></td>
-            <td><%=short_date role.updated_at %></td>
+        <td>
+          <%= link_to role.name, :action => 'show', :id => role %>
+        </td>
+        <td>
+          <%= role.description %>
+        </td>
+        <td>
+          <%=short_date role.created_at %>
+        </td>
+        <td>
+          <%=short_date role.updated_at %>
+        </td>
       </tr>
-    <% end %>
+      <% end %>
     </table>
   </div>
+  <h3 class='icon icon-team'>
+    <%=l(:label_team_roles) %>
+    </h3>
+  <div class='panel'>
+    <table class='report'>
+      <tr>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <th>
+          <%=l(:label_description) %>
+        </th>
+        <th>
+          <%=l(:label_created_at) %>
+        </th>
+        <th>
+          <%=l(:label_updated_at) %>
+        </th>
+      </tr>
+      <% for role in @project_roles %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%= link_to role.name, :action => 'show', :id => role %>
+        </td>
+        <td>
+          <%= role.description %>
+        </td>
+        <td>
+          <%=short_date role.created_at %>
+        </td>
+        <td>
+          <%=short_date role.updated_at %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+<hr />
+  <%= link_to l(:label_new),role_url( :action => 'new'), :class=>'icon icon-new' %>
+  <%if @role && !@role.new_record?%>
+    <%= link_to l(:label_edit), role_url( :action => 'edit',:id=>@role.id), :class => 'icon icon-edit'%>
+  <%end%>
 </div>

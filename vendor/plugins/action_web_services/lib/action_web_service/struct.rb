@@ -39,7 +39,38 @@ module ActionWebService
         yield name, self.__send__(name)
       end
     end
+    
 
+    def to_hash
+      set = {}
+      self.class.members.each do |name,value|
+        set[name]=value
+      end
+      set
+    end
+
+    def to_rec(rec)
+      self.class.members.each do |name,type|
+         begin
+           rec.send("#{name}=",self.send(name))  
+         rescue
+           puts "failed to read attribute #{name}" 
+         end        
+      end
+      rec
+    end
+
+    def from_rec(rec)
+      self.class.members.each do |name,type|
+           begin
+             self.send("#{name}=",rec.send(name))  
+           rescue
+             ActiveRecord::Base.logger.warn "failed to read attribute #{name}" 
+           end        
+        end
+        self
+    end
+        
     class << self
       # Creates a structure member with the specified +name+ and +type+. Generates
       # accessor methods for reading and writing the member value.
@@ -52,6 +83,27 @@ module ActionWebService
           def #{name}=(value); @#{name} = value; end
         END
       end
+      
+        def from_rec(rec)
+          item = self.new
+          self.members.each do |name,type|
+               begin
+                 item.send("#{name}=",rec.send(name))  
+               rescue
+                 ActiveRecord::Base.logger.warn "failed to read attribute #{name}" 
+               end        
+            end
+          item
+        end
+      #
+      # Convert a list of items into a list of struct
+      #  
+      def from_list(list)
+        list.collect do | rec|
+           from_rec(rec)          
+        end
+      end
+            
   
       def members # :nodoc:
         read_inheritable_attribute("struct_members") || {}

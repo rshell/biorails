@@ -1,46 +1,48 @@
-<% dialog "Edit Parameter #{@assay_parameter.name}" do %>
-  <% form_tag :action => 'update', :id => @assay_parameter do %>
-
-    <!--[form:assay_parameter]-->
-    <% hidden_field :assay_parameter, :assay_id %>
-    <% hidden_field :assay_parameter, :name %>
-    <% hidden_field :assay_parameter, :parameter_type_id %>
-    <div class='box'>
-      <p><b>Type: </b><%=@assay_parameter.type.name%></p>
-      <p><%=@assay_parameter.type.description%></p>
-      <p><b>Name: </b><%=@assay_parameter.name%></p>
-    </div>
-
-
-    <div class="row" id='form_name'>
-      <div class="form-element">
-        <label for="assay_parameter_name" class='icon icon-name'>    Name:   </label>
+<%= render :partial => 'organize/assays/header' %>
+<% dialog l(:label_parameter_edit) + " [" + @assay_parameter.name + "]" do %>
+<% form_tag :action => 'update', :id => @assay_parameter do %>
+<!--[form:assay_parameter]--><% hidden_field :assay_parameter, :assay_id %>
+<% hidden_field :assay_parameter, :name %>
+<% hidden_field :assay_parameter, :parameter_type_id %>
+<div class='box'>
+    <p>
+        <b>Type: </b>
+        <%=@assay_parameter.type.name %>
+    </p>
+    <p>
+        <%=@assay_parameter.type.description %>
+    </p>
+    <p>
+        <b>Name: </b>
+        <%=@assay_parameter.name %>
+    </p>
+</div>
+<div class="row" id='form_name'>
+    <div class="form-element">
+        <label for="assay_parameter_name">
+            <%=l(:label_name) %>
+        </label>
         <%= text_field :assay_parameter,:name %>
-      </div>
     </div>
-
-    <div class="row" id='form_description'>
-      <%= render(:partial => 'form_description')   %>
+</div>
+<div class="row" id='form_description'>
+    <%= render(:partial => 'form_description') %>
+</div>
+<div class="row" id='form_config'>
+    <%= render( :partial => 'form_config') %>
+</div>
+<div class="row" id='form_rules'>
+    <%= render( :partial => 'form_rules') %>
+</div>
+<br/>
+<br/>
+<br/>
+<div class='row'>
+    <div class="form-element">
+        <%= submit_tag l(:button_save) %>
     </div>
-
-    <div class="row" id='form_config'>
-      <%= render( :partial => 'form_config') %>
-    </div>
-
-    <div class="row" id='form_rules'>
-      <%= render( :partial => 'form_rules') %>
-    </div>
-
-    <br />
-    <br />
-    <div class='row'>
-      <div class="form-element">
-        <%= submit_tag 'Save' %>
-      </div>
-    </div>
-    <br />
-    <br />
-  <% end %>
-<%end%>
-
+</div>
+<br/>
+<% end %>
+<%end %>
 <!--[eoform:assay_parameter]-->

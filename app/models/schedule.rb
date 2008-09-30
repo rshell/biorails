@@ -1,4 +1,5 @@
-##
+# == Description
+#
 # Build a schedule for display on forms
 # This consists of a collection of date boxes with linked list of items in the boxes
 # 
@@ -15,11 +16,11 @@
 #  
 #  Hope later to add work_on(inventory_item) etc 
 #  
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+#
+# == Copyright
 # 
-
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
   class ScheduleItem
      attr_accessor :name
      attr_accessor :start

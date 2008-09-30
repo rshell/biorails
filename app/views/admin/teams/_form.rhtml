@@ -3,8 +3,8 @@
     <!--[form:team]-->
     <%= hidden_field 'team', 'lock_version'  %>
     <div class="form-element">
-      <label for="team_name" class='icon icon-name'>
-        Name
+      <label for="team_name" >
+        <%=l(:label_team)%>
       </label>
       <%= text_field 'team', 'name' , {:class=>"text-input"} %>
     </div>
@@ -12,8 +12,8 @@
 
   <div class="row">
     <div class="form-element">
-      <label for="team_description"  class='icon icon-description'>
-        Summary
+      <label for="team_description"  >
+        <%=l(:label_description)%>
       </label>
       <%= text_area('team', 'description', {:rows=>5,:cols=>80})  %>
     </div>

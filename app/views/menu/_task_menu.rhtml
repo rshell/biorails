@@ -1,20 +1,14 @@
 <% unless task.nil? %>
 <div>
-  <span class='menu'>
-    <b class='icon icon-task'>
-      <%= task.name %>
-    </b>
-  </span>
-  <div class='boldnotbold'>
+    <span class='menu'><b class='icon icon-task'><%=h task.name %>
+        </b></span>
     <% unless task.new_record? %>
-      <%= link_to( "<b class='icon icon-task'>Overview</b>",task_url( :action => 'show', :id => task)) if current_project.allows?(:show,:tasks) %>
-      <%= link_to( "<b class='icon icon-folder'>Folder</b>", folder_url( :action => 'show', :id => task.folder)) %>
-      <%= link_to( "<b class='icon icon-analysis'>Analysis</b>", task_url( :action => 'analysis', :id => task)) if current_project.allows?(:analysis,:tasks) %>
-      <%if task.contexts.size==0%>
-          <%= link_to( "<b class='icon icon-del'>Delete</b>",task_url( :action => 'destroy', :id => task ),
-                :confirm => 'Are you sure?',:method => "post") if current_project.allows?(:destroy,:tasks) %>
-      <%end%>
-    <%end%>
-    </div>
-  </div>
-<%end%>
+    <%= link_to( l(:label_overview),task_url( :action => 'show', :id => task)) %>
+    <%= link_to( l(:label_folder), folder_url( :action => 'show', :id => task.folder)) %>
+    <%= link_to( l(:label_analyse), task_url( :action => 'analysis', :id => task)) %>
+    <%if task.contexts.size==0 %>
+    <%= link_to( l(:label_delete),task_url( :action => 'destroy', :id => task ), :confirm => l(:text_are_you_sure),:method => "post") %>
+    <%end %>
+    <%end %>
+</div>
+<%end %>

@@ -1,24 +1,24 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: analysis_settings
 #
-#  id                 :integer(11)   not null, primary key
-#  analysis_method_id :integer(11)   
-#  name               :string(62)    
-#  script_body        :string(2048)  
-#  options            :string(2048)  
-#  parameter_id       :integer(11)   
-#  data_type_id       :integer(11)   
-#  level_no           :integer(11)   
-#  column_no          :integer(11)   
-#  io_mode            :integer(11)   
-#  mandatory          :string(255)   default(N)
-#  default_value      :string(255)   
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  analysis_method_id :integer(4)
+#  name               :string(62)
+#  script_body        :text
+#  options            :text
+#  parameter_id       :integer(4)
+#  data_type_id       :integer(4)
+#  level_no           :integer(4)
+#  column_no          :integer(4)
+#  io_mode            :integer(4)
+#  mandatory          :string(255)     default("N")
+#  default_value      :string(255)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
 --- 

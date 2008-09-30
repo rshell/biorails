@@ -1,36 +1,28 @@
 <table class='report' style='border: solid thin'>
   <tr>
     <th>
-      <b class='icon icon-queue_item'>
-        Queue Item
-      </b>
+        <%=l(:label_item)%>
     </th>
     <%for item in @user_request.services %>
       <th>
-        <p class='icon icon-show'>
-          <%=link_to item.name+": "+item.queue.name ,
-          service_url( :action => 'show', :id => item) %>
-        </p>
+          <%=link_to "#{item.name}: #{item.queue.name}" , service_url( :action => 'show', :id => item) %>
       </th>
     <% end %>
     <th>
-      <b class='icon icon-queue_item'>
-        Action
-      </b>
+        <%=l(:label_action)%>
     </th>
   </tr>
     <%for item in  @user_request.items %>
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%=item.data_name%> </td>
         <%for service in @user_request.services %>
-          
           <td class='state-<%= @user_request.item_status(item.data_name,service.name)||'new'%>' >
             <%= @user_request.item_status(item.data_name,service.name)  %>
           </td>
         <% end %>
           <td>
             <p class='icon icon-del'>
-              <%= link_to "Remove",  request_url(:action => 'remove_item',:request_id=> @user_request.id,    :id => item.id ) %>
+              <%= link_to l(:label_remove), request_url(:action => 'remove_item', :request_id=> @user_request.id, :id => item.id ) %>
             </p>
           </td>
       </tr>

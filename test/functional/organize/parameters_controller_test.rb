@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/organize/parameters_controller"
 class Organize::ParametersController; def rescue_action(e) raise e end; end
 
 class Organize::ParametersControllerTest < Test::Unit::TestCase
-  # fixtures :parameters
 
   def setup
     @controller = Organize::ParametersController.new

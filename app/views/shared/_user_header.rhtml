@@ -1,0 +1,17 @@
+<div class="content_header user">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-user'><%= link_to(current_user.name, home_url( :action => :show)) %>
+    </h1>
+    <br/>
+    <br/>
+
+    <div class='actions_left'>
+        <%= link_to "#{l(:label_my)} #{l(:label_calendar)}",  home_url( :action => 'calendar'), :class=>'icon icon-calendar' %>
+        <%= link_to l(:label_my_documents),  signature_url( :action => 'list_authored'), :class=>'icon icon-pdf' %>
+    </div>
+    <div class='actions_right'>
+        <%= link_to( l(:label_project_new),  project_url(:action => 'new'), :class=>'icon icon-project-add') %>
+        <%= link_to( l(:label_request_add),  request_url(:action => 'new'), :class=>'icon icon-request-add') %>
+    </div>
+    <br/>
+</div>

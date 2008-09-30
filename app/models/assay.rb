@@ -1,3 +1,28 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: assays
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default(""), not null
+#  category_id        :integer(4)
+#  research_area      :string(255)
+#  purpose            :string(255)
+#  started_at         :datetime
+#  ended_at           :datetime
+#  expected_at        :datetime
+#  team_id            :integer(4)      not null
+#  project_id         :integer(4)      not null
+#  status_id          :integer(4)      default(0), not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  project_element_id :integer(4)
+#
+
 # == Description
 # An assay definition provides the organisation for capturing structured data within experiments. 
 # Each assay definition has its own name space built 
@@ -26,30 +51,6 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 #
-# == Schema Information
-# Schema version: 338
-#
-# Table name: assays
-#
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default(), not null
-#  category_id        :integer(11)   
-#  research_area      :string(255)   
-#  purpose            :string(255)   
-#  started_at         :datetime      
-#  ended_at           :datetime      
-#  expected_at        :datetime      
-#  team_id            :integer(11)   not null
-#  project_id         :integer(11)   not null
-#  status_id          :integer(11)   default(0), not null
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#
-
 class Assay < ActiveRecord::Base
   #
   # Add Catalog dictionary methods (lookup,like,name) based on the :name field
@@ -85,12 +86,12 @@ class Assay < ActiveRecord::Base
   # 
   # Owner project
   # 
-  acts_as_folder :project
+  acts_as_folder_linked :project, :under=>'assays'
+
+  belongs_to :project  
+  belongs_to :team
   
-  # 
-  # access control managed via team
-  # 
-  access_control_via  :team  
+
   #
   # Link to view for summary stats for assay
   # 
@@ -207,17 +208,16 @@ SQL
   # Rules for sharing a assay
   # 
   def shareable?( other )
-    return ((other.team == self.team) or published? )
+    (other.visible? and self.visible? and self.published? and other.folder.changable?)  
   end
-  # 
-  # See if this actions allowed by the models controller
-  # 
-  def allows?(action)
-    return false unless (self.project == Project.current) 
-    member = User.current.membership(self.project)
-    return false unless member
-    return member.owner? || member.role.allow?(self.class.table_name,action)
-  end  
+  
+  def shareable_status(other)
+    return 'folder #{other.name} not visible' unless other.visible? 
+    return 'assay #{name} not visible' unless self.visible?
+    return 'assay not published? ' unless self.published? 
+    return 'folder not changable'  unless other.folder.changable?  
+    'ok'    
+  end
   # 
   # Is the assy ok for use externally
   # 

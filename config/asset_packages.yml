@@ -5,7 +5,7 @@ javascripts:
   - ext2/adapter/prototype/scriptaculous
   - ext2/adapter/prototype/effects
   - ext2/adapter/prototype/controls
-  - ext2/adapter/prototype/ext-prototype-adapter
+  - ext2/adapter/ext/ext-base
   - ext2/ext-all
   - ext2/ext_searchfield
   - ext2/ext_datetime
@@ -27,7 +27,7 @@ javascripts:
 stylesheets: 
 - base: 
   - ext-all
-  - open_icons
+  - enterprise_icons
   - forms
   - table
   - errors

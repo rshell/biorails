@@ -1,34 +1,8 @@
 <div class=" x-panel-header x-accordion-hd"  >
   <span class="icon icon-parameter_role x-panel-header-text" >
-     Parameter Roles
+     <%=l(:label_parameter_role)%>
      </span>
 </div>
 <div class="panel">
-
-<p>
-  Parameter roles define how parameters are <strong>used</strong> in an <i>assay design</i> and allow parameterised data to be <i>partitioned</i> to aid filtering.
-  In general practice, data entry or transactional systems need to capture a lot more data than is required for long
-  term data warehousing. By using parameter roles we can distinguish - for example - capture settings, and observation conditions from results. We can then filter the data so that only the results get transferred to long term warehousing systems.
-</p>
-<br />
-<h2>Examples</h2>
-<h3>
-  Inputs:
-</h3>
-<ul>
-  <li><b class='icon icon-observation'>raw data</b></li>
-  <li><b class='icon icon-observation'>observations</b></li>
-  <li><b class='icon icon-observation'>measurements and files etc</b></li>
-</ul>
-<h3>Context</h3>
-<ul>
-  <li><b class='icon icon-setting'>settings</b></li>
-  <li><b class='icon icon-condition'>conditions</b></li>
-  <li><b class='icon icon-compound'>inventory references etc</b></li>
-</ul>
-<h3>Output</h3>
-<ul>
-  <li><b class='icon icon-result'>results</b></li>
-  <li><b class='icon icon-result'>conclusions etc</b></li>
-</ul>
+<%=l(:help_parameter_roles)%>
 </div>

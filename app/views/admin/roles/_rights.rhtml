@@ -1,23 +1,34 @@
-<h1 class='icon icon-role'> Permissions for <%= @role.name %></h1>
-
-<table class="report">
-<thead>
-    <tr>
-        <th>Subject</th>
-        <th colspan=10>Allowed Actions for Role</th>
-    </tr>
-</thead>
-<tbody>
-<% for subject in @role.class.subjects.keys.sort do %>
-    <tr class="<%= cycle('odd', 'even') %>">
-        <th><%=subject%></th>
-        <% for action in Permission.possible_actions(subject) %>
-            <%if @role.allow?(subject,action) %>
-                <td><%=action%></td>
-            <%end%>
-        <% end -%>
-    </tr>
-<% end -%>
-</tbody>
-
-</table>
+<div class='panel'>
+    <h3 class='icon icon-role'><%=l(:label_permissions) %>
+        <%=l(:text_for) %>
+        <%= @role.name %>
+    </h3>
+    <table class="report">
+        <thead>
+            <tr>
+                <th>
+                    <%=l(:label_subject) %>
+                </th>
+                <th colspan=11>
+                    <%=l(:label_allowed_actions_for_role) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for subject in @role.class.subjects.keys.sort do %>
+            <tr class="<%= cycle('odd', 'even') %>">
+                <th>
+                    <%=subject %>
+                </th>
+                <% for action in Role.possible_actions(subject) %>
+                <%if @role.allow?(subject,action) %>
+                <td>
+                    <%=action %>
+                </td>
+                <%end %>
+                <% end -%>
+            </tr>
+            <% end -%>
+        </tbody>
+    </table>
+</div>

@@ -1,5 +1,35 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
+#
+# Table name: parameter_contexts
+#
+#  id                  :integer(4)      not null, primary key
+#  protocol_version_id :integer(4)      not null
+#  parent_id           :integer(4)
+#  level_no            :integer(4)      default(0)
+#  label               :string(255)
+#  default_count       :integer(4)      default(1)
+#  left_limit          :integer(4)      default(0), not null
+#  right_limit         :integer(4)      default(0), not null
+#  lock_version        :integer(4)      default(1), not null
+#  created_at          :datetime
+#  updated_at          :datetime
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  created_by_user_id  :integer(4)      default(1), not null
+#  output_style        :string(255)     default("default"), not null
+#
+
+# == Description
+# This defined a shared context between a number of parameters in data entry. It is used
+# to link up values into a subject context like plate ,sample or well level results.
+# 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+# == Schema Information
+# Schema version: 338
 #
 # Table name: parameter_contexts
 #
@@ -11,17 +41,13 @@
 #  default_count       :integer(11)   default(1)
 #  left_limit          :integer(11)   default(0), not null
 #  right_limit         :integer(11)   default(0), not null
+#  lock_version        :integer(11)   default(1), not null
+#  created_at          :datetime      
+#  updated_at          :datetime      
+#  updated_by_user_id  :integer(11)   default(1), not null
+#  created_by_user_id  :integer(11)   default(1), not null
 #
-
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-#
-##
-# This defined a shared context between a number of parameters in data entry. It is used
-# to link up values into a subject context like plate ,sample or well level results.
-# 
+ 
 class ParameterContext < ActiveRecord::Base
 
  acts_as_audited :change_log
@@ -36,11 +62,8 @@ class ParameterContext < ActiveRecord::Base
  belongs_to :process, :class_name=>'ProcessInstance',:foreign_key=>'protocol_version_id'
 
  acts_as_fast_nested_set :parent_column => 'parent_id',
-                     :left_column => 'left_limit',
-                     :right_column => 'right_limit',
                      :order => 'protocol_version_id,left_limit',
-                     :scope => :protocol_version_id,
-                     :text_column => 'label' 
+                     :scope => :protocol_version_id
  
  @@default_columns = 64
 ##
@@ -77,6 +100,18 @@ class ParameterContext < ActiveRecord::Base
 # Link to actual result row. Have to be careful here as there may be 1000s ofrows here.
 # 
  has_many :usages, :class_name=>'TaskContext',:foreign_key =>'parameter_context_id'
+
+  
+ before_destroy :can_destroy_if_not_used_or_release
+   
+ def can_destroy_if_not_used_or_release
+   if (process and not process.flexible?)
+     logger.error  errors.add_to_base("Cannot deleted parameter context #{label} as in use") 
+     return false
+   else
+     true
+   end
+ end
 #
 # Path
 #  

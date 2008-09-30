@@ -1,49 +1,42 @@
-<% roles = @assay.parameter_roles%>
+<% roles = @assay.parameter_roles %>
 <% grid = @assay.parameter_grid %>
-
+<div class='box'>
 <table class="report">
-  <thead>
-    <tr>
-    <th>
-      <b class='icon icon-metric'>
-        &nbsp;
-      </b>
-    </th>
-    <th colspan='<%=roles.size%>' >
-       Usage of parameters by role as count (avg +/-2*stddev) [min..max]
-    </th>
-    </tr>
-    <tr>
-     <th>
-       <b class='icon icon-parameter_type'>
-         Parameter type
-       </b>
-     </th>
-     <% for role in roles %>
-       <th><b class="icon icon-<%=role.name%>"><%=role.name%></b></th>
-     <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% for type in @assay.parameter_types %>
-      <tr class="<%= cycle('odd', 'even') %>">
-        <td><%=type.name%></td>
-        <% for role in roles%>
-          <td>
-          <%if grid[type.id] && grid[type.id][role.id]%>
-             <%=grid[type.id][role.id].num_values %>
-             <% if grid[type.id][role.id].avg_values %>
-             (<%=number_round grid[type.id][role.id].avg_values %>+/-
-              <%=number_round 2*grid[type.id][role.id].stddev_values %>)
-             <%else%>
-              [<%=grid[type.id][role.id].min_values %> .. <%=grid[type.id][role.id].max_values%>]
-             <% end %>
-          <%end%>
-          </td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
+    <thead>
+        <tr>
+            <th rowspan=2>
+                <%=l(:label_parameter_type) %>
+            </th>
+            <th colspan='<%=roles.size%>'>
+                <%=l(:stat_summary_description) %>
+            </th>
+        </tr>
+        <tr>
+            <% for role in roles %>
+            <th>
+                <b class="icon icon-<%=role.name%>"><%=role.name %></b>
+            </th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% for type in @assay.parameter_types %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <%=type.name %>
+            </td>
+            <% for role in roles %>
+            <td>
+                <%if grid[type.id] && grid[type.id][role.id] %>
+                <%=grid[type.id][role.id].num_values %>
+                <% if grid[type.id][role.id].avg_values %>
+                (<%=number_round grid[type.id][role.id].avg_values %>+/-<%=number_round 2*grid[type.id][role.id].stddev_values %>)<%else %>
+                [<%=grid[type.id][role.id].min_values %> .. <%=grid[type.id][role.id].max_values %>]<% end %>
+                <%end %>
+            </td>
+            <%end %>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
-
-<div>
+</div>

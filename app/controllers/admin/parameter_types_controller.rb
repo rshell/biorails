@@ -14,7 +14,9 @@
 # 
 class Admin::ParameterTypesController < ApplicationController
 
-  use_authorization :catalogue, :actions => [:list,:show,:new,:create,:edit,:update,:destroy], :rights => :current_user
+  use_authorization :catalogue, 
+              :actions => [:list,:show,:new,:create,:edit,:update,:destroy], 
+              :rights => :current_user
  
   before_filter :setup_parameter_type ,  :only => [ :show, :edit, :update,:destroy,:add]
 

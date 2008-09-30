@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/organize/queue_items_controller"
 class Organize::QueueItemsController; def rescue_action(e) raise e end; end
 
 class Organize::QueueItemsControllerTest < Test::Unit::TestCase
-  # fixtures :parameters
 
   def setup
     @controller = Organize::QueueItemsController.new

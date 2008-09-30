@@ -15,15 +15,48 @@ Purpose of the stylesheet follows.
 .biorails li { display: list-item }
 .biorails ol { list-style-type: decimal }
 
+.help{
+float: right;
+}
 
 a {
     color: #15428B;
     text-decoration: none;
 }
+
+
+div .boldnotbold b {
+    font-weight: normal;
+}
 /*
 TODO customize this sample style
 Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
+.content{
+    width:100%;
+    float:left;
+}
+
+.icon {
+    z-index:100;
+}
+
+.actions {
+    padding: 3px;
+    margin: 3px;
+}
+.actions a {
+	height: 1em;
+	line-height: 1em;
+	text-decoration: none;
+	text-align: center;
+    padding: 2px 2px 2px 20px;
+    margin: 2px;
+    text-decoration: none;
+}
+.actions a:hover {
+	border: 1px solid #000099;
+}
 
 .splitcontentleft{
     float:left;
@@ -48,6 +81,57 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 
 .important{color:#f02025; background-color:inherit; font-weight:bold;}
 
+/* Content Header */
+
+.content_header {   
+    position:relative;    
+    display: block;
+    border: 1px solid #c0c0c0;
+	z-index: 0;
+    font: 11px arial, sans-serif;
+    color: black;
+    padding: 3px 3px 3px 3px;
+    margin: 3px 0 0 0; 
+}
+
+
+
+.content_header h1 {
+    font-size: 1.5em;
+    text-indent: 0.5em;
+	float: left;
+	margin-bottom: -1em;
+}
+
+.help {float: right}
+
+.content_actions {
+	display:block;
+	background-color: red;
+}
+
+.actions_left {
+    float: left;
+    z-index: 3000;
+    position:relative;    
+}
+
+
+.actions_right {
+    float: right;
+    z-index: 300;
+    position:relative;    
+    }
+
+
+.project {}
+.organisation {}
+.organisation ul {list-style:none;}
+.execution {}
+.user {}
+.inventory {}
+.admin {}
+
 .box{
     margin:10px 10px 20px 10px;
     padding:10px;
@@ -55,12 +139,13 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
     background-color:#fafbfc;
     color:#505050;
     line-height:1.5em;
+    z-index: -100;
 }
 
 .box ul, menu, dir {
     display: block;
     list-style-type: disc;
-    margin: 1__qem 0 1em 0;
+    margin: 1em 0 1em 0;
     padding-top: 7px; 
     padding-right: 7px; 
     padding-bottom: 7px; 
@@ -70,17 +155,42 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 .box ol {
     display: block;
     list-style-type: decimal;
-    margin: 1__qem 0 1em 0;
+    margin: 1em 0 1em 0;
     padding-top: 7px; 
     padding-right: 7px; 
     padding-bottom: 7px; 
     padding-left: 30px; 
 }
 
-.layout-active {
-    background: #ECF3E1;
+
+.state-level0 {
+    background-color: #fffdc5;
+
+    }
+.state-level1{
+    background-color: #fffdc3;
+    }
+
+ .state-level2 {
+    background-color: #ffbb9b;
+    }
+    
+.layout-level3 {
+    background-color: #ECF3E1;
 }
 
+ .state-level4 {
+    background-color: #c1ffc3;
+    }
+
+.state-level5 {
+    background-color: #bfffd1;
+    }
+
+.state-level-1 {
+    background-color: #ffd3f1;
+    }
+    
 .handle {
     cursor: move;
 }
@@ -98,14 +208,25 @@ img.calendar-trigger {
 
 
 /***** Tooltips ******/
-.tooltip{position:relative;z-index:24;}
-.tooltip:hover{z-index:25;color:#000;}
-.tooltip span.tip{display: none}
+.tooltip{
+    position:relative;
+    display: inline;
+    z-index:240;
+}
+
+.tooltip:hover {
+    z-index:250;
+    color:#000;
+}
+
+.tooltip span.tip {
+    display: none
+}
 
 div.tooltip:hover span.tip{
     display:block;
     position:absolute;
-    top:24px; left:24px; width:270px;
+    top:-24px; left:24px; width:auto;
     border:1px solid #555;
     background-color:#fff;
     padding: 4px;
@@ -127,10 +248,6 @@ div.sidemenu div {
     background:#98c0f4;
     overflow: hidden;
     z-index: 10;
-}
-
-div .boldnotbold b {
-    font-weight: normal;
 }
 
 div.sidemenu div span.menu {
@@ -170,6 +287,14 @@ div.sidemenu div a:hover {
 
 .error {
     color: #cc0000;
+}
+
+/*========== Guide ==============*/
+
+.guide {
+    
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: smaller;
 }
 
 /*HTML Diff highlighting */
@@ -508,6 +633,7 @@ Cells
     text-decoration: none;
     color: #000099;
 }
+
 .pagination a:hover, .pagination a:active {
     border: 1px solid #000099;
     color: #000;
@@ -553,6 +679,41 @@ Cells
     padding:1px 0 0 0;
 }
 
+.breadcrumb {
+  /*background-color: white;*/
+  /*border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-color: #cccccc;
+  border-left-color: #cccccc;
+  border-right-color: #cccccc;*/
+  font-family: Arial,Helvetica,sans-serif;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  width: 100%;
+}
+
+.breadcrumb a {
+/*	background: transparent url(/images/enterprise/arrow/arrow_right.png) no-repeat center right;*/
+	text-decoration: none;
+	padding-right: 2px; /*adjust bullet image padding*/
+	color: navy;
+}
+
+.breadcrumb a:visited, .breadcrumb a:active{
+	color: navy;
+}
+
+.breadcrumb a:hover{
+	text-decoration: underline;
+}
+
+
+/* Panels */
 
 .panel {   
     position:relative;    
@@ -561,12 +722,14 @@ Cells
     z-index: 10;
     font: 11px arial, sans-serif;
     color: black;
-    background-color: white; 
+    background-color: white;
+	  width:100%;
 }
 
+    
 .panel p {
     display: block;
-    margin: 1.0__qem 0px
+    margin: 1.0em 0px
 }
 
 .panel div {
@@ -579,7 +742,6 @@ Cells
 
 .panel marquee {
     display: inline-block;
-    overflow: marquee
 }
 
 .panel address {
@@ -588,14 +750,14 @@ Cells
 
 .panel blockquote {
     display: block;
-    margin: 1__qem 40px 1em 40px
+    margin: 1em 40px 1em 40px
 }
 
 
 .panel center {
     display: block;
     /* special centering to be able to emulate the html4/netscape behaviour */
-    text-align: -khtml-center
+    text-align: center
 } 
 
 .panel hr {
@@ -614,41 +776,41 @@ Cells
 .panel h1 {
     display: block;
     font-size: 2em;
-    margin: .67__qem 0 .67em 0;
-    font-weight: bold
+    margin: .67em 0 .67em 0;
+    font-weight: bold;
 }
 
 .panel h2 {
     display: block;
     font-size: 1.5em;
-    margin: .83__qem 0 .83em 0;
+    margin: .83em 0 .83em .83em;
     font-weight: bold
 }
 
 .panel h3 {
     display: block;
     font-size: 1.17em;
-    margin: 1__qem 0 1em 0;
+    margin: 1em 0 1em 0;
     font-weight: bold
 }
 
 .panel h4 {
     display: block;
-    margin: 1.33__qem 0 1.33em 0;
+    margin: 1.33em 0 1.33em 0;
     font-weight: bold
 }
 
 .panel h5 {
     display: block;
     font-size: .83em;
-    margin: 1.67__qem 0 1.67em 0;
+    margin: 1.67em 0 1.67em 0;
     font-weight: bold
 }
 
 .panel h6 {
     display: block;
     font-size: .67em;
-    margin: 2.33__qem 0 2.33em 0;
+    margin: 2.33em 0 2.33em 0;
     font-weight: bold
 }
 
@@ -709,7 +871,7 @@ Cells
 
 .panel caption {
     display: table-caption;
-    text-align: -khtml-center
+    text-align: center
 }
 
 /* Lists */
@@ -752,14 +914,15 @@ Cells
     list-style-type: square
 }
 
-.panel dd {
+.panel box dd {
     display: block;
-    -khtml-margin-start: 10px
+    margin: 10px;
+    
 }
 
 .panel dl {
     display: block;
-    margin: 1__qem 0 1em 0
+    margin: 1em 0 1em 0
 }
 
 .panel dt {
@@ -793,7 +956,7 @@ Cells
     display: block;
     font-family: monospace;
     white-space: pre;
-    margin: 1__qem 0
+    margin: 1em 0
 }
 
 .panel big {

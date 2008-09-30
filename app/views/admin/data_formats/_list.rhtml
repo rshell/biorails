@@ -1,13 +1,14 @@
+<div class='panel'>
 <table class="report">
   <tr>
   <th colspan='4'>
-    <b><%= @data_type.name %>:</b><%= @data_type.description %>
+    <%= @data_type.name %>:<%= @data_type.description %>
   </th>
   <tr>
-    <th><b class='icon icon-name'>Name</b></th>
-    <th>Test Field</th>
-    <th>Regex Rule </th>
-    <th><b class='icon icon-action'>Action</b></th>
+    <th><%=l(:label_name)%></th>
+    <th><%=l(:label_test_string)%></th>
+    <th><%=l(:label_regex_rule)%></th>
+    <th><%=l(:label_action)%></th>
   </tr>
 <% for data_format in @data_formats %>
   <tr class="<%= cycle('odd', 'even') %>">
@@ -19,11 +20,10 @@
     </td>
     <td><%=h data_format.description %></td>
       <td>
-        <p class='icon icon-action'>
-          <%= link_to 'Edit',data_format_url( :action => 'edit', :id => data_format) %>
-        </p>
+        <%= link_to l(:label_edit),data_format_url( :action => 'edit', :id => data_format), :class=>'icon icon-edit' %>
       </td>
   </tr>
 <% end %>
 </table>
+</div>
 <%= will_paginate @data_formats %>

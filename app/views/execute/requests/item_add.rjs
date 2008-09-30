@@ -1,2 +1,1 @@
-  page.insert_html :before,"items",
-  :partial => 'queue_item',:locals => { :queue_item => @queue_item }
+  page.insert_html :before,"items", :partial => 'queue_item',:locals => { :queue_item => @queue_item }

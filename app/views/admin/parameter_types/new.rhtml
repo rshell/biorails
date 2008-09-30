@@ -7,13 +7,13 @@
 <%end%>
 
 <% content_for :center do %>
-
-  <%dialog "New Parameter Type" do %>    
+<%= render :partial => 'admin/header'%>
+  <%dialog l(:label_parameter_type_new) do %>    
     <% validated_form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
       <br />
-      <%= submit_tag "Create" %>
-      <%= link_to 'Back', :action => 'list' %>
+      <%= submit_tag l(:button_create) %>
+      <%= link_to l(:button_cancel), :action => 'list' %>
     <% end %>
   <% end %>
 <% end %>

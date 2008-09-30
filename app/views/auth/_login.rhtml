@@ -8,25 +8,27 @@
     <div class="row">
       <!--[form:assay]-->
       <div class="form-element">
-         <label for="assay_name">Login:</label>
+         <label for="assay_name"><%=l(:label_login)%></label>
         <%= text_field_tag 'login', params[:login], :class => 'big' %>
       </div>
      </div>
 
     <div class="row">
       <div class="form-element">
-       <label for="assay_description">Password:</label>
+       <label for="assay_description">
+         <%=l(:label_password)%>
+       </label>
         <%= password_field_tag 'password', {}, :class => 'big' %>
       </div>
     </div>
   
     <div class="row">
-        <%= submit_tag "Login" %>
+        <%= submit_tag l(:label_login) %>
     </div>
     <% end %>
   <% end %>
   </div>
   </center>
-<script language="JavaScript">
+<script type="text/javascript">
 javascript:window.history.forward(1);
 </script>

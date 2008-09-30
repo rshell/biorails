@@ -15,7 +15,7 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @request.session[:current_project_id] = 2
     @request.session[:current_user_id] = 3
-    @item = Assay.find(:first)
+    @item = Assay.find(1)
   end
 
   def test_setup
@@ -51,8 +51,8 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
   end
 
   def test_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
+    @request.session[:current_project_id] =2
+    @request.session[:current_user_id] = 9   
     get :show, :id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'access_denied'
@@ -114,9 +114,9 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'show'
   end
 
-  def test_share
+  def test_share_link
     @request.session[:current_project_id] = 4
-    get :share, :assay_id => @item.id
+    get :link, :assay_id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
   end

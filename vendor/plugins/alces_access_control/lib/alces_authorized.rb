@@ -79,7 +79,7 @@ module Alces
             
             write_inheritable_attribute(:rights_actions,  options[:actions] || [:list,:show,:edit,:update,:new,:create,:destroy] )
             write_inheritable_attribute(:rights_subject,  subject || '*' )
-            write_inheritable_attribute(:rights_source,   options[:rights] ||  :current_user  )
+
 
             class_inheritable_reader :rights_actions
             class_inheritable_reader :rights_subject
@@ -104,36 +104,25 @@ module Alces
           def allow?(action) 
             return true unless self.class.rights_actions.any?{|i| i.to_s == action.to_s}
             return true if User.current.admin == true
-            rights = self.send( rights_source )  
-            if rights 
-               return rights.permission?(User.current, self.class.rights_subject, action )  
-            else
-               logger.error "No Rights source found for this controller"
-            end
+            User.current.allow?(self.class.rights_subject, action )  
             return true
           end   
           ##
           # authorization 
           #
           def authorization
-             logger.info "Authorization #{session[:current_username]} #{self.class.rights_subject} #{params[:action]}"  
+             logger.info "Authorization #{session[:current_user_id]} #{self.class.rights_subject} #{params[:action]}"  
              unless self.authenticate  
-                  flash[:error]= "User #{session[:current_username]} authentication does not appear valid "  
+                  flash[:error]= "User #{session[:current_User_id]} authentication does not appear valid "  
                   logger.warn flash[:error]
-                  return show_login
-                  
-             end     
-             if allow?(params[:action])
+                  return show_login                  
+             end                
+             if User.current.rights?( self.class.rights_subject)
                   logger.debug "#{session[:current_username]} is authorized"
                   return true
-             end 
-             if rights_source == :current_user
-               flash[:warning]= "No permission for action [#{params[:action]}] on [#{self.class.rights_subject}] with currently user #{current_username}  "  
-               flash[:info]= "See system administration if you really need to do this level of liability(rights) in the sytsem " 
-               logger.warn flash[:warning]
-             else
-               flash[:warning]= "No permission for action [#{params[:action]}] on [#{self.class.rights_subject}] with currently project #{current_project.name} "  
-               flash[:info]= "See Team Owner if you really need to do this  " 
+             else 
+               flash[:warning]= "No permission for [#{self.class.rights_subject}] with currently user #{current_username}  "  
+               flash[:info]= "See system administration if you really need to do this level of rights in the sytsem " 
                logger.warn flash[:warning]
              end
              return show_access_denied              
@@ -168,7 +157,6 @@ module Alces
           #  
           #   * permission?(user,subject,action)
           #   * visible?
-          #   * changable?  
           #   * allows?(action)
           #   * find_visible(*args)
           #    
@@ -185,7 +173,7 @@ module Alces
               class_eval do
                   extend Alces::AccessControl::OwnedClassMethods
               end
-          end          
+          end                 
           #
           # This provides a simple role based security via a instance of the role model linked 
           # as in a belongs_to relationship with this model. The idea a role which in terms
@@ -259,14 +247,6 @@ module Alces
           return self.send(access_control_list).permission?(user,subject,action)
         end
         #
-        #  If the record published      
-        #        
-        def published?
-          return true if self.attributes[:status_id] == Alces::ScheduledItem::COMPLETED 
-          return true if self.attributes[:published] == '1'
-          return false
-        end
-        #
         # Check whether object should be visible in this context
         #   * Is published
         #   * If current user is a member of the team owning the record
@@ -276,20 +256,12 @@ module Alces
           return true 
         end
         #
-        # See if record is changeble in the current context
-        #
-        def changable?
-          return true if self.new_record?
-          return false if self.published?
-          return self.visible? 
-        end
-        #
         # Check whether a action is allowed in the context of a 
         #   * Is published
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
         #
-        def allows?( action ,scope ='data_crud')
+        def allows?( action ,scope ='project')
           return self.permission?(User.current, scope, action )
         end
     end
@@ -330,29 +302,14 @@ module Alces
         def visible?    
           return true 
         end
-        #
-        #  If the record published      
-        #        
-        def published?
-          return true if self.attributes[:status_id] == Alces::ScheduledItem::COMPLETED 
-          return true if self.attributes[:published] == '1'
-          return false
-        end
-        #
-        # See if record is changeble in the current context
-        #
-        def changable?
-          return true if self.new_record?
-          return false if self.published?
-          return self.visible? 
-        end
+
         #
         # Check whether a action is allowed in the context of a 
         #   * Is published
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
 
-        def allows?( action ,scope ='data_crud')
+        def allows?( action ,scope ='project')
           return self.permission?(User.current, scope, action )
         end
 
@@ -435,21 +392,14 @@ module Alces
           return self.send(access_control_via).member(User.current)           
           return (self.created_by_user_id == User.current.id) && (self.updated_by_user_id == User.current.id)
         end
-        #
-        # See if record is changeble in the current context
-        #
-        def changable?
-          return true if self.new_record?
-          return false if self.published?
-          return self.visible? 
-        end
+
         #
         # Check whether a action is allowed in the context of a 
         #   * Is published
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
         #
-        def allows?( action ,scope ='data_crud')
+        def allows?( action ,scope ='project')
           return self.permission?(User.current, scope, action )
         end
         

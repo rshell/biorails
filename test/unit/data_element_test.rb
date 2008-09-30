@@ -152,7 +152,7 @@ class DataElementsTest < Test::Unit::TestCase
     assert !element.lookup('a')
     assert element.like(@assay.name)
     assert_equal [], element.like(nil)
-    assert_equal element.size.to_s,Assay.count.to_s, "wrong number of Studies"
+    assert_equal element.size.to_i,Assay.count.to_i, "wrong number of Studies"
   end
 
   def test_create_sql_element_bad_connection

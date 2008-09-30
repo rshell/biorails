@@ -1,14 +1,12 @@
 
 <!--fieldset-->
   <div class="row">
-    <!--[form:parameter_type]-->
-    <!--div class="form-element"-->
-      <%= hidden_field 'parameter_type', 'data_type_id' %>
-      <%= hidden_field 'parameter_type', 'data_concept_id' %>
-    <!--/div-->
+  <%= hidden_field 'parameter_type', 'data_type_id' %>
+  <%= hidden_field 'parameter_type', 'data_concept_id' %>
+    <%=l(:help_concept_usage)%>
     <div class="form-element">
-      <label for="parameter_type_name" class='icon icon-name'>
-        Name
+      <label for="parameter_type_name">
+        <%=l(:label_name)%>
       </label>
        <%= text_field 'parameter_type', 'name'  ,"size" => 10,:class=>"text-input" %>
     </div>
@@ -16,8 +14,8 @@
 
   <div class="row">
     <div class="form-element">
-      <label for="parameter_type_description" class='icon icon-description'>
-        Description
+      <label for="parameter_type_description">
+        <%=l(:label_description)%>
       </label>
           <%= text_area( :parameter_type, :description,{:rows=>5, :cols=>80})%>
     </div>
@@ -26,7 +24,7 @@
   <div class="row">
     <div class="form-element">
       <label for="parameter_type_weighing">
-        Weighting (Governs order in forms)
+        <%=l(:label_weighting)%>
       </label>
         <%= text_field 'parameter_type', 'weighing' ,"size" => 8,:class=>"text-input"  %>
     </div>

@@ -1,9 +1,11 @@
 <% form_tag :action => 'add', :id => @data_element do %>
 <table class="report"> 
   <thead>
+  <tr>
      <th>Id </th>
      <th>Name</th>
      <th>Description</th>
+     </tr>
   </thead> 
   <tbody>  
      <%for row in @data_element.values %>
@@ -20,7 +22,7 @@
      <tr>
         <td > new </td>
         <td > <%= text_field :child, :name, {:class=>"text-input"}  %></td>
-        <td>  <%= text_field :child, :description, {:class=>"text-input",:size=>80} %> <%= submit_tag 'Add' %></td>
+        <td>  <%= text_field :child, :description, {:class=>"text-input",:size=>73} %> <%= submit_tag 'Add' %></td>
      </tr>
   </tbody>
 </table>

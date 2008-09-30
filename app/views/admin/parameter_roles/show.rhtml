@@ -4,28 +4,32 @@
 
 
 <% content_for :center do%>
-  <h1 class="icon icon-parameter_role">
-    Parameter Role [<strong><%=@parameter_role.name%></strong>]
-  </h1>
-  <div class='box'>
-    <p> <b>Description: </b> <%=@parameter_role.description%> </p>
-  </div>  
+  <%= render :partial => 'admin/header'%>
+  <div class="panel">
+    <h2 class="icon icon-parameter_role">
+      <%=l(:label_parameter_role)%> [<strong><%=@parameter_role.name%></strong>]
+    </h2>
+    
+    <div class='box'>
+      <p> <b><%=l(:label_description)%>: </b> <%=@parameter_role.description%> </p>
+    </div>  
 
-  <br />
-
-  <div class='box'>
-    <b> Usages in Assay Parameters</b>
-    <%if @parameter_role.used? %>
-      <%= render :partial=>'usages' %>
-    <%else%>
-  <i>This parameter role is not currently in use with existing assays or processes.</i>
-  [<%= link_to "<b class='icon icon-del'>Delete</b>", { :action => 'destroy', :id =>  @parameter_role }, :confirm => 'Are you sure?',:method => "post" %> ]
-    <%end%>
+    <div class='box'>
+      <b> <%=l(:label_usages)%></b>
+      <%if @parameter_role.used? %>
+        <%= render :partial=>'usages' %>
+      <%else%>
+      <%=l(:text_parameter_role_not_used)%>...
+      <%= link_to l(:label_delete), { :action => 'destroy', :id =>  @parameter_role.id }, :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>?
+      <%end%>
+    </div>
+    <%= link_to l(:label_list), parameter_role_url(:action => 'list'), :class=>'icon icon-list' %>
+    <%if @parameter_role && !@parameter_role.new_record? %>
+      <%= link_to l(:label_edit),  parameter_role_url(:action => 'edit', :id => @parameter_role), :class=>'icon icon-edit' %>
+    <% end %>
   </div>
-  
 <% end %>
 
-
 <% content_for :right do -%>
-<%= render :partial=>'help' %>
+  <%= render :partial=>'help' %>
 <%end%>

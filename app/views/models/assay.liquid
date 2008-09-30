@@ -1,11 +1,10 @@
-<h2> Project {{record.name}} </h2>
-<p>
-{{record.description}}
-</p>
-<ul>
+<h1>
+Assay [{{record.name}}]: {{record.description}}
+</h1>
+<table class='report'>
 {% for item in assay.protocols %}
-<li>
-{{ item.name}} : {{item.description }} 
-</li>
+<tr>
+<th>{{ item.name}}</th><td>{{item.description }}</td>
+</tr>
 {% endfor %}
-</ul>
+</table>

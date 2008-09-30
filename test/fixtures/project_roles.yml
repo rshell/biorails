@@ -2,71 +2,12 @@
 00000000001_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Public
-    updated_at: 2007-06-11 12:46:18
+    updated_at: 2008-08-14 10:28:52
     cache: |+
-      --- 
-      studies: 
-        list: true
-        show: true
-      experiments: 
-        list: true
-        show: true
-      memberships: {}
+      --- {}
       
-      auth: {}
-      
-      help: {}
-      
-      catalogue: {}
-      
-      dba: {}
-      
-      project: 
-        list: true
-        show: true
-      assay_parameters: 
-        list: true
-        show: true
-      ~: 
-        ~: true
-      audit: {}
-      
-      assay_queues: 
-        list: true
-        show: true
-      queue_items: 
-        list: true
-        show: true
-      tasks: 
-        list: true
-        show: true
-      biorails: {}
-      
-      page: {}
-      
-      requests: 
-        list: true
-        show: true
-      users: {}
-      
-      reports: {}
-      
-      assay_protocols: 
-        list: true
-        show: true
-      home: {}
-      
-      charts: {}
-      
-      finder: {}
-      
-      project_requests: 
-        list: true
-        show: true
-      inventory: {}
-      
-    type: ProjectRole
     updated_by_user_id: "3"
+    type: ProjectRole
     id: "1"
     description: Members of the public who are not logged in.
     created_by_user_id: "1"
@@ -77,105 +18,12 @@
 00000000002_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Member
-    updated_at: 2007-06-11 12:44:25
+    updated_at: 2008-08-14 10:28:52
     cache: |+
-      --- 
-      studies: 
-        list: true
-        show: true
-      memberships: {}
+      --- {}
       
-      experiments: 
-        "*": true
-      user: 
-        list: true
-        show: true
-      auth: {}
-      
-      help: {}
-      
-      catalogue: {}
-      
-      protocol: 
-        list: true
-        show: true
-      assay: 
-        list: true
-        show: true
-      dba: {}
-      
-      project: 
-        list: true
-        show: true
-        "*": true
-      assay_parameters: 
-        list: true
-        show: true
-      ~: 
-        ~: true
-      system: 
-        list: true
-        show: true
-      audit: {}
-      
-      cataloge: 
-        list: true
-        show: true
-      assay_queues: 
-        list: true
-        show: true
-      biorails: {}
-      
-      tasks: 
-        "*": true
-      queue_items: 
-        list: true
-        "*": true
-      experiment: 
-        new: true
-        list: true
-        create: true
-        show: true
-        update: true
-      page: {}
-      
-      requests: 
-        list: true
-        "*": true
-      users: {}
-      
-      request: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      assay_protocols: 
-        list: true
-        show: true
-      home: {}
-      
-      reports: {}
-      
-      report: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      charts: {}
-      
-      finder: {}
-      
-      project_requests: 
-        list: true
-        "*": true
-      inventory: {}
-      
-    type: ProjectRole
     updated_by_user_id: "3"
+    type: ProjectRole
     id: "2"
     description: Project Member
     created_by_user_id: "1"
@@ -186,75 +34,12 @@
 00000000005_project_role: !ruby/object:ProjectRole 
   attributes: 
     name: Owner
-    updated_at: 2007-06-11 12:41:08
+    updated_at: 2008-08-14 10:28:52
     cache: |+
-      --- 
-      memberships: {}
+      --- {}
       
-      studies: 
-        "*": true
-      experiments: 
-        "*": true
-      auth: {}
-      
-      help: {}
-      
-      project_queues: 
-        list: true
-        show: true
-        "*": true
-      project_studies: 
-        list: true
-        show: true
-        "*": true
-      catalogue: {}
-      
-      dba: {}
-      
-      project: 
-        list: true
-        show: true
-        "*": true
-      assay_parameters: 
-        "*": true
-      audit: {}
-      
-      project_experiments: 
-        list: true
-        show: true
-        "*": true
-      assay_queues: 
-        "*": true
-      queue_items: 
-        "*": true
-      tasks: 
-        "*": true
-      biorails: {}
-      
-      page: {}
-      
-      requests: 
-        "*": true
-      users: {}
-      
-      reports: {}
-      
-      assay_protocols: 
-        "*": true
-      home: {}
-      
-      charts: {}
-      
-      finder: {}
-      
-      project_requests: 
-        list: true
-        show: true
-        "*": true
-      inventory: {}
-      
-    type: ProjectRole
     updated_by_user_id: "3"
+    type: ProjectRole
     id: "5"
     description: Project owner with full rights
     created_by_user_id: "3"

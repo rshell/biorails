@@ -1,7 +1,12 @@
 <% for column in RolesPermission.content_columns %>
 <p>
-  <b><%= column.human_name %>:</b> <%=h @roles_permission.send(column.name) %>
+  <b>
+    <%= column.human_name %>:
+  </b>
+  <%=h @roles_permission.send(column.name) %>
 </p>
 <% end %>
 
-<%= link_to "<b class='icon icon-edit'>Edit</b>", :action => 'edit', :id => @roles_permission %> | <%= link_to "<b class='icon icon-list'>Back</b>", :action => 'list' %>
+<%= link_to l(:label_edit), :action => 'edit', :id => @roles_permission, :class=>'icon icon-edit' %>
+|
+<%= link_to l(:label_cancel), :action => 'list', :class=>'icon icon-list' %>

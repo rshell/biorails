@@ -1,0 +1,9 @@
+<div class="content_header organisation">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-service-large'>
+    	<%= link_to( "#{l(:label_item)} #{l(:label_in)} #{l(:label_service_queue)} [#{ @queue_item.queue.name}]", service_url( :action => 'show', :id => @queue_item.queue.id)) %>
+    </h1>
+    <br/>
+    <br/>
+</div>
+<%=breadcrumb_list @queue_item.queue.folder %>

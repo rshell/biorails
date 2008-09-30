@@ -1,3 +1,30 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: project_assets
+#
+#  id                 :integer(4)      not null, primary key
+#  project_id         :integer(4)
+#  title              :string(255)
+#  parent_id          :integer(4)
+#  content_type       :string(255)
+#  filename           :string(255)
+#  thumbnail          :string(255)
+#  size_bytes         :integer(4)
+#  width              :integer(4)
+#  height             :integer(4)
+#  thumbnails_count   :integer(4)      default(0)
+#  published          :boolean(1)
+#  content_hash       :string(255)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  caption            :text
+#  db_file_id         :integer(4)
+#
+
 # == Description
 # ProjectAsset is the gatekeeping between internally kept data and external files. In initial version the application
 # server file system is used for storage but it is expected that the following may be added as neededd:-
@@ -12,33 +39,6 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 #
-# == Schema Information
-# Schema version: 338
-#
-# Table name: project_assets
-#
-#  id                 :integer(11)   not null, primary key
-#  project_id         :integer(11)   
-#  title              :string(255)   
-#  parent_id          :integer(11)   
-#  content_type       :string(255)   
-#  filename           :string(255)   
-#  thumbnail          :string(255)   
-#  size_bytes         :integer(11)   
-#  width              :integer(11)   
-#  height             :integer(11)   
-#  thumbnails_count   :integer(11)   default(0)
-#  published          :boolean(1)    
-#  content_hash       :string(255)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  caption            :text          
-#  db_file_id         :integer(11)   
-#
-
 class Asset < ActiveRecord::Base
    include ActionView::Helpers::NumberHelper
 

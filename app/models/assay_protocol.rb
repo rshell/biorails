@@ -1,3 +1,28 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: assay_protocols
+#
+#  id                    :integer(4)      not null, primary key
+#  assay_id              :integer(4)
+#  assay_stage_id        :integer(4)
+#  current_process_id    :integer(4)
+#  process_definition_id :integer(4)
+#  process_style         :string(128)     default("Entry"), not null
+#  name                  :string(128)     default(""), not null
+#  description           :string(1024)    default("")
+#  literature_ref        :string(1024)    default("")
+#  protocol_catagory     :string(20)
+#  protocol_status       :string(20)
+#  lock_version          :integer(4)      default(0), not null
+#  created_at            :datetime        not null
+#  updated_at            :datetime        not null
+#  updated_by_user_id    :integer(4)      default(1), not null
+#  created_by_user_id    :integer(4)      default(1), not null
+#  type                  :string(255)     default("StudyProcess"), not null
+#  project_element_id    :integer(4)
+#
+
 # == Description
 # This links a protocol_version into a Assay as a ProtocolVersion to be run in the assay
 # There are a number of sub types of a AssayProtocol
@@ -10,35 +35,12 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 # 
-# == Schema Information
-# Schema version: 338
-#
-# Table name: assay_protocols
-#
-#  id                    :integer(11)   not null, primary key
-#  assay_id              :integer(11)   
-#  assay_stage_id        :integer(11)   
-#  current_process_id    :integer(11)   
-#  process_definition_id :integer(11)   
-#  process_style         :string(128)   default(Entry), not null
-#  name                  :string(128)   default(), not null
-#  description           :string(1024)  default()
-#  literature_ref        :string(1024)  default()
-#  protocol_catagory     :string(20)    
-#  protocol_status       :string(20)    
-#  lock_version          :integer(11)   default(0), not null
-#  created_at            :datetime      not null
-#  updated_at            :datetime      not null
-#  updated_by_user_id    :integer(11)   default(1), not null
-#  created_by_user_id    :integer(11)   default(1), not null
-#  type                  :string(255)   default(StudyProcess), not null
-#
-
 
 
  
 class AssayProtocol < ActiveRecord::Base
 
+  belongs_to :assay  
   
   #
   # acts a dictionary indexed by name
@@ -47,7 +49,7 @@ class AssayProtocol < ActiveRecord::Base
   #
   # Owner project
   #  
-    acts_as_folder :assay  
+    acts_as_folder_linked  :assay, :under=>'methods'
   ##
   # This record has a full audit log created for changes 
   #   
@@ -174,8 +176,11 @@ class AssayProtocol < ActiveRecord::Base
    def purge
        ProtocolVersion.transaction do
          self.versions.each do |version|
-           version.destroy unless version.used? or version.released? or version.latest?  
-         end
+            unless (version.latest? or version.used? or version.released?)
+             puts version.name
+             version.destroy
+            end
+         end         
        end
    end  
   # 
@@ -266,6 +271,7 @@ protected
       item.name ||= self.name+":"+String(item.version)      
       item.protocol = self
       item.assay_protocol_id = self.id
+      item.description = self.description
       self.versions << item 
       item.save!
       item

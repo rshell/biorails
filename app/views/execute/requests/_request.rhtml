@@ -1,38 +1,50 @@
 <table class="report">
-  <tr>
-    <th class="label">
-      <b class='icon icon-name'>    Name   </b>
-    </th>
-    <td> <%=  @user_request.name %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class='icon icon-name'>     Description  </b>
-    </th>
-    <td> <%=  @user_request.description %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class='icon icon-status'>    Status   </b>
-    </th>
-    <td> <%=  @user_request.status %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class='icon icon-priority'>  Priority </b>
-    </th>
-    <td> <%=  @user_request.priority %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class='icon icon-date'>     Expected   </b>
-    </th>
-    <td> <%= short_date @user_request.expected_at %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class='icon icon-user'>   Requestee    </b>
-    </th>
-    <td> <%=  @user_request.requested_by.name %></td>
-  </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_name) %>
+        </th>
+        <td>
+            <%= @user_request.name %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_description) %>
+        </th>
+        <td>
+            <%= @user_request.description %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_status) %>
+        </th>
+        <td>
+            <%= @user_request.status %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_priority) %>
+        </th>
+        <td>
+            <%= @user_request.priority %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_date_required) %>
+        </th>
+        <td>
+            <%= short_date @user_request.expected_at %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_requestor) %>
+        </th>
+        <td>
+            <%= @user_request.requested_by.name %>
+        </td>
+    </tr>
 </table>

@@ -223,17 +223,18 @@ class BiorailsControllerTest < Test::Unit::TestCase
   
   def test_process_steps_list_ok
     assert_not_nil  key = api.login('rshell','y90125')  
-    flow = ProcessFlow.find(:first)
+    flow = ProcessFlow.find(10)
     list = api.process_steps_list(key,flow.id)    
-   # assert_not_nil list
-   # assert list.is_a?(Array)
+    assert_not_nil list
+    assert list.is_a?(Array)
   end  
   
   def test_process_steps_list_invalid
     assert_not_nil  key = api.login('rshell','y90125')  
-    flow = ProcessFlow.find(:first)
     list = api.process_steps_list(key,0)    
-    assert_nil list
+    assert_not_nil list
+    assert list.is_a?(Array)
+    assert_equal list,[]
   end  
   
   def test_parameter_list_ok
@@ -413,7 +414,7 @@ class BiorailsControllerTest < Test::Unit::TestCase
     key = api.login('rshell','y90125')  
     assert !key.nil?, "not got a session key"
     projects = api.project_list(key)
-    assays = api.assay_list(key,projects[1].id)    
+    assays = api.assay_list(key,2)    
     protocols = api.assay_protocol_list(key,assays[0].id)
     processes = api.protocol_version_list(key,protocols[0].id)
     contexts = api.parameter_context_list(key,processes[0].id)
@@ -432,7 +433,7 @@ class BiorailsControllerTest < Test::Unit::TestCase
     key = api.login('rshell','y90125')  
     assert !key.nil?, "not got a session key"
     projects = api.project_list(key)
-    assays = api.assay_list(key,projects[1].id)    
+    assays = api.assay_list(key,2)    
     experiments = api.experiment_list(key,assays[0].id)
     tasks = api.task_list(key,experiments[0].id)
     task_contexts = api.task_context_list(key,tasks[0].id)
@@ -451,10 +452,10 @@ class BiorailsControllerTest < Test::Unit::TestCase
     projects = api.project_list(key)
     assert projects.size >0
     
-    assays = api.assay_list(key,projects[1].id)    
+    assays = api.assay_list(key,2)    
     assert assays.size >0
     
-    experiments = api.experiment_list(key,assays[0].id)
+    experiments = api.experiment_list(key,1)
     assert experiments.size >0
 
     tasks = api.task_list(key,experiments[0].id)
@@ -473,10 +474,10 @@ class BiorailsControllerTest < Test::Unit::TestCase
     projects = api.project_list(key)
     assert projects.size >0
     
-    assays = api.assay_list(key,projects[1].id)    
+    assays = api.assay_list(key,2)    
     assert assays.size >0
 
-    experiments = api.experiment_list(key,assays[0].id)
+    experiments = api.experiment_list(key,1)
     expt = experiments[0]
     experiment = api.add_experiment(key,expt.project_id,expt.protocol_version_id,"testxxs","testdddd")
     assert experiment
@@ -546,8 +547,8 @@ class BiorailsControllerTest < Test::Unit::TestCase
     struct = api.set_asset(key, item.id,'test.upload','test.txt','text/plain',body)
     assert struct
     assert_equal 'test.txt', struct.name
-    assert_equal 'test.upload', struct.title
     assert_equal body, struct.base64
+    assert_equal 'test.upload', struct.title
  end  
  
 end

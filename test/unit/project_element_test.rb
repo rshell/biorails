@@ -12,8 +12,7 @@ class ProjectElementTest < Test::Unit::TestCase
     item = ProjectElement.new(:name=>'test')
     assert item.name
     assert item.summary  
-    assert item.description  
-    assert item.to_html 
+    assert item.html 
   end
   
   def test_find
@@ -26,11 +25,6 @@ class ProjectElementTest < Test::Unit::TestCase
   def test_has_name
     first = @model.find(:first)
     assert first.name    
-  end
-
-  def test_has_description
-    first = @model.find(:first)
-    assert first.description    
   end
 
    def test_has_summary
@@ -86,7 +80,7 @@ class ProjectElementTest < Test::Unit::TestCase
   end
   
   def test_reorder_before
-    top = Project.find(2).home
+    top = ProjectFolder.find(1)
     assert top.elements.size>2
     e0 = top.elements[0]
     e1 = top.elements[1]
@@ -94,7 +88,7 @@ class ProjectElementTest < Test::Unit::TestCase
   end
   
   def test_reorder_after
-    top = Project.find(2).home
+    top =  ProjectFolder.find(1)
     assert top.elements.size>2
     e0 = top.elements[0]
     e1 = top.elements[1]

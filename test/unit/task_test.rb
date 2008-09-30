@@ -39,15 +39,15 @@ class TaskTest < Test::Unit::TestCase
   def test_create
     task = @model.find(:first)
     folder = task.process.folder
-    element = folder.add_content('name','title','body')
+    element = folder.add_content('name','body')
     assert_ok element
     reference = folder.add_reference('example',task)
     assert_ok reference
     
     new_task = Task.new
+ 
     new_task.experiment = task.experiment
     new_task.process = task.process        
-    assert new_task.save
     assert_save_ok new_task
     folder = new_task.folder
     assert_equal 2,folder.elements.size
@@ -56,18 +56,22 @@ class TaskTest < Test::Unit::TestCase
   def test_copy
     task = @model.find(:first)
     folder = task.process.folder
-    element = folder.add_content('name','title','body')
+    element = folder.add_content('name','body')
     assert_ok element
     reference = folder.add_reference('example',task)
     assert_ok reference
+    folder.reload    
+    task.reload
     task.status_id =5    
     new_task = task.copy
     new_task.experiment = task.experiment
     new_task.name= 'xfsfsfs'
     assert_save_ok new_task
     assert_ok new_task
-    folder = new_task.folder
-    assert_equal 2,folder.elements.size
+    new_folder = new_task.folder
+    assert_ok new_folder  
+    new_folder.reload    
+    assert_equal folder.elements.size,new_folder.elements.size
   end
   
  
@@ -304,7 +308,7 @@ class TaskTest < Test::Unit::TestCase
     row = task.row('Concentration[1]')
     assert row
     assert row.is_a?(Hash)
-    assert_equal 3, row.size
+    assert_equal 7, row.size
   end
  
   def test_refresh

@@ -1,35 +1,38 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: request_services
 #
-#  id                   :integer(11)   not null, primary key
-#  request_id           :integer(11)   not null
-#  service_id           :integer(11)   not null
-#  name                 :string(128)   default(), not null
-#  description          :string(1024)  default()
-#  expected_at          :datetime      
-#  started_at           :datetime      
-#  ended_at             :datetime      
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  status_id            :integer(11)   default(0), not null
-#  priority_id          :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  requested_by_user_id :integer(11)   default(1)
-#  assigned_to_user_id  :integer(11)   default(1)
-#  lock_version         :integer(11)   
+#  id                   :integer(4)      not null, primary key
+#  request_id           :integer(4)      not null
+#  service_id           :integer(4)      not null
+#  name                 :string(128)     default(""), not null
+#  description          :string(1024)    default("")
+#  expected_at          :datetime
+#  started_at           :datetime
+#  ended_at             :datetime
+#  lock_version         :integer(4)      default(0), not null
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  status_id            :integer(4)      default(0), not null
+#  priority_id          :integer(4)
+#  updated_by_user_id   :integer(4)      default(1), not null
+#  created_by_user_id   :integer(4)      default(1), not null
+#  requested_by_user_id :integer(4)      default(1)
+#  assigned_to_user_id  :integer(4)      default(1)
+#  project_element_id   :integer(4)
 #
 
-
-##
+# == Description
 # This is part of a overall request as represents a single service which must be forfilled to 
 # complete the overall request
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+#
+# == Copyright
 # 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class RequestService < ActiveRecord::Base
   
   has_priorities :priority_id
@@ -64,6 +67,10 @@ class RequestService < ActiveRecord::Base
 ##
 #Assay 
   belongs_to :request
+#
+# Owner project
+#  
+ acts_as_folder_linked  :request
 ##
 # Results for this Item
 #
@@ -105,6 +112,7 @@ class RequestService < ActiveRecord::Base
   def submit
       logger.debug "submit #{self.name}"    
       self.assigned_to = queue.assigned_to
+      self.queue.folder(self)
       n = 0
       for item  in request.items
          unless self.is_submitted(item.value)
@@ -141,10 +149,7 @@ class RequestService < ActiveRecord::Base
     self.assigned_to_user_id = params[:user_id] if params[:user_id]
     self.comments << params[:comments]         if params[:comments]
  end  
-
- def find_visible(*args)
-   find(*args)
- end  
+ 
 ##
 # Submit the request
 #  

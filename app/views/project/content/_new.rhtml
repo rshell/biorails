@@ -1,6 +1,0 @@
-<% form_tag content_url(:action => 'create',  :folder_id=>@project_folder.id) do %>
-<% dialog "New Article in folder: #{link_to "/"+ @project_folder.path,
-    folder_url( :action => 'show',:id=>@project_folder)}" do %>
-   <%= render :partial => 'article' %>
-<% end %>
-<% end %>

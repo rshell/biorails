@@ -1,35 +1,35 @@
 <%= hidden_field :data_format, :lock_version  %>
 
     <!--[form:data_format]-->
-    <label for="data_format_data_type" class='icon icon-data_type'>
-      Data type
+    <label for="data_format_data_type">
+      <%=l(:label_data_type)%>
     </label>
     <br />
-    <%= select( :data_format, :data_type_id ,[["Text",1],['Number',2],['Date',3],['Url',6]]) %>
+    <%= select( :data_format, :data_type_id ,[[l(:label_text),1],[l(:label_number),2],[l(:label_date),3],[l(:label_url),6]]) %>
     <br />
 
-    <label for="data_format_name" class='icon icon-name'>
-      Name
+    <label for="data_format_name">
+      <%=l(:label_name)%>
     </label>
     <br />
     <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
     <br />
 
     <label for="data_format_default_value">
-      Default value
+      <%=l(:label_default)%>
     </label>
     <br />
     <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
     <br />
 
-    <label for="data_format_description" class='icon icon-description'>
-      Description
+    <label for="data_format_description">
+      <%=l(:label_description)%>
     </label>
     <br />
     <%= text_area :data_format, 'description',{:rows=>2, :cols=>80}   %>
     <br />
     <label for="data_format_format_regex">
-      Input regex rule
+      <%=l(:label_input_regex_rule)%>
     </label>
     <br />
     <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
@@ -37,12 +37,12 @@
           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
     <br />
 
-    <label for="data_format_format_regex">Output prinf format (Numeric values)</label>
+    <label for="data_format_format_regex"><%=l(:label_ouptput_printf_values)%></label>
     <br />
     <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
     <br />
     <label for="data_format_test">
-      Test String
+      <%=l(:label_test_string)%>
       <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>
     </label>
     <br />

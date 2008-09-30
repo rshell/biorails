@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
 
-
-  map.resources :mooses
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -51,13 +49,13 @@ ActionController::Routing::Routes.draw do |map|
   map.parameter_role 'admin/usage/:action/:id', :controller => 'admin/parameter_roles'
   map.assay_stage 'admin/stage/:action/:id', :controller => 'admin/assay_stages'
   map.system_setting 'admin/settings/:action/:id', :controller => 'admin/system_settings'
+  map.state 'admin/states/:action/:id', :controller => 'admin/states'
 
   map.project_type 'project_types/:action/:id', :controller => 'admin/project_types' 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
   map.user 'admin/users/:action/:id', :controller => 'admin/users'
   map.team 'admin/teams/:action/:id', :controller => 'admin/teams'
   map.teams 'admin/teams/:action/:id', :controller => 'admin/teams'
-  map.member  'admin/members/:action/:id', :controller => 'admin/memberships'
 
   map.auth 'auth/:action/:id' , :controller => 'auth'
   map.audit 'audit/:action/:id' , :controller => 'audit'
@@ -66,39 +64,48 @@ ActionController::Routing::Routes.draw do |map|
   map.dba  'dba/:action/:id' , :controller => 'admin/database'
   map.login 'login' , :controller => 'auth',:action=>'login'
   map.logoff 'logoff' , :controller => 'auth',:action=>'logout'
+  map.acl 'acl/:action/:id' , :controller => 'access_control_list'
 ##
 # Main Project elements
 #
-  map.project 'projects/:action/:id', :controller => 'project/projects'
-  map.folder  'folders/:action/:id', :controller => 'project/folders',:center=>'show'
-  map.element  'element/:action/:id', :controller => 'project/folders',:center=>'layout'
-  map.content 'content/:action/:id', :controller => 'project/content'
-  map.asset   'asset/:action/:id', :controller => 'project/assets'
+  map.project 'projects/:action/:id', :controller => 'projects'
+  map.calendar 'calendar/:action/:id', :controller => 'calendar'
+  #
+  # Sub Types of project provided by plugins
+  #
+  map.study 'studies/:action/:id', :controller => 'studies'
+  map.assay_group 'assay_groups/:action/:id', :controller => 'assay_groups'
+  
+  map.folder  'folders/:action/:id', :controller => 'folders'
+  map.calendar 'calendars/:action/:id', :controller => 'calendar'
+  map.element 'element/:action/:id', :controller => 'elements'
+  map.content 'content/:action/:id', :controller => 'project_contents',:style=>'html'
+  map.asset   'asset/:action/:id'  , :controller => 'project_assets',:style=>'file'
+  map.signature 'signatures/:action/:id', :controller => 'signatures'
 ##
 # Organization
 #  
-  map.assay     'assays/:action/:id',   :controller => 'organize/assays'
-  map.workflow  'workflows/:action/:id',     :controller => 'organize/process_flows'
-  map.process   'processes/:action/:id', :controller => 'organize/process_instances'
-  map.process_instance   'processes/:action/:id', :controller => 'organize/process_instances'
-  map.protocol  'protocols/:action/:id', :controller => 'organize/process_instances'
-  map.parameter 'parameters/:action/:id', :controller => 'organize/assay_parameters'  
-  map.assay_parameter 'parameters/:action/:id', :controller => 'organize/assay_parameters'  
+  map.assay             'assays/:action/:id',   :controller => 'organize/assays'
+  map.process_flow      'workflows/:action/:id',     :controller => 'organize/process_flows'
+  map.process_instance  'processes/:action/:id', :controller => 'organize/process_instances'
+  map.parameter         'parameters/:action/:id', :controller => 'organize/assay_parameters'
+  map.assay_parameter   'parameters/:action/:id', :controller => 'organize/assay_parameters'
   map.protocol_parameter 'protocol_parameters/:action/:id', :controller => 'organize/parameters'  
-  map.assay_queue     'queues/:action/:id', :controller => 'organize/assay_queues'
-  map.queue     'queues/:action/:id', :controller => 'organize/assay_queues'
-  map.queue_item 'queue_items/:action/:id', :controller => 'organize/queue_items'
+  map.assay_queue        'queues/:action/:id', :controller => 'organize/assay_queues'
+  map.queue              'queues/:action/:id', :controller => 'organize/assay_queues'
+  map.queue_item         'queue_items/:action/:id', :controller => 'organize/queue_items'
 ##
 # Inventory
 #  
-  map.compound  'compounds/:action/:id',:controller => 'inventory/compounds'  
-  map.batch     'batches/:action/:id',:controller => 'inventory/batches'  
-  map.plate     'plates/:action/:id',:controller => 'inventory/plates'  
+  map.compound  'compounds/:action/:id',:controller => 'compounds'  
+  map.batch     'batchs/:action/:id',:controller => 'batches'  
+  map.plate     'plates/:action/:id',:controller => 'plates'  
 
 ##
 # Execution
 #
   map.experiment 'experiments/:action/:id', :controller => 'execute/experiments'
+  map.experiment_statistics 'experiment_statistics/:action/:id', :controller => 'execute/experiments'
   map.task       'tasks/:action/:id',       :controller => 'execute/tasks'
   map.report     'reports/:action/:id',     :controller => 'execute/reports'
   map.request    'requests/:action/:id',    :controller => 'execute/requests'
@@ -110,7 +117,7 @@ ActionController::Routing::Routes.draw do |map|
 
 ##
 # Public Pages
-# /help/path
+# /help/pathbe honest, I was just so pleased that finally something that I had 
 # /project_name/path  This will return publish / user readable rendered views of pages
 # /asset/permilink    This is a content addressable file (permilink == md5 of file)
 # /content/permilink  This is a content addressable html element  (permilink == md5 of record)

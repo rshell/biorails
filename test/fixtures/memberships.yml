@@ -1,147 +1,186 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: memberships
 #
-#  id                 :integer(11)   not null, primary key
-#  user_id            :integer(11)   default(0), not null
-#  role_id            :integer(11)   default(0), not null
-#  is_owner           :boolean(1)    
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
-#  team_id            :integer(11)   default(0), not null
+#  id                 :integer(4)      not null, primary key
+#  user_id            :integer(4)      default(0), not null
+#  role_id            :integer(4)      default(0), not null
+#  is_owner           :boolean(1)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  team_id            :integer(4)      default(0), not null
 #
 
 --- 
-memberships_004: 
-  team_id: "2"
-  updated_at: 2007-12-07 18:47:06
-  is_owner: "1"
-  updated_by_user_id: "3"
-  role_id: "5"
-  id: "4"
-  created_by_user_id: "3"
-  user_id: "3"
-  created_at: 2007-12-07 18:47:06
-memberships_005: 
-  team_id: "1"
-  updated_at: 2007-12-07 19:07:50
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "2"
-  id: "5"
-  created_by_user_id: "3"
-  user_id: "4"
-  created_at: 2007-12-07 19:07:50
-memberships_006: 
-  team_id: "1"
-  updated_at: 2007-12-07 19:09:13
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "5"
-  id: "6"
-  created_by_user_id: "3"
-  user_id: "5"
-  created_at: 2007-12-07 19:09:13
-memberships_007: 
-  team_id: "1"
-  updated_at: 2007-12-07 19:10:55
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "1"
-  id: "7"
-  created_by_user_id: "3"
-  user_id: "6"
-  created_at: 2007-12-07 19:10:55
-memberships_008: 
-  team_id: "1"
-  updated_at: 2007-12-07 19:20:56
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "2"
-  id: "8"
-  created_by_user_id: "3"
-  user_id: "7"
-  created_at: 2007-12-07 19:20:56
-memberships_009: 
-  team_id: "2"
-  updated_at: 2007-12-07 19:22:34
-  is_owner: "0"
-  updated_by_user_id: "3"
-  role_id: "2"
-  id: "9"
-  created_by_user_id: "3"
-  user_id: "4"
-  created_at: 2007-12-07 19:22:34
-memberships_010: 
-  team_id: "3"
-  updated_at: 2007-12-11 10:18:25
-  is_owner: "1"
-  updated_by_user_id: "3"
-  role_id: "5"
-  id: "10"
-  created_by_user_id: "3"
-  user_id: "3"
-  created_at: 2007-12-11 10:18:25
-memberships_011: 
-  team_id: "4"
-  updated_at: 2007-12-11 10:19:14
-  is_owner: "1"
-  updated_by_user_id: "3"
-  role_id: "5"
-  id: "11"
-  created_by_user_id: "3"
-  user_id: "3"
-  created_at: 2007-12-11 10:19:14
-memberships_012: 
-  team_id: "1"
-  updated_at: 2008-01-24 14:12:31
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "2"
-  id: "12"
-  created_by_user_id: "3"
-  user_id: "8"
-  created_at: 2008-01-24 14:12:31
-memberships_001: 
-  team_id: "1"
-  updated_at: 0000-00-00 00:00:00
-  is_owner: "0"
-  updated_by_user_id: "1"
-  role_id: "1"
-  id: "1"
-  created_by_user_id: "1"
-  user_id: "1"
-  created_at: 0000-00-00 00:00:00
-memberships_002: 
-  team_id: "1"
-  updated_at: 0000-00-00 00:00:00
-  is_owner: "1"
-  updated_by_user_id: "1"
-  role_id: "3"
-  id: "2"
-  created_by_user_id: "1"
-  user_id: "2"
-  created_at: 0000-00-00 00:00:00
-memberships_003: 
-  team_id: "1"
-  updated_at: 0000-00-00 00:00:00
-  is_owner: "1"
-  updated_by_user_id: "1"
-  role_id: "3"
-  id: "3"
-  created_by_user_id: "1"
-  user_id: "3"
-  created_at: 0000-00-00 00:00:00
-memberships_013: 
-  team_id: "1"
-  updated_at: 2008-01-24 14:12:31
-  is_owner: 
-  updated_by_user_id: "3"
-  role_id: "2"
-  id: "13"
-  created_by_user_id: "3"
-  user_id: "9"
-  created_at: 2008-01-24 14:12:31
+00000000005_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "5"
+    created_by_user_id: "1"
+    user_id: "4"
+    created_at: 2007-12-07 19:07:50
+  attributes_cache: {}
+
+00000000004_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "2"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: "1"
+    updated_by_user_id: "1"
+    role_id: "5"
+    id: "4"
+    created_by_user_id: "1"
+    user_id: "3"
+    created_at: 2007-12-07 18:47:06
+  attributes_cache: {}
+
+00000000003_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:31
+    is_owner: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "3"
+    created_by_user_id: "1"
+    user_id: "3"
+    created_at: 2008-08-04 09:29:44
+  attributes_cache: {}
+
+00000000002_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:31
+    is_owner: "1"
+    updated_by_user_id: "1"
+    role_id: "3"
+    id: "2"
+    created_by_user_id: "1"
+    user_id: "2"
+    created_at: 2008-08-04 09:29:44
+  attributes_cache: {}
+
+00000000009_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "2"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: "0"
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "9"
+    created_by_user_id: "1"
+    user_id: "4"
+    created_at: 2007-12-07 19:22:34
+  attributes_cache: {}
+
+00000000013_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "13"
+    created_by_user_id: "1"
+    user_id: "9"
+    created_at: 2008-01-24 14:12:31
+  attributes_cache: {}
+
+00000000008_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "8"
+    created_by_user_id: "1"
+    user_id: "7"
+    created_at: 2007-12-07 19:20:56
+  attributes_cache: {}
+
+00000000012_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "2"
+    id: "12"
+    created_by_user_id: "1"
+    user_id: "8"
+    created_at: 2008-01-24 14:12:31
+  attributes_cache: {}
+
+00000000007_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "1"
+    id: "7"
+    created_by_user_id: "1"
+    user_id: "6"
+    created_at: 2007-12-07 19:10:55
+  attributes_cache: {}
+
+00000000001_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:31
+    is_owner: "0"
+    updated_by_user_id: "1"
+    role_id: "1"
+    id: "1"
+    created_by_user_id: "1"
+    user_id: "1"
+    created_at: 2008-08-04 09:29:44
+  attributes_cache: {}
+
+00000000011_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "4"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: "1"
+    updated_by_user_id: "1"
+    role_id: "5"
+    id: "11"
+    created_by_user_id: "1"
+    user_id: "3"
+    created_at: 2007-12-11 10:19:14
+  attributes_cache: {}
+
+00000000006_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "1"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: 
+    updated_by_user_id: "1"
+    role_id: "5"
+    id: "6"
+    created_by_user_id: "1"
+    user_id: "5"
+    created_at: 2007-12-07 19:09:13
+  attributes_cache: {}
+
+00000000010_membership: !ruby/object:Membership 
+  attributes: 
+    team_id: "3"
+    updated_at: 2008-08-14 10:29:32
+    is_owner: "1"
+    updated_by_user_id: "1"
+    role_id: "5"
+    id: "10"
+    created_by_user_id: "1"
+    user_id: "3"
+    created_at: 2007-12-11 10:18:25
+  attributes_cache: {}
+

@@ -1,0 +1,31 @@
+<div class="box">
+  <strong><%=link_to "#{@project.name}'s #{l(:label_tasks)}", task_url(:action => 'list'), :class=>'icon icon-task' %></strong>
+    <% unless @project.tasks.empty? %>
+      <p class="icon icon-red"><%=l(:label_overdue) %>
+      </p>
+      <dl>
+        <% for item in @project.tasks.overdue(8) %>
+          <dt><%= link_to item.path, task_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>
+            </dt>
+        <% end %>
+      </dl>
+      <p class="icon icon-green"><%=l(:label_current) %>
+      </p>
+      <dl>
+        <% for item in @project.tasks.current(8) %>
+          <dt><%= link_to item.path, task_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>
+            </dt>
+        <% end %>
+      </dl>
+      <p class="icon icon-amber"><%=l(:label_coming) %>
+      </p>
+      <dl>
+        <% for item in @project.tasks.future(8) %>
+          <dt><%= link_to item.path, task_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>
+            </dt>
+        <% end %>
+      </dl>
+  <% else %>
+    <p><%=l(:label_no_tasks_in, @project.style)%></p>
+  <% end %>
+</div>

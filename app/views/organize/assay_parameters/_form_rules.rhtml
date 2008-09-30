@@ -1,30 +1,27 @@
-  <% if @assay_parameter.qualitive? %>
-
-  <div class="form-element" >
+<% if @assay_parameter.qualitive? %>
+<div class="form-element">
     <label for=":assay_parameter_data_element_id" class='icon icon-data_type_dictionary'>
-      Lookup From
+        <%=l(:label_lookup_from) %>
     </label>
     <%= select_data_element( :assay_parameter, :data_element_id, @assay_parameter.type.data_concept) %>
-  </div>
-
+</div>
 <% else %>
-
-  <div class="form-element" >
-      <label for="assay_parameter_data_format_id" class='icon icon-data_format'>Entry Format  </label>
-      <%= select_data_format( :assay_parameter, :data_format_id ,@assay_parameter.data_type)%>
-    </div>
-
-   <% if @assay_parameter.parameter_type && @assay_parameter.data_type_id == 2%>
-      <div class="form-element">
-        <label for="assay_default_value">Default Unit (<%=@assay_parameter.parameter_type.storage_unit%>)
-        </label>
-        <%if @assay_parameter.custom? %>
-          <%= text_field( :assay_parameter, :display_unit, {:size =>10, :class=>"text-input"})  %>
-        <%else%>
-          <%= select( :assay_parameter, :display_unit, @assay_parameter.units )  %>
-        <%end%>
-  <%end%>
-  </div>
-
-<%end%>
-
+<div class="form-element">
+    <label for="assay_parameter_data_format_id">
+        <%=l(:label_entry_format) %>
+    </label>
+    <%= select_data_format( :assay_parameter, :data_format_id ,@assay_parameter.data_type) %>
+</div>
+<% if @assay_parameter.parameter_type && @assay_parameter.data_type_id == 2 %>
+<div class="form-element">
+    <label for="assay_default_value">
+        <%="#{l(:label_default_unit)} (#{@assay_parameter.parameter_type.storage_unit}" %>)
+    </label>
+    <%if @assay_parameter.custom? %>
+    <%= text_field( :assay_parameter, :display_unit, {:size =>10, :class=>"text-input"}) %>
+    <%else %>
+    <%= select( :assay_parameter, :display_unit, @assay_parameter.units ) %>
+    <%end %>
+    <%end %>
+</div>
+<%end %>

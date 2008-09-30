@@ -1,47 +1,24 @@
-<% unless user.nil?  %>
-
-  <div>
-    <span class='menu'>
-      <b class='icon icon-user'>
-        <%= user.name %>
-      </b>
-    </span>
-    <div class='boldnotbold'>
-      <%= link_to "<b class='icon icon-home'>" + l('Home') + "</b>",
-            home_url( :action => 'show') %>
-      <%= link_to "<b class='icon icon-calendar'>" + l('Calendar')  + "</b>",
-            home_url( :action => 'calendar') %>
-      <%= link_to "<b class='icon icon-timeline'>" + l('Timeline')  + "</b>",
-            home_url( :action => 'gantt') %>
-      <%= link_to "<b class='icon icon-todo'>" + l('Todo')  + "</b>",
-            home_url( :action => 'todo') %>
-    </div>
-  </div>
-
-  <div>
-    <span class='menu'>
-      <b class='icon icon-project'>
-        Projects
-      </b>
-    </span>
-    <div class='boldnotbold'>
-      <% for project in user.projects %>
-        <%= link_to "<b class='icon icon-project'>#{project.name} (#{project.style})</b>",
-            project_url(:action => 'show', :id => project) %>
+<% unless user.nil? %>
+<div>
+    <span class='menu'><b class='icon icon-user'><%= user.name %>
+        </b></span>
+    <%= link_to l(:label_home), home_url( :action => 'show') %>
+    <%= link_to l(:Signed), signature_url( :action => 'list_authored') %>
+    <%= link_to l(:label_calendar) , home_url( :action => 'calendar') %>
+    <%= link_to l(:label_timeline), home_url( :action => 'gantt') %>
+    <%= link_to l(:label_todo), home_url( :action => 'todo') %>
+</div>
+<div>
+    <span class='menu'><b class='icon icon-project'><%=l(:label_projects) %>
+        </b></span>
+    <% for project in user.projects(5) %>
+    <%= link_to project.name, project_url(:action => 'show', :id => project) %>
     <% end %>
-    </div>
-  </div>
-
-  <div>
-    <span class='menu' >
-      <b class='icon icon-action'>
-        Actions
-      </b>
-    </span>
-    <div class='boldnotbold'>
-      <%= link_to( "<b class='icon icon-project-add'>New Project</b>",  project_url(:action => 'new', :type=>1))  if current_project.allows?(:new,:project)%>      
-      <%= link_to( "<b class='icon icon-project-add'>New Assay Group</b>", project_url(:action => 'new', :type=>2))  if current_project.allows?(:new,:project)%>
-      <%= link_to( "<b class='icon icon-request-add'>New Request</b>",  request_url(:action => 'new')) if current_project.allows?(:new,:request) %>
-    </div>
-  </div>
+</div>
+<div>
+    <span class='menu'><b class='icon icon-action'><%=l(:label_actions) %>
+        </b></span>
+    <%= link_to( "#{l(:label_new)} #{l(:label_project)}", project_url(:action => 'new')) %>
+    <%= link_to( l(:label_request_new),  request_url(:action => 'new')) %>
+</div>
 <% end %>

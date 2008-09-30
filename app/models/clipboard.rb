@@ -1,11 +1,16 @@
+# == Description
 # Files and folders can be stored temporary on the clipboard.
-# 
+#
 # Objects are not persisted to the database as the nature of a clipboard object
 # is that it's temporary.
-# 
+#
 # This is a basic collection of ProjectElements for addition to other folders.
-# 
-# 
+#
+# == Copyright
+#
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class Clipboard
   include Enumerable
   attr_reader :elements

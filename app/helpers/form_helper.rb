@@ -1,6 +1,10 @@
-# ##
+# == Form Helper
+# This is used to provide simple form processing helper
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights ##
+# See license agreement for additional rights
+#
 module FormHelper
   @@logger=Logger.new(STDOUT)
   OPEN_DIALOG = <<-EOL
@@ -168,6 +172,53 @@ HTML
     logger.error ex.message
   end
 
+  def assigned_user_combo(entity,options={})
+    options = {
+        :with =>'assigned_to_user_id',  
+        :url=>{:action=>'update_row',:id=>entity},}.merge(options)
+    
+    text = select_tag 'assigned_to_user_id', 
+      options_for_select( entity.folder.access_control_list.users, entity.assigned_to_user_id), 
+      {:id=> entity.dom_id('assigned_to_user_id')}  
+
+    text << observe_field(entity.dom_id('assigned_to_user_id'),options)    
+    return content_tag('div',text)   
+ end
+
+  def states_combo(element,workflow)
+      element.state_id =1  unless element.state
+      list = element.state.next_states(workflow)
+      list << element.state
+      text = select_tag(element.dom_id('state_id') ,
+            options_from_collection_for_select(list,:id,:name,element.state_id ),
+            :class=>"state-level#{element.state.level_no} icon icon-status_#{element.state.name.downcase}" )
+      
+      text << observe_field(element.dom_id('state_id'), 
+              :url=>element_url({:action=>'state',:display=>'combo',:id=>element}), 
+              :update=>element.dom_id('state'),
+              :with =>'state_id')  
+            
+      return content_tag('div',text,
+                           :id=>element.dom_id('state')   )  
+  end
+  
+  def states_bar(element,workflow=nil)
+      element.state_id =State.find(:first)  unless element.state
+      changes = element.state.next_states(workflow)   
+      text = content_tag(:b,"[#{element.state.name}]" ,
+                         :class=>"state-level#{element.state.level_no}")
+                       
+      text << " => "
+      text << changes.collect{|i|link_to_remote(i.name,
+             :update=>element.dom_id(:state),
+             :url=>element_url(:action=>'state',
+                               :state_id=>i.id,
+                               :display=>'bar',
+                               :id=>element.id))}.join("|")     
+                         
+      content_tag('div',text,:id=>element.dom_id(:state))         
+  end
+  
   # ## Return a list of the allowed Elements that can be used as specializations
   # of the passed concept of children of the passed element.
   # 
@@ -240,9 +291,10 @@ HTML
   # 
   # 
   # 
-  def select_process(object,method, item = nil,latest=false)
+  def select_process(object,method, list = nil,latest=false)
     protocol_options= []
-    Project.current.protocols.each do |item|
+    list ||= Project.current.protocols
+    list.each do |item|
       if item.released
         protocol_options << ["#{item.released.summary} ",item.released.id]
       elsif (latest)
@@ -293,7 +345,7 @@ HTML
     when 4 then my_regex_tag(id, name,options)
     when 5 then my_lookup_tag(id,name, parameter.element,options)
     when 6 then my_regex_tag(id, name, options)
-    when 7 then my_file_field(id,name, current_folder)
+    when 7 then my_file_field(id,name, current_element)
     else 
       text_field_tag(cell.dom_id,cell.value)
     end     

@@ -4,7 +4,6 @@
 ##
 module SheetHelper
   
-  
 # Convert Parameter collection for use in ExtJS
 #
   def paramater_collection(parameters)

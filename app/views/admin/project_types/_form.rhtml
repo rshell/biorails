@@ -1,67 +1,37 @@
-
-   
     <%=hidden_field :project_type, :id %>
-      
-
-   
      <div class="x-form-item">
       <label for="project_type-name" style="width: auto;" class="x-form-item-label">
-        name:
+        <%=l(:label_name)%>:
       </label>      
       <div class="x-form-element">
          <%= text_field :project_type, :name, :size=>30, :class=> 'x-form-text x-form-field' %>  
       </div>
-    </div>     
-
-   
+    </div>
      <div class="x-form-item">
       <label for="project_type-description" style="width: auto;" class="x-form-item-label">
-        description:
+        <%=l(:label_description)%>:
       </label>      
       <div class="x-form-element">
          <%= text_area :project_type,:description,:cols=>80,:rows=>3, :class=> 'x-form-area x-form-field' %>  
       </div>
     </div>     
-
-   
      <div class="x-form-item">
       <label for="project_type-dashboard" style="width: auto;" class="x-form-item-label">
-        dashboard:
+        <%=l(:label_dashboard)%>:
       </label>      
       <div class="x-form-element">
-        
          <%= select_dashboard( :project_type,:dashboard) %>  
       </div>
     </div>     
- 
-
-   
     <%=hidden_field :project_type, :publish_to_team_id %>
-      
-
-   
     <%=hidden_field :project_type, :lock_version %>
-      
-
-   
     <%=hidden_field :project_type, :created_at %>
-      
-
-   
     <%=hidden_field :project_type, :created_by_user_id %>
-      
-
-   
     <%=hidden_field :project_type, :updated_at %>
-      
-
-   
     <%=hidden_field :project_type, :updated_by_user_id %>
-      
-
 <p>
-  <%= submit_tag "Save" %>
+  <%= submit_tag l(:button_save) %>
+  <%= link_to l(:label_cancel), project_type_url(), :method => :get  %>
+
 </p>
-  
 <%= error_messages_for :project_type %>
-  

@@ -1,15 +1,22 @@
-##
+# == Experiment Controller
+# The experiment controller change the key container for capture of data this is 
+# based on the Experiment model. The Experiment is built of a open collection of tasks.
+#  
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 
 class Execute::ExperimentsController < ApplicationController
 
-  use_authorization :experiments,
+  use_authorization :execution,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
- before_filter :setup_experiment,
+ before_filter :setup_experiments,
+    :only => [ :new,:list,:index,:create]
+
+  before_filter :setup_experiment,
     :only => [ :show, :edit,:copy, :update,:destroy,:print,:import_file,:import, :export,:metrics]  
   helper :calendar
 ##
@@ -22,27 +29,17 @@ class Execute::ExperimentsController < ApplicationController
 # list all the experiments 
 # 
   def list
-   @project = current_project
-   @report = Report.internal_report("ExperimentList",Experiment) do | report |
-      report.column('project_id').customize(:filter => @project.id, :is_visible => false)
-      report.column('name').customize(:order_num=>1,:action => :show,:is_visible => true,:is_filterible=>true)
-      report.column('project.name').customize(:is_visible => true,:is_filterible=>true)
-      report.column('process.name').customize(:is_visible => true,:is_filterible=>true)
-      report.column('status').customize(:is_visible => true,:is_filterible=>true)
-      report.column('started_at').is_visible = true
-      report.column('expected_at').is_visible = true
-      report.column('status_summary').customize(:is_visible => true,:label=>'summary')
-      report.column('id').is_visible = false
+   @report = Biorails::ReportLibrary.experiment_list do | report |
+      report.column('project_id').customize(:filter => current_project.id, :is_visible => false)
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'list' }
-      format.ext { render :action => 'list',:layout=>false }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
       format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @data.to_json }
-      format.xml  { render :xml => @data.to_xml }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
     end
   end
 
@@ -95,22 +92,46 @@ class Execute::ExperimentsController < ApplicationController
 ##
 # create a new experiment
   def new
-    @assay = current_user.assay( params[:id] ) if  params[:id]
-    @assay ||= current_project.linked_assays[0]
-    @experiment = Experiment.new(:assay_id=>@assay.id)
-    @experiment.started_at = Time.new
-    @experiment.expected_at = Time.new+7.day
+    flash[:warning] = l(:text_project_not_runnable) unless current_project.runnable?
+    @experiment = Experiment.new
+    @experiment.assay = @assay
+  end
+  
+  def refresh
+    ok = true
+    if params[:assay_id]
+      @assay = Assay.find( params[:assay_id] ) 
+      @process ||= @assay.protocols.first.released
+    elsif params[:protocol_version_id]
+      @process = ProtocolVersion.find(params[:protocol_version_id])
+      @assay = @process.protocol.assay
+    else 
+      ok = false
+    end
+    @experiment = Experiment.new(:protocol_version_id=>@process.id, :assay_id=>@assay.id)
+    @experiment.description = @process.description if @process
+    respond_to do | format |
+      format.html { render :action => 'new' }
+      format.ext  { render :partial => 'process_selector' }
+      format.js   { render :update do | page |
+          if ok
+            page.replace_html('process_selector', :partial => 'process_selector' ) 
+            page.visual_effect :highlight, 'experiment_description',:duration => 1.5 
+            page.visual_effect :highlight, 'experiment_protocol_version_id',:duration => 1.5 
+            page[:experiment_description][:value]="A run of #{@process.description}"
+          end
+      end }
+    end
   end
 ##
 # Return from new to create a Experiment record
   def create
     Experiment.transaction do
       @experiment = Experiment.new(params[:experiment])    
-      @experiment.project = current_project
       if @experiment.save
-        @folder = @experiment.folder  
+        set_project @experiment.project 
+        set_element @folder = @experiment.folder  
         @experiment.run 
-
         flash[:notice] = 'Experiment was successfully created.'
         redirect_to :action => 'show', :id => @experiment.id
       else
@@ -146,6 +167,28 @@ class Execute::ExperimentsController < ApplicationController
     end
   end
 
+  
+  def update_row
+    @task = Task.load(params[:id])
+    @task.attributes.keys.each do |key|
+        @task[key] = params[key] unless params[key].blank? 
+    end        
+    ok = @task.save
+    respond_to do | format |
+      format.html { redirect_to :action => 'show', :id => task.experiment }
+      format.js   { render :update do | page |
+        if ok 
+          page.replace_html(@task.dom_id(:row), :partial => 'task',:locals => { :task => @task } ) 
+          page.visual_effect :highlight, @task.dom_id(:row),:duration => 1.5
+        else
+          logger.warn("failed to update task")
+          page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => [:task] }
+        end  
+      end }
+      format.json { render :json => @task.to_json }
+      format.xml  { render :xml => @task.to_xml }
+    end    
+  end
 ##
 # Delete the passed experiment
 # 
@@ -178,7 +221,7 @@ class Execute::ExperimentsController < ApplicationController
   def import
    respond_to do | format |
       format.html { render :action => 'import'}
-      format.ext  { render :action => 'import',:layout=>false }
+      format.ext  { render :partial => 'import'}
       format.pdf  { render_pdf :action => 'import',:layout=>false }
       format.json { render :json => @task.statistics.to_json }
       format.xml  { render :xml => @task.statistics.to_xml }
@@ -217,13 +260,16 @@ class Execute::ExperimentsController < ApplicationController
   end
   
  protected
- 
+
+  def setup_experiments
+    set_project(Project.load( params[:id] )) if  params[:id]
+    @assay = current_project.usable_assays[0]    
+  end  
+  
   def setup_experiment
-    @experiment = current_user.experiment(params[:id])
+    @experiment = Experiment.load(params[:id])
     if  @experiment
-      set_project(@experiment.project)
-      set_team(@experiment.team)
-      set_folder( @folder = @experiment.folder)
+      @folder = set_element( @experiment.folder)
       return @experiment
     else
       return show_access_denied

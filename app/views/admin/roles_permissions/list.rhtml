@@ -24,7 +24,7 @@
     </td>
     <td>
       <b class='icon icon-del'>
-        <%= link_to "Destroy", { :action => 'destroy', :id => roles_permission }, :confirm => 'Are you sure?' %>
+        <%= link_to "Destroy", { :action => 'destroy', :id => roles_permission }, :confirm => l(:text_are_you_sure) %>
       </b>
     </td>
   </tr>
@@ -34,4 +34,4 @@
 
 <br />
 
-<%= link_to "<b class='icon icon-new'>New Role Permission</b>", :action => 'new' %>
+<%= link_to l(:label_new), :action => 'new', :class=>'icon icon-new' %>

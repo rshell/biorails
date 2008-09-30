@@ -1,17 +1,33 @@
-<b> Defined Aliases </b>
+<b>
+  <%=l(:label_defined_aliases)%>
+</b>
 <% form_tag :action => 'add', :id => @parameter_type.id do %>
   <table class='report'>
     <tr>
-      <th><b class='icon icon-name'>Name</b></th>
-      <th><b class='icon icon-description'>Description</b></th>
-      <th><b class='icon icon-parameter_role'>Parameter Role</b></th>
+      <th>
+        <%=l(:label_name)%>
+      </th>
+      <th>
+        <%=l(:label_description)%>
+      </th>
+      <th>
+        <%=l(:label_parameter_role)%>
+      </th>
       <%if @parameter_type.qualitive?%>
-        <th><b class='icon icon-dictionary'>Data Lookup</b></th>
+        <th>
+          <%=l(:label_element)%>
+        </th>
       <%else%>
-        <th><b class='icon icon-unit'>Unit</b></th>
-        <th><b class='icon icon-data_format'>Data Format</b></th>
+        <th>
+          <%=l(:label_unit)%>
+        </th>
+        <th>
+          <%=l(:label_data_format)%>
+        </th>
       <%end%>
-      <th><b class='icon icon-action'>Action</b></th>
+      <th>
+        <%=l(:label_action)%>
+      </th>
     </tr>
     
     <%for item in  @parameter_type.aliases %>
@@ -25,7 +41,7 @@
           <td><%=item.display_unit %></td>
           <td><%=item.format_name %></td>
         <%end%>
-        <td><%=link_to "<b class='icon icon-del'>remove</b>", parameter_type_url(:action=>'remove',:id=>item.id)  %></td>
+        <td><%=link_to l(:label_delete), parameter_type_url(:action=>'remove',:id=>item.id), :class=>'icon icon-del'  %></td>
       </tr>
     <%end%>
 
@@ -43,14 +59,13 @@
             <%= select( :parameter_type_alias, :display_unit, @parameter_type.scaled_units )  %>
           <%else%>
             <%= text_field( :parameter_type_alias, :display_unit, {:size =>5, :class=>"text-input"})  %>
-          <%end%>          
+          <%end%>
         </td>
         <td>
           <%=select_data_format( :parameter_type_alias, :data_format_id ,@parameter_type.data_type)%>
         </td>
       <% end %>
-      <td> <%= submit_tag 'Add' %></td>
+      <td> <%= submit_tag l(:button_add) %></td>
     </tr>
-    
   </table>
 <% end %>

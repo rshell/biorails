@@ -1,59 +1,59 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_texts
 #
-#  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   not null
-#  parameter_id       :integer(11)   not null
-#  data_content       :string(1000)  
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  task_id            :integer(11)   not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  task_context_id    :integer(4)      not null
+#  parameter_id       :integer(4)      not null
+#  data_content       :string(1000)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  task_id            :integer(4)      not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
 --- 
 00000000001_task_text: !ruby/object:TaskText 
   attributes: 
-    updated_at: 2007-12-12 13:46:15
+    updated_at: 2008-08-14 10:29:58
     task_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
     lock_version: "1"
     task_context_id: "10"
     id: "1"
     parameter_id: "9"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_content: "'5-HT2A'"
     created_at: 2007-12-12 13:46:15
   attributes_cache: {}
 
 00000000003_task_text: !ruby/object:TaskText 
   attributes: 
-    updated_at: 2007-12-12 14:38:02
+    updated_at: 2008-08-14 10:29:58
     task_id: "7"
-    updated_by_user_id: "4"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "30"
     id: "3"
     parameter_id: "9"
-    created_by_user_id: "4"
+    created_by_user_id: "1"
     data_content: 5-HT2A
     created_at: 2007-12-12 14:38:02
   attributes_cache: {}
 
 00000000002_task_text: !ruby/object:TaskText 
   attributes: 
-    updated_at: 2007-12-12 14:33:31
+    updated_at: 2008-08-14 10:29:58
     task_id: "6"
-    updated_by_user_id: "4"
+    updated_by_user_id: "1"
     lock_version: "0"
     task_context_id: "17"
     id: "2"
     parameter_id: "9"
-    created_by_user_id: "4"
+    created_by_user_id: "1"
     data_content: 5-HT2A
     created_at: 2007-12-12 14:33:31
   attributes_cache: {}

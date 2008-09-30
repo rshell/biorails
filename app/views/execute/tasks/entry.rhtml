@@ -1,6 +1,6 @@
 <% content_for :center do %>
 
-  <h1 class='icon icon-task-large' style='text-indent:0.5em;'>
+  <h1 class='icon icon-task'>
       Task [<strong><%=@task.name%></strong>] in Experiment
       [<%=link_to " #{@task.experiment.name} ", :controller=>'experiments', :action =>'show',:id =>@task.experiment.id %>]
   </h1>

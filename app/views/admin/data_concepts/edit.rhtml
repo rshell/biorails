@@ -4,7 +4,7 @@
     <span class='menu'>Data Concept</span>
     <li><%= link_to "<b class='icon icon-del'></b>Delete",
         { :action => 'destroy', :id => @data_concept },
-        :confirm => 'Are you sure?',:method => "post" %></li>
+        :confirm => l(:text_are_you_sure),:method => "post" %></li>
     <li><%= link_to "<b class='icon icon-list'></b>Add Child",
         :action => 'new', :id => @data_concept %></li>
     <li><%= link_to "<b class='icon icon-list'></b>Edit",
@@ -23,7 +23,7 @@
         <div class='dialog'>
             <% form_tag :action => 'update', :id => @data_concept do %>
               <%= render :partial => 'form' %>
-            <%= submit_tag 'Save' %>
+            <%= submit_tag l(:button_save) %>
            <% end %>
         </div>
         

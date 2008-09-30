@@ -1,7 +1,10 @@
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
+# This manages the clipboard and free text search functions
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
 class FinderController < ApplicationController
  

@@ -1,33 +1,39 @@
 <% content_for :center do -%>
-  <h1 class='icon icon-queue_item-large' style='text-indent:0.5em;'>
-    Queue Item [<strong><%=h @queue_item.name%></strong>]
-  </h1>
-  <table class='report'>
+<%= render :partial => 'header' %>
+<div class='panel'>
+<h2 class='icon icon-queue_item'>
+<%=l(:label_queue) %>
+<%=l(:label_item) %>
+[<strong><%=h @queue_item.name %></strong>]</h2>
+<div class='box'>
+<table class='report'>
     <% for column in QueueItem.content_columns %>
     <tr>
-      <th>
-        <%= column.human_name %>:</th>
-      <td>
-        <%=h @queue_item.send(column.name) %>
-      </td>
+        <th>
+            <%= column.human_name %>:
+        </th>
+        <td>
+            <%=h @queue_item.send(column.name) %>
+        </td>
     </tr>
     <% end %>
-  </table>
-<%end%>
+</table>
+</div>
+</div>
+<%end %>
 
 <% content_for :footer do %>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @queue_item} %>
-<%end%>
+<%= render :partial => 'shared/audit',:locals =>{ :item => @queue_item} %>
+<%end %>
 
 <% content_for :right do %>
-  <h1 class='icon icon-queue_item'> Guide </h1>
-  <p>
+<h1 class='icon icon-queue_item'>Guide </h1>
+<p>
     A queue item can be any dictionary-linked parameter that is
     submitted to a service
     via a request.
-  </p>
-  <p>
+</p>
+<p>
     This form needs writing properly!
-  </p>
-
-<%end%>
+</p>
+<%end %>

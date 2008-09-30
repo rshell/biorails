@@ -1,0 +1,95 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial=>'actions'%>
+<% end -%>
+
+<% content_for :center do -%>
+  <%= project_render :partial=>'shared/parent_project'%>
+  <div class="splitcontentleft">
+      <div id='source_tree'>
+        Source Items
+      </div>
+  </div>
+
+  <div class="splitcontentright">
+      <div id='current_tree'>
+        Current Project
+      </div>
+  </div>
+
+<% end %>
+
+<% content_for :status do -%>
+  <%= render :partial=>'status'%>
+<% end %>
+
+<% content_for :help do -%>
+  <%= render :partial=>'help'%>
+<% end %>
+
+
+<% content_for :header_script do -%>
+  <script>
+   
+      var ProjectTreeShare = function(){
+          // shorthand
+          var Tree = Ext.tree;
+    
+          return {
+              init : function(){
+                  // Source Project Tree
+                  var source_tree = new Tree.TreePanel({
+                      el:'source_tree',
+                      animate:true, 
+                      autoScroll:true,
+                      height: Biorails.getHeight(),
+                      loader: new Tree.TreeLoader({dataUrl:'/home/tree'}),
+                      enableDD:true,
+                      containerScroll: true,
+                      dropConfig: {appendOnly:true}
+                  });
+                        
+                  // set the root node
+                  var source_root = new Tree.AsyncTreeNode({
+                      text: 'Source', 
+                      draggable:false, // disable root node dragging
+                      id: 'root'
+                  });
+                  source_tree.setRootNode(source_root);
+            
+                  // render the tree
+                  source_tree.render();
+            
+                  source_root.expand(false, /*no anim*/ false);
+            
+                  //-------------------------------------------------------------
+            
+                  // Current Project Tree       
+                  var project_tree = new Tree.TreePanel({
+                      el:'current_tree',
+                      animate:true,
+                      autoScroll:false,
+                      height: Biorails.getHeight(),
+                      //rootVisible: false,
+                      loader: new Ext.tree.TreeLoader({dataUrl:'/home/tree' }),
+                      containerScroll: true,
+                      enableDD:true,
+                      dropConfig: {appendOnly:true}
+                  });
+            
+                  // add the root node
+                  var project_root = new Tree.AsyncTreeNode({
+                      text: 'Current', 
+                      draggable:false, 
+                      id: '<%=@project.id%>'
+                  });
+                  project_tree.setRootNode(project_root);
+                  project_tree.render();
+            
+                  project_root.expand(false, /*no anim*/ false);
+              }
+          };
+      }();
+
+      Ext.EventManager.onDocumentReady(ProjectTreeShare.init, ProjectTreeShare, true);   
+  </script>  
+<% end %>

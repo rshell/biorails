@@ -1,11 +1,73 @@
 
-  <%form_tag({:action =>'share',:id=> current_project.id} , {:multipart => true}) do %>
-
-  Assay from other project :-
-  <br />
-    <%= select_tag( :assay_id ,options_from_collection_for_select(current_project.unlinked_assays, :id, :name))%>
-    <%= submit_tag("Add Link")%>
 
 
+<div class='box'>
+<table class='report'>
+  <tr>
+      <th colspan='4'>Exported Assay Definitions</th>
+  </tr>
+  <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>To Folder</th>
+      <th>Sharable</th>
+   </tr>    
+  <%for item in current_project.folder.external_references(Assay)%>
+  <tr class="<%= cycle('odd', 'even') %>"">
+    <td >
+      <%=item.name%> 
+    </td>
+    <td >
+      <%=item.reference.description%> 
+    </td>
+    <td >
+      <%=item.path%> 
+    </td>
+    <td >
+      <%= item.reference.shareable_status(item.project) %>
+    </td>
+  </tr>
+  <%end%>
+</table>
+</div>
 
+<div class='box'>
+<table class='report'>
+  <tr>
+      <th colspan='5'>Imported Assay Definitions</th>
+  </tr>
+  <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>From Folder</th>
+      <th>Sharable</th>
+      <th>Remove</th>
+   </tr>    
+  <%for item in current_project.imported_assays %>
+  <tr class="<%= cycle('odd', 'even') %>"">
+    <td >
+      <%=item.name%> 
+    </td>
+    <td >
+      <%=item.description%> 
+    </td>
+    <td >
+      <%=item.folder.path%> 
+    </td>
+    <td >
+      <%= item.shareable_status(current_project) %>
+    </td>
+    <td >
+      <%= link_to "remove", assay_url(:action=>:unlink, :id=> item.id) %>
+    </td>
+  </tr>
+  <%end%>
+</table>
+</div>
+
+
+<%form_tag({:action =>'link',:id=> current_project.id} , {:multipart => true}) do %>
+    <%=l(:label_link_assay_from) %>
+    <%= select_tag( :assay_id ,options_from_collection_for_select(current_project.unlinked_assays, :id, :name)) %>
+    <%= submit_tag("Add Link") %>
 <% end %>

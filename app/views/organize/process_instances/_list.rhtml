@@ -1,46 +1,75 @@
-<div class='panel'>
-  <table class="report">
+<table class="report">
     <tr>
-      <th colspan='2' rowspan='2'><b class='icon icon-assay'>  Assay  </b>  </th>
-      <th colspan='3'> <b class='icon icon-protocol'>  Protocol  </b>  </th>
-      <th colspan='2'> <b class='icon icon-protocol_version'> Released Version  </b> </th>
-      <th colspan='1' rowspan='2'><b class='icon icon-protocol_version'>  Lastest Version   </b>  </th>
-      <th colspan='1' rowspan='2'><b class='icon'> Actions </b>  </th>
+        <th colspan='2' rowspan='2'>
+            <%=l(:label_assay) %>
+        </th>
+        <th colspan='3'>
+            <%=l(:label_process) %>
+        </th>
+        <th colspan='2'>
+            <%=l(:label_released_version) %>
+        </th>
+        <th colspan='1' rowspan='2'>
+            <%=l(:label_latest_version) %>
+        </th>
+        <th colspan='1' rowspan='2'>
+            <%=l(:label_actions) %>
+        </th>
     </tr>
     <tr>
-      <th> <b class='icon icon-name'>        Name    </b>    </th>
-      <th> <b class='icon icon-assay_stage'> Stage    </b>     </th>
-      <th> <b class='icon icon-category'>  Edits. </b>   </th>
-      <th> <b class='icon icon-protocol_version'>    Version   </b>  </th>
-      <th> <b class='icon icon-task'>   Experiments   </b>  </th>
+        <th>
+            <%=l(:label_name) %>
+        </th>
+        <th>
+            <%=l(:label_stage) %>
+        </th>
+        <th>
+            <%=l(:label_edits) %>
+        </th>
+        <th>
+            <%=l(:label_version) %>
+        </th>
+        <th>
+            <%=l(:label_tasks) %>
+        </th>
     </tr>
-    
     <% for assay_protocol in @assay_protocols %>
-      <% if assay_protocol.is_a?(AssayProcess)%>
-          <tr class="<%= cycle('odd', 'even') %>">
-            <td><%=h assay_protocol.assay.name %></td>
-            <td><%=h assay_protocol.assay.style %></td>
-            <td><%=h assay_protocol.name %></td>
-            <td><%=h assay_protocol.stage.name if assay_protocol.stage %></td>
-            <td><%=h assay_protocol.versions.size %></td>
-            <% if assay_protocol.released %>
-              <td> <%= link_to assay_protocol.released.name, 
-                    process_url(:action => 'show', :id => assay_protocol.released) %> </td>
-              <td> <%=assay_protocol.process.usages.size.to_s %> </td>
-            <%else %>
-              <td colspan='2'> Not released </td>
-            <% end%>
-            <td>
-                <%=assay_protocol.latest.path if assay_protocol.latest%>
-            </td>
-            <td>
-                <%=link_to( 'show', 
-                    process_url(:action => 'show',:id => assay_protocol.latest)) if assay_protocol.latest%>
-            </td>
-          </tr>
+    <% if assay_protocol.is_a?(AssayProcess) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+        <%=h assay_protocol.assay.name %>
+        <td>
+            <%=h assay_protocol.assay.style %>
+        </td>
+        <td>
+            <%=h assay_protocol.name %>
+        </td>
+        <td>
+            <%=h assay_protocol.stage.name if assay_protocol.stage %>
+        </td>
+        <td>
+            <%=h assay_protocol.versions.size %>
+        </td>
+        <% if assay_protocol.released %>
+        <td>
+            <%= link_to assay_protocol.released.name, process_instance_url(:action => 'show', :id => assay_protocol.released) %>
+        </td>
+        <td>
+            <%=assay_protocol.process.usages.size.to_s %>
+        </td>
+        <%else %>
+        <td colspan='2'>
+            Not released 
+        </td>
         <% end %>
-      <% end %>
-    </table>
-  </div>
-<hr />  
-<%= link_to "<b class='icon icon-protocol-add'>Add Process</b>",  process_url(:action => 'new',  :id => @assay) if @assay and @assay.allows?(:edit)%>
+        <td>
+            <%=assay_protocol.latest.path if assay_protocol.latest %>
+        </td>
+        <td>
+            <%=link_to( 'show', process_instance_url(:action => 'show',:id => assay_protocol.latest)) if assay_protocol.latest %>
+        </td>
+    </tr>
+    <% end %>
+    <% end %>
+</table>
+<hr/><%= link_to l(:label_add),  process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add' if @assay %>

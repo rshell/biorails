@@ -1,20 +1,20 @@
-  <tr>
+<tr>
     <%for column in report.displayed_columns %>
     <th>
-       <%= column_header(report,column) %>
+        <%= column_header(report,column) %>
     </th>
-    <%end%>
-    <th>Actions</th>
-  </tr>
-  <tr>
+    <%end %>
+    <th>
+        <%=l(:label_actions)%>
+    </th>
+</tr>
+<tr>
     <%for column in  report.displayed_columns %>
     <th class='filter'>
-       <%= column_filter(report,column) %>
+        <%= column_filter(report,column) %>
     </th>
-    <%end%>
+    <%end %>
     <th>
         <input name="commit" value="Filter" type="submit"/>
     </th>
-  </tr>
-
-  
+</tr>

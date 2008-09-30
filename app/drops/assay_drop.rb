@@ -1,8 +1,18 @@
+# == Assay Drop
+# Drops are error safe macros for the liquid template language. These are used 
+# to map models into the Liquid with a safe limited scope
 # 
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
- 
-
+# This allow the following links to be followed
+# * protocols
+# * project
+# * team
+# * parameters
+# * queues
+#  
+# == Copyright
+# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+#
 class AssayDrop < BaseDrop
  #
  # Special base handling for timestamps
@@ -34,7 +44,7 @@ class AssayDrop < BaseDrop
    liquify(@source.parameters)    
  end
  
- def parameters
+ def queues
    liquify(@source.queues)    
  end
 

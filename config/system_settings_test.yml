@@ -1,0 +1,91 @@
+app_title:
+  default: BioRails
+  tip: The site name may be displayed by your template across the top of the page
+app_subtitle:
+  default: Project organisation and data management
+welcome_text:
+  default: Welcome to BioRails
+hash_format:
+  default: MD5
+max_login_attempts:
+  default: 3
+  tip: Administrators will be sent an email when users fail to log in more than max_login_attempts times consecutively
+author_assert_text:
+  default: I assert that the document below is my work and affirm this by attaching my electronic signature
+witness_assert_text:
+  default: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
+witness_request_text:
+  default: Please follow the link below to witness that I am the author of the attached document
+witness_refused_text:
+  default: I cannot witness your signature to the document below.  The reason is:-
+login_required:
+  default: 0
+self_registration:
+  default: 1
+lost_password:
+  default: 1
+attachment_max_size:
+  default: 5120
+mail_from:
+  default: thawkins@biorails.org
+text_formatting:
+  default: textile
+default_language:
+  default: en
+default_witness: 
+  default: 4
+host_name:
+  default: http://192.168.1.100:3000
+asset_root:
+  default: test/fixtures/files
+published_folder:
+  default: test
+asset_path:
+  default: /assets
+public_project_id:
+  default: 1
+theme:
+  default: slate
+  tip: Allowed options for general themes are default, olive, purple, gray, black, slate
+help_root:
+  default: http://biorails.org/lundbeck/wiki/Help/BR3
+  tip: Default root location for help files
+ntp_server:
+  default: uk.pool.ntp.org
+  tip: Default ntp server
+ldap_host:
+  default:
+  tip: Name or address of the LDAP server to use
+ldap_port:
+  default: 
+  tip:  port to access the ldap server on
+ldap_base:
+  default: "ou=Users,dc=alces,dc=co,dc=uk"
+  tip: Base of User lookup normally linked to company domain
+ldap_username:
+  default: 
+  tip: connection username for login to LDAP server if mandated for site
+ldap_password:
+  default:
+  tip: connection passwrod for login to LDAP server if mandated for site
+ldap_login_field:
+  default: uid
+  tip: Ldap Field to user as the username normally uid
+ldap_auto_register:
+  default: false
+  tip: Whether to automatically create default biorails user for valid ldap users
+animal_server:
+  default: https://research.lundbeck.com/perl/ddis/animate/animate_search.pl?searchStr=
+  tip: base url link for animal management system
+character_set:
+  default: iso-8859-1
+  tip: Character set to user conversion of text from utf-8 to 8 bit for pdf output (ISO-8859-1 for most of europe)
+max_table_columns:
+  default: 9
+  tip: Maximum number of columns to attempt to fix across in task tables
+footer_message:
+  default:
+  tip: Your credits message, displayed at the bottom of the page.
+
+
+

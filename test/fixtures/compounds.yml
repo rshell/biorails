@@ -3,7 +3,7 @@
   attributes: 
     smiles: 
     name: TEST0007
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "323"
     updated_by_user_id: "1"
@@ -20,7 +20,7 @@
   attributes: 
     smiles: 
     name: TEST0002
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "232"
     updated_by_user_id: "1"
@@ -37,7 +37,7 @@
   attributes: 
     smiles: 
     name: TEST0004
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "3232"
     updated_by_user_id: "1"
@@ -54,7 +54,7 @@
   attributes: 
     smiles: 
     name: TEST00010
-    updated_at: 2008-06-04 08:51:08
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "32"
     updated_by_user_id: "1"
@@ -71,7 +71,7 @@
   attributes: 
     smiles: 
     name: TEST0003
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "232"
     updated_by_user_id: "1"
@@ -88,7 +88,7 @@
   attributes: 
     smiles: 
     name: TEST0009
-    updated_at: 2008-06-04 08:51:08
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "232"
     updated_by_user_id: "1"
@@ -105,7 +105,7 @@
   attributes: 
     smiles: 
     name: TEST0008
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "23"
     updated_by_user_id: "1"
@@ -122,7 +122,7 @@
   attributes: 
     smiles: 
     name: TEST0001
-    updated_at: 2008-06-04 08:51:05
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "121"
     updated_by_user_id: "1"
@@ -139,7 +139,7 @@
   attributes: 
     smiles: 
     name: TEST0006
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "232"
     updated_by_user_id: "1"
@@ -156,7 +156,7 @@
   attributes: 
     smiles: 
     name: TEST0005
-    updated_at: 2008-06-04 08:51:07
+    updated_at: 2008-08-14 10:29:22
     registration_date: 
     mass: "323"
     updated_by_user_id: "1"

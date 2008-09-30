@@ -1,12 +1,16 @@
-##
+# == Process Flow Controller
+# This manages a creation and editing of a multiple step process flow. Here the user
+# generates a table of processes with relative time offsets.
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 #
 class Organize::ProcessFlowsController < ApplicationController
-  use_authorization :assay_protocols,
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:release,:withdraw,:copy,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
   before_filter :setup_for_process_step_id ,  
                 :only => [ :remove,:change,:step]
@@ -115,7 +119,7 @@ class Organize::ProcessFlowsController < ApplicationController
 # Create a new process flow in a assay protocol. 
 #  
   def create 
-    @assay          = current_user.assay(params[:id])   
+    @assay          = Assay.load(params[:id])   
     @assay.protocols << @assay_protocol = AssayWorkflow.new(params[:assay_protocol])
     if @assay_protocol.save
       @project_folder = @assay_protocol.folder
@@ -170,8 +174,8 @@ class Organize::ProcessFlowsController < ApplicationController
   def update
     ok = true
     begin
-      ok = @assay_protocol.update_attributes(params[:assay_protocol]) and
-           @process_flow.update_attributes(params[:process_flow])
+      ok = @process_flow.update_attributes(params[:process_flow]) and
+           @assay_protocol.update_attributes(params[:assay_protocol])
     rescue 
       ok =false
     end
@@ -261,7 +265,7 @@ class Organize::ProcessFlowsController < ApplicationController
  # Update the a step with new protocol version or reschedule
  #
   def change
-   if params[:commit]== "Update" and @process_flow.flexible? 
+   if params[:commit]== l(:button_save) and @process_flow.flexible? 
       @process_step.update_attributes(params[:process_step])
    end
    @process_step =nil if @process_step.valid?     
@@ -297,7 +301,7 @@ class Organize::ProcessFlowsController < ApplicationController
   def setup_for_process_flow_id
     @tab = params[:tab]||0
     @process_flow    = current_project.process_flow(params[:id])
-    @process_flow = current_user.process_flow(params[:id])  
+    @process_flow = ProcessFlow.load(params[:id])  
     set_project(@process_flow.protocol.project) if @process_flow  and @process_flow.protocol
     @process_flow  ||= current_project.process_flow(params[:id])
 

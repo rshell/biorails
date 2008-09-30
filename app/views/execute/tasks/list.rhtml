@@ -1,26 +1,31 @@
-<div class='Main'>
+<%= render :partial=>'projects/header'%>	
+<div class='panel'> 
   <div class="title" id="task">
-    <h1 class='icon icon-task-large' style='text-indent:0.5em;'>
+    <h2 class='icon icon-task-large' style='text-indent:0.5em;'>
       List Tasks
-    </h1>
+    </h2>
   </div>
   <div class='panel'>
     <table class="report">
         <tr>
-          <th><b class='icon icon-experiment'>Experiment</b></th>
-          <th><b class='icon icon-experiment'>Task</b></th>
-          <th><b class='icon icon-experiment'>Protocol</b></th>
-          <th><b class='icon icon-experiment'>Assigned</b></th>
-          <th><b class='icon icon-experiment'>Starts</b></th>
-          <th><b class='icon icon-experiment'>End</b></th>
-          <th>Rows</th>
-          <th></th>
+          <th>
+            <%=l(:label_task)%>
+          </th>
+          <th><%=l(:label_experiment)%></b></th>
+          <th><%=l(:label_process)%></th>
+          <th><%=l(:label_assigned_to)%></th>
+          <th><%=l(:label_started)%></th>
+          <th><%=l(:label_completed)%></th>
+          <th><%=l(:label_rows)%></th>
+          <th>
+            <%=l(:label_actions)%>
+          </th>
         </tr>
 
       <% for task in @tasks %>
-        <tr>
-          <td>  <%= link_to task.experiment.name ,experiment_url( :action => 'show',:id => task.experiment_id) %></td>
+        <tr class="<%= cycle('odd', 'even') %>">
           <td>  <%= link_to task.name,            task_url(:action => 'show', :id => task.id) %></td>
+          <td>  <%= link_to task.experiment.name ,experiment_url( :action => 'show',:id => task.experiment_id) %></td>
           <td>  <%= link_to task.process.name,process_instance_url(:action => 'show',:id => task.protocol_version_id) %>        </td>
           <td><%=h task.assigned_to %></td>
           <td><%= short_date( task.started_at) %></td>
@@ -31,7 +36,7 @@
               <%= link_to 'Destroy', {
                 :action => 'destroy',
                 :id => task },
-                :confirm => 'Are you sure?',
+                :confirm => l(:text_are_you_sure),
                 :method => "post" %>
             </p>
           </td>

@@ -12,6 +12,9 @@ class RoleTest < Test::Unit::TestCase
     assert true
   end
   
+  VALID_SUBJECT="data"
+  VALID_ACTION ="create"  
+  
   def test001_permission
     item = RolePermission.find(:first)
     assert !item.nil?
@@ -25,6 +28,11 @@ class RoleTest < Test::Unit::TestCase
   
   def test003_subjects
      item = Role.subjects
+     assert item.size>1
+  end
+  
+  def test004_possible_actions
+     item = Role.possible_actions('data')
      assert item.size>1
   end
   
@@ -44,55 +52,50 @@ class RoleTest < Test::Unit::TestCase
   end
 
   def test016_grant
-    assert Permission.is_checked?("assays","show")
 
     role = Role.new(:name=>'test016',:description=>'test016')
     role.save
     role.rebuild
-    assert !role.allow?("assays","show")
-    role.grant("assays","show")
-    assert role.allow?("assays","show")
+    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    role.grant(VALID_SUBJECT,VALID_ACTION)
+    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
   end 
   
     def test017_allow?
-    assert Permission.is_checked?("assays","show")
 
     item = Role.new(:name=>'test017',:description=>'test017')
     item.save
     item.rebuild
     assert item.save    
-    assert !item.allow?('assays','show')
-    assert item.grant('assays','show')
-    assert item.allow?('assays','show')
+    assert !item.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert item.grant(VALID_SUBJECT,VALID_ACTION)
+    assert item.allow?(VALID_SUBJECT,VALID_ACTION)
     assert item.destroy
   end
 
   def test018_deny
-    assert Permission.is_checked?("assays","show")
-
     role = Role.new(:name=>'test018',:description=>'test018')
     role.save
-    assert role.grant('assays','show')
-    assert role.allow?('assays','show')
-    assert role.deny('assays','show')
-    assert !role.allow?('assays','show')
+    assert role.grant(VALID_SUBJECT,VALID_ACTION)
+    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert role.deny(VALID_SUBJECT,VALID_ACTION)
+    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
     assert !role.deny('studsgdgdsgsdies','shodgdsgdsgdw')
   end
 
   def test019_reset
 
     changes = {
-               "catalogue"=>{"list"=>"true", "*"=>"true"}, 
-               "audit"=>{"show"=>"true", "*"=>"true"}
+               "document"=>{"sign"=>"true"}, 
+               "data"=>{"create"=>"true"}
                } 
                
     role = Role.new(:name=>'test019',:description=>'test019')
     role.save
     role.reset_rights(changes)
-    assert role.allow?('audit','show')
-    assert role.allow?('catalogue','list')
-    assert role.allow?('audit','*')
-    assert !role.allow?('assay','list')
+    assert role.allow?('data','create')
+    assert role.allow?('document','sign')
+    assert !role.allow?('document','publish')
   end  
 
   
@@ -104,7 +107,7 @@ class RoleTest < Test::Unit::TestCase
  
   def test20_actions
     role = Role.find(:first)
-    assert role.actions('project')    
+    assert role.actions('data')    
   end
  
 
@@ -116,26 +119,24 @@ class RoleTest < Test::Unit::TestCase
   end
 
   def test022_grant_all
-    assert Permission.is_checked?("assays","show")
 
     role = Role.new(:name=>'test023',:description=>'test023')
     role.save
     role.rebuild
-    assert !role.allow?("assays","show")
-    role.grant_all("assays")
-    assert role.allow?("assays","show")
+    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    role.grant_all(VALID_SUBJECT)
+    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
   end 
 
   def test023_deny_all
-    assert Permission.is_checked?("assays","show")
     role = Role.new(:name=>'test023',:description=>'test023')
     role.save
     role.rebuild
-    assert !role.allow?("assays","show")
-    role.grant_all("assays")
-    assert role.allow?("assays","show")
-    role.deny_all("assays")
-    assert !role.allow?("assays","show")
+    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    role.grant_all(VALID_SUBJECT)
+    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    role.deny_all(VALID_SUBJECT)
+    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
   end 
   
   def test024_project_role_subjects

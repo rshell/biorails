@@ -1,0 +1,36 @@
+<div class="box">
+    <h3 class="icon icon-published" style="text-indent:0.5em"><%=link_to l(:label_my_published_documents),signature_url( :action=>'list_published') %>
+    </h3>
+    <table class="report">
+        <tr class='header'>
+            <th>
+                <%=l(:label_documents) %>
+            </th>
+            <th>
+                <%=l(:label_project) %>
+            </th>
+            <th>
+                <%=l(:label_date) %>
+            </th>
+            <th>
+                <%=l(:label_author) %>
+            </th>
+        </tr>
+        <% for signature in @signatures_authored_by %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <%= link_to "#{signature.project_element.name} : Version #{version_no(signature.filename)}", signature.file_url %>
+            </td>
+            <td>
+                <%= ProjectElement.find(signature.project_element_id).project.name %>
+            </td>
+            <td>
+                <%= short_date(signature.created_at) %>
+            </td>
+            <td>
+                <%= signature.signer.name %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>

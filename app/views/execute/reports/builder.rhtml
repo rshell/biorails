@@ -1,7 +1,7 @@
 <fieldset>
   <div class="title">
       <h1 class='icon icon-report-large'>
-        Query Builder for [<strong><%=@model.to_s.tableize%></strong>]
+        <%=l(:label_query_builder_for)%> [<strong><%=@model.to_s.tableize%></strong>]
       </h1>
   </div>
   <div class='panel'>
@@ -16,7 +16,7 @@
         </td>
         <td>
           <div id="report">
-            <p>Example query (first 5 rows only):-</p>
+            <p><%=l(:label_query_preview)%></p>
             <div id="current_report">
               <%= render :partial => 'table',
                   :locals => {:table => @report,:data => @data } %>

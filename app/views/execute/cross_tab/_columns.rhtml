@@ -1,59 +1,84 @@
 <% form_remote_for( @cross_tab, :url => cross_tab_url(:action=>:update, :id=>@cross_tab)) do |f| %>
 <%= error_messages_for :cross_tab %>
-
+<div class='box'>
     <div class="x-form-item">
-      <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-         changed after: 
-      </label>      
-      <div class="x-form-element">
-         <%= date_field :cross_tab, :date_from %>  
-      </div>
-    </div>     
-   
+        <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
+            <%=l(:label_changed_after) %>:
+        </label>
+        <div class="x-form-element">
+            <%= date_field :cross_tab, :date_from %>
+        </div>
+    </div>
     <div class="x-form-item">
-      <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">        
-         changed before:
-      </label>      
-      <div class="x-form-element">
-         <%= date_field :cross_tab, :date_to %>  
-      </div>
-    </div>    
-
-<h3> Columns </h3>
-<table class='report'>
-<tr>
-  <th>Name</th>
-  <th>Process</th>
-  <th>Type</th>
-  <th colspan=2>Filter</th>
-  <th>Unit</th>
-  <th>Action</th>
-</tr>
-<% context =nil %>
-<% for item in @cross_tab_columns%>
-<% if context != item.parameter_context %>
-<tr>
-<th colspan=1><%=item.parameter_context.name%> </th>
-  
-<th colspan=6>Possible link <%=@cross_tab.guess_link_type(item.parameter_context)%></th>
-</tr>
-<% context = item.parameter_context %>
-<%end%>
-<tr>
-<td> <%=item.name%> </td>
-<td> <%=item.process.path(:assay)%> </td>
-<td> <%=item.parameter_type.name%> </td>
-<td> <%=select_tag("filters[#{item.id}][operator]",
-         options_for_select(["","=",">","<","like","starting","ending","contains"].collect{|i|[i,i]},item.operator) )%></td>
-<td> <%=text_field_tag("filters[#{item.id}][value]",item.value)%>  </td>
-<td> <%= item.parameter.display_unit %></td>
-<td> <%=link_to "remove",cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>item.id),:class=>'icon icon-del'%></td>
-</tr>
-<% end %>	
-</table>  
-
-
-<%= submit_tag "Apply" %>
-
+        <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
+            <%=l(:label_changed_before) %>:
+        </label>
+        <div class="x-form-element">
+            <%= date_field :cross_tab, :date_to %>
+        </div>
+    </div>
+</div>
+<h3><%=l(:label_columns) %>
+</h3>
+    <table class='report'>
+        <tr>
+            <th>
+                <%=l(:label_name) %>
+            </th>
+            <th>
+                <%=l(:label_process) %>
+            </th>
+            <th>
+                <%=l(:label_type) %>
+            </th>
+            <th colspan=2>
+                <%=l(:label_filter) %>
+            </th>
+            <th>
+                <%=l(:label_unit) %>
+            </th>
+            <th>
+                <%=l(:label_action) %>
+            </th>
+        </tr>
+        <% context =nil %>
+        <% for item in @cross_tab_columns %>
+        <% if context != item.parameter_context %>
+        <tr>
+            <th colspan=1>
+                <%=item.parameter_context.name %>
+            </th>
+            <th colspan=6>
+                <%=l(:label_possible_link) %><%=@cross_tab.guess_link_type(item.parameter_context) %>
+            </th>
+        </tr>
+        <% context = item.parameter_context %>
+        <%end %>
+        <tr>
+            <td>
+                <%=item.name %>
+            </td>
+            <td>
+                <%=item.process.path(:assay) %>
+            </td>
+            <td>
+                <%=item.parameter_type.name %>
+            </td>
+            <td>
+                <%=select_tag("filters[#{item.id}][operator]",
+                options_for_select(["","=",">","<","like","starting","ending","contains"].collect{|i|[i,i]},item.operator) ) %>
+            </td>
+            <td>
+                <%=text_field_tag("filters[#{item.id}][value]",item.value) %>
+            </td>
+            <td>
+                <%= item.parameter.display_unit %>
+            </td>
+            <td>
+                <%=link_to l(:label_remove),cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>item.id),:class=>'icon icon-del' %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+<hr/><%= submit_tag l(:button_apply) %>
 <% end %>
-

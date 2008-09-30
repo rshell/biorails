@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tab_joins
+#
+#  id                        :integer(4)      not null, primary key
+#  cross_tab_id              :integer(4)      not null
+#  from_parameter_context_id :integer(4)      not null
+#  to_parameter_context_id   :integer(4)      not null
+#  from_parameter_id         :integer(4)
+#  to_parameter_id           :integer(4)
+#  join_rule                 :string(255)
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # one:

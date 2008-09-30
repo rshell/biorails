@@ -1,0 +1,17 @@
+<div class="content_header project">
+    <%= render :partial => 'shared/help_link' %>
+    <% if current_project.id == SystemSetting.public_project_id then %>
+    <h1 class='icon icon-project-public-large'>
+    <%= link_to( "#{@current_project.name} Area", project_url( :action => :show, :id => current_project.id)) %>
+    <% else %>
+    <h1 class="icon icon-project-<%=current_project.style.downcase%>-large"><%= link_to( "#{@current_project.name} #{current_project.style.titlecase}", project_url( :action => :show, :id => current_project.id)) %>
+    <% end %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to( l(:label_folders), folder_url( :action => 'show', :id => current_project.home), :class=>'icon icon-folder') %>
+        <%= link_to l(:label_calendar),  calendar_url( :action => 'show', :id => current_project.folder), :class=>'icon icon-calendar' %>
+    </div>
+    <br/>
+</div>

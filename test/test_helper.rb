@@ -100,12 +100,12 @@ class OutputNotAllowed < StandardError ; end
 
 class Test::Unit::TestCase
   #- Admin
+  if Task.count < 1 or Project.count < 1
   Biorails::Dba.import_model :user_roles
   Biorails::Dba.import_model :project_roles
   Biorails::Dba.import_model :users
   Biorails::Dba.import_model :identifiers
   Biorails::Dba.import_model :role_permissions
-  Biorails::Dba.import_model :permissions
   
   Biorails::Dba.import_model :reports
   Biorails::Dba.import_model :report_columns
@@ -113,7 +113,6 @@ class Test::Unit::TestCase
   #- Inventory
   Biorails::Dba.import_model :compounds
   Biorails::Dba.import_model :batches
-  Biorails::Dba.import_model :plates
   Biorails::Dba.import_model :lists
   Biorails::Dba.import_model :list_items
   
@@ -130,18 +129,22 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :model_element
   Biorails::Dba.import_model :list_element
   Biorails::Dba.import_model :sql_element
+  Biorails::Dba.import_model :element_types
+  Biorails::Dba.import_model :states
   
   # - Projects
   Biorails::Dba.import_model :teams
   Biorails::Dba.import_model :memberships
+# built from teams  
+#  Biorails::Dba.import_model :access_control_lists
+#  Biorails::Dba.import_model :access_control_elements
   Biorails::Dba.import_model :projects
   Biorails::Dba.import_model :db_files
   Biorails::Dba.import_model :assets
   Biorails::Dba.import_model :contents
-  Biorails::Dba.import_model :project_folders
   Biorails::Dba.import_model :project_contents
   Biorails::Dba.import_model :project_assets
-  #Biorails::Dba.import_model :signatures
+  Biorails::Dba.import_model :signatures
   
   #  - Studies 
   Biorails::Dba.import_model :assay_stages
@@ -172,6 +175,13 @@ class Test::Unit::TestCase
 
   Biorails::Dba.import_model :queue_items
   Biorails::Dba.import_model :cross_tabs
+  ProjectElement.rebuild_sets
+  TaskContext.rebuild_sets
+  ParameterContext.rebuild_sets
+  Content.rebuild_sets
+  else
+    puts "Data Already loaded will use it!"
+  end
   # 
   #
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -230,6 +240,15 @@ class TestHelper < Test::Unit::TestCase
   def report_url(*arg)
     "mock"  
   end
+
+  def element_url(*arg)
+    "mock"  
+  end
+  
+  def folder_url(*arg)
+    "mock"  
+  end
+  
   def project_url(*arg)
     "mock"  
   end
@@ -251,9 +270,14 @@ class TestHelper < Test::Unit::TestCase
   def experiment_url(*arg)
     "mock"  
   end
-  def protocol_url(*arg)
-    "mock"  
+
+  def process_instance_url(*arg)
+    "mock"
   end
+  def process_flow_url(*arg)
+    "mock"
+  end
+
   def task_url(*arg)
     "mock"  
   end

@@ -1,13 +1,13 @@
 <table class='report' style='border: solid thin'>
   <tr>
-    <th><b class='icon icon-show'>Material Type</b></th>
-    <th><b class='icon icon-show'>Material Name</b></th>
-    <th><b class='icon icon-show'>Task</b></th>
-    <th>Result Type</th>
-    <th>Result value</th>
-    <th>Row Label</th>
-    <th>Updated At</th>
-    <th>Updated By</th>
+    <th><b class='icon icon-show'><%=l(:label_item_type)%></b></th>
+    <th><b class='icon icon-show'><%=l(:label_name)%></b></th>
+    <th><b class='icon icon-show'><%=l(:label_task)%></b></th>
+    <th><%=l(:label_result_type)%></th>
+    <th><%=l(:label_value)%></th>
+    <th><%=l(:label_row_label)%></th>
+    <th><%=l(:label_updated_at)%></th>
+    <th><%=l(:label_updated_by)%></th>
   </tr>
   <%for item in request.numeric_results %>
   <tr>

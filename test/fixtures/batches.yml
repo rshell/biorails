@@ -3,7 +3,7 @@
   attributes: 
     quantity_value: 
     name: BB6
-    updated_at: 2008-06-04 08:53:20
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -20,7 +20,7 @@
   attributes: 
     quantity_value: 
     name: BB1
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -37,7 +37,7 @@
   attributes: 
     quantity_value: 
     name: BB2
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -54,7 +54,7 @@
   attributes: 
     quantity_value: 
     name: BB3
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -71,7 +71,7 @@
   attributes: 
     quantity_value: 
     name: BB0
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:22
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -88,7 +88,7 @@
   attributes: 
     quantity_value: 
     name: BB7
-    updated_at: 2008-06-04 08:53:20
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -105,7 +105,7 @@
   attributes: 
     quantity_value: 
     name: BB8
-    updated_at: 2008-06-04 08:53:20
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -122,7 +122,7 @@
   attributes: 
     quantity_value: 
     name: BB4
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -139,7 +139,7 @@
   attributes: 
     quantity_value: 
     name: BB9
-    updated_at: 2008-06-04 08:53:20
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -156,7 +156,7 @@
   attributes: 
     quantity_value: 
     name: BB5
-    updated_at: 2008-06-04 08:53:19
+    updated_at: 2008-08-14 10:29:23
     quantity_unit: 
     updated_by_user_id: "1"
     lock_version: "0"

@@ -1,0 +1,66 @@
+--- 
+00000000005_element_type: !ruby/object:ElementType 
+  attributes: 
+    class_name: ProjectWiki
+    name: wiki
+    updated_at: 2008-09-12 15:07:43
+    updated_by_user_id: "1"
+    id: "5"
+    description: text/textile
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000001_element_type: !ruby/object:ElementType 
+  attributes: 
+    class_name: ProjectContent
+    name: html
+    updated_at: 2008-09-12 15:07:43
+    updated_by_user_id: "1"
+    id: "1"
+    description: text/html
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000004_element_type: !ruby/object:ElementType 
+  attributes: 
+    class_name: ProjectFolder
+    name: folder
+    updated_at: 2008-09-12 15:07:43
+    updated_by_user_id: "1"
+    id: "4"
+    description: folder
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000002_element_type: !ruby/object:ElementType 
+  attributes: 
+    class_name: ProjectAsset
+    name: file
+    updated_at: 2008-09-12 15:07:43
+    updated_by_user_id: "1"
+    id: "2"
+    description: file reference
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000003_element_type: !ruby/object:ElementType 
+  attributes: 
+    class_name: ProjectReference
+    name: reference
+    updated_at: 2008-09-12 15:07:43
+    updated_by_user_id: "1"
+    id: "3"
+    description: model reference
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+

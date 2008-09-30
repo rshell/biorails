@@ -5,4 +5,4 @@
   <%= submit_tag "Create" %>
 <% end %>
 
-<%= link_to "<b class='icon icon-role'>Back</b>", :controller => 'roles', :action => 'show', :id => @role.id %>
+<%= link_to l(:label_back), :controller => 'roles', :action => 'show', :id => @role.id, :class=>'icon icon-role' %>

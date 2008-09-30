@@ -2,8 +2,8 @@
 identifier_11: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: Prot-
+    current_counter: "0"
+    prefix: Method-
     name: Protocol
     lock_version: "1"
     mask:
@@ -12,7 +12,7 @@ identifier_11: !ruby/object:Identifier
 identifier_6: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: R-
     name: Report
     lock_version: "1"
@@ -22,27 +22,17 @@ identifier_6: !ruby/object:Identifier
 identifier_12: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: Art-
+    current_counter: "0"
+    prefix: Article-
     name: Content
     lock_version: "1"
     mask:
     id: "12"
     postfix: ""
-identifier_7: !ruby/object:Identifier
-  attributes:
-    current_step: "1"
-    current_counter: "1"
-    prefix: "-"
-    name: ""
-    lock_version: "1"
-    mask:
-    id: "7"
-    postfix: ""
 identifier_13: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: m-
     name: member
     lock_version: "1"
@@ -52,7 +42,7 @@ identifier_13: !ruby/object:Identifier
 identifier_14: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: Role-
     name: Role
     lock_version: "1"
@@ -62,7 +52,7 @@ identifier_14: !ruby/object:Identifier
 identifier_9: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: Req-
     name: Request
     lock_version: "1"
@@ -72,9 +62,9 @@ identifier_9: !ruby/object:Identifier
 identifier_15: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: guest-
-    name: guest
+    current_counter: "0"
+    prefix: demo-
+    name: demo
     lock_version: "1"
     mask:
     id: "15"
@@ -82,8 +72,8 @@ identifier_15: !ruby/object:Identifier
 identifier_1: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: Fold-
+    current_counter: "0"
+    prefix: Folder-
     name: ProjectFolder
     lock_version: "1"
     mask:
@@ -92,7 +82,7 @@ identifier_1: !ruby/object:Identifier
 identifier_2: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: Expt-
     name: Experiment
     lock_version: "1"
@@ -102,7 +92,7 @@ identifier_2: !ruby/object:Identifier
 identifier_3: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: Task-
     name: Task
     lock_version: "1"
@@ -112,8 +102,8 @@ identifier_3: !ruby/object:Identifier
 identifier_4: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: Note-
+    current_counter: "0"
+    prefix: Article-
     name: ProjectContent
     lock_version: "1"
     mask:
@@ -122,8 +112,8 @@ identifier_4: !ruby/object:Identifier
 identifier_5: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
-    prefix: A-
+    current_counter: "0"
+    prefix: Assay-
     name: Assay
     lock_version: "1"
     mask:
@@ -132,7 +122,7 @@ identifier_5: !ruby/object:Identifier
 identifier_10: !ruby/object:Identifier
   attributes:
     current_step: "1"
-    current_counter: "1"
+    current_counter: "0"
     prefix: File-
     name: ProjectAsset
     lock_version: "1"

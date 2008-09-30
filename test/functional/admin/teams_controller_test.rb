@@ -57,12 +57,32 @@ class Admin::TeamsControllerTest < Test::Unit::TestCase
     assert_template 'edit'
   end
 
-  def test_edit_current
-    get :edit
-    assert_response :success
-    assert_template 'edit'
+  def test_grant
+    post :grant, :id => @item.id,:owner_type=>'User',:owner_id=>7,:role_id=>1
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+  
+  def test_add
+    post :add, :id => @item.id,:owner=>true,:user_id=>7
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
   end
 
+  def test_grant_deny
+    post :grant, :id => @item.id,:owner_type=>'User',:owner_id=>7,:role_id=>1
+    assert_response :redirect
+    post :deny, :id => @item.id,:owner_type=>'User',:owner_id=>7,:role_id=>1
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+
+  def test_deny
+    post :deny, :id => @item.id,:owner_type=>'User',:owner_id=>7,:role_id=>1
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+  
   def test_update_ok
     post :update,:id => @item.id, :team => {:description=>'sfsfsfsf'}
     assert_response :redirect

@@ -5,20 +5,15 @@ require "#{RAILS_ROOT}/app/controllers/execute/tasks_controller"
 class Execute::TasksController; def rescue_action(e) raise e end; end
 
 class Execute::TasksControllerTest < Test::Unit::TestCase
-  # # fixtures :tasks
-  # # fixtures :users
-  # # fixtures :projects
-  # # fixtures :roles
-  # # fixtures :memberships
-  # # fixtures :role_permissions
 
   def setup
     @controller = Execute::TasksController.new
     @request    = ActionController::TestRequest.new
-    @request.session[:current_project_id] = 1
-    @request.session[:current_user_id] = 3
     @response   = ActionController::TestResponse.new
     @first = Task.find(:first)
+    @request.session[:current_element_id] =@first.project_element_id
+    @request.session[:current_project_id] = @first.project_id
+    @request.session[:current_user_id] = 3  
   end
 
   def test_setup
@@ -57,14 +52,31 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'access_denied'
   end
 
-  def test_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
-    get :show, :id => @first.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+  def test_show_granted_via_admin_flag
+    User.current = User.find(3)
+    Project.current = Project.find(3)
+    Project.current.tasks
+    @request.session[:current_project_id] =Project.current.id
+    @request.session[:current_user_id] = User.current.id
+    assert !Project.current.owner?(User.current)
+    assert  Task.load(2)
+    get :show, :id => 2
+    assert_response :success
+    assert_template 'show'
   end
-    
+
+  def test_show_denied_for_normal_user
+    User.current = User.find(9)
+    Project.current = Project.find(3)
+    Project.current.tasks
+    @request.session[:current_project_id] =Project.current.id
+    @request.session[:current_user_id] = User.current.id
+    assert !Project.current.owner?(User.current)
+    assert_nil Task.load(2)
+    get :show, :id => 2
+    assert_response :redirect
+  end
+
   def test_assign
     get :assign, :id => @first.id
     assert_response :redirect

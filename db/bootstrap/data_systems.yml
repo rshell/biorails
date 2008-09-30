@@ -2,14 +2,20 @@
 00000000001_data_system: !ruby/object:DataSystem 
   attributes: 
     name: BioRails
-    updated_at: 2007-08-24 12:36:51 +01:00
+    updated_at: 2008-09-12 15:07:43
     access_control_id: 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
+    username: root
     adapter: local
-    lock_version: 5
-    data_context_id: 1
+    lock_version: "5"
+    data_context_id: "1"
     test_object: tmp_data
-    id: 1
-    description: Internal link to reference data element from with this BioRails schema
-    created_by_user_id: 1
-    created_at: 2006-10-09 12:11:25 +01:00
+    id: "1"
+    description: Link to reference data elements from within this BioRails schema
+    created_by_user_id: "1"
+    host: localhost
+    database: ""
+    password: ""
+    created_at: 2006-10-09 12:11:25
+  attributes_cache: {}
+

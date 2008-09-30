@@ -1,4 +1,6 @@
-<h2>Permissions</h2>
+<h2>
+  <%=l(:label_permissions)%>
+</h2>
 
 <table>
 <% for permission in @permissions -%>
@@ -10,5 +12,7 @@
 </table>
 
 <hr/>
-<p><%= link_to "<b class='icon icon-permission'>New permission</b>", :action => 'new' %></p>
+<p>
+  <%= link_to l(:label_new_permission)+"</b>", :action => 'new', :class=>'icon icon-permission' %>
+</p>
 

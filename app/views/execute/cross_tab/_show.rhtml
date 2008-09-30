@@ -1,40 +1,33 @@
-<% if @cross_tab%>
-
-<h1>Cross Tab Query [<%=@cross_tab.name%>]</h1>
-
+<%= render :partial=>'header' %>
+<% if @cross_tab %>
 <div id='tabs_show'>
 </div>
-
 <div id='tab_preview' class="tab-content x-hidden">
-<%=render :partial=>'table'%>
+  <%=render :partial=>'table' %>
 </div>
-
 <div id='tab_filter' class="tab-content x-hidden">
-<%=render :partial=>'filter'%>
+  <%=render :partial=>'filter' %>
 </div>
-<br />
-
-
-<script type="text/javascript"> 
-
-Ext.onReady(function(){
-  var tabs = new Ext.TabPanel({
-      renderTo:'tabs_show',
-              activeTab: 0,
-              defaults: {
+<br/>
+<script type="text/javascript">
+    
+    Ext.onReady(function(){
+        var tabs = new Ext.TabPanel({
+            renderTo: 'tabs_show',
+            activeTab: 0,
+            defaults: {
                 autoHeight: true,
                 autoWidth: true
-              },
-              items: [{
-                              title: 'Data',
-                              contentEl: 'tab_preview'
-                      },{
-                              title: 'Filter',
-                              contentEl: 'tab_filter'
-                     }]
-          });
- });
-
-
+            },
+            items: [{
+                title: 'Data',
+                contentEl: 'tab_preview'
+            }, {
+                title: 'Filter',
+                contentEl: 'tab_filter'
+            }]
+        });
+    });
+    
 </script>
-<%end%>
+<%end %>

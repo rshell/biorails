@@ -1,32 +1,42 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_elements
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(50)    default(), not null
-#  description        :string(1024)  default(), not null
-#  data_system_id     :integer(11)   not null
-#  data_concept_id    :integer(11)   not null
-#  access_control_id  :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  parent_id          :integer(11)   
-#  style              :string(10)    default(), not null
-#  content            :string(4000)  default()
-#  estimated_count    :integer(11)   
-#  type               :string(255)   
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(50)      default(""), not null
+#  description        :string(1024)    default(""), not null
+#  data_system_id     :integer(4)      not null
+#  data_concept_id    :integer(4)      not null
+#  access_control_id  :integer(4)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  parent_id          :integer(4)
+#  style              :string(10)      default(""), not null
+#  content            :string(4000)    default("")
+#  estimated_count    :integer(4)
+#  type               :string(255)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
+# A DataElement is the implementation of a DataConcept. A Concept can be realised or implemented in 
+#  multiple ways. Currentlly the following in three  ways are supported in the core project
 #
+#    * List - an internal list of strings, suitable for short dictionaries
+#    * SQL - Structured Query Language run against one of the data sources.
+#    * Model - A fully implemented model in BioRails usually available as a specific form, for example an Assay form. 
+#
+# Other may be added via a new Model in a plugin which sub types a DataElement.
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class DataElement < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
@@ -114,7 +124,8 @@ class DataElement < ActiveRecord::Base
 # 
   def lookup(name)
     item = self.children.detect{|i|i.name.to_s == name.to_s}
-    item ||= self.children.detect{|i|i.id.to_s == name.to_s}
+    item ||= self.children.detect{|i|i.name.downcase.to_s == name.to_s.downcase}
+    item ||= self.children.detect{|i|i.name.downcase.to_s == name.to_s.upcase}
     logger.info "lookup for #{self.id}  with #{name} ==> #{item}"
     return item
   end

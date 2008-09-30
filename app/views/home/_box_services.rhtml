@@ -1,0 +1,21 @@
+<div class="box">
+  <b class="icon icon-service">
+    <%= l(:label_my_service_queues) %>
+  </b>
+  <table id="my_services" class="report">
+    <tr class='header'>
+      <th><%=l(:label_name)%></th>
+      <th><%=l(:label_date)%></th>
+      <th>[new/active/finished]</th>
+    </tr>
+    <% for item in @user.latest(AssayQueue,5) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <p><%= link_to item.name, queue_url( :action => 'show', :id => item) %></p>
+      </td>
+      <td><%= short_date(item.updated_at) %></td>
+      <td>[<%= item.items.summary %>] </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

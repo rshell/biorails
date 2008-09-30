@@ -1,0 +1,16 @@
+<div class="content_header execution">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-experiment-large'><%= link_to( "#{l(:label_experiment)} [#{@experiment.name}]", experiment_url( :action => :show, :id => @experiment.id)) %>
+    </h1>
+    <br/>
+    <br/>
+    <div class='actions_left'>
+        <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @experiment.folder), :class=>'icon icon-folder' %>
+        <%= link_to l(:label_calendar),  calendar_url( :action => 'show', :id => @experiment.folder), :class=>'icon icon-calendar' %>
+    </div>
+    <div class='actions_right'>
+        <%= link_to l(:label_add_task), task_url( :action => 'new' , :id => @experiment), :class=>'icon icon-task-add' %>
+    </div>
+    <br/>
+</div>
+<%=breadcrumb_list @experiment.folder %>

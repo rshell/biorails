@@ -11,11 +11,6 @@ class TeamTest < ActiveSupport::TestCase
     assert_ok item
   end 
 
-  def test_news
-    item = Team.find(:first)
-    assert item.news
-  end 
-
   def test_owners
     item = Team.find(:first)
     assert item.owners

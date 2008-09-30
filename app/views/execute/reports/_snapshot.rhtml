@@ -1,34 +1,31 @@
-
-<p class='icon icon-snapshot'>Snapshot To Folder</p>
+<p class='icon icon-snapshot'>
+    <%=l(:label_snapshot_to_folder) %>
+    ...
+</p>
 <div id="snapshot-dialog">
-
-  <% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
-
+    <% form_tag report_url(:action=>'snapshot',:id=>@report) do %>
     <div class="form-element">
-      <label for="folder">Folder</label>
-      <%= select_tag :folder_id,
-          options_for_select(current_project.folder_options) %>
+        <label for="folder_id">
+            <%=l(:label_folder) %>
+        </label>
+        <%= select_tag :folder_id,   options_for_select(current_project.folder_options,@report.folder) %>
     </div>
-
     <div class="form-element">
-      <label for="snapshot_name" class='icon icon-snapshot'>
-        Ref.
-      </label>
-      <%= text_field_tag :name , @snapshot_name,
+        <label for="name">
+            <%=l(:label_ref) %>
+        </label>
+        <%= text_field_tag :name , @snapshot_name,
         {:size=>20, :class=>"text-input"} %>
     </div>
-
     <div class="form-element">
-      <label for="snapshot_title" class='icon icon-name'>
-        Title
-      </label>
-      <%= text_field_tag :title ,@report.name,
-          {:size=>60, :class=>"text-input"} %>
-      </div>
-      <div class="form-element">
-        <%= submit_tag 'Save' %>
-      </div>
-
-  <% end %>
-
+        <label for="title">
+            <%=l(:label_title) %>
+        </label>
+        <%= text_field_tag :title ,@report.name,
+        {:size=>60, :class=>"text-input"} %>
+    </div>
+    <div class="form-element">
+        <%= submit_tag l(:button_save) %>
+    </div>
+    <% end %>
 </div>

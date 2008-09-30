@@ -1,14 +1,9 @@
-<div class='panel'>
-    <%= render :partial => 'assay', :locals => { :assay => @assay } %>
-</div>
-<br/>
-
+<%= render :partial => 'assay', :locals => { :assay => @assay } %>
+<div class='box'>
 <%if @assay.is_setup? %>
-  <%= render :partial => 'overview_protocols', :locals => { :assay => @assay } %>
-  <br/>
-  <br/>
-  <%= render :partial => 'overview_queues', :locals => { :assay => @assay } %>
-  <br/>
-<%else%>    
-  <%= render :partial => 'overview_setup' %>
-<%end %>  
+<%= render :partial => 'overview_protocols', :locals => { :assay => @assay } %>
+<%= render :partial => 'overview_queues', :locals => { :assay => @assay } %>
+<%else %>
+<%= render :partial => 'overview_setup' %>
+<%end %>
+</div>

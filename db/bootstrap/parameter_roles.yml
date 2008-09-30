@@ -1,25 +1,79 @@
----
-00000000001_parameter_role: !ruby/object:ParameterRole
-  attributes:
-    name: input
-    id: 1
-    description: Process input parameter such as a measurement or observation
-    weighing: 1
-00000000002_parameter_role: !ruby/object:ParameterRole
-  attributes:
-    name: subject
-    id: 2
-    description: Subject of the investigation such as a compound.
-    weighing: 0
-00000000003_parameter_role: !ruby/object:ParameterRole
-  attributes:
+--- 
+00000000005_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
+    name: substance
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "5"
+    description: Inventory parameter
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "0"
+  attributes_cache: {}
+
+00000000003_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
     name: result
-    id: 3
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "3"
     description: An output of a process, the result of an experiment.
-    weighing: 4
-00000000004_parameter_role: !ruby/object:ParameterRole
-  attributes:
-    name: variable
-    id: 4
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "4"
+  attributes_cache: {}
+
+00000000006_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
+    name: qc
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "6"
+    description: Quality control parameter
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "1"
+  attributes_cache: {}
+
+00000000001_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
+    name: input
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "1"
+    description: Process input parameter such as a measurement or observation
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "1"
+  attributes_cache: {}
+
+00000000004_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
+    name: condition
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "4"
     description: A parameter that varies such as a condition or setting.
-    weighing: 2
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "2"
+  attributes_cache: {}
+
+00000000002_parameter_role: !ruby/object:ParameterRole 
+  attributes: 
+    name: subject
+    updated_at: 2008-09-12 15:07:44
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "2"
+    description: Subject of the investigation, often an animal
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:46
+    weighing: "0"
+  attributes_cache: {}
+

@@ -1,108 +1,73 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: permissions
 #
-#  id      :integer(11)   not null, primary key
-#  checked :boolean(1)    
-#  subject :string(255)   default(), not null
-#  action  :string(255)   default(), not null
+#  id      :integer(4)      not null, primary key
+#  checked :boolean(1)
+#  subject :string(255)     default(""), not null
+#  action  :string(255)     default(""), not null
 #
 
+# == Description
+# Base Class a Permission
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class Permission < ActiveRecord::Base
-  cattr_accessor :cached_subjects
-  cattr_accessor :cached_controllers
+  
+  PROJECT_SUBJECTS = {
+        'data'=> ['create','update','destroy','share','assign','verify'],
+        'document'=> ['sign','witness','publish','withdraw']
+      }
+      
+  USER_SUBJECTS = {
+        'reports'=> ['build','use'],
+        'project'=> ['build','use'],
+        'execution'=> ['all'],
+        'organization'=> ['build','use'],
+        'catalogue'=>['admin'],
+        'system'=>['admin']
+       }
+       
+   Permission::USER_SUBJECTS.merge(Permission::PROJECT_SUBJECTS)
 
 ##
 #
 #
   def Permission.is_checked?(subject,action)
-      return ( Permission.possible_subjects[subject] and 
-               Permission.possible_subjects[subject].detect{|item|item.to_s == action.to_s})
+      subjects[subject.to_s] and subjects[subject.to_s].include?(action.to_s)
   end
 ##
 # List of possible actions
 #   
-  def Permission.possible_actions(subject)
-      Permission.possible_subjects[subject] || []
+  def Permission.actions(subject)
+      subjects[subject.to_s] || []
   end
 ##
 # Build the cache of all the menus and rights for roles
 # 
-  def Permission.possible_subjects
-     return @@cached_subjects if @@cached_subjects
-     return Permission.reload   
+  def Permission.subjects(scope = nil)
+    case scope
+    when :current_user
+      USER_SUBJECTS
+    when :current_project
+      PROJECT_SUBJECTS
+   else
+      @@ALL ||= USER_SUBJECTS.merge(PROJECT_SUBJECTS)
+   end
   end
-
-  def Permission.subjects(rights_source)
-    subjects = {}
-    @@cached_controllers||= Permission.controllers   
-     for key in @@cached_controllers.keys
-        controller = Permission.controllers[key]
-        if controller.respond_to?(:rights_source)
-           if  controller.rights_source.to_s == rights_source.to_s
-             subjects[controller.rights_subject.to_s] ||=['*']
-             subjects[controller.rights_subject.to_s].concat(controller.rights_actions)
-             subjects[controller.rights_subject.to_s] = subjects[controller.rights_subject.to_s].uniq
-           end
-        end
-     end
-    return subjects
-  end
-##
-# Force a reload of all the controllers,models,methods and cache infomation
-# 
-  def Permission.reload   
-     @@cached_subjects = {}
-     @@cached_controllers = nil 
-     for key in Permission.controllers.keys
-        controller = Permission.controllers[key]
-        if controller.respond_to?(:rights_subject)           
-           @@cached_subjects[controller.rights_subject.to_s] ||=['*']
-           @@cached_subjects[controller.rights_subject.to_s].concat(controller.rights_actions)
-           @@cached_subjects[controller.rights_subject.to_s] = @@cached_subjects[controller.rights_subject.to_s].uniq
-        else   
-           @@cached_subjects[key] ||=['*']
-        end
-     end
-     return @@cached_subjects
-  end
-   
-##
-#List all the controllers 
-#  
- def Permission.controllers
-    unless @@cached_controllers and  @@cached_controllers.size>1  
-      @@cached_controllers = {}
-      logger.info "Reloading   Role.controllers"
-      rbfiles = File.join("#{RAILS_ROOT}/app/controllers/**", "*.rb")  
-      for file in Dir.glob(rbfiles) do
-        begin
-          load file
-        rescue
-          logger.debug "Couldn't load file '#{file}' (already loaded?)"
-        end
-      end
-      @@cached_controllers = Hash.new    
-      ObjectSpace.each_object(Class) do |klass|
-        if klass.respond_to? :controller_name
-            if klass.superclass.to_s == ApplicationController.to_s
-              @@cached_controllers[klass.controller_name] = klass
-            end
-        end
-      end
-    end    
-    return @@cached_controllers
- end
-
 
   def Permission.load_database
-     for subject in Permission.possible_subjects.keys
-       for action in Permission.possible_actions(subject)
+     for subject in subjects.keys
+       for action in subjects[subject]
          unless Permission.location(subject,action)
            permission = Permission.new(:subject=>subject.to_s,:action=>action.to_s)
            permission.checked =  true
-           permission.save
+           permission.save!
          end
        end
      end

@@ -1,2 +1,0 @@
-module Inventory::AnimalsHelper
-end

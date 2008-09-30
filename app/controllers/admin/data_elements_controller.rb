@@ -7,6 +7,7 @@ class Admin::DataElementsController < ApplicationController
     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
     :rights => :current_user
 
+  in_place_edit_for :data_element, :name
   in_place_edit_for :data_element, :description  
   # 
   # default action is list

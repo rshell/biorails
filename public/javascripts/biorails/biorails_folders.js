@@ -30,6 +30,14 @@ Biorails.Document = function(config){
                 href: '/folders/new/'+config.folder_id,                                
                 handler: this.toolbarClick,                               
                 iconCls:'icon-folder-add'
+            },'-', {
+                text:'Access',
+                tooltip:'Change Access Control Rules',
+                href: '/acl/edit/'+config.folder_id,
+                handler : function(item){
+                    window.location = item.href;
+                }, 
+                iconCls:'icon-team'
             }, '-', {
                 text:'Folder',
                 tooltip:'Show as Folder',
@@ -46,6 +54,14 @@ Biorails.Document = function(config){
                     window.open(item.href);
                 }, 
                 iconCls:'icon-print-preview'
+            },'-',{
+                text:'Sign',
+                tooltip:'Sign as the author',
+                href: '/signatures/new/'+config.folder_id,                                
+                handler : function(item){
+                    window.location = item.href;
+                }, 
+                iconCls:'icon-sign'
             },'-',{
                 text:'Print',
                 tooltip:'Print the folder as a report',
@@ -81,15 +97,15 @@ Ext.namespace("Biorails.Folder");
  * Panel for handling a biorails folder display. This is basically a grid with some custom D&D code.
  * 
  */
-Biorails.Folder = function(config){  
-    var tb=new Ext.Toolbar({autoWidth: true});
-
-
-    var _store = new Ext.data.GroupingStore({
+/**
+ * Biorails.Folder.Store
+ * @extends Ext.data.GroupingStore
+ * This creates a local store for a folder
+ */
+Biorails.Folder.Store = function(config) {
+    var config = config || {};
+    Ext.applyIf(config, {
         remoteSort: true,
-        sortInfo: {params:{sort: 'left_limit',dir:'ASC'}},
-        lastOptions: {params:{sort: 'left_limit',dir:'ASC',start: 0, limit: 25}},
-        proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+config.folder_id, method: 'get' }),
         reader: new Ext.data.JsonReader({
             root: 'items', totalProperty: 'total'}, [
             {name: 'id', type: 'int' },
@@ -98,157 +114,90 @@ Biorails.Folder = function(config){
             {name: 'left_limit', type: 'int'},
             {name: 'right_limit', type: 'int'},
             {name: 'name'},
+            {name: 'preview_href'},
+            {name: 'html'},
+            {name: 'path'},
+            {name: 'href'},
             {name: 'summary'},
             {name: 'reference_type'},
-            {name: 'version_no', type: 'int'},
+            {name: 'owner'},
+            {name: 'state'},
             {name: 'updated_by'},
             {name: 'updated_at', type: 'date', dateFormat: 'Y-m-d H:i:s'},
             {name: 'actions'}]  )
     });
-                       
-                         
-    Biorails.Folder.superclass.constructor.call(this, Ext.apply(config,{
-        id: 'folder-grid-'+config.folder_id,
-        ds:  _store ,
-        sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
-        loadMask: true,
-        enableDragDrop: true,
-        cm: new Ext.grid.ColumnModel([
-            {header: "Pos", width: 50, sortable: true, renderer: this.renderNum,  dataIndex: 'left_limit'},
-            {header: "Icon", width: 32, sortable: false,renderer: this.renderIcon,  dataIndex: 'icon'},
-            {header: "Name", width: 100, sortable: true,  renderer: this.renderName, dataIndex: 'name'},
-            {header: "Style", width: 75, sortable: true,  dataIndex: 'reference_type'},
-            {header: "Summmary", width: 150, sortable: false,   dataIndex: 'summary'},
-            {header: "Ver.", width: 32, sortable: false, dataIndex: 'version_no'},
-            {header: "Updated By", width: 65, sortable: false,  dataIndex: 'updated_by'},
-            {header: "Updated At", width: 85, sortable: true,
-                renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
-            {header: "Actions", width: 75,   dataIndex: 'actions'}
-        ]),
-        view: new Ext.grid.GroupingView(),
-        viewConfig: {
-            forceFit:false
-        },
-        tbar: tb,
-        bbar: new Ext.PagingToolbar({
-            pageSize: 25,
-            store: _store,
-            autoWidth: true,
-            displayInfo: true,
-            displayMsg: 'Displaying {0} - {1} of {2}',
-            emptyMsg: "No results to display"
-        })
-   
-    }));
-    if (_store.getCount() < 1){
-        _store.load();             
-    }
-         
-    this.on('render',    function(grid){
-        grid.getBottomToolbar().setPosition(0,0);
-        grid.getBottomToolbar().setHeight(26);
-        grid.getTopToolbar().add({
-            text:'Add File',
-            xtype:'tbbutton',
-            tooltip:'Add a image or other file to the folder',
-            href: '/asset/new/'+config.folder_id, 
-            handler: this.toolbarClick,                               
-            iconCls: 'icon-file-add'
-        },'-', {
-            text:'Add Article',
-            tooltip:'Add some textual content to the folder',
-            xtype:'tbbutton',
-            href: '/content/new/'+config.folder_id,                              
-            handler: this.toolbarClick,                               
-            iconCls: 'icon-note-add'
-        },'-', {
-            text:'Add Sub-folder',
-            tooltip:'Add a new sub folder',
-            xtype:'tbbutton',
-            href: '/folders/new/'+config.folder_id,                                
-            handler: this.toolbarClick,                               
-            iconCls: 'icon-folder-add'
-        },'-', {
-            text:'Document',
-            tooltip:'Show as Document',
-            xtype:'tbbutton',
-            folder_id: config.folder_id,                                
-            handler : function(item){
-                window.location = '/folders/document/'+config.folder_id
-            }, 
-            iconCls: 'icon-document-view'
-        }, '-', {
-            text:'Preview',
-            tooltip:'Preview',
-            xtype:'tbbutton',
-            href: '/folders/print/'+config.folder_id,                                
-            handler : function(item){
-                window.open(item.href);
-            }, 
-            iconCls: 'icon-print-preview'
-        },'-','-',{
-            text:'Print',
-            xtype:'tbbutton',
-            tooltip:'Print the folder as a report',
-            href: '/folders/print/'+config.folder_id+'?format=pdf',                                
-            handler : function(item){
-                window.open(item.href);
-            },                               
-            iconCls:'icon-pdf'
-        });
-       grid.getTopToolbar().setPosition(0,0);
-       grid.getTopToolbar().setHeight(26);
-						
-        grid.enableDD();
-    });
+    // call the superclass's constructor 
+    Biorails.Folder.Store.superclass.constructor.call(this, config);
 };
-/* The parameter passed to showInPop is a json object with values for width and height of the display, a title which provided 
-the link text and a url. An ajax request calls the url which returns the html to populate the popup */
-function showInPopup(item){
-    //	var content = eval(item);
-    new Ajax.Request( item,
-    {	asynchronous:false,
-        evalScripts:true, method:'get', onSuccess: function(req)
-        { var win = new Ext.Window({
-                layout:'fit',
-                width: 400,
-                height: 400,
-                resizable: true,
-                html: req.responseText,
-                frame: true,
-                modal: true,
-                autoScroll: true,
-                border: false,
-                bodyBorder: false,
-                plain: true             
-            });
-            win.show();
-        }});
-}
+Ext.extend(Biorails.Folder.Store, Ext.data.GroupingStore);
 
 
+Biorails.Folder.GridPanel = function(config) {
+    var config = config || {};
+    Ext.applyIf(config, {folder_id: 1});
+    // call the superclass's constructor 
+    Biorails.Folder.GridPanel.superclass.constructor.call(this, config);
 
-
-
-	
-Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
-    /*
-     * Fire AJAX call for tool bar functions
-     */  
-    toolbarClick: function(item) {
-        new Ajax.Request( item.href,
-        {asynchronous:true,
-            evalScripts:true });         
-       
+};
+/**
+ * Biorails.Folder.GridPanel
+ * @extends Ext.grid.GridPanel
+ * This is a custom grid which will display folder information. It is tied to 
+ * a specific record definition by the dataIndex properties. 
+ * 
+ */
+Biorails.Folder.GridPanel = Ext.extend(Ext.grid.GridPanel, {
+    // override 
+    initComponent : function() {
+        Ext.apply(this, {
+            cm: new Ext.grid.ColumnModel([
+                {header: "Pos", width: 50, sortable: true, renderer: this.renderNum,  dataIndex: 'left_limit'},
+                {header: "Icon", width: 32, sortable: false,renderer: this.renderIcon,  dataIndex: 'icon'},
+                {header: "Name", width: 100, sortable: true,  renderer: this.renderName, dataIndex: 'name'},
+                {header: "Style", width: 75, sortable: true,  dataIndex: 'reference_type'},
+                {header: "Summmary", width: 150, sortable: false,   dataIndex: 'summary'},
+                {header: "State", width: 32, sortable: false, dataIndex: 'state'},
+                {header: "Updated By", width: 65, sortable: false,  dataIndex: 'updated_by'},
+                {header: "Updated At", width: 85, sortable: true,
+                    renderer: Ext.util.Format.dateRenderer('d/m/Y'), dataIndex: 'updated_at'},
+                {header: "Actions", width: 75,   dataIndex: 'actions'}
+            ]),
+            loadMask: true,
+            enableDragDrop: true,
+            ddGroup : 'GridDD',
+            view: new Ext.grid.GroupingView(),
+            viewConfig: {
+                forceFit:false
+            },
+            bbar: new Ext.PagingToolbar({
+                pageSize: 15,
+                store: this.store,
+                autoWidth: true,
+                displayInfo: true,
+                displayMsg: 'Displaying {0} - {1} of {2}',
+                emptyMsg: "No results to display"
+            }),
+            sm: new Ext.grid.RowSelectionModel({singleSelect: true}),
+            // force the grid to fit the space which is available
+            viewConfig: {
+                forceFit: true
+            }
+        });
+        // finally call the superclasses implementation
+        Biorails.Folder.GridPanel.superclass.initComponent.call(this);		
+        this.on('render',    function(grid){  grid.enableDD();  });
     },
     renderIcon: function(val){
         if (val.match("^{.+}$")==null)
-        {return '<img src="' + val + '"  />'}
-        else{
+        {
+            return '<img src="' + val + '"  />'
+        }
+        else 
+        {
             it=eval('('+val+')');
-            return "<img src='" + it.icon + "' onclick='showInPopup("+val+")'/>"}
-			
-        ;
+            return "<img src='" + it.icon + "' onclick='showInPopup("+val+")'/>"
+        }
+		
     },
     renderName: function(item){
 		
@@ -320,6 +269,233 @@ Ext.extend(Biorails.Folder,  Ext.grid.GridPanel, {
             console.log(e);
         }        
     }
+});
+// This will associate an string representation of a class
+// (called an xtype) with the Component Manager
+// It allows you to support lazy instantiation of your components
+Ext.reg('project_folder',Biorails.Folder.GridPanel);
 
-});	
-   
+
+Biorails.Folder.ElementPanel = function(config) {
+    var config = config || {};
+    Ext.applyIf(config, {folder_id: 1});
+    // call the superclass's constructor 
+    Biorails.Folder.ElementPanel.superclass.constructor.call(this, config);
+};
+/**
+ * App.BookDetail
+ * @extends Ext.Panel
+ * This is a specialized Panel which is used to show information about
+ * a book. 
+ * 
+ * This demonstrates adding 2 custom properties (tplMarkup and 
+ * startingMarkup) to the class. It also overrides the initComponent
+ * method and adds a new method called updateDetail.
+ * 
+ * The class will be registered with an xtype of 'bookdetail'
+ */
+Biorails.Folder.ElementPanel = Ext.extend(Ext.Panel, {
+    // add tplMarkup as a new property
+    detailMarkup: [
+        '<a href="{href}" target="_blank">{path}</a>   {state_name}<br/>',
+        'Summary: {summary}<br/>',
+        'Update by {updated_by} on {updated_at}<br/>',
+        '<div class="panel box"> {html} </div>'
+    ],
+    previewMarkup: [
+        '<a href="{href}" target="_blank">{path}</a>   {state_name}<br/>',
+        '{html}'
+    ],
+
+    // startingMarup as a new property
+    startingMarkup: 'Please select a element to see additional details',
+    // override initComponent to create and compile the template
+    // apply styles to the body of the panel and initialize
+    // html to startingMarkup
+    initComponent: function() {
+        this.detail = new Ext.Template(this.detailMarkup);
+        this.preview = new Ext.Template(this.previewMarkup);
+        Ext.apply(this, {
+            bodyStyle: {
+                background: '#ffffff',
+                padding: '7px'
+            },
+            html: this.startingMarkup
+        });
+        // call the superclass's initComponent implementation
+        Biorails.Folder.ElementPanel.superclass.initComponent.call(this);
+    },
+    // add a method which updates the details
+    updateDetail: function(data) {
+        this.detail.overwrite(this.body, data);
+        var previewPanel = Ext.getCmp('status-id');
+        this.preview.overwrite( previewPanel.body, data);
+    }    
+});
+// register the App.BookDetail class with an xtype of bookdetail
+Ext.reg('project_element',Biorails.Folder.ElementPanel);
+
+
+/**
+ * App.BookMasterDetail
+ * @extends Ext.Panel
+ * 
+ * This is a specialized panel which is composed of both a bookgrid
+ * and a bookdetail panel. It provides the glue between the two 
+ * components to allow them to communicate. You could consider this
+ * the actual application.
+ * 
+ */
+Biorails.Folder.Panel = function(config) {
+    var config = config || {};
+    Ext.applyIf(config, {folder_id: 1});
+    // call the superclass's constructor 
+    Biorails.Folder.Panel.superclass.constructor.call(this, config);
+};
+
+Biorails.Folder.Panel = Ext.extend(Ext.Panel, {
+    // override initComponent
+    initComponent: function() {
+        _store = new Biorails.Folder.Store({ 
+            folder_id: this.folder_id,
+            sortInfo: {params:{sort: 'left_limit',
+                    dir:'ASC'}},
+            lastOptions: {params:{sort: 'left_limit',
+                    dir:'ASC',  
+                    start: 0, 
+                    limit: 15}},
+            proxy: new Ext.data.HttpProxy({ url: '/folders/grid/'+this.folder_id, method: 'post' }),
+            storeId:'folderStore'
+        }),
+        // used applyIf rather than apply so user could
+        // override the defaults
+        Ext.applyIf(this, {
+            frame: true,
+            title: 'Folder',
+            width: 700,
+            height: 500,
+            layout: 'border',
+            store: _store,
+            tbar: new Ext.Toolbar({
+                autoWidth: true,
+                items: [{
+                        text:'Add File',
+                        xtype:'tbbutton',
+                        tooltip:'Add a image or other file to the folder',
+                        href: '/asset/new/'+this.folder_id, 
+                        handler: this.toolbarClick,                               
+                        iconCls: 'icon-file-add'
+                    },'-', {
+                        text:'Add Article',
+                        tooltip:'Add some textual content to the folder',
+                        xtype:'tbbutton',
+                        href: '/content/new/'+this.folder_id,                              
+                        handler: this.toolbarClick,                               
+                        iconCls: 'icon-note-add'
+                    },'-', {
+                        text:'Add Sub-folder',
+                        tooltip:'Add a new sub folder',
+                        xtype:'tbbutton',
+                        href: '/folders/new/'+this.folder_id,                                
+                        handler: this.toolbarClick,                               
+                        iconCls: 'icon-folder-add'
+                    },'-', {
+                        text:'Access',
+                        tooltip:'Change Access Control Rules',
+                        href: '/acl/edit/'+this.folder_id,
+                        handler : function(item){
+                            window.location = item.href;
+                        }, 
+                        iconCls:'icon-team'
+                    },'-', {
+                        text:'Document',
+                        tooltip:'Show as Document',
+                        xtype:'tbbutton',
+                        folder_id: this.folder_id,                                
+                        handler : function(item){
+                            window.location = '/folders/document/'+this.folder_id
+                        }, 
+                        iconCls: 'icon-document-view'
+                    }, '-', {
+                        text:'Preview',
+                        tooltip:'Preview',
+                        xtype:'tbbutton',
+                        href: '/folders/print/'+this.folder_id,                                
+                        handler : function(item){
+                            window.open(item.href);
+                        }, 
+                        iconCls: 'icon-print-preview'
+                    },'-',{
+                        text:'Sign',
+                        tooltip:'Sign as the author',
+                        href: '/signatures/new/'+this.folder_id,   
+                        handler : function(item){
+                            window.location = item.href;
+                        }, 
+                        iconCls:'icon-sign'
+                    },'-',{
+                        text:'Print',
+                        xtype:'tbbutton',
+                        tooltip:'Print the folder as a report',
+                        href: '/folders/print/'+this.folder_id+'?format=pdf',                                
+                        handler : function(item){
+                            window.open(item.href);
+                        },                               
+                        iconCls:'icon-pdf'
+                    }]
+            }),
+            items: [{
+                    xtype: 'project_folder',
+                    itemId: 'gridPanel',
+                    folder_id: this.folder_id,
+                    store: _store,
+                    region: 'north',
+                    autoWidth: true,
+                    height: 400,
+                    split: true
+                },{
+                    xtype: 'project_element',
+                    store: _store,
+                    autoWidth: true,
+                    itemId: 'detailPanel',
+                    region: 'center'
+                }]			
+        })
+        // call the superclass's initComponent implementation		
+        Biorails.Folder.Panel.superclass.initComponent.call(this);
+    },
+    /*
+     * Fire AJAX call for tool bar functions
+     */  
+    toolbarClick: function(item) {
+        new Ajax.Request( item.href,
+        {asynchronous:true,
+            evalScripts:true });         
+
+    },
+    // override initEvents
+    initEvents: function() {
+        // call the superclass's initEvents implementation
+        Biorails.Folder.Panel.superclass.initEvents.call(this);
+		
+        // now add application specific events
+        // notice we use the selectionmodel's rowselect event rather
+        // than a click event from the grid to provide key navigation
+        // as well as mouse navigation
+        var folderGridSm = this.getComponent('gridPanel').getSelectionModel();		
+        folderGridSm.on('rowselect', this.onRowSelect, this);		
+    },
+    // add a method called onRowSelect
+    // This matches the method signature as defined by the 'rowselect'
+    // event defined in Ext.grid.RowSelectionModel
+    onRowSelect: function(sm, rowIdx, r) {
+        // getComponent will retrieve itemId's or id's. Note that itemId's 
+        // are scoped locally to this instance of a component to avoid
+        // conflicts with the ComponentMgr
+        var detailPanel = this.getComponent('detailPanel');
+        detailPanel.updateDetail(r.data);
+    }
+});
+// register an xtype with this class
+Ext.reg('folder', Biorails.Folder.Panel);
+

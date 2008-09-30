@@ -1,5 +1,4 @@
 <%= error_messages_for :cross_tab %>
-
 <% form_for( @cross_tab, :url => cross_tab_url(:action=>:update, :id=>@cross_tab)) do |f| %>
   <%= render :partial => 'form' ,:locals=>{:form=>f} %>
 <% end %>

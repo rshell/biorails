@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'home_controller'
+require "home_controller"
 
 # Re-raise errors caught by the controller.
 class HomeController; def rescue_action(e) raise e end; end
@@ -10,9 +10,11 @@ class HomeControllerTest < Test::Unit::TestCase
     @controller = HomeController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
-    @session = @request.session || []
     @request.session[:current_project_id] = 1
     @request.session[:current_user_id] = 3
+    User.current = User.find(3)
+    @item = ProjectContent.list(:first,:conditions=>"parent_id is not null")
+    @folder = @item.parent   
   end
 
   # Replace this with your real tests.
@@ -27,41 +29,40 @@ class HomeControllerTest < Test::Unit::TestCase
   end
   
   def test_show
-    get :show,nil,@session
+    get :show
     assert_response :success
   end
 
   def test_show_no_user
-    @session = @request.session || []
     @request.session[:current_project_id] = nil
     @request.session[:current_user_id] = nil
-    get :show,nil,@session
+    get :show
     assert_response :redirect
     assert_redirected_to :action=>'login'
   end
   
    def test_index
-    get :index,nil,@session
+    get :index
     assert_response :success
   end
 
   def test_show_as_xml
-    get :show,{:format=>'xml'},@session    
+    get :show,:format=>'xml'
     assert_response :success
   end 
   
   def test_calendar_as_html
-    get :calendar,nil,@session
+    get :calendar
     assert_response :success
   end
   
   def test_calendar_as_json
-    get :calendar,{:format=>'json'},@session    
+    get :calendar,:format=>'json'
     assert_response :success
   end
 
   def test_calendar_as_js
-    get :calendar,{:format=>'js'},@session    
+    get :calendar,:format=>'js'
     assert_response :success
   end
   
@@ -76,7 +77,7 @@ class HomeControllerTest < Test::Unit::TestCase
   end
   
   def test_news
-    post :news,  @params, @session
+    post :news
     assert_response :success
   end  
 
@@ -121,13 +122,13 @@ class HomeControllerTest < Test::Unit::TestCase
   end
   
   def test_tree_root
-    get :tree,{:node=>'root'},@session
+    get :tree,{:node=>'root'}
     assert_response :success
   end
 
   def test_tree_level
     folder = ProjectFolder.find(:first)      
-    get :tree,{:node=>folder.id},@session
+    get :tree,:node=>folder.id
     assert_response :success
   end
     
@@ -147,8 +148,7 @@ class HomeControllerTest < Test::Unit::TestCase
   end
 
   def test_timeline
-    @params = {'year'=>2007,'month'=>11,}
-    post :gantt, @params, @session
+    post :gantt, :year=>2007,:month=>11
     assert_response :success
   end
 

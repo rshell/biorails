@@ -1,45 +1,43 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: parameters
 #
-#  id                   :integer(11)   not null, primary key
-#  protocol_version_id  :integer(11)   not null
-#  parameter_type_id    :integer(11)   not null
-#  parameter_role_id    :integer(11)   not null
-#  parameter_context_id :integer(11)   not null
-#  column_no            :integer(11)   
-#  sequence_num         :integer(11)   
-#  name                 :string(62)    default(), not null
-#  description          :string(1024)  
-#  display_unit         :string(20)    
-#  data_element_id      :integer(11)   
-#  qualifier_style      :string(1)     
-#  access_control_id    :integer(11)   default(0), not null
-#  lock_version         :integer(11)   default(0), not null
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  mandatory            :string(255)   default(N)
-#  default_value        :string(255)   
-#  data_type_id         :integer(11)   not null
-#  data_format_id       :integer(11)   
-#  assay_parameter_id   :integer(11)   not null
-#  assay_queue_id       :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  left_limit           :integer(11)   default(0), not null
-#  right_limit          :integer(11)   default(0), not null
+#  id                   :integer(4)      not null, primary key
+#  protocol_version_id  :integer(4)      not null
+#  parameter_type_id    :integer(4)      not null
+#  parameter_role_id    :integer(4)      not null
+#  parameter_context_id :integer(4)      not null
+#  column_no            :integer(4)
+#  sequence_num         :integer(4)
+#  name                 :string(62)      default(""), not null
+#  description          :string(1024)
+#  display_unit         :string(20)
+#  data_element_id      :integer(4)
+#  qualifier_style      :string(1)
+#  access_control_id    :integer(4)      default(0), not null
+#  lock_version         :integer(4)      default(0), not null
+#  mandatory            :string(255)     default("N")
+#  default_value        :string(255)
+#  data_type_id         :integer(4)      not null
+#  data_format_id       :integer(4)
+#  assay_parameter_id   :integer(4)
+#  assay_queue_id       :integer(4)
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  updated_by_user_id   :integer(4)      default(1), not null
+#  created_by_user_id   :integer(4)      default(1), not null
 #
 
 --- 
 00000000028_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration_1
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "1"
     default_value: ""
-    updated_at: 2007-12-15 16:54:20
     display_unit: mM
     parameter_context_id: "9"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: "4"
@@ -47,14 +45,14 @@
     column_no: "6"
     parameter_role_id: "6"
     parameter_type_id: "24"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "28"
     qualifier_style: 
     description: 
-    assay_parameter_id: "1"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "1"
     created_at: 2007-12-15 16:54:19
@@ -63,11 +61,11 @@
 00000000014_parameter: !ruby/object:Parameter 
   attributes: 
     name: CompoundRole
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "11"
     default_value: Test
-    updated_at: 2007-12-12 11:10:28
     display_unit: 
     parameter_context_id: "5"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "3"
     data_format_id: 
@@ -75,15 +73,15 @@
     column_no: "2"
     parameter_role_id: "3"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "2"
     id: "14"
     qualifier_style: 
     description: 
-    assay_parameter_id: "11"
-    created_by_user_id: "3"
-    data_element_id: "116"
+    created_by_user_id: "1"
+    data_element_id: "120"
     sequence_num: "0"
     created_at: 2007-12-12 11:10:28
   attributes_cache: {}
@@ -91,11 +89,11 @@
 00000000006_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "6"
     default_value: ""
-    updated_at: 2007-12-11 20:25:52
     display_unit: 
     parameter_context_id: "3"
-    assay_queue_id: "2"
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: 
@@ -103,14 +101,14 @@
     column_no: "1"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: "2"
     data_type_id: "5"
     lock_version: "2"
     id: "6"
     qualifier_style: 
     description: 
-    assay_parameter_id: "6"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-11 20:25:52
@@ -119,11 +117,11 @@
 00000000018_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "6"
     default_value: ""
-    updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    assay_queue_id: "2"
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: 
@@ -131,14 +129,14 @@
     column_no: "1"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: "2"
     data_type_id: "5"
     lock_version: "2"
     id: "18"
     qualifier_style: 
     description: 
-    assay_parameter_id: "6"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-11 20:25:52
@@ -147,11 +145,11 @@
 00000000004_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "3"
     default_value: ""
-    updated_at: 2007-12-10 20:19:54
     display_unit: 
     parameter_context_id: "2"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
     data_format_id: 
@@ -159,14 +157,14 @@
     column_no: "5"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "3"
     id: "4"
     qualifier_style: 
     description: 
-    assay_parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-10 20:19:25
@@ -175,11 +173,11 @@
 00000000027_parameter: !ruby/object:Parameter 
   attributes: 
     name: Length
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "2"
     default_value: ""
-    updated_at: 2007-12-15 16:54:04
     display_unit: in
     parameter_context_id: "8"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: "4"
@@ -187,14 +185,14 @@
     column_no: "2"
     parameter_role_id: "2"
     parameter_type_id: "10"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "27"
     qualifier_style: 
     description: 
-    assay_parameter_id: "2"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:32
@@ -203,11 +201,11 @@
 00000000020_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "12"
     default_value: Rat
-    updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: 
@@ -215,15 +213,15 @@
     column_no: "3"
     parameter_role_id: "6"
     parameter_type_id: "27"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "2"
     id: "20"
     qualifier_style: 
     description: 
-    assay_parameter_id: "12"
-    created_by_user_id: "3"
-    data_element_id: "122"
+    created_by_user_id: "1"
+    data_element_id: "120"
     sequence_num: "0"
     created_at: 2007-12-11 20:26:06
   attributes_cache: {}
@@ -231,11 +229,11 @@
 00000000008_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "12"
     default_value: Rat
-    updated_at: 2007-12-11 20:26:06
     display_unit: 
     parameter_context_id: "3"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: 
@@ -243,15 +241,15 @@
     column_no: "3"
     parameter_role_id: "6"
     parameter_type_id: "27"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "2"
     id: "8"
     qualifier_style: 
     description: 
-    assay_parameter_id: "12"
-    created_by_user_id: "3"
-    data_element_id: "122"
+    created_by_user_id: "1"
+    data_element_id: "120"
     sequence_num: "0"
     created_at: 2007-12-11 20:26:06
   attributes_cache: {}
@@ -259,11 +257,11 @@
 00000000005_parameter: !ruby/object:Parameter 
   attributes: 
     name: QueueCompound
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "3"
     default_value: ""
-    updated_at: 2007-12-10 20:21:11
     display_unit: 
     parameter_context_id: "2"
-    assay_queue_id: "1"
     access_control_id: "0"
     protocol_version_id: "1"
     data_format_id: 
@@ -271,14 +269,14 @@
     column_no: "4"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: "1"
     data_type_id: "5"
     lock_version: "5"
     id: "5"
     qualifier_style: 
     description: 
-    assay_parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "1"
     created_at: 2007-12-10 20:19:37
@@ -287,11 +285,11 @@
 00000000021_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "10"
     default_value: 5-HT2A
-    updated_at: 2007-12-12 17:58:15
     display_unit: 
     parameter_context_id: "6"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "1"
@@ -299,14 +297,14 @@
     column_no: "4"
     parameter_role_id: "6"
     parameter_type_id: "4"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "1"
     lock_version: "2"
     id: "21"
     qualifier_style: 
     description: 
-    assay_parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:09
@@ -315,11 +313,11 @@
 00000000010_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "9"
     default_value: ""
-    updated_at: 2007-12-11 20:26:30
     display_unit: uM
     parameter_context_id: "4"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: "4"
@@ -327,14 +325,14 @@
     column_no: "5"
     parameter_role_id: "6"
     parameter_type_id: "24"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "10"
     qualifier_style: 
     description: 
-    assay_parameter_id: "9"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:30
@@ -343,11 +341,11 @@
 00000000017_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "13"
     default_value: ""
-    updated_at: 2007-12-12 17:58:15
     display_unit: "%"
     parameter_context_id: "7"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "12"
@@ -355,14 +353,14 @@
     column_no: "7"
     parameter_role_id: "2"
     parameter_type_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "17"
     qualifier_style: 
     description: 
-    assay_parameter_id: "13"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:44
@@ -371,11 +369,11 @@
 00000000011_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "7"
     default_value: ""
-    updated_at: 2007-12-11 20:29:37
     display_unit: ""
     parameter_context_id: "4"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: "8"
@@ -383,14 +381,14 @@
     column_no: "6"
     parameter_role_id: "1"
     parameter_type_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "11"
     qualifier_style: 
     description: 
-    assay_parameter_id: "7"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:37
@@ -399,11 +397,11 @@
 00000000029_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count_1
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "4"
     default_value: ""
-    updated_at: 2007-12-15 16:54:29
     display_unit: ""
     parameter_context_id: "8"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: "8"
@@ -411,14 +409,14 @@
     column_no: "7"
     parameter_role_id: "1"
     parameter_type_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "29"
     qualifier_style: 
     description: 
-    assay_parameter_id: "4"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "1"
     created_at: 2007-12-15 16:54:29
@@ -427,11 +425,11 @@
 00000000023_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "4"
     default_value: ""
-    updated_at: 2007-12-15 16:54:04
     display_unit: ""
     parameter_context_id: "9"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: "8"
@@ -439,14 +437,14 @@
     column_no: "3"
     parameter_role_id: "1"
     parameter_type_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "23"
     qualifier_style: 
     description: 
-    assay_parameter_id: "4"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-10 20:19:15
@@ -455,11 +453,11 @@
 00000000007_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "8"
     default_value: ""
-    updated_at: 2007-12-11 20:25:59
     display_unit: uM
     parameter_context_id: "3"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: "4"
@@ -467,14 +465,14 @@
     column_no: "2"
     parameter_role_id: "2"
     parameter_type_id: "12"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "7"
     qualifier_style: 
     description: 
-    assay_parameter_id: "8"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:25:59
@@ -483,11 +481,11 @@
 00000000001_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "1"
     default_value: ""
-    updated_at: 2007-12-09 23:41:24
     display_unit: mM
     parameter_context_id: "1"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
     data_format_id: "4"
@@ -495,14 +493,14 @@
     column_no: "1"
     parameter_role_id: "6"
     parameter_type_id: "24"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "1"
     qualifier_style: 
     description: 
-    assay_parameter_id: "1"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:23
@@ -511,11 +509,11 @@
 00000000019_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "8"
     default_value: ""
-    updated_at: 2007-12-12 17:58:15
     display_unit: uM
     parameter_context_id: "6"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "4"
@@ -523,14 +521,14 @@
     column_no: "2"
     parameter_role_id: "2"
     parameter_type_id: "12"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "19"
     qualifier_style: 
     description: 
-    assay_parameter_id: "8"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:25:59
@@ -539,11 +537,11 @@
 00000000013_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "6"
     default_value: ""
-    updated_at: 2007-12-12 11:10:18
     display_unit: 
     parameter_context_id: "5"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "3"
     data_format_id: 
@@ -551,14 +549,14 @@
     column_no: "1"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "2"
     id: "13"
     qualifier_style: 
     description: 
-    assay_parameter_id: "6"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-12 11:10:18
@@ -567,11 +565,11 @@
 00000000025_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "3"
     default_value: ""
-    updated_at: 2007-12-15 16:54:04
     display_unit: 
     parameter_context_id: "9"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: 
@@ -579,14 +577,14 @@
     column_no: "5"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "5"
     lock_version: "3"
     id: "25"
     qualifier_style: 
     description: 
-    assay_parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "0"
     created_at: 2007-12-10 20:19:25
@@ -595,11 +593,11 @@
 00000000009_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "10"
     default_value: 5-HT2A
-    updated_at: 2007-12-11 20:26:09
     display_unit: 
     parameter_context_id: "3"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: "1"
@@ -607,14 +605,14 @@
     column_no: "4"
     parameter_role_id: "6"
     parameter_type_id: "4"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "1"
     lock_version: "2"
     id: "9"
     qualifier_style: 
     description: 
-    assay_parameter_id: "10"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:09
@@ -623,11 +621,11 @@
 00000000003_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "4"
     default_value: ""
-    updated_at: 2007-12-10 20:19:15
     display_unit: ""
     parameter_context_id: "2"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
     data_format_id: "8"
@@ -635,14 +633,14 @@
     column_no: "3"
     parameter_role_id: "1"
     parameter_type_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "3"
     qualifier_style: 
     description: 
-    assay_parameter_id: "4"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-10 20:19:15
@@ -651,11 +649,11 @@
 00000000026_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "1"
     default_value: ""
-    updated_at: 2007-12-15 16:54:04
     display_unit: mM
     parameter_context_id: "8"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: "4"
@@ -663,14 +661,14 @@
     column_no: "1"
     parameter_role_id: "6"
     parameter_type_id: "24"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "26"
     qualifier_style: 
     description: 
-    assay_parameter_id: "1"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:23
@@ -679,11 +677,11 @@
 00000000022_parameter: !ruby/object:Parameter 
   attributes: 
     name: MaxInhibition
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "13"
     default_value: ""
-    updated_at: 2007-12-12 17:59:04
     display_unit: "%"
     parameter_context_id: "6"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "12"
@@ -691,14 +689,14 @@
     column_no: "8"
     parameter_role_id: "2"
     parameter_type_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "3"
     id: "22"
     qualifier_style: 
     description: 
-    assay_parameter_id: "13"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "1"
     created_at: 2007-12-12 17:58:44
@@ -707,11 +705,11 @@
 00000000015_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "9"
     default_value: ""
-    updated_at: 2007-12-12 17:58:15
     display_unit: uM
     parameter_context_id: "7"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "4"
@@ -719,14 +717,14 @@
     column_no: "5"
     parameter_role_id: "6"
     parameter_type_id: "24"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "15"
     qualifier_style: 
     description: 
-    assay_parameter_id: "9"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:26:30
@@ -735,11 +733,11 @@
 00000000016_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "7"
     default_value: ""
-    updated_at: 2007-12-12 17:58:15
     display_unit: ""
     parameter_context_id: "7"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "4"
     data_format_id: "8"
@@ -747,14 +745,14 @@
     column_no: "6"
     parameter_role_id: "1"
     parameter_type_id: "2"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "16"
     qualifier_style: 
     description: 
-    assay_parameter_id: "7"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:37
@@ -763,11 +761,11 @@
 00000000012_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
+    updated_at: 2008-08-14 10:29:51
+    assay_parameter_id: "13"
     default_value: ""
-    updated_at: 2007-12-11 20:29:44
     display_unit: "%"
     parameter_context_id: "4"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "2"
     data_format_id: "12"
@@ -775,14 +773,14 @@
     column_no: "7"
     parameter_role_id: "2"
     parameter_type_id: "3"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "12"
     qualifier_style: 
     description: 
-    assay_parameter_id: "13"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-11 20:29:44
@@ -791,11 +789,11 @@
 00000000024_parameter: !ruby/object:Parameter 
   attributes: 
     name: QueueCompound
+    updated_at: 2008-08-14 10:29:52
+    assay_parameter_id: "3"
     default_value: ""
-    updated_at: 2007-12-15 16:54:04
     display_unit: 
     parameter_context_id: "9"
-    assay_queue_id: "1"
     access_control_id: "0"
     protocol_version_id: "5"
     data_format_id: 
@@ -803,14 +801,14 @@
     column_no: "4"
     parameter_role_id: "4"
     parameter_type_id: "5"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: "1"
     data_type_id: "5"
     lock_version: "5"
     id: "24"
     qualifier_style: 
     description: 
-    assay_parameter_id: "3"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: "35"
     sequence_num: "1"
     created_at: 2007-12-10 20:19:37
@@ -819,11 +817,11 @@
 00000000002_parameter: !ruby/object:Parameter 
   attributes: 
     name: Length
+    updated_at: 2008-08-14 10:29:50
+    assay_parameter_id: "2"
     default_value: ""
-    updated_at: 2007-12-09 23:41:32
     display_unit: in
     parameter_context_id: "1"
-    assay_queue_id: 
     access_control_id: "0"
     protocol_version_id: "1"
     data_format_id: "4"
@@ -831,14 +829,14 @@
     column_no: "2"
     parameter_role_id: "2"
     parameter_type_id: "10"
-    updated_by_user_id: "3"
+    updated_by_user_id: "1"
+    assay_queue_id: 
     data_type_id: "2"
     lock_version: "2"
     id: "2"
     qualifier_style: 
     description: 
-    assay_parameter_id: "2"
-    created_by_user_id: "3"
+    created_by_user_id: "1"
     data_element_id: 
     sequence_num: "0"
     created_at: 2007-12-09 23:41:32

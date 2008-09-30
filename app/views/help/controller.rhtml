@@ -1,32 +1,18 @@
-<% content_for :sidemenu do%>
+<% content_for :sidemenu do %>
 <div>
-  <span class='menu'>
-    <b class='icon icon-help'>
-      Help
-    </b>
-  </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-uml'>UML</b>",
-      :action => 'uml',:model=>"Task"  %>
-    <%= link_to "<b class='icon icon-document'>docs</b>",
-      :action => 'model',:model=>"Task"  %>
-  </div>
+    <span class='menu'><b class='icon icon-help'>Help</b></span>
+    <%= link_to l(:label_uml), :action => 'uml',:model=>"Task" %>
+    <%= link_to l(:label_docs), :action => 'model',:model=>"Task" %>
 </div>
-
 <div>
-  <span class='menu'>Ref. Docs</span>
-
-<% for item in @controllers %>
-  <%= link_to item.to_s, :action => 'controller',:id=>"#{item}"  %>
-<% end %>
-
+    <span class='menu'>Ref. Docs</span>
+    <% for item in @controllers %>
+    <%= link_to item.to_s, :action => 'controller',:id=>"#{item}" %>
+    <% end %>
 </div>
 <% end %>
-
-<h1 class='icon icon-report-large' style='text-indent:0.5em'>
-  Current Reference documentation model <%=@name%>
+<h1 class='icon icon-report-large' style='text-indent:0.5em'> Current Reference documentation model <%=@name %>
 </h1>
 <div class='panel'>
-   <%= render :file=> "help/controllers/classes/#{@name}Controller.html" %>
+    <%= render :file=> "help/controllers/classes/#{@name}Controller.html" %>
 </div>
-

@@ -3,13 +3,9 @@
 <div>
   <span class='menu'>
     <b class='icon icon-queue'>
-      Service Queue
+      <%=l(:label_Service)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-service-add'>New Service</b>",
-      queue_url( :action => 'new', :id=>@assay  ) %>
-    <%= link_to "<b class='icon icon-list'>List</b>",
-      queue_url( :action => 'list', :id=>@assay  ) %>
-  </div>
+    <%= link_to l(:label_new), queue_url( :action => 'new', :id=>@assay  ) %>
+    <%= link_to l(:label_list), queue_url( :action => 'list', :id=>@assay  ) %>
 </div>

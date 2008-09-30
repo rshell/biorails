@@ -1,19 +1,27 @@
-<%= hidden_field :data_type, :lock_version  %>
-
+<%= hidden_field :data_type, :lock_version %>
 <p>
-<b class="icon icon-warning">
-  Are you really sure you know what you are doing?
-  Definition or modification of data types
-  should not be undertaken lightly!
-</b>
+    <b class="icon icon-warning"><%=l(:notice_data_type_change) %>
+    </b>
 </p>
-<br />
 <!--[form:data_types]-->
-<p><label for="data_type_name">Name</label><br/>
-<%= text_field 'data_type', 'name'  %></p>
-
-<p><label for="data_type_description">Description</label><br/>
-<%= text_field 'data_type', 'description'  %></p>
-
-<p><label for="data_type_weighing">Value Class</label><br/>
-<%= text_field 'data_type', 'value_class'  %></p>
+<p>
+    <label for="data_type_name">
+        <%=l(:label_name) %>
+    </label>
+    <br/>
+    <%= text_field 'data_type', 'name' %>
+</p>
+<p>
+    <label for="data_type_description">
+        <%=l(:label_name) %>
+    </label>
+    <br/>
+    <%= text_field 'data_type', 'description' %>
+</p>
+<p>
+    <label for="data_type_value_class">
+        <%=l(:label_value_class) %>
+    </label>
+    <br/>
+    <%= text_field 'data_type', 'value_class' %>
+</p>

@@ -1,9 +1,6 @@
-<%dialog "<h1 class='icon icon-project_type'>New Cross Tab</h1>" do %>    
-
-<% form_for(@cross_tab, :url => cross_tab_url(:action=>:create) ) do |f| %>
-  <%= render :partial => 'form' ,:locals=>{:form=>f} %>
+<%= render :partial=>'projects/header'%>
+<%dialog l(:label_cross_tab_new) do %>    
+  <% form_for(@cross_tab, :url => cross_tab_url(:action=>:create) ) do |f| %>
+    <%= render :partial => 'form' ,:locals=>{:form=>f} %>
+  <% end %>
 <% end %>
-
-<% end %>
-
-

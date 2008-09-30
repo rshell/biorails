@@ -1,53 +1,78 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-<% content_for :status do%>
-  <%= render :partial => '/shared/messages',:locals=>{:objects=>[:paraeter_type]} %>   
+<% content_for :status do %>
+<%= render :partial => '/shared/messages',:locals=>{:objects=>[:paraeter_type]} %>
 <% end %>
-
-<h1 class="icon icon-parameter_type">Listing Parameter Types</h1>
-<div class='panel'>
-<br />
-<p> Key data dimensions for the high level capture and organization of data</p>
-<br />
-<table class="report">
-  <tr>
-    <th><b class='icon icon-name'>Name</b></th>
-    <th style="width:45%"><b class='icon icon-description'>Description</b></th>
-    <th>Sytle</th>
-    <th>Unit</th>
-    <th>Dimension</th>
-    <th><b class='icon icon-assay'>Assay</b></th>
-    <th><b class='icon icon-protocol'>Protocol</b></th>
-    <th><b class='icon icon-action'>Action</b></th>
-  </tr>
-
-<% for parameter_type in @parameter_types %>
-  <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-    <td>
-      <p class='icon icon-data_type_<%=parameter_type.data_type.name%>'>
-        <%= link_to parameter_type.name,parameter_type_url( :action => 'show', :id => parameter_type)%>
-      </p>
-    </td>
-    <td> <%=h parameter_type.description%></td>
-    <td> <%=h parameter_type.style%></td>
-    <td> <%=parameter_type.default_unit%> </td>
-    <td> <%=parameter_type.storage_unit%> </td>
-    <td> <%=parameter_type.parameters.size%></td>
-    <td> <%=parameter_type.assay_parameters.size%> </td>
-    <td>
-      <p class='icon icon-edit'>
-        <%= link_to "Edit",parameter_type_url( :action => 'edit', :id => parameter_type) %>
-        <%= link_to "Delete",parameter_type_url( :action => 'delete', :id => parameter_type) if parameter_type.assay_parameters.empty? %>
-      </p>
-    </td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => 'admin/header' %>
+<h2 class="icon icon-parameter_type"><%=l(:label_parameter_types) %>
+</h2>
+<div class="panel">
+  <div class='box'>
+    <%=l(:text_global_data_dimensions) %>
+  </div>
+  <table class="report">
+    <tr>
+      <th>
+        <%=l(:label_name) %>
+      </th>
+      <th style="width:45%">
+        <%=l(:label_description) %>
+      </th>
+      <th>
+        <%=l(:label_style) %>
+      </th>
+      <th>
+        <%=l(:label_unit) %>
+      </th>
+      <th>
+        <%=l(:label_dimension) %>
+      </th>
+      <th>
+        <%=l(:label_assay) %>
+      </th>
+      <th>
+        <%=l(:label_method) %>
+      </th>
+      <th colspan='2'>
+        <%=l(:label_action) %>
+      </th>
+    </tr>
+    <% for parameter_type in @parameter_types %>
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+      <td>
+        <%= link_to parameter_type.name,parameter_type_url( :action => 'show', :id => parameter_type), :class=>"icon icon-data_type_#{parameter_type.data_type.name}" %>
+      </td>
+      <td>
+        <%=h parameter_type.description %>
+      </td>
+      <td>
+        <%=h parameter_type.style %>
+      </td>
+      <td>
+        <%=parameter_type.default_unit %>
+      </td>
+      <td>
+        <%=parameter_type.storage_unit %>
+      </td>
+      <td>
+        <%=parameter_type.parameters.size %>
+      </td>
+      <td>
+        <%=parameter_type.assay_parameters.size %>
+      </td>
+      <td>
+        <%= link_to "&nbsp;",parameter_type_url( :action => 'edit', :id => parameter_type), :class=>'icon icon-edit' %>
+      </td>
+      <td>
+        <%= link_to "&nbsp;",parameter_type_url( :action => 'destroy', :id => parameter_type),  :class=>'icon icon-del' if parameter_type.assay_parameters.empty? %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @parameter_types %>
+<hr/><%= link_to l(:label_new),      parameter_type_url(:action => 'new'), :class=>'icon icon-new' %>
 </div>
-<%= will_paginate @parameter_types %>
-
 <% content_for :right do -%>
 <%= render :partial=>'help' %>
-<%end%>
+<%end %>

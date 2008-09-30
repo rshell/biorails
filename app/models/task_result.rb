@@ -1,29 +1,26 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_results
 #
-#  id                   :integer(11)   primary key
-#  protocol_version_id  :integer(11)   
-#  parameter_context_id :integer(11)   
-#  label                :string(255)   
-#  row_label            :string(255)   
-#  row_no               :integer(11)   
-#  column_no            :integer(11)   
-#  task_id              :integer(11)   
-#  parameter_id         :integer(11)   
-#  parameter_name       :string(62)    
-#  data_value           :string(1000)  
-#  created_by_user_id   :integer(11)   
-#  created_at           :datetime      
-#  updated_by_user_id   :integer(11)   
-#  updated_at           :datetime      
+#  id                   :integer(4)      default(0), not null, primary key
+#  protocol_version_id  :integer(4)      default(0), not null
+#  parameter_context_id :integer(4)      default(0), not null
+#  label                :string(255)
+#  row_label            :string(255)
+#  row_no               :integer(4)      default(0), not null
+#  column_no            :integer(4)
+#  task_id              :integer(4)      default(0), not null
+#  parameter_id         :integer(4)      default(0), not null
+#  parameter_name       :string(62)      default(""), not null
+#  data_value           :binary(21474836
+#  created_by_user_id   :integer(4)      default(0), not null
+#  created_at           :datetime        not null
+#  updated_by_user_id   :integer(4)      default(0), not null
+#  updated_at           :datetime        not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
 # This is a simple read only view based model for reporting on numeric data in the database.
 # It basically joins the text_values to a subject object reference in the same row for reporting
 # For good performance the data_type,reference_parameter_id should be set in the driving query
@@ -32,6 +29,11 @@
 #  Note: performance of this query with large data sets may be poor as there a number of union
 #  all operations and conversions to bring separater data sources together.
 #  
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 class TaskResult < ActiveRecord::Base
 
  def initialize(*args)

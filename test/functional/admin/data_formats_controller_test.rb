@@ -5,7 +5,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/data_formats_controller"
 class Admin::DataFormatsController; def rescue_action(e) raise e end; end
 
 class Admin::DataFormatsControllerTest < Test::Unit::TestCase
-  # # fixtures :data_formats
+
 
 	NEW_DATA_FORMAT = {}	# e.g. {:name => 'Test DataFormat', :description => 'Dummy'}
 	REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect

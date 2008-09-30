@@ -5,7 +5,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/project_types_controller"
 class ProjectTypesController; def rescue_action(e) raise e end; end
 
 class ProjectTypesControllerTest < Test::Unit::TestCase
-  fixtures :project_types
+
 
   def setup
     @controller = Admin::ProjectTypesController.new

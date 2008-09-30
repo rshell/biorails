@@ -1,11 +1,11 @@
  <div class='panel'>
- <% form_remote_tag :url=>workflow_url(:action => 'change', :id => @process_step.id) do  %>
+ <% form_remote_tag :url=>process_flow_url(:action => 'change', :id => @process_step.id) do  %>
     <div class="row">
       <%= render :partial => 'step_form' %>
     </div>
     <div class="row">
-        <%= submit_tag "Update" %>
-        <%= submit_tag "Close" %>
+        <%= submit_tag l(:button_save) %>
+        <%= submit_tag l(:button_cancel) %>
     </div>
     <br />
  <% end %>

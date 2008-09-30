@@ -168,8 +168,8 @@ class TaskContextTest < Test::Unit::TestCase
   end
   
   def test_rebuild_sets
-    n = TaskContext.rebuild_sets
-    assert n>0
+    TaskContext.rebuild_sets
+    TaskContext.check_all 
   end
   
    def test_add_parameter

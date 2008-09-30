@@ -2,7 +2,7 @@
 
 <% form_tag :action => 'update', :id => @request_service do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Save' %>
+  <%= submit_tag l(:button_save) %>
 <% end %>
 
 <%= link_to 'Show', :action => 'show', :id => @request_service %> |

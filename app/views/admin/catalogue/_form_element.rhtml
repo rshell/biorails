@@ -9,23 +9,23 @@
 
   <% if @data_element.parent.nil?%>
     <div class="form-element">
-      <label for="data_element_data_system_id" class='icon icon-data_system'>
-        Source
+      <label for="data_element_data_system_id" >
+          <%=l(:label_source)%>
       </label>
       <%= collection_select(:data_element, :data_system_id, @data_element.allowed_systems, :id, :name) %>
     </div>
   <%end %>
 
   <div class="form-element">
-    <label for="data_element_name" class='icon icon-name'>
-      Name
+    <label for="data_element_name">
+      <%=l(:label_name)%>
     </label>
     <%= text_field 'data_element', 'name'  %>
   </div>
 
   <div class="form-element">
-    <label for="data_element_estimated_count" class='icon icon-count'>
-      Estimated No. Values
+    <label for="data_element_estimated_count">
+      <%=l(:label_estimated_no_values)%>
     </label>
     <%= text_field(:data_element, :estimated_count) %>
   </div>
@@ -34,8 +34,8 @@
 
 <div class="row">
   <div class="form-element">
-    <label for="data_element_description" class='icon icon-description'>
-      Description
+    <label for="data_element_description">
+      <%=l(:label_description)%>
     </label>
         <%= text_area( :data_element, :description ,{:rows=>5, :cols=>80}	)%>
   </div>
@@ -44,7 +44,9 @@
 <%if  @data_element.new_record? %>
   <div class="row">
         <div class="form-element">
-          <label for="data_element_style"class= 'icon icon-lookup'>Lookup Style</label>
+          <label for="data_element_style">
+            <%=l(:label_element_styles)%>
+          </label>
           <%= select(:data_element, :style, @data_element.allowed_styles {|p| p})%>
         </div>
    </div>
@@ -55,7 +57,7 @@
 
 <div class="row">
   <div class="form-element">
-    <label for="data_element_content" class='icon icon-list'>Content:</label>
+    <label for="data_element_content"><%=l(:label_content)%></label>
     <%= text_area( 'data_element', 'content',{:rows=>5, :cols=>80})  %>
   </div>
 </div>

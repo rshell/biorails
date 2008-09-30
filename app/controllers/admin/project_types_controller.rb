@@ -1,10 +1,26 @@
 ##
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights 
-##
+#
+
+#
+# This manages the list of Project Types in the system. It was added to provide
+# the bases for customization of project dashboards. Each Project Type as a
+# specific set of views associated with it.
+# 
+# Actions supported:-
+# * list         list all items
+# * new/create   create a new item
+# * edit/update  edit a exiting item
+# * destroy      destroy item and all its dependent objects
+# 
 
 class Admin::ProjectTypesController < ApplicationController
 
+  use_authorization :catalogue, 
+              :actions => [:list,:show,:new,:create,:edit,:update,:destroy], 
+              :rights => :current_user
+   
   before_filter :find_project_type ,
     :only => [ :show, :edit, :update,:destroy]
 

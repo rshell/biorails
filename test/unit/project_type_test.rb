@@ -43,27 +43,6 @@ class ProjectTypeTest < Test::Unit::TestCase
     assert item.is_a?(Array)
   end
   
-  def test07_action_template
-    item = ProjectType.new(:name=>'test07',:description=>'test')
-    dash = ProjectType.dashboard_list[0]
-    assert dash
-    item.dashboard = dash
-    assert item.save
-    assert_equal File.join('project','projects',dash,'show') , item.action_template(:show)
-    assert_equal File.join('project','projects',dash,'show') , item.action_template("show")
-    assert_equal "no_moose_exists" , item.action_template("no_moose_exists")
-  end
-
-   def test08_partial_template
-    item = ProjectType.new(:name=>'test08',:description=>'test')
-    dash = ProjectType.dashboard_list[0]
-    assert dash
-    item.dashboard = dash
-    assert item.save
-    assert_equal File.join('project','projects',dash,'show') , item.partial_template("show")
-    assert_equal File.join('project','projects',dash,'show') , item.partial_template(:show)
-    assert_equal "no_moose_exists" , item.partial_template("no_moose_exists")
-  end
 
   def test09_not_valid
     item = ProjectType.new(:description=>'')

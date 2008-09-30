@@ -30,19 +30,15 @@ class ApplicationControllerTest < Test::Unit::TestCase
     assert @controller.send(:authorize)
   end  
   
-  def test_set_folder_invalid_id
-    assert_equal nil,@controller.send(:set_folder,4545)
+  def test_set_element_invalid_id
+    assert_equal nil,@controller.send(:set_element,4545)
   end  
 
-  def test_set_folder_exception_handled
-    assert_equal nil,@controller.send(:set_folder,nil)
+  def test_set_element_exception_handled
+    assert_equal nil,@controller.send(:set_element,nil)
   end  
 
-  def test_set_team_exception_handled
-    assert_equal nil,@controller.send(:set_team,nil)
-  end  
-
-  def test_set_team_exception_handled
+  def test_set_user_handled
     assert_equal nil,@controller.send(:set_user,nil)
   end  
 
@@ -51,7 +47,7 @@ class ApplicationControllerTest < Test::Unit::TestCase
   end  
 
   def test_current_user
-    assert_equal User.find(1),@controller.send(:current_user)
+    assert_equal User.find(3),@controller.send(:current_user)
   end  
 
   def test_current_project

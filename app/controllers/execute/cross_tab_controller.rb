@@ -1,15 +1,12 @@
-##
+# == Cross Tab Controller
+# This is a generic cross tab report builder and runner for [http://biorails.org] it provides the ability to 
+# generate table basesd on parameters collected in a task. Basically in the report parameters form columns
+# and task contexts translate to rows.
+# 
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
 #
-##
-# This is a generic report builder and runner for [http://biorails.org] it provides the ability to 
-# generate a ActiveRecord style find query with included linked objects for the bases of the report.
-# 
-# This query is saved in Report and ReportColumn to create a reusable report defintion which can be
-# reused.
-# 
 class Execute::CrossTabController < ApplicationController
 
   use_authorization :reports,
@@ -31,6 +28,7 @@ class Execute::CrossTabController < ApplicationController
   def list
     respond_to do |format|
       format.html { render :action => 'list'}
+      format.ext { render :partial => 'list'}
       format.xml  { render :xml => @cross_tabs.to_xml }
       format.csv  { render :text => @cross_tabs.to_csv }
       format.json { render :json =>  cross_tabs_to_json(@cross_tabs, CrossTab.count, params[:page]), :layout=>false }  
@@ -51,6 +49,7 @@ class Execute::CrossTabController < ApplicationController
     @cross_tab_columns = @cross_tab.filter(params)
     @cross_tab_results = @cross_tab.results(params[:page]||1)
     @context = @cross_tab_columns[0].parameter.context if  @cross_tab_columns[0]
+    
     respond_to do |format|
       format.html { render :action =>'show'}
       format.ext  { render :partial => 'table' }
@@ -110,7 +109,7 @@ def export
 
     params[:name] = Identifier.next_id(current_user.login) if params[:name].empty?
     @html = render_to_string(:action=>'print', :layout => false)
-    @project_element = @project_folder.add_content(params[:name], params[:title],@html)
+    @project_element = @project_folder.add_content(params[:name], @html)
     @project_element.reference = @report
     if @project_element.save
         redirect_to folder_url( :action =>'show',:id=>@project_folder )
@@ -253,7 +252,8 @@ def export
 protected 
  
   def find_cross_tab
-    @cross_tab = CrossTab.find(params[:id])   
+    @cross_tab = CrossTab.find(params[:id])  
+    @project_folder = @cross_tab.project_element
   end
   
 #

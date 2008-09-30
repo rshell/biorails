@@ -1,15 +1,16 @@
-<% content_for :messages do -%>
-  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay']}  %>
-<%end %>
-
 <% content_for :center do -%>
-    <%= render :partial => 'edit' %>
+<%= render :partial=>'projects/header'%>
+<%= render :partial => 'edit' %>
 <% end -%>
 
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay']} %>
+<%end %>
+
 <% content_for :right do -%>
-    <%= render :partial => 'help' %>
+<%= render :partial => 'help' %>
 <% end %>
 
 <% content_for :footer do -%>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @assay} %>
+<%= render :partial => 'shared/audit',:locals =>{ :item => @assay} %>
 <% end %>

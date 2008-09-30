@@ -77,7 +77,6 @@ def test01_versions
      assert first.id
      assert first.name
      assert first.project
-     assert first.team
   end
   
   def test10_new_invalid

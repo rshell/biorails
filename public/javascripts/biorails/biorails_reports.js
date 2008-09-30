@@ -253,14 +253,18 @@ Biorails.ReportDef = function(report_id){
             viewConfig: {  forceFit: true  },
             sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
             width:'auto',
-            autoWidth: true,
-            autoscroll: false,
             autoHeight: true,
             clicksToEdit: 1,
 	    forceFit: true,
             frame:true,
             title:'Drag columns from tree to add to report',
             iconCls:'icon-grid'		 	
+         };
+         if (Ext.isIE6) {
+             options['width']=800
+         } else { 
+                 options['autoWidth']=true
+                 options['autoScroll']=false
          };
          grid = new Ext.grid.EditorGridPanel(options);
          grid.store.load();

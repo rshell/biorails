@@ -1,8 +1,8 @@
-<h1 class='icon icon-permission'>New permission</h1>
+<h1 class='icon icon-permission'><%=l(:label_permission_new)%></h1>
 
 <% form_tag :action => 'create' do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+  <%= submit_tag l(:button_create) %>
 <% end %>
 
-<%= link_to "<b class='icon icon-list'></b>Back", :action => 'list' %>
+<%= link_to l(:label_back), :action => 'list', :class=>'icon icon-list' %>

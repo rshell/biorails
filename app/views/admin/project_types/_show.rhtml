@@ -1,5 +1,34 @@
-<h1>project_type [<%=@project_type.path%>]</h1>
-
-      name: <%= @project_type.name %><br />
-      description: <%= @project_type.description %><br />
-      dashboard: <%= @project_type.dashboard %><br />
+<%= render :partial => 'admin/header' %>
+<h2 class="icon icon-project"><%=l(:label_project_type) %>
+[<%=@project_type.path %>]</h2>
+<div class="panel">
+    <table class="report">
+      <tr>
+        <th>
+          <%=l(:label_name) %>
+        </th>
+        <td>
+          <%= @project_type.name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_description) %>
+        </th>
+        <td>
+          <%= @project_type.description %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_dashboard) %>
+        </th>
+        <td>
+          <%= @project_type.dashboard %>
+        </td>
+      </tr>
+    </table>
+  <%= link_to l(:label_list), project_type_url(), :method => :get, :class=>'icon icon-list' %>
+  <%= link_to l(:label_edit), project_type_url(:action=>:edit, :id=>@project_type), :method => :get, :class=>'icon icon-edit' %>
+  <%= link_to l(:label_delete), project_type_url(:action=>:destroy, :id=>@project_type), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del' %>
+</div>

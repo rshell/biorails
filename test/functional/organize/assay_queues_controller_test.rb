@@ -11,7 +11,9 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
     @controller = Organize::AssayQueuesController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    Project.current = Project.find(2)
     @request.session[:current_project_id] = 2
+    User.current =User.find(3)
     @request.session[:current_user_id] = 3
     @assay = Assay.find(:first)
     @item = AssayQueue.find(:first)
@@ -52,8 +54,8 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
   end
 
   def test_show_denied
-    @request.session[:current_project_id] =1
-    @request.session[:current_user_id] = 1    
+    @request.session[:current_project_id] =2
+    @request.session[:current_user_id] = 9   
     get :show, :id => @item.id
     assert_response :redirect
     assert_redirected_to :action => 'access_denied'

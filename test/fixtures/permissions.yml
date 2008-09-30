@@ -1,2671 +1,237 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: permissions
 #
-#  id      :integer(11)   not null, primary key
-#  checked :boolean(1)    
-#  subject :string(255)   default(), not null
-#  action  :string(255)   default(), not null
+#  id      :integer(4)      not null, primary key
+#  checked :boolean(1)
+#  subject :string(255)     default(""), not null
+#  action  :string(255)     default(""), not null
 #
 
 --- 
-00000000183_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: report
-    id: "183"
-  attributes_cache: {}
-
-00000000060_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: experiment
-    id: "60"
-  attributes_cache: {}
-
-00000000371_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: home
-    id: "371"
-  attributes_cache: {}
-
-00000000409_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: "409"
-  attributes_cache: {}
-
-00000000192_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: "192"
-  attributes_cache: {}
-
-00000000380_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: inventory
-    id: "380"
-  attributes_cache: {}
-
-00000000450_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: "450"
-  attributes_cache: {}
-
-00000000197_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: "197"
-  attributes_cache: {}
-
-00000000130_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: assay
-    id: "130"
-  attributes_cache: {}
-
-00000000385_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: user
-    id: "385"
-  attributes_cache: {}
-
-00000000262_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: request
-    id: "262"
-  attributes_cache: {}
-
-00000000074_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: request
-    id: "74"
-  attributes_cache: {}
-
-00000000012_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: protocol
-    id: "12"
-  attributes_cache: {}
-
-00000000271_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: users
-    id: "271"
-  attributes_cache: {}
-
-00000000200_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: inventory
-    id: "200"
-  attributes_cache: {}
-
-00000000081_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: "81"
-  attributes_cache: {}
-
-00000000083_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: users
-    id: "83"
-  attributes_cache: {}
-
-00000000394_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: protocol
-    id: "394"
-  attributes_cache: {}
-
 00000000021_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :new
+      --- :list
 
-    subject: assay
+    subject: experiments
     id: "21"
   attributes_cache: {}
 
-00000000332_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: system
-    id: "332"
-  attributes_cache: {}
-
-00000000144_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: "144"
-  attributes_cache: {}
-
-00000000090_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: report
-    id: "90"
-  attributes_cache: {}
-
-00000000464_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :calendar
-
-    subject: home
-    id: "464"
-  attributes_cache: {}
-
-00000000341_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: cataloge
-    id: "341"
-  attributes_cache: {}
-
-00000000276_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: report
-    id: "276"
-  attributes_cache: {}
-
-00000000153_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: cataloge
-    id: "153"
-  attributes_cache: {}
-
-00000000088_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: report
-    id: "88"
-  attributes_cache: {}
-
-00000000399_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: assay
-    id: "399"
-  attributes_cache: {}
-
-00000000473_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: inventory
-    id: "473"
-  attributes_cache: {}
-
-00000000285_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: home
-    id: "285"
-  attributes_cache: {}
-
-00000000151_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: system
-    id: "151"
-  attributes_cache: {}
-
-00000000471_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: inventory
-    id: "471"
-  attributes_cache: {}
-
-00000000402_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: assay
-    id: "402"
-  attributes_cache: {}
-
-00000000026_permission: !ruby/object:Permission 
+00000000201_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: "*"
-    subject: catalogue
-    id: "26"
-  attributes_cache: {}
-
-00000000283_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: "283"
-  attributes_cache: {}
-
-00000000214_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: protocol
-    id: "214"
-  attributes_cache: {}
-
-00000000160_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: experiment
-    id: "160"
-  attributes_cache: {}
-
-00000000095_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: home
-    id: "95"
-  attributes_cache: {}
-
-00000000097_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :calendar
-
-    subject: home
-    id: "97"
-  attributes_cache: {}
-
-00000000411_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: catalogue
-    id: "411"
-  attributes_cache: {}
-
-00000000035_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: "35"
-  attributes_cache: {}
-
-00000000346_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiment
-    id: "346"
-  attributes_cache: {}
-
-00000000292_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: inventory
-    id: "292"
-  attributes_cache: {}
-
-00000000223_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: catalogue
-    id: "223"
-  attributes_cache: {}
-
-00000000158_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: cataloge
-    id: "158"
-  attributes_cache: {}
-
-00000000353_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: request
-    id: "353"
-  attributes_cache: {}
-
-00000000355_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: request
-    id: "355"
-  attributes_cache: {}
-
-00000000230_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: "230"
-  attributes_cache: {}
-
-00000000165_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: experiment
-    id: "165"
+    subject: reports
+    id: "201"
   attributes_cache: {}
 
 00000000167_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :list
-
-    subject: request
-    id: "167"
-  attributes_cache: {}
-
-00000000042_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: system
-    id: "42"
-  attributes_cache: {}
-
-00000000362_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: users
-    id: "362"
-  attributes_cache: {}
-
-00000000297_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: user
-    id: "297"
-  attributes_cache: {}
-
-00000000299_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: user
-    id: "299"
-  attributes_cache: {}
-
-00000000416_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: project
-    id: "416"
-  attributes_cache: {}
-
-00000000105_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: "105"
-  attributes_cache: {}
-
-00000000051_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: cataloge
-    id: "51"
-  attributes_cache: {}
-
-00000000228_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: catalogue
-    id: "228"
-  attributes_cache: {}
-
-00000000174_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: "174"
-  attributes_cache: {}
-
-00000000425_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: system
-    id: "425"
-  attributes_cache: {}
-
-00000000112_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: user
-    id: "112"
-  attributes_cache: {}
-
-00000000049_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: system
-    id: "49"
-  attributes_cache: {}
-
-00000000300_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: protocol
-    id: "300"
-  attributes_cache: {}
-
-00000000237_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: system
-    id: "237"
-  attributes_cache: {}
-
-00000000432_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: cataloge
-    id: "432"
-  attributes_cache: {}
-
-00000000121_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: protocol
-    id: "121"
-  attributes_cache: {}
-
-00000000056_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: cataloge
-    id: "56"
-  attributes_cache: {}
-
-00000000367_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: report
-    id: "367"
-  attributes_cache: {}
-
-00000000369_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: report
-    id: "369"
-  attributes_cache: {}
-
-00000000244_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: cataloge
-    id: "244"
-  attributes_cache: {}
-
-00000000179_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: users
-    id: "179"
-  attributes_cache: {}
-
-00000000441_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: request
-    id: "441"
-  attributes_cache: {}
-
-00000000065_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiment
-    id: "65"
-  attributes_cache: {}
-
-00000000376_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
       --- :destroy
 
-    subject: home
-    id: "376"
-  attributes_cache: {}
-
-00000000253_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiment
-    id: "253"
-  attributes_cache: {}
-
-00000000188_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :index
-
-    subject: home
-    id: "188"
-  attributes_cache: {}
-
-00000000119_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: protocol
-    id: "119"
-  attributes_cache: {}
-
-00000000307_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: assay
-    id: "307"
-  attributes_cache: {}
-
-00000000439_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: experiment
-    id: "439"
-  attributes_cache: {}
-
-00000000126_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: assay
-    id: "126"
-  attributes_cache: {}
-
-00000000003_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: user
-    id: "3"
-  attributes_cache: {}
-
-00000000314_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: catalogue
-    id: "314"
-  attributes_cache: {}
-
-00000000446_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: request
-    id: "446"
-  attributes_cache: {}
-
-00000000135_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: "135"
-  attributes_cache: {}
-
-00000000323_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: project
-    id: "323"
-  attributes_cache: {}
-
-00000000258_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: request
-    id: "258"
-  attributes_cache: {}
-
-00000000455_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: report
-    id: "455"
-  attributes_cache: {}
-
-00000000079_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: users
-    id: "79"
-  attributes_cache: {}
-
-00000000267_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: "267"
-  attributes_cache: {}
-
-00000000008_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: user
-    id: "8"
-  attributes_cache: {}
-
-00000000205_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: user
-    id: "205"
-  attributes_cache: {}
-
-00000000017_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: protocol
-    id: "17"
-  attributes_cache: {}
-
-00000000328_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: system
-    id: "328"
-  attributes_cache: {}
-
-00000000149_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: system
-    id: "149"
-  attributes_cache: {}
-
-00000000337_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: cataloge
-    id: "337"
-  attributes_cache: {}
-
-00000000469_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: "469"
+    subject: requests
+    id: "167"
   attributes_cache: {}
 
 00000000181_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :list
+      --- :update
 
-    subject: report
+    subject: users
     id: "181"
   attributes_cache: {}
 
-00000000407_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: "407"
-  attributes_cache: {}
-
-00000000219_permission: !ruby/object:Permission 
+00000000009_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :create
 
-    subject: assay
-    id: "219"
+    subject: assays
+    id: "9"
   attributes_cache: {}
 
-00000000190_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: "190"
-  attributes_cache: {}
-
-00000000063_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiment
-    id: "63"
-  attributes_cache: {}
-
-00000000251_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: experiment
-    id: "251"
-  attributes_cache: {}
-
-00000000072_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: request
-    id: "72"
-  attributes_cache: {}
-
-00000000383_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: inventory
-    id: "383"
-  attributes_cache: {}
-
-00000000260_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: request
-    id: "260"
-  attributes_cache: {}
-
-00000000195_permission: !ruby/object:Permission 
+00000000239_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :list
 
     subject: inventory
-    id: "195"
+    id: "239"
   attributes_cache: {}
 
-00000000133_permission: !ruby/object:Permission 
+00000000121_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :show
 
-    subject: catalogue
-    id: "133"
+    subject: queue_items
+    id: "121"
   attributes_cache: {}
 
-00000000392_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: protocol
-    id: "392"
-  attributes_cache: {}
-
-00000000010_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: protocol
-    id: "10"
-  attributes_cache: {}
-
-00000000321_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: "321"
-  attributes_cache: {}
-
-00000000453_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: users
-    id: "453"
-  attributes_cache: {}
-
-00000000142_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: "142"
-  attributes_cache: {}
-
-00000000077_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: users
-    id: "77"
-  attributes_cache: {}
-
-00000000330_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: system
-    id: "330"
-  attributes_cache: {}
-
-00000000265_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: "265"
-  attributes_cache: {}
-
-00000000462_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: home
-    id: "462"
-  attributes_cache: {}
-
-00000000397_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: protocol
-    id: "397"
-  attributes_cache: {}
-
-00000000274_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: report
-    id: "274"
-  attributes_cache: {}
-
-00000000086_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: report
-    id: "86"
-  attributes_cache: {}
-
-00000000212_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: protocol
-    id: "212"
-  attributes_cache: {}
-
-00000000147_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: system
-    id: "147"
-  attributes_cache: {}
-
-00000000093_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: home
-    id: "93"
-  attributes_cache: {}
-
-00000000400_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: assay
-    id: "400"
-  attributes_cache: {}
-
-00000000024_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: assay
-    id: "24"
-  attributes_cache: {}
-
-00000000335_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: cataloge
-    id: "335"
-  attributes_cache: {}
-
-00000000281_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: "281"
-  attributes_cache: {}
-
-00000000467_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: home
-    id: "467"
-  attributes_cache: {}
-
-00000000221_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: assay
-    id: "221"
-  attributes_cache: {}
-
-00000000156_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: cataloge
-    id: "156"
-  attributes_cache: {}
-
-00000000033_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: catalogue
-    id: "33"
-  attributes_cache: {}
-
-00000000344_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiment
-    id: "344"
-  attributes_cache: {}
-
-00000000279_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :index
-
-    subject: home
-    id: "279"
-  attributes_cache: {}
-
-00000000290_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: "290"
-  attributes_cache: {}
-
-00000000031_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: "31"
-  attributes_cache: {}
-
-00000000351_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: request
-    id: "351"
-  attributes_cache: {}
-
-00000000288_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: "288"
-  attributes_cache: {}
-
-00000000163_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: experiment
-    id: "163"
-  attributes_cache: {}
-
-00000000040_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: "40"
-  attributes_cache: {}
-
-00000000414_permission: !ruby/object:Permission 
+00000000073_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :new
 
     subject: project
-    id: "414"
-  attributes_cache: {}
-
-00000000226_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: "226"
-  attributes_cache: {}
-
-00000000172_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: request
-    id: "172"
-  attributes_cache: {}
-
-00000000101_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: finder
-    id: "101"
-  attributes_cache: {}
-
-00000000103_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: inventory
-    id: "103"
-  attributes_cache: {}
-
-00000000038_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: "38"
-  attributes_cache: {}
-
-00000000349_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: request
-    id: "349"
-  attributes_cache: {}
-
-00000000360_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: "360"
-  attributes_cache: {}
-
-00000000295_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: user
-    id: "295"
-  attributes_cache: {}
-
-00000000423_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: system
-    id: "423"
-  attributes_cache: {}
-
-00000000421_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: system
-    id: "421"
-  attributes_cache: {}
-
-00000000233_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: "233"
-  attributes_cache: {}
-
-00000000235_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: "235"
-  attributes_cache: {}
-
-00000000110_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: inventory
-    id: "110"
-  attributes_cache: {}
-
-00000000045_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: system
-    id: "45"
-  attributes_cache: {}
-
-00000000047_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: system
-    id: "47"
-  attributes_cache: {}
-
-00000000358_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: "358"
-  attributes_cache: {}
-
-00000000430_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: cataloge
-    id: "430"
-  attributes_cache: {}
-
-00000000242_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: system
-    id: "242"
-  attributes_cache: {}
-
-00000000177_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: "177"
-  attributes_cache: {}
-
-00000000054_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: cataloge
-    id: "54"
-  attributes_cache: {}
-
-00000000365_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: report
-    id: "365"
-  attributes_cache: {}
-
-00000000186_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: report
-    id: "186"
-  attributes_cache: {}
-
-00000000108_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: "108"
-  attributes_cache: {}
-
-00000000374_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: "374"
-  attributes_cache: {}
-
-00000000428_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: cataloge
-    id: "428"
-  attributes_cache: {}
-
-00000000303_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: protocol
-    id: "303"
-  attributes_cache: {}
-
-00000000305_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: protocol
-    id: "305"
-  attributes_cache: {}
-
-00000000115_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: user
-    id: "115"
-  attributes_cache: {}
-
-00000000117_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: user
-    id: "117"
-  attributes_cache: {}
-
-00000000437_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiment
-    id: "437"
-  attributes_cache: {}
-
-00000000435_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiment
-    id: "435"
-  attributes_cache: {}
-
-00000000001_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: user
-    id: "1"
-  attributes_cache: {}
-
-00000000312_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: assay
-    id: "312"
-  attributes_cache: {}
-
-00000000247_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: cataloge
-    id: "247"
-  attributes_cache: {}
-
-00000000249_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: cataloge
-    id: "249"
-  attributes_cache: {}
-
-00000000124_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: protocol
-    id: "124"
-  attributes_cache: {}
-
-00000000059_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: articles
-    id: "59"
-  attributes_cache: {}
-
-00000000444_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: request
-    id: "444"
-  attributes_cache: {}
-
-00000000256_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: experiment
-    id: "256"
-  attributes_cache: {}
-
-00000000068_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: page
-    id: "68"
-  attributes_cache: {}
-
-00000000379_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: "379"
-  attributes_cache: {}
-
-00000000388_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: user
-    id: "388"
-  attributes_cache: {}
-
-00000000006_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: user
-    id: "6"
-  attributes_cache: {}
-
-00000000317_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: "317"
-  attributes_cache: {}
-
-00000000319_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: catalogue
-    id: "319"
-  attributes_cache: {}
-
-00000000129_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: assay
-    id: "129"
-  attributes_cache: {}
-
-00000000449_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: "449"
-  attributes_cache: {}
-
-00000000015_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: protocol
-    id: "15"
-  attributes_cache: {}
-
-00000000326_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: "326"
-  attributes_cache: {}
-
-00000000203_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: user
-    id: "203"
-  attributes_cache: {}
-
-00000000138_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: catalogue
-    id: "138"
-  attributes_cache: {}
-
-00000000458_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: report
-    id: "458"
-  attributes_cache: {}
-
-00000000208_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: user
-    id: "208"
-  attributes_cache: {}
-
-00000000405_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: catalogue
-    id: "405"
-  attributes_cache: {}
-
-00000000029_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: "29"
-  attributes_cache: {}
-
-00000000217_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: assay
-    id: "217"
-  attributes_cache: {}
-
-00000000061_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: experiment
-    id: "61"
-  attributes_cache: {}
-
-00000000193_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :blog
-
-    subject: home
-    id: "193"
-  attributes_cache: {}
-
-00000000070_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: request
-    id: "70"
-  attributes_cache: {}
-
-00000000381_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: "381"
-  attributes_cache: {}
-
-00000000419_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: system
-    id: "419"
-  attributes_cache: {}
-
-00000000390_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: user
-    id: "390"
-  attributes_cache: {}
-
-00000000131_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: assay
-    id: "131"
-  attributes_cache: {}
-
-00000000451_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: "451"
-  attributes_cache: {}
-
-00000000263_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: request
-    id: "263"
-  attributes_cache: {}
-
-00000000395_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: protocol
-    id: "395"
-  attributes_cache: {}
-
-00000000140_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: "140"
-  attributes_cache: {}
-
-00000000075_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: request
-    id: "75"
-  attributes_cache: {}
-
-00000000460_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: report
-    id: "460"
-  attributes_cache: {}
-
-00000000013_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: protocol
-    id: "13"
-  attributes_cache: {}
-
-00000000270_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: users
-    id: "270"
-  attributes_cache: {}
-
-00000000272_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: report
-    id: "272"
-  attributes_cache: {}
-
-00000000201_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: inventory
-    id: "201"
-  attributes_cache: {}
-
-00000000082_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: "82"
-  attributes_cache: {}
-
-00000000084_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: users
-    id: "84"
-  attributes_cache: {}
-
-00000000022_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: assay
-    id: "22"
-  attributes_cache: {}
-
-00000000333_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: system
-    id: "333"
-  attributes_cache: {}
-
-00000000210_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: protocol
-    id: "210"
+    id: "73"
   attributes_cache: {}
 
 00000000145_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :desrroy
+      --- :edit
 
-    subject: project
+    subject: tasks
     id: "145"
   attributes_cache: {}
 
-00000000091_permission: !ruby/object:Permission 
+00000000037_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
-    action: |
-      --- :update
-
-    subject: report
-    id: "91"
+    action: "*"
+    subject: help
+    id: "37"
   attributes_cache: {}
 
-00000000465_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: "465"
-  attributes_cache: {}
-
-00000000342_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: experiment
-    id: "342"
-  attributes_cache: {}
-
-00000000277_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: report
-    id: "277"
-  attributes_cache: {}
-
-00000000154_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: cataloge
-    id: "154"
-  attributes_cache: {}
-
-00000000089_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: report
-    id: "89"
-  attributes_cache: {}
-
-00000000474_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: inventory
-    id: "474"
-  attributes_cache: {}
-
-00000000472_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: "472"
-  attributes_cache: {}
-
-00000000286_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: inventory
-    id: "286"
-  attributes_cache: {}
-
-00000000098_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :timeline
-
-    subject: home
-    id: "98"
-  attributes_cache: {}
-
-00000000403_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: assay
-    id: "403"
-  attributes_cache: {}
-
-00000000027_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: catalogue
-    id: "27"
-  attributes_cache: {}
-
-00000000284_permission: !ruby/object:Permission 
+00000000197_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :blog
 
     subject: home
-    id: "284"
-  attributes_cache: {}
-
-00000000215_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: protocol
-    id: "215"
-  attributes_cache: {}
-
-00000000161_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: experiment
-    id: "161"
-  attributes_cache: {}
-
-00000000096_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: "96"
-  attributes_cache: {}
-
-00000000412_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: "412"
-  attributes_cache: {}
-
-00000000036_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: "36"
-  attributes_cache: {}
-
-00000000347_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: experiment
-    id: "347"
-  attributes_cache: {}
-
-00000000293_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: user
-    id: "293"
-  attributes_cache: {}
-
-00000000224_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: catalogue
-    id: "224"
-  attributes_cache: {}
-
-00000000159_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: cataloge
-    id: "159"
-  attributes_cache: {}
-
-00000000170_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: request
-    id: "170"
-  attributes_cache: {}
-
-00000000043_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: system
-    id: "43"
-  attributes_cache: {}
-
-00000000356_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: "356"
-  attributes_cache: {}
-
-00000000231_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: "231"
-  attributes_cache: {}
-
-00000000168_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: request
-    id: "168"
-  attributes_cache: {}
-
-00000000363_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: report
-    id: "363"
-  attributes_cache: {}
-
-00000000298_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: user
-    id: "298"
-  attributes_cache: {}
-
-00000000175_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: users
-    id: "175"
-  attributes_cache: {}
-
-00000000417_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: project
-    id: "417"
-  attributes_cache: {}
-
-00000000106_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: "106"
-  attributes_cache: {}
-
-00000000052_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: cataloge
-    id: "52"
-  attributes_cache: {}
-
-00000000229_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: catalogue
-    id: "229"
-  attributes_cache: {}
-
-00000000240_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: system
-    id: "240"
-  attributes_cache: {}
-
-00000000426_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: cataloge
-    id: "426"
-  attributes_cache: {}
-
-00000000113_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: user
-    id: "113"
-  attributes_cache: {}
-
-00000000372_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: "372"
-  attributes_cache: {}
-
-00000000301_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: protocol
-    id: "301"
-  attributes_cache: {}
-
-00000000238_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: system
-    id: "238"
-  attributes_cache: {}
-
-00000000184_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: report
-    id: "184"
-  attributes_cache: {}
-
-00000000433_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: experiment
-    id: "433"
-  attributes_cache: {}
-
-00000000122_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: protocol
-    id: "122"
-  attributes_cache: {}
-
-00000000057_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: cataloge
-    id: "57"
-  attributes_cache: {}
-
-00000000310_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: assay
-    id: "310"
+    id: "197"
   attributes_cache: {}
 
 00000000245_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :show
+      --- :create
 
-    subject: cataloge
+    subject: inventory
     id: "245"
   attributes_cache: {}
 
-00000000442_permission: !ruby/object:Permission 
+00000000089_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :new
 
-    subject: request
-    id: "442"
+    subject: assay_parameters
+    id: "89"
   attributes_cache: {}
 
-00000000066_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: experiment
-    id: "66"
-  attributes_cache: {}
-
-00000000377_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: inventory
-    id: "377"
-  attributes_cache: {}
-
-00000000254_permission: !ruby/object:Permission 
+00000000109_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :create
 
-    subject: experiment
-    id: "254"
+    subject: assay_queues
+    id: "109"
+  attributes_cache: {}
+
+00000000065_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :initialize
+
+    subject: dba
+    id: "65"
+  attributes_cache: {}
+
+00000000173_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: users
+    id: "173"
+  attributes_cache: {}
+
+00000000043_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: catalogue
+    id: "43"
+  attributes_cache: {}
+
+00000000137_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: tasks
+    id: "137"
+  attributes_cache: {}
+
+00000000151_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: page
+    id: "151"
+  attributes_cache: {}
+
+00000000221_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: assay_protocols
+    id: "221"
+  attributes_cache: {}
+
+00000000115_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: assay_queues
+    id: "115"
+  attributes_cache: {}
+
+00000000209_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: reports
+    id: "209"
+  attributes_cache: {}
+
+00000000029_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: experiments
+    id: "29"
   attributes_cache: {}
 
 00000000189_permission: !ruby/object:Permission 
@@ -2678,1194 +244,50 @@
     id: "189"
   attributes_cache: {}
 
-00000000386_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: user
-    id: "386"
-  attributes_cache: {}
-
-00000000308_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: assay
-    id: "308"
-  attributes_cache: {}
-
-00000000198_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: inventory
-    id: "198"
-  attributes_cache: {}
-
-00000000127_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: assay
-    id: "127"
-  attributes_cache: {}
-
-00000000004_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: user
-    id: "4"
-  attributes_cache: {}
-
-00000000315_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: catalogue
-    id: "315"
-  attributes_cache: {}
-
-00000000447_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: "447"
-  attributes_cache: {}
-
-00000000136_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: "136"
-  attributes_cache: {}
-
-00000000324_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: "324"
-  attributes_cache: {}
-
-00000000259_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: request
-    id: "259"
-  attributes_cache: {}
-
-00000000456_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: report
-    id: "456"
-  attributes_cache: {}
-
-00000000268_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: "268"
-  attributes_cache: {}
-
-00000000009_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: auth
-    id: "9"
-  attributes_cache: {}
-
-00000000206_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: user
-    id: "206"
-  attributes_cache: {}
-
-00000000018_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: assay
-    id: "18"
-  attributes_cache: {}
-
-00000000329_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: system
-    id: "329"
-  attributes_cache: {}
-
-00000000338_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: cataloge
-    id: "338"
-  attributes_cache: {}
-
-00000000050_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: cataloge
-    id: "50"
-  attributes_cache: {}
-
-00000000182_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: report
-    id: "182"
-  attributes_cache: {}
-
-00000000370_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :index
-
-    subject: home
-    id: "370"
-  attributes_cache: {}
-
-00000000408_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: "408"
-  attributes_cache: {}
-
-00000000191_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :calendar
-
-    subject: home
-    id: "191"
-  attributes_cache: {}
-
-00000000440_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: request
-    id: "440"
-  attributes_cache: {}
-
-00000000252_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: experiment
-    id: "252"
-  attributes_cache: {}
-
-00000000064_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: experiment
-    id: "64"
-  attributes_cache: {}
-
-00000000384_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: user
-    id: "384"
-  attributes_cache: {}
-
-00000000261_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: request
-    id: "261"
-  attributes_cache: {}
-
-00000000196_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: "196"
-  attributes_cache: {}
-
-00000000073_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: request
-    id: "73"
-  attributes_cache: {}
-
-00000000080_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: "80"
-  attributes_cache: {}
-
-00000000393_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: protocol
-    id: "393"
-  attributes_cache: {}
-
-00000000011_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: protocol
-    id: "11"
-  attributes_cache: {}
-
-00000000454_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: report
-    id: "454"
-  attributes_cache: {}
-
-00000000266_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: users
-    id: "266"
-  attributes_cache: {}
-
-00000000143_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: project
-    id: "143"
-  attributes_cache: {}
-
-00000000078_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: users
-    id: "78"
-  attributes_cache: {}
-
-00000000331_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: system
-    id: "331"
-  attributes_cache: {}
-
-00000000463_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :projects
-
-    subject: home
-    id: "463"
-  attributes_cache: {}
-
-00000000340_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: cataloge
-    id: "340"
-  attributes_cache: {}
-
-00000000275_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: report
-    id: "275"
-  attributes_cache: {}
-
-00000000087_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: report
-    id: "87"
-  attributes_cache: {}
-
-00000000398_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: assay
-    id: "398"
-  attributes_cache: {}
-
-00000000020_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: assay
-    id: "20"
-  attributes_cache: {}
-
-00000000150_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: system
-    id: "150"
-  attributes_cache: {}
-
-00000000152_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: system
-    id: "152"
-  attributes_cache: {}
-
-00000000470_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: inventory
-    id: "470"
-  attributes_cache: {}
-
-00000000282_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :calendar
-
-    subject: home
-    id: "282"
-  attributes_cache: {}
-
-00000000213_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: protocol
-    id: "213"
-  attributes_cache: {}
-
-00000000094_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :index
-
-    subject: home
-    id: "94"
-  attributes_cache: {}
-
-00000000401_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: assay
-    id: "401"
-  attributes_cache: {}
-
-00000000025_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: assay
-    id: "25"
-  attributes_cache: {}
-
-00000000468_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: inventory
-    id: "468"
-  attributes_cache: {}
-
-00000000410_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: catalogue
-    id: "410"
-  attributes_cache: {}
-
-00000000291_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: inventory
-    id: "291"
-  attributes_cache: {}
-
-00000000220_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: assay
-    id: "220"
-  attributes_cache: {}
-
-00000000222_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: assay
-    id: "222"
-  attributes_cache: {}
-
-00000000157_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: cataloge
-    id: "157"
-  attributes_cache: {}
-
-00000000032_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: catalogue
-    id: "32"
-  attributes_cache: {}
-
-00000000034_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: project
-    id: "34"
-  attributes_cache: {}
-
-00000000345_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: experiment
-    id: "345"
-  attributes_cache: {}
-
-00000000354_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: request
-    id: "354"
-  attributes_cache: {}
-
-00000000289_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: inventory
-    id: "289"
-  attributes_cache: {}
-
-00000000164_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiment
-    id: "164"
-  attributes_cache: {}
-
-00000000166_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: experiment
-    id: "166"
-  attributes_cache: {}
-
-00000000352_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: request
-    id: "352"
-  attributes_cache: {}
-
-00000000296_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: user
-    id: "296"
-  attributes_cache: {}
-
-00000000041_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: project
-    id: "41"
-  attributes_cache: {}
-
-00000000415_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: project
-    id: "415"
-  attributes_cache: {}
-
-00000000227_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: "227"
-  attributes_cache: {}
-
-00000000173_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: request
-    id: "173"
-  attributes_cache: {}
-
-00000000104_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: inventory
-    id: "104"
-  attributes_cache: {}
-
-00000000039_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: project
-    id: "39"
-  attributes_cache: {}
-
-00000000361_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: users
-    id: "361"
-  attributes_cache: {}
-
-00000000424_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: system
-    id: "424"
-  attributes_cache: {}
-
-00000000422_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: system
-    id: "422"
-  attributes_cache: {}
-
-00000000234_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: project
-    id: "234"
-  attributes_cache: {}
-
-00000000236_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: project
-    id: "236"
-  attributes_cache: {}
-
-00000000111_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: user
-    id: "111"
-  attributes_cache: {}
-
-00000000046_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: system
-    id: "46"
-  attributes_cache: {}
-
-00000000048_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: system
-    id: "48"
-  attributes_cache: {}
-
-00000000359_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: users
-    id: "359"
-  attributes_cache: {}
-
-00000000431_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: cataloge
-    id: "431"
-  attributes_cache: {}
-
-00000000368_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: report
-    id: "368"
-  attributes_cache: {}
-
-00000000243_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: system
-    id: "243"
-  attributes_cache: {}
-
-00000000178_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: "178"
-  attributes_cache: {}
-
-00000000120_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: protocol
-    id: "120"
-  attributes_cache: {}
-
-00000000055_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: cataloge
-    id: "55"
-  attributes_cache: {}
-
-00000000366_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: report
-    id: "366"
-  attributes_cache: {}
-
-00000000375_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :blog
-
-    subject: home
-    id: "375"
-  attributes_cache: {}
-
-00000000187_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: report
-    id: "187"
-  attributes_cache: {}
-
-00000000109_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: inventory
-    id: "109"
-  attributes_cache: {}
-
-00000000429_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: cataloge
-    id: "429"
-  attributes_cache: {}
-
-00000000306_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: protocol
-    id: "306"
-  attributes_cache: {}
-
-00000000118_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: protocol
-    id: "118"
-  attributes_cache: {}
-
-00000000438_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: experiment
-    id: "438"
-  attributes_cache: {}
-
-00000000436_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: experiment
-    id: "436"
-  attributes_cache: {}
-
-00000000002_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: user
-    id: "2"
-  attributes_cache: {}
-
-00000000313_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: assay
-    id: "313"
-  attributes_cache: {}
-
-00000000248_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: cataloge
-    id: "248"
-  attributes_cache: {}
-
-00000000125_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: assay
-    id: "125"
-  attributes_cache: {}
-
-00000000445_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: request
-    id: "445"
-  attributes_cache: {}
-
-00000000322_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: "322"
-  attributes_cache: {}
-
-00000000257_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: experiment
-    id: "257"
-  attributes_cache: {}
-
-00000000134_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: "134"
-  attributes_cache: {}
-
-00000000069_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: request
-    id: "69"
-  attributes_cache: {}
-
-00000000389_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: user
-    id: "389"
-  attributes_cache: {}
-
 00000000007_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :update
+      --- :new
 
-    subject: user
+    subject: assays
     id: "7"
   attributes_cache: {}
 
-00000000016_permission: !ruby/object:Permission 
+00000000095_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :update
 
-    subject: protocol
-    id: "16"
+    subject: assay_parameters
+    id: "95"
   attributes_cache: {}
 
-00000000327_permission: !ruby/object:Permission 
+00000000251_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :desrroy
+      --- :destroy
 
-    subject: project
-    id: "327"
+    subject: inventory
+    id: "251"
   attributes_cache: {}
 
-00000000204_permission: !ruby/object:Permission 
+00000000237_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
-    action: |
-      --- :new
-
-    subject: user
-    id: "204"
+    action: "*"
+    subject: inventory
+    id: "237"
   attributes_cache: {}
 
-00000000139_permission: !ruby/object:Permission 
+00000000059_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
-    action: |
-      --- :list
-
-    subject: project
-    id: "139"
-  attributes_cache: {}
-
-00000000459_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: report
-    id: "459"
-  attributes_cache: {}
-
-00000000336_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: cataloge
-    id: "336"
-  attributes_cache: {}
-
-00000000148_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: system
-    id: "148"
-  attributes_cache: {}
-
-00000000180_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: users
-    id: "180"
-  attributes_cache: {}
-
-00000000209_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: protocol
-    id: "209"
-  attributes_cache: {}
-
-00000000406_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: catalogue
-    id: "406"
-  attributes_cache: {}
-
-00000000218_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: assay
-    id: "218"
-  attributes_cache: {}
-
-00000000062_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: experiment
-    id: "62"
-  attributes_cache: {}
-
-00000000250_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: cataloge
-    id: "250"
+    action: "*"
+    subject: dba
+    id: "59"
   attributes_cache: {}
 
 00000000071_permission: !ruby/object:Permission 
@@ -3874,98 +296,232 @@
     action: |
       --- :show
 
-    subject: request
+    subject: project
     id: "71"
   attributes_cache: {}
 
-00000000382_permission: !ruby/object:Permission 
+00000000143_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :update
+      --- :create
 
-    subject: inventory
-    id: "382"
+    subject: tasks
+    id: "143"
   attributes_cache: {}
 
-00000000194_permission: !ruby/object:Permission 
+00000000035_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: auth
+    id: "35"
+  attributes_cache: {}
+
+00000000215_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :destroy
 
+    subject: reports
+    id: "215"
+  attributes_cache: {}
+
+00000000243_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: inventory
+    id: "243"
+  attributes_cache: {}
+
+00000000171_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: users
+    id: "171"
+  attributes_cache: {}
+
+00000000087_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: assay_parameters
+    id: "87"
+  attributes_cache: {}
+
+00000000195_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :timeline
+
     subject: home
-    id: "194"
+    id: "195"
   attributes_cache: {}
 
-00000000132_permission: !ruby/object:Permission 
+00000000107_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :list
+      --- :new
 
-    subject: catalogue
-    id: "132"
+    subject: assay_queues
+    id: "107"
   attributes_cache: {}
 
-00000000391_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: protocol
-    id: "391"
-  attributes_cache: {}
-
-00000000320_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: catalogue
-    id: "320"
-  attributes_cache: {}
-
-00000000452_permission: !ruby/object:Permission 
+00000000013_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :update
 
-    subject: users
-    id: "452"
+    subject: assays
+    id: "13"
   attributes_cache: {}
 
-00000000076_permission: !ruby/object:Permission 
+00000000135_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: tasks
+    id: "135"
+  attributes_cache: {}
+
+00000000159_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :desrroy
+      --- :new
 
-    subject: request
-    id: "76"
+    subject: requests
+    id: "159"
   attributes_cache: {}
 
-00000000264_permission: !ruby/object:Permission 
+00000000041_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :desrroy
+      --- :list
 
-    subject: request
-    id: "264"
+    subject: catalogue
+    id: "41"
   attributes_cache: {}
 
-00000000461_permission: !ruby/object:Permission 
+00000000187_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :index
 
     subject: home
-    id: "461"
+    id: "187"
+  attributes_cache: {}
+
+00000000113_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: assay_queues
+    id: "113"
+  attributes_cache: {}
+
+00000000207_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: reports
+    id: "207"
+  attributes_cache: {}
+
+00000000093_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: assay_parameters
+    id: "93"
+  attributes_cache: {}
+
+00000000005_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: assays
+    id: "5"
+  attributes_cache: {}
+
+00000000165_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: requests
+    id: "165"
+  attributes_cache: {}
+
+00000000079_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: project
+    id: "79"
+  attributes_cache: {}
+
+00000000235_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: finder
+    id: "235"
+  attributes_cache: {}
+
+00000000057_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new_usage
+
+    subject: catalogue
+    id: "57"
+  attributes_cache: {}
+
+00000000129_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: queue_items
+    id: "129"
+  attributes_cache: {}
+
+00000000033_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: experiments
+    id: "33"
   attributes_cache: {}
 
 00000000141_permission: !ruby/object:Permission 
@@ -3974,741 +530,697 @@
     action: |
       --- :new
 
-    subject: project
+    subject: tasks
     id: "141"
   attributes_cache: {}
 
-00000000396_permission: !ruby/object:Permission 
+00000000213_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :update
 
-    subject: protocol
-    id: "396"
-  attributes_cache: {}
-
-00000000085_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: report
-    id: "85"
-  attributes_cache: {}
-
-00000000014_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: protocol
-    id: "14"
-  attributes_cache: {}
-
-00000000273_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: report
-    id: "273"
-  attributes_cache: {}
-
-00000000202_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: user
-    id: "202"
-  attributes_cache: {}
-
-00000000211_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: protocol
-    id: "211"
-  attributes_cache: {}
-
-00000000146_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: system
-    id: "146"
-  attributes_cache: {}
-
-00000000092_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: report
-    id: "92"
-  attributes_cache: {}
-
-00000000023_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: assay
-    id: "23"
-  attributes_cache: {}
-
-00000000334_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: system
-    id: "334"
-  attributes_cache: {}
-
-00000000280_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: home
-    id: "280"
-  attributes_cache: {}
-
-00000000466_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :blog
-
-    subject: home
-    id: "466"
-  attributes_cache: {}
-
-00000000155_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: cataloge
-    id: "155"
-  attributes_cache: {}
-
-00000000343_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: experiment
-    id: "343"
-  attributes_cache: {}
-
-00000000278_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: report
-    id: "278"
-  attributes_cache: {}
-
-00000000099_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :blog
-
-    subject: home
-    id: "99"
-  attributes_cache: {}
-
-00000000030_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: catalogue
-    id: "30"
-  attributes_cache: {}
-
-00000000287_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: "287"
-  attributes_cache: {}
-
-00000000404_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: assay
-    id: "404"
-  attributes_cache: {}
-
-00000000162_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: experiment
-    id: "162"
-  attributes_cache: {}
-
-00000000028_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: catalogue
-    id: "28"
-  attributes_cache: {}
-
-00000000350_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: request
-    id: "350"
-  attributes_cache: {}
-
-00000000216_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :list
-
-    subject: assay
-    id: "216"
-  attributes_cache: {}
-
-00000000413_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: project
-    id: "413"
-  attributes_cache: {}
-
-00000000225_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: "225"
-  attributes_cache: {}
-
-00000000171_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: request
-    id: "171"
-  attributes_cache: {}
-
-00000000100_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :destroy
-
-    subject: home
-    id: "100"
-  attributes_cache: {}
-
-00000000102_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: "*"
-    subject: charts
-    id: "102"
-  attributes_cache: {}
-
-00000000037_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: project
-    id: "37"
-  attributes_cache: {}
-
-00000000348_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: experiment
-    id: "348"
-  attributes_cache: {}
-
-00000000294_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: user
-    id: "294"
-  attributes_cache: {}
-
-00000000420_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: system
-    id: "420"
-  attributes_cache: {}
-
-00000000232_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: project
-    id: "232"
-  attributes_cache: {}
-
-00000000169_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: request
-    id: "169"
-  attributes_cache: {}
-
-00000000044_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: system
-    id: "44"
-  attributes_cache: {}
-
-00000000357_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: users
-    id: "357"
+    subject: reports
+    id: "213"
   attributes_cache: {}
 
 00000000241_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :edit
+      --- :show
 
-    subject: system
+    subject: inventory
     id: "241"
   attributes_cache: {}
 
-00000000176_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: users
-    id: "176"
-  attributes_cache: {}
-
-00000000364_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: report
-    id: "364"
-  attributes_cache: {}
-
-00000000418_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: project
-    id: "418"
-  attributes_cache: {}
-
-00000000107_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: inventory
-    id: "107"
-  attributes_cache: {}
-
-00000000053_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: cataloge
-    id: "53"
-  attributes_cache: {}
-
-00000000373_permission: !ruby/object:Permission 
+00000000193_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :calendar
 
     subject: home
-    id: "373"
+    id: "193"
   attributes_cache: {}
 
-00000000427_permission: !ruby/object:Permission 
+00000000011_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: assays
+    id: "11"
+  attributes_cache: {}
+
+00000000105_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :show
 
-    subject: cataloge
-    id: "427"
+    subject: assay_queues
+    id: "105"
   attributes_cache: {}
 
-00000000239_permission: !ruby/object:Permission 
+00000000085_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :new
+      --- :list
 
-    subject: system
-    id: "239"
+    subject: assay_parameters
+    id: "85"
+  attributes_cache: {}
+
+00000000157_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: requests
+    id: "157"
+  attributes_cache: {}
+
+00000000229_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: assay_protocols
+    id: "229"
+  attributes_cache: {}
+
+00000000049_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: catalogue
+    id: "49"
+  attributes_cache: {}
+
+00000000111_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: assay_queues
+    id: "111"
+  attributes_cache: {}
+
+00000000205_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: reports
+    id: "205"
+  attributes_cache: {}
+
+00000000063_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :recover
+
+    subject: dba
+    id: "63"
+  attributes_cache: {}
+
+00000000091_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: assay_parameters
+    id: "91"
   attributes_cache: {}
 
 00000000185_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
-    action: |
-      --- :edit
-
-    subject: report
+    action: "*"
+    subject: home
     id: "185"
   attributes_cache: {}
 
-00000000114_permission: !ruby/object:Permission 
+00000000003_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: assays
+    id: "3"
+  attributes_cache: {}
+
+00000000027_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :create
 
-    subject: user
-    id: "114"
+    subject: experiments
+    id: "27"
   attributes_cache: {}
 
-00000000116_permission: !ruby/object:Permission 
+00000000055_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :update
+      --- :new_element
 
-    subject: user
-    id: "116"
+    subject: catalogue
+    id: "55"
   attributes_cache: {}
 
-00000000302_permission: !ruby/object:Permission 
+00000000149_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :new
+      --- :destroy
 
-    subject: protocol
-    id: "302"
+    subject: tasks
+    id: "149"
   attributes_cache: {}
 
-00000000304_permission: !ruby/object:Permission 
+00000000163_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :edit
 
-    subject: protocol
-    id: "304"
+    subject: requests
+    id: "163"
   attributes_cache: {}
 
-00000000434_permission: !ruby/object:Permission 
+00000000211_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :show
+      --- :edit
 
-    subject: experiment
-    id: "434"
+    subject: reports
+    id: "211"
   attributes_cache: {}
 
-00000000246_permission: !ruby/object:Permission 
+00000000127_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
-      --- :new
+      --- :edit
 
-    subject: cataloge
-    id: "246"
+    subject: queue_items
+    id: "127"
   attributes_cache: {}
 
-00000000123_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: protocol
-    id: "123"
-  attributes_cache: {}
-
-00000000058_permission: !ruby/object:Permission 
+00000000019_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: "*"
-    subject: data_capture
-    id: "58"
+    subject: experiments
+    id: "19"
   attributes_cache: {}
 
-00000000311_permission: !ruby/object:Permission 
+00000000179_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :edit
-
-    subject: assay
-    id: "311"
-  attributes_cache: {}
-
-00000000443_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: request
-    id: "443"
-  attributes_cache: {}
-
-00000000255_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: experiment
-    id: "255"
-  attributes_cache: {}
-
-00000000067_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :desrroy
-
-    subject: experiment
-    id: "67"
-  attributes_cache: {}
-
-00000000378_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
-
-    subject: inventory
-    id: "378"
-  attributes_cache: {}
-
-00000000199_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: inventory
-    id: "199"
-  attributes_cache: {}
-
-00000000387_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: user
-    id: "387"
-  attributes_cache: {}
-
-00000000309_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: assay
-    id: "309"
-  attributes_cache: {}
-
-00000000318_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: catalogue
-    id: "318"
-  attributes_cache: {}
-
-00000000128_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: assay
-    id: "128"
-  attributes_cache: {}
-
-00000000005_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :create
-
-    subject: user
-    id: "5"
-  attributes_cache: {}
-
-00000000316_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :new
-
-    subject: catalogue
-    id: "316"
-  attributes_cache: {}
-
-00000000448_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :show
 
     subject: users
-    id: "448"
+    id: "179"
   attributes_cache: {}
 
-00000000137_permission: !ruby/object:Permission 
+00000000191_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :projects
+
+    subject: home
+    id: "191"
+  attributes_cache: {}
+
+00000000103_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: assay_queues
+    id: "103"
+  attributes_cache: {}
+
+00000000249_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :update
 
-    subject: catalogue
-    id: "137"
+    subject: inventory
+    id: "249"
   attributes_cache: {}
 
-00000000325_permission: !ruby/object:Permission 
+00000000083_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: assay_parameters
+    id: "83"
+  attributes_cache: {}
+
+00000000155_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: requests
+    id: "155"
+  attributes_cache: {}
+
+00000000133_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: biorails
+    id: "133"
+  attributes_cache: {}
+
+00000000227_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :edit
+
+    subject: assay_protocols
+    id: "227"
+  attributes_cache: {}
+
+00000000047_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: catalogue
+    id: "47"
+  attributes_cache: {}
+
+00000000203_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: reports
+    id: "203"
+  attributes_cache: {}
+
+00000000061_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :backup
+
+    subject: dba
+    id: "61"
+  attributes_cache: {}
+
+00000000001_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: assays
+    id: "1"
+  attributes_cache: {}
+
+00000000099_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: audit
+    id: "99"
+  attributes_cache: {}
+
+00000000119_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: queue_items
+    id: "119"
+  attributes_cache: {}
+
+00000000025_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: experiments
+    id: "25"
+  attributes_cache: {}
+
+00000000233_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: charts
+    id: "233"
+  attributes_cache: {}
+
+00000000161_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: requests
+    id: "161"
+  attributes_cache: {}
+
+00000000077_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :edit
 
     subject: project
-    id: "325"
+    id: "77"
   attributes_cache: {}
 
-00000000457_permission: !ruby/object:Permission 
+00000000053_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: catalogue
+    id: "53"
+  attributes_cache: {}
+
+00000000199_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: home
+    id: "199"
+  attributes_cache: {}
+
+00000000125_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :create
 
-    subject: report
-    id: "457"
+    subject: queue_items
+    id: "125"
   attributes_cache: {}
 
-00000000269_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :edit
-
-    subject: users
-    id: "269"
-  attributes_cache: {}
-
-00000000207_permission: !ruby/object:Permission 
-  attributes: 
-    checked: "1"
-    action: |
-      --- :update
-
-    subject: user
-    id: "207"
-  attributes_cache: {}
-
-00000000019_permission: !ruby/object:Permission 
+00000000219_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :list
 
-    subject: assay
-    id: "19"
+    subject: assay_protocols
+    id: "219"
   attributes_cache: {}
 
-00000000339_permission: !ruby/object:Permission 
+00000000017_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: memberships
+    id: "17"
+  attributes_cache: {}
+
+00000000031_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: experiments
+    id: "31"
+  attributes_cache: {}
+
+00000000177_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: users
+    id: "177"
+  attributes_cache: {}
+
+00000000069_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :list
+
+    subject: project
+    id: "69"
+  attributes_cache: {}
+
+00000000153_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: requests
+    id: "153"
+  attributes_cache: {}
+
+00000000131_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: queue_items
+    id: "131"
+  attributes_cache: {}
+
+00000000225_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: assay_protocols
+    id: "225"
+  attributes_cache: {}
+
+00000000023_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: experiments
+    id: "23"
+  attributes_cache: {}
+
+00000000117_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: queue_items
+    id: "117"
+  attributes_cache: {}
+
+00000000231_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: assay_protocols
+    id: "231"
+  attributes_cache: {}
+
+00000000183_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: users
+    id: "183"
+  attributes_cache: {}
+
+00000000097_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: assay_parameters
+    id: "97"
+  attributes_cache: {}
+
+00000000169_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: users
+    id: "169"
+  attributes_cache: {}
+
+00000000147_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: tasks
+    id: "147"
+  attributes_cache: {}
+
+00000000051_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :update
+
+    subject: catalogue
+    id: "51"
+  attributes_cache: {}
+
+00000000123_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: queue_items
+    id: "123"
+  attributes_cache: {}
+
+00000000217_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: assay_protocols
+    id: "217"
+  attributes_cache: {}
+
+00000000075_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :create
+
+    subject: project
+    id: "75"
+  attributes_cache: {}
+
+00000000039_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: catalogue
+    id: "39"
+  attributes_cache: {}
+
+00000000101_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: assay_queues
+    id: "101"
+  attributes_cache: {}
+
+00000000015_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: assays
+    id: "15"
+  attributes_cache: {}
+
+00000000175_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: users
+    id: "175"
+  attributes_cache: {}
+
+00000000247_permission: !ruby/object:Permission 
   attributes: 
     checked: "1"
     action: |
       --- :edit
 
-    subject: cataloge
-    id: "339"
+    subject: inventory
+    id: "247"
+  attributes_cache: {}
+
+00000000067_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: "*"
+    subject: project
+    id: "67"
+  attributes_cache: {}
+
+00000000081_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :destroy
+
+    subject: project
+    id: "81"
+  attributes_cache: {}
+
+00000000223_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: assay_protocols
+    id: "223"
+  attributes_cache: {}
+
+00000000045_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :new
+
+    subject: catalogue
+    id: "45"
+  attributes_cache: {}
+
+00000000139_permission: !ruby/object:Permission 
+  attributes: 
+    checked: "1"
+    action: |
+      --- :show
+
+    subject: tasks
+    id: "139"
   attributes_cache: {}
 

@@ -1,37 +1,31 @@
+<div class='box'>
 <table class="report">
-  <tr>
-    <th class="label"><b class="icon icon-name">
-        Name
-      </b>
-    </th>
-    <td>
-      <%= assay.name %>
-    </td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class="icon icon-description">
-        Description
-      </b>
-    </th>
-    <td> <%= assay.description %></td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class="icon icon-research_area">
-        Research Area
-      </b>
-    </th>
-    <td>
-      <%= assay.research_area %>
-    </td>
-  </tr>
-  <tr>
-    <th class="label">
-      <b class="icon icon-purpose">
-        Purpose
-      </b>
-    </th>
-    <td>     <%= assay.purpose %>   </td>
-  </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_name) %>
+        </th>
+        <td>
+            <%= assay.name %>
+        </td>
+        <td>
+            <%= button_to l(:edit),assay_url(:action=>:edit,:id=>assay) %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_description) %>
+        </th>
+        <td>
+            <%= assay.description %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:label_status) %>
+        </th>
+        <td>
+            <%=states_bar(assay.folder,:assay) %>
+        </td>
+    </tr>
 </table>
+</div>

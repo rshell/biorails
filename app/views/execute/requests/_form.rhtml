@@ -1,8 +1,8 @@
 <div class="row">
 
   <div class="form-element">
-    <label for="user_request_name" class='icon icon-name'>
-      Name
+    <label for="user_request_name">
+      <%=l(:label_name)%>
     </label>
     <%= text_field :user_request, 'name' , {:class=>"text-input"} %>
   </div>
@@ -10,7 +10,7 @@
 <% if @user_request.new_record?%>
   <div class="form-element">
     <label for="user_request_data_element_id">
-      Item Type
+      <%=l(:label_item_type)%>
     </label>
     <%= select( :user_request,
         :data_element_id,
@@ -18,8 +18,8 @@
   </div>
 
   <div class="form-element">
-    <label for="user_request_project_id" class='icon icon-project'>
-      For Project
+    <label for="user_request_project_id">
+      <%=l(:label_for_project)%>
     </label>
     <%= select( :user_request, :project_id,
         current_user.projects.collect{|c|[c.name,c.id]})  %>
@@ -34,8 +34,8 @@
 
 <div class="row">
   <div class="form-element">
-    <label for="user_request_description" class='icon icon-description'>
-      Description
+    <label for="user_request_description">
+      <%=l(:label_description)%>
     </label>
     <%= text_area(:user_request, 'description',{:rows=>5, :cols=>80} )  %>
   </div>
@@ -44,29 +44,29 @@
 <div class="row">
 
   <div class="form-element">
-    <label for="user_request_requested_by_user_id" class='icon icon-user'>
-      Requester
+    <label for="user_request_requested_by_user_id">
+      <%=l(:label_requestor)%>
     </label>
     <%= select_named :user_request, 'requested_by_user_id', User %>
   </div>
 
   <div class="form-element">
-    <label for="user_request_expected_at" class='icon icon-date'>
-      By Date
+    <label for="user_request_expected_at">
+      <%=l(:label_date_required)%>
     </label>
     <%= date_field 'user_request', 'expected_at'  %>
   </div>
 
   <div class="form-element">
-    <label for="user_request_status_id" class='icon icon-status'>
-      Status
+    <label for="user_request_status_id">
+      <%=l(:label_status)%>
     </label>
     <%= select( :user_request, :status_id, @user_request.allowed_status_list)  %>
   </div>
 
   <div class="form-element">
-    <label for="user_request_priority_id"  class='icon icon-priority'>
-      Priority
+    <label for="user_request_priority_id">
+      <%=l(:label_priority)%>
     </label>
     <%= select( :user_request, :priority_id, @user_request.allowed_priority_list)  %>
   </div>

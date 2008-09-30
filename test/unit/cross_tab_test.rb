@@ -3,11 +3,10 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CrossTabTest < ActiveSupport::TestCase
   
   def setup
-    Project.current = @project = Project.find(2)  
-    Team.current = @team = Team.find(2)  
+    Project.current = @project = Project.find(2)    
     User.current = @user = User.find(3)  
     @cross_tab = CrossTab.find(:first)
-    @sar = CrossTab.create(:name=>'live',:description=>'sssss',:project_id=>2,:team_id=>2)
+    @sar = CrossTab.create(:name=>'live',:description=>'sssss',:project_id=>2)
     @sar.use_live = true
   end
    
@@ -24,12 +23,11 @@ class CrossTabTest < ActiveSupport::TestCase
   end
   
   def test003_save
-     team = Team.find(:first)
      sar = CrossTab.new(:name=>'test003',:description=>'sssss')
      assert sar.save , sar.errors.full_messages().join('\n')
      assert_ok sar
      assert sar.project, "Project added automatically"    
-     assert sar.team , "Team added automatically"
+     assert sar.project_element , "Project Element added automatically"
      assert sar.columns.size==0, 'should have no columns yet'
      assert sar.filters.size==0, 'should have no filters yet '
   end 

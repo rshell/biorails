@@ -1,24 +1,28 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: task_texts
 #
-#  id                 :integer(11)   not null, primary key
-#  task_context_id    :integer(11)   not null
-#  parameter_id       :integer(11)   not null
-#  data_content       :string(1000)  
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  task_id            :integer(11)   not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  task_context_id    :integer(4)      not null
+#  parameter_id       :integer(4)      not null
+#  data_content       :string(1000)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  task_id            :integer(4)      not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# == Description
+# This is handles qualitive textual result values as text strings.
+# 
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
 class TaskText < ActiveRecord::Base
   acts_as_task_item
 ##

@@ -1,23 +1,36 @@
-
-  <div class=" x-panel-header x-accordion-hd"  >
-    <span class="icon icon-report x-panel-header-text" >
-       Query Help
-       </span>
-  </div>
-  <div class="panel">
-  <p>
-    Select query columns from model columns tree opposite.
-  </p>
-  <div class="text-content">
-    <ul>
-      <li class='icon icon-belongs_to'>Reference</li>
-      <li class='icon icon-has_many'> Collection</li>
-      <li class='icon icon-text'>Long Text</li>
-      <li class='icon icon-string'>Short Text</li>
-      <li class='icon icon-float'>Numeric</li>
-      <li class='icon icon-date'>Date</li>
-      <li class='icon icon-binary'>Binary (Unreadable)</li>
-      <li class='icon icon-boolean'>Yes/No (1/0)</li>
-    </ul>
-  </div>
+<div class=" x-panel-header x-accordion-hd">
+    <span class="icon icon-report x-panel-header-text"><%=l(:label_report) %> <%=l(:label_column_key) %></span>
+</div>
+<div class="panel">
+    <p>
+        <%=l(:help_report_building) %>
+    </p>
+    <div class="text-content">
+        <ul>
+            <li class='icon icon-belongs_to'>
+                <%=l(:label_reference) %>
+            </li>
+            <li class='icon icon-has_many'>
+                <%=l(:label_collection) %>
+            </li>
+            <li class='icon icon-text'>
+                <%=l(:label_long_text) %>
+            </li>
+            <li class='icon icon-string'>
+                <%=l(:label_text) %>
+            </li>
+            <li class='icon icon-float'>
+                <%=l(:label_numeric) %>
+            </li>
+            <li class='icon icon-date'>
+                <%=l(:label_date) %>
+            </li>
+            <li class='icon icon-binary'>
+                <%=l(:label_binary) %>
+            </li>
+            <li class='icon icon-boolean'>
+                <%=l(:label_boolean) %>
+            </li>
+        </ul>
+    </div>
 </div>

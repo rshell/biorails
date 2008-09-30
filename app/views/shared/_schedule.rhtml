@@ -1,0 +1,6 @@
+<div class=>'box' id='<%=schedule.dom_id%>'>
+<%= schedule.state.name %> => 
+<% for item in state.allowed %>
+   [<%=link_to_remote item.name, _url(:id=>schedule.id,:move=>item.id)%>]
+<% end%>
+</div>

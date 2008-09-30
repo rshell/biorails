@@ -2,15 +2,13 @@
 <div>
   <span class='menu'>
     <b class='icon icon-data_type'>
-      Data Type
+      <%=l(:label_data_type)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to "<b class='icon icon-list'>List</b>",data_type_url(:action => 'list') %>
-    <%= link_to "<b class='icon icon-new'>New</b>",data_type_url(:action => 'new') %>
-    <% if @data_type && !@data_type.new_record? %>
-    <%= link_to "<b class='icon icon-edit'>Edit</b>",data_type_url(:action => 'edit', :id => @data_type) %>
-    <%= link_to "<b class='icon icon-show'>Show</b>",data_type_url(:action => 'show',:id => @data_type) %>
-    <% end %>
-    </div>
+  <%= link_to l(:label_list),data_type_url(:action => 'list') %>
+  <%= link_to l(:label_new),data_type_url(:action => 'new') %>
+  <% if @data_type && !@data_type.new_record? %>
+    <%= link_to l(:label_edit),data_type_url(:action => 'edit', :id => @data_type) %>
+    <%= link_to l(:label_show),data_type_url(:action => 'show',:id => @data_type) %>
+  <% end %>
 </div>

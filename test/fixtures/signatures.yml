@@ -1,28 +1,29 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: signatures
 #
-#  id                 :integer(11)   not null, primary key
-#  user_id            :integer(11)   
-#  public_key         :string(2048)  
-#  signature_format   :string(255)   
-#  signature_role     :string(255)   
-#  signature_state    :string(255)   
-#  reason             :string(255)   
-#  requested_date     :datetime      
-#  signed_date        :datetime      
-#  project_element_id :integer(11)   
-#  asserted_text      :string(255)   
-#  filename           :string(255)   
-#  title              :string(255)   
-#  comments           :string(255)   
-#  time_source        :integer(11)   
-#  created_at         :datetime      
-#  created_by_user_id :integer(38)   
-#  updated_at         :datetime      
-#  updated_by_user_id :integer(38)   
-#  content_hash       :string(2048)  
+#  id                 :integer(4)      not null, primary key
+#  user_id            :integer(4)
+#  public_key         :string(2048)
+#  signature_format   :string(255)
+#  signature_role     :string(255)
+#  signature_state    :string(255)
+#  reason             :string(255)
+#  requested_date     :datetime
+#  signed_date        :datetime
+#  project_element_id :integer(4)
+#  asserted_text      :string(255)
+#  filename           :string(255)
+#  title              :string(255)
+#  comments           :string(255)
+#  time_source        :integer(4)
+#  content_hash       :string(2048)
+#  created_at         :datetime
+#  created_by_user_id :integer(4)
+#  updated_at         :datetime
+#  updated_by_user_id :integer(4)
+#  file_version       :integer(4)      default(0), not null
 #
 
 --- 
@@ -36,7 +37,7 @@ signatures_001:
   updated_by_user_id: "1"
   id: "56"
   time_source: "0"
-  filename: Project_X/b350dc80-b13b-012a-0b7c-0016cbd1c457_V77
+  filename: project_element_2_V2
   signature_role: AUTHOR
   created_by_user_id: "1"
   project_element_id: "2"
@@ -62,7 +63,7 @@ signatures_002:
   updated_by_user_id: "1"
   id: "57"
   time_source: "0"
-  filename: Project_X/b350dc80-b13b-012a-0b7c-0016cbd1c457_V77
+  filename: project_element_2_V2
   signature_role: WITNESS
   created_by_user_id: "1"
   project_element_id: "2"
@@ -88,7 +89,7 @@ signatures_003:
   updated_by_user_id: "1"
   id: "100"
   time_source: "0"
-  filename: ../../files/foo.txt
+  filename: project_element_2_V2
   signature_role: WITNESS
   created_by_user_id: "1"
   project_element_id: "2"

@@ -1,7 +1,7 @@
-# This is based on Technoweenie attractment_fu
+#F This is based on Technoweenie attractment_fu
 module Alces # :nodoc:
   module Attachments # :nodoc:
-    @@default_processors = %w(ImageScience Rmagick MiniMagick)
+    @@default_processors = %w(MiniMagick Rmagick ImageScience)
     @@tempfile_path      = File.join(RAILS_ROOT, 'tmp', 'attachments')
     @@content_types      = ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png']
     mattr_reader :content_types, :tempfile_path, :default_processors
@@ -22,6 +22,7 @@ module Alces # :nodoc:
       # *  <tt>:path_prefix</tt> - path to store the uploaded files.  Uses public/#{table_name} by default for the filesystem, and just #{table_name}
       #      for the S3 backend.  Setting this sets the :storage to :file_system.
       # *  <tt>:storage</tt> - Use :file_system to specify the attachment data is stored with the file system.  Defaults to :db_system.
+      # *  <tt>:keep_profile</tt> By default image EXIF data will be stripped to minimize image size. For small thumbnails this proivides important savings. Picture quality is not affected. Set to false if you want to keep the image profile as is. ImageScience will allways keep EXIF data.
       #
       # Examples:
       #   has_attachment :max_size => 1.kilobyte
@@ -32,7 +33,7 @@ module Alces # :nodoc:
       #   has_attachment :content_type => ['application/pdf', :image], :resize_to => 'x50'
       #   has_attachment :thumbnails => { :thumb => [50, 50], :geometry => 'x50' }
       #   has_attachment :storage => :file_system, :path_prefix => 'public/files'
-      #   has_attachment :storage => :file_system, :path_prefix => 'public/files', 
+      #   has_attachment :storage => :file_system, :path_prefix => 'public/files',
       #     :content_type => :image, :resize_to => [50,50]
       #   has_attachment :storage => :file_system, :path_prefix => 'public/files',
       #     :thumbnails => { :thumb => [50, 50], :geometry => 'x50' }
@@ -50,62 +51,70 @@ module Alces # :nodoc:
         unless options[:thumbnails].is_a?(Hash)
           raise ArgumentError, ":thumbnails option should be a hash: e.g. :thumbnails => { :foo => '50x50' }"
         end
-        
+        extend ClassMethods unless (class << self; included_modules; end).include?(ClassMethods)
+        include InstanceMethods unless included_modules.include?(InstanceMethods)
+
+        parent_options = attachment_options || {}
         # doing these shenanigans so that #attachment_options is available to processors and backends
-        class_inheritable_accessor :attachment_options
+  
         self.attachment_options = options
 
-        # only need to define these once on a class
-        unless included_modules.include?(InstanceMethods)
-          attr_accessor :thumbnail_resize_options
+        attr_accessor :thumbnail_resize_options
 
-          attachment_options[:storage]     ||= (attachment_options[:file_system_path] || attachment_options[:path_prefix]) ? :file_system : :db_file
-          attachment_options[:path_prefix] ||= attachment_options[:file_system_path]
-          if attachment_options[:path_prefix].nil?
-            attachment_options[:path_prefix] = attachment_options[:storage] == :s3 ? table_name : File.join("public", table_name)
+        attachment_options[:storage]     ||= (attachment_options[:file_system_path] || attachment_options[:path_prefix]) ? :file_system : :db_file
+        attachment_options[:storage]     ||= parent_options[:storage]
+        attachment_options[:path_prefix] ||= attachment_options[:file_system_path]
+        if attachment_options[:path_prefix].nil?
+          attachment_options[:path_prefix] = attachment_options[:storage] == :s3 ? table_name : File.join("public", table_name)
+        end
+        attachment_options[:path_prefix]   = attachment_options[:path_prefix][1..-1] if options[:path_prefix].first == '/'
+
+        with_options :foreign_key => 'parent_id' do |m|
+          m.has_many   :thumbnails, :class_name => "::#{attachment_options[:thumbnail_class]}"
+          m.belongs_to :parent, :class_name => "::#{base_class}" unless options[:thumbnails].empty?
+        end
+
+        storage_mod = Alces::Attachments::Backends.const_get("#{options[:storage].to_s.classify}Backend")
+        include storage_mod unless included_modules.include?(storage_mod)
+
+        case attachment_options[:processor]
+        when :none, nil
+          processors = Alces::Attachments.default_processors.dup
+          begin
+            if processors.any?
+              attachment_options[:processor] = "#{processors.first}Processor"
+              processor_mod = Alces::Attachments::Processors.const_get(attachment_options[:processor])
+              include processor_mod unless included_modules.include?(processor_mod)
+            end
+          rescue Object, Exception
+            raise unless load_related_exception?($!)
+
+            processors.shift
+            retry
           end
-          attachment_options[:path_prefix]   = attachment_options[:path_prefix][1..-1] if options[:path_prefix].first == '/'
+        else
+          begin
+            processor_mod = Alces::Attachments::Processors.const_get("#{attachment_options[:processor].to_s.classify}Processor")
+            include processor_mod unless included_modules.include?(processor_mod)
+          rescue Object, Exception
+            raise unless load_related_exception?($!)
 
-          with_options :foreign_key => 'parent_id' do |m|
-            m.has_many   :thumbnails, :class_name => attachment_options[:thumbnail_class].to_s
-            m.belongs_to :parent, :class_name => base_class.to_s
+            puts "Problems loading #{options[:processor]}Processor: #{$!}"
           end
-          
-          ##
-          # Callback hooks
-          # 
-          before_validation :set_size_from_temp_path
-          after_validation  :process_attachment
-          after_save        :after_process_attachment
+        end unless parent_options[:processor] # Don't let child override processor
+      end
 
-          before_destroy    :destroy_thumbnails
-          after_destroy     :destroy_file
-          
-          extend  ClassMethods
-          include InstanceMethods
-          include Alces::Attachments::Backends.const_get("#{options[:storage].to_s.classify}Backend")
-          
-          case attachment_options[:processor]
-            when :none
-            when nil
-              processors = Alces::Attachments.default_processors.dup
-              begin
-                include Alces::Attachments::Processors.const_get("#{processors.first}Processor") if processors.any?
-              rescue LoadError, MissingSourceFile
-                processors.shift
-                retry
-              end
-            else
-              begin
-                include Alces::Attachments::Processors.const_get("#{options[:processor].to_s.classify}Processor")
-              rescue LoadError, MissingSourceFile
-                puts "Problems loading #{options[:processor]}Processor: #{$!}"
-              end
-          end
-          
-
+      def load_related_exception?(e) #:nodoc: implementation specific
+        case
+        when e.kind_of?(LoadError), e.kind_of?(MissingSourceFile), $!.class.name == "CompilationError"
+          # We can't rescue CompilationError directly, as it is part of the RubyInline library.
+          # We must instead rescue RuntimeError, and check the class' name.
+          true
+        else
+          false
         end
       end
+      private :load_related_exception?
     end
 
     module ClassMethods
@@ -122,41 +131,56 @@ module Alces # :nodoc:
         content_types.include?(content_type)
       end
 
-      # Callback after an image has been resized.
-      #
-      #   class Foo < ActiveRecord::Base
-      #     acts_as_attachment
-      #     after_resize do |record, img| 
-      #       record.aspect_ratio = img.columns.to_f / img.rows.to_f
-      #     end
-      #   end
-      def after_resize(&block)
-        write_inheritable_array(:after_resize, [block])
+      def self.extended(base)
+        base.class_inheritable_accessor :attachment_options
+        base.before_destroy :destroy_thumbnails
+        base.before_validation :set_size_from_temp_path
+        base.after_save :after_process_attachment
+        base.after_destroy :destroy_file
+        base.after_validation :process_attachment
+        if defined?(::ActiveSupport::Callbacks)
+          base.define_callbacks :after_resize, :after_attachment_saved, :before_thumbnail_saved
+        end
       end
 
-      # Callback after an attachment has been saved either to the file system or the DB.
-      # Only called if the file has been changed, not necessarily if the record is updated.
-      #
-      #   class Foo < ActiveRecord::Base
-      #     acts_as_attachment
-      #     after_attachment_saved do |record|
-      #       ...
-      #     end
-      #   end
-      def after_attachment_saved(&block)
-        write_inheritable_array(:after_attachment_saved, [block])
-      end
+      unless defined?(::ActiveSupport::Callbacks)
+        # Callback after an image has been resized.
+        #
+        #   class Foo < ActiveRecord::Base
+        #     acts_as_attachment
+        #     after_resize do |record, img|
+        #       record.aspect_ratio = img.columns.to_f / img.rows.to_f
+        #     end
+        #   end
+        def after_resize(&block)
+          write_inheritable_array(:after_resize, [block])
+        end
 
-      # Callback before a thumbnail is saved.  Use this to pass any necessary extra attributes that may be required.
-      #
-      #   class Foo < ActiveRecord::Base
-      #     acts_as_attachment
-      #     before_thumbnail_saved do |record, thumbnail|
-      #       ...
-      #     end
-      #   end
-      def before_thumbnail_saved(&block)
-        write_inheritable_array(:before_thumbnail_saved, [block])
+        # Callback after an attachment has been saved either to the file system or the DB.
+        # Only called if the file has been changed, not necessarily if the record is updated.
+        #
+        #   class Foo < ActiveRecord::Base
+        #     acts_as_attachment
+        #     after_attachment_saved do |record|
+        #       ...
+        #     end
+        #   end
+        def after_attachment_saved(&block)
+          write_inheritable_array(:after_attachment_saved, [block])
+        end
+
+        # Callback before a thumbnail is saved.  Use this to pass any necessary extra attributes that may be required.
+        #
+        #   class Foo < ActiveRecord::Base
+        #     acts_as_attachment
+        #     before_thumbnail_saved do |thumbnail|
+        #       record = thumbnail.parent
+        #       ...
+        #     end
+        #   end
+        def before_thumbnail_saved(&block)
+          write_inheritable_array(:before_thumbnail_saved, [block])
+        end
       end
 
       # Get the thumbnail class, which is the current attachment class by default.
@@ -185,14 +209,17 @@ module Alces # :nodoc:
     end
 
     module InstanceMethods
+      def self.included(base)
+        base.define_callbacks *[:after_resize, :after_attachment_saved, :before_thumbnail_saved] if base.respond_to?(:define_callbacks)
+      end
+
       # Checks whether the attachment's content type is an image content type
       def image?
         self.class.image?(content_type)
       end
-      
       # Returns true/false if an attachment is thumbnailable.  A thumbnailable attachment has an image content type and the parent_id attribute.
       def thumbnailable?
-        image? && respond_to?(:parent_id)
+        image? && respond_to?(:parent_id) && parent_id.nil?
       end
 
       # Returns the class used to create new thumbnails for this attachment.
@@ -207,6 +234,8 @@ module Alces # :nodoc:
         basename = filename.gsub /\.\w+$/ do |s|
           ext = s; ''
         end
+        # ImageScience doesn't create gif thumbnails, only pngs
+        ext.sub!(/gif$/, 'png') if attachment_options[:processor] == "ImageScience"
         "#{basename}_#{thumbnail}#{ext}"
       end
 
@@ -215,8 +244,8 @@ module Alces # :nodoc:
         thumbnailable? || raise(ThumbnailError.new("Can't create a thumbnail if the content type is not an image or there is no parent_id column"))
         returning find_or_initialize_thumbnail(file_name_suffix) do |thumb|
           thumb.attributes = {
-            :content_type             => content_type, 
-            :filename                 => thumbnail_name_for(file_name_suffix), 
+            :content_type             => content_type,
+            :filename                 => thumbnail_name_for(file_name_suffix),
             :temp_path                => temp_file,
             :thumbnail_resize_options => size
           }
@@ -230,7 +259,6 @@ module Alces # :nodoc:
       def content_type=(new_type)
         write_attribute :content_type, new_type.to_s.strip
       end
-      
       # Sanitizes a filename.
       def filename=(new_name)
         write_attribute :filename, sanitize_filename(new_name)
@@ -265,21 +293,25 @@ module Alces # :nodoc:
           logger.warn "No file data found for attachment"
           return nil 
         end
+        
         if file_data.respond_to?(:content_type)
           return nil if file_data.size == 0
           self.content_type = file_data.content_type
           self.filename     = file_data.original_filename if respond_to?(:filename)
-        else
-          return nil if file_data['size'] == 0
+        elsif  file_data.respond_to?('[]')
+          return nil if file_data.blank? || file_data['size'] == 0
           self.content_type = file_data['content_type']
           self.filename =  file_data['filename']
           file_data = file_data['tempfile']
         end
-        if file_data.is_a?(StringIO)
+        case file_data
+        when StringIO
           file_data.rewind
           self.temp_data = file_data.read
+        when String
+          self.temp_data = file_data
         else
-          self.temp_path = file_data.path
+          self.temp_path = file_data
         end
       end
 
@@ -291,13 +323,13 @@ module Alces # :nodoc:
         p = temp_paths.first
         p.respond_to?(:path) ? p.path : p.to_s
       end
-      
       # Gets an array of the currently used temp paths.  Defaults to a copy of #full_filename.
       def temp_paths
-        @temp_paths ||= (new_record? || !File.exist?(full_filename)) ? [] : [copy_to_temp_file(full_filename)]
+        @temp_paths ||= (new_record? || !respond_to?(:full_filename) || !File.exist?(full_filename) ?
+          [] : [copy_to_temp_file(full_filename)])
       end
-      
-      # Adds a new temp_path to the array.  This should take a string or a Tempfile.  This class makes no 
+
+      # Adds a new temp_path to the array.  This should take a string or a Tempfile.  This class makes no
       # attempt to remove the files, so Tempfiles should be used.  Tempfiles remove themselves when they go out of scope.
       # You can also use string paths for temporary files, such as those used for uploaded files in a web server.
       def temp_path=(value)
@@ -309,22 +341,18 @@ module Alces # :nodoc:
       def temp_data
         save_attachment? ? File.read(temp_path) : nil
       end
-      
       # Writes the given data to a Tempfile and adds it to the collection of temp files.
       def temp_data=(data)
         self.temp_path = write_to_temp_file data unless data.nil?
       end
-      
       # Copies the given file to a randomly named Tempfile.
       def copy_to_temp_file(file)
         self.class.copy_to_temp_file file, random_tempfile_filename
       end
-      
       # Writes the given file to a randomly named Tempfile.
       def write_to_temp_file(data)
         self.class.write_to_temp_file data, random_tempfile_filename
       end
-      
       # Stub for creating a temp file from the attachment data.  This should be defined in the backend module.
       def create_temp_file() end
 
@@ -339,19 +367,19 @@ module Alces # :nodoc:
       end
 
       protected
-        # Generates a unique filename for a Tempfile. 
+        # Generates a unique filename for a Tempfile.
         def random_tempfile_filename
           "#{rand Time.now.to_i}#{filename || 'attachment'}"
         end
 
         def sanitize_filename(filename)
+          return unless filename
           returning filename.strip do |name|
             # NOTE: File.basename doesn't work right with Windows paths on Unix
             # get only the filename, not the whole path
             name.gsub! /^.*(\\|\/)/, ''
-            
             # Finally, replace all non alphanumeric, underscore or periods with underscore
-            name.gsub! /[^\w\.\-]/, '_'
+            name.gsub! /[^A-Za-z0-9\.\-]/, '_'
           end
         end
 
@@ -399,24 +427,44 @@ module Alces # :nodoc:
           if (!respond_to?(:parent_id) || parent_id.nil?) && attachment_options[:resize_to] # parent image
             resize_image(img, attachment_options[:resize_to])
           elsif thumbnail_resize_options # thumbnail
-            resize_image(img, thumbnail_resize_options) 
+            resize_image(img, thumbnail_resize_options)
           end
         end
 
         # Yanked from ActiveRecord::Callbacks, modified so I can pass args to the callbacks besides self.
         # Only accept blocks, however
-        def callback_with_args(method, arg = self)
-          notify(method)
+        if ActiveSupport.const_defined?(:Callbacks)
+          # Rails 2.1 and beyond!
+          def callback_with_args(method, arg = self)
+            notify(method)
 
-          result = nil
-          callbacks_for(method).each do |callback|
-            result = callback.call(self, arg)
-            return false if result == false
+            result = run_callbacks(method, { :object => arg }) { |result, object| result == false }
+
+            if result != false && respond_to_without_attributes?(method)
+              result = send(method)
+            end
+
+            result
           end
 
-          return result
+          def run_callbacks(kind, options = {}, &block)
+            options.reverse_merge!( :object => self )
+            self.class.send("#{kind}_callback_chain").run(options[:object], options, &block)
+          end
+        else
+          # Rails 2.0
+          def callback_with_args(method, arg = self)
+            notify(method)
+
+            result = nil
+            callbacks_for(method).each do |callback|
+              result = callback.call(self, arg)
+              return false if result == false
+            end
+            result
+          end
         end
-        
+
         # Removes the thumbnails for the attachment, if it has any
         def destroy_thumbnails
           self.thumbnails.each { |thumbnail| thumbnail.destroy } if thumbnailable?

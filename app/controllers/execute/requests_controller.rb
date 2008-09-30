@@ -1,14 +1,20 @@
-##
+# == Request Controller
+# This managages a request to run a list fo services with a list of inventory
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
+#
 #
 class Execute::RequestsController < ApplicationController
 
-  use_authorization :requests,
+  use_authorization :execution,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
                   
+  before_filter :setup_requests,
+    :only => [ :list,:index,:new,:create] 
+
   before_filter :setup_request,
     :only => [ :show, :edit, :update,:destroy,:results,:add_item,:add_service] 
 ##
@@ -23,18 +29,10 @@ class Execute::RequestsController < ApplicationController
 # List of all the items for set queue
 # 
   def list                                     
-   @project = current_project
-   @report = Report.internal_report("RequestList",Request) do | report |
-      report.column('project_id').filter = @project.id
-      report.column('project_id').is_visible = false
-      report.column('name').customize(:order_num=>1)
-      report.column('name').is_visible = true
-      report.column('name').action = :show
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-   end
-   
-   @data = @report.run(:page => params[:page])
+    @report = Biorails::ReportLibrary.project_request_list 
+    @report.column('project_id').filter = current_project.id
+    @report.set_filter(params[:filter])if params[:filter] 
+    @report.add_sort(params[:sort]) if params[:sort]
   end
   
 ##
@@ -46,21 +44,11 @@ class Execute::RequestsController < ApplicationController
 # Show the status of a request item with a history of testing of the requested item in the 
 # current assay. eg a schedule of task data entry
   def results
-   @report = Report.internal_report("Request Results",QueueResult) do | report |
+   @report = Biorails::ReportLibrary.request_results_list do | report |
       report.column('service.request_id').filter = @user_request.id.to_s
-      report.column('service.name').is_filterible = true
-      report.column('queue.name').is_filterible = true
-      report.column('subject').is_filterible = true
-      report.column('label').is_filterible = true
-      report.column('parameter_name').is_filterible = true
-      report.column('data_value').is_visible = true
-      report.column('id').is_visible = false
-      report.column('task.status_id').customize(:filter => "5",:is_visible => false)
-      report.column('task.name').is_visible = true
       report.set_filter(params[:filter])if params[:filter] 
       report.add_sort(params[:sort]) if params[:sort]
    end
-   @data = @report.run(:page => params[:page])
    render :action => :report
   end
 ##
@@ -77,6 +65,7 @@ class Execute::RequestsController < ApplicationController
     ok = true
     @user_request = Request.create(params[:user_request])
     if @user_request.valid?
+       set_project @user_request.project
        @project_folder =@user_request.folder
        flash[:notice] = 'Request was successfully created.'
        redirect_to :action => 'edit',:id=> @user_request.id
@@ -206,8 +195,12 @@ class Execute::RequestsController < ApplicationController
   
 protected
 
+  def setup_requests
+    set_project(Project.load( params[:id] )) if  params[:id]    
+  end  
+
   def setup_request
-    @user_request = current_user.request(params[:id])
+    @user_request = Request.find(params[:id])
     return show_access_denied unless @user_request   
     @project_folder =current_project.folder(@user_request)
     return true

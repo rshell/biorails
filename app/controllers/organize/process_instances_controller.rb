@@ -1,12 +1,15 @@
-##
+# == Process Instance Controller
+# This manages a creation and editing of a single step process. Here the user
+# generates a data entry sheet definition.
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
 #
 class Organize::ProcessInstancesController < ApplicationController
-  use_authorization :assay_protocols,
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
                                     
   before_filter :setup_for_protocol_version_id ,  
                 :only => [ :show, :edit,:layout,:copy,:purge,:release,:withdraw,:metrics,:update,:destroy,:template]
@@ -111,11 +114,12 @@ class Organize::ProcessInstancesController < ApplicationController
 # passed to the standard protocol editor
 #
   def create
-    @assay = current_user.assay(params[:id])   
+    @assay = Assay.load(params[:id])   
     @assay.protocols <<  @assay_protocol = AssayProcess.new(params[:assay_protocol])
     if @assay_protocol.save
-      @project_folder = @assay_protocol.folder
-      @protocol_version   = @assay_protocol.new_version
+      @project_folder   = @assay_protocol.folder
+      @protocol_version = @assay_protocol.new_version
+      @protocol_version.update_attributes(params[:protocol_version])
       flash[:notice] = 'AssayProtocol was successfully created.'
       redirect_to :action => 'show', :id => @protocol_version,:tab=>2
     else  
@@ -129,8 +133,8 @@ class Organize::ProcessInstancesController < ApplicationController
 #
   def update
     @tab=1
-    unless @assay_protocol.update_attributes(params[:assay_protocol]) and
-           @protocol_version.update_attributes(params[:protocol_version])
+    unless @protocol_version.update_attributes(params[:protocol_version]) and
+           @assay_protocol.update_attributes(params[:assay_protocol])
         respond_to do | format |
            format.html { render :action => 'show'}
           format.xml  { render :xml =>  @protocol_version.to_xml(:include=>[:protocol])}
@@ -189,7 +193,7 @@ class Organize::ProcessInstancesController < ApplicationController
     else  
       flash[:warning] =" This version is fixed and cant be destroyed as its in use"     
     end
-    redirect_to protocol_url(:action => 'show', :id => @protocol_version);    
+    redirect_to process_instance_url(:action => 'show', :id => @protocol_version);
   end
 
 ##
@@ -200,7 +204,9 @@ class Organize::ProcessInstancesController < ApplicationController
   def update_context
    ProtocolVersion.transaction do
       if  @protocol_version.flexible? 
-        unless  @parameter_context.update_attributes({:label =>params[:label],:default_count=>params[:default_count]}) 
+        unless  @parameter_context.update_attributes({:label =>params[:label],
+                                                      :output_style =>params[:output_style],
+                                                      :default_count=>params[:default_count]}) 
           flash[:warning] = "Failed to updated in context [#{@parameter_context.path}] "
         end
       else  
@@ -230,14 +236,16 @@ class Organize::ProcessInstancesController < ApplicationController
       if @protocol_version.flexible? 
          @parameter_context = @protocol_version.new_context( @parent, params[:label] )
          @parameter_context.default_count = params[:default_count] ||1
+         @parameter_context.output_style = params[:output_style] ||'default'
          @successful  = @parameter_context.save
+         @protocol_version.reload         
+         logger.info flash[:info] =" added context #{@parameter_context.label} #{@successful}"     
       else
-        flash[:warning] =" This version is fixed and cant be changed"     
+        logger.info flash[:warning] =" This version is fixed and cant be changed"     
         @process_step=nil
        end
    rescue
-      logger.warn $!.to_s
-      flash[:error]= $!.to_s
+     logger.warn flash[:error]= "Failed to add context"+$!.to_s
    end
     respond_to do | format |
       format.html { redirect_to :action => 'show', :id =>  @protocol_version, :tab=>2}
@@ -268,8 +276,8 @@ class Organize::ProcessInstancesController < ApplicationController
        @dom = @parameter_context.dom_id
        @successful = @parameter_context.destroy
        @protocol_version.resync_columns
-       flash[:notice] = 'Context successfully removed '
     end
+    flash[:notice] = 'Context successfully removed ' if @successful
     respond_to do | format |
       format.html { redirect_to :action => 'show', :id =>  @protocol_version, :tab=>2}
       format.xml  { render :xml => @parameter_context.to_xml }
@@ -295,7 +303,7 @@ class Organize::ProcessInstancesController < ApplicationController
        if !@protocol_version.flexible? 
            flash[:warning] =" This version is fixed and cant be changed"   
        elsif (@parameter_context.lock_version.to_s != params[:lock_version].to_s)   
-           flash[:warning] =" Display out of sync,looks liked #{@parameter_context.updated_by} also editing it from another browser"          
+           flash[:warning] =" Display out of sync,looks like #{@parameter_context.updated_by} also editing it from another browser"          
        else
            @mode = params[:mode] || 0
            style, id = params[:node].split("_")
@@ -458,7 +466,7 @@ end
   #
   def setup_for_protocol_version_id
     @tab=params[:tab] ||0
-    @protocol_version = current_user.process_instance(params[:id])  
+    @protocol_version = ProcessInstance.load(params[:id])  
     set_project(@protocol_version.protocol.project) if @protocol_version  and @protocol_version.protocol
     @protocol_version  ||= current_project.process_instance(params[:id])
     unless @protocol_version

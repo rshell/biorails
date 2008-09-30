@@ -1,13 +1,12 @@
 <div class='box'>
-  <% if @assay.allows?(:edit) %>
+    <% if @assay.project == Project.current %>
     <% form_tag :action => 'update' ,:id=> @assay.id do %>
-        <%= render :partial => 'form' %>
-        <div class='row'>
-            <%= submit_tag "Save" %>
-        </div>
+    <%= render :partial => 'form' %>
+    <div class='row'>
+        <%= submit_tag "Save" %>
+    </div>
     <% end %>
-  <% else %> 
-     Cant update the assay as <%=User.current.name%> in project  <%=Project.current.name%>
-  <% end %>
+    <% else %>
+    Can not update the assay as <%=User.current.name %>in project <%=Project.current.name %>
+    <% end %>
 </div>
-

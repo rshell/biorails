@@ -7,14 +7,13 @@
 <% end -%>
 
 <% content_for :center do -%>
-
-<%dialog "New team"  do %>
-  Create a new team for organization or users.
-
-  <% form_tag :action => 'create' do %>
+<%= render :partial => 'admin/header'%>
+<%dialog l(:label_team_new)  do %>
+    <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
-        <%= submit_tag "Save" %>
+        <%= submit_tag l(:button_save) %>
+        <%= link_to l(:label_cancel), team_url(:action => 'list') %>  
     </div>
     <% end %>
   <% end %>

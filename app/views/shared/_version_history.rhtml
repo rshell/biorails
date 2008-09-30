@@ -1,0 +1,68 @@
+<h2><%=l(:label_version_history)%></h2>
+  <% if folder.signed? %>
+<table class='report'>
+<thead>
+  <th>
+    <%=l(:label_login) %>
+  </th>
+  <th>
+    <%=l(:label_full_name) %>
+  </th>
+  <th>
+    <%=l(:label_role) %>
+  </th>
+  <th>
+    <%=l(:label_status) %>
+  </th>
+  <th>
+    <%=l(:label_comment) %>
+  </th>
+  <th>
+    <%=l(:label_date) %>
+  </th>
+  <th>
+    <%=l(:label_version) %>
+  </th>
+  <th>
+    <%=l(:label_zip) %>
+  </th>
+</thead>
+<tbody>
+<%for signature in folder.signature_attempts %>
+<tr>
+  <td>
+    <%= signature.signer.name %>
+  </td>
+  <td>
+    <%= signature.signer.fullname %>
+  </td>
+  <td>
+    <%= signature.signature_role.downcase.titlecase %>
+  </td>
+  <td>
+    <%= signature.signature_state.titlecase %>
+  </td>
+  <td>
+    <% if signature.signature_state == 'REFUSED' %>
+    <%= signature.reason %>
+  </td>
+  <%else %>
+  <%= signature.comments %>
+  </td>
+  <%end %>
+  <td>
+    <%= short_date(signature.signed_date) %>
+  </td>
+  <td>
+    <%= link_to l(:label_version) + ": " + version_no(signature.filename), signature.file_url %>
+  </td>
+  <td>
+    <%= link_to l(:label_zip), signature.zip_url %>
+  </td>
+</tr>
+<%end %>
+</tbody>
+</table>
+<% else %>
+<p class='box'><%=l(:label_unsigned, folder.style.titlecase) %></p>
+<%end %>

@@ -5,16 +5,23 @@ class ProjectAssetTest < Test::Unit::TestCase
   ## Biorails::Dba.import_model :project_elements
   ## Biorails::Dba.import_model :projects
 
+  def setup
+      @project = Project.current =Project.find(2)
+      @user = User.current =User.find(3)
+      @folder = @project.home
+
+  end
   # Replace this with your real tests.
   def test_truth
-    assert true
+    assert @project
+    assert @user
+    assert @folder
   end
   
   def test_new
     item = ProjectAsset.new(:name=>'test')
     assert item.name
     assert item.summary  
-    assert item.description  
     assert item.to_html 
   end
   
@@ -22,27 +29,21 @@ class ProjectAssetTest < Test::Unit::TestCase
      assert_not_nil fixture_file_upload('/files/rails.png', 'image/png')
   end
   
-  def test_build
-      project = Project.find(:first)
+  def test_buildfile
       file = fixture_file_upload('/files/rails.png', 'image/png')
-      asset = ProjectAsset.build(:name=>'test', :uploaded_data=>file,:project_id=>project.id,:position=>'1')
-      #asset.uploaded_data = file
-      asset.project =project
-      assert asset.valid?
-      assert asset.save
+      element = @folder.add_element(ElementType::FILE,{:name=>'test2',:file=>file,:content_type=>'image/png'})
+      assert_ok element
+      assert_equal element.project , @project
+      assert_equal element.name , 'test2'
+      assert element.asset
+      assert element.asset.db_file 
   end  
-
-  def test_update
-
-  end
   
-  def test_word_asset
-     project = Project.find(:first)
+  def test_unloaded_word_asset
      file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/moose_origami.doc', 'application/word') 
      assert !file.nil?
-     asset = ProjectAsset.build(:name=>'test2', :uploaded_data=>file,:project_id=>project.id,:position=>'1')
-     assert asset.valid?, asset.errors.full_messages().to_sentence   
-     assert asset.save  
+     element = @folder.add_asset('test2',file)
+     assert_ok element
   end
 
   def test_find
@@ -53,29 +54,33 @@ class ProjectAssetTest < Test::Unit::TestCase
     assert item.to_html    
     assert item.signature
     assert item.filename
-    assert item.image?
     assert item.icon
     assert item.asset.mime_type
   end 
   
-  def test_pdf_asset
+  def test_pdf_unloaded_asset
      file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/Fitting.pdf', 'application/pdf') 
-     asset = ProjectAsset.new
-     asset.title="tests"
-     asset.project = Project.find(:first)
-     asset.uploaded_data = file  
-     asset.valid?
-     asset.save     
+     element = @folder.add_element(ElementType::FILE,{:name=>'test_pdf',:file=>file,:content_type=>'application/pdf'})
+     assert_ok element
+     assert element.asset
+     assert element.asset.db_file 
   end
   
-  def test_image_asset
+  def test_image_unloaded_asset
      file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/rails.png', 'image/png') 
-     asset = ProjectAsset.new
-     asset.title="tests"
-     asset.project = Project.find(:first)
-     asset.uploaded_data = file  
-     asset.valid?
-     asset.save     
+     element = @folder.add_element(ElementType::FILE,{:name=>'test_png',:file=>file,:content_type=>'image/png'})
+     assert_ok element
+     assert element.asset
+     assert element.asset.db_file 
+  end
+
+  
+  def test_with_raw_file
+     file = File.new(Test::Unit::TestCase.fixture_path+'/files/rails.png')
+     element = @folder.add_element(ElementType::FILE,{:name=>'test_png3',:file=>file,:content_type=>'image/png'})
+     assert_ok element
+     assert element.asset
+     assert element.asset.db_file 
   end
   
 

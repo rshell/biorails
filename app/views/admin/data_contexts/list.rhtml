@@ -1,20 +1,20 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
-      <span class='menu'><b class='icon icon-data_context'>
-        Dictionary</b>
+      <span class='menu'>
+        <b class='icon icon-data_context'>
+            <%=l(:label_dictionary)%>
+        </b>
       </span>
-      <div class='boldnotbold'>
-      <%= link_to "<b class='icon icon-list'>List</b>",
+      <%= link_to l(:label_list),
             :action => 'list' %>
-      </div>
     </div>
 <% end %>
-
+<%= render :partial => 'admin/header' %>
 <div class='main' id='maintitle'>
-    <h1 class='icon icon-data_context'>
-        Dictionaries
-    </h1>
+    <h2 class='icon icon-data_context'>
+        <%=l(:label_dictionary)%>
+    </h2>
         <table class="report">
         <%= render :partial => 'shared/report',:locals =>
            {:report =>@report,

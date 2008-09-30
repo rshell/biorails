@@ -1,0 +1,19 @@
+<div class="content_header organisation">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-assay-large'>
+    <%= link_to( l(:label_assay) + " [" + @assay_queue.assay.name + "]", assay_url( :action => :show, :id => @assay_queue.assay.id)) %>
+  </h1>
+  <br />
+  <br />
+  <div class='actions_left'>
+    <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @assay_queue.assay.folder ), :class=>'icon icon-folder'%>
+    <%= link_to @assay_queue.assay.project.name, project_url(:action => 'show', :id => @assay_queue.assay.project.id), :class=>"icon icon-project-#{@assay_queues.assay.project.style.downcase}"%>
+  </div>
+  <div class='actions_right'>
+    <%= link_to( l(:label_parameters),parameter_url(:action => 'list' , :id => @assay_queues.assay),  :class=>'icon icon-parameter')  %>
+    <%= link_to( l(:label_queues),queue_url(:action => 'list', :id => @assay_queues.assay ), :class=>'icon icon-queue') %>
+    <%= link_to( "&nbsp; #{l(:label_export)}",  assay_url( :action =>'export',:id => @assay_queues.assay), :class=>'icon icon-xml') %>
+  </div>
+  <br />
+</div>
+<%=breadcrumb_list @assay.folder %>

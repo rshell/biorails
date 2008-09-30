@@ -6,11 +6,15 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
 <%end%>
 
+<% content_for :help do -%>
+<%= render :partial =>'help'  %>
+<%end%>
+
 <% content_for :footer do -%>
     <%= render :partial => 'shared/audit',:locals =>{ :item => @assay_queue} %>
 <%end%>
 
 
 <% content_for :center do -%>
-    <%= render :partial => 'show' %>
+  <%= render :partial => 'show' %>
 <%end%>

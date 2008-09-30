@@ -16,18 +16,21 @@ Biorails.Protocol = function(){
                     name: item.name,
 //                    maskRe: new RegExp(item.regex),
                     value: value,
+					autoShow: true,
                     fieldLabel: item.name});
                 break;                      
                 case 3 : 
                 return new Biorails.DateField({
                     name: item.name, 
                     format: 'Y-m-d',                    
+					autoShow: true,
                     value: value,
                     fieldLabel: item.name});
                 break;
                 case 4: 
                 return new Ext.form.TimeField({
                     name: item.name, 
+					autoShow: true,
                     value: value,
                     fieldLabel: item.name});
                 break;
@@ -35,6 +38,7 @@ Biorails.Protocol = function(){
                 return new Biorails.ComboField({
                     name: item.name,  
                     value: value,
+					autoShow: true,
                     root_id: item.data_element_id, 
                     fieldLabel: item.name});
                 break;
@@ -43,18 +47,21 @@ Biorails.Protocol = function(){
                     name: item.name,   
                     value: value,
                     vtype: 'url',  
+					autoShow: true,
                     fieldLabel: item.name});
                 break;
                 case 7:  
                 return new Biorails.FileComboField({
                     name: item.name,  
                     value: value,
+					autoShow: true,
                     folder_id: item.folder_id, 
                     fieldLabel: item.name});
                 break;
                 default:
                 return new Ext.form.TextField({
                     name: item.name,  
+					autoShow: true,
                     value: value,
 //                    maskRe: new RegExp(item.regex),
                     fieldLabel: item.name});
@@ -78,7 +85,7 @@ Biorails.Protocol = function(){
          * Add a new child context
          */
         addContext: function(context_id){       
-            try{ 
+            try{       
                 var form = new Ext.FormPanel({
                     labelWidth: 75,
                     frame: true,
@@ -103,7 +110,16 @@ Biorails.Protocol = function(){
                             maxValue: 100,
                             allowBlank:false,
                             name: 'default_count'
-                        }]
+                        },
+                          new Ext.form.ComboBox({
+                            store: ['default','form','scaled','rotated','split'],
+                            fieldLabel: 'Output Sytle',
+                            typeAhead: true,
+                            editable:false,
+                            value:'default',
+                            allowBlank: false,
+                            name: 'output_style'
+                        })]
                 });
                 
                 var win = new Ext.Window({
@@ -119,10 +135,8 @@ Biorails.Protocol = function(){
                             handler: function(item){ 
                                 if(form.getForm().isValid() ){
                                     win.hide(); 
-                                    form.getForm().submit({
-                                        url: form.url
-                                    });
-
+                                    form.getForm().getEl().dom.action= form.url;
+                                    form.getForm().getEl().dom.submit();
                                 } else { 
                                     Ext.Msg.alert('Warning', 'Entered Data is not valid');	
                                 }                
@@ -175,7 +189,15 @@ Biorails.Protocol = function(){
                             xtype: 'hidden',
                             value: config.id,
                             allowBlank:false
-                        }]
+                        },  new Ext.form.ComboBox({
+                            store: ['default','form','scaled','rotated','split'],
+                            fieldLabel: 'Output Sytle',
+                            typeAhead: true,
+                            editable:false,
+                            value:config.output_style,
+                            allowBlank: false,
+                            name: 'output_style'
+                        })]
                 });
                 
                 var win = new Ext.Window({
@@ -191,9 +213,8 @@ Biorails.Protocol = function(){
                             handler: function(item){ 
                                 if(form.getForm().isValid() ){
                                     win.hide(); 
-                                    form.getForm().submit({
-                                        url: form.url
-                                    });
+                                    form.getForm().getEl().dom.action= form.url;
+                                    form.getForm().getEl().dom.submit();
 
                                 } else { 
                                     Ext.Msg.alert('Warning', 'Entered Data is not valid');	

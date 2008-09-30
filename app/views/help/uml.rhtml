@@ -6,13 +6,13 @@
       </b>
     </span>
     <div class='boldnotbold'>
-      <%= link_to "<b class='icon icon-uml'>UML</b>", :action => 'uml',:model=>"#{@options[:model]}"  %>
-      <%= link_to "<b class='icon icon-documents'>Docs</b>", :action => 'model',:model=>"#{@options[:model]}"  %>
+      <%= link_to l(:label_uml), :action => 'uml',:model=>"#{@options[:model]}"  %>
+      <%= link_to l(:label_docs), :action => 'model',:model=>"#{@options[:model]}"  %>
     </div>
   </div>
   <div>
 
-  <span class='menu'>UML Models</span>
+  <span class='menu'><%=l(:label_uml_models)%></span>
 
   <% form_tag help_url(:action => 'uml') do %>
     <div>

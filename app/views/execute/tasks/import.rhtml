@@ -1,7 +1,7 @@
 
 <% content_for :center do -%>
 <h1 class="icon icon-task-large" style='text-indent:0.5em;'>
- Task in Experiment [<%=link_to " #{@experiment.name} ", experiment_url(  :action =>'show',:id =>@experiment.id) %>]
+ <%=l(:label_task)%> <%=(:label_in)%> <%=(:label_experiment)%> [<%=link_to " #{@experiment.name} ", experiment_url(  :action =>'show',:id =>@experiment.id) %>]
 </h1>
 <hr />
   <%=render :partial =>'import' %>

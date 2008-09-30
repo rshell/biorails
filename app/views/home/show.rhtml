@@ -2,9 +2,10 @@
   <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @user} %>
 <% end %>
 
-
 <% content_for :center do -%>
-  <%= render :partial =>'show' %>
+  <%= render :partial=>'shared/user_header'%>
+  <%= render :partial =>'tabs' %>
+
 <% end %>
 
 <% content_for :messages do -%>
@@ -17,7 +18,6 @@
 
 <% content_for :help do -%>
   <%= render :partial =>'help' %>
-  <%= render :partial =>'status' %>
 <% end %>
 
 

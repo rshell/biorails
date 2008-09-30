@@ -8,8 +8,7 @@ class ProjectFolderTest < Test::Unit::TestCase
   def test_new
     item = ProjectFolder.new(:name=>'test')
     assert item.name
-    assert item.summary  
-    assert item.description  
+    assert item.summary   
     assert item.to_html 
   end
   
@@ -18,6 +17,22 @@ class ProjectFolderTest < Test::Unit::TestCase
     folder  = project.folder('xxx')
     assert_ok folder
     assert folder.name =='xxx'
+  end
+  
+  def test_add_folder
+    folder = ProjectFolder.find(2)
+    item = folder.add_folder("xxxx")
+    folder.reload
+    assert_ok item
+    assert_equal "xxxx",item.name
+    assert_equal folder.id,item.parent_id
+    assert_equal folder.access_control_list_id, item.access_control_list_id
+    assert_equal folder.project_id, item.project_id  
+    assert folder.left_limit  < item.left_limit,  "left  should be between #{folder.left_limit}< #{item.left_limit} >#{folder.right_limit}"    
+    assert folder.right_limit > item.left_limit,  "left  should be between #{folder.left_limit}< #{item.left_limit} >#{folder.right_limit}"      
+    assert folder.left_limit  < item.right_limit, "right should be between #{folder.left_limit}< #{item.right_limit} >#{folder.right_limit}"    
+    assert folder.right_limit > item.right_limit, "right should be between #{folder.left_limit}< #{item.right_limit} >#{folder.right_limit}"      
+
   end
 
   def test_child_create_folder
@@ -48,11 +63,12 @@ class ProjectFolderTest < Test::Unit::TestCase
     folder  = project.folder('xxx2')
     assert_ok folder
     user = User.find(:first)
+    assert user
     element = folder.add_reference(user.name,user)
     assert element
-    assert element.reference.name == user.name
-    assert element.reference.id == user.id 
     assert_ok element
+    assert_ok element.reference
+    assert_equal element.reference , user
   end
 
   def test_add_text
@@ -60,32 +76,31 @@ class ProjectFolderTest < Test::Unit::TestCase
     assert_ok project
     folder  = project.folder('xxx3')
     assert_ok folder
-    element = folder.add_content('name','title','body')
+    element = folder.add_content('name','body')
     assert_ok element
-    assert element.content.title == 'title'
     assert element.name == 'name'
     assert element.to_html 
     assert_ok element
   end
   
-  def test_should_not_create_version_when_versioning_is_turned_off
-    project = Project.find(1)
-    count=ProjectFolder.find(:all).size
-    folder=project.folders.find(:first)
-    folder.name='new name'
-    folder.save
-    assert_equal ProjectFolder.find(:all).size,count
-  end
-  
-
   def test_add_asset_rails_jpg
     project=Project.find(1)
     folder=project.folders.find(:first)
     file = File.join(RAILS_ROOT,'test','fixtures','files','rails.png')
-    item = folder.add_asset(file,'rails.jpg','image/png') 
+    item = folder.add_asset('rails.jpg',file,'image/png') 
     assert_ok item
     assert_ok item.asset
     assert item.image?
+  end
+  
+  def test_pdf_creation
+    project=Project.find(1)
+    folder=project.folders.find(:first)
+    file = File.join(RAILS_ROOT,'test','fixtures','files','rails.png')
+    folder.add_asset('rails.jpg',file,'image/png') 
+    filename=File.join('tmp',"#{folder.dom_id}.pdf")
+    path = folder.make_pdf(filename)
+    assert path,"got a file name"
   end
   
   def test_make_pdf
@@ -97,24 +112,12 @@ class ProjectFolderTest < Test::Unit::TestCase
     assert folder.make_pdf(filename), "no return for make_pdf #{filename}"
     assert File.exists?(filename),"no file #{filename} found"
   end
-    
-  def test_versioning
-    project=Project.find(1)
-    folder=project.folders.find(:first)
-    assert_equal 1, folder.new_published_version
-    assert_equal 2, folder.new_published_version
-  end
-  
+     
   def test_summary
     folder=ProjectFolder.find(:first)
     assert folder.summary
   end
 
-  def test_description
-    folder=ProjectFolder.find(:first)
-    assert folder.description
-  end
-  
   def test_assets
     folder=ProjectFolder.find(:first)
     assert folder.assets    

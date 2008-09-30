@@ -1,53 +1,42 @@
-<%content_for :center do%>
-
+<%content_for :center do %>
+<%=render :partial => 'admin/header' %>
 <div class='panel'>
-<h1 class="icon icon-data_system-large" style="text-indent:0.5em">
-   Import Catalogue into System
-</h1>
-  <%form_tag({:action =>'import_file'} , {:multipart => true}) do %>
-  <%= render :partial => '/shared/messages',  :locals => { :objects => ['data_context']} %>
-
-<div class="row">
- <div class="form-element">
-   <label for="filename"  class='icon icon-import'>Catalogue design file to import :-
-   </label>
-      <%=file_field_tag(:file) %>
- </div>
-</div>
-<div class="row">
-  <div class="form-element">
-    <label for="catalogue_name"  class='icon icon-name'>New Name</label>
-     <%= text_field_tag :name, nil , {:class=>"text-input"} %>
-  </div>
- </div>
-
-  <div class="row">
-    <h2 class="icon icon-warning" style="color:red">
-      BACKUP YOUR DATABASE NOW BEFORE ATTEMPTING THIS OPERATION
+    <h2 class="icon icon-data_system-large"><%=l(:label_import_catalogue_into_system) %>
     </h2>
-    <p>
-    This operation will attempt to load a complete catalogue of terms into the system and
-	is designed as a method of <strong>seeding</strong> new systems rather than extending
-	existing catalogues.  The load is done in a single database transaction so its all or nothing operation.
-   </p>
-    <br />
-    <%= submit_tag("Import")%>
-  </div>
-  <% end %>
-
-   </div>
-<% end%>
-
-<% content_for :help do%>
-<h2>Guide</h2>
+    <%form_tag({:action =>'import_file'} , {:multipart => true}) do %>
+    <%= render :partial => '/shared/messages',  :locals => { :objects => ['data_context']} %>
+    <div class="row">
+        <div class="form-element">
+            <label for="filename">
+                <%=l(:label_catalogue_to_import) %>
+            </label>
+            <%=file_field_tag(:file) %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-element">
+            <label for="catalogue_name">
+                <%=l(:label_name) %>
+            </label>
+            <%= text_field_tag :name, nil , {:class=>"text-input"} %>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="icon icon-warning" style="color:red"><%=l(:notice_backup_database) %>
+        </h2>
+        <p>
+            <%=l(:notice_backup_database_context) %>
+        </p>
+        <br/>
+        <%= submit_tag(l(:label_import)) %>
+    </div>
+    <% end %>
+</div>
+<% end %>
+<% content_for :help do %>
+<h2><%=l(:label_guide) %>
+</h2>
 <div class='panel'>
-  <p>
-    Importing a catalogue of terms into the BioRails context is also a simple mothod of setting up a <i>standard</i> system.
-    populating or seeding a new database that is not managed centrally.
-  </p>
-  <p>
-    A more advanced method of dictionary management is to have a central catalogue with <i>slave</i> operational instances.  This can be achieved through standard
-    catalogue integration methods.  Contact the <a href="info@edgesoftwareconsultancy.com">The Edge</a> for consultancy on this matter.
-  </p>
+    <%=l(:help_catalogue2) %>
 </div>
 <% end %>

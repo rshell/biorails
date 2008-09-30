@@ -1,22 +1,22 @@
-<h1 class="icon icon-task-large" style='text-indent:0.5em;'>
- Task [<strong><%=@task.name%></strong>] in Experiment
- [<%=link_to " #{@task.experiment.name} ",
-   :controller=>'experiments',
-   :action =>'show',:id =>@task.experiment.id %>]
-</h1>
+<%= render :partial=>'header'%>
 
-<div class='box'>
-  <div id='analysis-form'>
-  <%= render :partial => 'analysis' %>  
+<div class="panel">
+  <h2 class='icon icon-analysis'>
+      <%=l(:label_analysis)%>
+  </h2>
+  <div class='box'>
+    <div id='analysis-form'>
+    <%= render :partial => 'analysis' %>  
+    </div>
   </div>
-</div>
 
-<div class='box'>
-  <div id='analysis-run' >
-  <%if  @analysis and @analysis.run? %>
-    <%=@analysis.report%>
-  <% else %>
-     Not run yet
-  <% end %>
+  <div class='box'>
+    <div id='analysis-run' >
+    <%if  @analysis and @analysis.run? %>
+      <%=@analysis.report%>
+    <% else %>
+       <%=l(:label_not_run)%>
+    <% end %>
+    </div>
   </div>
 </div>

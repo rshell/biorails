@@ -1,15 +1,15 @@
 <table class='report' style='border: solid thin'>
   <thead>
     <tr>
-         <th><b class='icon icon-request'>Ref </b></th>
-         <th><b class='icon icon-service'>Service</b></th>
-         <th><b class='icon icon-status'>Status</b></th>
-         <th>Priority</th>
-         <th><b class='icon icon-user'>Assigned To</b></th>
-         <th><b class='icon icon-user'>Updated By</b></th>
-         <th><b class='icon icon-date'>Updated At</b></th>
-         <th><b class='icon icon-date'>Accepted At</b></th>
-         <th><b class='icon icon-date'>Completed At</b></th>
+         <th><%=l(:label_ref)%></th>
+         <th><%=l(:label_service)%></th>
+         <th><%=l(:label_status)%></th>
+         <th><%=l(:label_priority)%></th>
+         <th><%=l(:label_assigned_to)%></th>
+         <th><%=l(:label_updated_by)%></th>
+         <th><%=l(:label_date_updated)%></th>
+         <th><%=l(:label_date_accepted)%></th>
+         <th><%=l(:label_date_completed)%></th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,9 @@
            <td><%=short_date item.ended_at%> </td>
          <% else %>
          <td colspan='5'>
-           <i><b>Not submitted yet</b></i>
+           <i><b>
+             <%=l(:label_not_submitted_yet)%>
+           </b></i>
          </td>
          <% end %>
     </tr>

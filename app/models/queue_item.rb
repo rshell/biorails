@@ -1,42 +1,43 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: queue_items
 #
-#  id                   :integer(11)   not null, primary key
-#  name                 :string(255)   
-#  comments             :string(1024)  default(), not null
-#  assay_queue_id       :integer(11)   
-#  experiment_id        :integer(11)   
-#  task_id              :integer(11)   
-#  assay_parameter_id   :integer(11)   
-#  data_type            :string(255)   
-#  data_id              :integer(11)   
-#  data_name            :string(255)   
-#  expected_at          :datetime      
-#  started_at           :datetime      
-#  ended_at             :datetime      
-#  created_at           :datetime      not null
-#  updated_at           :datetime      not null
-#  request_service_id   :integer(11)   
-#  status_id            :integer(11)   default(0), not null
-#  priority_id          :integer(11)   
-#  updated_by_user_id   :integer(11)   default(1), not null
-#  created_by_user_id   :integer(11)   default(1), not null
-#  requested_by_user_id :integer(11)   default(1)
-#  assigned_to_user_id  :integer(11)   default(1)
-#  lock_version         :integer(11)   
+#  id                   :integer(4)      not null, primary key
+#  name                 :string(255)
+#  comments             :string(1024)    default(""), not null
+#  assay_queue_id       :integer(4)
+#  experiment_id        :integer(4)
+#  task_id              :integer(4)
+#  assay_parameter_id   :integer(4)
+#  data_type            :string(255)
+#  data_id              :integer(4)
+#  data_name            :string(255)
+#  expected_at          :datetime
+#  started_at           :datetime
+#  ended_at             :datetime
+#  lock_version         :integer(4)      default(0), not null
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#  request_service_id   :integer(4)
+#  status_id            :integer(4)      default(0), not null
+#  priority_id          :integer(4)
+#  updated_by_user_id   :integer(4)      default(1), not null
+#  created_by_user_id   :integer(4)      default(1), not null
+#  requested_by_user_id :integer(4)      default(1)
+#  assigned_to_user_id  :integer(4)      default(1)
 #
 
-##
-# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
-
-##
+# == Description
 # Item in a queue to allow difference types of data to be queued by 3rd parties for processing
 # in tasks.
 # 
+# == Copyright
+# 
+# Copyright © 2006 Andrew Lemon, Alces Ltd All Rights Reserved
+# See license agreement for additional rights
+#
+
 class QueueItem < ActiveRecord::Base
 
   has_priorities :priority_id

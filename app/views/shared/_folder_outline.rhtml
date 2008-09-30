@@ -1,26 +1,24 @@
-<div class=" x-panel-header x-accordion-hd"  >
-  <span class="icon icon-folder x-panel-header-text" >
-   Notes and Files
-   </span>
+<div class=" x-panel-header x-accordion-hd">
+  <span class="icon icon-folder x-panel-header-text"><%=l(:label_articles_and_files) %>
+  </span>
 </div>
 <div class="panel">
   <% for item in folder.elements %>
-    <% unless item.class == ProjectFolder %>
-      <p id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
-          <span id='<%=item.dom_id(:current)%>' class='folder_element'>
-            <%=image_tag(item.icon( {:images=>true} ) ) %>
-            <%= link_to item.name, element_to_url(item) %>    	               
-            <%if item.reference?%>
-              <%= link_to "[" + "<b class='icon icon-model_" + item.style.downcase + "'></b>]",
-                reference_to_url(item) %>
-            <%end %>
-            <br />
-            <%= item.summary %> 
-          </span>
-      </p>
-    <% end %>
+  <% unless item.class == ProjectFolder %>
+  <p id="<%=item.dom_id(:element)%>" class="<%= cycle('odd', 'even') %>">
+    <span id='<%=item.dom_id(:current)%>' class='folder_element'><%=image_tag(item.icon( {:images=>true} ) ) %>
+      <%= link_to item.name, element_to_url(item) %>
+      <%if item.reference %>
+      <%= link_to "[<b class='icon icon-model_#{item.style.downcase}></b>]", reference_to_url(item) %>
+      <%end %>
+      <br/>
+      <%= item.summary %>
+    </span>
+  </p>
   <% end %>
-<%= link_to "<b class='icon icon-file-add'>Add File</b>", asset_url( :action => 'new' , :id => folder  ) %>
-<br />
-<%= link_to "<b class='icon icon-note-add'>Add Article</b>", content_url( :action => 'new' , :id => folder  ) %>
+  <% end %>
+  <hr />
+  <%= link_to l(:label_file), asset_url( :action => 'new' , :id => folder  ), :class=>'icon icon-file-add' %>
+  <%= link_to l(:label_article), content_url( :action => 'new' , :id => folder  ), :class=>'icon icon-note-add' %>
+  <br /><br />
 </div>

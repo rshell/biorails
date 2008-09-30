@@ -1,28 +1,67 @@
-# 
-# Master object of ruleset for generation of a Cross Tab sytle report
-#  This manages the rules for taskContext v.s. Parameters table of results
+# == Schema Information
+# Schema version: 359
+#
+# Table name: cross_tabs
+#
+#  id                 :integer(4)      not null, primary key
+#  project_id         :integer(4)      not null
+#  name               :string(64)      not null
+#  description        :string(255)     not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_at         :datetime
+#  updated_by_user_id :integer(4)      default(1), not null
+#  project_element_id :integer(4)
+#
+
+# == Description
+# Master object of ruleset for generation of a Cross Tab sytle report.This manages the rules for 
+# taskContext v.s. Parameters table of results. The cross tab is built of a collection of 
+# columns based on parameters and filters. 
 #  
-#  
+# == Copyright
 # 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
+
 class CrossTab < ActiveRecord::Base
+  attr_accessor :team_id  # historic field now removed, kept here so old fixtures can be reloaded as needed
+
   cattr_reader :per_page
   @@per_page = 20
   # The cross tab is development as part of project it will be based primary on
   # assays linked into the project
   # 
   belongs_to :project
-  # 
-  # access control managed via team
-  # 
-  access_control_via  :team    
+  #
+  # Owner project
+  #  
+   acts_as_folder_linked  :project, :under =>'cross_tabs'
   #
   # Filters
   #
   attr_accessor :use_live
+  #
+  # Mask based filter for tasks to select
+  #
   attr_accessor :task_mask
+  #
+  # Start of selected data range
+  #
   attr_accessor :date_from
+  #
+  # End of selected data range
+  #
   attr_accessor :date_to
+  #
+  # Estimate number of rows
+  #
   attr_accessor :esitmated_rows
+  #
+  # Estimate of number of tasks selected
+  #
   attr_accessor :esitmated_tasks
   
   # 
@@ -39,6 +78,9 @@ class CrossTab < ActiveRecord::Base
   # There is a set of filters applied to a cross tab
   # 
   has_many :filters, :class_name=>'CrossTabFilter', :dependent => :delete_all do
+    #
+    # Select filtering using the passed scope object
+    #
     def using(scope)
       case scope
       when ParameterContext
@@ -51,7 +93,9 @@ class CrossTab < ActiveRecord::Base
          find(:all)
       end
     end
-    
+    #
+    # Add a filter to the current set
+    #
     def add(column,operator,value)    
       new_item = build( :filter_op =>operator,
                         :filter_text => value,
@@ -65,7 +109,9 @@ class CrossTab < ActiveRecord::Base
   # There is a set of filters applied to a cross tab
   # 
   has_many :joins, :class_name=>'CrossTabJoin', :dependent => :delete_all do
-    
+    #
+    # Find a specific link
+    #
     def link(from,to)
       find(:first,:conditions=>{:from_parameter_context_id=>from.id,:to_parameter_context_id=>to.id})
     end
@@ -239,7 +285,9 @@ class CrossTab < ActiveRecord::Base
   def self.convert_node(node)
     ModelExtras.from_dom_id(node)
   end
-  
+  #
+  # Convert to SQL date
+  #
   def to_sql_date(value)
     case value
     when String
@@ -325,7 +373,9 @@ class CrossTab < ActiveRecord::Base
       :conditions=>self.conditions,  
       :total_entries=>self.estimated_rows, :per_page=>count, :page=>page)    
   end
-  
+  #
+  # Test if live?
+  #
   def live?
     self.use_live 
   end

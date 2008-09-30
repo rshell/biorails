@@ -1,1750 +1,364 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: role_permissions
 #
-#  id            :integer(11)   not null, primary key
-#  role_id       :integer(11)   not null
-#  permission_id :integer(11)   
-#  subject       :string(40)    
-#  action        :string(40)    
+#  id            :integer(4)      not null, primary key
+#  role_id       :integer(4)      not null
+#  permission_id :integer(4)
+#  subject       :string(40)
+#  action        :string(40)
 #
 
 --- 
-00000000184_role_permission: !ruby/object:RolePermission 
+00000010261_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: show
+    action: assign
     permission_id: 
     role_id: "2"
-    subject: assay_protocols
-    id: "184"
+    subject: data
+    id: "10261"
   attributes_cache: {}
 
-00000000165_role_permission: !ruby/object:RolePermission 
+00000010243_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: tasks
-    id: "165"
-  attributes_cache: {}
-
-00000000082_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "82"
-  attributes_cache: {}
-
-00000000063_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "63"
-  attributes_cache: {}
-
-00000000027_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "27"
-  attributes_cache: {}
-
-00000000182_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: assay_parameters
-    id: "182"
-  attributes_cache: {}
-
-00000000080_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "80"
-  attributes_cache: {}
-
-00000000044_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "44"
-  attributes_cache: {}
-
-00000000025_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "25"
-  attributes_cache: {}
-
-00000000117_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: report
-    id: "117"
-  attributes_cache: {}
-
-00000000217_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "217"
-  attributes_cache: {}
-
-00000000163_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: assay_queues
-    id: "163"
-  attributes_cache: {}
-
-00000000013_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "13"
-  attributes_cache: {}
-
-00000000134_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project
-    id: "134"
-  attributes_cache: {}
-
-00000000061_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "61"
-  attributes_cache: {}
-
-00000000042_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "42"
-  attributes_cache: {}
-
-00000000205_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: dba
-    id: "205"
-  attributes_cache: {}
-
-00000000180_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: project_requests
-    id: "180"
-  attributes_cache: {}
-
-00000000151_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
+    action: build
     permission_id: 
     role_id: "6"
-    subject: catalogue
-    id: "151"
+    subject: organization
+    id: "10243"
   attributes_cache: {}
 
-00000000132_role_permission: !ruby/object:RolePermission 
+00000010228_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_studies
-    id: "132"
-  attributes_cache: {}
-
-00000000030_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: assay
-    id: "30"
-  attributes_cache: {}
-
-00000000089_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: user
-    id: "89"
-  attributes_cache: {}
-
-00000000179_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: requests
-    id: "179"
-  attributes_cache: {}
-
-00000000011_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "11"
-  attributes_cache: {}
-
-00000000113_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "113"
-  attributes_cache: {}
-
-00000000203_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: project_requests
-    id: "203"
-  attributes_cache: {}
-
-00000000196_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: tasks
-    id: "196"
-  attributes_cache: {}
-
-00000000087_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "87"
-  attributes_cache: {}
-
-00000000130_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_queues
-    id: "130"
-  attributes_cache: {}
-
-00000000111_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "111"
-  attributes_cache: {}
-
-00000000058_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "58"
-  attributes_cache: {}
-
-00000000201_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: assay_protocols
-    id: "201"
-  attributes_cache: {}
-
-00000000177_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: project_requests
-    id: "177"
-  attributes_cache: {}
-
-00000000158_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "158"
-  attributes_cache: {}
-
-00000000075_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: timeline
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "75"
-  attributes_cache: {}
-
-00000000056_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "56"
-  attributes_cache: {}
-
-00000000194_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: assay_queues
-    id: "194"
-  attributes_cache: {}
-
-00000000175_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: requests
-    id: "175"
-  attributes_cache: {}
-
-00000000092_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: protocol
-    id: "92"
-  attributes_cache: {}
-
-00000000073_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: projects
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "73"
-  attributes_cache: {}
-
-00000000192_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: assay_parameters
-    id: "192"
-  attributes_cache: {}
-
-00000000108_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "108"
-  attributes_cache: {}
-
-00000000090_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: user
-    id: "90"
-  attributes_cache: {}
-
-00000000054_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "54"
-  attributes_cache: {}
-
-00000000006_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "3"
-    role_id: "1"
-    subject: 
-    id: "6"
-  attributes_cache: {}
-
-00000000173_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: tasks
-    id: "173"
-  attributes_cache: {}
-
-00000000144_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: project_requests
-    id: "144"
-  attributes_cache: {}
-
-00000000071_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: index
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "71"
-  attributes_cache: {}
-
-00000000052_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "52"
-  attributes_cache: {}
-
-00000000023_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "23"
-  attributes_cache: {}
-
-00000000215_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
+    action: use
     permission_id: 
     role_id: "7"
-    subject: reports
-    id: "215"
-  attributes_cache: {}
-
-00000000190_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
     subject: project
-    id: "190"
+    id: "10228"
   attributes_cache: {}
 
-00000000161_role_permission: !ruby/object:RolePermission 
+00000010262_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: experiments
-    id: "161"
-  attributes_cache: {}
-
-00000000142_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: project
-    id: "142"
-  attributes_cache: {}
-
-00000000004_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "1"
-    role_id: "3"
-    subject: 
-    id: "4"
-  attributes_cache: {}
-
-00000000099_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
+    action: verify
     permission_id: 
     role_id: "2"
-    subject: system
-    id: "99"
+    subject: data
+    id: "10262"
   attributes_cache: {}
 
-00000000106_role_permission: !ruby/object:RolePermission 
+00000010251_role_permission: !ruby/object:RolePermission 
   attributes: 
     action: create
     permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "106"
+    role_id: "5"
+    subject: data
+    id: "10251"
   attributes_cache: {}
 
-00000000189_role_permission: !ruby/object:RolePermission 
+00000010233_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: list
+    action: build
     permission_id: 
-    role_id: "1"
+    role_id: "3"
     subject: project
-    id: "189"
+    id: "10233"
   attributes_cache: {}
 
-00000000021_role_permission: !ruby/object:RolePermission 
+00000010256_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "21"
-  attributes_cache: {}
-
-00000000213_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "7"
-    subject: reports
-    id: "213"
-  attributes_cache: {}
-
-00000000140_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
+    action: verify
     permission_id: 
     role_id: "5"
-    subject: project_studies
-    id: "140"
+    subject: data
+    id: "10256"
   attributes_cache: {}
 
-00000000068_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "68"
-  attributes_cache: {}
-
-00000000049_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "49"
-  attributes_cache: {}
-
-00000000097_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: project
-    id: "97"
-  attributes_cache: {}
-
-00000000121_role_permission: !ruby/object:RolePermission 
+00000010252_role_permission: !ruby/object:RolePermission 
   attributes: 
     action: update
     permission_id: 
-    role_id: "2"
-    subject: report
-    id: "121"
-  attributes_cache: {}
-
-00000000211_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "7"
-    subject: home
-    id: "211"
-  attributes_cache: {}
-
-00000000187_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: studies
-    id: "187"
-  attributes_cache: {}
-
-00000000168_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: experiments
-    id: "168"
-  attributes_cache: {}
-
-00000000139_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
     role_id: "5"
-    subject: project_requests
-    id: "139"
+    subject: data
+    id: "10252"
   attributes_cache: {}
 
-00000000085_role_permission: !ruby/object:RolePermission 
+00000010241_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "85"
-  attributes_cache: {}
-
-00000000066_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "66"
-  attributes_cache: {}
-
-00000000185_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: experiments
-    id: "185"
-  attributes_cache: {}
-
-00000000156_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "156"
-  attributes_cache: {}
-
-00000000083_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "83"
-  attributes_cache: {}
-
-00000000047_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "47"
-  attributes_cache: {}
-
-00000000018_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "18"
-  attributes_cache: {}
-
-00000000064_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "64"
-  attributes_cache: {}
-
-00000000045_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "45"
-  attributes_cache: {}
-
-00000000016_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "16"
-  attributes_cache: {}
-
-00000000137_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "5"
-    subject: project_experiments
-    id: "137"
-  attributes_cache: {}
-
-00000000118_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "2"
-    subject: report
-    id: "118"
-  attributes_cache: {}
-
-00000000208_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "7"
-    subject: catalogue
-    id: "208"
-  attributes_cache: {}
-
-00000000183_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: assay_queues
-    id: "183"
-  attributes_cache: {}
-
-00000000154_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
+    action: build
     permission_id: 
     role_id: "6"
-    subject: users
-    id: "154"
-  attributes_cache: {}
-
-00000000135_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "5"
     subject: project
-    id: "135"
+    id: "10241"
   attributes_cache: {}
 
-00000000081_role_permission: !ruby/object:RolePermission 
+00000010264_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: edit
+    action: share
     permission_id: 
-    role_id: "3"
-    subject: report
-    id: "81"
+    role_id: "1"
+    subject: data
+    id: "10264"
   attributes_cache: {}
 
-00000000062_role_permission: !ruby/object:RolePermission 
+00000010257_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "62"
-  attributes_cache: {}
-
-00000000033_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: assay
-    id: "33"
-  attributes_cache: {}
-
-00000000171_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
+    action: sign
     permission_id: 
     role_id: "2"
-    subject: assay_parameters
-    id: "171"
+    subject: document
+    id: "10257"
   attributes_cache: {}
 
-00000000152_role_permission: !ruby/object:RolePermission 
+00000010246_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: show
+    action: use
     permission_id: 
     role_id: "6"
-    subject: catalogue
-    id: "152"
+    subject: reports
+    id: "10246"
   attributes_cache: {}
 
-00000000116_role_permission: !ruby/object:RolePermission 
+00000010242_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: list
+    action: use
+    permission_id: 
+    role_id: "6"
+    subject: project
+    id: "10242"
+  attributes_cache: {}
+
+00000010231_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: all
+    permission_id: 
+    role_id: "3"
+    subject: execution
+    id: "10231"
+  attributes_cache: {}
+
+00000010265_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: assign
+    permission_id: 
+    role_id: "1"
+    subject: data
+    id: "10265"
+  attributes_cache: {}
+
+00000010254_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: share
+    permission_id: 
+    role_id: "5"
+    subject: data
+    id: "10254"
+  attributes_cache: {}
+
+00000010236_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: build
+    permission_id: 
+    role_id: "3"
+    subject: organization
+    id: "10236"
+  attributes_cache: {}
+
+00000010232_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: admin
+    permission_id: 
+    role_id: "3"
+    subject: catalogue
+    id: "10232"
+  attributes_cache: {}
+
+00000010259_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: create
     permission_id: 
     role_id: "2"
-    subject: report
-    id: "116"
+    subject: data
+    id: "10259"
   attributes_cache: {}
 
-00000000050_role_permission: !ruby/object:RolePermission 
+00000010255_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: create
+    action: assign
+    permission_id: 
+    role_id: "5"
+    subject: data
+    id: "10255"
+  attributes_cache: {}
+
+00000010244_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: use
+    permission_id: 
+    role_id: "6"
+    subject: organization
+    id: "10244"
+  attributes_cache: {}
+
+00000010260_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: update
+    permission_id: 
+    role_id: "2"
+    subject: data
+    id: "10260"
+  attributes_cache: {}
+
+00000010249_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: publish
+    permission_id: 
+    role_id: "5"
+    subject: document
+    id: "10249"
+  attributes_cache: {}
+
+00000010245_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: build
+    permission_id: 
+    role_id: "6"
+    subject: reports
+    id: "10245"
+  attributes_cache: {}
+
+00000010234_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: use
     permission_id: 
     role_id: "3"
-    subject: cataloge
-    id: "50"
+    subject: project
+    id: "10234"
   attributes_cache: {}
 
-00000000014_role_permission: !ruby/object:RolePermission 
+00000010250_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: create
+    action: withdraw
     permission_id: 
-    role_id: "3"
-    subject: user
-    id: "14"
+    role_id: "5"
+    subject: document
+    id: "10250"
   attributes_cache: {}
 
-00000000206_role_permission: !ruby/object:RolePermission 
+00000010239_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
+    action: use
     permission_id: 
     role_id: "3"
     subject: reports
-    id: "206"
+    id: "10239"
   attributes_cache: {}
 
-00000000199_role_permission: !ruby/object:RolePermission 
+00000010235_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: requests
-    id: "199"
-  attributes_cache: {}
-
-00000000104_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "104"
-  attributes_cache: {}
-
-00000000031_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
+    action: admin
     permission_id: 
     role_id: "3"
-    subject: assay
-    id: "31"
-  attributes_cache: {}
-
-00000000012_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "12"
-  attributes_cache: {}
-
-00000000133_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "5"
-    subject: project_studies
-    id: "133"
-  attributes_cache: {}
-
-00000000204_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: project_requests
-    id: "204"
-  attributes_cache: {}
-
-00000000150_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "6"
-    subject: inventory
-    id: "150"
-  attributes_cache: {}
-
-00000000078_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "78"
-  attributes_cache: {}
-
-00000000059_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "59"
-  attributes_cache: {}
-
-00000000102_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: cataloge
-    id: "102"
-  attributes_cache: {}
-
-00000000197_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: queue_items
-    id: "197"
-  attributes_cache: {}
-
-00000000178_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: queue_items
-    id: "178"
-  attributes_cache: {}
-
-00000000149_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "6"
-    subject: report
-    id: "149"
-  attributes_cache: {}
-
-00000000076_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: blog
-    permission_id: 
-    role_id: "3"
-    subject: home
-    id: "76"
-  attributes_cache: {}
-
-00000000010_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "5"
-    role_id: "2"
-    subject: 
-    id: "10"
-  attributes_cache: {}
-
-00000000202_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: assay_protocols
-    id: "202"
-  attributes_cache: {}
-
-00000000195_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: tasks
-    id: "195"
-  attributes_cache: {}
-
-00000000166_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: requests
-    id: "166"
-  attributes_cache: {}
-
-00000000100_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
     subject: system
-    id: "100"
+    id: "10235"
   attributes_cache: {}
 
-00000000028_role_permission: !ruby/object:RolePermission 
+00000010258_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "28"
-  attributes_cache: {}
-
-00000000009_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "4"
-    role_id: "1"
-    subject: 
-    id: "9"
-  attributes_cache: {}
-
-00000000093_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
+    action: witness
     permission_id: 
     role_id: "2"
-    subject: assay
-    id: "93"
+    subject: document
+    id: "10258"
   attributes_cache: {}
 
-00000000057_role_permission: !ruby/object:RolePermission 
+00000010247_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: edit
+    action: sign
     permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "57"
+    role_id: "5"
+    subject: document
+    id: "10247"
   attributes_cache: {}
 
-00000000074_role_permission: !ruby/object:RolePermission 
+00000010240_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: calendar
+    action: all
     permission_id: 
-    role_id: "3"
-    subject: home
-    id: "74"
+    role_id: "6"
+    subject: execution
+    id: "10240"
   attributes_cache: {}
 
-00000000026_role_permission: !ruby/object:RolePermission 
+00000010229_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "26"
-  attributes_cache: {}
-
-00000000218_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
+    action: use
     permission_id: 
     role_id: "7"
-    subject: inventory
-    id: "218"
+    subject: organization
+    id: "10229"
   attributes_cache: {}
 
-00000000164_role_permission: !ruby/object:RolePermission 
+00000010263_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
+    action: witness
+    permission_id: 
+    role_id: "1"
+    subject: document
+    id: "10263"
+  attributes_cache: {}
+
+00000010248_role_permission: !ruby/object:RolePermission 
+  attributes: 
+    action: witness
     permission_id: 
     role_id: "5"
-    subject: queue_items
-    id: "164"
+    subject: document
+    id: "10248"
   attributes_cache: {}
 
-00000000145_role_permission: !ruby/object:RolePermission 
+00000010237_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "6"
-    subject: user
-    id: "145"
-  attributes_cache: {}
-
-00000000091_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: protocol
-    id: "91"
-  attributes_cache: {}
-
-00000000072_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
+    action: use
     permission_id: 
     role_id: "3"
-    subject: home
-    id: "72"
+    subject: organization
+    id: "10237"
   attributes_cache: {}
 
-00000000043_role_permission: !ruby/object:RolePermission 
+00000010230_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "43"
-  attributes_cache: {}
-
-00000000007_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: 
-    permission_id: "2"
-    role_id: "3"
-    subject: 
-    id: "7"
-  attributes_cache: {}
-
-00000000109_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "109"
-  attributes_cache: {}
-
-00000000181_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: studies
-    id: "181"
-  attributes_cache: {}
-
-00000000162_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: assay_parameters
-    id: "162"
-  attributes_cache: {}
-
-00000000060_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: request
-    id: "60"
-  attributes_cache: {}
-
-00000000024_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "24"
-  attributes_cache: {}
-
-00000000216_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
+    action: use
     permission_id: 
     role_id: "7"
     subject: reports
-    id: "216"
+    id: "10230"
   attributes_cache: {}
 
-00000000143_role_permission: !ruby/object:RolePermission 
+00000010253_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
+    action: destroy
     permission_id: 
     role_id: "5"
-    subject: project_experiments
-    id: "143"
+    subject: data
+    id: "10253"
   attributes_cache: {}
 
-00000000041_role_permission: !ruby/object:RolePermission 
+00000010238_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: list
+    action: build
     permission_id: 
     role_id: "3"
-    subject: system
-    id: "41"
-  attributes_cache: {}
-
-00000000022_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "22"
-  attributes_cache: {}
-
-00000000214_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "7"
     subject: reports
-    id: "214"
+    id: "10238"
   attributes_cache: {}
 
-00000000160_role_permission: !ruby/object:RolePermission 
+00000010227_role_permission: !ruby/object:RolePermission 
   attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: studies
-    id: "160"
-  attributes_cache: {}
-
-00000000069_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "69"
-  attributes_cache: {}
-
-00000000131_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "5"
-    subject: project_queues
-    id: "131"
-  attributes_cache: {}
-
-00000000112_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "112"
-  attributes_cache: {}
-
-00000000088_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "88"
-  attributes_cache: {}
-
-00000000188_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: studies
-    id: "188"
-  attributes_cache: {}
-
-00000000159_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "159"
-  attributes_cache: {}
-
-00000000086_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "86"
-  attributes_cache: {}
-
-00000000212_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
+    action: all
     permission_id: 
     role_id: "7"
-    subject: reports
-    id: "212"
-  attributes_cache: {}
-
-00000000176_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: assay_protocols
-    id: "176"
-  attributes_cache: {}
-
-00000000067_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "67"
-  attributes_cache: {}
-
-00000000110_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "2"
-    subject: request
-    id: "110"
-  attributes_cache: {}
-
-00000000019_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "19"
-  attributes_cache: {}
-
-00000000200_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: requests
-    id: "200"
-  attributes_cache: {}
-
-00000000193_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: assay_queues
-    id: "193"
-  attributes_cache: {}
-
-00000000157_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "157"
-  attributes_cache: {}
-
-00000000138_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_requests
-    id: "138"
-  attributes_cache: {}
-
-00000000055_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "55"
-  attributes_cache: {}
-
-00000000084_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: inventory
-    id: "84"
-  attributes_cache: {}
-
-00000000174_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: queue_items
-    id: "174"
-  attributes_cache: {}
-
-00000000155_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "3"
-    subject: catalogue
-    id: "155"
-  attributes_cache: {}
-
-00000000119_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "2"
-    subject: report
-    id: "119"
-  attributes_cache: {}
-
-00000000053_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: experiment
-    id: "53"
-  attributes_cache: {}
-
-00000000017_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "17"
-  attributes_cache: {}
-
-00000000209_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "7"
-    subject: users
-    id: "209"
-  attributes_cache: {}
-
-00000000191_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "1"
-    subject: assay_parameters
-    id: "191"
-  attributes_cache: {}
-
-00000000172_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: assay_queues
-    id: "172"
-  attributes_cache: {}
-
-00000000136_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "5"
-    subject: project_experiments
-    id: "136"
-  attributes_cache: {}
-
-00000000107_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "107"
-  attributes_cache: {}
-
-00000000070_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "70"
-  attributes_cache: {}
-
-00000000034_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: assay
-    id: "34"
-  attributes_cache: {}
-
-00000000015_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: user
-    id: "15"
-  attributes_cache: {}
-
-00000000207_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "7"
-    subject: catalogue
-    id: "207"
-  attributes_cache: {}
-
-00000000153_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "6"
-    subject: users
-    id: "153"
-  attributes_cache: {}
-
-00000000105_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "105"
-  attributes_cache: {}
-
-00000000051_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "51"
-  attributes_cache: {}
-
-00000000032_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: assay
-    id: "32"
-  attributes_cache: {}
-
-00000000170_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "2"
-    subject: project
-    id: "170"
-  attributes_cache: {}
-
-00000000141_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: project_queues
-    id: "141"
-  attributes_cache: {}
-
-00000000020_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: create
-    permission_id: 
-    role_id: "3"
-    subject: protocol
-    id: "20"
-  attributes_cache: {}
-
-00000000098_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: project
-    id: "98"
-  attributes_cache: {}
-
-00000000079_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: new
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "79"
-  attributes_cache: {}
-
-00000000198_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: queue_items
-    id: "198"
-  attributes_cache: {}
-
-00000000169_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: studies
-    id: "169"
-  attributes_cache: {}
-
-00000000103_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: experiment
-    id: "103"
-  attributes_cache: {}
-
-00000000186_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "1"
-    subject: experiments
-    id: "186"
-  attributes_cache: {}
-
-00000000101_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "2"
-    subject: cataloge
-    id: "101"
-  attributes_cache: {}
-
-00000000048_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "3"
-    subject: cataloge
-    id: "48"
-  attributes_cache: {}
-
-00000000029_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: assay
-    id: "29"
-  attributes_cache: {}
-
-00000000077_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: report
-    id: "77"
-  attributes_cache: {}
-
-00000000120_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: edit
-    permission_id: 
-    role_id: "2"
-    subject: report
-    id: "120"
-  attributes_cache: {}
-
-00000000210_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "7"
-    subject: users
-    id: "210"
-  attributes_cache: {}
-
-00000000167_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "5"
-    subject: assay_protocols
-    id: "167"
-  attributes_cache: {}
-
-00000000148_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: "*"
-    permission_id: 
-    role_id: "6"
-    subject: home
-    id: "148"
-  attributes_cache: {}
-
-00000000094_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: show
-    permission_id: 
-    role_id: "2"
-    subject: assay
-    id: "94"
-  attributes_cache: {}
-
-00000000065_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: list
-    permission_id: 
-    role_id: "3"
-    subject: users
-    id: "65"
-  attributes_cache: {}
-
-00000000046_role_permission: !ruby/object:RolePermission 
-  attributes: 
-    action: update
-    permission_id: 
-    role_id: "3"
-    subject: system
-    id: "46"
+    subject: execution
+    id: "10227"
   attributes_cache: {}
 

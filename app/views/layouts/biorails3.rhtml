@@ -16,16 +16,52 @@
             try {
                 Ext.state.Manager.setProvider(new Ext.state.CookieProvider({name:"biorails"}));
                 Ext.QuickTips.init();
-                Biorails.init(<%=toolbar_items%>);
+                Biorails.init(<%=toolbar_items%>);				
             } catch (e) {
-                console.log('Problem with main javascript ');
-                console.log(e);
             }    
         }, Biorails);    
     </script>
+	
+<%if @content_for_dialog %>
+    <script type="text/javascript">
+        Ext.onReady( function() {
+            win = new Ext.Window({
+                applyTo: 'dialog-panel',
+				contentEl: 'dialog-content',
+                layout: 'fit',
+                closeAction: 'hide',
+                plain: false,
+                buttons: [{
+                    text: 'Save',
+                    handler: function(){
+                        win.setDisabled(true);
+                        win.body.child('form').dom.submit();
+                        win.hide();
+                    }
+                }, {
+                    text: 'Close',
+                    handler: function(){
+                        win.hide();
+                    }
+                }]
+            });	
+		 win.setPosition(100,100);	
+		 win.setSize(700,500);					
+	     win.show();
+        });    
+    </script>
+<%end %> 
     <%= yield :header_script %>	
   </head>
   <body>
+
+	<div id="dialog-panel" class="x-hidden">
+		<div id="dialog-content" class="dialog">
+	        <%if @content_for_dialog %>
+	          <%=yield :dialog%>
+	        <%end %> 
+		</div>
+	</div>
     
     <!--North Header ======================= -->  
     <div id="toolbar-panel" class="x-hidden">
@@ -34,6 +70,11 @@
     
     <!--center Block =======================-->   
     <div id="center-panel" class="x-hidden">
+      <div id="messages" class='panel'>
+        <%= if @content_for_messages 
+          yield :messages
+        end %> 
+      </div>
       <div id='center' class='bio-std'>
         <%= yield :center %>
         <%= yield %>
@@ -51,6 +92,7 @@
             render :partial =>'menu/default_left_menu' 
           end %>
         </div>
+        <%= yield :left %> 
         <%= yield :actions %>
       </div>
     </div>
@@ -67,12 +109,7 @@
     
     <!--East Block TAB1=======================-->  
     <div id="status-tab" class="x-hidden">
-      <div id="messages" class='panel'>
-        <%= if @content_for_messages 
-          yield :messages
-        end %> 
-      </div>
-      <div id='status' >
+       <div id='status' >
         <%= yield :right %>
         <%= yield :status %>
       </div>

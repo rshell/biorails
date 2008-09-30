@@ -2,19 +2,20 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
 <%end%>
 <% content_for :center do -%>
-  <% dialog "New Task" do %>
+<%= render :partial => 'execute/experiments/header'%>
+  <% dialog l(:label_task_new) do %>
     <% form_tag :action => 'create' do %>
       <div class="row">
         <div class="form-element">
-          <label for="task_name" class='icon icon-name'>
-            Task Name
+          <label for="task_name">
+            <%=l(:label_name)%>
           </label>
           <%= text_field 'task', 'name' , {:class=>"text-input"} %>
       </div>
 
       <div class="form-element">
-        <label for="tasks_assay_protocol_id" class='icon icon-experiment'>
-          Experiment
+        <label for="tasks_assay_protocol_id">
+          <%=l(:label_experiment)%>
         </label>
         <%= select_values(:task, :experiment_id, current_project.experiments,[]) %>
       </div>
@@ -22,8 +23,8 @@
 
       <div class="row">
         <div id='protocol_id' class="form-element">
-          <label for="tasks_protocol_version_id" class='icon icon-protocol_version'>
-            Running Assay/Protocol:Version
+          <label for="tasks_protocol_version_id">
+            <%=l(:label_running_assay_method)%>
           </label>
           <%= select_process_instance(:task, :protocol_version_id) %>
         </div>
@@ -31,8 +32,8 @@
 
       <div class="row">
         <div class="form-element">
-          <label for="assay_description" class='icon icon-description'>
-            Description
+          <label for="assay_description">
+            <%=l(:label_description)%>
           </label>
           <%= text_area('task', 'description', {:rows=>5, :cols=>80} )%>
         </div>
@@ -40,50 +41,36 @@
 
       <div class="row">
         <div class="form-element">
-          <label for="task_assigned_to" class='icon icon-user_lab'>
-            Assigned to
+          <label for="task_assigned_to">
+            <%=l(:label_assigned_to)%>
           </label>
            <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
         </div>
 
-        <!--div class="form-element">
-          <label for="task_expected_hours" class='icon icon-time'>
-            Expected hours
-          </label>
-          <#%= text_field 'task', 'expected_hours', 'size' => 6  %>
-        </div-->
-
-        <!--div class="form-element">
-          <label for="task_done_hours" class='icon icon-time'>
-            Done hours
-          </label>
-          <#%= text_field 'task', 'done_hours', 'size' => 6  %>
-        </div-->
-
         <div class="form-element">
-          <label for="task_status_id" class='icon icon-status'>
-            Status
+          <label for="task_status_id">
+            <%=l(:label_status)%>
           </label>
           <%= select( :task, :status_id, @task.allowed_status_list)  %>
         </div>
 
         <div class="form-element">
-          <label for="task_started_at" class='icon icon-date'>
-            Start date
+          <label for="task_started_at">
+            <%=l(:label_date_start)%>
           </label>
           <%= date_field 'task', 'started_at'  %>
         </div>
 
         <div class="form-element">
-          <label for="task_ended_at" class='icon icon-date'>
-            Expected End date
+          <label for="task_ended_at">
+            <%=l(:label_date_expected)%>
           </label>
           <%= date_field 'task', 'expected_at'  %>
         </div>
       </div>
 
       <div class="row">
-        <%= submit_tag "Create" %>
+        <%= submit_tag l(:button_save) %>
       </div>
     <%end%>
   <%end%>

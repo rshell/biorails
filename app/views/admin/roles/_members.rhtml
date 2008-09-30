@@ -1,21 +1,43 @@
-<h1 class="icon icon-role"> Teams Memberships </h1>
-<table class="report">
-<thead>
-<tr>
-   <th><b class='icon icon-user'>User</b></th>
-   <th><b class='icon icon-team'>Team</b></th>
-   <th><b class='icon icon-date'>Created</b></th>
-   <th><b class='icon icon-date'>Updated</b></th>
-</tr>
-</thead>
-<tbody>
-<% for member in @role.memberships do %>
-    <tr class="<%= cycle('odd', 'even') %>">
-        <td><%= link_to member.user.name,user_url(:action=>:show,:id=>member.user) %></td>
-        <td><%= link_to member.team.name,team_url(:action=>:show,:id=>member.team) %></td>
-        <td><%= short_date member.created_at %></td>
-        <td><%= short_date member.updated_at %></td>
-    </tr>
-<% end -%>
-</tbody>
-</table>
+<div class='panel'>
+    <h3 class="icon icon-role">
+    	<%=l(:label_team) %>
+		<%=l(:label_membership) %></h3>
+    <div class='box'>
+        <table class="report">
+            <thead>
+                <tr>
+                    <th>
+                        <%=l(:label_user) %>
+                    </th>
+                    <th>
+                        <%=l(:label_team) %>
+                    </th>
+                    <th>
+                        <%=l(:label_created_at) %>
+                    </th>
+                    <th>
+                        <%=l(:label_updated_at) %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for member in @role.memberships do %>
+                <tr class="<%= cycle('odd', 'even') %>">
+                    <td>
+                        <%= link_to member.user.name,user_url(:action=>:show,:id=>member.user) %>
+                    </td>
+                    <td>
+                        <%= link_to member.team.name,team_url(:action=>:show,:id=>member.team) %>
+                    </td>
+                    <td>
+                        <%= short_date member.created_at %>
+                    </td>
+                    <td>
+                        <%= short_date member.updated_at %>
+                    </td>
+                </tr>
+                <% end -%>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -212,7 +212,7 @@ class BiorailsApi < ActionWebService::API::Base
              :returns => [Experiment]
 
   api_method :set_task_value,
-               :expects => [ {:session_id => :int},{:task_context_id => :int},{:parameter_id => :int},{:data => :string} ],
+               :expects => [ {:session_id => :string},{:task_context_id => :int},{:parameter_id => :int},{:data => :string} ],
                :returns => [TaskItem]
 
   api_method :add_task,
@@ -220,10 +220,8 @@ class BiorailsApi < ActionWebService::API::Base
                :returns => [Task]
  
   api_method :add_task_context,
-               :expects => [ {:session_id => :int},{:task_id => :int},{:parameter_context_id => :int} ],
+               :expects => [ {:session_id => :string},{:task_id => :int},{:parameter_context_id => :int} ],
                :returns => [TaskContext]
-
-
  
   api_method :set_asset,
                :expects => [ {:session_id => :string},{:folder_id => :int},{:title=>:string},{:filename=>:string},{:mime_type =>:string} , {:data =>:string} ],

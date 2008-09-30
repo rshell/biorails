@@ -1,23 +1,30 @@
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment' ]} %>
-<%end%>
+<%end %>
+
+
 
 <% content_for :center do %>
- <% unless current_project.runnable? %>
-    <b>Project <%=current_project.name%> is not yet runnable as there are no released processes or recipes defined </b>
- <% else %>
-    <% dialog 'New Experiment' do %>
+  <%= render :partial=>'projects/header' %>
+  <% if current_project.runnable? %>
 
-       <% form_tag :action => 'create' do %>
-          <%= render :partial => 'form' %>
-          <div class="row">
-              <%= submit_tag "Create" %>
-          </div>
-       <% end %>
+    <% dialog l(:label_experiment_new) do %>
+
+      <% form_tag :action => 'create',:id=>current_project do %>
+        <%= render :partial => 'form' %>
+        <div class="row">
+          <%= submit_tag l(:button_create) %>
+          <%= link_to( l(:label_cancel), experiment_url( :action => 'list')) %>
+        </div>
+      <% end %>
+
     <% end %>
+
   <% end %>
-<%end%>
+<%end %>
+
+
 
 <% content_for :right do -%>
-    <%= render :partial => 'help' %>
+  <%= render :partial => 'help' %>
 <% end %>

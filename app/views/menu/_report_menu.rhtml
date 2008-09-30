@@ -1,28 +1,21 @@
 <div>
   <span class='menu'>
     <b class='icon icon-report'>
-      Reports
+      <%=l(:label_reports)%>
     </b>
   </span>
-  <div class='boldnotbold'>
-    <%= link_to("<b class='icon icon-list'>List Queries</b>", report_url(:action => 'list'))%>  
-    <%= link_to("<b class='icon icon-list'>List Cross Tabs</b>", cross_tab_url()) %>  
-<% if @report and !@report.new_record? %>
-    <%= link_to("<b class='icon icon-run'>Show</b>",   report_url(:action => 'show', :id => @report)) if current_user.allows?(:show,:reports)%>
-    <%= link_to("<b class='icon icon-edit'>Edit</b>",  report_url(:action => 'edit', :id => @report)) if current_user.allows?(:edit,:reports)%>
-    <%= link_to("<b class='icon icon-del'>Delete</b>", report_url( :action => 'destroy', :id => @report),
-          :confirm => 'Are you sure?',:method => "post") if current_user.allows?(:destroy,:reports) %>
-
-<%elsif @cross_tab and !@cross_tab.new_record?%>
-        <%= link_to("<b class='icon icon-show'>Show</b>",     cross_tab_url(:action=>:show, :id=>@cross_tab)) if current_user.allows?(:show,:reports) %>
-        <%= link_to("<b class='icon icon-edit'>Edit</b>",     cross_tab_url(:action=>:edit, :id=>@cross_tab)) if current_user.allows?(:edit,:reports)  %>
-        <%= link_to("<b class='icon icon-del'>Delete</b> ",   cross_tab_url(:action=>:destroy, :id=>@cross_tab), 
-                                  :confirm => 'Are you sure?', :method => :delete) if current_user.allows?(:destroy,:reports) %>
-<%else%>
-    <%= link_to("<b class='icon icon-new'>new cross tab</b>", cross_tab_url(:action=>:new),:method => :get) if current_user.allows?(:new,:reports)%>
-    <%= link_to("<b class='icon icon-new'>new query</b>",     report_url(:action=>:new),:method => :get) if current_user.allows?(:new,:reports) %>
-	
-<%end%>
-  </div>
+  <%= link_to( l(:label_report_list), report_url(:action => 'list'))%>
+  <%= link_to( l(:label_crosstab_list), cross_tab_url()) %>
+  <% if @report and !@report.new_record? %>
+    <%= link_to( l(:label_show),   report_url(:action => 'show', :id => @report))%>
+    <%= link_to( l(:label_edit),  report_url(:action => 'edit', :id => @report)) %>
+    <%= link_to( l(:label_delete), report_url( :action => 'destroy', :id => @report), :confirm => l(:text_are_you_sure),:method => "post")  %>
+  <%elsif @cross_tab and !@cross_tab.new_record?%>
+    <%= link_to( l(:label_show),     cross_tab_url(:action=>:show, :id=>@cross_tab)) %>
+    <%= link_to( l(:label_edit),     cross_tab_url(:action=>:edit, :id=>@cross_tab)) %>
+    <%= link_to( l(:label_delete),   cross_tab_url(:action=>:destroy, :id=>@cross_tab), :confirm => l(:text_are_you_sure), :method => :delete)  %>
+  <%else%>
+    <%= link_to( l(:label_report_new),     report_url(:action=>:new),:method => :get, :project => current_project) %>
+    <%= link_to( l(:label_new), cross_tab_url(:action=>:new),:method => :get, :project => current_project) %>  <%end%>
 </div>
 

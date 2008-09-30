@@ -1,17 +1,17 @@
 ---
 projects_001:
   done_hours:
-  name: Global
+  name: Public
   expected_hours:
   team_id: "1"
   ended_at:
-  title: Global
+  title: Public
   timezone:
   updated_by_user_id: "1"
   expected_at:
   id: "1"
-  description: Common project for all users!
+  description: Public project!
   host:
   status_id: "0"
   comment_age:
-  email:
+  email: public@biorails.org

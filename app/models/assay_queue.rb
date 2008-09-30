@@ -1,3 +1,26 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: assay_queues
+#
+#  id                  :integer(4)      not null, primary key
+#  name                :string(128)     default(""), not null
+#  description         :string(1024)    default(""), not null
+#  assay_id            :integer(4)
+#  assay_stage_id      :integer(4)
+#  assay_parameter_id  :integer(4)
+#  assay_protocol_id   :integer(4)
+#  status              :string(255)     default("new"), not null
+#  priority            :string(255)     default("normal"), not null
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  created_by_user_id  :integer(4)      default(1), not null
+#  assigned_to_user_id :integer(4)      default(1)
+#  project_element_id  :integer(4)
+#
+
 ##
 # == Description
 # 
@@ -12,28 +35,6 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 # 
-# == Schema Information
-# Schema version: 338
-#
-# Table name: assay_queues
-#
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :string(1024)  default(), not null
-#  assay_id            :integer(11)   
-#  assay_stage_id      :integer(11)   
-#  assay_parameter_id  :integer(11)   
-#  assay_protocol_id   :integer(11)   
-#  status              :string(255)   default(new), not null
-#  priority            :string(255)   default(normal), not null
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
-#  assigned_to_user_id :integer(11)   default(1)
-#
-
 
 class AssayQueue < ActiveRecord::Base
   
@@ -64,6 +65,11 @@ class AssayQueue < ActiveRecord::Base
 ##
 #Assay 
  belongs_to :assay
+#
+# Owner project
+#  
+acts_as_folder_linked  :assay,:under=>'queues'
+  
 ##
 #Current process instance associated with the protocol
  belongs_to :protocol, :class_name =>'AssayProtocol',:foreign_key=>'assay_protocol_id'

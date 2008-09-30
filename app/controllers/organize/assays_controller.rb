@@ -1,14 +1,46 @@
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
+# 
+# == Assay controller
+# This manages the assign definitions and change responses to the key requests for organization of 
+# structured data in the system
+# 
+# === Assay Definition 
+#
+# An assay definition provides the organisation for capturing structured data within experiments. 
+# Each assay definition has its own name space built from the catalogue by assigning parameter types, 
+# with roles as assay parameters.  Once the parameters are assigned, services can be registered against
+#  which users can make requests.  These services are implemented as service queue parameters. 
+#  These queue parameters can be built into the assays processes as a way of automatically 
+#  returning data against items submitted in a request to a service.
+#
+# === Structure ¶
+# Once the parameters are assigned, Process processes can be built. These processes are implemented 
+# as data entry sheets within tasks . The idea is that there are likely to be a collection of 
+# processes used to run an experiment.  Some of these processes may be used to set up the experiment, 
+# others to capture data and others to analyse the data within an experiment.  The processes therefore
+#  map to the steps that must be executed in order to run an experiment.  These steps can be 
+#  formalised in a work-flow recipe?, where the processes can be added with default owners and 
+#  starting points from the start of the experiment.
+#
+# === Content ¶
+#
+#An assay definition will automatically have a folder and show up on the project tree.  
+#Documentation for running the assays (executing experiments) can be stored here as articles or files, 
+#word documents for example).# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
 class Organize::AssaysController < ApplicationController
 
-  use_authorization :assays,
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
+  before_filter :setup_assays ,
+    :only => [ :list,:index]
+  
   before_filter :setup_assay ,
     :only => [ :show, :edit, :update,:destroy,:print,:experiments, :parameters, :queues,:export,:protocols,:metrics]
   
@@ -22,9 +54,9 @@ class Organize::AssaysController < ApplicationController
 # 
 # 
   def list
-   @project = current_project
     respond_to do | format |
       format.html { render :action => 'list' }
+      format.ext  { render :partial =>'list'}
     end
   end
 ##
@@ -100,9 +132,12 @@ end
 # Standard entry point for data entry mode for assays. This will display a list of   
 # 
   def protocols
-    redirect_to protocol_url(:action => 'list',:id=>@assay)
+    redirect_to process_instance_url(:action => 'list',:id=>@assay)
   end
 
+  def recipes
+    redirect_to process_flow_url(:action => 'list',:id=>@assay)
+  end
 #
 # Generate a New Assay and put up dialog for creation of assay
 # 
@@ -116,12 +151,9 @@ end
 # response to new with details to created a assay
 #   
   def create
-    @project = current_project
     @assay = Assay.new(params[:assay])
-    @project.assays << @assay
-    @assay.project = current_project
-    @assay.team = current_team
     if @assay.save
+      set_project @assay.project
       @project_folder = @assay.folder    
       flash[:notice] = 'Assay was successfully created.'
       redirect_to :action => 'show', :id => @assay.id
@@ -175,7 +207,7 @@ end
  #
  # Share a assay with another project
  #
- def share 
+ def  link
     @assay = Assay.find(params[:assay_id])
     if @assay.shareable?(current_project)
        current_project.share(@assay)
@@ -185,7 +217,20 @@ end
     redirect_to assay_url(:action => 'list')
  end
 
-ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol, :protocol_version,:parameter_context,:parameter] unless defined? ASSAY_MODELS
+ def unlink
+    @assay = Assay.find(params[:id])
+    unless current_project.folder.contains?(@assay.folder)
+       current_project.remove_link(@assay)
+    else
+      flash[:warning]="Cant remove as is owned by this domain or its children"
+    end
+    redirect_to assay_url(:action => 'list')
+ end
+
+ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol,
+                :assay_process,:process_instance,
+                :assay_workflow, :process_flow,
+                :protocol_version,:parameter_context,:parameter] unless defined? ASSAY_MODELS
 ##
 #Import a a assay xml file
 #
@@ -234,13 +279,15 @@ ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol, :protocol_
 
 protected
 
+  def setup_assays
+    set_project(Project.load( params[:id] )) if  params[:id]
+  end
 
   def setup_assay
-    @assay = current_user.assay(params[:id])  
-    set_project(@assay.project) if @assay  
-    @assay ||= current_project.assay(params[:id] )
+    @assay = Assay.load(params[:id])  
     @tab = params[:tab]||0
     if @assay
+      set_element(@assay.folder)
       logger.info "set_assay_content(#{@assay.name})"
       @folder = @assay.folder
       ProjectFolder.current = @folder

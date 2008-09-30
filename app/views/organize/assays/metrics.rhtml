@@ -1,22 +1,14 @@
 <% content_for :sidemenu do -%>
-    <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project}  %>
-    <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+<%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
+<%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
 <% end -%>
-
-
-<h1 class='icon icon-assay-large' style='text-indent:0.5em;'>
-    Statistical Metrics for Assay [<strong><%=@assay.name %></strong>]
-</h1>
-
+<h1 class='icon icon-assay-large' style='text-indent:0.5em;'> Statistical Metrics for Assay [<strong><%=@assay.name %></strong>]</h1>
 <%= render :partial => 'metrics', :locals => {  :assay => @assay } %>
-
-<% content_for :right do%>
-  <h1 class='icon icon-metric'>
-    Metrics Guidance
-  </h1>
-  <p>
+<% content_for :right do %>
+<h1 class='icon icon-metric'>Metrics Guidance</h1>
+<p>
     This is a simple QA report on the values that have been associated with the
     Parameter Types in the Assay:- the average +/ error and min/max values for each parameter
     type in each role.
-  </p>
-<%end%>
+</p>
+<%end %>

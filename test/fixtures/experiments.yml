@@ -1,26 +1,28 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: experiments
 #
-#  id                  :integer(11)   not null, primary key
-#  name                :string(128)   default(), not null
-#  description         :string(1024)  default(), not null
-#  category_id         :integer(11)   
-#  status_id           :integer(11)   default(0), not null
-#  assay_id            :integer(11)   not null
-#  protocol_version_id :integer(11)   
-#  lock_version        :integer(11)   default(0), not null
-#  created_at          :datetime      not null
-#  updated_at          :datetime      not null
-#  assay_protocol_id   :integer(11)   not null
-#  project_id          :integer(11)   not null
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
-#  started_at          :datetime      
-#  ended_at            :datetime      
-#  expected_at         :datetime      
-#  team_id             :integer(11)   default(0), not null
+#  id                  :integer(4)      not null, primary key
+#  name                :string(128)     default(""), not null
+#  description         :string(1024)    default(""), not null
+#  category_id         :integer(4)
+#  status_id           :integer(4)      default(0), not null
+#  assay_id            :integer(4)
+#  protocol_version_id :integer(4)
+#  assay_protocol_id   :integer(4)
+#  project_id          :integer(4)      not null
+#  team_id             :integer(4)      not null
+#  started_at          :datetime
+#  ended_at            :datetime
+#  expected_at         :datetime
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  created_by_user_id  :integer(4)      default(1), not null
+#  process_flow_id     :integer(4)
+#  project_element_id  :integer(4)
 #
 
 --- 
@@ -28,62 +30,71 @@
   attributes: 
     team_id: "2"
     name: Experiment1
+    updated_at: 2008-08-14 10:29:53
     project_id: "2"
-    updated_at: 2007-12-10 20:22:09
     ended_at: 
     protocol_version_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "5"
     expected_at: 2007-12-17 00:00:00
-    updated_by_user_id: "3"
-    lock_version: "0"
-    id: "1"
     assay_id: "1"
+    id: "1"
     category_id: 
     description: " Experiment in project Project X "
-    created_by_user_id: "3"
+    project_element_id: "112"
+    created_by_user_id: "1"
     status_id: "0"
-    started_at: 2007-12-10 00:00:00
+    process_flow_id: 
     created_at: 2007-12-10 20:22:09
+    started_at: 2007-12-10 00:00:00
+    assay_protocol_id: 
   attributes_cache: {}
 
 00000000003_experiment: !ruby/object:Experiment 
   attributes: 
     team_id: "2"
     name: Experiment3
+    updated_at: 2008-08-14 10:29:53
     project_id: "2"
-    updated_at: 2007-12-11 20:43:37
     ended_at: 
     protocol_version_id: "2"
+    updated_by_user_id: "1"
+    lock_version: "6"
     expected_at: 2007-12-18 00:00:00
-    updated_by_user_id: "3"
-    lock_version: "1"
-    id: "3"
     assay_id: "2"
+    id: "3"
     category_id: 
     description: This is the third experiment
-    created_by_user_id: "3"
+    project_element_id: "114"
+    created_by_user_id: "1"
     status_id: "0"
-    started_at: 2007-12-11 00:00:00
+    process_flow_id: 
     created_at: 2007-12-11 20:37:20
+    started_at: 2007-12-11 00:00:00
+    assay_protocol_id: 
   attributes_cache: {}
 
 00000000002_experiment: !ruby/object:Experiment 
   attributes: 
     team_id: "2"
     name: Experiment2
+    updated_at: 2008-08-14 10:29:53
     project_id: "2"
-    updated_at: 2007-12-11 20:31:14
     ended_at: 
     protocol_version_id: "2"
+    updated_by_user_id: "1"
+    lock_version: "5"
     expected_at: 2007-12-18 00:00:00
-    updated_by_user_id: "3"
-    lock_version: "0"
-    id: "2"
     assay_id: "2"
+    id: "2"
     category_id: 
     description: " Experiment in project Project X "
-    created_by_user_id: "3"
+    project_element_id: "113"
+    created_by_user_id: "1"
     status_id: "0"
-    started_at: 2007-12-11 00:00:00
+    process_flow_id: 
     created_at: 2007-12-11 20:31:14
+    started_at: 2007-12-11 00:00:00
+    assay_protocol_id: 
   attributes_cache: {}
 

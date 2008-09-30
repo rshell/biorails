@@ -1,12 +1,21 @@
-# ##
+# == Task controller 
+# This is te key controller for actual data entry. This handle the 
+# task data entry gird and other basic actions for a task. 
+#  
+#  * list/index list of task
+#  * show single task view
+#  * assign automatically assign subjects
+#
+# == Copyright
+# 
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 # 
 class Execute::TasksController < ApplicationController
 
-  use_authorization :tasks,
+  use_authorization :execution,
     :actions => [:list,:show,:new,:create,:edit,:update,:make_flexible],
-    :rights => :current_project
+    :rights => :current_user
 
   helper SheetHelper
 
@@ -36,7 +45,13 @@ class Execute::TasksController < ApplicationController
   # 
   def show
     respond_to do | format |
-      format.html {render :action => 'show'}
+      format.html {
+        if browser_is? :ie6
+          render :action => 'show_ie6'
+        else
+          render :action => 'show'
+        end
+      }
       format.ext { render :partial => 'show',:layout=>false }
       format.pdf  { render_pdf "#{@task.name}.pdf", :partial => 'show',:layout=>false }
       format.csv { render :text => @task.to_csv}
@@ -79,7 +94,7 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :text => @task.to_html }
       format.ext  { render :text => @task.to_html }
-      format.pdf  { html_send_as_pdf(@task.name, @task.to_html) }
+      format.pdf  { html_send_as_pdf(@task.name, @task.folder.html) }
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json }
       format.xml  { render :xml => @task.to_xml }
@@ -91,7 +106,13 @@ class Execute::TasksController < ApplicationController
     @tab=3
     @task.populate
     respond_to do | format |
-      format.html {render :action => 'sheet' }
+      format.html {
+        if browser_is? :ie6
+          render :action => 'sheet_ie6'
+        else
+          render :action => 'sheet'
+        end
+      }
       format.ext { render :partial => 'sheet',:layout=>false }
       format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
@@ -152,7 +173,7 @@ class Execute::TasksController < ApplicationController
       format.js   { 
         render :update do | page |
           page.replace_html 'analysis-form',  :partial => 'analysis' 
-          page.replace_html 'analysis-run',  :inline => @analysis.report(@task) if @analysis.run? 
+          page.replace_html 'analysis-run',  :inline => @analysis.report if @analysis.run? 
         end
       }
     end
@@ -184,10 +205,11 @@ class Execute::TasksController < ApplicationController
     @task.project = current_project
     set_experiment(@task.experiment_id)
     if @task.save
+      set_project @task.project 
       ProjectFolder.current = @task.folder
       session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
-      redirect_to task_url(:action => 'show', :id=>@task.id,:tab=>3)
+      redirect_to task_url(:action => 'show', :id=>@task.id,:tab=>2)
     else
       render :action => 'new'
     end
@@ -223,7 +245,7 @@ class Execute::TasksController < ApplicationController
   # 
   def update
     session[:data_sheet] =nil
-    @task = current_user.task(params[:id])
+    @task = Task.load(params[:id])
     if @task.update_attributes(params[:task])
       @task.update_queued_items
       flash[:notice] = 'Task was successfully updated.'
@@ -395,15 +417,10 @@ class Execute::TasksController < ApplicationController
   
   def setup_task
     @tab = params[:tab]||0
-    @task = current_user.task( params[:id] )
+    @task = Task.load( params[:id] )
     if @task 
-      @experiment =@task.experiment    
-      ProjectFolder.current = @task.folder
-      if set_project(@experiment.project) 
-        if set_team(@experiment.team)
-          return true
-        end
-      end
+      @experiment =@task.experiment  
+      set_element(@task.project_element_id)
     else
       return show_access_denied
     end
@@ -413,7 +430,7 @@ class Execute::TasksController < ApplicationController
   def set_experiment(experiment_id)
     @tab = params[:tab]||0
     if experiment_id
-      @experiment = current_user.experiment(experiment_id )
+      @experiment = Experiment.load(experiment_id )
     else
       @experiment = current_project.experiments.last    
     end

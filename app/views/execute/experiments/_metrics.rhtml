@@ -3,30 +3,55 @@
     <th colspan=13>
   </tr>
   <tr>
-    <th colspan=1 rowspan=2><b class="icon icon-parameter">Parameter</b></th>
-    <th colspan=5><b class="icon icon-experiment">Current (Experiment)</b></th>
-    <th colspan=5><b class="icon icon-assay">Historic (Assay)</b></th>
+    <th colspan=1 rowspan=2><b class="icon icon-parameter">
+      <%=l(:label_parameter)%>
+    </b></th>
+    <th colspan=5><b class="icon icon-experiment">
+        <%= @experiment.name %> (<%=l(:label_current)%>)
+      </b>
+      </th>
+    <th colspan=5><b class="icon icon-assay">
+      <%=l(:label_assay)%> (<%=l(:label_historic)%>)
+      </b></th>
   </tr>
   <tr>
-
-    <th rowspan=1 scope="col">Total</th>
-    <th rowspan=1 scope="col">Ave</th>
-    <th rowspan=1 scope="col">Std.Dev.</th>
-    <th rowspan=1 scope="col">Min</th>
-    <th rowspan=1 scope="col">Max</th>
-
-    <th rowspan=1 scope="col">Total</th>
-    <th rowspan=1 scope="col">Ave</th>
-    <th rowspan=1 scope="col">Std.Dev.</th>
-    <th rowspan=1 scope="col">Min</th>
-    <th rowspan=1 scope="col">Max</th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_total)%>
+      </th>
+    <th rowspan=1 scope="col">
+        <%=l(:stat_mean)%>
+    </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_sd)%>
+      </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_min)%>
+    </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_max)%>
+    </th>
+   
+    <th rowspan=1 scope="col">
+      <%=l(:stat_total)%>
+    </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_mean)%>
+    </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_sd)%>
+    </th>
+    <th rowspan=1 scope="col">
+        <%=l(:stat_min)%>
+    </th>
+    <th rowspan=1 scope="col">
+      <%=l(:stat_max)%>
+    </th>
   </tr>
 <%for row in @experiment.statistics%>
    <tr class="<%= cycle('odd', 'even') %>">
     <td>
       <p class='icon icon-<%=row.role.name if row.role%>'>
-        <%=link_to(row.assay_parameter.name, 
-          parameter_url(:action=>'show', :id=>row.assay_parameter.id )) if row.assay_parameter %>
+        <%=link_to(row.assay_parameter.name,  parameter_url(:action=>'show', :id=>row.assay_parameter.id )) if row.assay_parameter %>
       </p>
     </td>
     <td> <%=number_round row.num_values %>  </td>

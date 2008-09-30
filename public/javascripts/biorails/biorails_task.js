@@ -79,7 +79,7 @@ Biorails.Task = function() {
                     layout:'fit',
                     width: 350,
                     height:150,
-                    modal: true,
+                    modal: !Ext.isIE6,
                     resizable: false,
                     frame: true,
                     border: false,
@@ -280,7 +280,6 @@ Biorails.Task.ContextTable = function(config) {
         autoExpandMin:50,
         autoScroll: false,
         autoHeight: true,
-        autoWidth: true,
         autoShow: true,
         stripeRows: true,
         selModel: new Ext.grid.RowSelectionModel({singleSelect:true}),
@@ -299,6 +298,12 @@ Biorails.Task.ContextTable = function(config) {
         animCollapse: false,
         iconCls: 'icon-grid'
     }	
+    if (Ext.isIE6) {
+        options['width']= Biorails.getWidth()-20;
+        options['autoWidth']=false;
+    } else { 
+        options['autoWidth']=true;
+    }
     grid = new Ext.grid.EditorGridPanel(options);
 //    grid.syncSize();
     /**
@@ -387,10 +392,11 @@ Biorails.Task.ContextForm = function(config) {
         });
         return fields;
     };
-
-    Biorails.Task.ContextForm.superclass.constructor.call(this,{
+	
+    var options= {
         labelWidth: 120,
         context: config,
+		monitorResize: false,
         tbar: [{
                 text: '<b>Context ['+config.path+']</b> '
             },'->',{ 
@@ -398,18 +404,24 @@ Biorails.Task.ContextForm = function(config) {
                 iconCls:'icon-add',
                 tooltip:'Add field for all rows in context',
                 disabled: !config.flexible,
+				autoScroll: false,
                 handler: function(){
                     Biorails.Task.addColumn(config.data[0].context_id);
                 }
-            }],
-        autoHeight: true,
-        bodyStyle:'padding:5px 5px 0',
-        width:  Biorails.getWidth()-20,
+            }],        
         defaults: {width: 400},
         defaultType: 'textfield',
         items : getFields()
-    });  
-    //this.on('render', function(panel){ panel.enableDD();  });      
+    };
+    if (Ext.isIE6) {
+        options['width']=Biorails.getWidth()-20;
+        options['autoWidth']=false;
+        options['autoHeight'] = true;
+    } else { 
+        options['autoWidth']=true;
+        options['autoHeight'] = true;
+    };
+    Biorails.Task.ContextForm.superclass.constructor.call(this,options);        
 };
 
 Ext.extend(Biorails.Task.ContextForm, Ext.form.FormPanel);

@@ -1,66 +1,86 @@
-<h2>Import Tasks</h2>
-  <p>
-    This is a simple CSV file-importer for importing large
-    blocks of data into the system.
-    The procedure is to export a CSV template, usually opened in a spreadsheet.
-    Exporting a template will create the task within the experiment.
-    Add the data, save the file and re-import the file.
- </p>
- <br />
- <p>
-    Export a template by clicking on following links:
-  </p>
- <br />
- <fieldset>
-   <%if @experiment.process.multistep? %>
-   <legend class="icon icon-protocol">
-      Recipe Steps
-   </legend>
-    <table>
-      <tr>
-        <th>Step</th>
-        <th>Start (h)</th>
-        <th>Time (h)</th>
-        <th>Template</th>
-        <th>Description</th>
-      </tr>
-      <%for step in @experiment.process.steps %>
-      <tr>
-        <td><%= step.name %></td>
-        <td><%= step.start_offset_hours %></td>
-        <td><%= step.expected_hours %></td>
-        
-        <td><%= link_to "<strong class='icon icon-xls'> #{step.process.path(:assay)}</strong>",
-          :action => 'export', :id => @experiment.id, :assay_protocol_id => step.process.id %> </td>
-        <td><%= step.process.description %></td>
-      </tr>
-      <%end%>
+<div class='box'>
+<h2><%=l(:label_import) %><%=l(:label_tasks) %>
+</h2>
+<p>
+    <%=l(:help_import_task) %>
+</p>
+<br/>
+<p>
+    <%=l(:text_export_task_instruction) %>: 
+</p>
+<br/>
+<fieldset>
+    <%if @experiment.process.multistep? %>
+    <legend class="icon icon-protocol">
+        <%=l(:label_recipe) %><%=l(:text_steps) %>
+    </legend>
+    <table class='report'>
+        <tr>
+            <th>
+                <%=l(:label_step) %>
+            </th>
+            <th>
+                <%=l(:label_step_start) %>
+            </th>
+            <th>
+                <%=l(:label_step_duration) %>
+            </th>
+            <th>
+                <%=l(:label_template) %>
+            </th>
+            <th>
+                <%=l(:label_description) %>
+            </th>
+        </tr>
+        <%for step in @experiment.process.steps %>
+        <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+                <%= step.name %>
+            </td>
+            <td>
+                <%= step.start_offset_hours %>
+            </td>
+            <td>
+                <%= step.expected_hours %>
+            </td>
+            <td>
+                <%= link_to step.process.path(:assay), :action => 'export', :id => @experiment.id, :assay_protocol_id => step.process.id, :class=>'icon icon-xls' %>
+            </td>
+            <td>
+                <%= step.process.description %>
+            </td>
+        </tr>
+        <%end %>
     </table>
-   </fieldset>
- <br />
-   <% else %>
-   <legend class="icon icon-protocol">
-     Protocol Templates from assay <%=@experiment.assay%>
-   </legend>
-   <br />
-    <ul>
-      <%for protocol in @experiment.assay.process_instances %>
-      <li style="margin-left:1em">
-        <%= link_to '<strong class="icon icon-xls">Template</strong> for [' + protocol.path(:assay) + ']',
-        :action => 'export', :id => @experiment.id, :assay_protocol_id => protocol.id %> 
+</fieldset>
+<br/>
+<% else %>
+<legend class="icon icon-protocol">
+    <%=l(:text_process_templates_from_assay) %>
+    <%=@experiment.assay %>
+</legend>
+<ul>
+    <%for protocol in @experiment.assay.process_instances %>
+    <li style="margin-left:1em">
+        <%= link_to "#{l(:label_template)} #{l(:label_for)} [#{protocol.path(:assay)}]", :action => 'export', :id => @experiment.id, :assay_protocol_id => protocol.id, :class=>'icon icon-xls' %>
         <%= protocol.definition.description %>
-      </li>
-      <%end%>
-    </ul>
-     <br />
-   </fieldset>
- <br />
-    <% end %>
-
-  <p>Once a CSV file is ready, it can be re-imported via the following file selector:-</p><br />
-    <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
+    </li>
+    <%end %>
+</ul>
+<% end %>
+<p>
+    <%=l(:help_import_csv) %>: 
+</p>
+<br/>
+<%  if @experiment.allow?(:data,:update) %>
+  <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
     <%= error_messages_for("import") %>
-      <%=file_field_tag(:file, :size=>64) %>
-    <br />
-    <%= submit_tag("Import")%>
-    <% end %>
+    <%=file_field_tag(:file, :size=>64) %>
+    <br/>
+    <%= submit_tag( l(:button_import)) %>
+
+  <% end %>
+<%else%>
+ No Rights to update this folder
+<% end %>
+</div>

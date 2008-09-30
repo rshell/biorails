@@ -1,19 +1,24 @@
 <%if User.count <2  %>
-  <div class="<%= "flash_warning message" %>" >
-    <h1>
-      <strong class="icon icon-warning">
-        No User defined in System
-      </strong>
-    </h1>
-    <p>
-      It looks like the BioRails installation is not
-      yet completed. There is only a <i>guest-user</i>
-      registered in the system. The administrator
-      needs to add bootstrap data with:-
-    </p>
-    <p>
-      rake biorails:db:bootstrap
-    </p>
+  <div class="box flash_warning message" >
+    <strong class="icon icon-warning">
+        <%=l(:text_no_users)%>
+    </strong>
+    <p>  <%=l(:text_instruct_bootstrap)%>    </p>
+    <p> rake biorails:db:bootstrap   </p>
   </div>
 <% end %>
+  <div id="to_hide" class="box flash_error message">
+      <strong class="icon icon-warning">
+    Javascript needs to be enabled for the application to work. Without this
+    all you will see a one big blank screen.
+    <p>
+      See <a href='http://support.microsoft.com/gp/howtoscript'> Microsoft Help and Support </a> or
+      <a href='https://www.google.com/adsense/support/bin/answer.py?hl=en&answer=12654'>Google</a> on how to enable it.
+    </p>
+    </srong>
+  </div>
 <%=render :partial=>'login' %>
+
+    <script type="text/javascript">
+         $("to_hide").hide()
+    </script>

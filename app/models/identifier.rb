@@ -1,28 +1,35 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: identifiers
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  prefix             :string(255)   
-#  postfix            :string(255)   
-#  mask               :string(255)   
-#  current_counter    :integer(11)   default(0)
-#  current_step       :integer(11)   default(1)
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)
+#  prefix             :string(255)
+#  postfix            :string(255)
+#  mask               :string(255)
+#  current_counter    :integer(4)      default(0)
+#  current_step       :integer(4)      default(1)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
+# == Description
+#
 # This is a simple table based identifier generator to filling in the name field for 
 # new records. If is based on lookup on the model/name passed.
 # Identifiers are based on three elements prefix,sequence and postfix
 #  <prefix><sequence><postfix>
-#  
+#  #
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
+
 class Identifier < ActiveRecord::Base
 
   def project
@@ -55,12 +62,6 @@ class Identifier < ActiveRecord::Base
 #
 # generate a description
 #
-  def set_description(record)
-    if Identifier.need_to_define(record,:description)
-      record.description = "#{record.class} #{record.name} created by #{User.current.name} for team #{Team.current.name}"
-       logger.debug("generate description #{record.description}")
-    end
-  end
   
   def next_id
      self.current_counter = self.current_counter + self.current_step
@@ -97,10 +98,14 @@ class Identifier < ActiveRecord::Base
      if generator
        logger.debug("generate defaults for #{record.class}")
        generator.set_name(record)    
-       generator.set_description(record)
      end
-     record.team     = Team.current if Identifier.need_to_define(record,:team)
-     record.project  = Project.current if Identifier.need_to_define(record,:project)
+     record.team        ||= Project.current.team  if record.respond_to?("team=")
+     record.project     ||= Project.current  if record.respond_to?("project=")
+     record.created_by  ||= User.current     if record.respond_to?("created_by=")
+     record.updated_by  ||= User.current     if record.respond_to?('updated_by=')
+     record.assigned_to ||= User.current     if record.respond_to?('assigned_to=')
+     record.started_at  ||= Time.new         if record.respond_to?('started_at=')
+     record.expected_at ||= Time.new + 7.day if record.respond_to?('expected_at=')     
   end
 ##
 # Next user specfic reference

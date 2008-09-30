@@ -1,28 +1,23 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: data_concepts
 #
-#  id                 :integer(11)   not null, primary key
-#  parent_id          :integer(11)   
-#  name               :string(50)    default(), not null
-#  data_context_id    :integer(11)   default(0), not null
-#  description        :string(1024)  default(), not null
-#  access_control_id  :integer(11)   
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  type               :string(255)   default(DataConcept), not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  parent_id          :integer(4)
+#  name               :string(50)      default(""), not null
+#  data_context_id    :integer(4)      default(0), not null
+#  description        :string(1024)    default(""), not null
+#  access_control_id  :integer(4)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  type               :string(255)     default("DataConcept"), not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-##
-
-###
+# == Description
 #  Catalogue management in the system is divided into two part a tree of concepts which
 #  represents the logical namespace structure. This is held in this DataConcept model. 
 #  This is linked to a number of physical implemenations in DataElement model. 
@@ -30,6 +25,35 @@
 #   In the system the root DataConcept's are managed to a special subclass called a 
 #   DataContext. 
 #
+# === Concept
+# A concept is an abstract entity, it does not really exist but is used as a term to describe a 
+# set of similar dictionaries. A good example being a concept of compound that could map to reagent 
+# and molecule databases.
+# 
+# === Children
+# Concepts can can have child concepts providing a simple method of categorisation, 
+# for example Organic Materials may have child concepts of species, cell lines. This is represented 
+# in the name space or concept tree on the right hand side of the administration panel.
+#
+# === Implementations
+#  A concept can be implemented, or realised, multiple times in three different ways:
+#
+#    * List - an internal list of strings, suitable for short dictionaries
+#    * SQL - Structured Query Language run against one of the data sources.
+#    * Model - A fully implemented model in BioRails usually available as a specific form, for example 
+#      an Assay form. 
+#
+# === Usage
+#Adding a usage to a concept realises the implementations as a parameter type.  The usage will appear 
+#in parameter types and will be available to the scientist when adding parameters to an assay, 
+#providing the default name for that parameter in that assay. 
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
+
 class DataConcept < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
@@ -67,10 +91,33 @@ class DataConcept < ActiveRecord::Base
   def not_used
     return (parameter_types.size==0 and elements.size==0)
   end  
-  
+  #
+  # test if there is a implementation of this concept
+  #
   def elements?
     self.elements.size>0
   end
+  #
+  # are there specializations of this concept
+  #
+  def children?
+    self.children.size>0
+  end
+  #
+  # Is there a usage of the concept 
+  #
+  def parameter_types?
+    self.parameter_types.size>0
+  end
+  #
+  # left without children,implementation or usage
+  #
+  def leaf?
+    !(children? or elements? or parameter_types?)
+  end
+  #
+  # Default implementation
+  #
   def default
     self.elements.first
   end

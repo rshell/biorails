@@ -1,41 +1,41 @@
-<h3 class='icon icon-parameter'><%=@data_concept.name%>  Usage</h3>
-<%if @data_concept.elements? %>
-end
+<h3 class='icon icon-parameter'><%=@data_concept.name %> <%=l(:label_usages) %></h3>
 <p>
-This show parameter type using the <%=@data_concept.name%>. This is how lookup style parameter type are defined for use.
-To manage <%= link_to('[Parameter Types',{:controller=>'parameter_types', :action => 'list'})  %> use the hot link on the side menu
+    <%=l(:text_this_form_shows_parameter_type_using_the, @data_concept.name) %>
+    <%=l(:text_to_manage) %>
+    [<%= link_to( l(:label_parameter_types),{:controller=>'parameter_types', :action => 'list'}) %>].
 </p>
-
- <table class="report" width='100%'>
-   <thead>
-     <tr>
-      <% for column in ParameterType.content_columns %>
-        <th><%= column.human_name %></th>
-      <% end %>
-      <th>Actions </th>
-     </tr>
-   </thead>
-
-   <tbody>
-    <% for row in @data_concept.parameter_types %>
-    <tr class='<%= cycle('odd', 'even') %>'>
-    <% for column in ParameterType.content_columns %>
-      <td>
-      <%=h row.send(column.name) %>
-      </td>
-    <% end %>
-      <td>
-          <%= link_to("<p class='icon icon-del'>Delete</p>", parameter_type_url(:action => 'destroy' ,:id=> row.id),
-          :confirm => 'Are you sure?',:method => "post" ) if row.not_used %>
-      </td>
-     </tr>
-    <% end %>
-   </tbody>
-
- </table>
- <p class='icon icon-add'>
-   <%= link_to_remote( 'Add', :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>
- </p>
-<%else%>
-Cant create a Parameter type linked to <%=@data_concept.name%> as there is no lookup implemented yet.
-<%end%>
+<p>
+    <%=l(:help_concept_usage) %>
+</p>
+<table class="report" width='100%'>
+    <thead>
+        <tr>
+            <% for column in ParameterType.content_columns %>
+            <th>
+                <%= column.human_name %>
+            </th>
+            <% end %>
+            <th>
+                <%=l(:label_actions) %>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for row in @data_concept.parameter_types %>
+        <tr class='<%= cycle('odd', 'even') %>'>
+            <% for column in ParameterType.content_columns %>
+            <td>
+                <%=h row.send(column.name) %>
+            </td>
+            <% end %>
+            <td>
+                <%= link_to(l(:label_delete), parameter_type_url(:action => 'destroy' ,:id=> row.id),
+                :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' ) if row.not_used %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<p class='icon icon-add'>
+    <%= link_to_remote( l(:label_add), :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>
+</p>

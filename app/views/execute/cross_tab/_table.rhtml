@@ -1,43 +1,49 @@
 <div class='panel'>
-
-<table class='report'>
-<tr>
-  <th rowspan='3'>Task:Context</th>    
-  <% for col in @cross_tab_columns %>
-  <th> <%=col.assay.name%></th>
-  <%end%>  
-</tr>
-<tr> 
-  <% for col in @cross_tab_columns %>
-  <th> <%=col.process.name%></th>
-  <%end%>  
-</tr>  
-
-<tr> 
-  <% for col in @cross_tab_columns %>
-  <th> <%=col.name%> 
-       <%="(#{col.parameter.display_unit})" if col.parameter.display_unit%>
-       <%=link_to "[x]",cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>col.id)%>
-  </th>
-  <%end%>  
-</tr>  
-
-<% for row in @cross_tab_results %>
-  <% if (row.size>2) %>
-  <tr>
-    <th><%=link_to "#{row[-2]}:#{row[-1]}",cross_tab_url(:action=>'details',:id=>@cross_tab,:task_context_id=>row[0]) %></th>    
-    <% for col in @cross_tab_columns %>
-    <td><%="#{row[col.parameter_id]}"%></td>
-    <%end%>  
-  </tr>  
-  <% end %>
-<% end %>
-</table>
-<%= will_paginate @cross_tab_results,:params=>{:action=>'show',:id=>@cross_tab.id},:renderer => 'WillPaginate::RemoteLinkRenderer' %>
-<hr />
-    <%= link_to "<b class='icon icon-print'>Print</b>",       cross_tab_url(:action => 'print', :id => @cross_tab) %>
-    <%= link_to "<b class='icon icon-pdf'>Export As PDF</b>", cross_tab_url(:action => 'print',:format=>:pdf, :id => @cross_tab) %>
-    <%= link_to "<b class='icon icon-xls'>Export As CSV</b>", cross_tab_url(:action => 'export', :id => @cross_tab) %>
-
+    <table class='report'>
+        <tr>
+            <th rowspan='3'>
+                <%=l(:label_task) %>:<%=l(:label_context) %>
+            </th>
+            <% for col in @cross_tab_columns %>
+            <th>
+                <%=col.assay.name %>
+            </th>
+            <%end %>
+        </tr>
+        <tr>
+            <% for col in @cross_tab_columns %>
+            <th>
+                <%=col.process.name %>
+            </th>
+            <%end %>
+        </tr>
+        <tr>
+            <% for col in @cross_tab_columns %>
+            <th>
+                <%=col.name %>
+                <%="(#{col.parameter.display_unit})" if col.parameter.display_unit %>
+                <%=link_to "[x]",cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>col.id) %>
+            </th>
+            <%end %>
+        </tr>
+        <% for row in @cross_tab_results %>
+        <% if (row.size>2) %>
+        <tr>
+            <th>
+                <%=link_to "#{row[-2]}:#{row[-1]}",cross_tab_url(:action=>'details',:id=>@cross_tab,:task_context_id=>row[0]) %>
+            </th>
+            <% for col in @cross_tab_columns %>
+            <td>
+                <%="#{row[col.parameter_id]}" %>
+            </td>
+            <%end %>
+        </tr>
+        <% end %>
+        <% end %>
+    </table>
+    <%= will_paginate @cross_tab_results,:params=>{:action=>'show',:id=>@cross_tab.id},:renderer => 'WillPaginate::RemoteLinkRenderer' %>
+    <hr/><%= link_to l(:label_print), cross_tab_url(:action => 'print', :id => @cross_tab), :class=>'icon icon-print' %>
+    <%= link_to l(:label_print_pdf), cross_tab_url(:action => 'print',:format=>:pdf, :id => @cross_tab), :class=>'icon icon-pdf' %>
+    <%= link_to l(:label_print_csv), cross_tab_url(:action => 'export', :id => @cross_tab), :class=>'icon icon-xls' %>
 </div>
-<br />
+<br/>

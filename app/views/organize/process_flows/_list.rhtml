@@ -1,45 +1,61 @@
-<div class='panel'>
-  <table class="report">
+<table class="report">
     <tr>
-      <th colspan='1' rowspan='2'><b class='icon icon-assay'>  Assay  </b>  </th>
-      <th colspan='3'> <b class='icon icon-protocol'>  Protocol  </b>  </th>
-      <th colspan='2'> <b class='icon icon-protocol_version'> Released Version  </b> </th>
-      <th colspan='1' rowspan='2'><b class='icon icon-protocol_version'>  Lastest Version   </b>  </th>
-      <th colspan='2' rowspan='2'><b class='icon icon-action'>    Actions     </b>   </th>
+        <th colspan='3'>
+            <%=l(:label_recipe) %>
+        </th>
+        <th colspan='2'>
+            <%=l(:label_released_version) %>
+        </th>
+        <th colspan='1' rowspan='2'>
+            <%=l(:label_latest_version) %>
+        </th>
     </tr>
     <tr>
-      <th> <b class='icon icon-name'>        Name    </b>    </th>
-      <th> <b class='icon icon-assay_stage'> Stage    </b>     </th>
-      <th> <b class='icon icon-category'>    Type     </b>   </th>
-      <th> <b class='icon icon-protocol_version'>    Version   </b>  </th>
-      <th> <b class='icon icon-task'>   Experiments   </b>  </th>
+        <th>
+            <%=l(:label_name) %>
+        </th>
+        <th>
+            <%=l(:label_stage) %>
+        </th>
+        <th>
+            <%=l(:label_type) %>
+        </th>
+        <th>
+            <%=l(:label_version) %>
+        </th>
+        <th>
+            <%=l(:label_experiments) %>
+        </th>
     </tr>
-    
     <% for assay_protocol in @assay_protocols %>
-      <% if assay_protocol.is_a?(AssayWorkflow)%>
-          <tr class="<%= cycle('odd', 'even') %>">
-            <td><%=h assay_protocol.assay.name %></td>
-            <td><%=h assay_protocol.name %></td>
-            <td><%=h assay_protocol.stage.name if assay_protocol.stage %></td>
-            <td><%=h assay_protocol.summary %></td>
-            <% if assay_protocol.released %>
-              <td> <%= link_to assay_protocol.released.name, 
-                    workflow_url(:action => 'show', :id => assay_protocol.released) %> </td>
-              <td> <%=assay_protocol.process.usages.size.to_s %> </td>
-            <%else %>
-              <td colspan='2'> Not released </td>
-            <% end%>
-            <td><%=assay_protocol.latest.path %> </td>
-            <td>
-                <p class='icon icon-show'>
-                  <%=link_to 'show',
-                  workflow_url(:action => 'show',:id => assay_protocol.latest) %>
-                </p>
-            </td>
-          </tr>
+    <% if assay_protocol.is_a?(AssayWorkflow) %>
+    <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+            <%=link_to assay_protocol.name, process_flow_url(:action => 'show',:id => assay_protocol.latest) %>
+        </td>
+        <td>
+            <%=h assay_protocol.stage.name if assay_protocol.stage %>
+        </td>
+        <td>
+            <%=h assay_protocol.summary %>
+        </td>
+        <% if assay_protocol.released %>
+        <td>
+            <%= link_to assay_protocol.released.name, process_flow_url(:action => 'show', :id => assay_protocol.released) %>
+        </td>
+        <td>
+            <%=assay_protocol.process.usages.size.to_s %>
+        </td>
+        <%else %>
+        <td colspan='2'>
+            <%=l(:label_not_released) %>
+        </td>
         <% end %>
-      <% end %>
-    </table>
-  </div>
-<hr />  
-<%= link_to "<b class='icon icon-protocol-add'>Add Recipe</b>",  workflow_url(:action => 'new',  :id => @assay) if @assay and @assay.allows?(:edit)%>
+        <td>
+            <%=assay_protocol.latest.path %>
+        </td>
+    </tr>
+    <% end %>
+    <% end %>
+</table>
+<hr/><%= link_to l(:label_add),  process_flow_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add' if @assay %>

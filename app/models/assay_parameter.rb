@@ -1,3 +1,24 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: assay_parameters
+#
+#  id                 :integer(4)      not null, primary key
+#  parameter_type_id  :integer(4)      not null
+#  parameter_role_id  :integer(4)      not null
+#  assay_id           :integer(4)
+#  name               :string(255)     default(""), not null
+#  default_value      :string(255)
+#  data_element_id    :integer(4)
+#  data_type_id       :integer(4)      not null
+#  data_format_id     :integer(4)
+#  description        :string(1024)    default(""), not null
+#  display_unit       :string(255)
+#  created_by_user_id :integer(4)      default(1), not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  project_element_id :integer(4)
+#
+
 # == Description
 # As the list of parameters and roles will be rather large as part of a stury
 # definition a sub set is choice and the value roles for them in the assay are
@@ -55,7 +76,11 @@ class AssayParameter < ActiveRecord::Base
     :default_field => [:name],           
     :single_index => true, 
     :store_class_name => true 
-
+  #
+  # Owner project
+  #  
+  acts_as_folder_linked  :assay  ,:under=>'parameters'
+    
   belongs_to :assay   
   belongs_to :role,    :class_name =>'ParameterRole', :foreign_key=>'parameter_role_id'
   belongs_to :parameter_type

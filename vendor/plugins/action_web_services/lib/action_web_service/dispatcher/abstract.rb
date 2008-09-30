@@ -43,7 +43,7 @@ module ActionWebService # :nodoc:
             cancellation_reason = x
           end
           if cancellation_reason
-            raise(DispatcherError, "request canceled: #{cancellation_reason}")
+            raise(DispatcherError, "request cancelled: #{cancellation_reason}")
           end
           return_value
         end

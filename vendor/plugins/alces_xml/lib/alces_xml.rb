@@ -586,14 +586,14 @@ module Alces
                 logger.info "reading collection #{element.name}"
                 element.each_element do |child|
                     item_class = element_to_class(child)
-                    item = item_class.from_xml(child,child_options)
-                    eval("object.#{relation_name} <<  item" )
-                    #if item.save!
-                    #   logger.info "Inserted #{item.class}.#{item.id}" 
-                    #else
-                    #   logger.warning "Failed Inserting #{item.class}.#{item.id} #{item.errors.full_messages().join('\n')}"
-                    #   raise "Xml Deserialized Problem: Inserted #{item.class}.#{item.id} #{item.errors.full_messages().join('<br/>')}"
-                    #end
+                    item = item_class.from_xml(child,child_options)                    
+                    item[link.primary_key_name] = object.id
+                    if item.save
+                       logger.info "Added [#{object.name}.#{object.lock_version}].#{relation_name} <<  item[#{item.name}]" 
+                    else
+                       logger.warning "Failed Inserting #{item.class}.#{item[:id]} #{item[:name]} #{item.errors.full_messages().join('\n')}"
+                       raise "Xml Deserialized Problem: Inserted #{item.class}.#{item[:id]} #{item[:name]} #{item.errors.full_messages().join('<br/>')}"
+                    end
                 end 
             end
          end
@@ -622,13 +622,13 @@ module Alces
            old_id = @object.id
            @object.id = nil
            unless @object.save
-             raise "Xml Deserialized Problem: Inserted #{@object.class}.#{@object.id} #{@object.errors.full_messages().join('<br/>')}"
+             raise "Xml Deserialized Problem: Inserted #{@object.class}.#{@object.id} #{@object[:name]} #{@object.errors.full_messages().join('<br/>')}"
            end
            logger.info "Inserted #{object.class}.#{object.id} " 
            read_collections
        elsif update?(object.class)
           unless @object.save
-             raise "Xml Deserialized Problem: Updating #{@object.class}.#{@object.id} #{@object.errors.full_messages().join('<br/>')}"
+             raise "Xml Deserialized Problem: Updating #{@object.class}.#{@object.id} #{@object[:name]} #{@object.errors.full_messages().join('<br/>')}"
           end
           logger.info "Updating #{object.class}.#{object.id} "            
        end

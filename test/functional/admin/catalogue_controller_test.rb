@@ -5,7 +5,6 @@ require "#{RAILS_ROOT}/app/controllers/admin/catalogue_controller"
 class Admin::CatalogueController; def rescue_action(e) raise e end; end
 
 class Admin::CatalogueControllerTest < Test::Unit::TestCase
-  # # fixtures :parameter_types
 
   NEW_PARAMETER_TYPE = {}	# e.g. {:name => 'Test ParameterType', :description => 'Dummy'}
   REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect
@@ -15,11 +14,9 @@ class Admin::CatalogueControllerTest < Test::Unit::TestCase
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
     @user = User.current = User.find(3)
-    @team = Team.current = Team.find(3)
     @project = Project.current = Project.find(2)        
-    @request.session[:current_project_id] = @user.id
-    @request.session[:current_team_id] = @team.id
-    @request.session[:current_user_id] = @project.id
+    @request.session[:current_project_id] = @project.id
+    @request.session[:current_user_id] = @user.id
     @item = DataConcept.find(:first)
   end
 
@@ -30,15 +27,10 @@ class Admin::CatalogueControllerTest < Test::Unit::TestCase
     assert_not_nil @user
     assert_not_nil @project
     assert_not_nil @item   
-    assert @user.allows?(:list,:catalogue)    
-    assert @user.allows?(:show,:catalogue)    
-    assert @user.allows?(:new,:catalogue)    
-    assert @user.allows?(:create,:catalogue)    
-    assert @user.allows?(:edit,:catalogue)    
-    assert @user.allows?(:update,:catalogue)    
-    assert @user.allows?(:destroy,:catalogue)    
-    assert @user.allows?(:new_element,:catalogue)    
-    assert @user.allows?(:new_usage,:catalogue)    
+    assert @user.allow?(:catalogue,:list)    
+    assert @user.allow?(:catalogue,:show)    
+    assert @user.allow?(:catalogue,:new)    
+    assert @user.allow?(:catalogue,:admin)    
   end
         
   def test_index

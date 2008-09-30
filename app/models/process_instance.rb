@@ -1,15 +1,43 @@
+# == Schema Information
+# Schema version: 359
 #
-# Implementation of single process implementation
-# represents leaf objects in the composition
-# implements all ProtocolVersion methods
-# This is basically the same as ProtocolVersion in the previous versions <307 of the data model
+# Table name: protocol_versions
+#
+#  id                 :integer(4)      not null, primary key
+#  assay_protocol_id  :integer(4)
+#  name               :string(77)
+#  version            :integer(4)      not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime
+#  updated_at         :datetime
+#  how_to             :text
+#  report_id          :integer(4)
+#  analysis_method_id :integer(4)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
+#  type               :string(255)     default("ProcessInstance")
+#  expected_hours     :float           default(24.0), not null
+#  status             :string(255)     default("new")
+#  project_element_id :integer(4)
+#  description        :string(255)
+#
+
+# == Description
+# ProcessInstance of single step process implementation. Its is the sub type of 
+# ProtocolVersion to a single step process.
 #
 # A process instance is built of a collection of parameters each with a role and a type
 # For management of complex data structures the parameters are grouped into a tree of 
 # contexts.
 #
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 #
+
 class ProcessInstance < ProtocolVersion
+    attr_accessor :team_id  # historic field now removed, kept here so old fixtures can be reloaded as needed
     #
     # Default analysis method associated with this protocol
     #    
@@ -25,8 +53,7 @@ class ProcessInstance < ProtocolVersion
     has_many :contexts, 
              :class_name=>'ParameterContext',
              :foreign_key=>'protocol_version_id', 
-             :dependent => :destroy, 
-             :order => :id do         
+             :dependent => :destroy do         
      #
      # Limit set to contexts using the the a object
      #
@@ -47,7 +74,11 @@ class ProcessInstance < ProtocolVersion
          find(:all)
        end  
      end  
-    
+
+     def ordered
+       find(:all,:order_by=>:left_limit)
+     end
+     
     end
 #
 # base root for contruction of parameter tree (99% single root)

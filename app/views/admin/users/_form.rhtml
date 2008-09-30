@@ -1,67 +1,65 @@
 <p>
- <label for="user_login" class='icon icon-name'>
-   Name
- </label>
- <br/>
- <%= f.text_field :name %>
-</p>
-
-<p>
-  <label for="user_login" class='icon icon-description'>
-    Full Name
-  </label>
-  <br/><%= f.text_field :fullname, :size=>80 %>
-</p>
-  <label for="user_email"  class='icon icon-mail'>
-    Email address
-  </label>
-  <br/>
-  <%= f.text_field :email,:size=>80 %>
-<p>
-  <label  class='icon icon-login'>
-    Login
-  </label>
-  <br/><%= f.text_field :login %>
-</p>
-
-<p>
-  <label  class='icon icon-perimission'>
-    Password
-  </label>
-  <br/>
-  <%= f.password_field :password %>
-</p>
-
-<p>
-  <label for="user_role" class='icon icon-role'>
-    Access Level
-  </label>
-  <br/>
-  <%= select_named( :user, :role_id ,UserRole) %>
-</p>
-<%if @user.new_record?%>
-  <p>
-    <label for="project_role" class='icon icon-role'>
-      Root Team Role
+    <label for="user_login">
+        <%=l(:label_name) %>
     </label>
-    <br/><%= select_named( :project, :role_id ,ProjectRole) %>
-  </p>
-<% end%>
-<br />
-<p>
-  <label>
-    User is disabled from logging in
-  </label>
-  <%= f.check_box :is_disabled %>
+    <br/>
+    <%= f.text_field :name %>
 </p>
-<br />
-
 <p>
-  <label >
-    Full System Administration Liability [turns off rights checking for this user]
-  </label>
-  <%= f.check_box :admin %>
+    <label for="user_login">
+        <%=l(:label_full_name) %>
+    </label>
+    <br/>
+    <%= f.text_field :fullname, :size=>80 %>
 </p>
-
-<br />
-<p><%= submit_tag('Save') %></p>
+<label for="user_email">
+    <%=l(:label_email) %>
+</label>
+<br/>
+<%= f.text_field :email,:size=>80 %>
+<p>
+    <label>
+        <%=l(:label_login) %>
+    </label>
+    <br/>
+    <%= f.text_field :login %>
+</p>
+<p>
+    <label>
+        <%=l(:label_password) %>
+    </label>
+    <br/>
+    <%= f.password_field :password %>
+</p>
+<p>
+    <label for="user_role">
+        <%=l(:label_access_level) %>
+    </label>
+    <br/>
+    <%= select_named( :user, :role_id ,UserRole) %>
+</p>
+<%if @user.new_record? %>
+<p>
+    <label for="project_role">
+        <%=l(:label_team_root_role) %>
+    </label>
+    <br/>
+    <%= select_named( :project, :role_id ,ProjectRole) %>
+</p>
+<% end %>
+<br/>
+<p>
+    <%= f.check_box :is_disabled %>
+    <label>
+        <%=l(:label_user_disable) %>
+    </label>
+</p>
+<p>
+    <label>
+        <%= f.check_box :admin %>
+        <%=l(:label_user_system_liability) %>
+    </label>
+</p>
+<p>
+    <%= submit_tag(l(:button_save)) %><%= link_to l(:label_cancel), user_url( :action => 'list') %>
+</p>

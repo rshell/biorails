@@ -1,0 +1,16 @@
+<div class='box'>
+  <dl>
+    <dt>
+        <b style="vertical-align: top;"><%=l(:label_description) %></b>
+    </dt>
+    <dd>
+        <%= @project.description %>
+    </dd>
+    <dt>
+        <b><%=l(:label_team) %></b>
+    </dt>
+    <dd>
+        <%= link_to_if  @project.team.owner?(User.current), "#{@project.team.name} ",team_url(:action => 'show', :id => @project.team_id)  %>
+    </dd>
+    </dl>
+</div>

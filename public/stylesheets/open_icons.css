@@ -37,69 +37,41 @@
 .icon-warning 	          { background-image:url(/images/open/actions/warning.png) !important;}
 .icon-zoom_in 	          { background-image:url(/images/open/actions/zoom_in.png) !important; }
 .icon-zoom_in-large       { background-image:url(/images/open/actions/zoom_in-large.png) ;
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-zoom_out	          { background-image:url(/images/open/action/zoom_out.png) !important; }
 .icon-zoom_out-large      { background-image:url(/images/open/action/zoom_out-large.png) ;
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
-
+                          
 /* Admin */
 .icon-admin               { background-image:url(/images/open/admin/admin.png) !important;}
 .icon-catalogue           { background-image:url(/images/open/admin/catalogue.png)  !important; }
 .icon-data_concept        { background-image:url(/images/open/admin/data_concept.png)  !important; }
 .icon-data_concept-large  { background-image:url(/images/open/admin/data_concept-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-data_context        { background-image:url(/images/open/admin/data_context.png)  !important; }
 .icon-data_context-large  { background-image:url(/images/open/admin/data_context-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-data_element        { background-image:url(/images/open/admin/data_element.png)  !important; }
 .icon-data_format         { background-image:url(/images/open/admin/data_format.png)  !important; }
 .icon-data_system         { background-image:url(/images/open/admin/data_system.png)  !important; }
 .icon-data_system-large   { background-image:url(/images/open/admin/data_system-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-data_type           { background-image:url(/images/open/admin/data_type.png)  !important; }
-.icon-settings            { background-image:url(/images/open/admin/settings.png) !important;}
-.icon-uml                 { background-image:url(/images/open/admin/wand.png) !important;}
-
-/* Assay */
-.icon-assay               { background-image:url(/images/open/assay/assay.png) !important; }
-.icon-assay-add           { background-image:url(/images/open/assay/assay-add.png) !important; }
-.icon-assay-edit          { background-image:url(/images/open/assay/assay-edit.png) !important; }
-.icon-assay-import        { background-image:url(/images/open/assay/assay-import.png) !important; }
-.icon-assay-large         { background-image:url(/images/open/assay/assay-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
-}
-.icon-assay-small         { background-image:url(/images/open/assay/assay-small.png) !important; }
-.icon-assay_stage         { background-image:url(/images/open/assay/assay_stage.png) !important; }
-.icon-workflow         { background-image:url(/images/open/assay/workflow.png) !important; }
-
-
-
+.icon-settings             { background-image:url(/images/open/admin/settings.png) !important;}
+                          
 /* Calendar */
 .icon-calendar 	          { background-image:url(/images/open/calendar/calendar.png) !important; }
 .icon-timeline 	          { background-image:url(/images/open/calendar/timeline.png) !important; }
-.icon-arrow_from 	  { background-image:url(/images/open/calendar/arrow_from.png) !important; }
-.icon-arrow_to            { background-image:url(/images/open/calendar/arrow_to.png) !important; }
-.icon-arrow_bw            { background-image:url(/images/open/calendar/arrow_bw.png) !important; }
-.icon-arrow_from-small	  { background-image:url(/images/open/calendar/arrow_from-small.png) !important;
-                            padding-right: 2px;
-                          }
-.icon-arrow_to-small      { background-image:url(/images/open/calendar/arrow_to-small.png) !important;
-                            padding-right: 2px;
-                          }
-.icon-arrow_down 	  { background-image:url(/images/open/calendar/arrow_down.png) !important;}
-.icon-time 	          { background-image:url(/images/open/calendar/time.png) !important; }
-
 
 /* Content */
 .icon-article             { background-image:url(/images/open/content/note.png)  !important; }
@@ -110,14 +82,14 @@
 .icon-file                { background-image:url(/images/open/content/file.png)  !important; }
 .icon-file-add            { background-image:url(/images/open/content/file-add.png)  !important; }
 .icon-file-large          { background-image:url(/images/open/content/file-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-folder              { background-image:url(/images/open/content/folder.png)  !important; }
 .icon-folder-add          { background-image:url(/images/open/content/folder-add.png)  !important; }
 .icon-folder-large        { background-image:url(/images/open/content/folder-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-folders             { background-image:url(/images/open/content/folders.png)  !important; }
 .icon-folder-view         { background-image:url(/images/open/content/folder-view.png)  !important; }
@@ -130,7 +102,6 @@
 .icon-print 	          { background-image:url(/images/open/content/print.png) !important; }
 .icon-print-preview 	  { background-image:url(/images/open/content/print-preview.png) !important; }
 .icon-report              { background-image:url(/images/open/content/report.png)  !important; }
-.icon-report-large        { background-image:url(/images/open/content/report.png)  !important; }
 .icon-report-add          { background-image:url(/images/open/content/report-add.png)  !important; }
 .icon-sign 	          { background-image:url(/images/open/content/sign.png) !important;}
 .icon-webdoc 	          { background-image:url(/images/open/content/webdoc.png) !important; }
@@ -150,9 +121,9 @@
 .icon-experiment          { background-image:url(/images/open/experiment/experiment.png) !important; }
 .icon-experiment-add      { background-image:url(/images/open/experiment/experiment-add.png) !important; }
 .icon-experiment-copy     { background-image:url(/images/open/experiment/experiment-copy.png) !important; }
-.icon-experiment-large    { background-image:url(/images/open/experiment/experiment-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+.icon-experiment-large    { background-image:url(/images/open/experiment/experiment-large.png); 
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-experiment-small    { background-image:url(/images/open/experiment/experiment-small.png) !important; }
 
@@ -181,7 +152,6 @@
 .icon-batch               { background-image:url(/images/open/inventory/batch.png)  !important; }
 .icon-compound            { background-image:url(/images/open/inventory/compound.png)  !important; }
 .icon-container           { background-image:url(/images/open/inventory/container.png)  !important; }
-.icon-plate               { background-image:url(/images/open/inventory/container.png)  !important; }
 .icon-mixture             { background-image:url(/images/open/inventory/mixture.png)  !important; }
 .icon-sample              { background-image:url(/images/open/inventory/sample.png)  !important; }
 
@@ -228,10 +198,10 @@
 .icon-project-add         { background-image:url(/images/open/project/project-add.png) !important; }
 .icon-project-closed      { background-image:url(/images/open/project/project-closed.png) !important; }
 .icon-project-large       { background-image:url(/images/open/project/project-large.png) ;
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
-
+                          
 /* Protocol*/
 .icon-context             { background-image:url(/images/open/protocol/context.png) !important; }
 .icon-layout              { background-image:url(/images/open/protocol/layout.png) !important; }
@@ -239,8 +209,8 @@
 .icon-protocol-add        { background-image:url(/images/open/protocol/protocol-add.png) !important; }
 .icon-protocol-edit       { background-image:url(/images/open/protocol/protocol-edit.png) !important; }
 .icon-protocol-large      { background-image:url(/images/open/protocol/protocol-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-protocol_version    { background-image:url(/images/open/protocol/protocol_version.png) !important; }
 .icon-protocol_version-preview { background-image:url(/images/open/protocol/protocol_version-preview.png) !important; }
@@ -250,26 +220,26 @@
 .icon-queue-add           { background-image:url(/images/open/request/queue-add.png) !important; }
 .icon-queue_item          { background-image:url(/images/open/request/queue_item.png) !important; }
 .icon-queue_item-large    { background-image:url(/images/open/request/queue_item-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-queue_item-small    { background-image:url(/images/open/request/queue_item-small.png) !important; }
 .icon-queue_large         { background-image:url(/images/open/request/queue_large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-queue-small         { background-image:url(/images/open/request/queue-small.png) !important; }
 .icon-request             { background-image:url(/images/open/request/request.png) !important; }
 .icon-request-add         { background-image:url(/images/open/request/request-add.png) !important; }
 .icon-request-large       { background-image:url(/images/open/request/request-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-request-small         { background-image:url(/images/open/request/request-small.png) !important; }
 .icon-service             { background-image:url(/images/open/request/service.png) !important; }
 .icon-service-large       { background-image:url(/images/open/request/service-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-todo                { background-image:url(/images/open/request/todo.png) !important; }
 
@@ -283,9 +253,20 @@
 .icon-status_validation  { background-image:url(/images/state/amber.png) !important; }
 .icon-status_completed   { background-image:url(/images/state/purple.png) !important; }
 
+/* Study */
+.icon-study               { background-image:url(/images/open/study/study.png) !important; }
+.icon-study-add           { background-image:url(/images/open/study/study-add.png) !important; }
+.icon-study-edit          { background-image:url(/images/open/study/study-edit.png) !important; }
+.icon-study-import        { background-image:url(/images/open/study/study-import.png) !important; }
+.icon-study-large         { background-image:url(/images/open/study/study-large.png);
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
+                          }
+.icon-study-small         { background-image:url(/images/open/study/study-small.png) !important; }
+.icon-study_stage         { background-image:url(/images/open/study/study_stage.png) !important; }
+.icon-workflow         { background-image:url(/images/open/study/workflow.png) !important; }
 
 /* Task */
-.icon-analysis            { background-image:url(/images/open/task/analysis.png) !important; }
 .icon-task                { background-image:url(/images/open/task/task.png) !important; }
 .icon-task-add            { background-image:url(/images/open/task/task-add.png) !important; }
 .icon-task-small          { background-image:url(/images/open/task/task-small.png) !important; }
@@ -296,12 +277,12 @@
 .icon-role                { background-image:url(/images/open/user/role.png)  !important; }
 .icon-team 	          { background-image:url(/images/open/user/team.png) !important; }
 .icon-team-large          { background-image:url(/images/open/user/team-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }
 .icon-user 	          { background-image:url(/images/open/user/user.png) !important; }
 .icon-user-add 	          { background-image:url(/images/open/user/user-add.png) !important; }
 .icon-user-large          { background-image:url(/images/open/user/user-large.png);
-                            padding-top:5px;
-                            padding-bottom:5px !important;
+                            padding-top:5px; 
+                            padding-bottom:5px !important; 
                           }

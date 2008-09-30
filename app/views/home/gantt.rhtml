@@ -1,10 +1,8 @@
 <% content_for :sidemenu do -%>
   <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @user} %>
 <% end %>
-
-<h1 class='icon icon-user-large' style='text-indent:0.5em'>
-  <%=current_user.name%>'s Gantt chart
-</h1>
+<%= render :partial=>'shared/user_header'%>
+<div class='panel'>
 <div class='gantt'>
 <table width="100%">
   <tr>
@@ -79,10 +77,7 @@ top = headers_heigth + 8
 @tasks.each do |i| %>
 	<div style="position: absolute;line-height:1.2em;height:16px;top:<%= top %>px;left:4px;overflow:hidden;">
 	<small>
-            <%= link_to "<b class='icon icon-status_" + i.status +
-            "'></b>" + "<b class='icon icon-task-small'></b>" + i.name,
-            task_url( :action => 'show', :id => i ),
-            :title => "#{i.protocol.name} :  #{i.protocol.description} " %>
+      <%= link_to i.name, task_url( :action => 'show', :id => i ),:title => "#{i.protocol.name} :  #{i.protocol.description} ", :class=>'icon icon-task-small' %>
 	</small>
 	</div>
 <% top = top + 20
@@ -201,7 +196,7 @@ top = headers_heigth + 10
 	    <div style="top:<%= top %>px;left:<%= i_left %>px;width:<%= d_width %>px;" class="task task_done">&nbsp;</div>
 	<% end %>
 	<div style="top:<%= top %>px;left:<%= i_left + i_width + 5 %>px;background:#fff;" class="task">
-	<%= i.status %>
+	<a class="icon icon-status_<%=i.status%>"><%= i.status %></a>
 	<%= (100*i.done).to_i %>%
 	</div>
 	<% # === tooltip === %>
@@ -223,4 +218,5 @@ end %>
 <td align="right"><%= link_to (l(:label_next) + ' &#187;'), :year => (@date_from >> @months).year, :month => (@date_from >> @months).month, :zoom => @zoom, :months => @months %></td>
 </tr>
 </table>
+</div>
 </div>

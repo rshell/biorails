@@ -6,19 +6,10 @@
       </b>
     </span>
     <%unless experiment.new_record? %>
-      <div class='boldnotbold'>
-        <%= link_to( "<b class='icon icon-experiment'>Overview</b>",
-        experiment_url( :action => 'show', :id => experiment)) if current_project.allows?(:show,:experiments) %>
-
-        <%= link_to "<b class='icon icon-folder'>Folder</b>",
-        folder_url(:action => 'show', :id => experiment.folder  )%>
-
-        <%= link_to("<b class='icon icon-experiment-add'>Copy Experiment</b>",
-        experiment_url( :action => 'copy' , :id => experiment)) if current_project.allows?(:copy,:experiments) %>
-
-        <%= link_to( "<b class='icon icon-del'>Delete</b>",  experiment_url( :action => 'destroy', :id => experiment ),
-        :confirm => 'Are you sure?',:method => "post") if experiment.tasks.size==0 and current_project.allows?(:show,:experiments) %>
-      </div>
+    <%= link_to( l(:label_overview), experiment_url( :action => 'show', :id => experiment)) %>
+    <%= link_to l(:label_folder),    folder_url(:action => 'show', :id => experiment.folder  )%>
+    <%= link_to(l(:label_experiment_copy),    experiment_url( :action => 'copy' , :id => experiment)) %>
+    <%= link_to( l(:label_delete),  experiment_url( :action => 'destroy', :id => experiment ), :confirm => l(:text_are_you_sure),:method => "post") if experiment.tasks.size==0  %>
   <%end %>
   </div>
 <%end%>

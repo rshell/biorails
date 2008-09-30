@@ -1,13 +1,15 @@
-##
+# == Assay Parameters Controller
+# This is used manage the parameters name space for a assay definition. In a 
+# assay a list of pre customized parameter templates are defined here.
+#
+# == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
-##
 #
- 
 class Organize::AssayParametersController < ApplicationController
-  use_authorization :assay_parameters,
+  use_authorization :organization,
                     :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_project
+                    :rights => :current_user
 
   before_filter :setup_assay , :only => [:index, :list,:new,:refresh,:create,:export,:import, :import_file]
   
@@ -17,7 +19,7 @@ class Organize::AssayParametersController < ApplicationController
     list
   end
 
-  def list
+  def list    
     respond_to do | format |
       format.html { render :action => 'list'}
       format.xml  { render :xml =>  @assay.to_xml}
@@ -39,8 +41,8 @@ class Organize::AssayParametersController < ApplicationController
 # Create a new assay Parameter
 #
   def new
-    @assay_parameter = AssayParameter.new
-    @assay_parameter.assay =  @assay
+    @assay_parameter = AssayParameter.new(:assay=>@assay)
+    @assay_parameters = @assay.parameters.find(:all,:limit=>3,:order=>'assay_parameters.id desc')    
     respond_to do | format |
       format.html { render :action => 'new'}
       format.xml  { render :xml =>  @assay_parameter.to_xml}
@@ -56,12 +58,9 @@ class Organize::AssayParametersController < ApplicationController
     @assay.parameters << @assay_parameter
     if @assay_parameter.save
       flash[:notice] = "Parameter #{@assay_parameter.name} successfully added"
-      if params[:commit] == "Add"
-         redirect_to :action => 'list', :id => @assay.id
-      else
-         redirect_to :action => 'new', :id => @assay.id
-      end  
+      redirect_to :action => 'new', :id => @assay.id
     else
+      @assay_parameters = @assay.parameters.find(:all,:limit=>3,:order=>'assay_parameters.id desc')    
       @type = DataType.find(1)
       render :action => 'new', :id => @assay.id
     end
@@ -177,9 +176,11 @@ class Organize::AssayParametersController < ApplicationController
   def test_save
    begin
       @successful = false 
-      @dom_id = params[:element]
+      field_domid = params[:element]
+      result_domid = field_domid.gsub(/test/,'result')
       @assay_parameter = AssayParameter.find(params[:id])
       @assay = @assay_parameter.assay
+      @assay_parameters = @assay.parameters
       @value =  @assay_parameter.parse(params[:value])
       @text =   @assay_parameter.format(@value)
       @successful = true 
@@ -194,16 +195,18 @@ class Organize::AssayParametersController < ApplicationController
       format.js   {
        render :update do | page |
          if  @successful 
-            page[@dom_id].value = @text
+            page[field_domid].value = @text
             case @value
-            when Unit then    page.replace_html "result_#{@assay_parameter.id}", "#{@value.class} #{@value.to_base}"
-            when ActiveRecord::Base then page.replace_html "result_#{@assay_parameter.id}", "#{@value.class}##{@value.id}"
+            when Unit 
+              page.replace_html result_domid, "#{@value.class} #{@value.to_base} [#{@value}]"
+            when ActiveRecord::Base 
+              page.replace_html result_domid, "#{@value.class}##{@value.id}"
             else
-              page.replace_html "result_#{@assay_parameter.id}", "#{@value.class} #{@text}"
+              page.replace_html result_domid, "[#{@value.class}] #{@text}"
             end
-            page.visual_effect :highlight, @dom_id, {:endcolor=>'#99FF99',:restorecolor=>'#99FF99'}
+            page.visual_effect :highlight, field_domid, {:endcolor=>'#99FF99',:restorecolor=>'#99FF99'}
           else
-            page.visual_effect :highlight, @dom_id, {:endcolor=>'#FFAAAA',:restorecolor=>'#FFAAAA'}
+            page.visual_effect :highlight, field_domid, {:endcolor=>'#FFAAAA',:restorecolor=>'#FFAAAA'}
           end        
        end
       }
@@ -214,21 +217,21 @@ class Organize::AssayParametersController < ApplicationController
 protected  
   
   def setup_assay
-    @assay = current_user.assay(params[:id])  
+    @assay = Assay.load(params[:id])  
     set_project(@assay.project) if @assay  
-
     @assay ||= current_project.assay(params[:id])  
+    @assay_parameters = @assay.parameters
     unless @assay
       return show_access_denied      
     end
   end
 
-  def setup_assay_parameter
+  def setup_assay_parameter    
     @assay_parameter = current_project.assay_parameter(params[:id])
     unless @assay_parameter
       return show_access_denied      
     end
-    @assay = @assay_parameter.assay    
+    @assay = @assay_parameter.assay  
   end
 ##
 # Generate a report on protocol using this parameter type

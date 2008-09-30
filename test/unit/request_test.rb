@@ -6,6 +6,8 @@ class RequestTest < Test::Unit::TestCase
   def setup
     # Retrieve ## Biorails::Dba.import_model via their name
      @model = Request
+     User.current = User.find(3)
+     Project.current  = Project.find(2)
   end
   
   def test_truth
@@ -32,11 +34,6 @@ class RequestTest < Test::Unit::TestCase
     assert 'sdgdsgsdgds',first.name
   end
 
-  def test02_name
-    first = @model.find(:first)
-    assert first.name
-  end
-
   def test03_description
     first = @model.find(:first)
     assert first.description
@@ -52,9 +49,9 @@ class RequestTest < Test::Unit::TestCase
     assert first.project
   end
 
-  def test06_team
+  def test06_name
     first = @model.find(:first)
-    assert first.team
+    assert first.name
   end
   
   def test07_create

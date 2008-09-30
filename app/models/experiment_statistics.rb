@@ -1,27 +1,30 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: experiment_statistics
 #
-#  id                 :float         primary key
-#  experiment_id      :integer(11)   not null
-#  assay_parameter_id :integer(11)   not null
-#  parameter_role_id  :integer(11)   not null
-#  parameter_type_id  :integer(11)   not null
-#  data_type_id       :integer(11)   not null
-#  avg_values         :float         
-#  stddev_values      :float         
-#  num_values         :float         
-#  num_unique         :float         
-#  max_values         :float         
-#  min_values         :float         
+#  id                 :integer(8)      primary key
+#  experiment_id      :integer(4)      default(0), not null
+#  assay_parameter_id :integer(4)
+#  parameter_role_id  :integer(4)      default(0), not null
+#  parameter_type_id  :integer(4)      default(0), not null
+#  data_type_id       :integer(4)      default(0), not null
+#  avg_values         :float
+#  stddev_values      :float
+#  num_values         :integer(8)      default(0), not null
+#  num_unique         :integer(8)      default(0), not null
+#  max_values         :float
+#  min_values         :float
 #
 
-##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
+# == Description
+# OLAP aggregation of statistics linked to a experiment
+#
+# == Copyright
 # 
-
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+# 
 class ExperimentStatistics < ActiveRecord::Base
  belongs_to :experiment
  belongs_to :assay_parameter, :class_name =>'AssayParameter',:foreign_key => 'assay_parameter_id'

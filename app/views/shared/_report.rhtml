@@ -1,22 +1,92 @@
-<% form_remote_tag :url => report_url( :action => 'show',:id =>report.id, :page => 1 ) do %>
-
-    <table id='<%=report.dom_id%>' class="report"
-      url="<%=report_url( :action => 'refresh',:id =>report.id)%>"
-      width='100%'>
-    <thead id='<%=report.dom_id("header")%>'>
-      <%= render :partial =>'shared/report_header',   :locals => {:report => report, :data =>data } %>
-    </thead>
-
-    <tbody id='<%=report.dom_id("body")%>'>
-      <%= render :partial =>'shared/report_body',:locals => {:report => report,:data =>data } %>
-    </tbody>
-  </table>
-<br />
-<%= will_paginate(data, :renderer => 'WillPaginate::RemoteLinkRenderer') %>
-    
-<% end %>
-<hr />
-<%= link_to "<b class='icon icon-print'>Print</b>",       report_url(:action => 'print', :id => @report) %>
-<%= link_to "<b class='icon icon-pdf'>Export As PDF</b>", report_url(:action => 'print',:format=>:pdf, :id => @report) %>
-<%= link_to "<b class='icon icon-xls'>Export as XLS</b>", report_url(:action => 'export', :id => @report)  %>
-<br />
+    <div id='<%=report.dom_id('grid')%>'>
+    </div>
+    <script type="text/javascript">
+        Ext.onReady( function() {
+          var report_store = new Ext.data.GroupingStore({
+                      remoteSort: true,
+                      proxy: new Ext.data.HttpProxy({
+                                  url: '/reports/grid/<%=report.id%>', 
+                                  method: 'post'}),
+                      reader: new Ext.data.JsonReader({  
+                                root: 'items', 
+                                totalProperty: 'total', 
+                                id: 'id'},
+                                Ext.data.Record.create(<%=report.ext_columns_json%> )
+        					  )        
+                    }); 
+        
+          var report_model =  new Ext.grid.ColumnModel(
+               <%=report.ext_model_json%> ) ;
+          
+          var report_filters = new Ext.ux.grid.GridFilters( 
+                         {filters: <%=report.ext_filters_json%> });
+            
+          var report_options = {
+                    renderTo: '<%=report.dom_id(:grid)%>',
+                    store: report_store,        
+                    cm:    report_model ,
+                    view: new Ext.grid.GroupingView({
+                                       forceFit : true,
+                                       autoFill:true}),
+                    sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+                    plugins: report_filters,
+                    width:'auto',
+                    autoHeight: true,
+        			autoScroll: false,
+                    stripeRows: true,
+                    clicksToEdit: 1,
+                    forceFit: false,
+                    frame:true,
+                    iconCls:'icon-grid',
+                     tbar: [
+                      { 
+                          text: '<b><%=report.name%> </b> ' 
+                      },  '->',
+                      { 
+                          text:'<%=l(:label_print)%>',
+                          iconCls:'icon-print',
+                          tooltip:'Create a Printout sytle of report',
+                          handler : function(item){
+                             window.open('<%=report_url(:action => 'print', :id => report)%>');
+                          }
+                      },                      { 
+                          text:'<%=l(:label_print_pdf)%>',
+                          iconCls:'icon-pdf',
+                          tooltip:'Create a Printout sytle of report',
+                          handler : function(item){
+                            window.open('<%=report_url(:action => 'print',:format=>:pdf, :id => report)%>');
+                          }
+                      },                      { 
+                          text:'<%=l(:label_print_csv)%>',
+                          iconCls:'icon-xls',
+                          tooltip:'Create a Printout sytle of report',
+                          handler : function(item){
+                             window.location = '<%=report_url(:action => 'export', :id => report)%>';
+                          }
+                      }],
+                    bbar: new Ext.PagingToolbar({
+                          pageSize: <%=report.limit%>,
+                          store: report_store,
+                          autoWidth: true,
+                          displayInfo: true,
+                          displayMsg: 'Displaying {0} - {1} of {2}',
+                          emptyMsg: "No results to display"
+                      })       
+                 };
+           if (Ext.isIE6) {
+               report_options['width']= Biorails.getWidth()-10;
+               report_options['autoWidth'] = false
+           } else { 
+               report_options['autoWidth'] = true
+           };
+          
+        var grid = new Ext.grid.EditorGridPanel(report_options);
+        grid.on('rowclick', function(grid, rowIndex, e){
+              var rec = grid.store.getAt(rowIndex);
+              window.location = rec.get('url');
+              grid.getView().focusEl.focus();
+            });
+        	
+        grid.store.load({	params: {start: <%=report.start%>,	limit: <%=report.limit%>	}});     
+        });
+    </script>

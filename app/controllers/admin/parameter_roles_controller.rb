@@ -2,9 +2,9 @@
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 
-##
-# This manages the list of Parameter Types in the system. It was added to provide
-# the bases for parameterized data entry. Parameters have rules on the type of data
+#
+# This manages the list of Parameter Roles in the system. It was added to provide
+# the bases for parameterized data entry. Parameters have rules on the role of data
 # they accept. The key one of theses is a allow vocabary
 # 
 # Actions supported:-

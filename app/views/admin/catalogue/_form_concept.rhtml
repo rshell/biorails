@@ -6,8 +6,8 @@
 <div class="row">
 
     <div class="form-element">
-      <label for="item_name" class='icon icon-name'>
-        Name
+      <label for="item_name">
+        <%=l(:label_name)%>
       </label>
       <%= text_field :data_concept, :name  , {:class=>"text-input"} %>
     </div>
@@ -16,8 +16,8 @@
 
 <div class="row">
     <div class="form-element">
-      <label for="item_description" class='icon icon-description'>
-        Description
+      <label for="item_description">
+          <%=l(:label_description)%>
       </label>
       <%= text_area( :data_concept, :description,{:rows=>5, :cols=>80} ) %>
     </div>

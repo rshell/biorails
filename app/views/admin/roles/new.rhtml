@@ -10,10 +10,12 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['role']} %>
 <%end%>
 
-<% dialog "Create Role" do %>
+<%= render :partial => 'admin/header' %>
+<% dialog l(:label_role) do %>
 	<% form_tag :action => 'create' do %>
 	  <%= render :partial => 'new' %>
-	  <%= submit_tag "Create" %>
+	  <%= submit_tag l(:button_create) %>
+          <%= link_to l(:label_cancel), role_url( :action => 'list') %>
 	<% end %>
 <% end %>
 

@@ -12,7 +12,6 @@ class ProjectContentTest < Test::Unit::TestCase
     item = ProjectContent.new(:name=>'test')
     assert item.name
     assert item.summary  
-    assert item.description  
     assert item.to_html 
   end
    
@@ -25,7 +24,6 @@ class ProjectContentTest < Test::Unit::TestCase
   def test_has_name
     first = @model.find(:first)
     assert first.name 
-    assert first.description
     assert first.icon
     assert first.content    
   end
@@ -57,19 +55,20 @@ class ProjectContentTest < Test::Unit::TestCase
     assert first.icon
   end
 
-  def test_body_html
+  def test_html
     first = @model.find(:first)
-    assert first.body_html
+    assert first.html
   end
 
   def test_to_html
     first = @model.find(:first)
     assert first.to_html
   end
-
-  
+ 
   def test_project_content_build
-    element=  @model.build(:body_html=>"test text", :name => 'name', :position=>"2", :project_id=>"1", :title=>'title', :body=>'this is a body')
+    folder = ProjectFolder.find(:first)
+    element = folder.add_content('name',"test text")
+    assert_not_nil element.content.content_hash
     assert_equal "test text", element.content.body_html
     assert element.content.valid?
     assert element.save
@@ -78,15 +77,17 @@ class ProjectContentTest < Test::Unit::TestCase
  
   def test_project_update_content
     first=@model.find(:first)
-    first.update_content(:body_html=>"test text", :name => 'name', :position=>"2", :project_id=>"1", :title=>'title', :body=>'this is a body')
-    assert_equal "name", first.content.name
-    assert_equal "test text", first.content.body_html
+    first.update_content('this is a body')
+    assert_not_nil first.content.content_hash
+    assert_equal first.name, first.content.name
+    assert_equal 'this is a body', first.content.body_html
     assert first.content.valid?
-    first.update_content(:body_html=>"test text", :name => 'name', :position=>"2", :project_id=>"1", :title=>'title', :body=>'this is a body')
-    assert_equal "name", first.content.name
+    first.update_content("test text")
+    assert_not_nil first.content.content_hash
     assert_equal "test text", first.content.body_html
     assert first.content.valid?
     assert_ok first
+
   end
  
  

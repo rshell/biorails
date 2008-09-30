@@ -1,20 +1,13 @@
 <div class='main' id='maintitle'>
     <div class="title" id="experiment">
-        <h1 class="icon icon-experiment-large" style="text-indent:0.5em">Experiment related report [<strong><%=@report.name%></strong>]</h1>
-        <div class="actions boldnotbold">
-          <b class="icon-list">
-            'Reset', :action => 'reports' %>
-          </b>
-          <b class="icon-new">
-            <%= link_to 'New', :controller=>'reports',  :action => 'new' %>
-          </b>
-        </div>
+        <h2 class="icon icon-experiment-large">Experiment related report [<strong><%=@report.name %></strong>]</h2>
+        <%= link_to 'Reset', :action => 'reports' %>
+        <%= link_to 'New', :controller=>'reports',  :action => 'new' %>
     </div>
-
     <div class='panel'>
-         <p>
-         <%=@report.description%>
-         </p>
+        <p>
+            <%=@report.description %>
+        </p>
         <%=render :partial => 'shared/report', :locals=>{:report =>  @report, :data => @report.run} %>
     </div>
 </div>

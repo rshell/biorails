@@ -1,11 +1,16 @@
+<div class=" x-panel-header x-accordion-hd">
+    <span class="icon icon-crosstab x-panel-header-text"><%=l(:label_cross_tab)%>
+    </span>
+</div>
 <div class='panel'>
-
-<h2>Cross Tab</h2>
-This table is based on filtered data from the following:-
-<ul>
-<% for context in @cross_tab.contexts %>
- <li><%= context.path(:process) %> <%= context.usages.size%> Rows</li>
-<% end %>
-</ul>
-
+  <p>
+      <%=l(:help_filter_based_on)%>:
+  </p>
+  <ul>
+    <% for context in @cross_tab.contexts %>
+     <li>
+          <%= context.path(:process) %> <%= context.usages.size%> <%=l(:label_rows)%>
+      </li>
+    <% end %>
+  </ul>
 </div>

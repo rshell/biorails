@@ -1,109 +1,159 @@
-<% content_for :sidemenu do%>
-  <%= render :partial => 'menu'%>
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
 <% end %>
-
-
-<h1 class="icon icon-user-large" style='text-indent:0.5em'>
-    Current profile for User <%= @user.name %>
-</h1>
-<table class='report' style='width:40%'>
-<tr>
-  <th><b class='icon icon-login'>Login</b></th>
-  <td> <%= @user.login %></td>
-</tr>
-<tr>
-  <th><b class='icon icon-name'>Short Name</b></th>
-  <td> <%= @user.name %></td>
-</tr>
-<tr>
-  <th><b class='icon icon-description'>Full name</b></th>
-  <td> <%= @user.fullname %></td>
-</tr>
-<tr>
-  <th><b class='icon icon-date'>Created At</b></th>
-  <td> <%= short_date @user.created_at %></td>
-</tr>
-<tr>
-  <th><b class='icon icon-date'>Updated At</b></th>
-  <td> <%= short_date @user.updated_at %></td>
-</tr>
-<% if @ldap %>
-<tr>
-  <th><b class='icon icon-date'>LDAP Account</b></th>
-  <td>  <%= @ldap[:cn] %> </td>
-</tr>
-<tr>
-  <th><b class='icon icon-date'>E-mail (Ldap)</b></th>
-  <td> <%= @ldap[:mail] %></td>
-</tr>
-<tr>
-  <th><b class='icon icon-date'>Displayed Name (Ldap)</b></th>
-  <td> <%= @ldap[:displayName] %></td>
-</tr>
-<%else%>
-<tr>
-  <th><b class='icon icon-date'>LDAP Account</b></th>
-  <td> Missing </td>
-</tr>
-<%end%>
-</table>
-<br />
-<h2 class='icon icon-team'> Team Memberships </h2>
-<div class='panel'>
-  <table class="report">
-    <thead>
+<%= render :partial => 'admin/header' %>
+<h2 class="icon icon-user"><%=l(:label_user_profile) %> [<%= @user.name %>]</h2>
+<div class="panel">
+  <div class="box">
+    <table class='report' style='width:40%'>
       <tr>
-        <th><b class='icon icon-team'>Team</b></th>
-        <th><b class='icon icon-role'>Role</b></th>
-        <th><b class='icon icon-date'>Created</b></th>
-        <th><b class='icon icon-date'>Updated</b></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% for member in @user.memberships do %>
-      <tr class="<%= cycle('odd', 'even') %>">
+        <th>
+          <%=h l(:label_login) %>
+        </th>
         <td>
-          <p class='icon icon-show'>
-            <%= link_to member.team.name, team_url(:action=>'show',:id=>member.team) %>
-          </p>        
+          <%= h @user.login %>
         </td>
-        <td>
-          <p class='icon icon-show'>
-            <%= link_to member.role.name,role_url(:action=>'show',:id=>member.role) %>
-          </p>
-        </td>
-        <td><%= short_date member.created_at %></td>
-        <td><%= short_date member.updated_at %></td>
       </tr>
-    <% end -%>
-    </tbody>
-  </table>
-</div>
-<br />
-
-<h2 class='icon icon-permission'> User Permissions </h2>
-<div class='panel'>  <table class="report">
-    <thead>
+      <tr>
+        <th>
+          <%=h l(:label_shortname) %>
+        </th>
+        <td>
+          <%=h  @user.name %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=h l(:label_full_name) %>
+        </th>
+        <td>
+          <%=h  @user.fullname %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_created_at) %>
+        </th>
+        <td>
+          <%= short_date @user.created_at %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_updated_at) %>
+        </th>
+        <td>
+          <%= short_date @user.updated_at %>
+        </td>
+      </tr>
+      <% if @ldap %>
+      <tr>
+        <th>
+          <%=l(:label_ldap_account) %>
+        </th>
+        <td>
+          <%= @ldap[:cn] %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_email) %>
+        </th>
+        <td>
+          <%= @ldap[:mail] %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:label_displayname) %>
+        </th>
+        <td>
+          <%= @ldap[:displayName] %>
+        </td>
+      </tr>
+      <%else %>
+      <tr>
+        <th>
+          <%=l(:label_ldap_account) %>
+        </th>
+        <td>
+          <%=l(:label_missing) %>
+        </td>
+      </tr>
+      <%end %>
+    </table>
+  </div>
+  
+  <h3 class='icon icon-team'><%=l(:label_team_memberships) %>
+  </h3>
+  <div class='box'>
+    <table class="report">
+      <thead>
         <tr>
-            <th>Subject</th>
-            <th colspan=16>Allowed Actions for Role</th>
+          <th>
+            <%= h  l(:label_team) %>
+          </th>
+          <th>
+            <%=  h l(:label_date_created) %>
+          </th>
+          <th>
+            <%= h  l(:label_date_updated) %>
+          </th>
         </tr>
-    </thead>
-    <tbody>
-      <%if @user.role %>	
-      <% for subject in UserRole.subjects.keys.sort do %>
-          <tr>
-              <th><%=subject%></th>
-              <% for action in Permission.possible_actions(subject) %>
-                  <%if @user.role.allow?(subject,action) %>
-                      <td><%=action%></td>
-                  <%end%>
-              <% end -%>
-          </tr>
-      <% end -%>
-      <% end -%>
-    </tbody>
-
-  </table>
-  <br />
+      </thead>
+      <tbody>
+        <% for member in @user.memberships do %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td>
+            <%= link_to member.team.name, team_url(:action=>'show',:id=>member.team_id) %>
+          </td>
+          <td>
+            <%= short_date member.created_at %>
+          </td>
+          <td>
+            <%= short_date member.updated_at %>
+          </td>
+        </tr>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+  <h3 class='icon icon-permission'><%=l(:label_user_permissions) %>
+  </h3>
+  <div class='box'>
+    <table class="report">
+      <thead>
+        <tr>
+          <th>
+            <%= h  l(:label_subject) %>
+          </th>
+          <th colspan=16>
+            <%= h  l(:label_role_allowed_actions) %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <%if @user.role %>
+        <% for subject in UserRole.subjects.keys.sort do %>
+        <tr>
+          <th>
+            <%=subject %>
+          </th>
+          <% for action in Permission.actions(subject) %>
+          <%if allows?(subject,action) %>
+          <td>
+            <%=action %>
+          </td>
+          <%end %>
+          <% end -%>
+        </tr>
+        <% end -%>
+        <% end -%>
+      </tbody>
+    </table>
+    
+  </div><hr />
+  <%= link_to l(:label_edit), user_url( :action => 'edit',:id=>@user.id), :class=>'icon icon-edit' %>
+  <%= link_to l(:label_list_local), user_url( :action => 'list'), :class=>'icon icon-list' %>
+  <%= link_to l(:label_list_ldap), user_url( :action => 'ldap',:id=>'a'), :class=>'icon icon-list' %>
 </div>

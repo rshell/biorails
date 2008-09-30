@@ -3,9 +3,9 @@
   <div class="title" id="assay">
     Assay Report [<strong><%=@report.name%></strong>]
     <div class="actions">
-        <%= link_to "<b class='icon icon-show'>Reset</b>",
+        <%= link_to "<b class='icon icon-show'>"+l(:label_reset)+"</b>",
           :action => 'reports' %>
-        <%= link_to "<b class='icon icon-new'>New</b>",
+        <%= link_to "<b class='icon icon-new'>"+l(:label_new)+"</b>",
           :controller=>'reports',  :action => 'new' %>
     </div>
   </div>

@@ -1,0 +1,42 @@
+<div class='panel'>
+  <table class='report'>
+    <tr>
+      <th colspan='3'>
+        <%=l(:label_details)%>
+      </th>
+      <th colspan='5'>
+        <%=l(:label_counts)%>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:label_name)%>
+      </th>
+      <th><%=l(:label_status)%></th>
+      <th><%=l(:label_description)%></th>
+      <th><%=l(:label_members)%></th>
+      <th><%=l(:label_assays)%></th>
+      <th><%=l(:label_folders)%></th>
+      <th><%=l(:label_tasks)%></th>
+      <th><%=l(:label_signatures)%></th>
+     </tr>
+    <% for project in @user.projects(100) %>
+      <% if project.project_type_id == 3 %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><p>
+            <%= link_to project.name, project_url( :action => 'show', :id => project), :class=>"icon icon-project-#{project.style.downcase}" %>
+          </p></td>
+          <td><p class='icon icon-status_<%= project.status %>'><%=project.status%></p></td>
+          <td><%=project.description%></td>
+          <td><%=project.memberships.size%></td>
+          <td><%=project.assays.size%></td>
+          <td><%=project.folders.size%></td>
+          <td><%=project.tasks.size%></td>
+          <td><%=project.signatures.size%></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <hr />
+      <%= link_to "#{l(:label_new)} #{l(:label_study)}", project_url(:action => 'new'), :class=>'icon icon-new'%>
+</div>

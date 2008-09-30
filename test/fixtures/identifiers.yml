@@ -1,32 +1,32 @@
 # == Schema Information
-# Schema version: 306
+# Schema version: 359
 #
 # Table name: identifiers
 #
-#  id                 :integer(11)   not null, primary key
-#  name               :string(255)   
-#  prefix             :string(255)   
-#  postfix            :string(255)   
-#  mask               :string(255)   
-#  current_counter    :integer(11)   default(0)
-#  current_step       :integer(11)   default(1)
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  id                 :integer(4)      not null, primary key
+#  name               :string(255)
+#  prefix             :string(255)
+#  postfix            :string(255)
+#  mask               :string(255)
+#  current_counter    :integer(4)      default(0)
+#  current_step       :integer(4)      default(1)
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #
 
 --- 
 00000000017_identifier: !ruby/object:Identifier 
   attributes: 
     current_step: "1"
-    current_counter: "17"
+    current_counter: "267"
     prefix: guest-
     name: guest
-    updated_at: 2007-06-27 11:46:42
+    updated_at: 2008-08-14 10:29:59
     updated_by_user_id: "1"
-    lock_version: "17"
+    lock_version: "267"
     mask: 
     id: "17"
     created_by_user_id: "1"
@@ -40,7 +40,7 @@
     current_counter: "89"
     prefix: thawkins-
     name: thawkins
-    updated_at: 2007-10-31 12:42:21
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "89"
     mask: 
@@ -56,7 +56,7 @@
     current_counter: "1"
     prefix: admin-
     name: admin
-    updated_at: 2007-06-12 12:31:26
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "1"
     mask: 
@@ -72,7 +72,7 @@
     current_counter: "9"
     prefix: Role-
     name: Role
-    updated_at: 2007-06-11 12:47:48
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "9"
     mask: 
@@ -88,7 +88,7 @@
     current_counter: "82"
     prefix: Task-
     name: Task
-    updated_at: 2007-12-12 17:42:58
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "82"
     mask: 
@@ -104,7 +104,7 @@
     current_counter: "2"
     prefix: wskinner-
     name: wskinner
-    updated_at: 2007-10-16 08:52:30
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "2"
     mask: 
@@ -120,7 +120,7 @@
     current_counter: "3"
     prefix: m-
     name: member
-    updated_at: 2007-05-30 15:43:45
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "3"
     mask: 
@@ -136,7 +136,7 @@
     current_counter: "32"
     prefix: Req-
     name: Request
-    updated_at: 2007-12-12 11:35:18
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "32"
     mask: 
@@ -152,7 +152,7 @@
     current_counter: "6"
     prefix: Expt-
     name: Experiment
-    updated_at: 2007-04-30 21:12:55
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "6"
     mask: 
@@ -168,7 +168,7 @@
     current_counter: "6"
     prefix: jdoggett-
     name: jdoggett
-    updated_at: 2007-10-16 08:26:20
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "6"
     mask: 
@@ -184,7 +184,7 @@
     current_counter: "82"
     prefix: Art-
     name: Content
-    updated_at: 2007-12-12 12:22:20
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "82"
     mask: 
@@ -200,7 +200,7 @@
     current_counter: "375"
     prefix: rjs-
     name: rshell
-    updated_at: 2007-12-11 20:37:04
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "375"
     mask: 
@@ -216,7 +216,7 @@
     current_counter: "9"
     prefix: Fold-
     name: ProjectFolder
-    updated_at: 2007-04-30 17:57:03
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "9"
     mask: 
@@ -232,7 +232,7 @@
     current_counter: "5"
     prefix: alemon-
     name: alemon
-    updated_at: 2007-10-15 14:50:21
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "5"
     mask: 
@@ -248,7 +248,7 @@
     current_counter: "38"
     prefix: Prot-
     name: AssayProtocol
-    updated_at: 2007-12-12 11:03:03
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "38"
     mask: 
@@ -264,7 +264,7 @@
     current_counter: "3"
     prefix: "-"
     name: ""
-    updated_at: 2007-04-19 16:32:39
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "3"
     mask: 
@@ -280,7 +280,7 @@
     current_counter: "31"
     prefix: File-
     name: ProjectAsset
-    updated_at: 2007-05-01 06:01:34
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "31"
     mask: 
@@ -293,12 +293,12 @@
 00000000006_identifier: !ruby/object:Identifier 
   attributes: 
     current_step: "1"
-    current_counter: "49"
+    current_counter: "55"
     prefix: R-
     name: Report
-    updated_at: 2007-12-10 21:06:07
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
-    lock_version: "49"
+    lock_version: "55"
     mask: 
     id: "6"
     created_by_user_id: "1"
@@ -312,7 +312,7 @@
     current_counter: "62"
     prefix: S-
     name: Assay
-    updated_at: 2007-12-11 18:03:31
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "62"
     mask: 
@@ -328,7 +328,7 @@
     current_counter: "65"
     prefix: Note-
     name: ProjectContent
-    updated_at: 2007-04-30 20:39:13
+    updated_at: 2008-08-14 10:29:16
     updated_by_user_id: "1"
     lock_version: "65"
     mask: 

@@ -15,11 +15,10 @@
      available to the <%=@assay.name%>
      assay. Each queue accepts a single type of
      parameter for identification of stuff to process
-     in the assay. A number
-     of different protocols may submit items to the same queue.
+     in the assay. A number of different processes 
+     may submit items to the same queue.
    </p>
   </div>
-  <%= link_to "<b class='icon icon-service'>New</b>",
-    queue_url( :action => 'new', :id=>@assay.id) %>
+  <%= link_to l(:label_new), queue_url( :action => 'new', :id=>@assay.id), :class=>'icon icon-service' %>
 <%end%>
 

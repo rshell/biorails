@@ -1,0 +1,60 @@
+<div class='box'>
+    <strong><%= link_to  l(:label_services), service_url(:action => 'list'), :class=>"icon icon-service" %></strong>
+    <table class='report'>
+        <thead>
+            <tr>
+                <th>
+                    <%=l(:label_ref) %>
+                </th>
+                <th>
+                    <%=l(:label_service) %>
+                </th>
+                <th>
+                    <%=l(:label_status) %>
+                </th>
+                <th>
+                    <%=l(:label_priority) %>
+                </th>
+                <th>
+                    <%=l(:label_date_accepted) %>
+                </th>
+                <th>
+                    <%=l(:label_assigned_to) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <%for requested_service in current_project.requested_services %>
+            <%for item in requested_service.request.services %>
+            <tr class="<%= cycle('odd', 'even') %>">
+                <td>
+                    <%=link_to item.name, service_url( :action => 'show', :id => item) %>
+                </td>
+                <td>
+                    <%=link_to item.queue.path, queue_url(:action => 'show', :id => item.queue) %>
+                </td>
+                <td>
+                    <a class='icon icon-status_<%=item.status %>'><%=item.status_summary %></a>
+                </td>
+                <td>
+                    <%=item.priority %>
+                </td>
+                <% if item.assigned_to_user_id %>
+                <td>
+                    <%=short_date item.started_at %>
+                </td>
+                <td>
+                    <%=item.assigned_to.name %>
+                </td>
+                <% else %>
+                <td colspan='3'>
+                    <i><b><%=l(:label_not_submitted_yet) %>
+                        </b></i>
+                </td>
+                <% end %>
+            </tr>
+            <% end %>
+            <%end %>
+        </tbody>
+    </table>
+</div>

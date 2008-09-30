@@ -1,0 +1,44 @@
+<div class="box" >
+    <h3 class="icon icon-project"><%=l(:label_projects) %></h3>
+    <table id="team_projects" class="report">
+        <thead>
+            <tr class='header'>
+                <th>
+                    <%=l(:label_name) %>
+                </th>
+                <th>
+                    <%=l(:label_style) %>
+                </th>
+                <th>
+                    <%=l(:label_created_by) %>
+                </th>
+                <th>
+                    <%=l(:label_status) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for item in @team.projects %>
+            <tr class="<%= cycle('odd', 'even') %>">
+                <td>
+                    <p class="icon icon-show">
+                        <%=link_to item.name ,project_url(:action=>'show',:id=>item.id) %>
+                    </p>
+                </td>
+                <td>
+                    <%=item.style %>
+                </td>
+                <td>
+                    <%=item.created_by %>
+                </td>
+                <td>
+                    <p class="icon icon-status_<%=h item.status %>">
+                        <%=h item.status %>
+                    </p>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr/><%= link_to( l(:label_new), project_url(   :action => 'new', :id=>@team.id), :class=>"icon icon-add") %>
+</div>

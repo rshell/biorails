@@ -1,26 +1,37 @@
 # == Schema Information
-# Schema version: 306
-# 
+# Schema version: 359
+#
 # Table name: data_formats
-# 
-#  id                 :integer(11)   not null, primary key
-#  name               :string(128)   default(), not null
-#  description        :string(1024)  default(), not null
+#
+#  id                 :integer(4)      not null, primary key
+#  name               :string(128)     default(""), not null
+#  description        :string(1024)    default(""), not null
 #  default_value      :string(255)
 #  format_regex       :string(255)
-#  lock_version       :integer(11)   default(0), not null
-#  created_at         :datetime      not null
-#  updated_at         :datetime      not null
-#  data_type_id       :integer(11)
-#  updated_by_user_id :integer(11)   default(1), not null
-#  created_by_user_id :integer(11)   default(1), not null
+#  lock_version       :integer(4)      default(0), not null
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  data_type_id       :integer(4)
+#  updated_by_user_id :integer(4)      default(1), not null
+#  created_by_user_id :integer(4)      default(1), not null
 #  format_sprintf     :string(255)
+#
+
+# == Description
+# Data Formats define the rules for entry and display of data in the application. 
+# They use Regular Expressions and C style Printf code to do this. For the uninitiated 
+# these are in the are a little cryptic but they are well documented on the web.
+#
+#Data formats provide a mechanism for defining the precision of data captured in a data entry 
+#sheet of a task, for example the number of significant figures or decimal points, whether 
+#to allow scientific notation, URL validation.
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
 # 
 
-# ##
-# Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
-# See license agreement for additional rights
-# 
 class DataFormat < ActiveRecord::Base
 
   SCI_NUMBER = %r{([+-]?\d*[\.,]?\d+(?:[Ee][+-]?)?\d*)}
@@ -50,8 +61,8 @@ class DataFormat < ActiveRecord::Base
   validates_presence_of :description
   validates_uniqueness_of :name
 
-  has_many :parameters, :dependent => :destroy
-  has_many :assay_parameters, :dependent => :destroy
+  has_many :parameters, :dependent => :nullify
+  has_many :assay_parameters,  :dependent => :nullify
 
   belongs_to :data_type
 

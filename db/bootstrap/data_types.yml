@@ -1,55 +1,92 @@
----
-00000000001_data_type: !ruby/object:DataType
-  attributes:
-    name: text
-    value_class: String
-    id: "1"
-    description: Text
-  attributes_cache: {}
-
-00000000002_data_type: !ruby/object:DataType
-  attributes:
-    name: numeric
-    value_class: Numeric
-    id: "2"
-    description: Numeric
-  attributes_cache: {}
-
-00000000003_data_type: !ruby/object:DataType
-  attributes:
-    name: date
-    value_class: Date
-    id: "3"
-    description: Date
-  attributes_cache: {}
-
-00000000004_data_type: !ruby/object:DataType
-  attributes:
-    name: time
-    value_class: DateTime
-    id: "4"
-    description: Time
-  attributes_cache: {}
-
-00000000005_data_type: !ruby/object:DataType
-  attributes:
-    name: dictionary
-    value_class: DataConcept
-    id: "5"
-    description: Look up on catalogue
-  attributes_cache: {}
-00000000006_data_type: !ruby/object:DataType
-  attributes:
-    name: url
-    value_class: String
-    id: "6"
-    description: Reference
-  attributes_cache: {}
-
-00000000007_data_type: !ruby/object:DataType
-  attributes:
+--- 
+00000000007_data_type: !ruby/object:DataType 
+  attributes: 
     name: file
+    updated_at: 2008-09-12 15:07:43
     value_class: File
+    updated_by_user_id: "1"
+    lock_version: "0"
     id: "7"
     description: File
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
   attributes_cache: {}
+
+00000000001_data_type: !ruby/object:DataType 
+  attributes: 
+    name: text
+    updated_at: 2008-09-12 15:07:43
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "1"
+    description: Text
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000004_data_type: !ruby/object:DataType 
+  attributes: 
+    name: time
+    updated_at: 2008-09-12 15:07:43
+    value_class: DateTime
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "4"
+    description: Time
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000006_data_type: !ruby/object:DataType 
+  attributes: 
+    name: url
+    updated_at: 2008-09-12 15:07:43
+    value_class: String
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "6"
+    description: Reference
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000002_data_type: !ruby/object:DataType 
+  attributes: 
+    name: numeric
+    updated_at: 2008-09-12 15:07:43
+    value_class: Numeric
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "2"
+    description: Numeric
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000003_data_type: !ruby/object:DataType 
+  attributes: 
+    name: date
+    updated_at: 2008-09-12 15:07:43
+    value_class: Date
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "3"
+    description: Date
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000005_data_type: !ruby/object:DataType 
+  attributes: 
+    name: dictionary
+    updated_at: 2008-09-12 15:07:43
+    value_class: DataConcept
+    updated_by_user_id: "1"
+    lock_version: "0"
+    id: "5"
+    description: Look up on catalogue
+    created_by_user_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+

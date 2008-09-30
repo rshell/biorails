@@ -1,191 +1,256 @@
-00000000001_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Task
-    access_control_id:
+--- 
+00000000002_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Materials
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
     type: DataConcept
-    lock_version: 0
-    data_context_id: 1
-    id: 01
-    description: Task
-    parent_id: 4
-00000000002_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Subject
-    access_control_id:
-    type: DataConcept
-    lock_version: 1
-    data_context_id: 1
-    id: 2
+    lock_version: "1"
+    data_context_id: "1"
+    id: "2"
     description: Subject or Inventory, covers animals and compounds to samples
-    parent_id: 1
-00000000003_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Users
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 3
-    description: Allowed user name for people in the system
-    parent_id: 3
-00000000004_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Organisation
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 4
-    description: Oganisational Structure (Projects, Assays, Experiments etc)
-    parent_id: 1
-00000000005_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Groups
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 5
-    description: Groups
-    parent_id: 3
-00000000006_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: ProtocolStatus
-    access_control_id:
-    type: DataConcept
-    data_context_id: 0
-    id: 6
-    description: "Protocol Status: internal lookup for the status of a protocol. "
-    parent_id: 3
-00000000007_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Experiment
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 7
-    description: Experiment main element in the execution of a workflow
-    parent_id: 4
-00000000008_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: ParameterType
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 8
-    description: Parameter type
-    parent_id: 3
-00000000009_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Batches
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 9
-    description: Batch
-    parent_id: 2
-00000000010_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Folder
-    access_control_id:
-    type: DataConcept
-    data_context_id: 0
-    id: 10
-    description: Folders
-    parent_id: 4
-00000000011_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Roles
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 11
-    description: Lookup
-    parent_id: 3
-00000000012_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: DataType
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 12
-    description: Various type of data the system is expected to handle like numeric ,text
-    parent_id: 3
-00000000013_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Lists
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 13
-    description: List, Libraries
-    parent_id: 2
-00000000014_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: ResearchArea
-    access_control_id:
-    type: DataConcept
-    data_context_id: 0
-    id: 14
-    description: "Research Area: This is a internal lookup for assay form to a list of reasearch area used in the organization"
-    parent_id: 3
-00000000015_data_concept: !ruby/object:DataConcept
-  attributes:
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2008-09-09 12:06:44
+  attributes_cache: {}
+
+00000000015_data_concept: !ruby/object:DataConcept 
+  attributes: 
     name: Project
-    access_control_id:
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
     type: DataConcept
-    data_context_id: 1
-    id: 15
+    lock_version: "0"
+    data_context_id: "1"
+    id: "15"
     description: Projects
-    parent_id: 4
-00000000016_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: ParameterRole
-    access_control_id:
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000004_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Organisation
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
     type: DataConcept
-    data_context_id: 1
-    id: 16
-    description: Parameter Role
-    parent_id: 3
-00000000017_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: ProtocolCatagory
-    access_control_id:
+    lock_version: "0"
+    data_context_id: "1"
+    id: "4"
+    description: Oganisational Structure (Projects, Assays, Experiments etc)
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000001_data_context: !ruby/object:DataContext 
+  attributes: 
+    name: BioRails
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataContext
+    lock_version: "0"
+    data_context_id: "1"
+    id: "1"
+    description: |-
+      <p>This is the main <strong>context </strong>or<strong> 
+      conceptual name space </strong>for all key <strong>concepts </strong>
+      in the core BioRails application. 
+      The context is divided into a logical tree of concepts. 
+      These concepts can be extended with child concepts providing; 
+      the possibility of <strong>value lookup lists</strong> defined against 
+      each concept. In use concepts are linked to <strong>parameter types </strong>
+      at the global catalogue level. Parameter types are then implemented as 
+      <strong>assay parameters</strong> and a linked lookup <strong>element </strong>
+      may be used.</p>
+      <br />
+      <p>This structure provides a solid division of control between global 
+      warehousing need and local terminology. Put more simply, the scientists 
+      can maintain their own (often unique) terminologies which can be mapped 
+      into the corporate dictionaries.</p>
+    created_by_user_id: "1"
+    parent_id: 
+    created_at: 2008-09-09 12:06:44
+  attributes_cache: {}
+
+00000000033_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Service Queues
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
     type: DataConcept
-    data_context_id: 0
-    id: 17
-    description: Protocol Catagory. This is a internal lookup used on the protocol definition forms
-    parent_id: 3
-00000000018_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: DataFormat
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 18
-    description: Data Formats are skill
-    parent_id: 3
-00000000019_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Protocol
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 19
-    description: Protocol
-    parent_id: 4
-00000000020_data_concept: !ruby/object:DataConcept
-  attributes:
-    name: Catalogue
-    access_control_id:
-    type: DataConcept
-    data_context_id: 1
-    id: 20
-    description: Short lookup dictionaries and other internals used for combos in assay, protocol, and experiment forms.
-    parent_id: 1
-00000000021_data_concept: !ruby/object:DataConcept
-  attributes:
+    lock_version: "1"
+    data_context_id: "0"
+    id: "33"
+    description: Services available
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-06-04 09:58:24
+  attributes_cache: {}
+
+00000000021_data_concept: !ruby/object:DataConcept 
+  attributes: 
     name: Compounds
-    access_control_id:
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
     type: DataConcept
-    data_context_id: 1
-    id: 21
+    lock_version: "0"
+    data_context_id: "1"
+    id: "21"
     description: Compounds
-    parent_id: 2
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000010_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Folder
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "0"
+    id: "10"
+    description: Folders
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000009_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Batches
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "1"
+    id: "9"
+    description: Batch
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000019_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Method
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "1"
+    id: "19"
+    description: Protocol
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000007_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Experiment
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "1"
+    id: "7"
+    description: Experiment main element in the execution of a workflow
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000028_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Task
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "1"
+    data_context_id: "0"
+    id: "28"
+    description: Tasks
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-06-04 08:26:17
+  attributes_cache: {}
+
+00000000022_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Organics
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "1"
+    data_context_id: "0"
+    id: "22"
+    description: Biological material such as samples, cell lines and levels of organisation such as species and strains.
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2008-06-04 07:24:36
+  attributes_cache: {}
+
+00000000037_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Container
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "1"
+    data_context_id: "0"
+    id: "37"
+    description: Containers suchas a plates & vials
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2008-06-04 17:04:50
+  attributes_cache: {}
+
+00000000020_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: Catalogue
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "1"
+    id: "20"
+    description: Short lookup dictionaries and other internals used for combos in assay, protocol, and experiment forms.
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+
+00000000014_data_concept: !ruby/object:DataConcept 
+  attributes: 
+    name: ResearchArea
+    updated_at: 2008-09-12 15:07:42
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: DataConcept
+    lock_version: "0"
+    data_context_id: "0"
+    id: "14"
+    description: "Research Area: This is a internal lookup for assay form to a list of reasearch area used in the organization"
+    created_by_user_id: "1"
+    parent_id: "4"
+    created_at: 2008-09-09 12:06:45
+  attributes_cache: {}
+

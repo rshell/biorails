@@ -18,7 +18,6 @@ class RolesPermissionTest < Test::Unit::TestCase
      first = @model.find(:first)
      assert first.id
      assert first.role
-     assert first.permission
   end
 
    def test_valid

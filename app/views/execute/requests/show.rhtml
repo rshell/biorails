@@ -1,15 +1,14 @@
 <% content_for :messages do -%>
 <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request']} %>
-<%end%>
-
+<%end %>
 <% content_for :center do -%>
-   <%= render :partial => 'show' %>
-<%end%>
-
+<%= render :partial => 'show' %>
+<%end %>
 <% content_for :footer do %>
-    <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
-<%end%>
-
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@user_request.folder} %>
+<%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
+<%end %>
 <% content_for :help do %>
-   <%= render :partial => 'help' %>
+<%= render :partial => 'help' %>
+<%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@user_request.folder} %>
 <%end %>

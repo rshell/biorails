@@ -1,3 +1,31 @@
+# == Schema Information
+# Schema version: 359
+#
+# Table name: process_steps
+#
+#  id                  :integer(4)      not null, primary key
+#  process_flow_id     :integer(4)      default(0), not null
+#  protocol_version_id :integer(4)      default(0), not null
+#  name                :string(255)
+#  start_offset_hours  :float           default(0.0), not null
+#  end_offset_hours    :float           default(1.0), not null
+#  expected_hours      :float           default(1.0), not null
+#  lock_version        :integer(4)      default(0), not null
+#  created_at          :datetime
+#  created_by_user_id  :integer(4)      default(1), not null
+#  updated_at          :datetime
+#  updated_by_user_id  :integer(4)      default(1), not null
+#  description         :string(255)
+#
+
+# == Description
+# This links a single ProcessInstance into a larger ProcessFlow
+#
+# == Copyright
+# 
+# Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
+# See license agreement for additional rights ##
+#
 #
 # This is the rules for use of a single process in the overall process flow.
 # Each step when run generates a single task setting the process, and start/expected times

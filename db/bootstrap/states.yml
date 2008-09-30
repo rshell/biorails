@@ -1,0 +1,145 @@
+--- 
+00000000009_state: !ruby/object:State 
+  attributes: 
+    name: abort
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "-1"
+    id: "9"
+    description: Aborted
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000005_state: !ruby/object:State 
+  attributes: 
+    name: validated
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "3"
+    id: "5"
+    description: Validation
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000006_state: !ruby/object:State 
+  attributes: 
+    name: completed
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "4"
+    id: "6"
+    description: Completed
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000007_state: !ruby/object:State 
+  attributes: 
+    name: published
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "5"
+    id: "7"
+    description: "Published "
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000001_state: !ruby/object:State 
+  attributes: 
+    name: new
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "0"
+    id: "1"
+    description: New
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000002_state: !ruby/object:State 
+  attributes: 
+    name: accepted
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "1"
+    id: "2"
+    description: Accepted
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000003_state: !ruby/object:State 
+  attributes: 
+    name: pending
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "2"
+    id: "3"
+    description: Pending
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000008_state: !ruby/object:State 
+  attributes: 
+    name: reject
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "-1"
+    id: "8"
+    description: Rejected
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
+00000000004_state: !ruby/object:State 
+  attributes: 
+    name: processing
+    updated_at: 2008-09-12 15:07:43
+    is_default: "0"
+    scope: default
+    updated_by_user_id: "1"
+    lock_version: "0"
+    level: "3"
+    id: "4"
+    description: Processing
+    created_by_user_id: "1"
+    position: "0"
+    created_at: 2008-09-09 12:04:19
+  attributes_cache: {}
+
