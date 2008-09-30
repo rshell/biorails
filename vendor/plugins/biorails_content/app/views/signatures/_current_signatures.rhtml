@@ -1,3 +1,0 @@
-<% for item in @signature.related('SIGNED')%>
-  Signed as <%= item.signature_role %>  by <%= item.signer.name %> on <%=item.updated_at%> <br />
-<%end %>  

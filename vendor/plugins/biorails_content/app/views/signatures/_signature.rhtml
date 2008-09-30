@@ -1,9 +1,0 @@
-<tr>
-  <td><%=signature.signature_role%></td>
-  <td><%=signature.signature_state %></td>
-  <td><%= signature.creator.name %></td>
-  <td><%= signature.signer.name %></td>
-  <td><%= short_date(signature.created_at) %></td>
-  <td><%= short_date(signature.signed_date) %></td>
-  <td><%= link_to 'valid?', :action=>'verify', :id=>signature.id %></td>
-</tr>
