@@ -1,0 +1,19 @@
+demo:
+  adapter: sqlite3
+  database: db/demo.db
+  timeout: 5000
+
+production:
+  adapter: sqlite3
+  database: db/demo.db
+  timeout: 5000
+
+development:
+  adapter: sqlite3
+  database: db/development.db
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  database: db/test.db
+  timeout: 5000

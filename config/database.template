@@ -1,0 +1,93 @@
+
+#
+# Built in demo database to play with
+#
+demo:
+  adapter: sqlite3
+  database: db/demo.db
+  timeout: 5000  
+
+#
+# Developer database default database for rake
+#
+development:
+  adapter: mysql
+  database: biorails3_development
+  username: biorails
+  password: moose
+  host: localhost
+#
+# Production database Real data
+#
+production:
+  adapter: mysql
+  database: biorails3_production
+  username: biorails
+  password: moose
+  host: localhost
+
+#
+# Test Database
+#
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+
+test:
+  adapter: mysql
+  database: biorails3_test
+  username: biorails
+  password: moose
+  host: localhost
+
+#
+# Database specific example connections
+#   
+#--------------------------------------------------------------------------
+# Oracle  10g release 2 recommended.
+#
+# Afraid the installation is a little complex. These is a custom
+# biorails_oracle 2.0.2 driver in the enterprise distibution
+#--------------------------------------------------------------------------
+oracle:
+  adapter: biorails_oracle
+  database: orcl
+  username: biorails3_development
+  password: moose
+
+#--------------------------------------------------------------------------
+# MySQL 5.0 are recommended.
+#
+# Install the MySQL driver:
+#   gem install mysql
+# On MacOS X:
+#   gem install mysql -- --include=/usr/local/lib
+#--------------------------------------------------------------------------
+mysql:
+  adapter: mysql
+  database: biorails3_development
+  username: biorails
+  password: moose
+  host: localhost
+#--------------------------------------------------------------------------
+# SQLite the simple single file solution.
+#
+# gem install sqlite3-ruby
+#  
+# This is a great development/test options as does not need a separate
+# server process. But not that scalible for lots of concurrent users.
+#--------------------------------------------------------------------------
+sqlite:
+  adapter: sqlite3
+  database: db/demo.db
+  timeout: 5000  
+#--------------------------------------------------------------------------
+# Postgres   
+# 
+#--------------------------------------------------------------------------
+postgres:
+    adapter: postgresql
+    database: biorails
+    username: biorails
+    password: moose
+    host: localhost
