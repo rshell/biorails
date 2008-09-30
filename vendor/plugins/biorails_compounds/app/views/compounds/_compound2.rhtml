@@ -1,0 +1,32 @@
+<h1 class="icon icon-compound"><%= @compound.name %></h1>
+
+<table class='report'>
+  <tr>
+    <th><b><label>LU Number </label></b></th>
+    <td><label><%= @compound.lu_number %></label></td>	
+    <th><label>Registration Date</label></th>	
+    <td colspan="1" halign="left"><label><%=short_date @compound.register_date %></label></td>		
+  </tr>
+  <tr>
+    <th halign="left"><b><label>Mass: </label></b></th>
+    <td><label><%= @compound.nominal_mass %></label></td>
+    <th><b><label>Formula</label></b></th>	
+    <td><label></label></td>		
+  </tr>
+  <tr>
+    <td colspan=4></td>
+  </tr>
+  <tr>
+    <th><b><label>Description:</label></b></th>
+    <td colspan=3><label><%= @compound.description %></label></td>
+  </tr>           
+  <tr>
+    <th><b><label>Trade Name</label></b></th>
+    <td colspan=3><label><%= @compound.trade_name %></label></td>
+  </tr>
+  <tr>
+  <th><b><label>Cas Number</label></b></th>
+  <td colspan=3><label><%=@compound.cas_number%> </label></td>
+  </tr>
+</table>
+

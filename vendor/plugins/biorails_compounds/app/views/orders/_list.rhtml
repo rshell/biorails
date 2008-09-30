@@ -1,0 +1,22 @@
+<div class='box'>
+    <table class="report">
+      <tr>
+      <th>Order&nbsp;#</th>
+      <th>Requester</th>
+      <th>Status</th>
+      <th>Site</th>
+      <th>Date</th>
+      <th>Comments</th>          
+    </tr>
+    <% for order in @orders %>
+      <tr class="<%= cycle('odd', 'even') %>">
+      <td><%=link_to(order.order_no, order.url,:popup => true)  %></td>
+      <td><%= order.order_requested_by %></td>
+      <td><%=order.status_text %></td>
+      <td><%= order.site_name %></td>
+      <td><%= order.order_date %></td>
+      <td><%= order.order_comment %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>

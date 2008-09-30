@@ -1,0 +1,7 @@
+<ul class="compounds">
+<% if @compounds%>
+<% for compound in @compounds do -%>
+<li><%=h compound.name %></li>
+<% end -%>
+<% end -%>
+</ul>

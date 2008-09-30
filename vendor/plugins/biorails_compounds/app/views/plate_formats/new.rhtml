@@ -1,0 +1,22 @@
+<!--FORM BACKGROUND-->
+<div class='main' id='maintitle'>
+    <!--START FORM TITLE-->
+    <div class="title">
+        New Plate Format
+      <div class="actions">
+          <ul>
+            <li><%= link_to 'List', :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dialog">
+          <% form_tag :action => 'create' do %>
+          <%= render :partial => 'form' %>
+          <div class='row'>  
+          <%= submit_tag "Create" %>
+          </div>
+         <% end %>
+    </div>
+</div>
+

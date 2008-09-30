@@ -1,0 +1,14 @@
+<fieldset>
+
+<div class="form-title">
+    Edit Container [<strong><%=@container.name%></strong>]
+</div>
+
+<% form_tag :action => 'update', :id => @container do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag l(:button_save) %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @container %> |
+<%= link_to 'List', :action => 'list' %>
+</fieldset>

@@ -1,0 +1,37 @@
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+  <div>
+	<span class='menu'>Plate</span>
+	<%= link_to 'List',    plate_url(:action => 'list') %>
+	<%= link_to 'New',    plate_url(:action => 'new') %> 
+  </div>
+<% end %>
+
+<% content_for :center do%>
+<h2><%=subject_icon('batches')%> Batches</h2>    
+<table class="report">
+  <tr>
+  <% for column in Batch.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  <th colspan=3>Actions</th>
+  </tr>
+  
+<% for batch in @batches %>
+  <tr>
+  <% for column in Batch.content_columns %>
+    <td><%=h batch.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => batch %></td>
+    <td><%= link_to (subject_icon('edit.png'))+"Edit", :action => 'edit', :id => batch %></td>
+    <td><%= link_to (subject_icon('destroy.png'))+"Delete", { :action => 'destroy', :id => batch }, :confirm => l(:text_are_you_sure),:method => "post" %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="panel>
+    <%= link_to (subject_icon('new.png')) + 'New', :action => 'new' %>
+    <%= will_paginate @batches %>
+</div>
+<% end %>
+

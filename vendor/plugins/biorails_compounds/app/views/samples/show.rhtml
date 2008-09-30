@@ -1,0 +1,53 @@
+<!--FORM BACKGROUND-->
+<fieldset>
+    <!--START FORM TITLE-->
+    <div class="form-title">
+        Sample <%=@sample.name%>
+    </div>
+    <!--END FORM TITLE-->
+        
+    <!--START NAVIGATION BUTTONS-->
+    <div class="table-header">
+      <div class="actions">
+          <ul>
+            <li><%= link_to 'Edit', :action => 'Edit', :id => @sample %></li>
+            <li><%= link_to 'list', :action => 'List' %></li>
+          </ul>
+      </div>
+    </div>
+    <!--END NAVIGATION BUTTONS-->
+
+    <!--START FORM/DIALOG/TABLE/REPORT PANEL-->
+    <fieldset class='show'>          
+        <% for column in Sample.content_columns %>
+        <p>
+          <b><%= column.human_name %>:</b> <%=h @sample.send(column.name) %>
+        </p>
+        <% end %>
+    </fieldset>
+    <!--END FORM/DIALOG/TABLE/REPORT PANEL-->
+            
+<!--START FOOTER NAVIGATION-->
+    <div class="table-footer">
+      <div class="actions">
+          <ul>        
+            <li><%= link_to 'Edit', :action => 'edit', :id => '@????' %></li>
+            <li><%= link_to 'list' %></li>
+          </ul>
+      </div>
+    </div>
+    <!--END FOOTER NAVIGATION-->
+ 
+    <!--if AUDIT APPLICABLE-->
+        <!--START AUDIT-->
+        <br /><hr />
+        <%= render :partial => 'shared/audit',:locals =>{ :item => '@????'} %>
+        <!--END AUDIT-->
+        <hr />
+    <!--ELSE-->
+        <br /><br /><br /><br />
+    <!--END-->
+
+</fieldset>
+<!--END FORM BACKGROUND-->
+

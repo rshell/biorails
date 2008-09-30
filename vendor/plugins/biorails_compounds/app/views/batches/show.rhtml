@@ -1,0 +1,21 @@
+
+<h1 class="icon icon-batch">Batch [<%=@batch.name %>]</h1>
+
+  <div class="panel">
+      <%= render :partial => 'batch', :locals => { :batch => @batch } %>
+  </div>
+
+<% content_for :sidemenu do%>
+ <div>
+    <span class='menu'>
+      <b class='icon icon-compound'>
+        Compound
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-edit'>"+l(:label_edit)+"</b>", :action => 'edit', :id => @batch %>
+      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>", :action => 'list' %>
+      <!--%= link_to "<b class='icon icon-new'>"+l(:label_new)+"</b>", :action => 'new' %-->
+    </div>
+  </div>
+<%end%>

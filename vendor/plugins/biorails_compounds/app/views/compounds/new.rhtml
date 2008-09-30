@@ -1,0 +1,8 @@
+<%=render :partial => 'header'%>
+<% dialog l(:label_compound_new) do %>
+<% form_tag :action => 'create' do %>
+<%= render :partial => 'form' %>
+<%= submit_tag "Create" %>
+<% end %>
+<%end%>
+

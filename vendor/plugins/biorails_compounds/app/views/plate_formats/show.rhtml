@@ -1,0 +1,18 @@
+<div class='main' id='maintitle'>
+    <div class="title">
+        Plate Format [<strong><%=@plate_format.name%></strong>]
+      <div class="actions">
+          <ul>
+            <li><%= link_to "Edit", :action => 'edit', :id => @plate_format %></li>
+            <li><%= link_to "List", :action => 'list' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class='panel'>                          
+        <% for column in PlateFormat.content_columns %>
+        <p>
+          <b><%= column.human_name %>:</b> <%=h @plate_format.send(column.name) %>
+        </p>
+        <% end %>
+    </div>
+</div>

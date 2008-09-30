@@ -1,0 +1,60 @@
+<h2>
+  <%=l(:label_compound)%> [<%=@compound.name%>]
+</h2>
+
+<div class='box'>
+  <table class='report'>
+    <tr>
+      <th>
+        CompoundId: 
+      </th>
+      <td>
+        <%= @compound.name %>
+      </td>	
+      <th>
+        Registration Date
+      </th>	
+      <td>
+        <%=short_date @compound.registration_date %>
+      </td>		
+    </tr>
+    <tr>
+      <th>
+        Mass
+      </th>
+      <td>
+        <%= @compound.send("mass") %>
+      </td>
+      <th>
+        Formula
+      </th>	
+      <td>
+        <%= @compound.send("formula") %>
+      </td>		
+    </tr>
+    <tr>
+      <th>
+        Description
+      </th>
+      <td colspan=3>
+        <label><%= @compound.send("description") %>
+      </td>
+    </tr>           
+    <tr>
+      <th>
+        Smiles
+      </th>
+      <td colspan=3>
+        <%= @compound.send("smiles") %>		
+      </td>
+    </tr>           
+    <tr>
+      <th>
+        IUPAC        
+      </th>
+      <td colspan=3>
+        <%= @compound.send("iupacname") %>
+      </td>
+    </tr>           
+  </table>
+</div>

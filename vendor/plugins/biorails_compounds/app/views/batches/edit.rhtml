@@ -1,0 +1,42 @@
+<% content_for :sidemenu do -%>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-action'>
+        Actions
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-show'>"+l(:label_show)+"</b>",
+        :action => 'show', :id => @batch %>
+      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>",
+        :action => 'list' %>
+    </div>
+  </div>
+
+<% end %>
+
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['batch' ]} %>
+<%end%>
+
+<% content_for :center do -%>
+
+  <% dialog "Edit Batch" do %>
+    <% form_tag :action => 'update', :id => @batch do %>
+    <%= render :partial => 'form' %>
+    <div class='row'>
+      <%= submit_tag l(:button_save) %>
+    </div>
+    <% end %>
+  <% end %>
+
+<%end%>
+
+<% content_for :right do -%>
+    <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :footer do -%>
+   <%= render :partial => 'shared/audit',:locals =>{ :item => @batch} %>
+<% end %>

@@ -1,0 +1,20 @@
+<table cellpadding="0" cellspacing="0" width="100%" class='report'>
+<thead>
+<tr>
+<% for column in Batch.content_columns %>
+    <th>
+    <b><%=column.human_name%></b>
+    </th>
+<% end %>
+</tr>
+</thead>
+<tbody>
+<tr>
+<% for column in Batch.content_columns %>
+    <td>
+    <%=h @batch.send(column.name) %>
+    </td>
+<% end %>
+</tr>
+</tbody>
+</table>

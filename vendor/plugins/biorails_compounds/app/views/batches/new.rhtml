@@ -1,0 +1,32 @@
+<div class='main'>
+  <div class="title">
+    <h1 class='icon icon-batch'>New Batch</h1>
+    <div class="actions boldnotbold">
+      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>", :action => 'list' %>
+    </div>
+  </div>
+
+  <div class="dialog">
+    <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <div class='row'>
+          "%= submit_tag "Create" %"
+           Removed for Lundbeck, replaced by external data source
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<% content_for :sidemenu do%>
+ <div>
+    <span class='menu'>
+      <b class='icon icon-batch'>
+        Batch
+      </b>
+    </span>
+    <div class='boldnotbold'>
+      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>", :action => 'list' %>
+    </div>
+  </div>
+<%end%>

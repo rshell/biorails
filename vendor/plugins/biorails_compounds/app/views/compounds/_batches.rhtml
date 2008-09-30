@@ -1,0 +1,30 @@
+<div class='box'>
+<div class="row">
+    <div class="table-header">
+      <h3>
+        <%=l(:label_batches)%>
+      </h3>
+    </div>
+
+<table class='report'>
+  <thead>
+    <tr>
+     <th>Batch Name</th>
+     <th>Ext Ref</th>
+     <th>Quantity</th>
+     <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for batch in compound.batches %>        
+      <tr>
+        <td><%= batch.name %></td>
+        <td><%= batch.external_ref %> </td>
+        <td><%= batch.quantity_value%>/<%= batch.quantity_unit%></td>
+        <td><%= batch.url %> </td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+</div>
+</div>
