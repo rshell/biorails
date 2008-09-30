@@ -1,0 +1,44 @@
+AlcesRights
+===========
+
+This is the basic user rights plugin for biorails. It used controller based access control list approach to security.
+For a control 
+
+
+authenticate_by :user
+authorized_by   :project
+authorized_actions << :show <<:edit << :new << :destroy
+
+
+helpers
+
+ * has_permission?(subject,action)
+ * link_to_authorized( ..same as link_to.. )
+
+controller
+ 
+  * has_permission?(subject,action) => true/false
+  * acl(user) =>Permisisons[] 
+  * ace(user,subject,action) = RolePermision
+  
+model
+This is setup via 
+
+  * acts_as_authenticated
+
+class User < ActiveRecord::Base
+   acts_as_authenticated
+end
+
+Generates:-
+
+  * username/username=
+  * password/password=
+  * authorize(params[])
+  * authorized?
+  * has_permission?(subject,action) => true/false
+  * acl =>Permisisons[] 
+  * ace(subject,action) = RolePermision
+  
+  
+  

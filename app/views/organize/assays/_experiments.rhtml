@@ -70,5 +70,5 @@
         </tbody>
     </table>
 </div>
-<hr /><%= link_to( l(:label_experiment), experiment_url(:action => 'new',  :id => @assay), 
+<hr /><%= link_to( l(:label_experiment), experiment_url(:action => 'new',  :id => current_project.id),
   :class=>'icon icon-experiment-add') if @assay.is_setup? and current_project.runnable? %>
